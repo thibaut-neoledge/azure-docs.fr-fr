@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c46a85aaf5237a2a7643cc9069255bdad9ab1d69
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
@@ -227,15 +228,28 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
     </outbound>  
 </policies>  
 ```  
+Dans cet exemple, la stratégie du service principal définie achemine les demandes en fonction de la valeur de version transmise dans la chaîne de requête à un service principal autre que celui qui est spécifié dans l’API.
   
- Dans cet exemple, la stratégie du service principal définie achemine les demandes en fonction de la valeur de version transmise dans la chaîne de requête à un service principal autre que celui qui est spécifié dans l’API.  
+À l’origine, l’URL de base du service principal est dérivée des paramètres d’API. Par conséquent, l’URL de la demande `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` devient `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef`, où `http://contoso.com/api/10.4/` est l’URL du service principal spécifiée dans les paramètres d’API.  
   
- À l’origine, l’URL de base du service principal est dérivée des paramètres d’API. Par conséquent, l’URL de la demande `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` devient `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef`, où `http://contoso.com/api/10.4/` est l’URL du service principal spécifiée dans les paramètres d’API.  
+Lorsque la déclaration de stratégie [<choose\>](api-management-advanced-policies.md#choose) est appliquée, l’URL de base du service principal être de nouveau remplacée par `http://contoso.com/api/8.2` ou `http://contoso.com/api/9.1`, selon la valeur du paramètre de requête de la demande de version. Par exemple, si la valeur est `"2013-15"`, l’URL de demande finale devient `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
   
- Lorsque la déclaration de stratégie [<choose\>](api-management-advanced-policies.md#choose) est appliquée, l’URL de base du service principal être de nouveau remplacée par `http://contoso.com/api/8.2` ou `http://contoso.com/api/9.1`, selon la valeur du paramètre de requête de la demande de version. Par exemple, si la valeur est `"2013-15"`, l’URL de demande finale devient `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
+Pour effectuer davantage de transformations de la demande, il est possible d’utiliser d’autres [Stratégies de transformation](api-management-transformation-policies.md#TransformationPolicies). Par exemple, pour supprimer le paramètre de requête de la version maintenant que la demande est acheminée vers un service principal propre à la version, la stratégie [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) peut être utilisée afin de supprimer l’attribut de version désormais superflu.  
   
- Pour effectuer davantage de transformations de la demande, il est possible d’utiliser d’autres [Stratégies de transformation](api-management-transformation-policies.md#TransformationPolicies). Par exemple, pour supprimer le paramètre de requête de la version maintenant que la demande est acheminée vers un service principal propre à la version, la stratégie [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) peut être utilisée afin de supprimer l’attribut de version désormais superflu.  
+### <a name="example"></a>Exemple  
   
+```xml  
+<policies>  
+    <inbound>  
+        <set-backend-service backend-id="my-sf-service" sf-partition-key="@(context.Request.Url.Query.GetValueOrDefault("userId","")" sf-replica-type="primary" /> 
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+```  
+Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur principal Service Fabric, à l’aide de la chaîne de requêtes userid en tant que clé de partition et à l’aide du réplica primaire de la partition.  
+
 ### <a name="elements"></a>Éléments  
   
 |Nom|Description|Requis|  
@@ -246,8 +260,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |Nom|Description|Requis|Default|  
 |----------|-----------------|--------------|-------------|  
-|base-url|Nouvelle URL de base du service principal.|Oui|N/A|  
-  
+|base-url|Nouvelle URL de base du service principal.|Non|N/A|  
+|id de principal|Identificateur du serveur principal pour l’acheminement.|Non|N/A|  
+|clé de partition SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Utilisé pour résoudre une partition spécifique à partir du service de résolution des noms.|Non|N/A|  
+|type de réplica SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Contrôle si la requête doit atteindre le réplica principal ou secondaire d’une partition. |Non|N/A|    
+|condition de résolution SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Condition identifiant si l’appel au serveur principal Service Fabric doit être répété avec une nouvelle résolution.|Non|N/A|    
+|nom d’instance de service DF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Permet de modifier les instances de service lors de l’exécution. |Non|N/A |    
+
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
@@ -655,7 +674,7 @@ OriginalUrl.
   <outbound>  
       <base />  
       <xsl-transform>  
-          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -663,7 +682,7 @@ OriginalUrl.
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-          </xsl:stylesheet>  
+        </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  

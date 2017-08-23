@@ -1,225 +1,317 @@
 ---
 title: "Didacticiel : Intégration d’Azure Active Directory à Netsuite | Microsoft Docs"
-description: "Apprenez à utiliser Netsuite avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Netsuite."
 services: active-directory
-documentationcenter: 
-author: asmalser-msft
+documentationCenter: na
+author: jeevansd
 manager: femila
-editor: 
 ms.assetid: dafa0864-aef2-4f5e-9eac-770504688ef4
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/16/2016
-ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 74ef08108a5ff27a50f928781f906b6d769f1085
+ms.date: 05/19/2017
+ms.author: jeedes
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4a19ab310212b93a53495a6fc6c25c77dfb82e79
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Didacticiel : Intégration d’Azure Active Directory à Netsuite
-Ce didacticiel explique comment connecter votre environnement Netsuite à Azure Active Directory (Azure AD). Il présente les méthodes à suivre pour configurer l’authentification unique à Netsuite, activer l’approvisionnement automatique des utilisateurs et affecter des utilisateurs pour qu’ils puissent accéder à Netsuite. 
 
-## <a name="prerequisites"></a>Composants requis
-1. Pour accéder à Active Directory Azure via le [portail Azure Classic](https://manage.windowsazure.com), vous devez d’abord avoir un abonnement Azure valide.
-2. Vous devez avoir un accès administrateur à un abonnement [Netsuite](http://www.netsuite.com/portal/home.shtml). Vous pouvez utiliser un compte d’essai gratuit pour chaque service.
+Dans ce didacticiel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) avec Netsuite.
 
-## <a name="step-1-add-netsuite-to-your-directory"></a>Étape 1 : ajout de Netsuite à votre annuaire
-1. Dans le volet de navigation gauche du [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Active Directory**.
-   
-    ![Sélectionnez Active Directory dans le volet de navigation gauche.][0]
-2. Dans la liste **Annuaire**, sélectionnez l’annuaire auquel vous voulez ajouter Netsuite.
-3. Dans le menu principal, cliquez sur **Applications** .
-   
-    ![Cliquez sur Applications.][1]
-4. Cliquez sur **Ajouter** en bas de la page.
-   
-    ![Cliquez sur Ajouter pour ajouter une nouvelle application.][2]
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
-   
-    ![Cliquez sur Ajouter une application à partir de la galerie.][3]
-6. Dans la **zone de recherche**, tapez **Netsuite**. Puis sélectionnez **Netsuite** dans les résultats et cliquez sur **Terminer** pour ajouter l’application.
-   
-    ![Ajout de Netsuite][4]
-7. La page Démarrage rapide de Netsuite doit maintenant s’afficher :
-   
-    ![Page Démarrage rapide de Netsuite dans Azure AD][5]
+L’intégration de Netsuite avec Azure AD vous offre les avantages suivants :
 
-## <a name="step-2-enable-single-sign-on"></a>Étape 2 : activation de l’authentification unique
-1. Sur la page Démarrage rapide de Netsuite dans Azure AD, cliquez sur le bouton **Configurer l’authentification unique**.
-   
-    ![Bouton Configurer l’authentification unique][6]
-2. Une boîte de dialogue s’affiche dans laquelle un écran vous demande « Comment voulez-vous que les utilisateurs se connectent à Netsuite ? » Sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
-   
-    ![Sélectionner l’authentification unique Azure AD][7]
-   
-   > [!NOTE]
-   > Pour en savoir plus sur les différentes options d’authentification unique, [cliquez ici](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
-   > 
-   > 
-3. Dans la page **Configurer les paramètres de l’application**, entrez votre URL de client Netsuite dans le champ **URL de réponse** en respectant l’un des formats suivants :
-   
-   * `https://<tenant-name>.netsuite.com/saml2/acs`
-   * `https://<tenant-name>.na1.netsuite.com/saml2/acs`
-   * `https://<tenant-name>.na2.netsuite.com/saml2/acs`
-   * `https://<tenant-name>.sandbox.netsuite.com/saml2/acs`
-   * `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs`
-   * `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
-     
-     ![Entrer l’URL de votre client][8]
-4. Sur la page **Configurer l’authentification unique sur NetSuite**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de certificat en local sur votre ordinateur.
-   
-    ![Télécharger les métadonnées.][9]
-5. Ouvrez un nouvel onglet dans votre navigateur et connectez-vous à votre site d’entreprise Netsuite en tant qu’administrateur.
-6. Dans la barre d’outils située en haut de la page, cliquez sur **Configuration**, puis sur **Gestionnaire de configuration**.
-   
-    ![Accéder au Gestionnaire de configuration][10]
-7. Dans la liste **Tâches de configuration**, sélectionnez **Intégration**.
-   
-    ![Accéder à l’intégration][11]
-8. Dans la section **Gérer l’authentification**, cliquez sur **Authentification unique SAML**.
-   
-    ![Accéder à l’authentification unique SAML][12]
-9. Sur la page **Configuration SAML** , procédez comme suit :
-   
-   * Dans Azure Active Directory, copiez la valeur de **l’URL de connexion distante** et collez-la dans le champ **Page de connexion du fournisseur d’identité** dans Netsuite.
-     
-       ![Page de configuration de SAML.][13]
-   * Dans Netsuite, sélectionnez **Méthode d’authentification principale**.
-   * Pour le champ intitulé **Métadonnées du fournisseur d’identité SAMLV2**, sélectionnez **Charger un fichier de métadonnées IDP**. Puis cliquez sur **Parcourir** pour charger le fichier de métadonnées que vous avez téléchargé à l’étape 4.
-     
-       ![Charger les métadonnées][16]
-   * Cliquez sur **Envoyer**.
-10. Dans Azure AD, cochez la case de confirmation de configuration de l’authentification unique pour activer le certificat que vous avez chargé dans Netsuite. Cliquez ensuite sur **Suivant**.
-    
-     ![Cocher la case de confirmation][14]
-11. Dans la dernière page de la boîte de dialogue, entrez une adresse de messagerie pour recevoir des notifications relatives aux erreurs et aux avertissements de maintenance de cette configuration d’authentification unique. 
-    
-    ![Entrez votre adresse de messagerie.][15]
-12. Cliquez sur **Terminer** pour fermer la boîte de dialogue. Cliquez ensuite sur **Attributs** en haut de la page.
-    
-    ![Cliquez sur Attributs.][17]
-13. Cliquez sur **Ajouter un attribut utilisateur**.
-    
-    ![Cliquez sur Ajouter un attribut utilisateur.][18]
-14. Dans le champ **Nom de l’attribut**, entrez `account`. Dans le champ **Valeur de l’attribut** , entrez votre ID de compte Netsuite. Vous trouverez ci-dessous des instructions sur la recherche de votre ID de compte :
-    
-    ![Ajoutez votre ID de compte Netsuite.][19]
-    
-    * Dans Netsuite, cliquez sur **Configurer** dans le menu de navigation principal.
-    * Puis cliquez sous la section **Tâches de configuration** du menu de navigation situé à gauche, sélectionnez la section **Intégration**, puis cliquez sur **Préférences de services web**.
-    * Copiez votre ID de compte Netsuite et collez-le dans le champ **Valeur de l’attribut** dans Azure AD.
-      
-        ![Obtenir votre ID de compte][20]
-15. Dans Azure AD, cliquez sur **Terminer** pour terminer l’ajout de l’attribut SAML. Puis cliquez sur **Appliquer les modifications** dans le menu inférieur.
-    
-    ![Enregistrez vos modifications.][21]
-16. Avant que les utilisateurs puissent utiliser l’authentification unique dans Netsuite, vous devez d’abord leur affecter les autorisations appropriées dans Netsuite. Procédez comme suit pour attribuer ces instructions.
-    
-    * Dans le menu de navigation principal, cliquez sur **Configuration**, puis sur **Gestionnaire de configuration**.
-      
-        ![Accéder au Gestionnaire de configuration][10]
-    * Dans le menu de navigation situé à gauche, sélectionnez **Utilisateurs/Rôles**, puis cliquez sur **Gérer les rôles**.
-      
-        ![Cliquer sur Gérer les rôles][22]
-    * Cliquez sur **Nouveau rôle**.
-    * Entrez un **Nom** pour le nouveau rôle, puis cochez la case **Authentification unique seulement**.
-      
-        ![Nommez le nouveau rôle.][23]
-    * Cliquez sur **Enregistrer**.
-    * Dans le menu situé en haut, cliquez sur **Autorisations**. Cliquez sur **Configuration**.
-      
-        ![Accéder aux autorisations][24]
-    * Sélectionnez **Configurer l’authentification unique SAM**, puis cliquez sur **Ajouter**.
-    * Cliquez sur **Save**.
-    * Dans le menu de navigation principal, cliquez sur **Configuration**, puis sur **Gestionnaire de configuration**.
-      
-        ![Accéder au Gestionnaire de configuration][10]
-    * Dans le menu de navigation situé à gauche, sélectionnez **Utilisateurs/Rôles**, puis cliquez sur **Gérer les utilisateurs**.
-      
-        ![Accéder à la gestion des utilisateurs][25]
-    * Sélectionnez un utilisateur de test. Puis cliquez sur **Modifier**.
-      
-        ![Accéder à la gestion des utilisateurs][26]
-    * Dans la boîte de dialogue Rôles, sélectionnez le rôle que vous avez créé et cliquez sur **Ajouter**.
-      
-        ![Accéder à la gestion des utilisateurs][27]
-    * Cliquez sur **Enregistrer**.
-17. Pour tester votre configuration, consultez la section ci-dessous, intitulée [Affectation d’utilisateurs à Netsuite](#step-4-assign-users-to-netsuite).
+- Dans Azure AD, vous pouvez contrôler qui a accès à Netsuite.
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Netsuite (via l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-## <a name="step-3-enable-automated-user-provisioning"></a>Étape 3 : activation de l’approvisionnement automatique des utilisateurs
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+
+## <a name="prerequisites"></a>Conditions préalables
+
+Pour configurer l’intégration d’Azure AD avec Netsuite, vous avez besoin des éléments suivants :
+
+- Un abonnement Azure AD
+- Un abonnement Netsuite pour lequel l’authentification unique est activée
+
 > [!NOTE]
-> Par défaut, vos utilisateurs approvisionnés sont ajoutés à la filiale racine de votre environnement Netsuite.
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+
+Vous devez en outre suivre les recommandations ci-dessous :
+
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Description du scénario
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+
+1. Ajout de Netsuite à partir de la galerie
+2. Configuration et test de l’authentification unique Azure AD
+
+## <a name="adding-netsuite-from-the-gallery"></a>Ajout de Netsuite à partir de la galerie
+Pour configurer l’intégration de Netsuite à Azure AD, vous devez ajouter Netsuite à partir de la galerie à votre liste d’applications SaaS managées.
+
+**Pour ajouter Netsuite à partir de la galerie, procédez comme suit :**
+
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+
+    ![Applications][2]
+    
+3. Cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+
+    ![Applications][3]
+
+4. Dans la zone de recherche, tapez **Netsuite**.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_search.png)
+
+5. Dans le panneau des résultats, sélectionnez **Netsuite**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Netsuite sur un utilisateur de test nommé « Britta Simon ».
+
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Netsuite équivalent à l’utilisateur dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Netsuite associé doit être établie.
+
+Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **Username** dans Netsuite.
+
+Pour configurer et tester l’authentification unique Azure AD avec Netsuite, vous devez suivre les indications des sections suivantes :
+
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur de test Netsuite](#creating-a-netsuite-test-user)** pour avoir un équivalent de Britta Simon dans Netsuite lié à la représentation Azure AD associée.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Netsuite.
+
+**Pour configurer l’authentification unique Azure AD avec Netsuite, procédez comme suit :**
+
+1. Dans le portail Azure, sur la page d’intégration de l’application **Netsuite**, cliquez sur **Authentification unique**.
+
+    ![Configurer l’authentification unique][4]
+
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Configurer l’authentification unique](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_samlbase.png)
+
+3. Dans la section **Domaine et URL Netsuite**, procédez comme suit :
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_url.png)
+
+    Dans la zone de texte **URL de réponse**, tapez une URL au format suivant :   `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
+
+    > [!NOTE] 
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez [l’équipe de support technique Netsuite](http://www.netsuite.com/portal/services/support.shtml).
+ 
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_certificate.png) 
+
+5. Cliquez sur le bouton **Enregistrer** .
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-netsuite-tutorial/tutorial_general_400.png)
+
+6. Dans la section **Configuration de Netsuite**, cliquez sur **Configurer Netsuite** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_configure.png) 
+
+7. Ouvrez un nouvel onglet dans votre navigateur et connectez-vous à votre site d’entreprise Netsuite en tant qu’administrateur.
+
+8. Dans la barre d’outils située en haut de la page, cliquez sur **Configuration**, puis sur **Gestionnaire de configuration**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
+
+9. Dans la liste **Tâches de configuration**, sélectionnez **Intégration**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-integration.png)
+
+10. Dans la section **Gérer l’authentification**, cliquez sur **Authentification unique SAML**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-saml.png)
+
+11. Sur la page **Configuration SAML** , procédez comme suit :
+   
+    a. Copiez la valeur **URL du service d’authentification unique SAML** à partir de la section **Référence rapide** de **Configurer l’authentification**, puis collez-la dans le champ **Identity Provider Login Page** (Page de connexion du fournisseur d’identité) de Netsuite.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-netsuite-tutorial/ns-saml-setup.png)
+  
+    b. Dans Netsuite, sélectionnez **Méthode d’authentification principale**.
+
+    c. Pour le champ intitulé **Métadonnées du fournisseur d’identité SAMLV2**, sélectionnez **Charger un fichier de métadonnées IDP**. Cliquez ensuite sur **Parcourir** pour charger le fichier de métadonnées que vous avez téléchargé à partir du portail Azure.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-netsuite-tutorial/ns-sso-setup.png)
+
+    d. Cliquez sur **Envoyer**.
+
+12. Dans Azure AD, activez la case à cocher **Afficher et modifier tous les autres attributs utilisateur**, puis ajoutez un attribut.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-attributes.png)
+
+13. Dans le champ **Nom de l’attribut**, entrez `account`. Dans le champ **Valeur de l’attribut**, entrez votre ID de compte Netsuite. Cette valeur est constante et change en fonction du compte. Vous trouverez ci-dessous des instructions sur la recherche de votre ID de compte :
+
+      ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-add-attribute.png)
+
+    a. Dans Netsuite, dans le menu de navigation supérieur, cliquez sur **Configurer**.
+
+    b. Cliquez ensuite sous la section **Tâches de configuration** du menu de navigation situé à gauche, sélectionnez la section **Intégration**, puis cliquez sur **Préférences de services web**.
+
+    c. Copiez votre ID de compte Netsuite et collez-le dans le champ **Valeur de l’attribut** dans Azure AD.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-account-id.png)
+
+14. Avant que les utilisateurs puissent utiliser l’authentification unique dans Netsuite, vous devez d’abord leur affecter les autorisations appropriées dans Netsuite. Procédez comme suit pour attribuer ces instructions.
+
+    a. Dans le menu de navigation principal, cliquez sur **Configuration**, puis sur **Gestionnaire de configuration**.
+      
+      ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
+
+    b. Dans le menu de navigation situé à gauche, sélectionnez **Utilisateurs/Rôles**, puis cliquez sur **Gérer les rôles**.
+      
+      ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-manage-roles.png)
+
+    c. Cliquez sur **Nouveau rôle**.
+
+    d. Entrez un **Nom** pour le nouveau rôle, puis cochez la case **Authentification unique seulement**.
+      
+      ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
+
+    e. Cliquez sur **Enregistrer**.
+
+    f. Dans le menu situé en haut, cliquez sur **Autorisations**. Cliquez sur **Configuration**.
+      
+       ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
+
+    g. Sélectionnez **Configurer l’authentification unique SAM**, puis cliquez sur **Ajouter**.
+
+    h. Cliquez sur **Enregistrer**.
+
+    i. Dans le menu de navigation principal, cliquez sur **Configuration**, puis sur **Gestionnaire de configuration**.
+      
+       ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
+
+    j. Dans le menu de navigation situé à gauche, sélectionnez **Utilisateurs/Rôles**, puis cliquez sur **Gérer les utilisateurs**.
+      
+       ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-manage-users.png)
+
+    k. Sélectionnez un utilisateur de test. Puis cliquez sur **Modifier**.
+      
+       ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-edit-user.png)
+
+    l. Dans la boîte de dialogue Rôles, sélectionnez le rôle que vous avez créé et cliquez sur **Ajouter**.
+      
+       ![Configurer l’authentification unique](./media/active-directory-saas-Netsuite-tutorial/ns-add-role.png)
+
+    m. Cliquez sur **Enregistrer**.
+    
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
-> 
 
-1. Dans Azure Active Directory, dans la page Démarrage rapide de Netsuite, cliquez sur **Configurer l’approvisionnement des utilisateurs**.
-   
-    ![Configurer l'approvisionnement de l'utilisateur][28]
-2. Dans la boîte de dialogue qui s’ouvre, entrez vos informations d’identification d’administrateur pour Netsuite, puis cliquez sur **Suivant**.
-   
-    ![Entrez vos informations d’identification d’administrateur Netsuite.][29]
-3. Sur la page de confirmation, entrez votre adresse de messagerie pour recevoir des notifications sur les échecs d’approvisionnement.
-   
-    ![Confirmez.][30]
-4. Cliquez sur **Terminer** pour fermer la boîte de dialogue.
+### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-## <a name="step-4-assign-users-to-netsuite"></a>Étape 4 : affectation d’utilisateurs à Netsuite
-1. Pour tester votre configuration, commencez par créer un compte de test dans l’annuaire.
-2. Dans la page Démarrage rapide de Netsuite, cliquez sur le bouton **Affecter des utilisateurs** .
-   
-    ![Cliquer sur Affecter des utilisateurs][31]
-3. Sélectionnez votre utilisateur de test, puis cliquez sur le bouton **Affecter** situé en bas de l’écran :
-   
-   * Si vous n’avez pas activé l’approvisionnement automatique des utilisateurs, le message de confirmation suivant s’affiche :
-     
-        ![Confirmer l’affectation.][32]
-   * Si vous avez activé l’approvisionnement automatique des utilisateurs, une invite s’affiche, dans laquelle vous pouvez définir le type de rôle de l’utilisateur dans Netsuite. Les utilisateurs récemment approvisionnés doivent apparaître dans votre environnement Netsuite au bout de quelques minutes.
-4. Pour tester vos paramètres d’authentification unique, ouvrez le volet d’accès à l’adresse [https://myapps.microsoft.com](https://myapps.microsoft.com/), puis connectez-vous au compte de test et cliquez sur **Netsuite**.
+![Créer un utilisateur Azure AD][100]
 
-## <a name="related-articles"></a>Articles connexes
-* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-* [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-[0]: ./media/active-directory-saas-netsuite-tutorial/azure-active-directory.png
-[1]: ./media/active-directory-saas-netsuite-tutorial/applications-tab.png
-[2]: ./media/active-directory-saas-netsuite-tutorial/add-app.png
-[3]: ./media/active-directory-saas-netsuite-tutorial/add-app-gallery.png
-[4]: ./media/active-directory-saas-netsuite-tutorial/add-netsuite.png
-[5]: ./media/active-directory-saas-netsuite-tutorial/quick-start-netsuite.png
-[6]: ./media/active-directory-saas-netsuite-tutorial/config-sso.png
-[7]: ./media/active-directory-saas-netsuite-tutorial/sso-netsuite.png
-[8]: ./media/active-directory-saas-netsuite-tutorial/sso-config-netsuite.png
-[9]: ./media/active-directory-saas-netsuite-tutorial/config-sso-netsuite.png
-[10]: ./media/active-directory-saas-netsuite-tutorial/ns-setup.png
-[11]: ./media/active-directory-saas-netsuite-tutorial/ns-integration.png
-[12]: ./media/active-directory-saas-netsuite-tutorial/ns-saml.png
-[13]: ./media/active-directory-saas-netsuite-tutorial/ns-saml-setup.png
-[14]: ./media/active-directory-saas-netsuite-tutorial/ns-sso-confirm.png
-[15]: ./media/active-directory-saas-netsuite-tutorial/sso-email.png
-[16]: ./media/active-directory-saas-netsuite-tutorial/ns-sso-setup.png
-[17]: ./media/active-directory-saas-netsuite-tutorial/ns-attributes.png
-[18]: ./media/active-directory-saas-netsuite-tutorial/ns-add-attribute.png
-[19]: ./media/active-directory-saas-netsuite-tutorial/ns-add-account.png
-[20]: ./media/active-directory-saas-netsuite-tutorial/ns-account-id.png
-[21]: ./media/active-directory-saas-netsuite-tutorial/ns-save-saml.png
-[22]: ./media/active-directory-saas-netsuite-tutorial/ns-manage-roles.png
-[23]: ./media/active-directory-saas-netsuite-tutorial/ns-new-role.png
-[24]: ./media/active-directory-saas-netsuite-tutorial/ns-sso.png
-[25]: ./media/active-directory-saas-netsuite-tutorial/ns-manage-users.png
-[26]: ./media/active-directory-saas-netsuite-tutorial/ns-edit-user.png
-[27]: ./media/active-directory-saas-netsuite-tutorial/ns-add-role.png
-[28]: ./media/active-directory-saas-netsuite-tutorial/netsuite-provisioning.png
-[29]: ./media/active-directory-saas-netsuite-tutorial/ns-creds.png
-[30]: ./media/active-directory-saas-netsuite-tutorial/ns-confirm.png
-[31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
-[32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-netsuite-tutorial/create_aaduser_01.png) 
+
+2.  Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+    
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-netsuite-tutorial/create_aaduser_02.png) 
+
+3. En haut de la boîte de dialogue, cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Utilisateur**.
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-netsuite-tutorial/create_aaduser_03.png) 
+
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-netsuite-tutorial/create_aaduser_04.png) 
+
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
+
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
+
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
+
+    d. Cliquez sur **Create**. 
+
+### <a name="creating-a-netsuite-test-user"></a>Création d’un utilisateur de test Netsuite
+
+Dans cette section, un utilisateur nommé Britta Simon est créé dans Netsuite. Netsuite prend en charge l’approvisionnement juste-à-temps, option activée par défaut.
+Vous n’avez aucune opération à effectuer dans cette section. Si un utilisateur n’existe pas dans Netsuite, un nouveau est créé lorsque vous tentez d’accéder à Netsuite.
 
 
+### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
-<!--HONumber=Dec16_HO2-->
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Netsuite.
+
+![Affecter des utilisateurs][200] 
+
+**Pour affecter Britta Simon à Netsuite, procédez comme suit :**
+
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+
+    ![Affecter des utilisateurs][201] 
+
+2. Dans la liste des applications, sélectionnez **Netsuite**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_app.png) 
+
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+
+    ![Affecter des utilisateurs][202] 
+
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+
+    ![Affecter des utilisateurs][203]
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+    
+### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
+Pour tester vos paramètres d’authentification unique, ouvrez le volet d’accès à l’adresse [https://myapps.microsoft.com](https://myapps.microsoft.com/), puis connectez-vous au compte de test et cliquez sur **Netsuite**.
+
+## <a name="additional-resources"></a>Ressources supplémentaires
+
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Configurer l’approvisionnement de l’utilisateur](active-directory-saas-netsuite-provisioning-tutorial.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_203.png
 
 

@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: f5c33212da13b33be60488992d93305807c98d38
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 3c7db401442c41bbe1343b1adc48f4f1b7d88b49
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Approvisionnement d’une machine virtuelle de science des données Linux
@@ -31,7 +30,7 @@ La machine virtuelle pour la science des données pour Linux est une machine vir
 * JuliaPro - une distribution organisée du langage Julia avec des bibliothèques scientifiques et d’analyse de données courantes
 * Instance Spark autonome et nœud Hadoop unique (HDFS, Yarn)
 * JupyterHub : un serveur de bloc-notes Jupyter multi-utilisateur prenant en charge les noyaux R, Python, PySpark et Julia
-* Azure Storage Explorer
+* Explorateur de stockage Azure
 * Interface de ligne de commande (CLI) Azure pour la gestion des ressources Azure
 * Base de données PostgresSQL
 * Outils de Machine Learning
@@ -178,7 +177,7 @@ Vous pouvez accéder au serveur Jupyter Notebook à partir de n’importe quel h
 Nous avons inclus des exemples de Notebooks : l’un dans Python et l’autre dans R. Après vous être authentifié auprès du serveur Jupyter Notebook avec votre nom d’utilisateur Linux local et votre mot de passe, vous pouvez voir le lien vers les exemples sur la page d’accueil du Notebook. Vous pouvez créer un bloc-notes en sélectionnant **Nouveau**, puis le noyau en langage approprié. Si vous ne voyez pas le bouton **Nouveau**, cliquez sur l’icône **Jupyter** en haut à gauche pour accéder à la page d’accueil du serveur de bloc-notes.
 
 ### <a name="apache-spark-standalone"></a>Apache Spark autonome 
-Une instance autonome d’Apache Spark est préinstallée sur la DSVM Linux pour vous aider à développer des applications Spark localement avant de procéder aux tests et déploiements sur des clusters de grande taille. Vous pouvez exécuter des programmes PySpark via le noyau Jupyter. Lorsque vous ouvrez Jupyter et cliquez sur le bouton « New » (Nouveau), la liste des noyaux disponibles s’affiche. « Spark – Python » est le noyau PySpark qui vous permettra de créer des applications Spark à l’aide du langage Python. Vous pouvez également utiliser un IDE Python comme PyCharm ou Spyder pour créer votre programme Spark. Comme il s’agit d’une instance autonome, la pile Spark s’exécute dans le programme client appelant. Il est ainsi plus rapide et plus facile de résoudre les problèmes que dans le cadre d’un développement sur un cluster Spark. 
+Une instance autonome d’Apache Spark est préinstallée sur la DSVM Linux pour vous aider à développer des applications Spark localement avant de procéder aux tests et déploiements sur des clusters de grande taille. Vous pouvez exécuter des programmes PySpark via le noyau Jupyter. Lorsque vous ouvrez Jupyter et cliquez sur le bouton « New » (Nouveau), la liste des noyaux disponibles doit s’afficher. « Spark – Python » est le noyau PySpark qui vous permet de créer des applications Spark à l’aide du langage Python. Vous pouvez également utiliser un IDE Python comme PyCharm ou Spyder pour créer votre programme Spark. Comme il s’agit d’une instance autonome, la pile Spark s’exécute dans le programme client appelant. Il est ainsi plus rapide et plus facile de résoudre les problèmes que dans le cadre d’un développement sur un cluster Spark. 
 
 Un exemple de notebook PySpark est fourni sur Jupyter. Vous le trouverez dans le répertoire « SparkML », sous le répertoire de base de Jupyter ($HOME/notebooks/SparkML/pySpark). 
 
@@ -251,10 +250,10 @@ Pour accéder à **Postgres**:
 Les outils Azure suivants sont installés sur la machine virtuelle :
 
 * **Interface de ligne de commande azure**: l’interface CLI Azure vous permet de créer et de gérer des ressources Azure par le biais de commandes dans un interpréteur. Pour appeler les outils Azure, tapez simplement **azure help**. Pour plus d’informations, consultez la [page de documentation relative à l’interface CLI Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Microsoft Azure Storage Explorer**: il s’agit d’un outil graphique qui permet de parcourir les objets stockés dans votre compte de stockage Azure et de charger et télécharger des données vers et à partir des objets blob Azure. Vous pouvez accéder à Storage Explorer à partir de l’icône de raccourci sur le bureau. Vous pouvez l’appeler à partir d’une invite de commandes en tapant **StorageExplorer**. Vous devez être connecté à partir d’un client X2Go ou avoir configuré le transfert X11.
+* **Explorateur de stockage Microsoft**: il s’agit d’un outil graphique qui permet de parcourir les objets stockés dans votre compte de stockage Azure et de charger et télécharger des données vers et à partir des objets blob Azure. Vous pouvez accéder à l’Explorateur de stockage à partir de l’icône de raccourci sur le bureau. Vous pouvez l’appeler à partir d’une invite de commandes en tapant **StorageExplorer**. Vous devez être connecté à partir d’un client X2Go ou avoir configuré le transfert X11.
 * **Bibliothèques Azure**: voici quelques-unes des bibliothèques préinstallées.
   
-  * **Python** : les bibliothèques Azure installées dans Python sont **azure**, **azureml**, **pydocumentdb** et **pyodbc**. Avec les trois premières bibliothèques, vous pouvez accéder aux services de stockage Azure, à Azure Machine Learning et à Azure Cosmos DB (base de données NoSQL sur Azure). La quatrième bibliothèque, pyodbc (avec le pilote Microsoft ODBC pour SQL Server), permet l’accès à SQL Server, Base de données SQL Azure et Azure SQL Data Warehouse à partir de Python à l’aide d’une interface ODBC. Entrez **pip list** pour voir la liste de toutes les bibliothèques. Veillez à exécuter cette commande dans les environnements Python 2.7 et 3.5.
+  * **Python** : les bibliothèques Azure installées dans Python sont **azure**, **azureml**, **pydocumentdb** et **pyodbc**. Avec les trois premières bibliothèques, vous pouvez accéder aux services de stockage Azure, à Azure Machine Learning et à Azure Cosmos DB (base de données NoSQL sur Azure). La quatrième bibliothèque, pyodbc (avec le pilote Microsoft ODBC pour SQL Server), permet l’accès à SQL Server, Azure SQL Database et Azure SQL Data Warehouse à partir de Python à l’aide d’une interface ODBC. Entrez **pip list** pour voir la liste de toutes les bibliothèques. Veillez à exécuter cette commande dans les environnements Python 2.7 et 3.5.
   * **R** : les bibliothèques Azure installées dans R sont **AzureML** et **RODBC**.
   * **Java** : la liste des bibliothèques Azure pour Java est disponible dans le répertoire **/dsvm/sdk/AzureSDKJava** sur la machine virtuelle. Les bibliothèques principales sont les API de gestion et de stockage Azure, Azure Cosmos DB et les pilotes JDBC pour SQL Server.  
 

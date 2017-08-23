@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: e6749bdf73acc9c05e71c85410bb3d95c57a0a9f
-ms.lasthandoff: 12/08/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 220f2806849e59e8799017a2d7558f1ae622a755
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Utilisation d'Oozie avec Hadoop pour définir et exécuter un workflow dans HDInsight
@@ -31,7 +31,7 @@ Apprenez à utiliser Apache Oozie pour définir un workflow et l'exécuter sur 
 
 Apache Oozie est un système de workflow/coordination qui gère les tâches Hadoop. Il est intégré à la pile Hadoop et prend en charge les tâches Hadoop pour Apache MapReduce, Apache Pig, Apache Hive et Apache Sqoop. Il peut également être utilisé pour planifier des tâches propres à un système comme des programmes Java ou des scripts shell.
 
-Le workflow que vous allez implémenter en suivant les instructions de ce didacticiel contient deux actions :
+Le workflow que vous implémentez en suivant les instructions de ce didacticiel contient deux actions :
 
 ![Diagramme du workflow][img-workflow-diagram]
 
@@ -60,7 +60,7 @@ Le workflow que vous allez implémenter en suivant les instructions de ce didact
 > 
 
 ### <a name="prerequisites"></a>Composants requis
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer ce didacticiel, vous devez disposer de l’élément suivant :
 
 * **Un poste de travail sur lequel est installé Azure PowerShell**. 
   
@@ -69,7 +69,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
   
 
 ## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Définition du workflow Oozie et du script HiveQL lié
-Les définitions des workflows Oozie sont écrites en hPDL (un langage de définition du processus XML). Le nom du fichier de workflow par défaut est *workflow.xml*. Dans ce didacticiel, vous allez utiliser le fichier de flux de travail suivant.
+Les définitions des workflows Oozie sont écrites en hPDL (un langage de définition du processus XML). Le nom du fichier de workflow par défaut est *workflow.xml*. Dans ce didacticiel, vous utilisez le fichier de flux de travail suivant.
 
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
@@ -128,12 +128,12 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
 Voici les deux actions définies dans le workflow : l'action de démarrage est *RunHiveScript*. Si cette action fonctionne correctement, l’action suivante est *RunSqoopExport*.
 
-RunHiveScript a plusieurs variables. Vous transmettez ces valeurs lors de l'envoi de la tâche Oozie à partir de votre poste de travail en utilisant Azure PowerShell.
+RunHiveScript a plusieurs variables. Vous transmettez ces valeurs lors de l’envoi de la tâche Oozie à partir de votre station de travail en utilisant Azure PowerShell.
 
 <table border = "1">
 <tr><th>Variable de workflow</th><th>Description</th></tr>
 <tr><td>${jobTracker}</td><td>Spécifie l'URL du suivi des tâches Hadoop. Utilisez <strong>jobtrackerhost:9010</strong> dans les versions 3.0 et 2.1 de HDInsight.</td></tr>
-<tr><td>${nameNode}</td><td>Spécifie l'URL du nœud de nom Hadoop. Utilisez l’adresse du système de fichiers par défaut, par exemple, <i>wasbs://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
+<tr><td>${nameNode}</td><td>Spécifie l'URL du nœud de nom Hadoop. Utilisez l’adresse du système de fichiers par défaut, par exemple, <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
 <tr><td>${queueName}</td><td>Spécifie le nom de la file d’attente auquel est envoyée la tâche. Utilisez la <strong>valeur par défaut</strong>.</td></tr>
 </table>
 
@@ -171,7 +171,7 @@ Voici les trois variables utilisées dans le script :
 
 Le fichier de définition du workflow (workflow.xml dans ce didacticiel) transmet ces valeurs à ce script HiveQL au moment de l'exécution.
 
-Le fichier de flux de travail et le fichier HiveQL sont stockés dans un conteneur d’objets blob.  Le script PowerShell que vous utiliserez plus loin dans ce didacticiel copie les deux fichiers dans le compte de stockage par défaut. 
+Le fichier de flux de travail et le fichier HiveQL sont stockés dans un conteneur d’objets blob.  Le script PowerShell que vous utilisez plus loin dans ce didacticiel copie les deux fichiers dans le compte de stockage par défaut. 
 
 ## <a name="submit-oozie-jobs-using-powershell"></a>Soumettre des tâches Oozie avec PowerShell
 Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de tâches Oozie. Vous pouvez utiliser la cmdlet **Invoke-RestMethod** pour appeler les services web Oozie. L'API des services web Oozie est une API JSON REST HTTP. Pour plus d’informations sur l’API des services web Oozie, consultez la page [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 de HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 de HDInsight).
@@ -190,9 +190,9 @@ Le script PowerShell de cette section effectue les étapes suivantes :
    
     Les deux fichiers sont stockés dans un conteneur d’objets blob public.
    
-   * Copie du script HiveQL (useoozie.hql) dans le stockage Azure (wasbs:///tutorials/useoozie/useoozie.hql).
-   * Copie de workflow.xml dans wasbs:///tutorials/useoozie/workflow.xml.
-   * Copie du fichier de données (/example/data/sample.log) dans wasbs:///tutorials/useoozie/data/sample.log.
+   * Copie du script HiveQL (useoozie.hql) dans le stockage Azure (wasb:///tutorials/useoozie/useoozie.hql).
+   * Copie de workflow.xml dans wasb:///tutorials/useoozie/workflow.xml.
+   * Copie du fichier de données (/example/data/sample.log) dans wasb:///tutorials/useoozie/data/sample.log.
 6. Soumettez une tâche Oozie.
    
     Pour examiner les résultats de la tâche OOzie, utilisez Visual Studio ou d’autres outils pour vous connecter à la base de données SQL Azure.
@@ -447,7 +447,7 @@ Voici le script.  Vous pouvez exécuter le script à partir de Windows PowerShel
 
     #region - submit Oozie job
 
-    $storageUri="wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
+    $storageUri="wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
 
     $oozieJobName = $namePrefix + "OozieJob"
 
@@ -658,7 +658,7 @@ Dans ce didacticiel, vous avez appris à définir un flux de travail Oozie et à
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/

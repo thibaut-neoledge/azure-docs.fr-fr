@@ -2,7 +2,7 @@
 title: "Créer des groupes d’actions avec les modèles Resource Manager | Microsoft Docs"
 description: "Les groupes d’actions permettent de vous informer par le biais de webhooks sous forme d’e-mail, de SMS ou d’appel lorsque certains événements se produisent."
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 2dd7b14f1466fa7244a2af2c030d8b794658aaad
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 88e7b2e7781b80ea360531f4c3a45256de83b594
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -28,10 +27,10 @@ Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Man
 
 Procédure de base :
 
-1.    Créez un modèle sous la forme d’un fichier JSON qui décrit comment créer le groupe d’actions.
-2.    [Déployez le modèle à l’aide de n’importe quelle méthode de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+1.  Créez un modèle sous la forme d’un fichier JSON qui décrit comment créer le groupe d’actions.
+2.  [Déployez le modèle à l’aide de n’importe quelle méthode de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
-Ci-dessous, nous décrivons comment créer un modèle Resource Manager, d’abord pour un groupe d’actions uniquement, puis pour un groupe d’actions lors de la création d’une autre ressource.
+Ci-dessous, nous décrivons comment créer un modèle Resource Manager pour un groupe d’actions où les définitions d’action sont codées en dur dans le modèle, puis pour un modèle qui se sert des informations de configuration Webhook en tant que paramètres d’entrée lorsque vous déployez le modèle.
 
 ## <a name="resource-manager-template-for-an-action-group"></a>Modèle Resource Manager pour un groupe d’actions
 

@@ -1,10 +1,10 @@
 ---
-title: Prise en main de l&quot;authentification pour Mobile Apps dans Xamarin Android
-description: "Découvrez comment utiliser Mobile Apps pour authentifier les utilisateurs de votre application Xamarin Android via divers fournisseurs d&quot;identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
+title: Prise en main de l'authentification pour Mobile Apps dans Xamarin Android
+description: "Découvrez comment utiliser Mobile Apps pour authentifier les utilisateurs de votre application Xamarin Android via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: panarasi
 editor: 
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.service: app-service-mobile
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4c0ba82ca010f1ee571424fa3d650718e5acdd8b
-ms.lasthandoff: 11/17/2016
-
+ms.date: 07/05/2017
+ms.author: panarasi
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 210def15c339c7349d1c868fe144e58303a2157e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Ajout de l'authentification à votre application Xamarin.Android
@@ -30,6 +30,20 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez éga
 
 ## <a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Services
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
+
+## <a name="redirecturl"></a>Ajouter votre application aux URL de redirection externes autorisées
+
+L’authentification sécurisée nécessite de définir un nouveau schéma d’URL pour votre application. Cela permet au système d’authentification de vous rediriger vers votre application une fois le processus d’authentification terminé. Dans ce didacticiel, nous utilisons le schéma d’URL _appname_. Toutefois, vous pouvez utiliser le schéma d’URL de votre choix. Il doit être propre à votre application mobile. Pour activer la redirection côté serveur, procédez comme suit :
+
+1. Dans le [portail Azure], sélectionnez votre instance App Service.
+
+2. Cliquez sur l’option de menu **Authentication/Authorisation**.
+
+3. Dans **URL de redirection externes autorisées**, saisissez `url_scheme_of_your_app://easyauth.callback`.  La chaîne **url_scheme_of_your_app** de cette chaîne est le schéma d’URL de votre application mobile.  Elle doit être conforme à la spécification d’URL normale pour un protocole (utiliser des lettres et des chiffres uniquement et commencer par une lettre).  Vous devez noter la chaîne que vous choisissez, dans la mesure où vous devez ajuster votre code d’application mobile avec le schéma d’URL à plusieurs endroits.
+
+4. Cliquez sur **OK**.
+
+5. Cliquez sur **Enregistrer**.
 
 ## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -52,7 +66,7 @@ L'application est mise à jour de manière à demander aux utilisateurs de cliqu
                 {
                     // Sign in with Facebook login using a server-managed flow.
                     user = await client.LoginAsync(this,
-                        MobileServiceAuthenticationProvider.Facebook);
+                        MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
                     CreateAndShowDialog(string.Format("you are now logged in - {0}",
                         user.UserId), "Logged in!");
    
@@ -99,10 +113,18 @@ L'application est mise à jour de manière à demander aux utilisateurs de cliqu
 4. Ajoutez l’élément suivant au fichier de ressources Strings.xml :
    
         <string name="login_button_text">Sign in</string>
-5. Dans Visual Studio ou Xamarin Studio, exécutez le projet client sur un appareil ou un émulateur et connectez-vous avec le fournisseur d’identité que vous avez choisi.
-   
-       When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
+5. Ouvrez le fichier AndroidManifest.xml et ajoutez le code suivant dans l’élément XML `<application>` :
+
+        <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
+          <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
+          </intent-filter>
+        </activity>
+
+6. Dans Visual Studio ou Xamarin Studio, exécutez le projet client sur un appareil ou un émulateur et connectez-vous avec le fournisseur d’identité que vous avez choisi. Lorsque vous êtes connecté, l'application affiche votre ID de connexion et la liste des tâches, et vous pouvez mettre à jour les données.
 
 <!-- URLs. -->
 [Création d’une application Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
-

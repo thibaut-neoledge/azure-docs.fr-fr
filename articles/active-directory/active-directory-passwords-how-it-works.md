@@ -6,20 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 02826ffad9838c3e22721cc3c189e8cc13020059
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 0fa05ee6a2df13845024e770a82f50ab7f75bafd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Découverte approfondie de la réinitialisation de mot de passe libre-service dans Azure AD
@@ -57,7 +58,7 @@ Lisez les étapes ci-dessous pour en savoir plus sur la logique sous-jacente à 
 
 ## <a name="authentication-methods"></a>Méthodes d’authentification
 
-Si la réinitialisation du mot de passe libre-service est activée, vous devez sélectionner au moins l’une des options ci-dessous pour les méthodes d’authentification. Nous vous recommandons vivement de choisir au moins deux méthodes d’authentification pour offrir davantage de flexibilité à vos utilisateurs.
+Si la réinitialisation de mot de passe en libre-service est activée, vous devez sélectionner au moins l’une des options suivantes pour les méthodes d’authentification. Nous vous recommandons vivement de choisir au moins deux méthodes d’authentification pour offrir davantage de flexibilité à vos utilisateurs.
 
 * Email
 * Téléphone mobile
@@ -77,7 +78,7 @@ Par défaut, seuls les attributs cloud Téléphone professionnel et Téléphone 
 
 Les utilisateurs peuvent uniquement réinitialiser leur mot de passe s’ils ont des données présentes dans les méthodes d’authentification que l’administrateur a activées et exige.
 
-Si les utilisateurs ne souhaitent pas que leur numéro de téléphone mobile soit visible dans le répertoire, mais veulent quand même l’utiliser pour la réinitialisation du mot de passe, les administrateurs ne doivent pas le renseigner dans le répertoire et l’utilisateur doit ensuite indiquer son attribut **Téléphone d’authentification** via le [portail d’inscription de réinitialisation du mot de passe](http://aka.ms/ssprsetup). Les administrateurs pourront toujours consulter ces informations dans le profil de l’utilisateur, mais elles ne seront pas publiées ailleurs. Si un compte d’administrateur Azure inscrit son numéro de téléphone d’authentification, il est également renseigné dans le champ Téléphone mobile et est visible.
+Si les utilisateurs ne souhaitent pas que leur numéro de téléphone mobile soit visible dans le répertoire, mais veulent quand même l’utiliser pour la réinitialisation du mot de passe, les administrateurs ne doivent pas le renseigner dans le répertoire et l’utilisateur doit ensuite indiquer son attribut **Téléphone d’authentification** via le [portail d’inscription de réinitialisation du mot de passe](http://aka.ms/ssprsetup). Les administrateurs peuvent consulter ces informations dans le profil de l’utilisateur, mais elles ne sont pas publiées ailleurs. Si un compte d’administrateur Azure inscrit son numéro de téléphone d’authentification, il est également renseigné dans le champ Téléphone mobile et est visible.
 
 ### <a name="number-of-authentication-methods-required"></a>Nombre de méthodes d’authentification requises
 
@@ -224,7 +225,7 @@ L’outil Azure AD Connect envoie des pings/appels keepalives périodiques aux p
 
 Le compte spécifié dans l’utilitaire Azure AD Connect doit avoir des autorisations de réinitialisation de mot de passe, de modification de mot de passe, d’écriture sur lockoutTime et des autorisations d’écriture sur pwdLastSet, des droits étendus sur l’objet racine de **chaque domaine** de cette forêt **OU** sur les unités d’organisation utilisateur que vous souhaitez intégrer à la réinitialisation du mot de passe libre-service.
 
-Si vous ignorez de quel compte il s’agit exactement, ouvrez l’interface utilisateur de configuration d’Azure Active Directory Connect, puis cliquez sur l’option Vérification de votre solution. Le compte auquel vous devez ajouter l’autorisation est répertorié sous « Annuaires synchronisés ».
+Si vous ignorez de quel compte il s’agit exactement, ouvrez l’interface utilisateur de configuration d’Azure Active Directory Connect, puis cliquez sur l’option Afficher la configuration actuelle. Le compte auquel vous devez ajouter l’autorisation est répertorié sous « Annuaires synchronisés ».
 
 La définition de ces autorisations permet au compte de service de l’agent de gestion de chaque forêt de gérer les mots de passe pour les comptes d’utilisateur de cette forêt. **Sans ces autorisations, même si l’écriture différée semble configurée correctement, les utilisateurs rencontreront des erreurs en essayant de gérer leurs mots de passe locaux à partir du cloud.**
 
@@ -242,7 +243,12 @@ Pour configurer les autorisations appropriées pour que l’écriture différée
 4. Dans l’onglet Autorisations, cliquez sur Ajouter.
 5. Sélectionnez le compte auquel les autorisations sont appliquées (à partir de la configuration Azure AD Connect).
 6. Dans le menu déroulant S’applique à, sélectionnez Objets utilisateur descendants.
-7. Sous Autorisations, cochez les cases correspondant à la réinitialisation du mot de passe, à la modification du mot de passe, à l’écriture lockoutTime et à l’écriture wdLastSet.
+7. Sous Autorisations, activez les cases correspondant aux éléments suivants :
+    * Ne pas faire expirer le mot de passe
+    * Réinitialiser le mot de passe
+    * Modifier le mot de passe
+    * Écrire lockoutTime
+    * Écrire pwdLastSet
 8. Cliquez sur Appliquer/OK pour appliquer et fermer les boîtes de dialogue ouvertes.
 
 ## <a name="how-does-password-reset-work-for-b2b-users"></a>Comment fonctionne la réinitialisation du mot de passe pour les utilisateurs B2B ?
@@ -258,7 +264,7 @@ Pour tester ces méthodes avec l’un des utilisateurs partenaires, consultez la
 
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
 
-* [**Démarrage rapide**](active-directory-passwords-getting-started.md) : soyez rapidement opérationnel avec la gestion des mots de passe libre-service d’Azure AD. 
+* [**Démarrage rapide**](active-directory-passwords-getting-started.md) : soyez rapidement opérationnel avec la gestion des mots de passe en libre-service Azure AD. 
 * [**Licences**](active-directory-passwords-licensing.md) : configurez vos licences Azure AD.
 * [**Données**](active-directory-passwords-data.md) : comprenez mieux les données requises et leur utilisation dans la gestion des mots de passe.
 * [**Déploiement**](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation du mot de passe libre-service sur vos utilisateurs grâce aux conseils figurant ici.
@@ -266,7 +272,7 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [**Écriture différée du mot de passe**](active-directory-passwords-writeback.md) : fonctionnement de l’écriture différée du mot de passe avec votre répertoire local.
 * [**Personnalisation**](active-directory-passwords-customize.md) : personnalisez l’apparence de l’interface de réinitialisation du mot de passe libre-service de votre société.
 * [**Rapports**](active-directory-passwords-reporting.md) : découvrez si, quand et où vos utilisateurs accèdent aux fonctionnalités de réinitialisation du mot de passe libre-service.
-* [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) - Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous avez toujours voulu poser.
-* [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec la réinitialisation du mot de passe libre-service.
+* [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) - Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours.
+* [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec la réinitialisation de mot de passe en libre-service.
 
 

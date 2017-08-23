@@ -1,6 +1,6 @@
 ---
 title: Guide de programmation pour Azure Event Hubs | Microsoft Docs
-description: "Écrivez du code pour les concentrateurs d’événements Azure à l&quot;aide du Kit de développement logiciel (SDK) .NET d&quot;Azure."
+description: "Écrivez du code pour les concentrateurs d’événements Azure à l'aide du Kit de développement logiciel (SDK) .NET d'Azure."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 05/17/2017
+ms.date: 08/17/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 6d0a1501b97ddb2c819361b00a85ebec12f7b50e
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: f65b992297c429eda2090f744b9b88b1ede39533
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 06/09/2017
 
 ---
 # <a name="event-hubs-programming-guide"></a>Guide de programmation de concentrateurs d’événements
@@ -59,7 +58,7 @@ Toutes les opérations de création de concentrateur d'événements, y compris [
 La classe [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription) contient des détails sur un concentrateur d'événements, notamment les règles d'autorisation, l'intervalle de rétention de message, les ID de partition, l’état et le chemin d'accès. Vous pouvez utiliser cette classe pour mettre à jour les métadonnées sur un concentrateur d'événements.
 
 ## <a name="create-an-event-hubs-client"></a>Création d’un client de concentrateurs d’événements
-La classe principale d’interaction avec les concentrateurs d’événements est [Microsoft.ServiceBus.Messaging.EventHubClient][]. Cette classe fournit les fonctionnalités de l'expéditeur et du récepteur. Vous pouvez instancier cette classe à l'aide de la méthode [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) , comme indiqué dans l'exemple suivant.
+La classe principale d’interaction avec Event Hubs est [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. Cette classe fournit les fonctionnalités de l'expéditeur et du récepteur. Vous pouvez instancier cette classe à l'aide de la méthode [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) , comme indiqué dans l'exemple suivant.
 
 ```csharp
 var client = EventHubClient.Create(description.Path);
@@ -109,6 +108,8 @@ Une autre considération peut être la gestion des retards dans le traitement de
 - Supprimer (les messages ne sont pas importants, les supprimer)
 - Réessayer (effectuer une nouvelle tentative pour les messages selon vos besoins)
 - [Lettre morte](../service-bus-messaging/service-bus-dead-letter-queues.md) (utiliser une file d’attente ou un autre concentrateur d’événements pour mettre en file d’attente de lettres mortes uniquement les messages que vous n’avez pas pu traiter)
+
+Pour obtenir plus d’informations et consulter une discussion concernant les compromis entre la disponibilité et la cohérence, consultez [Disponibilité et cohérence dans Event Hubs](event-hubs-availability-and-consistency.md). 
 
 ## <a name="batch-event-send-operations"></a>Opérations d'envoi d’événements par lot
 L’envoi d'événements par lots peut augmenter considérablement le débit. La méthode [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) prend un paramètre **IEnumerable** de type [EventData][] et envoie l’ensemble du lot comme une opération atomique au concentrateur d’événements.
@@ -187,6 +188,7 @@ Pour en savoir plus sur les scénarios des concentrateurs d’événements, cons
 
 * [Vue d’ensemble de l'API Event Hubs](event-hubs-api-overview.md)
 * [Qu’est-ce qu’Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Disponibilité et cohérence dans Event Hubs](event-hubs-availability-and-consistency.md)
 * [Informations de référence des API hôtes du processeur d’événements](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager

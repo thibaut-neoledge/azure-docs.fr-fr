@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 07/28/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0e2bbb2a94986ca93035aa553db0f9b54af635d5
+ms.reviewer: nigu
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: d37f0fcf4c91879c31b04dfd19cadee00e98ba91
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Authentification par certificat Azure Active Directory sur Android
@@ -31,7 +31,9 @@ L’authentification par certificat (CBA) vous permet d’être authentifié par
 
 La configuration de cette fonctionnalité élimine le besoin d’entrer un nom d’utilisateur et un mot de passe dans certaines applications de messagerie et Microsoft Office sur votre appareil mobile. 
 
-Cette rubrique vous indique la configuration requise et les scénarios pris en charge pour la configuration de l’authentification par certificat sur un appareil Android pour les utilisateurs de clients dans les plans Office 365 Enterprise, Business, Education et US Government. 
+Cette rubrique vous indique la configuration requise et les scénarios pris en charge pour la configuration de l’authentification par certificat sur un appareil iOS (Android) pour les utilisateurs des locataires dans les plans Office 365 Enterprise, Business, Education, US Government, Chine et Allemagne.
+
+
 
 Cette fonctionnalité est disponible en version préliminaire dans les plans Office 365 US Government Defense et US Government Federal.
 
@@ -46,6 +48,8 @@ Cette fonctionnalité est disponible en version préliminaire dans les plans Off
 | Yammer |![Vérification][1] |
 | Skype Entreprise |![Vérification][1] |
 | Application Azure Information Protection |![Vérification][1] |
+| Microsoft Teams |![Vérification][1] |
+
 
 
 ### <a name="implementation-requirements"></a>Conditions requises pour la mise en œuvre

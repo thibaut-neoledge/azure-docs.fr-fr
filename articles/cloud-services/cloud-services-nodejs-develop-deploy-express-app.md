@@ -3,8 +3,8 @@ title: Application web avec Express (Node.js) | Microsoft Docs
 description: "Ce didacticiel poursuit le didacticiel relatif au service cloud et présente l’utilisation du module Express."
 services: cloud-services
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
 ms.service: cloud-services
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
-translationtype: Human Translation
+ms.date: 08/17/2017
+ms.author: tarcher
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: 331d82a987aebe422ca2f560d856dad9f1b733f3
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/05/2017
-
 
 ---
 # <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Création d'une application web Node.js avec Express sur un service cloud Azure

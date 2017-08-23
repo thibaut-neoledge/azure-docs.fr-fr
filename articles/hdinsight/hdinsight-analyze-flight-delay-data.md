@@ -1,5 +1,5 @@
 ---
-title: "Analyse des données sur les retards de vol avec Hadoop dans HDInsight | Microsoft Docs"
+title: "Analyse des données sur les retards de vol avec Hadoop dans HDInsight - Azure | Microsoft Docs"
 description: "Apprenez à utiliser un script Windows PowerShell pour créer un cluster HDInsight, exécuter une tâche Hive, exécuter une tache Sqoop et supprimer le cluster."
 services: hdinsight
 documentationcenter: 
@@ -12,21 +12,21 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 0875b40045387a9695c8b86a01a708433016c1ee
-ms.lasthandoff: 04/11/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e457b722ec403d56ca551bb1fd01c3dd619bf9b5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analyse des données sur les retards de vol avec Hive dans HDInsight
 Hive permet d’exécuter des tâches Hadoop MapReduce via un langage de création de scripts semblable à SQL, nommé *[HiveQL][hadoop-hiveql]*, qui peut être appliqué à la synthèse, à l’envoi de requêtes et à l’analyse d’importants volumes de données.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Pour les étapes fonctionnant avec un cluster basé sur Linux, consultez la rubrique [Analyse des données sur les retards de vol avec Hive dans HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour les étapes fonctionnant avec un cluster basé sur Linux, consultez la rubrique [Analyse des données sur les retards de vol avec Hive dans HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 L’un des principaux avantages d’Azure HDInsight est la séparation du calcul et du stockage des données. HDInsight utilise le stockage d’objets blob Azure pour stocker les données. Une tâche classique comprend trois parties :
 
@@ -59,7 +59,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 * **Un poste de travail sur lequel est installé Azure PowerShell**.
 
     > [!IMPORTANT]
-    > La prise en charge de la gestion des ressources HDInsight par Azure PowerShell à l’aide d’Azure Service Manager est **déconseillée** ; elle sera supprimée le 1er janvier 2017. Dans ce document, la procédure repose sur les nouvelles applets de commande HDInsight qui fonctionnent avec Azure Resource Manager.
+    > La prise en charge de la gestion des ressources HDInsight par Azure PowerShell à l’aide d’Azure Service Manager est **déconseillée** ; elle a été supprimée le 1er janvier 2017. Dans ce document, la procédure repose sur les nouvelles applets de commande HDInsight qui fonctionnent avec Azure Resource Manager.
     >
     > Suivez les étapes indiquées dans [Installation et de configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour installer la dernière version d’Azure PowerShell. Si vous devez modifier certains scripts pour utiliser les nouvelles applets de commande fonctionnant avec Azure Resource Manager, consultez [Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) pour plus d’informations.
 
@@ -74,8 +74,8 @@ Le tableau suivant répertorie les fichiers utilisés dans ce didacticiel :
 
 <table border="1">
 <tr><th>Fichiers</th><th>Description</th></tr>
-<tr><td>wasbs://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>Fichier script HiveQL utilisé par la tâche Hive. Ce script a été téléchargé dans un conteneur de stockage d'objets blob Azure avec l'autorisation d'accès publique. L’<a href="#appendix-b">annexe B</a> présente des instructions sur la préparation et le téléchargement de ce fichier sur votre propre compte de stockage d’objets blob Azure.</td></tr>
-<tr><td>wasbs://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Données d’entrée pour la tâche Hive. Les données ont été téléchargées dans un compte de stockage d’objets blob Azure avec une autorisation d’accès public. L’<a href="#appendix-a">annexe A</a> présente des instructions sur l’obtention des données et leur téléchargement sur votre propre compte de stockage d’objets blob Azure.</td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>Fichier script HiveQL utilisé par la tâche Hive. Ce script a été téléchargé dans un conteneur de stockage d'objets blob Azure avec l'autorisation d'accès publique. L’<a href="#appendix-b">annexe B</a> présente des instructions sur la préparation et le téléchargement de ce fichier sur votre propre compte de stockage d’objets blob Azure.</td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Données d’entrée pour la tâche Hive. Les données ont été téléchargées dans un compte de stockage d’objets blob Azure avec une autorisation d’accès public. L’<a href="#appendix-a">annexe A</a> présente des instructions sur l’obtention des données et leur téléchargement sur votre propre compte de stockage d’objets blob Azure.</td></tr>
 <tr><td>\tutorials\flightdelays\output</td><td>Chemin de sortie pour la tâche Hive. Le conteneur par défaut est utilisé pour le stockage des données de sortie.</td></tr>
 <tr><td>\tutorials\flightdelays\jobstatus</td><td>Le dossier de statut Hive sur le conteneur par défaut.</td></tr>
 </table>
@@ -204,7 +204,7 @@ Pour plus d’informations sur la création d’un cluster HDInsight et l’exé
     ###########################################
     # Submit the Sqoop job
     ###########################################
-    $exportDir = "wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
+    $exportDir = "wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
 
     $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
                     -Command "export --connect $sqlDatabaseConnectionString --table $sqlDatabaseTableName --export-dir $exportDir --fields-terminated-by \001 "
@@ -351,7 +351,7 @@ Le téléchargement du fichier de données et des fichiers de script HiveQL (voi
 
 Si vous décidez d’utiliser une autre méthode pour télécharger les fichiers, vérifiez que le chemin d’accès au fichier est tutorials/flightdelay/data. La syntaxe permettant d'accéder aux fichiers est la suivante :
 
-    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
+    wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
 
 Le chemin d’accès tutorials/flightdelay/data correspond au dossier virtuel que vous avez créé lors du chargement des fichiers. Assurez-vous qu'il existe 12 fichiers, un par mois.
 
@@ -501,7 +501,7 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
         "ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' " +
         "LINES TERMINATED BY '\n' " +
         "STORED AS TEXTFILE " +
-        "LOCATION 'wasbs://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
+        "LOCATION 'wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
 
     $hqlDropDelays = "DROP TABLE delays;"
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 2576b658eaf1df95aa9700e06559edf6066cc534
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 6eadf0a521a32c5bc580908e4e4b7f4305e2bf7e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Se connecter à Azure Analysis Services avec Excel | Microsoft Docs"
-description: "Découvrez comment vous connecter à un serveur Azure Analysis Services à l’aide de Excel."
+description: "Découvrez comment vous connecter à un serveur Azure Analysis Services à l’aide d’Excel."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,24 +13,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/15/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 88d0c2495a13ccf02f7d0e56ce7158ac80dcc2d5
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: ff96602642c56a3cd02aeada056c059573707731
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="connect-with-excel"></a>Connexion avec Excel
 
-Une fois que vous avez créé un serveur dans Azure avant d’y déployer un modèle tabulaire, vous êtes prêt à vous y connecter et à explorer les données. 
+Une fois que vous avez créé un serveur dans Azure avant d’y déployer un modèle tabulaire, vous êtes prêt à vous y connecter et à explorer les données.
 
 
 ## <a name="connect-in-excel"></a>Se connecter dans Excel
 
-La connexion à un serveur dans Excel est prise en charge grâce à la fonction Obtenir les données dans Excel 2016 ou Power Query dans les versions antérieures. La connexion à l’aide de l’Assistant d’importation de table dans Power Pivot n’est pas prise en charge. 
+La connexion à un serveur dans Excel est prise en charge grâce à la fonction Obtenir les données dans Excel 2016. La connexion à l’aide de l’Assistant d’importation de table dans Power Pivot n’est pas prise en charge. 
 
 **Se connecter dans Excel 2016**
 

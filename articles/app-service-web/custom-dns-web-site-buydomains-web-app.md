@@ -1,10 +1,10 @@
 ---
-title: "Comment acheter un nom de domaine personnalisé dans Azure App Service Web Apps"
+title: "Acheter un nom de domaine personnalisé pour Azure Web Apps"
 description: "Découvrez comment acheter un nom de domaine personnalisé avec une application web dans Azure App Service."
 services: app-service\web
 documentationcenter: 
-author: rmcmurray
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
@@ -12,97 +12,232 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 625eeefe94ec0d068cc9cc68b59c371697c786a8
+ms.date: 08/17/2016
+ms.author: cephalin
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 44d350d2d098be14ad254066a8528fe117200ec4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
-# <a name="buy-and-configure-a-custom-domain-name-in-azure-app-service"></a>Acheter et configurer un nom de domaine personnalisé dans Azure App Service
-[!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
+# <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Acheter un nom de domaine personnalisé pour Azure Web Apps
 
-Lorsque vous créez une application web, Azure l'attribue à un sous-domaine de azurewebsites.net. Par exemple, si votre application web se nomme **contoso**, l’URL est **contoso.azurewebsites.net**. Azure attribue également une adresse IP virtuelle.
+Les domaines App Service (version préliminaire) sont des domaines de niveau supérieur gérés directement dans Azure. Ils facilitent la gestion des domaines personnalisés pour [Azure Web Apps](app-service-web-overview.md). Ce didacticiel explique comment acheter un domaine App Service et attribuer des noms de domaine (DNS) dans Azure Web Apps.
 
-Pour une application web de production, vous souhaitez probablement afficher un nom de domaine personnalisé pour vos utilisateurs. Cet article explique comment acheter et configurer un domaine personnalisé avec [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). 
+Cet article concerne Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Apps). Pour la machine virtuelle Azure ou le stockage Azure, consultez [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Attribuer un domaine App Service à une machine virtuelle Azure ou un stockage Azure). Pour Services cloud, consultez [Configuration d’un nom de domaine personnalisé pour un service cloud Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-[!INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
+## <a name="prerequisites"></a>Composants requis
 
-## <a name="overview"></a>Vue d'ensemble
-Si vous n’avez pas de nom de domaine pour votre application web, vous pouvez facilement en acheter un sur le [portail Azure](https://portal.azure.com/). Pendant le processus d'achat, vous pouvez choisir de mapper automatiquement les enregistrements DNS du domaine racine et WWW à votre application web. Vous pouvez également gérer votre domaine directement dans le portail Azure.
+Pour suivre ce didacticiel :
 
-Procédez comme suit pour acheter des noms de domaine et les attribuer à votre application web.
+* [Créez une application App Service](/azure/app-service/), ou utilisez une application créée pour un autre didacticiel.
 
-1. Dans votre navigateur, ouvrez le [portail Azure](https://portal.azure.com/).
-2. Dans l’onglet **Web Apps**, cliquez sur le nom de votre application web, puis sélectionnez **Paramètres** et **Domaines personnalisés**.
-   
-    ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
-3. Dans le panneau **Domaines personnalisés**, cliquez sur **Acheter des domaines**.
-   
-    ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
-4. Dans le panneau **Acheter des domaines**, utilisez la zone de texte pour taper le nom de domaine que vous voulez acheter et appuyez sur Entrée. Les domaines disponibles proposés s'affichent simplement en-dessous de la zone de texte. Sélectionnez le domaine que vous souhaitez acheter. Vous pouvez choisir d'acheter plusieurs domaines à la fois. 
-   
-   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
-5. Cliquez sur **Informations de contact** et remplissez le formulaire d’informations de contact du domaine.
-   
-   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-3.png)
-   
-   > [!NOTE]
-   > Il est très important de remplir tous les champs obligatoires aussi précisément que possible, notamment l'adresse de messagerie. Si vous achetez un domaine sans « Protection de confidentialité », vous devrez peut-être vérifier votre adresse de messagerie avant l'activation du domaine. Dans certains cas, l'inexactitude des informations de contact fournies peuvent empêcher l'achat des domaines. 
-   > 
-   > 
-6. À présent, vous pouvez choisir l'une des options suivantes :
-   
-    a) « Renouveler automatiquement » votre domaine chaque année
-   
-    b) « Protection de confidentialité », incluse GRATUITEMENT dans le prix d’achat (à l’exception des domaines de premier niveau dont le registre ne prend en charge la confidentialité, par exemple .co.in,. co.uk, etc.)  
-   
-    c) « Attribuer des noms d'hôte par défaut » pour le domaine racine et WWW dans l'application web actuelle. 
-   
-   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)
-   
-   > [!NOTE]
-   > L'option C configure automatiquement les liaisons DNS et de nom d'hôte.  De cette façon, votre application web est accessible à l'aide du domaine personnalisé dès que l'achat est terminé (sous réserve des délais de propagation DNS dans certains cas). Si votre application web se trouve derrière Azure Traffic Manager, l'option permettant d'attribuer un domaine racine n'est pas affichée, car les enregistrements A ne fonctionnent pas avec Traffic Manager. Vous pouvez toujours attribuer les domaines/sous-domaines que vous avez achetés pour une application web à une autre, et vice versa. Consultez l'étape 8 pour plus d'informations. 
-   > 
-   > 
-7. Cliquez sur **Sélectionner** dans le panneau **Acheter des domaines**. Les informations d’achat s’affichent dans le panneau **Confirmation d’achat**. Si vous acceptez les conditions juridiques et cliquez sur **Acheter**, votre commande est envoyée et vous pouvez surveiller le processus d’achat dans **Notification**. L'achat de domaine peut prendre plusieurs minutes. 
-   
-   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-4.png)
-   
-   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-5.png)
-8. Si vous avez correctement commandé un domaine, vous pouvez gérer le domaine et l'attribuer à votre application web. Cliquez sur **…**, à droite de votre domaine. Vous pouvez **Annuler l’achat** ou **Gérer le domaine**. Cliquez sur **Gérer le domaine**. Vous pouvez lier un **sous-domaine** à votre application web dans le panneau **Gérer le domaine**. Si vous souhaitez lier un **sous-domaine** à une autre application web, effectuez cette étape dans le contexte de l’application web correspondante. À partir de là, vous pouvez choisir d'attribuer le domaine au point de terminaison Traffic Manager (si l'application web se trouve derrière TM) en sélectionnant simplement le nom Traffic Manager dans le menu déroulant. De cette manière, le domaine/sous-domaine est automatiquement attribué à toutes les applications web situées derrière ce point de terminaison Traffic Manager. 
-   
-    ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-6.png)
-   
-   > [!NOTE]
-   > Vous pouvez « Annuler l'achat » dans les 5 jours pour obtenir un remboursement intégral. Au bout de 5 jours, vous ne pouvez plus « Annuler l'achat », mais vous pouvez « Supprimer » le domaine. La suppression du domaine le retire de votre abonnement sans remboursement, et le domaine devient disponible. 
-   > 
-   > 
+## <a name="prepare-the-app"></a>Préparer l’application
 
-Une fois la configuration terminée, le nom de domaine personnalisé est répertorié dans la section **Liaisons de nom d’hôte** de votre application web.
+Pour utiliser des domaines personnalisés dans Azure Web Apps, le [plan App Service](https://azure.microsoft.com/pricing/details/app-service/) de votre application web doit correspondre à un niveau payant (**Partagé**, **De base**, **Standard** ou **Premium**). Au cours de cette étape, vous allez vous assurer que votre application web se trouve dans le niveau de tarification pris en charge.
 
-À ce stade, vous devez pouvoir entrer le nom de domaine personnalisé dans votre navigateur et vérifier que vous êtes bien dirigé vers votre application web.
+### <a name="sign-in-to-azure"></a>Connexion à Azure
 
-## <a name="what-happens-to-the-custom-domain-you-bought"></a>Que se passe-t-il pour le domaine personnalisé que vous avez acheté ?
-Le domaine personnalisé que vous avez acheté dans le panneau **Domaines personnalisés et SSL** est lié à l’abonnement Azure. En tant que ressource Azure, ce domaine personnalisé est distinct et indépendant de l’application App Service pour laquelle vous avez initialement acheté le domaine. Cela signifie que :
+Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure.
 
-* Dans le portail Azure, vous pouvez utiliser le domaine personnalisé que vous avez acheté pour plusieurs applications App Service et pas uniquement pour l’application pour laquelle vous avez initialement acheté le domaine personnalisé. 
-* Vous pouvez gérer tous les domaines personnalisés que vous avez achetés dans l’abonnement Azure en accédant au panneau **Domaines personnalisés et SSL** de *n’importe quelle* application App Service dans cet abonnement.
-* Vous pouvez attribuer n’importe quelle application App Service du même abonnement Azure à un sous-domaine inclus dans ce domaine personnalisé.
-* Si vous décidez de supprimer une application App Service, vous pouvez choisir de ne pas supprimer le domaine personnalisé auquel elle est liée si vous souhaitez conserver celui-ci pour l’utiliser avec d’autres applications.
+### <a name="navigate-to-the-app-in-the-azure-portal"></a>Accéder à l’application dans le portail Azure
 
-## <a name="if-you-cant-see-the-custom-domain-you-bought"></a>Si le domaine personnalisé que vous avez acheté ne s’affiche pas
-Si vous avez acheté le domaine personnalisé à partir du panneau **Domaines personnalisés et SSL**, mais s’il ne s’affiche pas sous **Domaines gérés**, vérifiez les éléments suivants :
+Dans le menu de gauche, sélectionnez **App Services**, puis le nom de l’application.
 
-* La création du domaine personnalisé n’est peut-être pas terminée. Vérifiez la cloche de notification en haut du portail Azure pour connaître sa progression.
-* La création du domaine personnalisé peut avoir échoué pour une raison quelconque. Vérifiez la cloche de notification en haut du portail Azure pour connaître sa progression.
-* La création du domaine personnalisé est peut-être réussie, mais le panneau n’a peut-être pas été actualisé. Essayez de rouvrir le panneau **Domaines personnalisés et SSL**.
-* Vous avez peut-être supprimé le domaine personnalisé à un moment donné. Vérifiez les journaux d’audit en cliquant sur **Paramètres** > **Journaux d’audit** dans le panneau principal de votre application. 
-* Le panneau **Domaines personnalisés et SSL** que vous consultez appartient peut-être à une application créée dans un autre abonnement Azure. Basculez vers une autre application dans un autre abonnement et vérifiez le panneau **Domaines personnalisés et SSL**.  
-    Dans le portail, vous ne pourrez pas voir ni gérer les domaines personnalisés créés dans un abonnement Azure différent de celui lié à l’application. Toutefois, si vous cliquez sur **Gestion avancée** dans le panneau **Gérer le domaine** du domaine, vous êtes redirigé vers le site web du fournisseur de domaine, où vous pouvez   [configurer manuellement votre domaine personnalisé comme n’importe quel domaine personnalisé externe](app-service-web-tutorial-custom-domain.md) 
-   pour les applications créées dans un autre abonnement Azure. 
+![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
+La page de gestion de l’application App Service s’affiche.  
+
+### <a name="check-the-pricing-tier"></a>Vérification du niveau tarifaire
+
+Dans la navigation gauche de la page de l’application, faites défiler jusqu’à la section **Paramètres** et sélectionnez **Monter en puissance (plan App Service)**.
+
+![Menu Monter en puissance](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+
+Le niveau actuel de l’application est encadré d’un rectangle bleu. Vérifiez que l’application ne se trouve pas dans le niveau **Gratuit**. Les DNS personnalisés ne sont pas pris en charge dans le niveau **Gratuit**. 
+
+![Vérification du niveau de tarification](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+
+Si le plan App Service n’est pas **Gratuit**, fermez la page **Choisir votre niveau de tarification** et passez à [Acheter le domaine](#buy-the-domain).
+
+### <a name="scale-up-the-app-service-plan"></a>Monter en puissance le plan App Service
+
+Sélectionnez l’un des niveaux payants (**Partagé**, **De base**, **Standard** ou **Premium**). 
+
+Cliquez sur **Sélectionner**.
+
+![Vérification du niveau de tarification](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+
+Lorsque la notification suivante s’affiche, cela signifie que l’opération est terminée.
+
+![Confirmation d’opération de mise à l’échelle](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+
+## <a name="buy-the-domain"></a>Acheter le domaine
+
+### <a name="sign-in-to-azure"></a>Connexion à Azure
+Ouvrez le [portail Azure](https://portal.azure.com/) et connectez-vous avec votre compte Azure.
+
+### <a name="launch-buy-domains"></a>Lancer Acheter des domaines
+Dans l’onglet **Web Apps**, cliquez sur le nom de votre application web, puis sélectionnez **Paramètres** et **Domaines personnalisés**.
+   
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+
+Sur la page **Domaines personnalisés**, cliquez sur **Acheter des domaines**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
+
+### <a name="configure-the-domain-purchase"></a>Configurer l’achat de domaine
+
+Sur la page **Domaine App Service**, dans la zone **Recherche de domaine**, tapez le nom de domaine que vous souhaitez acheter et tapez `Enter`. Les domaines disponibles proposés s'affichent juste en dessous de la zone de texte. Sélectionnez un ou plusieurs domaines que vous souhaitez acheter. 
+   
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+
+Cliquez sur **Informations de contact** et remplissez le formulaire d’informations de contact du domaine. Lorsque vous avez terminé, cliquez sur **OK** pour revenir à la page Domaine App Service.
+   
+Il est très important de remplir tous les champs obligatoires aussi précisément que possible. L’inexactitude des informations de contact fournies peut empêcher l’achat des domaines. 
+
+Sélectionnez ensuite les options souhaitées pour votre domaine. Pour plus de précisions, consultez le tableau suivant :
+
+| Paramètre | Valeur suggérée | Description |
+|-|-|-|
+|Renouvellement automatique | **Activer** | Renouvelle automatiquement votre domaine App Service chaque année. Au moment du renouvellement, vous serez facturé le même prix sur votre carte de crédit. |
+|Protection des données personnelles | Activer | Optez pour la « Protection des données personnelles », incluse dans le prix d’achat _gratuitement_ (à l’exception des domaines de niveau supérieur dont le registre ne prend pas en charge la protection des données, comme _.co.in_, _.co.uk_, et ainsi de suite). |
+| Attribuer des noms d’hôte par défaut | **www** et **@** | Si vous le souhaitez, vous pouvez sélectionner les liaisons de nom d’hôte souhaitées. Lorsque l’opération d’achat de domaine est terminée, votre application web est accessible aux noms d’hôtes choisis. Si l’application web se trouve derrière [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), vous ne verrez pas l’option pour attribuer le domaine racine (@), parce que Traffic Manager ne prend pas en charge les enregistrements A. Vous pouvez apporter des modifications aux attributions de nom d’hôte après l’achat de domaine. |
+
+### <a name="accept-terms-and-purchase"></a>Accepter les mentions et acheter
+
+Cliquez sur **Mentions légales** pour consulter les mentions et les frais, puis cliquez sur **Acheter**.
+
+> [!NOTE]
+> Les domaines App Service utilisent Azure DNS pour héberger les domaines. Outre les frais d’inscription de domaine, les frais d’utilisation d’Azure DNS s’appliquent aussi. Pour en savoir plus, consultez la page relative à la [tarification Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
+>
+>
+
+Retournez sur la page **Domaine App Service**, puis cliquez sur **OK**. Pendant que l’opération, vous voyez apparaître les notifications suivantes :
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
+
+### <a name="test-the-hostnames"></a>Test des noms d’hôte
+
+Si vous avez attribué des noms d’hôte par défaut à votre application web, vous voyez également une notification de réussite pour chaque nom d’hôte choisi. 
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
+
+Vous voyez également les noms d’hôtes choisis sur la page **Domaines personnalisés**, dans la section **Noms d’hôte**. 
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+
+Pour tester des noms d’hôte, accédez à ceux qui sont répertoriés dans le navigateur. Dans l’exemple de la capture d’écran précédente, essayez d’accéder à _kontoso.net_ et _www.kontoso.net_.
+
+## <a name="assign-hostnames-to-web-app"></a>Attribuer des noms d’hôte à une application web
+
+Si vous choisissez de ne pas attribuer un ou plusieurs noms d’hôte par défaut à votre application web lors de l’achat, ou si vous devez attribuer un nom d’hôte non répertorié, sachez que vous pouvez attribuer ce nom à tout moment.
+
+Vous pouvez également attribuer des noms d’hôte dans le domaine App Service à n’importe quelle application web. La procédure varie si le domaine App Service et l’application web appartiennent au même abonnement.
+
+- Autre abonnement : mapper des enregistrements DNS personnalisés depuis le domaine App Service vers l’application web comme un domaine acheté en externe. Pour en savoir plus sur l’ajout de noms DNS personnalisés à un domaine App Service, consultez [Gérer les enregistrements DNS personnalisés](#custom). Pour mapper un domaine acheté en externe à une application web, consultez [Mapper un nom DNS personnalisé existant à des applications web Azure](app-service-web-tutorial-custom-domain.md). 
+- Abonnement similaire : procédez comme suit.
+
+### <a name="launch-add-hostname"></a>Lancer Ajouter un nom d’hôte
+Sur la page **App Services**, sélectionnez le nom de l’application web à laquelle vous souhaitez attribuer des noms d’hôte, puis **Paramètres**, et **Domaines personnalisés**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+
+Vérifiez que votre domaine acheté est répertorié dans la section **Domaines App Service**, mais ne le sélectionnez pas. 
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+
+> [!NOTE]
+> Tous les domaines App Service du même abonnement sont affichés sur la page **Domaines personnalisés**de l’application web. Si votre domaine est inclus dans l’abonnement de l’application web, mais qu’il ne s’affiche pas sur la page **Domaines personnalisés** de l’application web, ouvrez à nouveau la page **Domaines personnalisés** ou actualisez la page web. Vérifiez également la cloche de notification en haut du portail Azure pour savoir s’il y a des échecs lors de la création ou de la progression.
+>
+>
+
+Sélectionnez **Ajouter un nom d’hôte**.
+
+### <a name="configure-hostname"></a>Configurer le nom d’hôte
+Dans la boîte de dialogue **Ajouter un nom d’hôte**, entrez le nom de domaine complet du domaine App Service ou de n’importe quel sous-domaine. Par exemple :
+
+- kontoso.net
+- www.kontoso.net
+- abc.kontoso.net
+
+Lorsque vous avez terminé, sélectionnez **Valider**. Le type d’enregistrement de nom d’hôte est automatiquement sélectionné pour vous.
+
+Sélectionnez **Ajouter un nom d’hôte**.
+
+Une fois l’opération terminée, vous voyez une notification de réussite concernant le nom d’hôte attribué.  
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
+
+### <a name="close-add-hostname"></a>Fermer Ajouter un nom d’hôte
+Sur la page **Ajouter un nom d’hôte**, vous pouvez attribuer n’importe quel nom d’hôte à votre application web, si vous le souhaitez. Lorsque vous avez terminé, fermez la page **Ajouter un nom d’hôte**.
+
+Vous devez maintenant voir le ou les noms d’hôte nouvellement attribués sur la page **Domaines personnalisés** de l’application web.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
+
+### <a name="test-the-hostnames"></a>Test des noms d’hôte
+
+Accédez aux noms d’hôte répertoriés dans le navigateur. Dans l’exemple sur la capture d’écran précédente, essayez d’accéder à _abc.kontoso.net_.
+
+<a name="custom" />
+
+## <a name="manage-custom-dns-records"></a>Gérer des enregistrements DNS personnalisés
+
+Dans Azure, les enregistrements DNS d’un domaine App Service sont gérés à l’aide d’[Azure DNS](https://azure.microsoft.com/services/dns/). Vous pouvez ajouter, supprimer et mettre à jour les enregistrements DNS, comme pour un domaine acheté en externe.
+
+### <a name="open-app-service-domain"></a>Ouvrir le domaine App Service
+
+Dans le portail Azure, dans le menu de gauche, sélectionnez **More Services** (Plus de services)  > **Domaine App Service**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+
+Sélectionnez le domaine à gérer. 
+
+### <a name="access-dns-zone"></a>Accéder à la zone DNS
+
+Dans le menu de gauche du domaine, sélectionnez **Zone DNS**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
+
+Cette action ouvre la page [Zone DNS](../dns/dns-zones-records.md) de votre domaine App Service dans Azure DNS. Pour savoir comment modifier des enregistrements DNS, consultez [Gérer des zones DNS dans le portail Azure](../dns/dns-operations-dnszones-portal.md).
+
+## <a name="cancel-purchase-delete-domain"></a>Annuler l’achat (supprimer le domaine)
+
+Après avoir acheté le domaine App Service, vous disposez de cinq jours pour annuler votre achat et bénéficier d’un remboursement intégral. Au-delà de cinq jours, vous pouvez supprimer le domaine App Service, mais vous ne serez pas remboursé.
+
+### <a name="open-app-service-domain"></a>Ouvrir le domaine App Service
+
+Dans le portail Azure, dans le menu de gauche, sélectionnez **More Services** (Plus de services)  > **Domaine App Service**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+
+Sélectionnez le domaine que vous souhaitez annuler ou supprimer. 
+
+### <a name="delete-hostname-bindings"></a>Supprimer des liaisons de noms d’hôte
+
+Dans le menu de gauche du domaine, sélectionnez **Liaisons de noms d’hôte**. Les liaisons de nom d’hôte de tous les services Azure sont répertoriées ici.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+
+Vous ne pouvez pas supprimer le domaine App Service avant d’avoir supprimé toutes les liaisons de nom d’hôte.
+
+Supprimez chaque liaison de nom d’hôte en sélectionnant **...** > **Supprimer**. Après avoir supprimé toutes les liaisons, sélectionnez **Enregistrer**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
+
+### <a name="cancel-or-delete"></a>Annuler ou supprimer
+
+Dans le menu de gauche du domaine, sélectionnez **Vue d’ensemble**. 
+
+Si la période d’annulation pour domaine acheté n’est pas écoulée, sélectionnez **Annuler l’achat**. Dans le cas contraire, vous verrez le bouton **Supprimer**. Pour supprimer le domaine sans remboursement, sélectionnez **Supprimer**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
+
+Sélectionnez **OK** pour confirmer l’opération. Si vous ne souhaitez pas continuer, cliquez n’importe où en dehors de la boîte de dialogue de confirmation.
+
+Une fois l’opération terminée, le domaine n’est plus lié à votre abonnement et est de nouveau disponible à l’achat. 
 

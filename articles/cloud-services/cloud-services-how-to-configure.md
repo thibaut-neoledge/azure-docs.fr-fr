@@ -1,6 +1,6 @@
 ---
 title: "Configuration d’un service cloud (portail Classic) | Microsoft Docs"
-description: "Découvrez comment configurer des services cloud dans Azure. Apprenez à mettre à jour la configuration d&quot;un service cloud et à configurer l&quot;accès distant aux instances de rôle."
+description: "Découvrez comment configurer des services cloud dans Azure. Apprenez à mettre à jour la configuration d'un service cloud et à configurer l'accès distant aux instances de rôle."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 07/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 838be613a35ac4af988e089efb57e45365cc7636
-
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 39bb294c96ce0c12d91cf8b3488ac3e1a7b2f7b2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="how-to-configure-cloud-services"></a>Configuration des services cloud
@@ -42,11 +43,10 @@ Azure ne peut garantir que 99,95 % de disponibilité du service pendant les mis
 2. Dans les paramètres de **surveillance**, définissez le niveau de surveillance sur Détaillé ou Minimal et configurez les chaînes de connexion des diagnostics requises pour la surveillance détaillée.
 3. Pour les rôles de service (regroupés par rôle), vous pouvez mettre à jour les paramètres suivants :
    
-    * **Paramètres** 
-        Modifiez les valeurs de divers paramètres de configuration spécifiés dans les éléments *ConfigurationSettings* du fichier de configuration de service (.cscfg).
+    * **Paramètres** Modifiez les valeurs de divers paramètres de configuration spécifiés dans les éléments *ConfigurationSettings* du fichier de configuration de service (.cscfg).
 
     * **Certificats**  
-         Changez l'empreinte numérique de certificat qui est utilisée dans le chiffrement SSL pour un rôle. Pour changer un certificat, vous devez d'abord télécharger le nouveau certificat (sur la page **Certificats** ). Mettez ensuite à jour l'empreinte numérique dans la chaîne de certificat affichée dans les paramètres de rôle.
+        Changez l'empreinte numérique de certificat qui est utilisée dans le chiffrement SSL pour un rôle. Pour changer un certificat, vous devez d'abord télécharger le nouveau certificat (sur la page **Certificats** ). Mettez ensuite à jour l'empreinte numérique dans la chaîne de certificat affichée dans les paramètres de rôle.
 4. Dans les paramètres du **système d’exploitation**, vous pouvez changer la famille ou la version du système d’exploitation pour les instances de rôle (machines virtuelles) ou choisir **Automatique** pour reprendre les mises à jour automatiques de la version actuelle du système d’exploitation. Les paramètres du système d'exploitation s'appliquent aux rôles web et de travail, mais n'affectent pas les machines virtuelles.
    
     Pendant le déploiement, la version la plus récente du système d'exploitation est installée sur toutes les instances de rôle et les systèmes d'exploitation sont mis à jour automatiquement par défaut. 
@@ -77,10 +77,5 @@ Azure ne peut garantir que 99,95 % de disponibilité du service pendant les mis
 * [Gérez votre service cloud](cloud-services-how-to-manage.md).
 * [Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

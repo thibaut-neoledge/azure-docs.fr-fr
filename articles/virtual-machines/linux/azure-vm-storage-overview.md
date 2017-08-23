@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0151e188fde38c7a617cf2070939c6498142dd71
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 598d6a62fc7c4a769043c4d6d6547e5b8f8a5d5a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Stockage des machines virtuelles Azure et Linux
@@ -48,71 +48,37 @@ Lorsque vous créez une machine virtuelle à partir de l’interface `azure-cli`
 
 ## <a name="creating-a-vm-with-a-managed-disk"></a>Création d’une machine virtuelle avec un disque géré
 
-L’exemple suivant nécessite Azure CLI 2.0 que vous pouvez installer [en cliquant ici].
+L’exemple suivant nécessite Azure CLI 2.0 que vous pouvez [installer ici](/cli/azure/install-azure-cli).
 
-Tout d’abord, créez un groupe de ressources pour gérer les ressources :
+Tout d’abord, créez un groupe de ressources pour gérer les ressources avec [az group create](/cli/azure/group#create) :
 
 ```azurecli
 az group create --location westus --name myResourceGroup
 ```
 
-Créez ensuite la machine virtuelle avec la commande `az vm create`, comme indiqué dans l’exemple suivant. N’oubliez pas de spécifier un argument `--public-ip-address-dns-name` unique, car `manageddisks` sera probablement déjà pris.
+Créez maintenant la machine virtuelle avec [az vm create](/cli/azure/vm#create). Spécifiez un argument `--public-ip-address-dns-name` unique, car `mypublicdns` est probablement pris.
 
 ```azurecli
 az vm create \
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location westus \
---name myVM
+    --resource-group myResourceGroup \
+    --name myVM
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address-dns-name mypublicdns
 ```
 
 L’exemple précédent crée une machine virtuelle avec un disque géré dans un compte de stockage Standard. Pour utiliser un compte de stockage Premium, ajoutez l’argument `--storage-sku Premium_LRS`, comme indiqué dans l’exemple suivant :
 
 ```azurecli
 az vm create \
---storage-sku Premium_LRS
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location westus \
---name myVM
-```
-
-
-### <a name="create-a-vm-with-an-unmanaged-standard-disk-using-the-azure-cli-10"></a>Créer une machine virtuelle avec un disque Standard non géré à l’aide d’Azure CLI 1.0
-
-Vous pouvez également utiliser Azure CLI 1.0 pour créer des machines virtuelles avec des disques Standard et Premium. Pour le moment, vous ne pouvez pas utiliser Azure CLI 1.0 pour créer des machines virtuelles dotées de disques gérés.
-
-L’option `-z` sélectionne Standard_A1, ce qui correspond à une machine virtuelle Linux avec Stockage Standard.
-
-```azurecli
-azure vm quick-create -g rbg \
-exampleVMname \
--l westus \
--y Linux \
--Q Debian \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub
--z Standard_A1
-```
-
-### <a name="create-a-vm-with-premium-storage-using-the-azure-cli-10"></a>Créer une machine virtuelle avec Stockage Premium à l’aide d’Azure CLI 1.0
-L’option `-z` sélectionne Standard_DS1, ce qui correspond à une machine virtuelle Linux avec Stockage Premium.
-
-```azurecli
-azure vm quick-create -g rbg \
-exampleVMname \
--l westus \
--y Linux \
--Q Debian \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub
--z Standard_DS1
+    --resource-group myResourceGroup \
+    --name myVM
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address-dns-name mypublicdns \
+    --storage-sku Premium_LRS
 ```
 
 ## <a name="standard-storage"></a>Stockage Standard
@@ -144,12 +110,12 @@ Les distributions Linux suivantes ont été validées avec le stockage Premium.
 | Centos |6.5, 6.6, 6.7, 7.0, 7.1 |3.10.0-229.1.2.el7+ |
 | RHEL |6.8+, 7.2+ | |
 
-## <a name="file-storage"></a>Stockage Fichier
+## <a name="azure-file-storage"></a>Présentation du stockage de fichiers
 Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Avec Azure Files, vous pouvez migrer des applications d’entreprise qui s’appuient sur des serveurs de fichiers dans Azure. Les applications exécutées dans Azure permettent de monter facilement des partages de fichiers à partir de machines virtuelles Azure exécutées sous Linux. Et avec la dernière version du stockage de fichiers, vous pouvez également monter un partage de fichiers à partir d’une application locale prenant en charge SMB 3.0.  Étant donné que les partages de fichiers sont des partages SMB, vous pouvez y accéder via les API de système de fichiers standard.
 
 File Storage repose sur la même technologie que Blob Storage, Table Storage et Queue Storage : il offre donc la disponibilité, la durabilité, l’évolutivité et la redondance géographique intégrées à la plateforme de stockage Azure. Pour plus d’informations sur les objectifs et les limites des performances du Stockage Fichier, consultez Objectifs d’évolutivité et de performances du Stockage Azure.
 
-* [Utilisation du stockage de fichiers Azure avec Linux](../../storage/storage-how-to-use-files-linux.md)
+* [Utilisation de Stockage Fichier Azure avec Linux](../../storage/storage-how-to-use-files-linux.md)
 
 ## <a name="hot-storage"></a>Stockage chaud
 Le niveau de stockage à chaud Azure est optimisé pour le stockage des données souvent sollicitées.  Le stockage à chaud est le type de stockage par défaut pour les magasins d’objets blob.
@@ -234,7 +200,7 @@ Nous nous pencherons sur Storage Service Encryption (SSE) et sur la procédure d
 * [Guide de sécurité du Stockage Azure](../../storage/storage-security-guide.md)
 
 ## <a name="temporary-disk"></a>Disque temporaire
-Chaque machine virtuelle contient un disque temporaire. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Les données présentes sur le disque temporaire peuvent être perdues lors d’un [événement de maintenance](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-planned-vs-unplanned-maintenance) ou quand vous [redéployez une machine virtuelle](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Lors d’un redémarrage standard de la machine virtuelle, les données présentes sur le disque temporaire doivent normalement être conservées.
+Chaque machine virtuelle contient un disque temporaire. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Les données présentes sur le disque temporaire peuvent être perdues lors d’un [événement de maintenance](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quand vous [redéployez une machine virtuelle](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Lors d’un redémarrage standard de la machine virtuelle, les données présentes sur le disque temporaire doivent normalement être conservées.
 
 Sur les machines virtuelles Linux, le disque se nomme généralement **/dev/sdb**, et est formaté et monté sur **/mnt** par l’agent Linux Azure. La taille du disque temporaire varie en fonction de la taille de la machine virtuelle. Pour plus d’informations, consultez [Taille des machines virtuelles Linux](sizes.md).
 

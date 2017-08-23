@@ -1,5 +1,5 @@
 ---
-title: "Gestion des clusters Hadoop à l’aide de l’interface de ligne de commande Azure | Microsoft Docs"
+title: "Gestion des clusters Hadoop à l’aide de l’interface CLI Azure - Azure HDInsight | Microsoft Docs"
 description: "Découvrez comment utiliser l’interface de ligne de commande Azure pour gérer des clusters Hadoop dans Azure HDInsight. Azure CLI fonctionne sur Windows, Mac et Linux."
 services: hdinsight
 editor: cgronlun
@@ -17,11 +17,10 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c8067e582dd7e20b4ca35771123303de6c4a4ef6
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 5102d44ebd447b638ab6e26fa1826bad224ed6c3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 06/09/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Gestion des clusters Hadoop dans HDInsight à l'aide du portail Azure
@@ -95,7 +94,7 @@ Dans cet article, vous avez appris comment effectuer différentes tâches d'admi
 * [Utilisation de l’interface de ligne de commande Azure][azure-command-line-tools]
 
 [azure-command-line-tools]: ../cli-install-nodejs.md
-[azure-create-storageaccount]: ../storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/

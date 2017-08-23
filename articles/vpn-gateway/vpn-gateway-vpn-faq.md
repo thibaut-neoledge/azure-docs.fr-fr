@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 3627b3dfa5067883625b9a714645164ec99c8a51
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27e5dbff8d4a9a2ed82ab6691aa82c2668fec958
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
@@ -58,7 +57,7 @@ Les configurations **Point à site** (VPN sur SSTP) vous permettent de vous conn
 
 Vous pouvez configurer votre réseau virtuel pour utiliser la connexion site à site et point à site simultanément, à condition de créer votre connexion site à site à l’aide d’un type de réseau privé virtuel basé sur un itinéraire pour votre passerelle. Les types de réseau privé virtuel basé sur un itinéraire sont appelés des passerelles dynamiques dans le modèle de déploiement classique.
 
-## <a name="virtual-network-gateways"></a>Passerelles de réseau virtuel
+## <a name="gateways"></a>Passerelles de réseau virtuel
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>Une passerelle VPN est-elle une passerelle de réseau virtuel ?
 
@@ -132,7 +131,7 @@ Une passerelle VPN est, fondamentalement, un périphérique multirésident avec 
 
 Pour plus d’informations, consultez [À propos des paramètres de configuration de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-## <a name="site-to-site-connections-and-vpn-devices"></a>Connexions de site à site et périphériques VPN
+## <a name="s2s"></a>Connexions de site à site et périphériques VPN
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Que dois-je prendre en compte lors de la sélection d'un périphérique VPN ?
 
@@ -196,7 +195,7 @@ Oui, les réseaux VPN point à site peuvent être utilisés avec les passerelles
 
 Oui, cette méthode est prise en charge. Pour plus d’informations, consultez [Configurer des connexions ExpressRoute et VPN de site à site pour qu’elles coexistent pour un réseau virtuel](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="ipsecike-policy"></a>Stratégie IPsec/IKE
+## <a name="ipsecike"></a>Stratégie IPsec/IKE
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
 
@@ -205,7 +204,7 @@ Oui, cette méthode est prise en charge. Pour plus d’informations, consultez [
 
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
-## <a name="cross-premises-connectivity-and-vms"></a>Connectivité entre locaux et machines virtuelles
+## <a name="vms"></a>Connectivité entre locaux et machines virtuelles
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>Si ma machine virtuelle est dans un réseau virtuel et que j'ai une connexion entre différents locaux, comment dois-je me connecter à la machine virtuelle ?
 
@@ -222,7 +221,7 @@ Non. Seul le trafic qui possède une IP de destination contenue dans les plages 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="virtual-network-faq"></a>FAQ Virtual Network
+## <a name="faq"></a>Forum aux questions sur le réseau virtuel
 
 Des informations supplémentaires sur les réseaux virtuels sont disponibles dans le [Forum Aux Questions sur les réseaux virtuels](../virtual-network/virtual-networks-faq.md).
 

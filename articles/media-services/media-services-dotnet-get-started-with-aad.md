@@ -60,7 +60,7 @@ Vous avez également la possibilité de remplacer l’implémentation par défau
 
     Pour ajouter des références à l’aide de NuGet, procédez comme suit : dans l’**Explorateur de solutions**, cliquez avec le bouton droit de la souris sur le nom du projet, puis sélectionnez **Gérer les packages NuGet**. Ensuite, recherchez **windowsazure.mediaservices** et cliquez sur **Installer**.
     
-    - ou -
+    -ou-
 
     Dans la **Console du Gestionnaire de package** de Visual Studio, exécutez la commande suivante.
 

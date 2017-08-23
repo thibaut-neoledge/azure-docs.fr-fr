@@ -22,7 +22,6 @@ ms.openlocfilehash: a49be9d5037af120e429a9cc7ae77ceda5e03236
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Code cible de la mémoire tampon en anneau pour les événements étendus dans SQL Database
 
@@ -67,7 +66,7 @@ Après quelques modifications mineures, vous pouvez exécuter l’exemple suivan
 
 &nbsp;
 
-```tsql
+```sql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -324,7 +323,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 Quand vous n’avez plus besoin de votre mémoire tampon en anneau, vous pouvez la supprimer et libérer ses ressources à l’aide d’une instruction **ALTER** , comme suit :
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -334,7 +333,7 @@ GO
 
 La définition de votre session d’événement est mise à jour, mais pas supprimée. Vous pouvez ajouter ultérieurement une autre instance de la mémoire tampon en anneau à votre session d’événement :
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET

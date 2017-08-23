@@ -13,24 +13,25 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/24/2017
 ms.author: jodebrui
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: a7273c50f2619c776268406aa14f6c00dcfbfbbe
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 4cb45551c486263f26947e5684d54b4f2ecc7410
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 07/25/2017
 
 ---
-
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimisation des performances à l’aide des technologies en mémoire dans SQL Database
 
 À l’aide des technologies en mémoire dans Azure SQL Database, vous pouvez obtenir des améliorations des performances pour différentes charges de travail : transactionnelles (traitement transactionnel en ligne (OLTP)), analytiques (traitement analytique en ligne (OLAP)) et mixtes (traitement transactionnel/analytique hybride (HTAP)). Les technologies en mémoire vous aident également à réduire les coûts grâce à un traitement plus efficace des requêtes et des transactions. En général, il n’est pas nécessaire de mettre à jour le niveau de tarification de la base de données pour obtenir des gains de performances. Dans certains cas, vous pourriez même être en mesure de réduire le niveau de tarification, tout en bénéficiant d’une amélioration des performances grâce aux technologies en mémoire.
 
 Voici deux exemples illustrant comment la technologie OLTP en mémoire a permis d’améliorer les performances :
 
-- Grâce à la technologie OLTP en mémoire, [Quorum Business Solutions a réussi à doubler sa charge de travail tout en améliorant les DTU (c’est-à-dire, la consommation de ressources) de 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-- La vidéo suivante montre une amélioration significative de la consommation de ressources avec un exemple de charge de travail : [Vidéo OLTP en mémoire dans Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB). Pour plus d’informations, voir le billet de blog : [Billet de blog OLTP en mémoire dans Azure SQL Database](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
+- À l’aide de l’OLTP en mémoire, [Quorum Business Solutions a pu doubler leur charge de travail tout en améliorant les DTU de 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+    - DTU signifie *unité de débit de base de données* et inclut une mesure de la consommation des ressources.
+- La vidéo suivante montre une amélioration significative de la consommation de ressources avec un exemple de charge de travail : [Vidéo OLTP en mémoire dans Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
+    - Pour plus d’informations, voir le billet de blog : [Billet de blog OLTP en mémoire dans Azure SQL Database](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 Les technologies en mémoire sont disponibles dans toutes les bases de données du niveau Premium, notamment les bases de données dans des pools élastiques Premium.
 
@@ -45,11 +46,14 @@ L’Azure SQL Database comprend les technologies en mémoire suivantes :
 - *L’OLTP en mémoire* augmente le débit et réduit la latence de traitement des transactions. Les scénarios qui bénéficient de l’OLTP en mémoire sont : le traitement de transactions haut débit, notamment les données commerciales et de jeux, l’ingestion de données d’événements ou d’appareils IoT, la mise en cache, le chargement de données, les tables temporaires et les scénarios de variables de table.
 - Les *index columnstore en cluster* réduisent l’encombrement de stockage (jusqu'à 10 fois) et améliorent les performances des requêtes d’analyse et de création de rapports. Vous pouvez les utiliser avec des tables de faits dans vos mini-Data Warehouses pour faire tenir plus de données dans votre base de données et optimiser les performances. Vous pouvez également les utiliser avec des données historiques dans votre base de données opérationnelles pour archiver et être en mesure d’interroger jusqu’à 10 fois plus de données.
 - Les *index columnstore sans cluster* pour HTAP vous aident à obtenir un aperçu en temps réel de votre activité en interrogeant la base de données opérationnelle directement, sans avoir à exécuter de processus d’extraction, de transformation et de chargement (ETL) coûteux et à attendre que l’entrepôt de données se remplisse. Les index columnstore sans cluster permettent une exécution très rapide des requêtes d’analyse sur la base de données OLTP, tout en réduisant l’impact sur la charge de travail opérationnelle.
-- Vous pouvez également combiner la technologie OLTP en mémoire et les index columnstore. Vous pouvez disposer d’une table à mémoire optimisée avec un index columnstore. Ainsi, vous pouvez, très rapidement, traiter des transactions et exécuter des requêtes analytiques sur les mêmes données.
+- Vous pouvez également disposer de la combinaison d’une table à mémoire optimisée et d’un index columnstore. Cette combinaison permet d’effectuer un traitement transactionnel très rapide, et permet d’exécuter *simultanément* et très rapidement des requêtes Analytics sur les mêmes données.
 
 Les index columnstore et la technologie OLTP en mémoire sont inclus dans le produit SQL Server respectivement depuis 2012 et 2014. Azure SQL Database et SQL Server partagent la même implémentation des technologies en mémoire. À l’avenir, les nouvelles fonctionnalités pour ces technologies seront publiées dans Azure SQL Database avant d’être publiées dans SQL Server.
 
-Cette rubrique décrit les aspects des index columnstore et de la technologie OLTP en mémoire spécifiques à Azure SQL Database, et inclut également des exemples. Tout d’abord, vous verrez l’impact de ces technologies sur le stockage et les limites de taille des données. Vous verrez ensuite comment gérer le déplacement de bases de données qui exploitent ces technologies entre les différents niveaux tarifaires. Enfin, vous verrez deux exemples qui illustrent l’utilisation d’OLTP en mémoire, ainsi que des index columnstore dans Azure SQL Database.
+Cette rubrique décrit des aspects de l’OLTP en mémoire et des index columnstore qui sont spécifiques à Azure SQL Database, et inclut également des exemples :
+- Vous verrez l’impact de ces technologies sur le stockage et les limites de taille des données.
+- Vous verrez ensuite comment gérer le déplacement de bases de données qui exploitent ces technologies entre les différents niveaux tarifaires.
+- Vous verrez deux exemples qui illustrent l’utilisation d’OLTP en mémoire, ainsi que les index columnstore dans la base de données SQL Azure.
 
 Pour plus d’informations, consultez les ressources suivantes.
 
@@ -66,7 +70,7 @@ Vidéos détaillées sur les technologies :
 
 - [OLTP en mémoire dans Azure DQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (avec notamment une démonstration des avantages de performances et les étapes à suivre pour reproduire ces résultats vous-même)
 - [Vidéos sur l’OLTP en mémoire : qu’est-ce que c’est, et comment l’utiliser](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
-- [Index Columntore : vidéos d’analyse en mémoire (c'est-à-dire les index columnstore) depuis Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [Index Columnstore : vidéos d’analyse en mémoire d’Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ## <a name="storage-and-data-size"></a>Taille des données et du stockage
 
@@ -78,13 +82,13 @@ Chaque niveau tarifaire de base de données autonome pris en charge et chaque ni
 
 L’article [Niveaux de service SQL Database](sql-database-service-tiers.md) contient la liste officielle de stockage OLTP en mémoire disponible pour chaque niveau tarifaire de base de données autonome et de pool élastique pris en charge.
 
-Les éléments suivants sont pris en compte dans votre plafond de stockage OLTP en mémoire :
+Les éléments suivants sont pris en compte dans votre plafond de stockage OLTP en mémoire :
 
 - Lignes de données utilisateur actives dans des tables optimisées en mémoire et variables de table. Notez que les anciennes versions des lignes ne comptent pas dans le seuil.
 - Index de tables optimisées en mémoire.
 - Coûts de fonctionnement des opérations ALTER TABLE.
 
-Si vous avez atteint le seuil, vous recevrez une erreur de quota et vous ne serez plus en mesure d’insérer ou de mettre à jour des données. La solution consiste à supprimer des données ou à augmenter le niveau tarifaire de la base de données ou du pool.
+Si vous atteignez le seuil, vous recevrez une erreur de quota et vous ne serez plus en mesure d’insérer ou de mettre à jour des données. Pour atténuer cette erreur, supprimez des données ou augmentez le niveau tarifaire de la base de données ou du pool.
 
 Pour plus d’informations sur la surveillance de l’utilisation du stockage OLTP en mémoire et la configuration des alertes lorsque le seuil est presque atteint, consultez [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md).
 
@@ -92,14 +96,14 @@ Pour plus d’informations sur la surveillance de l’utilisation du stockage OL
 
 Avec les pools élastiques, le stockage OLTP en mémoire est partagé entre toutes les bases de données dans le pool. Par conséquent, l’utilisation dans une base de données peut potentiellement affecter les autres bases de données. Voici deux solutions :
 
-- Configurez un nombre d’eDTU maximal pour les bases de données inférieur au nombre d’eDTU du pool dans son ensemble. Cela limite l’utilisation du stockage OLTP en mémoire dans toute base de données du pool à la taille correspondant au nombre d’eDTU.
-- Configurez un nombre d’eDTU minimal supérieur à 0. Cela garantit que chaque base de données dans le pool dispose de la quantité de stockage OLTP en mémoire disponible correspondant au nombre d’eDTU minimal configuré.
+- Configurez un nombre d’eDTU maximal pour les bases de données inférieur au nombre d’eDTU du pool dans son ensemble. Cette valeur maximale limite l’utilisation du stockage OLTP en mémoire, dans n’importe quelle base de données du pool, à la taille qui correspond au nombre d’eDTU.
+- Configurez un nombre d’eDTU minimal supérieur à 0. Ce minimum garantit que chaque base de données dans le pool possède la quantité de stockage OLTP en mémoire disponible qui correspond à l’eDTU-Min configuré.
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Taille des données et stockage pour les index columnstore
 
 Le volume des index columntore ne doit pas forcément tenir dans la mémoire. Par conséquent, le seul seuil de taille des index est la taille de base de données globale maximale décrite dans l’article [Niveaux de service SQL Database](sql-database-service-tiers.md).
 
-Lors de l’utilisation d’index columnstore en cluster, la compression en colonnes est utilisée pour le stockage de table de base. Cela peut réduire considérablement l’encombrement de stockage de vos données utilisateur, ce qui signifie que vous pouvez placer davantage de données dans la base de données. Ce volume peut être augmenté avec [la compression d’archivage en colonnes](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). Le taux de compression que vous pouvez obtenir dépend de la nature des données, mais une compression égale à 10 fois n’est pas rare.
+Lors de l’utilisation d’index columnstore en cluster, la compression en colonnes est utilisée pour le stockage de table de base. Cette compression peut réduire considérablement l’encombrement de stockage des données utilisateur, ce qui signifie que vous pouvez entrer davantage de données dans la base de données. De plus, la compression peut être accrue d’avantage avec [la compression d’archivage en colonnes](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). Le taux de compression que vous pouvez obtenir dépend de la nature des données, mais une compression égale à 10 fois n’est pas rare.
 
 Par exemple, si vous disposez d’une base de données avec une taille maximale de 1 téraoctet (To), et que vous atteignez une compression de 10 fois à l’aide d’index columntore, vous pouvez afficher un total de 10 To de données utilisateur dans la base de données.
 
@@ -107,7 +111,9 @@ Lors de l’utilisation d’index columnstore sans cluster, la table de base est
 
 ## <a name="moving-databases-that-use-in-memory-technologies-between-pricing-tiers"></a>Déplacement de bases de données utilisant des technologies en mémoire entre différents niveaux tarifaires
 
-Il n’existe aucune considération particulière pour l’augmentation du niveau tarifaire d’une base de données qui utilise des technologies en mémoire, étant donné que les niveaux tarifaires supérieurs ont toujours plus de fonctionnalités et plus de ressources. Le fait de réduire le niveau tarifaire peut avoir des conséquences pour votre base de données. Cela est particulièrement vrai lorsque vous passez du niveau Premium vers le niveau De base ou Standard, et lorsque vous déplacez une base de données qui utilise la technologie OLTP en mémoire vers un niveau Premium inférieur. Les mêmes considérations s’appliquent lors de la réduction du niveau tarifaire d’un pool élastique ou du déplacement de bases de données avec des technologies en mémoire vers un pool élastique standard ou de base.
+Vous ne rencontrerez aucune incompatibilité ou aucun autre problème lorsque vous effectuerez une mise à niveau vers un niveau tarifaire supérieur (ex : Édition Standard vers Édition Premium). Les ressources et les fonctionnalités disponibles ne font qu’augmenter.
+
+Cependant la rétrogradation du niveau de tarification peut affecter négativement votre base de données. L’impact est particulièrement évident lorsque vous rétrogradez à partir de Premium pour Base ou Standard alors que votre base de données contient des objets de l’OLTP en mémoire. Les tables à mémoire optimisée et les index columnstore sont indisponibles après la rétrogradation (même si elles restent visibles). Les mêmes considérations s’appliquent lors de la réduction du niveau tarifaire d’un pool élastique ou du déplacement d’une base de données avec des technologies en mémoire vers un pool élastique Standard ou de base.
 
 ### <a name="in-memory-oltp"></a>OLTP In-Memory.
 
@@ -124,15 +130,15 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 Si la requête renvoie **1**, l’OLTP en mémoire est pris en charge dans cette base de données.
 
 
-*Rétrogradation vers un niveau Premium inférieur* : les données dans des tables à mémoire optimisée doivent tenir dans le stockage OLTP en mémoire qui est associé au niveau tarifaire de la base de données ou disponible dans le pool élastique. Si vous tentez de réduire le niveau tarifaire ou de déplacer la base de données vers un pool qui ne dispose pas d’un stockage OLTP en mémoire suffisant, l’opération échoue.
+*Rétrogradation vers un niveau Premium inférieur* : les données dans des tables à mémoire optimisée doivent tenir dans le stockage OLTP en mémoire qui est associé au niveau tarifaire de la base de données ou disponible dans le pool élastique. L’opération échoue si vous tentez de réduire le niveau tarifaire ou de déplacer la base de données dans un pool qui ne dispose pas d’un stockage OLTP en mémoire suffisant.
 
 ### <a name="columnstore-indexes"></a>Index Columnstore
 
-*Rétrogradation vers le niveau De base/Standard* : les index columnstore ne sont pas pris en charge dans des bases de données de niveau standard ou de base. Lorsque vous rétrogradez une base de données au niveau standard/de base, les index columnstore ne sont plus disponibles. Si vous utilisez un index columnstore en cluster, cela signifie que la table dans son ensemble est indisponible.
+*Rétrogradation vers Base ou Standard* : les index columnstore ne sont pris en charge que sur le niveau tarifaire Premium et non sur les niveaux Standard ou Basic. Lors de la rétrogradation de votre base de données vers Standard ou Base, l’index columnstore devient indisponible. Le système maintient l’index columnstore, mais il ne tire jamais profit de l’index. Si vous mettez à niveau ultérieurement vers Premium, l’index columnstore est immédiatement prêt à être exploité à nouveau.
 
-Avant de rétrograder la base de données au niveau standard/de base, supprimez tous les index columnstore en cluster.
+Si vous disposez d’un index columnstore **mis en cluster**, la totalité de la table devient indisponible après la rétrogradation de la couche. Par conséquent, nous vous recommandons d’annuler tous les index columnstore *mis en index* avant de rétrograder votre base de données sous le niveau Premium.
 
-*Rétrogradation vers un niveau Premium inférieur* : cette opération réussit tant que la taille de base de données dans son ensemble est inférieure à la taille de base de données maximale correspondant au niveau tarifaire cible ou au stockage disponible dans le pool élastique. Les index columnstore n’ont aucune incidence spécifique.
+*Rétrogradation vers un niveau Premium inférieur* : cette opération réussit tant que la taille de base de données dans son ensemble est inférieure à la taille de base de données maximale correspondant au niveau tarifaire cible ou au stockage disponible dans le pool élastique. Les index columnstore n’ont aucune incidence spécifique.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
@@ -320,10 +326,11 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 Pour exécuter la ligne de commande ostress.exe précédente :
 
 
-1. Réinitialisez le contenu de la base de données en exécutant la commande suivante dans SSMS pour supprimer toutes les données insérées lors des exécutions précédentes :
-```
-EXECUTE Demo.usp_DemoReset;
-```
+1. Réinitialisez le contenu de la base de données en exécutant la commande suivante dans SSMS, pour supprimer toutes les données insérées lors des exécutions précédentes :
+
+    ``` tsql
+    EXECUTE Demo.usp_DemoReset;
+    ```
 
 2. Copiez le texte de la ligne de commande ostress.exe qui précède dans le presse-papiers.
 

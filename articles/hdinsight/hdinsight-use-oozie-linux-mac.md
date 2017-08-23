@@ -14,31 +14,40 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/04/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3ca1184bfbd6af3a63e62bce9dfe1baf1729b4ac
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: b43dd20be9f481270b782de3c889abac762bd9cc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>Utilisation d’Oozie avec Hadoop pour définir et exécuter un flux de travail dans HDInsight
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Découvrez comment utiliser Apache Oozie avec Hadoop sur HDInsight. Apache Oozie est un système de workflow/coordination qui gère les tâches Hadoop. Il est intégré à la pile Hadoop et prend en charge les tâches Hadoop pour Apache MapReduce, Apache Pig, Apache Hive et Apache Sqoop. Il peut également être utilisé pour planifier des travaux propres à un système comme des programmes Java ou des scripts shell.
+Découvrez comment utiliser Apache Oozie avec Hadoop sur HDInsight. Apache Oozie est un système de workflow/coordination qui gère les tâches Hadoop. Oozie est intégré dans la pile Hadoop et prend en charge les travaux suivants :
+
+* Apache MapReduce
+* Apache Pig
+* Apache Hive
+* Apache Sqoop
+
+Oozie peut également être utilisé pour planifier des travaux propres à un système, comme des programmes Java ou des scripts de l’interpréteur de commandes
 
 > [!NOTE]
 > Une autre option pour définir des flux de travail avec HDInsight consiste à utiliser Azure Data Factory. Pour en savoir plus sur Azure Data Factory, consultez la page [Utilisation de Pig et Hive avec Data Factory][azure-data-factory-pig-hive].
+
+> [!IMPORTANT]
+> Oozie n’est pas activé sur HDInsight joint à un domaine.
 
 ## <a name="prerequisites"></a>Composants requis
 
 * **Un cluster HDInsight**: consultez la page [Prise en main de HDInsight sur Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
   > [!IMPORTANT]
-  > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="example-workflow"></a>Exemple de flux de travail
 
@@ -63,7 +72,7 @@ Le workflow utilisé dans ce document comporte deux actions. Les actions sont de
 
 ## <a name="create-the-working-directory"></a>Création du répertoire de travail
 
-Oozie s’attend à ce que les ressources requises pour un travail soient stockées dans le même répertoire. Cet exemple utilise **wasbs:///tutorials/useoozie**. Utilisez la commande suivante pour créer ce répertoire et le répertoire de données qui contient la nouvelle table Hive créée par ce workflow :
+Oozie s’attend à ce que les ressources requises pour un travail soient stockées dans le même répertoire. Cet exemple utilise **wasb:///tutorials/useoozie**. Utilisez la commande suivante pour créer ce répertoire et le répertoire de données qui contient la nouvelle table Hive créée par ce workflow :
 
 ```
 hdfs dfs -mkdir -p /tutorials/useoozie/data
@@ -128,13 +137,13 @@ Utilisez les étapes suivantes pour créer un script HiveQL qui définit une req
 
 4. Appuyez sur Ctrl+X pour quitter l’éditeur. Lorsque vous y êtes invité, sélectionnez **Y** pour enregistrer le fichier, puis sélectionnez **Entrée** pour utiliser le nom de fichier **useooziewf.hql**.
 
-5. Utilisez les commandes suivantes pour copier **useooziewf.hql** vers **wasbs:///tutorials/useoozie/useooziewf.hql** :
+5. Utilisez les commandes suivantes pour copier **useooziewf.hql** vers **wasb:///tutorials/useoozie/useooziewf.hql** :
 
     ```
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
     ```
 
-    Ces commandes stockent le fichier **useooziewf.hql** sur le compte de stockage Azure associé à ce cluster, ce qui conserve le fichier même si le cluster est supprimé.
+    Ces commandes stockent le fichier **useooziewf.hql** sur le stockage compatible avec HDFS pour le cluster.
 
 ## <a name="define-the-workflow"></a>Définition du flux de travail
 
@@ -292,11 +301,11 @@ La définition du travail indique où se trouve le fichier workflow.xml. Elle in
 
     ```xml
     <name>fs.defaultFS</name>
-    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
+    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
     ```
 
     > [!NOTE]
-    > Si le cluster HDInsight utilise le stockage Azure comme stockage par défaut, le contenu de l’élément `<value>` commence par `wasbs://`. En revanche, si Azure Data Lake Store est utilisé, il commence par `adl://`.
+    > Si le cluster HDInsight utilise le stockage Azure comme stockage par défaut, le contenu de l’élément `<value>` commence par `wasb://`. En revanche, si Azure Data Lake Store est utilisé, il commence par `adl://`.
 
     Enregistrez le contenu de l’élément `<value>`, tel qu’il est utilisé dans les prochaines étapes.
 
@@ -326,7 +335,7 @@ La définition du travail indique où se trouve le fichier workflow.xml. Elle in
 
         <property>
         <name>nameNode</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
         </property>
 
         <property>
@@ -346,7 +355,7 @@ La définition du travail indique où se trouve le fichier workflow.xml. Elle in
 
         <property>
         <name>hiveScript</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
         </property>
 
         <property>
@@ -356,7 +365,7 @@ La définition du travail indique où se trouve le fichier workflow.xml. Elle in
 
         <property>
         <name>hiveDataFolder</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
         </property>
 
         <property>
@@ -376,12 +385,12 @@ La définition du travail indique où se trouve le fichier workflow.xml. Elle in
 
         <property>
         <name>oozie.wf.application.path</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
     </configuration>
     ```
 
-   * Remplacez toutes les instances de **wasbs://mycontainer@mystorageaccount.blob.core.windows.net** par la valeur que vous avez reçue précédemment pour le stockage par défaut.
+   * Remplacez toutes les instances de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** par la valeur que vous avez reçue précédemment pour le stockage par défaut.
 
      > [!WARNING]
      > Si le chemin d’accès est un chemin `wasb`, vous devez utiliser le chemin d’accès complet. Ne le limitez pas simplement à `wasb:///`.
@@ -452,7 +461,7 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
     Job ID : 0000005-150622124850154-oozie-oozi-W
     ------------------------------------------------------------------------------------------------------------------------------------
     Workflow Name : useooziewf
-    App Path      : wasbs:///tutorials/useoozie
+    App Path      : wasb:///tutorials/useoozie
     Status        : PREP
     Run           : 0
     User          : USERNAME
@@ -465,7 +474,7 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
     ------------------------------------------------------------------------------------------------------------------------------------
     ```
 
-    Ce travail a le statut `PREP`, ce qui indique qu’il a été envoyé, mais qu’il n’a pas encore été démarré.
+    Ce travail a le statut `PREP`, Cet état indique que le travail a été créé, mais qu’il n’a pas commencé.
 
 5. Utilisez la commande suivante pour démarrer le travail :
 
@@ -520,7 +529,7 @@ Pour plus d'informations sur l’utilisation de l’API REST Oozie, consultez la
 
 ## <a name="oozie-web-ui"></a>Interface utilisateur web Oozie
 
-L’interface utilisateur web Oozie fournit une vue web de l’état des travaux Oozie sur le cluster. L’interface utilisateur web vous permet d’afficher les éléments suivants :
+L’interface utilisateur web Oozie fournit une vue web de l’état des travaux Oozie sur le cluster. L’interface utilisateur web vous permet d’afficher les informations suivantes :
 
 * Statut de tâche
 * Définition du travail
@@ -566,9 +575,7 @@ Pour accéder à l'interface utilisateur web Oozie, procédez comme suit :
 
 ## <a name="scheduling-jobs"></a>Planification des travaux
 
-Le coordinateur vous permet de spécifier le début, la fin et la fréquence d’occurrence des travaux afin qu’ils puissent être planifiés pour certaines heures.
-
-Pour définir une planification pour le flux de travail, procédez comme suit :
+Le coordinateur vous permet de spécifier le début, la fin et la fréquence d’occurrence des travaux. Pour définir une planification pour le flux de travail, procédez comme suit :
 
 1. Utilisez la commande suivante pour créer un fichier nommé **coordinator.xml** :
 
@@ -613,20 +620,20 @@ Pour définir une planification pour le flux de travail, procédez comme suit :
 
     Effectuez les modifications suivantes :
 
-   * Remplacez `<name>oozie.wf.application.path</name>` par `<name>oozie.coord.application.path</name>`. Cette valeur ordonne à Oozie d’exécuter le fichier coordinateur au lieu du fichier de workflow.
+   * Pour ordonner à Oozie d’exécuter le fichier coordinateur au lieu du fichier de workflow, remplacez `<name>oozie.wf.application.path</name>` par `<name>oozie.coord.application.path</name>`.
 
-   * Ajoutez le code XML suivant qui définit une variable utilisée dans le fichier coordinator.xml pour pointer vers l’emplacement du fichier workflow.xml :
+   * Pour définir la variable `workflowPath` utilisée par le coordinateur, ajoutez le code XML suivant :
 
         ```xml
         <property>
             <name>workflowPath</name>
-            <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+            <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
         ```
 
-       Remplacez le texte `wasbs://mycontainer@mystorageaccount.blob.core.windows` par la valeur utilisée dans les autres entrées du fichier job.xml.
+       Remplacez le texte `wasb://mycontainer@mystorageaccount.blob.core.windows` par la valeur utilisée dans les autres entrées du fichier job.xml.
 
-   * Ajoutez le code XML suivant qui définit le début, la fin et la fréquence à utiliser pour le fichier coordinator.xml :
+   * Pour définir le début, la fin et la fréquence correspondant au coordinateur, ajoutez le code XML suivant :
 
         ```xml
         <property>
@@ -650,7 +657,7 @@ Pour définir une planification pour le flux de travail, procédez comme suit :
         </property>
         ```
 
-       Ces valeurs définissent l’heure de début sur 12:00 PM le 10 mai 2017 et l’heure de fin au 12 mai 2017. L’intervalle d’exécution de ce travail est quotidien. La fréquence est exprimée en minutes, par conséquent, 24 heures x 60 minutes = 1 440 minutes. Enfin, le fuseau horaire est défini au format UTC.
+       Ces valeurs définissent l’heure de début sur 12 h 00 le 10 mai 2017 et la fin sur le 12 mai 2017. L’intervalle d’exécution de ce travail est quotidien. La fréquence est exprimée en minutes, par conséquent, 24 heures x 60 minutes = 1 440 minutes. Enfin, le fuseau horaire est défini au format UTC.
 
 5. Utilisez Ctrl-X, puis **Y** et **Entrée** pour enregistrer le fichier.
 
@@ -673,7 +680,7 @@ Pour définir une planification pour le flux de travail, procédez comme suit :
     ![Informations sur les travaux du coordinateur](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
     > [!NOTE]
-    > Seules les exécutions réussies du travail s’affichent, pas les actions individuelles dans le workflow planifié. Pour voir ces dernières, sélectionnez l’une des entrées **Action** .
+    > L’image affiche uniquement les exécutions réussies du travail, et non les actions individuelles dans le workflow planifié. Pour voir ces dernières, sélectionnez l’une des entrées **Action** .
 
     ![Informations sur l’action](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
@@ -695,7 +702,7 @@ Voici des erreurs spécifiques que vous pouvez rencontrer avec une description d
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Cause** : les adresses WASB utilisées dans le fichier **job.xml** ne contiennent pas le conteneur de stockage ou le nom du compte de stockage. Le format d’adresse WASB doit être `wasbs://containername@storageaccountname.blob.core.windows.net`.
+**Cause** : les adresses WASB utilisées dans le fichier **job.xml** ne contiennent pas le conteneur de stockage ou le nom du compte de stockage. Le format d’adresse WASB doit être `wasb://containername@storageaccountname.blob.core.windows.net`.
 
 **Résolution**: modifiez les adresses WASB utilisées par le travail.
 
@@ -768,7 +775,7 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 [sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
 
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/

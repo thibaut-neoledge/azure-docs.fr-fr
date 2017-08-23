@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: d991adb8fa8f71a8785327be244ad9749a837dfd
-ms.lasthandoff: 04/26/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Groupes de machines virtuelles identiques Azure et disques de données associés
@@ -112,7 +112,7 @@ az vmss disk detach -g dsktest -n dskvmss --lun 2
 De même, vous pouvez également supprimer un disque d’un groupe identique en supprimant une entrée de la propriété _dataDisks_ dans le _storageProfile_ et en appliquant la modification. 
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
-La prise en charge des disques gérés Azure et des disques de données associés de groupe identique a été ajoutée à la version [ _2016-04-30-preview_ ](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) de l’APi Microsoft.Compute. Vous pouvez utiliser n’importe quel kit de développement logiciel (SDK) ou outil de ligne de commande intégré à cette version ou une version ultérieure de l’API.
+La prise en charge des disques gérés Azure et des disques de données associés de groupe identique ests disponible dans les versions [ _2016-04-30-preview_ ](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) et ultérieures de l’APi Microsoft.Compute.API.
 
 Dans l’implémentation initiale de la prise en charge des disques associés pour les groupes identiques, vous ne pouvez pas associer ou dissocier des disques de données à/de machines virtuelles individuelles dans un groupe identique.
 

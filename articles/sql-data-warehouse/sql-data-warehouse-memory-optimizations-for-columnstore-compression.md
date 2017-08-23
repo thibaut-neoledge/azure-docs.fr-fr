@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 11/18/2016
+ms.date: 6/2/2017
 ms.author: shigu;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 8d189256ed4c876859203406cda95ce0be36c96c
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: a0452c4dedc218dff17404c4ecee70d788e49644
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/25/2017
 
 ---
 
-# <a name="memory-optimizations-for-columnstore-compression"></a>Optimisations de mémoire pour la compression columnstore
+# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Optimiser la qualité du rowgroup pour columnstore
 
-Réduisez les besoins de mémoire ou augmentez la mémoire disponible afin d’optimiser le nombre de lignes qu’un index columnstore compresse dans chaque rowgroup.  Utilisez ces méthodes pour améliorer les taux de compression et les performances de requête pour les index columnstore.
+La qualité du rowgroup est déterminée par le nombre de lignes d’un rowgroup. Réduisez les besoins de mémoire ou augmentez la mémoire disponible afin d’optimiser le nombre de lignes qu’un index columnstore compresse dans chaque rowgroup.  Utilisez ces méthodes pour améliorer les taux de compression et les performances de requête pour les index columnstore.
 
 ## <a name="why-the-rowgroup-size-matters"></a>Importance de la taille de rowgroup
 Dans la mesure où un index columnstore analyse une table en examinant les segments de colonne des rowgroups, l’optimisation du nombre de lignes dans chaque rowgroup améliore les performances de requête. Quand les rowgroups comportent un grand nombre de lignes, la compression des données s’améliore, ce qui signifie qu’il y a moins de données à lire à partir du disque.
@@ -37,11 +37,45 @@ Pour optimiser les performances de requête, l’objectif est de maximiser le no
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>Des rowgroups peuvent être découpés en cours de compression
 
-Pendant un chargement en masse ou une reconstruction d’index columnstore, la mémoire disponible est parfois insuffisante pour compresser toutes les lignes désignées pour chaque rowgroup. Lorsque la mémoire est sollicitée, les index columnstore découpent les rowgroups pour permettre la réussite de la compression dans le columnstore.
+Pendant un chargement en masse ou une reconstruction d’index columnstore, la mémoire disponible est parfois insuffisante pour compresser toutes les lignes désignées pour chaque rowgroup. Lorsque la mémoire est sollicitée, les index columnstore découpent les rowgroups pour permettre la réussite de la compression dans le columnstore. 
 
 Lorsque la mémoire est insuffisante pour compresser au moins 10 000 lignes dans chaque rowgroup, SQL Data Warehouse génère une erreur.
 
 Pour plus d’informations sur le chargement en masse, voir [Chargement de données d’index columnstore](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+
+## <a name="how-to-monitor-rowgroup-quality"></a>Comment surveiller la qualité du rowgroup
+
+Il existe une vue de gestion dynamique (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) qui affiche des informations utiles telles que le nombre de lignes dans les rowgroups et la raison du découpage le cas échéant. Vous pouvez créer la vue suivante pour interroger facilement cette vue de gestion dynamique et obtenir ainsi des informations sur le découpage du rowgroup.
+
+```sql
+create view dbo.vCS_rg_physical_stats
+as 
+with cte
+as
+(
+select   tb.[name]                    AS [logical_table_name]
+,        rg.[row_group_id]            AS [row_group_id]
+,        rg.[state]                   AS [state]
+,        rg.[state_desc]              AS [state_desc]
+,        rg.[total_rows]              AS [total_rows]
+,        rg.[trim_reason_desc]        AS trim_reason_desc
+,        mp.[physical_name]           AS physical_name
+FROM    sys.[schemas] sm
+JOIN    sys.[tables] tb               ON  sm.[schema_id]          = tb.[schema_id]                             
+JOIN    sys.[pdw_table_mappings] mp   ON  tb.[object_id]          = mp.[object_id]
+JOIN    sys.[pdw_nodes_tables] nt     ON  nt.[name]               = mp.[physical_name]
+JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  rg.[object_id]     = nt.[object_id]
+                                                                            AND rg.[pdw_node_id]   = nt.[pdw_node_id]
+                                        AND rg.[distribution_id]    = nt.[distribution_id]                                          
+)
+select *
+from cte;
+```
+
+trim_reason_desc indique si le rowgroup a été découpé (trim_reason_desc = NO_TRIM signifie qu’aucun découpage n’a été effectué et que la qualité du rowgroup est optimale). Les raisons suivantes indiquent un découpage prématuré du rowgroup :
+- BULKLOAD : cette raison de découpage est utilisée si le lot entrant de lignes pour la charge est inférieur à 1 million de lignes. Le moteur créera des rowgroups compressés si plus de 100 000 lignes sont insérées (par opposition à l’insertion dans le deltastore), mais affiche BULKLOAD comme raison du découpage. Dans ce scénario, vous pouvez augmenter votre fenêtre de charge de lot pour insérer plus de lignes. En outre, réévaluez votre schéma de partitionnement pour vous assurer qu’il n’est pas trop granulaire car les rowgroups ne peuvent pas s’étendre sur plusieurs limites de partition.
+- MEMORY_LIMITATION : pour créer des rowgroups avec 1 million de lignes, le moteur nécessite une certaine quantité de mémoire de travail. Lorsque la mémoire disponible de la session de chargement est inférieure à la mémoire de travail requise, les rowgroups sont prématurément découpés. Les sections suivantes expliquent comment estimer la mémoire requise et comment allouer davantage de mémoire.
+- DICTIONARY_SIZE : cette raison indique qu’un rowgroup a été découpé car il contenant au moins une colonne de chaîne avec des chaînes de cardinalité large et/ou haute. La taille du dictionnaire est limitée à 16 Mo de mémoire, et une fois cette limite atteinte, le rowgroup est compressé. Si cette situation se produit, vous pouvez isoler la colonne problématique dans un tableau distinct.
 
 ## <a name="how-to-estimate-memory-requirements"></a>Estimation des besoins en mémoire
 

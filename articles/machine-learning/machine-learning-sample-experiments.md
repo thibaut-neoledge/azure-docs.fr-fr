@@ -1,6 +1,7 @@
 ---
-title: "Copier des exemples d’expérience d’apprentissage automatique | Microsoft Docs"
-description: "Découvrez comment utiliser les exemples d’expérience Machine Learning pour créer des expériences avec la galerie Cortana Intelligence et Microsoft Azure Machine Learning."
+title: "Copier des exemples d’expérience d’apprentissage automatique - Azure | Microsoft Docs"
+description: "Découvrez comment utiliser les exemples d’expérience d’apprentissage automatique pour créer des expériences avec la galerie Cortana Intelligence et Microsoft Azure Machine Learning."
+keywords: "exemples d’apprentissage automatique, exemple d’expérience, exemple d’apprentissage automatique"
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -12,16 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
-ms.author: cgronlun;olgali
-translationtype: Human Translation
-ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
-ms.openlocfilehash: 7b2bca108770a79a693a408a628ccc6370c36b7c
-
+ms.date: 07/28/2017
+ms.author: cgronlun
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: a6c8ca83e3a4020cb1ea0f1c14299f1aee3bdca5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="copy-sample-experiments-to-create-new-machine-learning-experiments"></a>Copier des exemples d’expérience pour créer des expériences machine Learning
-Découvrez comment démarrer avec des exemples d’expérience de la [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) au lieu de créer des expériences Machine Learning de toutes pièces. Vous pouvez utiliser les exemples pour créer votre propre solution Machine Learning.
+# <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Copier des exemples d’expérience pour créer des expériences d’apprentissage automatique
+Découvrez comment démarrer avec des exemples d’expérience de la [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) au lieu de créer des expériences d’apprentissage automatique de toutes pièces. Vous pouvez utiliser les exemples pour créer votre propre solution d’apprentissage automatique.
 
 La galerie contient des exemples d’expérience de l’équipe Microsoft Azure Machine Learning, ainsi que des exemples partagés par la communauté Machine Learning. Vous pouvez poser des questions ou publier des commentaires sur les expériences.
 
@@ -39,9 +41,9 @@ Dans cette page, vous pouvez afficher les expériences **Recently added** (Réce
 Pour parcourir toutes les expériences :
 
 1. Cliquez sur **Browse all** (Parcourir tout) en haut de la page.
-2. Dans la section **Catégories**, sous **Refine by** (Affiner par), sélectionnez **Experiment** (Expérience) pour afficher toutes les expériences de la galerie.
+2. À gauche, dans la section **Catégories**, sous **Affiner par**, sélectionnez **Tester** pour afficher toutes les expériences de la galerie.
 3. Vous y trouverez des expériences qui répondent à vos besoins de différentes façons :
-   * **Sélectionnez des filtres à gauche.** Par exemple, pour parcourir les expériences utilisant un algorithme de détection des anomalies PCA, sélectionnez **Experiment** (Expérience) sous **Categories** (Catégories), puis **PCA-Based Anomaly Detection** (Détection des anomalies PCA) sous **Algorithms Used** (Algorithmes utilisés). (Si vous ne voyez pas cet algorithme, cliquez sur **Show all** (Afficher tout) en bas de la liste.)<br></br>
+   * **Sélectionnez des filtres à gauche.** Par exemple, pour parcourir les expériences utilisant un algorithme de détection d’anomalie PCA : sous **Catégories**, avec **Tester** sélectionné, cliquez sur **Afficher tout**. Ensuite, sous **Algorithms Used** (Algorithmes utilisés), choisissez **Détection des anomalies reposant sur le PCA**. <br></br>
      ![Sélectionner des filtres](./media/machine-learning-sample-experiments/refine-the-view.png)
    * **Utilisez la zone de recherche.** Par exemple, pour rechercher les expériences partagées par Microsoft sur la reconnaissance de chiffres et qui utilisent un algorithme de machine à vecteurs de support à deux classes, entrez « reconnaissance de chiffres » dans la zone de recherche. Ensuite, sélectionnez les filtres **Experiment** (Expérience), **Microsoft content only** (Contenu Microsoft uniquement) et **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) :<br></br>
      ![Utiliser la zone de recherche](./media/machine-learning-sample-experiments/search-for-experiments.png)
@@ -55,21 +57,16 @@ Pour parcourir toutes les expériences :
     >
     >
 
-## <a name="use-a-template-in-machine-learning-studio"></a>Utiliser un modèle dans Machine Learning Studio
-Vous pouvez également créer une expérience dans Machine Learning Studio en prenant un exemple de la galerie comme modèle.
+## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Créer une expérience à l’aide d’un exemple en tant que modèle
+Vous pouvez également créer une expérience dans Machine Learning Studio en utilisant un exemple de la galerie comme modèle.
 
 1. Connectez-vous à [Studio](https://studio.azureml.net) avec les informations d’identification de votre compte Microsoft, puis cliquez sur **Nouveau** pour créer une expérience.
 2. Parcourez les exemples de contenu, puis cliquez sur l’un d’entre eux.
 
-Une expérience est créée dans votre espace de travail, et l’exemple d’expérience sert de modèle.
+Une expérience est créée dans votre espace de travail Machine Learning Studio à l’aide de l’exemple d’expérience en tant que modèle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Importer des données à partir de diverses sources](machine-learning-data-science-import-data.md)
 * [Didacticiel de démarrage rapide sur le langage R pour Machine Learning](machine-learning-r-quickstart.md)
 * [Déploiement d’un service web Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

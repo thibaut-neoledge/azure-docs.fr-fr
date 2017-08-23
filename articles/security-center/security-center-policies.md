@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 07/27/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2593e6846c897644017083b49ad4ba8219696c6c
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: f4e3f74ce3f342eecf633cd748e2b7b21b2ccdd2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Définir des stratégies de sécurité dans Azure Security Center
 Ce document est conçu pour vous aider à configurer des stratégies de sécurité dans le Centre de sécurité en vous guidant tout au long des étapes nécessaires à l’exécution de cette tâche.
 
 >[!NOTE] 
->À compter de début juin 2017, Security Center utilisera Microsoft Monitoring Agent pour collecter et stocker des données. Consultez [Azure Security Center Platform Migration](security-center-platform-migration.md) (Migration de la plateforme Azure Security Center) pour en savoir plus. Les informations contenues dans cet article représentent les fonctionnalités de Security Center après la transition vers Microsoft Monitoring Agent.
+>Depuis début juin 2017, Security Center utilise Microsoft Monitoring Agent pour collecter et stocker des données. Pour plus d’informations, consultez l’article [Migration de plateforme Azure Security Center](security-center-platform-migration.md). Les informations contenues dans cet article représentent les fonctionnalités de Security Center après la transition vers Microsoft Monitoring Agent.
 >
 
 ## <a name="what-are-security-policies"></a>Que sont les stratégies de sécurité ?
@@ -43,14 +42,14 @@ Vous pouvez configurer des stratégies de sécurité pour chaque abonnement. Pou
     ![Définition de stratégie](./media/security-center-policies/security-center-policies-fig1-ga.png)
 3. Le panneau **Stratégie de sécurité** de l’abonnement sélectionné s’ouvre avec un ensemble d’options. Les options disponibles dans ce panneau sont :
 
-   * **Stratégie de prévention**: utilisez cette option pour configurer des stratégies par abonnement ou par groupe de ressources.  
+   * **Stratégie de prévention**: utilisez cette option pour configurer des stratégies par abonnement.  
    * **Notification par e-mail**: utilisez cette option pour configurer une notification par e-mail qui est envoyée à la première occurrence quotidienne d’une alerte et pour les alertes de gravité élevée. Les préférences de courrier électronique peuvent être configurées uniquement pour les stratégies d’abonnement. Pour plus d’informations sur la configuration d’une notification par e-mail, consultez [Fournir les détails du contact de sécurité dans Azure Security Center](security-center-provide-security-contact-details.md) .
    * **Niveau tarifaire**: utilisez cette option pour mettre à niveau l’option de niveau tarifaire. Pour plus d’informations sur les options de tarification, consultez [Tarification de Security Center](security-center-pricing.md) .
-4. Vérifiez que l’option **Collecter des données à partir des machines virtuelles** est définie sur **Activé**. Cette option active la collecte de journal automatique pour les ressources nouvelles et existantes à l’aide de Microsoft Monitoring Agent. Il s’agit du même agent que celui utilisé par Operations Management Suite et le service Log Analytics. Les données collectées à partir de cet agent seront stockées dans un espace de travail Log Analytics existant associé à votre abonnement Azure ou dans un nouvel espace de travail, en tenant compte de la zone géographique de la machine virtuelle.
+4. Vérifiez que l’option **Collecter des données à partir des machines virtuelles** est définie sur **Activé**. Cette option active la collecte de journal automatique pour les ressources nouvelles et existantes à l’aide de Microsoft Monitoring Agent. Il s’agit du même agent que celui utilisé par Operations Management Suite et le service Log Analytics. Les données collectées à partir de cet agent sont stockées dans un espace de travail Log Analytics existant associé à votre abonnement Azure ou dans un nouvel espace de travail, en tenant compte de la zone géographique de la machine virtuelle.
 
 5. Dans le panneau **Stratégie de sécurité**, cliquez sur **Stratégie de prévention** pour afficher les options disponibles. Cliquez sur **Activé** pour activer les recommandations de sécurité qui sont pertinentes pour cet abonnement.
 
-    ![Sélection des stratégies de sécurité](./media/security-center-policies/security-center-policies-fig4-newUI.png)
+    ![Sélection des stratégies de sécurité](./media/security-center-policies/security-center-policies-fig7.png)
 
 Le tableau ci-dessous explique à quoi sert chaque option :
 
@@ -66,7 +65,8 @@ Le tableau ci-dessous explique à quoi sert chaque option :
 | Audit SQL et détection des menaces |Recommande l’activation de l’audit de l’accès à Azure SQL Database à des fins de conformité, mais également de détection avancée des menaces et d’examen. |
 | Chiffrement SQL |Recommande l’activation du chiffrement au repos pour votre base de données Azure SQL Database, ainsi que pour les sauvegardes associées et les fichiers journaux de transaction. Même si vos données font l’objet d’une violation de sécurité, elles ne seront pas lisibles. |
 | Évaluation des vulnérabilités |Recommande d’installer une solution d’évaluation des vulnérabilités sur votre machine virtuelle. |
-| Chiffrement du stockage |Cette fonctionnalité est actuellement disponible pour les objets blob et fichiers Azure. Notez qu’après l’activation du chiffrement de service de stockage, seules les nouvelles données seront chiffrées et tous les fichiers existants dans ce compte de stockage resteront non chiffrés. |
+| Chiffrement du stockage |Cette fonctionnalité est actuellement disponible pour les objets blob et fichiers Azure. Après l’activation du chiffrement de service de stockage, seules les nouvelles données seront chiffrées et tous les fichiers existants dans ce compte de stockage resteront non chiffrés. |
+| Accès réseau JIT |Lorsque la fonctionnalité Juste à temps est activée, Security Center verrouille le trafic entrant vers vos machines virtuelles Azure en créant une règle de groupe de sécurité réseau. Vous sélectionnez les ports de la machine virtuelle pour lesquels le trafic entrant doit être verrouillé. Pour plus d’informations, consultez [Gérer l’accès Juste à temps à la machine virtuelle](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
 
 Après avoir configuré toutes les options, cliquez sur **OK** dans le panneau **Stratégie de sécurité** contenant les recommandations, puis cliquez sur **Enregistrer** dans le panneau **Stratégie de sécurité** contenant les paramètres initiaux.
 

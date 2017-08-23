@@ -16,16 +16,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 84e95127ae2951ec5d1e0727801fc598d7e78227
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 25e651203f804fbf32d632b5f83145a3f3f72a7f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Stocker les sauvegardes Azure SQL Database pendant 10 ans
-De nombreuses applications sont dédiées à la réglementation, à la conformité ou à d’autres fins professionnelles qui vous obligent à conserver des sauvegardes automatiques de la base de données complète au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](sql-database-automated-backups.md) Azure SQL Database. Avec la fonctionnalité de rétention de sauvegarde à long terme, vous pouvez stocker vos sauvegardes SQL Database dans un coffre Azure Recovery Services pendant 10 ans. Vous pouvez stocker jusqu’à 1 000 bases de données par coffre. Vous pouvez sélectionner n’importe quelle sauvegarde dans le coffre pour la restaurer en tant que nouvelle base de données.
+De nombreuses applications sont dédiées à la réglementation, à la conformité ou à d’autres fins professionnelles qui vous obligent à conserver des sauvegardes de données au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](sql-database-automated-backups.md) Azure SQL Database. Avec la fonctionnalité de rétention de sauvegarde à long terme, vous pouvez stocker vos sauvegardes SQL Database dans un coffre Azure Recovery Services pendant 10 ans. Vous pouvez stocker jusqu’à 1 000 bases de données par coffre. Vous pouvez ensuite sélectionner n’importe quelle sauvegarde dans le coffre pour la restaurer en tant que nouvelle base de données.
 
 > [!IMPORTANT]
 > La rétention de sauvegarde à long terme est en préversion et disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, États-Unis du Centre, Asie de l’Est, États-Unis de l’Est, États-Unis de l’Est 2, Inde-Centre, Sud de l’Inde, Japon de l’Est, Japon de l’Ouest, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Europe de l’Ouest et États-Unis de l’Ouest.

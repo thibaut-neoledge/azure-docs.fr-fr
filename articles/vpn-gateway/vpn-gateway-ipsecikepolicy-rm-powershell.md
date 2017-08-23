@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 12502c91f7dff01651e3edcfd1dfa6a9d5ffe234
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: d645855e8edddee092d244e18c9937c19237a49a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel
@@ -39,7 +38,9 @@ Cet article fournit des instructions pour créer et configurer une stratégie IP
 * [Partie 5 : gestion (créer, ajouter, supprimer) de la stratégie IPsec/IKE pour une connexion](#managepolicy)
 
 > [!IMPORTANT]
-> 1. Notez qu’une stratégie IPsec/IKE fonctionne uniquement sur des passerelles VPN ***Standard*** et ***HighPerformance*** ***Basées sur itinéraires***.
+> 1. Notez que la stratégie IPsec/IKE fonctionne uniquement sur les références (SKU) de passerelle suivantes :
+>     - ***VpnGw1, VpnGw2, VpnGw3*** (basée sur le routage)
+>     - ***Standard*** et ***HighPerformance*** (basée sur le routage)
 > 2. Vous pouvez uniquement spécifier ***une*** combinaison de stratégie pour une connexion donnée.
 > 3. Vous devez spécifier tous les algorithmes et paramètres pour IKE (mode principal) et IPsec (mode rapide). Vous n’êtes pas en droit de spécifier de stratégie partielle.
 > 4. Veuillez consulter les spécifications de votre fournisseur de périphérique VPN pour vous assurer que la stratégie est prise en charge sur vos périphériques VPN locaux. Des connexions S2S ou de réseau virtuel à réseau virtuel ne peuvent pas être établies si les stratégies ne sont pas compatibles.
@@ -64,23 +65,38 @@ Le tableau ci-dessous répertorie les algorithmes de chiffrement et les forces d
 | ---              | ---                                                                         |
 | Chiffrement IKEv2 | AES256, AES192, AES128, DES3, DES                                           |
 | Intégrité IKEv2  | SHA384, SHA256, SHA1, MD5                                                   |
-| Groupe DH         | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, Aucun |
+| Groupe DH         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, Aucun |
 | Chiffrement IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Aucun    |
 | Intégrité IPsec  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
-| Groupe PFS        | ECP384, ECP256, PFS24, PFS2048, PFS14, PFS2, PFS1, Aucun                     |
-| Durée de vie de l’AS en mode rapide*  | Secondes (entier) et Ko (entier)                                      |
-| Sélecteur de trafic | UsePolicyBasedTrafficSelectors** ($True/$False - default $False)            |
+| Groupe PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Aucun                            |
+| Durée de vie de l’AS en mode rapide   | (**Facultatif** : les valeurs par défaut sont utilisées si aucun valeur n’est indiquée)<br>Secondes (entier ; **min 300**  /par défaut 27 000 secondes)<br>Kilo-octets (entier ; **min 1 024**  /par défaut 102 400 000 Ko)                                                                                |
+| Sélecteur de trafic | UsePolicyBasedTrafficSelectors** ($True/$False ; **facultatif**, $False par défaut si aucune valeur n’est indiquée)                                                                         |
 |                  |                                                                             |
 
-> [!NOTE]
-> * (*) La durée de vie de l’AS en mode principal IKEv2 est fixée à 28 800 secondes pour les passerelles VPN Azure
-> * (**) La définition du paramètre « UsePolicyBasedTrafficSelectors » sur $True sur une connexion a pour effet de configurer la passerelle VPN Azure pour se connecter à un pare-feu VPN basé sur une stratégie en local. Si vous activez UsePolicyBasedTrafficSelectors, vous devez vous assurer que votre périphérique VPN dispose des sélecteurs de trafic correspondant définis avec toutes les combinaisons de préfixes de réseau local (passerelle réseau locale) à destination et à partir des préfixes du réseau virtuel Azure, plutôt que de manière indifférenciée. Par exemple, si les préfixes de votre réseau local sont 10.1.0.0/16 et 10.2.0.0/16 et si les préfixes de votre réseau virtuel sont 192.168.0.0/16 et 172.16.0.0/16, vous devez spécifier les sélecteurs de trafic suivants :
->   * 10.1.0.0/16 <====> 192.168.0.0/16
->   * 10.1.0.0/16 <====> 172.16.0.0/16
->   * 10.2.0.0/16 <====> 192.168.0.0/16
->   * 10.2.0.0/16 <====> 172.16.0.0/16
+> [!IMPORTANT]
+> 1. **Si GCMAES est utilisé pour l’algorithme de chiffrement IPsec, vous devez sélectionner les mêmes algorithme GCMAES et longueur de clé pour l’intégrité IPsec ; par exemple, GCMAES128 pour les deux**
+> 2. La durée de vie de l’AS en mode principal IKEv2 est fixée à 28 800 secondes pour les passerelles VPN Azure
+> 3. La définition du paramètre « UsePolicyBasedTrafficSelectors » sur $True sur une connexion a pour effet de configurer la passerelle VPN Azure pour se connecter à un pare-feu VPN basé sur une stratégie en local. Si vous activez UsePolicyBasedTrafficSelectors, vous devez vous assurer que votre périphérique VPN dispose des sélecteurs de trafic correspondant définis avec toutes les combinaisons de préfixes de réseau local (passerelle réseau locale) à destination et à partir des préfixes du réseau virtuel Azure, plutôt que de manière indifférenciée. Par exemple, si les préfixes de votre réseau local sont 10.1.0.0/16 et 10.2.0.0/16 et si les préfixes de votre réseau virtuel sont 192.168.0.0/16 et 172.16.0.0/16, vous devez spécifier les sélecteurs de trafic suivants :
+>    * 10.1.0.0/16 <====> 192.168.0.0/16
+>    * 10.1.0.0/16 <====> 172.16.0.0/16
+>    * 10.2.0.0/16 <====> 192.168.0.0/16
+>    * 10.2.0.0/16 <====> 172.16.0.0/16
 
 Pour plus d’informations sur les sélecteurs de trafic basés sur une stratégie, voir [Connecter plusieurs périphériques VPN basés sur un stratégie locale](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+
+Le tableau ci-dessous répertorie les groupes Diffie-Hellman correspondants pris en charge par la stratégie personnalisée :
+
+| **Groupe Diffie-Hellman**  | **DHGroup**              | **PFSGroup** | **Longueur de clé** |
+| ---                       | ---                      | ---          | ---            |
+| 1                         | DHGroup1                 | PFS1         | MODP 768 bits   |
+| 2                         | DHGroup2                 | PFS2         | MODP 1 024 bits  |
+| 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | MODP 2 048 bits  |
+| 19                        | ECP256                   | ECP256       | ECP 256 bits    |
+| 20                        | ECP384                   | ECP284       | ECP 384 bits    |
+| 24                        | DHGroup24                | PFS24        | MODP 2 048 bits  |
+|                           |                          |              |                |
+
+Reportez-vous à [RFC3526](https://tools.ietf.org/html/rfc3526) et [RFC5114](https://tools.ietf.org/html/rfc5114) pour plus d’informations.
 
 ## <a name ="crossprem"></a>Partie 3 : création d’une connexion VPN S2S avec une stratégie IPsec/IKE
 
@@ -159,11 +175,21 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. Créer une stratégie IPsec/IKE
 L’exemple de script ci-dessous crée une stratégie IPsec/IKE avec les algorithmes et paramètres suivants :
+
 * IKEv2: AES256, SHA384, DHGroup24
 * IPsec: AES256, SHA256, PFS24, SA Lifetime 7200 seconds & 2048KB
 
 ```powershell
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
+```
+
+Si vous utilisez des algorithmes GCMAES pour IPsec, vous devez utiliser les mêmes algorithme GCMAES et longueur de clé pour le chiffrement IPsec et l’intégrité IPsec, par exemple :
+
+* IKEv2: AES256, SHA384, DHGroup24
+* IPsec: **GCMAES256, GCMAES256**, PFS24, SA Lifetime 7200 seconds & 2048KB
+
+```powershell
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
 ```
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. Créer la connexion VPN S2S avec la stratégie IPsec/IKE

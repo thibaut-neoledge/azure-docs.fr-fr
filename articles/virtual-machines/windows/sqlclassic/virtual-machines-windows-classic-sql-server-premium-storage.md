@@ -1,6 +1,6 @@
 ---
 title: "Utilisation de Stockage Premium Azure avec SQL Server | Microsoft Docs"
-description: "Cet article utilise des ressources créées avec le modèle de déploiement classique et fournit des conseils sur l&quot;utilisation du stockage d’Azure Premium Storage avec SQL Server s&quot;exécutant sur des machines virtuelles Azure."
+description: "Cet article utilise des ressources créées avec le modèle de déploiement classique et fournit des conseils sur l'utilisation du stockage d’Azure Premium Storage avec SQL Server s'exécutant sur des machines virtuelles Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: danielsollondon
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: aba69b95db8313dd9ce711ddc6c26e5df55d79a4
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: c8f0da306c5adcf67e5e6dce10c180d08766f733
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/04/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles
@@ -30,7 +29,7 @@ ms.lasthandoff: 04/04/2017
 > [!IMPORTANT]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
-Cet article fournit une planification et des conseils pour la migration d'une machine virtuelle exécutant SQL Server afin d'utiliser le stockage Premium. Cela inclut l'infrastructure Azure (mise en réseau, stockage) et les étapes de la machine virtuelle Windows hôte. L’exemple de l’ [annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) montre une migration complète de bout en bout de machines virtuelles plus importantes afin de tirer parti du stockage SSD local amélioré avec PowerShell.
+Cet article fournit une planification et des conseils pour la migration d'une machine virtuelle exécutant SQL Server afin d'utiliser le stockage Premium. Cela inclut l'infrastructure Azure (mise en réseau, stockage) et les étapes de la machine virtuelle Windows hôte. L’exemple de l’ [annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) montre une migration complète de bout en bout de machines virtuelles plus importantes afin de tirer parti du stockage SSD local amélioré avec PowerShell.
 
 Il est important de comprendre le processus complet d'utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles IAAS, notamment :
 
@@ -101,7 +100,7 @@ La principale différence avec la création de disques faisant partie d'un compt
 Une fois les disques durs virtuels connectés, le paramètre de cache ne peut pas être modifié. Vous devez déconnecter puis reconnecter le disque dur virtuel avec un paramètre de cache mis à jour.
 
 ### <a name="windows-storage-spaces"></a>Espaces de stockage Windows
-Vous pouvez utiliser les [espaces de stockage Windows](https://technet.microsoft.com/library/hh831739.aspx) comme vous l'avez fait avec le système de stockage Standard précédent pour migrer une machine virtuelle qui utilise déjà des espaces de stockage. L'exemple de l' [annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) (étape 9 et suivantes) montre le code Powershell pour extraire et importer une machine virtuelle comportant plusieurs disques durs virtuels connectés.
+Vous pouvez utiliser les [espaces de stockage Windows](https://technet.microsoft.com/library/hh831739.aspx) comme vous l'avez fait avec le système de stockage Standard précédent pour migrer une machine virtuelle qui utilise déjà des espaces de stockage. L'exemple de l' [annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (étape 9 et suivantes) montre le code Powershell pour extraire et importer une machine virtuelle comportant plusieurs disques durs virtuels connectés.
 
 Des pools de stockage avaient été utilisés avec un compte de stockage Azure Standard pour améliorer le débit et de réduire la latence. Vous trouverez peut-être utile de tester des pools de stockage avec un stockage Premium pour les nouveaux déploiements, mais notez que ces tests compliquent la configuration du stockage.
 
@@ -140,7 +139,7 @@ Pour chaque disque, procédez comme suit :
 
 Vous pouvez désormais utiliser ces informations pour associer des disques durs virtuels connectés aux disques physiques dans les pools de stockage.
 
-Une fois que vous avez mappé les disques durs virtuels aux disques physiques dans les pools de stockage, vous pouvez les déconnecter et les copier vers un compte de stockage Premium, puis les connecter en utilisant le paramètre de cache approprié. Consultez les étapes 8 à 12 de l' [annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). Ces étapes indiquent comment extraire dans un fichier CSV une configuration de disque de disque dur virtuel connecté à une machine virtuelle, copier les disques durs virtuels, modifier les paramètres de cache de la configuration de disque, puis redéployer la machine virtuelle comme machine virtuelle de série DS avec tous les disques connectés.
+Une fois que vous avez mappé les disques durs virtuels aux disques physiques dans les pools de stockage, vous pouvez les déconnecter et les copier vers un compte de stockage Premium, puis les connecter en utilisant le paramètre de cache approprié. Consultez les étapes 8 à 12 de l' [annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage). Ces étapes indiquent comment extraire dans un fichier CSV une configuration de disque de disque dur virtuel connecté à une machine virtuelle, copier les disques durs virtuels, modifier les paramètres de cache de la configuration de disque, puis redéployer la machine virtuelle comme machine virtuelle de série DS avec tous les disques connectés.
 
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>Bande passante de stockage de la machine virtuelle et débit de stockage du disque dur virtuel
 Les performances de stockage dépendent de la taille de la machine virtuelle DS* spécifiée et des tailles des disques durs virtuels. Les machines virtuelles offrent différentes tolérances pour le nombre de disques durs virtuels peuvent être connectés et la bande passante maximale prise en charge (Mo/s). Pour connaître les numéros de bande passante spécifiques, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -253,7 +252,7 @@ L'exemple suivant montre comment placer le disque dur virtuel du système d'expl
 
 
 ### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Création d’une machine virtuelle pour utiliser Premium Storage avec une image personnalisée
-Ce scénario vous montre où sont placées les images personnalisées existantes qui résident sur un compte de stockage Standard. Comme mentionné, si vous souhaitez placer le disque dur virtuel du système d'exploitation sur un stockage Premium, vous devez copier l'image existante sur le compte de stockage Standard et la transférer vers un stockage Premium pour pouvoir l'utiliser. Si vous disposez d'une image locale, vous pouvez également utiliser cette méthode pour la copier directement sur le compte de stockage Premium.
+Ce scénario vous montre où sont placées les images personnalisées existantes qui résident sur un compte de stockage Standard. Comme mentionné, si vous souhaitez placer le disque dur virtuel du système d'exploitation sur un stockage Premium, vous devez copier l'image existante sur le compte de stockage Standard et la transférer vers un stockage Premium pour pouvoir l'utiliser. Si vous disposez d’une image locale, vous pouvez également utiliser cette méthode pour la copier directement sur le compte de stockage Premium.
 
 #### <a name="step-1-create-storage-account"></a>Étape 1 : création d'un compte de stockage
     $mysubscription = "DansSubscription"
@@ -419,7 +418,7 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 8. Une fois la validation réussie, démarrez tous les services SQL Server.
 9. Sauvegardez les journaux des transactions et restaurez les bases de données utilisateur.
 10. Ajoutez de nouveaux nœuds au groupe de disponibilité Always On et définissez la réplication sur **Synchrone**.
-11. Ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud par le biais de PowerShell pour Always On en fonction de l’exemple multisite de [l’annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). Dans le clustering Windows, définissez les **propriétaires possibles** de la ressource d’**adresse IP** sur les nouveaux nœuds. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l' [annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+11. Ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud par le biais de PowerShell pour Always On en fonction de l’exemple multisite de [l’annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage). Dans le clustering Windows, définissez les **propriétaires possibles** de la ressource d’**adresse IP** sur les nouveaux nœuds. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l' [annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
 12. Basculement vers un des nouveaux nœuds.
 13. Configurez les nouveaux nœuds en tant que partenaires de basculement automatique puis testez les basculements.
 14. Supprimez les nœuds d'origine du groupe de disponibilité.
@@ -467,7 +466,7 @@ Une stratégie limitant les temps d'arrêt consiste à prendre un service cloud 
 ##### <a name="points-of-downtime"></a>Points d’arrêt
 * Un temps d’arrêt se produit lorsque vous mettez à jour le nœud final avec le point de terminaison d’équilibrage de charge.
 * La reconnexion de votre client peut être retardée en fonction de votre configuration client/DNS.
-* Un temps d’arrêt supplémentaire survient si vous choisissez de mettre hors ligne le groupe Cluster Always On afin de permuter les adresses IP. Vous pouvez éviter cela en utilisant une dépendance OR et en choisissant les propriétaires possibles pour la ressource d’adresse IP ajoutée. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l' [annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+* Un temps d’arrêt supplémentaire survient si vous choisissez de mettre hors ligne le groupe Cluster Always On afin de permuter les adresses IP. Vous pouvez éviter cela en utilisant une dépendance OR et en choisissant les propriétaires possibles pour la ressource d’adresse IP ajoutée. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l' [annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
 
 > [!NOTE]
 > Lorsque vous souhaitez que le nœud ajouté joue le rôle de partenaire de basculement Always On, vous devez ajouter un point de terminaison Azure avec une référence au jeu d’équilibrage de la charge. Lorsque vous exécutez la commande **Add-AzureEndpoint** pour cette opération, les connexions actuelles restent ouvertes, mais les nouvelles connexions à l'écouteur ne pourront pas être établies tant que l'équilibreur de charge n'a pas été mis à jour. Dans ce test, l'opération dure de 90 à 120 secondes (à vérifier).
@@ -489,7 +488,7 @@ Une stratégie limitant les temps d'arrêt consiste à prendre un service cloud 
   * Vérifiez que vous avez correctement configuré votre quorum de cluster.  
 
 ##### <a name="high-level-steps"></a>Procédure générale
-Ce document ne présente pas un exemple complet de bout en bout, toutefois, l' [annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) fournit des informations qui peuvent être exploitées pour effectuer cette opération.
+Ce document ne présente pas un exemple complet de bout en bout, toutefois, l' [annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) fournit des informations qui peuvent être exploitées pour effectuer cette opération.
 
 ![MinimalDowntime][8]
 
@@ -499,7 +498,7 @@ Ce document ne présente pas un exemple complet de bout en bout, toutefois, l' [
 * Configurez l'ILB/ELB et ajoutez des points de terminaison.
 * Mettez à jour l'écouteur en procédant comme suit :
   * Mettez hors ligne le groupe Always On et mettez à jour l’écouteur Always On avec la nouvelle adresse IP de l’ILB/ELB.
-  * Ou ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud via PowerShell dans le clustering Windows. Puis affectez les propriétaires possibles de la ressource d'adresse IP au nœud migré, SQL2, définissez ce paramètre comme dépendance OR dans le nom de réseau. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l' [annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+  * Ou ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud via PowerShell dans le clustering Windows. Puis affectez les propriétaires possibles de la ressource d'adresse IP au nœud migré, SQL2, définissez ce paramètre comme dépendance OR dans le nom de réseau. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l' [annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
 * Vérifiez la configuration/propagation DNS vers les clients.
 * Migrez la machine virtuelle SQL1 et suivez les étapes 2 à 4.
 * Si vous utilisez les étapes 5ii, ajoutez SQL1 comme propriétaire possible pour la ressource d'adresse IP ajoutée
@@ -681,7 +680,7 @@ Pour plus d'informations sur la gestion et la configuration du quorum de cluster
 Enregistrez ces éléments dans un fichier texte.
 
 #### <a name="step-7-change-failover-partners-and-replication-modes"></a>Étape 7 : modification les partenaires de basculement et des modes de réplication
-Si vous avez plus de 2 serveurs SQL, vous devez définir sur 'Synchrone' le basculement d'un autre serveur secondaire d'un centre de données ou en local et le configurer comme partenaire de basculement automatique (AFP) ; cela garantit une haute disponibilité lorsque vous apportez des modifications. Vous pouvez le faire via TSQL ou via SSMS :
+Si vous avez plus de 2 serveurs SQL, vous devez définir sur 'Synchrone' le basculement d’un autre serveur secondaire d’un centre de données ou en local et le configurer comme partenaire de basculement automatique (AFP) ; cela garantit une haute disponibilité lorsque vous apportez des modifications. Vous pouvez le faire via TSQL ou via SSMS :
 
 ![Appendix6][16]
 
@@ -1075,7 +1074,7 @@ Pour plus d'informations pour les objets BLOB individuels :
     #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### <a name="step-23-test-failover"></a>Étape 23 : test du basculement
-Vous devriez maintenant laisser le nœud migré se synchroniser avec le nœud Always On local, le placer en mode de réplication synchrone et attendre qu’il soit synchronisé. Effectuez ensuite un basculement du nœud local vers le premier nœud migré, c'est-à-dire l'AFP. Une fois l'opération réussie, changez le dernier nœud migré en AFP.
+Vous devriez maintenant laisser le nœud migré se synchroniser avec le nœud Always On local, le placer en mode de réplication synchrone et attendre qu’il soit synchronisé. Effectuez ensuite un basculement du nœud local vers le premier nœud migré, c'est-à-dire l'AFP. Une fois l'opération réussie, changez le dernier nœud migré en AFP.
 
 Vous devez tester les basculements entre tous les nœuds de test et effectuer des tests CHAOS pour vous assurer que les basculements se sont déroulés comme prévu et en temps opportun.
 

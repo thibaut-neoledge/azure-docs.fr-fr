@@ -3,22 +3,22 @@ title: 'Azure Active Directory B2C : configuration Facebook | Microsoft Docs'
 description: "Fourniture d’inscription et de connexion à des consommateurs disposant de comptes Facebook dans vos applications sécurisées par Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: 
-author: parakhj
+author: sromeroz
 manager: krassk
-editor: parakhj
+editor: sromeroz
 ms.assetid: b875f235-a1d2-4abb-b9f0-b89beac38a32
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/26/2017
-ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 4c45322573bd1e4b1711b56e03c1d297f1cd468e
-ms.lasthandoff: 03/29/2017
-
+ms.date: 8/7/2017
+ms.author: sromeroz
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8c2154fcf33537358b549395d15b4ba937371cd0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-facebook-accounts"></a>Azure Active Directory B2C : fourniture d’inscription et de connexion à des consommateurs disposant de comptes Facebook
@@ -37,30 +37,35 @@ Pour utiliser Facebook en tant que fournisseur d’identité dans Azure Active D
     ![Facebook - paramètres](./media/active-directory-b2c-setup-fb-app/fb-settings.png)
    
     ![Facebook - paramètres - site Web](./media/active-directory-b2c-setup-fb-app/fb-website.png)
-9. Entrez `https://login.microsoftonline.com/` dans le champ **URL du site**, puis cliquez sur **Enregistrer les modifications**.
+9. Entrez `https://login.microsoftonline.com/` dans le champ **URL du site**, puis cliquez sur **Enregistrer les modifications** en bas de la page.
    
     ![Facebook - URL du site](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
 
 10. Copiez la valeur **ID de l’application**. Cliquez sur **Afficher**, puis copiez la valeur **Clé secrète de l’application**. Vous aurez besoin de ces deux valeurs pour configurer Facebook en tant que fournisseur d’identité dans votre client. **App Secret** est une information d’identification de sécurité importante.
    
     ![Facebook - ID et clé secrète de l’application](./media/active-directory-b2c-setup-fb-app/fb-app-id-app-secret.png)
-11. Cliquez sur **+ Ajouter un produit** dans la barre de navigation gauche, puis que le bouton **Prise en main** à côté de **Connexion Facebook**.
+11. Cliquez sur **+ Ajouter un produit** dans la barre de navigation gauche, puis sur le bouton **Set up** (Configurer) de **Connexion Facebook**.
    
     ![Facebook - Connexion Facebook](./media/active-directory-b2c-setup-fb-app/fb-login.png)
-12. Sélectionnez **Site web**, puis entrez `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **Valid OAuth redirect URIs (URI de redirection OAuth valides)** dans la section **Client OAuth Settings (Paramètres du client OAuth)**. Remplacez **{tenant}** par votre nom de client (par exemple, contosob2c.onmicrosoft.com). Cliquez sur **Save Changes** en bas de la page.
+12. Cliquer sur **Paramètres** dans la barre de navigation droite sous **Connexion Facebook**
+
+    ![Facebook - Paramètres Connexion Facebook](./media/active-directory-b2c-setup-fb-app/fb-login-settings.png)
+13. Entrez `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **URI de redirection OAuth valides** dans la section **Paramètres du client OAuth**. Remplacez **{tenant}** par votre nom de client (par exemple, contosob2c.onmicrosoft.com). Cliquez sur **Save Changes** en bas de la page.
     
     ![Facebook - OAuth Redirect URI](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)
-13. Pour rendre votre application Facebook utilisable par Azure AD B2C, vous devez la rendre disponible publiquement. Vous pouvez le faire en cliquant sur **Révision de l’application** dans le volet de navigation gauche, en positionnant le commutateur en haut de la page sur **OUI** et en cliquant sur **Confirmer**.
+14. Pour rendre votre application Facebook utilisable par Azure AD B2C, vous devez la rendre disponible publiquement. Vous pouvez le faire en cliquant sur **Révision de l’application** dans le volet de navigation gauche, en positionnant le commutateur en haut de la page sur **OUI** et en cliquant sur **Confirmer**.
     
     ![Facebook - App publique](./media/active-directory-b2c-setup-fb-app/fb-app-public.png)
 
 ## <a name="configure-facebook-as-an-identity-provider-in-your-tenant"></a>Configuration de Facebook en tant que fournisseur d’identité dans votre client
-1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sur le portail Azure.
+1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) sur le portail Azure.
 2. Dans le panneau de fonctionnalités B2C, cliquez sur **Fournisseurs d’identité**.
 3. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
-4. Fournissez un **Nom** convivial pour la configuration de fournisseur d’identité. Par exemple, entrez « FB ».
+4. Fournissez un **Nom** convivial pour la configuration de fournisseur d’identité. Par exemple, entrez « Facebook ».
 5. Cliquez sur **Type de fournisseur d’identité**, sélectionnez **Facebook**, puis cliquez sur **OK**.
 6. Cliquez sur **Configurer ce fournisseur d’identité**, puis entrez l’ID de l’application et la question secrète (de l’application Facebook que vous avez créée précédemment) respectivement dans les champs **ID client** et **Clé secrète client**.
 7. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration Facebook.
 
-
+> [!NOTE]
+> L’ajout d’un **fournisseur d’identité** à votre locataire ne modifie pas vos stratégies existantes. Rappelez-vous de mettre à jour vos stratégies en incluant le fournisseur d’identité que vous venez de créer.
+>

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: f40ceb542a0ee51e17ee539db4dbc91c11e056f2
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planifier et concevoir des réseaux virtuels Azure
@@ -36,7 +35,7 @@ Avant de répondre aux questions de planification ci-dessous, tenez compte des �
 * Vous pouvez connecter des réseaux virtuels entre eux comme suit :
     * **[Homologation de réseau virtuel](virtual-network-peering-overview.md)** : les réseaux virtuels doivent se trouver dans la même région Azure. La bande passante entre des ressources figurant dans des réseaux virtuels homologués est la même que si les ressources qui étaient connectées au même réseau virtuel.
     * **Passerelle [VPN Azure](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)** : les réseaux virtuels peuvent exister dans une même région Azure ou dans des régions différentes. La bande passante entre des ressources figurant dans des réseaux virtuels connectés via une passerelle VPN est limitée par la bande passante de la passerelle VPN.
-* Vous pouvez connecter des réseaux virtuels à votre réseau local à l’aide de l’une des [options de connectivité](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) disponibles dans Azure.
+* Vous pouvez connecter des réseaux virtuels à votre réseau local à l’aide de l’une des [options de connectivité](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) disponibles dans Azure.
 * Différentes ressources peuvent être regroupées dans des [groupes de ressources](../azure-resource-manager/resource-group-overview.md#resource-groups), ce qui facilite la gestion de la ressource en tant qu’unité. Un groupe de ressources peut contenir des ressources provenant de plusieurs régions, tant que les ressources appartiennent au même abonnement.
 
 ### <a name="define-requirements"></a>Définir les conditions requises
@@ -124,7 +123,7 @@ Vous devez envisager d’utiliser plusieurs sous-réseaux dans un réseau virtue
 
 * **Pas suffisamment d’adresses IP privées pour toutes les cartes réseau dans un sous-réseau**. Si l’espace d’adressage de votre sous-réseau ne contient pas suffisamment d’adresses IP pour le nombre de cartes réseau dans le sous-réseau, vous devez créer plusieurs sous-réseaux. Gardez à l’esprit qu’Azure réserve 5 adresses IP privées de chaque sous-réseau qui ne peuvent pas être utilisées : les première et dernière adresses de l’espace d’adressage (pour l’adresse de sous-réseau et la multidiffusion) et 3 adresses à utiliser en interne (pour DHCP et DNS).
 * **Sécurité**. Vous pouvez utiliser des sous-réseaux pour séparer les groupes de machines virtuelles les uns des autres pour les charges de travail qui ont une structure multicouche, et appliquer différents [groupes de sécurité réseau](virtual-networks-nsg.md#subnets) pour ces sous-réseaux.
-* **Connectivité hybride**. Vous pouvez utiliser des passerelles VPN et circuits ExpressRoute pour [connecter](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) vos réseaux virtuels entre eux et à vos centres de données locaux. Les passerelles VPN et les circuits ExpressRoute nécessitent la création d’un sous-réseau qui leur est propre.
+* **Connectivité hybride**. Vous pouvez utiliser des passerelles VPN et circuits ExpressRoute pour [connecter](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) vos réseaux virtuels entre eux et à vos centres de données locaux. Les passerelles VPN et les circuits ExpressRoute nécessitent la création d’un sous-réseau qui leur est propre.
 * **Équipements virtuels**. Vous pouvez utiliser un équipement virtuel, comme un pare-feu, un accélérateur WAN ou une passerelle VPN, dans un réseau virtuel Azure. Quand vous procédez ainsi, vous devez [acheminer le trafic](virtual-networks-udr-overview.md) vers ces équipements et les isoler dans leur propre sous-réseau.
 
 ### <a name="subnet-and-nsg-design-patterns"></a>Modèles de conception des sous-réseaux et groupes de sécurité réseau
@@ -253,5 +252,5 @@ En fonction de ces conditions requises, vous pouvez ajouter des utilisateurs de 
 * [Déployer un réseau virtuel](virtual-networks-create-vnet-arm-template-click.md) selon un scénario.
 * Découvrir comment [équilibrer la charge](../load-balancer/load-balancer-overview.md) des machines virtuelles IaaS et [gérer le routage entre plusieurs régions Azure](../traffic-manager/traffic-manager-overview.md).
 * En savoir plus sur les [groupes de sécurité réseau et comment planifier et concevoir](virtual-networks-nsg.md) une solution de groupe de sécurité réseau.
-* En savoir plus sur vos [options de connectivité de réseau virtuel et entre locaux](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel).
+* En savoir plus sur vos [options de connectivité de réseau virtuel et entre locaux](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: bd7694374034faa5ef1df84397580d80e3f40e43
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -241,6 +241,39 @@ Les sections suivantes expliquent comment mettre à jour les agents de protectio
 4. Pour un ordinateur client qui n’est pas connecté au réseau, la colonne **État de l’agent** indique **Mise à jour en attente** tant que l’ordinateur n’est pas connecté au réseau.
 
   Une fois qu’un ordinateur client est connecté au réseau, la colonne **Mises à jour d’agent** de cet ordinateur indique l’état **Mise à jour**.
+  
+### <a name="move-legacy-protection-groups-from-old-version-and-sync-the-new-version-with-azure"></a>Déplacer des groupes de protection hérités à partir de l’ancienne version et synchroniser la nouvelle version avec Azure
+
+Une fois le serveur de sauvegarde Azure et le système d’exploitation mis à jour, vous êtes prêt à protéger les nouvelles sources de données à l’aide de Modern Backup Storage. Toutefois, les sources de données déjà protégées continueront d’être protégées selon l’ancienne procédure, car elles se trouvaient sur le serveur de sauvegarde Azure, alors que toute nouvelle protection utilisera Modern Backup Storage.
+
+La migration des sources de données depuis le mode de protection hérité vers Modern Backup Storage comprend les étapes ci-dessous.
+
+• Ajoutez le ou les nouveaux volumes au pool de stockage DPM et assignez des balises de source de données et des noms conviviaux si vous le souhaitez.
+• Pour chaque source de données en mode hérité, arrêtez la protection et conservez les données protégées.  Ainsi, les anciens points de récupération peuvent être récupérés après la migration.
+
+• Créez un groupe de protection et sélectionnez les sources de données qui doivent être stockées à l’aide du nouveau format.
+• DPM effectue une copie du réplica à partir du stockage de sauvegarde existant dans le volume Modern Backup Storage localement.
+Remarque : Cela est considéré comme un travail d’opération de postrécupération • Tous les nouveaux points de synchronisation et de récupération sont ensuite stockés dans Modern Backup Storage.
+• Les anciens points de récupération sont nettoyés quand ils expirent, libérant ainsi l’espace disque.
+• Une fois tous les volumes existants supprimés de l’ancien stockage, le disque peut être enlevé de la sauvegarde Azure et du système.
+• Créez une sauvegarde de la base de données DPM Azure.
+
+Partie 2 :- Éléments importants > Le nouveau serveur doit porter le même nom que le serveur de sauvegarde Azure d’origine. Vous ne pouvez pas modifier le nom du nouveau serveur de sauvegarde Azure si vous souhaitez utiliser l’ancien pool de stockage et la base de données DPM pour conserver des points de récupération. Une sauvegarde de la base de données DPM est nécessaire en prévision de sa restauration.
+
+1) Arrêtez le serveur de sauvegarde Azure d’origine ou mettez-le hors connexion.
+2) Réinitialisez le compte de la machine dans Active Directory.
+3) Installez Server 2016 sur une nouvelle machine et attribuez à celle-ci le même nom que le serveur de sauvegarde Azure d’origine.
+4) Joignez le domaine.
+5) Installez le serveur de sauvegarde Azure, version 2 (déplacez les disques du pool de stockage de DPM depuis l’ancien serveur et effectuez l’importation).
+6) Restaurez la base de données DPM obtenue à la fin de la partie 2.
+7) Attachez le stockage à partir du serveur de sauvegarde d’origine au nouveau serveur.
+8) Depuis SQL, restaurez la base de données DPM.
+9) À partir de la ligne de commande d’administration sur le nouveau serveur, accédez au répertoire d’installation de Sauvegarde Microsoft Azure, puis au dossier bin.
+
+Exemple de chemin : C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
+to Azure backup Run DPMSYNC -SYNC
+
+10) Exécutez DPMSYNC-SYNC. Remarque : Si vous avez ajouté de nouveaux disques au pool de stockage DPM au lieu de déplacer les anciens, exécutez DPMSYNC -Reallocatereplica.
 
 ## <a name="new-powershell-cmdlets-in-v2"></a>Nouveaux cmdlets PowerShell dans la version 2
 
@@ -252,7 +285,7 @@ Lorsque vous installez le serveur de sauvegarde Azure v2, deux nouveaux cmdlets 
 
 Découvrez comment préparer votre serveur ou commencer à protéger une charge de travail :
 - [Préparer les charges de travail du serveur de sauvegarde](backup-azure-microsoft-azure-backup.md)
-- [Utiliser le serveur de sauvegarde pour sauvegarder un serveur VMware](backup-azure-backup-server-vmware.md)
+- [Utiliser le Serveur de sauvegarde pour sauvegarder un serveur VMware](backup-azure-backup-server-vmware.md)
 - [Utiliser le serveur de sauvegarde pour sauvegarder SQL Server](backup-azure-sql-mabs.md)
 - [Utiliser Modern Backup Storage avec le serveur de sauvegarde](backup-mabs-add-storage.md)
 

@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 08/02/2017
 ms.author: kasing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 9874a825ea81ebb191710ebd46dceb70c1f20e60
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 3401c0af776691d22e51906eefaf895d684fdfd1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Appliquer des stratégies aux machines virtuelles Windows avec Azure Resource Manager
@@ -28,7 +27,7 @@ Avec les stratégies, une organisation peut appliquer différentes conventions e
 
 Pour une introduction aux stratégies, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](../../azure-resource-manager/resource-manager-policy.md).
 
-## <a name="define-policy-for-permitted-virtual-machines"></a>Définition d’une stratégie pour les machines virtuelles autorisées
+## <a name="permitted-virtual-machines"></a>Machines virtuelles autorisées
 Pour vous assurer que les machines virtuelles de votre entreprise sont compatibles avec une application, vous pouvez limiter les systèmes d’exploitation autorisés. Dans l’exemple de stratégie suivant, vous autorisez uniquement la création de machines virtuelles Windows Server 2012 R2 Datacenter :
 
 ```json
@@ -92,7 +91,7 @@ Utilisez un caractère générique pour modifier la stratégie précédente afin
 
 Pour plus d’informations sur les champs de la stratégie, consultez les [alias de stratégie](../../azure-resource-manager/resource-manager-policy.md#aliases).
 
-## <a name="define-policy-for-using-managed-disks"></a>Définir une stratégie d’utilisation des disques gérés
+## <a name="managed-disks"></a>Disques gérés
 
 Pour exiger l’utilisation de disques gérés, employez la stratégie suivante :
 
@@ -137,6 +136,100 @@ Pour exiger l’utilisation de disques gérés, employez la stratégie suivante�
   "then": {
     "effect": "deny"
   }
+}
+```
+
+## <a name="images-for-virtual-machines"></a>Images de machines virtuelles
+
+Pour des raisons de sécurité, vous pouvez exiger que seules les images personnalisées approuvées soient déployées dans votre environnement. Vous pouvez spécifier soit le groupe de ressources qui contient les images approuvées, soit les images approuvées.
+
+L’exemple suivant nécessite des images provenant d’un groupe de ressources approuvées :
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "in": [
+                    "Microsoft.Compute/virtualMachines",
+                    "Microsoft.Compute/VirtualMachineScaleSets"
+                ]
+            },
+            {
+                "not": {
+                    "field": "Microsoft.Compute/imageId",
+                    "contains": "resourceGroups/CustomImage"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+} 
+```
+
+L’exemple suivant spécifie les ID des images approuvées :
+
+```json
+{
+    "field": "Microsoft.Compute/imageId",
+    "in": ["{imageId1}","{imageId2}"]
+}
+```
+
+## <a name="virtual-machine-extensions"></a>Extensions de machine virtuelle
+
+Vous pouvez interdire l’utilisation de certains types d’extensions. Par exemple, une extension peut ne pas être compatible avec certaines images de machines virtuelles personnalisées. L’exemple suivant montre comment bloquer une extension. Il se base sur l’éditeur et sur le type pour déterminer quelle extension doit être bloquée.
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Compute/virtualMachines/extensions"
+            },
+            {
+                "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+                "equals": "Microsoft.Compute"
+            },
+            {
+                "field": "Microsoft.Compute/virtualMachines/extensions/type",
+                "equals": "{extension-type}"
+
+      }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+
+## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
+
+Lorsque vous disposez d’une licence locale, vous pouvez enregistrer les frais de licence sur vos machines virtuelles. Si vous n’avez pas de licence, vous devez interdire cette option. La stratégie suivante interdit l’utilisation d’Azure Hybrid Use Benefit (AHUB) :
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "in":[ "Microsoft.Compute/virtualMachines","Microsoft.Compute/VirtualMachineScaleSets"]
+            },
+            {
+                "field": "Microsoft.Compute/licenseType",
+                "exists": true
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
 }
 ```
 

@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/24/2017
+ms.date: 07/21/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 5d37dbcce06ac979f3cabef1220e5f1fe8e67931
-ms.openlocfilehash: 6c0cd8aeaaa094a6bf046d47a96eddffc6430d44
-ms.lasthandoff: 03/01/2017
-
+ms.reviewer: jeedes
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f8296aa92f58829da698cae8bf6e2e9191c4b257
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Didacticiel : Intégration d’Azure Active Directory à Salesforce Sandbox
@@ -113,7 +114,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
  5. Pour **SAML Identity Type (Type d’identité SAML)**, sélectionnez **Assertion contains the Federation ID from the User object (L’assertion contient l’ID de fédération de l’objet utilisateur)**. 
  6. Pour **SAML Identity Location (Emplacement de l’identité SAML)**, sélectionnez **Identity is in the NameIdentifier element of the Subject statement (L’identité figure dans l’élément NameIdentifier de l’instruction Subject)**.
  7. Dans la page **Configurer l’authentification unique sur Salesforce Sandbox** du portail Azure Classic, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **Identity Provider Login URL (URL de connexion du fournisseur d’identité)**. 
- 8. SFDC ne prend pas en charge la déconnexion SAML.  Pour contourner ce problème, collez « https://login.windows.net/common/wsfederation?wa=wsignout1.0 » dans la zone de texte **d’URL de déconnexion du fournisseur d’identité** .
+ 8. SFDC ne prend pas en charge la déconnexion SAML.  Pour contourner ce problème, collez « https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0 » dans la zone de texte **Identity Provider Logout URL** (URL de déconnexion du fournisseur d’identité).
  9. Pour **Service Provider Initiated Request Binding (Liaison de demande initiée par le fournisseur de services)**, sélectionnez **HTTP POST**. 
  10. Cliquez sur **Save**.
 11. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.

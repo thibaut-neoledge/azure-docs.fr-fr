@@ -15,17 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Groupes de machines virtuelles identiques Azure et disques gérés
 
-Les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent désormais en charge les machines virtuelles avec disques gérés. Les disques gérés avec groupes identiques présentent plusieurs avantages, notamment :
+Les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent en charge les machines virtuelles avec disques gérés. Les disques gérés avec groupes identiques présentent plusieurs avantages, notamment :
 
 * Vous n’avez plus besoin de créer au préalable et de gérer des comptes de stockage pour stocker les disques du système d’exploitation pour les machines virtuelles de groupes identiques.
 
@@ -43,10 +42,6 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 ```
 
 Vous pouvez également consulter le [Référentiel GitHub de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates), dans les dossiers qui contiennent `vmss`, pour voir des exemples prédéfinis de modèles qui déploient des groupes identiques. Pour savoir quels modèles utilisent déjà des disques gérés, vous pouvez consulter [cette liste](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
-
-## <a name="api-versions"></a>Versions d’API
-
-Les groupes identiques avec des disques managés nécessitent la version d’API Microsoft.Compute `2016-04-30-preview` ou une version ultérieure. Les groupes identiques avec disques non gérés continueront à fonctionner comme avant, même dans les nouvelles versions d’API qui prennent en charge les disques gérés. Cependant, les groupes identiques avec disques non gérés ne profiteront pas des avantages des disques gérés, même dans ces nouvelles versions d’API.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

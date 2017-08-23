@@ -16,16 +16,15 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: e9bb11645a0f45449bfc102e1d0cefd6fbf3ffd9
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 6955e3d8c7b032ee898be11e611080905b5069ba
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Utiliser la surveillance et les diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager
-L’extension Diagnostics Azure fournit des fonctionnalités d’analyse et de diagnostics sur une machine virtuelle Azure basée sur Windows. Vous pouvez activer ces fonctionnalités sur la machine virtuelle en incluant l’extension dans le modèle Azure Resource Manager. Pour plus d’informations sur l’ajout d’une extension dans un modèle de machine virtuelle, consultez [Création de modèles Azure Resource Manager avec des extensions de machine virtuelle](extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Cet article décrit comment ajouter l’extension Diagnostics Azure à un modèle de machine virtuelle Windows.  
+L’extension Diagnostics Azure fournit des fonctionnalités d’analyse et de diagnostics sur une machine virtuelle Azure basée sur Windows. Vous pouvez activer ces fonctionnalités sur la machine virtuelle en incluant l’extension dans le modèle Azure Resource Manager. Pour plus d’informations sur l’ajout d’une extension dans un modèle de machine virtuelle, consultez [Création de modèles Azure Resource Manager avec des extensions de machine virtuelle](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) . Cet article décrit comment ajouter l’extension Diagnostics Azure à un modèle de machine virtuelle Windows.  
 
 ## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Ajouter l’extension Diagnostics Azure à la définition de ressource de machine virtuelle
 Pour activer l’extension Diagnostics sur une machine virtuelle Windows, vous devez ajouter l’extension comme ressource de machine virtuelle dans le modèle Resource Manager.
@@ -168,7 +167,7 @@ Chaque table WADMetrics contient les colonnes suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour un exemple de modèle complet d’une machine virtuelle Windows avec l’extension Diagnostics, consultez [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
-* Déployer le modèle Resource Manager à l’aide d’[Azure PowerShell](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou de la [ligne de commande Azure](../linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Déployer le modèle Resource Manager à l’aide d’[Azure PowerShell](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou de la [ligne de commande Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * En savoir plus sur la [création de modèles Azure Resource Manager](../../resource-group-authoring-templates.md)
 
 

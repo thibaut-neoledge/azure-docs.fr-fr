@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 8c51af189e8086a509d44546882e1b26605dddae
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -48,7 +48,7 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
 1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
 
-2. Sélectionnez **Calcul** puis **Ubuntu Server 16.04 LTS** et vérifiez que le modèle de déploiement sélectionné est **Resource Manager**. Cliquez sur le bouton **Créer** . 
+2. Sélectionnez **Compute**, puis sélectionnez **Ubuntu Server 16.04 LTS**. 
 
 3. Saisissez les informations de la machine virtuelle. Dans **Type d’authentification**, sélectionnez **Clé publique SSH**. Lorsque vous collez votre clé publique SSH, veillez à supprimer les espaces au début ou à la fin. Lorsque vous avez terminé, cliquez sur **OK**.
 
@@ -58,7 +58,7 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
     ![Capture d’écran montrant les tailles de machine virtuelle](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. Dans le panneau Paramètres, sélectionnez **Oui** sous **Utiliser des disques gérés**, conservez les valeurs par défaut pour le reste des paramètres, puis cliquez sur **OK**.
+5. Conservez les valeurs par défaut dans le panneau des paramètres et cliquez sur **OK**.
 
 6. Sur la page Résumé, cliquez sur **OK** pour lancer le déploiement de machine virtuelle.
 

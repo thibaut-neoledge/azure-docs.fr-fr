@@ -35,7 +35,7 @@ Les LED peuvent prendre trois états pour indiquer l’état d’un module : ver
 Le reste de cet article décrit les différents voyants LED d’analyse, leur emplacement sur l’appareil StorSimple, ainsi que l’état de l’appareil en fonction de l’état des LED et des alarmes sonores associées éventuelles.
 
 ## <a name="front-panel-indicator-leds"></a>Voyants LED du panneau avant
-Le panneau avant, également appelé *panneau de commande*** indique l’état d’ensemble de tous les modules du système. Le panneau avant est identique sur l'appareil StorSimple principal et le boîtier EBOD, comme illustré ci-dessous.  
+Le panneau avant, également appelé *panneau de commande* indique *l’état* d’ensemble de tous les modules du système. Le panneau avant est identique sur l'appareil StorSimple principal et le boîtier EBOD, comme illustré ci-dessous.  
 
    ![Panneau avant de l’appareil][1]
 

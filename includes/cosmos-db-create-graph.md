@@ -1,7 +1,7 @@
-Vous pouvez maintenant utiliser l’Explorateur de données pour créer un conteneur graphique et ajouter des données à votre base de données. 
+Vous pouvez désormais utiliser l’outil Explorateur de données dans le portail Azure pour créer une base de données de graphiques. 
 
-1. Dans le portail Azure, dans le menu de navigation, cliquez sur **Explorateur de données**. 
-2. Dans le panneau Explorateur de données, cliquez sur **Nouveau graphique**, puis renseignez la page à l’aide des informations suivantes.
+1. Dans le menu de navigation de gauche du portail Azure, cliquez sur **Explorateur de données** (version d’évaluation). 
+2. Dans le panneau **Explorateur de données (préversion)**, cliquez sur **Nouveau graphique**, puis renseignez la page à l’aide des informations suivantes.
 
     ![Explorateur de données dans le portail Azure](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 
@@ -11,7 +11,7 @@ Vous pouvez maintenant utiliser l’Explorateur de données pour créer un conte
     ID de graphique|sample-graph|L’ID de votre nouveau graphique. Les noms de graphiques sont soumis aux mêmes exigences de nombre de caractères que les ID de bases de données.
     Capacité de stockage| 10 Go|Conservez la valeur par défaut. Il s’agit de la capacité de stockage de la base de données.
     Débit|400 unités de requête|Conservez la valeur par défaut. Vous pourrez augmenter le débit ultérieurement si vous souhaitez réduire la latence.
-    RU/m|Off|Conservez la valeur par défaut. Si, par la suite, vous avez besoin de gérer des charges de travail imprévisibles, vous pouvez activer la fonctionnalité [RU/m](../articles/cosmos-db/request-units-per-minute.md) à ce moment-là.
+    RU/m|Off|Conservez la valeur par défaut. 
     Clé de partition|/userid|Clé de partition qui distribuera les données uniformément sur chaque partition. Il est important de sélectionner la clé de partition correcte pour obtenir un graphique performant. Pour plus d’informations sur ce point, consultez [Conception du partitionnement](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
 3. Une fois le formulaire rempli, cliquez sur **OK**.

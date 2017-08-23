@@ -1,5 +1,5 @@
 ---
-title: "Créer Azure HDInsight (Hadoop) à l’aide de .NET | Microsoft Docs"
+title: "Créer des clusters Hadoop avec .NET - Azure HDInsight | Microsoft Docs"
 description: "Découvrez comment créer des clusters Hadoop, HBase, Storm ou Spark sur Linux pour HDInsight avec le kit de développement logiciel HDInsight .NET."
 services: hdinsight
 documentationcenter: 
@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/27/2017
+ms.date: 08/16/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 173869858ba7891fcea8a0207e9b192b81ae4840
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 823508c0bd9e379361dd26f70b3960259a8d4292
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation de HDInsight à partir d'une application .NET. Cet article montre comment créer un cluster HDInsight basé sur Linux à l’aide du Kit de développement logiciel (SDK) .NET.
+Le kit SDK .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation de HDInsight à partir d'une application .NET. Cet article montre comment créer un cluster HDInsight basé sur Linux à l’aide du kit SDK .NET.
 
 > [!IMPORTANT]
 > Les étapes décrites dans ce document créent un cluster avec un nœud de travail. Si vous envisagez d’utiliser plus de 32 nœuds de travail lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
@@ -230,7 +229,7 @@ static void Main(string[] args)
 
     var coreConfigs = new Dictionary<string, string>
     {
-        {"fs.defaultFS", string.Format("wasbs://{0}@{1}", ExistingBlobContainer, ExistingStorageName)},
+        {"fs.defaultFS", string.Format("wasb://{0}@{1}", ExistingBlobContainer, ExistingStorageName)},
         {
             string.Format("fs.azure.account.key.{0}", ExistingStorageName),
             ExistingStorageKey

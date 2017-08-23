@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 06/14/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 9a298a5869d449c974267483eb779f45bc6b7abc
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: d41dc3c05d0d0cd0d9466c43bbebadcffd21e0dd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -48,7 +49,7 @@ Pour obtenir toutes les dernières fonctionnalités et bénéficier d’une exp�
    
     ![Obtenir le nom du serveur dans Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. Dans SSMS > **Explorateur d’objets**, cliquez sur **Se connecter** > **Analysis Services**.
-3. Dans la boîte de dialogue **Se connecter au serveur**, collez le nom du serveur puis, dans **Authentification**, choisissez l’une des options suivantes :
+3. Dans la boîte de dialogue **Se connecter au serveur**, copiez le nom du serveur puis, dans **Authentification**, choisissez l’un des types d’authentification suivants :
    
     **Authentification Windows** pour utiliser vos informations de domaine, nom d’utilisateur et mot de passe Windows.
 
@@ -59,7 +60,7 @@ Pour obtenir toutes les dernières fonctionnalités et bénéficier d’une exp�
     ![Se connecter dans SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 ## <a name="server-administrators-and-database-users"></a>Administrateurs de serveur et utilisateurs de base de données
-Dans Azure Analysis Services, il existe deux types d’utilisateur : les administrateurs de serveur et les utilisateurs de base de données. Les deux types d’utilisateur doivent exister dans Azure Active Directory et être spécifiés par adresse de messagerie d’organisation ou UPN. Cela diffère des bases de données tabulaires locales qui prennent en charge les administrateurs de serveur et les utilisateurs de base de données par des noms d’utilisateur de domaine Windows. Pour en savoir plus, consultez [Manage users in Azure Analysis Services (Gérer des utilisateurs dans Azure Analysis Services)](analysis-services-manage-users.md).
+Dans Azure Analysis Services, il existe deux types d’utilisateur : les administrateurs de serveur et les utilisateurs de base de données. Les deux types d’utilisateur doivent exister dans Azure Active Directory et être spécifiés par adresse de messagerie d’organisation ou UPN. Pour en savoir plus, consultez l’article [Authentification et autorisations utilisateur](analysis-services-manage-users.md).
 
 
 ## <a name="troubleshooting-connection-problems"></a>Résolution des problèmes de connexion

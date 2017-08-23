@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 1152893c4c686fa69f7e06ffa7e2d2b2272bc772
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: bcc3a229369a065cfcfbd32eadbf3f6ae6fe0036
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -34,9 +33,9 @@ Lorsque vous exécutez un cluster Service Fabric dans Azure, il peut être inté
 
 L’une des façons de charger et de collecter des journaux consiste à utiliser l’extension Linux Azure Diagnostics (LAD), qui assure le chargement des journaux dans le Stockage Azure, et qui a également la possibilité d’envoyer des journaux à Azure Application Insights ou Event Hubs. Vous pouvez également utiliser un processus externe pour lire les événements à partir du stockage et les placer dans un produit de plateforme d’analyse tel que [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) ou une autre solution d’analyse de journaux.
 
-## <a name="log-and-event-sources"></a>Sources de journaux et d’événement
+## <a name="log-and-event-sources"></a>Sources de journaux et d’événements
 
-### <a name="service-fabric-infrastructure-events"></a>Événements d’infrastructure Service Fabric
+### <a name="service-fabric-platform-events"></a>Événements de la plateforme Service Fabric
 Service Fabric émet quelques journaux prêts à l’emploi via [LTTng](http://lttng.org), notamment les événements opérationnels ou des événements du runtime. Ces journaux sont stockés dans l’emplacement spécifié par le modèle Resource Manager du cluster. Pour obtenir ou définir les informations relatives au compte de stockage, recherchez l’étiquette **AzureTableWinFabETWQueryable**, puis recherchez **StoreConnectionString**.
 
 ### <a name="application-events"></a>Événements liés aux applications

@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 07/28/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: f8f58f7007b6a52f0955232ad1492b25f3e851f0
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 56dd07de81e322aa66587ee160beb734811285dc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Hadoop dans HDInsight
@@ -36,12 +35,10 @@ Hadoop garantit de hauts niveaux de disponibilité et de fiabilité en répliqua
 
 ## <a name="availability-and-reliability-of-nodes"></a>Disponibilité et fiabilité des nœuds
 
-Les nœuds d’un cluster HDInsight sont implémentés à l’aide de machines virtuelles Azure. En cas de défaillance d’un nœud, ce dernier est mis hors connexion, et un autre nœud est créé pour remplacer le nœud défaillant. Tant que le nœud se trouve à l’état hors connexion, un autre nœud du même type est utilisé jusqu’à ce que le nouveau nœud soit mis en ligne.
+Les nœuds d’un cluster HDInsight sont implémentés à l’aide de machines virtuelles Azure. Les sections ci-après décrivent les différents types de nœuds utilisés avec HDInsight. 
 
 > [!NOTE]
-> Si le nœud était en train d’analyser des données au moment où il a cessé de fonctionner, le travail d’analyse qu’il avait effectué jusque-là est perdu. Le travail est renvoyé vers un autre nœud.
-
-Les sections ci-après décrivent les différents types de nœuds utilisés avec HDInsight. Les types de nœuds utilisables varient selon le type de cluster concerné. Par exemple, un type de cluster Hadoop ne comporte aucun nœud Nimbus. Pour plus d’informations sur les nœuds utilisés par les types de clusters HDInsight, consultez la section Types de cluster du document [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+> Les types de nœuds utilisables varient selon le type de cluster concerné. Par exemple, un type de cluster Hadoop ne comporte aucun nœud Nimbus. Pour plus d’informations sur les nœuds utilisés par les types de clusters HDInsight, consultez la section Types de cluster du document [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
 ### <a name="head-nodes"></a>Nœuds principaux
 

@@ -13,11 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5d395da0779d84e414341d6d73151fd7e77e3e8e
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: f332b8ac091b75a23489ac27f15ad1fd10d24ec6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -76,18 +76,18 @@ Cet article indique :
 
 _&quot;Il est fortement recommandé de confirmer ou abandonner une capture instantanée de stockage dès que possible après sa création. Tant que la capture instantanée de stockage est en cours de préparation ou de création, les données associées à la capture instantanée sont figées. Tant que ces données sont figées, vous pouvez toujours effectuer des modifications dans la base de données. Ces modifications n’ont aucun effet sur les données figées associées à la capture instantanée. Les modifications sont en fait écrites dans la zone de données, à des emplacements distincts de la capture instantanée de stockage. Les modifications sont également écrites dans le journal. Cependant, plus les données de la capture instantanée restent figées, plus le volume de données peut augmenter.&quot;_
 
-Azure Backup prend en charge la cohérence du système de fichiers via des extensions de machine virtuelle Azure. Ces extensions ne sont pas disponibles sous une forme autonome et fonctionnent uniquement en association avec le service Azure Backup. Cependant, il est toujours nécessaire de gérer un instantané SAP HANA pour garantir la cohérence de l’application.
+Sauvegarde Azure prend en charge la cohérence du système de fichiers via des extensions de machine virtuelle Azure. Ces extensions ne sont pas disponibles sous une forme autonome et fonctionnent uniquement en association avec le service  Sauvegarde Azure. Cependant, il est toujours nécessaire de gérer un instantané SAP HANA pour garantir la cohérence de l’application.
 
-Le service Azure Backup se décompose en deux grandes phases :
+Le service Sauvegarde Azure se décompose en deux grandes phases :
 
 - Création d’une capture instantanée
 - Transfert des données vers le coffre
 
 Vous devez donc confirmer la capture instantanée SAP HANA dès la fin de la phase de création de capture instantanée du service Azure Backup. Vous devrez peut-être attendre plusieurs minutes avant de voir la capture dans le portail Azure.
 
-![Cette illustration montre une partie de la liste des travaux de sauvegarde d’un service Azure Backup](media/sap-hana-backup-storage-snapshots/image014.png)
+![Cette illustration montre une partie de la liste des travaux de sauvegarde d’un service Sauvegarde Azure](media/sap-hana-backup-storage-snapshots/image014.png)
 
-Cette illustration montre une partie de la liste des travaux de sauvegarde d’un service Azure Backup, qui a été utilisé pour sauvegarder la machine virtuelle test HANA.
+Cette illustration montre une partie de la liste des travaux de sauvegarde d’un service Sauvegarde Azure, qui a été utilisé pour sauvegarder la machine virtuelle test HANA.
 
 ![Pour afficher les détails du travail, cliquez sur le travail de sauvegarde dans le portail Azure](media/sap-hana-backup-storage-snapshots/image015.png)
 
@@ -95,7 +95,7 @@ Pour afficher les détails du travail, cliquez sur le travail de sauvegarde dans
 
 ## <a name="hana-vm-backup-automation-via-azure-backup-service"></a>Automatisation des sauvegardes de machines virtuelles HANA via le service Azure Backup
 
-Comme décrit précédemment, il est possible de confirmer manuellement la capture instantané SAP HANA une fois la phase de création de capture instantanée terminée dans Azure Backup, mais il est utile d’envisager une automatisation, car un administrateur peut ne pas analyser la liste des travaux de sauvegarde dans le portail Azure.
+Comme décrit précédemment, il est possible de confirmer manuellement la capture instantané SAP HANA une fois la phase de création de capture instantanée terminée dans Sauvegarde Azure, mais il est utile d’envisager une automatisation, car un administrateur peut ne pas analyser la liste des travaux de sauvegarde dans le portail Azure.
 
 Voici comment effectuer cette automatisation via des applets de commande Azure PowerShell.
 
@@ -123,25 +123,25 @@ $st = Get-AzureRmRecoveryServicesBackupJobDetails -Jobid $jid | select -ExpandPr
 $st[0] | select -ExpandProperty status
 ```
 
-## <a name="hana-license-key-and-vm-restore-via-azure-backup-service"></a>Clé de licence HANA et restauration de machine virtuelle via le service Azure Backup
+## <a name="hana-license-key-and-vm-restore-via-azure-backup-service"></a>Clé de licence HANA et restauration de machine virtuelle via le service Sauvegarde Azure
 
-Le service Azure Backup est conçu pour créer une nouvelle machine virtuelle pendant la restauration. Il n’existe aucun moyen actuellement d’effectuer une restauration &quot;in situ&quot; d’une machine virtuelle Azure existante.
+Le service Sauvegarde Azure est conçu pour créer une nouvelle machine virtuelle pendant la restauration. Il n’existe aucun moyen actuellement d’effectuer une restauration &quot;in situ&quot; d’une machine virtuelle Azure existante.
 
 ![Cette illustration montre l’option de restauration du service Azure dans le portail Azure](media/sap-hana-backup-storage-snapshots/image019.png)
 
 Cette illustration montre l’option de restauration du service Azure dans le portail Azure. Vous pouvez soit créer une machine virtuelle pendant la restauration, soit restaurer des disques. Après avoir restauré les disques, il est toujours nécessaire de créer une machine virtuelle en amont. Chaque fois qu’une machine virtuelle est créée sur Azure, l’ID unique de la machine virtuelle change (voir [Accessing and Using Azure VM Unique ID](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) Consultation et utilisation de l’ID unique d’une machine virtuelle Azure).
 
-![Cette illustration montre l’ID unique d’une machine virtuelle Azure avant et après la restauration via le service Azure Backup](media/sap-hana-backup-storage-snapshots/image020.png)
+![Cette illustration montre l’ID unique d’une machine virtuelle Azure avant et après la restauration via le service Sauvegarde Azure](media/sap-hana-backup-storage-snapshots/image020.png)
 
-Cette illustration montre l’ID unique d’une machine virtuelle Azure avant et après la restauration via le service Azure Backup. La clé de matériel SAP, qui est utilisée pour les licences SAP, utilise cet ID de machine virtuelle unique. En conséquence, une nouvelle licence SAP doit être installée après la restauration d’une machine virtuelle.
+Cette illustration montre l’ID unique d’une machine virtuelle Azure avant et après la restauration via le service Sauvegarde Azure. La clé de matériel SAP, qui est utilisée pour les licences SAP, utilise cet ID de machine virtuelle unique. En conséquence, une nouvelle licence SAP doit être installée après la restauration d’une machine virtuelle.
 
-Une nouvelle fonctionnalité Azure Backup a été présentée en version préliminaire lors de la création du présent guide de sauvegarde. Elle permet d’effectuer une restauration au niveau fichier à partir de la capture instantanée de machine virtuelle créée dans le cadre de la sauvegarde de machine virtuelle. Cela évite d’avoir à déployer une nouvelle machine virtuelle ; par conséquent, l’ID unique de la machine virtuelle reste le même et aucune nouvelle clé de licence SAP HANA n’est requise. Vous trouverez plus d’informations sur cette fonctionnalité une fois qu’elle sera entièrement testée.
+Une nouvelle fonctionnalité Sauvegarde Azure a été présentée en version préliminaire lors de la création du présent guide de sauvegarde. Elle permet d’effectuer une restauration au niveau fichier à partir de la capture instantanée de machine virtuelle créée dans le cadre de la sauvegarde de machine virtuelle. Cela évite d’avoir à déployer une nouvelle machine virtuelle ; par conséquent, l’ID unique de la machine virtuelle reste le même et aucune nouvelle clé de licence SAP HANA n’est requise. Vous trouverez plus d’informations sur cette fonctionnalité une fois qu’elle sera entièrement testée.
 
-À terme, Azure Backup permettra de sauvegarder différents disques virtuels Azure, ainsi que des fichiers et des répertoires depuis la machine virtuelle elle-même. Azure Backup présente l’avantage de gérer toutes les sauvegardes, ce qui évite au client d’avoir à le faire. Si une restauration s’avère nécessaire, Azure Backup sélectionne la sauvegarde correcte à utiliser.
+À terme, Sauvegarde Azure permettra de sauvegarder différents disques virtuels Azure, ainsi que des fichiers et des répertoires depuis la machine virtuelle elle-même. Sauvegarde Azure présente l’avantage de gérer toutes les sauvegardes, ce qui évite au client d’avoir à le faire. Si une restauration s’avère nécessaire, Sauvegarde Azure sélectionne la sauvegarde correcte à utiliser.
 
 ## <a name="sap-hana-vm-backup-via-manual-disk-snapshot"></a>Sauvegarde de machine virtuelle SAP HANA via une capture instantanée manuelle du disque
 
-Au lieu d’utiliser le service Azure Backup, on peut configurer une solution de sauvegarde individuelle en créant manuellement des captures instantanées d’objet blob des disques durs virtuels Azure via PowerShell. Pour obtenir une description des étapes à suivre, consultez la page [Using blob snapshots with PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/) (Utilisation des captures instantanées d’objets blob avec PowerShell).
+Au lieu d’utiliser le service Sauvegarde Azure, on peut configurer une solution de sauvegarde individuelle en créant manuellement des captures instantanées d’objet blob des disques durs virtuels Azure via PowerShell. Pour obtenir une description des étapes à suivre, consultez la page [Using blob snapshots with PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/) (Utilisation des captures instantanées d’objets blob avec PowerShell).
 
 Cette approche offre plus de souplesse, mais elle ne résout pas les problèmes décrits plus haut dans ce document :
 
@@ -164,10 +164,10 @@ Il est possible de restaurer uniquement les disques de données d’une machine 
 - Après le démarrage de la machine virtuelle, tout ce qui se trouvait sur le RAID logiciel fonctionnait correctement et a été rétabli à l’heure de création de la capture instantanée d’objets blob
 - HANA a été rétabli à l’heure de création de la capture instantanée HANA
 
-S’il était possible d’arrêter SAP HANA avant les captures instantanées d’objets blob, la procédure serait moins complexe. Dans ce cas, on pourrait ignorer la capture instantanée HANA et, s’il ne se passe rien de plus dans le système, ignorer également le blocage du système de fichiers. Tout devient plus complexe dès lors qu’il est nécessaire d’effectuer des captures instantanées alors que tout est en ligne. Consultez la section relative à _la cohérence des données SAP HANA lors de la création de captures instantanées de stockage_ dans l’article [Backup guide for SAP HANA on Azure Virtual Machines](sap-hana-backup-guide.md) (Guide de sauvegarde pour SAP HANA sur les machines virtuelles Azure).
+S’il était possible d’arrêter SAP HANA avant les captures instantanées d’objets blob, la procédure serait moins complexe. Dans ce cas, on pourrait ignorer la capture instantanée HANA et, s’il ne se passe rien de plus dans le système, ignorer également le blocage du système de fichiers. Tout devient plus complexe dès lors qu’il est nécessaire d’effectuer des captures instantanées alors que tout est en ligne. Consultez la section relative à _la cohérence des données SAP HANA lors de la création de captures instantanées de stockage_ dans l’article [Guide de sauvegarde pour SAP HANA sur les machines virtuelles Azure](sap-hana-backup-guide.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* L’article [Backup guide for SAP HANA on Azure Virtual Machines](sap-hana-backup-guide.md) (Guide de sauvegarde pour SAP HANA sur les machines virtuelles Azure) fournit une vue d’ensemble et des informations sur la mise en route.
-* L’article [SAP HANA Azure Backup on file level](sap-hana-backup-file-level.md) (Sauvegarde SAP HANA sur Azure au niveau fichier) décrit l’option de sauvegarde à partir d’instantanés de stockage.
-* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur Azure (instances de grande taille), consultez [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md).
+* L’article [Guide de sauvegarde pour SAP HANA sur les machines virtuelles Azure](sap-hana-backup-guide.md) fournit une vue d’ensemble et des informations sur la mise en route.
+* L’article [Sauvegarde SAP HANA sur Azure au niveau fichier](sap-hana-backup-file-level.md) décrit l’option de sauvegarde basée sur les fichiers.
+* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur Azure (grandes instances), consultez [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md).
 

@@ -3,8 +3,8 @@ title: "Dépanner les travaux Azure Data Lake Analytics à l’aide du portail A
 description: "Apprenez à utiliser le portail Azure afin de dépanner les travaux Data Lake Analytics. "
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.service: data-lake-analytics
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: b2b19a6f2ea20c414119e9dfbf84fda92dd93402
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -27,50 +27,31 @@ Apprenez à utiliser le portail Azure afin de dépanner les travaux Data Lake An
 
 Dans ce didacticiel, vous allez identifier un problème de fichier source manquant et utiliser le portail Azure pour résoudre le problème.
 
-**Configuration requise**
-
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
-
-* **Connaissances de base du processus de travail Analytique Data Lake**. Consultez [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md).
-* **Un compte Analytique Data Lake**. Consultez [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-* **Copier les données d’exemple dans le compte Data Lake Store par défaut**.  Voir [Préparer les données source](data-lake-analytics-get-started-portal.md)
-
 ## <a name="submit-a-data-lake-analytics-job"></a>Envoyer le travail Analytique Data Lake
-Maintenant, vous allez créer un travail U-SQL avec un nom de fichier erroné.  
 
-**Pour soumettre le travail**
+Envoyer la tâche U-SQL suivante :
 
-1. À partir du portail Azure, cliquez sur **Microsoft Azure** dans le coin supérieur gauche.
-2. Cliquez sur la vignette indiquant le nom de votre compte Analytique Data Lake.  Elle a été épinglée ici lorsque le compte a été créé.
-   Si le compte n’est pas épinglé ici, consultez [Ouvrir un compte Analytics à partir du portail](data-lake-analytics-manage-use-portal.md#manage-data-sources).
-3. Cliquez sur **Nouveau travail** dans le menu du haut.
-4. Saisissez le nom du travail et le script U-SQL suivant :
+```
+@searchlog =
+   EXTRACT UserId          int,
+           Start           DateTime,
+           Region          string,
+           Query           string,
+           Duration        int?,
+           Urls            string,
+           ClickedUrls     string
+   FROM "/Samples/Data/SearchLog.tsv1"
+   USING Extractors.Tsv();
 
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv1"
-            USING Extractors.Tsv();
+OUTPUT @searchlog   
+   TO "/output/SearchLog-from-adls.csv"
+   USING Outputters.Csv();
+```
+    
+Le fichier source défini dans le script est **/Samples/Data/SearchLog.tsv1**, alors qu’il devrait s’agir de **/Samples/Data/SearchLog.tsv**.
 
-        OUTPUT @searchlog   
-            TO "/output/SearchLog-from-adls.csv"
-        USING Outputters.Csv();
-
-    Le fichier source défini dans le script est **/Samples/Data/SearchLog.tsv1**, alors qu’il devrait s’agir de **/Samples/Data/SearchLog.tsv**.
-5. Cliquez sur **Soumettre le travail** en haut. Un nouveau volet Détails du travail s’ouvre. Dans la barre de titre, l’état du travail est affiché. L’achèvement prend quelques minutes. Vous pouvez cliquer sur **Actualiser** pour obtenir l’état le plus récent.
-6. Attendez que l’état du travail passe à **Échec**.  Si le travail est **Réussi**, c’est parce que vous n’avez pas supprimé le dossier /Samples. Consultez la section **Configuration requise** au début du didacticiel.
-
-Vous vous demandez peut-être - pourquoi il prend autant de temps pour un petit projet.  N’oubliez pas qu’Analytique Data Lake est conçu pour traiter des données volumineuses.  Il se distingue particulièrement en cas de traitement d’une grande quantité de données avec son système distribué.
-
-Supposons que vous avez soumis le travail et fermé le portail.  Dans la section suivante, vous allez apprendre à résoudre les problèmes de la tâche.
 
 ## <a name="troubleshoot-the-job"></a>Résolution des problèmes
-Dans la dernière section, vous avez envoyé un travail et ce dernier a échoué.  
 
 **Pour voir tous les travaux**
 

@@ -15,20 +15,17 @@ ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: sngun
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: c0dddd83a05f6c00fe922d056f418fea4151f55a
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 2a4a7bc0c9cfdc9c99c10630c0c52cd463f1c295
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
-# Make a custom virtual machine image available in Azure Stack
-<a id="make-a-custom-virtual-machine-image-available-in-azure-stack" class="xliff"></a>
+# <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Make a custom virtual machine image available in Azure Stack
 
 Azure Stack enables cloud administrators to make custom virtual machine images available to their users. These images can be referenced by Azure Resource Manager templates or added to the Azure Marketplace UI with the creation of a Marketplace item. 
 
-## Add a VM image to marketplace with PowerShell
-<a id="add-a-vm-image-to-marketplace-with-powershell" class="xliff"></a>
+## <a name="add-a-vm-image-to-marketplace-with-powershell"></a>Add a VM image to marketplace with PowerShell
 
 You can use the steps described in this article either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN.
 
@@ -36,7 +33,7 @@ You can use the steps described in this article either from the Azure Stack Deve
 
 2. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
    
-   * For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) contains image preparation instructions in the **Prepare the VHD for upload** section.
+   * For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines/windows/upload-generalized-managed.md) contains image preparation instructions in the **Prepare the VHD for upload** section.
    * For Linux images, follow the steps to prepare the image or use an existing Azure Stack Linux image as described in the article [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md).
 3. [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md) and then import the Connect and ComputeAdmin modules:
    
@@ -68,8 +65,16 @@ You can use the steps described in this article either from the Azure Stack Deve
       -ADFS 
       -EnvironmentName AzureStackAdmin 
     ```
+    
+6. Sign in to your Azure Stack environment by using the following cmdlet:
 
-6. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
+   ```PowerShell
+   Login-AzureRmAccount `
+   -EnvironmentName "AzureStackAdmin" `
+   -TenantId $TenantID 
+   ```
+
+7. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
      
      ```powershell
      Add-AzsVMImage `
@@ -92,8 +97,7 @@ To verify that the command ran successfully, go to Marketplace in the portal, an
 
 ![VM image added successfully](./media/azure-stack-add-vm-image/image5.PNG) 
 
-## Remove a VM image with PowerShell
-<a id="remove-a-vm-image-with-powershell" class="xliff"></a>
+## <a name="remove-a-vm-image-with-powershell"></a>Remove a VM image with PowerShell
 
 When you no longer need the virtual machine image that you have uploaded earlier, you can delete it from the marketplace by using the following cmdlet:
 
@@ -105,8 +109,7 @@ Remove-AzsVMImage `
   -version "1.0.0" `
 ```
 
-## Parameters
-<a id="parameters" class="xliff"></a>
+## <a name="parameters"></a>Parameters
 
 | Parameter | Description |
 | --- | --- |
@@ -124,8 +127,7 @@ Remove-AzsVMImage `
 | **osDiskBlobURI** |Optionally, this script also accepts a Blob storage URI for osDisk. |
 | **dataDiskBlobURIs** |Optionally, this script also accepts an array of Blob storage URIs for adding data disks to the image. |
 
-## Add a VM image through the portal
-<a id="add-a-vm-image-through-the-portal" class="xliff"></a>
+## <a name="add-a-vm-image-through-the-portal"></a>Add a VM image through the portal
 
 > [!NOTE]
 > This method requires creating the Marketplace item separately.

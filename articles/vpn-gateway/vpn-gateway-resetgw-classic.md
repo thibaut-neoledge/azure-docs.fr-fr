@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 4315e9168a1ad724a6c28bd9bab065d6ffdabb5d
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 7c5ba9310568571991708ab54a5275df6ea84a39
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="reset-a-vpn-gateway"></a>Réinitialiser une passerelle VPN
@@ -37,7 +36,7 @@ Si la connexion n’est pas restaurée après le premier redémarrage, exécutez
 
 Après deux redémarrages, si vous continuez de rencontrer des problèmes de connectivité entre différents locaux, ouvrez une demande de support à partir du portail Azure.
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="before"></a>Avant de commencer
 
 Avant de réinitialiser votre passerelle, vérifiez les éléments clés répertoriés ci-dessous pour chaque tunnel VPN IPsec Site à Site (S2S). Toute incohérence dans les éléments entraîne la déconnexion des tunnels VPN S2S. Une vérification et une correction des configurations pour vos passerelles locales et vos passerelles VPN Azure vous évitent des redémarrages et des perturbations sur les autres connexions en cours sur les passerelles.
 
@@ -47,7 +46,7 @@ Avant de réinitialiser votre passerelle, vérifiez les points suivants :
 * La clé prépartagée doit être la même sur la passerelle VPN Azure et la passerelle VPN locale.
 * Si vous appliquez une configuration IPsec/IKE spécifique, telle que le chiffrement, des algorithmes de hachage et PFS (Perfect Forward Secrecy), vérifiez que les passerelles VPN Azure et locale ont les mêmes configurations.
 
-## <a name="azure-portal"></a>Portail Azure
+## <a name="portal"></a>Portail Azure
 
 Vous pouvez réinitialiser une passerelle VPN Resource Manager à l’aide du portail Azure. Si vous souhaitez réinitialiser une passerelle classique, consultez les étapes relatives à [PowerShell](#resetclassic).
 
@@ -59,7 +58,7 @@ Vous pouvez réinitialiser une passerelle VPN Resource Manager à l’aide du po
   ![Panneau Réinitialiser la passerelle VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. Dans le panneau Réinitialiser, cliquez sur le bouton **Réinitialiser**.
 
-## <a name="powershell"></a>PowerShell
+## <a name="ps"></a>PowerShell
 
 ### <a name="resource-manager-deployment-model"></a>Modèle de déploiement de Resource Manager
 
@@ -93,7 +92,7 @@ RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
 StatusCode     : OK
 ```
 
-## <a name="azure-cli"></a>Interface de ligne de commande Azure
+## <a name="cli"></a>Interface CLI Azure
 
 Pour réinitialiser la passerelle, utilisez la commande [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway#reset). L’exemple suivant réinitialise une passerelle de réseau virtuel nommée VNet5GW dans le groupe de ressources TestRG5 :
 

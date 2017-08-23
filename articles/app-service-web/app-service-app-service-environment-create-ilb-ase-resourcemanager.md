@@ -12,15 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 07/11/2017
 ms.author: stefsch
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 33d1638dfbf1e314d7ea298a39dd4e646c3faf10
-
+ms.translationtype: HT
+ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
+ms.openlocfilehash: 147ab76d38c8bbbf34d35ed6c2a194d97fe711ab
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Comment créer un ILB ASE à l’aide des modèles Azure Resource Manager
+
+> [!NOTE] 
+> Cet article traite de l’environnement App Service v1. Il existe une version plus récente de l’environnement App Service, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la section [Présentation de l’environnement App Service Environment](../app-service/app-service-environment/intro.md).
+>
+
 ## <a name="overview"></a>Vue d'ensemble
 Les environnements App Service peuvent être créés avec une adresse interne de réseau virtuel au lieu d’une adresse IP virtuelle publique.  Cette adresse interne est fournie par un composant Azure appelé « équilibreur de charge interne » (ILB).  Vous pouvez créer un ILB ASE à l’aide du portail Azure.  Il peut également être créé de manière automatisée par le biais des modèles Azure Resource Manager.  Cet article décrit les étapes et la syntaxe nécessaires à la création d’un ILB ASE à l’aide des modèles Azure Resource Manager.
 
@@ -31,7 +37,7 @@ La création automatisée d’un ILB ASE comporte trois étapes :
 3. Le certificat SSL téléchargé est explicitement affecté à l’ILB ASE en tant que certificat SSL « par défaut ».  Ce certificat SSL servira à des applications de l’ILB ASE pour le trafic SSL lorsque celles-ci sont gérées à l’aide d’un domaine racine commun affecté à l’ASE (par exemple, https://someapp.mycustomrootcomain.com).
 
 ## <a name="creating-the-base-ilb-ase"></a>Création de l’ILB ASE de base
-Un exemple de modèle Azure Resource Manager et de son fichier de paramètres associés sont disponibles sur GitHub [ici][quickstartilbasecreate].
+Un exemple de modèle Azure Resource Manager et son fichier de paramètres associés sont disponibles sur GitHub, [ici][quickstartilbasecreate].
 
 La plupart des paramètres du fichier *azuredeploy.parameters.json* sont communs à la création d’ASE ILB, ainsi que d’ASE liés à une adresse IP virtuelle publique.  La liste ci-dessous répertorie les paramètres spécifiques, ou qui sont uniques, lors de la création d’un ILB ASE :
 
@@ -54,13 +60,13 @@ Une fois l’ILB ASE créé, un certificat SSL doit être associé à l’ASE en
 Il existe plusieurs façons d’obtenir un certificat SSL valide, parmi lesquelles les autorités de certification internes, l’achat d’un certificat auprès d’un émetteur externe et l’utilisation d’un certificat auto-signé.  Quelle que soit la source du certificat SSL, les attributs de certificat suivants doivent être configurés correctement :
 
 * *Objet* : cet attribut doit être défini sur **.votre-domaine-racine-ici.com*
-* *Autre nom de l’objet* : cet attribut doit inclure à la fois **.votre-domaine-racine-ici.com* et **.scm.votre-domaine-racine-ici.com*.  La deuxième entrée est nécessaire, car les connexions SSL sur le site SCM/Kudu associé à chaque application seront établies à l’aide d’une adresse sous la forme *votre-nom-application.scm.votre-domaine-racine-ici.com*.
+* *Autre nom de l’objet* : cet attribut doit inclure à la fois **.votre-domaine-racine-ici.com* et **.scm.votre-domaine-racine-ici.com*.  La deuxième entrée est nécessaire, car les connexions SSL sur le site SCM/Kudu associé à chaque application seront établies à l’aide d’une adresse sous la forme *votre-nom-application.scm.votre-domaine-racine-ici.com*.
 
 Une fois le certificat SSL valide obtenu, deux étapes préparatoires supplémentaires sont nécessaires.  Le certificat SSL doit être converti/enregistré au format de fichier .pfx.  N’oubliez pas que le fichier .pfx doit inclure tous les certificats intermédiaires et racine et être sécurisé avec un mot de passe.
 
 Le fichier .pfx obtenu doit ensuite être converti en une chaîne au format Base64, car le certificat SSL sera téléchargé à l’aide d’un modèle Azure Resource Manager.  Étant donné que les modèles Azure Resource Manager sont des fichiers texte, le fichier .pfx doit être converti en une chaîne au format Base64 afin d’être inclus en tant que paramètre du modèle.
 
-L’extrait de code Powershell ci-dessous montre un exemple de génération d’un certificat auto-signé, d’exportation du certificat en tant que fichier .pfx, de conversion du fichier .pfx au format Base64 de la chaîne codée, puis d’enregistrement de la chaîne codée en Base64 dans un fichier distinct.  Le code Powershell pour l’encodage en Base64 est une adaptation issue du [Blog Powershell Scripts][examplebase64encoding].
+L’extrait de code Powershell ci-dessous montre un exemple de génération d’un certificat auto-signé, d’exportation du certificat en tant que fichier .pfx, de conversion du fichier .pfx au format Base64 de la chaîne codée, puis d’enregistrement de la chaîne codée en Base64 dans un fichier distinct.  Le code PowerShell pour l’encodage en Base64 est une adaptation issue du [Powershell Scripts Blog (Blog relatif aux scripts PowerShell)][examplebase64encoding].
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
@@ -74,7 +80,7 @@ L’extrait de code Powershell ci-dessous montre un exemple de génération d’
     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $fileContentEncoded | set-content ($fileName + ".b64")
 
-Une fois le certificat SSL généré et converti en chaîne codée en Base64, vous pouvez utiliser l’exemple de modèle Azure Resource Manager sur GitHub pour [configurer le certificat SSL par défaut][configuringDefaultSSLCertificate].
+Une fois le certificat SSL généré et converti en chaîne encodée en Base64, vous pouvez utiliser l’exemple de modèle Azure Resource Manager sur GitHub pour [configurer le certificat SSL par défaut][configuringDefaultSSLCertificate].
 
 Les paramètres du fichier *azuredeploy.parameters.json* sont répertoriés ci-dessous :
 
@@ -138,10 +144,5 @@ Tous les articles et procédures concernant les environnements App Service sont 
 [quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-create/
 [examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/ 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: e7dad0f943375f1bf2996564558e313416506506
-ms.lasthandoff: 05/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: e0adac5193ae412845c8413dfee6b5557096359a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -64,7 +65,7 @@ Cet article répond aux questions les plus fréquemment posées sur Azure DevTes
 ## <a name="troubleshooting"></a>Résolution de problèmes
 * [Mon artefact a échoué lors de la création d’une machine virtuelle. Comment puis-je résoudre ce problème ?](#my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it)
 * [Pourquoi mon réseau virtuel existant n’est pas enregistré correctement ?](#why-isnt-my-existing-virtual-network-saving-properly)
-* [Pourquoi l’erreur signalant que la ressource parente est introuvable s’affiche t-elle lors de l’approvisionnement à partir de PowerShell ?](#why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell)  
+* [Pourquoi l’erreur signalant que la ressource parente est introuvable s’affiche-t-elle lors de l’approvisionnement à partir de PowerShell ?](#why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell)  
 * [Où puis-je trouver plus d’informations d’erreur si le déploiement d’une machine virtuelle échoue ?](#where-can-i-find-more-error-information-if-a-vm-deployment-fails)  
 
 ### <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
@@ -148,7 +149,7 @@ Une image personnalisée est un disque dur virtuel, alors qu’une formule est u
 Vous pouvez utiliser [l’extension de tâches VSTS](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) ou [générer un modèle Azure Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) lors de la création d’une machine virtuelle et [déployer le modèle Azure Resource Manager à partir de Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### <a name="how-do-i-move-my-existing-azure-vms-into-my-azure-devtest-labs-lab"></a>Comment puis-je déplacer mes machines virtuelles Azure existantes dans mon laboratoire Azure DevTest Labs ?
-Nous sommes en train de concevoir une solution pour déplacer directement des machines virtuelles vers Azure DevTest Labs, mais actuellement vous pouvez copier vos machines virtuelles existantes dans Azure DevTest Labs comme suit :
+Pour copier vos machines virtuelles existantes vers Azure DevTest Labs, procédez comme suit :
 
 1. Copiez le fichier de disque dur virtuel de votre machine virtuelle existante à l’aide de ce [script Windows PowerShell](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1)
 2. [Créez l’image personnalisée](devtest-lab-create-template.md) dans votre laboratoire Azure DevTest Labs.

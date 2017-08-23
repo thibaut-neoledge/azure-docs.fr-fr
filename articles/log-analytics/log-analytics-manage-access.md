@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/06/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: ff4c937fe06d88c6189d39cf799a5d349d0e280a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="manage-workspaces"></a>Gestion des espaces de travail
@@ -108,7 +107,60 @@ Les activités suivantes nécessitent également des autorisations Azure :
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gestion de l’accès à Log Analytics à l’aide des autorisations Azure
 Pour accorder l’accès à l’espace de travail Log Analytics à l’aide des autorisations Azure, suivez les étapes de la page [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../active-directory/role-based-access-control-configure.md).
 
-Si vous disposez au moins de l’autorisation en lecture Azure sur l’espace de travail Log Analytics, vous pouvez ouvrir le portail OMS en cliquant sur la tâche **Portail OMS** lors de l’affichage de l’espace de travail Log Analytics.
+Azure intègre deux rôles utilisateur pour Log Analytics :
+- Lecteur Log Analytics
+- Contributeur Log Analytics
+
+Les membres du rôle *Lecteur Log Analytics* peuvent effectuer les opérations suivantes :
+- Visualisation et recherche de toutes les données d’analyse 
+- Visualisation des paramètres d’analyse, notamment la configuration des diagnostics Azure sur toutes les ressources Azure
+
+| Type    | Autorisation | Description |
+| ------- | ---------- | ----------- |
+| Action | `*/read`   | Possibilité de visualiser toutes les ressources et la configuration des ressources. Inclut la visualisation des éléments suivants : <br> État d’extension de machine virtuelle <br> Configuration des diagnostics Azure sur les ressources <br> Totalité des paramètres et propriétés de l’ensemble des ressources |
+| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Possibilité d’exécuter des requêtes à l’aide de la fonction Recherche dans les journaux v2 |
+| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Possibilité d’exécuter des requêtes à l’aide de la fonction Recherche dans les journaux v1 |
+| Action | `Microsoft.Support/*` | Possibilité d’ouvrir des cas de support |
+|Non-action | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Interdiction de lecture de la clé d’espace de travail requise pour l’utilisation de l’API de collecte de données et pour l’installation des agents |
+
+
+Les membres du rôle *Contributeur Log Analytics* peuvent effectuer les opérations suivantes :
+- Lecture de toutes les données d’analyse 
+- Création et configuration des comptes Automation
+- Ajout et suppression de solutions de gestion
+- Lecture des clés de compte de stockage 
+- Configuration de la collecte de journaux à partir du stockage Azure
+- Modification des paramètres d’analyse pour les ressources Azure, notamment :
+  - Ajout de l’extension de machine virtuelle à des machines virtuelles
+  - Configuration des diagnostics Azure sur toutes les ressources Azure
+
+> [!NOTE] 
+> La possibilité d’ajouter une extension de machine virtuelle à une machine virtuelle vous offre un contrôle total sur une machine virtuelle.
+
+| Autorisation | Description |
+| ---------- | ----------- |
+| `*/read`     | Possibilité de visualiser toutes les ressources et la configuration des ressources. Inclut la visualisation des éléments suivants : <br> État d’extension de machine virtuelle <br> Configuration des diagnostics Azure sur les ressources <br> Totalité des paramètres et propriétés de l’ensemble des ressources |
+| `Microsoft.Automation/automationAccounts/*` | Possibilité de créer et configurer les comptes Azure Automation, et notamment d’ajouter et modifier des runbooks |
+| `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Ajout, mise à jour et suppression d’extensions de machine virtuelle, notamment l’extension Microsoft Monitoring Agent et l’extension Agent OMS pour Linux |
+| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Visualisation de la clé du compte de stockage ; opération requise pour la configuration de Log Analytics pour la lecture des journaux à partir des comptes de stockage Azure |
+| `Microsoft.Insights/alertRules/*` | Ajout, mise à jour et suppression de règles d’alerte |
+| `Microsoft.Insights/diagnosticSettings/*` | Ajout, mise à jour et suppression de paramètres de diagnostic sur les ressources Azure |
+| `Microsoft.OperationalInsights/*` | Ajout, mise à jour et suppression de configuration pour les espaces de travail Log Analytics |
+| `Microsoft.OperationsManagement/*` | Ajout et suppression de solutions de gestion |
+| `Microsoft.Resources/deployments/*` | Création et suppression de déploiements ; opération requise pour l’ajout et la suppression de solutions, d’espaces de travail et de comptes Automation |
+| `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Création et suppression de déploiements ; opération requise pour l’ajout et la suppression de solutions, d’espaces de travail et de comptes Automation |
+
+L’ajout et la suppression d’utilisateurs au niveau d’un rôle utilisateur requièrent les autorisations `Microsoft.Authorization/*/Delete` et `Microsoft.Authorization/*/Write`.
+
+Utilisez ces rôles pour accorder aux utilisateurs l’accès à différentes étendues :
+- Abonnement : accès à tous les espaces de travail de l’abonnement
+- Groupe de ressources : accès à tous les espaces de travail du groupe de ressources
+- Ressource : accès uniquement à l’espace de travail spécifié
+
+Pour créer des rôles avec les autorisations spécifiques nécessaires, utilisez des [rôles personnalisés](../active-directory/role-based-access-control-custom-roles.md).
+
+### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Rôles utilisateur Azure et rôles utilisateur du portail Log Analytics
+Si vous disposez au moins d’une autorisation de lecture Azure sur l’espace de travail Log Analytics, vous pouvez ouvrir le portail Log Analytics en cliquant sur la tâche **Portail OMS** lors de la visualisation de l’espace de travail Log Analytics.
 
 Lorsque vous ouvrez le portail Log Analytics, vous passez à l’utilisation des rôles d’utilisateur Log Analytics hérités. Si vous ne disposez pas d’une affectation de rôle dans le portail Log Analytics, le service [vérifie les autorisations Azure dont vous disposez sur l’espace de travail](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
 Votre affectation de rôle dans le portail Log Analytics est déterminée en utilisant les éléments suivants :
@@ -195,7 +247,7 @@ Procédez comme suit pour supprimer un utilisateur d’un espace de travail. Not
 4. Sélectionnez le groupe parmi les résultats, puis cliquez sur **Ajouter**.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Liaison d’un espace de travail existant à un abonnement Azure
-Tous les espaces de travail créés après le 26 septembre 2016 doivent être liés à un abonnement Azure lors de la création. Vous devez lier les espaces de travail créés avant cette date lors de votre prochaine connexion. Lorsque vous créez l’espace de travail à partir du portail Azure ou que vous liez votre espace de travail à un abonnement Azure, votre répertoire Azure Active Directory est lié en tant que compte d’organisation.
+Tous les espaces de travail créés après le 26 septembre 2016 doivent être liés à un abonnement Azure lors de la création. Vous devez lier les espaces de travail créés avant cette date lorsque vous vous connectez. Lorsque vous créez l’espace de travail à partir du portail Azure ou que vous liez votre espace de travail à un abonnement Azure, votre répertoire Azure Active Directory est lié en tant que compte d’organisation.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Pour lier un espace de travail à un abonnement Azure dans le portail OMS
 

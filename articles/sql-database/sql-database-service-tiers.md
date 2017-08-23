@@ -4,7 +4,7 @@ description: "Comparaison entre les niveaux de service et de performances de Mic
 keywords: "options de base de données,performances de base de données"
 services: sql-database
 documentationcenter: 
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
@@ -15,17 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/30/2017
-ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 68d55d2dd088ce6350bd65b79206f161f9d3d788
+ms.author: carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: a3c287c5317bd7db2b560e37ddacc9e43d7292d1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-# Options de performances disponibles pour Microsoft Azure SQL Database
-<a id="what-performance-options-are-available-for-an-azure-sql-database" class="xliff"></a>
+# <a name="what-performance-options-are-available-for-an-azure-sql-database"></a>Options de performances disponibles pour Microsoft Azure SQL Database
 
 [Microsoft Azure SQL Database](sql-database-technical-overview.md) offre quatre niveaux de service pour des bases de données uniques ou [regroupées](sql-database-elastic-pool.md). Ces niveaux de service comprennent les niveaux **De base**, **Standard**, **Premium** et **Premium RS**. Chaque service dispose de plusieurs niveaux de performances ([DTU](sql-database-what-is-a-dtu.md)) et options de stockage permettant de gérer diverses charges de travail et tailles de données. Les niveaux de performances plus élevés offrent des ressources de stockage et de calcul supplémentaires, afin de générer un meilleur débit et une capacité supérieure. Vous pouvez modifier les niveaux de service et de performances et le stockage de manière dynamique, sans aucun temps d’arrêt. 
 - Les niveaux de service **De base**, **Standard** et **Premium** proposent tous un contrat de niveau de service garantissant un temps d’activité de 99,99 %. Par ailleurs, ils offrent des options de continuité d’activité flexibles, des fonctionnalités de gestion de la sécurité et une facturation à l’heure. 
@@ -34,8 +32,7 @@ ms.lasthandoff: 07/06/2017
 > [!IMPORTANT]
 > Une base de données Azure SQL Database obtient toujours un ensemble de ressources garanti, et les caractéristiques de performances attendues de votre base de données ne sont affectées par aucune autre base de données présente dans Azure. 
 
-## Choix d’un niveau de service
-<a id="choosing-a-service-tier" class="xliff"></a>
+## <a name="choosing-a-service-tier"></a>Choix d’un niveau de service
 Le tableau suivant fournit des exemples de niveaux adaptés à différentes charges de travail d'application.
 
 | Niveau de service | Charges de travail cibles |
@@ -78,14 +75,12 @@ Une fois que vous avez déterminé le niveau de service adéquat, vous êtes pr�
 > Consultez la section sur les [pools élastiques SQL](sql-database-elastic-pool.md) pour savoir comment regrouper des bases de données dans des pools élastiques SQL, afin de partager des ressources de calcul et de stockage. Le reste de la section s’intéresse aux niveaux de service et aux niveaux de performance des bases de données uniques.
 >
 
-## Niveau de service et niveau de performances d’une base de données unique
-<a id="single-database-service-tiers-and-performance-levels" class="xliff"></a>
+## <a name="single-database-service-tiers-and-performance-levels"></a>Niveau de service et niveau de performances d’une base de données unique
 Il existe plusieurs niveaux de performances et capacités de stockage au sein de chaque niveau de service pour les bases de données uniques. 
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-## Mise à l’échelle supérieure ou inférieure d’une base de données unique
-<a id="scaling-up-or-scaling-down-a-single-database" class="xliff"></a>
+## <a name="scaling-up-or-scaling-down-a-single-database"></a>Mise à l’échelle supérieure ou inférieure d’une base de données unique
 
 Après avoir choisi un niveau de service et un niveau de performances initiaux, vous pouvez mettre à l’échelle supérieure ou inférieure une base de données unique de façon dynamique sur la base de votre expérience concrète.  
 
@@ -96,6 +91,10 @@ La modification du niveau de service et/ou de performances d’une base de donn�
 
 La durée de la totalité du processus de montée en puissance dépend de la taille et du niveau de service de la base de données avant et après la modification. Par exemple, le basculement d’une base de données de 250 Go vers, depuis ou dans un niveau de service Standard ne demande pas plus de 6 heures. Le changement des niveaux de performances d’une base de données de la même taille dans le niveau de service Premium doit s’effectuer en moins de 3 heures.
 
+> [!TIP]
+> Pour vérifier l’état d’une opération de mise à l’échelle de base de données SQL en cours, vous pouvez utiliser la requête suivante : ```select * from sys.dm_operation_status```.
+>
+
 * Si vous effectuez la mise à niveau vers un niveau de service ou de performance supérieur, la taille maximale de la base de données n’augmente pas, à moins que vous n’en fassiez la demande.
 * Pour pouvoir passer à une version antérieure, la base de données doit présenter une taille inférieure à la taille maximale autorisée par le niveau de service voulu. 
 * Lors de la mise à niveau d’une base de données pour laquelle la [géoréplication](sql-database-geo-replication-portal.md) est activée, vous devez commencer par mettre à niveau les bases de données secondaires associées vers le niveau de performances souhaité avant de procéder à la mise à niveau de la base de données primaire (conseil général).
@@ -104,8 +103,7 @@ La durée de la totalité du processus de montée en puissance dépend de la tai
 * Les nouvelles propriétés de la base de données ne sont appliquées qu’une fois les modifications terminées.
 
 
-## Limitations actuelles des bases de données P11 et P15 avec une taille maximale de 4 To
-<a id="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize" class="xliff"></a>
+## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>Limitations actuelles des bases de données P11 et P15 avec une taille maximale de 4 To
 
 Dans certaines régions (précédemment mentionnées), la taille maximale prise en charge est de 4 To pour des bases de données P11 et P15. Les considérations et limitations suivantes s’appliquent aux bases de données P11 et P15 avec une taille maximale de 4 To :
 
@@ -120,8 +118,7 @@ Dans certaines régions (précédemment mentionnées), la taille maximale prise 
    - Mise à niveau de la base de données primaire dans une relation de géoréplication : le fait de modifier la taille maximale de la base de données primaire pour 4 To déclenche la même modification sur la base de données secondaire. Les deux mises à niveau doivent aboutir pour que la modification sur la base de données principale prenne effet. Des limitations de région pour l’option de 4 To s’appliquent (voir ci-dessus). Si la base de données secondaire se situe dans une région qui ne prend pas en charge l’option de 4 To, la base de données primaire n’est pas mise à niveau.
 - L’utilisation du service Import/Export pour le chargement des bases de données P11-4 To/P15-4 To n’est pas prise en charge. Utilisez SqlPackage.exe pour [importer](sql-database-import.md) et [exporter](sql-database-export.md) les données.
 
-## Gérer les niveaux de service et les niveaux de performances d’une base de données unique via le portail Azure
-<a id="manage-single-database-service-tiers-and-performance-levels-using-the-azure-portal" class="xliff"></a>
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-the-azure-portal"></a>Gérer les niveaux de service et les niveaux de performances d’une base de données unique via le portail Azure
 
 Pour définir ou modifier le niveau de service, le niveau de performance ou la capacité de stockage d’une base de données Azure SQL Database (nouvelle ou existante) via le portail Azure, ouvrez la fenêtre **Configurer les performances** de la base de données en cliquant sur **Niveau tarifaire (DTU de mise à l’échelle)**, comme indiqué dans la capture d’écran suivante. 
 
@@ -135,8 +132,7 @@ Pour définir ou modifier le niveau de service, le niveau de performance ou la c
 > Parcourez la section [Limitations actuelles des bases de données P11 et P15 avec une taille maximale de 4 To](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize) lors de la sélection d’un niveau de service P11 ou P15.
 >
 
-## Gérer les niveaux de service et les niveaux de performances d’une base de données unique via PowerShell
-<a id="manage-single-database-service-tiers-and-performance-levels-using-powershell" class="xliff"></a>
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-powershell"></a>Gérer les niveaux de service et les niveaux de performances d’une base de données unique via PowerShell
 
 Pour définir ou modifier les niveaux de service, les niveaux de performances et la capacité de stockage de bases de données Azure SQL Database via PowerShell, utilisez les applets de commande PowerShell suivantes. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
@@ -150,35 +146,33 @@ Pour définir ou modifier les niveaux de service, les niveaux de performances et
 > [!TIP]
 > Consultez [Surveillance et mise à l’échelle d’une instance SQL Database unique à l’aide de PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md) pour un exemple de script PowerShell qui surveille les mesures de performances d’une base de données, l’adapte à un niveau de performances supérieur et crée une règle d’alerte sur l’une des mesures de performances.
 
-## Gérer des niveaux de service et des niveaux de performances d’une base de données unique via Azure CLI
-<a id="manage-single-database-service-tiers-and-performance-levels-using-the-azure-cli" class="xliff"></a>
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-the-azure-cli"></a>Gérer des niveaux de service et des niveaux de performances d’une base de données unique via Azure CLI
 
 Pour définir ou modifier les niveaux de service, les niveaux de performances et la capacité de stockage Azure SQL Database via Azure CLI, utilisez les commandes [Azure CLI SQL Database](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](/azure/cloud-shell/overview) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows. Pour créer et gérer les pools élastiques SQL, voir [Pools élastiques](sql-database-elastic-pool.md).
 
 | Applet de commande | Description |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#create) |Crée une base de données|
-|[az sql db list](/cli/azure/sql/db#list)|Liste toutes les bases de données et les entrepôts de données d’un serveur, ou toutes les bases de données d’un pool élastique|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|Liste les objectifs de service disponibles et les limites de stockage|
+|[az sql db list](/cli/azure/sql/db#list)|Répertorie toutes les bases de données et les entrepôts de données d’un serveur, ou toutes les bases de données d’un pool élastique|
+|[az sql db list-editions](/cli/azure/sql/db#list-editions)|Répertorie les objectifs de service disponibles et les limites de stockage|
 |[az sql db list-usages](/cli/azure/sql/db#list-usages)|Renvoie les données d’utilisation de la base de données|
 |[az sql db show](/cli/azure/sql/db#show)|Obtient une base de données ou un entrepôt de données|
 |[az sql db update](/cli/azure/sql/db#update)|Met à jour une base de données|
 
 > [!TIP]
-> Voir [Surveiller et mettre à l’échelle une instance unique SQL Database à l’aide de l’interface Azure CLI](scripts/sql-database-monitor-and-scale-database-cli.md) pour un exemple de script CLI permettant la mise à l’échelle d’une instance unique de Microsoft Azure SQL Database vers un nouveau niveau de performance après l’analyse des données de taille de la base de données.
+> Consultez [Utiliser CLI pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-cli.md) pour obtenir un exemple de script Azure CLI permettant la mise à l’échelle d’une base de données Azure SQL après avoir demandé les informations de taille de la base de données.
 >
 
-## Gérer es niveaux de service et les niveaux de performances d’une base de données unique via Transact-SQL
-<a id="manage-single-database-service-tiers-and-performance-levels-using-transact-sql" class="xliff"></a>
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-transact-sql"></a>Gérer es niveaux de service et les niveaux de performances d’une base de données unique via Transact-SQL
 
 Pour définir ou modifier les niveaux de service, les niveaux de performances et la capacité de stockage Azure SQL Database via Transact-SQL, utilisez les commandes T-SQL suivantes. Vous pouvez entrer ces commandes à l’aide du portail Azure, de [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), de [Visual Studio Code](https://code.visualstudio.com/docs), ou de tout autre programme pouvant se connecter à un serveur Azure SQL Database et transmettre des commandes Transact-SQL. 
 
 | Commande | Description |
 | --- | --- |
-|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Crée une nouvelle base de données. Vous devez être connecté à la base de données MASTER pour créer une base de données.|
+|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Crée une base de données. Vous devez être connecté à la base de données MASTER pour créer une base de données.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifie une base de données SQL Azure. |
-|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Renvoie l’édition (niveau de service), l’objectif de service (niveau tarifaire) et, s’il y en a un, le nom du pool élastique Azure SQL Database ou d’un entrepôt de données Azure SQL Data Warehouse. Si vous êtes connecté à la base de données MASTER d’un serveur Azure SQL Database, renvoie les informations au sujet de toutes les bases de données. Pour SQL Azure Data Warehouse, vous devez être connecté à la base de données MASTER.|
-|[sys.database_usage (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Liste le nombre, le type et la durée des bases de données sur un serveur de base de données SQL Azure.|
+|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Renvoie l’édition (niveau de service), l’objectif de service (niveau tarifaire) et, le cas échéant, le nom du pool élastique Azure SQL Database ou d’un entrepôt de données Azure SQL Data Warehouse. Si vous êtes connecté à la base de données MASTER d’un serveur Azure SQL Database, renvoie les informations au sujet de toutes les bases de données. Pour Azure SQL Data Warehouse, vous devez être connecté à la base de données MASTER.|
+|[sys.database_usage (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Liste le nombre, le type et la durée des bases de données sur un serveur de base de données SQL Azure.|
 
 L’exemple suivant illustre la modification du paramètre de taille maximale (maxsize) à l’aide de la commande ALTER DATABASE :
 
@@ -187,13 +181,11 @@ ALTER DATABASE <myDatabaseName>
    MODIFY (MAXSIZE = 4096 GB);
 ```
 
-## Gérer les bases de données uniques via l’interface de programmation d’applications (API) REST
-<a id="manage-single-databases-using-the-rest-api" class="xliff"></a>
+## <a name="manage-single-databases-using-the-rest-api"></a>Gérer les bases de données uniques via l’interface de programmation d’applications (API) REST
 
 Pour définir ou modifier les niveaux de service, les niveaux de performances et la capacité de stockage Azure SQL Database via l’API REST, consultez la section relative à [l’API REST pour Azure SQL Database](/rest/api/sql/).
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur les [DTU](sql-database-what-is-a-dtu.md).
 * Pour savoir comment surveiller l’utilisation des DTU, voir [Surveiller et régler les performances](sql-database-troubleshoot-performance.md).

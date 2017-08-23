@@ -1,5 +1,5 @@
 ---
-title: "Activation du dump de tas pour les services Hadoop sur HDInsight sur Linux (version préliminaire) | Microsoft Docs"
+title: Activer des dumps de tas pour les services Hadoop sur HDInsight - Azure | Microsoft Docs
 description: "Activez les services Hadoop à partir des clusters HDInsight sur Linux pour le débogage et l’analyse."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3811e3ee1a741230c4499d18f48a5208905cf300
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 59942e989d622c2486edf181d76e13344c71e6f9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Activer les dumps de tas pour les services Hadoop sur HDInsight sur Linux
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/18/2017
 Les dumps de tas contiennent un instantané de la mémoire de l’application, y compris des valeurs des variables au moment de la création du dump. Ils sont donc utiles pour diagnostiquer les problèmes qui se produisent au moment de l’exécution.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight sur Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight sur Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whichServices"></a>Services
 

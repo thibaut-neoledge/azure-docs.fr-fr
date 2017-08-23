@@ -1,134 +1,234 @@
 ---
 title: "Didacticiel : Intégration d’Azure Active Directory à AirWatch | Microsoft Docs"
-description: "Apprenez à utiliser AirWatch avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore !"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et AirWatch."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 96a3bb1c-96c6-40dc-8ea0-060b0c2a62e5
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 07/20/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 8bb5433fb8d81635185d8bfc765ea240461e8a33
-ms.openlocfilehash: 4659531575e21823441eb75905b79d79592fa695
-ms.lasthandoff: 02/17/2017
-
+ms.reviewer: jeedes
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 1996ec97e7c0d94c5606ca43bb5956548f1f3712
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Didacticiel : Intégration d’Azure Active Directory à AirWatch
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et AirWatch.  
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-* Un abonnement Azure valide
-* Un abonnement AirWatch pour lequel l’authentification unique (SSO) est activée
+Dans ce didacticiel, vous allez apprendre à intégrer AirWatch dans Azure Active Directory (Azure AD).
 
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à AirWatch pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise AirWatch (connexion initiée par le fournisseur du service) ou en s’appuyant sur la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+L’intégration d’AirWatch dans Azure AD vous offre les avantages suivants :
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+- Dans Azure AD, vous pouvez contrôler qui a accès à AirWatch
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à AirWatch (par le biais de l’authentification unique) avec leur compte Azure AD
+- Vous pouvez gérer vos comptes depuis un emplacement central : le portail Azure
 
-* Activation de l’intégration d’application pour AirWatch
-* Configuration de l’authentification unique (SSO)
-* Configuration de l'approvisionnement des utilisateurs
-* Affectation d’utilisateurs
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791913.png "AirWatch")
+## <a name="prerequisites"></a>Composants requis
 
-## <a name="enable-the-application-integration-for-airwatch"></a>Activer l’intégration d’applications pour AirWatch
-Cette section décrit l’activation de l’intégration d’application pour AirWatch.
+Pour configurer l’intégration d’Azure AD dans AirWatch, vous avez besoin des éléments suivants :
 
-**Pour activer l’intégration d’applications pour AirWatch, suivez les étapes ci-dessous :**
+- Un abonnement Azure AD
+- Un abonnement AirWatch pour lequel l’authentification unique est activée
 
-1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-airwatch-tutorial/IC700993.png "Active Directory")
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
-   
-   ![Applications](./media/active-directory-saas-airwatch-tutorial/IC700994.png "Applications")
-4. Cliquez sur **Ajouter** en bas de la page.
-   
-   ![Ajouter une application](./media/active-directory-saas-airwatch-tutorial/IC749321.png "Ajouter une application")
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
-   
-   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-airwatch-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
-6. Dans la **zone de recherche**, tapez **AirWatch**.
-   
-   ![Galerie d’applications](./media/active-directory-saas-airwatch-tutorial/IC791914.png "Galerie d’applications")
-7. Dans le volet de résultats, sélectionnez **AirWatch**, puis cliquez sur **Terminer** pour ajouter l’application.
-   
-   ![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791915.png "AirWatch")
-   
-## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
+> [!NOTE]
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur AirWatch avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+Vous devez en outre suivre les recommandations ci-dessous :
 
-Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
-**Pour configurer l’authentification unique, procédez comme suit :**
+## <a name="scenario-description"></a>Description du scénario
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Sur la page d’intégration d’applications **AirWatch** du Portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-airwatch-tutorial/IC791916.png "Configurer l’authentification unique")
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à AirWatch**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-airwatch-tutorial/IC791917.png "Configurer l’authentification unique")
-3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion AirWatch**, tapez l’URL dont se servent vos utilisateurs pour se connecter à votre application AirWatch (par exemple, « *https:// companycode.awmdm.com/AirWatch/Login?gid=companycode* »), puis cliquez sur **Suivant**.
-   
-   ![Configurer l’URL de l’application](./media/active-directory-saas-airwatch-tutorial/IC791918.png "Configurer l’URL de l’application")
-4. Dans la page **Configurer l’authentification unique sur AirWatch**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-airwatch-tutorial/IC791919.png "Configurer l’authentification unique")
-5. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise AirWatch en tant qu’administrateur.
-6. Dans le volet de navigation gauche, cliquez sur **Accounts**, puis sur **Administrators**.
-   
-   ![Administrateurs](./media/active-directory-saas-airwatch-tutorial/IC791920.png "Administrateurs")
-7. Développez le menu **Settings**, puis cliquez sur **Directory Services**.
-   
-   ![Paramètres](./media/active-directory-saas-airwatch-tutorial/IC791921.png "Paramètres")
-8. Cliquez sur l’onglet **User** puis, dans le champ de texte **Base DN**, tapez votre nom de domaine et cliquez sur **Save**.
-   
-   ![Utilisateur](./media/active-directory-saas-airwatch-tutorial/IC791922.png "Utilisateur")
-9. Cliquez sur l’onglet **Server** .
-   
-   ![Serveur](./media/active-directory-saas-airwatch-tutorial/IC791923.png "Serveur")
-10. Procédez comme suit :
+1. Ajout d’AirWatch à partir de la galerie
+2. Configuration et test de l’authentification unique Azure AD
+
+## <a name="adding-airwatch-from-the-gallery"></a>Ajout d’AirWatch à partir de la galerie
+Pour configurer l’intégration d’AirWatch dans Azure AD, vous devez ajouter AirWatch à partir de la galerie dans votre liste d’applications SaaS gérées.
+
+**Pour ajouter AirWatch à partir de la galerie, procédez comme suit :**
+
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+
+    ![Applications][2]
     
-   ![Télécharger](./media/active-directory-saas-airwatch-tutorial/IC791924.png "Télécharger")    
-    1. Pour **Directory Type**, sélectionnez **None**.
-    2. Sélectionnez **Use SAML For Authentication**.
-    3. Pour charger le certificat téléchargé, cliquez sur **Upload**.
-11. Dans la section **Request** , procédez comme suit :
-    
-    ![Demande](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Demande")  
-    1. Pour **Request Binding Type**, sélectionnez **POST**.
-    2. Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Airwatch** de la boîte de dialogue, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Identity Provider Single Sign On URL**.
-    3. Pour **NameID Format**, sélectionnez **Email Address**.
-    4. Cliquez sur **Enregistrer**.
-12. Cliquez à nouveau sur l’onglet **User** .
-    
-    ![Utilisateur](./media/active-directory-saas-airwatch-tutorial/IC791926.png "Utilisateur")
-13. Dans la section **Attribute** , procédez comme suit :
-    
-    ![Attribut](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Attribut")
-    1. Dans la zone de texte **Object Identifier**, tapez **http://schemas.microsoft.com/identity/claims/objectidentifier**.
-    2. Dans la zone de texte **Username**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    3. Dans la zone de texte **Display Name**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    4. Dans la zone de texte **First Name**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    5. Dans la zone de texte **Last Name**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-    6. Dans la zone de texte **Email**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    7. Cliquez sur **Save**.
-14. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
-    
-   ![Configurer l’authentification unique](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Configurer l’authentification unique")
-    
-## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-Pour se connecter à AirWatch, les utilisateurs d'Azure AD doivent être approvisionnés dans AirWatch.
+    ![Applications][3]
+
+4. Dans la zone de recherche, tapez **AirWatch**.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_search.png)
+
+5. Dans le volet de résultats, sélectionnez **AirWatch**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec AirWatch, avec un utilisateur de test appelé « Britta Simon ».
+
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur AirWatch correspondant dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur AirWatch associé doit être établie.
+
+Pour cela, assignez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans AirWatch.
+
+Pour configurer et tester l’authentification unique Azure AD avec AirWatch, vous devez vous conformer aux indications des sections suivantes :
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur de test AirWatch](#creating-a-airwatch-test-user)** pour avoir un équivalent de Britta Simon dans AirWatch lié à la représentation Azure AD de l’utilisateur.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application AirWatch.
+
+**Pour configurer l’authentification unique Azure AD avec AirWatch, procédez comme suit :**
+
+1. Dans le portail Azure, sur la page d’intégration de l’application **AirWatch**, cliquez sur **Authentification unique**.
+
+    ![Configurer l’authentification unique][4]
+
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Configurer l’authentification unique](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_samlbase.png)
+
+3. Dans la section **Domaine et URL AirWatch**, procédez comme suit :
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_url.png)
+
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
+
+    b. Dans la zone de texte **Identificateur**, entrez la valeur `AirWatch`.
+
+    > [!NOTE] 
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe de support technique AirWatch](http://www.air-watch.com/company/contact-us/) pour obtenir cette valeur. 
+ 
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_certificate.png) 
+
+5. Dans la section **Configuration d’AirWatch** , cliquez sur **Configurer AirWatch** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_configure.png) 
+
+6. Cliquez sur le bouton **Enregistrer** .
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-airwatch-tutorial/tutorial_general_400.png)
+<CS>
+7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise AirWatch en tant qu’administrateur.
+
+8. Dans le volet de navigation gauche, cliquez sur **Accounts**, puis sur **Administrators**.
+   
+   ![Administrateurs](./media/active-directory-saas-airwatch-tutorial/ic791920.png "Administrateurs")
+
+9. Développez le menu **Settings**, puis cliquez sur **Directory Services**.
+   
+   ![Paramètres](./media/active-directory-saas-airwatch-tutorial/ic791921.png "Paramètres")
+
+10. Cliquez sur l’onglet **User** (Utilisateur) puis, dans la zone de texte **Base DN** (Nom unique de base), tapez votre nom de domaine et cliquez sur **Save** (Enregistrer).
+   
+   ![Utilisateur](./media/active-directory-saas-airwatch-tutorial/ic791922.png "Utilisateur")
+
+11. Cliquez sur l’onglet **Server** .
+   
+   ![Serveur](./media/active-directory-saas-airwatch-tutorial/ic791923.png "Serveur")
+
+12. Procédez comme suit :
+    
+    ![Télécharger](./media/active-directory-saas-airwatch-tutorial/ic791924.png "Télécharger")   
+    
+    a. Pour **Directory Type**, sélectionnez **None**.
+
+    b. Sélectionnez **Use SAML For Authentication**.
+
+    c. Pour charger le certificat téléchargé, cliquez sur **Upload**.
+
+13. Dans la section **Request** , procédez comme suit :
+    
+    ![Demande](./media/active-directory-saas-airwatch-tutorial/ic791925.png "Demande")  
+
+    a. Pour **Request Binding Type**, sélectionnez **POST**.
+
+    b. Dans la boîte de dialogue **Configurer l’authentification unique sur AirWatch** du portail Azure, copiez la valeur **URL du service d’authentification unique SAML**, puis collez-la dans la zone de texte **Identity Provider Single Sign On URL** (URL d’authentification unique du fournisseur d’identité).
+
+    c. Pour **NameID Format**, sélectionnez **Email Address**.
+
+    d. Cliquez sur **Save**.
+
+14. Cliquez à nouveau sur l’onglet **User** .
+    
+    ![Utilisateur](./media/active-directory-saas-airwatch-tutorial/ic791926.png "Utilisateur")
+
+15. Dans la section **Attribute** , procédez comme suit :
+    
+    ![Attribut](./media/active-directory-saas-airwatch-tutorial/ic791927.png "Attribut")
+
+    a. Dans la zone de texte **Object Identifier**, tapez **http://schemas.microsoft.com/identity/claims/objectidentifier**.
+
+    b. Dans la zone de texte **Username**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+
+    c. Dans la zone de texte **Display Name**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+
+    d. Dans la zone de texte **First Name**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+
+    e. Dans la zone de texte **Last Name**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+
+    f. Dans la zone de texte **Email**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+
+    g. Cliquez sur **Save**.
+
+<CE>
+
+### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+
+![Créer un utilisateur Azure AD][100]
+
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-airwatch-tutorial/create_aaduser_01.png) 
+
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+    
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-airwatch-tutorial/create_aaduser_02.png) 
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-airwatch-tutorial/create_aaduser_03.png) 
+
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-airwatch-tutorial/create_aaduser_04.png) 
+
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
+
+    b. Dans la zone de texte **Nom d’utilisateur** , tapez l’**adresse de messagerie** de Britta Simon.
+
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
+
+    d. Cliquez sur **Create**.
+ 
+### <a name="creating-a-airwatch-test-user"></a>Création d’un utilisateur de test AirWatch
+
+Pour se connecter à AirWatch, les utilisateurs d’Azure AD doivent être approvisionnés dans AirWatch.
 
 * Dans le cas d’AirWatch, cet approvisionnement est une tâche manuelle.
 
@@ -137,13 +237,13 @@ Pour se connecter à AirWatch, les utilisateurs d'Azure AD doivent être approvi
 1. Connectez-vous à votre site d’entreprise **AirWatch** en tant qu’administrateur.
 2. Dans le volet de navigation situé sur le côté gauche, cliquez sur **Accounts**, puis sur **Users**.
    
-   ![Utilisateurs](./media/active-directory-saas-airwatch-tutorial/IC791929.png "Utilisateurs")
+   ![Utilisateurs](./media/active-directory-saas-airwatch-tutorial/ic791929.png "Utilisateurs")
 3. Dans le menu **Users**, cliquez sur **List View**, puis sur **Add \> Add User**.
    
-   ![Ajouter un utilisateur](./media/active-directory-saas-airwatch-tutorial/IC791930.png "Ajouter un utilisateur")
+   ![Ajouter un utilisateur](./media/active-directory-saas-airwatch-tutorial/ic791930.png "Ajouter un utilisateur")
 4. Dans la boîte de dialogue **Add / Edit User** , procédez comme suit :
-   
-   ![Ajouter un utilisateur](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Ajouter un utilisateur")   
+
+   ![Ajouter un utilisateur](./media/active-directory-saas-airwatch-tutorial/ic791931.png "Ajouter un utilisateur")   
    1. Tapez le nom d’utilisateur, le mot de passe, la confirmation du mot de passe, le prénom, le nom et l’adresse e-mail du compte Azure Active Directory valide que vous souhaitez approvisionner dans les champs correspondants, à savoir **Username**, **Password**, **Confirm Password**, **First Name**, **Last Name** et **Email Address**.
    2. Cliquez sur **Enregistrer**.
 
@@ -151,19 +251,62 @@ Pour se connecter à AirWatch, les utilisateurs d'Azure AD doivent être approvi
 >Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur AirWatch fourni par ce service pour approvisionner des comptes d’utilisateurs Azure Active Directory.
 >  
 
-## <a name="assign-users"></a>Affecter des utilisateurs
-Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
+### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
-**Pour affecter des utilisateurs à AirWatch, suivez les étapes ci-dessous :**
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à AirWatch.
 
-1. Dans le portail Azure Classic, créez un compte de test.
-2. Sur la page d’intégration d’applications **AirWatch**, cliquez sur **Affecter des utilisateurs**.
-   
-   ![Affecter des utilisateurs](./media/active-directory-saas-airwatch-tutorial/IC791932.png "Affecter des utilisateurs")
-3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
-   
-   ![Oui](./media/active-directory-saas-airwatch-tutorial/IC767830.png "Oui")
+![Affecter des utilisateurs][200] 
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+**Pour assigner Britta Simon à AirWatch, procédez comme suit :**
+
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+
+    ![Affecter des utilisateurs][201] 
+
+2. Dans la liste des applications, sélectionnez **AirWatch**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_app.png) 
+
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+
+    ![Affecter des utilisateurs][202] 
+
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+
+    ![Affecter des utilisateurs][203]
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+    
+### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+
+
+## <a name="additional-resources"></a>Ressources supplémentaires
+
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_203.png
 
 

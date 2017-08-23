@@ -1,5 +1,5 @@
 ---
-title: "Exécution des exemples Hadoop dans HDInsight | Microsoft Docs"
+title: "Exécuter les exemples Hadoop dans HDInsight - Azure | Microsoft Docs"
 description: "Prise en main du service Azure HDInsight avec les exemples fournis. Utilisez des scripts PowerShell qui exécutent des programmes MapReduce sur des clusters de données."
 services: hdinsight
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: e4042dfbf28e78d2fca5c3f6a93df751a12153f2
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 741cce6f2c81efed1e4bd0547fcb46a231815263
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Exécution des exemples Hadoop MapReduce dans HDInsight basé sur Windows
@@ -31,7 +31,7 @@ Un ensemble d'exemples vous est fourni pour vous aider à prendre en main les t�
 * [**Nombre de mots**][hdinsight-sample-wordcount] : nombre d'occurrences de mots dans un fichier texte.
 * [**Nombre de mots de diffusion en continu C#**][hdinsight-sample-csharp-streaming] : nombre d'occurrences de mots dans un fichier texte à l'aide de l'interface de diffusion Hadoop.
 * [**Estimateur de la valeur de Pi**][hdinsight-sample-pi-estimator] : utilise une méthode statistique (quasi-Monte-Carlo) pour estimer la valeur de Pi.
-* [**Graysort 10 Go**][hdinsight-sample-10gb-graysort] : exécute un programme GraySort généraliste sur un fichier de 10 Go au moyen de HDInsight. Il faut exécuter trois tâches : Teragen pour générer les données, Terasort pour trier les données et Teravalidate pour confirmer que les données ont été correctement triées.
+* [**Graysort 10 Go**][hdinsight-sample-10gb-graysort] : exécute un programme GraySort généraliste sur un fichier de 10 Go à l’aide de HDInsight. Il faut exécuter trois tâches : Teragen pour générer les données, Terasort pour trier les données et Teravalidate pour confirmer que les données ont été correctement triées.
 
 > [!NOTE]
 > Vous trouverez le code source dans l'annexe.
@@ -59,7 +59,7 @@ Aujourd'hui, de nombreuses personnes choisissent Hive et Pig par l’intermédia
     > Suivez les étapes indiquées dans [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour installer la dernière version d’Azure PowerShell. Si vous devez modifier certains scripts pour utiliser les nouvelles applets de commande fonctionnant avec Azure Resource Manager, consultez [Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="hdinsight-sample-wordcount"></a>Nombre de mots - Java
-Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l’emplacement du fichier jar, qui est **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments.  Le programme Wordcount MapReduce accepte deux arguments : le fichier source utilisé pour compter des mots et l’emplacement de sortie.
+Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l’emplacement du fichier jar, qui est **wasb:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments.  Le programme Wordcount MapReduce accepte deux arguments : le fichier source utilisé pour compter des mots et l’emplacement de sortie.
 
 Vous trouverez le code source dans [l'annexe A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -79,9 +79,9 @@ Pour connaître la procédure de développement d'un programme Java MapReduce, c
 
     # Define the MapReduce job
     $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-                                -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+                                -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "wordcount" `
-                                -Arguments "wasbs:///example/data/gutenberg/davinci.txt", "wasbs:///example/data/WordCountOutput"
+                                -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
     # Submit the job and wait for job completion
     $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:"
@@ -168,7 +168,7 @@ Le script fourni pour cet exemple envoie une tâche Hadoop Java Archive (JAR) et
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-                                -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+                                -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "pi" `
                                 -Arguments "16", "10000000"
     ```
@@ -219,7 +219,6 @@ Dans cet article et les articles liés à chacun des exemples, vous avez appris 
 * [Utilisation de Hive avec Hadoop sur HDInsight][hdinsight-use-hive]
 * [Envoi de tâches Hadoop dans HDInsight][hdinsight-submit-jobs]
 * [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][hdinsight-sdk-documentation]
-* [Débogage de Hadoop dans HDInsight : messages d’erreur][hdinsight-errors]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>Annexe A - Le code source du nombre de mots
 
@@ -985,8 +984,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-errors]: hdinsight-debug-jobs.md
 
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 

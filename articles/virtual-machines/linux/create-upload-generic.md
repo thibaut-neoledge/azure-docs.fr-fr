@@ -1,6 +1,6 @@
 ---
-title: "Création et téléchargement d&quot;un disque dur virtuel Linux dans Azure"
-description: "Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d&quot;exploitation Linux."
+title: "Création et téléchargement d'un disque dur virtuel Linux dans Azure"
+description: "Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Linux."
 services: virtual-machines-linux
 documentationcenter: 
 author: szarkos
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f0a1717219bfc33033bdb827e66e80dd18388e64
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/15/2017
 
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informations concernant les distributions non approuvées
@@ -53,8 +53,8 @@ La suite de cet article fournit des conseils généraux pour exécuter votre dis
 * Ne configurez pas une partition d'échange sur le disque du système d'exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire.  Les étapes ci-dessous fournissent plus d'informations à ce sujet.
 * La taille des disques durs virtuels doit être un multiple de 1 Mo.
 
-### <a name="installing-linux-without-hyper-v"></a>Installation de Linux sans Hyper-V
-Dans certains cas, les programmes d'installation de Linux ne comprennent pas les pilotes pour Hyper-V dans le ramdisk initial (initrd ou initramfs), sauf s'ils détectent qu'il s'exécute sur un environnement Hyper-V.  Lorsque vous utilisez un système de virtualisation différent (Virtualbox, KVM, etc.) pour préparer votre image Linux, vous devrez peut-être recréer le fichier initrd pour vous assurer que les modules noyaux `hv_vmbus` et `hv_storvsc` sont disponibles dans le ramdisk initial.  Ceci est un problème connu, touchant au moins les systèmes basés sur la distribution Red Hat en amont.
+### <a name="installing-kernel-modules-without-hyper-v"></a>Installation de modules de noyau sans Hyper-V
+Azure s’exécute sur l’hyperviseur Hyper-V. Linux nécessite donc l’installation de certains modules de noyau pour pouvoir s’exécuter dans Azure. Si vous avez une machine virtuelle qui a été créée en dehors d’Hyper-V, les programmes d’installation de Linux risquent de ne pas comprendre les pilotes pour Hyper-V dans le ramdisk initial (initrd ou initramfs), sauf s’ils détectent qu’il s’exécute dans un environnement Hyper-V. Lorsque vous utilisez un système de virtualisation différent (Virtualbox, KVM, etc.) pour préparer votre image Linux, vous devrez peut-être recréer le fichier initrd pour vous assurer que les modules noyaux `hv_vmbus` et `hv_storvsc` sont disponibles dans le ramdisk initial.  Ceci est un problème connu, touchant au moins les systèmes basés sur la distribution Red Hat en amont.
 
 Le mécanisme de reconstruction d'image initrd ou initramfs varie en fonction de la distribution. Consultez la documentation ou le support de votre distribution pour trouver la procédure appropriée.  L’exemple suivant permet de régénérer le fichier initrd, à l’aide de l’utilitaire `mkinitrd` :
 

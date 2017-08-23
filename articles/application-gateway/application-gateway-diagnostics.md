@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 122a08fbe95e4e3c2eaba8a8d8558f2d638120d0
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2a2d731a8c904f290fcd4bbbd18872d8319b2ff5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway
@@ -97,7 +96,7 @@ L’extrait de code suivant montre un exemple de la réponse :
 }
 ```
 
-## <a name="diagnostic-logs"></a>Journaux de diagnostic
+## <a name="diagnostic-logging"></a>Journaux de diagnostic
 
 Vous pouvez utiliser différents types de journaux dans Azure pour gérer les passerelles Application Gateway et résoudre les problèmes associés. Vous pouvez accéder à certains de ces journaux via le portail. Tous les journaux peuvent être extraits à partir d’un stockage Blob Azure et affichés dans différents outils, comme [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste suivante :
 

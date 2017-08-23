@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 0899a8f3c87b6b25e52313ff271364f862d0a893
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 3fe8390e88e609b57a462e066f972346f8e8730e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>Guide pratique pour surveiller une machine virtuelle Linux dans Azure
@@ -43,7 +43,7 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, v
 
 ## <a name="create-vm"></a>Créer une machine virtuelle
 
-Pour voir les diagnostics et les métriques en action, vous avez besoin d’une machine virtuelle. Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/gropu#create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupMonitor* à l’emplacement *eastus*.
+Pour voir les diagnostics et les métriques en action, vous avez besoin d’une machine virtuelle. Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupMonitor* à l’emplacement *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupMonitor --location eastus

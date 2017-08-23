@@ -7,8 +7,8 @@ Un nouveau serveur principal ASP.NET WebAPI est créé dans les sections qui sui
 
 Les étapes suivantes montrent comment créer le serveur principal ASP.NET WebAPI : 
 
-> [!NOTE]
-> **Important**: avant d’entamer ce didacticiel, vérifiez que la version la plus récente du Gestionnaire de package NuGet est installée. Pour ce faire, lancez Visual Studio. Dans le menu **Tools**, cliquez sur **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet pour Visual Studio 2013**et vérifiez que vous disposez de la version 2.8.50313.46 (ou ultérieure). Si ce n’est pas le cas, désinstallez puis réinstallez le Gestionnaire de package NuGet.
+> [!IMPORTANT]
+> Si vous utilisez Visual Studio 2015 ou une version antérieure, avant de commencer ce didacticiel, vérifiez que la version la plus récente du Gestionnaire de package NuGet est installée. Pour ce faire, lancez Visual Studio. Dans le menu **Tools**, cliquez sur **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet** pour votre version de Visual Studio et vérifiez que vous disposez de la dernière version. Si ce n’est pas le cas, désinstallez puis réinstallez le Gestionnaire de package NuGet.
 > 
 > ![][B4]
 > 
@@ -38,7 +38,9 @@ Dans cette section, vous allez créer une classe de gestionnaire de messages nom
         using System.Threading;
         using System.Security.Principal;
         using System.Net;
-        using System.Web;
+        using System.Text;
+        using System.Threading.Tasks;
+
 3. Dans AuthenticationTestHandler.cs, remplacez la définition de classe `AuthenticationTestHandler` par le code suivant : 
    
     Ce gestionnaire autorise la demande lorsque les trois conditions suivantes sont vraies :
@@ -51,12 +53,7 @@ Dans cette section, vous allez créer une classe de gestionnaire de messages nom
      
      Si le message de la demande est authentifié et autorisé par le `AuthenticationTestHandler`, l’utilisateur de l’authentification de base est attaché à la demande actuelle sur le [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Les informations utilisateur dans le HttpContext sont utilisées ultérieurement par un autre contrôleur (RegisterController) pour ajouter une [balise](https://msdn.microsoft.com/library/azure/dn530749.aspx) à la demande d’inscription aux notifications.
      
-       public class AuthenticationTestHandler : DelegatingHandler   {
-     
-           protected override Task<HttpResponseMessage> SendAsync(
-           HttpRequestMessage request, CancellationToken cancellationToken)
-           {
-               var authorizationHeader = request.Headers.GetValues("Authorization").First();
+       public class AuthenticationTestHandler : DelegatingHandler   {       protected override Task<HttpResponseMessage> SendAsync(       HttpRequestMessage request, CancellationToken cancellationToken)       {           var authorizationHeader = request.Headers.GetValues("Authorization").First();
      
                if (authorizationHeader != null && authorizationHeader
                    .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
@@ -313,15 +310,16 @@ Dans cette section, vous ajoutez un nouveau contrôleur qui permet aux appareils
 
 ## <a name="publish-the-new-webapi-backend"></a>Publication du nouveau serveur principal WebAPI
 1. Nous allons maintenant déployer cette application sur un site web Azure afin de la rendre accessible à tous les appareils. Cliquez avec le bouton droit sur le projet **AppBackend**, puis sélectionnez **Publier**.
-2. Sélectionnez **Microsoft Azure Web Apps** comme cible de publication.
-   
+2. Sélectionnez **Microsoft Azure App Service** comme cible de publication, puis cliquez sur **Publier**. Cette opération affiche la boîte de dialogue Créer App Service, qui vous permet de créer toutes les ressources Azure nécessaires pour exécuter l’application web ASP.NET dans Azure.
+
     ![][B15]
-3. Connectez-vous avec votre compte Azure et sélectionnez une application web (nouvelle ou existante).
-   
-    ![][B16]
-4. Notez la propriété de l’**URL de destination** dans l’onglet **Connexion**. Plus loin dans ce didacticiel, nous utiliserons cette URL comme *point de terminaison principal* . Cliquez sur **Publier**.
-   
-    ![][B18]
+3. Dans la boîte de dialogue **Créer App Service**, sélectionnez votre compte Azure. Cliquez sur **Modifier le type** et sélectionnez **Application web**. Conservez le **nom de l’application web** donné et sélectionnez **l’abonnement**, **le groupe de ressources** et le **plan App Service**.  Cliquez sur **Create**.
+
+4. Notez la valeur de la propriété **URL du site** dans la section **Résumé**. Plus loin dans ce didacticiel, nous utiliserons cette URL comme *point de terminaison principal* . Cliquez sur **Publier**.
+
+5. Une fois que l’Assistant a terminé, il publie l’application web ASP.NET dans Azure, puis lance l’application dans le navigateur par défaut.  Votre application sera visible dans Azure App Services.
+
+L’URL utilise le nom de l’application web que vous avez spécifié précédemment, au format http://<app_name>.azurewebsites.net.
 
 [B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
 [B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
@@ -332,6 +330,6 @@ Dans cette section, vous ajoutez un nouveau contrôleur qui permet aux appareils
 [B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
 [B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
 [B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
-[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
+[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/publish-to-app-service.png
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG

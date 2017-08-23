@@ -23,8 +23,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 05/03/2017
 
 ---
-# Options de création de rapports pour la gestion des mots de passe Azure AD
-<a id="reporting-options-for-azure-ad-password-management" class="xliff"></a>
+# <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
 Après le déploiement, de nombreuses organisations souhaitent savoir comment ou si la réinitialisation de mot de passe en libre-service est réellement utilisée. Azure AD fournit des fonctionnalités de création de rapports qui vous aident à répondre aux questions à l’aide de rapports prédéfinis et, si vous possédez les licences appropriées, vous permettent de créer des requêtes personnalisées.
 
@@ -42,8 +41,7 @@ Les questions suivantes peuvent trouvent réponse dans des rapports qui existent
 * Quels sont les administrateurs qui réinitialisent fréquemment leurs mots de passe ?
 * Y a-t-il des activités suspectes en rapport avec la réinitialisation des mots de passe ?
 
-## Comment visualiser les rapports de gestion des mots de passe dans le portail Azure
-<a id="how-to-view-password-management-reports-in-the-azure-portal" class="xliff"></a>
+## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Comment visualiser les rapports de gestion des mots de passe dans le portail Azure
 
 Dans l’interface du portail Azure, nous avons amélioré l’affichage de l’activité de réinitialisation de mot de passe et d’inscription de réinitialisation de mot de passe.  Suivez les étapes ci-dessous pour trouver les événements de réinitialisation de mot de passe et d’inscription de réinitialisation de mot de passe :
 
@@ -56,13 +54,11 @@ Dans l’interface du portail Azure, nous avons amélioré l’affichage de l’
 7. À partir du menu **Filtrer**, sélectionnez la liste déroulante **Catégorie** et changez pour le type de catégorie **Self-service Password Management** (Gestion des mots de passe en libre-service).
 8. Si vous le souhaitez, vous pouvez affiner le filtre de la liste en choisissant **l’activité** spécifique qui vous intéresse.
 
-## Comment récupérer les événements de gestion des mots de passe à partir de l’API de rapports et d’événements Azure AD
-<a id="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api" class="xliff"></a>
+## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Comment récupérer les événements de gestion des mots de passe à partir de l’API de rapports et d’événements Azure AD
 
 LAPI de rapports et d’événements Azure AD prend désormais en charge la récupération de toutes les informations incluses dans les rapports de réinitialisation des mots de passe et d’inscription de réinitialisation des mots de passe. En utilisant cette API, vous pouvez télécharger les événements de réinitialisation de mot de passe individuels et les événements d’inscription de réinitialisation de mot de passe pour les intégrer à la technologie de création de rapports de votre choix.
 
-### Prise en main de l’API de création de rapports
-<a id="how-to-get-started-with-the-reporting-api" class="xliff"></a>
+### <a name="how-to-get-started-with-the-reporting-api"></a>Prise en main de l’API de création de rapports
 
 Pour accéder à ces données, vous devrez écrire une petite application ou un petit script permettant de les extraire de nos serveurs. [Procédure de prise en main de l'API de création de rapports Azure AD](active-directory-reporting-api-getting-started.md).
 
@@ -71,22 +67,19 @@ Une fois que votre script est opérationnel, vous devrez examiner les événemen
 * [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): Répertorie les colonnes disponibles pour les événements de réinitialisation de mot de passe
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): Répertorie les colonnes disponibles pour les événements d’inscription de réinitialisation de mot de passe
 
-### Création de rapport sur les limitations de récupération des données API
-<a id="reporting-api-data-retrieval-limitations" class="xliff"></a>
+### <a name="reporting-api-data-retrieval-limitations"></a>Création de rapport sur les limitations de récupération des données API
 
 Actuellement, l’API de rapports et d’événements Azure AD récupère jusqu'à **75 000 événements individuels** des types [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) et [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent), couvrant les **30 derniers jours**.
 
 Si vous avez besoin de récupérer ou de stocker des données au-delà de cette période, nous vous suggérons de les conserver dans une base de données externe et d’utiliser l’API pour interroger les deltas résultants. Nous vous conseillons de commencer à récupérer ces données lorsque vous commencez à utiliser SSPR dans votre entreprise, à les conserver en externe, puis à continuer à suivre les deltas à partir de ce point.
 
-## Comment télécharger rapidement les événements d’inscription de réinitialisation de mot de passe avec PowerShell
-<a id="how-to-download-password-reset-registration-events-quickly-with-powershell" class="xliff"></a>
+## <a name="how-to-download-password-reset-registration-events-quickly-with-powershell"></a>Comment télécharger rapidement les événements d’inscription de réinitialisation de mot de passe avec PowerShell
 
 En plus d’utiliser directement l’API de rapports et d’événements Azure AD, vous pouvez également utiliser le script PowerShell ci-dessous pour les événements d’inscription récents dans votre annuaire. C’est utile si vous souhaitez voir qui s’est inscrit récemment ou souhaitez vous assurer que votre déploiement de réinitialisation de mot de passe se produit conformément à votre attente.
 
 * [Script PowerShell d’activité d’inscription SSPR Azure AD](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
 
-### Description des colonnes du rapport dans le portail Azure
-<a id="description-of-report-columns-in-azure-portal" class="xliff"></a>
+### <a name="description-of-report-columns-in-azure-portal"></a>Description des colonnes du rapport dans le portail Azure
 
 La liste suivante décrit chacune des colonnes du rapport en détail :
 
@@ -95,8 +88,7 @@ La liste suivante décrit chacune des colonnes du rapport en détail :
 * **Date et heure** : date et heure de la tentative.
 * **Données inscrites** : données d’authentification fournies par l’utilisateur lors de l’inscription à la réinitialisation de mot de passe.
 
-### Description des valeurs du rapport dans le portail Azure
-<a id="description-of-report-values-in-azure-portal" class="xliff"></a>
+### <a name="description-of-report-values-in-azure-portal"></a>Description des valeurs du rapport dans le portail Azure
 
 Le tableau suivant décrit les différentes valeurs autorisées pour chaque colonne :
 
@@ -104,8 +96,7 @@ Le tableau suivant décrit les différentes valeurs autorisées pour chaque colo
 | --- | --- |
 | Données inscrites |**Adresse de messagerie de secours** : l’utilisateur a utilisé une autre adresse de messagerie électronique ou une adresse électronique d’authentification pour s’authentifier.<p><p>**Téléphone professionnel** : l’utilisateur a utilisé un téléphone professionnel pour s’authentifier.<p>**Téléphone mobile** : l’utilisateur a utilisé un téléphone portable ou un téléphone d’authentification pour s’authentifier.<p>**Questions de sécurité** : l’utilisateur a utilisé des questions de sécurité pour s’authentifier.<p>**Toute combinaison des éléments ci-dessus (par exemple, Adresse de messagerie de secours + Téléphone mobile)** : se produit lorsqu’une stratégie à 2 voies d’accès est spécifiée et indique les deux méthodes employées par l’utilisateur pour authentifier sa demande de réinitialisation de mot de passe. |
 
-## Visualiser l’activité de réinitialisation de mot de passe dans le portail Classic
-<a id="view-password-reset-activity-in-the-classic-portal" class="xliff"></a>
+## <a name="view-password-reset-activity-in-the-classic-portal"></a>Visualiser l’activité de réinitialisation de mot de passe dans le portail Classic
 
 Ce rapport montre toutes les tentatives de réinitialisation de mot de passe qui se sont produites dans votre organisation.
 
@@ -113,8 +104,7 @@ Ce rapport montre toutes les tentatives de réinitialisation de mot de passe qui
 * **Nombre max de lignes** : 75 000
 * **Téléchargeable**: Oui, via un fichier CSV
 
-### Description des colonnes du rapport dans le portail Azure Classic
-<a id="description-of-report-columns-in-azure-classic-portal" class="xliff"></a>
+### <a name="description-of-report-columns-in-azure-classic-portal"></a>Description des colonnes du rapport dans le portail Azure Classic
 
 La liste suivante décrit chacune des colonnes du rapport en détail :
 
@@ -125,8 +115,7 @@ La liste suivante décrit chacune des colonnes du rapport en détail :
 5. **Résultat** : résultat de l’opération de réinitialisation de mot de passe.
 6. **Détails** : détails de la raison pour laquelle la réinitialisation de mot de passe a généré ce résultat.  Inclut également les étapes d’atténuation que vous pouvez suivre pour résoudre une erreur inattendue.
 
-### Description des valeurs du rapport dans le portail Azure Classic
-<a id="description-of-report-values-in-azure-classic-portal" class="xliff"></a>
+### <a name="description-of-report-values-in-azure-classic-portal"></a>Description des valeurs du rapport dans le portail Azure Classic
 
 Le tableau suivant décrit les différentes valeurs autorisées pour chaque colonne :
 
@@ -136,8 +125,7 @@ Le tableau suivant décrit les différentes valeurs autorisées pour chaque colo
 | Résultat |**Abandonné** : l’utilisateur a démarré la réinitialisation de mot de passe, puis s’est arrêté à mi-chemin sans terminer<p>**Bloqué** : le compte d’utilisateur n’a pas été autorisé à utiliser la réinitialisation de mot de passe, car il a tenté d’utiliser la page de réinitialisation de mot de passe ou une même méthode de réinitialisation de mot de passe un trop grand nombre de fois durant une période de 24 heures<p>**Annulé** : l’utilisateur a démarré la réinitialisation de mot de passe, puis il a cliqué sur le bouton Annuler pour annuler la session en cours <p>**Administrateur contacté** : l’utilisateur a rencontré un problème insoluble lors de sa session et il a cliqué sur le lien « Contactez votre administrateur » au lieu de terminer le flux de réinitialisation de mot de passe.<p>**Échec** : l’utilisateur n’a pas pu réinitialiser un mot de passe, probablement car il n’était pas configuré pour utiliser la fonctionnalité (par exemple, aucune licence, informations d’authentification manquantes, mot de passe géré localement mais écriture différée désactivée).<p>**Réussi** : la réinitialisation du mot de passe a réussi. |
 | Détails |Voir le tableau ci-dessous |
 
-### Valeurs autorisées pour la colonne Détails
-<a id="allowed-values-for-details-column" class="xliff"></a>
+### <a name="allowed-values-for-details-column"></a>Valeurs autorisées pour la colonne Détails
 
 Voici la liste des types de résultats que vous pouvez attendre lors de l’utilisation du rapport d’activité de réinitialisation du mot de passe :
 
@@ -179,8 +167,7 @@ Voici la liste des types de résultats que vous pouvez attendre lors de l’util
 | La réinitialisation du mot de passe a été désactivée pour ce locataire. Voir [ici](http://aka.ms/ssprtroubleshoot) pour résoudre ce problème. |Échec |
 | L’utilisateur a réinitialisé le mot de passe. |Réussi |
 
-## Types d’activités de gestion des mots de passe en libre-service
-<a id="self-service-password-management-activity-types" class="xliff"></a>
+## <a name="self-service-password-management-activity-types"></a>Types d’activités de gestion des mots de passe en libre-service
 
 Les types d’activités suivants s’affichent dans la catégorie d’événement d’audit **Self-Service Password Management** (Gestion des mots de passe en libre service).  Une description pour chacun des éléments suivants.
 
@@ -192,8 +179,7 @@ Les types d’activités suivants s’affichent dans la catégorie d’événeme
 * [**Unlock user account (self-service)**](#activity-type-unlock-user-account-self-service) (Déverrouillage du compte d’utilisateur (libre-service)) : indique qu’un utilisateur a correctement déverrouillé son compte Active Directory sans réinitialiser son mot de passe à partir du [portail de réinitialisation de mot de passe Azure AD](https://passwordreset.microsoftonline.com) à l’aide de la fonctionnalité Déverrouillage de compte AD sans réinitialisation.
 * [**User registered for self-service password reset**](#activity-type-user-registered-for-self-service-password-reset) (Utilisateur inscrit pour la réinitialisation de mot de passe en libre-service) : indique qu’un utilisateur a inscrit toutes les informations requises pour pouvoir réinitialiser son mot de passe conformément à la stratégie de réinitialisation de mot de passe du client actuellement spécifiée.
 
-### Type d’activité : Blocked from self-service password reset (Blocage suite à la réinitialisation du mot de passe en libre-service)
-<a id="activity-type-blocked-from-self-service-password-reset" class="xliff"></a>
+### <a name="activity-type-blocked-from-self-service-password-reset"></a>Type d’activité : Blocked from self-service password reset (Blocage suite à la réinitialisation du mot de passe en libre-service)
 
 La liste suivante explique cette activité en détail :
 
@@ -204,8 +190,7 @@ La liste suivante explique cette activité en détail :
   * _Success_ : indique qu’un utilisateur a été empêché d’effectuer des réinitialisations supplémentaires, d’essayer des méthodes d’authentification supplémentaires ou de valider des numéros de téléphone supplémentaires pendant les prochaines 24 heures.
 * **Activity Status Failure Reason** (Motif de l’état d’activité Failure) : non applicable
 
-### Type d’activité : Change password (self-service) (Modification du mot de passe (libre-service))
-<a id="activity-type-change-password-self-service" class="xliff"></a>
+### <a name="activity-type-change-password-self-service"></a>Type d’activité : Change password (self-service) (Modification du mot de passe (libre-service))
 
 La liste suivante explique cette activité en détail :
 
@@ -218,8 +203,7 @@ La liste suivante explique cette activité en détail :
 * **Activity Status Failure Reason** - (Motif de l’état d’activité Failure) 
   * _FuzzyPolicyViolationInvalidPassword_ : l’utilisateur a sélectionné un mot de passe qui a été automatiquement interdit car les fonctionnalités de détection de mot de passe interdit de Microsoft l’ont trouvé trop banal ou trop faible.
 
-### Type d’activité : Reset password (by admin) (Réinitialisation du mot de passe (par l’administrateur))
-<a id="activity-type-reset-password-by-admin" class="xliff"></a>
+### <a name="activity-type-reset-password-by-admin"></a>Type d’activité : Reset password (by admin) (Réinitialisation du mot de passe (par l’administrateur))
 
 La liste suivante explique cette activité en détail :
 
@@ -230,8 +214,7 @@ La liste suivante explique cette activité en détail :
   * _Success_ : indique qu’un administrateur a correctement réinitialisé un mot de passe d’utilisateur
   * _Failure_ : indique qu’un administrateur n’a pas réussi à modifier un mot de passe d’utilisateur. Cliquez sur la ligne pour voir la catégorie **Activity Status Reason** (Motif de l’état d’activité) et en savoir plus sur la cause de l’échec.
 
-### Type d’activité : Reset password (self-service) (Réinitialisation du mot de passe (libre-service))
-<a id="activity-type-reset-password-self-service" class="xliff"></a>
+### <a name="activity-type-reset-password-self-service"></a>Type d’activité : Reset password (self-service) (Réinitialisation du mot de passe (libre-service))
 
 La liste suivante explique cette activité en détail :
 
@@ -244,8 +227,7 @@ La liste suivante explique cette activité en détail :
 * **Activity Status Failure Reason** - (Motif de l’état d’activité Failure)
   * _FuzzyPolicyViolationInvalidPassword_ : l’administrateur a sélectionné un mot de passe qui a été automatiquement interdit car les fonctionnalités de détection de mot de passe interdit de Microsoft l’ont trouvé trop banal ou trop faible.
 
-### Type d’activité : Self serve password reset flow activity progress (Progression de l’activité du flux de réinitialisation du mot de passe en libre-service)
-<a id="activity-type-self-serve-password-reset-flow-activity-progress" class="xliff"></a>
+### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Type d’activité : Self serve password reset flow activity progress (Progression de l’activité du flux de réinitialisation du mot de passe en libre-service)
 
 La liste suivante explique cette activité en détail :
 
@@ -258,8 +240,7 @@ La liste suivante explique cette activité en détail :
 * **Motifs des états d’activité autorisés**
   * Voir le tableau ci-dessous pour [tous les motifs d’état d’activité de réinitialisation du mot de passe autorisés](#allowed-values-for-details-column)
 
-### Type d’activité : Unlock user account (self-service) (Déverrouillage du compte d’utilisateur (libre-service))
-<a id="activity-type-unlock-user-account-self-service" class="xliff"></a>
+### <a name="activity-type-unlock-user-account-self-service"></a>Type d’activité : Unlock user account (self-service) (Déverrouillage du compte d’utilisateur (libre-service))
 
 La liste suivante explique cette activité en détail :
 
@@ -270,8 +251,7 @@ La liste suivante explique cette activité en détail :
   * _Success_ : indique qu’un utilisateur a correctement déverrouillé son propre compte
   * _Failure_ : indique qu’un utilisateur n’a pas réussi à déverrouiller son propre compte. Cliquez sur la ligne pour voir la catégorie **Activity Status Reason** (Motif de l’état d’activité) et en savoir plus sur la cause de l’échec.
 
-### Type d’activité : User registered for self-service password reset (Utilisateur inscrit pour la réinitialisation du mot de passe libre-service)
-<a id="activity-type-user-registered-for-self-service-password-reset" class="xliff"></a>
+### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Type d’activité : User registered for self-service password reset (Utilisateur inscrit pour la réinitialisation du mot de passe libre-service)
 
 La liste suivante explique cette activité en détail :
 
@@ -282,8 +262,7 @@ La liste suivante explique cette activité en détail :
   * _Success_ : indique qu’un utilisateur s’est inscrit pour la réinitialisation de mot de passe conformément à la stratégie actuelle. 
   * _Failure_ : indique qu’un utilisateur n’a pas réussi à s’inscrire pour la réinitialisation de mot de passe. Cliquez sur la ligne pour voir la catégorie **Activity Status Reason** (Motif de l’état d’activité) et en savoir plus sur la cause de l’échec. Remarque : cela ne signifie pas qu’un utilisateur n’est pas en mesure de réinitialiser son propre mot de passe, simplement qu’il n’a pas terminé le processus d’inscription. Si leur compte contient des données correctes non vérifiées (par exemple, un numéro de téléphone non validé), même s’il n’a pas vérifié ce numéro de téléphone, il peut toujours l’utiliser pour réinitialiser son mot de passe. Pour plus d’informations, consultez [Que se passe-t-il lorsqu’un utilisateur s’inscrit ?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers)
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD
 

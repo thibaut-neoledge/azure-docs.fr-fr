@@ -1,6 +1,6 @@
 ---
-title: "Accès conditionnel Azure Active Directory | Microsoft Docs"
-description: "Utilisez le contrôle d’accès conditionnel dans Azure Active Directory pour vérifier des conditions spécifiques lors de l’authentification pour l’accès aux applications."
+title: "Accès conditionnel dans le portail Azure Classic | Microsoft Docs"
+description: "Utilisez le contrôle d’accès conditionnel dans le portail Azure Classic pour vérifier des conditions spécifiques lors de l’authentification pour l’accès aux applications."
 services: active-directory
 keywords: "accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel"
 documentationcenter: 
@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/07/2017
 ms.author: markvi
+ms.reviewer: calebb
+ms.custom: oldportal
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 31659a7394a34cf8fb5b6ff11c955bdc9f8b65bb
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: b19fd8c0c41638ffec5fda32b6b1a855be2abc7b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/28/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="conditional-access-in-azure-active-directory"></a>Accès conditionnel dans Azure Active Directory
+# <a name="conditional-access-in-the-azure-classic-portal"></a>Accès conditionnel dans le portail Azure Classic
 
-> [!div class="op_single_selector"]
-> * [Portail Azure Classic](active-directory-conditional-access.md)
-> * [Portail Azure](active-directory-conditional-access-azure-portal.md)
+Cette rubrique concerne l’accès conditionnel dans le portail Azure Classic. Pour obtenir les informations les plus récentes sur l’accès conditionnel dans Azure Active Directory, consultez [Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
 
 Les fonctionnalités de contrôle d’accès conditionnel d’Azure Active Directory (Azure AD) offrent des méthodes simples de sécurisation des ressources dans le cloud et en local. Les stratégies d’accès conditionnel telles que l’authentification multifacteur peuvent vous protéger contre le risque de vol et de piratage des informations d’identification. D’autres stratégies d’accès conditionnel peuvent vous aider à protéger les données de votre organisation. Par exemple, en plus des informations d’identification, vous pouvez avoir une stratégie permettant que seuls les appareils inscrits dans un système de gestion des appareils mobiles tels que Microsoft Intune puissent accéder aux services sensibles de votre organisation.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 L’accès conditionnel Azure AD est une fonctionnalité [Azure Active Directory Premium](http://www.microsoft.com/identity). Tous les utilisateurs accédant à une application limitée par des stratégies d’accès conditionnel doivent disposer d’une licence Azure AD Premium. Pour en savoir plus sur les conditions requises de licence, consultez l’article [Rapport d’utilisation sans licence](https://aka.ms/utc5ix).
 
 ## <a name="how-is-conditional-access-control-enforced"></a>Comment est appliqué le contrôle d’accès conditionnel ?

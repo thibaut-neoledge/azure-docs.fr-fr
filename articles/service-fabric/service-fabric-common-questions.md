@@ -3,7 +3,7 @@ title: Questions courantes sur Microsoft Azure Service Fabric | Microsoft Docs
 description: "Questions fréquentes sur Service Fabric et leurs réponses"
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: chackdan
 manager: timlt
 editor: 
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
-ms.author: seanmck
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 0d1d795a4d6965de6cdc2b9bd81a24a27a255566
+ms.date: 06/20/2017
+ms.author: chackdan
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: ce6debc0832da565d24a3ca82e2fa5bf7b797f8a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -41,7 +41,7 @@ Pas encore, mais il s’agit d’une demande courante que nous prévoyons de met
 
 Avec les mises à jour du système d’exploitation, le défi réside dans le fait qu’elles nécessitent généralement un redémarrage de l’ordinateur, ce qui entraîne une indisponibilité temporaire. En soi, ce n’est pas un problème, car Service Fabric redirige automatiquement le trafic de ces services vers d’autres nœuds. Toutefois, si les mises à jour du système d’exploitation ne sont pas coordonnées dans le cluster, plusieurs nœuds risquent d’être indisponibles en même temps. Ces redémarrages simultanés peuvent entraîner l’indisponibilité complète d’un service ou, au moins, d’une partition spécifique (pour un service avec état).
 
-À l’avenir, nous prendrons en charge une stratégie de mise à jour du système d’exploitation, totalement automatisée et coordonnée entre les domaines de mise à jour, ce qui garantit une disponibilité continue malgré les redémarrages et autres défaillances inattendues.
+À l’avenir, nous prévoyons de prendre en charge une stratégie de mise à jour du système d’exploitation totalement automatisée et coordonnée entre les domaines de mise à jour, ce qui garantit une disponibilité continue malgré les redémarrages et autres défaillances inattendues.
 
 En attendant, nous [fournissons un script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) qu’un administrateur de cluster peut utiliser pour lancer manuellement la correction de chaque nœud de manière sécurisée.
 
@@ -90,7 +90,7 @@ Ce problème a été signalé sur les clusters version 5.6.204.9494
 
 **Solution de contournement** : suivez les instructions de [ce document](service-fabric-dnsservice.md) pour activer le service DNS de Service Fabric dans votre cluster.
 
-**Correction** : mettez le cluster à niveau vers une version prise en charge supérieure à 5.6.204.9494, si une telle version est disponible. Si votre cluster est configuré pour se mettre à niveau automatiquement, le cluster se mettra automatiquement à niveau vers une version pour laquelle ce problème est résolu.
+**Correction** : mettez le cluster à niveau vers une version prise en charge supérieure à 5.6.204.9494, si une telle version est disponible. Si votre cluster est configuré pour se mettre à niveau automatiquement, le cluster se mettra automatiquement à niveau vers une version pour laquelle ce problème est résolu.
 
   
 ## <a name="application-design"></a>Conception des applications

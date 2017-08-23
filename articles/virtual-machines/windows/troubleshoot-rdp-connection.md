@@ -14,14 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 06/14/2017
+ms.date: 07/25/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: ed9945ae007d22c18d259984ee68f9c669927f9a
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 2c42ff5b7ab87e8ef8af2c244a1313fb55503c37
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure
@@ -67,25 +66,8 @@ Après chaque étape de résolution des problèmes, essayez de nouveau de vous c
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Réinitialiser le mot de passe**. Définissez l’option **Mode** sur **Réinitialiser la configuration uniquement** puis cliquez sur le bouton **Mettre à jour** :
    
     ![Réinitialiser la configuration RDP dans le portail Azure](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Vérifiez les règles du groupe de sécurité réseau**. Cette étape de dépannage permet de vérifier que vous disposez d’une règle autorisant le trafic RDP dans votre groupe de sécurité réseau. Le port par défaut pour RDP est le port TCP 3389. Une règle autorisant le trafic RDP peut ne pas être créée automatiquement lorsque vous créez votre machine virtuelle.
-   
-    Sélectionnez votre machine virtuelle dans le portail Azure. Cliquez sur **Interfaces réseau** dans le volet des paramètres.
-   
-    ![Afficher les interfaces réseau d’une machine virtuelle dans le portail Azure](./media/troubleshoot-rdp-connection/select-network-interfaces.png)
-   
-    Sélectionnez votre interface réseau dans la liste (elle n’en contient généralement qu’une) :
-   
-    ![Sélectionner une interface réseau dans le portail Azure](./media/troubleshoot-rdp-connection/select-interface.png)
-   
-    Sélectionnez **Groupe de sécurité réseau** pour afficher le groupe de sécurité réseau associé à votre interface réseau :
-   
-    ![Sélectionner un groupe de sécurité réseau dans le portail Azure](./media/troubleshoot-rdp-connection/select-nsg.png)
-   
-    Vérifiez qu’il existe une règle de trafic entrant autorisant le trafic RDP sur le port TCP 3389. L’exemple suivant montre une règle de sécurité valide qui autorise le trafic RDP. Vous pouvez voir que `Service` et `Action` sont correctement configurés :
-   
-    ![Vérifier la règle RDP NSG dans le portail Azure](./media/troubleshoot-rdp-connection/verify-nsg-rules.png)
-   
-    Si vous ne disposez pas d’une règle autorisant le trafic RDP, [créez une règle de groupe de sécurité réseau](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Autorisez le port TCP 3389.
+2. **Vérifiez les règles du groupe de sécurité réseau**. Utilisez la [vérification des flux IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) pour savoir si une règle d’un groupe de sécurité réseau bloque le trafic depuis ou vers une machine virtuelle. Vous pouvez également vérifier les règles de groupe de sécurité effectives pour vous assurer que la règle « Allow » entrante du groupe de sécurité réseau existe pour le port RDP (par défaut, 3389). Pour en savoir plus, consultez [Utilisation de règles de sécurité effectives pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+
 3. **Passez en revue les diagnostics de démarrage de la machine virtuelle**. Cette étape de dépannage passe en revue les journaux de la console de la machine virtuelle afin de déterminer si celle-ci signale un problème. Les diagnostics de démarrage ne sont pas activés sur toutes les machines virtuelles et cette étape de dépannage peut être facultative.
    
     Les étapes de dépannage spécifiques ne sont pas abordées dans cet article, mais elles peuvent indiquer un problème plus large affectant la connectivité RDP. Pour plus d’informations sur l’examen des journaux de la console et pour obtenir une capture d’écran de la machine virtuelle, consultez [Diagnostics de démarrage pour les machines virtuelles](boot-diagnostics.md).

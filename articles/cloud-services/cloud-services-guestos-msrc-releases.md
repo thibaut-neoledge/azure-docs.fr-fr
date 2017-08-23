@@ -12,23 +12,62 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2017
+ms.date: 8/3/2017
 ms.author: raiye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: e8c1f132dc2fb2cf0e7d4d47f278bd52d2d21190
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c1bcfa2d93a77a655092dca250d2a3e2c86b944d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
-# Système d’exploitation invité d'Azure
-<a id="azure-guest-os" class="xliff"></a>
+# <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
-## SE invité mai
-<a id="may-guest-os" class="xliff"></a>
-| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+## <a name="july-guest-os"></a>SE invité juillet
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+| Éd. 17/07 | [4025339] |Mises à jour Windows 10 |5.9 |11 juillet 2017 |
+| Éd. 17/07 | [4025337] |Sécurité Windows uniquement |2.64 |11 juillet 2017 |
+| Éd. 17/07 | [4025333] |Sécurité Windows uniquement |4.44 |11 juillet 2017 |
+| Éd. 17/07 | [4025343] |Sécurité Windows uniquement |3.51 |11 juillet 2017 |
+| Éd. 17/07 | [4025376] |Clignote |3.51, 4.44, 5.9 |11 juillet 2017 |
+| Éd. 17/07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |11 juillet 2017 |
+| N/A | [4020322] |Mise à jour du fuseau horaire |2.64, 3.51, 4.44 |11 juillet 2017 |
+| N/A | [4022719] |Correctif cumulatif non relatif à la sécurité de juin |2.64 |11 juillet 2017 |
+| N/A | [4022724] |Correctif cumulatif non relatif à la sécurité de juin |3.51 |11 juillet 2017 |
+| N/A | [4022726] |Correctif cumulatif non relatif à la sécurité de juin |4.44 |11 juillet 2017 |
+
+## <a name="june-guest-os"></a>SE invité juin
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+| Éd. 17/06 | [4019472] |Améliorations de la qualité du système d’exploitation WS 2016 |5.8 |9 mai 2017 |
+| Éd. 17/06 | [4022722] |Sécurité Windows uniquement |2.63 |13 juin 2017 |
+| Éd. 17/06 | [4022717] |Sécurité Windows uniquement |4.43 |13 juin 2017 |
+| Éd. 17/06 | [4022718] |Sécurité Windows uniquement |3.50 |13 juin 2017 |
+| Éd. 17/06 | [4021558] |Internet Explorer|2.63, 3.50, 4.43 |13 juin 2017 |
+| Éd. 17/06 | [4022719], [4022724], [4022726] |Correctifs cumulatifs mensuels de Windows |2.63, 3.50, 4.43 |13 juin 2017 |
+| Éd. 17/06 | [4022730] |Mise à jour de sécurité pour Adobe Flash Player |3.50, 4.43, 5.8 |13 juin 2017 |
+| Éd. 17/06 | [4015217], [4015221], [4015583], [4015550], [4015219] |Republication de CVE-2017-0167 |4.43, 5.8 |11 avril 2017 |
+| N/A | [4023136] |Mise à jour du fuseau horaire  |2.63, 3.50, 4.43 |13 juin 2017 |
+| N/A | [4019264] |Correctif cumulatif non relatif à la sécurité de mai |2.63 |13 juin 2017 |
+| N/A | [4014545] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |2.63 |13 juin 2017 |
+| N/A | [4014508] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |2.63 |13 juin 2017 |
+| N/A | [4014511] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |2.63 |13 juin 2017 |
+| N/A | [4014514] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |2.63|13 juin 2017 |
+| N/A | [4019216] |Correctif cumulatif non relatif à la sécurité de mai |3.50 |13 juin 2017 |
+| N/A | [4014503] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |3.50 |13 juin 2017 |
+| N/A | [4014506] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |3.50 |13 juin 2017 |
+| N/A | [4014509] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |3.50 |13 juin 2017 |
+| N/A | [4014513] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |3.50 |13 juin 2017 |
+| N/A | [4019215] |Correctif cumulatif non relatif à la sécurité de mai |4.43 |13 juin 2017 |
+| N/A | [4014505] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |4.43 |13 juin 2017 |
+| N/A | [4014507] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |4.43 |13 juin 2017 |
+| N/A | [4014510] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |4.43 |13 juin 2017 |
+| N/A | [4014512] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |4.43 |13 juin 2017 |
+
+## <a name="may-guest-os"></a>SE invité mai
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 17/05 | [4019472] |Améliorations de la qualité du système d’exploitation WS 2016 |5.7 | 9 mai 2017 |
 | Éd. 17/05 | [4019263] |Sécurité Windows uniquement |2.62 | 9 mai 2017 |
@@ -55,9 +94,8 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4015550] |Correctif cumulatif non relatif à la sécurité d’avril |4.42 | 9 mai 2017 |
 | N/A | [4013418] |Mise à jour de la pile de maintenance |5.7 | 9 mai 2017 |
 
-## SE invité avril
-<a id="april-guest-os" class="xliff"></a>
-| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+## <a name="april-guest-os"></a>SE invité avril
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 17/04 |  [4015217]  |Améliorations de la qualité du système d’exploitation WS 2016 | 5.6 | 11 avril 2017 |
 | Éd. 17/04 |  [4015546]  |Sécurité Windows uniquement |2.61 | 11 avril 2017 |
@@ -76,9 +114,8 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Éd. 17/04 |  [4012217]  |Correctif qualitatif mensuel de sécurité de mars 2017 pour Windows Server 2012 |3.48 | 11 avril 2017 |
 | Éd. 17/04 |  [4012216]  |Correctif qualitatif mensuel de sécurité de mars 2017 pour Windows 8.1 et Windows Server 2012 R2 |4.41 | 11 avril 2017 |
 
-## SE invité mars
-<a id="march-guest-os" class="xliff"></a>
-| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+## <a name="march-guest-os"></a>SE invité mars
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 17/03 |  [4013429] |Améliorations et correctifs | 5.5 | 14 mars 2017 |
 | Éd. 17/03 |  [4012212] |Mise à jour qualité de la sécurité seule de mars 2017 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.60 |14 mars 2017 |
@@ -91,14 +128,12 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |  [3205401] |Correctif cumulatif qualitatif mensuel de sécurité de décembre 2016 pour Windows 8.1 et Windows Server 2012 R2 |4.40 |14 mars 2017 |
 | N/A |  [3211320] |Mise à jour de la pile de maintenance pour Windows 10 version 1607 et Windows Server 2016 : 24 janvier 2017 |5.5 |14 mars 2017 |
 
-## SE invité janvier
-<a id="january-guest-os" class="xliff"></a>
+## <a name="january-guest-os"></a>SE invité janvier
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS17-004 | [3216771] |Mise à jour de sécurité pour le service de sous-système d’autorité de sécurité locale |2.59 |10 janvier 2017 |
 
-## SE invité décembre
-<a id="december-guest-os" class="xliff"></a>
+## <a name="december-guest-os"></a>SE invité décembre
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Mise à jour de sécurité cumulative pour Internet Explorer |2.58, 3.46, 4.39 |13 décembre 2016 |
@@ -115,8 +150,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[3197877] |Correctif qualitatif mensuel de sécurité novembre 2016 pour Windows Server 2012 |3.46 |13 décembre 2016 |
 | N/A |[3197874] |Correctif qualitatif mensuel de sécurité novembre 2016 pour Windows 8.1 et Windows Server 2012 R2 |4.39 |13 décembre 2016 |
 
-## SE invité novembre
-<a id="november-guest-os" class="xliff"></a>
+## <a name="november-guest-os"></a>SE invité novembre
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Mise à jour de sécurité cumulative pour Microsoft Edge |5.3 |8 novembre 2016 |
@@ -141,8 +175,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[3199986] |Correctif de pile pour Windows 10 version 1607 : 27 octobre 2016 |5.3 |8 novembre 2016 |
 | N/A |[3197954] |Mise à jour cumulative pour Windows 10 Version 1607 et Windows Server 2016 : 27 octobre 2016 |5.3 |8 novembre 2016 |
 
-## SE invité octobre
-<a id="october-guest-os" class="xliff"></a>
+## <a name="october-guest-os"></a>SE invité octobre
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Mise à jour de sécurité cumulative pour Internet Explorer |4.37, 3.44, 2.56 |11 octobre 2016 |
@@ -157,8 +190,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[3185279] |Septembre 2016 Correctif cumulatif pour Windows 8.1 et Windows Server 2012 R2 |4.37 |11 octobre 2016 |
 | N/A |[3194798] |Mise à jour cumulative pour Windows 10 Version 1607 et Windows Server 2016 |5.2 |11 octobre 2016 |
 
-## SE invité septembre
-<a id="september-guest-os" class="xliff"></a>
+## <a name="september-guest-os"></a>SE invité septembre
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS16-104 |[3183038] |Mise à jour de sécurité cumulative pour Internet Explorer |4.36, 3.43, 2.55 |13 septembre 2016 |
@@ -175,8 +207,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[3179575] |Correctif cumulatif d’août 2016 pour Windows Server 2012 |3.43 |13 septembre 2016 |
 | N/A |[3179574] |Correctif cumulatif d’août 2016 pour Windows RT 8.1, Windows 8.1 et Windows Server 2012 R2 |4.36 |13 septembre 2016 |
 
-## SE invité août
-<a id="august-guest-os" class="xliff"></a>
+## <a name="august-guest-os"></a>SE invité août
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Mise à jour de sécurité cumulative pour Internet Explorer |4.35, 3.42, 2.54 |9 août 2016 |
@@ -190,8 +221,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[3172615] |Correctif cumulatif de juillet 2016 pour Windows Server 2012 |3.42 |9 août 2016 |
 | N/A |[3172614] |Correctif cumulatif de juillet 2016 pour Windows RT 8.1, Windows 8.1 et Windows Server 2012 R2 |4.35 |9 août 2016 |
 
-## SE invité juillet
-<a id="july-guest-os" class="xliff"></a>
+## <a name="july-guest-os"></a>SE invité juillet
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS16-084 |[3169991] |Mise à jour de sécurité cumulative pour Internet Explorer |4.34, 3.41, 2.53 |12 juillet 2016 |
@@ -207,8 +237,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[3161606] |Correctif cumulatif de juin 2016 pour Windows RT 8.1, Windows 8.1 et Windows Server 2012 R2 |4.34 |12 juillet 2016 |
 | N/A |[3139923] |La réparation de Windows installer (MSI) ne fonctionne pas lorsque le package MSI est installé sur un partage HTTP dans Windows |4.34 |12 juillet 2016 |
 
-## SE invité juin
-<a id="june-guest-os" class="xliff"></a>
+## <a name="june-guest-os"></a>SE invité juin
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |Mise à jour de sécurité pour .NET Framework afin de résoudre un problème de contournement de la fonctionnalité de sécurité |4,33, 3,40, 2,52 |14 juin 2016 |
@@ -235,8 +264,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[3156418] |Correctif cumulatif de mai 2016 pour Windows RT 8.1, Windows 8.1 et Windows Server 2012 R2 |4.33 |14 juin 2016 |
 | N/A |[3153731] |Mise à jour de mai 2016 de l’heure d’été dans Windows pour l’Azerbaïdjan, le Chili, Haïti et le Maroc |4,33, 3,40, 2,52 |14 juin 2016 |
 
-## SE invité mai
-<a id="may-guest-os" class="xliff"></a>
+## <a name="may-guest-os"></a>SE invité mai
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS16-051 |[3155533] |Mise à jour de sécurité cumulative pour Internet Explorer |4.32, 3.39, 2.51 |10 mai 2016 |
@@ -254,8 +282,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[3123245] |La mise à jour améliore l’identification d’une insuffisance de ports dans Windows Server 2012 R2  |4.32 |10 mai 2016 |
 | N/A |[Désactiver RC4] | Avis de sécurité Microsoft : mise à jour concernant la désactivation de RC4  |4.32, 3.39, 2.51 |10 mai 2016 |
 
-## SE invité avril
-<a id="april-guest-os" class="xliff"></a>
+## <a name="april-guest-os"></a>SE invité avril
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS16-037 |[3148531] |Mise à jour de sécurité cumulative pour Internet Explorer |4.31, 3.38, 2.50 |12 avril 2016 |
@@ -266,8 +293,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS16-047 |[3148527] |Mise à jour de sécurité pour le protocole distant du gestionnaire de comptes de sécurité |4.31, 3.38, 2.50 |12 avril 2016 |
 | MS16-048 |[3148528] |Mise à jour de sécurité pour CSRSS |4.31, 3.38 |12 avril 2016 |
 
-## SE invité mars
-<a id="march-guest-os" class="xliff"></a>
+## <a name="march-guest-os"></a>SE invité mars
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Mise à jour de sécurité cumulative pour Internet Explorer |4.30, 3.37, 2.49 |8 mars 2016 |
@@ -280,8 +306,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS16-033 |[3143142] |Mise à jour de sécurité pour le pilote de classe de stockage de masse USB Windows afin de résoudre un problème d’élévation de privilèges |4.30, 3.37, 2.49 |8 mars 2016 |
 | MS16-034 |[3143145] |Mise à jour de sécurité pour les pilotes en mode noyau Windows permettant de résoudre un problème d’élévation de privilèges |4.30, 3.37, 2.49 |8 mars 2016 |
 
-## SE invité février
-<a id="february-guest-os" class="xliff"></a>
+## <a name="february-guest-os"></a>SE invité février
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS16-009 |[3134220] |Mise à jour de sécurité cumulative pour Internet Explorer |4.29, 3.36, 2.48 |9 février 2016 |
@@ -296,8 +321,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Nouvelle publication - MS15-118 |[3104507] |Mise à jour de sécurité pour .NET Framework pour résoudre une élévation de privilèges |4.29, 3.36, 2.48 |9 février 2016 |
 | Nouvelle publication - MS15-128 |[3104503] |Mises à jour de sécurité pour Microsoft Graphics Component pour résoudre l’exécution de code à distance |4.29, 3.36, 2.48 |9 février 2016 |
 
-## SE invité janvier
-<a id="january-guest-os" class="xliff"></a>
+## <a name="january-guest-os"></a>SE invité janvier
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Mise à jour de sécurité cumulative pour Internet Explorer |4.28, 3.35, 2.47 |12 janvier 2016 |
@@ -310,8 +334,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Avis de sécurité Microsoft |[3123479] |Désapprobation de l’algorithme de hachage SHA-1 pour le programme de certificat racine Microsoft |4.28, 3.35, 2.47 |12 janvier 2016 |
 | Avis de sécurité Microsoft |[2736233] |Mises à jour pour les Kill Bits ActiveX |4.28, 3.35, 2.47 |12 janvier 2016 |
 
-## SE invité décembre
-<a id="december-guest-os" class="xliff"></a>
+## <a name="december-guest-os"></a>SE invité décembre
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS15-124 |[3116180] |Mise à jour de sécurité cumulative pour Internet Explorer |4.27, 3.34, 2.46 |8 décembre 2015 |
@@ -323,8 +346,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS15-134 |[3108669] |Mise à jour de sécurité pour Windows Media Center pour résoudre l’exécution de code à distance |4.27, 3.34, 2.46 |8 décembre 2015 |
 | MS15-135 |[3119075] |Mise à jour de sécurité pour Windows Kernel Mode Drivers pour résoudre une élévation de privilèges |4.27, 3.34, 2.46 |8 décembre 2015 |
 
-## SE invité novembre
-<a id="november-guest-os" class="xliff"></a>
+## <a name="november-guest-os"></a>SE invité novembre
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS15-112 |[3104517] |Mise à jour de sécurité cumulative pour Internet Explorer |4.26, 3.33, 2.45 |10 novembre 2015 |
@@ -338,8 +360,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS15-122 |[3105256] |Mise à jour de sécurité pour Kerberos pour résoudre un moyen de contournement de fonctionnalité de sécurité |4.26, 3.33, 2.45 |10 novembre 2015 |
 | Avis de sécurité Microsoft |[3097966] |Des certificats numériques divulgués par inadvertance pourraient permettre une usurpation d’identité |4.26, 3.33, 2.45 |10 novembre 2015 |
 
-## SE invité octobre
-<a id="october-guest-os" class="xliff"></a>
+## <a name="october-guest-os"></a>SE invité octobre
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS15-106 |[3096441] |Mise à jour de sécurité cumulative pour Internet Explorer |4.25, 3.32, 2.44 |13 octobre 2015 |
@@ -348,8 +369,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS15-111 |[3096447] |Mise à jour de sécurité pour le noyau Windows pour résoudre une élévation de privilèges |4.25, 3.32, 2.44 |13 octobre 2015 |
 | Avis de sécurité Microsoft |[3092627] |Mise à jour de septembre 2015 pour résoudre les blocages de Windows ou des applications après l’installation de la mise à jour de sécurité 3076895 |4.25, 3.32, 2.44 |13 octobre 2015 |
 
-## SE invité septembre
-<a id="september-guest-os" class="xliff"></a>
+## <a name="september-guest-os"></a>SE invité septembre
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS15-093 |[3088903] |Mise à jour de sécurité pour Internet Explorer |4.24, 3.31, 2.43 |8 septembre 2015 |
@@ -361,8 +381,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS15-102 |[3089657] |Des vulnérabilités dans la gestion des tâches Windows pourraient permettre une élévation des privilèges |4.24, 3.31, 2.43 |8 septembre 2015 |
 | MS15-105 |[3091287] |Une vulnérabilité dans Windows Hyper-V pourrait permettre de contourner la fonctionnalité de sécurité |4.24 |8 septembre 2015 |
 
-## SE invité août
-<a id="august-guest-os" class="xliff"></a>
+## <a name="august-guest-os"></a>SE invité août
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS15-079 |[3082442] |Mise à jour de sécurité cumulative pour Internet Explorer |4.23, 3.30, 2.42 |11 août 2015 |
@@ -374,8 +393,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS15-089 |[3060716] |Des vulnérabilités dans Microsoft Windows pourraient permettre une élévation des privilèges |4.23, 3.30, 2.42 |11 août 2015 |
 | MS15-090 |[3076949] |Une vulnérabilité dans WebDAV pourrait permettre la divulgation d’informations |4.23, 3.30, 2.42 |11 août 2015 |
 
-## SE invité juillet
-<a id="july-guest-os" class="xliff"></a>
+## <a name="july-guest-os"></a>SE invité juillet
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS15-065 |[3076321] |Mise à jour de sécurité cumulative pour Internet Explorer |4.22, 3.29, 2.41 |14 juillet 2015 |
@@ -392,8 +410,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS15-077 |[3077657] |Une vulnérabilité dans le pilote Adobe Type Manager Font Driver pouvait permettre une élévation de privilège |4.22, 3.29, 2.41 |14 juillet 2015 |
 | N/D |[3057154] |Mise à jour pour restreindre l’utilisation du chiffrement DES |4.22, 3.29, 2.41 |14 juillet 2015 |
 
-## SE invité juin
-<a id="june-guest-os" class="xliff"></a>
+## <a name="june-guest-os"></a>SE invité juin
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Mise à jour de sécurité cumulative pour Internet Explorer |4.21, 3.28, 2.40 |9 juin 2015 |
@@ -403,8 +420,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS15-062 |[3062577] |Une vulnérabilité dans Active Directory Federation Services pourrait permettre une élévation de privilèges |4.21, 3.28, 2.40 |9 juin 2015 |
 | MS15-063 |[3063858] |Une vulnérabilité dans Windows Kernel pourraient permettre une élévation des privilèges |4.21, 3.28, 2.40 |9 juin 2015 |
 
-## SE invité mai
-<a id="may-guest-os" class="xliff"></a>
+## <a name="may-guest-os"></a>SE invité mai
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS15-043 |[3049563] |Mise à jour de sécurité cumulative pour Internet Explorer |4.20, 3.27, 2.39 |12 mai 2015 |
@@ -427,14 +443,12 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS15-042 |[3047234] |Une vulnérabilité dans Windows Hyper-V pourrait entraîner un déni de service |4.20, 3.27, 2.39 |17 avril 2015 |
 | N/D |[3045755] |Mise à jour permettant d’améliorer l'authentification PKU2U |4.20, 3.27, 2.39 |17 avril 2015 |
 
-## SE invité avril
-<a id="april-guest-os" class="xliff"></a>
+## <a name="april-guest-os"></a>SE invité avril
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | [MS15-034] |[3042553] |Une vulnérabilité dans HTTP.sys pourrait permettre l'exécution du code à distance |4.19, 3.26, 2.38 |17 avril 2015 |
 
-## SE invité mars
-<a id="march-guest-os" class="xliff"></a>
+## <a name="march-guest-os"></a>SE invité mars
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS15-018 |[3032359] |Mise à jour de sécurité cumulative pour Internet Explorer |4.18, 3.25, 2.37 |N/A |
@@ -454,8 +468,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 >
 >
 
-## SE invité février
-<a id="february-guest-os" class="xliff"></a>
+## <a name="february-guest-os"></a>SE invité février
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Mise à jour de sécurité pour Internet Explorer |4.17, 3.24, 2.36 |N/A |
@@ -466,8 +479,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS15-016 |[3029944] |Une vulnérabilité dans le composant des graphiques Windows pourrait permettre la divulgation d'informations |4.17, 3.24, 2.36 |N/A |
 | N/A |[3004375] |Mise à jour permettant d’améliorer l’audit de la ligne de commande Windows<p/>**Remarque**: elle est installée, mais la clé de registre permettant de l’activer est désactivée |4.17, 3.24, 2.36 |N/A |
 
-## SE invité janvier
-<a id="january-guest-os" class="xliff"></a>
+## <a name="january-guest-os"></a>SE invité janvier
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS15-001 |[3023266] |Une vulnérabilité dans Windows AppCompatCache pourrait permettre une élévation des privilèges |4.16, 3.23, 2.35 |19 janvier 2015 |
@@ -482,8 +494,8 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS15-002 |[3020393] |Une vulnérabilité dans le service Telnet Windows pourrait entraîner l'exécution du code à distance |4.16, 3.23, 2.35 |19 janvier 2015 |
 | MS15-002 |[3020393] |Une vulnérabilité dans le service Telnet Windows pourrait entraîner l'exécution du code à distance |4.16, 3.23, 2.35 |19 janvier 2015 |
 
-## SE invité décembre
-<a id="december-guest-os" class="xliff"></a>
+
+## <a name="december-guest-os"></a>SE invité décembre
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | N/A |[3013776] |Le système se fige lorsque vous utilisez un compte de domaine pour démarrer une application |4.15, 3.22, 2.34 |13 janvier 2015 |
@@ -497,6 +509,45 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[3007054] |Option d'impression protégée par code PIN toujours présente lors de l'impression d'un document dans une application Windows Store dans Windows |4.15, 3.22, 2.34 |13 janvier 2015 |
 | N/A |[2999802] |Des lignes pleines sont imprimées dans Windows au lieu de lignes en pointillés |4.15, 3.22, 2.34 |13 janvier 2015 |
 | N/A |[2896881] |Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows |4.15, 3.22, 2.34 |13 janvier 2015 |
+
+[4025339]: http://support.microsoft.com/kb/4025337
+[4025337]: http://support.microsoft.com/kb/4025333
+[4025333]: http://support.microsoft.com/kb/4025343
+[4025343]: http://support.microsoft.com/kb/4025376
+[4025252]: http://support.microsoft.com/kb/4025252
+[4025376]: http://support.microsoft.com/kb/4025376
+[4020322]: http://support.microsoft.com/kb/4020322
+[4022719]: http://support.microsoft.com/kb/4022719
+[4022724]: http://support.microsoft.com/kb/4022724
+[4022726]: http://support.microsoft.com/kb/4022726
+
+[4022722]: http://support.microsoft.com/kb/4022722
+[4022717]: http://support.microsoft.com/kb/4022717
+[4022718]: http://support.microsoft.com/kb/4022718
+[4021558]: http://support.microsoft.com/kb/4021558
+[4022719]: http://support.microsoft.com/kb/4022719
+[4022724]: http://support.microsoft.com/kb/4022724
+[4022726]: http://support.microsoft.com/kb/4022726
+[4022730]: http://support.microsoft.com/kb/4022730
+[4015221]: http://support.microsoft.com/kb/4015221
+[4015583]: http://support.microsoft.com/kb/4015583
+[4015219]: http://support.microsoft.com/kb/4015219
+[4023136]: http://support.microsoft.com/kb/4023136
+[4019264]: http://support.microsoft.com/kb/4019264
+[4014545]: http://support.microsoft.com/kb/4014545
+[4014508]: http://support.microsoft.com/kb/4014508
+[4014511]: http://support.microsoft.com/kb/4014511
+[4014514]: http://support.microsoft.com/kb/4014514
+[4019216]: http://support.microsoft.com/kb/4019216
+[4014503]: http://support.microsoft.com/kb/4014503
+[4014506]: http://support.microsoft.com/kb/4014506
+[4014509]: http://support.microsoft.com/kb/4014509
+[4014513]: http://support.microsoft.com/kb/4014513
+[4019215]: http://support.microsoft.com/kb/4019215
+[4014505]: http://support.microsoft.com/kb/4014505
+[4014507]: http://support.microsoft.com/kb/4014507
+[4014510]: http://support.microsoft.com/kb/4014510
+[4014512]: http://support.microsoft.com/kb/4014512
 
 [4019472]: http://support.microsoft.com/kb/4019472
 [4019263]: http://support.microsoft.com/kb/4019263

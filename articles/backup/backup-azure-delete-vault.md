@@ -1,5 +1,5 @@
 ---
-title: " Supprimer un coffre de sauvegarde dans Azure | Microsoft Docs "
+title: " Supprimer un coffre Recovery Services dans Azure | Microsoft Docs "
 description: "Comment supprimer un coffre Azure Backup et Recovery Services. Un coffre de sauvegarde peut être appelé un coffre cloud Azure ou un coffre de récupération Azure. Résolution des problèmes lorsque vous ne pouvez pas supprimer un coffre de sauvegarde dans le portail Classic ou le portail Azure."
 services: service-name
 documentationcenter: dev-center-name
@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/14/2017
+ms.date: 07/21/2017
 ms.author: markgal;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: d8be07fe4cd3fd50827fb7021a75eb05b6f075e0
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: e72ccd2efc271956c688e70804cef915c257a2e3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
-# <a name="delete-an-azure-backup-vault"></a>Supprimer un coffre de sauvegarde Azure
+# <a name="delete-a-recovery-services-vault"></a>Supprimer un coffre Recovery Services
 Le service Sauvegarde Azure comporte deux types de coffres : le coffre de sauvegarde et le coffre Recovery Services. Le coffre de sauvegarde a été créé en premier. Ensuite, le coffre Recovery Services est venu prendre en charge les déploiements Resource Manager étendus. Étant donné les capacités étendues et les dépendances des informations qui doivent être stockées dans le coffre, la suppression d’un coffre Backup ou Recovery Services peut prêter à confusion. Cet article explique comment supprimer le coffre dans le portail Classic et le portail Azure.  
 
 | **Type de déploiement** | **Portail** | **Nom du coffre** |

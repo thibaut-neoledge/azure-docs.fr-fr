@@ -178,7 +178,7 @@ Les termes ci-après sont utilisés pour cette procédure :
 
 * *Ordinateur source* : ordinateur d’origine à partir duquel la sauvegarde a été effectuée et qui est actuellement indisponible.
 * *Ordinateur cible* : ordinateur sur lequel les données sont récupérées.
-* *Exemple d’archivage* : coffre Recovery Services dans lequel *l’ordinateur source *et* l’ordinateur cible* sont enregistrés. <br/>
+* *Exemple d’archivage* – coffre Recovery Services dans lequel *l’ordinateur source* et *l’ordinateur cible* sont enregistrés. <br/>
 
 > [!NOTE]
 > Il est impossible de restaurer les sauvegardes sur un ordinateur cible qui fonctionne avec une version antérieure du système d’exploitation. Par exemple, une sauvegarde effectuée à partir d’un ordinateur Windows 7 ne peut pas être restaurée sur un ordinateur sous Windows 8 ou une version ultérieure. Il n’est pas possible de restaurer sur un ordinateur Windows 7 une sauvegarde effectuée à partir d’un ordinateur Windows 8.

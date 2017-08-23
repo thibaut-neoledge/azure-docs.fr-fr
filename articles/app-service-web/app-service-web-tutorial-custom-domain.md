@@ -11,15 +11,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: f98b876658c3257ad2b9162dea053f879ba1f1f0
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 57379d318ab01310388f55c8ec0b9751e909cb9e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mapper un nom DNS personnalisé existant à des applications web Azure
@@ -39,7 +39,9 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 Vous pouvez utiliser un **enregistrement CNAME** ou un **enregistrement A** pour mapper un nom DNS personnalisé à App Service. 
 
 > [!NOTE]
-> Nous vous recommandons d’utiliser un enregistrement CNAME pour tous les noms DNS personnalisés, à l’exception d’un domaine racine (par exemple, `contoso.com`). 
+> Nous vous recommandons d’utiliser un enregistrement CNAME pour tous les noms DNS personnalisés, à l’exception d’un domaine racine (par exemple, `contoso.com`).
+
+Pour migrer un site actif et son nom de domaine DNS vers App Service, voir [Migrer un nom DNS actif vers Azure App Service](app-service-custom-domain-name-migrate.md).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -69,6 +71,8 @@ Dans le menu de gauche, sélectionnez **App Services**, puis le nom de l’appli
 
 La page de gestion de l’application App Service s’affiche.  
 
+<a name="checkpricing"></a>
+
 ### <a name="check-the-pricing-tier"></a>Vérification du niveau tarifaire
 
 Dans la navigation gauche de la page de l’application, faites défiler jusqu’à la section **Paramètres** et sélectionnez **Monter en puissance (plan App Service)**.
@@ -80,6 +84,8 @@ Le niveau actuel de l’application est encadré d’un rectangle bleu. Vérifie
 ![Vérification du niveau de tarification](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 Si le plan App Service n’est pas **Gratuit** , fermez la page **Choisir votre niveau de tarification** et passez à [Mapper un enregistrement CNAME](#cname).
+
+<a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Monter en puissance le plan App Service
 
@@ -99,22 +105,7 @@ Lorsque la notification suivante s’affiche, cela signifie que l’opération e
 
 Dans l’exemple de ce didacticiel, vous ajoutez un enregistrement CNAME pour le sous-domaine `www` (`www.contoso.com`, par exemple).
 
-### <a name="access-dns-records-with-domain-provider"></a>Accès aux enregistrements DNS avec le fournisseur de domaine
-
-Connectez-vous au site web de votre fournisseur de domaine.
-
-Trouvez la page de gestion des enregistrements DNS. Chaque fournisseur de domaine ayant sa propre interface d’enregistrements DNS, consultez la documentation de votre fournisseur. Recherchez la mention **Nom de domaine**, **DNS** ou **Gestion du nom de serveur**. 
-
-Vous trouvez la page de gestion des enregistrements DNS en affichant vos informations de compte, puis en recherchant un lien comme **Mes domaines**. Accédez à cette page et recherchez un lien nommé **Fichier de zone**, **Enregistrements DNS**, ou **Configuration avancée**.
-
-La capture d’écran suivante est un exemple de page d’enregistrements DNS :
-
-![Exemple de page d’enregistrements DNS](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-Dans l’exemple de capture d’écran, vous cliquez sur **Ajouter** pour créer un enregistrement. Certains fournisseurs ont différents liens pour ajouter divers types d’enregistrements. Là encore, consultez la documentation du fournisseur.
-
-> [!NOTE]
-> Pour certains fournisseurs tels que GoDaddy, les modifications apportées aux enregistrements DNS n’entrent en vigueur que lorsque vous cliquez sur un lien **Enregistrer les modifications** distinct. 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-cname-record"></a>Créer un enregistrement CNAME
 
@@ -178,22 +169,7 @@ Dans la page **Domaines personnalisés**, copiez l’adresse IP de l’applicat
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-### <a name="access-dns-records-with-domain-provider"></a>Accès aux enregistrements DNS avec le fournisseur de domaine
-
-Connectez-vous au site web de votre fournisseur de domaine.
-
-Trouvez la page de gestion des enregistrements DNS. Chaque fournisseur de domaine ayant sa propre interface d’enregistrements DNS, consultez la documentation de votre fournisseur. Recherchez la mention **Nom de domaine**, **DNS** ou **Gestion du nom de serveur**. 
-
-Vous trouvez la page de gestion des enregistrements DNS en affichant vos informations de compte, puis en recherchant un lien comme **Mes domaines**. Accédez à cette page et recherchez un lien nommé **Fichier de zone**, **Enregistrements DNS**, ou **Configuration avancée**.
-
-La capture d’écran suivante est un exemple de page d’enregistrements DNS :
-
-![Exemple de page d’enregistrements DNS](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-Dans l’exemple de capture d’écran, vous cliquez sur **Ajouter** pour créer un enregistrement. Certains fournisseurs ont différents liens pour ajouter divers types d’enregistrements. Là encore, consultez la documentation du fournisseur.
-
-> [!NOTE]
-> Pour certains fournisseurs tels que GoDaddy, les modifications apportées aux enregistrements DNS n’entrent en vigueur que lorsque vous cliquez sur un lien **Enregistrer les modifications** distinct. 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-a-record"></a>Créer l’enregistrement A
 
@@ -249,22 +225,7 @@ Si vous avez raté une étape ou fait une faute de frappe à un endroit, une err
 
 Dans l’exemple du didacticiel, vous mappez un [nom DNS générique](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (par exemple, `*.contoso.com`) vers l’application App Service en ajoutant un enregistrement CNAME. 
 
-### <a name="access-dns-records-with-domain-provider"></a>Accès aux enregistrements DNS avec le fournisseur de domaine
-
-Connectez-vous au site web de votre fournisseur de domaine.
-
-Trouvez la page de gestion des enregistrements DNS. Chaque fournisseur de domaine ayant sa propre interface d’enregistrements DNS, consultez la documentation de votre fournisseur. Recherchez la mention **Nom de domaine**, **DNS** ou **Gestion du nom de serveur**. 
-
-Vous trouvez la page de gestion des enregistrements DNS en affichant vos informations de compte, puis en recherchant un lien comme **Mes domaines**. Accédez à cette page et recherchez un lien nommé **Fichier de zone**, **Enregistrements DNS**, ou **Configuration avancée**.
-
-La capture d’écran suivante est un exemple de page d’enregistrements DNS :
-
-![Exemple de page d’enregistrements DNS](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-Dans l’exemple de capture d’écran, vous cliquez sur **Ajouter** pour créer un enregistrement. Certains fournisseurs ont différents liens pour ajouter divers types d’enregistrements. Là encore, consultez la documentation du fournisseur.
-
-> [!NOTE]
-> Pour certains fournisseurs tels que GoDaddy, les modifications apportées aux enregistrements DNS n’entrent en vigueur que lorsque vous cliquez sur un lien **Enregistrer les modifications** distinct. 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-cname-record"></a>Créer un enregistrement CNAME
 

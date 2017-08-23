@@ -1,5 +1,5 @@
 ---
-title: "Utilisation d’Azure Application Insights dans Visual Studio | Microsoft Docs"
+title: "Débogage d’applications à l’aide d’Azure Application Insights dans Visual Studio | Microsoft Docs"
 description: "Analyse des performances d’application web et diagnostics en phase de débogage et de production."
 services: application-insights
 documentationcenter: .net
@@ -11,34 +11,33 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2016
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 7fe1b572104416fec62261c60228fa966d197dd9
+ms.date: 07/7/2017
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 93e97cbc5d9bf55334a481183f40083a6f3b99a4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/21/2017
-
+ms.lasthandoff: 07/11/2017
 
 ---
-# <a name="working-with-azure-application-insights-in-visual-studio"></a>Utilisation d’Azure Application Insights dans Visual Studio
+# <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Débogage d’applications à l’aide d’Azure Application Insights dans Visual Studio
 Visual Studio 2015 (et versions ultérieures) vous permet d’analyser les performances et de diagnostiquer les problèmes au niveau de votre application web ASP.NET aussi bien en phase de débogage qu’en production, à l’aide des données de télémétrie [d’Azure Application Insights](app-insights-overview.md).
 
 Si vous avez créé votre application web ASP.NET à l’aide de Visual Studio 2017 ou version ultérieure, celle-ci possède déjà le kit de développement logiciel (SDK) Application Insights. Sinon, si vous ne l’avez pas encore fait, [ajoutez Application Insights à votre application](app-insights-asp-net.md).
 
-Pour analyser votre application lorsqu’elle se trouve dans un environnement de production actif, vous affichez normalement les données de télémétrie Application Insights dans le [portail Azure](https://portal.azure.com), où vous pouvez définir des alertes et utiliser des outils d’analyse puissants. Mais pour le débogage, vous pouvez également rechercher et analyser les données de télémétrie dans Visual Studio. Vous pouvez utiliser Visual Studio pour analyser les données de télémétrie à la fois à partir de votre site de production et de votre environnement de débogage sur votre ordinateur de développement. Dans ce cas, vous pouvez analyser les opérations de débogage même si vous n’avez pas encore configuré le kit de développement logiciel pour que les données de télémétrie soient envoyées au portail Azure. 
+Pour analyser votre application lorsqu’elle se trouve dans un environnement de production actif, vous affichez normalement les données de télémétrie Application Insights dans le [portail Azure](https://portal.azure.com), où vous pouvez définir des alertes et utiliser des outils d’analyse puissants. Mais pour le débogage, vous pouvez également rechercher et analyser les données de télémétrie dans Visual Studio. Vous pouvez utiliser Visual Studio pour analyser les données de télémétrie à la fois à partir de votre site de production et de votre environnement de débogage sur votre machine de développement. Dans ce cas, vous pouvez analyser les opérations de débogage même si vous n’avez pas encore configuré le kit de développement logiciel pour que les données de télémétrie soient envoyées au portail Azure. 
 
 ## <a name="run"></a> Débogage de votre projet
 Exécutez votre application web en mode de débogage local à l’aide de la touche F5. Ouvrez différentes pages pour générer des données de télémétrie.
 
-Dans Visual Studio, vous verrez un décompte des événements qui ont été consignés par le module Application Insights dans votre projet.
+Dans Visual Studio, vous voyez un décompte des événements qui ont été consignés par le module Application Insights dans votre projet.
 
 ![Dans Visual Studio, le bouton Application Insights apparaît pendant le débogage.](./media/app-insights-visual-studio/appinsights-09eventcount.png)
 
 Cliquez sur ce bouton pour rechercher vos données de télémétrie. 
 
 ## <a name="application-insights-search"></a>Recherche Application Insights
-La fenêtre de recherche Application Insights affiche les événements qui ont été consignés. (Si vous étiez connecté à Azure au moment de l’installation d’Application Insights, vous pouvez rechercher ces mêmes événements dans le portail Azure.)
+La fenêtre de recherche Application Insights affiche les événements qui ont été consignés. (Si vous étiez connecté à Azure au moment de l’installation d’Application Insights, vous pouvez rechercher ces mêmes événements sur le portail Azure.)
 
 ![Cliquez avec le bouton droit sur le projet et sélectionnez Application Insights, Rechercher.](./media/app-insights-visual-studio/34.png)
 
@@ -58,15 +57,15 @@ Vous pouvez également ouvrir l’onglet Éléments connexes pour analyser les r
 
 ![Sous Request Details (Détails des requêtes), accédez à Éléments connexes](./media/app-insights-visual-studio/41.png)
 
-## <a name="exceptions-and-failed-requests"></a>Exceptions et requêtes ayant échoué
+## <a name="view-exceptions-and-failed-requests"></a>Afficher les exceptions et les requêtes ayant échoué
 Les rapports d’exceptions s’affichent dans la fenêtre de recherche. (Pour certains anciens types d’application ASP.NET, vous devez [configurer l’analyse des exceptions](app-insights-asp-net-exceptions.md) pour afficher les exceptions gérées par le framework.)
 
 Cliquez sur une exception pour obtenir une trace de pile. Si le code de l’application est ouvert dans Visual Studio, vous pouvez utiliser la trace de pile pour accéder à la ligne de code recherchée.
 
 ![Arborescence des appels de procédure d’exception](./media/app-insights-visual-studio/17.png)
 
-## <a name="request-and-exception-summaries-in-the-code"></a>Résumés des requêtes et des exceptions dans le code
-Le nombre de requêtes et d’exceptions enregistrées par Application Insights dans les dernières 24 heures est indiqué dans la ligne de filtre Code au-dessus de chaque méthode de gestionnaire.
+## <a name="view-request-and-exception-summaries-in-the-code"></a>Afficher les résumés des requêtes et des exceptions dans le code
+Le nombre de requêtes et d’exceptions consignées par Application Insights dans les dernières 24 heures est indiqué dans la ligne de filtre Code au-dessus de chaque méthode de gestionnaire.
 
 ![Arborescence des appels de procédure d’exception](./media/app-insights-visual-studio/21.png)
 
@@ -88,7 +87,7 @@ Pour rechercher des anomalies dans vos données, sélectionnez l’une des optio
 [En savoir plus sur Tendances](app-insights-visual-studio-trends.md).
 
 ## <a name="local-monitoring"></a>Surveillance locale
-(À partir de Visual Studio 2015 Mise à jour 2) Si vous n’avez pas configuré le Kit de développement logiciel pour envoyer les données de télémétrie au portail Application Insights (et qu’il n’existe donc aucune clé d’instrumentation dans ApplicationInsights.config), la fenêtre de diagnostic affichera les données de télémétrie de votre dernière session de débogage. 
+(À partir de Visual Studio 2015 Mise à jour 2) Si vous n’avez pas configuré le Kit de développement logiciel pour envoyer les données de télémétrie au portail Application Insights (et qu’il n’existe donc aucune clé d’instrumentation dans ApplicationInsights.config), la fenêtre de diagnostic affiche les données de télémétrie de votre dernière session de débogage. 
 
 C’est le comportement adéquat si vous avez déjà publié une version antérieure de votre application. Vous ne voulez pas que les données de télémétrie de vos sessions de débogage soient confondues avec les données de télémétrie sur le portail Application Insights de l’application publiée.
 
@@ -100,10 +99,10 @@ Cela est également utile si vous disposez de [données de télémétrie personn
   * Pour arrêter l’envoi de données de télémétrie au portail, commentez la ligne `<instrumentationkey>...` du fichier ApplicationInsights.config. Lorsque vous êtes prêt à envoyer de nouveau les données de télémétrie au portail, supprimez les commentaires.
 
 
-## <a name="whats-next"></a>Et ensuite ?
+## <a name="next-steps"></a>Étapes suivantes
 |  |  |
 | --- | --- |
 | **[Ajouter des données](app-insights-asp-net-more.md)**<br/>Analysez l’utilisation, la disponibilité, les dépendances et les exceptions. Intégrer des traces à partir des frameworks de journalisation. Écrire des données de télémétrie personnalisées. |![Visual Studio](./media/app-insights-visual-studio/64.png) |
-| **[Utilisation du portail Application Insights](app-insights-dashboards.md)**<br/>Tableaux de bord, puissants outils de diagnostic et d’analyse, alertes, mappage direct des dépendances de votre application et exportation des données de télémétrie. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
+| **[Utilisation du portail Application Insights](app-insights-dashboards.md)**<br/>Affichez les tableaux de bord, les puissants outils de diagnostic et d’analyse, les alertes, le mappage direct des dépendances de votre application et les données de télémétrie exportées. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
 
 

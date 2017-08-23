@@ -158,7 +158,7 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
    
     b. **L’utilisateur B** fait ensuite l’objet d’une tentative de synchronisation avec **UPN = User@contoso.com**.
    
-    c. L’UPN de **lutilisateur B** est remplacé par ****User1234@contoso.onmicrosoft.com et **User@contoso.com** est ajouté dans **DirSyncProvisioningErrors**.
+    c. L’UPN de **lutilisateur B** est remplacé par **User1234@contoso.onmicrosoft.com** et **User@contoso.com** est ajouté dans **DirSyncProvisioningErrors**.
    
     d. Le message d’erreur de **l’utilisateur B** doit indiquer que **l’utilisateur A** a déjà **User@contoso.com** comme UPN, mais il affiche le paramètre displayName de **l’utilisateur B**.
 

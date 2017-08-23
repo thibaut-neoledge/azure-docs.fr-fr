@@ -1,10 +1,10 @@
 ---
-title: "Utilisation d’Apache Kafka avec Storm sur HDInsight | Microsoft Docs"
+title: "Utilisation d’Apache Kafka avec Storm sur HDInsight - Azure | Microsoft Docs"
 description: "Apache Kafka est installé avec Apache Storm sur HDInsight. Apprenez à écrire sur Kafka et lire à partir de celui-ci, et utiliser les composants KafkaBolt et KafkaSpout fournis avec Storm. Découvrez également comment utiliser l’infrastructure Flux pour définir et envoyer des topologies Storm."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
 ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
 ms.service: hdinsight
@@ -13,35 +13,46 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/20/2017
+ms.date: 07/21/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: dcda5e27cbcadff054c8085b72a1b6fb1c07b889
-ms.lasthandoff: 03/25/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 823ff810ffc0b65ec1bb38e4dc314da1d0f9a64a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Utilisation d’Apache Kafka (version préliminaire) avec Storm sur HDInsight
 
-Apache Kafka est une solution de messagerie de type publication/abonnement disponible avec HDInsight. Apache Storm est un système distribué qui peut être utilisé pour analyser les données en temps réel. Ce document montre comment vous pouvez utiliser Storm sur HDInsight pour lire et traiter des données à partir de Kafka sur HDInsight. L’exemple de document utilise une topologie Storm basée sur Java qui s’appuie sur les composants spout et bolt de Kafka disponibles avec Apache Storm.
+Découvrez comment utiliser Apache Storm pour lire et écrire dans Apache Kafka. Cet exemple montre également comment enregistrer des données d’une topologie Storm dans un système de fichiers compatible HDFS utilisé par HDInsight.
 
 > [!NOTE]
 > Les étapes décrites dans ce document créent un groupe de ressources Azure qui contient à la fois un Storm sur HDInsight et un Kafka sur un cluster HDInsight. Ces clusters sont tous deux situés dans un réseau virtuel Azure, ce qui permet au cluster Storm de communiquer directement avec le cluster Kafka.
 > 
 > Lorsque vous avez terminé les étapes décrites dans ce document, n’oubliez pas de supprimer les clusters pour éviter les frais supplémentaires.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="get-the-code"></a>Obtenir le code
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 1.8 ou version ultérieure. Ou un équivalent, par exemple, [OpenJDK](http://openjdk.java.net/).
-  
-    > [!NOTE]
-    > Les étapes de ce document utilisent un cluster HDInsight 3.5, qui utilise Java 8.
+Le code de l’exemple utilisé dans ce document est disponible à l’adresse [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
 
-* [Maven 3.x](http://maven.apache.org/) : un package de gestion des builds des applications Java.
+Pour compiler ce projet, la configuration de votre environnement de développement doit être la suivante :
 
-* Un éditeur de texte ou un IDE Java
+* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou version ultérieure. HDInsight 3.5 ou les versions ultérieures requièrent Java 8.
+
+* [Maven 3.x](https://maven.apache.org/download.cgi)
 
 * Un client SSH (vous avez besoin des commandes `ssh` et `scp`) : pour plus d’informations, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* Un éditeur de texte ou IDE.
+
+Les variables d’environnement suivantes peuvent être définies lors de l’installation de Java et du Kit de développeur Java (JDK) sur votre station de travail de développement. Toutefois, vous devez vérifier qu’elles existent et qu’elles contiennent les valeurs correctes pour votre système.
+
+* `JAVA_HOME` : doit pointer vers le répertoire d’installation du Kit de développeur Java (JDK).
+* `PATH` : doit contenir les chemins d’accès suivants :
+  
+    * `JAVA_HOME` (ou le chemin équivalent).
+    * `JAVA_HOME\bin` (ou le chemin équivalent).
+    * Répertoire d’installation de Maven.
 
 ## <a name="create-the-clusters"></a>Création des clusters
 
@@ -50,16 +61,24 @@ Apache Kafka sur HDInsight ne donne pas accès aux répartiteurs Kafka via l’i
 ![Diagramme des clusters Storm et Kafka dans un réseau virtuel Azure](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
 
 > [!NOTE]
-> Bien que Kafka est lui-même limité à la communication au sein du réseau virtuel, d’autres services sur le cluster comme SSH et Ambari sont accessibles sur Internet. Pour plus d’informations sur les ports publics disponibles avec HDInsight, consultez [Ports et URI utilisés par HDInsight](hdinsight-hadoop-port-settings-for-services.md).
-
+> Les autres services sur le cluster, tels que SSH et Ambari, sont accessibles via Internet. Pour plus d’informations sur les ports publics disponibles avec HDInsight, consultez [Ports et URI utilisés par HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 Même si vous pouvez créer un réseau virtuel Azure, et des clusters Kafka et Storm manuellement, il est plus facile d’utiliser un modèle Azure Resource Manager. Utilisez les étapes suivantes pour déployer un réseau virtuel Azure et des clusters Kafka et Storm sur votre abonnement Azure.
 
 1. Utilisez le bouton suivant pour vous connecter à Azure et ouvrir le modèle dans le portail Azure.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Le modèle Azure Resource Manager se trouve à l’adresse **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet.json**.
+    Le modèle Azure Resource Manager se trouve à l’adresse **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v1.json**. Il crée les ressources suivantes :
+    
+    * Groupe de ressources Azure
+    * Réseau virtuel Azure
+    * Compte de Stockage Azure
+    * Kafka sur HDInsight version 3.6 (trois nœuds worker)
+    * Storm sur HDInsight version 3.6 (trois nœuds worker)
+
+  > [!WARNING]
+  > Pour garantir la disponibilité de Kafka sur HDInsight, votre cluster doit contenir au moins trois nœuds Worker. Ce modèle crée un cluster Kafka qui contient trois nœuds Worker.
 
 2. Utilisez les instructions suivantes pour remplir les entrées sur le panneau **déploiement personnalisé** :
    
@@ -67,7 +86,7 @@ Même si vous pouvez créer un réseau virtuel Azure, et des clusters Kafka et S
 
     * **Groupe de ressources** : créez un groupe de ressources ou sélectionnez-en un. Ce groupe contient le cluster HDInsight.
    
-    * **Emplacement** : choisissez un emplacement proche de vous géographiquement. Cet emplacement doit correspondre à l’emplacement dans la section __PARAMÈTRES__.
+    * **Emplacement** : choisissez un emplacement proche de vous géographiquement.
 
     * **Nom de cluster de base** : cette valeur sera utilisée comme nom de base pour les clusters Storm et HBase. Par exemple, si vous entrez **hdi**, cela crée un cluster Storm nommé **storm-hdi** et un cluster Kafka nommé **kafka-hdi**.
    
@@ -78,125 +97,46 @@ Même si vous pouvez créer un réseau virtuel Azure, et des clusters Kafka et S
     * **Nom d’utilisateur SSH** : utilisateur SSH permettant de créer des clusters Storm et Kafka.
     
     * **Mot de passe SSH** : mot de passe de l’utilisateur SSH pour les clusters Storm et Kafka.
-    
-    * **Emplacement** : région dans laquelle seront créés les clusters.
 
 3. Passez en revue les **termes et conditions**, puis cochez la case **J’accepte les termes et conditions mentionnés ci-dessus**.
 
 4. Pour finir, cochez **Épingler au tableau de bord**, puis sélectionnez **Acheter**. La création des clusters prend environ 20 minutes.
 
-Une fois les ressources créées, vous êtes redirigé vers un panneau pour le groupe de ressources contenant les clusters et le tableau de bord Web.
+Une fois les ressources créées, le panneau du groupe de ressources s’affiche.
 
 ![Volet du groupe de ressources pour les clusters et le réseau virtuel](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > Les noms des clusters HDInsight sont **storm-BASENAME** et **kafka-BASENAME**, où BASENAME est le nom que vous avez fourni pour le modèle. Vous utilisez ces noms dans les étapes ultérieures, lors de la connexion aux clusters.
 
-## <a name="get-the-code"></a>Obtenir le code
-
-Le code de l’exemple décrit dans ce document est disponible à l’adresse [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
-
 ## <a name="understanding-the-code"></a>Présentation du code
 
 Ce projet contient deux topologies :
 
 * **KafkaWriter** : définie par le fichier **writer.yaml**, cette topologie écrit des phrases aléatoires dans Kafka en utilisant le KafkaBolt fourni avec Apache Storm.
-  
+
     Cette topologie utilise un composant **SentenceSpout** personnalisé pour générer des phrases aléatoires.
 
 * **KafkaReader** : définie par le fichier **reader.yaml**, cette topologie lit les données à partir de Kafka à l’aide du KafkaSpout fourni avec Apache Storm, puis écrit les données dans stdout.
-  
-    Cette topologie utilise un composant **PrinterBolt** personnalisé pour enregistrer des données lues à partir de Kafka.
 
+    Cette topologie utilise le Storm HdfsBolt pour écrire des données dans le stockage par défaut pour le cluster Storm.
 ### <a name="flux"></a>Flux
 
-Les topologies sont définies à l’aide de [Flux](https://storm.apache.org/releases/1.0.1/flux.html). Flux a été introduit dans Storm 0.10.x et vous permet de séparer la configuration de topologie du code. Pour les topologies qui utilisent l’infrastructure Flux, la topologie est définie dans un fichier YAML. Le fichier YAML peut être inclus dans le cadre de la topologie, ou peut être spécifié lorsque vous envoyez la topologie au serveur Storm. Flux prend également en charge la substitution des variables au moment de l’exécution, ce qui est utilisé dans cet exemple.
+Les topologies sont définies à l’aide de [Flux](https://storm.apache.org/releases/1.1.0/flux.html). Flux a été introduit dans Storm 0.10.x et vous permet de séparer la configuration de topologie du code. Pour les topologies qui utilisent l’infrastructure Flux, la topologie est définie dans un fichier YAML. Le fichier YAML peut être inclus dans le cadre de la topologie. Il peut également s’agir d’un fichier autonome utilisé lorsque vous envoyez la topologie. Flux prend également en charge la substitution des variables au moment de l’exécution, ce qui est utilisé dans cet exemple.
 
-Les deux topologies attendent les variables d’environnement suivantes :
+Les paramètres suivants sont définis au moment de l’exécution pour les topologies suivantes :
 
-* **KAFKATOPIC** : le nom de la rubrique Kafka que les topologies utilisent pour la lecture/écriture.
+* `${kafka.topic}` : nom de la rubrique Kafka dans laquelle les topologies lisent et écrivent.
 
-* **KAFKABROKERS** : les hôtes sur lesquels les répartiteurs Kafka s’exécutent. Les informations sur les répartiteurs sont utilisées par le KafkaBolt lors de l’écriture sur Kafka.
+* `${kafka.broker.hosts}` : hôtes sur lesquels les répartiteurs Kafka s’exécutent. Les informations sur les répartiteurs sont utilisées par le KafkaBolt lors de l’écriture sur Kafka.
 
-* **KAFKAZKHOSTS** : les hôtes sur lesquels Zookeeper s’exécute.
+* `${kafka.zookeeper.hosts}`: hôtes sur lesquels Zookeeper s’exécute dans le cluster Kafka.
 
-Les étapes décrites dans ce document montrent comment définir ces variables d’environnement.
-
-## <a name="create-a-kafka-topic"></a>Création d’une rubrique Kafka
-
-1. Connectez-vous au cluster Kafka à l'aide de SSH. Remplacez `USERNAME` par le nom d’utilisateur SSH que vous avez utilisé lors de la création du cluster. Remplacez `BASENAME` par le nom de base que vous avez utilisé lors de la création du cluster.
-   
-        ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.net
-   
-    À l'invite, saisissez le mot de passe que vous avez utilisé lors de la création du cluster.
-   
-    Pour en savoir plus, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-2. À partir de la connexion SSH au cluster Kafka, utilisez les commandes suivantes pour définir des variables pour la connexion HTTP et le nom du cluster. Ces valeurs sont utilisées dans les autres étapes de cette section.
-
-  ```bash
-  ADMIN='admin' #replace with the name of the admin account for the cluster
-  PASSWORD='password' #replace with the password for the admin account
-  ```
-
-3. Utilisez les commandes suivantes pour installer l’utilitaire `jq`, récupérer le nom du cluster et définir la variable `KAFKAZKHOSTS` :
-
-  ```bash
-  sudo apt -y install jq
-  CLUSTERNAME=`curl -u $ADMIN:$PASSWORD -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name'`
-  KAFKAZKHOSTS=`curl -u $ADMIN:$PASSWORD -G "http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
-  ```
-
-    Utilisez la commande suivante pour récupérer le nom du cluster :
-
-  ```bash
-  echo $CLUSTERNAME
-  ```
-
-    Le résultat de la commande ressemble à l’exemple suivant :
-
-  ```bash
-  kafka-myhdi
-  ```
-
-    Utilisez la commande suivante pour vérifier que `KAFKAZKHOSTS` est défini correctement :
-
-  ```bash
-  echo $KAFKAZKHOSTS
-  ```
-
-    Le résultat de la commande ressemble à l’exemple suivant :
-
-  ```bash
-  zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181
-  ```
-
-    Enregistrez le nom de cluster Kafka et les informations d’hôte Zookeeper, car ces valeurs sont utilisées lors du démarrage de la topologie sur le cluster Storm.
-
-    > [!NOTE]
-    > Les commandes précédentes utilisent __http://headnodehost:8080/__, qui se connecte directement à Ambari. Si vous avez besoin de récupérer ces informations à partir de l’extérieur du cluster, sur Internet, vous devez utiliser __https://kafka-BASENAME.azurehdinsight.net/__ à la place.
-
-4. Pour créer une rubrique dans Kafka, utilisez la commande suivante :
-
-  ```bash
-  /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic stormtest --zookeeper $KAFKAZKHOSTS
-  ```
-
-    Cette commande se connecte à Zookeeper en utilisant les informations d’hôte stockées dans `$KAFKAZKHOSTS`, puis crée une rubrique Kafka nommée **stormtest**. Vous pouvez vérifier que la rubrique a été créée à l’aide de la commande suivante pour répertorier les rubriques :
-
-  ```bash
-  /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
-  ```
-
-    La sortie de cette commande répertorie les rubriques Kafka, qui doivent contenir la nouvelle rubrique **stormtest**.
-
-Laissez la connexion SSH au cluster Kafka active, vous pouvez l’utiliser pour vérifier que la topologie Storm écrit des messages dans la rubrique.
+Pour plus d’informations sur les topologies Flux, voir la page [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Téléchargez et compilez le projet
 
 1. Dans votre environnement de développement, téléchargez le projet sur [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), ouvrez une interface de ligne de commande et accédez à l’emplacement auquel vous avez téléchargé le projet.
-
-    Prenez quelques instants pour observer le code et comprendre comment fonctionne le projet.
 
 2. À partir du répertoire **hdinsight-storm-java-kafka**, utilisez la commande suivante pour compiler le projet et créer un package de déploiement :
 
@@ -214,13 +154,71 @@ Laissez la connexion SSH au cluster Kafka active, vous pouvez l’utiliser pour 
 
     À l'invite, saisissez le mot de passe que vous avez utilisé lors de la création du cluster.
 
-4. Utilisez la commande suivante pour copier le fichier `set-env-variables.sh` à partir du répertoire `scripts` du projet dans le cluster Storm :
+## <a name="configure-the-topology"></a>Configurer la topologie
 
-  ```bash
-  scp ./scripts/set-env-variables.sh USERNAME@storm-BASENAME-ssh.azurehdinsight.net:set-env-variables.sh
-  ```
+1. Pour découvrir les hôtes du répartiteur Kafka, utilisez l’une des méthodes suivantes :
 
-    Ce script est utilisé pour définir les variables d’environnement que les topologies Storm utilisent pour communiquer avec le cluster Kafka.
+    ```powershell
+    $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
+    $clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
+        -Credential $creds
+    $respObj = ConvertFrom-Json $resp.Content
+    $brokerHosts = $respObj.host_components.HostRoles.host_name
+    ($brokerHosts -join ":9092,") + ":9092"
+    ```
+
+    ```bash
+    curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
+    ```
+
+    > [!IMPORTANT]
+    > L’exemple de Bash suppose que `$CLUSTERNAME` contient le nom du cluster HDInsight. Il suppose également que [jq](https://stedolan.github.io/jq/) est installé. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion au cluster.
+
+    Les informations renvoyées sont similaire au texte suivant :
+
+        wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+
+    Enregistrez cette valeur, car vous l’utiliserez plus tard.
+
+2. Pour découvrir les hôtes du Zookeeper Kafka, utilisez l’une des méthodes suivantes :
+
+    ```powershell
+    $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
+    $clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" `
+        -Credential $creds
+    $respObj = ConvertFrom-Json $resp.Content
+    $zookeeperHosts = $respObj.host_components.HostRoles.host_name
+    ($zookeeperHosts -join ":2181,") + ":2181"
+    ```
+
+    ```bash
+    curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'
+    ```
+
+    > [!IMPORTANT]
+    > L’exemple de Bash suppose que `$CLUSTERNAME` contient le nom du cluster HDInsight. Il suppose également que [jq](https://stedolan.github.io/jq/) est installé. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion au cluster.
+
+    Les informations renvoyées sont similaire au texte suivant :
+
+        zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk3-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+
+    Enregistrez cette valeur, car vous l’utiliserez plus tard.
+
+3. Modifiez le fichier `dev.properties` à la racine du projet. Ajoutez les informations des hôtes Répartiteur et Zookeeper aux lignes correspondantes dans ce fichier. L’exemple suivant est configuré à l’aide des exemples de valeurs de l’étape précédente :
+
+        kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk3-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+        kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+        kafka.topic: stormtopic
+
+4. Enregistrez le fichier `dev.properties`, puis utilisez la commande suivante pour le charger sur le cluster Storm :
+
+     ```bash
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+    ```
+
+    Remplacez **USERNAME** par le nom d’utilisateur SSH pour le cluster. Remplacez **BASENAME** par le nom de base que vous avez utilisé lors de la création du cluster.
 
 ## <a name="start-the-writer"></a>Démarrer l’enregistreur
 
@@ -232,30 +230,21 @@ Laissez la connexion SSH au cluster Kafka active, vous pouvez l’utiliser pour 
 
     À l'invite, saisissez le mot de passe que vous avez utilisé lors de la création du cluster.
    
-    Pour en savoir plus, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. À partir de la connexion SSH avec le cluster Store, utilisez la commande suivante pour exécuter le script `set-env-variables.sh` :
+2. À partir de la connexion SSH, utilisez la commande suivante pour créer la rubrique Kafka utilisée par la topologie :
 
-  ```bash
-  chmod +x set-env-variables.sh
-  . ./set-env-variables.sh KAFKACLUSTERNAME PASSWORD
-  ```
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic stormtopic --zookeeper $KAFKAZKHOSTS
+    ```
 
-    Remplacez __KAFKACLUSTERNAME__ par le nom du cluster Kafka. Remplacez __PASSWORD__ par le mot de passe de connexion de l’administrateur du cluster Kafka.
+    Remplacez `$KAFKAZKHOSTS` par les informations de l’hôte Zookeeper que vous avez récupérées dans la section précédente.
 
-    Le script se connecte au cluster Kafka et récupère une liste des répartiteurs Kafka et hôtes Zookeeper. Les informations sont ensuite stockées dans des variables d’environnement qui sont utilisées par les topologies Storm.
+2. Dans la connexion SSH sur le cluster Storm, utilisez la commande suivante pour démarrer la topologie d’enregistreur :
 
-    Le résultat du script ressemble à l’exemple suivant :
-
-        Checking for jq: install ok installed
-        Exporting variables:
-        $KAFKATOPIC=stormtest
-        $KAFKABROKERS=wn0-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092,wn1-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092
-        $KAFKAZKHOSTS=zk1-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk3-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk5-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181
-
-3. Dans la connexion SSH sur le cluster Storm, utilisez la commande suivante pour démarrer la topologie d’enregistreur :
-
-        storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /writer.yaml -e
+    ```bash
+    storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /writer.yaml --filter dev.properties
+    ```
 
     Les paramètres utilisés avec cette commande sont les suivants :
 
@@ -265,13 +254,15 @@ Laissez la connexion SSH au cluster Kafka active, vous pouvez l’utiliser pour 
 
     * `-R /writer.yaml` : utilisez le fichier `writer.yaml` pour configurer la topologie. `-R` indique que cette ressource est incluse dans le fichier jar. Il se trouve à la racine du fichier jar, donc `/writer.yaml` est le chemin d’accès à celui-ci.
 
-    * `-e` : utilisez la substitution de variable d’environnement. Flux récupère les valeurs $KAFKABROKERS et $KAFKATOPIC précédemment définies et les utilise dans le fichier reader.yaml à la place des entrées `${ENV-KAFKABROKER}` et `${ENV-KAFKATOPIC}`.
+    * `--filter` : complétez les entrées de la topologie `writer.yaml` à l’aide des valeurs figurant dans le fichier `dev.properties`. Par exemple, la valeur de l’entrée `kafka.topic` dans le fichier est utilisée pour remplacer l’entrée `${kafka.topic}` dans la définition de la topologie.
 
-5. Une fois la topologie démarrée, basculez vers la connexion SSH au cluster Kafka et utilisez la commande suivante pour afficher les messages écrits dans la rubrique **stormtest** :
+5. Après démarrage de la topologie, utilisez la commande suivante pour vérifier qu’elle écrit les données dans la rubrique Kafka :
 
   ```bash
-  /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtest
+  /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtopic
   ```
+
+    Remplacez `$KAFKAZKHOSTS` par les informations de l’hôte Zookeeper que vous avez récupérées dans la section précédente.
 
     Cette commande utilise un script fourni avec Kafka pour surveiller la rubrique. Après quelques instants, elle doit commencer à retourner des phrases aléatoires qui ont été écrites dans la rubrique. Le résultat ressemble à l’exemple suivant :
 
@@ -302,7 +293,7 @@ Laissez la connexion SSH au cluster Kafka active, vous pouvez l’utiliser pour 
 
 2. Une fois que la topologie commence, ouvrez l’interface utilisateur Storm. Cette interface utilisateur web est située dans https://storm-BASENAME.azurehdinsight.net/stormui. Remplacez __BASENAME__ par le nom de base que vous avez utilisé lors de la création du cluster. 
 
-    Lorsque vous y êtes invité, utilisez le nom d’utilisateur administrateur (par défaut `admin`) et le mot de passe utilisés lors de la création du cluster. Vous verrez une page web similaire à l’image suivante :
+    Lorsque vous y êtes invité, utilisez le nom d’utilisateur administrateur (par défaut `admin`) et le mot de passe utilisés lors de la création du cluster. Vous voyez s’afficher une page web similaire à l’image suivante :
 
     ![Interface utilisateur de Storm](./media/hdinsight-apache-storm-with-kafka/stormui.png)
 
@@ -310,7 +301,7 @@ Laissez la connexion SSH au cluster Kafka active, vous pouvez l’utiliser pour 
 
     ![Section Résumé de topologie l'interface utilisateur web de Storm](./media/hdinsight-apache-storm-with-kafka/topology-summary.png)
 
-4. Sélectionnez le lien __logger-bolt__ dans la section __Bolts (All time)__ pour afficher des informations sur les instances du composant logger-bolt.
+4. Pour afficher des informations sur les instances du composant logger-bolt, sélectionnez le lien __logger-bolt__ dans la section __Bolts (All time)__.
 
     ![Lien logger-bolt dans la section bolts](./media/hdinsight-apache-storm-with-kafka/bolts.png)
 
@@ -343,12 +334,10 @@ Dans une session SSH sur le cluster Storm, utilisez la commande suivante pour ar
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Étant donné que les étapes décrites dans ce document créent deux clusters dans le même groupe de ressources Azure, vous pouvez supprimer le groupe de ressources du portail Azure. Cette opération supprime toutes les ressources créées par la suite dans ce document, le réseau virtuel Azure et le compte de stockage utilisé par les clusters.
+Étant donné que les étapes décrites dans ce document créent deux clusters dans le même groupe de ressources Azure, vous pouvez supprimer le groupe de ressources du portail Azure. La suppression du groupe de ressources a pour effet de supprimer toutes les ressources créées en suivant les étapes décrites dans ce document.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’exemples de topologies qui peuvent être utilisées avec Storm sur HDInsight, consultez [Exemples de topologies et composants Storm](hdinsight-storm-example-topology.md).
 
 Pour plus d’informations sur le déploiement et la surveillance des topologies sur HDInsight Linux, consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
-
-

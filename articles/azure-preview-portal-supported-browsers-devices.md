@@ -1,5 +1,5 @@
 ---
-title: Navigateurs et appareils pris en charge
+title: "Navigateurs et périphériques pris en charge pour le portail Azure | Documents Microsoft"
 description: "Décrit les navigateurs et les appareils sur lesquels le portail Azure fonctionne."
 services: 
 documentationcenter: 
@@ -13,32 +13,29 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2015
+ms.date: 06/28/2017
 ms.author: micflan
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2f243accae710bdeb3adb51d37a5c6803b761687
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 2d3046381892978e3aea12752f526d7cdf8184f5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="supported-browsers-and-devices"></a>Navigateurs et appareils pris en charge
-Le portail Microsoft Azure s’exécute sur tous les ordinateurs de bureau et tablettes et sur l’ensemble des navigateurs.
+# <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Navigateurs et périphériques pris en charge pour le portail Azure
+Le [portail Azure](https://portal.azure.com) s’exécute sur tous les ordinateurs de bureau, tablettes et navigateurs modernes.
 
 ### <a name="supported-devices"></a>Appareils pris en charge
-Le portail fonctionne parfaitement sur les PC, les Mac et les tablettes modernes. Actuellement, les téléphones mobiles ne sont pas pris en charge.
+Le portail Azure fonctionne parfaitement sur les PC, les Mac et les tablettes modernes. Si vous devez gérer vos ressources Azure à partir d’un appareil mobile, essayez l’application Azure disponible en préversion sur iPhone et Android. Pour plus d’informations, consultez la publication du blog [Présentation de l’aperçu public de l’application Azure](https://azure.microsoft.com/blog/azure-app-preview/).
 
 ### <a name="supported-browsers"></a>Navigateurs pris en charge
-Les versions les plus récentes des navigateurs suivants sont prises en charge :
+Nous vous recommandons d’utiliser le navigateur le plus récent compatible avec votre système d’exploitation. Les opérateurs suivants sont pris en charge :
 
-* Edge (version la plus récente)
+* Microsoft Edge (dernière version)
 * Internet Explorer 11
 * Safari (dernière version, Mac uniquement)
 * Chrome (version la plus récente)
 * Firefox (version la plus récente)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

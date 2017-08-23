@@ -16,15 +16,15 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: a883c3c6156e8e1f6d56c9be4c1e9c8a7990d16a
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 05dede26c870ccda35b1cb8c392ad4abeedde4ac
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
-# <a name="create-elastic-pools-and-move-databases-between-pools-and-out-of-a-pool-using-powershell"></a>Créer des pools élastiques et déplacer les bases de données entre les pools et en dehors d’un pool à l’aide de PowerShell
+# <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>Utiliser PowerShell pour créer des pools élastiques et déplacer les bases de données entre les pools élastiques
 
 Cet exemple de script PowerShell crée deux pools élastiques et déplace une base de données d’un pool élastique vers un autre. Puis, il déplace une base de données en dehors d’un pool élastique vers un niveau de performance de base de données unique. 
 

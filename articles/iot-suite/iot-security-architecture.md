@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 07/03/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: de7db3f353f1f6c815ee61cbdfbf9b2b38471a8d
-ms.openlocfilehash: 938a08016b7566fde61e5b98a5da884ea9c5bd9d
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 2482dade7d17d05b2fc90fbf22b0466227a5983b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -98,7 +99,7 @@ Chaque zone est séparée par une délimitation d’approbation, qui est indiqu�
 
 Les composants représentés au sein de chaque délimitation sont également exposés aux éléments STRIDE, ce qui permet d’obtenir une vue complète de la modélisation des menaces de la solution. Les sections indiquées ci-dessous exposent dans le détail les composants, les problèmes de sécurité spécifiques, ainsi que les solutions qui doivent être mises en place.
 
-La section qui suit présente les composants standard qui se trouvent généralement dans ces zones.
+Les sections suivantes présentent les composants standard qui se trouvent généralement dans ces zones.
 
 ### <a name="the-device-zone"></a>Zone de périphérique
 L’environnement du périphérique est l’espace physique immédiat entourant le périphérique, dans lequel l’accès physique et/ou l’accès numérique pair à pair du « réseau local » au périphérique sont possibles. Un « réseau local » est supposé être un réseau distinct et isolé de l’Internet public, mais potentiellement relié par un pont à celui-ci. Il inclut une technologie de radio sans fil à courte portée qui permet la communication d’égal à égal des périphériques. Il n’inclut *aucune* technologie de virtualisation créant l’illusion d’un tel réseau. Il n’inclut pas non plus de réseaux d’opérateurs publics nécessitant la communication de deux appareils dans l’espace du réseau public s’ils doivent établir une relation de communication d’égal à égal.
@@ -114,7 +115,7 @@ Une passerelle cloud est un système qui permet une communication distante entre
 Une passerelle cloud peut potentiellement être mappée à une superposition de virtualisation de réseau pour isoler la passerelle cloud et tous ses périphériques connectés ou passerelles de champ de tout autre trafic réseau. La passerelle cloud proprement dite n’est pas un système de contrôle de périphérique ni une fonction de traitement ou de stockage des données de périphérique. Ces fonctions servent d’interface avec la passerelle cloud. La zone de passerelle cloud inclut la passerelle cloud proprement dite ainsi que l’ensemble des passerelles de champ et des périphériques directement ou indirectement connectés à elle. La périphérie de la zone est une surface d’exposition distincte via laquelle toutes les parties externes communiquent.
 
 ### <a name="the-services-zone"></a>Zone des services
-Pour ce contexte, un « service » est défini comme un composant ou un module logiciel qui interface avec des périphériques via une passerelle de champ ou cloud pour la collecte et l’analyse des données, ainsi que pour la commande et le contrôle.  Les services sont des médiateurs. Sous leur identité, ils agissent pour les passerelles et les autres sous-systèmes, stockent et analysent les données, émettent de façon autonome des commandes vers les périphériques en fonction des lectures des données ou des planifications, et exposent les informations et les fonctionnalités de contrôle aux utilisateurs finaux autorisés.
+Pour ce contexte, un « service » est défini comme un composant ou un module logiciel qui interface avec des périphériques via une passerelle de champ ou cloud pour la collecte et l’analyse des données, ainsi que pour la commande et le contrôle.  Les services sont des médiateurs. Sous leur identité, ils agissent pour les passerelles et les autres sous-systèmes, stockent et analysent les données, émettent de façon autonome des commandes vers les périphériques en fonction des lectures des données ou des planifications et exposent les informations et les fonctionnalités de contrôle aux utilisateurs finaux autorisés.
 
 ### <a name="information-devices-vs-special-purpose-devices"></a>Appareils d’information et périphériques à usage spécifique
 Les PC, les téléphones et les tablettes sont des appareils d’information essentiellement interactifs. Les téléphones et les tablettes sont explicitement optimisés via l’optimisation de la durée de vie de la batterie. De préférence, ils s’éteignent partiellement lorsque leur propriétaire n’est pas en communication ou lorsqu’ils ne fournissent pas de services tels que la lecture de musique ou le guidage de leur propriétaire vers un emplacement particulier. Du point de vue des systèmes, ces appareils de technologie de l’information font principalement office de proxy pour les personnes. Ce sont des « actionneurs » qui suggèrent des actions et des « capteurs » qui collectent des saisies. 
@@ -169,7 +170,7 @@ Dans chacune des catégories présentées dans l’architecture Azure IoT, nous 
 | Appareil |S |Affectation d’une identité au périphérique et authentification de ce dernier. |Remplacement du périphérique ou d’une partie du périphérique par un autre périphérique. Comment savoir si nous nous adressons au périphérique approprié ? |Authentification du périphérique à l’aide du protocole TLS (Transport Layer Security) ou IPSec. L’infrastructure doit prendre en charge l’utilisation d’une clé prépartagée (PSK) sur les périphériques qui ne peuvent pas gérer le chiffrement asymétrique complet. Exploitation d’Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
 | TRID |Application de mécanismes inviolables au périphérique, par exemple, en rendant très difficile, voire impossible, l’extraction des clés et des autres éléments de chiffrement de ce périphérique. |Falsification du périphérique (interférence physique) par un tiers. Comment être sûr de la non-falsification du périphérique ? |La prévention la plus efficace consiste à utiliser la fonctionnalité de module de plateforme sécurisée (TPM) qui permet de stocker des clés dans un ensemble de circuits de processeur spécial à partir duquel les clés ne peuvent pas être lues, et peuvent être utilisées uniquement pour les opérations de chiffrement qui utilisent la clé sans jamais la divulguer. Chiffrement de la mémoire du périphérique. Gestion des clés du périphérique. Signature du code. | |
 | E |Disposer du contrôle d’accès du périphérique. Schéma d’autorisation. |Si le périphérique permet d’effectuer des actions individuelles basées sur des commandes provenant d’une source externe, voire de capteurs compromis, il permet aux personnes malveillantes d’effectuer des opérations non accessibles par ailleurs. |Disposer du schéma d’autorisation pour le périphérique. | |
-| Passerelle de champ |S |Authentification de la passerelle de champ auprès de la passerelle cloud (basée sur les certificats, clé prépartagée, basée sur les revendications...) |Si quelqu’un peut usurper l’identité de la passerelle de champ, elle peut alors se présenter comme un périphérique. |TLS RSA/PSK, IPSe, [RFC 4279](https://tools.ietf.org/html/rfc4279). Mêmes préoccupations de stockage et d’attestation de clés des périphériques en général ; la meilleure approche consiste à utiliser le module de plateforme sécurisée. Extension&6;LowPAN pour IPSec afin de prendre en charge des réseaux de capteurs sans fil (WSN). |
+| Passerelle de champ |S |Authentification de la passerelle de champ auprès de la passerelle cloud (basée sur les certificats, clé prépartagée, basée sur les revendications...) |Si quelqu’un peut usurper l’identité de la passerelle de champ, elle peut alors se présenter comme un périphérique. |TLS RSA/PSK, IPSe, [RFC 4279](https://tools.ietf.org/html/rfc4279). Mêmes préoccupations de stockage et d’attestation de clés des périphériques en général ; la meilleure approche consiste à utiliser le module de plateforme sécurisée. Extension 6LowPAN pour IPSec afin de prendre en charge des réseaux de capteurs sans fil (WSN). |
 | TRID |Protection de la passerelle de champ contre la falsification (TPM ?) |Les attaques par usurpation d’identité qui induisent la passerelle cloud en erreur en lui faisant « croire » qu’elle communique avec une passerelle de champ peuvent entraîner la divulgation d’informations et la falsification des données. |Chiffrement de la mémoire, module de plateforme sécurisée, authentification. | |
 | E |Mécanisme de contrôle d’accès pour la passerelle de champ | | | |
 
@@ -177,17 +178,17 @@ Voici quelques exemples de menaces existant dans cette catégorie :
 
 Usurpation d’identité : une personne malveillante peut extraire les éléments de clé de chiffrement d’un périphérique, au niveau logiciel ou matériel, et par la suite, accéder au système avec un autre périphérique physique ou virtuel sous l’identité du périphérique dont elle a pris les éléments de clé.
 
-**Déni de service ** : un appareil peut être dans l’incapacité de fonctionner ou de communiquer en raison d’interférences avec des fréquences radio ou d’une rupture de câbles. Par exemple, une caméra de surveillance dont l’alimentation ou la connexion réseau ont été intentionnellement mises hors-service ne signalera pas de données du tout.
+**Déni de service**  : un appareil peut être dans l’incapacité de fonctionner ou de communiquer en raison d’interférences avec des fréquences radio ou d’une rupture de câbles. Par exemple, une caméra de surveillance dont l’alimentation ou la connexion réseau ont été intentionnellement mises hors-service ne signalera pas de données du tout.
 
-**Falsification ** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
+**Falsification**  : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
 
 **Falsification** : une caméra de surveillance qui affiche une image (en spectre visible) d’un couloir vide peut être forcée à afficher une photo de ce couloir. Un capteur de détection de fumée ou d’incendie peut signaler la présence d’une personne utilisant un briquet. Dans les deux cas, le périphérique peut s’avérer techniquement tout à fait fiable pour le système, alors qu’il rapporte des informations manipulées.
 
 **Falsification** : une personne malveillante peut tirer parti des éléments de clé extraits pour intercepter et supprimer des données de l’appareil sur le chemin de communication et les remplacer par des données erronées authentifiées avec les éléments de clé volés.
 
-**Falsification ** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
+**Falsification**  : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
 
-**Divulgation d’informations ** : si l’appareil exécute des logiciels manipulés, ceux-ci peuvent potentiellement créer une fuite des données vers des tiers non autorisés.
+**Divulgation d’informations**  : si l’appareil exécute des logiciels manipulés, ceux-ci peuvent potentiellement créer une fuite des données vers des tiers non autorisés.
 
 **Divulgation d’informations**: une personne malveillante peut tirer parti des éléments de clé extraits pour les injecter dans le chemin de communication entre l’appareil et un contrôleur, une passerelle de champ ou une passerelle cloud afin de détourner des informations.
 
@@ -242,7 +243,7 @@ Une passerelle cloud est un système qui permet une communication distante entre
 Une passerelle cloud est essentiellement un élément logiciel personnalisé qui s’exécute en tant que service comportant des points de terminaison exposés, auxquels se connectent les périphériques et la passerelle de champ. Par conséquent, il convient de la concevoir dans une optique de sécurité. Suivez le processus [Security Development Lifecycle (SDL)](http://www.microsoft.com/sdl) pour concevoir et créer ce service. 
 
 #### <a name="services-zone"></a>Zone des services
-Un système de contrôle (ou contrôleur) est une solution logicielle qui interagit avec un périphérique, une passerelle de champ ou une passerelle cloud afin de contrôler un ou plusieurs périphériques et/ou de collecter et/ou de stocker et/ou d’analyser les données de périphérique à des fins de présentation ou à des fins de contrôle ultérieur. Les systèmes de contrôle sont les seules entités s’inscrivant dans le cadre de cette discussion, qui peuvent faciliter immédiatement l’interaction avec des personnes. Les surfaces de contrôle physique intermédiaires sur les périphériques sont l’exception, par exemple un commutateur qui permet de désactiver le périphérique ou de modifier d’autres propriétés, et pour lequel il n’existe pas d’équivalent fonctionnel accessible numériquement. 
+Un système de contrôle (ou contrôleur) est une solution logicielle qui interagit avec un périphérique, une passerelle de champ ou une passerelle cloud afin de contrôler un ou plusieurs périphériques et/ou de collecter et/ou de stocker et/ou d’analyser les données de périphérique à des fins de présentation ou à des fins de contrôle ultérieur. Les systèmes de contrôle sont les seules entités s’inscrivant dans le cadre de cette discussion, qui peuvent faciliter immédiatement l’interaction avec des personnes. Les surfaces de contrôle physique intermédiaires sur les périphériques sont l’exception, par exemple un commutateur qui permet de désactiver le périphérique ou de modifier d’autres propriétés et pour lequel il n’existe pas d’équivalent fonctionnel accessible numériquement. 
 
 Les surfaces de contrôle physique intermédiaires sont des surfaces où une sorte de logique limite la fonction de la surface de contrôle physique, par exemple une fonction équivalente peut être lancée à distance ou des conflits d’entrée avec des saisies distantes peuvent être évités. Ces surfaces de contrôle intermédiaires sont conceptuellement attachées à un système de contrôle local qui exploite la même fonctionnalité sous-jacente que tout autre système de contrôle à distance auquel le périphérique peut être connecté en parallèle. Pour connaître les principales menaces auxquelles le cloud computing est exposé, consultez [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/).
 
@@ -260,7 +261,7 @@ Vous pouvez également explorer certaines des autres fonctionnalités et capacit
 * [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive-overview]
 * [Forum Aux Questions (FAQ) relatives à IoT Suite][lnk-faq]
 
-Pour en savoir plus sur la sécurité de l’IoT Hub, consultez la rubrique [Contrôler l’accès à IoT Hub][lnk-devguide-security] du Guide du développeur IoT Hub.
+Pour en savoir plus sur la sécurité d’IoT Hub, consultez la rubrique [Contrôler l’accès à IoT Hub][lnk-devguide-security] du guide du développeur IoT Hub.
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md

@@ -76,8 +76,9 @@ Dans cette section, vous créez une application console Node.js qui crée une id
 6. Ajoutez le code suivant pour créer une définition d’appareil dans le registre des identités de votre IoT Hub. Ce code crée un appareil si l’ID correspondant n’existe pas dans le registre des identités. Dans le cas contraire, il retourne la clé de l’appareil existant :
    
     ```
-    var device = new iothub.Device(null);
-    device.deviceId = 'myFirstNodeDevice';
+    var device = {
+      deviceId: 'myFirstNodeDevice'
+    }
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);

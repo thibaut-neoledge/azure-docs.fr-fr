@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 06/9/2017
+ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 4b6f21c7949493ac1f95e7c0f255e5c96613adf1
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 24793b83ca284fe9510fe21bc2d13b0589209d36
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>Accéder à des sources de données locales à partir d’applications logiques avec la passerelle de données locale
@@ -29,7 +28,7 @@ Pour accéder à des sources de données locales à partir de vos applications l
 
 La passerelle prend en charge les connexions aux sources de données locales suivantes :
 
-*   BizTalk Server
+*   BizTalk Server 2016
 *   DB2  
 *   Système de fichiers
 *   Informix
@@ -39,18 +38,18 @@ La passerelle prend en charge les connexions aux sources de données locales sui
 *   PostgreSQL
 *   Serveur d’applications SAP 
 *   Serveur de messagerie SAP
-*   SharePoint pour le protocole HTTP uniquement, pas le protocole HTTPS
+*   SharePoint
 *   SQL Server
 *   Teradata
 
 Ces étapes décrivent comment configurer la passerelle de données locale pour travailler avec vos applications logiques. Pour plus d’informations sur les connecteurs pris en charge, voir [Connecteurs pour Azure Logic Apps](../connectors/apis-list.md). 
 
-Pour plus d’informations sur les passerelles de données pour d’autres services Microsoft, voir les articles suivants :
+Pour plus d’informations sur l’utilisation de la passerelle avec d’autres services, consultez les articles suivants :
 
-*   [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) : [vue d’ensemble d’Application Gateway](../application-gateway/application-gateway-introduction.md)
 *   [Passerelle de données locale Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 *   [Passerelle de données locale Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 *   [Passerelle de données locale Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
+*   [Passerelle de données locale Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 ## <a name="requirements"></a>Configuration requise
 
@@ -105,7 +104,7 @@ Après avoir installé la passerelle sur un ordinateur local, vous devez créer 
 
     ![Fournir des détails pour créer votre passerelle de données locale](./media/logic-apps-gateway-connection/createblade.png)
 
-    Pour trouver ou afficher votre passerelle de données à tout moment, dans le menu principal d’Azure à gauche, accédez à  **Autres services** > **Enterprise Integration** > **Passerelles de données locales**.
+    Pour trouver ou afficher votre passerelle de données à tout moment, dans le menu principal d’Azure à gauche, accédez à **Autres services** > **Enterprise Integration** > **Passerelles de données locales**.
 
     ![Accédez à « Autres services », « Enterprise Integration », « Passerelles de données locales »](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 

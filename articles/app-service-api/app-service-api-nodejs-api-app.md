@@ -14,17 +14,17 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8a5d0c60e101f4038dff6f76c8f23dbb2b44661c
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 806585edd43b9d2d678bfa41523e4d9d40af8cba
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Créer une API RESTful Node.js et la déployer vers une application API dans Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-Ce guide de démarrage rapide vous indique comment créer une API REST Node.js d’infrastructure [Express](http://expressjs.com/) à partir d’une définition [Swagger](http://swagger.io/), puis comment la déployer sous la forme d’une [application API](app-service-api-apps-why-best-platform.md) sur Azure. Vous créez l’application à l’aide d’outils en ligne de commande, vous configurez les ressources avec [l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) et vous déployez l’application au moyen de Git.  Lorsque vous avez terminé, vous disposez d’un exemple d’API REST fonctionnelle qui s’exécute sur Azure.
+Ce guide de démarrage rapide vous indique comment créer une API REST écrite avec Node.js [Express](http://expressjs.com/) à l’aide d’une définition [Swagger](http://swagger.io/), en la déployant sous forme [d’application API](app-service-api-apps-why-best-platform.md) sur Azure. Vous créez l’application à l’aide d’outils en ligne de commande, configurez des ressources avec [l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), puis déployez l’application au moyen de Git.  Lorsque vous avez terminé, vous disposez d’un exemple d’API REST fonctionnelle qui s’exécute sur Azure.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -64,12 +64,12 @@ Cette section du didacticiel modélise un workflow de développement d’API dan
 
 Accédez au dossier *start*, puis exécutez `yo swaggerize`. Swaggerize crée un projet Node.js pour votre API à partir de la définition Swagger dans *api.json*.
 
-    ```bash
-    cd start
-    yo swaggerize --apiPath api.json --framework express
-    ```
+```bash
+cd start
+yo swaggerize --apiPath api.json --framework express
+```
 
-     When Swaggerize asks for a project name, use *ContactList*.
+Lorsque Swaggerize demande un nom de projet, utilisez *ContactList*.
    
    ```bash
    Swaggerize Generator

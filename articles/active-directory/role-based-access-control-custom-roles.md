@@ -5,24 +5,25 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/21/2017
+ms.date: 07/11/2017
 ms.author: kgremban
+ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e7a85813ae5e26f402837774a40fa3630a436bee
-ms.lasthandoff: 03/31/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 0479f3c4bb65d208cae2424071dface5606a6fa6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure
-Créez un rôle personnalisé dans le contrôle d’accès en fonction du rôle (RBAC) Azure si aucun des rôles intégrés ne répond à vos besoins d’accès spécifiques. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](role-based-access-control-manage-access-powershell.md), de [l’interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md) et de [l’API REST](role-based-access-control-manage-access-rest.md). À l’instar des rôles intégrés, des rôles personnalisés peuvent être affectés à des utilisateurs, des groupes et des applications dans l’étendue des abonnements, des groupes de ressources et des ressources. Les rôles personnalisés sont stockés sur un locataire Azure AD et peuvent être partagés entre tous les abonnements qui utilisent ce locataire comme répertoire Azure AD pour l’abonnement.
+Créez un rôle personnalisé dans le contrôle d’accès en fonction du rôle (RBAC) Azure si aucun des rôles intégrés ne répond à vos besoins d’accès spécifiques. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](role-based-access-control-manage-access-powershell.md), de [l’interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md) et de [l’API REST](role-based-access-control-manage-access-rest.md). Comme avec les rôles intégrés, vous pouvez affecter des rôles personnalisés à des utilisateurs, des groupes et des applications dans l’étendue des abonnements, des groupes de ressources et des ressources. Les rôles personnalisés sont stockés dans un client Azure AD et peuvent être partagés entre les abonnements.
 
 Chaque locataire peut créer jusqu’à 2 000 rôles personnalisés. 
 
@@ -87,7 +88,7 @@ azure provider operations show "Microsoft.Network/*"
 Utilisez la propriété **NotActions** si l’ensemble des opérations que vous souhaitez autoriser est plus facile à définir en excluant les opérations restreintes. L’accès accordé par un rôle personnalisé est déterminé par l’élimination des opérations **NotActions** des opérations **Actions**.
 
 > [!NOTE]
-> Si un utilisateur se voit attribuer un rôle qui exclut une opération dans **NotActions**et un second rôle qui accorde l’accès à cette même opération, il sera autorisé à effectuer cette opération. **NotActions** n’est pas une règle de refus : il s’agit simplement d’un moyen pratique pour créer un ensemble d’opérations autorisées lorsque des opérations spécifiques doivent être exclues.
+> Si un utilisateur se voit attribuer un rôle qui exclut une opération dans **NotActions**et un second rôle qui accorde l’accès à cette même opération, il est autorisé à effectuer cette opération. **NotActions** n’est pas une règle de refus : il s’agit simplement d’un moyen pratique pour créer un ensemble d’opérations autorisées lorsque des opérations spécifiques doivent être exclues.
 >
 >
 

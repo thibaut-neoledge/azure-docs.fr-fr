@@ -2,260 +2,244 @@
 title: "Didacticiel : Intégration d’Azure Active Directory à Showpad | Microsoft Docs"
 description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Showpad."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: 48b6bee0-dbc5-4863-964d-75b25e517741
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 07/12/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: b2eb87a88721a3fd1ecdfa573c6a6d49ed02d344
-ms.openlocfilehash: 6912357da797a72f8e9cb9ebf700f56d9cfcc696
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: c8b39c9215675d8073f896f934339e7cd55334cc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Didacticiel : intégration d’Azure Active Directory à Showpad
-L’objectif de ce didacticiel est de vous montrer comment intégrer Showpad dans Azure AD (Azure Active Directory).
+
+Dans ce didacticiel, vous allez apprendre à intégrer Showpad avec Azure Active Directory (Azure AD).
 
 L’intégration de Showpad dans Azure AD vous offre les avantages suivants :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Showpad.
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Showpad (via l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure Active Directory.
+- Dans Azure AD, vous pouvez contrôler qui a accès à Showpad.
+- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Showpad (via l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
+
 Pour configurer l’intégration d’Azure AD à Showpad, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD
-* Un abonnement Showpad
+- Un abonnement Azure AD
+- Abonnement Showpad pour lequel l’authentification unique est activée
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
-> 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
-* Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. 
-
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Showpad à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-showpad-from-the-gallery"></a>Ajout de Showpad à partir de la galerie
+
 Pour configurer l’intégration de Showpad à Azure AD, vous devez ajouter Showpad à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Showpad à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
-   
-    ![Applications][1]
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+    ![Active Directory][1]
 
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
-   
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+
     ![Applications][2]
+    
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-4. Cliquez sur **Ajouter** en bas de la page.
-   
     ![Applications][3]
 
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
-   
-    ![Applications][4]
+4. Dans la zone de recherche, entrez **Showpad**.
 
-6. Dans la zone de recherche, entrez **Showpad**.
-   
-    ![Applications](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_search.png)
 
-7. Dans le volet des résultats, sélectionnez **Showpad**, puis cliquez sur **Terminer** pour ajouter l’application.
-   
-    ![Applications](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_02.png)
+5. Dans le volet de résultats, sélectionnez **Showpad**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Showpad avec un utilisateur test appelé « Britta Simon ».
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_addfromgallery.png)
 
-Pour que l’authentification unique fonctionne, Azure AD doit pouvoir identifier l’utilisateur Showpad équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Showpad associé doit être établie.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
 
-Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Showpad.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Showpad sur un utilisateur de test nommé « Britta Simon ».
+
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Showpad équivalent à l’utilisateur dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Showpad associé doit être établie.
+
+Dans Showpad, assignez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** pour établir la relation de lien.
 
 Pour configurer et tester l’authentification unique Azure AD avec Showpad, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Showpad](#creating-a-showpad-test-user)** - pour avoir un équivalent de Britta Simon dans Showpad lié à sa représentation dans Azure AD.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Showpad.
+
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Showpad.
 
 **Pour configurer l’authentification unique Azure AD avec Showpad, procédez comme suit :**
 
-1. Dans le portail Azure Classic, dans la page d’intégration d’applications **Showpad**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
-   
-    ![Configurer l’authentification unique][6] 
+1. Dans le portail Azure, sur la page d’intégration de l’application **Showpad**, cliquez sur **Authentification unique**.
 
-2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Showpad ?**, sélectionnez **Authentification unique Azure AD**, puis sur **Suivant**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_03.png)
+    ![Configurer l’authentification unique][4]
 
-3. Dans la boîte de dialogue **Configurer les paramètres de l’application**, procédez comme suit, puis cliquez sur **Suivant** :
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_04.png) 
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Configurer l’authentification unique](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_samlbase.png)
 
-    a. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Showpad, au format suivant : `https://<company name>.showpad.biz/login`
+3. Dans la section **Domaine et URL Showpad**, procédez comme suit :
 
-    b. Dans la zone de texte **Identificateur**, tapez l’URL au format suivant : `https://<company name>.showpad.biz`
+    ![Configurer l’authentification unique](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_url.png)
 
-    c. Cliquez sur **Suivant**
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<comapany-name>.showpad.biz/login`
+
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company-name>.showpad.biz`
+
+    > [!NOTE] 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Showpad](https://help.showpad.com). 
+ 
 
 
-1. Dans la page **Configurer l’authentification unique sur Showpad**, procédez comme suit et cliquez sur **Suivant** :
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_05.png)
-   
-    a. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
-   
-    b. Cliquez sur **Next**.
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-2. Connectez-vous à votre client Showpad en tant qu’administrateur.
+    ![Configurer l’authentification unique](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_certificate.png) 
 
-3. Dans le menu situé en haut, cliquez sur **Paramètres**.
+5. Cliquez sur le bouton **Enregistrer** .
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-showpad-tutorial/tutorial_general_400.png)
+
+6. Connectez-vous à votre client Showpad en tant qu’administrateur.
+
+7. Dans le menu situé en haut, cliquez sur **Paramètres**.
    
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_001.png) 
 
-4. Accédez à « **Authentification unique** » et cliquez sur « **Activer** ».
+8. Accédez à **Authentification unique** et cliquez sur **Activer**.
    
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_002.png)
 
-5. Dans la boîte de dialogue **Add a SAML 2.0 Service** (Ajouter un service SAML 2.0), procédez comme suit :
+9. Dans la boîte de dialogue **Add a SAML 2.0 Service** (Ajouter un service SAML 2.0), procédez comme suit :
    
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_003.png) 
    
-    a. Dans la zone de texte **Nom** , entrez le nom du fournisseur d’identifiants (par exemple, le nom de votre société).
+    a. Dans la zone de texte **Nom**, entrez le nom du fournisseur d’identificateurs (par exemple : le nom de votre entreprise).
    
     b. Dans **Source des métadonnées**, sélectionnez **XML**.
    
-    c. Copiez le contenu du fichier XML de métadonnées téléchargé et collez-le dans la zone de texte **XML de métadonnées** .
+    c. Copiez le contenu du fichier XML de métadonnées téléchargé à partir du portail Azure, puis collez-le dans la zone de texte **XML de métadonnées**.
    
     d. Sélectionnez **Auto-provision accounts for new users when they log in**(Configurer automatiquement les comptes des nouveaux utilisateurs au moment de la connexion).
    
     e. Cliquez sur **Envoyer**.
 
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
-   
-    ![Authentification unique Azure AD][10]
-
-7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
-   
-    ![Authentification unique Azure AD][11]
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-![Créer un utilisateur Azure AD][20]
+![Créer un utilisateur Azure AD][100]
 
-**Pour créer un utilisateur de test Showpad dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_09.png) 
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
 
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_01.png) 
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
-   
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+    
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_02.png) 
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+ 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_03.png) 
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
-   
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+ 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_04.png) 
 
-5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_05.png) 
-   
-    a. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    b. Cliquez sur **Next**.
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
 
-6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_06.png) 
-   
-    a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-    b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-    d. Pour **Role**, sélectionnez **User**.
-   
-    e. Cliquez sur **Next**.
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
 
-7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_07.png)
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_08.png) 
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.
-
+    d. Cliquez sur **Create**.
+ 
 ### <a name="creating-a-showpad-test-user"></a>Création d’un utilisateur de test Showpad
+
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Showpad. 
 
-Showpad prend en charge l’approvisionnement juste-à-temps. Vous l’avez déjà activé dans **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)**. 
+Showpad prend en charge l’approvisionnement juste-à-temps. Vous l’avez déjà activé dans **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)**. 
 
 Vous n’avez aucune opération à effectuer dans cette section. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Showpad.
 
-![Affecter des utilisateurs][200]
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Showpad.
+
+![Affecter des utilisateurs][200] 
 
 **Pour affecter Britta Simon à Showpad, procédez comme suit :**
 
-1. Dans le menu supérieur du portail Azure Classic, cliquez sur **Applications**.
-   
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+
     ![Affecter des utilisateurs][201] 
-2. Dans la liste des applications, cliquez sur **Showpad**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_50.png) 
-3. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
-   
+
+2. Dans la liste des applications, sélectionnez **Showpad**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_app.png) 
+
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+
+    ![Affecter des utilisateurs][202] 
+
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+
     ![Affecter des utilisateurs][203]
-4. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
-5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
-   
-    ![Affecter des utilisateurs][205]
 
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+    
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la mosaïque **Showpad** dans le volet d’accès, vous devez être connecté automatiquement à votre application Showpad.
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
+Lorsque vous cliquez sur la vignette Showpad dans le volet d’accès, vous devez être connecté automatiquement à l’application Showpad.
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
+
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
@@ -264,19 +248,11 @@ Lorsque vous cliquez sur la mosaïque **Showpad** dans le volet d’accès, vous
 [3]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

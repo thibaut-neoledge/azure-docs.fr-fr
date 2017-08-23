@@ -1,6 +1,6 @@
 ---
-title: "Utilisation de Hadoop Hive et du Bureau à distance dans HDInsight | Microsoft Docs"
-description: "Découvrez comment vous connecter à un cluster Hadoop à l&quot;aide du Bureau à distance, et exécuter ensuite des requêtes Hive à l&quot;aide de l&quot;interface de ligne de commande (CLI) Hive."
+title: "Utiliser Hadoop Hive et le Bureau à distance dans HDInsight - Azure | Documents Microsoft"
+description: "Découvrez comment vous connecter à un cluster Hadoop à l'aide du Bureau à distance, et exécuter ensuite des requêtes Hive à l'aide de l'interface de ligne de commande (CLI) Hive."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -17,11 +17,10 @@ ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 0ff59627fe0e8db409f1404ee8397f3da3a56569
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0be8ba4cfdf0686e14e70d0688085af5455de43a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Utilisation de Hive avec Hadoop sur HDInsight via le Bureau à distance
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/18/2017
 Dans cet article, vous découvrirez comment vous connecter à un cluster HDInsight à l'aide du Bureau à distance, et exécuter ensuite des requêtes Hive à l'aide de l'interface de ligne de commande (CLI) Hive.
 
 > [!IMPORTANT]
-> Le Bureau à distance n’est disponible que sur les clusters HDInsight qui utilisent Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Le Bureau à distance n’est disponible que sur les clusters HDInsight qui utilisent Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Pour HDInsight 3.4 ou les versions supérieures, consultez l’article [Utilisation de Hive avec Hadoop dans HDInsight via Beeline](hdinsight-hadoop-use-hive-beeline.md) pour plus d’informations sur l’exécution de requêtes Hive directement sur le cluster à partir d’une ligne de commande.
 
@@ -58,7 +57,7 @@ Une fois connecté au bureau pour le cluster HDInsight, effectuez les étapes su
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     Ces instructions effectuent les opérations suivantes :

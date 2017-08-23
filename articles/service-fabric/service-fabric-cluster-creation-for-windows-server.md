@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/24/2017
+ms.date: 8/10/2017
 ms.author: chackdan;maburlik;dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 7543d98030ea143d537e0028801fd3efe3e4ff32
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 6aa2905a97ec6b8c125f2ab9572a8e40bf525b27
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Créer un cluster autonome s’exécutant sur Windows Server
@@ -113,9 +113,9 @@ Le package de runtime Service Fabric est automatiquement téléchargé lors de l
 Le package de runtime peut être téléchargé séparément, à partir d’un autre ordinateur connecté à Internet, en cliquant sur le [lien de téléchargement - Runtime Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copiez le package de runtime à l’endroit à partir duquel vous déployez le cluster hors connexion et créez le cluster en exécutant `CreateServiceFabricCluster.ps1` avec le paramètre `-FabricRuntimePackagePath` inclus, comme indiqué ci-dessous : 
 
 ```powershell
-CreateServiceFabricCluster.ps1 -ClusterConfigurationFilePath <path to ClusterConfig.json> -FabricRuntimePackagePath <path to MicrosoftAzureServiceFabric.cab>
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
 ```
-où `<path to ClusterConfig.json>` et `<path to MicrosoftAzureServiceFabric.cab>` correspondent, respectivement, aux chemins d’accès à la configuration du cluster et au fichier .cab de runtime.
+où `.\ClusterConfig.json` et `.\MicrosoftAzureServiceFabric.cab` correspondent, respectivement, aux chemins d’accès à la configuration du cluster et au fichier .cab de runtime.
 
 
 ### <a name="step-2-connect-to-the-cluster"></a>Étape 2 : Se connecter au cluster
@@ -125,7 +125,9 @@ Exécutez la commande PowerShell suivante pour vous connecter à un cluster non 
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
-
+```
+Exemple :
+```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
 ### <a name="step-3-bring-up-service-fabric-explorer"></a>Étape 3 : Afficher Service Fabric Explorer

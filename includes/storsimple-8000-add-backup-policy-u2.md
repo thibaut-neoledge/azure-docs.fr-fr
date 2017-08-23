@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-#### Pour ajouter une stratégie de sauvegarde StorSimple
-<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
+#### <a name="to-add-a-storsimple-backup-policy"></a>Pour ajouter une stratégie de sauvegarde StorSimple
 
 1. Accédez à votre appareil StorSimple et cliquez sur **Stratégie de sauvegarde**.
 
@@ -13,7 +12,7 @@
    
    1. **Sélectionner un appareil** est rempli automatiquement en fonction de l’appareil que vous avez sélectionné.
    
-   2. Spécifiez un **Nom de stratégie** de sauvegarde (entre 3 et 150 caractères).
+   2. Spécifiez un **Nom de stratégie** de sauvegarde (entre 3 et 150 caractères). Une fois la stratégie créée, vous ne pourrez plus la renommer.
        
    3. Pour affecter des volumes à cette stratégie de sauvegarde, sélectionnez **Ajouter des volumes** puis, dans la liste tabulaire des volumes, cliquez sur les cases à cocher pour affecter un ou plusieurs volumes à cette stratégie de sauvegarde.
 

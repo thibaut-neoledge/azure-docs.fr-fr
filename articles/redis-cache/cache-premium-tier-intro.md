@@ -12,11 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 07/05/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 377d3f28a9de868744d6e85767ede1bdf59a184e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -26,9 +28,9 @@ le Cache Redis Azure est un cache distribué et géré qui vous permet de dével
 Le nouveau niveau Premium est un niveau professionnel qui inclut toutes les fonctionnalités de niveau Standard, auxquelles s’ajoutent entre-autre une amélioration des performances, un accroissement des charges de travail, une récupération d’urgence plus réactive, un service d’importation/exportation, et une sécurité renforcée. Poursuivez la lecture pour en savoir plus sur les fonctionnalités supplémentaires du niveau de cache Premium.
 
 ## <a name="better-performance-compared-to-standard-or-basic-tier"></a>Amélioration des performances par rapport au niveau Standard ou De base
-**Amélioration des performances par rapport au niveau Standard ou De base.**  Les caches au niveau Premium sont déployés sur du matériel qui dispose de processeurs plus rapides et offrent de meilleures performances par rapport au niveau De base ou Standard. Les caches de niveau Premium ont un débit supérieur et des latences moindres. 
+**Amélioration des performances par rapport au niveau Standard ou De base.** Les caches au niveau Premium sont déployés sur du matériel qui dispose de processeurs plus rapides et offrent de meilleures performances par rapport au niveau De base ou Standard. Les caches de niveau Premium ont un débit supérieur et des latences moindres. 
 
-**Pour un cache de même dimension, le débit du niveau Premium est plus élevé que celui du niveau Standard.**  Par exemple, le débit d’un cache de 53 Go P4 (Premium) est de 250 000 demandes par seconde par rapport à 150 000 demandes par seconde pour le débit C6 (Standard).
+**Pour un cache de même dimension, le débit du niveau Premium est plus élevé que celui du niveau Standard.** Par exemple, le débit d’un cache de 53 Go P4 (Premium) est de 250 000 demandes par seconde par rapport à 150 000 demandes par seconde pour le débit C6 (Standard).
 
 Pour plus d’informations sur la taille, le débit et la bande passante des caches Premium, voir le [Forum aux questions sur le Cache Redis Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
@@ -68,7 +70,12 @@ Le niveau premium vous permet de redémarrer un ou plusieurs nœuds de votre cac
 
 Pour plus d’informations, consultez [Redémarrage](cache-administration.md#reboot) et le [Forum aux questions sur le redémarrage](cache-administration.md#reboot-faq).
 
-## <a name="schedule-updates"></a>Planification de mises à jour
+>[!NOTE]
+>La fonctionnalité de redémarrage est à présent activée pour tous les niveaux de Cache Redis Azure.
+>
+>
+
+## <a name="schedule-updates"></a>Planifier les mises à jour
 Ces mises à jour planifiées vous permettent de désigner une fenêtre de maintenance pour votre cache. Lorsque la fenêtre de maintenance est spécifiée, toute mise à jour du serveur Redis est effectuée pendant cet intervalle. Pour désigner une fenêtre de maintenance, sélectionnez les jours choisis et spécifiez l’heure de début de la fenêtre de maintenance pour chaque jour. Notez que l’heure de la maintenance est au format UTC. 
 
 Pour plus d’informations, consultez [Planification de mises à jour](cache-administration.md#schedule-updates) et le [Forum aux questions de la planification des mises à jour](cache-administration.md#schedule-updates-faq).
@@ -77,6 +84,13 @@ Pour plus d’informations, consultez [Planification de mises à jour](cache-adm
 > Seules les mises à jour du serveur Redis sont exécutées au cours de la fenêtre de maintenance planifiée. La fenêtre de maintenance ne s’applique pas aux mises à jour d’Azure ou du système d’exploitation de la machine virtuelle.
 > 
 > 
+
+## <a name="geo-replication"></a>Géoréplication
+
+La **Géoréplication** fournit un mécanisme de lien de deux instances de Cache Redis Azure de niveau Premium. Un cache est désigné comme le cache lié principal et l’autre comme cache lié secondaire. Le cache lié secondaire est en lecture seule et les données écrites dans le cache principal sont répliquées vers le cache lié secondaire. Cette fonctionnalité peut être utilisée pour répliquer un cache entre les régions Azure.
+
+Pour plus d’informations, consultez [Comment configurer la géoréplication pour le Cache Redis Azure](cache-how-to-geo-replication.md).
+
 
 ## <a name="to-scale-to-the-premium-tier"></a>Mise à l’échelle au niveau premium
 Pour configurer le niveau premium, il suffit de choisir l’un des niveaux premium dans le panneau **Changer le niveau tarifaire** . Vous pouvez également mettre votre cache à l’échelle au niveau premium à l’aide de PowerShell et de l’interface de ligne de commande. Pour obtenir des instructions détaillées, consultez [Mise à l’échelle du Cache Redis Azure](cache-how-to-scale.md) et [Automatisation d’une opération de mise à l’échelle](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
@@ -89,10 +103,5 @@ Créez un cache et explorez les nouvelles fonctionnalités de niveau Premium.
 * [Comment configurer le clustering pour un Cache Redis Azure Premium](cache-how-to-premium-clustering.md)
 * [How to import data into and export data from Azure Redis Cache (Comment importer et exporter des données vers ou depuis le Cache Redis Azure)](cache-how-to-import-export-data.md)
 * [Comment administrer le Cache Redis Azure](cache-administration.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

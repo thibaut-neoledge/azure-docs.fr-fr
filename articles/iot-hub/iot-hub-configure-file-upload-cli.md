@@ -1,6 +1,6 @@
 ---
 title: "Configurer le téléchargement de fichiers vers IoT Hub à l’aide d’Azure CLI (az.py) | Microsoft Docs"
-description: "Comment configurer les téléchargements de fichiers vers Azure IoT Hub à l’aide de l’interface Azure CLI 2.0 (az.py)."
+description: "Découvrez comment configurer les téléchargements de fichiers vers Azure IoT Hub à l’aide de l’interface Azure CLI 2.0 (az.py)."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 48d1fb8bba10df0960a8fba0b8c283aa3142d881
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: e2cd7eae50006717dfc0da358436ae3553a81d00
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -33,14 +32,14 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
 * [Azure CLI 2.0][lnk-CLI-install].
-* Un IoT Hub Azure. Si vous n’avez pas de IoT Hub, vous pouvez utiliser la commande `az iot hub create` [][lnk-cli-create-iothub] afin d’en créer un ou utiliser le portail pour [Créer un IoT Hub][lnk-portal-hub].
+* Un IoT Hub Azure. Si vous n’avez pas de IoT Hub, vous pouvez utiliser la `az iot hub create` [commande][lnk-cli-create-iothub] afin d’en créer un ou utiliser le portail pour [Créer un IoT Hub][lnk-portal-hub].
 * Un compte de stockage Azure. Si vous n’avez pas de compte de Stockage Azure, vous pouvez utiliser [Azure CLI 2.0 - Gérer les comptes de stockage][lnk-manage-storage] afin d’en créer un ou utiliser le portail pour [créer un compte de stockage][lnk-portal-storage].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Se connecter à votre compte Azure et le définir
 
 Connectez-vous à votre compte Azure et sélectionnez votre abonnement.
 
-1. Dans l’invite de commande, exécutez la [commande login][lnk-login-command] :
+1. Dans l’invite de commande, exécutez la [commande login][lnk-login-command]:
 
     ```azurecli
     az login
@@ -64,7 +63,7 @@ Connectez-vous à votre compte Azure et sélectionnez votre abonnement.
 
 Les étapes suivantes supposent que vous avez créé votre compte de stockage à l’aide du modèle de déploiement de **Resource Manager** et non à partir du modèle de déploiement **classique**.
 
-Vous avez besoin de la chaîne de connexion d’un compte de stockage Azure dans le même abonnement que votre IoT Hub pour configurer les chargements de fichiers en provenance de vos périphériques. Vous avez également besoin du nom d’un conteneur d’objets blob dans le compte de stockage. Utilisez la commande suivante pour récupérer vos clés de compte de stockage :
+Pour configurer les chargements de fichiers en provenance de vos appareils, vous avez besoin de la chaîne de connexion d’un compte de stockage Azure. Le compte de stockage doit être situé dans le même abonnement que votre IoT Hub. Vous avez également besoin du nom d’un conteneur d’objets blob dans le compte de stockage. Utilisez la commande suivante pour récupérer vos clés de compte de stockage :
 
 ```azurecli
 az storage account show-connection-string --name {your storage account name} --resource-group {your storage account resource group}
@@ -136,7 +135,7 @@ az iot hub show --name {your iot hub name}
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les fonctionnalités de téléchargement de fichiers d’IoT Hub, consultez [Télécharger des fichiers à partir d’un appareil][lnk-upload] dans le guide du développeur IoT Hub.
+Pour plus d’informations sur les fonctionnalités de chargement de fichiers d’IoT Hub, consultez [Chargements de fichiers avec IoT Hub][lnk-upload].
 
 Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
@@ -174,6 +173,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
 [lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
 [lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-manage-storage]: ../storage/storage-azure-cli.md#manage-storage-accounts
-[lnk-portal-storage]: ../storage/storage-create-storage-account.md
+[lnk-manage-storage]:../storage/common/storage-azure-cli.md#manage-storage-accounts
+[lnk-portal-storage]:../storage/common/storage-create-storage-account.md
 [lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#create

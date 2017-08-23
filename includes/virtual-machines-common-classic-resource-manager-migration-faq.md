@@ -32,9 +32,14 @@ Non. Nous avons récemment activé la [migration de circuits ExpressRoute du mod
 
 Pendant la migration, les ressources Classic sont converties en ressources Resource Manager. Nous vous recommandons donc de planifier les mises à jour de stratégies RBAC qui seront nécessaires après la migration.
 
-## <a name="what-if-im-using-azure-site-recovery-or-azure-backup-today"></a>Que se passera-t-il si j’utilise actuellement des services Azure Site Recovery ou Azure Backup ? 
+## <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>J’ai sauvegardé mes machines virtuelles classiques dans un coffre de sauvegarde Azure. Puis-je migrer mes machines virtuelles du mode Classic vers le mode Ressource Manager et les protéger dans un coffre Recovery Services ? 
 
-Pour migrer vos machines virtuelles avec sauvegarde activée, consultez [J’ai sauvegardé mes machines virtuelles classiques dans le coffre de sauvegarde. Maintenant, je souhaite les migrer du mode Classic vers le mode Resource Manager. Comment faire pour les sauvegarder dans le coffre Recovery Services ?](../articles/backup/backup-azure-backup-ibiza-faq.md)J’ai sauvegardé mes machines virtuelles classiques dans le coffre de sauvegarde. Maintenant, je souhaite les migrer du mode Classic vers le mode Resource Manager.  Comment faire pour les sauvegarder dans le coffre Recovery Services ?
+Les points de récupération des machines virtuelles classiques dans un coffre Azure Backup ne sont pas migrés automatiquement vers un coffre Recovery Services lorsque vous déplacez les machines virtuelles du mode Classic vers le mode Resource Manager. Suivez ces étapes pour transférer vos sauvegardes de machines virtuelles :
+
+1. Dans le coffre de sauvegarde Azure, accédez à l’onglet **Éléments protégés** et sélectionnez la machine virtuelle. Cliquez sur [Arrêter la protection](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Laissez l’option *Supprimer les données de sauvegarde associées***non cochée**.
+2. Supprimez l’extension de sauvegarde/capture instantanée de la machine virtuelle.
+3. Migrez la machine virtuelle du mode Classic vers le mode Resource Manager. Vérifiez que les informations relatives au stockage et au réseau correspondant à la machine virtuelle sont également migrées vers le mode Resource Manager.
+4. Créez un coffre Recovery Services et configurez la sauvegarde sur la machine virtuelle migrée à l’aide de l’action **Sauvegarder** en haut du tableau de bord du coffre. Pour plus d’informations sur la sauvegarde d’une machine virtuelle dans un coffre Recovery Services, consultez l’article [Protégez les machines virtuelles Azure avec un coffre Recovery Services](../articles/backup/backup-azure-vms-first-look-arm.md).
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Puis-je vérifier si mon abonnement ou mes ressources peuvent faire l’objet d’une migration ? 
 

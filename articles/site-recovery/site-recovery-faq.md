@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/22/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 4ed866cf83ff1d38147c9aecf337fd05b025f01a
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 7ff58a488298573372b32f4daa495c9da1c0eaa2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery : Forum Aux Questions (FAQ)
@@ -105,7 +105,7 @@ Le logiciel Site Recovery est certifié conforme aux normes ISO 27001:2013, 2701
 Oui. Quand vous créez un coffre Site Recovery dans une région, nous vérifions que toutes les métadonnées dont nous avons besoin pour activer et coordonner la réplication et le basculement restent au sein de cette région.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery chiffre-t-il la réplication ?
-Pour la réplication de machines virtuelles et de serveurs physiques entre des sites locaux, le chiffrement en transit est pris en charge. Pour la réplication de machines virtuelles et de serveurs physiques vers Azure, le chiffrement en transit et le chiffrement au repos (dans Azure) sont tous deux pris en charge.
+Pour la réplication de machines virtuelles et de serveurs physiques entre des sites locaux, le chiffrement en transit est pris en charge. Pour la réplication de machines virtuelles et de serveurs physiques vers Azure, le chiffrement en transit et le [chiffrement au repos (dans Azure)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) sont tous deux pris en charge.
 
 ## <a name="replication"></a>Réplication
 

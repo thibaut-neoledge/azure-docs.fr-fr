@@ -3,7 +3,7 @@ title: "Prise en charge d’Azure Cosmos DB Gremlin | Microsoft Docs"
 description: "Découvrir le langage Gremlin d’Apache TinkerPop, ainsi que les fonctionnalités et étapes disponibles dans Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: dennyglee
 manager: jhubbard
 editor: 
 tags: 
@@ -14,18 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/10/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: acea54d202d1117cf2dfb1d35ad48346daa9053d
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 3f2d2af1d6be41d98f9780b4cf9ca4cd79de0fd7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Prise en charge des graphes Azure Cosmos DB Gremlin
-Azure Cosmos DB prend en charge le langage de traversée de graphe [d’Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin]([Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)). Il s’agit d’une API Graph qui permet de créer des entités de graphes et d’effectuer des opérations de requête de graphe. Vous pouvez utiliser le langage Gremlin pour créer des entités de graphes (vertex et bords), modifier les propriétés au sein de ces entités, exécuter des requêtes et traversées et supprimer des entités. 
+Azure Cosmos DB prend en charge le langage de traversée de graphe [d’Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps). Il s’agit d’une API Graph qui permet de créer des entités de graphes et d’effectuer des opérations de requête de graphe. Vous pouvez utiliser le langage Gremlin pour créer des entités de graphes (vertex et bords), modifier les propriétés au sein de ces entités, exécuter des requêtes et traversées et supprimer des entités. 
 
 Azure Cosmos DB apporte des fonctionnalités d’entreprise aux bases de données de graphes. Cela inclut la distribution globale, la mise à l’échelle indépendante du stockage et du débit, les latences prévisibles de quelques millisecondes, l’indexation automatique et les contrats de niveau de service de disponibilité à 99,99 %. Étant donné qu’Azure Cosmos DB prend en charge TinkerPop/Gremlin, vous pouvez facilement migrer des applications écrites à l’aide d’une autre base de données de graphes sans avoir à apporter des modifications de code. En outre, en vertu de la prise en charge de Gremlin, Azure Cosmos DB intègre parfaitement les infrastructures d’analyse compatibles avec TinkerPop comme [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
@@ -150,7 +149,7 @@ Et le bord contient les informations suivantes pour faciliter la navigation vers
 | --- | --- |
 | id | L’ID du bord. Doit être unique (en association avec la valeur de _partition, le cas échéant) |
 | label | Le label du bord. Cette propriété est facultative, elle est utilisée pour décrire le type de relation. |
-| inV | Sac de propriétés définies par l’utilisateur associé au bord. Chaque propriété peut avoir plusieurs valeurs. |
+| inV | Contient une liste des vertex d’entrée pour un bord. Permet de stocker les informations de contiguïté avec le bord pour une exécution rapide des traversées. Les vertex sont regroupés en fonction de leurs labels. |
 | properties | Sac de propriétés définies par l’utilisateur associé au bord. Chaque propriété peut avoir plusieurs valeurs. |
 
 Chaque propriété peut stocker plusieurs valeurs dans un tableau. 
@@ -210,3 +209,4 @@ Le moteur optimisé pour l’écriture d’Azure Cosmos DB prend en charge l’i
 ## <a name="next-steps"></a>Étapes suivantes
 * Commencez par créer une application de graphe [à l’aide de nos kits SDK](create-graph-dotnet.md) 
 * En savoir plus sur [la prise en charge des graphes par Azure Cosmos DB](graph-introduction.md)
+

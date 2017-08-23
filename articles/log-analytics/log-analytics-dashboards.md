@@ -12,18 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: a8c9766bf066a7f0dfd28ebb4e41bf0eaf3f05bd
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: a90d9c620221bffbb225fb060b997af2f5e90390
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/28/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Créer un tableau de bord personnalisé à utiliser dans Log Analytics
+
+>[!NOTE]
+> Si votre espace de travail a été mis à niveau pour utiliser le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), vous ne pouvez pas créer de nouveaux tableaux de bord ni modifier des tableaux de bord existants. 
+
 Ce guide vous aide à comprendre comment les tableaux de bord Log Analytics permettent d’afficher l’ensemble de vos recherches de journal enregistrées en proposant une vue unique de votre environnement.
 
 ![Exemple de tableau de bord](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)

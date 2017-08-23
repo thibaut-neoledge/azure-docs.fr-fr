@@ -1,5 +1,5 @@
 ---
-title: "MapReduce et le Bureau à distance avec Hadoop dans HDInsight | Microsoft Docs"
+title: "MapReduce et le Bureau à distance avec Hadoop dans HDInsight - Azure | Documents Microsoft"
 description: "Apprenez à utiliser le Bureau à distance pour vous connecter à Hadoop sur HDInsight et exécuter des tâches MapReduce."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 5e91fd06fb2ae22496832d7afedb3f003edf7ea6
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b56674857b013f9bb3d4dd4b6e97b34e0a97b1b2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>Utilisation de MapReduce dans Hadoop sur HDInsight avec le Bureau à distance
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/18/2017
 Dans cet article, vous allez apprendre à vous connecter à un Hadoop sur le cluster HDInsight en utilisant le Bureau à distance et exécuter les tâches MapReduce à l’aide de la commande Hadoop.
 
 > [!IMPORTANT]
-> Le Bureau à distance n’est disponible que sur les clusters HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Le Bureau à distance n’est disponible que sur les clusters HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Pour HDInsight 3.4 ou versions ultérieures, consultez [Utiliser MapReduce avec SSH](hdinsight-hadoop-use-mapreduce-ssh.md) pour plus d’informations sur la connexion au cluster HDInsight et l’exécution des travaux MapReduce.
 
@@ -54,7 +53,7 @@ Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pou
    >
 2. Pour utiliser la commande **Hadoop** pour exécuter une tâche MapReduce d’exemple, utilisez la commande suivante :
 
-        hadoop jar hadoop-mapreduce-examples.jar wordcount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/WordCountOutput
+        hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
     Cela lance la classe **wordcount**, contenue dans le fichier **hadoop-mapreduce-examples.jar** du répertoire actif. En tant qu’entrée, elle utilise le document **wasb://example/data/gutenberg/davinci.txt** et la sortie est stockée dans **wasb:///example/data/WordCountOutput**.
 
@@ -68,9 +67,9 @@ Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pou
         Bytes Read=1395666
         File Output Format Counters
         Bytes Written=337623
-4. Une fois la tâche terminée, utilisez la commande suivante pour répertorier les fichiers de sortie stockés sur **wasb://example/data/WordCountOutput** :
+4. Une fois la tâche terminée, utilisez la commande suivante pour répertorier les fichiers de sortie stockés sur **wasb://example/data/WordCountOutput** :
 
-        hadoop fs -ls wasbs:///example/data/WordCountOutput
+        hadoop fs -ls wasb:///example/data/WordCountOutput
 
     Cela devrait afficher deux fichiers, **_SUCCESS** et **part-r-00000**. Le fichier **part-r-00000** contient la sortie de cette tâche.
 
@@ -80,7 +79,7 @@ Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pou
    >
 5. Pour afficher la sortie, utilisez la commande suivante :
 
-        hadoop fs -cat wasbs:///example/data/WordCountOutput/part-r-00000
+        hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
     Cela affiche une liste de mots contenus dans le fichier **wasb://example/data/gutenberg/davinci.txt**, ainsi que le nombre d’occurrences de chaque mot. Voici un exemple des données contenues dans le fichier :
 

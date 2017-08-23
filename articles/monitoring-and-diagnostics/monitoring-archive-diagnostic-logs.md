@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3e82377c36da1563931bc0301daa4534e6f82377
-ms.openlocfilehash: e3413236445f3f6034a228dc93624d3fdc9b87ad
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 6ceb95dac5a4037c8f2ff93f8245b36f0842a427
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/17/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivage des journaux de diagnostic Azure
@@ -28,7 +28,7 @@ Dans cet article, nous vous expliquons comment utiliser le portail Azure, les ap
 Avant de commencer, vous devez [créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) sur lequel vous pouvez archiver vos journaux de diagnostic. Nous vous recommandons vivement de ne pas utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. En revanche, si vous archivez également votre journal d’activité et des métriques de diagnostic sur un compte de stockage, il peut être judicieux d’utiliser également ce compte pour vos journaux de diagnostic, afin de centraliser toutes vos données d’analyse. Le compte de stockage que vous utilisez doit être un compte de stockage à usage général, et non un compte de stockage Blob.
 
 ## <a name="diagnostic-settings"></a>Paramètres de diagnostic
-Pour archiver vos journaux de diagnostic à l’aide de l’une des méthodes ci-dessous, vous devez définir un **paramètre de diagnostic** pour chaque ressource. Le paramètre de diagnostic d’une ressource définit les catégories de journaux qui sont stockés ou transmis en continu, ainsi que les sorties : compte de stockage et/ou hub d’événement. Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements de chaque catégorie de journal stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements de cette catégorie de journal sont stockés indéfiniment (c’est-à-dire pour toujours). Une stratégie de rétention peut également être définie sur n’importe quel nombre de jours entre 1 et 2147483647. [Vous trouverez plus d’informations sur les paramètres de diagnostic ici](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seraient supprimés.
+Pour archiver vos journaux de diagnostic à l’aide de l’une des méthodes ci-dessous, vous devez définir un **paramètre de diagnostic** pour chaque ressource. Le paramètre de diagnostic d’une ressource définit les catégories de journaux qui sont stockés ou transmis en continu, ainsi que les sorties : compte de stockage et/ou hub d’événement. Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements de chaque catégorie de journal stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements de cette catégorie de journal sont stockés indéfiniment (c’est-à-dire pour toujours). Une stratégie de rétention peut également être définie sur n’importe quel nombre de jours entre 1 et 2147483647. [Vous trouverez plus d’informations sur les paramètres de diagnostic ici](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seraient supprimés.
 
 ## <a name="archive-diagnostic-logs-using-the-portal"></a>Archivage des journaux de diagnostic à l’aide du portail
 1. Dans le portail, cliquez sur le panneau de la ressource pour laquelle vous voulez activer l’archivage des journaux de diagnostic.

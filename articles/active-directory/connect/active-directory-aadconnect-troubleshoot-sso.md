@@ -12,41 +12,75 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 08/04/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: a543be452abbbe3057a5e275612968cd52c8b7aa
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
-# <a name="how-to-troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Comment résoudre les problèmes d’authentification unique transparente Azure Active Directory
+# <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Résoudre les problèmes d’authentification unique transparente Azure Active Directory
+
+Cet article fournit des informations sur les problèmes courants liés à l’authentification unique transparente Azure AD.
 
 ## <a name="known-issues"></a>Problèmes connus
 
-- Si vous synchronisez plus de 30 forêts AD à l’aide d’Azure AD Connect, l’Assistant utilisé pour configurer l’authentification unique (SSO) transparente ne fonctionne pas correctement. Pour résoudre ce problème, vous pouvez [activer manuellement](#manual-reset-of-azure-ad-seamless-sso) la fonctionnalité d’authentification unique (SSO) transparente sur votre locataire.
-- Ajout d’URL de service Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) à la zone « Sites de confiance » au lieu de la zone « Intranet local ».
+- Si vous synchronisez 30 forêts AD ou plus, vous ne pouvez pas activer l’authentification unique transparente à l’aide d’Azure AD Connect. En guise de solution de contournement, vous pouvez [activer manuellement](#manual-reset-of-azure-ad-seamless-sso) la fonctionnalité pour votre locataire.
+- L’ajout des URL du service Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) à la zone « Sites de confiance » plutôt qu’à la zone « Intranet local », **empêche les utilisateurs de se connecter**.
+- L’authentification unique transparente ne fonctionne pas en mode Navigation privée sur Firefox et Edge. Il en va de même sur Internet Explorer lorsque le mode Protégé amélioré est activé.
+
+>[!IMPORTANT]
+>Nous avons récemment restauré la prise en charge de Edge afin d’examiner les problèmes signalés par le client.
+
+## <a name="check-status-of-the-feature"></a>Vérifiez l’état de la fonctionnalité
+
+Assurez-vous que la fonctionnalité Authentification unique transparente est toujours **activée** sur votre client. Vous pouvez vérifier l’état en accédant au panneau **Azure AD Connect** sur le [centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
+
+![Centre d’administration d’Azure Active Directory - panneau Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
+
+## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory
+
+Pour résoudre les problèmes de connexion utilisateur avec l’authentification unique transparente, commencez par examiner le [rapport d’activité de connexion](../active-directory-reporting-activity-sign-ins.md) dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
+
+![Centre d’administration d’Azure Active Directory - rapport de connexions](./media/active-directory-aadconnect-sso/sso9.png)
+
+Accédez à **Azure Active Directory** -> **Connexions** dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/), puis cliquez sur une activité de connexion. Recherchez le champ **Code d’erreur de connexion**. Notez la valeur de ce champ et cherchez dans le tableau suivant la raison de l’échec et la solution à appliquer :
+
+|Code d’erreur de connexion|Raison de l’échec de connexion|Résolution :
+| --- | --- | ---
+| 81001 | Le ticket Kerberos de l’utilisateur est trop volumineux. | Réduire les appartenances à des groupes de l’utilisateur, puis réessayez.
+| 81002 | Impossible de valider le ticket Kerberos de l’utilisateur. | Consultez la [liste de contrôle pour la résolution des problèmes](#troubleshooting-checklist).
+| 81003 | Impossible de valider le ticket Kerberos de l’utilisateur. | Consultez la [liste de contrôle pour la résolution des problèmes](#troubleshooting-checklist).
+| 81004 | Échec de la tentative d’authentification Kerberos. | Consultez la [liste de contrôle pour la résolution des problèmes](#troubleshooting-checklist).
+| 81008 | Impossible de valider le ticket Kerberos de l’utilisateur. | Consultez la [liste de contrôle pour la résolution des problèmes](#troubleshooting-checklist).
+| 81009 | « Impossible de valider le ticket Kerberos de l’utilisateur. | Consultez la [liste de contrôle pour la résolution des problèmes](#troubleshooting-checklist).
+| 81010 | L’authentification unique transparente a échoué, car le ticket Kerberos de l’utilisateur est arrivé à expiration ou n’est pas valide. | L’utilisateur doit se connecter à partir d’un appareil joint à un domaine au sein de votre réseau d’entreprise.
+| 81011 | Impossible de trouver l’objet utilisateur à partir des informations contenues dans le ticket Kerberos de l’utilisateur. | Utilisez Azure AD Connect pour synchroniser les informations de l’utilisateur dans Azure AD.
+| 81012 | L’utilisateur qui tente de se connecter à Azure AD est différent de l’utilisateur connecté à l’appareil. | Connectez-vous à partir d’un autre appareil.
+| 81013 | Impossible de trouver l’objet utilisateur à partir des informations contenues dans le ticket Kerberos de l’utilisateur. |Utilisez Azure AD Connect pour synchroniser les informations de l’utilisateur dans Azure AD. 
 
 ## <a name="troubleshooting-checklist"></a>Liste de contrôle pour la résolution des problèmes
 
-Utilisez la liste de contrôle suivante pour résoudre les problèmes d’authentification unique (SSO) transparente Azure AD :
+Utilisez la liste de contrôle suivante pour résoudre les problèmes d’authentification unique transparente :
 
-1. Vérifiez si la fonctionnalité d’authentification unique transparente est activée sur votre locataire dans l’outil Azure AD Connect. Si vous ne pouvez pas activer la fonctionnalité (par exemple, en raison d’un port bloqué), assurez-vous que toutes les [conditions préalables](active-directory-aadconnect-sso.md#pre-requisites) sont bien respectées. Si vous rencontrez toujours des problèmes d’activation de la fonctionnalité, contactez le Support Microsoft.
-2. Les deux URL de service (https://autologon.microsoftazuread-sso.com et https://aadg.windows.net.nsatc.net) sont définies dans les paramètres de la zone Intranet.
-3. Vérifiez que le bureau d’entreprise est bien joint au domaine AD.
-4. Vérifiez que l’utilisateur est connecté au bureau par le biais d’un compte de domaine AD.
-5. Vérifiez que le compte de l’utilisateur provient d’une forêt AD dans laquelle l’authentification unique (SSO) transparente a été configurée.
-6. Vérifiez que l’ordinateur est connecté au réseau d’entreprise.
-7. Vérifiez que l’heure de l’ordinateur est synchronisée avec celle d’Active Directory et du contrôleur de domaine : elle ne doit pas compter plus de 5 minutes d’écart.
-8. Videz les tickets Kerberos existants à partir de leur ordinateur. Pour ce faire, exécutez la commande **klist purge** à partir d’une invite de commandes. Les tickets Kerberos des utilisateurs sont généralement valides pendant 12 heures. Notez que vous avez peut-être configuré une autre valeur dans Active Directory.
-9. Passez en revue les journaux de console du navigateur (sous Outils de développement) pour déterminer les problèmes potentiels.
-10. Examinez également les [journaux des contrôleurs de domaine](#domain-controller-logs).
+- Vérifiez si la fonctionnalité d’authentification unique transparente est activée dans Azure AD Connect. Si vous ne pouvez pas activer la fonctionnalité (par exemple, en raison d’un port bloqué), vérifiez que toutes les [conditions préalables](active-directory-aadconnect-sso-quick-start.md#step-1-check-prerequisites) sont bien respectées.
+- Vérifiez que ces deux URL Azure AD (https://autologon.microsoftazuread-sso.com et https://aadg.windows.net.nsatc.net) figurent bien dans les paramètres Zone intranet de l’utilisateur.
+- Vérifiez que l’appareil d’entreprise est joint au domaine AD.
+- Vérifiez que l’utilisateur est connecté à l’appareil à partir d’un compte de domaine AD.
+- Vérifiez que le compte de l’utilisateur provient d’une forêt AD dans laquelle l’authentification unique (SSO) transparente a été configurée.
+- Vérifiez que l’appareil est connecté au réseau d’entreprise.
+- Vérifiez que l’heure de l’appareil est synchronisée avec celle d’Active Directory et du contrôleur de domaine : elle ne doit pas compter plus de cinq minutes d’écart.
+- Affichez la liste des tickets Kerberos existants sur l’appareil à l’aide de la commande **klist** dans une invite de commandes. Vérifiez si les tickets émis pour le compte d’ordinateur `AZUREADSSOACCT` y figurent. En règle générale, la durée de validité des tickets Kerberos des utilisateurs est de 12 heures. Votre instance Active Directory est peut-être paramétrée différemment.
+- Videz les tickets Kerberos existants de l’appareil à l’aide de la commande **klist purge**, puis réessayez.
+- Pour déterminer si des problèmes liés à JavaScript existent, passez en revue les journaux de console du navigateur (sous Outils de développement).
+- Examinez également les [journaux des contrôleurs de domaine](#domain-controller-logs).
 
-### <a name="domain-controller-logs"></a>Journaux du contrôleur de domaine
+### <a name="domain-controller-logs"></a>Journaux des contrôleurs de domaine
 
-Si l’audit des réussites est activé sur votre contrôleur de domaine, dès qu’un utilisateur se connecte à l’aide de l’authentification unique transparente, une entrée de sécurité (événement 4769 associé au compte d’ordinateur **AzureADSSOAcc$**) est enregistrée dans le journal des événements. Vous trouverez ces événements de sécurité au moyen de la requête suivante :
+Si l’audit des réussites est activé sur votre contrôleur de domaine, chaque fois qu’un utilisateur se connecte à l’aide de l’authentification unique transparente, une entrée de sécurité est enregistrée dans le journal des événements. Vous pouvez trouver ces événements de sécurité à l’aide de la requête suivante (recherchez l’événement **4769** associé au compte d’ordinateur **AzureADSSOAcc$**) :
 
 ```
     <QueryList>
@@ -56,37 +90,34 @@ Si l’audit des réussites est activé sur votre contrôleur de domaine, dès q
     </QueryList>
 ```
 
-## <a name="manual-reset-of-azure-ad-seamless-sso"></a>Réinitialisation manuelle de l’authentification unique (SSO) transparente Azure AD
+## <a name="manual-reset-of-the-feature"></a>Réinitialisation manuelle de la fonctionnalité
 
-Si la résolution des problèmes ne permet pas de résoudre le problème, effectuez les étapes suivantes pour réinitialiser/activer manuellement la fonctionnalité sur votre locataire :
+Si vous n’avez pas réussi à résoudre le problème, vous pouvez réinitialiser manuellement la fonctionnalité pour votre locataire. Effectuez les étapes suivantes sur le serveur local où vous exécutez Azure AD Connect :
 
-### <a name="1-import-the-seamless-sso-powershell-module"></a>1. Importer le module PowerShell Authentification unique (SSO) transparente
+### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Étape 1 : Importer le module PowerShell Authentification unique (SSO) transparente
 
-- Premièrement, téléchargez et installez [l’Assistant de connexion Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
-- Ensuite, téléchargez et installez le [Module Azure Active Directory 64 bits pour Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-- Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
-- Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
+1. Pour commencer, téléchargez et installez l’[Assistant de connexion Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
+2. Ensuite, téléchargez et installez le [Module Azure Active Directory 64 bits pour Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+3. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
+4. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
 
-### <a name="2-get-the-list-of-ad-forests-on-which-seamless-sso-has-been-enabled"></a>2. Obtenir la liste des forêts AD sur lesquelles l’authentification unique (SSO) transparente a été activée
+### <a name="step-2-get-the-list-of-ad-forests-on-which-seamless-sso-has-been-enabled"></a>Étape 2 : Obtenir la liste des forêts AD dans lesquelles l’authentification unique (SSO) transparente a été activée
 
-- Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Une fenêtre contextuelle vous permettant d’entrer vos informations d’identification d’administrateur de locataire Azure AD doit s’afficher.
-- Appelez `Get-AzureADSSOStatus`. Cette opération vous fournit la liste des forêts AD (examinez la liste « Domaines ») sur lesquelles cette fonctionnalité a été activée.
+1. Exécutez PowerShell en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Lorsque vous y êtes invité, fournissez les informations d’identification de l’administrateur général de votre locataire.
+2. Appelez `Get-AzureADSSOStatus`. Cette commande vous fournit la liste des forêts AD (examinez la liste « Domaines ») dans lesquelles cette fonctionnalité a été activée.
 
-### <a name="3-disable-seamless-sso-for-each-ad-forest-that-it-was-set-it-up-on"></a>3. Désactiver l’authentification unique (SSO) transparente pour chaque forêt AD sur laquelle elle a été configurée
+### <a name="step-3-disable-seamless-sso-for-each-ad-forest-that-it-was-set-it-up-on"></a>Étape 3 : Désactiver l’authentification unique (SSO) transparente pour chaque forêt AD dans laquelle elle a été configurée
 
-- Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Une fenêtre contextuelle vous permettant d’entrer vos informations d’identification d’administrateur de locataire Azure AD doit s’afficher.
-- Appelez `$creds = Get-Credential`. Une fenêtre contextuelle vous permettant d’entrer les informations d’identification de l’administrateur de domaine pour la forêt AD souhaitée doit s’afficher.
-- Appelez `Disable-AzureADSSOForest -OnPremCredentials $creds`. Cette opération supprime le compte d’ordinateur AZUREADSSOACCT du contrôleur de domaine local et désactive cette fonctionnalité pour cette forêt AD spécifique.
-- Répétez les étapes ci-dessus pour chaque forêt AD sur laquelle vous avez configurée la fonctionnalité.
+1. Appelez `$creds = Get-Credential`. Quand vous y êtes invité, entrez les informations d’identification d’administrateur de domaine pour la forêt AD souhaitée.
+2. Appelez `Disable-AzureADSSOForest -OnPremCredentials $creds`. Cette commande supprime le compte d’ordinateur `AZUREADSSOACCT` du contrôleur de domaine local pour cette forêt AD spécifique.
+3. Répétez les étapes précédentes pour chaque forêt AD dans laquelle vous avez configuré la fonctionnalité.
 
-### <a name="4-enable-seamless-sso-for-each-ad-forest"></a>4. Activer l’authentification unique (SSO) transparente pour chaque forêt AD
+### <a name="step-4-enable-seamless-sso-for-each-ad-forest"></a>Étape 4 : Activer l’authentification unique (SSO) transparente pour chaque forêt AD
 
-- Appelez `New-AzureADSSOAuthenticationContext`. Une fenêtre contextuelle vous permettant d’entrer vos informations d’identification d’administrateur de locataire Azure AD doit s’afficher.
-- Appelez `Enable-AzureADSSOForest`. Une fenêtre contextuelle vous permettant d’entrer les informations d’identification de l’administrateur de domaine pour la forêt AD souhaitée doit s’afficher.
-- Répétez les étapes ci-dessus pour chaque forêt AD sur laquelle vous souhaitez configurer la fonctionnalité.
+1. Appelez `Enable-AzureADSSOForest`. Quand vous y êtes invité, entrez les informations d’identification d’administrateur de domaine pour la forêt AD souhaitée.
+2. Répétez les étapes précédentes pour chaque forêt AD dans laquelle vous voulez configurer la fonctionnalité.
 
-### <a name="5-enable-seamless-sso-on-your-tenant"></a>5. Activer l’authentification unique (SSO) transparente sur votre locataire
+### <a name="step-5-enable-the-feature-on-your-tenant"></a>Étape 5. Activer la fonctionnalité pour votre locataire
 
-- Appelez `New-AzureADSSOAuthenticationContext`. Une fenêtre contextuelle vous permettant d’entrer vos informations d’identification d’administrateur de locataire Azure AD doit s’afficher.
-- Appelez `Enable-AzureADSSO`, puis tapez « true » à l’invite `Enable: ` pour activer la fonctionnalité de votre locataire.
+Appelez `Enable-AzureADSSO`, puis tapez « true » à l’invite `Enable: ` pour activer la fonctionnalité dans votre locataire.
 

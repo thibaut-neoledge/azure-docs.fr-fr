@@ -12,25 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 6fbdebd316cd00e7dd762487848e616fdd2317e8
-ms.openlocfilehash: 358fd0888049f97e5fde6e2a6303ea6c4cf65da9
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 786121ae249d69376b4be4c74000868cbb208989
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Utilisation d’Azure IoT Hub
 
-Vous disposez de plusieurs options qui vous permettent d’apprendre à développer pour le service IoT Hub. Vous pouvez lire les articles conceptuels décrivant en détail les fonctionnalités de IoT Hub ou suivre l’un des didacticiels qui couvrent les différentes fonctionnalités de IoT Hub.
+Vous disposez de plusieurs options pour vous former au développement pour le service IoT Hub :
 
-## <a name="the-developer-guide"></a>Guide du développeur
+* Lisez les articles conceptuels qui décrivent les fonctionnalités de IoT Hub en détail.
+* Suivez l’un des didacticiels qui couvrent les différentes fonctionnalités de IoT Hub.
 
-En tant que développeur, vous trouverez des recommandations détaillées sur l’IoT Hub dans le [Guide du développeur][lnk-devguide]. Ce guide comprend une description détaillée de toutes les fonctionnalités de IoT Hub qui vous aidera à apprendre à les utiliser et à faire votre choix lorsque plusieurs options sont disponibles
+## <a name="developer-guide"></a>Guide du développeur
 
+En tant que développeur, vous trouverez des recommandations détaillées sur l’IoT Hub dans le [Guide du développeur][lnk-devguide]. Ce guide comprend les éléments suivants :
 
-## <a name="the-tutorials"></a>Didacticiels
+* Description détaillée de toutes les fonctionnalités de IoT Hub pour vous apprendre à les utiliser.
+* Conseils pour choisir entre plusieurs options disponibles.
+
+## <a name="tutorials"></a>Didacticiels
 
 Si vous souhaitez découvrir les fonctionnalités spécifiques de IoT Hub par le biais d’exercices pratiques, vous disposez à cet effet de plusieurs didacticiels. La plupart de ces didacticiels sont disponibles dans plusieurs langages de programmation. Voici les didacticiels disponibles :
 
@@ -44,11 +49,11 @@ Si vous souhaitez découvrir les fonctionnalités spécifiques de IoT Hub par l
 
 - [Utilisation des méthodes directes][lnk-methods-tutorial]. Ce didacticiel explique comment utiliser des méthodes directes. Vous ajoutez un gestionnaire pour une méthode directe dans votre appareil simulé et appelez la méthode directe depuis IoT Hub.
 
-- [Prise en main de la gestion d’appareils][lnk-dm-tutorial]. Ce didacticiel vous montre comment utiliser les principales fonctionnalités de gestion d’appareils, notamment les jumeaux et les méthodes directes, pour redémarrer à distance votre appareil simulé.
+- [Prise en main de la gestion d’appareils][lnk-dm-tutorial]. Ce didacticiel vous montre comment utiliser les principales fonctionnalités de gestion d’appareils, notamment les jumeaux et les méthodes directes. Ces fonctionnalités vous permettent de redémarrer à distance votre appareil simulé.
 
 - [Utilisation des propriétés souhaitées pour configurer des appareils][lnk-properties-tutorial]. Ce didacticiel explique comment combiner les propriétés souhaitées des jumeaux d’appareils aux propriétés signalées afin de configurer votre appareil à distance.
 
-- [Utilisation de la gestion des appareils pour lancer une mise à jour du microprogramme d’un appareil][lnk-jobs-tutorial]. Ce didacticiel vous montre comment utiliser les principales fonctionnalités de gestion d’appareils, notamment les jumeaux et les méthodes directes, pour mettre à jour à distance le microprogramme de votre appareil.
+- [Utilisation de la gestion des appareils pour lancer une mise à jour du microprogramme d’un appareil][lnk-jobs-tutorial]. Ce didacticiel vous montre comment utiliser les principales fonctionnalités de gestion d’appareils, notamment les jumeaux et les méthodes directes. Vous apprenez à utiliser ces fonctionnalités pour mettre à jour à distance le microprogramme de votre appareil.
 
 - [Planifier et diffuser des travaux][lnk-schedule-tutorial]. Ce didacticiel vous montre comment utiliser les propriétés souhaitées et les méthodes directes pour interagir avec plusieurs appareils à une heure planifiée.
 

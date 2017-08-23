@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 7c30f5164b9fe7ff6044bbf23767a5db9a0f7c30
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: e8ff96587a840236adfb277b3a33b11db71f7d8e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication Azure vers Azure
@@ -63,16 +62,35 @@ La prise en charge ci-dessous est applicable à toutes les charges de travail en
 
 #### <a name="windows"></a>Windows
 
-- Windows Server 2012 R2 64 bits
+- Windows Server 2016 (Server Core et Server avec Expérience utilisateur)*
+- Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 avec au moins SP1
 
+>[!NOTE]
+>
+> \* Windows Server 2016 Nano Server n’est pas pris en charge.
+
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2, 7.3
+- Red Hat Enterprise Linux 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
 - CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
+- Serveur LTS Ubuntu 14.04 [ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+- Serveur LTS Ubuntu 16.04 [ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3)
 - SUSE Linux Enterprise Server 11 SP3
+
+>[!NOTE]
+>
+> Sur les serveurs Ubuntu utilisant l’authentification et la connexion basées sur un mot de passe, et utilisant le package cloud-init pour configurer des machines virtuelles cloud, la connexion basée sur un mot de passe peut être désactivée lors du basculement (en fonction de la configuration de cloudinit.) La connexion basée sur un mot de passe peut être réactivée sur la machine virtuelle en réinitialisant le mot de passe dans le menu des paramètres (dans la section SUPPORT + TROUBLESHOOTING) de la machine virtuelle basculée sur le portail Azure.
+
+### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versions du noyau Ubuntu prises en charge pour les machines virtuelles Azure
+
+**Version release** | **Version du service Mobilité** | **Version du noyau** |
+--- | --- | --- |
+14.04 LTS | 9.9 | 3.13.0-24-generic à 3.13.0-117-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-75-generic |
+14.04 LTS | 9.10 | 3.13.0-24-generic à 3.13.0-121-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-81-generic |
+LTS 16.04 | 9.10 | 4.4.0-21-generic à 4.4.0-81-generic,<br/>4.8.0-34-generic à 4.8.0-56-generic,<br/>4.10.0-14-generic à 4.10.0-24-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Systèmes de fichiers et configurations de stockage invité pris en charge sur les machines virtuelles Azure exécutant le système d’exploitation Linux
 
@@ -88,7 +106,7 @@ Vous pouvez répliquer et restaurer des machines virtuelles entre deux régions 
 -- | --
 Amérique | Canada de l’Est, Canada du Centre, Sud du Centre des États-Unis, Ouest du Centre des États-Unis, États-Unis de l’Est, États-Unis de l’Est 2, États-Unis de l’Ouest, États-Unis de l’Ouest 2, États-Unis du Centre, Nord du Centre des États-Unis
 Europe | Ouest du Royaume-Uni, Sud du Royaume-Uni, Europe du Nord, Europe de l’Ouest
-Asie | Inde du Sud, Centre de l’Inde, Asie du Sud-Est, Asie de l’Est, Japon de l’Est, Japon de l’Ouest
+Asie | Inde du Sud, Centre de l’Inde, Asie du Sud-Est, Asie de l’Est, Japon de l’Est, Japon de l’Ouest, Centre de la Corée, Corée du Sud
 Australie   | Est de l’Australie, Sud-Est de l’Australie
 
 >[!NOTE]
@@ -113,8 +131,8 @@ Machines virtuelles migrées à l’aide de Site Recovery | Prises en charge | S
 
 **Configuration** | **Prise en charge/Non prise en charge** | **Notes**
 --- | --- | ---
-Taille maximale du disque du système d’exploitation | Taille maximale du disque du système d’exploitation prise en charge par Azure| Voir [Disques utilisés par les machines virtuelles](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms).
-Taille maximale de disque de données | Taille maximale de disque de données prise en charge par Azure| Voir [Disques utilisés par les machines virtuelles](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms).
+Taille maximale du disque du système d’exploitation | 1 023 Go | Voir [Disques utilisés par les machines virtuelles](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms).
+Taille maximale de disque de données | 1 023 Go | Voir [Disques utilisés par les machines virtuelles](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms).
 Nombre de disques de données | Jusqu’à 64, tel que pris en charge par une taille spécifique de machine virtuelle Azure | Voir [Tailles de machine virtuelle Azure](../virtual-machines/windows/sizes.md).
 Disque temporaire | Toujours exclus de la réplication | Le disque temporaire est exclu de la réplication. Dans les recommandations Azure, il est stipulé que vous ne devez pas placer de données persistantes sur un disque temporaire. Pour plus d’informations, consultez [Disque temporaire sur des machines virtuelles Azure](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk).
 Taux de modification des données sur le disque | Au plus 6 Mbits/s par disque | Si le taux moyen de modification des données sur le disque est en permanence supérieur à 6 Mbits/s, la réplication ne pourra pas suivre. Toutefois, s’il s’agit d’une rafale de données occasionnelle, que le taux de modification des données est supérieur à 6 Mbits/s pendant un certain laps de temps, et qu’il redescend par la suite, la réplication pourra rattraper le retard. Dans ce cas, certains points de récupération pourront être légèrement différés.
@@ -122,7 +140,7 @@ Disques sur des comptes de stockage Standard | Pris en charge |
 Disques sur des comptes de stockage Premium | Pris en charge | Si une machine virtuelle a des disques répartis sur des comptes de stockage Standard et Premium, vous pouvez sélectionner un compte de stockage cible différent pour chaque disque afin d’être sûr d’avoir la même configuration de stockage dans la région cible.
 Disques gérés Standard | Non pris en charge |  
 Disques gérés Premium | Non pris en charge |
-Espaces de stockage | Non pris en charge |         
+Espaces de stockage | Pris en charge |         
 Chiffrement au repos (SSE) | Pris en charge | Pour les comptes de stockage du cache et cible, vous pouvez sélectionner un compte de stockage compatible SSE.     
 Azure Disk Encryption (ADE) | Non pris en charge |
 Ajout/suppression de disque à chaud | Non pris en charge | Si vous ajoutez ou supprimez un disque de données sur la machine virtuelle, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
@@ -130,7 +148,7 @@ Exclure le disque | Non pris en charge|   Le disque temporaire est exclu par dé
 LRS | Pris en charge |
 GRS | Pris en charge |
 RA-GRS | Pris en charge |
-ZRS | Pris en charge |  
+ZRS | Non pris en charge |  
 Stockage à froid et à chaud | Non pris en charge | Les disques de machine virtuelle ne sont pas pris en charge sur le stockage à froid et à chaud.
 
 >[!IMPORTANT]

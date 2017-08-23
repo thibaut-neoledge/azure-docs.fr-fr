@@ -1,5 +1,5 @@
 ---
-title: "Poser une question à laquelle les données peuvent répondre - Problèmes de science des données - Azure | Microsoft Docs"
+title: "Poser une question à laquelle les données peuvent répondre - Problèmes de science des données - Azure Machine Learning | Microsoft Docs"
 description: "Découvrez comment formuler une question de science des données précise dans la vidéo 3 Science des données pour les débutants. Inclut une comparaison des questions de classification et de régression."
 keywords: "problèmes de science des données,questions de science des données, formuler des questions,questions de régression,questions de classification,question précise"
 services: machine-learning
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
-
+ms.date: 07/13/2017
+ms.author: cgronlun
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 403c496d4f032d1f373dacc16868abb40f968b6f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Poser une question à laquelle les données permettent de répondre
@@ -26,6 +27,7 @@ ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
 Découvrez comment formuler un problème de science des données en une question dans la vidéo 3 Science des données pour les débutants. Cette vidéo inclut une comparaison des questions faisant appel aux algorithmes de classification et de régression.
 
 Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [Accéder à la liste des vidéos](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
 >
@@ -65,7 +67,7 @@ Si votre question est « Quel sera le cours de mon action la semaine prochaine ?
 
 Si votre question est « Quelle voiture de mon parc va tomber en panne en premier ? », vous devez vous assurer que vos données incluent des informations concernant les pannes précédentes.
 
-![Données cibles : exemples de votre réponse. Formulez une question de science des données.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-target-data.png)
+![Données cibles : exemples de votre réponse. Formulez une question de science des données.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
 
 Ces exemples de réponses sont appelés des cibles. Une cible correspond à ce que nous essayons de prédire sur les points de données futurs, qu’il s’agisse d’une catégorie ou d’un nombre.
 
@@ -82,7 +84,7 @@ Pour voir comment nous pouvons transformer ces questions, examinons la question 
 
 Mais il serait peut-être plus facile de répondre à cette question si elle était reformulée ainsi : « Quel intérêt présente chacun des articles de cette liste pour ce lecteur ? ». Vous pouvez maintenant attribuer un score à chaque article, et il sera ensuite facile d’identifier l’article dont le score est le plus élevé. Il s’agit là d’une reformulation d’une question de classification en question de régression (ou « Combien ? »).
 
-![Reformulez votre question. Question de classification et question de régression.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-classification-question-vs-regression-question.png)
+![Reformulez votre question. Question de classification et question de régression.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
 
 La manière dont vous posez une question est une indication de l’algorithme qui peut vous donner une réponse.
 
@@ -97,9 +99,4 @@ Nous vous invitons à consulter les autres vidéos de la série « Science des 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Menez une première expérience de science des données avec Machine Learning Studio](machine-learning-create-experiment.md)
 * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

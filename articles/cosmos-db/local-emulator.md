@@ -13,14 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 08/16/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d2a6af66b6c1e92b8b694685ab8c16781d1ade48
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 8e21861de95308a99beab3ff5ed5bd95c4f04e33
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Utilisation de l’émulateur Azure Cosmos DB pour le développement local et le test
@@ -155,7 +154,16 @@ Tout comme avec Azure Document dans le cloud, chaque demande que vous effectuez 
 > [!NOTE]
 > La clé principale prise en charge par l’émulateur Azure Cosmos DB est destinée à être utilisée uniquement avec l’émulateur. Vous ne pouvez pas utiliser votre compte et votre clé Azure Cosmos DB de production avec l’émulateur Azure Cosmos DB. 
 
+> [!NOTE] 
+> Si vous avez démarré l’émulateur avec l’option /Key, utilisez la clé générée au lieu de « C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== »
+
 En outre, comme pour le service Azure Cosmos DB, l’émulateur Azure Cosmos DB prend en charge uniquement une communication sécurisée via SSL.
+
+## <a name="running-the-emulator-on-a-local-network"></a>Exécution de l’émulateur sur un réseau local
+
+Vous pouvez exécuter l’émulateur sur un réseau local. Pour activer l’accès réseau, spécifiez l’option /AllowNetworkAccess à la [ligne de commande](#command-line-syntax) qui nécessite également que vous indiquiez /KEY = key_string ou/keyfile = file_name. Vous pouvez initialement utiliser /GenKeyFile = nom_fichier pour générer un fichier avec une clé aléatoire.  Passez ensuite à/keyfile = nom_fichier ou/Key = contents_of_file.
+
+Pour activer l’accès réseau pour la première fois, l’utilisateur doit arrêter l’émulateur et supprimer son répertoire de données (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Développement avec l’émulateur
 Une fois que l’émulateur Azure Cosmos DB est exécuté sur votre bureau, vous pouvez utiliser n’importe quel [SDK Azure Cosmos DB](documentdb-sdk-dotnet.md) pris en charge ou [l’API REST Azure Cosmos DB](/rest/api/documentdb/) pour interagir avec lui. L’émulateur Azure Cosmos DB inclut également un Explorateur de données intégré qui vous permet de créer des collections pour les API DocumentDB et MongoDB, ainsi que d’afficher et de modifier des documents sans avoir à écrire de code.   
@@ -167,9 +175,12 @@ Une fois que l’émulateur Azure Cosmos DB est exécuté sur votre bureau, vous
 
 Si vous utilisez la [prise en charge du protocole Azure Cosmos DB pour MongoDB](mongodb-introduction.md), utilisez la chaîne de connexion suivante :
 
-    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10250/admin?ssl=true&3t.sslSelfSignedCerts=true
+    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true&3t.sslSelfSignedCerts=true
 
 Vous pouvez utiliser les outils existants comme [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) pour vous connecter à l’émulateur Azure Cosmos DB. Vous pouvez également migrer des données entre l’émulateur Azure Cosmos DB et le service Azure Cosmos DB à l’aide de [l’outil de migration de données Azure Cosmos DB](https://github.com/azure/azure-documentdb-datamigrationtool).
+
+> [!NOTE] 
+> Si vous avez démarré l’émulateur avec l’option /Key, utilisez la clé générée au lieu de « C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== »
 
 À l’aide de l’émulateur Azure Cosmos DB, vous pouvez, par défaut, créer jusqu’à 25 collections à partition unique ou 1 collection partitionnée. Pour plus d’informations sur la modification de cette valeur, voir la section relative à la [définition de la valeur PartitionCount](#set-partitioncount).
 
@@ -233,7 +244,7 @@ Pour afficher la liste des options, tapez `CosmosDB.Emulator.exe /?` dans l’in
 </tr>
 <tr>
   <td>MongoPort</td>
-  <td>Spécifie le numéro de port à utiliser pour l'API de compatibilité MongoDB. La valeur par défaut est 10250.</td>
+  <td>Spécifie le numéro de port à utiliser pour l'API de compatibilité MongoDB. La valeur par défaut est 10255.</td>
   <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt; : numéro de port unique</td>
 </tr>
@@ -278,6 +289,42 @@ Pour afficher la liste des options, tapez `CosmosDB.Emulator.exe /?` dans l’in
   <td>Spécifie le nombre maximal de collections partitionnées. Pour plus d’informations, voir la section [Modification du nombre de collections](#set-partitioncount).</td>
   <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
   <td>&lt;partitioncount&gt; : nombre maximal autorisé de collections à partition unique. Valeur par défaut : 25. Valeur maximale autorisée : 250.</td>
+</tr>
+<tr>
+  <td>DefaultPartitionCount</td>
+  <td>Spécifie le nombre par défaut des partitions pour une collection partitionnée.</td>
+  <td>CosmosDB.Emulator.exe /DefaultPartitionCount =&lt;defaultpartitioncount&gt;</td>
+  <td>&lt;defaultpartitioncount&gt; La valeur par défaut est 25.</td>
+</tr>
+<tr>
+  <td>AllowNetworkAccess</td>
+  <td>Permet d’accéder à l’émulateur sur un réseau. Vous devez également passer/Key =&lt;key_string&gt; ou/keyfile =&lt;nom_fichier&gt; pour activer l’accès réseau.</td>
+  <td>CosmosDB.Emulator.exe AllowNetworkAccess /Key =&lt;key_string&gt;<br><br>ou<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
+  <td></td>
+</tr>
+<tr>
+  <td>NoFirewall</td>
+  <td>Ne pas ajuster les règles de pare-feu lors de l’utilisation de /AllowNetworkAccess.</td>
+  <td>CosmosDB.Emulator.exe /NoExplorer</td>
+  <td></td>
+</tr>
+<tr>
+  <td>GenKeyFile</td>
+  <td>Générer une nouvelle clé d’autorisation et Générer une nouvelle clé d’autorisation et l’enregistrer dans le fichier spécifié. La clé générée peut être utilisée avec les options /Key or /KeyFile.</td>
+  <td>CosmosDB.Emulator.exe  /GenKeyFile=&lt;chemin du fichier de clé&gt;</td>
+  <td></td>
+</tr>
+<tr>
+  <td>Cohérence</td>
+  <td>Définir le niveau de cohérence par défaut pour le compte.</td>
+  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
+  <td>&lt;cohérence&gt; : la valeur doit être l’un des [niveaux de cohérence](consistency-levels.md) proposés (Session, Strong, Eventual ou BoundedStaleness).  La valeur par défaut est Session.</td>
+</tr>
+<tr>
+  <td>?</td>
+  <td>Afficher le message d’aide.</td>
+  <td></td>
+  <td></td>
 </tr>
 </table>
 

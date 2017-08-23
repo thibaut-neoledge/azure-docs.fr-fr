@@ -22,7 +22,6 @@ ms.openlocfilehash: 5d566e7b84723bacf575ade8ea6947cfdaf8b606
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Utilisation de packages externes avec les blocs-notes Jupyter dans des clusters Apache Spark sur HDInsight
 > [!div class="op_single_selector"]
@@ -91,7 +90,7 @@ Vous devez disposer des éléments suivants :
         val df = sqlContext.read.format("com.databricks.spark.csv").
         option("header", "true").
         option("inferSchema", "true").
-        load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 8. Vous pouvez ensuite exécuter les extraits de code, comme illustré ci-dessous, pour afficher les données issues du tableau de données créé lors de l’étape précédente.
    

@@ -12,16 +12,16 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
-ms.author: ruturajd@microsoft.com
+ms.date: 08/11/2017
+ms.author: ruturajd
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: c91a1210e84d215449b98aae14bda490aa2cb156
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
+
 # <a name="add-azure-automation-runbooks-to-recovery-plans-in-the-classic-portal"></a>Ajouter des Runbooks Azure Automation à des plans de récupération dans le portail Classic
 Ce didacticiel explique comment Microsoft Azure Site Recovery s’intègre dans Microsoft Azure Automation pour permettre l’extensibilité des plans de récupération. Les plans de récupération peuvent orchestrer la récupération des machines virtuelles protégées via Microsoft Azure Site Recovery, pour la réplication vers un cloud secondaire et la réplication vers Microsoft Azure. Ils garantissent que le récupération est **précise et cohérente**, **répétable** et **automatisée**. Si vous effectuez le basculement de vos machines virtuelles vers Microsoft Azure, l’intégration avec Microsoft Azure Automation étend les plans de récupération et vous offre la possibilité d’exécuter des Runbooks, ce qui vous donne accès à des tâches d’automatisation très puissantes.
 

@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/15/2017
+ms.date: 06/15/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: bee47924092a0b327ef3aa5b936116bf311ce8d7
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: d71fdcf2a054a9b9ac1d74ddd3a6b43d151fa87d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
@@ -262,6 +262,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |IsEnabled|Valeur booléenne (valeur par défaut : false) | Active/désactive le paramètre httpgateway. Le paramètre Httpgateway est désactivé par défaut et cette configuration doit être définie pour l’activer. |
 |ActiveListeners |Valeur Uint (valeur par défaut : 50) | Nombre de lectures à publier dans la file d’attente du serveur HTTP. Ce paramètre contrôle le nombre de requêtes concurrentes que la passerelle HTTP peut satisfaire. |
 |MaxEntityBodySize |Valeur Uint (valeur par défaut : 4194304) |  Ce paramètre indique la taille maximum du corps que l’on peut attendre d’une requête HTTP. Valeur par défaut : 4 Mo. Le paramètre httpgateway ne peut pas traiter une requête si son corps a une taille supérieure à cette valeur. La taille minimum du bloc de lectures est de 4096 octets. Cette valeur doit donc être supérieure ou égale à 4096. |
+|HttpGatewayHealthReportSendInterval |Durée en secondes, la valeur par défaut est 30 | Spécifiez la durée en secondes. Délai à l’issue duquel la passerelle HTTP envoie les rapports d’intégrité cumulés à Health Manager. |
 
 ### <a name="section-name-ktllogger"></a>Nom de la section : KtlLogger
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
@@ -278,10 +279,10 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 |IsEnabled |Valeur booléenne (valeur par défaut : false) | Active/désactive le paramètre HttpApplicationGateway. Le paramètre Httpgateway est désactivé par défaut et cette configuration doit être définie pour l’activer. |
-|NumberOfParallelOperations | Valeur Uint (valeur par défaut : 1000) | Nombre de lectures à publier dans la file d’attente du serveur HTTP. Ce paramètre contrôle le nombre de requêtes concurrentes que la passerelle HTTP peut satisfaire. |
-|DefaultHttpRequestTimeout |Durée en secondes. Valeur par défaut : 60. |Spécifiez la durée en secondes.  Indique le délai d’expiration par défaut des requêtes HTTP traitées par la passerelle HTTP. |
+|NumberOfParallelOperations | Valeur Uint (par défaut : 5000) | Nombre de lectures à publier dans la file d’attente du serveur HTTP. Ce paramètre contrôle le nombre de requêtes concurrentes que la passerelle HTTP peut satisfaire. |
+|DefaultHttpRequestTimeout |Durée en secondes. La valeur par défaut est 120 |Spécifiez la durée en secondes.  Indique le délai d’expiration par défaut des requêtes HTTP traitées par la passerelle HTTP. |
 |ResolveServiceBackoffInterval |Durée en secondes (valeur par défaut : 5) |Spécifiez la durée en secondes.  Indique l’interface d’interruption par défaut avant de retenter une opération du service de résolution ayant échoué. |
-|BodyChunkSize |Valeur Uint (valeur par défaut : 4096) |  Indique la taille en octets du bloc utilisé pour lire le corps. |
+|BodyChunkSize |Valeur Uint (valeur par défaut : 16384) |  Indique la taille en octets du bloc utilisé pour lire le corps. |
 |GatewayAuthCredentialType |Chaîne (valeur par défaut : "None") | Indique le type d’informations d’identification de sécurité à utiliser comme point d’extrémité de la passerelle d’application HTTP. Les valeurs autorisées sont None/X509. |
 |GatewayX509CertificateStoreName |Chaîne (valeur par défaut : "My") | Nom du magasin de certificats X.509 qui contient le certificat de la passerelle d’application HTTP. |
 |GatewayX509CertificateFindType |Chaîne (valeur par défaut : "FindByThumbprint") | Indique comment rechercher un certificat dans le magasin spécifié par GatewayX509CertificateStoreName. Valeur prise en charge : FindByThumbprint; FindBySubjectName. |

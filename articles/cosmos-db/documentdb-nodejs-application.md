@@ -1,10 +1,10 @@
 ---
-title: "Découverte de Node.js - Didacticiel Node.js Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez Node.js ! Ce didacticiel explique comment utiliser Microsoft Azure Cosmos DB pour stocker des données et y accéder à partir d’une application web Express Node.js hébergée sur les sites Web Azure."
-keywords: "Développement d’applications, didacticiel de base de données, apprendre node.js, didacticiel node.js, documentdb, azure, Microsoft azure"
+title: "Générer une application web Node.js pour Azure Cosmos DB | Microsoft Docs"
+description: "Ce didacticiel Node.js explique comment utiliser Microsoft Azure Cosmos DB pour stocker des données et y accéder à partir d’une application web Express Node.js hébergée sur les sites web Azure."
+keywords: "Développement d’applications, didacticiel de base de données, apprendre node.js, didacticiel node.js"
 services: cosmos-db
 documentationcenter: nodejs
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: syamk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 511c9e4d6f68b3e063559acb5996111acd3c653f
+ms.date: 07/06/2017
+ms.author: mimig
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: e5f7697b1069186b9ab6b6594fa5efb069252475
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="_Toc395783175"></a>Création d’une application web Node.js avec Azure Cosmos DB
@@ -50,7 +49,7 @@ Avant de suivre les instructions de cet article, vérifiez que les éléments su
 
    OU
 
-   Une installation locale de [l’émulateur Azure Cosmos DB](local-emulator.md).
+   Une installation locale de [l’émulateur Azure Cosmos DB](local-emulator.md) (Windows uniquement).
 * [Node.js][Node.js] version v0.10.29 ou supérieure.
 * [Générateur Express](http://www.expressjs.com/starter/generator.html) (installation possible via `npm install express-generator -g`)
 * [Git][Git].
@@ -62,7 +61,7 @@ Commençons par créer un compte Azure Cosmos DB. Si vous possédez déjà un co
 
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="_Toc395783178"></a>Étape 2 : Création d’une application Node.js
+## <a name="_Toc395783178"></a>Étape 2 : création d’une application Node.js
 Voyons maintenant comment créer un projet Node.js « Hello World » de base à l’aide de l’infrastructure [Express](http://expressjs.com/) .
 
 1. Ouvrez votre terminal préféré, par exemple l’invite de commande Node.js.
@@ -89,7 +88,7 @@ Le fichier **package.json** est l'un des fichiers créés à la racine du projet
 1. De retour dans le terminal, installez le module **async** via npm.
    
         npm install async --save
-2. Installez le module **documentdb** via npm. Il s'agit du module où se produit toute la magie de DocumentDB.
+2. Installez le module **documentdb** via npm. C’est dans ce module que se produit toute la magie d’Azure Cosmos DB.
    
         npm install documentdb --save
 3. Une vérification rapide du fichier **package.json** de l'application doit faire apparaître les modules supplémentaires. Ce fichier indiquera à Azure les packages à télécharger et à installer lors de l'exécution de votre application. Il doit ressembler à l'exemple ci-dessous.
@@ -391,8 +390,8 @@ Ceci concerne l’ensemble de l’installation et de la configuration initiales.
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the DocumentDB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the DocumentDB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
@@ -435,22 +434,25 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 1. Le fichier **layout.jade** du répertoire **views** sert de modèle global aux autres fichiers **.jade**. Dans cette étape, vous allez le modifier pour utiliser [Twitter Bootstrap](https://github.com/twbs/bootstrap), qui est un kit de ressources qui facilite la conception d'un site web bien présenté. 
 2. Ouvrez le fichier **layout.jade** trouvé dans le dossier **views** et remplacez le contenu par le code suivant :
-   
-        doctype html
-        html
-           head
-             title= title
-             link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-             link(rel='stylesheet', href='/stylesheets/style.css')
-           body
-             nav.navbar.navbar-inverse.navbar-fixed-top
-               div.navbar-header
-                 a.navbar-brand(href='#') My Tasks
-             block content
-             script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-             script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+
+    ```
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body
+        nav.navbar.navbar-inverse.navbar-fixed-top
+          div.navbar-header
+            a.navbar-brand(href='#') My Tasks
+        block content
+        script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+    ```
 
     Ce code demande au moteur **Jade** de générer un rendu HTML pour notre application et crée un **bloc** intitulé **content** dans lequel nous pouvons fournir la mise en page de nos pages de contenu.
+
     Enregistrez et fermez ce fichier **layout.jade** .
 
 3. Ouvrez maintenant le fichier **index.jade** , la vue qui sera utilisée par l'application, et remplacez le contenu du fichier par le code suivant :
@@ -482,44 +484,28 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
                      td #{month + "/" + day + "/" + year}
                      td
                        input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-             button.btn(type="submit") Update tasks
+             button.btn.btn-primary(type="submit") Update tasks
            hr
            form.well(action="/addtask", method="post")
-             label Item Name:
-             input(name="name", type="textbox")
-             label Item Category:
-             input(name="category", type="textbox")
+             .form-group
+               label(for="name") Item Name:
+               input.form-control(name="name", type="textbox")
+             .form-group
+               label(for="category") Item Category:
+               input.form-control(name="category", type="textbox")
              br
              button.btn(type="submit") Add item
    
+
     Ce code étend la mise en page et fournit du contenu pour l’espace réservé **content** que nous avons vu plus haut dans le fichier **layout.jade**.
    
-    Dans cette mise en page, nous avons créé deux fichiers HTML. 
+    Dans cette mise en page, nous avons créé deux fichiers HTML.
+
     Le premier formulaire contient un tableau pour nos données et un bouton qui permet de mettre à jour des éléments en appelant la méthode **/completetask** de notre contrôleur.
+    
     Le deuxième formulaire contient deux champs d'entrée et un bouton qui permet de créer un élément en appelant la méthode **/addtask** de notre contrôleur.
-   
+
     Ceci devrait être suffisant pour que notre application puisse fonctionner.
-4. Ouvrez le fichier **style.css** dans le répertoire **public\stylesheets** et remplacez le code par le suivant :
-   
-        body {
-          padding: 50px;
-          font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-        }
-        a {
-          color: #00B7FF;
-        }
-        .well label {
-          display: block;
-        }
-        .well input {
-          margin-bottom: 5px;
-        }
-        .btn {
-          margin-top: 5px;
-          border: outset 1px #C8C8C8;
-        }
-   
-    Enregistrez et fermez ce fichier **style.css** .
 
 ## <a name="_Toc395783181"></a>Étape 6 : exécution locale de l'application
 1. Pour tester l’application sur votre ordinateur local, exécutez la commande `npm start` dans le terminal pour démarrer votre application, puis actualisez votre page de navigateur [http://localhost: 3000](http://localhost:3000). La page doit maintenant ressembler à l’image ci-dessous :

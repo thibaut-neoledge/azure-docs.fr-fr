@@ -1,6 +1,6 @@
 ---
 title: "Résolution des problèmes d’allocation de service cloud | Microsoft Docs"
-description: "Résolution des problèmes d&quot;échec d&quot;allocation lors du déploiement de services cloud dans Azure"
+description: "Résolution des problèmes d'échec d'allocation lors du déploiement de services cloud dans Azure"
 services: azure-service-management, cloud-services
 documentationcenter: 
 author: simonxjx
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 4/6/2017
+ms.date: 7/26/2017
 ms.author: v-six
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: c91a34eb34a73abe5c5ac2bb6aeb08c818a97856
+ms.contentlocale: fr-fr
 ms.lasthandoff: 11/17/2016
-
 
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Résolution des problèmes d'échec d'allocation lors du déploiement de services cloud dans Azure

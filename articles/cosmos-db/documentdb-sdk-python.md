@@ -1,6 +1,6 @@
 ---
 title: API, SDK et ressources Python Azure Cosmos DB | Microsoft Docs
-description: "Découvrez l&quot;API et le Kit de développement logiciel (SDK) Python, y compris les dates de publication, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Python DocumentDB."
+description: "Découvrez l’API et le Kit de développement logiciel (SDK) Python, y compris les dates de publication, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Python Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 413b8a41ea4d87125e6fa1b46ee86288f7ec8c66
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 70d2550f713ff0e9daed235eb8053589b8682633
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
-# <a name="documentdb-python-sdk-release-notes-and-resources"></a>SDK Python DocumentDB : notes de publication et ressources
+# <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Python Azure Cosmos DB : notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [Flux de modification .NET](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.JS](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -53,13 +53,12 @@ ms.lasthandoff: 05/31/2017
 
 ## <a name="release-notes"></a>Notes de publication
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
-* Ajout de la prise en charge de la fonctionnalité Unité de requête par minute (RU/m).
-* Ajout de la prise en charge d’un nouveau niveau de cohérence nommé ConsistentPrefix.
+* Prise en charge ajoutée pour un nouveau niveau de cohérence nommé ConsistentPrefix.
 
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG).
-* Ajout d’une option permettant de désactiver la vérification SSL pendant son exécution sur l’émulateur DocumentDB.
+* Ajout d’une option permettant de désactiver la vérification SSL pendant son exécution sur l’émulateur Cosmos DB.
 * Suppression de la restriction du module de demandes dépendantes qui devait correspondre exactement à la version 2.10.0.
 * Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
 * Ajout de la prise en charge de l’activation de la journalisation de script pendant l’exécution de la procédure stockée.
@@ -75,7 +74,7 @@ ms.lasthandoff: 05/31/2017
 * Ajout de la prise en charge des requêtes TOP/ORDERBY pour les collections partitionnées.
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
-* Ajout de la prise en charge d’une stratégie de nouvelle tentative pour les requêtes limitées. (Les requêtes limitées reçoivent une exception de taux de requête excessif, code d’erreur 429.) Par défaut, DocumentDB accepte neuf nouvelles tentatives pour chaque requête lorsque le code d’erreur 429 est retourné, conformément au temps retryAfter spécifié dans l’en-tête de réponse. Il est désormais possible de définir un intervalle fixe de nouvelle tentative dans la propriété RetryOptions sur l’objet ConnectionPolicy, si vous souhaitez ignorer le temps retryAfter retourné par le serveur entre chaque nouvelle tentative. DocumentDB attend maintenant au maximum 30 secondes pour chaque requête limitée (quel que soit le nombre de nouvelles tentatives) et renvoie la réponse avec un code d’erreur 429. Cette durée peut également être remplacée dans la propriété RetryOptions sur l’objet ConnectionPolicy.
+* Ajout de la prise en charge d’une stratégie de nouvelle tentative pour les requêtes limitées. (Les requêtes limitées reçoivent une exception de taux de requête excessif, code d’erreur 429.) Par défaut, Azure Cosmos DB accepte neuf nouvelles tentatives pour chaque requête lorsque le code d’erreur 429 est renvoyé, conformément à l’heure de retryAfter spécifiée dans l’en-tête de réponse. Il est désormais possible de définir un intervalle fixe de nouvelle tentative dans la propriété RetryOptions sur l’objet ConnectionPolicy, si vous souhaitez ignorer le temps retryAfter retourné par le serveur entre chaque nouvelle tentative. Azure Cosmos DB attend maintenant au maximum 30 secondes pour chaque requête limitée (quel que soit le nombre de nouvelles tentatives) et renvoie la réponse avec un code d’erreur 429. Cette durée peut également être remplacée dans la propriété RetryOptions sur l’objet ConnectionPolicy.
 * Cosmos DB renvoie maintenant x-ms-throttle-retry-count et x-ms-throttle-retry-wait-time-ms comme en-têtes de réponse dans chaque requête pour signaler le nombre limite de nouvelles tentatives et le cumul de temps d’attente observé par la requête entre les nouvelles tentatives.
 * Suppression de la classe RetryPolicy et de la propriété correspondante (retry_policy) exposées sur la classe document_client, et introduction d’une classe RetryOptions qui expose la propriété RetryOptions sur la classe ConnectionPolicy pouvant être utilisée pour substituer certaines des options de nouvelle tentative par défaut.
 

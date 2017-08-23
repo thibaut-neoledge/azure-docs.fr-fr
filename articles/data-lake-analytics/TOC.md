@@ -18,6 +18,7 @@
 ### [Kit de développement logiciel (SDK) Java](data-lake-analytics-manage-use-java-sdk.md)
 ### [Node.JS](data-lake-analytics-manage-use-nodejs.md)
 ### [Accéder aux journaux de diagnostic](data-lake-analytics-diagnostic-logs.md)
+### [Ajuster les limites de quota](data-lake-analytics-quota-limits.md)
 
 ## Développer des programmes U-SQL
 ### [Concepts de base de U-SQL](data-lake-analytics-u-sql-get-started.md)
@@ -39,6 +40,7 @@
 ### [Guide de programmabilité U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Référence
+## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
@@ -48,9 +50,10 @@
 
 # Ressources
 ## [Blog Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)
-## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Envoyer des commentaires sur UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Tarification](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)

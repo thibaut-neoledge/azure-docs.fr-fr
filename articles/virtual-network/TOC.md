@@ -22,10 +22,6 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [INTERFACE DE LIGNE DE COMMANDE](virtual-networks-create-vnet-arm-cli.md)
 #### [Modèle](virtual-networks-create-vnet-arm-template-click.md)
-#### Classique
-##### [Portail](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [INTERFACE DE LIGNE DE COMMANDE](virtual-networks-create-vnet-classic-cli.md)
 
 ### groupes de sécurité réseau ;
 #### [Portail](virtual-networks-create-nsg-arm-pportal.md)
@@ -99,6 +95,12 @@
 ##### [Zone DMZ avec pare-feu, itinéraires définis par l’utilisateur et groupes de sécurité réseau](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Exemple d’application](virtual-networks-sample-app.md)
 
+### Classique
+#### [Réseau virtuel](create-virtual-network-classic.md)
+##### [Portail](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [INTERFACE DE LIGNE DE COMMANDE](virtual-networks-create-vnet-classic-cli.md)
+
 ## Configuration
 ### Machines virtuelles
 #### [Ajouter ou supprimer des interfaces réseau](virtual-network-network-interface-vm.md)
@@ -140,6 +142,7 @@
 ### [Impossible de supprimer des réseaux virtuels](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # Référence
+## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [PowerShell (classique)](/powershell/module/azure/)
 ## [Interface de ligne de commande Azure](/cli/azure/network)
@@ -158,8 +161,9 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Ressources
-## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Blog sur la mise en réseau](http://azure.microsoft.com/blog/topics/networking)
 ## [Forum sur la mise en réseau](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Tarification](https://azure.microsoft.com/pricing/details/virtual-network)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

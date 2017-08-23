@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 24c345e173ffe3cd215552b604e8b6cc525d8aa7
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 3db5be35b3087bbbe87e623a623e7a10156b932f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Études techniques de l’implémentation client Azure SQL Database

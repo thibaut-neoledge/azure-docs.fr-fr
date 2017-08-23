@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1c6b79c5f67cee5d62c9879bdeec926091253af6
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 93cb0baeab8f13f81257ed1bd32ed08561c54b72
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="azure-active-directory-reporting-latencies---preview"></a>Latences de création de rapports Azure Active Directory - Préversion
+# <a name="azure-active-directory-reporting-latencies"></a>Latences de création de rapports Azure Active Directory
 
-Dans la [version préliminaire](active-directory-preview-explainer.md) d’Azure Active Directory, la création de rapports vous permet d’obtenir toutes les informations dont vous avez besoin pour déterminer quel est l’état de votre environnement. Le temps nécessaire pour que les données de rapport s’affichent dans le portail Azure est également appelé latence. 
+Dans Azure Active Directory, la [création de rapports](active-directory-preview-explainer.md) vous permet d’obtenir toutes les informations dont vous avez besoin pour déterminer l’état de votre environnement. Le temps nécessaire pour que les données de rapport s’affichent dans le portail Azure est également appelé latence. 
 
 Cette rubrique répertorie les informations de latence pour toutes les catégories de rapports dans le portail Azure. 
 
@@ -72,7 +72,7 @@ Le tableau suivant répertorie les informations de latence pour les événements
 | Connexions depuis des adresses IP anonymes |5 minutes |15 minutes |2 heures |
 | Connexions depuis des emplacements non connus |5 minutes |15 minutes |2 heures |
 | Utilisateurs avec des informations d’identification volées |2 heures |4 heures |8 heures |
-| Voyage impossible vers des emplacements inhabituels |2 heures |4 heures |8 heures  |
+| Voyage impossible vers des emplacements inhabituels |5 minutes |1 heure |8 heures  |
 | Connexions depuis des appareils infectés |2 heures |4 heures |8 heures  |
 | Connexions depuis des adresses IP avec des activités suspectes |2 heures |4 heures |8 heures  |
 
@@ -91,3 +91,4 @@ Pour en savoir plus sur les rapports de sécurité dans le portail Azure, consul
 - [Rapport de connexions à risque dans le portail Azure Active Directory ](active-directory-reporting-security-risky-sign-ins.md)
 
 Pour en savoir plus sur les événements à risque, consultez [Événements à risque dans Azure Active Directory](active-directory-reporting-risk-events.md).
+

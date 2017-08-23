@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 05/23/2017
 ms.author: sasubram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: f13f4ac6e32f568fb5f56261b542e0e2c49f5b3d
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 581e5d1fb5fb08d0dc89ed2c85edcb5f0005650b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -28,13 +28,10 @@ ms.lasthandoff: 05/12/2017
 Azure Active Directory (Azure AD) B2B Collaboration subit actuellement les limitations décrites dans le présent article.
 
 ## <a name="possible-double-multi-factor-authentication"></a>Risque de redondance de l’authentification multifacteur
-Avec Azure AD B2B, vous pouvez appliquer l’authentification multifacteur à l’organisation source (l’organisation à l’origine de l’invitation). Les raisons de cette approche sont détaillées dans l’article [Conditional access for B2B collaboration users](active-directory-b2b-mfa-instructions.md) (Accès conditionnel pour les utilisateurs de B2B Collaboration). Cela signifie que, si un partenaire a déjà configuré et appliqué l’authentification multifacteur, ses utilisateurs devront peut-être s’authentifier une fois dans leur organisation d’origine, puis de nouveau dans la vôtre.
-
-Dans une prochaine version, nous prévoyons d’ajouter une stratégie vous permettant d’éviter de vous authentifier deux fois en choisissant de faire confiance à l’authentification multifacteur du partenaire.
-
+Avec Azure AD B2B, vous pouvez appliquer l’authentification multifacteur au niveau de l’organisation de la ressource (l’organisation à l’origine de l’invitation). Les raisons de cette approche sont détaillées dans l’article [Conditional access for B2B collaboration users](active-directory-b2b-mfa-instructions.md) (Accès conditionnel pour les utilisateurs de B2B Collaboration). Si un partenaire a déjà configuré et appliqué l’authentification multifacteur, ses utilisateurs devront peut-être effectuer l’authentification une fois dans leur organisation d’origine, puis de nouveau dans les vôtres.
 
 ## <a name="instant-on"></a>Activation instantanée
-Dans les flux B2B Collaboration, nous ajoutons des utilisateurs au répertoire et les mettons à jour de manière dynamique pendant l’échange d’invitation, l’affectation d’application, etc. Les mises à jour et les écritures se produisent d’ordinaire dans une instance de répertoire et doivent être répliquées entre toutes les instances. La réplication sera terminée une fois toutes les instances mises à jour. Parfois, lorsque l’objet est écrit ou mis à jour dans une instance du répertoire et quand l’appel pour récupérer cet objet est soumis à un équilibrage de charge vers une autre instance, cela peut entraîner des problèmes d’autorisation. Nous avons fait tout notre possible pour éliminer ou réduire ces latences de réplication, mais dans certains cas isolés, elles peuvent tout de même exister. Si cela se produit, actualisez ou recommencez. Si vous écrivez une application à l’aide de notre API, effectuer de nouvelles tentatives avec des temporisations peut être une pratique judicieuse et préventive pour atténuer ce problème.
+Dans les flux B2B Collaboration, nous ajoutons des utilisateurs au répertoire et les mettons à jour de manière dynamique pendant l’échange d’invitation, l’affectation d’application, etc. Les mises à jour et les écritures se produisent d’ordinaire dans une instance de répertoire et doivent être répliquées entre toutes les instances. La réplication est terminée une fois toutes les instances mises à jour. Parfois, lorsque l’objet est écrit ou mis à jour dans une instance et quand l’appel pour récupérer cet objet se fait vers une autre instance, des latences de réplication peuvent se produire. Si cela se produit, actualisez ou recommencez. Si vous écrivez une application à l’aide de notre API, effectuer de nouvelles tentatives avec des temporisations peut être une pratique judicieuse et préventive pour atténuer ce problème.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

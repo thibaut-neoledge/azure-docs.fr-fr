@@ -1,5 +1,5 @@
 ---
-title: "Vous souhaitez passer en revue l’architecture pour la réplication Hyper-V (sans System Center VMM) sur Azure avec Azure Site Recovery ? | Microsoft Docs"
+title: "Passer en revue l’architecture pour la réplication Hyper-V (sans System Center VMM) sur Azure avec Azure Site Recovery | Microsoft Docs"
 description: "Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de machines virtuelles Hyper-V locales (sans VMM) sur Azure avec le service Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 044dfe686de36c56703d126db94d0b4382b85886
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
 
-<a id="step-1-review-the-architecture-for-hyper-v-replication-to-azure" class="xliff"></a>
-
-# Étape 1 : examen de l’architecture pour la réplication de Hyper-V sur Azure
+# <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>Étape 1 : examen de l’architecture pour la réplication de Hyper-V sur Azure
 
 
 Cet article décrit les composants et les processus impliqués dans la réplication des machines virtuelles Hyper-V locales (qui ne sont pas gérées par System Center VMM) sur Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md).
@@ -34,9 +32,7 @@ Publiez des commentaires au bas de cet article, ou sur le [Forum Azure Recovery 
 
 
 
-<a id="architectural-components" class="xliff"></a>
-
-## Composants architecturaux
+## <a name="architectural-components"></a>Composants architecturaux
 
 Un certain nombre de composants sont impliqués dans la réplication des machines virtuelles Hyper-V sur Azure sans VMM.
 
@@ -53,26 +49,20 @@ En savoir plus sur les conditions préalables au déploiement et la configuratio
 ![Composants](./media/hyper-v-site-walkthrough-architecture/arch-onprem-azure-hypervsite.png)
 
 
-<a id="replication-process" class="xliff"></a>
-
-## Processus de réplication
+## <a name="replication-process"></a>Processus de réplication
 
 **Figure 2 : processus de réplication et de récupération pour la réplication de Hyper-V vers Azure**
 
 ![flux de travail](./media/hyper-v-site-walkthrough-architecture/arch-hyperv-azure-workflow.png)
 
-<a id="enable-protection" class="xliff"></a>
-
-### Activer la protection
+### <a name="enable-protection"></a>Activer la protection
 
 1. Une fois que vous activez la protection d’une machine virtuelle Hyper-V, dans le portail Azure ou en local, **l’activation de la protection** démarre.
 2. Le travail vérifie que la machine est conforme à la configuration requise, puis appelle la méthode [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), laquelle configure la réplication avec les paramètres que vous avez configurés.
 3. Le travail démarre la réplication initiale en appelant la méthode [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) pour initialiser une réplication complète de la machine virtuelle et envoyer les disques virtuels de la machine virtuelle sur Azure.
 4. Vous pouvez surveiller le travail dans l'onglet **Travaux**.
  
-<a id="replicate-the-initial-data" class="xliff"></a>
-
-### Répliquer les données initiales
+### <a name="replicate-the-initial-data"></a>Répliquer les données initiales
 
 1. Un [instantané des machines virtuelles Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) a lieu au moment où la réplication initiale est déclenchée.
 2. Les disques durs virtuels sont répliqués un par un jusqu'à ce qu’ils soient copiés sur Azure. Cela peut prendre un certain temps selon la taille de la machine virtuelle et la bande passante réseau. Pour savoir comment optimiser l’utilisation du réseau, consultez la page [Gestion de l’utilisation de la bande passante réseau de protection d’un serveur local vers Azure](https://support.microsoft.com/kb/3056159).
@@ -81,35 +71,27 @@ En savoir plus sur les conditions préalables au déploiement et la configuratio
 5. Lorsque la réplication initiale s’achève, l’instantané de machine virtuelle est supprimé. Les modifications d’ordre différentiel dans le fichier journal sont synchronisées et fusionnées sur le disque parent.
 
 
-<a id="finalize-protection" class="xliff"></a>
-
-### Finalisation de la protection
+### <a name="finalize-protection"></a>Finalisation de la protection
 
 1. Une fois la réplication initiale terminée, le travail **Finaliser la protection sur l’ordinateur virtuel** configure les paramètres réseau et d’autres paramètres de post-réplication pour protéger la machine virtuelle.
 2. Si vous répliquez dans Azure, vous devrez peut-être modifier les paramètres de la machine virtuelle pour la préparer au basculement. À ce stade, vous pouvez exécuter un basculement de test pour vérifier que tout fonctionne comme prévu.
 
-<a id="replicate-the-delta" class="xliff"></a>
-
-### Répliquer le delta
+### <a name="replicate-the-delta"></a>Répliquer le delta
 
 1. La synchronisation delta commence à l’issue de la réplication initiale, selon les paramètres de réplication.
 2. Le dispositif de suivi de réplication des réplicas Hyper-V assure le suivi de ces modifications sur un disque dur virtuel, dans des fichiers .hrl. Chaque disque configuré pour la réplication est associé à un fichier .hrl. Ce journal est envoyé au compte de stockage du client à la fin de la réplication initiale. Lorsqu’un journal est en transit vers Azure, les modifications apportées au disque principal font l’objet d’un suivi dans un autre fichier journal du même répertoire.
 3. Lors de la réplication différentielle et initiale, vous pouvez surveiller la machine virtuelle dans la vue correspondante. [En savoir plus](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
-<a id="synchronize-replication" class="xliff"></a>
-
-### Synchroniser la réplication
+### <a name="synchronize-replication"></a>Synchroniser la réplication
 
 1. Si la réplication différentielle échoue et si une réplication complète est exclue (car elle monopoliserait trop de bande passante ou prendrait trop de temps), une resynchronisation se produit au niveau d’une machine virtuelle. Par exemple, si les fichiers .hrl atteignent 50 % de la taille du disque, la machine virtuelle est marquée pour resynchronisation.
 2.  La resynchronisation limite la quantité de données envoyées en calculant les sommes de contrôle des machines virtuelles sources et cibles et en envoyant les données différentielles uniquement. La resynchronisation utilise un algorithme de segmentation de bloc fixe, dans lequel les fichiers source et cible sont divisés en segments fixes. Le système génère les sommes de contrôle de chaque segment, puis les compare, afin de savoir quels blocs de la source doivent être appliqués à la cible.
 3. Une fois la resynchronisation terminée, la réplication différentielle normale doit reprendre. Par défaut, la resynchronisation est planifiée pour s’exécuter automatiquement en dehors des heures de bureau, mais vous pouvez resynchroniser une machine virtuelle manuellement. Par exemple, la resynchronisation peut reprendre en cas d’interruption du réseau ou autre panne. Pour ce faire, sélectionnez la machine virtuelle dans le portail > **Resynchroniser**.
 
-    ![Resynchronisation manuelle](media/hyper-v-site-walkthrough-architecture/image4.png)
+    ![Resynchronisation manuelle](./media/hyper-v-site-walkthrough-architecture/image4.png)
 
 
-<a id="retry-logic" class="xliff"></a>
-
-### Logique de nouvelle tentative
+### <a name="retry-logic"></a>Logique de nouvelle tentative
 
 Si une erreur de réplication se produit, une nouvelle tentative intégrée est effectuée. Elle s’articule autour de deux catégories :
 
@@ -120,9 +102,7 @@ Si une erreur de réplication se produit, une nouvelle tentative intégrée est 
 
 
 
-<a id="failover-and-failback-process" class="xliff"></a>
-
-## Processus de basculement et de restauration automatique
+## <a name="failover-and-failback-process"></a>Processus de basculement et de restauration automatique
 
 1. Vous pouvez effectuer un [basculement](site-recovery-failover.md) planifié ou non planifié vers Azure à partir de machines virtuelles Hyper-V locales. Si vous exécutez un basculement planifié, les machines virtuelles sources sont arrêtées pour éviter toute perte de données.
 2. Vous pouvez basculer sur une seule machine ou créer des [plans de récupération](site-recovery-create-recovery-plans.md) pour orchestrer le basculement de plusieurs machines.
@@ -133,9 +113,7 @@ Si une erreur de réplication se produit, une nouvelle tentative intégrée est 
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Accédez à l’[Étape 2 : passer en revue les conditions préalables au déploiement](hyper-v-site-walkthrough-prerequisites.md)
 

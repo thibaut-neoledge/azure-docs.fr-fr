@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a5b845a93f318b991e14705f0fadea3acd802ced
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 766d327a87ed13e04166d71c3d9ae0a1e7a66d19
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -33,11 +34,11 @@ Cette rubrique décrit comment utiliser la commande [docker-machine](https://doc
 ## <a name="create-vms-with-docker-machine"></a>Créer des machines virtuelles avec Docker Machine
 Créez des machines virtuelles d’hôte Docker sans Azure avec la commande `docker-machine create` en utilisant le pilote `azure`. 
 
-Le pilote Azure nécessitera votre ID d’abonnement. Vous pouvez utiliser l’[interface de ligne de commande Azure](cli-install-nodejs.md) ou le [Portail Azure](https://portal.azure.com) pour récupérer votre abonnement Azure. 
+Le pilote Azure nécessite votre ID d’abonnement. Vous pouvez utiliser l’[interface de ligne de commande Azure](cli-install-nodejs.md) ou le [Portail Azure](https://portal.azure.com) pour récupérer votre abonnement Azure. 
 
 **Utilisation du portail Azure**
 
-* Sélectionnez Abonnements dans la page de navigation de gauche, puis copiez l’ID d’abonnement.
+* Sélectionnez **Abonnements** dans la page de navigation de gauche, puis copiez l’ID d’abonnement.
 
 **Utilisation de l’interface de ligne de commande Azure (CLI)**
 
@@ -48,7 +49,7 @@ Vous pouvez également consulter la [Documentation Docker Azure pilote](https://
 
 L’exemple suivant repose sur les [valeurs par défaut](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22), mais il définit de façon facultative les valeurs suivantes : 
 
-* azure-dns pour le nom associé à l’adresse IP publique et aux certificats générés.  La machine virtuelle peut alors être éteinte en toute sécurité, libérer l’adresse IP dynamique et donner la possibilité de se reconnecter après le redémarrage de la machine virtuelle avec une nouvelle adresse IP.  Le préfixe du nom doit être unique pour cette région UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
+* azure-dns pour le nom associé à l’adresse IP publique et aux certificats générés. Il s’agit du nom DNS de votre machine virtuelle. La machine virtuelle peut alors être éteinte en toute sécurité, libérer l’adresse IP dynamique et donner la possibilité de se reconnecter après le redémarrage de la machine virtuelle avec une nouvelle adresse IP. Le préfixe du nom doit être unique pour cette région UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
 * Ouverture du port 80 sur la machine virtuelle pour l’accès sortant à Internet
 * Taille de la machine virtuelle pour utiliser le stockage Premium plus rapide
 * Stockage Premium utilisé pour le disque de la machine virtuelle
@@ -107,7 +108,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
 ```
 
-Pour vérifier le conteneur en cours d'exécution, saisissez `docker-machine ip <VM name>` pour rechercher l'adresse IP à saisir dans le navigateur.
+Pour connaître le conteneur en cours d’exécution, saisissez `docker-machine ip <VM name>` pour rechercher l’adresse IP à saisir dans le navigateur :
 
 ```
 PS C:\> docker-machine ip MyDockerHost
@@ -117,7 +118,7 @@ PS C:\> docker-machine ip MyDockerHost
 ![Exécution d’un conteneur ngnix](./media/vs-azure-tools-docker-machine-azure-config/nginxsuccess.png)
 
 ## <a name="summary"></a>Résumé
-Avec docker-machine, vous pouvez facilement approvisionner des hôtes Docker dans Azure pour vos validations d’hôte Docker individuelles.
+Avec docker-machine, vous pouvez facilement approvisionner des hôtes Docker dans Azure pour chacune de vos validations d’hôte Docker.
 Pour l’hébergement de production de conteneurs, consultez le [Service de conteneur Azure](http://aka.ms/AzureContainerService)
 
 Pour développer des applications .NET Core avec Visual Studio, consultez [Outils Docker pour Visual Studio](http://aka.ms/DockerToolsForVS)

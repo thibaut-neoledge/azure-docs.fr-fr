@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 397f3e75830acf46b29ac864c77ed3160f4e01e4
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 8cca857314ecf37ef51700fd25aef228515ecd0a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/14/2017
 
 ---
 
@@ -74,6 +74,8 @@ Limitations
 * La protection de groupe de sécurité réseau pour IPv4 est prise en charge dans les déploiements à double pile (IPv4 + IPv6). Les groupes de sécurité réseau ne s’appliquent pas aux points de terminaison IPv6.
 * Le point de terminaison IPv6 sur la machine virtuelle n’est pas exposé directement à Internet. Il se trouve derrière un équilibreur de charge. Seuls les ports spécifiés dans les règles d’équilibrage de charge sont accessibles via IPv6.
 * La modification du paramètre IdleTimeout pour IPv6 n’est **pas prise en charge pour le moment**. La valeur par défaut est de quatre minutes.
+* La modification du paramètre loadDistributionMethod pour IPv6 n’est **pas prise en charge pour le moment**.
+* Les adresses IP IPv6 réservées (où IPAllocationMethod = static) ne sont **pas prises en charge pour le moment**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

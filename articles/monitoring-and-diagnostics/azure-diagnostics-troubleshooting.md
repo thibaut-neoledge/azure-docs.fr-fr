@@ -1,6 +1,6 @@
 ---
 title: "Résolution des problèmes des diagnostics Azure | Microsoft Docs"
-description: "Résolution des problèmes lors de l&quot;utilisation des diagnostics Azure dans Azure Virtual Machines, Service Fabric ou Cloud Services."
+description: "Résolution des problèmes lors de l'utilisation des diagnostics Azure dans Azure Virtual Machines, Service Fabric ou Cloud Services."
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 07/12/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 0764b9f3ac262b7c65944d6e2c82490daefa54c3
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: df53e92b877b4790bb700f176a1988d265ec4678
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes des diagnostics Azure
@@ -43,6 +42,7 @@ Voici les chemins d’accès aux journaux et artefacts importants. Nous y faison
 | **Fichier de configuration de l’agent de surveillance** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Package d’extension Azure Diagnostics** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Chemin d’accès à l’utilitaire de collecte des journaux** | %SystemDrive%\Packages\GuestAgent\ |
+| **Fichier journal MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Machines virtuelles
 | Artefact | Chemin |
@@ -54,9 +54,12 @@ Voici les chemins d’accès aux journaux et artefacts importants. Nous y faison
 | **Fichier d’état** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Package d’extension Azure Diagnostics** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Chemin d’accès à l’utilitaire de collecte des journaux** | C:\WindowsAzure\Packages |
+| **Fichier journal MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics ne démarre pas
-Regardez les fichiers **DiagnosticsPluginLauncher.log** et **DiagnosticsPlugin.log** à l’emplacement des fichiers journaux indiqués ci-dessous pour en savoir plus sur les raisons de l’échec du démarrage des diagnostics.  
+Regardez les fichiers **DiagnosticsPluginLauncher.log** et **DiagnosticsPlugin.log** à l’emplacement des fichiers journaux indiqués ci-dessous pour en savoir plus sur les raisons de l’échec du démarrage des diagnostics. 
+
+Si ces journaux indiquent `Monitoring Agent not reporting success after launch`, cela signifie que le lancement de MonAgentHost.exe a échoué. Consultez les journaux correspondant à l’emplacement indiqué pour `MonAgentHost log file` dans la section ci-dessus.
 
 La dernière ligne des fichiers journaux contient le code de sortie.  
 
@@ -86,13 +89,13 @@ La configuration des diagnostics contient la partie qui demande la collecte d’
 - **Compteurs de performances** : ouvrez PerfMon et vérifiez le compteur.
 - **Journaux de suivi** : activez le Bureau à distance sur la machine virtuelle et ajoutez un élément TextWriterTraceListener dans le fichier de configuration de l’application.  Consultez la page web http://msdn.microsoft.com/fr-fr/library/sk36c28t.aspx pour configurer l’écouteur de texte.  Vérifiez que l’élément `<trace>` a la valeur `<trace autoflush="true">`.<br />
 Si vous ne voyez pas de journaux de suivi générés, suivez les étapes décrites dans la section [En savoir plus sur les journaux de suivi manquants](#more-about-trace-logs-missing).
- - **Traces ETW** : activez le Bureau à distance sur la machine virtuelle et installez PerfView.  Dans PerfView, exécutez File (Fichier) -> User Command (Commande utilisateur) -> Listen etwprovider1, etwprovider2, etc. (Écouter etwprovider1, etwprovider2, etc.).  Notez que la commande Listen (Écouter) respecte la casse et qu’il ne peut y avoir d’espaces entre les listes séparées par des virgules des fournisseurs ETW.  En cas d’échec de l’exécution de la commande, vous pouvez cliquer sur le bouton « Log » (Journal) dans l’angle inférieur droit de l’outil PerfView pour voir ce qui était attendu et le résultat final de l’exécution.  En supposant que l’entrée soit correcte, une nouvelle fenêtre s’affiche, et vous commencez à voir les traces ETW dans les quelques secondes qui suivent.
+- **Traces ETW** : activez le Bureau à distance sur la machine virtuelle et installez PerfView.  Dans PerfView, exécutez File (Fichier) -> User Command (Commande utilisateur) -> Listen etwprovider1, etwprovider2, etc. (Écouter etwprovider1, etwprovider2, etc.).  Notez que la commande Listen (Écouter) respecte la casse et qu’il ne peut y avoir d’espaces entre les listes séparées par des virgules des fournisseurs ETW.  En cas d’échec de l’exécution de la commande, vous pouvez cliquer sur le bouton « Log » (Journal) dans l’angle inférieur droit de l’outil PerfView pour voir ce qui était attendu et le résultat final de l’exécution.  En supposant que l’entrée soit correcte, une nouvelle fenêtre s’affiche, et vous commencez à voir les traces ETW dans les quelques secondes qui suivent.
 - **Journaux des événements** : activez le Bureau à distance sur la machine virtuelle. Ouvrez `Event Viewer` et assurez-vous que les événements existent.
 #### <a name="is-data-getting-captured-locally"></a>Capture locale des données :
 À présent, vérifiez que les données sont capturées localement.
 Les données sont stockées localement dans les fichiers `*.tsf` dans [le magasin local des données de diagnostic](#log-artifacts-path). Différents types de journaux sont collectés dans différents fichiers `.tsf`. Les noms sont semblables à ceux des tableaux du stockage Azure. Par exemple, `Performance Counters` est collecté dans le fichier `PerformanceCountersTable.tsf`, et les journaux des événements sont collectés dans le fichier `WindowsEventLogsTable.tsf`. Suivez les instructions indiquées dans la section [Extraction locale des journaux](#local-log-extraction) pour ouvrir les fichiers de la collection locale, et assurez-vous qu’ils sont collectés sur le disque.
 
-Si les journaux ne sont pas collectés localement et que vous avez déjà vérifié que l’hôte génère des données, il s’agit probablement d’un problème de configuration. Vérifiez la section appropriée de votre configuration avec attention. Passez également en revue la configuration générée pour MonitoringAgent [MaConfig.xml](#log-artifacts-path) et vérifiez qu’il existe une section décrivant la source de journal appropriée et qu’elle n’est pas perdue au cours de la conversion entre la configuration d’Azure Diagnostics et la configuration de l’agent de surveillance.
+Si les journaux ne sont pas collectés localement et que vous avez déjà vérifié que l’hôte génère des données, il s’agit probablement d’un problème de configuration. Vérifiez attentivement la section appropriée de votre configuration. Passez également en revue la configuration générée pour MonitoringAgent [MaConfig.xml](#log-artifacts-path) et vérifiez qu’il existe une section décrivant la source de journal appropriée et qu’elle n’est pas perdue au cours de la conversion entre la configuration d’Azure Diagnostics et la configuration de l’agent de surveillance.
 #### <a name="is-data-getting-transferred"></a>Transfert des données :
 Si vous avez vérifié que les données sont capturées localement, mais qu’elles n’apparaissent toujours pas dans votre compte de stockage : 
 - Avant toute chose, vérifiez que vous avez fourni un compte de stockage correct et que vous n’avez pas renouvelé les clés, etc. correspondant au compte de stockage donné. Pour les services cloud, il arrive parfois que les utilisateurs ne mettent pas à jour le paramètre `useDevelopmentStorage=true`.
@@ -241,4 +244,3 @@ Par défaut, le portail des machines virtuelles affiche certains compteurs de pe
 - Si vous utilisez des caractères génériques (\*) dans les noms de compteur de performances, le portail ne peut pas mettre en corrélation le compteur configuré et le compteur collecté.
 
 **Atténuation** : modifiez la langue de la machine pour la définir sur l’anglais pour les comptes système. Sélectionnez Panneau de configuration -> Région -> Administration -> Paramètres de copie ->, puis décochez la case « Écran d’accueil et comptes système » afin que la langue personnalisée ne soit pas appliquée au compte système. Veillez également à ne pas utiliser de caractères génériques si vous souhaitez que le portail soit votre expérience de consommation principale.
-

@@ -15,16 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 2ec31c5444f72c7255d8925bdb3ea85854cfaf1a
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 19be1d693fe13af0f6c1ab0cb6f7bc829b9fad5a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Configuration d’un cluster Windows RDMA avec HPC Pack pour exécuter des applications MPI
-Configurez un cluster RDMA Windows dans Azure avec [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) et [des instances de série H ou de série A nécessitant beaucoup de ressources système](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour exécuter des applications MPI (Message Passing Interface) parallèles. Lorsque vous configurez des nœuds Windows Server compatibles RDMA dans un cluster HPC Pack, les applications MPI communiquent efficacement sur un réseau à latence faible et à débit élevé dans Azure, reposant sur la technologie d’accès direct à la mémoire à distance (RDMA).
+Configurez un cluster RDMA Windows dans Azure avec [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) et des [tailles de machines virtuelles de calcul haute performance](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour exécuter des applications MPI (Message Passing Interface) parallèles. Lorsque vous configurez des nœuds Windows Server compatibles RDMA dans un cluster HPC Pack, les applications MPI communiquent efficacement sur un réseau à latence faible et à débit élevé dans Azure, reposant sur la technologie d’accès direct à la mémoire à distance (RDMA).
 
 Si vous souhaitez exécuter des charges de travail MPI sur des machines virtuelles Linux qui accèdent au réseau Azure RDMA, consultez [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](../../linux/classic/rdma-cluster.md).
 
@@ -36,7 +35,7 @@ Cet article présente deux scénarios, ainsi que des liens vers des instructions
 * Scénario 1 Déployer des instances de rôle de travail nécessitant beaucoup de ressources système (PaaS)
 * Scénario 2 Déployer des nœuds de calcul sur des machines virtuelles nécessitant beaucoup de ressources système (IaaS)
 
-Pour connaître les conditions préalables à l’utilisation d’instances nécessitant beaucoup de ressources système avec Windows, consultez [À propos des machines virtuelles de série H et de série A nécessitant beaucoup de ressources système](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pour connaître les conditions préalables à l’utilisation d’instances nécessitant beaucoup de ressources système avec Windows, consultez [Tailles de machines virtuelles de calcul haute performance](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>Scénario 1 : Déployer des instances de rôle de travail nécessitant beaucoup de ressources système (PaaS)
 À partir d’un cluster HPC Pack existant, ajoutez des ressources de calcul supplémentaires dans les instances de rôle de travail Azure (nœuds Azure) en cours d’exécution dans un service cloud (PaaS). Cette fonctionnalité, également appelée « Intégration à Azure » à partir de HPC Pack, prend en charge une plage de tailles d’instances de rôle de travail. Lors de l’ajout des nœuds Azure, spécifiez l’une des tailles compatibles RDMA.
@@ -103,7 +102,7 @@ Dans ce scénario, vous déployez le nœud principal HPC Pack et les nœuds de c
    * **Système d’exploitation Windows Server** : pour prendre en charge la connectivité RDMA, spécifiez un système d’exploitation Windows Server 2012 R2 ou Windows Server 2012 pour les machines virtuelles de nœud de calcul.
    * **Services cloud** : nous vous recommandons de déployer votre nœud principal dans un service cloud et vos nœuds de calcul dans un autre service cloud.
    * **Taille du nœud principal** : pour ce scénario, considérez une taille d’au moins A4 (très grande) pour le nœud principal.
-   * **Extension HpcVmDrivers** : le script de déploiement installe l’agent de machine virtuelle Azure et l’extension HpcVmDrivers automatiquement lors du déploiement de nœuds de calcul de taille A8 ou A9 avec un système d’exploitation Windows Server. HpcVmDrivers installe des pilotes sur des machines virtuelles à nœud de calcul afin qu’ils puissent se connecter au réseau RDMA. Sur les machines virtuelles de série H compatibles RDMA, vous devez installer manuellement l’extension HpcVmDrivers. Voir [About H-series and compute-intensive A-series VMs](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network)(À propos des machines virtuelles de série H ou de calcul intensif de série A).
+   * **Extension HpcVmDrivers** : le script de déploiement installe l’agent de machine virtuelle Azure et l’extension HpcVmDrivers automatiquement lors du déploiement de nœuds de calcul de taille A8 ou A9 avec un système d’exploitation Windows Server. HpcVmDrivers installe des pilotes sur des machines virtuelles à nœud de calcul afin qu’ils puissent se connecter au réseau RDMA. Sur les machines virtuelles de série H compatibles RDMA, vous devez installer manuellement l’extension HpcVmDrivers. Consultez [Tailles de machines virtuelles de calcul haute performance](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
    * **Configuration du réseau de clusters** : le script de déploiement définit automatiquement le cluster HPC Pack dans la topologie 5 (tous les nœuds sur le réseau d’entreprise). Cette topologie est requise pour tous les déploiements de cluster HPC Pack dans les machines virtuelles. Ne modifiez pas la topologie de réseau de clusters ultérieurement.
 2. **Mettre en ligne les nœuds de calcul pour exécuter des travaux**
    

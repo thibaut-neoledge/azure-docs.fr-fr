@@ -3,8 +3,8 @@ title: "Créer une application Cordova sur Azure App Service Mobile Apps | Micro
 description: "Suivez ce didacticiel pour commencer à utiliser des backends d’applications mobiles Azure pour le développement Apache Cordova"
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 tags: 
 keywords: cordova, javascript, mobile, client
@@ -14,13 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
-ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
-ms.lasthandoff: 12/01/2016
-
+ms.date: 07/07/2017
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 251e36364d0440890dc30dc5267be9f775d95933
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="create-an-apache-cordova-app"></a>Créer une application Apache Cordova
@@ -34,7 +34,7 @@ Le suivi de ce didacticiel est un prérequis pour tous les autres didacticiels A
 ## <a name="prerequisites"></a>Composants requis
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
-* Un PC avec [Visual Studio Community 2015] ou version ultérieure.
+* Un PC équipé de [Visual Studio Community 2017] ou d’une version plus récente.
 * [Visual Studio Tools pour Apache Cordova].
 * Un [compte Azure actif](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -74,7 +74,7 @@ Découvrez comment utiliser les Kits de développement logiciel.
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: http://www.visualstudio.com/
 [Visual Studio Tools pour Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Données hors connexion]: app-service-mobile-offline-data-sync.md
 [Authentification]: app-service-mobile-auth.md

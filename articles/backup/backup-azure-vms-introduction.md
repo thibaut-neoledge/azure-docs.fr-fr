@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/22/2017
+ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 6d390a75df51a22aa4e60094f3e4ba945a5725ad
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: d44bb8207edae22ab9d6b1c7b9a3e4da888aa06e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure
@@ -40,6 +39,7 @@ Une fois le transfert de données terminé, l’instantané est supprimé et un 
 > [!NOTE]
 > 1. Pendant le processus de sauvegarde, le service Sauvegarde Azure n’inclut pas le disque temporaire attaché à la machine virtuelle. Pour plus d’informations, voir le blog relatif au [stockage temporaire](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 > 2. Étant donné que le service Sauvegarde Azure prend un instantané au niveau du stockage et transfère celui-ci vers le coffre de sauvegarde, ne modifiez pas les clés du compte de stockage avant la fin du travail de sauvegarde.
+> 3. Pour les machines virtuelles premium, nous copions la capture instantanée vers le compte de stockage. L’objectif est de s’assurer que le service Azure Backup dispose d’un nombre suffisant d’opérations d’E/S par seconde pour transférer des données vers l’archivage. Cette copie supplémentaire du stockage est facturée en fonction de la taille allouée de machine virtuelle. 
 >
 
 ### <a name="data-consistency"></a>Cohérence des données

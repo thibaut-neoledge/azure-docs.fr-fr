@@ -11,15 +11,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 6/14/2017
+ms.topic: article
+ms.date: 8/2/2017
 ms.author: markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 61328e32763faea90074fc6d499e660c4109ab6d
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 1a0e738cfac01d90e91959412b1ad5591705f617
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="first-look-backing-up-azure-virtual-machines"></a>Découverte : sauvegarde des machines virtuelles Azure
@@ -49,8 +48,8 @@ Un coffre de sauvegarde est une entité qui stocke les sauvegardes et les points
 
 > [!IMPORTANT]
 > Depuis mars 2017, vous ne pouvez plus utiliser le portail Classic pour créer des coffres de sauvegarde.
-> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> **À compter du 1er novembre 2017** :
->- Les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
+> Vous pouvez mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> Au-delà du 15 octobre 2017, vous ne pouvez plus vous servir de PowerShell pour créer des coffres de sauvegarde. **D’ici le 1er novembre 2017** :
+>- Tous les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
 >- Vous ne pourrez plus accéder à vos données de sauvegarde depuis le portail Classic. Au lieu de cela, vous devrez utiliser le portail Azure pour accéder à ces données au sein de coffres Recovery Services.
 >
 

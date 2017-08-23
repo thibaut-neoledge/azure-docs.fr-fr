@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 9c56914091ecac3eb97977dd5afc2dc4588a052c
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2eba6fb24c11add12ac16d04d3445e19a3486216
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurer une passerelle d’application pour le déchargement SSL en utilisant le modèle de déploiement classique
@@ -26,6 +27,7 @@ ms.openlocfilehash: 9c56914091ecac3eb97977dd5afc2dc4588a052c
 > * [Portail Azure](application-gateway-ssl-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
+> * [Azure CLI 2.0](application-gateway-ssl-cli.md)
 
 Il est possible de configurer Azure Application Gateway de façon à mettre fin à la session SSL (Secure Sockets Layer) sur la passerelle pour éviter les tâches de déchiffrement SSL coûteuses au niveau de la batterie de serveurs web. Le déchargement SSL simplifie aussi la configuration de serveur principal et la gestion de l’application web.
 
@@ -210,10 +212,5 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 
 * [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

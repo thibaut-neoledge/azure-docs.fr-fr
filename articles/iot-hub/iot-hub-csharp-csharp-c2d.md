@@ -1,6 +1,6 @@
 ---
 title: "Messages cloud-à-appareil avec Azure IoT Hub (.NET) | Microsoft Docs"
-description: "Envoi de messages cloud-à-appareil vers un appareil depuis un Azure IoT Hub à l’aide des kits de développement logiciel Azure IoT pour .NET. Vous modifiez une application d’appareil simulé pour recevoir des messages cloud-à-appareil et modifiez une application principale pour envoyer des messages cloud-à-appareil."
+description: "Envoi de messages cloud-à-appareil vers un appareil depuis un Azure IoT Hub à l’aide des kits de développement logiciel Azure IoT pour .NET. Vous modifiez une application d’appareil pour recevoir des messages cloud-à-appareil et modifiez une application principale pour envoyer des messages cloud-à-appareil."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 150e7a1b2f86594d91b044b1b697f035ed1d270b
-ms.lasthandoff: 03/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 6ae1dad67b34127aadcb5d093a5adeaa3394879c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/14/2017
 
 ---
-# <a name="send-messages-from-the-cloud-to-your-simulated-device-with-iot-hub-net"></a>Envoyer des messages à partir du cloud vers votre appareil simulé avec IoT Hub (.NET)
+# <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envoyer des messages du cloud à votre appareil avec IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Introduction
-Azure IoT Hub est un service entièrement géré qui permet d’autoriser des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. Le didacticiel [Prise en main d’IoT Hub] explique comment créer un concentrateur IoT, l’utiliser pour configurer une identité d’appareil et coder une simulation d’application d’appareil qui envoie des messages d’appareils à cloud.
+Azure IoT Hub est un service entièrement géré qui permet d’autoriser des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. Le didacticiel [Prise en main d’Azure IoT Hub] explique comment créer un IoT Hub, l’utiliser pour configurer une identité d’appareil et coder une application d’appareil qui envoie des messages appareil-à-cloud.
 
-Ce didacticiel s’appuie sur l’article [Prise en main d’IoT Hub]. Cette rubrique vous explique les procédures suivantes :
+Ce didacticiel s’appuie sur l’article [Prise en main d’Azure IoT Hub]. Cette rubrique vous explique les procédures suivantes :
 
 * À partir du serveur principal de votre application, envoyez des messages cloud-à-appareil vers un appareil unique via IoT Hub.
 * Recevez des messages cloud-à-appareil sur un appareil.
@@ -37,8 +37,8 @@ Vous trouverez des informations supplémentaires sur les messages du cloud vers 
 
 À la fin de ce didacticiel, vous exécutez deux applications console .NET :
 
-* **SimulatedDevice**, une version modifiée de l’application créée dans [Prise en main d’IoT Hub]qui se connecte à votre hub IoT et reçoit les messages entre cloud et appareils.
-* **SendCloudToDevice**, qui envoie un message cloud-à-appareil à l’application de l’appareil simulé par le biais d’IoT Hub, puis reçoit son accusé de réception.
+* **SimulatedDevice**, une version modifiée de l’application créée dans [Prise en main d’Azure IoT Hub]qui se connecte à votre hub IoT et reçoit les messages entre cloud et appareils.
+* **SendCloudToDevice**, qui envoie un message cloud-à-appareil à l’application d’appareil par le biais d’IoT Hub, puis reçoit son accusé de réception.
 
 > [!NOTE]
 > IoT Hub offre la prise en charge de Kits de développement logiciel (SDK) pour plusieurs plateformes d’appareils et plusieurs langages (notamment C, Java et Javascript) par le biais des [Kits Azure IoT device SDK]. Pour obtenir des instructions détaillées sur la façon de connecter votre appareil au code de ce didacticiel et à Azure IoT Hub de manière générale, consultez le [Guide du développeur IoT Hub].
@@ -50,8 +50,8 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * Visual Studio 2015 ou Visual Studio 2017
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
 
-## <a name="receive-messages-in-the-simulated-device-app"></a>Réception de messages dans l’application de l’appareil simulé
-Dans cette section, vous allez modifier l’application de l’appareil simulé que vous avez créée dans [Prise en main d’IoT Hub] pour recevoir des messages cloud-à-appareil à partir d’IoT Hub.
+## <a name="receive-messages-in-the-device-app"></a>Recevoir des messages dans l’application d’appareil
+Dans cette section, vous allez modifier l’application d’appareil que créée dans [Prise en main d’Azure IoT Hub] pour recevoir des messages cloud-à-appareil à partir de l’IoT Hub.
 
 1. Dans Visual Studio, dans le projet **SimulatedDevice**, ajoutez la méthode suivante à la classe **Program**.
    
@@ -89,7 +89,7 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 > 
 
 ## <a name="send-a-cloud-to-device-message"></a>Envoi d’un message cloud vers appareil
-Dans cette section, vous écrivez une application console .NET qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé.
+Dans cette section, vous écrivez une application console .NET qui envoie des messages cloud-à-appareil à l’application d’appareil.
 
 1. Dans la solution Visual Studio actuelle, créez un projet d’application de bureau Visual C# à l’aide du modèle de projet **d’application de console** . Nommez le projet **SendCloudToDevice**.
    
@@ -104,7 +104,7 @@ Dans cette section, vous écrivez une application console .NET qui envoie des me
 4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
    
         using Microsoft.Azure.Devices;
-5. Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur d’espace réservé par la chaîne de connexion du concentrateur IoT de la section [Prise en main d’IoT Hub] :
+5. Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur d’espace réservé par la chaîne de connexion du concentrateur IoT de la section [Prise en main d’Azure IoT Hub] :
    
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -116,7 +116,7 @@ Dans cette section, vous écrivez une application console .NET qui envoie des me
             await serviceClient.SendAsync("myFirstDevice", commandMessage);
         }
    
-    Cette méthode envoie un nouveau message cloud-à-appareil à l’appareil avec l’ID `myFirstDevice`. Modifiez ce paramètre uniquement si vous avez modifié celui utilisé dans [Prise en main d’IoT Hub].
+    Cette méthode envoie un nouveau message cloud-à-appareil à l’appareil avec l’ID `myFirstDevice`. Modifiez ce paramètre uniquement si vous avez modifié celui utilisé dans [Prise en main d’Azure IoT Hub].
 7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
    
         Console.WriteLine("Send Cloud-to-Device message\n");
@@ -127,7 +127,7 @@ Dans cette section, vous écrivez une application console .NET qui envoie des me
         SendCloudToDeviceMessageAsync().Wait();
         Console.ReadLine();
 8. Dans Visual Studio, cliquez avec le bouton droit sur votre solution et sélectionnez **Définir les projets de démarrage...**. Sélectionnez **Plusieurs projets de démarrage**, puis l’action **Démarrer** pour les applications **ReadDeviceToCloudMessages**, **SimulatedDevice** et **SendCloudToDevice**.
-9. Appuyez sur **F5**. Les trois applications doivent démarrer. Sélectionnez les fenêtres **SendCloudToDevice**, puis appuyez sur **Entrée**. Vous devez voir le message reçu par l’application de l’appareil simulé.
+9. Appuyez sur **F5**. Les trois applications doivent démarrer. Sélectionnez les fenêtres **SendCloudToDevice**, puis appuyez sur **Entrée**. Vous devez voir le message reçu par l’application d’appareil.
    
    ![Application recevant le message][21]
 
@@ -163,7 +163,7 @@ Dans cette section, vous modifiez l’application **SendCloudToDevice** de mani�
 3. Pour obtenir des commentaires sur la remise de votre message cloud-à-appareil, vous devez spécifier une propriété dans la méthode **SendCloudToDeviceMessageAsync** . Ajoutez la ligne suivante, immédiatement après la ligne `var commandMessage = new Message(...);` :
    
         commandMessage.Ack = DeliveryAcknowledgement.Full;
-4. Exécutez les applications en appuyant sur **F5**. Les trois applications doivent démarrer. Sélectionnez les fenêtres **SendCloudToDevice**, puis appuyez sur **Entrée**. Vous devez voir le message reçu par l’application de l’appareil simulé et, après quelques secondes, le message de commentaires reçu par votre application **SendCloudToDevice** .
+4. Exécutez les applications en appuyant sur **F5**. Les trois applications doivent démarrer. Sélectionnez les fenêtres **SendCloudToDevice**, puis appuyez sur **Entrée**. Vous devez voir le message reçu par l’application d’appareil et, après quelques secondes, le message de commentaires reçu par votre application **SendCloudToDevice**.
    
    ![Application recevant le message][22]
 
@@ -192,7 +192,7 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 
 [Guide du développeur IoT Hub]: iot-hub-devguide.md
-[Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Prise en main d’Azure IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure IoT Suite]: https://docs.microsoft.com/en-us/azure/iot-suite/
 [Kits Azure IoT device SDK]: iot-hub-devguide-sdks.md

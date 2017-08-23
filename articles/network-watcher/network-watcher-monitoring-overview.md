@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 07/11/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: aabc0cf743487752312f5e1b078837545169e964
-ms.lasthandoff: 03/31/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 31c1bbdd04423d98dba0f8da435930ad3fed52e2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -47,30 +48,14 @@ Network Watcher propose actuellement les fonctionnalités suivantes :
 * **[Résolution des problèmes de connexion et de passerelle de réseau virtuel](network-watcher-troubleshoot-manage-rest.md)** - Offre la possibilité de résoudre les problèmes associés aux connexions et passerelles de réseau virtuel.
 * **[Limites d’abonnement réseau](#network-subscription-limits)** - Vous permet d’afficher l’utilisation des ressources réseau par rapport aux limites.
 * **[Configuration du journal de diagnostic](#diagnostic-logs)** - Fournit un seul volet pour activer ou désactiver les journaux de diagnostic pour les ressources réseau dans un groupe de ressources.
+* **[Connectivité (préversion)](network-watcher-connectivity-overview.md)**  - Vérifie la possibilité d’établir une connexion TCP directe à partir d’une machine virtuelle à un point de terminaison.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Contrôle d’accès basé sur les rôles dans Network Watcher
 
 Network Watcher utilise le [modèle de contrôle d’accès basé sur les rôles](../active-directory/role-based-access-control-what-is.md). Les autorisations suivantes sont exigées par Network Watcher. Il est important de s’assurer que le rôle utilisé pour démarrer les API de Network Watcher ou utiliser Network Watcher depuis le portail dispose de l’accès requis.
 
-|Ressource| Autorisation|
-|---|---|
-|Microsoft.Storage/ |Lire|
-|Microsoft.Authorization/| Lire|
-|Microsoft.Resources/subscriptions/resourceGroups/| Lire|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | Action|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |Action|
-|Microsoft.Storage/storageAccounts/listKeys/ | Action|
-|Microsoft.Compute/virtualMachines/ |Lire|
-|Microsoft.Compute/virtualMachines/ |Écrire|
-|Microsoft.Compute/virtualMachineScaleSets/ |Lire|
-|Microsoft.Compute/virtualMachineScaleSets/ |Écrire|
-|Microsoft.Network/networkWatchers/packetCaptures/| Lire|
-|Microsoft.Network/networkWatchers/packetCaptures/| Écrire|
-|Microsoft.Network/networkWatchers/packetCaptures/| Supprimer|
-|Microsoft.Network/networkWatchers/ |Écrire|
-|Microsoft.Network/networkWatchers/| Lire|
-|Microsoft.Insights/alertRules/ |*|
-|Microsoft.Support/| *|
+| Ressource | Autorisation | | |---|---| || Microsoft.
+| Microsoft.Storage/ | Lire | || Microsoft.Authorization/| Lire | || Microsoft.Resources/subscriptions/resourceGroups/| Lire | || Microsoft.Storage/storageAccounts/listServiceSas/ | Action | || Microsoft.Storage/storageAccounts/listAccountSas/ | Action | || Microsoft.Storage/storageAccounts/listKeys/ | Action | | |Microsoft.Compute/virtualMachines/ | Lire | | |Microsoft.Compute/virtualMachines/ | Écrire | | |Microsoft.Compute/virtualMachineScaleSets/ | Lire | | |Microsoft.Compute/virtualMachineScaleSets/ | Écrire | | |Microsoft.Network/networkWatchers/packetCaptures/| Lire | | |Microsoft.Network/networkWatchers/packetCaptures/| Écrire | | |Microsoft.Network/networkWatchers/packetCaptures/| Supprimer | | |Microsoft.Network/networkWatchers/ | Écrire | | |Microsoft.Network/networkWatchers/| Lire | || Microsoft.Insights/alertRules/ | * | || Microsoft.Support/| *| |
 
 ### <a name="network-subscription-limits"></a>Limites d’abonnement réseau
 
@@ -123,6 +108,8 @@ Effectuer une capture de paquets sur votre machine virtuelle en consultant [Gér
 Mener une surveillance et faire des diagnostics de manière proactive à l’aide [des captures de paquets déclenchées par des alertes](network-watcher-alert-triggered-packet-capture.md).
 
 Détecter les vulnérabilités de sécurité avec [l’analyse des captures des paquets au moyen de Wireshark](network-watcher-deep-packet-inspection.md), à l’aide d’outils open source.
+
+Découvrez certaines des autres [fonctionnalités de réseau](../networking/networking-overview.md) clés d’Azure.
 
 <!--Image references-->
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png

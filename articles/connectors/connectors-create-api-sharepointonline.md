@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/19/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a7e970f2a518f3484310cbada108a025e9a7fc6d
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 96fc1347604c0c6cc2c2463a5dbd83b560183a16
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -42,13 +42,14 @@ Un déclencheur est un événement qui peut être utilisé pour lancer le flux d
 
 
 ## <a name="use-a-sharepoint-online-action"></a>Utiliser une action SharePoint Online
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [Apprenez-en davantage sur les actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a SharePoint Online action](../../includes/connectors-create-api-sharepointonline-action.md)]
 
 
-## <a name="view-the-swagger"></a>Afficher Swagger
-Consultez les [détails sur Swagger](/connectors/sharepoint/). 
+## <a name="connector-specific-details"></a>Détails spécifiques aux connecteurs
+
+Consultez tous les déclencheurs et les actions définies dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/sharepoint/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)

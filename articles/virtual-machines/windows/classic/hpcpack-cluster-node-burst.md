@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d27376e81f5be3d4f473ef044a84a18ac451921f
-ms.lasthandoff: 03/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Ajouter des nœuds d’extension sur demande à un cluster HPC Pack dans Azure
@@ -77,7 +77,7 @@ Après avoir ajouté et démarré les nœuds, vous pouvez les utiliser pour exé
 Si vous rencontrez des problèmes pendant le déploiement des nœuds Azure, consultez [Dépannage de problèmes liés aux déploiements de nœuds Azure avec Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour obtenir des informations sur l’utilisation d’une taille d’instance de calcul intensif pour les nœuds d’extension, consultez [À propos des machines virtuelles de série H ou de calcul intensif de série A](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Pour obtenir des informations sur l’utilisation d’une taille d’instance de calcul intensif pour les nœuds d’extension, consultez [Tailles de machines virtuelles de calcul haute performance](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Pour savoir comment augmenter ou réduire automatiquement les ressources de calcul Azure en fonction de la charge de travail sur le cluster, consultez [Agrandir et réduire automatiquement les ressources de calcul Azure dans un cluster HPC Pack](hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->

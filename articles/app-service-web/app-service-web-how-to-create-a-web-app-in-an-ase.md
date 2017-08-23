@@ -1,6 +1,6 @@
 ---
-title: "Créer une application web dans un environnement App Service"
-description: "Découvrez comment créer des applications web et des plans App Service dans un environnement App Service."
+title: "Créer une application web dans un environnement App Service Environment v1"
+description: "Découvrez comment créer des applications web et des plans App Service dans un environnement App Service Environment v1"
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -12,18 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 7/11/2017
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: a78d37ee59663896acc3192f8ae03575270101a8
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
+ms.openlocfilehash: 0779486b040b8dc51cdd42521ba965e58388425a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="create-a-web-app-in-an-app-service-environment"></a>Créer une application web dans un environnement App Service
+# <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Créer une application web dans un environnement App Service Environment v1
+
+> [!NOTE]
+> Cet article traite de l’environnement App Service Environment v1.  Il existe une version plus récente de l’environnement App Service Environment, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la section [Présentation de l’environnement App Service Environment](../app-service/app-service-environment/intro.md).
+> 
+
 ## <a name="overview"></a>Vue d'ensemble
-Ce didacticiel explique comment créer des applications web et des plans App Service dans un [environnement App Service](app-service-app-service-environment-intro.md) (ASE). 
+Ce didacticiel explique comment créer des applications web et des plans App Service dans un [environnement App Service Environment v1](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
 > Si vous voulez apprendre à créer une application web mais pas spécialement dans un environnement App Service, consultez [Créer une application web .NET](app-service-web-get-started-dotnet.md) ou l’un des didacticiels associés pour d’autres langages et infrastructures.

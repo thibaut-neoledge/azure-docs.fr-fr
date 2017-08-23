@@ -24,9 +24,7 @@ ms.lasthandoff: 06/03/2017
 
 ---
 
-<a id="planned-maintenance-for-linux-virtual-machines" class="xliff"></a>
-
-# Maintenance planifiée pour les machines virtuelles Linux 
+# <a name="planned-maintenance-for-linux-virtual-machines"></a>Maintenance planifiée pour les machines virtuelles Linux 
 
 Microsoft Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilité, les performances et la sécurité de l’infrastructure hôte qui supporte les machines virtuelles. Ces mises à jour vont de la mise à jour corrective de composants logiciels dans l’environnement d’hébergement (système d’exploitation, hyperviseur et différents agents déployés sur l’hôte) en passant par la mise à niveau des composants réseau, jusqu’à la désaffectation de matériel.
 

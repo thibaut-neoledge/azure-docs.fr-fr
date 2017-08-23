@@ -25,7 +25,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Réseaux virtuels |50 |500 |
 | Nombre de sous-réseaux par réseau virtuel |1 000 |contacter le support |
 | Serveurs DNS par réseau virtuel |9 |25 |
-| Adresses IP privées par réseau virtuel |4096 |4 096 |
+| Adresses IP privées par réseau virtuel |4096 |8 192 |
 | Adresses IP privées par interface réseau |50 |contacter le support |
 | Connexions TCP simultanées pour une machine virtuelle ou une instance de rôle |500K |500K |
 | Interfaces réseau (NIC) |300 |10000 |

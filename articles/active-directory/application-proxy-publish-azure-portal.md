@@ -5,20 +5,21 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 07/23/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: a6dc6148c3307d41801a4c1112397f3e63006ae8
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: e00a939f2b20ab8e0a2ddf0ff91e59db440213ac
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -29,53 +30,59 @@ ms.lasthandoff: 05/31/2017
 > * [Portail Azure](application-proxy-publish-azure-portal.md)
 > * [Portail Azure Classic](active-directory-application-proxy-publish.md)
 
-Le service Proxy d’application Azure Active Directory (AD) vous aide à prendre en charge les personnes qui travaillent à distance en publiant des applications locales afin de les rendre accessibles sur Internet. Dans le portail Azure, vous pouvez publier des applications exécutées sur votre réseau local et fournir un accès à distance sécurisé depuis l’extérieur de votre réseau.
+Le service Proxy d’application Azure Active Directory (AD) vous aide à prendre en charge les personnes qui travaillent à distance en publiant des applications locales afin de les rendre accessibles sur Internet. Vous pouvez publier ces applications sur le portail Azure et fournir un accès à distance sécurisé à partir de l’extérieur de votre réseau.
 
-Cet article vous guide au long des étapes de publication d’une application locale avec un proxy d’application. Lorsque vous aurez terminé de lire cet article, vous serez prêt à configurer l’application avec l’authentification unique, des exigences de sécurité ou des informations personnalisées.
+Cet article vous guide au long des étapes de publication d’une application locale avec un proxy d’application. Une fois que vous aurez suivi cet article, vos utilisateurs seront en mesure d’accéder à votre application à distance. Et vous serez prêt à configurer des fonctionnalités supplémentaires pour l’application, comme l’authentification unique, les exigences de sécurité ou les informations personnalisées.
 
 Si vous n’êtes pas familiarisé avec le proxy d’application, vous pouvez en savoir plus en consultant l’article [Offrir un accès à distance sécurisé aux applications locales](active-directory-application-proxy-get-started.md).
 
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>Publier une application locale pour un accès à distance
 
+Suivez ces étapes pour publier vos applications avec le proxy d’application. Si vous n’avez pas déjà téléchargé et configuré un connecteur pour votre organisation, accédez à [Bien démarrer avec le proxy d’application et l’installation du connecteur](active-directory-application-proxy-enable.md), puis publiez votre application.
 
 > [!TIP]
-> S’il s’agit de votre première utilisation du proxy d’application, choisissez une application qui est déjà configurée pour l’authentification par mot de passe. Le proxy d’application prend en charge d’autres types d’authentification, mais les applications basées sur un mot de passe sont les plus faciles à exploiter rapidement. 
+> Si vous testez le proxy d’application pour la première fois, choisissez une application qui est configurée pour l’authentification par mot de passe. Le proxy d’application prend en charge d’autres types d’authentification, mais les applications basées sur un mot de passe sont les plus faciles à exploiter rapidement. 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur.
 2. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Nouvelle application**.
 
   ![Ajouter une application d’entreprise](./media/application-proxy-publish-azure-portal/add-app.png)
 
-3. Dans la page Catégories, sélectionnez **Application locale**.  
+3. Sélectionnez **Tout**, puis **Application locale**.  
 
   ![Ajout de votre propre application](./media/application-proxy-publish-azure-portal/add-your-own.png)
 
 4. Fournissez les informations suivantes sur votre application :
 
-   - **Nom** : le nom de l’application qui apparaît dans le panneau d’accès. 
+   - **Nom** : nom de l’application qui apparaît dans le panneau d’accès et sur le portail Azure. 
 
-   - **URL interne**: adresse utilisée par le connecteur du proxy d’application pour accéder à l’application à partir de votre réseau privé. Vous pouvez spécifier un chemin spécifique sur le serveur principal à publier, alors que le reste du serveur n’est pas publié. De cette façon, vous pouvez publier des sites différents sur le même serveur en tant qu’applications distinctes et donner à chacun d’eux son propre nom et ses propres règles d’accès.
+   - **URL interne** : URL permettant d’accéder à l’application à partir de votre réseau privé. Vous pouvez spécifier un chemin spécifique sur le serveur principal à publier, alors que le reste du serveur n’est pas publié. De cette façon, vous pouvez publier des sites différents sur le même serveur en tant qu’applications distinctes et donner à chacun d’eux son propre nom et ses propres règles d’accès.
 
      > [!TIP]
-     > Si vous publiez un chemin d’accès, vérifiez qu’il inclut l’ensemble des images, des scripts et des feuilles de style nécessaires pour votre application. Par exemple, si votre application est sur https://yourapp/app et utilise des images situées dans https://yourapp/media, vous devez publier https://yourapp/ comme chemin d’accès.
+     > Si vous publiez un chemin d’accès, vérifiez qu’il inclut l’ensemble des images, des scripts et des feuilles de style nécessaires pour votre application. Par exemple, si votre application est sur https://yourapp/app et utilise des images situées dans https://yourapp/media, vous devez publier https://yourapp/ comme chemin d’accès. Cette URL interne n’est pas nécessairement la page d’accueil que vos utilisateurs voient. Pour plus d’informations, consultez [Définir une page d’accueil personnalisée pour les applications publiées](application-proxy-office365-app-launcher.md).
 
-   - **URL externe** : adresse que vos utilisateurs utilisent pour accéder à l’application en dehors de votre réseau.
+   - **URL externe** : adresse que vos utilisateurs utilisent pour accéder à l’application en dehors de votre réseau. Si vous ne souhaitez pas utiliser le domaine de proxy d’application par défaut, lisez la documentation relative aux [domaines personnalisés dans le proxy d’application Azure AD](active-directory-application-proxy-custom-domains.md).
    - **Pré-authentification** : façon dont le service Proxy d’application vérifie les utilisateurs avant de leur donner accès à votre application. 
 
-     - Azure Active Directory : le proxy d’application redirige les utilisateurs pour la connexion à Azure AD, qui authentifie leurs autorisations pour le répertoire et l’application. Nous vous recommandons de conserver cette option par défaut.
+     - Azure Active Directory : le proxy d’application redirige les utilisateurs pour la connexion à Azure AD, qui authentifie leurs autorisations pour le répertoire et l’application. Nous vous recommandons de laisser cette option par défaut, afin que vous puissiez tirer parti des fonctionnalités de sécurité Azure AD, comme l’accès conditionnel et l’authentification multifacteur.
      - Direct : les utilisateurs n’ont pas besoin de s’authentifier auprès d’Azure Active Directory pour accéder à l’application. Vous pouvez toujours configurer les exigences d’authentification sur le serveur principal.
-   - **Voulez-vous traduire l’URL dans les en-têtes ?** : indiquez si vous souhaitez traduire l’URL dans les en-têtes ou conserver l’original. 
-   - **Groupe de connecteurs** : les connecteurs gèrent l’accès à distance à votre application et les groupes de connecteurs vous aident à organiser des connecteurs et des applications par région, réseau ou objectif. Si vous n’avez pas encore créé de groupe de connecteurs, votre application est attribuée au groupe **par défaut** et un message d’avertissement vous demande de [créer un groupe de connecteurs](active-directory-application-proxy-connectors-azure-portal.md).
+   - **Groupe de connecteurs** : les connecteurs gèrent l’accès à distance à votre application et les groupes de connecteurs vous aident à organiser des connecteurs et des applications par région, réseau ou objectif. Si aucun groupe de connecteurs n’est encore créé, votre application est assignée au groupe **Par défaut**.
 
    ![Configuration de votre application](./media/application-proxy-publish-azure-portal/configure-app.png)
+5. Si nécessaire, configurez des paramètres supplémentaires. Pour la plupart des applications, vous devez conserver ces paramètres dans leur état par défaut. 
+   - **Expiration de l’application principale** : définissez cette valeur sur **Long** uniquement si l’authentification et la connexion de votre application sont lentes. 
+   - **Traduire l’URL dans les en-têtes** : conservez la valeur **Oui**, sauf si votre application a demandé l’en-tête d’hôte d’origine dans la requête d’authentification.
+   - **Translate URLs in Application Body** (Traduire les URL dans le corps de l’application) : conservez la valeur **Non**, sauf si vous avez codé en dur des liens HTML vers d’autres applications locales et si vous n’utilisez pas les domaines personnalisés. Pour plus d’informations, consultez [Rediriger les liens codés en dur pour les applications publiées avec le Proxy d’application Azure AD](application-proxy-link-translation.md).
+   
+   ![Configuration de votre application](./media/application-proxy-publish-azure-portal/additional-settings.png)
 
-8. Sélectionnez **Ajouter**.
+6. Sélectionnez **Ajouter**.
 
 
 ## <a name="add-a-test-user"></a>Ajouter un utilisateur de test 
 
-Pour vérifier que votre application a été correctement publiée, ajoutez un compte d’utilisateur auquel vous avez accès. 
+Pour vérifier que votre application a été correctement publiée, ajoutez un compte d’utilisateur test. Vérifiez que ce compte dispose déjà des autorisations d’accès à l’application à partir du réseau d’entreprise.
 
 1. Dans le panneau Démarrage rapide, sélectionnez **Assign a user for testing (Attribuer un utilisateur à des fins de test)**.
 

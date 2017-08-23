@@ -1,8 +1,7 @@
 ---
-title: "Conserver la sortie d’un travail et d’une tâche dans le stockage Azure - Azure Batch | Microsoft Docs"
-description: "Découvrez comment utiliser Azure Storage comme banque de données durable pour les sorties des tâches et des travaux Batch, et comment activer l’affichage de ces sorties conservées dans le portail Azure."
+title: "Conserver les résultats ou les journaux des tâches et des travaux terminés dans un magasin de données - Azure Batch | Microsoft Docs"
+description: "Découvrez les différentes possibilités pour conserver les données de sortie des tâches et des travaux Batch. Vous pouvez conserver les données dans le Stockage Azure ou un autre magasin de données."
 services: batch
-documentationcenter: .net
 author: tamram
 manager: timlt
 editor: 
@@ -12,243 +11,121 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 06/16/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 3b3aa18eb52993843be1feeb8e0b2a43339413c3
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 3ca93e823f02b1483ed290cf89de191937d1e2c3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="persist-results-from-completed-jobs-and-tasks-to-azure-storage"></a>Conserver les résultats de travaux et tâches terminés dans le stockage Azure
+# <a name="persist-job-and-task-output"></a>Conserver les résultats des tâches et des travaux
 
-Les tâches que vous exécutez dans Batch produisent généralement une sortie qui doit être stockée, puis récupérée ultérieurement par d’autres tâches dans le travail et/ou l’application cliente qui a exécuté le travail. Cette sortie peut correspondre aux fichiers créés par le traitement des données d’entrée ou aux fichiers journaux associés à l’exécution des tâches. Cet article présente une bibliothèque de classes .NET qui utilise une technique basée sur des conventions pour conserver une sortie de tâche de ce type dans le stockage d’objets blob Azure, la rendant ainsi disponible même après que vous avez supprimé vos pools, travaux et nœuds de calcul.
+[!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-À l’aide de la technique présentée dans cet article, vous pouvez également afficher la sortie de votre tâche dans **Saved output files** (Fichiers de sortie enregistrés) et dans **Journaux enregistrés** dans le [Portail Azure][portal].
+Voici quelques exemples courants de sortie de tâche :
 
-![Sélecteurs Saved output files (Fichiers de sortie enregistrés) et Fichiers enregistrés dans le portail][1]
+- Fichiers créés au moment où la tâche traite des données d’entrée.
+- Fichiers journaux associés à l’exécution des tâches. 
 
-> [!NOTE]
-> La bibliothèque de classes .NET [Azure Batch File Conventions][nuget_package] (Conventions de fichiers Azure Batch) abordée dans cet article est actuellement en version préliminaire. Certaines fonctionnalités présentées ici peuvent changer avant la mise à la disposition générale.
-> 
-> 
+Cet article décrit différentes possibilités pour conserver la sortie des tâches et présente les méthodes les plus appropriées en fonction des scénarios.   
 
-## <a name="task-output-considerations"></a>Considérations relatives aux sorties des tâches
-Lorsque vous concevez votre solution Batch, vous devez prendre en compte les sorties des travaux et des tâches associées à plusieurs facteurs.
+## <a name="about-the-batch-file-conventions-standard"></a>À propos des conventions standard de nommage des fichiers Batch
 
-* **Durée de vie de nœud de calcul**: les nœuds de calcul sont souvent temporaires, notamment dans les pools à mise à l’échelle automatique. Les sorties des tâches qui s’exécutent sur un nœud sont disponibles uniquement lorsque le nœud existe, et seulement pendant la durée de rétention des fichiers que vous avez définie pour la tâche. Pour vous assurer de la conservation de la sortie de tâche, vos tâches doivent donc charger leurs fichiers de sortie vers une banque de données durable, par exemple, Azure Storage.
-* **Stockage des sorties**: pour conserver les données de sortie de tâche dans un espace de stockage durable, vous pouvez utiliser le [Kit de développement logiciel (SDK) Azure Storage](../storage/storage-dotnet-how-to-use-blobs.md) dans votre code de tâche pour charger la sortie de tâche dans un conteneur de stockage d’objets blob. Si vous implémentez une convention d’affectation de noms de fichiers et de conteneurs, votre application cliente ou les autres tâches du travail peuvent alors rechercher et télécharger cette sortie en fonction de la convention.
-* **Récupération de sortie**: vous pouvez récupérer une sortie de tâche directement à partir des nœuds de calcul de votre pool ou depuis Azure Storage si vos tâches conservent leur sortie. Pour récupérer la sortie d’une tâche directement à partir d’un nœud de calcul, vous avez besoin du nom de fichier et de son emplacement de sortie sur le nœud. Si vous conservez la sortie dans Azure Storage, les tâches en aval ou votre application cliente doivent disposer du chemin d’accès complet au fichier dans Azure Storage afin de le télécharger à l’aide du Kit de développement logiciel (SDK) Azure Storage.
-* **Affichage de sortie** : lorsque vous accédez à une tâche Batch dans le portail Azure et sélectionnez **Fichiers sur le nœud**, tous les fichiers associés à la tâche s’affichent, et pas seulement les fichiers de sortie qui vous intéressent. De nouveau, les fichiers hébergés sur les nœuds de calcul sont disponibles uniquement lorsque le nœud existe, et seulement pendant la durée de rétention des fichiers que vous avez définie pour la tâche. Pour afficher la sortie de tâche que vous avez conservée dans le Stockage Azure, dans le portail ou dans une application comme [l’Explorateur de Stockage Azure][storage_explorer], vous devez connaître son emplacement et accéder directement au fichier.
+Batch définit un ensemble facultatif de conventions pour nommer les fichiers de sortie de tâche dans le Stockage Azure. Les conventions standard de nommage des fichiers Batch sont décrites dans ce [document](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). Les conventions standard de nommage des fichiers déterminent les noms du conteneur et du chemin d’objet blob de destination dans le Stockage Azure pour un fichier de sortie donné en fonction des noms du travail et de la tâche.
 
-## <a name="help-for-persisted-output"></a>Aide relative à la conservation des sorties
-Pour vous aider à conserver plus facilement les sorties des travaux et des tâches, l’équipe Batch a défini et implémenté un ensemble de conventions d’affectation de noms ainsi qu’une bibliothèque de classes .NET, la bibliothèque [Azure Batch File Conventions][nuget_package] que vous pouvez utiliser dans vos applications Batch. En outre, le portail Azure prend en charge ces conventions d’affectation de noms. Vous pouvez donc facilement rechercher les fichiers que vous avez stockés à l’aide de la bibliothèque.
+C’est à vous qu’il appartient d’appliquer ou non les conventions standard de nommage des fichiers pour vos fichiers de données de sortie. Vous pouvez aussi nommer le conteneur et l’objet blob de destination comme vous le souhaitez. Si vous utilisez les conventions standard de nommage des fichiers pour nommer vos fichiers de sortie, ceux-ci sont visibles dans le [portail Azure][portal].
 
-## <a name="using-the-file-conventions-library"></a>Utilisation de la bibliothèque de conventions de fichier
-[Azure Batch File Conventions][nuget_package] est une bibliothèque de classes .NET que vos applications Batch .NET peuvent utiliser pour stocker et récupérer facilement les sorties des tâches vers et à partir du Stockage Azure. Cette bibliothèque est destinée à être utilisée dans le code de tâche et client ; dans le code de tâche pour la conservation des fichiers et dans le code client pour les répertorier et les récupérer. Les tâches peuvent également utiliser la bibliothèque pour récupérer les sorties des tâches en amont, comme dans un cas de [dépendances de tâche](batch-task-dependencies.md) .
+Il existe différentes manières d’utiliser les conventions standard de nommage des fichiers :
 
-La bibliothèque de conventions permet de s’assurer que les conteneurs de stockage et les fichiers de sortie de tâche sont nommés conformément à la convention, et qu’ils sont chargés au bon emplacement lorsqu’ils sont conservés dans Azure Storage. Lorsque vous récupérez les sorties, vous pouvez localiser facilement les sorties d’une tâche ou d’un travail donné en répertoriant ou en récupérant les sorties par ID et par usage sans avoir à connaître les noms des fichiers ni leur emplacement dans Azure Storage.
+- Si vous utilisez l’API du service Batch pour conserver les fichiers de sortie, vous pouvez choisir de nommer les conteneurs et les objets blob de destination conformément aux conventions standard de nommage des fichiers. L’API du service Batch vous permet de conserver les fichiers de sortie à partir du code client, sans modifier votre application de tâche.
+- Si vous développez avec .NET, vous pouvez utiliser la [bibliothèque Conventions de nommage des fichiers Azure Batch pour .NET][nuget_package]. L’avantage de cette bibliothèque est qu’elle prend en charge l’interrogation des fichiers de sortie en fonction de leur ID ou de leur usage. La fonctionnalité d’interrogation intégrée permet d’accéder facilement aux fichiers de sortie à partir d’une application cliente ou à partir d’autres tâches. Cependant, votre application de tâche doit être modifiée de façon à appeler la bibliothèque Conventions de nommage des fichiers. Pour plus d’informations, consultez le document de référence concernant la [bibliothèque Conventions de nommage des fichiers pour .NET](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.aspx).
+- Si vous développez avec un autre langage que .NET, vous pouvez implémenter les conventions standard de nommage des fichiers dans votre application.
 
-Par exemple, vous pouvez utiliser la bibliothèque pour « répertorier tous les fichiers intermédiaires pour la tâche 7 » ou « obtenir la miniature de la tâche *mon_film*» sans avoir à connaître les noms des fichiers ni leur emplacement dans votre compte Storage.
+## <a name="design-considerations-for-persisting-output"></a>Considérations de conception pour la conservation des sorties 
 
-### <a name="get-the-library"></a>Obtenir la bibliothèque
-Vous pouvez obtenir la bibliothèque qui contient de nouvelles classes et étend les classes [CloudJob][net_cloudjob] et [CloudTask][net_cloudtask] avec de nouvelles méthodes à partir de [NuGet][nuget_package]. Vous pouvez l’ajouter à votre projet Visual Studio à l’aide du [Gestionnaire de package de bibliothèque NuGet][nuget_manager].
+Au moment de concevoir votre solution Batch, tenez compte des points suivants s’agissant des sorties des travaux et des tâches.
 
-> [!TIP]
-> Vous pouvez rechercher le [code source][github_file_conventions] de la bibliothèque Azure Batch File Conventions sur GitHub dans le Kit de développement logiciel (SDK) Microsoft Azure pour le référentiel .NET.
-> 
-> 
+* **Durée de vie de nœud de calcul**: les nœuds de calcul sont souvent temporaires, notamment dans les pools à mise à l’échelle automatique. La sortie d’une tâche qui s’exécute sur un nœud est disponible uniquement pendant que le nœud existe, et seulement pendant la période de rétention des fichiers que vous avez définie pour la tâche. Si une tâche génère une sortie qui peut être nécessaire à la fin de la tâche, celle-ci doit charger ses fichiers de sortie dans un magasin durable tels que le Stockage Azure.
 
-## <a name="requirement-linked-storage-account"></a>Exigence : Compte de stockage lié
-Pour stocker les sorties dans l’espace de stockage durable à l’aide de la bibliothèque de conventions de fichier et pour les afficher dans le portail Azure, vous devez [lier un compte Azure Storage](batch-application-packages.md#link-a-storage-account) à votre compte Batch. Si ce n’est déjà fait, liez un compte Storage à votre compte Batch à l’aide du portail Azure :
+* **Stockage de sortie** : le Stockage Azure est recommandé comme magasin de données pour la sortie des tâches, mais vous pouvez utiliser n’importe quel stockage durable. L’écriture de la sortie des tâches dans le Stockage Azure est intégrée dans l’API du service Batch. Si vous utilisez une autre forme de stockage durable, vous devez écrire la logique d’application pour conserver vous-même la sortie des tâches.   
 
-Panneau **Compte Batch** > **Paramètres** > **Compte de stockage** > **Compte de stockage** (Aucun) > Sélectionnez un compte de stockage dans votre abonnement.
+* **Récupération de sortie** : vous pouvez récupérer la sortie des tâches directement à partir des nœuds de calcul de votre pool ou depuis le Stockage Azure ou un autre magasin de données si vous avez conservé la sortie des tâches. Pour récupérer la sortie d’une tâche directement à partir d’un nœud de calcul, vous avez besoin du nom de fichier et de son emplacement de sortie sur le nœud. Si vous conservez la sortie des tâches dans le Stockage Azure, vous avez besoin du chemin complet des fichiers dans le Stockage Azure pour télécharger les fichiers de sortie à l’aide du kit SDK Stockage Azure.
 
-Pour une procédure pas à pas plus détaillée de la liaison d’un compte Storage, consultez l’article [Déploiement d’applications avec des packages d’applications Azure Batch](batch-application-packages.md).
+* **Affichage de sortie** : lorsque vous accédez à une tâche Batch dans le portail Azure et sélectionnez **Fichiers sur le nœud**, tous les fichiers associés à la tâche s’affichent, et pas seulement les fichiers de sortie qui vous intéressent. De nouveau, les fichiers hébergés sur les nœuds de calcul sont disponibles uniquement lorsque le nœud existe, et seulement pendant la durée de rétention des fichiers que vous avez définie pour la tâche. Pour afficher la sortie des tâches que vous avez conservée dans le Stockage Azure, vous pouvez utiliser le portail Azure ou une application cliente du Stockage Azure telle que l’[Explorateur de Stockage Azure][storage_explorer]. Pour afficher des données de sortie dans le Stockage Azure avec le portail ou un autre outil, vous devez connaître l’emplacement du fichier correspondant et y accéder directement.
 
-## <a name="persist-output"></a>Conserver la sortie
-Vous devez effectuer deux actions principales lors de l’enregistrement de la sortie de travail et de tâche avec la bibliothèque de conventions de fichier : créer le conteneur de stockage et y enregistrer la sortie.
+## <a name="options-for-persisting-output"></a>Options de conservation de sortie
 
-> [!WARNING]
-> Étant donné que toutes les sorties des travaux et des tâches sont stockées dans le même conteneur, des [limites de stockage](../storage/storage-performance-checklist.md#blobs) peuvent être appliquées si de très nombreuses tâches essaient de conserver des fichiers en même temps.
-> 
-> 
+Selon votre scénario, vous pouvez adopter différentes approches pour conserver une sortie de tâche :
 
-### <a name="create-storage-container"></a>Créer un conteneur de stockage
-Avant que vos tâches ne commencent à conserver la sortie dans le stockage, vous devez créer un conteneur de stockage d’objets blob vers lequel elles chargeront leur sortie. Pour ce faire, appelez [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Cette méthode d’extension prend un objet [CloudStorageAccount][net_cloudstorageaccount] en tant que paramètre et crée un conteneur nommé de manière à ce que son contenu soit détectable par le Portail Azure et par les méthodes de récupération présentées plus loin dans cet article.
+- Utiliser l’API du service Batch.  
+- Utiliser la bibliothèque Conventions de nommage des fichiers Batch pour .NET.  
+- Implémenter les conventions standard de nommage des fichiers Batch dans votre application.
+- Implémenter une solution de déplacement de fichiers personnalisée.
 
-En général, vous placez ce code dans votre application cliente, qui crée vos pools, travaux et tâches.
+Les sections suivantes décrivent plus en détail chacune de ces approches.
 
-```csharp
-CloudJob job = batchClient.JobOperations.CreateJob(
-    "myJob",
-    new PoolInformation { PoolId = "myPool" });
+### <a name="use-the-batch-service-api"></a>Utiliser l’API du service Batch
 
-// Create reference to the linked Azure Storage account
-CloudStorageAccount linkedStorageAccount =
-    new CloudStorageAccount(myCredentials, true);
+Avec la version 2017-05-01, le service Batch permet de spécifier des fichiers de sortie dans le Stockage Azure pour les données de tâches au moment d’[ajouter une tâche à un travail](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) ou d’[ajouter une collection de tâches à un travail](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
-// Create the blob storage container for the outputs
-await job.PrepareOutputStorageAsync(linkedStorageAccount);
-```
+L’API du service Batch prend en charge la conservation des données de tâches sur un compte Stockage Azure à partir des pools créés avec la configuration de machine virtuelle. Avec l’API du service Batch, vous pouvez conserver les données de tâches sans modifier l’application exécutée par votre tâche. Vous pouvez éventuellement vous conformer aux [conventions standard de nommage des fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) pour nommer les fichiers que vous conservez dans le Stockage Azure. 
 
-### <a name="store-task-outputs"></a>Stocker les sorties des tâches
-Maintenant que vous avez préparé un conteneur dans le Stockage Blob, les tâches peuvent y enregistrer leur sortie à l’aide de la classe [TaskOutputStorage][net_taskoutputstorage] figurant dans la bibliothèque de conventions de fichier.
+Conservez la sortie des tâches à l’aide de l’API du service Batch dans les cas suivants :
 
-Dans votre code de tâche, commencez par créer un objet [TaskOutputStorage][net_taskoutputstorage], puis, lorsque la tâche a terminé son travail, appelez la méthode [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] pour enregistrer sa sortie dans le Stockage Azure.
-
-```csharp
-CloudStorageAccount linkedStorageAccount = new CloudStorageAccount(myCredentials);
-string jobId = Environment.GetEnvironmentVariable("AZ_BATCH_JOB_ID");
-string taskId = Environment.GetEnvironmentVariable("AZ_BATCH_TASK_ID");
-
-TaskOutputStorage taskOutputStorage = new TaskOutputStorage(
-    linkedStorageAccount, jobId, taskId);
-
-/* Code to process data and produce output file(s) */
-
-await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg");
-await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
-```
-
-Le paramètre « output kind » catégorise les fichiers conservés. Il existe quatre types [TaskOutputKind][net_taskoutputkind] prédéfinis : « TaskOutput », « TaskPreview », « TaskLog » et « TaskIntermediate ». Vous pouvez également définir des types personnalisés s’ils peuvent être utiles dans votre flux de travail.
-
-Ces types de sortie vous permettent de spécifier le type de sortie à répertorier lorsque vous interrogez ultérieurement Batch pour connaître les sorties conservées d’une tâche donnée. En d’autres termes, lorsque vous répertoriez les sorties d’une tâche, vous pouvez filtrer la liste sur l’un des types de sortie. Par exemple, « Donnez-moi un *aperçu* de la tâche *109* ». La section [Récupérer la sortie](#retrieve-output) plus loin dans l’article contient plus d’informations sur les listes de sorties et leur récupération.
-
-> [!TIP]
-> Le type de sortie indique également l’emplacement d’un fichier particulier dans le portail Azure : les fichiers catégorisés par *TaskOutput* sont affichés dans les fichiers de sortie de tâche tandis que les fichiers *TaskLog* sont affichés dans les journaux de tâches.
-> 
-> 
-
-### <a name="store-job-outputs"></a>Stocker les sorties des travaux
-Outre le stockage des sorties des tâches, vous pouvez stocker les sorties associées à un travail entier. Par exemple, dans la tâche de fusion d’un travail de rendu de film, vous pouvez conserver le film intégralement rendu sous forme de sortie de travail. Lorsque votre travail est terminé, votre application cliente peut simplement répertorier et récupérer les sorties du travail, sans devoir interroger les tâches individuelles.
-
-Stockez la sortie du travail en appelant la méthode [JobOutputStorage][net_joboutputstorage].[SaveAsync][net_joboutputstorage_saveasync] et spécifiez le paramètre [JobOutputKind][net_joboutputkind] et le nom de fichier :
-
-```
-CloudJob job = await batchClient.JobOperations.GetJobAsync(jobId);
-JobOutputStorage jobOutputStorage = job.OutputStorage(linkedStorageAccount);
-
-await jobOutputStorage.SaveAsync(JobOutputKind.JobOutput, "mymovie.mp4");
-await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4");
-```
-
-Comme avec le paramètre TaskOutputKind pour les sorties des tâches, vous pouvez utiliser le paramètre [JobOutputKind][net_joboutputkind] pour catégoriser les fichiers conservés d’un travail. Ce paramètre vous permet d’interroger (répertorier) ultérieurement un type spécifique de sortie. Le paramètre JobOutputKind inclut les types de sortie et d’aperçu, et prend en charge la création de types personnalisés.
-
-### <a name="store-task-logs"></a>Stocker les journaux de tâches
-En plus de conserver un fichier dans un espace de stockage durable à l’issue d’une tâche ou d’un travail, vous pouvez juger nécessaire de conserver les fichiers mis à jour pendant l’exécution d’une tâche, par exemple les fichiers journaux ou `stdout.txt` et `stderr.txt`. À cet effet, la bibliothèque Azure Batch File Conventions fournit la méthode [TaskOutputStorage][net_taskoutputstorage].[SaveTrackedAsync][net_savetrackedasync]. Avec [SaveTrackedAsync][net_savetrackedasync], vous pouvez effectuer le suivi des mises à jour apportées à un fichier sur le nœud (à un intervalle que vous définissez) et conserver ces mises à jour dans le Stockage Azure.
-
-Dans l’extrait de code suivant, nous utilisons [SaveTrackedAsync][net_savetrackedasync] pour mettre à jour `stdout.txt` dans le Stockage Azure toutes les 15 secondes pendant l’exécution de la tâche :
-
-```csharp
-TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
-string logFilePath = Path.Combine(
-    Environment.GetEnvironmentVariable("AZ_BATCH_TASK_DIR"), "stdout.txt");
-
-// The primary task logic is wrapped in a using statement that sends updates to
-// the stdout.txt blob in Storage every 15 seconds while the task code runs.
-using (ITrackedSaveOperation stdout =
-        await taskStorage.SaveTrackedAsync(
-        TaskOutputKind.TaskLog,
-        logFilePath,
-        "stdout.txt",
-        TimeSpan.FromSeconds(15)))
-{
-    /* Code to process data and produce output file(s) */
-
-    // We are tracking the disk file to save our standard output, but the
-    // node agent may take up to 3 seconds to flush the stdout stream to
-    // disk. So give the file a moment to catch up.
-     await Task.Delay(stdoutFlushDelay);
-}
-```
-
-`Code to process data and produce output file(s)` est simplement un espace réservé pour le code que votre tâche exécuterait normalement. Par exemple, vous pouvez insérer un code qui télécharge des données à partir d’Azure Storage et effectue sur celles-ci des transformations ou des calculs. La partie importante de cet extrait de code montre comment encapsuler un tel code dans un bloc `using` pour mettre régulièrement à jour un fichier avec [SaveTrackedAsync][net_savetrackedasync].
-
-Le `Task.Delay` est nécessaire à la fin de ce bloc `using` pour garantir que l’agent de nœud ait le temps de vider le contenu de la sortie standard vers le fichier stdout.txt sur le nœud (l’agent de nœud est un programme qui s’exécute sur chaque nœud dans le pool et fournit l’interface de commande et de contrôle entre le nœud et le service Batch). Sans ce délai, il est possible de manquer les dernières secondes de la sortie. Ce délai n’est pas forcément requis pour tous les fichiers.
+- Vous voulez conserver les données des tâches Batch et des tâches du Gestionnaire de travaux dans des pools créés avec la configuration de machine virtuelle.
+- Vous voulez conserver les données dans un conteneur de Stockage Azure avec un nom arbitraire.
+- Vous voulez conserver les données dans un conteneur de Stockage Azure nommé conformément aux [conventions standard de nommage des fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
-> Lorsque vous activez le suivi des fichiers avec SaveTrackedAsync, seuls les *ajouts* apportés au fichier suivi sont conservés dans Stockage Azure. Utilisez cette méthode uniquement pour le suivi des fichiers journaux sans rotation ou des autres fichiers qui leur sont ajoutés. Autrement dit, les données sont uniquement ajoutées à la fin du fichier lorsqu’il est mis à jour.
+> L’API du service Batch ne prend pas en charge la conservation des données des tâches s’exécutant dans des pools créés avec la configuration de service cloud. Pour plus d’informations sur la conservation de la sortie des tâches de pools exécutant la configuration de services cloud, consultez [Conserver les données des travaux et des tâches dans le Stockage Azure avec la bibliothèque Conventions de nommage des fichiers Batch pour .NET](batch-task-output-file-conventions.md).
 > 
 > 
 
-## <a name="retrieve-output"></a>Récupérer la sortie
-Lorsque vous récupérez votre sortie conservée à l’aide de la bibliothèque Azure Batch File Conventions, vous procédez d’une façon centrée sur les travaux et les tâches. Vous pouvez demander la sortie d’une tâche ou d’un travail donné sans avoir à connaître son chemin d’accès dans le stockage d’objets blob ni même son nom de fichier. Vous pouvez dire simplement, « Indiquez-moi les fichiers de sortie de la tâche *109*».
+Pour plus d’informations sur la conservation de la sortie des tâches avec l’API du service Batch, consultez [Conserver les données des tâches dans le Stockage Azure à l’aide de l’API du service Batch](batch-task-output-files.md). Consultez aussi l’exemple de projet [PersistOutputs][github_persistoutputs] sur GitHub, qui montre comment utiliser la bibliothèque cliente Batch pour .NET pour conserver la sortie des tâches dans un stockage durable.
 
-L’extrait de code suivant itère toutes les tâches d’un travail, imprime des informations sur les fichiers de sortie de la tâche, puis télécharge les fichiers à partir d’Azure Storage.
+### <a name="use-the-batch-file-conventions-library-for-net"></a>Utiliser la bibliothèque Conventions de nommage des fichiers Batch pour .NET
 
-```csharp
-foreach (CloudTask task in myJob.ListTasks())
-{
-    foreach (OutputFileReference output in
-        task.OutputStorage(storageAccount).ListOutputs(
-            TaskOutputKind.TaskOutput))
-    {
-        Console.WriteLine($"output file: {output.FilePath}");
+Les développeurs qui élaborent des solutions Batch avec C# et .NET peuvent utiliser la [bibliothèque Conventions de nommage des fichiers pour .NET][nuget_package] pour conserver les données des tâches dans un compte de Stockage Azure, conformément aux [conventions standard de nommage des fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). La bibliothèque Conventions de nommage des fichiers gère le déplacement des fichiers de sortie vers le Stockage Azure, ainsi que le nommage des conteneurs et objets blob de destination d’une façon bien connue.
 
-        output.DownloadToFileAsync(
-            $"{jobId}-{output.FilePath}",
-            System.IO.FileMode.Create).Wait();
-    }
-}
-```
+La bibliothèque Conventions de nommage des fichiers prend en charge l’interrogation des fichiers de sortie par ID ou usage, ce qui permet de les localiser facilement sans avoir besoin d’URI de fichiers complets. 
 
-## <a name="task-outputs-and-the-azure-portal"></a>Sorties des tâches et portail Azure
-Le Portail Azure affiche les sorties des tâches et les journaux qui sont conservés dans un compte de stockage Azure lié à l’aide des conventions d’affectation de noms du fichier [LISEZMOI d’Azure Batch File Conventions][github_file_conventions_readme]. Vous pouvez implémenter ces conventions vous-même dans le langage de votre choix ou utiliser la bibliothèque de conventions de fichier dans vos applications .NET.
+Conservez la sortie des tâches à l’aide de la bibliothèque Conventions de nommage des fichiers Batch pour .NET dans les cas suivants :
 
-### <a name="enable-portal-display"></a>Activer l’affichage du portail
-Pour activer l’affichage de vos sorties dans le portail, vous devez respecter les exigences suivantes :
+- Vous voulez diffuser les données vers le Stockage Azure alors que la tâche est en cours d’exécution.
+- Vous voulez conserver les données de pools créés avec la configuration de service cloud ou la configuration de machine virtuelle.
+- Votre application cliente ou d’autres tâches du travail doivent localiser et télécharger les fichiers de sortie des tâches par ID ou usage. 
+- Vous voulez procéder à la création de points de contrôle ou effectuer un chargement anticipé des résultats initiaux.
+- Vous voulez consulter la sortie des tâches dans le portail Azure.
 
-1. [Liez un compte Azure Storage](#requirement-linked-storage-account) à votre compte Batch.
-2. Respectez les conventions d’affectation de noms prédéfinies pour les conteneurs de stockage et les fichiers lors de la conservation des sorties. Vous trouverez la définition de ces conventions dans le fichier [LISEZMOI][github_file_conventions_readme] de la bibliothèque de conventions de fichier. Si vous utilisez la bibliothèque [Azure Batch File Conventions][nuget_package] pour conserver votre sortie, cette exigence est satisfaite.
+Pour plus d’informations sur la conservation de la sortie des tâches avec la bibliothèque Conventions de nommage des fichiers pour .NET, consultez [Conserver les données des travaux et des tâches dans le Stockage Azure avec la bibliothèque Conventions de nommage des fichiers Batch pour .NET](batch-task-output-file-conventions.md). Consultez aussi l’exemple de projet [PersistOutputs][github_persistoutputs] sur GitHub, qui montre comment utiliser la bibliothèque Conventions de nommage des fichiers pour .NET pour conserver la sortie des tâches dans un stockage durable.
 
-### <a name="view-outputs-in-the-portal"></a>Afficher les sorties dans le portail
-Pour afficher les sorties des tâches et les journaux dans le portail Azure, accédez à la tâche dont la sortie vous intéresse, puis cliquez sur **Fichiers de sortie enregistrés** ou **Journaux enregistrés**. Cette image affiche l’écran **Saved output files (Fichiers de sortie enregistrés)** pour la tâche pourvue de l’ID « 007 » :
+L’exemple de projet [PersistOutputs][github_persistoutputs] sur GitHub montre comment utiliser la bibliothèque cliente Batch pour .NET pour conserver la sortie des tâches dans un stockage durable.
 
-![Panneau des sorties des tâches dans le Portail Azure][2]
+### <a name="implement-the-batch-file-conventions-standard"></a>Implémenter les conventions standard de nommage des fichiers Batch
 
-## <a name="code-sample"></a>Exemple de code
-L’exemple de projet [PersistOutputs][github_persistoutputs] est l’un des [exemples de code Azure Batch][github_samples] disponibles sur GitHub. Cette solution Visual Studio montre comment utiliser la bibliothèque Azure Batch File Conventions pour conserver une sortie de tâche dans l’espace de stockage durable. Pour exécuter l’exemple, procédez comme suit :
+Si vous utilisez un autre langage que .NET, vous pouvez implémenter les [conventions standard de nommage des fichiers](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) dans votre propre application. 
 
-1. Ouvrez le projet dans **Visual Studio 2015 ou version ultérieure**.
-2. Ajoutez vos **informations d’identification de compte** Batch et Stockage à **AccountSettings.settings** dans le projet Microsoft.Azure.Batch.Samples.Common.
-3. **Générez** la solution sans l’exécuter. Restaurez les packages NuGet si vous y êtes invité.
-4. Utilisez le portail Azure pour charger un [package d’application](batch-application-packages.md) pour **PersistOutputsTask**. Insérez le fichier `PersistOutputsTask.exe` et ses assemblys dépendants dans le package .zip, puis définissez l’ID de l’application sur PersistOutputsTask et la version du package d’application sur 1.0.
-5. **Démarrez** (exécutez) le projet **PersistOutputs**.
+Vous pouvez souhaiter implémenter les conventions standard de nommage des fichiers par vous-même si vous voulez un schéma de nommage qui a fait ses preuves ou si vous voulez afficher la sortie des tâches dans le portail Azure.
+
+### <a name="implement-a-custom-file-movement-solution"></a>Implémenter une solution de déplacement de fichiers personnalisée
+
+Vous pouvez aussi implémenter votre propre solution de déplacement de fichiers complète. Suivez cette approche dans les cas suivants :
+
+- Vous voulez conserver les données des tâches dans un magasin de données différent du Stockage Azure. Pour charger les fichiers dans un magasin de données comme Azure SQL ou Azure DataLake, vous pouvez créer un script personnalisé ou un exécutable à charger à cet emplacement. Vous pouvez ensuite l’appeler sur la ligne de commande après avoir exécuté votre exécutable principal. Par exemple, sur un nœud Windows, vous pouvez appeler ces deux commandes : `doMyWork.exe && uploadMyFilesToSql.exe`
+- Vous voulez procéder à la création de points de contrôle ou effectuer un chargement anticipé des résultats initiaux.
+- Vous voulez conserver un contrôle précis de la gestion des erreurs. Par exemple, vous pouvez souhaiter implémenter votre propre solution si vous voulez utiliser des actions de dépendance de tâches pour effectuer certaines actions de chargement en fonction de codes de sortie de tâche spécifiques. Pour plus d’informations sur les actions de dépendance de tâches, consultez [Créer des dépendances de tâches pour exécuter des tâches qui dépendent d’autres tâches](batch-task-dependencies.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-### <a name="application-deployment"></a>Déploiement des applications
-La fonctionnalité [packages d’application](batch-application-packages.md) de Batch est un moyen facile de déployer et contrôler les versions des applications exécutées par vos tâches sur des nœuds de calcul.
 
-### <a name="installing-applications-and-staging-data"></a>Installation d’applications et de données intermédiaires
-Pour découvrir les différentes méthodes de préparation des nœuds à l’exécution de tâches, consultez l’article [Installing applications and staging data on Batch compute nodes][forum_post] (Installation d’applications et de données intermédiaires sur les nœuds de calcul Batch) sur le forum Azure Batch. Rédigée par un membre de l’équipe Azure Batch, cette publication est une excellente introduction aux différentes façons d’obtenir des fichiers (y compris les applications et les données d’entrée de tâche) sur vos nœuds de calcul. Elle décrit également certains aspects à prendre en compte pour chaque méthode.
+- Explorez l’utilisation des nouvelles fonctionnalités de l’API du service Batch pour conserver les données des tâches dans [Conserver les données des tâches dans le Stockage Azure à l’aide de l’API du service Batch](batch-task-output-files.md).
+- Découvrez comment utiliser la bibliothèque Conventions de nommage des fichiers pour .NET dans [Conserver les données des travaux et des tâches dans le Stockage Azure avec la bibliothèque Conventions de nommage des fichiers Batch pour .NET](batch-task-output-file-conventions.md).
+- Consultez l’exemple de projet [PersistOutputs][github_persistoutputs] sur GitHub, qui montre comment utiliser la bibliothèque du client Batch pour .NET et la bibliothèque Conventions de nommage des fichiers pour .NET pour conserver la sortie des tâches dans un stockage durable.
 
-[forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
-[github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
-[github_file_conventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/FileConventions/README.md
-[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
-[github_samples]: https://github.com/Azure/azure-batch-samples
-[net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
-[net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
-[net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
-[net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
-[net_fileconventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/FileConventions/README.md
-[net_joboutputkind]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputkind.aspx
-[net_joboutputstorage]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputstorage.aspx
-[net_joboutputstorage_saveasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputstorage.saveasync.aspx
-[net_msdn]: https://msdn.microsoft.com/library/azure/mt348682.aspx
-[net_prepareoutputasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.cloudjobextensions.prepareoutputstorageasync.aspx
-[net_saveasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx
-[net_savetrackedasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputstorage.savetrackedasync.aspx
-[net_taskoutputkind]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputkind.aspx
-[net_taskoutputstorage]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx
-[nuget_manager]: https://docs.nuget.org/consume/installing-nuget
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com
 [storage_explorer]: http://storageexplorer.com/
-
-[1]: ./media/batch-task-output/task-output-01.png "Sélecteurs Saved output files (Fichiers de sortie enregistrés) et Fichiers enregistrés dans le portail"
-[2]: ./media/batch-task-output/task-output-02.png "Panneau des sorties des tâches dans le Portail Azure"
 

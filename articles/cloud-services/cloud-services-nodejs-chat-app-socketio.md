@@ -3,8 +3,8 @@ title: Application Node.js avec Socket.io | Microsoft Docs
 description: "Découvrez comment utiliser socket.io dans une application node.js hébergée sur Azure."
 services: cloud-services
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: e9607d2426192eca990261e5ef3b4e06b25b1dec
-ms.lasthandoff: 03/07/2017
-
+ms.date: 08/17/2017
+ms.author: tarcher
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: efa459f6b382ff22c94802e1250836d5f622b4ed
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/29/2017
 
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure
@@ -80,6 +80,7 @@ Avant de tester l'application dans l'émulateur Azure, nous allons apporter quel
          , nib = require('nib')
        //, sio = require('..//..//lib//socket.io'); //Original
          , sio = require('socket.io');                //Updated
+         var port = process.env.PORT || 3000;         //Updated
 3. Pour que l’application écoute le bon port, ouvrez le fichier server.js dans le Bloc-notes (ou votre éditeur favori), puis modifiez la ligne suivante en remplaçant **3000** par **process.env.port**, comme indiqué ci-dessous :
    
        //app.listen(3000, function () {            //Original
@@ -105,9 +106,18 @@ Après avoir enregistré vos modifications dans le fichier **server.js**, procé
 1. Démarrez l'émulateur en exécutant la commande suivante :
    
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
+   
+   > [!NOTE]
+   > Si vous rencontrez des problèmes pour le lancement de l’émulateur, par ex. : Start-AzureEmulator : une erreur inattendue est survenue.  Détails : une erreur inattendue a été rencontrée. L’objet de communication System.ServiceModel.Channels.ServiceChannel ne peut pas être utilisé pour la communication car son état est Faulted.
+   
+      réinstallez AzureAuthoringTools v 2.7.1 et AzureComputeEmulator v 2.7 : assurez-vous que la version correspond.
+   >
+   >
+
+
 2. Ouvrez un navigateur et accédez à **http://127.0.0.1**.
 3. À l'ouverture de la fenêtre du navigateur, entrez un pseudonyme, puis appuyez sur Entrée.
-   Vous pouvez ainsi publier des messages sous ce pseudonyme. Pour tester la fonctionnalité multi-utilisateurs, ouvrez d'autres fenêtres du navigateur en utilisant la même URL et en entrant différents pseudonymes.
+   Vous pouvez ainsi publier des messages sous un pseudonyme spécifique. Pour tester la fonctionnalité multi-utilisateurs, ouvrez d'autres fenêtres du navigateur en utilisant la même URL et en entrant différents pseudonymes.
    
    ![Deux fenêtres du navigateur affichant des messages de conversation instantanée des utilisateurs User1 et User2](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
 4. Une fois le test de l'application terminé, arrêtez l'émulateur en exécutant la commande suivante :

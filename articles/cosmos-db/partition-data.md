@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 5f501bdb0a3c478a436d729dfe045ad8e39bd3bb
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: e2d2847276e553d7511241ff323c3e00aad8e5c9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -184,7 +183,7 @@ Pour mettre à l’échelle efficacement avec Azure Cosmos DB, vous devez choisi
 Nous allons examiner quelques scénarios réels et les bonnes clés de partition à chaque fois :
 * Si vous implémentez un service principal de profil utilisateur, alors l’ID utilisateur constitue un bon choix pour la clé de partition.
 * Si vous stockez des données IoT, comme l’état d’appareil, un ID d’appareil constitue un bon choix pour la clé de partition.
-* Si vous utilisez DocumentDB pour journaliser des données de série chronologique, le nom d’hôte et l’ID de processus constituent un bon choix pour une clé de partition.
+* Si vous utilisez Azure Cosmos DB pour la connexion des données de séries chronologiques, il est intéressant de choisir le nom d’hôte ou l’ID de processus pour la clé de partition.
 * Si vous disposez d’une architecture mutualisée, l’ID client constitue un bon choix pour la clé de partition.
 
 Dans certains cas d’utilisation, comme l’IoT et les profils utilisateur, la clé de partition peut être identique à votre ID (clé de document). Dans d’autres cas, comme les données de série chronologique, la clé de partition peut être différente de l’ID.

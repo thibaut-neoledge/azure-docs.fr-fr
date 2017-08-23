@@ -11,14 +11,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 02/13/2017
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
 ms.openlocfilehash: 7ef5802866bf96859d3f44cdb58cbb412b08a700
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/01/2017
-
 
 ---
 # <a name="deploy-a-wordpress-app-in-the-azure-portal-in-five-minutes"></a>Déployer une application web WordPress dans le portail Azure en cinq minutes

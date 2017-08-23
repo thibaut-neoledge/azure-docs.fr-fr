@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/04/2017
+ms.date: 08/08/2017
 ms.author: kaanan
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 48c7a83515ec43f63fb7ff4e6b2d6b4edf93f7b4
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: a98c216fcc4351a339554ce0adcf8fccb717d3e0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
@@ -77,22 +77,22 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
 | **Denver** |CoreSite |
-| **Dublin** |Colt, Telecity Group |
+| **Dublin** |Colt, Interxion, Telecity Group |
 | **Hong Kong** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
-| **Las Vegas** |Level 3 Communications+, Megaport |
+| **Las Vegas** |Level 3 Communications, Megaport |
 | **Londres** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
-| **Miami** |Megaport |
+| **Miami** |C3ntro+, Megaport |
 | **Montréal** |Bell Canada, Cologix |
-| **Mumbai** |Airtel+, Tata Communications |
+| **Mumbai** |Airtel+, Sify, Tata Communications |
 | **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport (Nouvelle-Galles du Sud)** |Next Generation Data |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **Paris** |Colt, Interxion, Equinix, Orange+ |
+| **Paris** |Colt, Interxion, Equinix, Orange |
 | **Québec** | Megaport |
 | **San Antonio** |Megaport |
-| **São Paulo** |Ascenty Data Centers+, Equinix, Level 3 Communications, Telefonica, UOLDIVEO+ |
+| **São Paulo** |Ascenty Data Centers+, Equinix, Level 3 Communications, Telefonica, UOLDIVEO |
 | **Seattle** |Equinix, Level 3 Communications, Megaport |
 | **Séoul** |KINX, Sejong Telecom |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
@@ -127,7 +127,7 @@ Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windows
 ### <a name="germany"></a>Allemagne
 | **Emplacement** | **Fournisseurs de services** |
 | --- | --- |
-| **Berlin** |Colt+, e-shelter, Megaport+ |
+| **Berlin** |Colt+, e-shelter, Megaport+, T-Systems |
 | **Francfort** |Colt, Equinix, Interxion |
 
 ## <a name="c1partners"></a>Connectivité via des fournisseurs Exchange

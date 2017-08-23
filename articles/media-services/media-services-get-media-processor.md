@@ -1,5 +1,5 @@
 ---
-title: "Création d&quot;un processeur multimédia | Microsoft Docs"
+title: "Création d’un processeur multimédia à l’aide du Kit de développement logiciel Azure Media Services pour .NET | Microsoft Docs"
 description: "Apprenez à créer un composant processeur multimédia pour encoder, chiffrer ou déchiffrer un contenu multimédia, ou convertir son format pour Azure Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET."
 services: media-services
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 88f6e1da090eb6088e54c6f81d0f83b1737d3c2c
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: cb14bebfaf073cb38bdc1f1718ef3d8c7f6c45fc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Obtention d’une instance de processeur multimédia
@@ -31,21 +31,16 @@ ms.lasthandoff: 04/12/2017
 ## <a name="overview"></a>Vue d'ensemble
 Dans Media Services, un processeur multimédia est un composant qui gère une tâche de traitement spécifique, telle que l’encodage, la conversion de format, le chiffrement ou le déchiffrement de contenu multimédia. Le plus souvent, vous devez créer un processeur multimédia lorsque vous créez une tâche visant à encoder, à chiffrer ou à convertir le format du contenu multimédia.
 
-Le tableau suivant vous indique le nom et la description de chaque processeur multimédia disponible.
+## <a name="azure-media-processors"></a>Processeurs multimédias Azure 
 
-| Nom du processeur multimédia | Description | Informations complémentaires |
-| --- | --- | --- |
-| Media Encoder Standard |Fournit des fonctionnalités standard pour l’encodage à la demande. |[Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure](media-services-encode-asset.md) |
-| Media Encoder Premium Workflow |Permet d’exécuter des tâches d’encodage à l’aide de Media Encoder Premium Workflow. |[Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure](media-services-encode-asset.md) |
-| Azure Media Indexer |Vous permet de faire en sorte que les fichiers et le contenu multimédias puissent faire l'objet d'une recherche, et de générer des pistes de sous-titrage et des mots clés. |[Azure Media Indexer](media-services-index-content.md) |
-| Azure Media Hyperlapse (version préliminaire) |Permet de lisser les « dégradations » dans votre vidéo avec une stabilisation vidéo. Permet également d’accélérer votre contenu dans un clip consommable. |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
-| Encodeur multimédia Azure |Déconseillé | |
-| Storage Decryption |Déconseillé | |
-| Azure Media Packager |Déconseillé | |
-| Azure Media Encryptor |Déconseillé | |
+La rubrique suivante fournit une liste de processeurs multimédias :
+
+* [Processeurs multimédia d’encodage](scenarios-and-availability.md#encoding-media-processors)
+* [Processeurs multimédias Analytics](scenarios-and-availability.md#analytics-media-processors)
 
 ## <a name="get-media-processor"></a>Obtention d'un processeur multimédia
-La méthode suivante montre comment obtenir une instance de processeur multimédia. L’exemple de code implique l’utilisation d’une variable au niveau du module, nommée **_context**, pour conserver une référence au contexte, tel que décrit dans la section [Comment : se connecter à Media Services par programmation](media-services-dotnet-connect-programmatically.md).
+
+La méthode suivante montre comment obtenir une instance de processeur multimédia. L’exemple de code implique l’utilisation d’une variable au niveau du module, nommée **_context**, pour conserver une référence au contexte, tel que décrit dans la section [Comment : se connecter à Media Services par programmation](media-services-use-aad-auth-to-access-ams-api.md).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {

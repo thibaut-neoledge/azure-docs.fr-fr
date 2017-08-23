@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 89cd987cee841ea24dce85c0249e0eb3489c8d90
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 3fea93f558d5a4ef62550fd1f6486903cb812930
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -36,9 +36,7 @@ La passerelle de données locale vous permet de gérer les données et d’accé
 
 - Téléchargez et installez la dernière bibliothèque cliente SAP sur le même ordinateur que celui où vous avez installé la passerelle de données. Vous pouvez utiliser l’une des versions SAP suivantes : 
     - Serveur SAP
-        - SAP ECC 6.0 Unicode
-        - SAP ECC 6.0 Unicode avec EHP 4.0
-        - SAP ECC 6.0 avec EHP 7.0 et toutes les versions précédentes d’EHP
+        - Tout serveur SAP qui prend en charge le connecteur .NET (NCo) 3.0
  
     - Client SAP
         - Connecteur SAP .NET (NCo) 3.0

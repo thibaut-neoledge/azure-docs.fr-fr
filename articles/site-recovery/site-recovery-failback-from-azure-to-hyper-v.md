@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/31/2017
+ms.date: 08/11/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
@@ -20,36 +20,25 @@ ms.openlocfilehash: 3116e2c15242ea7be8eeb77281b40bc4b38b846e
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/15/2017
 
-
 ---
 
-<a id="failback-in-site-recovery-for-hyper-v-virtual-machines" class="xliff"></a>
-
-# Restauration automatique dans Site Recovery pour les machines virtuelles Hyper-V
+# <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Restauration automatique dans Site Recovery pour les machines virtuelles Hyper-V
 
 Cet article explique comment restaurer automatiquement des machines virtuelles protégées par Site Recovery.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 1. Assurez-vous que le serveur VMM/Hyper-V du site principal est connecté.
 2. Vous devez avoir effectué une **validation** sur la machine virtuelle.
 
-<a id="why-is-there-no-button-called-failback" class="xliff"></a>
-
-## Pourquoi n’y a-t-il pas de bouton Restauration automatique ?
+## <a name="why-is-there-no-button-called-failback"></a>Pourquoi n’y a-t-il pas de bouton Restauration automatique ?
 Dans le portail, il n’existe pas d’option Restauration automatique explicite. La restauration automatique est une étape consistant à revenir au site principal. Par définition, le basculement correspond au basculement des machines virtuelles du site principal (local) au site de récupération (Azure) et la restauration au rebasculement des machines virtuelles du site de récupération au site principal.
 
 Lorsque vous lancez un basculement, le panneau vous informe du sens de la tâche. Si la tâche va être effectuée d’Azure au site local, il s’agit d’une restauration automatique.
 
-<a id="why-is-there-only-a-planned-failover-gesture-to-failback" class="xliff"></a>
-
-## Pourquoi y a-t-il uniquement une option de basculement planifié pour la restauration automatique ?
+## <a name="why-is-there-only-a-planned-failover-gesture-to-failback"></a>Pourquoi y a-t-il uniquement une option de basculement planifié pour la restauration automatique ?
 Azure est un environnement hautement disponible et vos machines virtuelles seront toujours disponibles. La restauration automatique est une activité planifiée où vous décidez d’observer un bref temps d’arrêt afin que les charges de travail puissent être exécutées à nouveau en local. Il ne doit y avoir aucune perte de données. Par conséquent, vous disposez uniquement d’une option de basculement planifié qui permet de désactiver les machines virtuelles dans Azure, de télécharger les dernières modifications et de s’assurer qu’aucune donnée n’est perdue.
 
-<a id="initiate-failback" class="xliff"></a>
-
-## Lancer la restauration automatique
+## <a name="initiate-failback"></a>Lancer la restauration automatique
 Après le basculement du site principal vers l’emplacement secondaire, les machines virtuelles répliquées ne sont pas protégées par Site Recovery et l’emplacement secondaire joue désormais le rôle d’emplacement actif. Suivez ces procédures pour effectuer la restauration automatique vers le site principal d’origine. Cette procédure explique comment exécuter un test de basculement planifié pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle unique, via l’onglet **Machines virtuelles** .
 
 1. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Type de basculement** > **Planned Type de basculement**.
@@ -77,9 +66,7 @@ Après le basculement du site principal vers l’emplacement secondaire, les mac
 8. Cette dernière présente un état de validation en attente. Cliquez sur **Valider** pour valider le basculement.
 9. Afin de terminer la restauration automatique, cliquez sur **Réplication inverse** pour commencer à protéger la machine virtuelle sur le site principal.
 
-<a id="failback-to-an-alternate-location" class="xliff"></a>
-
-## Restauration automatique vers un autre emplacement
+## <a name="failback-to-an-alternate-location"></a>Restauration automatique vers un autre emplacement
 Si vous avez déployé la fonction de protection entre un [site Hyper-V et Microsoft Azure](site-recovery-hyper-v-site-to-azure.md) , vous avez la possibilité d’effectuer une restauration automatique depuis Microsoft Azure vers un autre emplacement local. Cette opération est utile si vous devez configurer de nouveaux composants matériels locaux. Voici comment procéder.
 
 1. Si vous configurez un nouveau composant matériel, installez le logiciel Windows Server 2012 R2 et le rôle Hyper-V sur le serveur.
@@ -103,9 +90,7 @@ Si vous avez déployé la fonction de protection entre un [site Hyper-V et Micro
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Une fois la tâche de restauration automatique terminée, **validez** la machine virtuelle. La validation supprime la machine virtuelle et ses disques, et prépare la machine virtuelle à protéger à nouveau.
 

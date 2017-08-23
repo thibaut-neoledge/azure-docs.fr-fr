@@ -1,4 +1,3 @@
-* Si le disque non géré se trouve dans un compte de stockage précédemment chiffré à l’aide du Chiffrement du service de stockage Azure, vous ne pouvez pas le convertir en un disque géré. Pour savoir comment copier et utiliser ces disques durs virtuels (VHD) dans des disques gérés, consultez la section [Disques gérés et chiffrement du service de stockage Azure](#managed-disks-and-azure-storage-service-encryption) plus loin dans cet article.
 
 * La conversion nécessite un redémarrage de la machine virtuelle. Par conséquent, planifiez la migration de vos machines virtuelles au cours d’une fenêtre de maintenance préexistante. 
 

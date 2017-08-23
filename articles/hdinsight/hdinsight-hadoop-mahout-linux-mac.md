@@ -1,5 +1,5 @@
 ---
-title: "Génération de recommandations à l’aide de Mahout et HDInsight (SSH) | Microsoft Docs"
+title: "Générer des recommandations à l’aide de Mahout et HDInsight (SSH) - Azure | Documents Microsoft"
 description: "Apprenez à utiliser la bibliothèque à apprentissage automatique Apache Mahout pour générer des recommandations de films avec HDInsight (Hadoop)."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/15/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: d10d86fdb6ade326fb49fded9676a6106ab53aef
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 28450d72f19a5467d88bc787d11f6c37c5afbf9a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Génération de recommandations de films à l’aide d’Apache Mahout avec Hadoop sous Linux dans HDInsight (SSH)
@@ -37,7 +36,9 @@ Mahout est une bibliothèque [Machine Learning][ml] pour Apache Hadoop. Mahout c
 * Un cluster HDInsight sous Linux Pour plus d’informations sur la création de ce dernier, consultez [Prise en main de Hadoop sous Linux dans HDInsight][getstarted].
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+
+* Un client SSH. Pour plus d’informations, consultez le document [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="mahout-versioning"></a>Contrôle de version Mahout
 
@@ -168,16 +169,10 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     Appuyez sur **Ctrl-X**, **O**, et enfin **Entrée** pour enregistrer les données.
 
-4. Pour rendre le fichier exécutable, utilisez la commande suivante :
+4. Exécutez le script Python. La commande suivante suppose que vous avez ouvert le répertoire dans lequel tous les fichiers ont été téléchargés :
 
     ```bash
-    chmod +x show_recommendations.py
-    ```
-
-5. Exécutez le script Python. La commande suivante suppose que vous avez ouvert le répertoire dans lequel tous les fichiers ont été téléchargés :
-
-    ```bash
-    ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
+    python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
     La commande examinera les recommandations générées pour l’utilisateur ID 4.

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 79156c0b511dafcb43ed91800f01338dbb7ee5f3
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a8854c0f6313238ee846ad1c537d23d8fd20c66f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Présentation d’Azure Cosmos DB : API DocumentDB
@@ -51,7 +50,7 @@ Azure Cosmos DB, via l’API DocumentDB, offre les avantages et fonctionnalités
 * **Indexation automatique :** par défaut, Azure Cosmos DB indexe automatiquement tous les documents de la base de données et n’attend pas et ne nécessite aucun schéma ni création d’index secondaires. Vous ne voulez pas tout indexer ? Ne vous inquiétez pas, vous pouvez aussi [refuser des chemins d’accès dans vos fichiers JSON](indexing-policies.md) .
 
 ## <a name="data-management"></a>Comment gérer les données avec l’API DocumentDB ?
-L’API DocumentDB permet de gérer les données JSON via des ressources de base de données bien définies. Ces ressources sont répliquées à des fins de haute disponibilité et adressables de manière unique via leur URI logique. DocumentDB offre un modèle de programmation RESTful simple basé sur HTTP pour toutes les ressources. 
+L’API DocumentDB permet de gérer les données JSON via des ressources de base de données bien définies. Ces ressources sont répliquées à des fins de haute disponibilité et adressables de manière unique via leur URI logique. L’API DocumentDB offre un modèle de programmation RESTful simple basé sur HTTP pour toutes les ressources. 
 
 
 Un compte de base de données Azure Cosmos DB est un espace de noms unique qui vous donne accès à Azure Cosmos DB. Pour pouvoir créer un compte de base de données, vous devez posséder un abonnement Azure, lequel vous donne accès à une grande variété de services Azure. 
@@ -87,16 +86,16 @@ Azure Cosmos DB expose les ressources via l’API REST qui peut être appelée p
 En plus des opérations classiques de création, de lecture et de suppression, l’API DocumentDB fournit une interface de requêtes SQL enrichies pour la récupération de documents JSON et une prise en charge côté serveur de l’exécution transactionnelle de la logique d’application JavaScript. Les interfaces d'exécution des requêtes et des scripts sont disponibles dans toutes les bibliothèques de plateforme, ainsi que les API REST. 
 
 ### <a name="sql-query"></a>Requête SQL
-L’API DocumentDB accepte l’interrogation de documents à l’aide d’un langage SQL prenant sa racine dans le système de type JavaScript, ainsi que les expressions prenant en charge les requêtes relationnelles, hiérarchiques et spatiales. Le langage de requête DocumentDB est une interface simple et performante qui permet d'interroger des documents JSON. Le langage prend en charge un sous-ensemble de syntaxe ANSI SQL et ajoute une intégration approfondie des objets JavaScript, des tableaux, de la construction d'objets et de l'appel de fonctions. DocumentDB fournit son modèle de requête sans que le développeur n'ait à fournir un schéma explicite ou des indicateurs d'indexation.
+L’API DocumentDB accepte l’interrogation de documents à l’aide d’un langage SQL prenant sa racine dans le système de type JavaScript, ainsi que les expressions prenant en charge les requêtes relationnelles, hiérarchiques et spatiales. Le langage de requête DocumentDB est une interface simple et performante qui permet d'interroger des documents JSON. Le langage prend en charge un sous-ensemble de syntaxe ANSI SQL et ajoute une intégration approfondie des objets JavaScript, des tableaux, de la construction d'objets et de l'appel de fonctions. L’API DocumentDB fournit son modèle de requête sans que le développeur n'ait à fournir un schéma explicite ou des indicateurs d'indexation.
 
 Les fonctions définies par l’utilisateur peuvent être inscrites auprès de l’API DocumentDB et référencées dans le cadre d’une requête SQL, étendant ainsi la syntaxe pour prendre en charge une logique d’application personnalisée. Elles sont écrites en tant que programmes JavaScript et exécutées dans la base de données. 
 
-Pour les développeurs .NET, le [kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) de DocumentDB propose également un fournisseur de requête LINQ. 
+Pour les développeurs .NET, le [kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) de l’API DocumentDB propose également un fournisseur de requête LINQ. 
 
 ### <a name="transactions-and-javascript-execution"></a>Transactions et exécution JavaScript
 L’API DocumentDB vous permet d’écrire la logique d’application sous forme de programmes nommés écrits entièrement en JavaScript. Ces programmes sont inscrits pour une collection et prennent en charge l'émission d'opérations de base de données sur les documents d'une collection donnée. JavaScript peut être inscrit à des fins d'exécution en tant que déclencheur, procédure stockée ou fonction définie par l'utilisateur. Les déclencheurs et les procédures stockées permettent de créer, lire, mettre à jour et supprimer des documents, tandis que les fonctions définies par l'utilisateur sont exécutées dans le cadre de la logique d'exécution de requêtes sans accès en écriture à la collection.
 
-L’exécution JavaScript dans l’API DocumentDB est modélisée selon les concepts pris en charge par les systèmes de bases de données relationnelles, avec JavaScript en remplacement de Transact-SQL. Toute la logique JavaScript est exécutée dans une transaction ACID ambiante avec isolement de capture instantanée. Lors de son exécution, si le code JavaScript lève une exception, toute la transaction est abandonnée.
+L'exécution JavaScript dans Cosmos DB est modélisée selon les concepts pris en charge par les systèmes de bases de données relationnelles, avec JavaScript en remplacement de Transact-SQL. Toute la logique JavaScript est exécutée dans une transaction ACID ambiante avec isolement de capture instantanée. Lors de son exécution, si le code JavaScript lève une exception, toute la transaction est abandonnée.
 
 ## <a name="are-there-any-online-courses-on-azure-cosmos-db"></a>Y a-t-il des formations en ligne sur Azure Cosmos DB ?
 

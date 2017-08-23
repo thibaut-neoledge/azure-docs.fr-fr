@@ -22,9 +22,7 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-<a id="accessing-publisher-support-for-the-azure-marketplace" class="xliff"></a>
-
-# Accès au support d'éditeur pour Azure Marketplace
+# <a name="accessing-publisher-support-for-the-azure-marketplace"></a>Accès au support d'éditeur pour Azure Marketplace
 Microsoft prend en charge un large éventail de produits et services. S'assurer que votre requête soit traitée par l'équipe de support appropriée est primordial pour garantir une réponse appropriée et en temps voulu. Veuillez prendre les scénarios suivants en compte. Ils devraient vous aider à acheminer votre demande vers l'équipe appropriée :
 
 * Si vous êtes un éditeur sur Azure Marketplace et développez encore votre machine virtuelle, vous devez contacter vos équipes Microsoft Onboarding ou Compute.
@@ -40,23 +38,17 @@ Cette article vous explique comment :
 * fournir des informations de contact ;
 * décrire le problème.
 
-<a id="1-sign-in-to-your-microsoft-account" class="xliff"></a>
-
-## 1. Connexion à votre compte Microsoft
+## <a name="1-sign-in-to-your-microsoft-account"></a>1. Connexion à votre compte Microsoft
 Accédez à https://publish.windowsazure.com/ et connectez-vous avec les informations d’identification de votre compte Microsoft.
 
   ![Écran de connexion][1]
 
-<a id="2-navigate-to-the-publisher-support-pages" class="xliff"></a>
-
-## 2. Accès aux pages de support de l'éditeur
+## <a name="2-navigate-to-the-publisher-support-pages"></a>2. Accès aux pages de support de l'éditeur
 Dans le menu supérieur droit, sélectionnez **Obtenir de l'aide**.
 
   ![Obtenir de l'aide][2]
 
-<a id="3-select-the-problem-type-and-category" class="xliff"></a>
-
-## 3. Sélectionnez le type de problème et la catégorie
+## <a name="3-select-the-problem-type-and-category"></a>3. Sélectionnez le type de problème et la catégorie
 ![Catégorie et type de problème][3]
 
 Les types de problèmes disponibles sont les suivants :
@@ -70,23 +62,17 @@ Les types de problèmes disponibles sont les suivants :
 * **Centre de développement**
 * **Autres**
 
-<a id="4-request-support" class="xliff"></a>
-
-## 4. Demande d'assistance
+## <a name="4-request-support"></a>4. Demande d'assistance
 Après avoir sélectionné le type et la catégorie de problème, cliquez sur le bouton **Start request** .
 
 ![Démarrer le support][4]
 
-<a id="5-provide-contact-information-and-describe-the-problem" class="xliff"></a>
-
-## 5. Indication des informations de contact et description du problème
+## <a name="5-provide-contact-information-and-describe-the-problem"></a>5. Indication des informations de contact et description du problème
 Décrivez le problème d'une manière aussi complète que possible et fournissez tous les fichiers (des captures d'écran, des traces réseau, etc.) qui peuvent être utiles pour résoudre votre problème.
 
 ![Décrire le problème][5]
 
-<a id="6-submission-confirmation" class="xliff"></a>
-
-## 6. Confirmation de la soumission
+## <a name="6-submission-confirmation"></a>6. Confirmation de la soumission
 Une fois votre demande soumise, nous accuserons réception dans les 24 heures et affecterons à votre problème une priorité et une gravité. Notre équipe d'ingénieurs de support technique dédiée aidera à sa résolution en fonction des temps de réponse définis dans notre contrat de niveau de service.
 
 ![Confirmation][6]
@@ -94,9 +80,7 @@ Une fois votre demande soumise, nous accuserons réception dans les 24 heures e
 * Si vous avez besoin de nous parler de votre problème, utilisez le numéro de confirmation dans toute correspondance.
 * Vous pouvez vous informer de la progression de votre demande à tout moment.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour savoir comment résoudre des problèmes de support spécifiques, visitez le site : [Comment résoudre les problèmes courants de publication dans Azure Marketplace](marketplace-publishing-support-common-issues.md).
 
 [1]: ./media/marketplace-publishing-get-publisher-support/step1.png

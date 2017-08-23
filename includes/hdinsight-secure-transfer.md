@@ -1,0 +1,2 @@
+> [!NOTE]
+> La fonctionnalité [Transfert sécurisé requis](../articles/storage/storage-require-secure-transfer.md) applique toutes les demandes à votre compte via une connexion sécurisée. Cette fonctionnalité est uniquement prise en charge par les clusters HDInsight 3.6 ou version ultérieure. Pour plus d’informations, consultez [Créer un cluster Hadoop à l’aide de comptes de stockage avec transfert sécurisé dans Azure HDInsight](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md).

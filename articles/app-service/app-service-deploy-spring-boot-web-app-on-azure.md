@@ -14,18 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 05/20/2017
 ms.author: asirveda;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: ec6982f41d1e04d737c0f47571c30d813a390ea7
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a071cd1933caafce1f176cd5c5c4f41a60c54357
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
 # <a name="deploy-a-spring-boot-application-to-the-azure-app-service"></a>Déployer une application Spring Boot sur Azure App Service
 
-**[Spring Framework]**  une solution open source qui permet aux développeurs Java de créer des applications d’entreprise. Un des projets les plus populaires s’appuyant sur cette plateforme est [Spring Boot], qui offre une approche simplifiée pour la création d’applications Java autonomes.
+ **[Spring Framework]**  une solution open source qui permet aux développeurs Java de créer des applications d’entreprise. Un des projets les plus populaires s’appuyant sur cette plateforme est [Spring Boot], qui offre une approche simplifiée pour la création d’applications Java autonomes.
 
 Ce didacticiel vous montre comment créer l’exemple d’application web Spring Boot Getting Started et la déployer sur [Azure App Service].
 
@@ -197,9 +196,9 @@ La procédure suivante vous guide à travers les étapes pour déployer votre ap
 
 Pour plus d’informations sur l’utilisation d’applications Spring Boot sur Azure, consultez les articles suivants :
 
-* [Exécution d’une application Spring Boot sur Linux dans Azure Container Service](../container-service/container-service-deploy-spring-boot-app-on-linux.md)
+* [Exécution d’une application Spring Boot sur Linux dans Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
 
-* [Exécution d’une application Spring Boot sur un cluster Kubernetes dans Azure Container Service](../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md)
+* [Exécution d’une application Spring Boot sur un cluster Kubernetes dans Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

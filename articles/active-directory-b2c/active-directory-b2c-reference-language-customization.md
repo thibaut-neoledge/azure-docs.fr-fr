@@ -12,12 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 7134467421927e9a26e23f89684eeb6864a2f9a3
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 3c7c49ee5fbd98762da0eef6f02e7c2f036453cb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-using-language-customization"></a>Azure Active Directory B2C : utilisation de la personnalisation de la langue
@@ -25,22 +24,22 @@ ms.lasthandoff: 05/11/2017
 >[!NOTE] 
 >Cette fonctionnalité est en version préliminaire publique.  Il est recommandé d’utiliser un client de test lors de l’utilisation de cette fonctionnalité.  Nous ne prévoyons pas d’apporter d’autres modifications entre la version préliminaire et la version mise à la disposition générale, mais nous nous réservons le droit d’en apporter pour améliorer la fonctionnalité.  Une fois que vous aurez eu l’occasion d’essayer cette fonctionnalité, donnez-nous votre avis sur cette expérience et comment nous pouvons l’améliorer.  Vous pouvez nous faire part de vos commentaires via le portail Azure avec l’outil symbolisé par une émoticône en haut à droite.   Si votre entreprise a des exigences particulières pour que vous utilisiez cette fonctionnalité en version préliminaire, communiquez-nous vos scénarios pour que nous vous proposions l’assistance et les conseils adéquats.  Vous pouvez nous contacter à l’adresse [aadb2cpreview@microsoft.com](mailto:aadb2cpreview@microsoft.com).
 
-La personnalisation de la langue vous permet de changer la langue de votre parcours utilisateur pour répondre aux besoins de votre client.  Nous fournissons des traductions pour 37 langues (voir [Informations supplémentaires](#additional-information)).  Même si votre expérience est disponible dans une seule langue, vous pouvez personnaliser n’importe quel texte sur les pages en fonction de vos besoins.  
+La personnalisation de la langue vous permet de changer la langue de votre parcours utilisateur pour répondre aux besoins de votre client.  Nous fournissons des traductions pour 36 langues (voir [Informations supplémentaires](#additional-information)).  Même si votre expérience est disponible dans une seule langue, vous pouvez personnaliser n’importe quel texte sur les pages en fonction de vos besoins.  
 
 ## <a name="how-does-language-customization-work"></a>Fonctionnement de la personnalisation de la langue
-La personnalisation de la langue vous permet de sélectionner les langues dans lesquelles votre parcours utilisateur est disponible.  Une fois que la fonctionnalité est activée, vous pouvez fournir le paramètre de chaîne de requête, ui_locales, de votre application.  Lorsque vous appelez dans Azure AD B2C, nous traduisons votre page en fonction du paramètre régional que vous avez indiqué.  L’utilisation du type de configuration vous permet de contrôler intégralement les langues de votre parcours utilisateur et ignore les paramètres de langue du navigateur du client.  Vous pouvez également ne pas avoir besoin de ce niveau de contrôle sur les langues que votre client voit.  Si vous n’indiquez pas de paramètre ui_locales, l’expérience du client est régie par les paramètres de son navigateur.  Vous pouvez toujours contrôler les langues dans lesquelles votre parcours utilisateur est traduit en les ajoutant en tant que langues prises en charge.  Si le navigateur d’un client est défini pour afficher une langue que vous ne souhaitez pas prendre en charge, c’est la langue sélectionnée par défaut dans les cultures prises en charge qui est affichée à la place.
+La personnalisation de la langue vous permet de sélectionner les langues dans lesquelles votre parcours utilisateur est disponible.  Une fois que la fonctionnalité est activée, vous pouvez fournir le paramètre de chaîne de requête, ui_locales, de votre application.  Lorsque vous appelez dans Azure AD B2C, nous traduisons votre page en fonction du paramètre régional que vous avez indiqué.  L’utilisation du type de configuration vous permet de contrôler intégralement les langues de votre parcours utilisateur et ignore les paramètres de langue du navigateur du client. Vous pouvez également ne pas avoir besoin de ce niveau de contrôle sur les langues que votre client voit.  Si vous n’indiquez pas de paramètre ui_locales, l’expérience du client est régie par les paramètres de son navigateur.  Vous pouvez toujours contrôler les langues dans lesquelles votre parcours utilisateur est traduit en les ajoutant en tant que langues prises en charge.  Si le navigateur d’un client est défini pour afficher une langue que vous ne souhaitez pas prendre en charge, c’est la langue sélectionnée par défaut dans les cultures prises en charge qui est affichée à la place.
 
 1. **Langue spécifiée par le paramètre ui_locales** : après avoir activé la personnalisation de la langue, votre parcours utilisateur est traduit dans la langue indiquée ici.
 2. **Langue demandée par le navigateur** : si aucun paramètre ui_locales n’a été spécifié, la page est traduite dans la langue demandée par le navigateur, **si elle a été ajoutée en tant que langue prise en charge**.
-3. **Langue par défaut de la stratégie** : si aucune langue n’est spécifiée ou si une langue non prise en charge est spécifiée, la page est traduite dans la langue par défaut de la stratégie.
+3. **Langue par défaut de la stratégie** : si le navigateur ne spécifie aucune langue ou s’il en spécifie une qui n’est pas prise en charge, la page est traduite dans la langue par défaut de la stratégie.
 
 >[!NOTE]
->Si vous utilisez des attributs utilisateur personnalisés, vous devez fournir vos propres traductions.  Consultez « [Personnaliser vos chaînes](#customize-your-strings) » pour plus d’informations.
+>Si vous utilisez des attributs utilisateur personnalisés, vous devez fournir vos propres traductions. Consultez « [Personnaliser vos chaînes](#customize-your-strings) » pour plus d’informations.
 >
 
 ## <a name="support-uilocales-requested-languages"></a>Prendre en charge les langues demandées par le paramètre ui_locales 
 En activant la personnalisation de la langue sur une stratégie, vous pouvez désormais contrôler la langue du parcours utilisateur en ajoutant le paramètre ui_locales.
-1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-the-b2c-features-blade)
+1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings)
 2. Accédez à une stratégie pour laquelle vous souhaitez activer la traduction.
 3. Cliquez sur **Personnalisation de la langue**.
 4. Lisez attentivement l’avertissement.  Une fois activée, la personnalisation de la langue ne peut pas être désactivée.
@@ -51,7 +50,7 @@ En activant la personnalisation de la langue sur une stratégie, vous pouvez dé
 Créez une liste des langues dans lesquelles votre parcours utilisateur peut être traduit lorsque le paramètre ui_locales n’est pas fourni.
 1. Vérifiez que la personnalisation de la langue est activée dans votre stratégie, comme vu précédemment.
 2. Dans votre panneau **Modifier une stratégie**, sélectionnez **Personnalisation de la langue**.
-3. Vous êtes redirigé vers votre panneau **Langues prises en charge**.  D’ici, vous pouvez sélectionner **Ajouter une ressource**.
+3. Vous êtes redirigé vers votre panneau **Langues prises en charge**.  D’ici, vous pouvez sélectionner **Ajouter une langue**.
 4. Sélectionnez toutes les langues que vous souhaitez prendre en charge.  
 
 >[!NOTE]
@@ -151,6 +150,8 @@ Nous vous recommandons d’ajouter uniquement des entrées à vos ressources de 
 Lorsque vous activez la personnalisation de la langue, les modifications précédemment appliquées aux étiquettes via la personnalisation de l’interface utilisateur de la page sont supprimées, à l’exception des attributs utilisateur personnalisés.  Cette modification est effectuée pour éviter les conflits aux endroits où vous pouvez modifier vos chaînes.  Vous pouvez continuer à modifier vos étiquettes et les autres chaînes en chargeant des ressources de langues dans « Personnalisation de la langue ».
 ### <a name="microsoft-is-committed-to-provide-the-most-up-to-date-translations-for-your-use"></a>Microsoft s’engage à fournir des traductions à jour pour que vous puissiez les utiliser.
 Nous ne cesserons d’améliorer nos traductions pour qu’elles soient conformes à vos attentes.  Nous identifierons les bogues et les modifications dans la terminologie globale et créerons les mises à jour qui s’adapteront en toute transparence à votre parcours utilisateur.
+### <a name="support-for-right-to-left-languages"></a>Prise en charge des langues s’écrivant de droite à gauche
+Il n’y a aucune prise en charge des langues de droite à gauche. Si vous avez besoin de cette fonctionnalité, votez pour elle dans la page de [Commentaires Azure](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Traductions des fournisseurs d’identité de réseaux sociaux
 Nous proposons le paramètre OIDC ui_locales pour les connexions aux réseaux sociaux, mais il n’est pas honoré par certains fournisseurs d’identité de réseaux sociaux, notamment Facebook et Google. 
 ### <a name="browser-behavior"></a>Comportement du navigateur
@@ -175,7 +176,6 @@ Nous prévoyons de fournir une extension de cette fonctionnalité pour vous perm
 | Finnois               | fi            |
 | Français                | fr            |
 | Goudjrati              | gu            |
-| Hébreu                | he            |
 | Hindi                 | hi            |
 | Croate              | hr            |
 | Hongrois             | hu            |

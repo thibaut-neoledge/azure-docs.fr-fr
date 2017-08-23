@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/11/2017
-
 
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Chiffrement dynamique : configurer la stratégie d’autorisation de clé de contenu
@@ -102,7 +102,7 @@ Cette section décrit comment créer une stratégie d’autorisation de clé de 
 
 Pour configurer l’option de restriction par jeton, vous devez utiliser un document XML pour décrire les exigences du jeton d’autorisation. Le XML de configuration de la restriction par jeton doit être conforme au schéma XML suivant.
 
-#### <a name="a-idschemaatoken-restriction-schema"></a><a id="schema"></a>Schéma de restriction par jeton
+#### <a id="schema"></a>Schéma de restriction par jeton
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -209,7 +209,7 @@ L’exemple suivant crée une stratégie d’autorisation avec une restriction p
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
 
-#### <a name="a-idtestatest-token"></a><a id="test"></a>Jeton de test
+#### <a id="test"></a>Jeton de test
 Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour la stratégie d’autorisation de clé, procédez comme suit.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -390,8 +390,8 @@ Pour configurer l’option de restriction par jeton, vous devez utiliser un docu
 
 Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour la stratégie d'autorisation de clé, consultez [cette](#test) section. 
 
-## <a name="a-idtypesatypes-used-when-defining-contentkeyauthorizationpolicy"></a><a id="types"></a>Types utilisés durant la définition de ContentKeyAuthorizationPolicy
-### <a name="a-idcontentkeyrestrictiontypeacontentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+## <a id="types"></a>Types utilisés durant la définition de ContentKeyAuthorizationPolicy
+### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -399,7 +399,7 @@ Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour 
         IPRestricted = 2,
     }
 
-### <a name="a-idcontentkeydeliverytypeacontentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType
     {
       None = 0,
@@ -408,7 +408,7 @@ Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour 
       Widevine = 3
     }
 
-### <a name="a-idtokentypeatokentype"></a><a id="TokenType"></a>TokenType
+### <a id="TokenType"></a>TokenType
     public enum TokenType
     {
         Undefined = 0,

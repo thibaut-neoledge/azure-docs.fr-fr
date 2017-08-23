@@ -1,6 +1,6 @@
 ---
 title: "Surveiller et gérer Hadoop avec l’API REST Ambari - Azure HDInsight | Documents Microsoft"
-description: "Découvrez comment utiliser Ambari pour surveiller et gérer les clusters Hadoop dans Azure HDInsight. Dans ce document, vous allez apprendre à utiliser l&quot;API REST d&quot;Ambari incluse avec les clusters HDInsight."
+description: "Découvrez comment utiliser Ambari pour surveiller et gérer les clusters Hadoop dans Azure HDInsight. Dans ce document, vous allez apprendre à utiliser l'API REST d'Ambari incluse avec les clusters HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2017
+ms.date: 08/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 7ac80a8521b48f43538ca06a054f8302eb32eea6
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: bc6eee6ff3e6c7006509cdd175b488e320ed912a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Gérer des clusters HDInsight à l'aide de l'API REST d'Ambari
@@ -30,11 +29,11 @@ ms.lasthandoff: 05/17/2017
 
 Découvrez comment utiliser l’API REST Ambari pour gérer et surveiller les clusters Hadoop dans Azure HDInsight.
 
-Apache Ambari simplifie la gestion et la surveillance d'un cluster Hadoop en fournissant une interface utilisateur web et une API REST faciles à utiliser. Ambari est inclus dans les clusters HDInsight utilisant le système d’exploitation Linux et sert à surveiller le cluster et à apporter des modifications de configuration.
+Apache Ambari simplifie la gestion et la surveillance d'un cluster Hadoop en fournissant une interface utilisateur web et une API REST faciles à utiliser. Ambari est inclus dans les clusters HDInsight qui utilisent le système d’exploitation Linux. Vous pouvez utiliser Ambari pour surveiller le cluster et apporter des modifications de configuration.
 
 ## <a id="whatis"></a>Présentation d'Ambari
 
-[Apache Ambari](http://ambari.apache.org) simplifie la gestion de Hadoop en fournissant une interface utilisateur web conviviale qui peut être utilisée pour approvisionner, gérer et surveiller les clusters Hadoop. Les développeurs peuvent intégrer ces fonctionnalités dans leurs applications à l’aide des [API REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) fournit l’interface utilisateur web qui peut être utilisée pour approvisionner, gérer et surveiller les clusters Hadoop. Les développeurs peuvent intégrer ces fonctionnalités dans leurs applications à l’aide des [API REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari est fourni par défaut avec les clusters HDInsight Linux.
 
@@ -70,7 +69,7 @@ L’URI de base pour l’API REST sur les clusters HDInsight est https://CLUSTER
 
 ### <a name="authentication"></a>Authentification
 
-Une connexion à Ambari sur HDInsight requiert HTTPS. Lors de l’authentification de la connexion, vous devez utiliser le nom du compte d’administrateur (la valeur par défaut est **admin**) et le mot de passe que vous avez fournis au moment de la création du cluster.
+Une connexion à Ambari sur HDInsight requiert HTTPS. Utilisez le nom du compte Administrateur (la valeur par défaut est **admin**) et le mot de passe fournis lors de la création du cluster.
 
 ## <a name="examples-authentication-and-parsing-json"></a>Exemples : Authentification et analyse de JSON
 
@@ -179,7 +178,7 @@ Lorsque vous travaillez avec HDInsight, vous pouvez avoir besoin de connaître l
 * **Nœuds de travail**
 
     ```bash
-    curl -u admin:PASSWORD -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" \
+    curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -193,7 +192,7 @@ Lorsque vous travaillez avec HDInsight, vous pouvez avoir besoin de connaître l
 * **Nœuds Zookeeper**
 
     ```bash
-    curl -u admin:PASSWORD -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
+    curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -211,7 +210,7 @@ Lorsque vous travaillez avec HDInsight, vous pouvez avoir besoin de connaître l
 >
 > Pour plus d’informations sur l’utilisation de HDInsight et des réseaux virtuels, consultez [Étendre les fonctionnalités HDInsight à l’aide d’un réseau virtuel Azure personnalisé](hdinsight-extend-hadoop-virtual-network.md).
 
-Vous devez connaître le nom de domaine complet de l’ordinateur hôte pour pouvoir obtenir l’adresse IP. Lorsque cela est fait, vous pouvez ensuite obtenir l’adresse IP de l’hôte. Les exemples suivants interrogent d’abord Ambari pour connaître le nom de domaine complet de tous les nœuds de l’hôte, puis l’adresse IP de chaque hôte.
+Pour rechercher l’adresse IP, vous devez connaître le nom de domaine complet interne des nœuds de cluster. Lorsque cela est fait, vous pouvez ensuite obtenir l’adresse IP de l’hôte. Les exemples suivants interrogent d’abord Ambari pour connaître le nom de domaine complet de tous les nœuds de l’hôte, puis l’adresse IP de chaque hôte.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
@@ -258,7 +257,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 La valeur de retour est similaire à l’un des exemples suivants :
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - Cette valeur indique que le cluster utilise un compte de stockage Azure pour le stockage par défaut. La valeur `ACCOUNTNAME` est le nom du compte de stockage. La partie `CONTAINER` est le nom du conteneur d’objets blob dans le compte de stockage. Le conteneur est la racine du stockage compatible HDFS du cluster.
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - Cette valeur indique que le cluster utilise un compte de stockage Azure pour le stockage par défaut. La valeur `ACCOUNTNAME` est le nom du compte de stockage. La partie `CONTAINER` est le nom du conteneur d’objets blob dans le compte de stockage. Le conteneur est la racine du stockage compatible HDFS du cluster.
 
 * `adl://home` - Cette valeur indique que le cluster utilise Azure Data Lake Store pour le stockage par défaut.
 
@@ -307,8 +306,9 @@ La valeur de retour est similaire à l’un des exemples suivants :
     ```
 
     ```powershell
-    Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
+    $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
         -Credential $creds
+    $respObj.Content
     ```
 
     Cet exemple renvoie un document JSON avec la configuration actuelle (identifiée par la valeur *tag* ) pour les composants installés sur le cluster. L’exemple suivant est un extrait des données renvoyées à partir d’un type de cluster Spark.
@@ -380,7 +380,7 @@ La valeur de retour est similaire à l’un des exemples suivants :
    
     Dans cette liste, vous devez copier le nom du composant (par exemple, **spark\_thrift\_sparkconf** et la valeur **tag**).
 
-2. Récupérez la configuration du composant et de la balise à l’aide des commandes suivantes. Remplacez **spark-thrift-sparkconf** et **INITIAL** par le composant et la balise dont vous souhaitez récupérer la configuration.
+2. Récupérez la configuration du composant et de la balise à l’aide des commandes suivantes :
    
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
@@ -395,6 +395,9 @@ La valeur de retour est similaire à l’un des exemples suivants :
         -Credential $creds
     $resp.Content | jq --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     ```
+
+    > [!NOTE]
+    > Remplacez **spark-thrift-sparkconf** et **INITIAL** par le composant et la balise dont vous souhaitez récupérer la configuration.
    
     Jq est utilisé pour convertir les données récupérées à partir de HDInsight dans un nouveau modèle de configuration. Plus précisément, ces exemples permettent d’effectuer les actions suivantes :
    

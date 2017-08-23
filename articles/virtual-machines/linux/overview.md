@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 981b87540070dff18a01d6bf3dce24a675b451aa
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure et Linux
@@ -100,7 +100,7 @@ Pour commencer à utiliser Azure, vous avez besoin d’un compte Azure, de l’i
 La première étape pour utiliser Azure Cloud consiste à créer un compte Azure.  Accédez sur la page [Création d’un compte Azure](https://azure.microsoft.com/pricing/free-trial/) pour commencer.
 
 ### <a name="install-the-cli"></a>Installer l’interface de ligne de commande
-Avec votre nouveau compte Azure, vous pouvez commencer immédiatement à utiliser le portail Azure, qui est un panneau d’administration web.  Pour gérer Azure Cloud via la ligne de commande, installez l’ `azure-cli`.  Installez [l’interface de ligne de commande Azure 2.0 ](/cli/azure/install)sur votre station de travail Mac ou Linux.
+Avec votre nouveau compte Azure, vous pouvez commencer immédiatement à utiliser le portail Azure, qui est un panneau d’administration web.  Pour gérer Azure Cloud via la ligne de commande, installez l’ `azure-cli`.  Installez [Azure CLI 2.0](/cli/azure/install-azure-cli) sur votre station de travail Mac ou Linux.
 
 ### <a name="create-an-ssh-key-pair"></a>Création d’une paire de clés SSH
 Vous avez maintenant un compte Azure, le portail web Azure et l’interface de ligne de commande Azure.  L’étape suivante consiste à créer une paire de clés SSH utilisée pour exécuter SSH dans Linux sans utiliser de mot de passe.  [Créez des clés SSH sur Linux et Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour activer les connexions sans mot de passe et améliorer la sécurité.
@@ -118,8 +118,6 @@ La création d’une machine virtuelle sur le portail web Azure consiste à faci
 ### <a name="login-using-ssh-without-a-password"></a>Connexion avec SSH sans mot de passe
 La machine virtuelle s’exécute maintenant sur Azure et vous êtes prêt à vous connecter.  L’utilisation de mots de passe pour vous connecter via le protocole SSH est peu sûre et prend du temps.  L’utilisation de clés SSH est la méthode la plus sûre et la plus rapide pour vous connecter.  Lorsque vous créez vos machines virtuelles Linux via le portail ou l’interface de ligne de commande, vous avez deux possibilités pour l’authentification.  Si vous choisissez un mot de passe pour SSH, Azure configure la machine virtuelle pour autoriser les connexions via les mots de passe.  Si vous choisissez d’utiliser une clé publique SSH, Azure configure la machine virtuelle pour autoriser uniquement les connexions via les clés SSH et désactive les connexions de mot de passe. Pour sécuriser votre machine virtuelle Linux en autorisant uniquement les connexions par clé SSH, utilisez l’option de clé SSH publique lors de la création de machines virtuelles sur le portail ou dans l’interface de ligne de commande.
 
-* [Désactiver les mots de passe SSH sur votre machine virtuelle Linux en configurant SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## <a name="related-azure-components"></a>Composants Azure connexes
 ## <a name="storage"></a>Stockage
 * [Introduction à Stockage Microsoft Azure](../../storage/storage-introduction.md)
@@ -135,7 +133,7 @@ La machine virtuelle s’exécute maintenant sur Azure et vous êtes prêt à vo
 ## <a name="containers"></a>Conteneurs
 * [Machines virtuelles et conteneurs dans Azure](containers.md)
 * [Présentation d’Azure Container Service](../../container-service/container-service-intro.md)
-* [Déploiement d’un cluster Azure Container Service](../../container-service/container-service-deployment.md)
+* [Déploiement d’un cluster Azure Container Service](../../container-service/dcos-swarm/container-service-deployment.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous avez maintenant une vue d’ensemble de Linux sur Azure.  L’étape suivante consiste à aller plus loin et créer quelques machines virtuelles.

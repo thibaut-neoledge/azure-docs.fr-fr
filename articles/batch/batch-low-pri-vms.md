@@ -9,14 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 05/05/2017
+ms.date: 07/21/2017
 ms.author: markscu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 69e26eaf4aedaf17b58091420430ca996c01cf69
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bf0ac322020d8a8453011c3207c1930175db6d3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -29,6 +28,8 @@ Les machines virtuelles de faible priorité tirent parti de la capacité excéde
 L’inconvénient de l’utilisation de machines virtuelles de faible priorité est que ces machines virtuelles peuvent être reportées lorsqu’aucune capacité excédentaire n’est disponible dans Azure. Pour cette raison, les machines virtuelles de faible priorité sont plus adaptées à certains types de charges de travail. Utilisez des machines virtuelles de faible priorité pour les charges de travail par lots et de traitement asynchrone lorsque l’heure d’achèvement de la tâche est flexible et que le travail est réparti entre plusieurs machines virtuelles.
 
 Les machines virtuelles de faible priorité coûtent beaucoup moins cher que les machines virtuelles dédiées. Pour plus d’informations sur la tarification, consultez [Tarification Batch](https://azure.microsoft.com/pricing/details/batch/).
+
+Pour plus d’informations sur les machines virtuelles de faible priorité, consultez l’annonce du billet de blog : [Batch computing bon marché](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/).
 
 > [!IMPORTANT]
 > Les machines virtuelles de faible priorité sont actuellement en préversion et sont uniquement disponibles pour les charges de travail s’exécutant dans Batch. 
@@ -72,6 +73,9 @@ Azure Batch fournit plusieurs fonctionnalités permettant de facilement utiliser
 -   Les pools Batch cherchent automatiquement à atteindre le nombre cible de machines virtuelles de faible priorité. Si les machines virtuelles sont reportées, Batch tentera de remplacer la capacité perdue et de revenir à la cible.
 
 -   En cas d’interruption de tâches, Batch détectera et remettra automatiquement les tâches en file d’attente, pour qu’elles s’exécutent à nouveau.
+
+-   Les machines virtuelles basse priorité ont un quota de cœurs différent de celui des machines virtuelles dédiées. 
+    L’offre des machines virtuelles basse priorité est supérieure à celle des machines dédiées car les machines virtuelles basse priorité sont moins onéreuses. Pour plus d’informations, consultez [Quotas et limites du service Batch](batch-quota-limit.md#resource-quotas).    
 
 > [!NOTE]
 > Les machines virtuelles de faible priorité ne sont actuellement pas prises en charge pour les comptes Batch dans lesquels le mode d’allocation du pool est défini sur [Abonnement utilisateur](batch-account-create-portal.md#user-subscription-mode).
@@ -167,6 +171,22 @@ Les machines virtuelles peuvent parfois être reportées ; dans ce cas, Batch e
 -   La machine virtuelle est effectivement supprimée, ce qui engendre la perte des données stockées localement sur la machine virtuelle.
 -   Le pool tente continuellement d’atteindre le nombre cible de nœuds de faible priorité disponibles. Une fois la capacité de remplacement trouvée, les nœuds conservent leur ID, mais ils sont réinitialisés. Ils passent par les états **Création** et **Démarrage** avant d’être disponibles pour la planification des tâches.
 -   Le nombre de préemptions est disponible sous la forme d’une mesure dans le portail Azure.
+
+## <a name="metrics"></a>Mesures
+
+De nouvelles mesures sont disponibles dans le [portail Azure](https://portal.azure.com) pour les nœuds de basse priorité. Ces mesures sont :
+
+- Nombre de nœuds à priorité basse
+- Nombre de cœurs à priorité basse 
+- Nombre de nœuds reportés
+
+Pour afficher les mesures dans le portail Azure :
+
+1. Accédez à votre compte de traitement par lots dans le portail et afficher les paramètres de votre compte Batch.
+2. Sélectionnez **Mesures** à partir de la section **Analyse**.
+3. Sélectionnez les mesures que vous souhaitez à partir de la liste des **Mesures disponibles**.
+
+![Mesures pour les nœuds de priorité basse](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

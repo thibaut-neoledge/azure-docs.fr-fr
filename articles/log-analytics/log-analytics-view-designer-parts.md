@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
-ms.openlocfilehash: 07edc26f62fada8b5e32693a172cb23b48d36e1f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: c1e0f89e2447189c7422368f1ccf7355aac6065b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Référence des composants de visualisation du Concepteur de vues de Log Analytics
@@ -26,7 +27,10 @@ Le Concepteur de vues de Log Analytics permet de créer dans la console OMS des 
 Autres articles disponibles concernant le Concepteur de vues :
 
 * [Concepteur de vues](log-analytics-view-designer.md) - vue d’ensemble du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
-* [Référence de vignette](log-analytics-view-designer-tiles.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées. 
+* [Référence de vignette](log-analytics-view-designer-tiles.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées.
+
+>[!NOTE]
+> Si votre espace de travail a été mis à niveau vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes de toutes les vues doivent être écrites à l’aide du [nouveau langage de requête](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Toutes les vues créées avant la mise à niveau de l’espace de travail sont automatiquement converties.
 
 Le tableau suivant décrit les différents types de vignettes disponibles dans le Concepteur de vues.  Les sections suivantes décrivent en détail chaque type de vignette et ses propriétés.
 
@@ -304,17 +308,17 @@ Affiche trois graphiques en courbes distincts avec plusieurs séries à partir d
 ## <a name="common-settings"></a>Paramètres courants
 Les sections suivantes décrivent les paramètres communs à plusieurs parties de visualisation.
 
-### <a name="a-namename-value-separatorname--value-separatora"></a><a name="name-value-separator">Séparateur de noms et de valeurs</a>
+### <a name="name-value-separator">Séparateur de noms et de valeurs</a>
 Délimiteur de caractère unique si vous souhaitez analyser la propriété de texte d’une liste en plusieurs valeurs.  Si vous spécifiez un délimiteur, vous pouvez fournir des noms pour chaque champ, en les séparant par le même délimiteur quand dans le champ Nom.
 
-Par exemple, imaginez une propriété appelée *Location* incluant des valeurs telles que *Redmond-Building 41* et *Bellevue-Building12*.  Vous pouvez spécifier – en tant que séparateur de noms et de valeurs, et *City-Building* en tant que nom.  Chaque valeur est alors analysée en deux propriétés respectivement nommées *City* et *Building*. 
+Par exemple, imaginez une propriété appelée *Location* incluant des valeurs telles que *Redmond-Building 41* et *Bellevue-Building12*.  Vous pouvez spécifier – en tant que séparateur de noms et de valeurs, et *City-Building* en tant que nom.  Chaque valeur est alors analysée en deux propriétés respectivement nommées *City* et *Building*.
 
-### <a name="a-namenavigation-querynavigation-querya"></a><a name="navigation-query">Requête de navigation</a>
+### <a name="navigation-query">Requête de navigation</a>
 Requête à exécuter lorsque l’utilisateur sélectionne un élément dans la liste.  Utilisez *{selected item}* pour inclure la syntaxe de l’élément sélectionné par l’utilisateur.
 
 Par exemple, si la requête comprend une colonne nommée *Computer* et que la requête de navigation est *{selected item}*, une requête telle que *Computer=”MyComputer”* est exécutée quand l’utilisateur sélectionne un ordinateur.  Si la requête de navigation est *Type=Event {selected item}*, la requête *Type=Event Computer=”MyComputer”* est exécutée.
 
-### <a name="a-namesparklinessparklinesa"></a><a name="sparklines">Sparklines</a>
+### <a name="sparklines">Sparklines</a>
 Une sparkline est un petit graphique en courbes qui illustre la valeur d’une entrée de liste au fil du temps.  Pour les parties de visualisation avec une liste, vous pouvez sélectionner si vous souhaitez afficher une barre horizontale qui indique la valeur relative d’une colonne numérique ou une sparkline indiquant sa valeur au fil du temps.
 
 Le tableau suivant décrit les paramètres pour les sparklines.
@@ -324,7 +328,7 @@ Le tableau suivant décrit les paramètres pour les sparklines.
 | Activation des sparklines |Sélectionnez cette option pour afficher la sparkline au lieu de la barre horizontale. |
 | Opération |Si les sparklines sont activées, il s’agit de l’opération à effectuer sur chaque propriété dans la liste pour calculer les valeurs du graphique sparkline.<br><br>- Last Sample : dernière valeur de la série sur l’intervalle de temps.<br>- Max : valeur maximale de la série sur l’intervalle de temps.<br>- Min : valeur minimale de la série sur l’intervalle de temps.<br>- Sum : somme des valeurs de la série sur l’intervalle de temps.<br>- Summary : utilise la même commande de mesure que la requête dans l’en-tête. |
 
-### <a name="a-namethresholdsthresholdsa"></a><a name="thresholds">Seuils</a>
+### <a name="thresholds">Seuils</a>
 Les seuils vous permettent d’afficher une icône de couleur à côté de chaque élément dans une liste, ce qui vous donne une indication visuelle rapide des éléments qui dépassent une valeur particulière ou sont dans une plage particulière.  Par exemple, vous pouvez afficher une icône verte pour les éléments avec une valeur acceptable, jaune si la valeur est dans une plage qui indique un avertissement rouge si elle dépasse une valeur d’erreur.
 
 Lorsque vous activez des seuils pour une partie, vous devez spécifier un ou plusieurs seuils.  Si la valeur d’un élément est supérieure à une valeur de seuil et inférieure à la valeur de seuil suivante, cette couleur est utilisée.  Si l’élément est supérieur à la valeur de puis la plus élevée, cette couleur est définie.   
@@ -342,10 +346,4 @@ Le tableau suivant décrit les paramètres pour les seuils.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur la [Recherche dans les journaux](log-analytics-log-searches.md) pour prendre en charge les requêtes dans des composants de visualisation.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

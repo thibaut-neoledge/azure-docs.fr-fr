@@ -1,5 +1,5 @@
 ---
-title: "Mise à l’échelle automatique et environnement App Service| Microsoft Docs"
+title: "Mise à l’échelle automatique et environnement App Service v1"
 description: "Mise à l’échelle automatique et environnement App Service"
 services: app-service
 documentationcenter: 
@@ -12,16 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
-ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 41ad9eb4d248b1f3e6c888c3037b121511799193
-ms.lasthandoff: 02/16/2017
-
+ms.date: 7/11/2017
+ms.author: ccompy
+ms.translationtype: HT
+ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
+ms.openlocfilehash: f32affd285f3918feb0e893543f2a28f678b7b10
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="autoscaling-and-app-service-environment"></a>Mise à l’échelle automatique et environnement App Service
+# <a name="autoscaling-and-app-service-environment-v1"></a>Mise à l’échelle automatique et environnement App Service v1
+
+> [!NOTE]
+> Cet article traite de l’environnement App Service Environment v1.  Il existe une version plus récente de l’environnement App Service Environment, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la [Présentation de l’environnement App Service](../app-service/app-service-environment/intro.md).
+> 
+
 Les environnements Azure App Service prennent en charge la *mise à l’échelle automatique*. Vous pouvez mettre à l’échelle automatiquement des pools de Workers individuels en fonction de mesures ou de la planification.
 
 ![Options de mise à l’échelle automatique d’un pool de Workers.][intro]
@@ -49,7 +54,7 @@ Une fois qu’un profil est défini, vous pouvez ajouter des règles de mise à 
 
 ![Règle de mise à l’échelle.][scale-rule]
 
- Toutes les règles de mesure du pool de Workers ou du serveur frontal peuvent être utilisées pour définir des règles de mise à l’échelle automatique. Ces mesures sont les mêmes que celles que vous pouvez surveiller dans les graphiques de panneau de ressource ou pour lesquelles vous pouvez définir une alerte.
+ Toutes les règles de mesure du pool de workers ou du frontend peuvent être utilisées pour définir des règles de mise à l’échelle automatique. Ces mesures sont les mêmes que celles que vous pouvez surveiller dans les graphiques de panneau de ressource ou pour lesquelles vous pouvez définir une alerte.
 
 ## <a name="autoscale-example"></a>Exemple de mise à l’échelle automatique
 La mise à l’échelle automatique d’un environnement App Service est mieux illustrée par un scénario.
@@ -70,7 +75,7 @@ Le pool de Workers 1 est utilisé pour les charges de travail, tandis que le poo
 
 Les plans App Service pour l’assurance qualité et le développement sont configurés pour la mise à l’échelle manuelle. Le plan App Service de production est configuré pour la mise à l’échelle automatique afin de gérer les variations de charge et de trafic.
 
-Frank connaît bien l’application. Il sait que les heures de pointe de charge sont situées entre 9 h et 18 h, car il s’agit d’une application métier (LOB) utilisée par les employés lorsqu’ils sont au bureau. Le taux d’utilisation chute une fois que les utilisateurs ont fini leur journée de travail. En dehors des heures de pointe, il existe toujours une charge, car les utilisateurs peuvent accéder à distance à l’application via leurs périphériques mobiles ou leurs ordinateurs personnels. Le plan App Service de production est déjà configuré sur la mise à l’échelle automatique basée sur le taux d’utilisation du processeur avec les règles suivantes :
+Frank connaît bien l’application. Il sait que les heures de pointe de charge sont situées entre 9 h et 18 h, car il s’agit d’une application métier (LOB) utilisée par les employés lorsqu’ils sont au bureau. Le taux d’utilisation chute une fois que les utilisateurs ont fini leur journée de travail. En dehors des heures de pointe, il existe toujours une charge, car les utilisateurs peuvent accéder à distance à l’application via leurs appareils mobiles ou leurs ordinateurs personnels. Le plan App Service de production est déjà configuré sur la mise à l’échelle automatique basée sur le taux d’utilisation du processeur avec les règles suivantes :
 
 ![Paramètres spécifiques pour une application métier.][asp-scale]
 
@@ -132,12 +137,12 @@ Dans le cas de la règle Mise à l’échelle automatique – Mise à l’échel
 
 Le plan App Service de production peut augmenter d’un taux maximal de huit instances/heure durant la semaine et de quatre instances/heure durant le week-end. Il peut libérer des instances à un taux maximal de quatre instances/heure durant la semaine et de six instances/heure durant les week-ends.
 
-Si plusieurs plans App Service sont hébergés dans un pool de Workers, vous devez calculer le *taux total d’inflation* en fonction de la somme du taux d’inflation de tous les plans App Service hébergés dans ce pool de Workers.
+Si plusieurs plans App Service sont hébergés dans un pool de workers, vous devez calculer le *taux total d’inflation* en fonction de la somme du taux d’inflation de tous les plans App Service hébergés dans ce pool de workers.
 
-![Calcul du taux d’inflation total pour plusieurs plans App Service hébergés dans un pool de Workers.][ASP-Total-Inflation]
+![Calcul du taux d’inflation total pour plusieurs plans App Service hébergés dans un pool de workers.][ASP-Total-Inflation]
 
-### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>Utilisation du taux d’inflation du plan App Service pour définir des règles de mise à l’échelle automatique du pool de Workers
-Les pools de Workers qui hébergent des plans App Service configurés pour la mise à l’échelle automatique doivent disposer d’une mémoire tampon adaptée. La mémoire tampon permet aux opérations de mise à l’échelle automatique d’augmenter et de réduire le plan App Service en fonction des besoins. La mémoire tampon minimale correspond au taux total d’inflation du plan App Service calculé.
+### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>Utilisation du taux d’inflation du plan App Service pour définir des règles de mise à l’échelle automatique du pool de workers
+Les pools de workers qui hébergent des plans App Service configurés pour la mise à l’échelle automatique doivent disposer d’une mémoire tampon adaptée. La mémoire tampon permet aux opérations de mise à l’échelle automatique d’augmenter et de réduire le plan App Service en fonction des besoins. La mémoire tampon minimale correspond au taux total d’inflation du plan App Service calculé.
 
 Comme les opérations de mise à l’échelle de l’environnement App Service prennent un certain temps, toute modification doit tenir compte des demandes de modification pouvant se produire lorsqu’une opération de mise à l’échelle est en cours. Pour ce faire, nous recommandons l’utilisation du taux d’inflation du plan App Service total calculé en tant que nombre minimal d’instances ajoutées pour chaque opération de mise à l’échelle automatique.
 
@@ -176,23 +181,23 @@ Grâce à ces informations, Frank peut définir le profil et les règles de mise
 
 La plage cible définie dans le profil est calculée par le nombre d’instances minimales du profil pour le plan App Service + la mémoire tampon.
 
-La plage maximale est la somme du maximum de toutes les plages pour tous les plans App Service hébergés dans le pool de Workers.
+La plage maximale est la somme du maximum de toutes les plages pour tous les plans App Service hébergés dans le pool de workers.
 
 L’augmentation correspondant aux règles de mise à l’échelle doit être définie comme au moins 1 fois le taux d’inflation du plan App Service pour la mise à l’échelle supérieure.
 
 La réduction correspondant aux règles de mise à l’échelle doit être définie sur un chiffre compris entre 1/2 fois et 1 fois le taux d’inflation du plan App Service pour une mise à l’échelle inférieure.
 
-### <a name="autoscale-for-front-end-pool"></a>Mise à l’échelle automatique du pool frontal
-Les règles de mise à l’échelle automatique des serveurs frontaux sont plus simples que pour les pools de Workers. Le plus important est de  
+### <a name="autoscale-for-front-end-pool"></a>Mise à l’échelle automatique du pool frontend
+Les règles de mise à l’échelle automatique des frontends sont plus simples que pour les pools de workers. Le plus important est de  
 vous assurer que la durée de la mesure et des temps de recharge prend en compte le fait que les opérations de mise à l’échelle sur un plan App Service ne sont pas instantanées.
 
-Pour ce scénario, Frank sait que le taux d’erreur augmente après que les serveurs frontaux ont atteint un taux d’utilisation du processeur de 80 %, et il définit la règle de mise à l’échelle automatique pour augmenter le nombre d’instances comme suit :
+Pour ce scénario, Frank sait que le taux d’erreur augmente après que les frontends ont atteint un taux d’utilisation du processeur de 80 %, et il définit la règle de mise à l’échelle automatique pour augmenter le nombre d’instances comme suit :
 
-![Paramètres de mise à l’échelle automatique du pool frontal.][Front-End-Scale]
+![Paramètres de mise à l’échelle automatique du pool frontend.][Front-End-Scale]
 
-| **Profil de l’échelle automatique : serveurs frontaux** |
+| **Profil de l’échelle automatique : frontends** |
 | --- |
-| **Nom :** Mise à l’échelle automatique – Serveurs frontaux |
+| **Nom :** Mise à l’échelle automatique – Frontends |
 | **Mise à l’échelle selon :** Planification et règles de performances |
 | **Profil :** tous les jours |
 | **Type :** périodicité |
@@ -202,7 +207,7 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente après que les ser
 | **Fuseau horaire :** UTC-08 |
 |  |
 | **Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |
-| **Ressource :** Pool frontal |
+| **Ressource :** Pool frontend |
 | **Mesure :** % d’utilisation de l’unité centrale |
 | **Fonctionnement :** supérieur à 60 % |
 | **Durée :** 20 minutes |

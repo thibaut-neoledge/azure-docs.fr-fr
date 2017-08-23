@@ -1,6 +1,6 @@
 ---
-title: "Machine virtuelle pour la science des données dans Azure | Microsoft Docs"
-description: "Configurer une machine virtuelle pour la science des données"
+title: "Approvisionner des machines virtuelles pour la science des données Azure en tant que serveurs de bloc-notes IPython | Microsoft Docs"
+description: "Configurez une machine virtuelle pour la science des données en tant que serveur de bloc-notes IPython avec des outils de support."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: xibingao;bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: 4de0683f2f58cc598a5c37e74a30b7e17aa7fd0d
-ms.lasthandoff: 12/20/2016
-
+ms.date: 07/21/2017
+ms.author: bradsev
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: db1ffb2a226a087ecea2ea6f560c6b803e33d8c7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/22/2017
 
 ---
-# <a name="data-science-virtual-machines-in-azure"></a>Machine virtuelle pour la science des données dans Azure
+# <a name="provision-azure-data-science-virtual-machines-as-ipython-notebook-servers"></a>Approvisionner des machines virtuelles pour la science des données Azure en tant que serveurs de bloc-notes IPython
 Les instructions fournies ici décrivent la procédure de configuration d'une machine virtuelle Azure et d'une machine virtuelle Azure équipée du service SQL en tant que serveurs Notebook IPython. Le machine virtuelle Windows est configurée avec des outils connexes, tels que Notebook IPython, l’Explorateur de stockage Azure et AzCopy, ainsi que d’autres utilitaires utiles pour les projets de science des données. Par exemple, l’Explorateur de stockage Azure et AzCopy facilitent le chargement de données dans le stockage Azure depuis votre ordinateur local ou le téléchargement de ces données vers votre ordinateur local à partir du stockage. 
 
 Ce menu pointe vers des rubriques qui décrivent comment configurer les différents environnements de science de données utilisés par le [processus TDSP (Team Data Science Process)](data-science-process-overview.md).

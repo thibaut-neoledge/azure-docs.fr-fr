@@ -3,8 +3,8 @@ title: "Migration à partir de Mobile Services vers une application App Service 
 description: "Découvrez comment migrer facilement votre application Mobile Services vers une application App Service Mobile App."
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: d5bceb8dd53850f0f11be05be2d5e5d3fbd01c5d
-ms.lasthandoff: 03/01/2017
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: cd6c75fb12182c1c38c9717f7fe51c6e36922540
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="article-top"></a>Migration de votre service mobile Azure existant vers Azure App Service
@@ -51,7 +51,7 @@ Pour migrer votre site :
 1. Connectez-vous au [portail Azure Classic].
 2. Sélectionnez un service mobile dans la région que vous souhaitez migrer.
 3. Cliquez sur le bouton **Migrer vers App Service**.
-   
+
    ![Bouton Migrer][0]
 4. Lisez le contenu de la boîte de dialogue Migrer vers App Service.
 5. Entrez le nom de votre service mobile dans le champ approprié.  Par exemple, si votre nom de domaine est contoso.azure-mobile.net, entrez *contoso* dans le champ approprié.
@@ -89,8 +89,8 @@ Il existe une flexibilité considérable dans le choix du niveau tarifaire appro
 
 > [!TIP]
 > Le niveau App Service standard englobe l’accès à de nombreuses fonctionnalités que vous pouvez utiliser, dont les [emplacements intermédiaires], les sauvegardes automatiques et la mise à l’échelle automatique.  Découvrez les nouvelles fonctionnalités tant que vous êtes là.
-> 
-> 
+>
+>
 
 ### <a name="review-migration-scheduler-jobs"></a>Passer en revue les tâches migrées du planificateur
 Les tâches du planificateur ne sont visibles pendant environ 30 minutes après une migration.  Les tâches planifiées continuent à s’exécuter en arrière-plan.
@@ -115,8 +115,8 @@ Vos paramètres CORS migrés sont disponibles en tant que paramètre d’applica
 
 > [!TIP]
 > L’un des avantages de l’utilisation d’un Azure App Service est que vous pouvez exécuter votre site web et votre service mobile sur le même site.  Pour plus d’informations, consultez la section [Étapes suivantes](#next-steps).
-> 
-> 
+>
+>
 
 ### <a name="download-publish-profile"></a>Télécharger un nouveau profil de publication
 Le profil de publication de votre site est modifié lors de la migration vers Azure App Service.  Si vous avez l’intention de publier votre site depuis Visual Studio, vous avez besoin d’un nouveau profil de publication.  Pour télécharger un nouveau profil de publication :
@@ -163,8 +163,8 @@ Vous pouvez mettre à jour plusieurs paramètres d’application en même temps.
 
 > [!TIP]
 > Deux paramètres de l’application ont la même valeur.  Par exemple, vous pouvez voir *ApplicationKey* et *MS\_ApplicationKey*.  Mettez à jour les paramètres d’application en même temps.
-> 
-> 
+>
+>
 
 ### <a name="authentication"></a>Authentification
 Tous les paramètres d’authentification sont disponibles en tant que Paramètres de l’application dans le site migré.  Pour mettre à jour vos paramètres d’authentification, vous devez modifier les paramètres de l’application appropriés.  Le tableau suivant présente les paramètres de l’application appropriés pour votre fournisseur d’authentification :
@@ -181,10 +181,10 @@ Remarque : **MS\_AadTenants** est stocké sous forme de liste de domaines de cl
 
 > [!WARNING]
 > **N’utilisez pas de mécanismes d’authentification dans le menu Paramètres**
-> 
+>
 > Azure App Service fournit un système d’authentification et d’autorisation « sans code » séparé dans le menu de paramètres *Authentification/Autorisation*, ainsi que l’option (déconseillée) *Authentification de mobile*.  Ces options sont incompatibles avec un service mobile Azure migré.  Vous pouvez [mettre à niveau votre site](app-service-mobile-net-upgrading-from-mobile-services.md) pour tirer parti de l’authentification d’Azure App Service.
-> 
-> 
+>
+>
 
 ### <a name="easytables"></a>Données
 L’onglet *Données* dans Mobile Services a été remplacé par *Tables faciles* dans le portail Azure.  Pour accéder à Easy Tables :
@@ -250,15 +250,15 @@ Votre concentrateur de notification est géré via le [portail Azure].  Notez le
 
 > [!NOTE]
 > Si votre concentrateur de notification est de type « Mixte », il n’est pas visible.  Les concentrateurs de notification de type « Mixte » utilisent Notification Hubs et des fonctionnalités de Service Bus héritées.  [Convertissez vos espaces de noms mixte] avant de continuer.  Une fois la conversion terminée, votre concentrateur de notification s’affiche dans le [portail Azure].
-> 
-> 
+>
+>
 
 Pour plus d’informations, voir la documentation de [Notification Hubs] .
 
 > [!TIP]
 > Les fonctions de gestion de Notification Hubs dans le [portail Azure] sont encore en version préliminaire.  Le [portail Azure Classic] reste disponible pour la gestion de tous vos Notification Hubs.
-> 
-> 
+>
+>
 
 ### <a name="legacy-push"></a>Paramètres Push hérités
 Si vous avez configuré des notifications Push sur votre service mobile avant son introduction dans Notification Hubs, vous utilisez des paramètres *push hérités*.  Si vous utilisez des notifications Push et ne voyez aucun concentrateur de notification répertorié dans votre configuration, il est probable que vous utilisiez des paramètres *push hérités*.  Cette fonctionnalité est migrée avec toutes les autres fonctionnalités.  Toutefois, nous vous recommandons d’effectuer une mise à niveau vers Notification Hubs peu après la migration.

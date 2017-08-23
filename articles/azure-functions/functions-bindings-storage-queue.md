@@ -15,13 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: donnam, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 85a3386c8159eb1abf01ccd35c6aea04f5710d5c
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: f39f674bf576a2661a0e03710b9005b0515b3aa5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="azure-functions-queue-storage-bindings"></a>Liaisons de stockage de file d’attente d’Azure Functions
@@ -75,7 +74,7 @@ Le déclencheur de file d’attente fournit plusieurs propriétés de métadonn�
 * **ExpirationTime** : type `DateTimeOffset?`. Heure à laquelle le message expire.
 * **Id**:type `string`. ID de message de la file d’attente.
 * **InsertionTime** : type `DateTimeOffset?`. Heure à laquelle le message a été ajouté à la file d’attente.
-* **NextVisibleTime** : type « DateTimeOffset » Heure à laquelle le message sera de nouveau visible.
+* **NextVisibleTime** : tapez `DateTimeOffset?`. Heure à laquelle le message sera de nouveau visible.
 * **PopReceipt** : type `string`. Réception pop du message.
 
 Découvrez comment utiliser les métadonnées de file d’attente dans [l’exemple de déclencheur](#triggersample).
@@ -294,3 +293,4 @@ Pour obtenir un exemple de fonction utilisant des déclencheurs et de liaisons d
 <!-- LINKS -->
 
 [« CloudQueueMessage »]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+

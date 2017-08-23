@@ -14,27 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 2776f640bc192b0775b0ccbaaf62bb719b3bb790
-ms.lasthandoff: 04/18/2017
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 8f5534c83adf2ee4a696131afb45a658c89dd298
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/08/2017
 
 ---
 
-# <a name="diagnose-on-premise-connectivity-via-vpn-gateways"></a>Diagnostiquer la connectivité locale via des passerelles VPN
+# <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostiquer la connectivité locale par le biais de passerelles VPN
 
-La passerelle VPN Azure vous permet de créer des solutions hybrides qui répondent aux besoins d’une connexion sécurisée entre votre réseau local et votre réseau virtuel Azure. Vos besoins étant uniques, le choix du périphérique VPN local l’est également. Azure prend actuellement en charge [plusieurs périphériques VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides) qui sont validés en permanence en partenariat avec les fournisseurs de périphériques. Passez en revue les paramètres de configuration spécifiques au périphérique avant de configurer votre périphérique VPN local. De même, la passerelle VPN Azure est configurée avec un ensemble de [paramètres IPsec pris en charge](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-nameipsecaipsecike-parameters) qui sont utilisés pour établir des connexions. Actuellement, il n’existe aucun moyen de spécifier ou de sélectionner une combinaison spécifique de paramètres IPsec à partir de la passerelle VPN Azure. Pour établir une connexion correcte entre le site et Azure, les paramètres du périphérique VPN local doivent être conformes aux paramètres IPsec prescrits par la passerelle VPN Azure. Dans le cas contraire, vous perdez la connectivité et, jusqu’à maintenant, la résolution de ces problèmes n’est pas simple et plusieurs heures sont généralement nécessaires pour identifier et corriger le problème.
+La passerelle VPN Azure vous permet de créer des solutions hybrides qui répondent aux besoins d’une connexion sécurisée entre votre réseau local et votre réseau virtuel Azure. Vos besoins étant uniques, le choix du périphérique VPN local l’est également. Azure prend actuellement en charge [plusieurs périphériques VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) qui sont validés en permanence en partenariat avec les fournisseurs de périphériques. Passez en revue les paramètres de configuration spécifiques au périphérique avant de configurer votre périphérique VPN local. De même, la passerelle VPN Azure est configurée avec un ensemble de [paramètres IPsec pris en charge](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) qui sont utilisés pour établir des connexions. Actuellement, il n’existe aucun moyen de spécifier ou de sélectionner une combinaison spécifique de paramètres IPsec à partir de la passerelle VPN Azure. Pour établir une connexion correcte entre le site et Azure, les paramètres du périphérique VPN local doivent être conformes aux paramètres IPsec prescrits par la passerelle VPN Azure. Si les paramètres sont incorrects, vous perdez la connectivité et, jusqu’à maintenant, la résolution de ces problèmes n’est pas simple et plusieurs heures sont généralement nécessaires pour identifier et corriger le problème.
 
 Avec la fonctionnalité de résolution des problèmes d’Azure Network Watcher, vous êtes en mesure de diagnostiquer les problèmes en lien avec vos connexions et votre passerelle. En quelques minutes, vous avez suffisamment d’informations pour prendre une décision éclairée et corriger le problème.
 
 ## <a name="scenario"></a>Scénario
 
-Vous souhaitez configurer une connexion de site à site entre Azure et votre site à l’aide de Cisco ASA comme passerelle VPN locale. Pour réaliser ce scénario, la configuration suivante est requise :
+Vous pouvez configurer une connexion site à site entre Azure et votre site local en utilisant FortiGate comme passerelle VPN locale. Pour réaliser ce scénario, la configuration suivante est requise :
 
 1. Passerelle de réseau virtuel - La passerelle VPN sur Azure
-1. Passerelle de réseau local - La représentation de la [passerelle VPN (CISCO ASA) locale](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) dans le cloud Azure
-1. Connexion de site à site (basée sur la stratégie) - [Connexion entre la passerelle VPN et CISCO ASA local](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#a-namecreateconnectiona8-create-a-site-to-site-vpn-connection)
-1. [Configuration de CISCO ASA](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA)
+1. Passerelle de réseau local : représentation de la [passerelle VPN (FortiGate) locale](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) dans le cloud Azure
+1. Connexion site à site (basée sur la stratégie) : [Connexion entre la passerelle VPN et le routeur local](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
+1. [Configuration de FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Vous trouverez des instructions étape par étape détaillées sur la configuration d’une connexion de site à site en consultant [Création d’un réseau virtuel avec une connexion de site à site à l’aide du portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
@@ -51,7 +52,7 @@ L’une des étapes critiques de configuration consiste à configurer les param�
 | Algorithme de hachage |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Durée de vie d’association de sécurité de phase 1 (temps) |28 800 secondes |10 800 secondes |
 
-En tant qu’utilisateur, vous êtes obligé de configurer votre Cisco ASA. Vous trouverez un exemple de configuration sur [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Entre autres configurations, vous devez également spécifier l’algorithme de hachage. Cisco ASA prend en charge plus [d’algorithmes de hachage et de chiffrement](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) que la passerelle VPN Azure. Sans le savoir, vous avez configuré votre Cisco ASA pour qu’il utilise SHA-512 comme algorithme de hachage. Comme cet algorithme n’est pas un algorithme pris en charge pour les connexions basées sur une stratégie, votre connexion VPN ne fonctionne pas.
+En tant qu’utilisateur, vous êtes obligé de configurer FortiGate. Vous trouverez un exemple de configuration sur [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Sans le savoir, vous avez configuré FortiGate pour qu’il utilise SHA-512 comme algorithme de hachage. Comme cet algorithme n’est pas un algorithme pris en charge pour les connexions basées sur une stratégie, votre connexion VPN ne fonctionne pas.
 
 Ces problèmes sont difficiles à résoudre et les causes premières sont souvent complexes à déterminer. Dans ce cas, vous pouvez ouvrir un ticket de support pour obtenir de l’aide sur la résolution du problème. Toutefois, l’API de résolution des problèmes d’Azure Network Watcher vous permet d’identifier ces problèmes vous-même.
 
@@ -101,7 +102,7 @@ La fonctionnalité de résolution des problèmes d’Azure Network Watcher vous 
 | UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement.  | Non |
 | VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non |
 | ConnectionEntityNotFound | La configuration de la connexion est manquante. | Non |
-| ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée ». |Non|
+| ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée ». |Non|
 | ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | Oui |
 | ConnectionMarkedStandy | Le service sous-jacent est identifié comme étant en veille.| Oui|
 | Authentification | Non-concordance des clés prépartagées. | Oui|

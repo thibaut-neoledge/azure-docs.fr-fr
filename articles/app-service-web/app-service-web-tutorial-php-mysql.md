@@ -11,18 +11,19 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 8a818a63409d914f82d2f0f8c894ba74ad8fa89d
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 64e6e00f33735f50870e4cbda2ca7255686f36b5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Créer une application web PHP et MySQL dans Azure
+
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce didacticiel vous montre comment créer une application web PHP dans Azure et comment la connecter à une base de données MySQL. Une fois terminé, vous disposerez d’une application [Laravel](https://laravel.com/) s’exécutant dans Azure App Service Web Apps.
 
 ![Application PHP exécutée dans Azure App Service](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
@@ -49,16 +50,13 @@ Pour suivre ce didacticiel :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
 ## <a name="prepare-local-mysql"></a>Préparation du MySQL local
 
 Dans cette étape, vous allez créer une base de données dans votre serveur MySQL local qui vous sera utile dans ce didacticiel.
 
-### <a name="connect-to-mysql-server"></a>Connexion au serveur MySQL
-Dans une fenêtre de terminal, connectez-vous à votre serveur MySQL local. Vous pouvez utilisez cette fenêtre de terminal pour exécuter toutes les commandes de ce didacticiel.
+### <a name="connect-to-local-mysql-server"></a>Se connecter au serveur MySQL local
+
+Dans une fenêtre de terminal, connectez-vous à votre serveur MySQL local. Vous pouvez utiliser cette fenêtre de terminal pour exécuter toutes les commandes de ce didacticiel.
 
 ```bash
 mysql -u root -p
@@ -68,7 +66,7 @@ Si vous êtes invité à entrer un mot de passe, tapez le mot de passe du compte
 
 Si la commande est exécutée correctement, votre serveur MySQL est en cours d’exécution. Dans le cas contraire, assurez-vous que votre serveur MySQL local est démarré en suivant ces [étapes consécutives à l’installation de MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
-### <a name="create-a-database"></a>Créer une base de données
+### <a name="create-a-database-locally"></a>Créer une base de données locale
 
 À l’invite `mysql`, créez une base de données.
 
@@ -84,20 +82,21 @@ quit
 
 <a name="step2"></a>
 
-## <a name="create-local-php-app"></a>Création d’une application PHP locale
+## <a name="create-a-php-app-locally"></a>Créer une application PHP locale
 Dans cette étape, vous allez créer un exemple d’application Laravel, configurer sa connexion à la base de données et l’exécuter localement. 
 
 ### <a name="clone-the-sample"></a>Clonage de l’exemple
 
-Dans la fenêtre de terminal, `cd` vers un répertoire de travail.  
+Dans la fenêtre de terminal, `cd` vers un répertoire de travail.
 
-Exécutez la commande suivante pour cloner l’exemple de référentiel. 
+Exécutez la commande suivante pour cloner l’exemple de référentiel.
 
 ```bash
 git clone https://github.com/Azure-Samples/laravel-tasks
 ```
 
-`cd` vers votre répertoire cloné. Installez les packages requis.
+`cd` vers votre répertoire cloné.
+Installez les packages requis.
 
 ```bash
 cd laravel-tasks
@@ -122,7 +121,7 @@ DB_PASSWORD=<root_password>
 
 Pour en savoir plus sur la manière dont Laravel utilise ce fichier _.env_, consultez [Configuration de l’environnement Laravel](https://laravel.com/docs/5.4/configuration#environment-configuration).
 
-### <a name="run-the-sample"></a>Exécution de l'exemple
+### <a name="run-the-sample-locally"></a>Télécharger l’exemple localement
 
 Exécutez les [migrations de base de données Laravel](https://laravel.com/docs/5.4/migrations) pour créer les tables requises par l’application. Pour voir quelles tables sont créées dans les migrations, consultez le répertoire _database/migrations_ dans le référentiel Git.
 
@@ -133,7 +132,7 @@ php artisan migrate
 Générez une nouvelle clé d’application Laravel.
 
 ```bash
-php artisan key:generate 
+php artisan key:generate
 ```
 
 Exécutez l’application.
@@ -146,19 +145,14 @@ Dans un navigateur, accédez à `http://localhost:8000`. Ajoutez quelques tâche
 
 ![PHP se connecte correctement à MySQL](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
-Pour arrêter PHP, tapez `Ctrl + C` dans le terminal. 
+Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-mysql-in-azure"></a>Création de MySQL dans Azure
 
 Dans cette étape, vous allez créer une base de données MySQL dans [Azure Database pour MySQL (Version préliminaire)](/azure/mysql). Ensuite, vous configurerez l’application PHP pour la connexion à cette base de données.
 
-### <a name="log-in-to-azure"></a>Connexion à Azure
-
-Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#login) et suivez les instructions à l’écran. 
-
-```azurecli
-az login 
-```
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
@@ -167,7 +161,7 @@ az login
 
 Créez un serveur Azure Database pour MySQL (préversion) avec la commande [az mysql server create](/cli/azure/mysql/server#create).
 
-Dans la commande suivante, indiquez le nom unique de votre propre serveur MySQL là où se trouve l’espace réservé _&lt;mysql_server_name>_ (les caractères valides sont `a-z`, `0-9` et `-`). Ce nom fait partie du nom d’hôte du serveur MySQL (`<mysql_server_name>.database.windows.net`) et doit donc être globalement unique. 
+Dans la commande suivante, indiquez le nom unique de votre propre serveur MySQL là où se trouve l’espace réservé _&lt;mysql_server_name>_ (les caractères valides sont `a-z`, `0-9` et `-`). Ce nom fait partie du nom d’hôte du serveur MySQL (`<mysql_server_name>.database.windows.net`) et doit donc être globalement unique.
 
 ```azurecli-interactive
 az mysql server create \
@@ -195,7 +189,7 @@ Lorsque le serveur MySQL est créé, l’interface Azure CLI affiche des inform
 
 ### <a name="configure-server-firewall"></a>Configuration d’un pare-feu de serveur
 
-Créez une règle de pare-feu pour votre serveur MySQL afin d’autoriser les connexions client à l’aide de la commande [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create). 
+Créez une règle de pare-feu pour votre serveur MySQL afin d’autoriser les connexions client à l’aide de la commande [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create).
 
 ```azurecli-interactive
 az mysql server firewall-rule create \
@@ -211,7 +205,7 @@ az mysql server firewall-rule create \
 >
 >
 
-### <a name="connect-to-production-mysql-server"></a>Connexion au serveur de production MySQL
+### <a name="connect-to-production-mysql-server-locally"></a>Se connecter au serveur de production MySQL localement
 
 Dans la fenêtre de terminal, connectez-vous au serveur MySQL dans Azure. Utilisez la valeur spécifiée précédemment pour _&lt;mysql_server_name>_.
 
@@ -246,10 +240,11 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Connexion de l’application à Azure MySQL
 
-Dans cette étape, vous allez connecter l’application PHP à la base de données MySQL que vous avez créée dans Azure Database pour MySQL (version préliminaire). 
+Dans cette étape, vous allez connecter l’application PHP à la base de données MySQL que vous avez créée dans Azure Database pour MySQL (version préliminaire).
 
 <a name="devconfig"></a>
-### <a name="configure-the-connection"></a>Configuration de la connexion 
+
+### <a name="configure-the-database-connection"></a>Configurer la connexion à la base de données
 
 À la racine du référentiel, créez un fichier _.env.production_ et copiez-y les variables suivantes. Remplacez l’espace réservé _&lt;mysql_server_name>_.
 
@@ -269,7 +264,7 @@ MYSQL_SSL=true
 Enregistrez les modifications.
 
 > [!TIP]
-> Pour sécuriser vos informations de connexion MySQL, ce fichier est déjà exclu du référentiel Git (consultez _.gitignore_ dans la racine du référentiel). Vous apprendrez ultérieurement à configurer les variables d’environnement dans App Service pour vous connecter à votre base de données dans Azure Database pour MySQL (version préliminaire). Avec les variables d’environnement, vous n’avez pas besoin du fichier *.env* dans App Service. 
+> Pour sécuriser vos informations de connexion MySQL, ce fichier est déjà exclu du référentiel Git (consultez _.gitignore_ dans la racine du référentiel). Vous apprendrez ultérieurement à configurer les variables d’environnement dans App Service pour vous connecter à votre base de données dans Azure Database pour MySQL (version préliminaire). Avec les variables d’environnement, vous n’avez pas besoin du fichier *.env* dans App Service.
 >
 
 ### <a name="configure-ssl-certificate"></a>Configuration du certificat SSL
@@ -293,9 +288,8 @@ Pour savoir comment générer ce fichier _certificate.pem_, consultez l’articl
 > [!TIP]
 > Le chemin d’accès _/ssl/certificate.pem_ pointe vers un fichier _certificate.pem_ existant dans le référentiel Git. Dans ce didacticiel, ce fichier est fourni pour des raisons pratiques. Il est préférable de ne pas valider vos certificats _.pem_ dans le contrôle de code source. 
 >
->
 
-### <a name="test-the-application"></a>Test de l'application
+### <a name="test-the-application-locally"></a>Tester localement l’application
 
 Exécutez les migrations de base de données Laravel avec _.env.production_ comme fichier d’environnement pour créer les tables dans votre base de données MySQL dans Azure Database pour MySQL (version préliminaire). N’oubliez pas que _. env.production_ contient les informations de connexion à votre base de données MySQL dans Azure.
 
@@ -303,7 +297,7 @@ Exécutez les migrations de base de données Laravel avec _.env.production_ comm
 php artisan migrate --env=production --force
 ```
 
-_.env.production_ n’a pas encore de clé d’application valide. Générez-en une pour lui dans le terminal. 
+_.env.production_ n’a pas encore de clé d’application valide. Générez-en une pour lui dans le terminal.
 
 ```bash
 php artisan key:generate --env=production --force
@@ -315,13 +309,13 @@ Exécutez l’exemple d’application avec _.env.production_ comme fichier d’e
 php artisan serve --env=production
 ```
 
-Accédez à `http://localhost:8000`. Si la page se charge sans erreur, l’application PHP se connecte à la base de données MySQL dans Azure. 
+Accédez à `http://localhost:8000`. Si la page se charge sans erreur, l’application PHP se connecte à la base de données MySQL dans Azure.
 
 Ajoutez quelques tâches dans la page.
 
 ![PHP se connecte correctement à Azure Database pour MySQL (version préliminaire)](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
-Pour arrêter PHP, tapez `Ctrl + C` dans le terminal. 
+Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
 
 ### <a name="commit-your-changes"></a>Validation de vos modifications
 
@@ -335,15 +329,16 @@ git commit -m "database.php updates"
 Votre application est prête à être déployée.
 
 ## <a name="deploy-to-azure"></a>Déployer dans Azure
+
 Dans cette étape, vous allez déployer l’application PHP connectée à MySQL dans Azure App Service.
 
 ### <a name="create-an-app-service-plan"></a>Créer un plan App Service
 
-[!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)] 
+[!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 ### <a name="create-a-web-app"></a>Créer une application web
 
-[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-no-h.md)] 
+[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-no-h.md)]
 
 ### <a name="set-the-php-version"></a>Définition de la version PHP
 
@@ -362,7 +357,7 @@ az webapp config set \
 
 Comme indiqué précédemment, vous pouvez vous connecter à votre base de données Azure MySQL en utilisant des variables d’environnement dans App Service.
 
-Dans App Service, vous définissez les variables d’environnement en tant que _paramètres d’application_ à l’aide de la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set). 
+Dans App Service, vous définissez les variables d’environnement en tant que _paramètres d’application_ à l’aide de la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set).
 
 La commande suivante configure les paramètres d’application `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` et `DB_PASSWORD`. Remplacez les espaces réservés _&lt;appname>_ et _&lt;mysql_server_name>_.
 
@@ -424,25 +419,25 @@ az resource update \
     --api-version 2015-06-01
 ```
 
-Par défaut, Azure App Service pointe le chemin d’accès à l’application virtuelle (_/_) vers le répertoire racine des fichiers d’application déployés (_sites\wwwroot_). 
+Par défaut, Azure App Service pointe le chemin d’accès à l’application virtuelle (_/_) vers le répertoire racine des fichiers d’application déployés (_sites\wwwroot_).
 
 ### <a name="configure-a-deployment-user"></a>Configuration d’un utilisateur de déploiement
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)] 
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-### <a name="configure-local-git-deployment"></a>Configurer le déploiement Git local 
+### <a name="configure-local-git-deployment"></a>Configurer le déploiement Git local
 
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git-no-h.md)] 
+[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git-no-h.md)]
 
 ### <a name="push-to-azure-from-git"></a>Effectuer une transmission de type push vers Azure à partir de Git
 
-Ajoutez un référentiel distant Azure dans votre référentiel Git local. 
+Ajoutez un référentiel distant Azure dans votre référentiel Git local.
 
 ```bash
-git remote add azure <paste_copied_url_here> 
+git remote add azure <paste_copied_url_here>
 ```
 
-Effectuez une transmission de type push vers le référentiel distant Azure pour déployer l’application PHP. Le mot de passe que vous avez fourni précédemment dans le cadre de la création de l’utilisateur du déploiement vous est demandé. 
+Effectuez une transmission de type push vers le référentiel distant Azure pour déployer l’application PHP. Le mot de passe que vous avez fourni précédemment dans le cadre de la création de l’utilisateur du déploiement vous est demandé.
 
 ```bash
 git push azure master
@@ -463,33 +458,31 @@ remote: Running custom deployment command...
 remote: Running deployment command...
 ...
 < Output has been truncated for readability >
-``` 
+```
 
 > [!NOTE]
-> Vous remarquerez peut-être que le processus de déploiement installe les packages [Composer](https://getcomposer.org/) à la fin. App Service n’exécute pas ces automatisations pendant le déploiement par défaut. Cet exemple de référentiel possède donc trois fichiers supplémentaires dans son répertoire racine pour l’activer : 
+> Vous remarquerez peut-être que le processus de déploiement installe les packages [Composer](https://getcomposer.org/) à la fin. App Service n’exécute pas ces automatisations pendant le déploiement par défaut. Cet exemple de référentiel possède donc trois fichiers supplémentaires dans son répertoire racine pour l’activer :
 >
 > - `.deployment` : ce fichier indique à App Service d’exécuter `bash deploy.sh` en tant que script de déploiement personnalisé.
-> - `deploy.sh` : le script de déploiement personnalisé. Si vous examinez le fichier, vous verrez qu’il exécute `php composer.phar install` après `npm install`. 
+> - `deploy.sh` : le script de déploiement personnalisé. Si vous examinez le fichier, vous verrez qu’il exécute `php composer.phar install` après `npm install`.
 > - `composer.phar` - Le Gestionnaire de package Composer.
 >
 > Vous pouvez utiliser cette approche pour ajouter une étape à votre déploiement Git sur App Service. Pour plus d'informations, consultez le [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 >
->
-
 
 ### <a name="browse-to-the-azure-web-app"></a>Rechercher l’application web Azure
 
-Accédez à `http://<app_name>.azurewebsites.net` et ajoutez quelques tâches à la liste. 
+Accédez à `http://<app_name>.azurewebsites.net` et ajoutez quelques tâches à la liste.
 
 ![Application PHP exécutée dans Azure App Service](./media/app-service-web-tutorial-php-mysql/php-mysql-in-azure.png)
 
 Félicitations, vous exécutez une application PHP orientée données dans Azure App Service.
 
-## <a name="update-model-and-redeploy"></a>Mise à jour du modèle de données et redéploiement
+## <a name="update-model-locally-and-redeploy"></a>Mettre à jour et redéployer un modèle localement
 
 Dans cette étape, vous allez apporter une modification simple au modèle de données `task` et à l’application web, puis publier la mise à jour sur Azure.
 
-Pour le scénario des tâches, vous modifiez l’application afin de pouvoir marquer une tâche comme terminée. 
+Pour le scénario des tâches, vous modifiez l’application afin de pouvoir marquer une tâche comme terminée.
 
 ### <a name="add-a-column"></a>Ajout d’une colonne
 
@@ -603,7 +596,7 @@ Pour voir l’évolution de l’état de la tâche, accédez à `http://localhos
 
 ![Case à cocher ajoutée à la tâche](./media/app-service-web-tutorial-php-mysql/complete-checkbox.png)
 
-Pour arrêter PHP, tapez `Ctrl + C` dans le terminal. 
+Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
 
 ### <a name="publish-changes-to-azure"></a>Publier les modifications dans Azure
 
@@ -627,21 +620,21 @@ Une fois le `git push` terminé, accédez à l’application web Azure et essaye
 
 Si vous avez ajouté des tâches, celles-ci sont conservées dans la base de données. Les mises à jour appliquées au schéma de données n’affectent pas les données existantes.
 
-## <a name="stream-diagnostic-logs"></a>Diffuser les journaux de diagnostic 
+## <a name="stream-diagnostic-logs"></a>Diffuser les journaux de diagnostic
 
 Pendant l’exécution de l’application PHP dans Azure App Service, vous pouvez acheminer les journaux de la console vers votre terminal. De cette façon, vous pouvez obtenir les mêmes messages de diagnostic pour vous aider à déboguer les erreurs d’application.
 
 Pour démarrer la diffusion de journaux, utilisez la commande [az webapp log tail](/cli/azure/webapp/log#tail).
 
-```azurecli-interactive 
+```azurecli-interactive
 az webapp log tail \
     --name <app_name> \
     --resource-group myResourceGroup
-``` 
+```
 
 Une fois que la diffusion a démarré, actualisez l’application web Azure dans le navigateur pour générer un trafic web. Vous pouvez maintenant voir les journaux de la console acheminés vers le terminal. Si vous ne voyez pas les journaux de la console, attendez 30 secondes et vérifiez à nouveau.
 
-Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl`+`C`. 
+Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl`+`C`.
 
 > [!TIP]
 > Une application PHP peut utiliser la commande [error_log()](http://php.net/manual/function.error-log.php) pour envoyer le résultat vers la console. L’exemple d’application utilise cette approche dans _app/Http/routes.php_.
@@ -658,9 +651,9 @@ Dans le menu de gauche, cliquez sur **App Services**, puis cliquez sur le nom de
 
 ![Navigation au sein du portail pour accéder à l’application web Azure](./media/app-service-web-tutorial-php-mysql/access-portal.png)
 
-Vous voyez apparaître la page Vue d’ensemble de votre application web. Ici, vous pouvez effectuer des tâches de gestion de base (arrêter, démarrer, redémarrer, parcourir et supprimer). 
+Vous voyez apparaître la page Vue d’ensemble de votre application web. Ici, vous pouvez effectuer des tâches de gestion de base (arrêter, démarrer, redémarrer, parcourir et supprimer).
 
-Le menu de gauche fournit des pages vous permettant de configurer votre application. 
+Le menu de gauche fournit des pages vous permettant de configurer votre application.
 
 ![Page App Service du Portail Azure](./media/app-service-web-tutorial-php-mysql/web-app-blade.png)
 
@@ -682,6 +675,6 @@ Dans ce didacticiel, vous avez appris à :
 
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à une application web.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Mapper un nom DNS personnalisé existant à des applications web Azure](app-service-web-tutorial-custom-domain.md)
 

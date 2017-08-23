@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 570011347f2c723f4a828f5f0229c14d6814f839
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: baaa7589de4d809270f66335e33b79b4fdb5e6a5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Capturer une machine virtuelle Linux exécutée sur Azure
@@ -39,7 +39,7 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 ## <a name="before-you-begin"></a>Avant de commencer
 Assurez-vous de satisfaire les prérequis suivants :
 
-* **Machine virtuelle Azure créée dans le modèle de déploiement Resource Manager** : si vous n’avez pas créé une machine virtuelle Linux, vous pouvez utiliser le [portail](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [l’interface CLI Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou les [modèles Resource Manager](cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+* **Machine virtuelle Azure créée dans le modèle de déploiement Resource Manager** : si vous n’avez pas créé une machine virtuelle Linux, vous pouvez utiliser le [portail](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [l’interface CLI Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou les [modèles Resource Manager](create-ssh-secured-vm-from-template.md). 
   
     Configurez la machine virtuelle en fonction de vos besoins. Par exemple, [ajoutez des disques de données](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), appliquez des mises à jour et installez des applications. 
 * **Interface CLI Azure** : installez [l’interface CLI Azure](../../cli-install-nodejs.md) sur un ordinateur local.
@@ -205,6 +205,6 @@ azure vm create -g myResourceGroup1 -n myNewVM -l eastus -y Linux \
 Pour obtenir d’autres options de commande supplémentaires, exécutez `azure help vm create`.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour gérer vos machines virtuelles à l’aide de l’interface de ligne de commande, consultez les tâches décrites dans [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour gérer vos machines virtuelles à l’aide de l’interface de ligne de commande, consultez les tâches décrites dans [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](create-ssh-secured-vm-from-template.md).
 
 

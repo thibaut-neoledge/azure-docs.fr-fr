@@ -13,40 +13,37 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 08/03/2017
 ms.author: cjiang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: d62ec023605573e4b0804da00c75f65c8dea5173
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 923b3ca8a2e2b1d7f44cd77946a02e1d30839f14
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Souscrire un abonnement Azure avec un compte Office 365
-Si vous avez un abonnement à Office 365, utilisez votre compte Office 365 pour créer un abonnement Azure. Vous pouvez vous connecter au [Portail Azure](https://portal.azure.com/) sans abonnement Azure avec votre nom d’utilisateur et votre mot de passe Office 365. Mais, si vous souhaitez configurer des machines virtuelles ou utiliser d’autres services Azure, vous devez créer un abonnement Azure pour votre compte. Si vous faites partie d’une organisation qui souhaite utiliser les services Azure, ajoutez d’autres personnes de votre organisation à l’abonnement après sa création.  
+Si vous avez un abonnement à Office 365, vous pouvez utiliser votre compte Office 365 pour créer un abonnement Azure. Connectez-vous au [portail Azure](https://portal.azure.com/) avec votre nom d’utilisateur et votre mot de passe Office 365. Si vous souhaitez configurer des machines virtuelles ou utiliser d’autres services Azure, vous devez souscrire un abonnement Azure. Vous pouvez partager votre abonnement Azure avec d’autres personnes et [utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès à vos ressources et abonnement Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
 Si vous avez déjà à la fois un compte Office 365 et un abonnement Azure, consultez la page [Associer un client Office 365 à un abonnement Azure](billing-add-office-365-tenant-to-azure-subscription.md).
 
-## <a name="get-an-azure-subscription-by-using-your-office-365-account"></a>Obtenir un abonnement Azure avec un compte Office 365
+## <a name="get-an-azure-subscription-using-your-office-365-account"></a>Obtenir un abonnement Azure avec un compte Office 365
 
-Pour vous inscrire à Azure, utilisez le lien Azure gratuit et inscrivez-vous à Azure avec votre nom d’utilisateur et votre mot de passe Office 365. 
+Gagnez du temps et évitez la prolifération de comptes en vous inscrivant sur Azure à l’aide de vos nom d’utilisateur et mot de passe Office 365. 
 
-1. Accédez à [Azure.com](https://azure.microsoft.com/). 
-2. Cliquez sur **Commencer gratuitement**.
-3. Connectez-vous avec votre nom d’utilisateur et votre mot de passe Office 365. Le compte que vous utilisez n’a pas besoin de disposer d’autorisations d’administrateur. Si vous avez plusieurs comptes Office 365, veillez à utiliser les informations d’identification du compte Office 365 que vous souhaitez associer à votre abonnement Azure. 
+1. Inscrivez-vous sur [Azure.com](https://account.azure.com/signup?offer=MS-AZR-0044p&appId=docs). 
+2. Connectez-vous avec votre nom d’utilisateur et votre mot de passe Office 365. Le compte que vous utilisez n’a pas besoin de disposer d’autorisations d’administrateur. Si vous avez plusieurs comptes Office 365, veillez à utiliser les informations d’identification du compte Office 365 que vous souhaitez associer à votre abonnement Azure. 
 
    ![Capture d’écran montrant la page de connexion.](./media/billing-use-existing-office-365-account-azure-subscription/billing-sign-in-with-office-365-account.png)
 
-4. Entrez les informations requises et terminez le processus d’inscription.
+3. Entrez les informations requises et terminez le processus d’inscription. Certaines informations ne sont peut-être pas nécessaires si vous avez déjà un compte Office 365.
 
     ![Capture d’écran montrant le formulaire d’inscription.](./media/billing-use-existing-office-365-account-azure-subscription/billing-azure-sign-up-fill-information.png)
 
 - Si vous devez ajouter d’autres personnes de votre organisation à l’abonnement Azure, consultez la page [Bien démarrer avec la gestion des accès sur le Portail Azure](../active-directory/role-based-access-control-what-is.md). 
-- Si vous souhaitez ajouter un administrateur pour qu’il participe à la gestion de l’abonnement, consultez la page [Ajouter ou modifier les rôles d’administrateur Azure qui gèrent l’abonnement ou le service](billing-add-change-azure-subscription-administrator.md).
 
 ## <a id="more-about-subs">En savoir plus sur les abonnements Azure et Office 365</a>
-Office 365 et Azure utilisent le service Azure AD pour gérer les utilisateurs et les abonnements. Le répertoire Azure est comme un conteneur qui vous sert à regrouper les abonnements et les utilisateurs. Pour utiliser les mêmes comptes d’utilisateur pour vos abonnements Azure et Office 365, vous devez vous assurer que les abonnements sont créés dans le même répertoire. Gardez à l’esprit les points suivants :
+Office 365 et Azure utilisent le service Azure AD pour gérer les utilisateurs et les abonnements. Le répertoire Azure est comme un conteneur qui vous sert à regrouper les abonnements et les utilisateurs. Pour utiliser les mêmes comptes d’utilisateur pour vos abonnements Azure et Office 365, vous devez vous assurer que les abonnements Azure sont créés dans le même répertoire que les abonnements Office 365. Gardez à l’esprit les points suivants :
 
 * Un abonnement est créé dans un répertoire.
 * Les utilisateurs appartiennent à des répertoires.
@@ -60,3 +57,4 @@ Pour plus d’informations, consultez la page [Association des abonnements Azure
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème. 
+

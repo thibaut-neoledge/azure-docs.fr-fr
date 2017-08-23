@@ -1,6 +1,6 @@
 ---
 title: Concepts Azure Media Services | Microsoft Docs
-description: "Cette rubrique fournit une vue d&quot;ensemble des concepts liés à Azure Media Services"
+description: "Cette rubrique fournit une vue d'ensemble des concepts liés à Azure Media Services"
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2017
+ms.date: 07/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 59ccb7a043e1db750e596f173af0791099ea1827
-ms.lasthandoff: 03/14/2017
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: ed3417f69bb13043db0affc9249f3ff5e49d7c79
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -45,7 +46,8 @@ Vous ne devez pas essayer de modifier le contenu des conteneurs d’objets blob 
 ### <a name="asset-encryption-options"></a>Options de chiffrement d’élément multimédia
 Selon le type de contenu que vous souhaitez télécharger, stocker et remettre, Media Services met à votre disposition différentes options de chiffrement.
 
-**None** : aucun chiffrement. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n’est pas protégé pendant le transit ou le repos dans le stockage.
+>[!NOTE]
+>Aucun chiffrement n’est utilisé. Il s’agit de la valeur par défaut. Quand vous utilisez cette option, votre contenu n'est pas protégé pendant le transit ou le repos dans le stockage.
 
 Si vous prévoyez de remettre du contenu MP4 via un téléchargement progressif, utilisez cette option pour télécharger votre contenu.
 
@@ -55,7 +57,7 @@ Pour fournir un élément multimédia avec chiffrement de stockage, vous devez c
 
 **CommonEncryptionProtected** : utilisez cette option si vous souhaitez chiffrer du contenu (ou charger du contenu déjà chiffré) avec Common Encryption ou PlayReady DRM (par exemple Smooth Streaming protégé par PlayReady DRM).
 
-**EnvelopeEncryptionProtected** : utilisez cette option si vous souhaitez protéger du contenu (ou charger du contenu déjà protégé) HTTP Live Streaming (HLS) chiffré avec AES (Advanced Encryption Standard). Notez que si vous téléchargez du contenu HLS déjà chiffré avec AES, il doit avoir été chiffré par Transform Manager.
+**EnvelopeEncryptionProtected** : utilisez cette option si vous souhaitez protéger du contenu (ou charger du contenu déjà protégé) HTTP Live Streaming (HLS) chiffré avec AES (Advanced Encryption Standard). Si vous téléchargez du contenu HLS déjà chiffré avec AES, il doit avoir été chiffré par Transform Manager.
 
 ### <a name="access-policy"></a>Stratégie d’accès
 La stratégie d’accès ( [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) ) définit les autorisations (telles que lecture, écriture et énumération) et la durée d’accès à un élément multimédia. En général, vous passez un objet AccessPolicy à un localisateur qui est ensuite utilisé pour accéder aux fichiers contenus dans un élément multimédia.
@@ -66,7 +68,7 @@ La stratégie d’accès ( [AccessPolicy](https://docs.microsoft.com/rest/api/me
 ### <a name="blob-container"></a>Conteneur d’objets blob
 Un conteneur d’objets blob regroupe un ensemble d’objets blob. Les conteneurs d’objets blob sont utilisés dans Media Services comme points de limite de contrôle d’accès et comme localisateurs de signature d’accès partagé (SAS, Shared Access Signature) sur les éléments multimédias. Un compte de stockage Azure peut contenir un nombre illimité de conteneurs d’objets blob. Un conteneur peut stocker un nombre illimité d’objets blob.
 
-> [!NOTE]
+>[!NOTE]
 > Vous ne devez pas essayer de modifier le contenu des conteneurs d’objets blob qui ont été générés par Media Services sans utiliser les API Media Services.
 > 
 > 
@@ -76,7 +78,8 @@ Les [localisateur](https://docs.microsoft.com/rest/api/media/operations/locator)
 
 Media Services prend en charge deux types de localisateur : les localisateurs OnDemandOrigin, utilisés pour diffuser du contenu multimédia (par exemple, MPEG DASH, HLS ou Smooth Streaming) ou télécharger progressivement du contenu multimédia et des localisateurs d’URL SAS, qui servent à charger ou à télécharger des fichiers multimédias vers/depuis le stockage Azure. 
 
-Notez que l’autorisation de liste (AccessPermissions.List) ne doit pas être utilisée lors de la création d’un localisateur OnDemandOrigin. 
+>[!NOTE]
+>L’autorisation de liste (AccessPermissions.List) ne doit pas être utilisée lors de la création d’un localisateur OnDemandOrigin. 
 
 ### <a name="storage-account"></a>Compte de stockage
 Tous les accès à Azure Storage passent par un compte de stockage. Un compte Media Services peut être associé à un ou plusieurs comptes de stockage. Un compte peut contenir un nombre illimité de conteneurs, tant que la taille totale ne dépasse pas 500 To par compte de stockage.  Media Services fournit des outils de niveau SDK pour vous permettre de gérer plusieurs comptes de stockage et d’équilibrer la charge de distribution de vos éléments multimédia pendant le téléchargement vers ces comptes en fonction de métriques ou de la distribution aléatoire. Pour plus d’informations, consultez la page [Utilisation d’Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
@@ -117,7 +120,7 @@ Vous pouvez obtenir l’URL de réception et l’URL d’aperçu lors de la cré
 Chaque compte Media Services peut contenir plusieurs canaux, plusieurs programmes et plusieurs StreamingEndpoints. Selon les besoins en matière de bande passante et de sécurité, les services StreamingEndpoint peuvent être affectés à un ou plusieurs canaux. N’importe quel StreamingEndpoint peut assurer l’extraction à partir de n’importe quel canal.
 
 ### <a name="program-event"></a>Programme (événement)
-Un [programme (événement)](https://docs.microsoft.com/rest/api/media/operations/program) vous permet de contrôler la publication et le stockage des segments dans un flux live. Les canaux gèrent les programmes (événements). La relation entre canal et programme est très similaire au contenu multimédia traditionnel où un canal a un flux de contenu constant et un programme est limité à un événement minuté sur ce canal.
+Un [programme (événement)](https://docs.microsoft.com/rest/api/media/operations/program) vous permet de contrôler la publication et le stockage des segments dans un flux live. Les canaux gèrent les programmes (événements). La relation entre canal et programme est similaire au contenu multimédia traditionnel où un canal a un flux de contenu constant et un programme est limité à un événement minuté sur ce canal.
 Vous pouvez spécifier le nombre d’heures pendant lesquelles vous souhaitez conserver le contenu enregistré pour le programme en définissant la propriété **ArchiveWindowLength** . Cette valeur peut être comprise entre 5 minutes et 25 heures.
 
 ArchiveWindowLength détermine également la durée maximale que les clients peuvent rechercher en arrière à partir de la position dynamique actuelle. Les programmes peuvent durer davantage que le laps de temps spécifié, mais le contenu qui se situe en dehors de la longueur de fenêtre est ignoré en permanence. La valeur de cette propriété détermine également la longueur maximale que les manifestes de client peuvent atteindre.
@@ -183,7 +186,8 @@ Si vous avez un élément multimédia avec chiffrement de stockage, avant de pou
 ### <a name="progressive-download"></a>Téléchargement progressif
 Le téléchargement progressif vous permet de commencer la lecture multimédia avant que l’intégralité du fichier ait été téléchargée. Seul un fichier MP4 peut être téléchargé progressivement.
 
-Notez que vous devez déchiffrer les éléments multimédias chiffrés si vous souhaitez qu’ils soient disponibles pour le téléchargement progressif.
+>[!NOTE]
+>Vous devez déchiffrer les éléments multimédias chiffrés si vous souhaitez qu’ils soient disponibles pour le téléchargement progressif.
 
 Pour fournir aux utilisateurs des URL de téléchargement progressif, vous devez d’abord créer un localisateur OnDemandOrigin. La création du localisateur vous donne le chemin d’accès de base à l’élément multimédia. Vous devez ensuite ajouter le nom du fichier MP4. Par exemple :
 
@@ -192,9 +196,10 @@ http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba01
 ### <a name="streaming-urls"></a>URL de diffusion
 Diffusion en continu de votre contenu aux clients. Pour fournir aux utilisateurs des URL de diffusion en continu, vous devez d’abord créer un localisateur OnDemandOrigin. La création du localisateur vous donne le chemin d’accès de base à l’élément multimédia qui contient le contenu que vous souhaitez diffuser. Toutefois, pour pouvoir diffuser ce contenu vous devez modifier ce chemin d’accès. Pour construire une URL complète vers le fichier manifeste de diffusion en continu, vous devez concaténer la valeur de chemin d’accès du localisateur et le nom du fichier manifeste (nom_fichier.ISM). Ensuite, ajoutez /Manifest et un format approprié (si nécessaire) au chemin d’accès du localisateur.
 
-Vous pouvez aussi diffuser votre contenu via une connexion SSL. Pour ce faire, assurez-vous que votre URL de diffusion commence par HTTPS. Notez qu’actuellement AMS ne prend pas en charge SSL avec les domaines personnalisés.  
+Vous pouvez aussi diffuser votre contenu via une connexion SSL. Pour ce faire, assurez-vous que votre URL de diffusion commence par HTTPS. Actuellement, AMS ne prend pas en charge SSL avec les domaines personnalisés.  
 
-Notez que vous pouvez uniquement transmettre en continu via le protocole SSL si le point de terminaison à partir duquel vous distribuez votre contenu a été créé après le 10 septembre 2014. Si vos URL de diffusion sont basées sur des points de terminaison créés après le 10 septembre, l’URL contient « streaming.mediaservices.windows.net » (le nouveau format). Les URL de diffusion qui contiennent « origin.mediaservices.windows.net » (ancien format) ne sont pas compatibles avec le protocole SSL. Si votre URL suit l’ancien format et que vous souhaitez être en mesure de diffuser via le protocole SSL, créez un point de terminaison. L’utilisation d’URL créées à partir du nouveau point de terminaison permet de diffuser votre contenu via le protocole SSL.
+>[!NOTE]
+>Vous ne pouvez transmettre en continu avec le protocole SSL que si le point de terminaison de streaming à partir duquel vous distribuez votre contenu a été créé après le 10 septembre 2014. Si vos URL de diffusion sont basées sur des points de terminaison créés après le 10 septembre, l’URL contient « streaming.mediaservices.windows.net » (le nouveau format). Les URL de diffusion qui contiennent « origin.mediaservices.windows.net » (ancien format) ne sont pas compatibles avec le protocole SSL. Si votre URL suit l’ancien format et que vous souhaitez être en mesure de diffuser via le protocole SSL, créez un point de terminaison. L’utilisation d’URL créées à partir du nouveau point de terminaison permet de diffuser votre contenu via le protocole SSL.
 
 La liste suivante décrit les différents formats de diffusion en continu et donne des exemples :
 

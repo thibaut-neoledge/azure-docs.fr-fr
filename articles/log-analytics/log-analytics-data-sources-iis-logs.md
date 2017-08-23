@@ -1,6 +1,6 @@
 ---
 title: Journaux IIS dans Log Analytics | Microsoft Docs
-description: "Internet Information Services (IIS) enregistre l&quot;activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics.  Cet article décrit comment configurer la collecte des journaux IIS et des détails des enregistrements qu&quot;ils créent dans le référentiel OMS."
+description: "Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics.  Cet article décrit comment configurer la collecte des journaux IIS et des détails des enregistrements qu'ils créent dans le référentiel OMS."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 07/12/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c6e2ecebf6cd1b246c155c158d12d4d83bd1feda
-ms.openlocfilehash: bda2da933accb769bae4c9b420ae330014fc2ba0
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 2114bdafb3b9fe2eb0632271840b8b70a76d10f1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/27/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="iis-logs-in-log-analytics"></a>Journaux IIS dans Log Analytics
@@ -78,9 +77,19 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 | Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Nombre d’entrées de journaux IIS par URL pour l'hôte www.contoso.com. |
 | Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Nombre total d'octets reçus par chaque ordinateur IIS. |
 
+>[!NOTE]
+> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes ci-dessus sont remplacées par les requêtes ci-dessous.
+
+> | Interroger | Description |
+|:--- |:--- |
+| W3CIISLog |Tous les enregistrements de journaux IIS. |
+| W3CIISLog &#124; où scStatus==500 |Tous les enregistrements de journaux IIS dont l’état renvoyé est 500. |
+| W3CIISLog &#124; résumer count() par cIP |Nombre d’entrées de journaux IIS par adresse IP du client. |
+| W3CIISLog &#124; où csHost==« www.contoso.com » &#124; résumer count() par csUriStem |Nombre d’entrées de journaux IIS par URL pour l'hôte www.contoso.com. |
+| W3CIISLog &#124; résumer sum(csBytes) par ordinateur &#124; prendre 500000 |Nombre total d'octets reçus par chaque ordinateur IIS. |
+
 ## <a name="next-steps"></a>Étapes suivantes
 * Configurez Log Analytics pour collecter d’autres [sources de données](log-analytics-data-sources.md) à analyser.
 * Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.
 * Configurez les alertes dans Log Analytics pour être informé de façon proactive des conditions importantes rencontrées dans les journaux IIS.
-
 

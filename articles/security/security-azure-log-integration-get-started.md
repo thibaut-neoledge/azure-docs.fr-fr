@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 04/07/2017
+ms.date: 07/26/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 2752ae92fbbbb284756215a53dcab054881bd08a
-ms.lasthandoff: 04/13/2017
-
+ms.custom: azlog
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: a5c51817688140cc2778602b4c1d5184ae4729a0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Intégration des journaux Azure avec Azure Diagnostics Logging et Windows Event Forwarding
@@ -31,9 +32,9 @@ Cet article vous aidera à vous familiariser avec l’intégration des journaux 
 >[!NOTE]
 >La possibilité de définir la sortie de l’intégration des journaux Azure sur le SIEM est fournie par le SIEM lui-même. Veuillez consulter l’article [Intégration de l’intégration des journaux Azure avec votre SIEM local](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) pour plus d’informations.
 
-Pour être très clair, le service d’intégration des journaux Azure s’exécute sur un ordinateur physique ou virtuel qui utilise le système d’exploitation Windows Server 2008 R2 ou version ultérieure (Windows Server 2012 R2 ou Windows Server 2016 sont les versions préférées). 
+Pour être très clair, le service d’intégration des journaux Azure s’exécute sur un ordinateur physique ou virtuel qui utilise le système d’exploitation Windows Server 2008 R2 ou version ultérieure (Windows Server 2012 R2 ou Windows Server 2016 sont les versions préférées).
 
-L’ordinateur physique peut fonctionner en local (ou sur un site hébergeur). Si vous choisissez d’exécuter le service d’intégration des journaux Azure sur un ordinateur virtuel, cette machine virtuelle peut être située en local ou dans un cloud public tel que Microsoft Azure. 
+L’ordinateur physique peut fonctionner en local (ou sur un site hébergeur). Si vous choisissez d’exécuter le service d’intégration des journaux Azure sur un ordinateur virtuel, cette machine virtuelle peut être située en local ou dans un cloud public tel que Microsoft Azure.
 
 La machine physique ou virtuelle qui exécute le service d’intégration des journaux Azure nécessite une connexion réseau avec le cloud public Azure. La procédure décrite dans cet article fournit des détails sur la configuration.
 
@@ -41,12 +42,20 @@ La machine physique ou virtuelle qui exécute le service d’intégration des jo
 Au minimum, l’installation d’AzLog nécessite les éléments suivants :
 * Un **abonnement Azure**. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/free/).
 * Un **compte de stockage** qui peut être utilisé pour la journalisation des diagnostics Windows Azure (vous pouvez utiliser un compte de stockage préconfiguré ou en créer un nouveau : nous apprendrons à configurer le compte de stockage plus loin dans cet article)
+  >[!NOTE]
+  Selon votre scénario, un compte de stockage n’est peut-être pas nécessaire. Pour le scénario des diagnostics Azure abordé dans cet article, un compte de stockage sera nécessaire.
 * **Deux systèmes** : une machine qui exécute le service d’intégration de journaux Azure et une machine qui sera surveillée et dont les informations de journalisation seront envoyées à la machine exécutant le service Azlog.
    * Une machine que vous souhaitez surveiller : il s’agit d’une machine virtuelle utilisée comme [Machine virtuelle Azure](../virtual-machines/virtual-machines-windows-overview.md)
    * Une machine qui exécute le service d’intégration des journaux Azure. Cette machine collecte toutes les informations de journalisation qui seront importées ultérieurement dans votre SIEM.
     * Ce système peut être local ou dans Microsoft Azure.  
     * Il doit fonctionner sous une version x64 de Windows Server 2008 R2 SP1 ou version ultérieure et .NET 4.5.1 doit être installé dessus. Vous pouvez déterminer la version de .NET installée en consultant l’article intitulé [Comment : déterminer les versions .NET Framework installées](https://msdn.microsoft.com/library/hh925568)  
     Il doit être connecté à un compte de stockage Azure utilisé pour la journalisation des diagnostics Azure. Nous fournirons des instructions plus loin dans cet article sur la façon dont vous pouvez vérifier cette connectivité
+
+Pour une démonstration rapide du processus de création d’une machine virtuelle à l’aide du portail Azure, visionnez la vidéo ci-dessous.
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Create-a-Virtual-Machine/player]
+
+
 
 ## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement
 Lors du test d’intégration des journaux Azure, vous pouvez utiliser n’importe quel système qui respecte les exigences de configuration minimale du système d’exploitation. Toutefois, pour un environnement de production, la charge peut vous obliger à planifier une montée en puissance ou une augmentation de la taille des instances.
@@ -79,6 +88,10 @@ Les données de télémétrie recueillies sont les suivantes :
 * Des métriques concernant le nombre de requêtes et d’événements traités
 * Des statistiques sur les options de ligne de commande Azlog.exe sont utilisées
 
+Le processus d’installation est traité dans la vidéo ci-dessous.
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Install-Azure-Log-Integration/player]
+
+
 
 ## <a name="post-installation-and-validation-steps"></a>Étapes postérieures à l’installation et la validation
 À l’issue de la routine d’installation de base, vous êtes prêt à effectuer les étapes postérieures à l’installation et la validation :
@@ -97,7 +110,7 @@ Vous devriez voir quelque chose comme ce qui apparaît dans la figure ci-dessous
 
       ![Paramètres des diagnostics Azure](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
       >[!NOTE]
-      Si la surveillance n’a pas été activée lors de la création de la machine virtuelle, vous aurez la possibilité de l’activer comme indiqué ci-dessus. 
+      Si la surveillance n’a pas été activée lors de la création de la machine virtuelle, vous aurez la possibilité de l’activer comme indiqué ci-dessus.
 5. Revenons à présent sur la machine exécutant l’intégration des journaux Azure. Nous devons vérifier que vous êtes connecté au compte de stockage à partir du système dans lequel vous avez installé l’intégration des journaux d’Azure. L’ordinateur physique ou la machine virtuelle qui exécute le service d’intégration des journaux Azure a besoin d’accéder au compte de stockage pour récupérer les informations journalisées par les diagnostics Azure, tel que configuré sur chacun des systèmes surveillés.  
   1. Vous pouvez télécharger l’Explorateur de stockage Azure [ici](http://storageexplorer.com/).
   2. Exécuter la routine d’installation
@@ -122,7 +135,7 @@ Procédez comme suit pour obtenir la clé de stockage :
  ![Plus de services](./media/security-azure-log-integration-get-started/more-services.png)
  3. Entrez **Stockage** dans la zone de texte **Filtre**. Cliquez sur **Comptes de stockage** (option qui apparaît une fois que vous entrez **Stockage**)
 
-  ![zone filtre](./media/security-azure-log-integration-get-started/filter.png)
+   ![zone filtre](./media/security-azure-log-integration-get-started/filter.png)
  4. Une fois que la liste des comptes de stockage s’affiche, double-cliquez sur le compte que vous avez affecté au stockage des journaux.
 
    ![liste des comptes de stockage](./media/security-azure-log-integration-get-started/storage-accounts.png)
@@ -139,6 +152,10 @@ Procédez comme suit pour obtenir la clé de stockage :
 >[!NOTE]  
 Patientez jusqu'à 60 minutes, puis affichez les événements qui sont extraits du compte de stockage. Pour afficher, ouvrez **Observateur d’événements > Journaux Windows > Événements transférés** dans l’intégrateur Azlog.
 
+Ici, vous pouvez visionner une vidéo répertoriant les étapes abordées ci-dessus.
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Enable-Diagnostics-and-Storage/player]
+
+
 ## <a name="what-if-data-is-not-showing-up-in-the-forwarded-events-folder"></a>Que se passe-t-il si les données ne s’affichent pas dans le dossier Événements transférés ?
 Si les données ne s’affichent pas dans le dossier **Événements transférés** après une heure, procédez comme suit :
 
@@ -151,8 +168,9 @@ Si les données ne s’affichent pas dans le dossier **Événements transférés
   <li> Cliquez sur **Sécurité**  </li>
   <li> Cliquez sur **Service NT\Azlog** et vérifiez les autorisations pour le compte. Si le compte n’apparaît pas dans cet onglet ou si les autorisations appropriées ne sont pas affichées pour l’instant, vous pouvez accorder les droits de compte dans cet onglet.</li>
   </ol>
-3.Assurez-vous que le compte de stockage ajouté à la commande **Azlog source add** est répertorié lorsque vous exécutez la commande **Azlog source list**.
+3. Assurez-vous que le compte de stockage ajouté à la commande **Azlog source add** est répertorié lorsque vous exécutez la commande **Azlog source list**.
 4. Accédez à **Observateur d’événements > Journaux Windows > Application** pour voir si des erreurs sont signalées par l’intégration des journaux Azure.
+
 
 Si vous rencontrez des problèmes pendant l’installation et la configuration, ouvrez une [demande de support](../azure-supportability/how-to-create-azure-support-request.md) et sélectionnez le service **Intégration des journaux** pour demander un support.
 
@@ -163,8 +181,8 @@ Pour en savoir plus sur l’intégration des journaux Azure, consultez les docum
 
 * [Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) : Centre de téléchargement pour plus d’informations, la configuration système requise et les instructions d’installation sur l’intégration des journaux Azure.
 * [Introduction à l’intégration de journaux Azure](security-azure-log-integration-overview.md) : ce document présente l’intégration des journaux Azure, ses principales fonctionnalités et son fonctionnement.
-* [Étapes de configuration de partenaires](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : ce billet de blog vous montre comment configurer l’intégration des journaux Azure pour travailler avec des solutions de partenaires Splunk, HP ArcSight et IBM QRadar.
+* [Étapes de configuration de partenaires](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : ce billet de blog vous montre comment configurer l’intégration des journaux Azure pour travailler avec des solutions de partenaires Splunk, HP ArcSight et IBM QRadar. Voici nos recommandations sur la configuration des composants SIEM. Pour plus d’informations, contactez d’abord votre fournisseur SIEM.
 * [FAQ de l’intégration des journaux Azure](security-azure-log-integration-faq.md) : ce forum aux questions répond aux questions sur l’intégration des journaux Azure.
-* [Intégration des alertes du Security Center avec les journaux Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) : ce document montre comment synchroniser les alertes du Security Center, ainsi que les événements de sécurité des machines virtuelles collectés par Azure Diagnostics et les journaux d’audit Azure dans leur solution SIEM ou Log Analytics.
+* [Intégration des alertes du Security Center avec les journaux Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) : ce document montre comment synchroniser les alertes du Security Center, ainsi que les événements de sécurité des machines virtuelles collectés par Azure Diagnostics et les journaux d’activité Azure dans leur solution SIEM ou Log Analytics.
 * [Nouvelles fonctionnalités des diagnostics Azure et des journaux d’Audit Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) : ce billet de blog présente les journaux d’Audit Azure et autres fonctionnalités pour vous permettre de mieux connaître les opérations de vos ressources Azure.
 

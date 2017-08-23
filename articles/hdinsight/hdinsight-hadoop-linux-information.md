@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 1477ed13ef0434ed86938c49e6bb815837cb40fb
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8c6ff4a6b8617cda9b12be060c7c7bed62cb3f44
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informations sur l’utilisation de HDInsight sous Linux
@@ -127,9 +127,9 @@ Lorsque vous utilisez __Stockage Azure__, utilisez l’un des schémas d’URI s
 
 * `wasb:///` : accès au stockage par défaut via une communication non chiffrée.
 
-* `wasbs:///` : accès au stockage par défaut via une communication chiffrée.
+* `wasbs:///` : accès au stockage par défaut via une communication chiffrée.  Le schéma wasbs est pris en charge uniquement à partir de HDInsight version 3.6 et versions ultérieures.
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net/` : utilisé pour communiquer avec un compte de stockage autre que celui par défaut. Par exemple, si vous avez un compte de stockage supplémentaire ou si vous accédez à des données stockées dans un compte de stockage accessible au public.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/` : utilisé pour communiquer avec un compte de stockage autre que celui par défaut. Par exemple, si vous avez un compte de stockage supplémentaire ou si vous accédez à des données stockées dans un compte de stockage accessible au public.
 
 Lorsque vous utilisez __Data Lake Store__, utilisez l’un des schémas d’URI suivants :
 
@@ -153,7 +153,7 @@ Vous pouvez utiliser Ambari pour récupérer la configuration de stockage par d�
 
 Cette commande retourne une valeur semblable aux URI suivants :
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net` si vous utilisez un compte de stockage Azure.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` si vous utilisez un compte de stockage Azure.
 
     Le nom du compte est le nom du compte de stockage Azure, tandis que le nom du conteneur est le conteneur d’objets blob correspondant à la racine de stockage du cluster.
 

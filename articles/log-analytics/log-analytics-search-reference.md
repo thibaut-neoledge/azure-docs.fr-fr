@@ -12,18 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/13/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 90706434eb78009bc56fc390cfa5a30e53827c19
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: f5da86a95623234d14b0a99ee64c7b98d7e920a1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="log-analytics-search-reference"></a>Référence de recherche Log Analytics
+
+>[!NOTE]
+> Cet article détaille les recherches dans les journaux via le langage de requête actuel de Log Analytics.  Si vous avez mis a niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), référez-vous à [la référence du nouveau langage](https://docs.loganalytics.io/queryLanguage/query_language.html).
+
 La section d’informations de référence suivante sur le langage de recherche décrit les options de syntaxe de requête générales que vous pouvez utiliser lorsque vous recherchez des données et que vous filtrez des expressions pour affiner votre recherche. Elle décrit également les commandes que vous pouvez utiliser pour effectuer une opération sur les données récupérées.
 
 Vous pouvez consulter la section [Référence de champ et de facette de recherche](#search-field-and-facet-reference) pour en savoir plus sur les champs retournés dans les recherches et sur les facettes qui vous aident à explorer des catégories de données similaires.

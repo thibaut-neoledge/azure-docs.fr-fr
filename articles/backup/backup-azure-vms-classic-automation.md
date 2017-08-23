@@ -1,6 +1,6 @@
 ---
 title: "Déploiement et gestion d’une sauvegarde pour les machines virtuelles Azure à l’aide de PowerShell | Microsoft Docs"
-description: "Découvrez comment déployer et gérer Azure Backup à l’aide de PowerShell."
+description: "Découvrez comment déployer et gérer Sauvegarde Azure à l’aide de PowerShell."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,15 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 8/2/2017
 ms.author: markgal;trinadhk;jimpark
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: f7474aac1cd70243de25c4a2a73332d94b7bcaea
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 5f0f06adb8177ce2d17aa0b40666470279c04e22
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>Utilisation des applets de commande AzureRM.Backup pour sauvegarder des machines virtuelles
@@ -33,8 +32,8 @@ ms.lasthandoff: 06/16/2017
 Cet article vous montre comment utiliser Azure PowerShell pour la sauvegarde et la restauration des machines virtuelles Azure. Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : Resource Manager et classique. Cet article traite de l’utilisation du modèle de déploiement classique pour sauvegarder des données dans un coffre de sauvegarde. Si vous n’avez pas créé de coffre de sauvegarde dans votre abonnement, consultez la version du Gestionnaire des ressources de cet article, [Utilisez les applets de commande AzureRM.RecoveryServices.Backup pour sauvegarder des machines virtuelles](backup-azure-vms-automation.md). Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 > [!IMPORTANT]
-> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> **À compter du 1er novembre 2017** :
->- Les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
+> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> Au-delà du 15 octobre 2017, vous ne pouvez plus vous servir de PowerShell pour créer des coffres de sauvegarde. **D’ici le 1er novembre 2017** :
+>- Tous les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
 >- Vous ne pourrez plus accéder à vos données de sauvegarde depuis le portail Classic. Au lieu de cela, vous devrez utiliser le portail Azure pour accéder à ces données au sein de coffres Recovery Services.
 >
 
@@ -50,7 +49,7 @@ Pour pouvoir utiliser efficacement PowerShell, il est nécessaire de comprendre 
 
 ![Hiérarchie des objets](./media/backup-azure-vms-classic-automation/object-hierarchy.png)
 
-Les deux processus les plus importants permettent la protection des machines virtuelles et la restauration des données à partir d’un point de restauration. L’objectif de cet article est de vous apprendre à travailler avec les applets de commande PowerShell pour permettre ces deux scénarios.
+Les deux processus les plus importants permettent la protection des machines virtuelles et la restauration des données à partir d’un point de restauration. L’objectif de cet article est de vous apprendre à utiliser les applets de commande PowerShell pour permettre ces deux scénarios.
 
 ## <a name="setup-and-registration"></a>Installation et inscription
 Pour commencer :
@@ -92,11 +91,11 @@ Cmdlet          Wait-AzureRmBackupJob                              1.0.1      Az
 Les tâches de configuration et d’inscription ci-après peuvent être automatisées avec PowerShell :
 
 * Créer un coffre de sauvegarde
-* Inscription des machines virtuelles auprès du service Azure Backup
+* Inscription des machines virtuelles auprès du service Sauvegarde Azure
 
 ### <a name="create-a-backup-vault"></a>Créer un coffre de sauvegarde
 > [!WARNING]
-> Pour les clients utilisant Azure Backup pour la première fois, vous devez enregistrer le fournisseur Azure Backup à utiliser avec votre abonnement. Pour ce faire, exécutez la commande suivante : Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+> Pour les clients utilisant Sauvegarde Azure pour la première fois, vous devez enregistrer le fournisseur Sauvegarde Azure à utiliser avec votre abonnement. Pour ce faire, exécutez la commande suivante : Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
 >
 >
 
@@ -115,9 +114,9 @@ Vous pouvez obtenir la liste de tous les coffres de sauvegarde d’un abonnement
 >
 
 ### <a name="registering-the-vms"></a>Enregistrement des machines virtuelles
-La première étape de la configuration de la sauvegarde avec Azure Backup consiste à enregistrer votre ordinateur ou machine virtuelle avec un coffre Azure Backup. L’applet de commande **Register-AzureRmBackupContainer** collecte les informations d’entrée d’une machine virtuelle IaaS Azure et les enregistre dans le coffre spécifié. L’opération d’enregistrement associe la machine virtuelle Azure avec le coffre de sauvegarde et effectue le suivi de la machine virtuelle tout au long du cycle de vie de la sauvegarde.
+La première étape de la configuration de la sauvegarde avec Sauvegarde Azure consiste à enregistrer votre ordinateur ou machine virtuelle avec un coffre de sauvegarde Azure. L’applet de commande **Register-AzureRmBackupContainer** collecte les informations d’entrée d’une machine virtuelle IaaS Azure et les enregistre dans le coffre spécifié. L’opération d’enregistrement associe la machine virtuelle Azure avec le coffre de sauvegarde et effectue le suivi de la machine virtuelle tout au long du cycle de vie de la sauvegarde.
 
-L’enregistrement de votre machine virtuelle auprès du service Azure Backup crée un objet conteneur de niveau supérieur. Un conteneur contient généralement plusieurs éléments qui peuvent être sauvegardés, mais dans le cas de machines virtuelles, il n’y a qu’un élément de sauvegarde pour le conteneur.
+L’enregistrement de votre machine virtuelle auprès du service Sauvegarde Azure crée un objet conteneur de niveau supérieur. Un conteneur contient généralement plusieurs éléments qui peuvent être sauvegardés, mais dans le cas de machines virtuelles, il n’y a qu’un élément de sauvegarde pour le conteneur.
 
 ```
 PS C:\> $registerjob = Register-AzureRmBackupContainer -Vault $backupvault -Name "testvm" -ServiceName "testvm"
@@ -140,7 +139,7 @@ DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:
 >
 >
 
-Une stratégie de sauvegarde est associée à au moins une stratégie de rétention. La stratégie de rétention définit la durée de conservation d’un point de restauration avec Azure Backup. L’applet de commande **New-AzureRmBackupRetentionPolicy** crée des objets PowerShell qui contiennent des informations sur la stratégie de rétention. Ces objets de stratégie de rétention sont utilisés comme entrées dans l’applet de commande *New-AzureRmBackupProtectionPolicy* ou directement dans le cas de l’applet de commande *Enable-AzureRmBackupProtection*.
+Une stratégie de sauvegarde est associée à au moins une stratégie de rétention. La stratégie de rétention définit la durée de conservation d’un point de restauration avec Sauvegarde Azure. L’applet de commande **New-AzureRmBackupRetentionPolicy** crée des objets PowerShell qui contiennent des informations sur la stratégie de rétention. Ces objets de stratégie de rétention sont utilisés comme entrées dans l’applet de commande *New-AzureRmBackupProtectionPolicy* ou directement dans le cas de l’applet de commande *Enable-AzureRmBackupProtection*.
 
 Une stratégie de sauvegarde définit quand et à quelle fréquence la sauvegarde d’un élément doit être effectuée. L’applet de commande **New-AzureRmBackupProtectionPolicy** crée un objet PowerShell contenant des informations sur la stratégie de sauvegarde. La stratégie de sauvegarde est utilisée comme entrée dans l’applet de commande *Enable-AzureRmBackupProtection* .
 
@@ -179,7 +178,7 @@ testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01
 >
 
 ### <a name="monitoring-a-backup-job"></a>Surveillance d’une tâche de sauvegarde
-La plupart des opérations longues dans Azure Backup sont reproduites en tant que tâche. Cela permet de suivre facilement la progression sans avoir à garder le portail Azure ouvert en permanence.
+La plupart des opérations longues dans Sauvegarde Azure sont reproduites en tant que tâche. Cela permet de suivre facilement la progression sans avoir à garder le portail Azure ouvert en permanence.
 
 Pour connaître l’état récent d’une tâche en cours de traitement, utilisez l’applet de commande **Get-AzureRmBackupJob** .
 

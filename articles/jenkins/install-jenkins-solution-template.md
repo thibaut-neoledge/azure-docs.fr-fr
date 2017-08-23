@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 6/7/2017
 ms.author: mlearned
-ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 748f1994d0ee5b6c6a988bca8e5b694b29c0b8c5
+ms.custom: Jenkins
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 06d6d305eb9711768dc62a04726359e6280d1b69
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
-<a id="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure" class="xliff"></a>
-
-# Créer votre premier maître Jenkins sur une machine virtuelle Linux (Ubuntu) sur Azure
+# <a name="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure"></a>Créer votre premier maître Jenkins sur une machine virtuelle Linux (Ubuntu) sur Azure
 
 Ce guide de démarrage rapide vous indique comment installer la dernière version stable de Jenkins sur une machine virtuelle Linux (Ubuntu 14.04 LTS) avec les outils et les plug-ins configurés pour fonctionner avec Azure. Ces outils sont les suivants :
 <ul>
@@ -46,13 +44,11 @@ Ce didacticiel vous explique comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-<a id="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins" class="xliff"></a>
-
-## Créer la machine virtuelle dans Azure en déployant le modèle de solution pour Jenkins
+## <a name="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins"></a>Créer la machine virtuelle dans Azure en déployant le modèle de solution pour Jenkins
 
 Les modèles de démarrage rapide Azure vous permettent de déployer rapidement et de façon fiable des technologies complexes sur Azure.  Azure Resource Manager vous donne la possibilité d’approvisionner vos applications à l’aide d’un [modèle déclaratif](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins). Dans un modèle unique, vous pouvez déployer plusieurs services ainsi que leurs dépendances. Le même modèle vous permet de déployer plusieurs fois votre application à chaque phase du cycle de vie de l’application.
 
-Pour comprendre les différentes options de coût, consultez les informations sur [les abonnements et la tarification](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins?tab=PlansAndPrice) de ce modèle.
+Pour comprendre les différentes options de coût, consultez les informations sur [les abonnements et la tarification](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview) de ce modèle.
 
 Accédez à [l’image Place de marché de Jenkins](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview) et cliquez sur **OBTENIR MAINTENANT**.  
 
@@ -70,7 +66,7 @@ Dans l’onglet **Configurer les paramètres de base** :
 * Pour le type d’authentification, créez une instance qui est sécurisée par un mot de passe ou une [clé publique SSH](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). Si vous utilisez un mot de passe, ce dernier doit remplir 3 des exigences suivantes : un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial.
 * Conserver le type de version Jenkins comme **LTS**
 * Sélectionnez un abonnement.
-* Créez un groupe de ressources ou utilisez un groupe existant.
+* Créez un groupe de ressources ou utilisez-en un existant mais vide. 
 * Sélectionnez un emplacement.
 
 Dans l’onglet **Configure additional options (Configurer des options supplémentaires)** :
@@ -85,17 +81,13 @@ Une fois la validation réussie, cliquez sur **OK** pour télécharger le modèl
 
 Ensuite, sélectionnez **Acheter** pour approvisionner toutes les ressources.
 
-<a id="setup-ssh-port-forwarding" class="xliff"></a>
-
-## Configurer le réacheminement de port SSH
+## <a name="setup-ssh-port-forwarding"></a>Configurer le réacheminement de port SSH
 
 Par défaut, l’instance Jenkins utilise le protocole http et écoute le port 8080. Les utilisateurs ne doivent pas s’authentifier sur des protocoles non sécurisés.
     
 Configurez le réacheminement de port pour visualiser l’interface utilisateur Jenkins sur votre ordinateur local.
 
-<a id="if-you-are-using-windows" class="xliff"></a>
-
-### Si vous utilisez Windows, procédez comme suit :
+### <a name="if-you-are-using-windows"></a>Si vous utilisez Windows, procédez comme suit :
 
 Installez PuTTY et exécutez la commande ci-après si vous utilisez un mot de passe pour sécuriser Jenkins :
 ```
@@ -110,9 +102,7 @@ Si vous utilisez SSH, exécutez cette commande :
 putty -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="if-you-are-using-linux-or-mac" class="xliff"></a>
-
-### Si vous utilisez Linux ou Mac :
+### <a name="if-you-are-using-linux-or-mac"></a>Si vous utilisez Linux ou Mac :
 
 Si vous utilisez un mot de passe pour sécuriser votre maître Jenkins, exécutez cette commande :
 ```
@@ -125,9 +115,7 @@ Si vous utilisez SSH, exécutez cette commande :
 ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="connect-to-jenkins" class="xliff"></a>
-
-## Se connecter à Jenkins
+## <a name="connect-to-jenkins"></a>Se connecter à Jenkins
 Une fois que vous avez démarré votre tunnel, accédez à http://localhost:8080/ sur votre ordinateur local.
 
 Déverrouillez le tableau de bord Jenkins pour la première fois avec le mot de passe d’administrateur initial.
@@ -146,9 +134,7 @@ Votre instance Jenkins est à présent prête à l’emploi. Vous pouvez affiche
 
 ![Jenkins est prêt à l’emploi](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 

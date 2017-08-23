@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 07/31/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: f550ec9a8d254378d165f0c842459fd50ade7945
-ms.openlocfilehash: 9ea999ea483543beda8d258f58dc8fba479aa603
-ms.lasthandoff: 03/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: e7b16e789e0f241aa8ca2292aacb2bccde8777ee
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Créer une passerelle Application Gateway à l’aide de l’interface de ligne de commande Azure
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/30/2017
 > 
 > 
 
-La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. Une passerelle Application Gateway offre les fonctionnalités de livraison d’applications suivantes : équilibrage de charge HTTP, affinité de session basée sur les cookies et déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées et prise en charge de plusieurs sites.
+La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. Une passerelle Application Gateway offre les fonctionnalités de livraison d’applications suivantes : équilibrage de charge HTTP, affinité de session basée sur les cookies et déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées et prise en charge de plusieurs sites.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Condition préalable : installer l’interface de ligne de commande Azure
 
@@ -49,12 +49,9 @@ Dans ce scénario, vous allez apprendre à créer une passerelle Application Gat
 
 Ce scénario va :
 
-* créer une passerelle Application Gateway moyenne avec deux instances ;
-* créer un réseau virtuel nommé AdatumAppGatewayVNET avec un bloc CIDR réservé de 10.0.0.0/16 ;
-* créer un sous-réseau appelé Appgatewaysubnet qui utilise 10.0.0.0/28 comme bloc CIDR ;
-* configurer un certificat pour le déchargement SSL.
-
-![Exemple de scénario][scenario]
+* Créer une passerelle Application Gateway moyenne avec deux instances.
+* Créer un réseau virtuel nommé ContosoVNET avec un bloc CIDR réservé de 10.0.0.0/16.
+* Créer un sous-réseau appelé subnet01 qui utilise 10.0.0.0/28 comme bloc CIDR.
 
 > [!NOTE]
 > La configuration supplémentaire de la passerelle Application Gateway, y compris les sondes d’intégrité personnalisées, les adresses de pool principal et les règles supplémentaires sont configurées après avoir configuré la passerelle Application Gateway et non lors du déploiement initial.
@@ -67,7 +64,7 @@ La passerelle Application Gateway Azure requiert son propre sous-réseau. Lorsqu
 
 Ouvrez **l’invite de commandes Microsoft Azure**et connectez-vous. 
 
-```azurecli
+```azurecli-interactive
 azure login
 ```
 
@@ -85,7 +82,7 @@ Une fois que vous êtes connecté, fermez le navigateur pour poursuivre le scén
 
 ## <a name="switch-to-resource-manager-mode"></a>Basculer en mode Resource Manager
 
-```azurecli
+```azurecli-interactive
 azure config mode arm
 ```
 
@@ -93,39 +90,64 @@ azure config mode arm
 
 Avant de créer la passerelle Application Gateway, un groupe de ressources est créé pour contenir cette dernière. Voici la commande.
 
-```azurecli
-azure group create -n AdatumAppGatewayRG -l eastus
+```azurecli-interactive
+azure group create \
+--name ContosoRG \
+--location eastus
 ```
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
 Une fois le groupe de ressources créé, un réseau virtuel est créé pour la passerelle Application Gateway.  Dans l’exemple suivant, l’espace d’adressage était 10.0.0.0/16 tel que défini dans les notes du scénario précédent.
 
-```azurecli
-azure network vnet create -n AdatumAppGatewayVNET -a 10.0.0.0/16 -g AdatumAppGatewayRG -l eastus
+```azurecli-interactive
+azure network vnet create \
+--name ContosoVNET \
+--address-prefixes 10.0.0.0/16 \
+--resource-group ContosoRG \
+--location eastus
 ```
 
 ## <a name="create-a-subnet"></a>Créer un sous-réseau
 
 Une fois le réseau virtuel créé, un sous-réseau est ajouté pour la passerelle Application Gateway.  Si vous envisagez d’utiliser la passerelle Application Gateway avec une application web hébergée dans le même réseau virtuel que la passerelle Application Gateway, veillez à laisser suffisamment de place pour un autre sous-réseau.
 
-```azurecli
-azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v AdatumAppGatewayVNET -a 10.0.0.0/28 
+```azurecli-interactive
+azure network vnet subnet create \
+--resource-group ContosoRG \
+--name subnet01 \
+--vnet-name ContosoVNET \
+--address-prefix 10.0.0.0/28 
 ```
 
 ## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
 
-Une fois le réseau virtuel et le sous-réseau créés, les conditions préalables pour la passerelle Application Gateway sont remplies. En outre, un certificat .pfx exporté précédemment et le mot de passe de ce dernier sont requis pour l’étape suivante. Les adresses IP utilisées pour le backend sont celles de votre serveur principal. Ces valeurs peuvent être des adresses IP privées dans le réseau virtuel, des adresses IP publiques ou des noms de domaine complets pour vos serveurs principaux.
+Une fois le réseau virtuel et le sous-réseau créés, les conditions préalables pour la passerelle Application Gateway sont remplies. En outre, un certificat .pfx exporté précédemment et le mot de passe de ce dernier sont requis pour l’étape suivante. Les adresses IP utilisées pour le backend sont celles de votre serveur backend. Ces valeurs peuvent être des adresses IP privées dans le réseau virtuel, des adresses IP publiques ou des noms de domaine complets pour vos serveurs backend.
 
-```azurecli
-azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
+```azurecli-interactive
+azure network application-gateway create \
+--name AdatumAppGateway \
+--location eastus \
+--resource-group ContosoRG \
+--vnet-name ContosoVNET \
+--subnet-name subnet01 \
+--servers 134.170.185.46,134.170.188.221,134.170.185.50 \
+--capacity 2 \
+--sku-tier Standard \
+--routing-rule-type Basic \
+--frontend-port 80 \
+--http-settings-cookie-based-affinity Enabled \
+--http-settings-port 80 \
+--http-settings-protocol http \
+--frontend-port http \
+--sku-name Standard_Medium
 ```
 
 > [!NOTE]
 > Pour obtenir la liste de paramètres pouvant être fournis lors de la création, exécutez la commande suivante : **azure network application-gateway create --help**.
 
-Cet exemple crée une passerelle Application Gateway de base avec les paramètres par défaut pour l’écouteur, le pool principal, les paramètres http principaux et les règles. Cela configure également le déchargement SSL. Vous pouvez modifier ces paramètres en fonction de votre déploiement une fois l’approvisionnement réussi.
-Si vous avez déjà défini votre application web avec le pool principal aux étapes précédentes, une fois la création effective, l’équilibrage de charge commence.
+Cet exemple crée une passerelle Application Gateway de base avec les paramètres par défaut pour l’écouteur, le pool backend, les paramètres http backend et les règles. Vous pouvez modifier ces paramètres en fonction de votre déploiement une fois l’approvisionnement réussi.
+Si vous avez déjà défini votre application web avec le pool backend aux étapes précédentes, une fois la création effective, l’équilibrage de charge commence.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -135,8 +157,8 @@ Découvrez comment configurer le déchargement SSL et éviter à vos serveurs we
 
 <!--Image references-->
 
-[scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
-[1]: ./media/application-gateway-create-gateway-cli/figure1.png
-[2]: ./media/application-gateway-create-gateway-cli/figure2.png
-[3]: ./media/application-gateway-create-gateway-cli/figure3.png
+[scenario]: ./media/application-gateway-create-gateway-cli-nodejs/scenario.png
+[1]: ./media/application-gateway-create-gateway-cli-nodejs/figure1.png
+[2]: ./media/application-gateway-create-gateway-cli-nodejs/figure2.png
+[3]: ./media/application-gateway-create-gateway-cli-nodejs/figure3.png
 

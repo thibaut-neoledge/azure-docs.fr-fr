@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/13/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 5c4a08d96175d431e0a29dfc5927b64567c40117
-ms.openlocfilehash: d1c8a39bbcda7d22fdce08d122098e994ca87451
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 0aaa99dda44d2020afd3e841e84020eb4ff87a85
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -27,17 +29,29 @@ Azure Security Center utilise le [contrôle d’accès en fonction du rôle (RBA
 
 Security Center évalue la configuration de vos ressources pour identifier les vulnérabilités et les problèmes de sécurité. Dans Security Center, vous ne voyez les informations relatives à une ressource que lorsque vous avez reçu le rôle de propriétaire, de collaborateur ou de lecteur pour l’abonnement ou le groupe de ressources auquel appartient la ressource.
 
+Outre ces rôles, il existe deux rôles propres à Security Center :
+
+* **Lecteur Sécurité** : l’utilisateur ayant ce rôle dispose de droits d’affichage dans Security Center. Il peut afficher les recommandations, les alertes, la stratégie de sécurité actuelle et les états de sécurité, mais ne peut pas apporter de modifications.
+* **Administrateur de la sécurité** : l’utilisateur ayant ce rôle dispose des mêmes droits que le lecteur Sécurité. Il peut en outre modifier la stratégie de sécurité actuelle, ainsi qu’ignorer les alertes et les recommandations.
+
+> [!NOTE]
+> Les rôles de sécurité que sont le lecteur Sécurité et l’administrateur de la sécurité ont uniquement accès à Security Center. Les rôles de sécurité n’ont pas accès aux autres services d’Azure (par exemple, Stockage, Web et mobile ou Internet des objets).
+>
+>
+
 ## <a name="roles-and-allowed-actions"></a>Rôles et actions autorisées
 
 Le tableau suivant affiche les rôles et les actions autorisées dans Security Center. Un X indique que l’action est autorisée pour ce rôle.
 
-| Rôle | Modifier une stratégie de sécurité | Appliquer des recommandations de sécurité à une ressource | Corriger ou ignorer des alertes | Afficher les alertes d’un abonnement | Afficher les alertes d’une ressource donnée |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-| Propriétaire de l’abonnement | X | X | X | X | X |
-| Collaborateur de l’abonnement | X | X | X | X | X |
-| Propriétaire du groupe de ressources | -- | X | -- | -- | X |
-| Collaborateur du groupe de ressources | -- | X | -- | -- | X |
-| Lecteur | -- | -- | -- | X | X |
+| Rôle | Modifier une stratégie de sécurité | Appliquer des recommandations de sécurité à une ressource | Ignorer les alertes et les recommandations | Afficher les alertes et les recommandations |
+|:--- |:---:|:---:|:---:|:---:|
+| Propriétaire de l’abonnement | X | X | X | X |
+| Collaborateur de l’abonnement | X | X | X | X |
+| Propriétaire du groupe de ressources | -- | X | -- | X |
+| Collaborateur du groupe de ressources | -- | X | -- | X |
+| Lecteur | -- | -- | -- | X |
+| Security Administrator | X | -- | X | X |
+| Lecteur de sécurité | -- | -- | -- | X |
 
 > [!NOTE]
 > Nous vous recommandons d’attribuer le rôle le moins permissif permettant aux utilisateurs d’effectuer leurs tâches. Par exemple, affectez le rôle Lecteur aux utilisateurs qui n’ont besoin que de consulter des informations sur l’intégrité de la sécurité d’une ressource sans effectuer aucune action, telles que l’application des recommandations ou la modification des stratégies.
@@ -52,9 +66,4 @@ Cet article vous a expliqué comment Security Center utilise le contrôle d’ac
 - [Surveiller l’intégrité de la sécurité de vos ressources Azure](security-center-monitoring.md)
 - [Gérer et répondre aux alertes de sécurité dans Security Center](security-center-managing-and-responding-alerts.md)
 - [Surveiller les solutions de sécurité des partenaires](security-center-partner-solutions.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

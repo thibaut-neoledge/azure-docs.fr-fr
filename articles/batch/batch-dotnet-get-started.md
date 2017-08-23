@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9776bd4f703227f49f83f563489cfa7c44604fb8
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Bien démarrer avec la création de solutions avec la bibliothèque cliente Batch pour .NET
@@ -105,7 +104,7 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> Comme mentionné ci-dessus, vous devez renseigner les informations d’identification pour un compte de stockage **à usage général** dans Stockage Azure. Vos applications Batch utiliseront Blob Storage dans le compte de stockage **à usage général** . Ne renseignez pas les informations d’identification pour un compte de stockage ayant été créé en sélectionnant *Blob Storage* comme type de compte.
+> Comme mentionné ci-dessus, vous devez renseigner les informations d’identification pour un compte de stockage **à usage général** dans Stockage Azure. Vos applications Batch utiliseront Blob Storage dans le compte de stockage **à usage général**. Ne renseignez pas les informations d’identification pour un compte de stockage ayant été créé en sélectionnant *Blob Storage* comme type de compte.
 >
 >
 
@@ -363,7 +362,12 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-Lorsque vous créez un pool avec [CreatePool][net_pool_create], vous spécifiez un certain nombre de paramètres comme le nombre de nœuds de calcul, la [taille des nœuds](../cloud-services/cloud-services-sizes-specs.md) et le système d’exploitation des nœuds. Dans *DotNetTutorial*, nous utilisons [CloudServiceConfiguration][net_cloudserviceconfiguration] pour spécifier Windows Server 2012 R2 à partir de [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). Toutefois, en spécifiant à la place [VirtualMachineConfiguration][net_virtualmachineconfiguration], vous pouvez créer des pools de nœuds créés à partir d’images Marketplace, ce qui inclut des images Windows et Linux. Consultez [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md) pour plus d’informations.
+Lorsque vous créez un pool avec [CreatePool][net_pool_create], vous spécifiez un certain nombre de paramètres comme le nombre de nœuds de calcul, la [taille des nœuds](../cloud-services/cloud-services-sizes-specs.md) et le système d’exploitation des nœuds. Dans *DotNetTutorial*, nous utilisons [CloudServiceConfiguration][net_cloudserviceconfiguration] pour spécifier Windows Server 2012 R2 à partir de [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). 
+
+Vous pouvez aussi créer des pools de nœuds de calcul qui sont des machines virtuelles Azure (VM) en spécifiant la configuration [VirtualMachineConfiguration][net_virtualmachineconfiguration] de votre pool. Vous pouvez créer un pool de nœuds de calcul de machines virtuelles à partir d’[images Windows ou Linux](batch-linux-nodes.md). La source de vos images de machine virtuelle peut être :
+
+- Le [Marketplace de machines virtuelles Azure][vm_marketplace], qui fournit des images Windows et Linux prêtes à l’emploi. 
+- Une image personnalisée que vous préparez et fournissez. Pour en savoir plus sur les images personnalisées, consultez [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md#pool) (Développer des solutions de calcul parallèles à grande échelle avec Batch).
 
 > [!IMPORTANT]
 > Les ressources de calcul dans Batch vous sont facturées. Pour réduire les coûts, vous pouvez diminuer la valeur du paramètre `targetDedicatedComputeNodes` et la définir sur 1 avant d’exécuter l’exemple.
@@ -741,6 +745,7 @@ Vous pouvez apporter des modifications à *DotNetTutorial* et à *TaskApplicatio
 * Consultez l’article [Présentation des fonctionnalités de présentation d’Azure Batch](batch-api-basics.md) , que nous vous recommandons si vous ne connaissez pas le service.
 * Commencez par les autres articles de développement Batch sous **Développement approfondi** dans le [parcours d’apprentissage Batch][batch_learning_path].
 * Consultez une autre implémentation du traitement de la charge de travail « N premiers mots » en utilisant Batch dans l’exemple [TopNWords][github_topnwords].
+* Examinez les [notes de publication](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/Batch/DataPlane/changelog.md#azurebatch-release-notes) de .NET Batch pour découvrir les dernières modifications de la bibliothèque.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
@@ -788,6 +793,7 @@ Vous pouvez apporter des modifications à *DotNetTutorial* et à *TaskApplicatio
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/vs/
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Créer des conteneurs dans le Stockage Azure"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Charger les fichiers d’application de tâche et les fichiers (de données) d’entrée dans les conteneurs"

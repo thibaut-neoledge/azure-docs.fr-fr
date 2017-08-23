@@ -13,17 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 605e68dd86e5188f8a872745164ac879c40a1278
+ms.reviwer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 9ea5744d77b90929598ea5feb80c7bbdff3772fc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
-<a id="an-assigned-application-is-not-appearing-on-the-access-panel" class="xliff"></a>
-
-# Une application affectée n’apparaît pas sur le volet d’accès
+# <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Une application affectée n’apparaît pas sur le volet d’accès
 
 Le volet d’accès est un portail Web qui permet à un utilisateur disposant d’un compte professionnel ou scolaire dans Azure Active Directory (Azure AD) d’afficher et de démarrer des applications basées sur le cloud auxquelles l’administrateur Azure AD lui a accordé un accès. Ces applications sont configurées pour le compte de l’utilisateur dans le portail Azure AD. Pour que l’application soit visible dans le volet d’accès, elle doit être correctement configurée et affectée à l’utilisateur ou à un groupe dont est membre l’utilisateur.
 
@@ -33,21 +32,17 @@ Les types d’applications que peut voir l’utilisateur tombent dans les catég
 
 -   Applications Microsoft et tierces configurées avec l’authentification unique (SSO) basée sur la fédération
 
--   Applications à authentification unique (SSO) basée sur un mot de passe
+-   Applications à authentification unique (SSO) par mot de passe
 
 -   Applications avec solutions d’authentification unique (SSO) existantes
 
-<a id="general-issues-to-check-first" class="xliff"></a>
-
-## Problèmes d’ordre général à vérifier en premier
+## <a name="general-issues-to-check-first"></a>Problèmes d’ordre général à vérifier en premier
 
 -   Si une application vient d’être ajoutée pour un utilisateur, essayez de vous connecter / déconnecter de nouveau sur le volet d’accès de l’utilisateur après quelques minutes pour voir si l’application a été ajoutée.
 
 -   Si une licence vient d’être supprimée pour un utilisateur ou un groupe dont l’utilisateur est membre, la prise en compte des modifications peut prendre du temps, en fonction de la taille et de la complexité du groupe. Prévoyez du temps supplémentaire avant de vous connecter au volet d’accès.
 
-<a id="problems-related-to-application-configuration" class="xliff"></a>
-
-## Problèmes liés à la configuration d’applications
+## <a name="problems-related-to-application-configuration"></a>Problèmes liés à la configuration d’applications
 
 Une application n’apparaît peut-être pas dans le volet d’accès d’un utilisateur en raison d’une mauvaise configuration. Voici quelques méthodes pour résoudre les problèmes liés à la configuration d’applications :
 
@@ -59,9 +54,7 @@ Une application n’apparaît peut-être pas dans le volet d’accès d’un uti
 
 -   [Comment configurer l’authentification unique avec mot de passe pour une application non issue de la galerie Azure AD](#how-to-configure-password-single-sign-on-for-a-non-gallery-application)
 
-<a id="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
-
-### Comment configurer l’authentification unique fédérée pour une application de la galerie Azure AD
+### <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Comment configurer l’authentification unique fédérée pour une application de la galerie Azure AD
 
 Un didacticiel pas à pas est disponible pour toutes les applications de la galerie Azure AD dans lesquelles est activée la fonctionnalité Enterprise Single Sign-On. Pour une aide pas à pas détaillée, vous pouvez accéder à la [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).
 
@@ -77,17 +70,15 @@ Pour configurer une application à partir de la galerie Azure AD, vous devez eff
 
 -   [Configurer les valeurs de métadonnées Azure AD dans l’application (URL de connexion, émetteur, URL de déconnexion et certificat)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
-<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
-
-#### Ajouter une application à partir de la galerie Azure AD
+#### <a name="add-an-application-from-the-azure-ad-gallery"></a>Ajouter une application à partir de la galerie Azure AD
 
 Pour ajouter une application à partir de la galerie Azure AD, effectuez les étapes suivantes :
 
 1.  Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
@@ -103,21 +94,19 @@ Pour ajouter une application à partir de la galerie Azure AD, effectuez les ét
 
 Après une courte période, vous pourrez voir le panneau de configuration de l’application.
 
-<a id="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery" class="xliff"></a>
-
-#### Configurer l’authentification unique pour une application à partir de la galerie Azure AD
+#### <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Configurer l’authentification unique pour une application à partir de la galerie Azure AD
 
 Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste de toutes vos applications.
+5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
@@ -125,13 +114,13 @@ Pour configurer l’authentification unique pour une application, effectuez les 
 
 7.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-8.  Sélectionnez **SAML-based Sign-on** (Authentification SAML) dans la liste déroulante **Mode**.
+8.  Sélectionnez **Authentification basée sur SAML** dans la liste déroulante **Mode**.
 
 9.  Entrez les valeurs obligatoires dans **Domaine et URL.** Ces valeurs doivent vous être communiquées par le fournisseur de l’application.
 
-   1. Pour configurer l’application comme une application à authentification unique initiée par le fournisseur de services, une URL de connexion est obligatoire. Pour certaines applications, l’identificateur est également une valeur obligatoire.
+   1. Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur de services, une URL de connexion est obligatoire. Pour certaines applications, l’identificateur est également une valeur obligatoire.
 
-   2. Pour configurer l’application comme une application à authentification unique initiée par le fournisseur d’identité, une URL de réponse est obligatoire. Pour certaines applications, l’identificateur est également une valeur obligatoire.
+   2. Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur d’identité, une URL de réponse est obligatoire. Pour certaines applications, l’identificateur est également une valeur obligatoire.
 
 10. **Facultatif** : pour afficher les valeurs non obligatoires, cliquez sur **Afficher les paramètres d’URL avancés**.
 
@@ -143,25 +132,23 @@ Pour configurer l’authentification unique pour une application, effectuez les 
 
    1. Cliquez sur **Ajouter un attribut**. Entrez le **Nom**, puis sélectionnez la **Valeur** dans la liste déroulante.
 
-   2. Cliquez sur **Enregistrer.** Le nouvel attribut s’affiche dans le tableau.
+   2. Cliquez sur **Enregistrer**. Le nouvel attribut s’affiche dans le tableau.
 
 13. Cliquez sur **Configurer &lt;nom de l’application&gt;** pour accéder à la documentation sur la façon de configurer l’authentification unique. En outre, vous disposez des URL de métadonnées et du certificat nécessaires à la configuration de l’authentification unique.
 
-14. Pour enregistrer la configuration, cliquez sur **Enregistrer**.
+14. Cliquez sur **Enregistrer** pour enregistrer la configuration.
 
 15. Affectez des utilisateurs à l’application.
 
-<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
-
-#### Sélectionner l’identificateur de l’utilisateur et ajouter les attributs d’utilisateur à envoyer à l’application
+#### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Sélectionner l’identificateur de l’utilisateur et ajouter les attributs d’utilisateur à envoyer à l’application
 
 Pour sélectionner l’identificateur de l’utilisateur ou ajouter des attributs d’utilisateur, effectuez les étapes suivantes :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
@@ -186,23 +173,21 @@ Pour sélectionner l’identificateur de l’utilisateur ou ajouter des attribut
 
    1. Cliquez sur **Ajouter un attribut**. Entrez le **Nom**, puis sélectionnez la **Valeur** dans la liste déroulante.
 
-   2. Cliquez sur **Enregistrer.** Le nouvel attribut s’affiche dans le tableau.
+   2. Cliquez sur **Enregistrer**. Le nouvel attribut s’affiche dans le tableau.
 
-<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
-
-#### Télécharger les métadonnées ou le certificat Azure AD
+#### <a name="download-the-azure-ad-metadata-or-certificate"></a>Télécharger les métadonnées ou le certificat Azure AD
 
 Pour télécharger les métadonnées ou le certificat de l’application à partir d’Azure AD, effectuez les étapes suivantes :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste de toutes vos applications.
+5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
@@ -212,13 +197,11 @@ Pour télécharger les métadonnées ou le certificat de l’application à part
 
 8.  Accédez à la section **Certificat de signature SAML**, puis cliquez sur la valeur de colonne **Télécharger**. En fonction de ce que l’application nécessite pour configurer l’authentification unique, vous voyez soit l’option de téléchargement des métadonnées XML, soit le certificat.
 
-    Azure AD ne fournit pas une URL permettant d’obtenir les métadonnées. Les métadonnées peuvent uniquement être récupérées sous forme de fichier XML.
+    Azure AD ne fournit pas d’URL permettant d’obtenir les métadonnées. Les métadonnées peuvent uniquement être récupérées sous forme de fichier XML.
 
-<a id="how-to-configure-federated-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+### <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Comment configurer l’authentification unique fédérée pour une application non issue de la galerie
 
-### Comment configurer l’authentification unique fédérée pour une application non issue de la galerie
-
-Pour configurer une application non issue de la galerie, vous devez disposer d’Azure Active Directory Premium et votre application doit prendre en charge SAML 2.0. Pour plus d’informations sur les versions d’Azure AD, consultez [Tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Pour configurer une application non issue de la galerie, vous devez disposer d’Azure AD Premium, et l’application doit prendre en charge SAML 2.0. Pour plus d’informations sur les versions d’Azure AD, consultez [Tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 -   [Configurer les valeurs de métadonnées de l’application dans Azure AD (URL de connexion, identificateur, URL de réponse)](#configuring-single-sign-on)
 
@@ -228,17 +211,15 @@ Pour configurer une application non issue de la galerie, vous devez disposer d�
 
 -   [Configurer les valeurs de métadonnées Azure AD dans l’application (URL de connexion, émetteur, URL de déconnexion et certificat)](#configuring-single-sign-on)
 
-<a id="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url" class="xliff"></a>
-
-#### Configurer les valeurs de métadonnées de l’application dans Azure AD (URL de connexion, identificateur, URL de réponse)
+#### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Configurer les valeurs de métadonnées de l’application dans Azure AD (URL de connexion, identificateur, URL de réponse)
 
 Pour configurer l’authentification unique pour une application qui n’est pas issue de la galerie Azure AD, effectuez les étapes suivantes :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
@@ -252,11 +233,11 @@ Pour configurer l’authentification unique pour une application qui n’est pas
 
 9.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-10. Sélectionnez **SAML-based Sign-on** (Authentification SAML) dans la liste déroulante **Mode**.
+10. Sélectionnez **Authentification basée sur SAML** dans la liste déroulante **Mode**.
 
 11. Entrez les valeurs obligatoires dans **Domaine et URL.** Ces valeurs doivent vous être communiquées par le fournisseur de l’application.
 
-   1. Pour configurer l’application comme une application à authentification unique initiée par le fournisseur d’identité, entrez l’URL de réponse et l’identificateur.
+   1. Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur d’identité, entrez l’URL de réponse et l’identificateur.
 
    2.  **Facultatif** : pour configurer l’application comme une application à authentification unique initiée par le fournisseur de services, une URL de connexion est obligatoire.
 
@@ -270,23 +251,21 @@ Pour configurer l’authentification unique pour une application qui n’est pas
 
    2. Cliquez sur **Enregistrer.** Le nouvel attribut s’affiche dans le tableau.
 
-14. Cliquez sur **Configurer &lt;nom de l’application&gt;** pour accéder à la documentation sur la façon de configurer l’authentification unique. En outre, vous disposez des URL et du certificat Azure AD nécessaires pour l’application.
+14. Cliquez sur **Configurer &lt;nom de l’application&gt;** pour accéder à la documentation expliquant comment configurer l’authentification unique pour l’application. En outre, vous disposez des URL et du certificat Azure AD nécessaires pour l’application.
 
-<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
-
-#### Sélectionner l’identificateur de l’utilisateur et ajouter les attributs d’utilisateur à envoyer à l’application
+#### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Sélectionner l’identificateur de l’utilisateur et ajouter les attributs d’utilisateur à envoyer à l’application
 
 Pour sélectionner l’identificateur de l’utilisateur ou ajouter des attributs d’utilisateur, effectuez les étapes suivantes :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste de toutes vos applications.
+5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
    * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
@@ -309,21 +288,19 @@ Pour sélectionner l’identificateur de l’utilisateur ou ajouter des attribut
 
    2. Cliquez sur **Enregistrer.** Le nouvel attribut s’affiche dans le tableau.
 
-<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
-
-#### Télécharger les métadonnées ou le certificat Azure AD
+#### <a name="download-the-azure-ad-metadata-or-certificate"></a>Télécharger les métadonnées ou le certificat Azure AD
 
 Pour télécharger les métadonnées ou le certificat de l’application à partir d’Azure AD, effectuez les étapes suivantes :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste de toutes vos applications.
+5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
    * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
@@ -333,29 +310,25 @@ Pour télécharger les métadonnées ou le certificat de l’application à part
 
 8.  Accédez à la section **Certificat de signature SAML**, puis cliquez sur la valeur de colonne **Télécharger**. En fonction de ce que l’application nécessite pour configurer l’authentification unique, vous voyez soit l’option de téléchargement des métadonnées XML, soit le certificat.
 
-Azure AD ne fournit pas une URL permettant d’obtenir les métadonnées. Les métadonnées peuvent uniquement être récupérées sous forme de fichier XML.
+Azure AD ne fournit pas d’URL permettant d’obtenir les métadonnées. Les métadonnées peuvent uniquement être récupérées sous forme de fichier XML.
 
-<a id="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
-
-### Comment configurer l’authentification unique basée sur mot de passe pour une application de la galerie Azure AD
+### <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Comment configurer l’authentification unique par mot de passe pour une application de la galerie Azure AD
 
 Pour configurer une application à partir de la galerie Azure AD, vous devez effectuer les opérations suivantes :
 
 -   [Ajouter une application à partir de la galerie Azure AD](#add-an-application-from-the-azure-ad-gallery)
 
--   [Configurer l’application pour l’authentification unique basée sur un mot de passe](#configure-the-application-for-password-single-sign-on)
+-   [Configurer l’application pour l’authentification unique par mot de passe](#configure-the-application-for-password-single-sign-on)
 
-<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
-
-#### Ajouter une application à partir de la galerie Azure AD
+#### <a name="add-an-application-from-the-azure-ad-gallery"></a>Ajouter une application à partir de la galerie Azure AD
 
 Pour ajouter une application à partir de la galerie Azure AD, effectuez les étapes suivantes :
 
 1.  Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
@@ -369,23 +342,21 @@ Pour ajouter une application à partir de la galerie Azure AD, effectuez les ét
 
 9.  Pour ajouter l’application, cliquez sur le bouton **Ajouter**.
 
-Après une courte période, vous pourrez voir le panneau de configuration de l’application.
+Après une courte période, vous pouvez voir le panneau de configuration de l’application.
 
-<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
-
-#### Configurer l’application pour l’authentification unique basée sur un mot de passe
+#### <a name="configure-the-application-for-password-single-sign-on"></a>Configurer l’application pour l’authentification unique par mot de passe
 
 Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste de toutes vos applications.
+5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
    * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
@@ -399,27 +370,23 @@ Pour configurer l’authentification unique pour une application, effectuez les 
 
 10. En outre, vous pouvez également fournir des informations d’identification pour le compte de l’utilisateur en sélectionnant les lignes des utilisateurs, en cliquant sur **Mettre à jour les informations d’identification** et en entrant le nom d’utilisateur et le mot de passe à la place des utilisateurs. Autrement, les utilisateurs devront entrer les informations d’identification eux-mêmes lors du lancement.
 
-<a id="how-to-configure-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
-
-### Comment configurer l’authentification unique basée sur un mot de passe pour une application ne figurant pas dans la galerie
+### <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Comment configurer l’authentification unique par mot de passe pour une application ne figurant pas dans la galerie
 
 Pour configurer une application à partir de la galerie Azure AD, vous devez effectuer les opérations suivantes :
 
--   [Ajouter une application non issue de la galerie](#add-a-non-gallery-application)
+-   [Ajouter une application ne figurant pas dans la galerie](#add-a-non-gallery-application)
 
--   [Configurer l’application pour l’authentification unique basée sur un mot de passe](#configure-the-application-for-password-single-sign-on)
+-   [Configurer l’application pour l’authentification unique par mot de passe](#configure-the-application-for-password-single-sign-on)
 
-<a id="add-a-non-gallery-application" class="xliff"></a>
-
-#### Ajouter une application non issue de la galerie
+#### <a name="add-a-non-gallery-application"></a>Ajouter une application ne figurant pas dans la galerie
 
 Pour ajouter une application à partir de la galerie Azure AD, effectuez les étapes suivantes :
 
 1.  Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**.
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
@@ -431,21 +398,19 @@ Pour ajouter une application à partir de la galerie Azure AD, effectuez les ét
 
 Après une courte période, vous pourrez voir le panneau de configuration de l’application.
 
-<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
-
-#### Configurer l’application pour l’authentification unique basée sur un mot de passe
+#### <a name="configure-the-application-for-password-single-sign-on"></a>Configurer l’application pour l’authentification unique par mot de passe
 
 Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste de toutes vos applications.
+5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
     1.  Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
@@ -455,15 +420,13 @@ Pour configurer l’authentification unique pour une application, effectuez les 
 
 8.  Sélectionnez le mode **Authentification par mot de passe.**
 
-9.  Entrez **l’URL d’authentification**. Il s’agit de l’URL où les utilisateurs entrent leurs nom d’utilisateur et mot de passe pour se connecter. Vérifiez que les champs de connexion sont visibles dans l’URL.
+9.  Entrez **l’URL de connexion**. Il s’agit de l’URL où les utilisateurs entrent leurs nom d’utilisateur et mot de passe pour se connecter. Vérifiez que les champs de connexion sont visibles dans l’URL.
 
 10. [Affectez des utilisateurs à l’application](#how-to-assign-a-user-to-an-application-directly).
 
 11. En outre, vous pouvez également fournir des informations d’identification pour le compte de l’utilisateur en sélectionnant les lignes des utilisateurs, en cliquant sur **Mettre à jour les informations d’identification** et en entrant le nom d’utilisateur et le mot de passe à la place des utilisateurs. Autrement, les utilisateurs devront entrer les informations d’identification eux-mêmes lors du lancement.
 
-<a id="problems-related-to-assigning-applications-to-users" class="xliff"></a>
-
-## Problèmes liés à l’affectation des applications aux utilisateurs
+## <a name="problems-related-to-assigning-applications-to-users"></a>Problèmes liés à l’affectation des applications aux utilisateurs
 
 Un utilisateur peut ne pas voir une application sur son volet d’accès, car il n’y est pas affecté. Voici plusieurs méthodes pour vérifier :
 
@@ -475,17 +438,15 @@ Un utilisateur peut ne pas voir une application sur son volet d’accès, car il
 
 -   [Comment attribuer une licence à un utilisateur](#how-to-assign-a-user-a-license)
 
-<a id="check-if-a-user-is-assigned-to-the-application" class="xliff"></a>
-
-### Vérifier si un utilisateur est affecté à l’application
+### <a name="check-if-a-user-is-assigned-to-the-application"></a>Vérifier si un utilisateur est affecté à l’application
 
 Pour vérifier si un utilisateur est affecté à l’application, effectuez les étapes suivantes :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
@@ -499,9 +460,7 @@ Pour vérifier si un utilisateur est affecté à l’application, effectuez les 
 
    * Si ce n’est pas le cas, suivez les étapes décrites dans « Comment affecter un utilisateur directement à une application ».
 
-<a id="how-to-assign-a-user-to-an-application-directly" class="xliff"></a>
-
-### Comment affecter un utilisateur directement à une application
+### <a name="how-to-assign-a-user-to-an-application-directly"></a>Comment affecter un utilisateur directement à une application
 
 Pour affecter un ou plusieurs utilisateurs directement à une application, effectuez les étapes suivantes :
 
@@ -509,17 +468,17 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste de toutes vos applications.
+5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
-6.  Dans la liste qui s’affiche, sélectionnez l’application à laquelle vous souhaitez assigner un utilisateur.
+6.  Dans la liste qui s’affiche, sélectionnez l’application à laquelle vous souhaitez affecter un utilisateur.
 
-7.  Une fois l’application chargée, cliquez sur **Utilisateurs et groupes** dans le menu de navigation gauche de l’application.
+7.  Une fois l’application chargée, cliquez sur **Utilisateurs et groupes** dans le menu de navigation de gauche de l’application.
 
 8.  Cliquez sur le bouton **Ajouter** en haut de la liste **Utilisateurs et groupes** pour ouvrir le panneau **Ajouter une attribution**.
 
@@ -531,7 +490,7 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 12. **Facultatif :** si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cliquez sur la case à cocher pour ajouter cet utilisateur à la liste **Sélectionné**.
 
-13. Lorsque vous avez fini de sélectionner les utilisateurs, cliquez sur le bouton **Sélectionner** pour les ajouter à la liste des utilisateurs et des groupes à affecter à l’application.
+13. Après avoir sélectionné les utilisateurs, cliquez sur le bouton **Sélectionner** pour les ajouter à la liste des utilisateurs et des groupes à affecter à l’application.
 
 14. **Facultatif :** cliquez sur le sélecteur **Sélectionner un rôle** dans le panneau **Ajouter une attribution** pour sélectionner un rôle à affecter aux utilisateurs que vous avez sélectionnés.
 
@@ -539,15 +498,13 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 Après une courte période, les utilisateurs que vous avez sélectionnés seront en mesure de lancer ces applications dans le volet d’accès.
 
-<a id="check-if-a-user-is-under-a-license-related-to-the-application" class="xliff"></a>
-
-### Vérifier si un utilisateur est affecté à une licence liée à l’application
+### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Vérifier si un utilisateur est affecté à une licence liée à l’application
 
 Pour vérifier les licences affectées à un utilisateur, effectuez les étapes suivantes :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
 3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
 
@@ -561,15 +518,13 @@ Pour vérifier les licences affectées à un utilisateur, effectuez les étapes 
 
   * Si l’utilisateur est affecté à une licence Office, les applications Office internes apparaîtront dans le volet d’accès.
 
-<a id="how-to-assign-a-user-a-license" class="xliff"></a>
-
-### Comment affecter une licence à un utilisateur 
+### <a name="how-to-assign-a-user-a-license"></a>Comment affecter une licence à un utilisateur 
 
 Pour affecter une licence à un utilisateur, effectuez les étapes suivantes :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
 3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
 
@@ -589,9 +544,7 @@ Pour affecter une licence à un utilisateur, effectuez les étapes suivantes :
 
 11. Cliquez sur le bouton **Attribuer** pour affecter ces licences à cet utilisateur.
 
-<a id="problems-related-to-assigning-applications-to-groups" class="xliff"></a>
-
-## Problèmes liés à l’affectation des applications aux groupes
+## <a name="problems-related-to-assigning-applications-to-groups"></a>Problèmes liés à l’affectation des applications aux groupes
 
 Un utilisateur peut ne pas voir une application sur son volet d’accès, car il ne fait pas partie d’un groupe affecté à l’application. Voici plusieurs méthodes pour vérifier :
 
@@ -603,15 +556,13 @@ Un utilisateur peut ne pas voir une application sur son volet d’accès, car il
 
 -   [Comment attribuer une licence à un groupe](#how-to-assign-a-license-to-a-group)
 
-<a id="check-a-users-group-memberships" class="xliff"></a>
-
-### Vérifier les appartenances d’un utilisateur à des groupes
+### <a name="check-a-users-group-memberships"></a>Vérifier les appartenances d’un utilisateur à des groupes
 
 Pour vérifier l’appartenance d’un utilisateur à un groupe, effectuez les étapes suivantes :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
 3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
 
@@ -627,9 +578,7 @@ Pour vérifier l’appartenance d’un utilisateur à un groupe, effectuez les �
 
   * Si vous souhaitez supprimer l’utilisateur du groupe, **cliquez sur la ligne** du groupe et sélectionnez Supprimer.
 
-<a id="how-to-assign-an-application-to-a-group-directly" class="xliff"></a>
-
-### Comment affecter une application directement à un groupe
+### <a name="how-to-assign-an-application-to-a-group-directly"></a>Comment affecter une application directement à un groupe
 
 Pour affecter un ou plusieurs groupes directement à une application, procédez comme suit :
 
@@ -637,17 +586,17 @@ Pour affecter un ou plusieurs groupes directement à une application, procédez 
 
 2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste de toutes vos applications.
+5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
-6.  Dans la liste qui s’affiche, sélectionnez l’application à laquelle vous souhaitez assigner un utilisateur.
+6.  Dans la liste qui s’affiche, sélectionnez l’application à laquelle vous souhaitez affecter un utilisateur.
 
-7.  Une fois l’application chargée, cliquez sur **Utilisateurs et groupes** dans le menu de navigation gauche de l’application.
+7.  Une fois l’application chargée, cliquez sur **Utilisateurs et groupes** dans le menu de navigation de gauche de l’application.
 
 8.  Cliquez sur le bouton **Ajouter** en haut de la liste **Utilisateurs et groupes** pour ouvrir le panneau **Ajouter une attribution**.
 
@@ -667,13 +616,11 @@ Pour affecter un ou plusieurs groupes directement à une application, procédez 
 
 Après une courte période, les utilisateurs que vous avez sélectionnés seront en mesure de lancer ces applications dans le volet d’accès.
 
-<a id="check-if-a-user-is-part-of-group-assigned-to-a-license" class="xliff"></a>
-
-### Vérifier si un utilisateur fait partie d’un groupe affecté à une licence
+### <a name="check-if-a-user-is-part-of-group-assigned-to-a-license"></a>Vérifier si un utilisateur fait partie d’un groupe affecté à une licence
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
 3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
 
@@ -691,15 +638,13 @@ Après une courte période, les utilisateurs que vous avez sélectionnés seront
 
    * Si le groupe est affecté à une licence Office, certaines applications Office internes pourront apparaître dans le volet d’accès de l’utilisateur.
 
-<a id="how-to-assign-a-license-to-a-group" class="xliff"></a>
-
-### Comment attribuer une licence à un groupe
+### <a name="how-to-assign-a-license-to-a-group"></a>Comment attribuer une licence à un groupe
 
 Pour affecter une licence à un groupe, effectuez les étapes suivantes :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
 3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
 
@@ -724,9 +669,7 @@ Pour affecter une licence à un groupe, effectuez les étapes suivantes :
 >
 >
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Ajout de nouveaux utilisateurs à Azure Active Directory](active-directory-users-create-azure-portal.md)
 
 

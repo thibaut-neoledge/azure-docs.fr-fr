@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: ff6900cf4516a173e212728a069587d908f9fe11
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Basculement régional automatique pour la continuité des activités dans Azure Cosmos DB
@@ -122,7 +121,7 @@ Dans cet article, nous avons examiné le fonctionnement des basculements manuels
 ## <a id="NextSteps"></a>Étapes suivantes
 * Découvrez-en plus sur la manière dont Cosmos DB prend en charge la [distribution mondiale](distribute-data-globally.md)
 * Découvrez-en plus sur [la cohérence globale avec Azure Cosmos DB](consistency-levels.md)
-* Développez en mode multirégion à l’aide du [kit de développement logiciel (SDK) DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md) d’Azure Cosmos DB
+* Développez en mode multirégion à l’aide de l’[API DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md) d’Azure Cosmos DB
 * Découvrez comment créer [des architectures d'écriture multi-régions](multi-region-writers.md) avec Azure DocumentDB
 
 

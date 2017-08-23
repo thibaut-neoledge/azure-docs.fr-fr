@@ -1,5 +1,5 @@
 ---
-title: "Utilisation de Hive interactif dans HDInsight | Microsoft Docs"
+title: "Utiliser Hive interactif dans HDInsight - Azure | Microsoft Docs"
 description: "Découvrez comment utiliser Hive interactif (Hive sur LLAP) dans HDInsight."
 keywords: 
 services: hdinsight
@@ -18,15 +18,15 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 72206e299c245187731e4397610bbcfb01f5311c
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: e7874b55fc72f14d8e2c801872359e823cb2ba34
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
 # <a name="use-interactive-hive-in-hdinsight-preview"></a>Utilisation de Hive interactif dans HDInsight (version préliminaire)
-Hive interactif (également appelé [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) est un nouveau [type de cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) HDInsight.  Hive interactif permet la mise en mémoire cache ce qui rend les requêtes Hive beaucoup plus interactives et rapides. Cette nouvelle fonctionnalité fait de HDInsight l’une des solutions de Big Data dans le cloud les plus performantes, flexibles et ouvertes, avec des caches in-memory (utilisant Hive et Spark), ainsi que des services d’analyse avancée via une intégration étroite avec R Services. 
+Hive interactif (également appelé [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) est un nouveau [type de cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) HDInsight.  Hive interactif permet la mise en mémoire cache ce qui rend les requêtes Hive beaucoup plus interactives et rapides. Cette nouvelle fonctionnalité fait de HDInsight l’une des solutions de Big Data dans le cloud les plus performantes, flexibles et ouvertes, avec des caches in-memory (utilisant Hive et Spark), ainsi que des services d’analyse avancée grâce à une intégration étroite avec R Services. 
 
 Le cluster Hive interactif est différent du cluster Hadoop. Il contient uniquement le service Hive. 
 

@@ -14,11 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 06/26/2017
 ms.author: sngun; v-reagie
-translationtype: Human Translation
-ms.sourcegitcommit: a8ecffbc5f9c7e2408708d59459a0d39e59d6e1e
-ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 64548d91e98754210cc5185d9d759141cc0621d3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -64,6 +66,22 @@ Cet article aide à dépanner les problèmes courants que vous pourriez rencontr
 **Conseils de dépannage :** pour utiliser un certificat avec les applets de commande de gestion des services Azure, reportez-vous à la rubrique sur la [création et l’ajout d’un certificat de gestion des services Azure](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Pour utiliser un principal du service avec des applets de commande Azure Resource Manager, voir la rubrique sur la [création du principal du service à l’aide du portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) et l’[authentification d’un principal du service à l’aide d’Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erreurs courantes avec des runbooks
+### <a name="scenario-the-runbook-job-start-was-attempted-three-times-but-it-failed-to-start-each-time"></a>Scénario : Le travail du runbook a tenté de démarrer à trois reprises, mais n’a pas pu démarrer
+**Erreur :** votre runbook échoue et indique l’erreur « The job was tried three times but it failed. » (Le travail a effectué trois tentatives de démarrage mais a échoué.).
+
+**Raison de l’erreur :** les éléments suivants peuvent être à l’origine de cette erreur :  
+
+1. Limite de mémoire.  Nous avons des limites documentées sur la quantité de mémoire alloué à un bac à sable que le [service Automation limite](../azure-subscription-service-limits.md#automation-limits), de façon à ce qu’un travail puisse échouer s’il utilise plus de 400 Mo de mémoire. 
+
+2. Module incompatible.  Cela peut se produire si les dépendances de module ne sont pas correctes. Dans ce cas, votre runbook renverra généralement un message « Commande introuvable » ou « Impossible de lier le paramètre ». 
+
+**Conseils de dépannage :** l’une des solutions suivantes peut corriger ce problème :  
+
+* Les méthodes recommandées pour travailler dans la limite de mémoire consistent à diviser la charge de travail en plusieurs runbooks, à ne pas traiter trop de données en mémoire, à ne pas écrire de sortie inutile depuis vos runbooks ou à prendre en compte le nombre de points de contrôle que vous écrivez dans vos runbooks de flux de travail PowerShell.  
+
+* Vous devez mettre à jour de vos modules Azure en suivant les étapes de l’article [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](automation-update-azure-modules.md).  
+
+
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>Scénario : échec du runbook en raison d’un objet désérialisé
 **Erreur :** votre runbook a échoué en émettant l’erreur « Impossible de lier le paramètre ``<ParameterName>``. Impossible de convertir la valeur ``<ParameterType>`` du type désérialisé ``<ParameterType>`` en type ``<ParameterType>`` ».
 
@@ -172,9 +190,4 @@ Si vous avez suivi les étapes de dépannage ci-dessus et que vous ne trouvez pa
 * Signaler un incident au support Azure Accédez au [site de support Azure](https://azure.microsoft.com/support/options/) et cliquez sur **Obtenir un support** dans la section **Support technique et sur la facturation**.
 * Publier une demande de script sur le [Centre de scripts](https://azure.microsoft.com/documentation/scripts/) si vous recherchez une solution de runbook Azure Automation ou un module d’intégration.
 * Publier vos commentaires ou vos demandes de fonctionnalités pour Azure Automation sur [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

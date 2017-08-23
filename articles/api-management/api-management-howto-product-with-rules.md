@@ -3,7 +3,7 @@ title: "Protéger votre API avec Gestion des API Azure | Microsoft Docs"
 description: "Découvrez comment protéger votre API avec les quotas et les stratégies (limite de débit) de limitation."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 9dba928b78c11213d4b0098986561b09678444eb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Protéger votre API avec des limites de débit à l’aide de la gestion des API Azure
@@ -53,7 +54,7 @@ Cliquez sur **Ajouter un produit** pour afficher la boîte de dialogue **Ajouter
 
 Dans la zone **Titre**, saisissez **Version d’évaluation gratuite**.
 
-Dans la zone **Description**, saisissez le texte suivant :  **Les abonnés pourront effectuer 10 appels/minute jusqu’à un maximum de 200 appels/semaine, après lesquels l’accès est refusé.**
+Dans la zone **Description**, saisissez le texte suivant : **Les abonnés pourront effectuer 10 appels/minute jusqu’à un maximum de 200 appels/semaine, après lesquels l’accès est refusé.**
 
 Les produits de Gestion des API peuvent être protégés ou ouverts. Pour pouvoir utiliser les produits protégés, vous devez vous y abonner au préalable. Les produits ouverts sont utilisables sans abonnement. Vérifiez que la case à cocher **Require subscription (Abonnement obligatoire)** est activée afin de créer un produit protégé qui requiert un abonnement. Il s’agit du paramètre par défaut.
 
@@ -95,7 +96,9 @@ Sélectionnez **API Echo**, puis cliquez sur **Enregistrer**.
 ![Add Echo API][api-management-add-echo-api]
 
 ## <a name="policies"> </a>Configuration de la limite de débit d’appels et des stratégies de quota
-Les limites de débit et les quotas sont configurés dans l'éditeur de stratégie. Cliquez sur **Stratégies** sous le menu **Gestion des API** sur la gauche. Dans la liste **Produit** cliquez sur **Version d’évaluation gratuite**.
+Les limites de débit et les quotas sont configurés dans l'éditeur de stratégie. Les deux stratégies que nous ajouterons dans ce didacticiel sont les stratégies [Limiter la fréquence des appels par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) et [Définir le quota d’utilisation par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Elles doivent être appliquées dans l’étendue du produit.
+
+Cliquez sur **Stratégies** sous le menu **Gestion des API** sur la gauche. Dans la liste **Produit** cliquez sur **Version d’évaluation gratuite**.
 
 ![Product policy][api-management-product-policy]
 
@@ -103,11 +106,11 @@ Cliquez sur **Ajouter une stratégie** pour importer le modèle de stratégie et
 
 ![Add policy][api-management-add-policy]
 
-Pour insérer des stratégies, positionnez le curseur sur la section **entrante** ou **sortante** du modèle de stratégie. La limite de débit et les stratégies de quota sont des stratégies entrantes. Positionnez donc le curseur sur l'élément entrant.
+La limite de débit et les stratégies de quota sont des stratégies entrantes. Positionnez donc le curseur sur l'élément entrant.
 
 ![Policy editor][api-management-policy-editor-inbound]
 
-Les deux stratégies que nous ajoutons dans ce didacticiel sont les stratégies [Limiter la fréquence des appels par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) et [Définir le quota d’utilisation par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota).
+Parcourez la liste déroulante des stratégies et recherchez l’entrée de la stratégie **Limiter la fréquence des appels par abonnement**.
 
 ![Policy statements][api-management-limit-policies]
 
@@ -121,7 +124,7 @@ Une fois le curseur positionné dans l’élément de stratégie **inbound**, cl
 </rate-limit>
 ```
 
-**Limiter la fréquence des appels par abonnement** peut être utilisé au niveau du produit et également aux niveaux de l’API et du nom de fonctionnement individuel. Dans ce didacticiel, seules les stratégies de niveau de produit sont utilisées. Supprimez donc les éléments **api** et **operation** de l’élément **rate-limit** pour ne laisser que l’élément externe **rate-limit**, comme le montre l’exemple suivant.
+Comme vous pouvez le voir à partir de l’extrait de code, la stratégie permet de définir des limites pour les opérations et les API du produit. Dans ce didacticiel, nous n’utiliserons pas cette fonctionnalité, supprimez donc les éléments **api** et **operation** de l’élément **rate-limit** pour ne laisser que l’élément externe **rate-limit**, comme le montre l’exemple suivant.
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
@@ -135,7 +138,7 @@ Dans le produit en version d’évaluation gratuite, le débit d’appels maximu
 </rate-limit>
 ```
 
-Pour configurer la stratégie **Définir le quota d’utilisation par abonnement**, positionnez votre curseur immédiatement sous l’élément **rate-limit** nouvellement ajouté dans l’élément **inbound**, puis cliquez sur la flèche à gauche de **Définir le quota d’utilisation par abonnement**.
+Pour configurer la stratégie **Définir le quota d’utilisation par abonnement**, positionnez votre curseur immédiatement sous l’élément **rate-limit** nouvellement ajouté dans l’élément **inbound**, puis recherchez et cliquez sur la flèche à gauche de **Définir le quota d’utilisation par abonnement**.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -145,7 +148,7 @@ Pour configurer la stratégie **Définir le quota d’utilisation par abonnement
 </quota>
 ```
 
-Cette stratégie ayant également pour but d'être au niveau du produit, supprimez les éléments de nom **api** et **operation**, comme le montre l'exemple ci-dessous.
+Comme la stratégie **Limiter la fréquence des appels par abonnement**, la stratégie **Définir le quota d’utilisation par abonnement** permet de définir des plafonds pour les opérations et les API sur le produit. Dans ce didacticiel, nous n’utiliserons pas cette fonctionnalité, supprimez donc les éléments **api** et **operation** de l’élément **quota**, comme le montre l’exemple suivant.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -166,7 +169,7 @@ Dans le produit en version d'évaluation gratuite, le quota est de 200 appels p
 </quota>
 ```
 
-> Les intervalles de stratégie sont spécifiés en secondes. Pour calculer l’intervalle pour une semaine, vous pouvez multiplier le nombre de jours (7) par le nombre d’heures en une journée (24) par le nombre de minutes en une heure (60) par le nombre de secondes en une minute (60) : 7 * 24 * 60 * 60 = 604800.
+> Les intervalles de stratégie sont spécifiés en secondes. Pour calculer l’intervalle pour une semaine, vous pouvez multiplier le nombre de jours (7) par le nombre d’heures dans une journée (24) par le nombre de minutes dans une heure (60) par le nombre de secondes dans une minute (60) : 7 * 24 * 60 * 60 = 604 800.
 > 
 > 
 
@@ -323,9 +326,4 @@ Lorsque la stratégie de limite de débit de 10 appels par minute est appliqué
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

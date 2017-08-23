@@ -19,6 +19,8 @@
       items:
         - name: Minuteur
           href: functions-create-scheduled-function.md
+        - name: Webhook générique
+          href: functions-create-generic-webhook-triggered-function.md
         - name: webhook GitHub
           href: functions-create-github-webhook-triggered-function.md
         - name: Stockage d'objets blob
@@ -39,6 +41,8 @@
       href: functions-create-serverless-api.md
 - name: Exemples
   items:
+    - name: Exemples de code
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions'
     - name: Interface de ligne de commande Azure
       href: functions-cli-samples.md
 - name: Concepts
@@ -94,8 +98,7 @@
         - name: Créer une définition OpenAPI 2.0
           href: functions-api-definition-getting-started.md
         - name: Exporter vers PowerApps et Microsoft Flow
-          href: >-
-            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Référence
   items:
     - name: Liaisons
@@ -108,6 +111,8 @@
           href: functions-bindings-event-hubs.md
         - name: Fichier externe
           href: functions-bindings-external-file.md
+        - name: Table externe
+          href: functions-bindings-external-table.md
         - name: HTTP et webhooks
           href: functions-bindings-http-webhook.md
         - name: "Mobile\_Apps"
@@ -131,9 +136,11 @@
 - name: Ressources
   items:
     - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Tarification
       href: 'https://azure.microsoft.com/pricing/details/functions/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Forum MSDN
@@ -145,5 +152,4 @@
     - name: Référentiel GitHub de fonctions Azure
       href: 'https://github.com/Azure/Azure-Functions/'
     - name: Mises à jour de service
-      href: >-
-        https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
+      href: 'https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform='

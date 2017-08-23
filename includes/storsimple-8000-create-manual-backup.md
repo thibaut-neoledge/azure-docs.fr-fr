@@ -1,8 +1,7 @@
 
 <!--author=alkohli last changed: 01/20/2017-->
 
-#### Création d’une sauvegarde manuelle
-<a id="to-create-a-manual-backup" class="xliff"></a>
+#### <a name="to-create-a-manual-backup"></a>Création d’une sauvegarde manuelle
 
 1. Accédez à votre service StorSimple Device Manager et cliquez sur **Appareils**. Dans la liste tabulaire des appareils, sélectionnez votre appareil. Accédez à **Paramètres > Gérer > Stratégies de sauvegarde**.
 

@@ -1,6 +1,6 @@
 ---
-title: "Analyse de sentiments Twitter en temps réel avec HBase | Microsoft Docs"
-description: "Apprenez à effectuer une analyse des sentiments des données volumineuses en temps réel à partir de Twitter à l&quot;aide de HBase dans un cluster HDInsight (Hadoop)."
+title: "Analyser les sentiments Twitter en temps réel avec HBase - Azure | Microsoft Docs"
+description: "Apprenez à effectuer une analyse des sentiments des données volumineuses en temps réel à partir de Twitter à l'aide de HBase dans un cluster HDInsight (Hadoop)."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,19 +13,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 07/24/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5fa91c0fb1858a46745ff50991b843530f0a5d23
-ms.lasthandoff: 03/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 4d5bb90c0e7573afb75282810c9ba58e7163e127
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="analyze-real-time-twitter-sentiment-with-hbase-in-hdinsight"></a>Analyse de sentiments Twitter en temps réel avec HBase dans HDInsight
 Apprenez à effectuer une [analyse des sentiments](http://en.wikipedia.org/wiki/Sentiment_analysis) des données volumineuses en temps réel à partir de Twitter à l’aide d’un cluster HBase dans HDInsight.
 
-Les sites web sociaux constituent l'un des principaux motifs de l'utilisation du modèle des données volumineuses. Les API publiques fournies par des sites comme Twitter représentent une source de données utile pour l'analyse et la compréhension des tendances populaires. Ce didacticiel va vous permettre de développer une application console de service de diffusion et une application Web ASP.NET afin d'effectuer les opérations suivantes :
+Les sites web sociaux constituent l'un des principaux motifs de l'utilisation du modèle des données volumineuses. Les API publiques fournies par des sites comme Twitter représentent une source de données utile pour l'analyse et la compréhension des tendances populaires. Ce didacticiel va vous permettre de développer une application console de service de diffusion et une application web ASP.NET afin d’effectuer les opérations suivantes :
 
 ![Analyse de sentiments Twitter avec HBase dans HDInsight.][img-app-arch]
 
@@ -36,25 +36,18 @@ Les sites web sociaux constituent l'un des principaux motifs de l'utilisation du
   * stocker les informations de sentiments dans HBase à l'aide du Kit de développement logiciel (SDK) Microsoft HBase
 * L'application Sites Web Microsoft Azure
 
-  * représenter graphiquement les résultats statistiques en temps réel à l'aide d'une application Web ASP.NET. Visuellement, les tweets ressembleront à ceci :
+  * représenter graphiquement les résultats statistiques en temps réel à l'aide d'une application Web ASP.NET. Visuellement, les tweets sont semblables à la capture d’écran suivante :
 
     ![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
 
-    Vous pourrez effectuer des recherches par mots clés sur des tweets afin d'évaluer si l'opinion qui y est exprimée est positive, négative ou neutre.
+    Vous pouvez effectuer des recherches par mots clés sur des tweets afin d’évaluer si l’opinion qui y est exprimée est positive, négative ou neutre.
 
 Un exemple de solution Visual Studio complète est accessible sur GitHub : [application d’analyse de sentiments sociaux en temps réel](https://github.com/maxluk/tweet-sentiment).
 
 ### <a name="prerequisites"></a>Composants requis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-* **Un cluster HBase dans HDInsight**. Pour les instructions sur la création de clusters, voir la section [Prise en main de HBase avec Hadoop dans HDInsight][hbase-get-started]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
-
-    <table border="1">
-    <tr><th>Propriété du cluster</th><th>Description</th></tr>
-    <tr><td>Nom du cluster HBase</td><td>Le nom de votre cluster HBase dans HDInsight. Par exemple : https://myhbase.azurehdinsight.net/</td></tr>
-    <tr><td>Nom d'utilisateur du cluster</td><td>Le nom du compte utilisateur Hadoop. Le nom d’utilisateur Hadoop par défaut est <strong>admin</strong>.</td></tr>
-    <tr><td>Mot de passe utilisateur du cluster</td><td>Le mot de passe utilisateur du cluster Hadoop.</td></tr>
-    </table>
+* **Un cluster HBase dans HDInsight**. Pour les instructions sur la création de clusters, voir la section [Prise en main de HBase avec Hadoop dans HDInsight][hbase-get-started]. 
 
 * **Un poste de travail** où Visual Studio 2013/2015/2017 a été installé. Pour les instructions, voir la section [Installation de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -67,13 +60,12 @@ Les API de diffusion Twitter utilisent [OAuth](http://oauth.net/) pour autoriser
 2. Cliquez sur **Create New App**.
 3. Entrez un **Nom**, une **Description** et un **Site web**. Le nom de l'application Twitter doit être unique. Le champ Website n'est pas réellement utilisé. Il n'est pas nécessaire que ce soit une URL valide.
 4. Cochez la case **Yes, I agree**, puis cliquez **Create your Twitter application**.
-5. Cliquez sur l'onglet **Permissions** . L'autorisation par défaut est **Read only**. Ces étapes sont suffisantes pour ce didacticiel.
+5. Cliquez sur l’onglet **Permissions** (Autorisations), puis sur **Read only** (Lecture seule). L’autorisation d’accès en lecture seule est suffisante pour ce didacticiel.
 6. Cliquez sur l’onglet **Keys and Access Tokens** .
-7. Cliquez sur **Create my access token**.
-8. Cliquez sur **Test OAuth** dans le coin supérieur droit de la page.
-9. Renseignez les valeurs **Clé du client**, **Secret du client**, **Jeton d’accès** et **Secret du jeton d’accès**. Vous en aurez besoin plus loin dans le didacticiel.
+7. Cliquez sur **Create my access token** (Créer mon jeton d’accès) en bas de la page.
+9. Copiez les valeurs de **Consumer Key (API Key)** (Clé du client [clé API]), **Consumer Secret (API Secret)** (Secret du client [secret API]), **Access token** (Jeton d’accès) et **Access token secret** (Secret du jeton d’accès). Vous aurez besoin de ces valeurs plus loin dans le didacticiel.
 
-    ![hdi.hbase.twitter.sentiment.twitter.app][img-twitter-app]
+    > ![REMARQUE] Le bouton Test OAuth ne fonctionne plus.
 
 ## <a name="create-twitter-streaming-service"></a>Création d'un service de diffusion Twitter
 Vous devez créer une application pour recevoir des tweets, calculer le résultat des sentiments des tweets et envoyer les mots tweets traités à HBase.
@@ -385,7 +377,7 @@ Vous devez créer une application pour recevoir des tweets, calculer le résulta
                         {
                             HBaseWriter hbase = new HBaseWriter();
                             var stream = Stream.CreateFilteredStream();
-                            stream.AddLocation(new Coordinates(-180, -90), new Coordinates(180, 90));
+                            stream.AddLocation(new Coordinates(90, -180), new Coordinates(-90,180));
 
                             var tweetCount = 0;
                             var timer = Stopwatch.StartNew();
@@ -434,7 +426,7 @@ Pour exécuter le service de diffusion, appuyez sur **F5**. La capture d'écran 
 Continuez à exécuter l'application console pendant que vous développez l'application Web, de façon à disposer de davantage de données. Pour examiner les données insérées dans la table, vous pouvez utiliser HBase Shell. Voir [Prise en main de HBase sur HDInsight](hdinsight-hbase-tutorial-get-started-linux.md#create-tables-and-insert-data).
 
 ## <a name="visualize-real-time-sentiment"></a>Visualiser les données de sentiments en temps réel
-Dans cette section, vous allez créer une application Web ASP.NET MVC afin de lire en temps réel les données de sentiments de HBase et les représenter graphiquement sur Bing Maps.
+Dans cette section, vous allez créer une application web ASP.NET MVC afin de lire les données de sentiments en temps réel de HBase et les représenter graphiquement sur Bing Maps.
 
 **Pour créer une application Web ASP.NET MVC**
 

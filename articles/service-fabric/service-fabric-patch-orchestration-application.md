@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 3fc66d775f97333ad497cf3773643c188ec7c1d6
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: db6e654de074fc6651fd0d7479ee52038f944745
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -60,7 +60,7 @@ L’application d’orchestration des correctifs comprend les sous-composants su
 #### <a name="azure-clusters"></a>Clusters Azure
 L’application d’orchestration des correctifs doit être exécutée sur des clusters Azure qui ont la version du runtime Service Fabric 5.5 ou ultérieure.
 
-#### <a name="standalone-on-premise-clusters"></a>Clusters locaux autonomes
+#### <a name="standalone-on-premises-clusters"></a>Clusters locaux autonomes
 L’application d’orchestration des correctifs doit être exécutée sur des clusters Azure qui ont la version du runtime Service Fabric 5.6 ou ultérieure.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Activer le service de gestion des réparations (s’il est inactif)
@@ -128,7 +128,7 @@ Pour activer le service de gestion des réparations :
         ],
     ```
 
-3. Mettez à jour de cluster de manifeste avec ces modifications, en utilisant le manifeste de cluster mis à jour [créer un cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) ou [mettre à niveau la configuration du cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Une fois que le cluster fonctionne avec le manifeste de cluster mis à jour, vous pouvez voir, sous la section des services système de Service Fabric Explorer, que le service système de gestion des réparations appelé `fabric:/System/RepairManagerService` s’exécute dans votre cluster.
+3. Mettez à jour le manifeste de cluster avec ces modifications, en utilisant le manifeste de cluster mis à jour, [créez un cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) ou [mettez à niveau la configuration du cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Une fois que le cluster fonctionne avec le manifeste de cluster mis à jour, vous pouvez voir, sous la section des services système de Service Fabric Explorer, que le service système de gestion des réparations appelé `fabric:/System/RepairManagerService` s’exécute dans votre cluster.
 
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Désactiver les mises à jour automatiques Windows Update sur tous les nœuds
 
@@ -149,10 +149,9 @@ Les journaux de l’application d’orchestration des correctifs sont générés
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
 - 05dc046c-60e9-4ef7-965e-91660adffa68
 
-Dans la section `WadCfg` du modèle Resource Manager, ajoutez la section suivante : 
+Dans le modèle de gestionnaire de ressources, accédez à la section `EtwEventSourceProviderConfiguration` sous `WadCfg` et ajoutez les entrées suivantes :
 
 ```json
-"PatchOrchestrationApplication": [
   {
     "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
     "scheduledTransferPeriod": "PT5M",
@@ -180,8 +179,7 @@ Dans la section `WadCfg` du modèle Resource Manager, ajoutez la section suivant
     "DefaultEvents": {
     "eventDestination": " PatchOrchestrationApplicationTable"
     }
-  },
-]
+  }
 ```
 
 > [!NOTE]

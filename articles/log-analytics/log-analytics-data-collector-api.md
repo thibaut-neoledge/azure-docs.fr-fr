@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 07/13/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 2b5899ba43f651ae6f5fdf84d7aa5ee35d81b738
-ms.openlocfilehash: be27695cd1d998eedff0ca76f6ae9d4ff69bb97b
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: b0c45ff8c1d4c9d35fbb3c8839b38a20df277055
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api"></a>Transmettre des données à Log Analytics avec l’API Collecte de données HTTP
@@ -161,8 +162,8 @@ Si vous envoyiez ensuite l’entrée suivante, avant que la création du type d�
 ## <a name="data-limits"></a>Limites de données
 Il existe certaines contraintes sur les données publiées sur l’API de collecte de données de Log Analytics.
 
-* Un maximum de 30 Mo par publication sur l’API de collecte de données de Log Analytics. Il s’agit d’une limite de taille pour une publication unique. Si les données d’une publication unique sont supérieures à 30 Mo, vous devrez fractionner les données en segments de plus petite taille et les envoyer simultanément. 
-* Maximum de 32 Ko pour les valeurs de champ. Si la valeur de champ est supérieure à 32 Ko, les données seront tronquées. 
+* Un maximum de 30 Mo par publication sur l’API de collecte de données de Log Analytics. Il s’agit d’une limite de taille pour une publication unique. Si les données d’une publication unique sont supérieures à 30 Mo, vous devrez fractionner les données en segments de plus petite taille et les envoyer simultanément.
+* Maximum de 32 Ko pour les valeurs de champ. Si la valeur de champ est supérieure à 32 Ko, les données seront tronquées.
 * Le nombre maximal recommandé de champs pour un type donné est 50. Il s’agit d’une limite pratique du point de vue de la facilité d’utilisation et de l’expérience de recherche.  
 
 ## <a name="return-codes"></a>Codes de retour
@@ -190,6 +191,11 @@ Ce tableau répertorie l’ensemble complet de codes d’état que le service pe
 
 ## <a name="query-data"></a>Données de requête
 Pour interroger des données soumises par l’API Collecte de données HTTP Log Analytics, recherchez des enregistrements dont la valeur **Type** correspond à la valeur **LogType** que vous avez spécifiée, assortie de **_CL**. Par exemple, si vous avez utilisé **MyCustomLog**, vous devriez retourner tous les enregistrements avec **Type=MyCustomLog_CL**.
+
+>[!NOTE]
+> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), remplacez la requête ci-dessus par la requête ci-dessous.
+
+> `MyCustomLog_CL`
 
 ## <a name="sample-requests"></a>Exemples de demandes
 Les sections suivantes contiennent des exemples montrant comment envoyer des données à l’API Collecte de données HTTP Log Analytics à l’aide de différents langages de programmation.
@@ -322,7 +328,7 @@ namespace OIAPIExample
             string stringToHash = "POST\n" + json.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
             string hashedString = BuildSignature(stringToHash, sharedKey);
             string signature = "SharedKey " + customerId + ":" + hashedString;
-    
+
             PostData(signature, datestring, json);
         }
 
@@ -343,20 +349,20 @@ namespace OIAPIExample
         public static void PostData(string signature, string date, string json)
         {
             try
-            { 
+            {
                 string url = "https://" + customerId + ".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
-    
+
                 System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
                 client.DefaultRequestHeaders.Add("Log-Type", LogName);
                 client.DefaultRequestHeaders.Add("Authorization", signature);
                 client.DefaultRequestHeaders.Add("x-ms-date", date);
                 client.DefaultRequestHeaders.Add("time-generated-field", TimeStampField);
-    
+
                 System.Net.Http.HttpContent httpContent = new StringContent(json, Encoding.UTF8);
                 httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 Task<System.Net.Http.HttpResponseMessage> response = client.PostAsync(new Uri(url), httpContent);
-    
+
                 System.Net.Http.HttpContent responseContent = response.Result.Content;
                 string result = responseContent.ReadAsStringAsync().Result;
                 Console.WriteLine("Return Result: " + result);
@@ -456,9 +462,4 @@ post_data(customer_id, shared_key, body, log_type)
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Utilisez l’[API Recherche de journal](log-analytics-log-search-api.md) pour récupérer des données à partir du référentiel Log Analytics.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -23,9 +23,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 06/20/2017
 
 ---
-<a id="create-an-azure-function-that-connects-to-an-azure-cosmos-db" class="xliff"></a>
-
-# Créer une fonction Azure Functions qui se connecte à une base de données Azure Cosmos DB
+# <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Créer une fonction Azure Functions qui se connecte à une base de données Azure Cosmos DB
 
 Cet exemple de script crée une Function App Azure et se connecte à une base de données Azure Cosmos DB.
 
@@ -35,25 +33,19 @@ Cet exemple de script crée une Function App Azure et se connecte à une base de
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="sample-script" class="xliff"></a>
-
-## Exemple de script
+## <a name="sample-script"></a>Exemple de script
 
 Cet exemple crée une Function App Azure et ajoute un point de terminaison et une clé d’accès Cosmos DB aux paramètres d’application.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Créer une fonction Azure Functions qui se connecte à une base de données Azure Cosmos DB")]
 
-<a id="clean-up-deployment" class="xliff"></a>
-
-## Nettoyer le déploiement
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-<a id="script-explanation" class="xliff"></a>
-
-## Explication du script
+## <a name="script-explanation"></a>Explication du script
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
@@ -66,9 +58,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az documentdb create](https://docs.microsoft.com/cli/azure/documentdb#create) | Crée une base de données DocumentDB. |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Nettoyer |
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

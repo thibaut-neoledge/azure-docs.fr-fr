@@ -6,4 +6,6 @@ Vous découvrirez comment modifier le [modèle de groupe identique viable minima
 
 Vous découvrirez comment modifier le [modèle de groupe identique viable minimal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) afin de [déployer le groupe identique avec une image personnalisée](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md).
 
+Vous découvrirez comment modifier le [modèle de groupe identique viable minimal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) afin de [déployer un groupe identique Linux avec une mise à l’échelle automatique basée sur des invités](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md).
+
 Pour plus d’informations sur les groupes identiques, reportez-vous à la [page de présentation des groupes identiques](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).

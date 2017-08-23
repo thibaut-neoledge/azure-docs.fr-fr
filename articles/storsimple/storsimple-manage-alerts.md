@@ -1,6 +1,6 @@
 ---
 title: "Affichage et gestion des alertes StorSimple | Microsoft Docs"
-description: "Décrit les conditions et la gravité des alertes StorSimple, comment configurer les notifications d&quot;alerte et comment utiliser le service StorSimple Manager pour gérer les alertes."
+description: "Décrit les conditions et la gravité des alertes StorSimple, comment configurer les notifications d'alerte et comment utiliser le service StorSimple Manager pour gérer les alertes."
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: anbacker
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2a1e44920581771af77fb46984b1cea31a957d67
-ms.lasthandoff: 03/09/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>Utiliser le service StorSimple Manager pour afficher et gérer vos alertes StorSimple
@@ -114,7 +114,6 @@ Les tableaux suivants répertorient certaines des alertes Microsoft Azure StorSi
 * [Alertes de performances](#performance-alerts)
 * [Alertes de sécurité](#security-alerts)
 * [Alertes du package de prise en charge](#support-package-alerts)
-* [Alertes de mise à jour](#update-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Alertes de connectivité au cloud
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
@@ -181,7 +180,7 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 |:--- |:--- |:--- |
 | Impossible de démarrer les services StorSimple. |Erreur de chemin d’accès des données |Si le problème persiste, contactez le support technique Microsoft. |
 | Adresse IP en double détectée pour « Data0 ». | |Le système a détecté un conflit pour l’adresse IP 10.0.0.1. La ressource réseau « Data0 » sur l’appareil *<device1>* est hors connexion. Assurez-vous que cette adresse IP n’est pas utilisée par une autre entité de ce réseau. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Pour obtenir de l’aide sur la résolution de ce problème, contactez votre administrateur réseau. Si le problème persiste, contactez le support technique Microsoft. |
-| Adresse IPv4 (ou IPv6) de « Data0 » hors connexion. | |La ressource réseau « Data0 » pourvue de l’adresse IP&10;.0.0.1. et de la longueur de préfixe 22 sur l’appareil *<device1>* est hors connexion. Assurez-vous que les ports de commutateur auxquels cette interface est connectée sont opérationnels. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Adresse IPv4 (ou IPv6) de « Data0 » hors connexion. | |La ressource réseau « Data0 » pourvue de l’adresse IP 10.0.0.1. et de la longueur de préfixe 22 sur l’appareil *<device1>* est hors connexion. Assurez-vous que les ports de commutateur auxquels cette interface est connectée sont opérationnels. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
 
 ### <a name="performance-alerts"></a>Alertes de performances
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
@@ -201,17 +200,6 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
 |:--- |:--- |:--- |
 | Échec de la création du package de prise en charge. |StorSimple n'a pas pu générer le package. |Retentez l'opération. Si le problème persiste, contactez le support technique Microsoft. Après avoir résolu ce problème, effacez cette alerte de la page des alertes. |
-
-### <a name="update-alerts"></a>Alertes de mise à jour
-| Texte d'alerte | Événement | Plus d'informations/actions recommandées |
-|:--- |:--- |:--- |
-| Correctif logiciel installé. |Mise à jour du logiciel ou du microprogramme terminée. |Le correctif logiciel est installé correctement sur votre appareil. |
-| Mises à jour manuelles disponibles. |Notification des mises à jour disponibles. |Utilisez l’interface Windows PowerShell pour StorSimple sur votre appareil pour installer ces mises à jour. <br>Pour plus d’informations, consultez [Mettre à jour votre appareil StorSimple 8000 Series](storsimple-update-device.md). |
-| Nouvelles mises à jour disponibles. |Notification des mises à jour disponibles. |Vous pouvez installer ces mises à jour à partir de la page **Maintenance** ou en utilisant l’interface Windows PowerShell pour StorSimple sur votre appareil. <br>Pour plus d’informations, consultez [Mettre à jour votre appareil StorSimple 8000 Series](storsimple-update-device.md). |
-| Échec de l’installation des mises à jour. |Les mises à jour n'ont pas été correctement installées. |Votre système n'a pas pu installer les mises à jour. Vous pouvez installer ces mises à jour à partir de la page **Maintenance** ou en utilisant l’interface Windows PowerShell pour StorSimple sur votre appareil. Si le problème persiste, contactez le support technique Microsoft. <br>Pour plus d’informations, consultez [Mettre à jour votre appareil StorSimple 8000 Series](storsimple-update-device.md). |
-| Impossible de vérifier automatiquement les nouvelles mises à jour. |Échec de la vérification automatique. |Vous pouvez rechercher manuellement les nouvelles mises à jour à partir de la page **Maintenance** . |
-| Nouvel agent WUA disponible. |Notification de la mise à jour disponible. |Téléchargez l’agent Windows Update le plus récent et installez-le à partir de l'interface Windows PowerShell. |
-| La version du composant de microprogramme <*ID du composant*> ne correspond pas au matériel. |Les mises à jour de microprogramme n'ont pas été correctement installées. |Contactez le Support Microsoft. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les [erreurs de StorSimple et la résolution des problèmes d’un appareil opérationnel](storsimple-troubleshoot-operational-device.md).

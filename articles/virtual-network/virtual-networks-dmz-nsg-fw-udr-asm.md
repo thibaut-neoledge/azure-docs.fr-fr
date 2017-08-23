@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 24d6a25e872eabb7d64d57d5ee66969401e4f1cd
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -25,7 +27,7 @@ ms.openlocfilehash: 24d6a25e872eabb7d64d57d5ee66969401e4f1cd
 
 Cet exemple va créer un réseau de périmètre avec un pare-feu, quatre serveurs Windows, Routage défini par l’utilisateur (UDR), Transfert IP et groupes de sécurité réseau. Vous y découvrirez également comment chacune des commandes concernées fournit une meilleure connaissance de chaque opération. Il comporte également une section Scénario de trafic (Traffic Scenario) qui explique en détail et étape par étape l’évolution du trafic à travers les couches de défense dans la zone DMZ. Enfin, dans la section de référence se trouve l’intégralité du code et des instructions permettant d’élaborer l’environnement destiné à tester et à expérimenter différents scénarios. 
 
-![DMZ bidirectionnel avec NVA, NSG et UDR][1]
+![Zone DMZ bidirectionnelle avec NVA, NSG et UDR][1]
 
 ## <a name="environment-setup"></a>Configuration de l’environnement
 Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
@@ -274,11 +276,11 @@ Ce processus doit être répété pour créer des Services RDP pour les serveurs
 ### <a name="firewall-rules-creation"></a>Création de règles de pare-feu
 Il existe trois types de règles de pare-feu utilisées dans cet exemple, et elles sont toutes représentées par des icônes distinctes :
 
-Icône de redirection d’application :  ![Icône de redirection d’application][7]
+La règle de redirection d’application : ![Icône de redirection d’application][7]
 
-Règle NAT de destination :  ![Icône NAT de destination][8]
+La règle NAT de destination : ![Icône NAT de destination][8]
 
-Règle Pass :  ![Icône de réussite][9]
+La règle Pass : ![Icône de réussite][9]
 
 Vous trouverez d’autres informations sur ces règles sur le site web de Barracuda.
 
@@ -325,7 +327,7 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
   
     Le premier concerne la règle frontale de trafic web :
   
-    ![Règle web de pare-feu ][12]
+    ![Règle web de pare-feu][12]
   
     La règle Destination NAT permet au trafic de l’application d’atteindre le serveur d’applications. Les autres règles concernent la sécurité, la gestion, etc., les règles d’application sont celles qui permettent aux utilisateurs externes ou aux services d’accéder aux applications. Pour cet exemple, il existe un seul serveur web sur le port 80, et donc, la règle d’application du pare-feu unique redirigera le trafic entrant vers l’adresse IP externe, vers l’adresse IP interne des serveurs web.
   
@@ -333,7 +335,7 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
   
     La seconde règle de trafic d’application est la règle principale qui permet au serveur web de communiquer avec le serveur AppVM01 (et non AppVM02) via le service Any.
   
-    ![Règle AppVM01 de pare-feu ][13]
+    ![Règle AppVM01 de pare-feu][13]
   
     Cette règle passe permet à n’importe quel serveur IIS sur le sous-réseau du serveur frontal d’atteindre AppVM01 (adresse IP 10.0.2.5) sur le port Any, en utilisant n’importe quel protocole nécessaire à l’application web.
   
@@ -360,7 +362,7 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
     ![Règle de trafic sortant de pare-feu][14]
 * **Règle DNS** : cette règle autorise uniquement le transfert du trafic DNS (port 53) vers le serveur DNS. Pour cet environnement, la majeure partie du trafic du serveur frontal vers le serveur principal est bloquée. Cette règle autorise spécifiquement DNS.
   
-    ![Règle DNS de pare-feu ][15]
+    ![Règle DNS de pare-feu][15]
   
     **Remarque** : dans cette capture d’écran, la méthode de connexion est incluse. Cette règle concernant le trafic d’adresse IP pour le trafic des adresses IP interne, aucune traduction n’est requise. La méthode de connexion est définie sur « No SNAT » pour cette règle de test.
 * **Règle sous-réseau à sous-réseau**: la règle Pass est une règle par défaut qui a été activée et modifiée pour permettre à n’importe quel serveur du sous-réseau du serveur principal de se connecter à n’importe quel sous-réseau du serveur frontal. Cette règle concerne l’ensemble du trafic interne, et la méthode de connexion peut être définie sur No SNAT.
@@ -983,9 +985,4 @@ Si vous souhaitez installer un exemple d’application et d’autres exemples de
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

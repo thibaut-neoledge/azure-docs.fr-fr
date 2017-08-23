@@ -12,34 +12,32 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 021bf7c3ce70d9857b14597a2d378d7baad5aab2
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 54503d5d6a636239d240509d7d09cf334234bac7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-nodejs"></a>Connexion de votre Raspberry Pi 3 à la solution de surveillance à distance et activation des mises à jour de microprogramme à distance à l’aide de Node.js
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
-Ce tutoriel vous montre comment utiliser le Kit de démarrage Microsoft Azure IoT pour Raspberry Pi 3 pour :
+Ce didacticiel vous montre comment utiliser le Kit de démarrage Microsoft Azure IoT pour Raspberry Pi 3 pour :
 
 * développer un lecteur de température et d’humidité capable de communiquer avec le cloud ;
 * activer et effectuer une mise à jour à distance du microprogramme pour mettre à jour l’application cliente sur le Raspberry Pi.
 
-Le tutoriel utilise :
+Le didacticiel utilise :
 
-- le système d’exploitation Raspbian, le langage de programmation Node.js et le Kit de développement logiciel (SDK) d’appareil Microsoft Azure IoT pour Node.js pour implémenter un exemple d’appareil ;
-- la solution préconfigurée de surveillance à distance Azure IoT Suite comme serveur principal basé sur le cloud.
-
+- Le système d’exploitation Raspbian, le langage de programmation Node.js et le Kit SDK Microsoft Azure IoT pour Node.js en vue d’implémenter un exemple d’appareil.
+- La solution préconfigurée de surveillance à distance Azure IoT Suite comme backend basé sur le cloud.
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Dans ce tutoriel, vous allez effectuer les étapes suivantes :
+Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 
 - Déployer une instance de la solution préconfigurée de surveillance à distance dans votre abonnement Azure. Cette étape déploie et configure automatiquement plusieurs services Azure.
 - Configurer votre appareil pour qu’il communique avec votre ordinateur et avec la solution de surveillance à distance.
@@ -67,35 +65,46 @@ Si vous ne l’avez pas déjà fait, installez Node.js sur votre Raspberry Pi. 
 
 1. Pour mettre à jour votre Raspberry Pi, utilisez la commande suivante :
 
-    `sudo apt-get update`
+    ```sh
+    sudo apt-get update
+    ```
 
 1. Pour télécharger les fichiers binaires Node.js sur votre Raspberry Pi, utilisez la commande suivante :
 
-    `wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. Pour installer les binaires, utilisez la commande suivante :
 
-    `sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. Pour vérifier que Node.js v6.10.2 a été installé avec succès, utilisez la commande suivante :
 
-    `node --version`
+    ```sh
+    node --version
+    ```
 
 ### <a name="clone-the-repositories"></a>Cloner les dépôts
 
 Si vous ne l’avez pas déjà fait, clonez les dépôts requis en exécutant les commandes suivantes sur votre Pi :
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git
+```
 
 ### <a name="update-the-device-connection-string"></a>Mettre à jour la chaîne de connexion d’appareil
 
 Ouvrez l’exemple de fichier de configuration dans l’éditeur **nano** à l’aide de la commande suivante :
 
-`nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/config/deviceinfo`
+```sh
+nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/config/deviceinfo
+```
 
-Remplacez les valeurs dans l’espace réservé par les informations sur l’appareil et l’IoT Hub que vous avez créées et enregistrées au début de ce tutoriel.
+Remplacez les valeurs dans l’espace réservé par les informations sur l’appareil et l’IoT Hub que vous avez créées et enregistrées au début de ce didacticiel.
 
 Lorsque vous avez terminé, le contenu du fichier deviceinfo doit ressembler à l’exemple suivant :
 
@@ -110,13 +119,16 @@ Enregistrez vos modifications (**Ctrl-O**, **Entrée**) et quittez l’éditeur 
 
 Exécutez les commandes suivantes pour installer les packages requis pour l’exemple :
 
-`cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advance/1.0`
-
-`npm install`
+```sh
+cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advance/1.0
+npm install
+```
 
 Vous pouvez maintenant exécuter l’exemple de programme sur le Raspberry Pi. Entrez la commande :
 
-`sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/1.0/remote_monitoring.js`
+```sh
+sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/1.0/remote_monitoring.js
+```
 
 La sortie suivante est un exemple de sortie qui peut s’afficher à l’invite de commandes sur le Raspberry Pi :
 
@@ -132,7 +144,7 @@ Appuyez sur **Ctrl-C** pour quitter le programme à tout moment.
 
 1. Sur la page **Appeler une méthode**, choisissez **InitiateFirmwareUpdate** dans la liste déroulante **Méthode**.
 
-1. Dans le champ **FWPackageURI** , entrez **https://raw.githubusercontent.com/IoTChinaTeam/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. Ce fichier contient l’implémentation de la version 2.0 du microprogramme.
+1. Dans le champ **FWPackageURI**, entrez **https://raw.githubusercontent.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. Ce fichier contient l’implémentation de la version 2.0 du microprogramme.
 
 1. Choisissez **InvokeMethod**. L’application sur le Raspberry Pi envoie un accusé de réception au tableau de bord de la solution. Elle démarre ensuite le processus de mise à jour du microprogramme en téléchargeant la nouvelle version de ce dernier :
 

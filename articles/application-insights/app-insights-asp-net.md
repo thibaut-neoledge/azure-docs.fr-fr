@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: af932e111ebc60ee86c823e65000d39fa6ea81cb
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 1960fa0e17ea9aa0ca15bc3ecb8ce5b1f6630a60
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
@@ -112,7 +111,7 @@ Dans le portail, cliquez sur n’importe quelle mosaïque ou n’importe quel gr
 ## <a name="step-4-publish-your-app"></a>Étape 4 : publication de votre application
 Publiez votre application sur votre serveur IIS ou sur Azure. Vérifiez [Live Metrics Stream (Flux continu de mesures)](app-insights-metrics-explorer.md#live-metrics-stream) pour vous assurer que tout fonctionne correctement.
 
-Vos données de télémétrie s’affichent dans le portail Application Insights, où vous pouvez surveiller les mesures, effectuer une recherche dans vos données de télémétrie et configurer les [tableaux de bord](app-insights-dashboards.md). Vous pouvez également utiliser la puissante [langue de requête Analytics](app-insights-analytics.md) pour analyser l’utilisation et les performances ou rechercher des événements spécifiques.
+Vos données de télémétrie s’affichent dans le portail Application Insights, où vous pouvez surveiller les mesures, effectuer une recherche dans vos données de télémétrie et configurer les [tableaux de bord](app-insights-dashboards.md). Vous pouvez également utiliser le puissant [langage de requête Log Analytics](https://docs.loganalytics.io/) pour analyser l’utilisation et les performances ou rechercher des événements spécifiques.
 
 Vous pouvez également continuer à analyser vos données de télémétrie dans [Visual Studio](app-insights-visual-studio.md) à l’aide d’outils comme la recherche de diagnostic et les [tendances](app-insights-visual-studio-trends.md).
 

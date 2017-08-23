@@ -1,5 +1,4 @@
 ---
-
 title: "Gérer les points de terminaison de streaming avec le Portail Azure | Microsoft Docs"
 description: "Cette rubrique montre comment gérer les points de terminaison de streaming avec le Portail Azure."
 services: media-services
@@ -14,12 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 80ba024cd219b10bce8d88c9f11fd2d14d4ed34f
 ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/11/2017
 
 ---
 
@@ -62,7 +62,7 @@ Pour ajouter/supprimer un point de terminaison de streaming à l’aide du Porta
     ![point de terminaison de diffusion en continu](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a name="a-idconfigurestreamingendpointsaconfiguring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configuration du point de terminaison de diffusion en continu
+## <a id="configure_streaming_endpoints"></a>Configuration du point de terminaison de diffusion en continu
 Le point de terminaison de streaming vous permet de configurer les propriétés suivantes :
 
 * Contrôle d’accès
@@ -81,14 +81,14 @@ Vous trouverez une brève description des champs ci-dessous.
 ![point de terminaison de diffusion en continu](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
 
 1. Stratégie de cache maximale : permet de configurer la durée de vie du cache pour les ressources traitées par le biais de ce point de terminaison de streaming. Si aucune valeur n’est définie, la valeur par défaut est utilisée. Les valeurs par défaut peuvent également être définies directement dans Azure Storage. Si Azure CDN est activé pour le point de terminaison de streaming, ne définissez pas une valeur de stratégie de cache inférieure à 600 secondes.  
-2. Adresses IP autorisées : permet de définir les adresses IP autorisées à se connecter au point de terminaison de streaming publié. Si aucune adresse IP n'est spécifiée, toutes les adresses IP peuvent se connecter. Les adresses IP peuvent être définies sous forme d’adresse IP unique (par exemple, «&10;.0.0.1 »), de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau CIDR (par exemple, «&10;.0.0.1/22 ») ou de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau au format décimal séparé par des points (par exemple, «&10;.0.0.1(255.255.255.0) »).
+2. Adresses IP autorisées : permet de définir les adresses IP autorisées à se connecter au point de terminaison de streaming publié. Si aucune adresse IP n'est spécifiée, toutes les adresses IP peuvent se connecter. Les adresses IP peuvent être définies sous forme d’adresse IP unique (par exemple, « 10.0.0.1 »), de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau CIDR (par exemple, « 10.0.0.1/22 ») ou de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau au format décimal séparé par des points (par exemple, « 10.0.0.1(255.255.255.0) »).
 3. Configuration de l’authentification de l’en-tête de signature Akamai : permet de spécifier la configuration de la demande d’authentification de l’en-tête de signature à partir de serveurs Akamai. L’expiration est au format UTC.
 
 ## <a name="scale-your-premium-streaming-endpoint"></a>Mise à l’échelle du point de terminaison de streaming Premium
 
 Pour plus d’informations, consultez [cette rubrique](media-services-portal-scale-streaming-endpoints.md) .
 
-## <a name="a-idenablecdnaenable-azure-cdn-integration"></a><a id="enable_cdn"></a>Activer l’intégration au CDN Azure
+## <a id="enable_cdn"></a>Activer l’intégration au CDN Azure
 
 Lorsque vous créez un compte, l’intégration CDN Azure du point de terminaison de streaming par défaut est activée par défaut.
 
@@ -121,10 +121,5 @@ Consultez les parcours d’apprentissage de Media Services.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/27/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Procédure pas à pas de la solution préconfigurée d’usine connectée
@@ -47,6 +46,13 @@ Cet article vous familiarise avec les éléments clés de la solution d’usine 
 Le schéma suivant décrit les composants logiques de la solution préconfigurée :
 
 ![Architecture logique d’usine connectée][connected-factory-logical]
+
+## <a name="communication-patterns"></a>Modèles de communication
+
+La solution utilise la [spécification Pub/Sub OPC UA](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) pour envoyer des données de télémétrie OPC UA à IoT Hub au format JSON. Pour ce faire, la solution utilise le module IoT Edge de [l’éditeur d’OPC](https://github.com/Azure/iot-edge-opc-publisher).
+
+La solution dispose également d’un client OPC UA intégré à une application web qui peut établir des connexions avec des serveurs locaux OPC UA. Le client utilise un [proxy inversé](https://wikipedia.org/wiki/Reverse_proxy) et reçoit de l’aide d’IoT Hub pour établir la connexion sans demander de ports ouverts dans le pare-feu local. Ce modèle de communication est appelé [communication assistée par le service](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). Pour ce faire, la solution utilise le module IoT Edge de [proxy OPC](https://github.com/Azure/iot-edge-opc-proxy/).
+
 
 ## <a name="simulation"></a>Simulation
 

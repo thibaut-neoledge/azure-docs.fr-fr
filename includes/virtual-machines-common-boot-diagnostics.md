@@ -1,4 +1,3 @@
-
 La prise en charge de deux fonctionnalités de débogage est désormais disponible dans Azure : les supports de Console Output et Screenshot pour le modèle de déploiement Azure Virtual Machines Resource Manager. 
 
 Lorsque vous importez votre propre image dans Azure, ou même lorsque vous démarrez une des images de plateforme, il peut y avoir de nombreuses raisons pour lesquelles une Machine Virtuelle passe en état non démarrable. Ces fonctionnalités vous permettent de facilement diagnostiquer des échecs de démarrage et de récupérer vos Machines virtuelles.
@@ -12,6 +11,22 @@ Toutefois, pour les Machines Virtuelles Windows et Linux, Azure vous permet éga
 ![Erreur](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
 
 Ces deux fonctionnalités sont prises en charge par les Machines Virtuelles Azure dans toutes les régions. Notez que des captures d’écran ainsi que des sorties peuvent prendre jusqu'à 10 minutes pour apparaître dans votre compte de stockage.
+
+## <a name="common-boot-errors"></a>Erreurs de démarrage courantes
+
+- [0xC000000E](https://support.microsoft.com/help/4010129)
+- [0xC000000F](https://support.microsoft.com/help/4010130)
+- [0xC0000011](https://support.microsoft.com/help/4010134)
+- [0xC0000034](https://support.microsoft.com/help/4010140)
+- [0xC0000098](https://support.microsoft.com/help/4010137)
+- [0xC00000BA](https://support.microsoft.com/help/4010136)
+- [0xC000014C](https://support.microsoft.com/help/4010141)
+- [0xC0000221](https://support.microsoft.com/help/4010132)
+- [0xC0000225](https://support.microsoft.com/help/4010138)
+- [0xC0000359](https://support.microsoft.com/help/4010135)
+- [0xC0000605](https://support.microsoft.com/help/4010131)
+- [Système d’exploitation introuvable.](https://support.microsoft.com/help/4010142)
+- [Échec de démarrage ou INACCESSIBLE_BOOT_DEVICE.](https://support.microsoft.com/help/4010143)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Activer la fonction de diagnostic sur une nouvelle machine virtuelle
 1. Lorsque vous créez une Machine virtuelle à partir de la préversion du Portail, sélectionnez **Azure Resource Manager** dans la liste déroulante du modèle de déploiement :

@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 2bd54b85f4c9f9ff13b8975eee15649f607a9194
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: e141c15b9999a33206285290b9a34c8616bf3791
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Options et performances de Base de données Azure pour PostgreSQL : comprendre les éléments disponibles dans chaque niveau tarifaire
@@ -51,7 +51,10 @@ Pour choisir un niveau tarifaire, commencez par déterminer si votre charge de t
 | E/S par seconde de stockage maximales | N/A  | 3 000 | 
 | Période de rétention de sauvegarde de bases de données | 7 jours | 35 jours | 
 
-Pendant la phase de préversion, vous ne pouvez pas changer le niveau tarifaire une fois le serveur créé. Ultérieurement, il sera possible de faire passer un serveur d’un niveau tarifaire à l’autre.
+Pendant la phase de préversion, vous ne pouvez pas changer le niveau tarifaire une fois que le serveur est créé. Ultérieurement, il sera possible de faire passer un serveur d’un niveau tarifaire à l’autre.
+
+## <a name="understand-the-price"></a>Comprendre les tarifs
+Lorsque vous créez une base de données Azure pour PostgreSQL à l’intérieur du [portail Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), cliquez sur le panneau **Niveau tarifaire** pour afficher le coût mensuel en fonction des options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, utilisez la calculatrice de prix Azure pour obtenir un prix estimé. Pour personnaliser les options, visitez le site web [Calculatrice de prix d’Azure](https://azure.microsoft.com/pricing/calculator/), cliquez sur **Ajouter des produits à votre estimation**, développez la catégorie **Bases de données**, puis choisissez **Base de données Azure pour PostgreSQL**.
 
 ## <a name="choose-a-performance-level-compute-units"></a>Choisir un niveau de performances (unités de calcul)
 Une fois que vous avez déterminé le niveau tarifaire de votre serveur Azure Database pour PostgreSQL, vous êtes prêt à déterminer le niveau de performances en sélectionnant le nombre d’unités de calcul nécessaires. Un bon point de départ est 200 ou 400 unités de calcul pour les applications qui ont besoin d’accès concurrentiels en nombre plus élevé pour leurs charges de travail web ou d’analyse, puis d’ajuster par palier au fil des besoins. 
@@ -85,7 +88,7 @@ Un minimum de capacité de stockage est inclus avec chaque niveau tarifaire, ind
 
 La configuration des E/S par seconde dans chaque niveau de performances est relative au niveau tarifaire et à la taille de stockage choisis. Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans le niveau tarifaire Standard, les E/S par seconde augmentent proportionnellement à la taille maximale de stockage, selon un ratio fixe de 3:1. Le stockage de 125 Go inclus garantit 375 E/S par seconde approvisionnées, chaque E/S pouvant atteindre 256 Ko. Vous pouvez choisir un stockage supplémentaire jusqu’à un maximum de 1 To, avec une garantie de 3 000 E/S par seconde approvisionnés.
 
-Surveillez le graphique des métriques dans le portail Azure ou lancez des commandes Azure CLI pour mesurer la consommation de stockage et les E/S par seconde. Les métriques pertinentes à surveiller sont Limite de stockage, Pourcentage de stockage, Stockage utilisé et Pourcentage d’E/S.
+Surveillez le graphe des métriques dans le portail Azure ou lancez des commandes Azure CLI pour mesurer la consommation de stockage et les E/S par seconde. Les métriques pertinentes à surveiller sont Limite de stockage, Pourcentage de stockage, Stockage utilisé et Pourcentage d’E/S.
 
 >[!IMPORTANT]
 > Pendant la phase de préversion, vous choisissez la quantité de stockage au moment de la création du serveur. Le changement de taille du stockage sur un serveur existant n’est pas encore pris en charge. 

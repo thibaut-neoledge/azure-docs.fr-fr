@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: f8e6e1da776d680d48737ecb5ac7b9319901f121
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 13a3da67da28a1cdebd784e9e33021bb2c2668ce
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="media-encoder-standard-schema"></a>Schéma Media Encoder Standard
@@ -64,11 +64,11 @@ Contient une séquence des éléments suivants.
 ### <a name="attributes"></a>Attributs
 | Nom | Type | Description |
 | --- | --- | --- |
-| **Condition** |**xs:string** | Lorsque l’entrée ne comporte aucune vidéo, vous pouvez vouloir forcer l’encodeur à insérer une piste vidéo monochrome. Pour ce faire, utilisez Condition="InsertBlackIfNoVideoBottomLayerOnly" (pour insérer une vidéo uniquement avec le débit le plus bas) ou Condition="InsertBlackIfNoVideo" (pour insérer une vidéo à tous les débits binaires de sortie). Pour plus d’informations, consultez [cette rubrique](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) .|
+| **Condition** |**xs:string** | Lorsque l’entrée ne comporte aucune vidéo, vous pouvez vouloir forcer l’encodeur à insérer une piste vidéo monochrome. Pour ce faire, utilisez Condition="InsertBlackIfNoVideoBottomLayerOnly" (pour insérer une vidéo uniquement avec le débit le plus bas) ou Condition="InsertBlackIfNoVideo" (pour insérer une vidéo à tous les débits binaires de sortie). Pour plus d’informations, consultez [cette rubrique](media-services-advanced-encoding-with-mes.md#no_video) .|
 
 ## <a name="H264Layers"></a> H264Layers
 
-Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de l’audio (sans contenu vidéo), le composant de sortie regroupera les fichiers qui contiennent uniquement des données audio. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser l’attribut **InsertBlackIfNoVideo** H264Video pour forcer l’encodeur à ajouter une piste vidéo à la sortie. Pour plus d’informations, consultez [cette rubrique](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) .
+Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de l’audio (sans contenu vidéo), le composant de sortie regroupera les fichiers qui contiennent uniquement des données audio. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser l’attribut **InsertBlackIfNoVideo** H264Video pour forcer l’encodeur à ajouter une piste vidéo à la sortie. Pour plus d’informations, consultez [cette rubrique](media-services-advanced-encoding-with-mes.md#no_video) .
               
 ### <a name="elements"></a>Éléments
 | Nom | Type | Description |

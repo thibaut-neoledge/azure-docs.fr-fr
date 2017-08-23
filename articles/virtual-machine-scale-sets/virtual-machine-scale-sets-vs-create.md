@@ -1,6 +1,6 @@
 ---
 title: "Déployer un groupe de machines virtuelles identiques à l’aide de Visual Studio | Microsoft Docs"
-description: "Déployer des jeux de mise à l&quot;échelle de machines virtuelles à l&quot;aide de Visual Studio et d’un modèle Resource Manager"
+description: "Déployer des jeux de mise à l'échelle de machines virtuelles à l'aide de Visual Studio et d’un modèle Resource Manager"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gbowerman
@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 5f02d36bfc5aa390bba345f084ce530c27bb6520
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Création d’un jeu de mise à l’échelle de machines virtuelles avec Visual Studio
@@ -92,7 +91,7 @@ Une fois le déploiement terminé, vous pouvez afficher le nouveau groupe de mac
 
 ![Cloud Explorer][cloud_explorer]
 
- Le portail vous explique comment gérer visuellement votre infrastructure Azure par le biais d’un navigateur web, tandis qu’Azure Resource Explorer vous permet d’explorer et de déboguer très facilement des ressources Azure, en vous donnant un aperçu de la « vue d’instance » et en vous indiquant également les commandes PowerShell pour les ressources que vous recherchez. Bien que les groupes de machines virtuelles identiques soient en version préliminaire, l’Explorateur de ressources fournit des informations très détaillées sur vos groupes de machines virtuelles identiques.
+ Le portail vous explique comment gérer visuellement votre infrastructure Azure par le biais d’un navigateur web, tandis qu’Azure Resource Explorer vous permet d’explorer et de déboguer très facilement des ressources Azure, en vous donnant un aperçu de la « vue d’instance » et en vous indiquant également les commandes PowerShell pour les ressources que vous recherchez.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois les groupes de machines virtuelles identiques déployés avec succès via Visual Studio, vous pouvez personnaliser davantage votre projet en fonction des besoins de votre application. Vous pouvez, par exemple, configurer la mise à l’échelle automatique via l’ajout d’une ressource **Insights**, l’ajout d’une infrastructure à votre modèle (comme des machines virtuelles autonomes) ou le déploiement d’applications à l’aide de l’extension de script personnalisé. Vous trouverez de bons exemples de modèles dans le référentiel GitHub [Modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates) (recherchez le terme « vmss »).

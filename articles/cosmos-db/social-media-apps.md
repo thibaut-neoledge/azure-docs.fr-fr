@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 0691d6730fddbf9b6145d4a39da94a1762516c2c
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: c77357b2cefc8081728cb20d08b00656ba60bea6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Réseaux sociaux avec Azure Cosmos DB
@@ -201,7 +200,7 @@ Et en cas de modification où l’un des attributs du segment est affecté, il e
 ## <a name="the-search-box"></a>La zone de recherche
 Heureusement, les utilisateurs génèrent beaucoup de contenu. Et nous devrions être en mesure de fournir la possibilité de rechercher et de trouver du contenu qui n’est peut-être pas directement dans leur flux de contenu, parce qu’ils ne suivent pas les créateurs ou qu’ils essayent simplement de trouver une publication créée il y a 6 mois.
 
-Heureusement, et grâce à l’utilisation d’Azure DocumentDB, nous pouvons facilement implémenter un moteur de recherche à l’aide de [Recherche Azure](https://azure.microsoft.com/services/search/) en quelques minutes et sans taper une seule ligne de code (à part le processus de recherche et l’interface utilisateur, bien entendu).
+Heureusement, et grâce à l’utilisation d’Azure Cosmos DB, nous pouvons facilement implémenter un moteur de recherche à l’aide de [Recherche Azure](https://azure.microsoft.com/services/search/) en quelques minutes et sans taper une seule ligne de code (à part le processus de recherche et l’interface utilisateur, bien entendu).
 
 Pourquoi est-ce si facile ?
 

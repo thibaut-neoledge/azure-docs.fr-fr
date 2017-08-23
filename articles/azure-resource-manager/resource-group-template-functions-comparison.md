@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/01/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: d993bd5cae5fa2f0a6eda999c95b10bd1c268be2
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 521e5ed06c138bcd374913588f06a2e6c1e99963
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Fonctions de comparaison pour les modèles Azure Resource Manager
@@ -26,12 +26,10 @@ ms.lasthandoff: 07/21/2017
 Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dans vos modèles.
 
 * [equals](#equals)
-* [less](#less)
-* [lessOrEquals](#lessorequals)
 * [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
-
-<a id="equals" />
+* [less](#less)
+* [lessOrEquals](#lessorequals)
 
 ## <a name="equals"></a>equals
 `equals(arg1, arg2)`
@@ -140,141 +138,31 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | checkInts | Bool | True |
 | checkStrings | Bool | True |
 | checkArrays | Bool | True |
-| checkObjects | Bool | True |
+| checkObjects | Bool | true |
 
-<a id="less" />
 
-## <a name="less"></a>less
-`less(arg1, arg2)`
-
-Vérifie si la première valeur est inférieure à la deuxième valeur.
-
-### <a name="parameters"></a>Paramètres
-
-| Paramètre | Requis | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
-| arg2 |Oui |entier ou chaîne |Deuxième valeur pour la comparaison « inférieur à ». |
-
-### <a name="return-value"></a>Valeur de retour
-
-Retourne **True** si la première valeur est inférieure à la seconde ; sinon, renvoie **False**.
-
-### <a name="example"></a>Exemple
-
-L’exemple de modèle vérifie si une valeur est inférieure à l’autre.
+L’exemple suivant utilise [non](resource-group-template-functions-logical.md#not) avec**égal à**.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
-    },
     "resources": [
     ],
     "outputs": {
-        "checkInts": {
+        "checkNotEquals": {
             "type": "bool",
-            "value": "[less(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[less(parameters('firstString'), parameters('secondString'))]"
+            "value": "[not(equals(1, 2))]"
         }
     }
-}
 ```
 
-La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+La sortie de l’exemple précédent est :
 
 | Nom | Type | Valeur |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | False |
+| checkNotEquals | Bool | true |
 
-<a id="lessorequals" />
-
-## <a name="lessorequals"></a>lessOrEquals
-`lessOrEquals(arg1, arg2)`
-
-Vérifie si la première valeur est inférieure ou égale à la deuxième valeur.
-
-### <a name="parameters"></a>Paramètres
-
-| Paramètre | Requis | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
-| arg2 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur ou égal à ». |
-
-### <a name="return-value"></a>Valeur de retour
-
-Retourne **True** si la première valeur est inférieure ou égale à la seconde ; sinon, renvoie **False**.
-
-### <a name="example"></a>Exemple
-
-L’exemple de modèle vérifie si une valeur est inférieure ou égale à l’autre.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
-        }
-    }
-}
-```
-
-La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
-
-| Nom | Type | Valeur |
-| ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | False |
-
-<a id="greater" />
 
 ## <a name="greater"></a>greater
 `greater(arg1, arg2)`
@@ -340,7 +228,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
 
-<a id="greaterorequals" />
 
 ## <a name="greaterorequals"></a>greaterOrEquals
 `greaterOrEquals(arg1, arg2)`
@@ -404,7 +291,139 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
-| checkStrings | Bool | true |
+| checkStrings | Bool | True |
+
+
+
+## <a name="less"></a>less
+`less(arg1, arg2)`
+
+Vérifie si la première valeur est inférieure à la deuxième valeur.
+
+### <a name="parameters"></a>Paramètres
+
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
+| arg2 |Oui |entier ou chaîne |Deuxième valeur pour la comparaison « inférieur à ». |
+
+### <a name="return-value"></a>Valeur de retour
+
+Retourne **True** si la première valeur est inférieure à la seconde ; sinon, renvoie **False**.
+
+### <a name="example"></a>Exemple
+
+L’exemple de modèle vérifie si une valeur est inférieure à l’autre.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "firstInt": {
+            "type": "int",
+            "defaultValue": 1
+        },
+        "secondInt": {
+            "type": "int",
+            "defaultValue": 2
+        },
+        "firstString": {
+            "type": "string",
+            "defaultValue": "A"
+        },
+        "secondString": {
+            "type": "string",
+            "defaultValue": "a"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "checkInts": {
+            "type": "bool",
+            "value": "[less(parameters('firstInt'), parameters('secondInt') )]"
+        },
+        "checkStrings": {
+            "type": "bool",
+            "value": "[less(parameters('firstString'), parameters('secondString'))]"
+        }
+    }
+}
+```
+
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
+
+
+## <a name="lessorequals"></a>lessOrEquals
+`lessOrEquals(arg1, arg2)`
+
+Vérifie si la première valeur est inférieure ou égale à la deuxième valeur.
+
+### <a name="parameters"></a>Paramètres
+
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
+| arg2 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur ou égal à ». |
+
+### <a name="return-value"></a>Valeur de retour
+
+Retourne **True** si la première valeur est inférieure ou égale à la seconde ; sinon, renvoie **False**.
+
+### <a name="example"></a>Exemple
+
+L’exemple de modèle vérifie si une valeur est inférieure ou égale à l’autre.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "firstInt": {
+            "type": "int",
+            "defaultValue": 1
+        },
+        "secondInt": {
+            "type": "int",
+            "defaultValue": 2
+        },
+        "firstString": {
+            "type": "string",
+            "defaultValue": "A"
+        },
+        "secondString": {
+            "type": "string",
+            "defaultValue": "a"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "checkInts": {
+            "type": "bool",
+            "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
+        },
+        "checkStrings": {
+            "type": "bool",
+            "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
+        }
+    }
+}
+```
+
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

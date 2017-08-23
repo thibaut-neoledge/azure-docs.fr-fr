@@ -1,163 +1,138 @@
 ---
-title: "Créer votre première application de microservices Azure | Microsoft Docs"
-description: "Créer, déployer et déboguer une application Service Fabric à l’aide de Visual Studio"
+title: "Créer un service fiable Azure Service Fabric avec C#"
+description: "Créer, déployer et déboguer une application Reliable Service basée sur Azure Service Fabric avec Visual Studio."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: vturecek
 ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
+ms.date: 06/28/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: dea338477ca82eead9e272ed9a1709cb2643f743
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: f93298e6483fd8c9dfda835964aeebd1a430af69
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
-# <a name="create-your-first-azure-service-fabric-application"></a>Créer votre première application Azure Service Fabric
-> [!div class="op_single_selector"]
-> * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
-> 
-> 
 
-Le kit de développement logiciel Fabric Service inclut un complément à Visual Studio proposant des outils et des modèles pour la création, le déploiement et le débogage d’applications Service Fabric. Cette rubrique vous guide tout au long du processus de création de votre première application dans Visual Studio 2017 ou Visual Studio 2015.
+# <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Création de votre première application de services fiables avec état c# Service Fabric
+
+Découvrez comment déployer votre première application Service Fabric pour .NET sur Windows en quelques minutes. Une fois l’opération terminée, vous obtenez un cluster local fonctionnant avec une application de service fiable.
 
 ## <a name="prerequisites"></a>Composants requis
-Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md).
 
-## <a name="video-walkthrough"></a>Vidéo de procédure pas à pas
-La vidéo suivante vous guide à travers les étapes de ce didacticiel :
+Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md). Cela inclut l’installation du SDK de Service Fabric et de Visual Studio 2017 ou 2015.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
-> 
-> 
+## <a name="create-the-application"></a>Création de l'application
 
-## <a name="create-the-application"></a>Création de l’application
-Une application Service Fabric peut contenir un ou plusieurs services, chacun ayant un rôle précis pour la fourniture de la fonctionnalité d’application. Créez un projet d’application, en même temps que votre premier projet de service, à l’aide de l’Assistant Nouveau projet. Vous pourrez également ajouter d’autres services par la suite si vous le souhaitez.
+Lancez Visual Studio en tant qu’**administrateur**.
 
-1. Lancez Visual Studio en tant qu’administrateur.
-2. Cliquez sur **Fichier > Nouveau projet > Cloud > Application Service Fabric**.
-3. Nommez l’application, puis cliquez sur **OK**.
+Créer un projet avec `CTRL`+`SHIFT`+`N`
+
+Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Cloud > Application Service Fabric**.
+
+Appelez l’application **MonApplication**, puis cliquez sur **OK**.
+
    
-    ![Boîte de dialogue Nouveau projet dans Visual Studio][1]
-4. Dans la page suivante, choisissez **Service avec état** comme premier type de service à inclure dans votre application. Attribuez-lui un nom, puis cliquez sur **OK**.
-   
-    ![Boîte de dialogue Nouveau service dans Visual Studio.][2]
-   
-   > [!NOTE]
-   > Pour plus d’informations sur les options, voir [Vue d’ensemble des modèles de programmation Service Fabric](service-fabric-choose-framework.md).
-   > 
-   > 
-   
-    Visual Studio crée le projet d’application et le projet de service avec état et les affiche dans l’Explorateur de solutions.
-   
-    ![Explorateur de solutions après la création de l’application de service avec état][3]
-   
-    Le projet d’application ne contient pas de code directement. Au lieu de cela, il fait référence à un ensemble de projets de service. En outre, il contient trois autres types de contenu :
-   
-   * **Profils de publication**: permet de gérer les préférences d’outils pour différents environnements.
-   * **Scripts**: contient un script PowerShell de déploiement/mise à niveau de votre application. Visual Studio utilise le script en arrière-plan. Le script peut également être appelé directement dans la ligne de commande.
-   * **Définition d’application** : inclut le manifeste d’application dans le dossier *ApplicationPackageRoot*. Les fichiers de paramètres d’application associés, qui définissent l’application et vous permettent de la configurer spécifiquement pour un environnement donné, se trouvent dans le dossier *ApplicationParameters*.
-     
-     Pour avoir une vue d’ensemble du contenu du projet de service, consultez l’article [Prise en main de Reliable Services](service-fabric-reliable-services-quick-start.md).
+![Boîte de dialogue Nouveau projet dans Visual Studio][1]
+
+Vous pouvez créer n’importe quel type d’application Service Fabric à partir de la boîte de dialogue suivante. Pour ce démarrage rapide, choisissez **Service avec état**.
+
+Appelez le service **MyStatefulService**, puis cliquez sur **OK**.
+
+![Boîte de dialogue Nouveau service dans Visual Studio.][2]
+
+
+Visual Studio crée le projet d’application et le projet de service avec état et les affiche dans l’Explorateur de solutions.
+
+![Explorateur de solutions après la création de l’application de service avec état][3]
+
+Le projet d’application (**MyApplication**) ne contient pas de code directement. Au lieu de cela, il fait référence à un ensemble de projets de service. En outre, il contient trois autres types de contenu :
+
+* **Profils de publication**  
+Profils pour le déploiement sur différents environnements.
+
+* **Scripts**  
+Script PowerShell de déploiement/mise à niveau de votre application.
+
+* **Définition d’application**  
+Inclut le fichier ApplicationManifest.xml sous *ApplicationPackageRoot* qui décrit la composition de votre application. Les fichiers de paramètres d’application associés se trouvent sous le dossier *ApplicationParameters*, qui peut être utilisé pour spécifier des paramètres spécifiques à l’environnement. Visual Studio sélectionne un fichier de paramètres d’application qui est spécifié dans le profil de publication associé au cours du déploiement dans un environnement spécifique.
+    
+Pour avoir une vue d’ensemble du contenu du projet de service, consultez l’article [Prise en main de Reliable Services](service-fabric-reliable-services-quick-start.md).
 
 ## <a name="deploy-and-debug-the-application"></a>Déployer et déboguer l’application.
-Maintenant que vous disposez d’une application, essayez de l’exécuter.
 
-1. Appuyez sur F5 dans Visual Studio pour déployer l’application en vue d’un débogage.
+Maintenant que vous disposez d’une application, exécutez-la.
+
+Appuyez sur `F5` dans Visual Studio pour déployer l’application en vue d’un débogage.
+
+>[!NOTE]
+>La première fois que vous exécutez et déployez l’application localement, Visual Studio crée un cluster local pour le débogage. Cette opération peut prendre un certain temps. L’état de la création du cluster est affiché dans la fenêtre Sortie de Visual Studio.
+
+Une fois le cluster prêt, vous obtenez une notification de la part de l’application de gestionnaire de la barre d’état système de cluster local incluse avec le kit de développement logiciel.
    
-   > [!NOTE]
-   > Le déploiement prend un certain temps la première fois que Visual Studio crée un cluster local pour le développement. Un cluster local exécute un code de plateforme équivalent à celui généré dans un cluster regroupant plusieurs machines sur un seul ordinateur. L’état de la création de clusters est affiché dans la fenêtre Sortie de Visual Studio.
-   > 
-   > 
+![Notification de barre d’état système de cluster local][4]
+
+Une fois que l’application a démarré, Visual Studio affiche automatiquement **l’Observateur d’événements de diagnostic**, où vous pouvez voir la sortie de suivi depuis vos services.
    
-    Une fois le cluster prêt, vous obtenez une notification de la part de l’application de gestionnaire de la barre d’état système de cluster local incluse avec le kit de développement logiciel.
+![Observateur d’événements de diagnostic][5]
+
+Le modèle de service avec état que nous avons utilisé indique simplement une valeur du compteur incrémentée dans la méthode `RunAsync` de **MyStatefulService.cs**.
+
+Pour plus d’informations, développez un des événements, et notamment le nœud sur lequel le code s’exécute. Dans ce cas, il s’agit du \_Node\_2, bien que cela puisse être différent sur votre ordinateur.
    
-    ![Notification de barre d’état système de cluster local][4]
-2. Une fois que l’application a démarré, Visual Studio affiche automatiquement l’Observateur d’événements de diagnostic, où vous pouvez voir la sortie de suivi depuis le service.
-   
-    ![Observateur d’événements de diagnostic][5]
-   
-    Dans le cas du modèle de service avec état, les messages indiquent simplement la valeur du compteur incrémentée dans la méthode `RunAsync` de MyStatefulService.cs.
-3. Pour plus d’informations, développez un des événements, et notamment le nœud sur lequel le code s’exécute. Dans ce cas, il s’agit du _Node_2, bien que cela puisse être différent sur votre ordinateur.
-   
-    ![Détails de l’Observateur d’événements de diagnostic][6]
-   
-    Le cluster local contient cinq nœuds hébergés sur un seul ordinateur. Il simule un cluster à cinq nœuds dans lequel les nœuds sont hébergés sur des machines distinctes. Pour simuler la perte d’une machine tout en testant le débogueur Visual Studio, examinons l’un des nœuds du cluster local.
-   
-   > [!NOTE]
-   > Les événements de diagnostic d’application émis par le modèle de projet utilisent la classe `ServiceEventSource` incluse. Pour plus d’informations, consultez l’article [Surveiller et diagnostiquer les services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-   > 
-   > 
-4. Recherchez dans votre projet de service la classe qui dérive de StatefulService (par exemple, MyStatefulService) et définissez un point d’arrêt sur la première ligne de la méthode `RunAsync` .
-   
-    ![Point d’arrêt dans la méthode RunAsync de service avec état][7]
-5. Pour lancer Service Fabric Explorer, cliquez avec le bouton droit sur l’application du gestionnaire du cluster local dans la zone de notification, puis choisissez **Gérer le cluster local**.
-   
-    ![Lancer l’Explorateur de Fabric Service à partir du Gestionnaire de cluster Local.][systray-launch-sfx]
-   
-    Service Fabric Explorer offre une représentation visuelle de cluster, notamment l’ensemble des applications et le jeu de nœuds physiques qui le composent. Pour en savoir plus sur Service Fabric Explorer, voir [Visualisation de votre cluster](service-fabric-visualizing-your-cluster.md).
-6. Dans le volet de gauche, développez **Cluster > Nœuds** et recherchez le nœud sur lequel votre code s’exécute.
-7. Cliquez sur **Actions > Désactiver (Redémarrer)** pour simuler le redémarrage de l’ordinateur. Une autre possibilité consiste à désactiver le nœud dans la vue Liste de nœuds du volet gauche.
-   
-    ![Arrêter un nœud Service Fabric Explorer][sfx-stop-node]
-   
-    Vous devez voir momentanément le point d’arrêt atteint dans Visual Studio, car le calcul vous faisiez sur un nœud bascule en toute transparence vers un autre.
-8. Revenir à l’Observateur d’événements de diagnostic et prenez connaissance des messages. Le compteur a continué de s’incrémenter, même si les événements proviennent en fait d’un autre nœud.
-   
-    ![Observateur d’événements de diagnostic après basculement][diagnostic-events-viewer-detail-post-failover]
+![Détails de l’Observateur d’événements de diagnostic][6]
+
+Le cluster local contient cinq nœuds hébergés sur un seul ordinateur. Dans un environnement de production, chaque nœud est hébergé sur une machine virtuelle ou physique distincte. Pour simuler la perte d’une machine tout en testant le débogueur Visual Studio, examinons l’un des nœuds du cluster local.
+
+Dans la fenêtre de **l’Explorateur de solutions**, ouvrez **MyStatefulService.cs**. 
+
+Recherchez la méthode `RunAsync` et définissez un point d’arrêt sur la première ligne de la méthode.
+
+![Point d’arrêt dans la méthode RunAsync de service avec état][7]
+
+Lancez l’outil **Service Fabric Explorer** en faisant un clic droit sur l’application du **gestionnaire du cluster local** dans la zone de notification, puis choisissez **Gérer le cluster local**.
+
+![Lancer l’Explorateur de Fabric Service à partir du Gestionnaire de cluster Local.][systray-launch-sfx]
+
+[**Service Fabric Explorer** ](service-fabric-visualizing-your-cluster.md) offre une représentation visuelle d’un cluster. Il inclut l’ensemble des applications qui y sont déployées, ainsi que le jeu de nœuds physiques qui le composent.
+
+Dans le volet de gauche, développez **Cluster > Nœuds** et recherchez le nœud sur lequel votre code s’exécute.
+
+Cliquez sur **Actions > Désactiver (Redémarrer)** pour simuler le redémarrage de l’ordinateur.
+
+![Arrêter un nœud Service Fabric Explorer][sfx-stop-node]
+
+Vous devez voir momentanément le point d’arrêt atteint dans Visual Studio, car le calcul vous faisiez sur un nœud bascule en toute transparence vers un autre.
+
+
+Revenez ensuite à l’Observateur d’événements de diagnostic et prenez connaissance des messages. Le compteur a continué de s’incrémenter, même si les événements proviennent en fait d’un autre nœud.
+
+![Observateur d’événements de diagnostic après basculement][diagnostic-events-viewer-detail-post-failover]
 
 ## <a name="cleaning-up-the-local-cluster-optional"></a>Nettoyage du cluster local (facultatif)
-Avant de conclure, il est important de se rappeler que le cluster local est réel. L’arrêt du débogueur supprime votre instance d’application et annule l’inscription du type d’application. Toutefois, le cluster continue de s’exécuter en arrière-plan. Vous disposez de plusieurs options pour gérer le cluster :
 
-1. Pour arrêter le cluster tout en conservant les données et les traces de l’application, cliquez sur **Arrêter le cluster local** dans l’application de zone de notification.
-2. Pour supprimer complètement le cluster, cliquez sur **Supprimer le cluster local** dans l’application de zone de notification. Cette option se traduira par un autre déploiement lent la prochaine fois que vous appuierez sur F5 dans Visual Studio. Supprimez le cluster uniquement si vous n’envisagez pas d’utiliser le cluster local pendant un certain temps ou si vous avez besoin de libérer des ressources.
+N’oubliez pas que ce cluster local est réel. L’arrêt du débogueur supprime votre instance d’application et annule l’inscription du type d’application. Le cluster continue toutefois de s’exécuter en arrière-plan. Lorsque vous êtes prêt à arrêter le cluster local, vous avez le choix entre deux options.
 
-## <a name="deploy-your-application-to-an-azure-cluster"></a>Déploiement de votre application sur un cluster Azure
-Maintenant que vous avez déployé votre application localement, vous pouvez déployer cette même application vers Azure. Le document [Créer votre premier cluster Service Fabric sur Azure](service-fabric-get-started-azure-cluster.md) décrit les étapes à l’aide d’Azure PowerShell ou du portail.
+### <a name="keep-application-and-trace-data"></a>Conserver les données d’application et de trace
 
-Une fois que vous avez configuré un cluster Azure, vous pouvez publier cette application à partir de Visual Studio vers Azure en suivant l’article [Publier vers un cluster Azure](service-fabric-publish-app-remote-cluster.md).  
+Fermez le cluster en effectuant un clic droit sur l’application de **gestionnaire du cluster local** dans la barre système, puis sélectionnez **Arrêter le cluster local**.
 
-## <a name="switch-cluster-mode-of-your-local-development-cluster"></a>Changement de mode de cluster de votre cluster de développement local
-Par défaut, le cluster de développement local est configuré pour s’exécuter en tant que cluster à cinq nœuds, ce qui se révèle utile pour déboguer les services déployés sur plusieurs nœuds. Toutefois, le déploiement d’une application sur le cluster de développement à cinq nœuds peut prendre un certain temps. Si vous souhaitez itérer des modifications de code rapidement, sans exécuter votre application sur cinq nœuds, basculez le cluster de développement en mode un nœud. Pour exécuter votre code sur un cluster à un nœud, cliquez avec le bouton droit sur le gestionnaire de cluster local dans la barre d’état système, puis sélectionnez **Switch Cluster Mode -> 1 Node** (Changer de mode de cluster -> 1 nœud).  
+### <a name="delete-the-cluster-and-all-data"></a>Supprimer le cluster et toutes les données
 
-![Changer de mode de cluster][switch-cluster-mode]
+Supprimez le cluster en effectuant un clic droit sur l’application de **gestionnaire du cluster local** dans la barre système, puis sélectionnez **Supprimer le cluster local**. 
 
-Lorsque vous changez de mode de cluster, le cluster de développement se réinitialise, et toutes les applications approvisionnées ou en cours d’exécution sur le cluster sont supprimées.
-
-Vous pouvez également modifier le mode de cluster en utilisant PowerShell :
-
-1. Lancez une nouvelle fenêtre PowerShell en tant qu’administrateur.
-2. Exécutez le script de configuration de cluster à partir du dossier du kit de développement logiciel :
-   
-    ```powershell
-    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
-    ```
-   
-    L’installation du cluster prend quelques instants. Une fois l’installation terminée, vous devriez obtenir un résultat similaire à ceci :
-   
-    ![Résultat de configuration du cluster][cluster-setup-success-1-node]
-
-
+Si vous choisissez cette option, Visual Studio redéploiera le cluster la prochaine fois que vous exécuterez l’application. Optez pour cette option si vous n’envisagez pas d’utiliser le cluster local pendant un certain temps ou si vous avez besoin de libérer des ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Apprenez à créer un [cluster dans Azure](service-fabric-cluster-creation-via-portal.md) ou un [cluster autonome sur Windows](service-fabric-cluster-creation-for-windows-server.md).
-* Essayez de créer un service en utilisant les modèles de programmation [Reliable Services](service-fabric-reliable-services-quick-start.md) ou [Reliable Actors](service-fabric-reliable-actors-get-started.md).
-* Déployez un [conteneur Windows](service-fabric-deploy-container.md) ou une application existante en tant qu’[exécutable invité](service-fabric-deploy-existing-app.md).
-* Découvrez comment exposer vos services sur Internet avec un [serveur frontal de services web](service-fabric-add-a-web-frontend.md).
-* Suivez des [travaux pratiques](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) afin de créer un service sans état, de configurer des rapports de surveillance et d’intégrité, et d’effectuer une mise à niveau de l’application.
-* En savoir plus sur les [options de prise en charge de Service Fabric](service-fabric-support.md)
-
+En savoir plus sur les [services fiables](service-fabric-reliable-services-introduction.md).
 <!-- Image References -->
 
 [1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog.png

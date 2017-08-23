@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 7/27/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 868c3051f60c27f15bfd99f66e50b65595951a00
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 781431dc8dd576e6fb6807ade4a0a1e909abcab7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -58,7 +58,17 @@ Service Fabric prend en charge la spécification de [plug-ins de volume Docker](
 </ApplicationManifest>
 ```
 
-Dans l’exemple précédent, l’étiquette `Source` pour le `Volume` fait référence au dossier source. Le dossier source peut être un dossier de la machine virtuelle qui héberge les conteneurs ou un magasin distant persistant. L’étiquette `Destination` est l’emplacement de mappage de la `Source` dans le conteneur en cours d’exécution. Quand vous utilisez un plug-in de volume, le nom du plug-in (étiquette `Driver`) est spécifié comme indiqué dans l’exemple précédent.  Si un pilote de journalisation Docker est spécifié, il est nécessaire de déployer des agents (ou conteneurs) pour gérer les journaux dans le cluster. 
+Dans l’exemple précédent, l’étiquette `Source` pour le `Volume` fait référence au dossier source. Le dossier source peut être un dossier de la machine virtuelle qui héberge les conteneurs ou un magasin distant persistant. L’étiquette `Destination` est l’emplacement de mappage de la `Source` dans le conteneur en cours d’exécution. 
+
+Lorsque vous spécifiez un plug-in de volume, Service Fabric crée automatiquement le volume à l’aide des paramètres spécifiés. La balise `Source` est le nom du volume, et la balise `Driver` spécifie le plug-in de pilote de volume. Des options peuvent être spécifiées à l’aide de la balise `DriverOption`, comme indiqué dans l’extrait de code suivant :
+
+```xml
+<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
+           <DriverOption Name="share" Value="models"/>
+</Volume>
+```
+
+Si un pilote de journalisation Docker est spécifié, il est nécessaire de déployer des agents (ou conteneurs) pour gérer les journaux dans le cluster.  La balise `DriverOption` peut également être utilisée pour spécifier les options de pilote de journal.
 
 Consultez les articles suivants pour déployer des conteneurs dans un cluster Service Fabric :
 

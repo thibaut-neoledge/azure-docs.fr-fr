@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 1c37802e2b908747773afa093a28ea218dd60509
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: f8f31f3a2ee02c964737dd32145499f3dcfd0624
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/18/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Déplacer des données à partir d’un serveur FTP à l’aide d’Azure Data Factory
@@ -200,7 +199,7 @@ Dans une activité de copie, quand la source est de type **FileSystemSource**, l
 | --- | --- | --- | --- |
 | recursive |Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. |True, False (par défaut) |Non |
 
-## <a name="json-example-copy-data-from-ftp-server-to-azure-blob-storage"></a>Exemple JSON : copie de données d’un serveur FTP vers un stockage Blob Azure
+## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Exemple JSON : copie de données depuis un serveur FTP à un objet Blob Azure
 Cet exemple montre comment copier des données à partir d’un serveur FTP vers un stockage Blob Azure. Toutefois, il est possible de copier des données directement vers tout récepteur indiqué dans [magasins et formats de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) à l’aide de l’activité de copie dans Data Factory.  
 
 Les exemples suivants présentent des définitions JSON que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou de [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) :

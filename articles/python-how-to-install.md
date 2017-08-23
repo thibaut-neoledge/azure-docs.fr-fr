@@ -1,6 +1,6 @@
 ---
-title: "Installation de Python et du Kit de développement logiciel (SDK) - Azure"
-description: "Découvrez comment installer Python et le Kit de développement logiciel (SDK) à utiliser avec Azure."
+title: Installation de Python et du kit SDK - Azure
+description: "Découvrez comment installer Python et le kit SDK à utiliser avec Azure."
 services: 
 documentationcenter: python
 author: lmazuel
@@ -14,18 +14,18 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: be8fed81757d3a7467707e4e0fdf1fd5734e0f07
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 3e6bcf301a9257a60e6b921934bb6a04b4dd5d53
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/11/2017
 
 ---
-# <a name="installing-python-and-the-sdk"></a>Installation de Python et du Kit de développement logiciel (SDK)
+# <a name="installing-python-and-the-sdk"></a>Installation de Python et du kit SDK
 La configuration de Python sous Windows s’effectue en toute simplicité. La solution est préinstallée sous Mac, Linux et [Bash pour Windows](https://msdn.microsoft.com/commandline/wsl/about). Ce guide décrit les étapes d'installation et de préparation de votre système à l'utilisation d'Azure.
 
-## <a name="whats-in-the-python-azure-sdk"></a>Que contient le Kit de développement logiciel (SDK) Python Azure ?
-Le Kit de développement logiciel (SDK) Azure pour Python contient les composants qui vous permettent de développer, déployer et gérer des applications Python pour Azure. Il inclut plus précisément les éléments suivants :
+## <a name="whats-in-the-python-azure-sdk"></a>Que contient le kit SDK Python Azure ?
+Le kit SDK Azure pour Python contient les composants qui vous permettent de développer, déployer et gérer des applications Python pour Azure. Il inclut plus précisément les éléments suivants :
 
 * **Bibliothèques de gestion**. Ces bibliothèques de classes fournissent une interface de gestion des ressources Azure, comme les comptes de stockage ou les machines virtuelles.
 * **Bibliothèques Runtime**. Ces bibliothèques de classes fournissent une interface permettant d’accéder aux fonctionnalités Azure, notamment le stockage et Service Bus.
@@ -38,7 +38,7 @@ Il existe différentes versions des interpréteurs Python, par exemple :
 * IronPython : interpréteur Python qui s'exécute sur .Net/CLR
 * Jython : interpréteur Python qui s’exécute sur la Machine Virtuelle Java
 
-**CPython** v2.7 ou v3.3+ et PyPy 5.4.0 sont testés et pris en charge par le Kit de développement logiciel (SDK) Python Azure.
+**CPython** v2.7 ou v3.3+ et PyPy 5.4.0 sont testés et pris en charge par le kit SDK Python Azure.
 
 ## <a name="where-to-get-python"></a>Où télécharger Python ?
 Il existe plusieurs façons de télécharger CPython :
@@ -100,7 +100,7 @@ Nous vous recommandons d’utiliser PTVS même s’il est facultatif, car il vou
 
 PTVS simplifie également le déploiement sur Microsoft Azure, avec une prise en charge du déploiement sur [Cloud Services](cloud-services/cloud-services-python-ptvs.md) et [Sites Web](app-service-web/web-sites-python-ptvs-django-mysql.md).
 
-PTVS fonctionne avec votre installation existante de Visual Studio 2013 ou 2015.  Pour accéder à la documentation, aux téléchargements et aux discussions, consultez le site [Python Tools pour Visual Studio].  
+PTVS fonctionne avec votre installation existante de Visual Studio 2013, 2015 ou 2017.  Pour accéder à la documentation, aux téléchargements et aux discussions, consultez le site [Python Tools pour Visual Studio].  
 
 ## <a name="python-azure-scenarios-for-linux-and-macos"></a>Scénarios Python Azure pour Linux et MacOS
 Pour Linux et macOS, les principaux scénarios Azure pris en charge sont les suivants :
@@ -111,7 +111,7 @@ Pour Linux et macOS, les principaux scénarios Azure pris en charge sont les sui
 
 Le premier scénario vous permet de créer des applications web enrichies qui tirent parti des fonctionnalités PaaS d’Azure, comme le [Stockage Blob](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), le [Stockage File d’attente](storage/storage-python-how-to-use-queue-storage.md) ou le [Stockage Table](storage/storage-python-how-to-use-table-storage.md), par le biais de wrappers Python pour les API REST Azure. Le fonctionnement de ces derniers est identique sous Windows, Mac et Linux.  Vous pouvez également utiliser ces bibliothèques clientes à partir de votre ordinateur de développement local ou une machine virtuelle Linux s'exécutant sur Azure.
 
-Pour le scénario nécessitant une machine virtuelle, vous pouvez tout simplement démarrer une machine virtuelle Linux de votre choix (Ubuntu, CentOS, Suse) et exécuter/gérer les logiciels souhaités.  Par exemple, vous pouvez exécuter [IPython][IPython] REPL/Notebook sur votre machine Windows/Mac/Linux et pointer votre navigateur vers une machine virtuelle multiprocesseur Linux ou Windows exécutant le moteur IPython Engine sur Azure. Pour plus d’informations, voir le didacticiel [IPython Notebook sur Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+Pour le scénario nécessitant une machine virtuelle, vous pouvez tout simplement démarrer une machine virtuelle Linux de votre choix (Ubuntu, CentOS, Suse) et exécuter/gérer les logiciels souhaités.  Par exemple, vous pouvez exécuter [IPython][IPython] REPL/Notebook sur votre machine Windows/Mac/Linux et pointer votre navigateur vers une machine virtuelle multiprocesseur Linux ou Windows exécutant le moteur IPython Engine sur Azure.
 
 Pour plus d’informations sur la configuration d’une machine virtuelle Linux, voir le didacticiel [Création d’une machine virtuelle exécutant Linux](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
@@ -130,7 +130,6 @@ Pour plus d’informations sur le développement et la publication de sites web 
 * [NumPy : une bibliothèque de valeurs numériques pour Python (en anglais)][NumPy - A numerics library for Python]
 * [Projet Django : une infrastructure web/un système de gestion du contenu arrivés à maturité (en anglais)][Django Project - A mature web framework/CMS]
 * [IPython : une solution REPL/Notebook avancée pour Python (en anglais)][IPython - an advanced REPL/Notebook for Python]
-* [IPython Notebook sur Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Python Tools pour Visual Studio sur GitHub][Python Tools for Visual Studio on GitHub]
 * [Centre de développement Python](/develop/python/)
 

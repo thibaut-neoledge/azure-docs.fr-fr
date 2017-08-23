@@ -12,18 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/26/2017
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: b005d0fb25483f3dce14133038d7759dff07fc7c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="find-data-using-log-searches"></a>Recherche de données à l’aide de recherches de journal
+# <a name="find-data-using-log-searches-in-log-analytics"></a>Trouver des données avec les recherches de journaux dans Log Analytics
+
+>[!NOTE]
+> Cet article détaille les recherches de journaux via le langage de requête actuel dans Log Analytics.  Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), voir [Comprendre les recherches de journaux dans Log Analytics (nouveau)](log-analytics-log-search-new.md).
+
 
 La fonctionnalité de recherche de journal se trouve au cœur de Log Analytics et vous permet de combiner et de mettre en corrélation des données machine de plusieurs sources dans votre environnement. Des solutions sont également alimentées par la recherche de journal pour vous proposer des mesures cernant un domaine problématique en particulier.
 
@@ -135,6 +137,24 @@ De même, cette requête suivante retourne le **pourcentage de temps processeur*
 
 ```
 CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com)
+```
+
+### <a name="field-types"></a>Types de champ
+Lorsque vous créez des filtres, vous devez comprendre les différences entre les types de champs retournés par les recherches dans les journaux.
+
+Les **champs interrogeables** s’affichent en bleu dans les résultats de la recherche.  Vous pouvez les utiliser dans des conditions de recherche propres au champ, par exemple :
+
+```
+Type: Event EventLevelName: "Error"
+Type: SecurityEvent Computer:Contains("contoso.com")
+Type: Event EventLevelName IN {"Error","Warning"}
+```
+
+Les **champs interrogeables en texte libre** s’affichent en gris dans les résultats de la recherche.  Ils ne peuvent pas être utilisés avec des conditions de recherche propres au champ, à la différence des champs interrogeables.  Ils ne sont interrogeables que dans le cadre de requêtes portant sur tous les champs, comme ci-dessous.
+
+```
+"Error"
+Type: Event "Exception"
 ```
 
 
@@ -249,7 +269,7 @@ La commande SELECT agit comme Select-Object dans PowerShell. Elle retourne des r
 3. Sélectionnez certains d’entre eux de façon explicite ; la requête devient alors `Type=Event | Select Computer,EventID,RenderedDescription`.  
     ![Recherche select](./media/log-analytics-log-searches/oms-search-select.png)
 
-Il s'agit d’une commande particulièrement utile lorsque vous souhaitez contrôler les résultats de recherche et choisir uniquement des portions de données qui importent vraiment pour votre exploration et qui, bien souvent, ne sont pas l’enregistrement complet. Elle est également utile lorsque des enregistrements de différents types présentent *certaines* propriétés communes, mais que leurs propriétés ne sont pas *toutes* communes. Vous pouvez générer des résultats qui ressemblent plus naturellement à une table ou fonctionnent bien lorsqu’ils sont exportés vers un fichier CSV puis envoyés dans Excel.
+Il s’agit d’une commande particulièrement utile pour contrôler les résultats de recherche et choisir uniquement des portions de données qui importent vraiment pour l’exploration et qui, bien souvent, ne correspondent pas à la totalité de l’enregistrement. Elle est également utile lorsque des enregistrements de différents types présentent *certaines* propriétés communes, mais que leurs propriétés ne sont pas *toutes* communes. Vous pouvez générer des résultats qui ressemblent plus naturellement à une table ou fonctionnent bien lorsqu’ils sont exportés vers un fichier CSV puis envoyés dans Excel.
 
 ## <a name="use-the-measure-command"></a>Utilisation de la commande measure
 MEASURE est une des commandes les plus polyvalentes dans les recherches de Log Analytics. Elle vous permet d'appliquer des *fonctions* statistiques à vos données et de regrouper des résultats par champ donné. Il existe plusieurs fonctions statistiques qui prennent en charge Measure.

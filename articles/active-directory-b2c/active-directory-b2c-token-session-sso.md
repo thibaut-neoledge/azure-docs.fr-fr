@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 766ba894ba2643dec06757a133f8e716aa856161
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 4442174a857681adff33001e660809ec7d47ad7d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C : configuration du jeton, de la session et de l’authentification unique
@@ -30,8 +31,8 @@ Cette fonctionnalité vous donne un contrôle précis, [par stratégie](active-d
 
 Vous pouvez utiliser cette fonctionnalité dans votre client B2C comme suit :
 
-1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sur le portail Azure.
-2. Cliquez sur **Stratégies d’authentification**. *Remarque : vous pouvez utiliser cette fonctionnalité avec n’importe quel type de stratégie, pas seulement les **stratégies d’authentification***.
+1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) sur le portail Azure.
+2. Cliquez sur **Stratégies d’authentification**. *Remarque : vous pouvez utiliser cette fonctionnalité avec n’importe quel type de stratégie, pas seulement les **stratégies de connexion***.
 3. Ouvrez une stratégie en cliquant dessus. Par exemple, cliquez sur **B2C_1_SiIn**.
 4. Cliquez sur **Modifier** dans la partie supérieure du panneau.
 5. Cliquez sur **Configuration du jeton, de la session et de l’authentification unique**.
@@ -109,10 +110,5 @@ Si vous avez plusieurs applications et stratégies dans votre client B2C, vous p
     > Ces paramètres ne sont pas disponibles pour les stratégies de réinitialisation de mot de passe.
     > 
     > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

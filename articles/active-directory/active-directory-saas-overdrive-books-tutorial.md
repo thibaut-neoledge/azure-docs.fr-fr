@@ -1,125 +1,232 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Overdrive Books | Microsoft Docs"
-description: "Apprenez à utiliser Overdrive Books avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
+title: "Didacticiel : Intégration d’Azure Active Directory à Overdrive | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Overdrive."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: e68cede7-1130-4813-bd55-22a9a6fc6bf5
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/24/2017
+ms.date: 06/28/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5d6f44f868010d50b36a9171b7db63aeee7e8bc0
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 515dd397c46df7c8c82afab9b50051e34db69d7a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-overdrive-books"></a>Didacticiel : Intégration d’Azure Active Directory avec Overdrive Books
-L'objectif de ce didacticiel est de montrer comment intégrer Azure et OverDrive.  
+# <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Didacticiel : Intégration d’Azure Active Directory avec Overdrive 
 
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+Dans ce didacticiel, vous allez apprendre à intégrer Overdrive à Azure Active Directory (Azure AD).
 
-* Un abonnement Azure valide
-* Un abonnement OverDrive pour lequel l’authentification unique est activée
+L’intégration d’Overdrive dans Azure AD vous offre les avantages suivants :
 
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à OverDrive pourront s’authentifier de manière unique (SSO) dans l’application sur votre site d’entreprise OverDrive (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+- Dans Azure AD, vous pouvez contrôler qui a accès à Overdrive. 
+- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Overdrive (par le biais de l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-1. Activation de l'intégration d'applications pour OverDrive
-2. Configuration de l’authentification unique (SSO)
-3. Configuration de l'approvisionnement des utilisateurs
-4. Affectation d’utilisateurs
+## <a name="prerequisites"></a>Composants requis
 
-![Scénario](./media/active-directory-saas-overdrive-books-tutorial/IC784462.png "Scénario")
+Pour configurer l’intégration d’Azure AD à Overdrive, vous avez besoin des éléments suivants :
 
-## <a name="enable-the-application-integration-for-overdrive"></a>Activer l’intégration d’applications pour OverDrive
-Cette section décrit l'activation de l'intégration de l'application pour OverDrive.
+- Un abonnement Azure AD
+- Un abonnement Overdrive pour lequel l’authentification unique est activée
 
-**Pour activer l'intégration d’applications pour OverDrive, procédez comme suit :**
+> [!NOTE]
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
-1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-overdrive-books-tutorial/IC700993.png "Active Directory")
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
-   
-   ![Applications](./media/active-directory-saas-overdrive-books-tutorial/IC700994.png "Applications")
-4. Cliquez sur **Ajouter** en bas de la page.
-   
-   ![Ajouter une application](./media/active-directory-saas-overdrive-books-tutorial/IC749321.png "Ajouter une application")
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
-   
-   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-overdrive-books-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
-6. Dans la **zone de recherche**, entrez **OverDrive**.
-   
-   ![Galerie d’applications](./media/active-directory-saas-overdrive-books-tutorial/IC784463.png "Galerie d’applications")
-7. Dans le volet des résultats, sélectionnez **OverDrive**, puis cliquez sur **Terminer** pour ajouter l’application.
-   
-   ![OverDrive](./media/active-directory-saas-overdrive-books-tutorial/IC799950.png "OverDrive")
-   
-## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
+Vous devez en outre suivre les recommandations ci-dessous :
 
-Cette section explique comment permettre aux utilisateurs de s'authentifier sur OverDrive avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
-**Pour configurer l’authentification unique, suivez les étapes ci-dessous :**
+## <a name="scenario-description"></a>Description du scénario
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Dans le portail Azure Classic, dans la page d’intégration d’applications **OverDrive**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
-   
-   ![Activer l’authentification unique](./media/active-directory-saas-overdrive-books-tutorial/IC784465.png "activer l’authentification unique")
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à OverDrive ?**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-overdrive-books-tutorial/IC784466.png "Configurer l’authentification unique")
-3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de OverDrive**, tapez votre URL au format « *http://mslibrarytest.libraryreserve.com*, puis cliquez sur **Suivant**.
-   
-   ![Configurer l’URL de l’application](./media/active-directory-saas-overdrive-books-tutorial/IC784467.png "Configurer l’URL de l’application")
-4. Sur la page **Configurer l’authentification unique sur OverDrive** , téléchargez le fichier de métadonnées, puis envoyez-le à l’équipe du support technique OverDrive.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-overdrive-books-tutorial/IC784468.png "Configurer l’authentification unique")
-   
-   >[!NOTE]
-   >L'équipe du support technique OverDrive configure l'authentification unique pour vous et vous envoie une notification lorsque la configuration est terminée.
-   > 
-   > 
-5. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-overdrive-books-tutorial/IC784469.png "Configurer l’authentification unique")
-   
-## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
+1. Ajout d’Overdrive à partir de la galerie
+2. Configuration et test de l’authentification unique Azure AD
+
+## <a name="adding-overdrive-from-the-gallery"></a>Ajout d’Overdrive à partir de la galerie
+Pour configurer l’intégration d’Overdrive avec Azure AD, vous devez ajouter Overdrive à votre liste d’applications SaaS gérées, à partir de la galerie.
+
+**Pour ajouter Overdrive à partir de la galerie, procédez comme suit :**
+
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+
+    ![Applications][2]
+    
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+
+    ![Applications][3]
+
+4. Dans la zone de recherche, saisissez **Overdrive**.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-overdrive-books-tutorial/tutorial_overdrivebooks_search.png)
+
+5. Dans le panneau des résultats, sélectionnez **Overdrive**, puis cliquez sur **Ajouter** pour ajouter l’application.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-overdrive-books-tutorial/tutorial_overdrivebooks_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Overdrive, avec un utilisateur de test appelé « Britta Simon ».
+
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Overdrive correspondant dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Overdrive associé doit être établie.
+
+Dans Overdrive, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** pour établir la relation.
+
+Pour configurer et tester l’authentification unique Azure AD avec Overdrive, vous devez suivre les indications des sections suivantes :
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur de test Overdrive](#creating-an-overdrive-test-user)** pour obtenir un équivalent de Britta Simon dans Overdrive lié à la représentation Azure AD associée.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Overdrive.
+
+**Pour configurer l’authentification unique Azure AD avec Overdrive, procédez comme suit :**
+
+1. Dans le portail Azure, sur la page d’intégration de l’application **Overdrive**, cliquez sur **Authentification unique**.
+
+    ![Configurer l’authentification unique][4]
+
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Configurer l’authentification unique](./media/active-directory-saas-overdrive-books-tutorial/tutorial_overdrivebooks_samlbase.png)
+
+3. Dans la section **Domaine et URL Overdrive**, procédez comme suit :
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-overdrive-books-tutorial/tutorial_overdrivebooks_url.png)
+
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `http://<subdomain>.libraryreserve.com`
+
+    > [!NOTE] 
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique d’Overdrive](https://help.overdrive.com/). 
+ 
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-overdrive-books-tutorial/tutorial_overdrivebooks_certificate.png) 
+
+5. Cliquez sur le bouton **Enregistrer** .
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_400.png)
+
+6. Pour configurer l’authentification unique du côté **Overdrive**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe de support technique d’Overdrive](https://help.overdrive.com/). Celle-ci configure ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+
+![Créer un utilisateur Azure AD][100]
+
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-overdrive-books-tutorial/create_aaduser_01.png) 
+
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+    
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-overdrive-books-tutorial/create_aaduser_02.png) 
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-overdrive-books-tutorial/create_aaduser_03.png) 
+
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-overdrive-books-tutorial/create_aaduser_04.png) 
+
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
+
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
+
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
+
+    d. Cliquez sur **Create**.
+ 
+### <a name="creating-an-overdrive-test-user"></a>Création d’un utilisateur de test Overdrive
 
 Aucun élément d'action ne vous permet de configurer l’approvisionnement des utilisateurs dans OverDrive.  
 
-Lorsqu'un utilisateur tente de se connecter à OverDrive, un compte OverDrive est, au besoin, automatiquement créé.
+Lorsqu’un utilisateur affecté tente de se connecter à OverDrive, un compte OverDrive est, au besoin, automatiquement créé.
 
 >[!NOTE]
 >Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par OverDrive pour approvisionner des comptes d’utilisateur Azure Active Directory.
 >
->
- 
-## <a name="assign-users"></a>Affecter des utilisateurs
-Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-**Pour affecter des utilisateurs à OverDrive, procédez comme suit :**
+### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
-1. Dans le portail Azure Classic, créez un compte de test.
-2. Dans la page d’intégration d’application **OverDrive**, cliquez sur **Affecter des utilisateurs**.
-   
-   ![Affecter des utilisateurs](./media/active-directory-saas-overdrive-books-tutorial/IC784470.png "Affecter des utilisateurs")
-   
-3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
-   
-   ![Oui](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "Oui")
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Overdrive.
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+![Affecter des utilisateurs][200] 
+
+**Pour affecter Britta Simon à Overdrive, procédez comme suit :**
+
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+
+    ![Affecter des utilisateurs][201] 
+
+2. Dans la liste des applications, sélectionnez **Overdrive**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-overdrive-books-tutorial/tutorial_overdrivebooks_app.png) 
+
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+
+    ![Affecter des utilisateurs][202] 
+
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+
+    ![Affecter des utilisateurs][203]
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+    
+### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
+Lorsque vous cliquez sur la vignette Overdrive dans le panneau d’accès, vous êtes automatiquement connecté à votre application Overdrive.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_203.png
+
 

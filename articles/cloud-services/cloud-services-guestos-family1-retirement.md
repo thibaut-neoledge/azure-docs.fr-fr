@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/21/2017
+ms.date: 5/21/2017
 ms.author: raiye
-translationtype: Human Translation
-ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
-ms.openlocfilehash: 578059c397319147c8716e2152901dfdc15a28cd
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 3178a09dab1cb972a3460d54dc9908fb95cce68b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -35,9 +36,9 @@ Vos services cloud sont concernés si l'une des conditions suivantes s'applique�
 
 1. Vous avez une valeur de « osFamily = "1" » explicitement spécifiée dans le fichier ServiceConfiguration.cscfg pour votre service cloud.
 2. Vous n'avez pas de valeur pour osFamily explicitement spécifiée dans le fichier ServiceConfiguration.cscfg pour votre service cloud. Actuellement, le système utilise la valeur par défaut « 1 » dans ce cas.
-3. Le portail Azure Classic répertorie votre valeur de famille des systèmes d’exploitation invités en tant que « Windows Server 2008 ».
+3. Le portail Azure répertorie votre valeur de famille des systèmes d’exploitation invités en tant que « Windows Server 2008 ».
 
-Pour connaître la famille de systèmes d’exploitation exécutée par les services cloud, vous pouvez exécuter le script ci-dessous dans Azure PowerShell. Vous devrez toutefois commencer par [configurer Azure PowerShell](/powershell/azureps-cmdlets-docs). Vous devrez toutefois [Fin de vie de la famille 1 des SE invités d'Azure : juin 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
+Pour connaître la famille de systèmes d’exploitation exécutée par les services cloud, vous pouvez exécuter le script suivant dans Azure PowerShell. Vous devrez toutefois commencer par [configurer Azure PowerShell](/powershell/azureps-cmdlets-docs). Pour plus d’informations sur le script, consultez [Fin de vie de la famille 1 des SE invités d'Azure : juin 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -70,9 +71,8 @@ Nous vous recommandons de migrer vos rôles de service cloud vers l'une des fami
 2. Définissez l'attribut osFamily sur « 2 » dans le fichier ServiceConfiguration.cscfg et redéployez votre service cloud.
 
 ## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>Fin de la prise en charge étendue pour la famille 1 des SE invités depuis le 3 novembre 2014
-Les services cloud de la famille 1 des SE invités ne sont plus pris en charge. Veuillez quitter la famille 1 dès que possible pour éviter toute interruption de service.  
+Les services cloud de la famille 1 des SE invités ne sont plus pris en charge. Quittez la famille 1 dès que possible pour éviter toute interruption de service.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
-
 

@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: fa9e86552f61693b953f636bff3cd9d869feba23
-ms.openlocfilehash: 14c179d76664876695f2974de44e6bc000942184
-ms.lasthandoff: 03/02/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 064642ebb9cafb0c6e1b3ff306241182a95215cc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -76,7 +77,7 @@ Une fois toutes vos modifications de filtrage terminées, n’oubliez pas de rev
 ## <a name="filtering-options"></a>Options de filtrage
 Les types de configurations de filtrage que vous pouvez appliquer à l’outil de synchronisation d’annuaires sont les suivants :
 
-* [**Basé sur un groupe**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups) : un filtrage basé sur un seul groupe ne peut être configuré que lors de l’installation initiale à l’aide de l’Assistant Installation. Cette option de filtrage n’est pas traitée dans cet article.
+* [**Basé sur un groupe**](#group-based-filtering) : un filtrage basé sur un seul groupe ne peut être configuré que lors de l’installation initiale à l’aide de l’Assistant Installation.
 * [**Basé sur un domaine**](#domain-based-filtering) : cette option vous permet de sélectionner les domaines synchronisés avec Azure AD. Vous pouvez également ajouter et supprimer des domaines au niveau de la configuration du moteur de synchronisation lorsque vous apportez des modifications à votre infrastructure locale après avoir installé la synchronisation Azure AD Connect.
 * [**Basé sur une unité d’organisation (UO)**](#organizational-unitbased-filtering) : cette option vous permet de sélectionner les unités d’organisation synchronisées avec Azure AD. Cette option s’applique à tous les types d’objets présents dans les unités d’organisation sélectionnées.
 * [**Basé sur un attribut**](#attribute-based-filtering) : cette option vous permet de filtrer les objets en fonction des valeurs d’attribut sur les objets. Vous pouvez également avoir des filtres différents pour différents types d’objets.
@@ -295,7 +296,9 @@ Lorsque vous êtes satisfait, exportez les modifications vers Azure AD.
 2. Directement sous **Bibliothèque du Planificateur de tâches**, trouvez la tâche **Azure AD Sync Scheduler**, cliquez dessus avec le bouton droit et sélectionnez **Activer**.
 
 ## <a name="group-based-filtering"></a>Filtrage de groupe
-Vous pouvez configurer le filtrage basé sur un groupe la première fois que vous installez Azure AD Connect à l’aide de l’installation personnalisée. Ce filtrage est conçu pour un déploiement pilote dans lequel vous ne souhaitez synchroniser qu’un petit ensemble d’objets. Lorsque vous désactivez le filtrage basé sur un groupe, vous ne pouvez plus le réactiver. L’utilisation du filtrage basé sur un groupe dans une configuration personnalisée n’est *pas prise en charge*. La configuration de cette fonctionnalité n’est possible que par le biais de l’Assistant Installation. Lorsque vous avez terminé votre pilote, utilisez l’une des autres options de filtrage indiquées dans cet article.
+Vous pouvez configurer le filtrage basé sur un groupe la première fois que vous installez Azure AD Connect à l’aide de [l’installation personnalisée](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Ce filtrage est conçu pour un déploiement pilote dans lequel vous ne souhaitez synchroniser qu’un petit ensemble d’objets. Lorsque vous désactivez le filtrage basé sur un groupe, vous ne pouvez plus le réactiver. L’utilisation du filtrage basé sur un groupe dans une configuration personnalisée n’est *pas prise en charge*. La configuration de cette fonctionnalité n’est possible que par le biais de l’Assistant Installation. Lorsque vous avez terminé votre pilote, utilisez l’une des autres options de filtrage indiquées dans cet article. Si vous utilisez le filtrage basé sur l’unité d’organisation avec le filtrage basé sur les groupes, l’unité d’organisation dans laquelle se trouvent les objets de groupe et de membre doit être incluse.
+
+Lors de la synchronisation de plusieurs forêts Active Directory, vous pouvez configurer le filtrage basé sur les groupes en spécifiant un groupe différent pour chaque connecteur Active Directory. Si vous voulez synchroniser un utilisateur dans une forêt Active Directory, alors que cet utilisateur dispose d’un ou de plusieurs objets FSP correspondants dans d’autres forêts Active Directory, vous devez veiller à ce que l’objet utilisateur et tous ses objets FSP correspondants soient compris dans l’étendue du filtrage basé sur les groupes. Si un ou plusieurs objets FSP sont exclus par filtrage basé sur les groupes, l’objet utilisateur ne sera pas synchronisé avec Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Apprenez-en davantage sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).

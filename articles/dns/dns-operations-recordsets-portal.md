@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: b09b66c44ba94df12934211d5d09430adb667003
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -25,7 +27,8 @@ ms.openlocfilehash: b09b66c44ba94df12934211d5d09430adb667003
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](dns-operations-recordsets-portal.md)
-> * [Interface de ligne de commande Azure](dns-operations-recordsets-cli.md)
+> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Cet article explique comment gérer les jeux d’enregistrements et les enregistrements pour votre zone DNS À l’aide du portail Azure.
@@ -89,7 +92,7 @@ Vous pouvez utiliser le portail Azure pour supprimer des enregistrements d’un 
 3. Cliquez sur **Enregistrer** en haut du panneau pour enregistrer vos paramètres.
 4. Une fois que l’enregistrement a été supprimé, les valeurs du jeu d’enregistrements dans le panneau **Zone DNS** reflètent la suppression de l’enregistrement.
 
-## <a name="a-namedeleteadelete-a-record-set"></a><a name="delete"></a>Suppression d’un jeu d'enregistrements
+## <a name="delete"></a>Suppression d’un jeu d'enregistrements
 
 1. Dans le panneau **Propriétés du jeu d’enregistrements** de votre jeu d’enregistrements, cliquez sur **Supprimer**.
 
@@ -105,24 +108,23 @@ Les enregistrements NS et SOA qui sont créés automatiquement sont gérés diff
 
 ### <a name="modify-soa-records"></a>Modification d'enregistrements SOA
 
-Vous ne pouvez pas ajouter ou supprimer d’enregistrements dans le jeu d’enregistrements SOA créé automatiquement à l’extrémité de la zone (nom = "@"). Vous pouvez cependant modifier les paramètres dans l’enregistrement SOA (à l’exception de « l’hôte ») et pendant la durée de vie du jeu d’enregistrements.
+Vous ne pouvez pas ajouter ou supprimer d’enregistrements dans le jeu d’enregistrements SOA créé automatiquement à l’extrémité de la zone (nom = « @ »). Vous pouvez cependant modifier les paramètres dans l’enregistrement SOA (à l’exception de « l’hôte ») et pendant la durée de vie du jeu d’enregistrements.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modification d’enregistrements NS à l’extrémité de la zone
 
-Vous ne pouvez pas ajouter, supprimer ou modifier les enregistrements dans le jeu d’enregistrements NS créé automatiquement à l’extrémité de la zone (nom = "@"). La seule modification possible est la modification de la durée de vie du jeu d’enregistrements.
+Le jeu d’enregistrements NS à l’apex de la zone est créé automatiquement avec chaque zone DNS. Il contient les noms des serveurs de noms Azure DNS attribués à la zone.
+
+Vous pouvez ajouter des serveurs de noms supplémentaires à ce jeu d’enregistrements NS, pour prendre en charge le co-hébergement de domaines avec plusieurs fournisseurs DNS. Vous pouvez également modifier la durée de vie et les métadonnées pour ce jeu d’enregistrements. Toutefois, vous ne pouvez pas supprimer ni modifier les serveurs de noms Azure DNS préremplis.
+
+Notez que cela s’applique uniquement au jeu d’enregistrements NS défini à l’apex de la zone. Les autres jeux d’enregistrements NS dans votre zone (tels que ceux utilisés pour déléguer des zones enfants) peuvent être modifiés sans contrainte.
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Suppression de jeux d’enregistrements SOA ou NS
 
-Vous ne pouvez pas supprimer les jeux d’enregistrements SOA et NS à l’extrémité de la zone (nom = "@") qui sont créés automatiquement quand la zone est créée. Ils sont automatiquement supprimés lorsque vous supprimez la zone.
+Vous ne pouvez pas supprimer les jeux d’enregistrements SOA et NS à l’extrémité de la zone (nom = « @ ») qui sont créés automatiquement quand la zone est créée. Ils sont automatiquement supprimés lorsque vous supprimez la zone.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur Azure DNS, consultez la [Vue d’ensemble d’Azure DNS](dns-overview.md).
 * Pour plus d’informations sur l’automatisation de DNS, consultez la rubrique [Création des zones DNS et de jeux d’enregistrements à l’aide du Kit de développement logiciel (SDK) .NET](dns-sdk.md).
-* Pour plus d’informations sur les enregistrements DNS inversés, consultez la rubrique [Gestion des enregistrements DNS inversés pour vos services à l’aide de PowerShell](dns-reverse-dns-record-operations-ps.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Pour plus d’informations sur les enregistrements DNS inversés, consultez l’article [Vue d’ensemble des DNS inversés et assistance dans Azure](dns-reverse-dns-overview.md).
 

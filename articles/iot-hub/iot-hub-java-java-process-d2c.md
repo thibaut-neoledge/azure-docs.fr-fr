@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 7055e207cfbcc9de02669be9f0e97045769ef217
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: d1aca8f39e305105d4ec9f63fbe7bee95487e294
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-java"></a>Traitement des messages appareil-à-cloud IoT Hub (Java)
@@ -33,11 +32,11 @@ Ce didacticiel s’appuie sur le code indiqué dans le didacticiel [Prise en mai
 À la fin de ce didacticiel, vous exécutez trois applications de console Java :
 
 * **simulated-device**, une version modifiée de l’application créée dans le didacticiel [Prise en main d’IoT Hub] qui envoie des messages de point de données des appareils vers le cloud chaque seconde et des messages interactifs des appareils vers le cloud toutes les 10 secondes. Cette application utilise le protocole AMQPS pour communiquer avec IoT Hub.
-* **read-d2c-messages** affiche les données de télémétrie envoyées par votre application d’appareil simulé.
+* **read-d2c-messages** affiche les données de télémétrie envoyées par votre application pour appareils.
 * **read-critical-queue** enlève les messages critiques de la file d’attente Service Bus attachée au hub IoT.
 
 > [!NOTE]
-> IoT Hub offre la prise en charge de Kit de développement logiciel (SDK) de plusieurs plateformes d’appareils et de plusieurs langages (notamment C, Java et JavaScript). Pour obtenir des instructions expliquant comment remplacer l’appareil simulé de ce didacticiel par un appareil physique et comment connecter vos appareils à IoT Hub, consultez le [Centre de développement Azure IoT].
+> IoT Hub offre la prise en charge de Kit de développement logiciel (SDK) de plusieurs plateformes d’appareils et de plusieurs langages (notamment C, Java et JavaScript). Pour obtenir des instructions expliquant comment remplacer l’appareil de ce didacticiel par un appareil physique et comment connecter vos appareils à un hub IoT, consultez le [Centre de développement Azure IoT].
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -48,9 +47,8 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Vous devez avoir une connaissance de base de [Stockage Azure] et d’[Azure Service Bus].
 
-## <a name="send-interactive-messages-from-a-simulated-device-app"></a>Envoyer des messages interactifs à partir d’un appareil simulé
-
-Dans cette section, vous allez modifier l’application d’appareil simulé que vous avez créée dans le didacticiel [Prise en main d’IoT Hub] pour envoyer occasionnellement des messages nécessitant un traitement immédiat.
+## <a name="send-interactive-messages-from-a-device-app"></a>Envoyer des messages interactifs à partir d’une application pour appareils
+Dans cette section, vous allez modifier l’application pour appareils que vous avez créée dans le didacticiel [Prise en main d’IoT Hub] de façon à envoyer occasionnellement des messages nécessitant un traitement immédiat.
 
 1. À l’aide d’un éditeur de texte, ouvrez le fichier simulated-device\src\main\java\com\mycompany\app\App.java. Ce fichier contient le code pour l’application **simulated-device** que vous avez créée dans le didacticiel [Prise en main d’IoT Hub] .
 
@@ -101,11 +99,11 @@ Dans cette section, vous allez modifier l’application d’appareil simulé que
         }
     }
     ```
-
-    Cela ajoute au hasard la propriété `"level": "critical"` aux messages envoyés par l’appareil émulé, ce qui simule un message qui requiert une action immédiate du serveur principal de l’application. L’application transmet ces informations dans les propriétés du message, plutôt que dans le corps du message, afin que IoT Hub puisse acheminer le message vers la destination adéquate.
-
-    > [!NOTE]
-    > Vous pouvez utiliser les propriétés de message pour acheminer les messages pour de nombreux scénarios, tels que le traitement de chemin d’accès à froid, en plus de l’exemple de chemin d’accès à chaud présenté ici.
+   
+    Cela ajoute au hasard la propriété `"level": "critical"` aux messages envoyés par l’appareil, ce qui simule un message qui requiert une action immédiate du serveur principal de l’application. L’application transmet ces informations dans les propriétés du message, plutôt que dans le corps du message, afin que IoT Hub puisse acheminer le message vers la destination adéquate.
+   
+   > [!NOTE]
+   > Vous pouvez utiliser les propriétés de message pour acheminer les messages pour de nombreux scénarios, tels que le traitement de chemin d’accès à froid, en plus de l’exemple de chemin d’accès à chaud présenté ici.
 
 2. Enregistrez et fermez le fichier simulated-device\src\main\java\com\mycompany\app\App.java.
 

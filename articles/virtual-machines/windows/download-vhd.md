@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: a7370598dd6570d2e124ed2a10d92cfcd1d5087a
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 0f2c6ce3e5df6c513d8077b3dfcca0beb4a247bf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 06/30/2017
 
 Dans cet article, vous apprendrez à télécharger un fichier de [disque dur virtuel (VHD) Windows](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à partir d’Azure à l’aide du Portail Azure. 
 
-Les machines virtuelles dans Azure utilisent des [disques](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) comme emplacement de stockage d’un système d’exploitation, d’applications et de données. Toutes les machines virtuelles Azure possèdent au moins deux disques : un disque de système d’exploitation Windows et un disque temporaire. Le disque de système d’exploitation est initialement créé à partir d’une image. Tant le disque que l’image sont des VHD stockés dans un compte de stockage Azure. Les machines virtuelles peuvent également disposer d’un ou plusieurs disques de données, également stockés sur les VHD.
+Les machines virtuelles dans Azure utilisent des [disques](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) comme emplacement de stockage d’un système d’exploitation, d’applications et de données. Toutes les machines virtuelles Azure possèdent au moins deux disques : un disque de système d’exploitation Windows et un disque temporaire. Le disque de système d’exploitation est initialement créé à partir d’une image. Tant le disque que l’image sont des disques VHD stockés dans un compte de stockage Azure. Les machines virtuelles peuvent également disposer d’un ou plusieurs disques de données, également stockés sur les VHD.
 
 ## <a name="stop-the-vm"></a>Arrêtez la machine virtuelle.
 
-Il n’est pas possible de télécharger un VHD attaché à une machine virtuelle en cours d’exécution à partir d’Azure. Il vous faut arrêter la machine virtuelle pour télécharger un VHD. Si vous souhaitez utiliser un VHD en tant [qu’image](tutorial-custom-images.md) afin de créer d’autres machines virtuelles avec de nouveaux disques, utilisez [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) pour généraliser le système d’exploitation contenu dans le fichier, puis arrêtez la machine virtuelle. Pour utiliser le VHD en tant que disque d’une nouvelle instance d’une machine virtuelle ou d’un disque de données existant, il vous suffit d’arrêter et de libérer de la machine virtuelle.
+Il n’est pas possible de télécharger un disque VHD associé à une machine virtuelle en cours d’exécution à partir d’Azure. Il vous faut arrêter la machine virtuelle pour télécharger un VHD. Si vous souhaitez utiliser un VHD en tant [qu’image](tutorial-custom-images.md) afin de créer d’autres machines virtuelles avec de nouveaux disques, utilisez [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) pour généraliser le système d’exploitation contenu dans le fichier, puis arrêtez la machine virtuelle. Pour utiliser le VHD en tant que disque d’une nouvelle instance d’une machine virtuelle ou d’un disque de données existant, il vous suffit d’arrêter et de libérer de la machine virtuelle.
 
 Pour utiliser le VHD en tant qu’image pour créer d’autres machines virtuelles, suivez les étapes ci-dessous :
 
@@ -52,7 +52,7 @@ Pour utiliser le VHD en tant que disque d’une nouvelle instance d’une machin
 
 ## <a name="generate-sas-url"></a>Générer une URL de SAP
 
-Pour télécharger le fichier de VHD, vous devez générer une URL de [signature d’accès partagé (SAP)](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Un délai d’expiration est affecté à l’URL lors de sa génération.
+Pour télécharger le fichier VHD, vous devez générer une URL de [signature d’accès partagé (SAP)](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Un délai d’expiration est affecté à l’URL lors de sa génération.
 
 1.  Dans le menu du panneau de la machine virtuelle, cliquez sur **Disques**.
 2.  Sélectionnez le disque de système d’exploitation de la machine virtuelle, puis cliquez sur **Exporter**.
@@ -68,18 +68,18 @@ Pour télécharger le fichier de VHD, vous devez générer une URL de [signature
 
 ## <a name="download-vhd"></a>Télécharger un VHD
 
-1.  Sous l’URL générée, cliquez sur Télécharger le fichier de VHD.
+1.  Sous l’URL générée, cliquez sur Télécharger le fichier de disque dur virtuel.
 
     ![Télécharger un VHD](./media/download-vhd/export-download.png)
 
-2.  Vous devrez peut-être cliquer sur **Enregistrer** dans le navigateur pour commencer le téléchargement. Le nom par défaut du fichier de VHD est *abcd*.
+2.  Vous devrez peut-être cliquer sur **Enregistrer** dans le navigateur pour commencer le téléchargement. Le nom par défaut du fichier VHD est *abcd*.
 
     ![Cliquez sur Enregistrer dans le navigateur](./media/download-vhd/export-save.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [charger un fichier de VHD sur Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-- [Créez des disques gérés à partir de disques non gérés dans un compte de stockage](create-managed-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- [Créez des disques gérés à partir de disques non gérés dans un compte de stockage](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - [Gérez des disques Azure avec PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

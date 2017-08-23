@@ -21,9 +21,7 @@ ms.lasthandoff: 05/08/2017
 
 ---
 
-<a id="troubleshooting-degraded-state-on-azure-traffic-manager" class="xliff"></a>
-
-# Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
+# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
 
 Cet article décrit comment résoudre les problèmes d’un profil Azure Traffic Manager qui présente un état détérioré. Pour ce scénario, considérez que vous avez configuré un profil Traffic Manager pointant vers certains de vos services hébergés cloudapp.net. Si le statut de l’intégrité de votre Traffic Manager est **Dégradé**, le statut d’un ou plusieurs points de terminaison peut être **Dégradé** :
 
@@ -33,9 +31,7 @@ Si le statut de l’intégrité de votre Traffic Manager est **Inactif**, les de
 
 ![Statut Traffic Manager inactif](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
-<a id="understanding-traffic-manager-probes" class="xliff"></a>
-
-## Présentation des sondes de Traffic Manager
+## <a name="understanding-traffic-manager-probes"></a>Présentation des sondes de Traffic Manager
 
 * Traffic Manager considère qu’un point de terminaison est EN LIGNE uniquement si la sonde reçoit une réponse HTTP 200 en retour du chemin d’accès de la sonde. Toute réponse autre que 200 traduite un échec.
 * Une redirection 30 x échoue, même si l’URL redirigée retourne 200.
@@ -44,9 +40,7 @@ Si le statut de l’intégrité de votre Traffic Manager est **Inactif**, les de
 * La meilleure pratique consiste à définir le chemin d’accès de la sonde vers un élément disposant d’une logique suffisante pour déterminer si le site fonctionne ou est à l’arrêt. Dans l’exemple précédent, en définissant le chemin d’accès « /favicon.ico », vous ne faites que tester le fait que w3wp.exe répond. Cette sonde n’indique pas que votre application web est intègre. Une meilleure option consisterait à définir un chemin d’accès vers un élément tel que « /Probe.aspx » disposant de la logique nécessaire pour déterminer l’intégrité du site. Par exemple, vous pourriez utiliser des compteurs de performances pour l’utilisation du processeur, ou mesurer le nombre de demandes ayant échoué. Vous pourriez également tenter d’accéder aux ressources de base de données ou à l’état de la session pour vous assurer que l’application web fonctionne.
 * Si tous les points de terminaison d’un profil sont détériorés, Traffic Manager traite tous les points de terminaison comme intègres, et achemine le trafic vers tous les points de terminaison. Ce comportement garantit que les problèmes liés au mécanisme de sondage n’entraînent pas d’interruption complète de votre service.
 
-<a id="troubleshooting" class="xliff"></a>
-
-## Résolution de problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 Pour résoudre un problème d’échec d’analyse, vous avez besoin d’un outil qui affiche le code d’état HTTP retourné à partir de l’URL de la sonde. Il existe de nombreux outils qui affichent la réponse HTTP brute.
 
@@ -87,9 +81,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md)
 

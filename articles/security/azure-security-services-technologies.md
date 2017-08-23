@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
-ms.lasthandoff: 02/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 6d4379248cff45b601e32e8554f86bb7a1846570
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="azure-security-services-and-technologies"></a>Services et technologies de sécurité Azure
@@ -62,14 +62,14 @@ Ce document fournit une première version de cette liste. Au fil du temps, cette
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 ## <a name="backup-and-disaster-recovery"></a>Sauvegarde et récupération d’urgence
-* [Azure Backup](https://azure.microsoft.com/documentation/services/backup/)
+* [Sauvegarde Azure](https://azure.microsoft.com/documentation/services/backup/)
 * [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery/)
 
 ## <a name="azure-networking"></a>Mise en réseau Azure
 * [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
 * [Passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [Application Gateway Azure](../application-gateway/application-gateway-introduction.md)
-* [Équilibrage de charge Azure](../load-balancer/load-balancer-overview.md)
+* [Azure Load Balancer](../load-balancer/load-balancer-overview.md)
 * [Azure ExpressRoute](../expressroute/expressroute-introduction.md)
 * [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 * [Proxy d’application Azure](../active-directory/active-directory-application-proxy-enable.md)

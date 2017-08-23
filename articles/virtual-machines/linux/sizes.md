@@ -3,7 +3,7 @@ title: Tailles des machines virtuelles Linux dans Azure | Microsoft Docs
 description: "Répertorie les différentes tailles disponibles pour les machines virtuelles Linux dans Azure."
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/16/2017
-ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: e76077fcf6be6a1fb6ed224313a05d36cdc12cab
+ms.date: 07/28/2017
+ms.author: jonbeck
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: fe7a92901ae25aa99ef71f09c416e6c6ad30d39b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 
@@ -29,9 +29,9 @@ Cet article décrit les tailles et options disponibles pour les machines virtuel
 
 | Type                     | Tailles           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Usage général](sizes-general.md)          | DSv2, Dv2, DS, D, Av2, A0-7,  | Ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. |
+| [Usage général](sizes-general.md)          | Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7  | Ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. |
 | [Optimisé pour le calcul](sizes-compute.md)        | Fs, F             | Ratio processeur/mémoire élevé. Convient pour les serveurs web au trafic moyen, les appareils réseau, les processus de traitement par lots et les serveurs d’application.        |
-| [Mémoire optimisée](sizes-memory.md)         | M, GS, G, DSv2, DS, Dv2, D   | Ratio mémoire/coeur élevé. Idéal pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire.                 |
+| [Mémoire optimisée](sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Ratio mémoire/processeur élevé. Idéal pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire.                 |
 | [Optimisé pour le stockage](sizes-storage.md)        | Ls                | Débit de disque et E/S élevés. Idéale pour les bases de données NoSQL, SQL et Big Data.                                                         |
 | [GPU](sizes-gpu.md)            | NV, NC            | Machines virtuelles spécialisées conçues pour les opérations graphiques lourdes et la retouche vidéo. Disponible avec un ou plusieurs GPU.       |
 | [Calcul haute performance](sizes-hpc.md) | H, A8-11          | Nos machines virtuelles les plus rapides et dotées des processeurs les plus puissants avec interfaces réseau haut débit en option (RDMA). 

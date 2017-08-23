@@ -1,6 +1,6 @@
 ---
-title: Comment configurer un environnement App Service | Microsoft Docs
-description: "Configuration, gestion et surveillance d’environnements App Service"
+title: "Comment configurer un environnement App Service Environment v1"
+description: "Configuration, gestion et surveillance d’environnements App Service Environment v1"
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 07/11/2017
 ms.author: ccompy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 85a4c87447681bd21698143b4228d94c0877d1b9
+ms.translationtype: HT
+ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
+ms.openlocfilehash: ae99f5a412f73cddc28543ba12c66c82f1a7835a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
-# Configuration d'un environnement App Service
-<a id="configuring-an-app-service-environment" class="xliff"></a>
-## Vue d'ensemble
-<a id="overview" class="xliff"></a>
+# <a name="configuring-an-app-service-environment-v1"></a>Configuration d’un environnement App Service Environment v1
+
+> [!NOTE]
+> Cet article traite de l’environnement App Service Environment v1.  Il existe une version plus récente de l’environnement App Service Environment, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la section [Présentation de l’environnement App Service Environment](../app-service/app-service-environment/intro.md).
+> 
+
+## <a name="overview"></a>Vue d'ensemble
 Globalement, un environnement Azure App Service se compose de plusieurs composants principaux :
 
 * Des ressources de calcul s’exécutant dans le service hébergé d’environnement App Service
@@ -34,8 +36,7 @@ Globalement, un environnement Azure App Service se compose de plusieurs composan
 * Un réseau virtuel Azure (VNet) classique (V1) ou Resource Manager (V2) 
 * Un sous-réseau sur lequel s’exécute le service hébergé d’environnement App Service
 
-### Ressources de calcul
-<a id="compute-resources" class="xliff"></a>
+### <a name="compute-resources"></a>Ressources de calcul
 Vous utilisez les ressources de calcul pour vos quatre pools de ressources.  Chaque environnement App Service (ASE) possède un ensemble de serveurs frontaux et trois pools de travail possibles. Vous n’avez pas besoin d’utiliser les trois pools de travail. Si vous le souhaitez, vous pouvez n’en utiliser qu’un ou deux.
 
 Les hôtes présents dans les pools de ressources (des serveurs frontaux et de travail) ne sont pas directement accessibles par les clients. Vous ne pouvez pas utiliser le protocole RDP (Remote Desktop Protocol) pour vous y connecter, modifier leur approvisionnement ou agir sur eux en tant qu’administrateur.
@@ -47,40 +48,37 @@ La modification de la quantité ou de la taille est une opération appelée « m
 
 * Un environnement App Service commence avec deux P2, ce qui est suffisant pour les charges de travail de développement et de test et les charges de travail de production de bas niveau. Nous vous recommandons vivement d’utiliser des P3 pour des charges de travail de production moyennes et lourdes.
 * Il est recommandé d’avoir au moins quatre P3 pour les charges de travail moyennes et lourdes, afin de garantir l’exécution d’un nombre suffisant de serveurs frontaux pendant la maintenance planifiée. Les activités de maintenance planifiées interrompront un seul serveur frontal à la fois. Cela réduit la capacité globale disponible des serveurs frontaux pendant les activités de maintenance.
-* L’ajout instantané d’une nouvelle instance de serveur frontal n’est pas possible. L’approvisionnement de cette dernière peut prendre entre 2 à 3 heures.
+* L’approvisionnement des serveurs frontaux peut prendre jusqu’à une heure. 
 * Pour un ajustement optimal de la mise à l’échelle, vous devez analyser le pourcentage UC, le pourcentage de mémoire ainsi que les mesures des demandes actives pour le pool frontal. Si le pourcentage UC ou de mémoire est supérieur à 70 % lorsque vous exécutez des P3, ajoutez davantage de serveurs frontaux. Si la valeur moyenne des demandes actives oscille entre 15 000 et 20 000 demandes par serveur frontal, vous devez également ajouter davantage de serveurs frontaux. L’objectif est de maintenir le pourcentage UC et de mémoire en dessous de 70 % et le nombre moyen des demandes actives en dessous de 15 000 par serveur frontal lorsque vous exécutez des P3.  
 
 **Workers**: les Workers sont le lieu d’exécution de vos applications. Lorsque vous faites monter en puissance vos plans App Service, cette opération utilise des Workers dans le pool de travail associé.
 
-* L’ajout instantané de Workers n’est pas possible. L’approvisionnement de ces derniers peut prendre entre 2 à 3 heures, quel que soit le nombre de Workers ajoutés.
-* La mise à l’échelle d’une ressource de calcul pour un pool quelconque prendra 2 à 3 heures par domaine de mise à jour. Un environnement App Service contient 20 domaines de mise à jour. Si vous mettez à l’échelle la taille de calcul d’un pool de travail contenant 10 instances, cette opération peut prendre entre 20 et 30 heures.
+* L’ajout instantané de Workers n’est pas possible. Leur approvisionnement peut prendre jusqu’à une heure.
+* La mise à l’échelle d’une ressource de calcul pour un pool quelconque prendra moins de 1 heure par domaine de mise à jour. Un environnement App Service contient 20 domaines de mise à jour. Si vous mettez à l’échelle la taille de calcul d’un pool de travail contenant 10 instances, cette opération peut prendre jusqu’à 10 heures.
 * Si vous modifiez la taille des ressources de calcul utilisées dans un pool de travail, vous pouvez provoquer des démarrages à froid des applications en cours d’exécution dans ce pool de travail.
 
 La façon la plus rapide de modifier la taille des ressources de calcul d’un pool de travail qui n’exécute pas d’applications est de :
 
-* Descendre en puissance le nombre d’instances à 0. La libération de vos instances prendra environ 30 minutes.
-* Sélectionner la nouvelle taille de calcul et le nombre d’instances. À partir de là, l’opération prendra entre 2 à 3 heures.
+* Réduire la quantité d’employés à 2.  L’échelle minimale de diminution dans le portail est de 2. La libération de vos instances prendra quelques minutes. 
+* Sélectionner la nouvelle taille de calcul et le nombre d’instances. À partir de là, l’opération prendra jusqu’à 2 heures.
 
 Si vos applications nécessitent une plus grande taille de ressources de calcul, les étapes précédentes ne vous concernent pas. Au lieu de modifier la taille du pool de travail qui héberge ces applications, vous pouvez remplir un autre pool de travail avec des Workers de la taille souhaitée, puis déplacer vos applications vers ce pool.
 
-* Créez les instances supplémentaires de la taille de calcul nécessaire dans un autre pool de travail. Cette opération prendra entre 2 à 3 heures.
+* Créez les instances supplémentaires de la taille de calcul nécessaire dans un autre pool de travail. L’opération prendra jusqu’à 1 heure.
 * Réaffectez vos plans App Service hébergeant les applications qui nécessitent une plus grande taille au pool de travail nouvellement configuré. Il s’agit d’une opération rapide qui devrait prendre moins d’une minute.  
-* Descendez en puissance le premier pool de travail si ces instances inutilisées ne vous servent plus. Cette opération prend environ 30 minutes.
+* Descendez en puissance le premier pool de travail si ces instances inutilisées ne vous servent plus. Cette opération prend quelques minutes.
 
 **Mise à l’échelle automatique**: la mise à l’échelle automatique constitue l’un des outils pouvant vous aider à gérer la consommation des ressources de calcul. Vous pouvez utiliser la mise à l’échelle pour les serveurs frontaux ou les pools de travail. Vous pouvez effectuer des opérations comme augmenter vos instances de n’importe quel type de pool le matin et les réduire le soir. Vous pouvez également par exemple ajouter des instances lorsque le nombre de Workers disponibles dans un pool de travail passe en dessous d’un certain seuil.
 
 Si vous souhaitez définir des règles de mise à l’échelle automatique en vous basant sur des mesures de pool de ressources de calcul, gardez en tête le temps d’approvisionnement nécessaire. Pour en savoir plus sur les environnements App Service, voir [Mise à l’échelle automatique et environnement App Service][ASEAutoscale].
 
-### Storage
-<a id="storage" class="xliff"></a>
+### <a name="storage"></a>Storage
 Chaque ASE est configuré avec 500 Go de stockage. Cet espace est utilisé par toutes les applications dans l’ASE. Cet espace de stockage est une partie de l’ASE ; actuellement, aucun basculement pour utiliser votre espace de stockage n’est possible. Si vous ajustez le routage ou la sécurité de votre réseau virtuel, vous devez autoriser l’accès à Azure Storage ; sinon, l’ASE ne fonctionnera pas.
 
-### Base de données
-<a id="database" class="xliff"></a>
+### <a name="database"></a>Base de données
 La base de données conserve les informations qui définissent l’environnement, ainsi que des détails sur les applications exécutées. Cela est également inclus dans l’abonnement Azure. Il ne s’agit pas d’un élément que vous avez la possibilité de manipuler directement. Si vous ajustez le routage ou la sécurité de votre réseau virtuel, vous devez autoriser l’accès à SQL Azure ; sinon, l’ASE ne fonctionnera pas.
 
-### Réseau
-<a id="network" class="xliff"></a>
+### <a name="network"></a>Réseau
 Le réseau virtuel qui est utilisé avec votre ASE peut être un réseau que vous avez créé lors de la création de l’ASE ou un réseau que vous aviez créé au préalable. Si vous créez le sous-réseau lors de la création de l’ASE, cela force l’ASE à être dans le même groupe de ressources que le réseau virtuel. Si vous avez besoin que le groupe de ressources utilisé par votre ASE soit différent de celui de votre réseau virtuel, alors vous devez créer votre ASE à l’aide d’un modèle Resource Manager.
 
 Un réseau virtuel contient quelques restrictions utilisées pour un environnement App Service :
@@ -100,16 +98,14 @@ Par exemple, vous pouvez utiliser l’intégration de réseau virtuel pour vous 
 
 Si votre réseau virtuel est configuré avec un VPN ExpressRoute, vous devez être informé de certains des besoins de routage d’un ASE. Certaines configurations d’itinéraire défini par l’utilisateur ne sont pas compatibles avec un ASE. Pour plus de détails concernant l’exécution d’un ASE dans un réseau virtuel avec ExpressRoute, voir [Exécution d’un environnement App Service dans un réseau virtuel avec ExpressRoute][ExpressRoute].
 
-#### Sécurisation du trafic entrant
-<a id="securing-inbound-traffic" class="xliff"></a>
+#### <a name="securing-inbound-traffic"></a>Sécurisation du trafic entrant
 Il existe deux méthodes principales pour contrôler le trafic entrant dans votre ASE.  Vous pouvez utiliser des groupes de sécurité réseau (NSG) pour contrôler les adresses IP pouvant accéder à votre ASE comme décrit dans [Comment contrôler le trafic entrant dans un environnement App Service](app-service-app-service-environment-control-inbound-traffic.md) et vous pouvez également configurer votre ASE avec un équilibreur de charge interne (ILB).  Ces fonctionnalités peuvent par ailleurs être utilisées simultanément si vous souhaitez restreindre l’accès à votre ILB ASE à l’aide de groupes de sécurité réseau.
 
 Lorsque vous créez un ASE, une adresse IP virtuelle sera créée dans votre réseau virtuel.  Il existe deux types d’adresses IP virtuelles : internes et externes.  Lorsque vous créez un ASE avec une adresse IP virtuelle externe, les applications dans votre ASE sont accessibles via une adresse IP Internet routable. Si vous optez pour une adresse interne, votre ASE sera configuré avec un ILB et ne sera pas directement accessible par Internet.  Un ILB ASE nécessite malgré tout une adresse IP virtuelle externe, mais celle-ci est utilisée uniquement pour l’accès lié à la gestion et à la maintenance Azure.  
 
 Lors de la création de l’ILB ASE, vous indiquez le sous-domaine qu’il utilise et vous devez gérer votre propre serveur DNS pour le sous-domaine que vous spécifiez.  Étant donné que vous définissez le nom du sous-domaine, vous devez également gérer le certificat utilisé pour l’accès HTTPS.  Suite à la création d’un ASE, vous êtes invité à fournir le certificat.  Pour en savoir plus sur la création et l’utilisation d’un ILB ASE, voir [Utilisation d’un équilibreur de charge interne avec un environnement App Service][ILBASE]. 
 
-## Portail
-<a id="portal" class="xliff"></a>
+## <a name="portal"></a>Portail
 L’interface utilisateur sur le portail Azure vous permet de gérer et surveiller votre environnement App Service. Si vous possédez un ASE, il est possible que vous voyiez le symbole App Service dans votre barre latérale. Ce symbole est utilisé pour représenter les environnements App Service dans le portail Azure :
 
 ![Symbole d’environnement App Service][1]
@@ -120,8 +116,7 @@ Pour ouvrir l’interface utilisateur qui répertorie tous vos environnements Ap
 
 Ce premier panneau présente certaines propriétés de votre ASE avec un graphique de mesures par pool de ressources. Certaines des propriétés affichées dans le bloc **Essentiels** sont également des liens hypertexte qui ouvrent le panneau associé. Par exemple, vous pouvez sélectionner le nom de **réseau virtuel** pour ouvrir l’interface utilisateur associée au réseau virtuel dans lequel votre ASE est exécuté. Les **plans App Service** et les **applications** ouvrent des panneaux qui répertorient les éléments figurant dans votre ASE.  
 
-### Analyse
-<a id="monitoring" class="xliff"></a>
+### <a name="monitoring"></a>Analyse
 Les graphiques permettent de voir les différentes mesures de performances dans chaque pool de ressources. Vous pouvez analyser l’utilisation moyenne de l’UC et de la mémoire pour le pool frontal. Pour les pools de travail, vous pouvez surveiller la quantité utilisée et la quantité disponible.
 
 Plusieurs plans App Service peuvent utiliser les Workers dans un pool de travail. La charge de travail n’est pas distribuée de la même manière que pour les serveurs frontaux. L’analyse de l’utilisation de l’UC et de la mémoire ne fournit donc pas des informations pertinentes. Il est plus important de suivre le nombre de Workers que vous avez utilisés et qui sont disponibles, en particulier si vous gérez ce système pour d’autres utilisateurs.  
@@ -134,8 +129,7 @@ Les mesures dont nous venons de parler sont les mesures de l’environnement App
 
 Dans un ASE, tous les plans App Service sont des plans App Service dédiés. Cela signifie que les seules applications qui sont exécutées sur les hôtes alloués à ce plan App Service sont les applications de ce plan App Service. Pour afficher des détails sur votre plan App Service, affichez-le simplement à partir d’une liste quelconque dans l’interface utilisateur de l’ASE, voire à partir des **plans App Service** qui les répertorient tous.   
 
-### Paramètres
-<a id="settings" class="xliff"></a>
+### <a name="settings"></a>Paramètres
 Le panneau de l’ASE contient une section **Paramètres**. Cette dernière comprend plusieurs fonctionnalités importantes :
 
 **Paramètres** > **Propriétés** : le panneau **Paramètres** s’ouvre automatiquement lorsque vous affichez le panneau de votre ASE. Les **Propriétés**se trouvent dans la partie supérieure. Ici, plusieurs éléments sont redondants avec ce que vous voyez dans le bloc **Essentiels**, mais deux propriétés sont très utiles : **Adresse IP virtuelle** et **Adresses IP sortantes**.
@@ -150,8 +144,7 @@ Le panneau de base pour chaque pool de ressources fournit un graphique avec des 
 
 ![Interface utilisateur Paramètres du pool de travail][5]
 
-### Fonctionnalités de mise à l’échelle du portail
-<a id="portal-scale-capabilities" class="xliff"></a>
+### <a name="portal-scale-capabilities"></a>Fonctionnalités de mise à l’échelle du portail
 Il existe trois opérations de mise à l’échelle :
 
 * Modifier le nombre d’adresses IP dans l’ASE qui sont disponibles pour l’utilisation IP SSL.
@@ -172,8 +165,7 @@ Pour utiliser les fonctionnalités de mise à l’échelle automatique ou manuel
 
 ![Interface utilisateur Paramètres de mise à l’échelle][7]
 
-## Éléments à prendre en compte en matière de tolérance de pannes
-<a id="fault-tolerance-considerations" class="xliff"></a>
+## <a name="fault-tolerance-considerations"></a>Éléments à prendre en compte en matière de tolérance de pannes
 Vous pouvez configurer un environnement App Service pour utiliser jusqu’à 55 ressources de calcul au total. De ces 55 ressources de calcul, seules 50 peuvent être utilisées pour héberger des charges de travail. Il y a deux raisons à cela. Il existe au minimum 2 ressources de calcul frontales,  ce qui en laisse 53 au maximum pour prendre en charge d’allocation des pools de travail. Pour fournir une tolérance de panne, une ressource de calcul supplémentaire doit être allouée en respectant les règles suivantes :
 
 * Chaque pool de travail nécessite au moins une ressource de calcul supplémentaire qui n’est pas disponible pour qu’une charge de travail lui soit affectée.
@@ -194,14 +186,12 @@ L’encombrement minimal comprend 2 serveurs frontaux et 2 Workers.  Voici quelq
 
 L’aspect tolérance de panne est important, et vous devez le garder à l’esprit à mesure que votre mise à l’échelle dépasse certains seuils. Si vous souhaitez augmenter la capacité au-delà de 20 instances, alors passez à 22 instances ou plus, car un nombre de 21 instances n’ajoute pas plus de capacité. Cette remarque est également valable au-delà de 40 instances : le nombre suivant qui ajoute de la capacité est 42.  
 
-## Suppression d'un environnement App Service
-<a id="deleting-an-app-service-environment" class="xliff"></a>
+## <a name="deleting-an-app-service-environment"></a>Suppression d'un environnement App Service
 Si vous voulez supprimer un environnement App Service, utilisez simplement l’action **Supprimer** en haut du panneau Environnement App Service. Lorsque vous effectuez cette opération, vous êtes invité à entrer le nom de votre environnement App Service pour confirmer votre action. Lorsque vous supprimez un environnement App Service, vous supprimez également l’ensemble de son contenu.  
 
 ![Interface utilisateur Supprimer un environnement App Service][9]  
 
-## Prise en main
-<a id="getting-started" class="xliff"></a>
+## <a name="getting-started"></a>Prise en main
 Pour prendre en main les environnements App Service, consultez [Comment créer un environnement App Service](app-service-web-how-to-create-an-app-service-environment.md).
 
 Pour plus d’informations sur la plateforme Azure App Service, consultez la rubrique [Azure App Service](../app-service/app-service-value-prop-what-is.md).

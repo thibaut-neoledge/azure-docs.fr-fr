@@ -24,14 +24,10 @@ ms.lasthandoff: 05/08/2017
 
 
 ---
-<a id="manage-group-membership-for-users-in-your-azure-active-directory-tenant" class="xliff"></a>
-
-# Gérer l’appartenance à un groupe des utilisateurs dans votre client Azure Active Directory
+# <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Gérer l’appartenance à un groupe des utilisateurs dans votre client Azure Active Directory
 Cet article explique comment gérer les membres d’un groupe dans Azure Active Directory (Azure AD).
 
-<a id="how-do-i-find-the-members-and-manage-them" class="xliff"></a>
-
-## Comment trouver les membres et les gérer ?
+## <a name="how-do-i-find-the-members-and-manage-them"></a>Comment trouver les membres et les gérer ?
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
 
@@ -53,9 +49,7 @@ Cet article explique comment gérer les membres d’un groupe dans Azure Active 
    ![Commande Supprimer des membres](./media/active-directory-groups-members-azure-portal/remove-group-members-command.png)
 10. Lorsque vous avez terminé la modification des membres du groupe, sélectionnez **Enregistrer**.
 
-<a id="additional-information" class="xliff"></a>
-
-## Informations supplémentaires
+## <a name="additional-information"></a>Informations supplémentaires
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)

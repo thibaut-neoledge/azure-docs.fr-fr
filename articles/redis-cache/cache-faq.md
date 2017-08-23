@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 07/27/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: eeddc0da23192a0082f2fcddbb0cc5f3e4a72074
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-redis-cache-faq"></a>Forum aux questions sur le Cache Redis Azure
@@ -105,7 +104,7 @@ Chaque offre Cache Redis Azure propose différents niveaux de **taille**, de **b
 
 Voici quelques considérations relatives au choix d’une offre de Cache :
 
-* **Mémoire**: les niveaux De base et Standard offrent respectivement 250 Mo et 53 Go. Le niveau Premium offre jusqu’à 530 Go, voire plus [sur demande](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Pour plus d'informations, consultez [Tarification - Cache Redis Azure](https://azure.microsoft.com/pricing/details/cache/).
+* **Mémoire**: les niveaux De base et Standard offrent respectivement 250 Mo et 53 Go. Le niveau Premium offre jusqu’à 530 Go. Pour plus d'informations, consultez [Tarification - Cache Redis Azure](https://azure.microsoft.com/pricing/details/cache/).
 * **Performances réseau** : si vous avez une charge de travail qui nécessite un débit élevé, le niveau Premium offre davantage de bande passante par rapport au niveau Standard ou De base. En outre, à chaque niveau les caches de taille supérieure offrent davantage de bande passante en raison de la machine virtuelle sous-jacente qui héberge le cache. Pour plus d’informations, consultez le [tableau suivant](#cache-performance).
 * **Débit**: le niveau Premium offre le débit maximal disponible. Si le client ou le serveur de cache atteint la limite de bande passante, vous risquez de recevoir des erreurs d’expiration du côté client. Pour plus d’informations, consultez le tableau suivant.
 * **Haute disponibilité/contrat SLA** : le cache Redis Azure garantit la disponibilité d’un cache Standard/Premium à au moins 99,9 % du temps. Pour en savoir plus sur notre contrat SLA, consultez [Tarification - Cache Redis Azure](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). Le contrat SLA couvre uniquement la connectivité aux points de terminaison du Cache. Le contrat SLA ne couvre pas la protection contre la perte de données. Nous vous recommandons d’utiliser la fonctionnalité de persistance des données Redis disponible au niveau Premium pour accroître la résilience contre la perte de données.
@@ -130,8 +129,8 @@ Le tableau suivant présente les valeurs maximales de bande passante observées 
 
 De ce tableau, nous pouvons tirer les conclusions suivantes :
 
-* Le débit des caches de taille identique est plus élevé dans le niveau Premium que dans le niveau Standard. Par exemple, pour un cache de 6 Go, le débit de P1 est de 140 000 demandes par seconde (RPS), contre 49 000 dans le cas de C3.
-* Avec le clustering Redis, le débit augmente de façon linéaire à mesure que vous augmentez le nombre de partitions (nœuds) dans le cluster. Par exemple, si vous créez un cluster P4 de 10 partitions, le débit disponible est alors de 250 000 * 10 = 2,5 millions de demandes par seconde.
+* Le débit des caches de taille identique est plus élevé dans le niveau Premium que dans le niveau Standard. Par exemple, pour un cache de 6 Go, le débit de P1 est de 180 000 demandes par seconde (RPS), contre 49 000 dans le cas de C3.
+* Avec le clustering Redis, le débit augmente de façon linéaire à mesure que vous augmentez le nombre de partitions (nœuds) dans le cluster. Par exemple, si vous créez un cluster P4 de 10 partitions, le débit disponible est alors de 400 000 *10 = 4 millions de demandes par seconde.
 * Pour les tailles de clé supérieures, le débit du niveau Premium est plus élevé que celui du niveau Standard.
 
 | Niveau tarifaire | Taille | Cœurs d’unité centrale | Bande passante disponible | Taille de la valeur 1 Ko |
@@ -143,12 +142,12 @@ De ce tableau, nous pouvons tirer les conclusions suivantes :
 | C3 |6 Go |4 |400 / 50 |49 000 |
 | C4 |13 Go |2 |500 / 62,5 |61 000 |
 | C5 |26 Go |4 |1 000 / 125 |115 000 |
-| C6 |53 Go |8 |2 000 / 250 |150 000 |
-| **Tailles de cache Premium** | |**Cœurs de processeur par partition** | |**Demandes par seconde (RPS), par partition** |
-| P1 |6 Go |2 |1 000 / 125 |140 000 |
-| P2 |13 Go |4 |2 000 / 250 |220 000 |
-| P3 |26 Go |4 |2 000 / 250 |220 000 |
-| P4 |53 Go |8 |4 000 / 500 |250 000 |
+| C6 |53 Go |8 |2 000 / 250 |150 000 |
+| **Tailles de cache Premium** | |**Cœurs de processeur par partition** | **Mégabits par seconde (Mbit/s) / mégaoctets par seconde (Mo/s)** |**Demandes par seconde (RPS), par partition** |
+| P1 |6 Go |2 |1 500 / 187,5 |180 000 |
+| P2 |13 Go |4 |3 000 / 375 |360 000 |
+| P3 |26 Go |4 |3 000 / 375 |360 000 |
+| P4 |53 Go |8 |6 000 / 750 |400 000 |
 
 Pour obtenir des instructions sur le téléchargement des outils Redis comme `redis-benchmark.exe`, consultez la section [Comment exécuter des commandes Redis ?](#cache-commands) .
 
@@ -469,8 +468,12 @@ Pour plus d’informations sur la prise en main du cache Redis Azure, voir [Util
 ### <a name="managed-cache-service"></a>Service de cache géré
 [Le service de cache géré a été supprimé le 30 novembre 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
+Pour consulter la documentation archivée, voir [Documentation archivée du service de cache géré](https://msdn.microsoft.com/library/azure/dn386094.aspx).
+
 ### <a name="in-role-cache"></a>In-Role Cache
 [In-Role Cache a été supprimé le 30 novembre 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+
+Pour consulter la documentation archivée, voir [Documentation archivée du service In-Role Cache](https://msdn.microsoft.com/library/azure/dn386103.aspx).
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 

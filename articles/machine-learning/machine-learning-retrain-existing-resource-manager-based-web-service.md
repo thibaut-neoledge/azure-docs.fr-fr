@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: dc4716a26ba5c2ba93dda83890dbff81f22cbd2a
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: bdc994daf441d397157f8e6cbcf84d72584927f0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Reformer un service web prédictif existant
@@ -64,7 +64,7 @@ Pour cet exemple, nous utilisons le langage C# pour créer l’application de re
 
 Pour appeler les API de reformation :
 
-1. Créez une application console en C# dans Visual Studio (**Nouveau** > **Projet** > **Bureau Windows** > **Application console**).
+1. Créez une application console en C# dans Visual Studio : **Nouveau** > **Projet** > **Visual C#** > **Bureau classique Windows** > **Application console (.NET Framework)**.
 2. Connectez-vous au portail des services web Azure Machine Learning.
 3. Cliquez sur le service web que vous utilisez.
 4. Cliquez sur **Consommer**.

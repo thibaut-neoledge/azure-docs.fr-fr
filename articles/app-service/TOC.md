@@ -75,7 +75,6 @@
 ### Domaines personnalisés
 #### [Acheter et configurer des domaines personnalisés](../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Mapper votre propre domaine personnalisé](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Configurer des domaines GoDaddy](../app-service-web/web-sites-godaddy-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Domaines personnalisés avec Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [Cloner une application existante](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -147,6 +146,9 @@
 ### [Journaux en continu et console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Résoudre les problèmes à l’aide de Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
+# Référence
+## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=app-service)
+
 # Ressources
 ## [Référence App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Portail Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -154,6 +156,7 @@
 ## [meilleures pratiques](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [Tarification](https://azure.microsoft.com/pricing/details/app-service/)  
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [REST](https://docs.microsoft.com/rest/api/appservice/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=app-service) 
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 

@@ -1,6 +1,6 @@
 ---
-title: "Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions Azure - Azure CLI | Microsoft Docs"
-description: "Cette page explique comment utiliser Azure Network Watcher pour résoudre les problèmes liés à l’interface de ligne de commande Azure"
+title: "Résoudre des problèmes liés à la passerelle de réseau virtuel et aux connexions Azure - Azure CLI 2.0 | Microsoft Docs"
+description: "Cette page explique comment utiliser Azure Network Watcher pour résoudre des problèmes liés à Azure CLI 2.0"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -12,30 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 06/19/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a213c146a9ea1bb6c23bbcbfb6353372f2e4cbfc
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 09270cf3181476f3ed2c1720b497e707edff880e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/20/2017
 
 
 ---
 
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions Azure par le biais de l’interface de ligne de commande Azure d’Azure Network Watcher
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>Résoudre des problèmes liés à la passerelle de réseau virtuel et aux connexions à l’aide de l’Azure CLI 2.0 d’Azure Network Watcher
 
 > [!div class="op_single_selector"]
+> - [Portail](network-watcher-troubleshoot-manage-portal.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [INTERFACE DE LIGNE DE COMMANDE](network-watcher-troubleshoot-manage-cli.md)
+> - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
 > - [API REST](network-watcher-troubleshoot-manage-rest.md)
 
-Le service Network Watcher offre de nombreuses fonctionnalités en lien avec la bonne compréhension de vos ressources réseau dans Azure. Il permet notamment de résoudre les problèmes liés aux ressources. La résolution des problèmes de ressources peut être appelée par l’API REST, l’interface de ligne de commande ou PowerShell. Lorsque cette fonctionnalité est appelée, Network Watcher inspecte l’intégrité d’une passerelle de réseau virtuel ou d’une connexion et renvoie ses résultats.
+Le service Network Watcher offre de nombreuses fonctionnalités en lien avec la bonne compréhension de vos ressources réseau dans Azure. Il permet notamment de résoudre les problèmes liés aux ressources. Vous pouvez appeler la solution de résolution des problèmes de ressources via le portail, l’API REST, l’interface de ligne de commande ou PowerShell. Lorsque cette fonctionnalité est appelée, Network Watcher inspecte l’intégrité d’une passerelle de réseau virtuel ou d’une connexion et renvoie ses résultats.
 
-Cet article utilise l’interface Azure CLI 1.0 interplateforme, disponible pour Windows, Mac et Linux. Network Watcher utilise actuellement Azure CLI 1.0 pour la prise en charge d’interface CLI.
+Dans cet article, notre CLI nouvelle génération, Azure CLI 2.0, est utilisée pour le modèle de déploiement de gestion des ressources. Celle-ci est disponible pour Windows, Mac et Linux.
+
+Pour exécuter la procédure indiquée dans cet article, vous devez [installer l’interface de ligne de commande Azure pour Mac, Linux et Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Create a Network Watcher (Créer une instance Network Watcher)](network-watcher-create.md) pour créer une instance Network Watcher.
+Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Créer une instance d’Azure Network Watcher](network-watcher-create.md) pour créer un Network Watcher.
+
+Pour obtenir la liste des types de passerelles pris en charge, voir [Types de passerelles pris en charge](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -46,19 +53,13 @@ La résolution des problèmes liés aux ressources offre la possibilité de rés
 Dans cet exemple, la résolution des problèmes liés aux ressources s’effectue sur une connexion. Vous pouvez également la transférer à une passerelle de réseau virtuel. L’applet de commande suivante répertorie les connexions vpn dans un groupe de ressources.
 
 ```azurecli
-azure network vpn-connection list -g resourceGroupName
-```
-
-Vous pouvez également exécuter la commande pour afficher les connexions associées à un abonnement.
-
-```azurecli
-azure network vpn-connection list -s subscription
+az network vpn-connection list --resource-group resourceGroupName
 ```
 
 Une fois que vous connaissez le nom de la connexion, vous pouvez exécuter cette commande pour obtenir son ID de ressource :
 
 ```azurecli
-azure network vpn-connection show -g resourceGroupName -n connectionName
+az network vpn-connection show --resource-group resourceGroupName --ids vpnConnectionIds
 ```
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
@@ -68,27 +69,27 @@ La résolution des problèmes liés aux ressources renvoie des données concerna
 1. Créer le compte de stockage
 
     ```azurecli
-    azure storage account create -n storageAccountName -l location -g resourceGroupName
+    az storage account create --name storageAccountName --location westcentralus --resource-group resourceGroupName --sku Standard_LRS
     ```
 
 1. Obtenir les clés du compte de stockage
 
     ```azurecli
-    azure storage account keys list storageAccountName -g resourcegroupName
+    az storage account keys list --resource-group resourcegroupName --account-name storageAccountName
     ```
 
 1. Créer le conteneur
 
     ```azurecli
-    azure storage container create --account-name storageAccountName -g resourcegroupName --acount-key {storageAccountKey} --container logs
+    az storage container create --account-name storageAccountName --account-key {storageAccountKey} --name logs
     ```
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Procéder à la résolution des problèmes liés aux ressources Network Watcher
 
-Résolvez les problèmes liés aux ressources avec l’applet de commande `network watcher troubleshoot`. Nous transférons à l’applet de commande le groupe de ressources, le nom de Network Watcher, l’identifiant de la connexion, l’identifiant du compte de stockage, et le chemin d’accès à l’objet blob pour y stocker les résultats de résolution des problèmes.
+Résolvez les problèmes liés aux ressources avec l’applet de commande `az network watcher troubleshooting`. Nous transférons à l’applet de commande le groupe de ressources, le nom de Network Watcher, l’identifiant de la connexion, l’identifiant du compte de stockage, et le chemin d’accès à l’objet blob pour y stocker les résultats de résolution des problèmes.
 
 ```azurecli
-azure network watcher -g resourceGroupName -n networkWatcherName -t connectionId -i storageId -p storagePath
+az network watcher troubleshooting start --resource-group resourceGroupName --resource resourceName --resource-type {vnetGateway/vpnConnection} --storage-account storageAccountName  --storage-path https://{storageAccountName}.blob.core.windows.net/{containerName}
 ```
 
 Une fois l’applet de commande exécutée, Network Watcher passe en revue la ressource pour vérifier son intégrité. Les résultats sont renvoyés à l’interpréteur de commandes, et les journaux des résultats sont stockés dans le compte de stockage spécifié.

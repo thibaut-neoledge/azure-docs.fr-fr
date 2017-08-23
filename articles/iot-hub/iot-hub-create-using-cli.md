@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 159aed19b4c5e381ef15c40c15cf6bd7694d2fa3
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 161089159999a4a63a39b059e69a08b7a9297445
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/24/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Création d’un IoT Hub à l’aide de l’interface Azure CLI 2.0
@@ -79,14 +78,17 @@ Utilisez l’interface de ligne de commande Azure pour créer un groupe de resso
     >
     >
 
-2. Utilisez la [commande suivante pour créer un IoT Hub][lnk-az-iot-command] dans votre groupe de ressources :
+2. Exécutez la [commande suivante pour créer un IoT Hub][lnk-az-iot-command] dans votre groupe de ressources en utilisant un nom globalement unique pour votre IoT Hub :
     
     ```azurecli
     az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
     ```
 
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
+
 > [!NOTE]
-> Le nom de votre IoT Hub doit être globalement unique. La commande précédente crée un IoT Hub dans le niveau de tarification S1 pour lequel vous êtes facturé. Pour plus d’informations, voir la [tarification d’Azure IoT Hub][lnk-iot-pricing].
+> La commande précédente crée un IoT Hub dans le niveau de tarification S1 pour lequel vous êtes facturé. Pour plus d’informations, voir la [tarification d’Azure IoT Hub][lnk-iot-pricing].
 >
 >
 

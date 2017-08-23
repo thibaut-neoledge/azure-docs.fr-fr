@@ -4,7 +4,7 @@ description: "Comment exécuter un cluster Cassandra sous Linux, à partir d’
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: hanuk
-manager: erikre
+manager: routlaw
 editor: 
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: hanuk;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 7dc61a4ea5f7ce9749a3280562e42223dfdbde17
+ms.date: 08/17/2017
+ms.author: hanuk;tarcher
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: acfa9f6f0166167341fc54c4d55fb37e0a338024
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Exécution de Cassandra avec Linux sur Azure et accès au cluster depuis Node.js

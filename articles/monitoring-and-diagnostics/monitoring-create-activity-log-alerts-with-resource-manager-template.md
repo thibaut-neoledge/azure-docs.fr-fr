@@ -2,7 +2,7 @@
 title: "Créer une alerte de journal d’activité avec un modèle Resource Manager | Microsoft Docs"
 description: "Soyez informé lorsque vos ressources Azure sont créées."
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 07/06/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 239b8fe2a7724bb34e7060c90af73825e61d8398
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 26b140fef46a176b21bddbd7588543e71c251ed6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Créer une alerte de journal d’activité avec un modèle Resource Manager
@@ -27,10 +26,8 @@ Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Man
 
 Procédure de base :
 
-1.    Créez un modèle sous la forme d’un fichier JSON qui décrit comment créer l’alerte de journal d’activité.
-2.    [Déployez le modèle à l’aide de n’importe quelle méthode de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
-
-Ci-dessous, nous décrivons comment créer un modèle Resource Manager, d’abord pour une alerte de journal d’activité uniquement, puis pour une alerte de journal d’activité lors de la création d’une autre ressource.
+1.  Créez un modèle sous la forme d’un fichier JSON qui décrit comment créer l’alerte de journal d’activité.
+2.  [Déployez le modèle à l’aide de n’importe quelle méthode de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
 ## <a name="resource-manager-template-for-an-activity-log-alert"></a>Modèle Resource Manager pour une alerte de journal d’activité
 Pour créer une alerte de journal d’activité à l’aide d’un modèle Resource Manager, vous créez une ressource de type `microsoft.insights/activityLogAlerts` et renseignez toutes les propriétés. Voici un modèle qui crée une alerte de journal d’activité.
@@ -101,7 +98,11 @@ Pour créer une alerte de journal d’activité à l’aide d’un modèle Resou
 }
 ```
 
+Vous pouvez également [visiter notre galerie des modèles de démarrage rapide](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) pour obtenir des exemples de modèle d’alerte du journal d’activité.
+
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur les [alertes](monitoring-overview-alerts.md)  
-[Ajouter des groupes d’actions à l’aide d’un modèle Resource Manager](monitoring-create-action-group-with-resource-manager-template.md)
+- En savoir plus sur les [alertes](monitoring-overview-alerts.md)  
+- [Ajouter des groupes d’actions à l’aide d’un modèle Resource Manager](monitoring-create-action-group-with-resource-manager-template.md)
+- [Créez une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Créez une alerte de journal d’activité pour surveiller tous les échecs d’opérations de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/29/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
@@ -22,9 +22,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="update-your-automation-account-authentication-with-run-as-accounts" class="xliff"></a>
-
-# Mettre à jour l’authentification de votre compte Automation avec des comptes d’identification 
+# <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Mettre à jour l’authentification de votre compte Automation avec des comptes d’identification 
 Vous pouvez mettre à jour votre compte Automation existant à partir du portail ou utiliser PowerShell si :
 
 * Vous créez un compte Automation sans compte d’identification.
@@ -32,9 +30,7 @@ Vous pouvez mettre à jour votre compte Automation existant à partir du portail
 * Vous possédez déjà un compte Automation pour gérer les ressources classiques et souhaitez le mettre à jour pour utiliser le compte d’identification Classic au lieu de créer un compte et d’y migrer vos Runbooks et ressources.   
 * Vous souhaitez créer un compte d’identification standard et un compte d’identification Classic à l’aide d’un certificat émis par votre AC d’entreprise.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 
 * Ce script peut uniquement être exécuté sur Windows 10 et sur Windows Server 2016 avec les modules Azure Resource Manager 3.0.0 et versions ultérieures. Il n’est pas pris en charge dans les versions antérieures de Windows.
 * Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations sur la version PowerShell 1.0, voir [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
@@ -46,9 +42,7 @@ Pour obtenir les valeurs des paramètres *SubscriptionID*, *ResourceGroup* et *A
 2. Dans le panneau **Tous les paramètres**, sous **Paramètres du compte**, sélectionnez **Propriétés**. 
 3. Notez les valeurs dans le panneau **Propriétés**.<br><br> ![Panneau Propriétés du compte Automation](media/automation-create-runas-account/automation-account-properties.png)  
 
-<a id="required-permissions-to-update-your-automation-account" class="xliff"></a>
-
-### Autorisations requises pour mettre à jour votre compte Automation
+### <a name="required-permissions-to-update-your-automation-account"></a>Autorisations requises pour mettre à jour votre compte Automation
 Pour mettre à jour un compte Automation conformément à cette rubrique, vous devez disposer des privilèges spécifiques suivants et des autorisations requises.   
  
 * Votre compte d’utilisateur AD doit être ajouté à un rôle disposant d’autorisations équivalentes à celles du rôle Collaborateur pour les ressources Microsoft.Automation, comme indiqué dans l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
@@ -56,9 +50,7 @@ Pour mettre à jour un compte Automation conformément à cette rubrique, vous d
 
 Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant d’être ajouté au rôle Administrateur général/Coadministrateur de l’abonnement, vous êtes ajouté à Active Directory en tant qu’invité. Dans ce cas, vous recevez le message d’avertissement « Vous n’avez pas les autorisations pour créer… » dans le panneau **Ajouter un compte Automation**. Les utilisateurs qui ont d’abord reçu le rôle Administrateur général/Coadministrateur peuvent être supprimés de l’instance Active Directory de l’abonnement, puis rajoutés pour devenir des utilisateurs complets dans Active Directory. Pour vérifier si tel est le cas, dans le volet **Azure Active Directory** du portail Azure, sélectionnez **Utilisateurs et groupes** et **Tous les utilisateurs**, choisissez l’utilisateur concerné, puis sélectionnez **Profil**. La valeur de l’attribut **Type d’utilisateur** sous le profil de l’utilisateur ne doit pas être **Invité**.
 
-<a id="create-run-as-account-from-the-portal" class="xliff"></a>
-
-## Créer un compte d’identification à partir du portail
+## <a name="create-run-as-account-from-the-portal"></a>Créer un compte d’identification à partir du portail
 Dans cette section, exécutez la procédure ci-après pour mettre à jour votre compte Azure Automation dans le Portail Azure.  Vous créez les comptes d’identification Azure et Classic individuellement, et si vous n’avez pas besoin de gérer les ressources dans le portail Azure Classic, vous pouvez simplement créer le compte d’identification Azure.  
 
 Le processus crée les éléments ci-après dans votre compte Automation.
@@ -79,9 +71,7 @@ Le processus crée les éléments ci-après dans votre compte Automation.
 3. Selon le compte dont vous avez besoin, sélectionnez **Compte d’identification Azure** ou **Compte d’identification Azure Classic**.  Une fois que vous avez sélectionné une option, le panneau **Ajouter un compte d’identification Azure** ou **Ajouter un compte d’identification Azure Classic** s’affiche. Après avoir consulté les informations correspondantes, cliquez sur **Créer** pour procéder à la création du compte d’identification.  
 4. Pendant qu’Azure crée le compte d’identification, vous pouvez suivre la progression de l’opération sous **Notifications** à partir du menu, et une bannière s’affiche en indiquant le compte en cours de création.  L’exécution de ce processus peut prendre plusieurs minutes.  
 
-<a id="create-run-as-account-using-powershell-script" class="xliff"></a>
-
-## Créer un compte d’identification à l’aide d’un script PowerShell
+## <a name="create-run-as-account-using-powershell-script"></a>Créer un compte d’identification à l’aide d’un script PowerShell
 Ce script PowerShell prend en charge les configurations suivantes :
 
 * Créez un compte d’identification à l’aide d’un certificat auto-signé.
@@ -166,7 +156,7 @@ Selon l’option de configuration que vous sélectionnez, le script crée les é
 
         $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
         $KeyCredential.StartDate = $CurrentDate
-        $KeyCredential.EndDate= [DateTime]$PfxCert.GetExpirationDateString()
+        $KeyCredential.EndDate = Get-Date $PfxCert.GetExpirationDateString()
         $KeyCredential.EndDate = $KeyCredential.EndDate.AddDays(-1)
         $KeyCredential.KeyId = $KeyId
         $KeyCredential.CertValue  = $keyValue
@@ -307,8 +297,6 @@ Une fois le script exécuté, notez les points suivants :
 * Si vous avez créé un compte d’identification Classic avec un certificat public d’entreprise (fichier .cer), utilisez ce certificat. Suivez les instructions pour [charger un certificat d’API de gestion vers le portail Azure Classic](../azure-api-management-certs.md), puis validez la configuration des informations d’identification avec les ressources de déploiement classique à l’aide de [l’exemple de code pour l’authentification avec les ressources de déploiement Azure Classic](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Si vous n’avez *pas* créé de compte d’identification Classic, authentifiez-vous avec des ressources Resource Manager et validez la configuration des informations d’identification à l’aide [l’exemple de code pour l’authentification avec les ressources de gestion des services](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur les principaux de service, consultez l’article [Objets Principal du service et Application](../active-directory/active-directory-application-objects.md).
 * Pour plus d’informations sur les certificats et les services Azure, consultez la page [Vue d’ensemble des certificats pour Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

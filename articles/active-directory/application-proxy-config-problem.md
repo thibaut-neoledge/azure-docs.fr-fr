@@ -21,23 +21,17 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="problem-creating-an-application-proxy-application" class="xliff"></a>
-
-# Problèmes lors de la création d’une application de proxy d’application 
+# <a name="problem-creating-an-application-proxy-application"></a>Problèmes lors de la création d’une application de proxy d’application 
 
 Cet article aborde certains problèmes courants auxquels sont confrontés les utilisateurs lors de la création d’une application de proxy d’application.
 
-<a id="recommended-documents" class="xliff"></a>
-
-## Documents recommandés 
+## <a name="recommended-documents"></a>Documents recommandés 
 
 Pour en savoir plus sur la création d’une application de proxy d’application par le biais du portail d’administration, consultez [Publier des applications avec le Proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
 
 Si vous suivez les étapes décrites dans ce document et si vous obtenez une erreur lors de création de l’application, consultez les détails de l’erreur pour en savoir plus et découvrir des suggestions afin de corriger l’application. La plupart des messages d’erreur incluent la suggestion d’un correctif. 
 
-<a id="specific-things-to-check" class="xliff"></a>
-
-## Éléments spécifiques à vérifier
+## <a name="specific-things-to-check"></a>Éléments spécifiques à vérifier
 
 Pour éviter les erreurs courantes, vérifiez les points suivants :
 
@@ -55,8 +49,6 @@ Le message d’erreur doit s’afficher dans le coin supérieur droit lorsque vo
 
    ![Invite de notification](./media/application-proxy-config-problem/error-message.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Activer le proxy d’application dans le portail Azure](active-directory-application-proxy-enable.md)
 

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 17f6062537714fbef7c8509261ac4875f8a44b6e
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 75abfb977a47ccef45bcc2124b31fbd06ea7d68e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -28,23 +28,16 @@ Le panneau de rétention dans [Azure Application Insights](app-insights-overview
 
 Si aucune donné n’apparaît dans le panneau de rétention du portail Application Insights, [découvrez comment prendre en main les outils d’utilisation](app-insights-usage-overview.md).
 
-## <a name="the-retention-tool"></a>L’outil de rétention
+## <a name="the-retention-tool"></a>Outil de rétention
 
 ![Outil de rétention](./media/app-insights-usage-retention/retention.png)
 
-a. La page Vue d’ensemble est toujours affichée. Vous pouvez également enregistrer des rapports nommés avec des paramètres différents. Enregistrez sur Partagé pour rendre le rapport accessible aux autres utilisateurs ayant accès à la ressource.
-
-b. Par défaut, le graphique compte tous les utilisateurs ayant utilisé un des événements personnalisés ou des vues de pages reçues de votre application. Sélectionnez-en un, ou un sous-ensemble, pour cibler une activité utilisateur spécifique. 
-
-c. Ajoutez un ou plusieurs filtres sur les propriétés. Par exemple, vous pouvez cibler les utilisateurs dans un pays ou une région spécifique. Cliquez sur **Mettre à jour** après avoir défini les filtres.
-
-d. **Paramètres par défaut** efface toujours le filtre personnalisé et les filtres d’événements.
-
-e. Le graphique de résumé affiche les totaux sur la période sélectionnée.
-
-f. La grille indique le nombre d’utilisateurs qui sont revenus pour répéter les actions sélectionnées sur une période spécifique. Chaque ligne représente une cohorte d’utilisateurs ayant effectué une des actions sélectionnées pendant la période de temps indiquée. Chaque cellule de la ligne indique combien de cette cohorte sont revenus au moins une fois pendant une période ultérieure. Certains utilisateurs peuvent revenir pendant plusieurs périodes.
-
-Quiconque a utilisé l’application pendant l’intervalle de temps du graphique est représenté sur une ligne du graphique. Chaque utilisateur est comptabilisé sur la période lorsqu’il exécute pour la première fois l’action sélectionnée dans l’intervalle de temps du graphique. Le nombre tend ainsi à être plus important dans la première ligne.
+1. La barre d’outils permet aux utilisateurs de créer des rapports de rétention, d’ouvrir les rapports de rétention existants, d’enregistrer le rapport de rétention en cours directement ou à un autre emplacement, d’annuler les modifications apportées aux rapports enregistrés, d’actualiser les données du rapport, de partager des rapports par e-mail ou lien direct, et d’accéder à la page de documentation. 
+2. Par défaut, la rétention affiche tous les utilisateurs qui ont effectué une action, puis sont revenus et ont effectué une autre action sur une période donnée. Vous pouvez choisir une combinaison différente d’événements afin de filtrer des activités utilisateur particulières.
+3. Ajoutez un ou plusieurs filtres sur les propriétés. Par exemple, vous pouvez cibler les utilisateurs d’un pays ou d’une région spécifique. Cliquez sur **Mettre à jour** après avoir défini les filtres. 
+4. Le graphique de rétention globale récapitule la rétention utilisateur sur la période sélectionnée. 
+5. La grille affiche le nombre d’utilisateurs conservés en fonction du générateur de requêtes au point 2. Chaque ligne représente une cohorte d’utilisateurs ayant effectué l’un des événements pendant la période de temps indiquée. Chaque cellule de la ligne indique combien de cette cohorte sont revenus au moins une fois pendant une période ultérieure. Certains utilisateurs peuvent revenir pendant plusieurs périodes. 
+6. Les cartes d’aperçu affichent les 5 principaux événements de lancement et les 5 principaux événements renvoyés pour aider les utilisateurs à mieux comprendre leur rapport de rétention. 
 
 
 ## <a name="use-business-events-to-track-retention"></a>Utiliser des événements commerciaux pour suivre la rétention
@@ -69,9 +62,10 @@ Ou dans le code de serveur ASP.NET :
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-* [Vue d’ensemble de l’utilisation](app-insights-usage-overview.md)
-* [Utilisateurs et sessions](app-insights-usage-segmentation.md)
-* [Codage des événements personnalisés](app-insights-api-custom-events-metrics.md)
-
+- Pour activer les expériences d’utilisation, commencez à envoyer des [événements personnalisés](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou des [affichages de page](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Si vous envoyez déjà des événements personnalisés ou des affichages de page, explorez les outils d’utilisation pour savoir comment les utilisateurs emploient votre service.
+    - [Utilisateurs, sessions, événements](app-insights-usage-segmentation.md)
+    - [Entonnoirs](usage-funnels.md)
+    - [Classeurs](app-insights-usage-workbooks.md)
+    - [Ajouter du contexte utilisateur](app-insights-usage-send-user-context.md)
 

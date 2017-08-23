@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 52c095c9d3c92e32961927ac34770bb34fc768d5
+ms.translationtype: HT
+ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
+ms.openlocfilehash: cab019480a14de1a1481abee800553c6545add70
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Conseils sur les performances pour Azure Cosmos DB
@@ -49,7 +48,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
      Cosmos DB fournit un modèle de programmation RESTful simple et ouvert sur HTTPS. De plus, il fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le Kit de développement logiciel (SDK) .NET. Direct TCP et HTTPS SSL utilisent tous deux SSL pour l’authentification initiale et le chiffrement du trafic. Pour de meilleures performances, utilisez le protocole TCP lorsque cela est possible.
 
-     Lors de l’utilisation de TCP en mode passerelle, le port TCP 443 est le port de Cosmos DB et le port 10250 est le port de l’API de MongoDB. Lors de l’utilisation de TCP en mode direct, en plus des ports de passerelle, vous devez vous assurer que la plage de ports comprise entre 10000 et 20000 est ouverte, car Cosmos DB utilise les ports TCP dynamiques. Si ces ports ne sont pas ouverts et que vous essayez d’utiliser le protocole TCP, vous recevez une erreur de type 503 Service indisponible.
+     Lors de l’utilisation de TCP en mode passerelle, le port TCP 443 est le port de Cosmos DB et le port 10255 est le port de l’API de MongoDB. Lors de l’utilisation de TCP en mode direct, en plus des ports de passerelle, vous devez vous assurer que la plage de ports comprise entre 10000 et 20000 est ouverte, car Cosmos DB utilise les ports TCP dynamiques. Si ces ports ne sont pas ouverts et que vous essayez d’utiliser le protocole TCP, vous recevez une erreur de type 503 Service indisponible.
 
      Le mode connectivité est configuré lors de la construction de l’instance DocumentClient avec le paramètre ConnectionPolicy. Si le mode direct est utilisé, le protocole peut également être défini dans le paramètre ConnectionPolicy.
 
@@ -98,15 +97,13 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
     Les requêtes Cosmos DB sont effectuées par le biais de HTTPS/REST lors de l’utilisation du mode passerelle et sont soumises aux limites de connexion par défaut par nom d’hôte ou adresse IP. Vous devrez peut-être définir MaxConnections sur une valeur plus élevée (100 à 1000) afin que la bibliothèque cliente puisse utiliser plusieurs connexions simultanées à Cosmos DB. Dans le kit de développement logiciel (SDK) .NET 1.8.0 et versions ultérieures, la valeur par défaut pour [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) est 50. Pour modifier la valeur, vous pouvez définir [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) sur une valeur plus élevée.   
 4. **Paramétrage des requêtes parallèles pour les collections partitionnées**
 
-     La version 1.9.0 et les versions ultérieures du Kit de développement logiciel (SDK) .NET de DocumentDB prennent en charge les requêtes parallèles, qui vous permettent d’interroger une collection partitionnée en parallèle (pour plus d’informations, voir [Utilisation des kits de développement logiciel (SDK)](documentdb-partition-data.md#working-with-the-documentdb-sdks) et les [exemples de code](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) connexes). Les requêtes parallèles sont conçues pour améliorer la latence des requêtes et le débit sur leur équivalent série. Les requêtes parallèles fournissent deux paramètres que les utilisateurs peuvent paramétrer en fonction de leurs besoins, (a) MaxDegreeOfParallelism, pour contrôler le nombre maximal de partitions qui peuvent être interrogées en parallèle, et (b) MaxBufferedItemCount, pour contrôler le nombre de résultats pré-extraits.
+     La version 1.9.0 et les versions ultérieures du Kit de développement logiciel (SDK) .NET de DocumentDB prennent en charge les requêtes parallèles, qui vous permettent d’interroger une collection partitionnée en parallèle (pour plus d’informations, voir [Utilisation des kits de développement logiciel (SDK)](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) et les [exemples de code](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) connexes). Les requêtes parallèles sont conçues pour améliorer la latence des requêtes et le débit sur leur équivalent série. Les requêtes parallèles fournissent deux paramètres que les utilisateurs peuvent paramétrer en fonction de leurs besoins, (a) MaxDegreeOfParallelism, pour contrôler le nombre maximal de partitions qui peuvent être interrogées en parallèle, et (b) MaxBufferedItemCount, pour contrôler le nombre de résultats pré-extraits.
 
-    (a) La requête parallèle ***Tuning MaxDegreeOfParallelism\:***
-    interroge plusieurs partitions en parallèle. Les données d’une collection partitionnée individuelle sont toutefois extraites en série dans le cadre de la requête. La définition du paramètre MaxDegreeOfParallelism sur le nombre de partitions augmente les chances de résultats de la requête, sous réserve que toutes les autres conditions système restent inchangées. Si vous ne connaissez pas le nombre de partitions, vous pouvez définir le paramètre MaxDegreeOfParallelism sur un nombre élevé, et le système sélectionne le minimum (nombre de partitions, entrée fournie par l’utilisateur) comme paramètre MaxDegreeOfParallelism.
+    (a) La requête parallèle ***Tuning MaxDegreeOfParallelism\:*** interroge plusieurs partitions en parallèle. Les données d’une collection partitionnée individuelle sont toutefois extraites en série dans le cadre de la requête. La définition du paramètre MaxDegreeOfParallelism sur le nombre de partitions augmente les chances de résultats de la requête, sous réserve que toutes les autres conditions système restent inchangées. Si vous ne connaissez pas le nombre de partitions, vous pouvez définir le paramètre MaxDegreeOfParallelism sur un nombre élevé, et le système sélectionne le minimum (nombre de partitions, entrée fournie par l’utilisateur) comme paramètre MaxDegreeOfParallelism.
 
     Il est important de noter que les requêtes parallèles produisent de meilleurs résultats si les données sont réparties de manière homogène entre toutes les partitions. Si la collection est partitionnée de telle façon que toutes les données retournées par une requête, ou une grande partie d’entre elles, sont concentrées sur quelques partitions (une partition dans le pire des cas), les performances de la requête sont altérées par ces partitions.
 
-    (b) La requête parallèle ***Tuning MaxBufferedItemCount\:***
-    pré-extrait les résultats tandis que le lot de résultats est en cours de traitement par le client. La pré-extraction permet d’améliorer la latence globale d’une requête. MaxBufferedItemCount est le paramètre utilisé pour limiter le nombre de résultats pré-extraits. La définition du paramètre MaxBufferedItemCount sur le nombre de résultats attendu (ou un nombre plus élevé) permet à la requête d’optimiser la pré-extraction.
+    (b) La requête parallèle ***Tuning MaxBufferedItemCount\:*** pré-extrait les résultats tandis que le lot de résultats courant est en cours de traitement par le client. La pré-extraction permet d’améliorer la latence globale d’une requête. MaxBufferedItemCount est le paramètre utilisé pour limiter le nombre de résultats pré-extraits. La définition du paramètre MaxBufferedItemCount sur le nombre de résultats attendu (ou un nombre plus élevé) permet à la requête d’optimiser la pré-extraction.
 
     Notez que la pré-extraction fonctionne de la même façon, quel que soit le paramètre MaxDegreeOfParallelism, et il existe une seule mémoire tampon pour les données de toutes les partitions.  
 5. **Activation de GC côté serveur**

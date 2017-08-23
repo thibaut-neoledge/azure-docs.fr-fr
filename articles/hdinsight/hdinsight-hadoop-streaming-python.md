@@ -1,7 +1,8 @@
 ---
-title: "Développement de travaux MapReduce Python avec HDInsight | Microsoft Docs"
-description: "Découvrez comment créer et exécuter des tâches MapReduce Python sur des clusters HDInsight Linux."
+title: "Développer des travaux MapReduce de diffusion en continu Python avec HDInsight - Azure | Documents Microsoft"
+description: "Découvrez comment utiliser Python dans des travaux MapReduce de diffusion en continu. Hadoop fournit une API de diffusion en continu pour MapReduce pour l’écriture dans des langages autres que Java."
 services: hdinsight
+keyword: mapreduce python,python map reduce,python mapreduce
 documentationcenter: 
 author: Blackmist
 manager: jhubbard
@@ -9,31 +10,30 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: ce96113ad979997c555bc64698c0b78822b525ad
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: b86605c49291a99f49c4b2841d46324cfd0db56d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/22/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
-# <a name="develop-python-streaming-programs-for-hdinsight"></a>Développement de programmes de diffusion en continu Python pour HDInsight
+# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Développer des programmes MapReduce de diffusion en continu Python pour HDInsight
 
-Découvrez comment utiliser Python dans des opérations MapReduce. Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d'écrire des fonctions de mappage et de réduction dans d'autres langages que Java. Les étapes décrites dans ce document implémentent les composants de mappage et de réduction dans Python.
+Découvrez comment utiliser Python dans des opérations MapReduce de diffusion en continu. Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d'écrire des fonctions de mappage et de réduction dans d'autres langages que Java. Les étapes décrites dans ce document implémentent les composants de mappage et de réduction dans Python.
 
 ## <a name="prerequisites"></a>Composants requis
 
 * Un cluster Hadoop Linux sur HDInsight
 
   > [!IMPORTANT]
-  > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un éditeur de texte
 
@@ -79,7 +79,7 @@ Python peut facilement gérer ces exigences en utilisant le module `sys` pour li
    def main(separator='\t'):
        # Read the data using read_input
        data = read_input(sys.stdin)
-       # Process each words returned from read_input
+       # Process each word returned from read_input
        for words in data:
            # Process each word
            for word in words:
@@ -152,7 +152,7 @@ Utilisez le script PowerShell suivant pour charger les fichiers, exécuter la t�
     Avec cette commande, les fichiers du système local sont copiés dans le nœud principal.
 
     > [!NOTE]
-    > Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous êtes invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d’accès à la clé privée, par exemple, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
+    > Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous êtes invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 2. Connectez-vous au cluster à l’aide de SSH :
 

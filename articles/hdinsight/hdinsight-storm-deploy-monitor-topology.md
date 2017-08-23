@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 92c715015067363fa6d6b58f436891f4d38e19e5
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 34072574f83b51280e60e2f8766c6c5d5a33c307
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Déploiement et gestion des topologies Apache Storm sur HDInsight Windows
@@ -31,7 +30,7 @@ Le tableau de bord Storm vous permet de déployer et d’exécuter des topologie
 Le tableau de bord Storm et les fonctionnalités Storm des outils HDInsight s’appuient sur l’API REST Storm, qui peut être utilisée pour créer vos propres solutions d’analyse et de gestion.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un tableau de bord Storm sur un cluster HDInsight utilisant Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Les étapes décrites dans ce document nécessitent un tableau de bord Storm sur un cluster HDInsight utilisant Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Pour plus d’informations sur le déploiement et la gestion des topologies avec un cluster HDInsight utilisant Linux, consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
 
@@ -45,10 +44,9 @@ Le tableau de bord Storm et les fonctionnalités Storm des outils HDInsight s’
 
     L’une des versions suivantes de Visual Studio :
 
-  * Visual Studio 2012 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+  * Visual Studio 2012 avec Update 4
 
-  * Visual Studio 2013 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
-  * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
+  * Visual Studio 2013 avec Update 4 ou Visual Studio 2013 Community
 
   * Visual Studio 2015 (toute édition)
 

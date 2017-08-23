@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0dd751d9c824f27bdb25681908cb0dca5116100b
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -88,8 +88,9 @@ L’application logique a également été configurée avec une action destinée
 
 Vous pouvez à présent ajouter une autre action, telle que l’action [SQL Server - Insérer une ligne](connectors-create-api-sqlazure.md), pour insérer le contenu du fichier nouveau ou modifié dans une table de base de données SQL.  
 
-## <a name="view-the-swagger"></a>Afficher Swagger
-Consultez les [détails sur Swagger](/connectors/ftpconnector/). 
+## <a name="connector-specific-details"></a>Détails spécifiques aux connecteurs
+
+Consultez tous les déclencheurs et les actions définies dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/ftpconnector/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)

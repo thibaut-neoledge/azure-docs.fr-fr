@@ -1,99 +1,36 @@
-
-
 # Vue d'ensemble
-
-
 ## [Prise en main](get-started.md)
-
-
 ## [Certifications](sap-certifications.md)
-
-
-# Identité
-
-
+# SAP HANA sur Azure (grandes instances)
+## [Présentation et architecture](hana-overview-architecture.md)
+## [Infrastructure et connectivité](hana-overview-infrastructure-connectivity.md)
+## [Installation de SAP HANA](hana-installation.md)
+## [Haute disponibilité et récupération d’urgence](hana-overview-high-availability-disaster-recovery.md)
+## [Résolution des problèmes et surveillance](troubleshooting-monitoring.md)
+# SAP HANA sur des machines virtuelles Azure
+## [Instance SAP HANA unique](hana-get-started.md)
+## [Guide de déploiement de S/4 HANA ou BW/4 HANA SAP CAL](cal-s4h.md)
+## [Haute disponibilité de SAP HANA dans des machines virtuelles Azure](sap-hana-high-availability.md)
+## [Vue d’ensemble de la sauvegarde SAP HANA](sap-hana-backup-guide.md)
+## [Sauvegarde SAP HANA au niveau des fichiers](sap-hana-backup-file-level.md)
+## [Capture instantanée de stockage SAP HANA](sap-hana-backup-storage-snapshots.md)
+# SAP NetWeaver sur les machines virtuelles Azure
+## [Guide de déploiement SAP IDES sur Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
+## [SAP NetWeaver sur les machines virtuelles Azure Linux](suse-quickstart.md)
+## [Planifier l’implémentation de SAP NetWeaver dans Azure](planning-guide.md)
+## [Haute disponibilité sur Windows](high-availability-guide.md)
+## [Haute disponibilité sur SUSE Linux](high-availability-guide-suse.md)
+## [Configurations à plusieurs SID](high-availability-multi-sid.md)
+## [Guide de déploiement](deployment-guide.md)
+## [Guide de déploiement SGBD](dbms-guide.md)
+## [Récupération d’urgence de SAP avec Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
+# Intégration d’identité d’AAD SAP et authentification unique
 ## [Intégration avec SAP Cloud](../../../active-directory/active-directory-saas-sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-
-
-## [Intégration avec SAP HANA](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-
-
-## [Configuration de l’authentification unique avec SAP HANA](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-
-
-## [Intégration avec SAP Netweaver](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-
-
-## [Intégration avec SAP Business ByDesign](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-
-
-# Solutions SAP dans Azure
-
-
-## SAP HANA grandes instances
-
-
-### [Présentation et architecture](hana-overview-architecture.md)
-
-
-### [Infrastructure et connectivité](hana-overview-infrastructure-connectivity.md)
-
-
-### [Installation de SAP HANA](hana-installation.md)
-
-
-### [Haute disponibilité et récupération d’urgence](hana-overview-high-availability-disaster-recovery.md)
-
-
-### [Résolution des problèmes et surveillance](troubleshooting-monitoring.md)
-
-
-## SAP HANA sur des machines virtuelles
-
-
-### [Instance SAP HANA unique](hana-get-started.md)
-
-
-### [Guide de déploiement de S/4 HANA ou BW/4 HANA SAP CAL](cal-s4h.md)
-
-
-### [Haute disponibilité dans les machines virtuelles](sap-hana-high-availability.md)
-
-
-### [Présentation de la sauvegarde](sap-hana-backup-guide.md)
-
-
-### [Sauvegarde au niveau fichier](sap-hana-backup-file-level.md)
-
-
-### [Capture instantanée de stockage](sap-hana-backup-storage-snapshots.md)
-
-
-## SAP NetWeaver
-
-
-### [Guide de déploiement SAP IDES sur Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
-
-
-### [Présentation et architecture](suse-quickstart.md)
-
-
-### [Planification et mise en œuvre](planning-guide.md)
-
-
-### [Haute disponibilité](high-availability-guide.md)
-
-
-### [Configurations à plusieurs SID](high-availability-multi-sid.md)
-
-
-### [Guide de déploiement](deployment-guide.md)
-
-
-### [Guide de déploiement SGBD](dbms-guide.md)
-
-
+## [Intégration d’AAD avec la plateforme cloud d’identification SAP](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [Configurer l’authentification unique avec la plateforme cloud SAP](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [Intégration d’AAD avec SAP Netweaver](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [Intégration d’AAD avec SAP Business ByDesign](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [Intégration d’AAD avec le gestionnaire de base de données SAP HANA](../../../active-directory/active-directory-saas-saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+##[Authentification unique SAP Fiori Launchpad SAML avec Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad)
 # Ressources
-
-
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)

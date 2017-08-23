@@ -12,30 +12,30 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 6a69dc900eee2f539a2b1740c4e89132e2bd6db7
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: b6e9c7b71fa6fc78f97c0144c735fc44778181d8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/05/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="understand-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
+# <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
 
-## <a name="overview"></a>Vue d'ensemble
-
-Chaque IoT Hub a un registre des identités contenant des informations sur les appareils autorisés à se connecter au IoT Hub. Pour qu’un appareil puisse se connecter à un Hub, une entrée correspondant à cet appareil doit figurer dans le registre des identités de l’IoT Hub. Un appareil doit également s’authentifier auprès de l’IoT Hub à l’aide des informations d’identification stockées dans le registre des identités.
+Chaque IoT Hub a un registre des identités contenant des informations sur les appareils autorisés à se connecter à l’IoT Hub. Pour qu’un appareil puisse se connecter à un Hub, une entrée correspondant à cet appareil doit figurer dans le registre des identités de l’IoT Hub. Un appareil doit également s’authentifier auprès de l’IoT Hub à l’aide des informations d’identification stockées dans le registre des identités.
 
 L’ID d’appareil stocké dans le registre des identités respecte la casse.
 
-À un niveau supérieur, le registre des identités est une collection compatible REST de ressources d’identité d’appareil. Lorsque vous ajoutez une entrée au registre des identités, IoT Hub crée un jeu de ressources par appareil dans le service, comme une file d’attente contenant des messages cloud vers appareil en transit.
+À un niveau supérieur, le registre des identités est une collection compatible REST de ressources d’identité d’appareil. Lorsque vous ajoutez une entrée au registre des identités, IoT Hub crée un jeu de ressources par appareil, comme une file d’attente contenant des messages cloud vers appareil en transit.
 
 ### <a name="when-to-use"></a>Quand utiliser
 
-Utilisez le registre des identités lorsque vous avez besoin de configurer des appareils qui se connectent à votre IoT Hub, et devez contrôler l’accès par appareil aux points de terminaison côté appareil de votre hub.
+Utilisez le registre des identités lorsque vous avez besoin d’effectuer les actions suivantes :
+
+* Approvisionner des appareils qui se connectent à votre IoT Hub.
+* Contrôler l’accès par appareil aux points de terminaison côté appareil de votre concentrateur.
 
 > [!NOTE]
 > Le registre des identités ne contient pas de métadonnées spécifiques de l’application.
@@ -86,30 +86,28 @@ Vous pouvez importer des identités d’appareils en bloc dans le registre des i
 
 ## <a name="device-provisioning"></a>Approvisionnement des appareils
 
-Les données d’appareil qu’une solution IoT donnée stocke dépendent des exigences spécifiques de cette solution. Mais une solution doit au minimum stocker les clés d’authentification et les identités des appareils. Azure IoT Hub inclut un registre d’identité qui peut stocker des valeurs pour chaque appareil, comme les ID, les clés d’authentification et les codes d’état. Une solution peut utiliser d’autres services Azure, tels que le stockage de tables Azure, le stockage Blob Azure ou Azure Cosmos DB pour stocker des données supplémentaires sur les appareils.
+Les données d’appareil qu’une solution IoT donnée stocke dépendent des exigences spécifiques de cette solution. Mais une solution doit au minimum stocker les clés d’authentification et les identités des appareils. Azure IoT Hub inclut un registre d’identité qui peut stocker des valeurs pour chaque appareil, comme les ID, les clés d’authentification et les codes d’état. Une solution peut utiliser d’autres services Azure, tels que le stockage de tables, le stockage Blob ou Cosmos DB pour stocker des données d’appareil supplémentaires.
 
 *Approvisionnement des appareils* est le processus d'ajout des données d'appareil initial aux magasins dans votre solution. Pour permettre à un nouvel appareil de se connecter à votre hub, vous devez ajouter un ID et des clés d’appareil au registre des identités d’IoT Hub. Dans le cadre du processus d’approvisionnement, vous devrez peut-être initialiser les données spécifiques à l’appareil dans d’autres magasins de la solution.
 
 ## <a name="device-heartbeat"></a>Pulsation des appareils
 
-Le registre des identités IoT Hub contient un champ appelé **connectionState**. Vous ne devez utiliser le champ **connectionState** que pendant le développement et le débogage. Les solutions IoT ne doivent pas interroger le champ au moment de l’exécution (par exemple, pour vérifier si un appareil est connecté pour décider de l’envoi d’un message cloud-à-appareil ou d’un SMS).
+Le registre des identités IoT Hub contient un champ appelé **connectionState**. Vous ne devez utiliser le champ **connectionState** que pendant le développement et le débogage. Les solutions IoT ne doivent pas interroger le champ au moment de l’exécution. Par exemple, n’interrogez pas le champ **connectionState** pour vérifier si un appareil est connecté avant d’envoyer un message cloud vers appareil ou un SMS.
 
-Si votre solution IoT a besoin de savoir si un appareil est connecté (au moment de l’exécution ou sur la base d’informations plus précises que celles fournies par la propriété **connectionState**), vous devez implémenter le *modèle par pulsations*.
+Si votre solution IoT a besoin de savoir si un appareil est connecté, vous devez implémenter le *modèle de pulsation*.
 
-Dans le modèle par pulsations, l’appareil envoie des messages appareil-à-cloud au moins une fois par durée fixe (par exemple, au moins une fois par heure). Ainsi, même si un appareil n’a pas de données à envoyer, il envoie toujours un message appareil-à-cloud vide (généralement avec une propriété qui l’identifie comme pulsation). Côté service, la solution gère un mappage avec la dernière pulsation reçue pour chaque appareil. Elle suppose qu’un problème affecte un appareil si elle ne reçoit pas un message de pulsation dans le temps imparti.
+Dans le modèle par pulsations, l’appareil envoie des messages appareil-à-cloud au moins une fois par durée fixe (par exemple, au moins une fois par heure). Ainsi, même si un appareil n’a pas de données à envoyer, il envoie toujours un message appareil-à-cloud vide (généralement avec une propriété qui l’identifie comme pulsation). Côté service, la solution gère un mappage avec la dernière pulsation reçue pour chaque appareil. Si la solution ne reçoit pas de message de pulsation dans le temps imparti de la part de l’appareil, elle suppose qu’il y a un problème avec l’appareil.
 
 Une implémentation plus complexe pourrait inclure les informations de la [surveillance des opérations][lnk-devguide-opmon] pour identifier les appareils qui ne parviennent pas à se connecter ou à communiquer. Quand vous implémentez le modèle par pulsations, veillez à vérifier les [quotas et limitations IoT Hub][lnk-quotas].
 
 > [!NOTE]
-> Si une solution IoT a uniquement besoin de l’état de la connexion de l’appareil pour déterminer si elle doit envoyer des messages cloud-à-appareil, et que ces messages ne sont pas diffusés à de larges groupes d’appareils, une solution plus simple peut être de définir un délai d’expiration court. Ce modèle permet d’obtenir le même résultat qu’en maintenant l’état de la connexion de l’appareil avec sa pulsation, tout en étant plus efficace. Il est également possible, en demandant des accusés de réception des messages, d’être informé par IoT Hub des appareils qui peuvent recevoir des messages et de ceux qui ne sont pas en ligne ou qui sont en état d’échec.
+> Si une solution IoT utilise uniquement l’état de la connexion de l’appareil pour déterminer si elle doit envoyer des messages cloud vers appareil, et que ces messages ne sont pas diffusés à de larges groupes d’appareils, envisagez d’utiliser un modèle de *délai d’expiration court* plus simple. Ce modèle permet d’obtenir le même résultat qu’en maintenant l’état de la connexion de l’appareil avec sa pulsation, tout en étant plus efficace. Si vous demandez des accusés de réception des messages, IoT Hub peut vous informer sur les appareils en mesure de recevoir des messages et ceux qui ne le sont pas.
 
 ## <a name="device-lifecycle-notifications"></a>Notifications de cycle de vie des appareils
 
 IoT Hub peut avertir votre solution IoT lorsqu’une identité d’appareil est créée ou supprimée, en envoyant des notifications de cycle de vie des appareils. Pour ce faire, votre solution IoT doit créer un itinéraire et définir la source de données *DeviceLifecycleEvents*. Par défaut, aucune notification du cycle de vie n’est envoyée. Autrement dit, aucun itinéraire n’existe préalablement. Le message de notification inclut le corps et les propriétés.
 
-- Propriétés
-
-Les propriétés système du message ont pour préfixe le symbole `'$'`.
+Propriétés : les propriétés système du message ont pour préfixe le symbole `'$'`.
 
 | Nom | Valeur |
 | --- | --- |
@@ -117,16 +115,15 @@ $content-type | application/json |
 $iothub-enqueuedtime |  Heure d’envoi de la notification |
 $iothub-message-source | deviceLifecycleEvents |
 $content-encoding | utf-8 |
-opType | “createDeviceIdentity” ou “deleteDeviceIdentity” |
+opType | **createDeviceIdentity** ou **deleteDeviceIdentity** |
 hubName | Nom de l’IoT Hub |
 deviceId | ID de l’appareil |
 operationTimestamp | Horodatage ISO8601 de l’opération |
 iothub-message-schema | deviceLifecycleNotification |
 
-- body
+Corps : cette section est au format JSON et représente le double de l’identité d’appareil créé. Par exemple,
 
-Cette section est au format JSON et représente le double de l’identité d’appareil créé. Par exemple,
-``` 
+```json
 {
     "deviceId":"11576-ailn-test-0-67333793211",
     "etag":"AAAAAAAAAAE=",
@@ -177,9 +174,9 @@ Les identités des appareils sont représentées sous forme de documents JSON av
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
 
 * La rubrique [Points de terminaison IoT Hub][lnk-endpoints] décrit les différents points de terminaison que chaque IoT Hub expose pour les opérations d’exécution et de gestion.
-* La rubrique [Quotas et limitation][lnk-quotas] décrit les quotas appliqués au service IoT Hub, et le comportement de limitation auquel s’attendre en cas d’utilisation du service.
+* La rubrique [Référence - Quotas et limitation IoT Hub][lnk-quotas] décrit les quotas et le comportement de limitation qui s’appliquent au service IoT Hub.
 * La section [Azure IoT device et service SDK][lnk-sdks] répertorie les Kits de développement logiciel (SDK) en différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
-* L’article [Langage de requête d’IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer, à partir d’IoT Hub, des informations relatives à vos jumeaux d’appareil et à vos travaux.
+* La rubrique [Référence - Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query] décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur des jumeaux d’appareil et des travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes

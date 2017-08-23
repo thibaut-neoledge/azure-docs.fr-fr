@@ -10,19 +10,18 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: f974c2714fc600d850baff64fdf65aae178e5068
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 6b3ee17141f773bec07cf40e0b6d63363e9b5164
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Présentation d’Apache Hive et HiveQL sur Azure HDInsight
@@ -54,7 +53,7 @@ Utilisez le tableau suivant pour découvrir comment utiliser Hive avec HDInsight
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux ou Windows* |Windows |
 
 > [!IMPORTANT]
-> \* Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> \* Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Si vous utilisez un cluster HDInsight basé sur Windows, vous pouvez utiliser la [console de requête](hdinsight-hadoop-use-hive-query-console.md) depuis votre navigateur ou [Bureau à distance](hdinsight-hadoop-use-hive-remote-desktop.md) pour exécuter des requêtes Hive.
 

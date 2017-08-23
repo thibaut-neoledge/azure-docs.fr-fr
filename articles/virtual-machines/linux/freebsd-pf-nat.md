@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a1470234489d67e0dd90237029ce454437f9bfee
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: cd777291a1321eabf4efe0d7b9b101f932d9398b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -59,7 +59,7 @@ az network public-ip list --resource-group myResourceGroup
 ## <a name="next-steps"></a>Étapes suivantes
 Voulez-vous configurer votre propre NAT dans Azure ? L’Open Source, gratuit mais puissant ? Alors PF est un bon choix. En utilisant le modèle [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), il vous suffit de cinq minutes pour configurer un pare-feu NAT avec équilibrage de charge de tourniquet à l’aide de PF de FreeBSD dans Azure pour un scénario de serveur web courant. 
 
-Si vous souhaitez en savoir plus sur l’offre de FreeBSD dans Azure, reportez-vous à [Présentation de FreeBSD sur Azure](./../virtual-machines-freebsd-intro-on-azure.md).
+Si vous souhaitez en savoir plus sur l’offre de FreeBSD dans Azure, reportez-vous à [Présentation de FreeBSD sur Azure](freebsd-intro-on-azure.md).
 
 Si vous souhaitez en savoir plus sur PF, reportez-vous au [Manuel de FreeBSD](https://www.freebsd.org/doc/handbook/firewalls-pf.html) ou au [Guide de l’utilisateur de PF](https://www.freebsd.org/doc/handbook/firewalls-pf.html).
 

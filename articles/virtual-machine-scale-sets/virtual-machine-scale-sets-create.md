@@ -13,19 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 07/21/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 736918ea310f276d961fa396f719b2b7809f0c0f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 32af01aa545c541688128a7ae6bbb82a0e046f2d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
-<a id="create-and-deploy-a-virtual-machine-scale-set" class="xliff"></a>
-
-# Créer et déployer un groupe de machines virtuelles identiques
+# <a name="create-and-deploy-a-virtual-machine-scale-set"></a>Créer et déployer un groupe de machines virtuelles identiques
 Les jeux de mise à l’échelle de machines virtuelles facilitent le déploiement et la gestion de machines virtuelles identiques en tant qu’ensemble. Les groupes à échelle identique fournissent une couche de calcul hautement évolutive et personnalisable pour les applications « hyperscale », et prennent en charge les images de plateforme Windows, les images de plateforme Linux, des images personnalisées et les extensions. Pour plus d’informations sur les groupes identiques, consultez [Groupes de machines virtuelles identiques](virtual-machine-scale-sets-overview.md).
 
 Ce didacticiel vous montre comment créer un groupe de machines virtuelles identiques **sans** utiliser le portail Azure. Pour plus d’informations sur l’utilisation du portail Azure, consultez [Création d’un groupe de machines virtuelles identiques avec le portail Azure](virtual-machine-scale-sets-portal-create.md).
@@ -33,9 +31,7 @@ Ce didacticiel vous montre comment créer un groupe de machines virtuelles ident
 >[!NOTE]
 >Pour plus d’informations sur les ressources Azure Resource Manager, consultez [Déploiement Azure Resource Manager et déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
 
-<a id="sign-in-to-azure" class="xliff"></a>
-
-## Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Si vous utilisez Azure CLI 2.0 ou Azure PowerShell pour créer un groupe identique, vous devez d’abord vous connecter à votre abonnement.
 
@@ -49,9 +45,7 @@ az login
 Login-AzureRmAccount
 ```
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Créer un groupe de ressources
+## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 Vous devez d’abord créer un groupe de ressources auquel est associé le groupe de machines virtuelles identiques.
 
@@ -63,9 +57,7 @@ az group create --location westus2 --name MyResourceGroup1
 New-AzureRmResourceGroup -Location westus2 -Name MyResourceGroup1
 ```
 
-<a id="create-from-azure-cli" class="xliff"></a>
-
-## Créer à partir de l’interface de ligne de commande Azure
+## <a name="create-from-azure-cli"></a>Créer à partir de l’interface de ligne de commande Azure
 
 Avec Azure CLI, vous pouvez créer un groupe de machines virtuelles identiques avec un minimum d’effort. Si vous omettez les valeurs par défaut, elles vous sont fournies. Par exemple, si vous ne spécifiez pas les informations du réseau virtuel, un réseau virtuel est créé pour vous. Si vous omettez les parties suivantes, elles sont créées pour vous : 
 - Un équilibrage de charge
@@ -112,9 +104,7 @@ Une fois la commande exécutée, le groupe de machines virtuelles identiques est
 az vmss list-instance-connection-info --resource-group MyResourceGroup1 --name MyScaleSet
 ```
 
-<a id="create-from-powershell" class="xliff"></a>
-
-## Créer à partir de PowerShell
+## <a name="create-from-powershell"></a>Créer à partir de PowerShell
 
 PowerShell est plus complexe à utiliser que l’interface CLI Azure. Alors que l’interface CLI Azure fournit les valeurs par défaut pour les ressources relatives à la mise en réseau (équilibrage de charge, adresse IP, réseau virtuel), ce n’est pas le cas de PowerShell. La référence à une image avec PowerShell est également un peu plus complexe. Vous pouvez obtenir des images avec les applets de commande suivantes :
 
@@ -191,9 +181,13 @@ Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig
 New-AzureRmVmss -ResourceGroupName $rg -Name "MyScaleSet1" -VirtualMachineScaleSet $vmssConfig
 ```
 
-<a id="create-from-a-template" class="xliff"></a>
+### <a name="using-a-custom-virtual-machine-image"></a>Utilisation d’une image de machine virtuelle personnalisée
+Si vous créez un groupe identique à partir de votre propre image personnalisée, au lieu de faire référence à une image de machine virtuelle de la galerie, la commande _Set-AzureRmVmssStorageProfile_ ressemble à ceci :
+```PowerShell
+Set-AzureRmVmssStorageProfile -OsDiskCreateOption FromImage -ManagedDisk PremiumLRS -OsDiskCaching "None" -OsDiskOsType Linux -ImageReferenceId (Get-AzureRmImage -ImageName $VMImage -ResourceGroupName $rg).id
+```
 
-## Créer à partir d’un modèle
+## <a name="create-from-a-template"></a>Créer à partir d’un modèle
 
 Vous pouvez déployer un groupe de machines virtuelles identiques à l’aide d’un modèle Azure Resource Manager. Vous pouvez créer votre propre modèle, ou en utiliser un issu du [référentiel de modèles](https://azure.microsoft.com/resources/templates/?term=vmss). Ces modèles peuvent être déployés directement dans votre abonnement Azure.
 
@@ -202,21 +196,15 @@ Vous pouvez déployer un groupe de machines virtuelles identiques à l’aide d�
 
 Un exemple de modèle est disponible [sur GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). Pour plus d’informations sur la création et l’utilisation de cet exemple, consultez [Groupe identique viable minimal](.\virtual-machine-scale-sets-mvss-start.md).
 
-<a id="create-from-visual-studio" class="xliff"></a>
-
-## Créer à partir de Visual Studio
+## <a name="create-from-visual-studio"></a>Créer à partir de Visual Studio
 
 Avec Visual Studio, vous pouvez créer un projet de groupe de ressources Azure et y ajouter un modèle de groupe de machines virtuelles identiques. Vous pouvez choisir de l’importer à partir de GitHub ou de la galerie d’applications web Azure. Un script de déploiement PowerShell est également généré pour vous. Pour plus d’informations, consultez [Création d’un groupe de machines virtuelles identiques avec Visual Studio](virtual-machine-scale-sets-vs-create.md).
 
-<a id="create-from-the-azure-portal" class="xliff"></a>
-
-## Créer à partir du portail Azure
+## <a name="create-from-the-azure-portal"></a>Créer à partir du portail Azure
 
 Le portail Azure offre un moyen pratique de créer rapidement un groupe identique. Pour plus d’informations, consultez [Création d’un groupe de machines virtuelles identiques avec le portail Azure](virtual-machine-scale-sets-portal-create.md).
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les [disques de données](virtual-machine-scale-sets-attached-disks.md).
 

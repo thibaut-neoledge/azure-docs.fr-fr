@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 07eddeb35c2b88b2de08270d9ff5de317cc09ec7
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: db658319637f1a45616091e034a0fc4db44885d4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/22/2017
 
 ---
 
@@ -101,8 +101,8 @@ Les entrées peuvent être longues.  Exporter au format CSV pour une étude plus
 
 Pour plus d’informations sur l’outil Analytics, cliquez [ici](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
-^[!NOTE]
-^La Communauté a développé une visionneuse userjourney pour aider les développeurs d’identité.  Elle n’est pas prise en charge par Microsoft et est mise à disposition tel quel.  Elle effectue une lecture à partir de votre instance d’Application Insights et fournit une vue bien structurée des événements userjourney.  Vous obtenez le code source et le déployez dans votre propre solution.
+>[!NOTE]
+>La communauté a développé une visionneuse userjourney pour aider les développeurs d’identité.  Elle n’est pas prise en charge par Microsoft et est mise à disposition tel quel.  Elle effectue une lecture à partir de votre instance d’Application Insights et fournit une vue bien structurée des événements userjourney.  Vous obtenez le code source et le déployez dans votre propre solution.
 
 [Référentiel Github pour exemples de stratégies personnalisées non pris en charge et outils connexes](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 

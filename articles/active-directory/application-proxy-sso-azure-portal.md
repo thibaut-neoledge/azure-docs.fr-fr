@@ -5,45 +5,43 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: asteen
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/20/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: b0454ad51a2d0edecb6f7e7748ec3b74eeefa1da
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 9ddc0c1bd5f2cbb24f6761cfd041b820ee6464b8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
+# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Authentification unique avec mise au coffre des mots de passe par le biais du proxy d’application
 
-# <a name="provide-single-sign-on-with-azure-ad-application-proxy---public-preview"></a>Fournir l’authentification unique à l’aide du proxy d’application Azure AD - Version préliminaire publique
+Le service Proxy d’application Azure Active Directory vous aide à améliorer la productivité en publiant des applications locales afin que les employés travaillant à distance puissent également y accéder. Dans le portail Azure, vous pouvez également configurer l’authentification unique auprès de ces applications. Vos utilisateurs n’ont qu’à s’authentifier auprès d’Azure AD pour accéder à votre application d’entreprise sans se reconnecter.
 
-Le service Proxy d’application Azure Active Directory vous aide à améliorer la productivité en publiant des applications locales afin que les employés travaillant à distance puissent également y accéder. Dans le portail Azure, vous pouvez également configurer l’authentification unique auprès de ces applications. Maintenant, vos utilisateurs doivent seulement s’authentifier auprès d’Azure AD et ils peuvent accéder à votre application d’entreprise sans se reconnecter.
+Le proxy d’application prend en charge plusieurs [modes d’authentification unique](application-proxy-sso-overview.md). L’authentification par mot de passe est destinée aux applications qui utilisent une combinaison nom d’utilisateur/mot de passe pour l’authentification. Lorsque vous configurez l’authentification par mot de passe pour votre application, vos utilisateurs ne doivent se connecter à l’application locale qu’une seule fois. Azure Active Directory stocke ensuite les informations de connexion et les fournit automatiquement à l’application lorsque vos utilisateurs y accèdent à distance. 
 
-Dans cet article, nous utilisons l’exemple d’une application basée sur un mot de passe pour montrer comment le stockage du mot de passe fournit une expérience d’authentification unique simple. 
-
-Vous devez avoir déjà publié et testé votre application avec le proxy d’application. Sinon, suivez les étapes de la rubrique [Publier des applications avec le proxy d’application Azure AD - Version préliminaire publique](application-proxy-publish-azure-portal.md) avant de revenir ici. 
-
-Ou, si vous n’êtes pas familiarisé avec le proxy d’application, consultez l’article [Offrir un accès à distance sécurisé aux applications locales](active-directory-application-proxy-get-started.md).
+Vous devez avoir déjà publié et testé votre application avec le proxy d’application. Sinon, suivez les étapes de la rubrique [Publier des applications avec le Proxy d’application Azure AD](application-proxy-publish-azure-portal.md) avant de revenir ici. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Configurer le stockage de mots de passe pour votre application
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 2. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Toutes les applications**.
-3. Dans la liste, sélectionnez l’application pour laquelle vous voulez configurer l’authentification unique. Si vous disposez de nombreuses applications, vous pouvez utiliser la zone de recherche pour rechercher l’application correcte par filtrage.  
-4. Sous la section Gérer, sélectionnez **Authentification unique**.
+3. Dans la liste, sélectionnez l’application pour laquelle vous voulez configurer l’authentification unique.  
+4. Sélectionner **Authentification unique**.
 
    ![Sélectionner l’authentification unique](./media/application-proxy-sso-azure-portal/select-sso.png)
 
 5. Pour le mode d’authentification unique, choisissez **Authentification par mot de passe**.
-6. Pour l’URL de connexion, entrez l’URL de la page où les utilisateurs entrent leur nom d’utilisateur et leur mot de passe pour se connecter à votre application. Il doit s’agir de l’URL externe que vous avez créée quand vous avez publié l’application par le biais du proxy d’application. 
+6. Pour l’URL de connexion, entrez l’URL de la page où les utilisateurs entrent leur nom d’utilisateur et leur mot de passe pour se connecter à votre application en dehors du réseau d’entreprise. Il peut s’agir de l’URL externe que vous avez créée quand vous avez publié l’application par le biais du proxy d’application. 
 
    ![Choisissez Authentification par mot de passe et entrez votre URL.](./media/application-proxy-sso-azure-portal/password-sso.png)
 
@@ -55,9 +53,9 @@ Ou, si vous n’êtes pas familiarisé avec le proxy d’application, consultez 
 
 ## <a name="test-your-app"></a>Test de l'application
 
-Accédez au [site Mes apps](https://myapps.microsoft.com) et sélectionnez l’application que vous venez de configurer. Connectez-vous avec vos informations d’identification pour cette application (ou celles du compte de test pour lequel vous avez configuré un accès). Une fois que vous êtes connecté, vous devez pouvoir quitter l’application et revenir sans entrer à nouveau vos informations d’identification. 
+Accédez à l’URL externe que vous avez configurée pour l’accès à distance à votre application. Connectez-vous avec vos informations d’identification associées à cette application (ou celles d’un compte de test pour lequel vous avez configuré un accès). Une fois que vous êtes connecté, vous devez pouvoir quitter l’application et revenir sans entrer à nouveau vos informations d’identification. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les autres façons d’implémenter l’[authentification unique avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
-
+- En savoir plus sur les autres façons d’implémenter l’[authentification unique avec le proxy d’application](application-proxy-sso-overview.md)
+- En savoir plus sur les [considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD](application-proxy-security-considerations.md)

@@ -12,19 +12,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 06/12/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 14212dd4b9eff135d379a7431d0aaa0e396a6f7f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: f18605ec638a628805f5bd1c7207e9d874f104f3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Remise continue pour Cloud Services dans Azure
 Le processus décrit dans cet article vous explique comment configurer la remise continue pour les applications cloud Azure. Ce processus vous permet de créer automatiquement des packages et de les déployer dans Azure après chaque intégration du code. Le processus de génération du package décrit dans cet article est équivalent à la commande **Package** de Visual Studio et les étapes de la publication sont les mêmes que pour la commande **Publish** dans Visual Studio.
 Cet article présente les méthodes que vous allez utiliser pour créer un serveur de builds avec des instructions de ligne de commande MSBuild et des scripts Windows PowerShell. Il explique également comment configurer les définitions Visual Studio Team Foundation Server - Team Build à utiliser avec les commandes MSBuild et les scripts PowerShell. Ce processus est personnalisable en fonction de votre environnement de génération et des environnements Azure cibles.
 
-Vous pouvez également utiliser Visual Studio Team Services, une version de TFS hébergée sur Azure, pour effectuer ces opérations plus facilement. Pour plus d’informations, consultez la page [Remise continue pour Azure avec Visual Studio Team Services][Continuous Delivery to Azure by Using Visual Studio Team Services].
+Vous pouvez également utiliser Visual Studio Team Services, une version de TFS hébergée sur Azure, pour effectuer ces opérations plus facilement. 
 
 Avant de commencer, vous devez publier votre application à partir de Visual Studio.
 Ceci vous assure que toutes les ressources sont disponibles et initialisées lorsque vous tentez d'automatiser le processus de publication.
@@ -45,7 +46,7 @@ Visual Studio ne doit pas obligatoirement être installé sur le serveur de bui
 ## <a name="2-build-a-package-using-msbuild-commands"></a>2 : Génération d'un package à l'aide des commandes MSBuild
 Cette section décrit la création d'une commande MSBuild qui génère un package Azure. Exécutez cette étape sur le serveur de builds pour vérifier que tout est correctement configuré et que la commande MSBuild fait ce que vous attendez d’elle. Vous pouvez ajouter cette ligne de commande aux scripts existants sur le serveur de builds. Vous pouvez aussi utiliser la ligne de commande dans une définition de build TFS, comme décrit dans la section suivante. Pour plus d’informations sur les paramètres de ligne de commande et MSBuild, consultez la page [Référence de la ligne de commande MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
-1. Si Visual Studio est installé sur le serveur de builds, localisez puis choisissez **Visual Studio Command Prompt** dans le dossier **Visual Studio Tools** sous Windows.
+1. Si Visual Studio est installé sur le serveur de builds, localisez puis choisissez **Invite de commandes de Visual Studio** dans le dossier **Visual Studio Tools** sous Windows.
 
    Si Visual Studio n'est pas installé sur le serveur de builds, ouvrez une invite de commandes et assurez-vous que MSBuild.exe est bien accessible sur le chemin d'accès. MSBuild est installé avec .NET Framework dans %WINDIR%\\Microsoft.NET\\Framework\\*Version*. Par exemple, pour ajouter MSBuild.exe à la variable d'environnement PATH quand .NET Framework 4 est installé, tapez la commande suivante à l'invite de commandes :
 
@@ -97,7 +98,7 @@ Pour configurer TFS pour générer des packages Azure, procédez comme suit :
 Cette section décrit la création d'un script Windows PowerShell qui publie le résultat du package de l'application cloud dans Azure à l'aide de paramètres facultatifs. Ce script peut être appelé après l'étape de compilation dans votre automatisation de build personnalisée. Il peut également être appelé depuis les activités de workflow du modèle de processus dans Visual Studio TFS Team Build.
 
 1. Installez les [applets de commande Azure PowerShell][Azure PowerShell cmdlets] (v0.6.1 ou version ultérieure).
-   Pendant la phase de configuration des applets de commande, choisissez l’installation comme composant logiciel enfichable. Cette installation, officiellement prise en charge, remplace l’ancienne version proposée via CodePlex, même si les versions étaient numérotées 2.x.x.
+   Pendant la phase de configuration des applets de commande, choisissez l’installation en tant que composant logiciel enfichable. Cette installation, officiellement prise en charge, remplace l’ancienne version proposée via CodePlex, même si les versions étaient numérotées 2.x.x.
 2. Démarrez Azure PowerShell dans le menu ou la page Démarrer. Si vous démarrez de cette façon, les cmdlets Azure PowerShell sont chargées.
 3. À l'invite de commandes PowerShell, vérifiez que les cmdlets PowerShell sont bien chargées en tapant la commande partielle `Get-Azure` et en appuyant sur la touche Tab pour compléter l'instruction.
 
@@ -115,10 +116,10 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 6. Vérifiez la section des paramètres de ce script. Ajoutez des valeurs ou modifiez les valeurs par défaut. Ces valeurs peuvent de toute manière être ignorées en indiquant des paramètres explicites.
 7. Assurez-vous que les comptes valides de service cloud et de stockage créés dans votre abonnement peuvent être utilisés par le script de publication. Le compte de stockage (stockage d'objets blob) est utilisé pour télécharger et stocker de façon temporaire le package de déploiement et le fichier de configuration pendant la création du déploiement.
 
-   * Pour créer un service cloud, vous pouvez appeler ce script ou utiliser le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Le nom du service cloud sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique.
+   * Pour créer un service cloud, vous pouvez appeler ce script ou utiliser le [portail Azure](https://portal.azure.com). Le nom du service cloud sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique.
 
          New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
-   * Pour créer un compte de stockage, vous pouvez appeler ce script ou utiliser le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Le nom du compte de stockage sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique. Vous pouvez essayer d'utiliser le même nom que le service cloud.
+   * Pour créer un compte de stockage, vous pouvez appeler ce script ou utiliser le [portail Azure](https://portal.azure.com). Le nom du compte de stockage sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique. Vous pouvez essayer d'utiliser le même nom que le service cloud.
 
          New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 8. Appelez ce script directement depuis Azure PowerShell ou ajoutez ce script à votre automatisation de build hôte afin qu'il arrive après la génération du package.
@@ -132,7 +133,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 
        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
-   Cette opération est normalement suivie d'un test de vérification et d'un échange d'adresses IP virtuelles. Cet échange d’adresses IP virtuelles peut se faire via le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) ou à l’aide de l’applet de commande Move-Deployment.
+   Cette opération est normalement suivie d'un test de vérification et d'un échange d'adresses IP virtuelles. Cet échange d’adresses IP virtuelles peut se faire par le biais du [portail Azure](https://portal.azure.com) ou à l’aide de l’applet de commande Move-Deployment.
 
    **Exemple de scénario 2 :** déploiement continu d’un service de test dédié dans l’environnement de production
 
@@ -156,7 +157,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 
        Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-   Vous pouvez également exporter le fichier de certificat PFX avec une clé privée et télécharger les certificats sur chaque service cloud ciblé à l’aide du [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
+   Vous pouvez également exporter le fichier de certificat PFX avec une clé privée et charger les certificats sur chaque service cloud ciblé à l’aide du [portail Azure](https://portal.azure.com).
 
    <!---
    Fixing broken links for Azure content migration from ACOM to DOCS. I'm unable to find a replacement links, so I'm commenting out this reference for now. The author can investigate in the future. "Read the following article to learn more: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx.
@@ -515,7 +516,6 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 ## <a name="next-steps"></a>Étapes suivantes
 Pour activer le débogage à distance quand vous utilisez la remise continue, consultez [Activation du débogage distant lors de l’utilisation de la remise continue pour publier sur Azure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
 
-[Continuous Delivery to Azure by Using Visual Studio Team Services]: cloud-services-continuous-delivery-use-vso.md
 [Team Foundation Build Service]: https://msdn.microsoft.com/library/ee259687.aspx
 [.NET Framework 4]: https://www.microsoft.com/download/details.aspx?id=17851
 [.NET Framework 4.5]: https://www.microsoft.com/download/details.aspx?id=30653
@@ -530,9 +530,4 @@ Pour activer le débogage à distance quand vous utilisez la remise continue, co
 [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
 [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
 [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

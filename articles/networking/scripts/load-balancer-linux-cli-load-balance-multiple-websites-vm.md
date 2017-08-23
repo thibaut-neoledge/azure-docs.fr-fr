@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 04/19/2017
+ms.date: 07/07/2017
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b4bfc65a4a32e33e6eaecf16e928484862100cd1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c5a584b33025122033b930822ae0a0864a7ec1cb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -34,7 +34,7 @@ Cet exemple de script crée un réseau virtuel avec deux machines virtuelles qui
 ## <a name="sample-script"></a>Exemple de script
 
 
-[!code-azurecli[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "Équilibrer la charge de plusieurs sites web")]
+[!code-azurecli-interactive[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "Équilibrer la charge de plusieurs sites web")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
@@ -53,14 +53,14 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) | Crée un réseau virtuel et un sous-réseau Azure. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) | Crée une adresse IP publique avec une adresse IP statique et un nom DNS associé. |
-| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) | Crée un équilibreur de charge réseau Azure. |
-| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) | Crée une sonde d’équilibrage de charge réseau. Une sonde d’équilibrage de charge réseau permet de surveiller chaque machine virtuelle dans le jeu d’équilibrage de charge réseau. Si une machine virtuelle n’est plus accessible, le trafic n’est pas acheminé vers cette machine virtuelle. |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | Crée une règle d’équilibrage de charge réseau. Dans cet exemple, une règle est créée pour le port 80. Comme le trafic HTTP arrive au niveau de l’équilibrage de charge réseau, il est acheminé vers le port 80 de l’une des machines virtuelles du jeu d’équilibrage de charge réseau. |
+| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) | Crée un équilibreur de charge Azure. |
+| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) | Crée une sonde d’équilibreur de charge. Les sondes d’équilibreurs de charge permettent de surveiller chaque machine virtuelle d’un jeu d’équilibrage de charge. Si une machine virtuelle n’est plus accessible, le trafic n’est pas acheminé vers cette machine virtuelle. |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | Crée une règle d’équilibeur de charge. Dans cet exemple, une règle est créée pour le port 80. Le trafic HTTP qui arrive à l’équilibreur de charge est acheminé vers le port 80 de l’une des machines virtuelles du jeu d’équilibrage de charge. |
 | [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) | Créez une adresse IP frontale pour l’équilibrage de charge. |
 | [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) | Crée un pool d’adresses principal. |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) | Crée une carte réseau virtuelle et l’associe au réseau virtuel et au sous-réseau. |
 | [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | Crée un groupe à haute disponibilité. Les groupes à haute disponibilité garantissent le temps de fonctionnement des applications en répartissant les machines virtuelles sur les ressources physiques de sorte que, en cas d’échec, l’ensemble du groupe ne soit pas affecté. |
-| [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config#create) | Crée une configuration IP. Vous devez activer la fonction Microsoft.Network/AllowMultipleIpConfigurationsPerNic pour votre abonnement. Une seule configuration peut être désignée comme configuration IP principale par carte réseau, à l’aide de l’indicateur --make-primary. |
+| [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config#create) | Crée une configuration IP. Vous devez activer la fonction Microsoft.Network/AllowMultipleIpConfigurationsPerNic pour votre abonnement. Seule une configuration par carte réseau peut être désignée comme configuration IP principale, à l’aide de l’indicateur --make-primary. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | Crée la machine virtuelle et l’associe à la carte réseau, au réseau virtuel, au sous-réseau et au groupe de sécurité réseau. Cette commande spécifie également l’image de machine virtuelle à utiliser ainsi que les informations d’identification d’administration.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
@@ -68,5 +68,5 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Vous pouvez trouver des exemples supplémentaires de scripts CLI de la mise en réseau dans la [documentation Vie d’ensemble de la mise en réseau Azure](../cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Vous pouvez trouver des exemples supplémentaires de scripts CLI de mise en réseau dans la [documentation Vue d’ensemble de la mise en réseau Azure](../cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
 

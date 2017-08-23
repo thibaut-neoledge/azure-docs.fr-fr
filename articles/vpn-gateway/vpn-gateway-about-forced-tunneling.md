@@ -13,19 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 08/01/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 568d8a31306b7065765ea73e831697c9de7e60e6
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 79bf6892c823da282c3e763921e830f986419854
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuration du tunneling forcé à l’aide du modèle de déploiement classique
 
-Le tunneling forcé vous permet de rediriger ou de « forcer » tout le trafic Internet vers votre emplacement local via un tunnel VPN site à site pour l’inspection et l’audit. Il s’agit d’une condition de sécurité critique pour la plupart des stratégies informatiques d’entreprise. Sans le tunneling forcé, le trafic Internet depuis vos machines virtuelles dans Azure se fera toujours à partir de l’infrastructure du réseau Azure directement vers Internet, sans vous laisser inspecter ou vérifier le trafic. L’accès Internet non autorisé peut entraîner la divulgation d’informations ou tout autre type de faille de sécurité.
+Le tunneling forcé vous permet de rediriger ou de « forcer » tout le trafic Internet vers votre emplacement local via un tunnel VPN site à site pour l’inspection et l’audit. Il s’agit d’une condition de sécurité critique pour la plupart des stratégies informatiques d’entreprise. Sans le tunneling forcé, le trafic Internet depuis vos machines virtuelles dans Azure se fera toujours à partir de l’infrastructure du réseau Azure directement vers Internet, sans vous laisser inspecter ou vérifier le trafic. L’accès Internet non autorisés est susceptible d’entraîner la divulgation d’informations ou tout autre type de violation de sécurité.
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -38,14 +37,14 @@ Cet article vous guide dans la configuration du tunneling forcé pour les résea
 > 
 
 ## <a name="requirements-and-considerations"></a>Conditions requises et éléments à prendre en compte
-Le tunneling forcé dans Azure est configuré via les itinéraires de réseau virtuel définis par l’utilisateur. La redirection du trafic vers un site local est exprimée comme un itinéraire par défaut vers la passerelle VPN Azure. La section suivante répertorie la limite actuelle de la table et des itinéraires de routage pour un réseau virtuel Azure :
+Le tunneling forcé dans Azure est configuré par le biais d’itinéraires définis par l’utilisateur de réseau virtuel. La redirection du trafic vers un site local est exprimée comme un itinéraire par défaut vers la passerelle VPN Azure. La section suivante répertorie la limite actuelle de la table et des itinéraires de routage pour un réseau virtuel Azure :
 
 * Chaque sous-réseau du réseau virtuel dispose d’une table de routage système intégrée. La table de routage système comporte les trois groupes d’itinéraires suivants :
-  
-  * **Itinéraire de réseau virtuel local :** directement vers les machines virtuelles de destination dans le même réseau virtuel
-  * **Itinéraires locaux :** vers la passerelle VPN Azure
+
+  * **Itinéraires de réseau virtuel local :** directement vers les machines virtuelles de destination dans le même réseau virtuel.
+  * **Itinéraires locaux :** vers la passerelle VPN Azure.
   * **Itinéraire par défaut :** directement vers Internet. Les paquets destinés à des adresses IP privées non couvertes par les deux itinéraires précédents sont supprimés.
-* Avec des itinéraires définis par l’utilisateur, vous pouvez créer une table, y ajouter un itinéraire par défaut, puis associer celle-ci à un ou plusieurs sous-réseaux de réseau virtuel pour activer le tunneling forcé sur ces derniers.
+* Grâce aux itinéraires définis par l’utilisateur, vous pouvez créer une table de routage, y ajouter un itinéraire par défaut, puis associer cette table à un ou plusieurs sous-réseaux de réseau virtuel pour activer le tunneling forcé sur ces derniers.
 * Vous devez définir un « site par défaut » parmi les sites locaux intersites connectés au réseau virtuel.
 * Le tunneling forcé doit être associé à un réseau virtuel équipé d'une passerelle VPN à routage dynamique (pas de passerelle statique).
 * Le tunneling forcé ExpressRoute n'est pas configuré de cette manière, mais il est activé par la publication d’un itinéraire par défaut via les sessions d'homologation BGP ExpressRoute. Pour plus d’informations, voir [Documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) .
@@ -62,7 +61,7 @@ Vérifiez que vous disposez des éléments suivants avant de commencer la config
 
 * Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * Un réseau virtuel configuré. 
-* La version la plus récente des applets de commande Azure PowerShell. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) .
+* La version la plus récente des applets de commande Azure PowerShell. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="configure-forced-tunneling"></a>Configurer un tunneling forcé
 La procédure suivant vous permettra de spécifier le tunneling forcé dans un réseau virtuel. Les étapes de configuration correspondent au fichier de configuration de réseau virtuel.
@@ -105,9 +104,9 @@ La procédure suivant vous permettra de spécifier le tunneling forcé dans un r
     </VirtualNetworkSite>
 ```
 
-Dans cet exemple, le réseau virtuel « MultiTier-VNet » comporte trois sous-réseaux : *Frontend*, *Midtier* et *Backend*, ainsi que quatre connexions intersites : *DefaultSiteHQ* et trois *Branches*. 
+Dans cet exemple, le réseau virtuel « MultiTier-VNet » comporte trois sous-réseaux : « Frontend », « Midtier » et « Backend », ainsi que quatre connexions intersites : « DefaultSiteHQ » et trois branches. 
 
-La procédure définit *DefaultSiteHQ* comme connexion de site par défaut pour le tunneling forcé et configure les sous-réseaux Midtier et Backend de manière à ce qu’ils utilisent le tunneling forcé.
+La procédure définit « DefaultSiteHQ » comme connexion de site par défaut pour le tunneling forcé et configure les sous-réseaux « Midtier » et « Backend » de manière à ce qu’ils utilisent le tunneling forcé.
 
 1. Créez une table de routage. Utilisez l’applet de commande suivante pour créer votre table d’itinéraires.
 
@@ -115,23 +114,23 @@ La procédure définit *DefaultSiteHQ* comme connexion de site par défaut pour 
   New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
   ```
 2. Ajoutez un itinéraire par défaut à la table de routage. 
-   
-    L’exemple suivant ajoute un itinéraire par défaut à la table de routage créée à l’étape 1. Le seul itinéraire pris en charge est le préfixe de destination de « 0.0.0.0/0 » vers le prochain saut « VPNGateway ».
+
+  L’exemple suivant ajoute un itinéraire par défaut à la table de routage créée à l’étape 1. Le seul itinéraire pris en charge est le préfixe de destination de « 0.0.0.0/0 » vers le prochain saut « VPNGateway ».
 
   ```powershell
   Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
   ```
 3. Associez la table de routage aux sous-réseaux. 
-   
-    Une fois la table de routage créée et l’itinéraire ajouté, utilisez l’exemple suivant pour ajouter ou associer la table d’itinéraires à un sous-réseau de réseau virtuel. L’exemple ajoute la table d’itinéraires « MyRouteTable » aux sous-réseaux Midtier et Backend du réseau virtuel multiniveau.
+
+  Une fois la table de routage créée et l’itinéraire ajouté, utilisez l’exemple suivant pour ajouter ou associer la table d’itinéraires à un sous-réseau de réseau virtuel. L’exemple ajoute la table d’itinéraires « MyRouteTable » aux sous-réseaux Midtier et Backend du réseau virtuel multiniveau.
 
   ```powershell
   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
   ```
 4. Affectez un site par défaut pour le tunneling forcé. 
-   
-    Dans l’étape précédente, les exemples de scripts d’applet de commande ont créé la table de routage et associé la table d’itinéraires à deux des sous-réseaux de réseau virtuel. La dernière étape consiste à sélectionner un site local parmi les connexions multisites du réseau virtuel en tant que site ou tunnel par défaut.
+
+  Dans l’étape précédente, les exemples de scripts d’applet de commande ont créé la table de routage et associé la table d’itinéraires à deux des sous-réseaux de réseau virtuel. La dernière étape consiste à sélectionner un site local parmi les connexions multisites du réseau virtuel en tant que site ou tunnel par défaut.
 
   ```powershell
   $DefaultSite = @("DefaultSiteHQ")
@@ -174,10 +173,3 @@ Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <
 ```powershell
 Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
 ```
-
-
-
-
-
-
-

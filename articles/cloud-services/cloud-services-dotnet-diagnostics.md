@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/25/2016
+ms.date: 05/22/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 226e86703843b026d20123543cf5311a5355aad4
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: 333d2f26ce043a167fb84858c8327cb39e868ffa
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -132,7 +133,7 @@ namespace WorkerRole1
 4. Dans la boîte de dialogue **Créer un service cloud et un compte de stockage**, saisissez un **Nom** (par exemple « WadExample »), puis sélectionnez une région ou un groupe d’affinités.
 5. Définissez l’**Environnement** sur **Intermédiaire**.
 6. Modifiez d’autres **Paramètres** le cas échéant, puis cliquez sur **Publier**.
-7. Une fois que le déploiement terminé, vérifiez dans le portail Azure Classic que votre service cloud est en cours d’ **Exécution** .
+7. Une fois le déploiement terminé, vérifiez dans le portail Azure Classic que votre service cloud est en cours d’ **Exécution** .
 
 ### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Étape 4 : création de votre fichier de configuration Diagnostics et installation de l’extension
 1. Téléchargez la définition de schéma de fichier de configuration publique en exécutant la commande PowerShell suivante :
@@ -186,7 +187,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 ```
 
 ### <a name="step-6-look-at-your-telemetry-data"></a>Étape 6 : examen de vos données télémétriques
-Dans l' **Explorateur de serveurs** de Visual Studio, naviguez jusqu'au compte de stockage wadexample. Une fois que le service cloud a été exécuté pendant environ 5 minutes, vous devriez voir les tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** et **WADSetOtherTable**. Double-cliquez sur l'une des tables pour afficher les données télémétriques qui ont été collectées.
+Dans l' **Explorateur de serveurs** de Visual Studio, naviguez jusqu'au compte de stockage wadexample. Une fois que le service cloud a été exécuté pendant environ cinq (5) minutes, vous devriez voir les tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** et **WADSetOtherTable**. Double-cliquez sur l'une des tables pour afficher les données télémétriques qui ont été collectées.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
@@ -197,7 +198,7 @@ Le fichier de configuration des diagnostics définit les valeurs qui sont utilis
 Si vous rencontrez des problèmes, consultez la page [Résolution de problèmes des diagnostics Azure](../azure-diagnostics-troubleshooting.md) pour obtenir de l’aide.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Consultez la liste des articles sur les diagnostics Azure relatifs aux machines virtuelles](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) pour modifier les données que vous collectez, résoudre des problèmes ou pour en savoir plus sur les diagnostics en général.
+[Consultez la liste des articles connexes sur les diagnostics relatifs aux machines virtuelles Azure ](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) pour modifier les données que vous collectez, résoudre des problèmes ou pour en savoir plus sur les diagnostics en général.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

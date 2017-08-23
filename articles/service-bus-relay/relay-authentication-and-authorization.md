@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 07/03/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 64874564c54dd37108f1075fb54181f2324cb229
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 95589ca169926362fa77f0e307afd449014c8402
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.lasthandoff: 03/27/2017
 Les applications peuvent s’authentifier auprès d’Azure Relay à l’aide de l’authentification par signature d’accès partagé. À l’instar de la [messagerie Service Bus](../service-bus-messaging/service-bus-authentication-and-authorization.md), l’authentification par signature d’accès partagé permet aux applications de s’authentifier auprès du service Azure Relay à l’aide d’une clé d’accès configurée dans l’espace de noms Relay. Vous pouvez ensuite utiliser cette clé pour générer un jeton de signature d’accès partagé que les clients peuvent alors utiliser pour s’authentifier auprès du service Azure Relay.
 
 ## <a name="shared-access-signature-authentication"></a>Authentification avec une signature d’accès partagé
-[L’authentification SAP](../service-bus-messaging/service-bus-sas.md) vous permet d’accorder un accès utilisateur aux ressources Service Bus Relay avec des droits spécifiques. L’authentification SAP implique la configuration d’une clé de chiffrement avec les droits associés sur une ressource. Les clients peuvent alors accéder à cette ressource en présentant un jeton SAP qui se compose de l’URI de ressource correspondant et d’une expiration signée avec la clé configurée.
+[L’authentification par signature d’accès partagé](../service-bus-messaging/service-bus-sas.md) vous permet d’accorder un accès utilisateur aux ressources Azure Relay avec des droits spécifiques. L’authentification SAP implique la configuration d’une clé de chiffrement avec les droits associés sur une ressource. Les clients peuvent alors accéder à cette ressource en présentant un jeton SAP qui se compose de l’URI de ressource correspondant et d’une expiration signée avec la clé configurée.
 
 Vous pouvez configurer des clés pour SAP dans un espace de noms Relay. Contrairement à la messagerie Service Bus, les [connexions hybrides Relay](relay-hybrid-connections-protocol.md) prennent en charge les expéditeurs non autorisés ou anonymes. Vous pouvez activer l’accès anonyme pour l’entité lors de sa création, comme indiqué dans la capture d’écran suivante du portail :
 

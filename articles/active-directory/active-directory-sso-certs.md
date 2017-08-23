@@ -3,7 +3,7 @@ title: "Gestion des certificats de fédération dans Azure AD | Microsoft Doc
 description: "Apprenez à personnaliser la date d’expiration pour vos certificats de fédération, mais aussi à renouveler les certificats arrivant à expiration."
 services: active-directory
 documentationcenter: 
-author: asmalser-msft
+author: jeevansd
 manager: femila
 editor: 
 ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23
@@ -12,69 +12,71 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fb33a0b01b7d9806c92dfc66303b0dd2ca1044d9
-ms.openlocfilehash: 04276fc2da32b27dc9e0a4601ab45b9f1e95959a
+ms.date: 07/09/2017
+ms.author: jeedes
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 1283b570200f05003658824760ecbb6722f241d9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 01/18/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
-# <a name="managing-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gestion des certificats pour l’authentification unique fédérée sur Azure Active Directory
-Cet article répond aux questions relatives aux certificats créés par Azure Active Directory pour établir une authentification unique fédérée vers vos applications SaaS.
+# <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gérer des certificats pour l’authentification unique fédérée sur Azure Active Directory
+Cet article répond aux questions relatives aux certificats créés par Azure Active Directory (Azure AD) pour établir une authentification unique fédérée vers vos applications SaaS. Ajoutez des applications à partir de la galerie d’applications Azure AD ou à l’aide de modèle d’applications ne figurant pas dans la galerie. Configurez l’application à l’aide de l’option d’authentification unique fédérée.
 
-Cet article concerne uniquement les applications configurées pour utiliser **Authentification unique Azure AD**, comme indiqué dans l’exemple suivant :
+Cet article concerne uniquement les applications configurées pour utiliser l’authentification unique Azure AD grâce à la fédération SAML, comme le montre l’exemple suivant :
 
-![Authentification unique Azure AD](./media/active-directory-sso-certs/fed-sso.PNG)
+![Authentification unique Azure AD](./media/active-directory-sso-certs/saml_sso.PNG)
 
-## <a name="how-to-customize-the-expiration-date-for-your-federation-certificate"></a>Personnalisation de la date d’expiration de votre certificat de fédération
-Les certificats sont configurés par défaut pour expirer après deux ans. Vous pouvez choisir une autre date d’expiration pour votre certificat en procédant comme suit. Les captures d'écran présentées ici ont été prises pendant une utilisation de Salesforce, mais les étapes peuvent s'appliquer à n'importe quelle application SaaS fédérée.
+## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Certificat généré automatiquement pour les applications de la galerie et celles ne figurant pas dans la galerie
+Lorsque vous ajoutez une nouvelle application à partir de la galerie et configurez une authentification SAML, Azure AD génère un certificat d’une validité de trois ans pour l’application. Vous pouvez télécharger ce certificat dans la section **Certificat de signature SAML**. Pour les applications de la galerie, cette section peut afficher une option permettant de télécharger le certificat ou les métadonnées. L’option qui s’affiche dépend de la configuration de l’application.
 
-1. Dans Azure Active Directory, sur la page Démarrage rapide de votre application, cliquez sur **Configurer l’authentification unique**.
-   
-    ![Ouvrez l’Assistant Configuration de l’authentification unique.](./media/active-directory-sso-certs/config-sso.png)
-2. Sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
-3. Entrez **l’URL de connexion** de votre application et cochez la case pour **Configurer le certificat utilisé pour l’authentification unique fédérée**. Cliquez ensuite sur **Suivant**.
-   
-    ![Authentification unique Azure AD](./media/active-directory-sso-certs/new-app-config-sso.PNG)
-4. Sur la page suivante, sélectionnez **Générer un nouveau certificat**, puis sélectionnez la durée de validité de votre choix pour le certificat. Cliquez ensuite sur **Next**.
-   
-    ![Générer un nouveau certificat](./media/active-directory-sso-certs/new-app-config-cert.PNG)
-5. Cliquez ensuite sur **Télécharger le certificat**. Pour savoir comment charger le certificat vers votre application SaaS, cliquez sur **Afficher les instructions de configuration**.
-   
-    ![Télécharger, puis charger le certificat](./media/active-directory-sso-certs/new-app-config-app.PNG)
-6. Le certificat n’est pas activé tant que vous n’avez pas coché la case de confirmation en bas de la boîte de dialogue et appuyé sur Envoyer.
+![Authentification unique Azure AD](./media/active-directory-sso-certs/saml_certificate_download.png)
 
-## <a name="how-to-renew-a-certificate-that-will-soon-expire"></a>Renouvellement d’un certificat arrivant à expiration
-Dans l’idéal, les étapes de renouvellement ci-dessous ne doivent pas entraîner de temps d’arrêt important pour vos utilisateurs. Les captures d’écran présentées dans cette section ont été prises pendant une utilisation de Salesforce, mais les étapes sont valables pour n’importe quelle application SaaS fédérée.
+## <a name="customize-the-expiration-date-for-your-federation-certificate-and-roll-it-over-to-a-new-certificate"></a>Personnaliser la date d’expiration de votre certificat de fédération et activer le nouveau certificat
+Par défaut, les certificats sont configurés pour expirer au bout de trois ans. Vous pouvez choisir une autre date d’expiration pour votre certificat en réalisant les étapes suivantes.
+Les captures d'écran ont été prises pendant une utilisation de Salesforce, mais les étapes peuvent s'appliquer à n'importe quelle application SaaS fédérée.
 
-1. Dans Azure Active Directory, sur la page Démarrage rapide de votre application, cliquez sur **Configurer l’authentification unique**.
+1. Dans le [portail Azure](https://aad.portal.azure.com), cliquez sur **Application d’entreprise** dans le volet de navigation gauche puis cliquez sur **Nouvelle application** sur la page **Vue d’ensemble** :
+
+   ![Ouvrir l’Assistant Configuration de l’authentification unique](./media/active-directory-sso-certs/enterprise_application_new_application.png)
+
+2. Recherchez une application dans la galerie, puis sélectionnez celle que vous voulez ajouter. Si vous ne trouvez pas l’application voulue, ajoutez l’application à l’aide de l’option **Application ne figurant pas dans la galerie**. Cette fonctionnalité est disponible uniquement dans Azure AD Premium (P1 et P2).
+
+    ![Authentification unique Azure AD](./media/active-directory-sso-certs/add_gallery_application.png)
+
+3. Cliquez sur le lien **Authentification unique** dans le volet de gauche, puis configurez le **Mode** sur **Authentification basée sur SAML**. Cette étape génère pour votre application un certificat valide trois ans.
+
+4. Pour créer un certificat, cliquez sur le lien **Créer un certificat** dans la section **Certificat de signature SAML**.
+
+    ![Générer un nouveau certificat](./media/active-directory-sso-certs/create_new_certficate.png)
+
+5. Le lien **Créer un nouveau certificat** ouvre le contrôle Calendrier. Vous pouvez définir la date et l’heure de votre choix jusqu'à trois ans plus tard à compter de la date actuelle. La date et l’heure sélectionnées correspondent à la nouvelle date et à la nouvelle heure d’expiration de votre nouveau certificat. Cliquez sur **Enregistrer**.
+
+    ![Télécharger, puis charger le certificat](./media/active-directory-sso-certs/certifcate_date_selection.PNG)
+
+6. Le nouveau certificat peut désormais être téléchargé. Cliquez sur le lien **Certificat** pour le télécharger. À ce stade, votre certificat n’est pas encore actif. Pour activer le certificat, cochez la case **Définir comme certificat actif**, puis cliquez sur **Enregistrer**. Une fois le certificat activé, Azure AD démarre à l’aide du nouveau certificat pour authentifier la réponse.
+
+7.  Pour savoir comment charger le certificat dans une application SaaS spécifique, cliquez sur le lien **Afficher le didacticiel sur la configuration de l’application**.
+
+## <a name="renew-a-certificate-that-will-soon-expire"></a>Renouvellement d’un certificat arrivant à expiration
+Les étapes de renouvellement suivantes ne devraient pas entraîner de temps d’arrêt important pour vos utilisateurs. Les captures d’écran de cette section ont été prises pendant une utilisation de Salesforce, mais les étapes sont valables pour n’importe quelle application SaaS fédérée.
+
+1. Sur l’application **Azure Active Directory**, dans la page **Authentification unique**, générez un nouveau certificat pour votre application. Pour cela, cliquez sur le lien **Créer un certificat** dans la section **Certificat de signature SAML**.
+
+    ![Générer un nouveau certificat](./media/active-directory-sso-certs/create_new_certficate.png)
+
+2. Sélectionnez la date et l’heure d’expiration souhaitées pour votre nouveau certificat, puis cliquez sur **Enregistrer**.
+
+3. Téléchargez le certificat à l’aide de l’option **Certificat de signature SAML**. Chargez le nouveau certificat sur l’écran de configuration de l’authentification unique de l’application SaaS. Pour savoir comment charger le certificat dans une application SaaS spécifique, cliquez sur le lien **Afficher le didacticiel sur la configuration de l’application**.
    
-    ![Ouvrir l’Assistant Configuration de l’authentification unique](./media/active-directory-sso-certs/renew-sso-button.PNG)
-2. **L’Authentification unique Azure AD** doit déjà être sélectionnée sur la première page de la boîte de dialogue. Vous pouvez donc cliquer sur **Suivant**.
-3. Sur la deuxième page, cochez la case pour **Configurer le certificat utilisé pour l’authentification unique fédérée**. Cliquez ensuite sur **Next**.
+4. Pour activer le nouveau certificat dans Azure AD, cochez la case **Définir comme certificat actif**, puis cliquez sur le bouton **Enregistrer** en haut de la page. Le nouveau certificat est ainsi activé côté Azure AD. L’état du certificat passe de **Nouveau** à **Actif**. Une fois le certificat activé, Azure AD démarre à l’aide du nouveau certificat pour authentifier la réponse. 
    
-    ![Authentification unique Azure AD](./media/active-directory-sso-certs/renew-config-sso.PNG)
-4. Sur la page suivante, sélectionnez **Générer un nouveau certificat**, puis sélectionnez la durée de validité de votre choix pour le nouveau certificat. Cliquez ensuite sur **Next**.
-   
-    ![Générer un nouveau certificat](./media/active-directory-sso-certs/new-app-config-cert.PNG)
-5. Cliquez sur **Télécharger le certificat**. Pour renouveler correctement votre certificat, vous devez suivre ces deux étapes :
-   
-   * Chargez le nouveau certificat sur l’écran de configuration de l’authentification unique de l’application SaaS. Pour savoir comment procéder pour votre application SaaS, cliquez sur **Afficher les instructions de configuration**.
-   * Dans Azure AD, activez le nouveau certificat en cochant la case de confirmation située en bas de la boîte de dialogue, puis cliquez sur **Suivant** pour l’envoyer.
-     
-     > [!IMPORTANT]
-     > L’authentification unique pour l’application est alors désactivée au moment où l’une de ces étapes est terminée, mais elle est réactivée une fois la deuxième étape terminée. Par conséquent, pour réduire le temps d’arrêt, veuillez vous préparer à mener ces deux étapes en très peu de temps.
-     > 
-     > 
-     
-     ![Télécharger, puis charger le certificat](./media/active-directory-sso-certs/renew-config-app.PNG)
+    ![Générer un nouveau certificat](./media/active-directory-sso-certs/new_certificate_download.png)
 
 ## <a name="related-articles"></a>Articles connexes
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Accès aux applications et authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md)
-
 

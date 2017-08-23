@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 21078a82e979af251a08bca70d623c80949d064a
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 9f6de5b516da110b93a1e0cddf835b2bcec77bb7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -29,8 +30,9 @@ Jusqu’à présent, Azure HDInsight ne prenait en charge qu’un seul administr
 
 > [!NOTE]
 > Les nouvelles fonctionnalités décrites dans cette version préliminaire sont disponibles uniquement sur les clusters HDInsight sous Linux pour les charges de travail Hive. Les autres charges de travail, comme HBase, Spark, Storm et Kafka, seront activées dans les versions futures.
->
->
+
+> [!IMPORTANT]
+> Oozie n’est pas activé sur HDInsight joint à un domaine.
 
 ## <a name="benefits"></a>Avantages
 La sécurité d’entreprise est constituée de quatre piliers majeurs : sécurité du périmètre, authentification, autorisation et chiffrement.

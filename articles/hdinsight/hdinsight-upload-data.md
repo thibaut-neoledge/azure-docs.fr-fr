@@ -1,6 +1,6 @@
 ---
 title: "Téléchargement de données pour les tâches Hadoop dans HDInsight | Microsoft Docs"
-description: "Découvrez comment télécharger des données pour les tâches Hadoop et y accéder dans HDInsight avec l&quot;interface CLI Azure, Azure Storage Explorer, Azure PowerShell, la ligne de commande Hadoop ou Sqoop."
+description: "Découvrez comment télécharger des données pour les tâches Hadoop et y accéder dans HDInsight avec l'interface CLI Azure, Azure Storage Explorer, Azure PowerShell, la ligne de commande Hadoop ou Sqoop."
 keywords: "etl hadoop, obtention de données dans hadoop, données de charge hadoop"
 services: hdinsight,storage
 documentationcenter: 
@@ -22,7 +22,6 @@ ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 134afd3495c555f85e8838cbe0344a3a48534950
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Téléchargement de données pour les tâches Hadoop dans HDInsight
@@ -154,11 +153,11 @@ Par exemple, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Comme le système de fichiers par défaut pour HDInsight se trouve dans le stockage d'objets blob Azure, /example/data.txt s'y trouve également. Vous pouvez également faire référence au fichier comme ceci :
 
-    wasbs:///example/data/data.txt
+    wasb:///example/data/data.txt
 
 ou
 
-    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+    wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
 Pour obtenir la liste des autres commandes Hadoop qui fonctionnent avec des fichiers, consultez [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -285,9 +284,9 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, consultez
 [azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
-[azure-create-storage-account]: ../storage/storage-create-storage-account.md
-[azure-azcopy-download]: ../storage/storage-use-azcopy.md
-[azure-azcopy]: ../storage/storage-use-azcopy.md
+[azure-create-storage-account]:../storage/common/storage-create-storage-account.md
+[azure-azcopy-download]:../storage/common/storage-use-azcopy.md
+[azure-azcopy]:../storage/common/storage-use-azcopy.md
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 

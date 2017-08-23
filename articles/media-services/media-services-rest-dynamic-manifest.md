@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 08/10/2017
 ms.author: juliako;cenkdin
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: e10c7b29469f9756803aaba64596bf86830893fa
-ms.lasthandoff: 02/16/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 0cf8031e0b103c05f12157e76727c698163f1193
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Création de filtres avec l’API REST Media Services Azure
@@ -42,14 +42,16 @@ Les types suivants sont utilisés lors de la création de filtres :
 * [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect et FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
-> [!NOTE]
-> Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
-> 
-> Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
-> 
-> Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect-programmatically.md). 
-> 
-> 
+>[!NOTE]
+
+>Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
+
+## <a name="connect-to-media-services"></a>Connexion à Media Services
+
+Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI.
 
 ## <a name="create-filters"></a>Création de filtres
 ### <a name="create-global-filters"></a>Création de filtres globaux

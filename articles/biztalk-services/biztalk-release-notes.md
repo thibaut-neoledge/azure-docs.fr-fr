@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 84ad965ed6ef1711fda983220cf004fdd48d290d
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/11/2017
 
 
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notes de publication pour Azure BizTalk Services
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Les notes de version des Services Microsoft Azure BizTalk reprennent les problèmes connus dans cette version.
 
 ## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>Nouveautés de la mise à jour BizTalk Services de novembre
@@ -29,8 +34,8 @@ Les notes de version des Services Microsoft Azure BizTalk reprennent les problè
 ## <a name="update-history"></a>Historique de mise à jour
 ### <a name="october-update"></a>Mise à jour d’octobre
 * Les comptes de société sont pris en charge :  
-  * **Scénario** : vous avez inscrit un déploiement de service BizTalk à l’aide d’un compte Microsoft (comme user@live.com). Dans ce scénario, seuls les utilisateurs de comptes Microsoft peuvent gérer le service BizTalk à l’aide du portail BizTalk Services. Il est impossible d’utiliser un compte professionnel.  
-  * **Scénario** : vous avez inscrit un déploiement de service BizTalk à l’aide d’un compte d’entreprise dans Azure Active Directory (comme user@fabrikam.com ou user@contoso.com). Dans ce scénario, seuls les utilisateurs Azure Active Directory de la même organisation peuvent gérer le service BizTalk à l’aide du portail BizTalk Services. Il est impossible d’utiliser un compte Microsoft.  
+  * **Scénario** : vous avez inscrit un déploiement de service BizTalk à l’aide d’un compte Microsoft (par exemple, user@live.com). Dans ce scénario, seuls des utilisateurs de compte Microsoft peuvent gérer le service BizTalk au moyen du portail BizTalk Services. Il est impossible d’utiliser un compte professionnel.  
+  * **Scénario** : vous avez inscrit un déploiement de service BizTalk à l’aide d’un compte professionnel dans Azure Active Directory (par exemple user@fabrikam.com ou user@contoso.com). Dans ce scénario, seuls des utilisateurs Azure Active Directory au sein de la même organisation peuvent gérer le service BizTalk par le biais du portail BizTalk Services. Il est impossible d’utiliser un compte Microsoft.  
 * Lorsque vous créez un service BizTalk dans le portail Azure classique, vous êtes automatiquement inscrit dans le portail BizTalk Services.
   * **Scénario** : vous vous connectez au portail Azure Classic, créez un service BizTalk, puis sélectionnez **Gérer** pour la première fois. Lorsque le portail BizTalk Services s’ouvre, le service BizTalk est automatiquement inscrit et est prêt pour vos déploiements.  
     Consultez [Enregistrement et mise à niveau d’un déploiement de service BizTalk sur le portail BizTalk Services](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
@@ -134,7 +139,7 @@ Lorsque vous utilisez des types de données définis par l’utilisateur, copiez
 > 
 
 ### <a name="restarting-the-biztalk-adapter-service-web-site"></a>Redémarrage du site web BizTalk Adapter Service
-L’installation de **l’exécution du service d’adaptateur de BizTalk*** crée le site web **Service d’adaptateur de BizTalk** dans IIS, qui contient l’application **BAService**. L’application **BAService** en interne utilise une liaison relais pour étendre la portée du point de terminaison de service local au cloud. Pour un service hébergé localement, le point de terminaison de relais correspondant est inscrit sur le bus de Service uniquement lorsque le service local démarre.  
+L’installation du **Runtime du service d’adaptateur BizTalk*** a pour effet de créer le site web du **Service d’adaptateur BizTalk** dans IIS, qui contient l’application **BAService**. L’application **BAService** en interne utilise une liaison relais pour étendre la portée du point de terminaison de service local au cloud. Pour un service hébergé localement, le point de terminaison de relais correspondant est inscrit sur le bus de Service uniquement lorsque le service local démarre.  
 
 Si vous arrêtez et démarrez une application, la configuration de démarrage automatique de l’application n’est pas respectée. Lorsque l’application **BAService** est arrêtée, il est donc préférable de toujours redémarrer le site web **Service d’adaptateur de BizTalk**. Ne démarrez pas ou n’arrêtez pas l’application **BAService** .
 
@@ -170,7 +175,7 @@ Examinez le scénario suivant :
 Examinez les scénarios suivants :  
 
 **Scénario 1 : à l’aide de certificats basés sur l’empreinte numérique pour sécuriser le transfert de message d’un pont vers un point de terminaison**  
- Envisagez un scénario dans lequel vous utilisez les certificats basés sur l’empreinte numérique dans votre projet de BizTalk Service. Vous pouvez mettre à jour le certificat dans le portail BizTalk Services avec le même nom, mais avec une autre empreinte numérique, mais ne mettez pas le projet BizTalk Service à jour en conséquence. Dans un tel scénario, le pont peut continuer de traiter les messages, car les anciennes données de certificat  se trouvent toujours dans la mémoire cache du canal. Après cela, le traitement du message échoue.  
+Envisagez un scénario dans lequel vous utilisez les certificats basés sur l’empreinte numérique dans votre projet de BizTalk Service. Vous pouvez mettre à jour le certificat dans le portail BizTalk Services avec le même nom, mais avec une autre empreinte numérique, mais ne mettez pas le projet BizTalk Service à jour en conséquence. Dans un tel scénario, le pont peut continuer de traiter les messages, car les anciennes données de certificat  se trouvent toujours dans la mémoire cache du canal. Après cela, le traitement du message échoue.  
 
 **Solution de contournement**: mettez à jour le certificat dans le projet BizTalk Service et redéployez le projet.  
 
@@ -218,10 +223,5 @@ Dans ce document, les termes « pipeline » et « pont » sont utilisés ind
 
 ### <a name="concepts"></a>Concepts
 [BizTalk Services](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

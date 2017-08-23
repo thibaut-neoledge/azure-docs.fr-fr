@@ -80,7 +80,6 @@
 ### Domaines personnalisés
 #### [Acheter et configurer des domaines personnalisés](../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Mapper votre propre domaine personnalisé](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Configurer des domaines GoDaddy](../app-service-web/web-sites-godaddy-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Domaines personnalisés avec Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ### [Cloner une application existante](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -159,6 +158,7 @@
 ## [Portail Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Liste des ressources WebJob](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 

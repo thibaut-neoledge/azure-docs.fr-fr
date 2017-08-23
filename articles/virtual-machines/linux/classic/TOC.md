@@ -4,13 +4,13 @@
 ## [Availability](configure-availability.md)
 ## [FAQ](faq.md)
 
-# [Prise en main](../opensource-links.md)
+# Prise en main
 ## [Créer une machine virtuelle Linux à l’aide du portail](createportal.md)
 ## [Installation de l’interface de ligne de commande Azure](../../../cli-install-nodejs.md)
 ## [Créer des clés SSH](../mac-create-ssh-keys.md)
 
 # Procédures
-## [Calcul](../intro-on-azure.md)
+## Calcul
 ### [Créer une machine virtuelle personnalisée](create-custom.md)
 ### [Capturer une machine virtuelle](capture-image.md)
 ### [Utiliser le Bureau à distance avec une machine virtuelle Linux](remote-desktop.md)
@@ -54,18 +54,17 @@
 ### [Application web avec Visual Studio](web-app-visual-studio.md)
 ### [Cluster RDMA pour exécuter des applications MPI](rdma-cluster.md)
 ### [Utilisation du plug-in subordonné Azure avec la solution d'intégration continue Hudson](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## HPC Pack
-### [Cluster RDMA Windows pour exécuter des applications MPI](hpcpack-cluster.md)
-### [Cluster HPC Windows avec le script de déploiement HPC Pack IaaS](hpcpack-cluster-starccm.md)
-### [Gérer le nombre et la disponibilité des nœuds de calcul](hpcpack-cluster-powershell-script.md)
-### [Ajouter des nœuds à la demande](hpcpack-cluster-openfoam.md)
-### [Mettre à l’échelle automatiquement des ressources](hpcpack-cluster-namd.md)
+### HPC Pack
+#### [Créer un cluster pour les charges de travail Linux](hpcpack-cluster-powershell-script.md)
+#### [Gérer un cluster avec les nœuds Linux](hpcpack-cluster.md)
+#### [Exécuter STAR-CCM+](hpcpack-cluster-starccm.md)
+#### [Exécuter OpenFOAM](hpcpack-cluster-openfoam.md)
+#### [Exécuter NAMD](hpcpack-cluster-namd.md)
 
 ## Résolution des problèmes
 ### [Déploiements de machines virtuelles](troubleshoot-deployment-new-vm.md)
 ### [Redémarrer ou redimensionner une machine virtuelle](restart-resize-error-troubleshooting.md)
+### [Attacher un disque dur virtuel pour résoudre des problèmes de machine virtuelle](troubleshoot-recovery-disks-portal.md)
 
 # Référence
 ## [PowerShell](/powershell/azure/overview)
@@ -79,8 +78,9 @@
 
 
 # Ressources
-## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Tarification](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Disponibilité régionale](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

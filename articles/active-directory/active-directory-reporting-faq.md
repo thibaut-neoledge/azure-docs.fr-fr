@@ -14,15 +14,14 @@ ms.topic: article
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e6dcd3f6f9c7c8765409c3b0d50e4b3843bab5c6
-ms.openlocfilehash: e39ee63d190308b87ebeb43adeb8b3e5db86df57
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 9a9ca74b959d1940bf30a903a8eab65cad87b74a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 07/18/2017
 
 ---
-# FAQ sur les rapports Azure Active Directory
-<a id="azure-active-directory-reporting-faq" class="xliff"></a>
+# <a name="azure-active-directory-reporting-faq"></a>FAQ sur les rapports Azure Active Directory
 
 Cet article répond aux questions fréquemment posées (FAQ) sur les rapports Azure Active Directory.  
 Pour plus d’informations, consultez la page [Rapports Azure Active Directory](active-directory-reporting-azure-portal.md). 
@@ -86,7 +85,23 @@ Pour plus d’informations, consultez la page [Rapports Azure Active Directory](
 
 **R :**: Si vous êtes récemment passé à une version Premium (y compris une version d’évaluation), vous pouvez voir les données jusqu’à 7 jours au début. Au fur et à mesure de l’accumulation des données, vous verrez jusqu’à 30 jours.
 
- 
+---
+
+**Q : ldentity Protection m’informe d’un événement à risque, mais je ne vois pas à quelle connexion il correspond parmi toutes les connexions répertoriées. Est-ce normal?**
+**R:**: Oui, Identity Protection évalue les risques pour tous les flux d’authentification, qu’ils soient interactifs ou non. Toutefois, seules les connexions interactives sont répertoriées.
+
+---
+
+**Q : Comment puis-je télécharger le rapport « Utilisateurs avec indicateur de risque » dans le portail Azure ?**
+
+**R :** L’option permettant de télécharger le rapport « Utilisateurs avec indicateur de risque » sera bientôt disponible.
+
+---
+
+**Q : Comment puis-je connaître la raison pour laquelle une connexion ou un utilisateur a été signalé comme étant « à risque » dans le portail Azure ?**
+
+**R :** Les utilisateurs de l’édition Premium peuvent en savoir plus sur les événements à risque sous-jacents en cliquant sur l’utilisateur répertorié sous « Utilisateurs avec indicateur de risque » ou en cliquant sur « Connexions à risque ». Les utilisateurs de l’édition gratuite et de l’édition De base peuvent voir les utilisateurs et les connexions à risque, mais pas les événements à risque sous-jacents.
+
 ---
 
 

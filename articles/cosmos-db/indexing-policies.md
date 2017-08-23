@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/22/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 6d5a5814977d05fbe7be52dcb482a622de1c2ef6
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 0beae16534b8efa7a23be6d2b61f1f1257317bd7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Comment Azure Cosmos DB indexe-t-il les données ?
@@ -161,7 +160,7 @@ Maintenant que nous avons vu comment spécifier des chemins d’accès, examinon
 
 * Type de données : **chaîne**, **nombre**, **point**, **polygone** ou **LineString** (ne pouvant contenir qu’une seule entrée par type de données par chemin d’accès)
 * Genre d’index : **hachage** (requêtes d’égalité) ou **plage** (requêtes d’égalité, de plage ou requêtes Trier par) ou **spatial** (demandes spatiales) 
-* Précision : 1 à 8 ou -1 (précision maximale) pour les nombres, 1 à 100 (précision maximale) pour les chaînes
+* Précision : pour les index de hachage, cette valeur varie de 1 à 8 pour les chaînes et les nombres, avec une valeur par défaut de 3. Pour les index de plage, cette valeur peut être -1 (précision maximale) et varie entre 1 et 100 (précision maximale) pour les valeurs de chaîne ou numériques.
 
 #### <a name="index-kind"></a>Type d’index
 Azure Cosmos DB prend en charge les types d’index de hachage et de plage pour chaque chemin d’accès (qui peuvent être configurés pour les chaînes, les nombres ou les deux).
@@ -258,7 +257,7 @@ Vous pouvez toutefois opter pour le mode d'indexation Différé ou Aucun lorsqu'
 * Lorsque vous optez pour le mode Différé, la modification de la stratégie d’indexation prend effet immédiatement et Azure Cosmos DB démarre la recréation de l’index de façon asynchrone. 
 * Lorsque vous optez pour le mode Aucun, l'index est immédiatement désactivé. Opter pour le mode Aucun peut s’avérer très utile lorsque vous souhaitez annuler une transformation en cours et utiliser une nouvelle stratégie d'indexation. 
 
-Si vous utilisez le Kit de développement logiciel (SDK) .NET, vous pouvez lancer une modification de stratégie d’indexation en utilisant la nouvelle méthode **ReplaceDocumentCollectionAsync** et suivre la progression, en pourcentage, de la transformation d’index à l’aide de la propriété Response **IndexTransformationProgress** à partir d’un appel **ReadDocumentCollectionAsync**. D’autres Kits de développement logiciel (SDK), ainsi que l'API REST, prennent en charge des propriétés et des méthodes équivalentes pour apporter des modifications de stratégie d'indexation.
+Si vous utilisez le Kit de développement logiciel (SDK) .NET, vous pouvez lancer une modification de stratégie d’indexation en utilisant la nouvelle méthode **ReplaceDocumentCollectionAsync** et suivre la progression, en pourcentage, de la transformation d’index à l’aide de la propriété Response **IndexTransformationProgress** à partir d’un appel **ReadDocumentCollectionAsync**. D’autres Kits de développement logiciel (SDK), ainsi que l'API REST, prennent en charge des propriétés et des méthodes équivalentes pour apporter des modifications de stratégie d'indexation.
 
 Voici un extrait de code qui vous indique comment faire passer la stratégie d'indexation d'une collection, du mode Cohérent au mode Différé.
 

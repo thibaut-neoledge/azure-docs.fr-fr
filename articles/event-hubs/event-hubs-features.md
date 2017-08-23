@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 3979593a399ed701fb1985152379818a0417f122
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: cb5ec1a105c632626c5caf39e4fd356177883123
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -52,6 +51,10 @@ Event Hubs permet un contrôle granulaire sur les éditeurs d'événements par 
 ```
 
 Vous n'êtes pas obligé de créer des noms d'éditeurs à l'avance, mais ils doivent correspondre au jeton SAS utilisé lors de la publication d'un événement, afin de garantir les identités de l'éditeur indépendant. Lors de l'utilisation de stratégies d'éditeur, la valeur **PartitionKey** est définie sur le nom de l'éditeur. Pour fonctionner correctement, ces valeurs doivent correspondre.
+
+## <a name="capture"></a>Capture
+
+[Event Hubs Capture](event-hubs-capture-overview.md) vous permet de capturer automatiquement les données de diffusion en continu dans Event Hubs et de les archiver dans un compte de stockage Blob de votre choix. Vous pouvez activer la fonctionnalité Capture à partir du portail Azure et spécifier une taille minimale, ainsi que la période pour l’exécution de la capture. Event Hubs Capture vous permet de spécifier votre propre compte de stockage Blob Azure, ainsi qu’un conteneur qui sera utilisé pour stocker les données capturées. Les données capturées sont écrites dans le format Apache Avro.
 
 ## <a name="partitions"></a>Partitions
 
@@ -91,7 +94,7 @@ Toute entité qui lit des données d’événement à partir d’un concentrateu
 
 Le mécanisme de publication/d’abonnement des concentrateurs d’événements est activé à l’aide de *groupes de consommateurs*. Un groupe de consommateurs est une vue (état, position ou décalage) d’un concentrateur d’événements dans sa totalité. Les groupes de consommateurs permettent à plusieurs applications consommatrices d'avoir chacune une vue distincte du flux d'événements et de lire le flux indépendamment à leur propre rythme et avec leurs propres décalages.
 
-Dans une architecture de traitement de flux, chaque application en aval équivaut à un groupe de consommateurs. Si vous souhaitez écrire des données d'événement dans le stockage à long terme, alors cette application d'enregistreur de stockage est un groupe de consommateurs. Le traitement des événements complexes est ensuite effectué par un autre groupe de consommateurs distinct. Vous ne pouvez accéder aux partitions que par le biais d'un groupe de consommateurs. Sur une partition, un seul lecteur **d’un groupe de consommateurs donné** peut être actif au même moment. Il existe toujours un groupe de consommateurs par défaut dans un concentrateur d’événements, et vous pouvez créer jusqu’à 20 groupes de consommateurs pour un concentrateur d’événements de niveau standard.
+Dans une architecture de traitement de flux, chaque application en aval équivaut à un groupe de consommateurs. Si vous souhaitez écrire des données d'événement dans le stockage à long terme, alors cette application d'enregistreur de stockage est un groupe de consommateurs. Le traitement des événements complexes est ensuite effectué par un autre groupe de consommateurs distinct. Vous ne pouvez accéder aux partitions que par le biais d'un groupe de consommateurs. Il peut y avoir au maximum 5 lecteurs simultanés sur une partition par groupe de consommateurs. Toutefois **il est recommandé de n’avoir qu’un seul récepteur actif sur une partition par groupe de consommateurs**. Il existe toujours un groupe de consommateurs par défaut dans un concentrateur d’événements, et vous pouvez créer jusqu’à 20 groupes de consommateurs pour un concentrateur d’événements de niveau standard.
 
 Voici quelques exemples de la convention URI de groupe consommateurs :
 
@@ -118,7 +121,7 @@ Si un lecteur se déconnecte d'une partition, lorsqu'il se reconnecte il commenc
 
 ### <a name="common-consumer-tasks"></a>Tâches courantes du consommateur
 
-Tous les consommateurs Azure Event Hubs se connectent via un canal de communication bidirectionnelle prenant en charge l’état et la session AMQP 1.0. Chaque partition inclut une session AMQP 1.0, qui facilite le transport des événements séparés par partition.
+Tous les consommateurs Azure Event Hubs se connectent via une session AMQP 1.0, un canal de communication bidirectionnelle prenant en charge l’état. Chaque partition inclut une session AMQP 1.0, qui facilite le transport des événements séparés par partition.
 
 #### <a name="connect-to-a-partition"></a>Se connecter à une partition
 
@@ -170,3 +173,4 @@ Pour plus d’informations sur les concentrateurs d’événements, accédez aux
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [Exemples d’application complets qui utilisent des concentrateurs d’événements]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+

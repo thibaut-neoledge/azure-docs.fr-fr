@@ -1,6 +1,6 @@
 ---
 title: "Sécurisation des données stockées dans Azure Data Lake Store | Microsoft Docs"
-description: "Apprenez à sécuriser les données dans Azure Data Lake Store à l&quot;aide de groupes et de listes de contrôle d&quot;accès"
+description: "Apprenez à sécuriser les données dans Azure Data Lake Store à l'aide de groupes et de listes de contrôle d'accès"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 376b61037de8b1af657095b8b32ee16568af8894
-ms.openlocfilehash: 0df8932668a954cc60a1db9b745019decb98d1e9
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 337c6142c27314150a21f1c80a17aae17cd0d67f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/07/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Sécurisation des données stockées dans Azure Data Lake Store
@@ -41,6 +40,18 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Créer des groupes de sécurité dans Azure Active Directory
 Pour obtenir des instructions sur la création de groupes de sécurité AAD et l'ajout d'utilisateurs au groupe, consultez [Gestion des groupes de sécurité dans Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
+> [!NOTE] 
+> Vous pouvez ajouter tant des utilisateurs que d’autres groupes à un groupe dans Azure AD à l’aide du portail Azure. Toutefois, pour ajouter un principal de service à un groupe, utilisez le [module PowerShell d’Azure AD](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+> 
+> ```powershell
+> # Get the desired group and service principal and identify the correct object IDs
+> Get-AzureADGroup -SearchString "<group name>"
+> Get-AzureADServicePrincipal -SearchString "<SPI name>"
+> 
+> # Add the service principal to the group
+> Add-AzureADGroupMember -ObjectId <Group object ID> -RefObjectId <SPI object ID>
+> ```
+ 
 ## <a name="assign-users-or-security-groups-to-azure-data-lake-store-accounts"></a>Affecter les utilisateurs ou les groupes de sécurité aux comptes Azure Data Lake Store
 Lorsque vous affectez des utilisateurs ou des groupes de sécurité aux comptes Azure Data Lake Store, vous contrôlez l'accès aux opérations de gestion sur le compte à l'aide du portail Azure et des API Azure Resource Manager. 
 
@@ -60,7 +71,7 @@ Lorsque vous affectez des utilisateurs ou des groupes de sécurité aux comptes 
    
     ![Ajouter un rôle pour l’utilisateur](./media/data-lake-store-secure-data/adl.add.user.1.png "Ajouter un rôle pour l’utilisateur")
    
-    Les rôles **Propriétaire** et **Collaborateur** fournissent l’accès à différentes fonctions d’administration sur le compte Data Lake. En ce qui concerne les utilisateurs qui interagissent avec les données dans le Data Lake, vous pouvez les ajouter au rôle **Lecteur **. L'étendue de ces rôles est limitée aux opérations de gestion associées au compte Azure Data Lake Store.
+    Les rôles **Propriétaire** et **Collaborateur** fournissent l’accès à différentes fonctions d’administration sur le compte Data Lake. En ce qui concerne les utilisateurs qui interagissent avec les données dans le lac de données, vous pouvez les ajouter au rôle **Lecteur**. L'étendue de ces rôles est limitée aux opérations de gestion associées au compte Azure Data Lake Store.
    
     Pour les opérations sur les données, des autorisations pour chaque système de fichiers définissent ce que les utilisateurs peuvent faire. Par conséquent, un utilisateur ayant un rôle de Lecteur peut afficher uniquement les paramètres d'administration associés au compte mais peut potentiellement lire et écrire des données en fonction des autorisations du système de fichiers qui lui sont affectées. Les autorisations de système de fichiers Data Lake Store sont décrites dans [Affecter un groupe de sécurité comme ACL au système de fichiers Azure Data Lake Store](#filepermissions).
 5. Dans le panneau **Ajouter un accès**, cliquez sur **Ajouter des utilisateurs** pour ouvrir le panneau **Ajouter un accès**. Dans ce panneau, recherchez le groupe de sécurité que vous avez créé précédemment dans Azure Active Directory. Si la liste de groupes est longue, utilisez la zone de texte en haut pour filtrer par nom de groupe. Cliquez sur **Sélectionner**.

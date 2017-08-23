@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-### Pour effectuer une sauvegarde
-<a id="to-take-a-backup" class="xliff"></a>
+### <a name="to-take-a-backup"></a>Pour effectuer une sauvegarde
 
 1. Accédez à votre service StorSimple Device Manager. Sélectionnez votre appareil et cliquez dessus dans la liste tabulaire des appareils, puis cliquez sur **Tous les paramètres**. Dans le panneau **Paramètres**, accédez à **Paramètres > Gérer > Stratégie de sauvegarde**.
 

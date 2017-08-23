@@ -3,7 +3,7 @@ title: "Créer une application Node.js Azure Cosmos DB à l’aide de l’API 
 description: "Cet article présente un exemple de code Node.js que vous pouvez utiliser pour vous connecter à Azure Cosmos DB, et pour interroger les données."
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,14 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/21/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: b9e8c46ba2f029f8dae2b357f05a806d769d0920
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 6d14719938af0ce825955389824441e111024869
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB : Créer une application Node.js à l’aide de l’API Graph
@@ -96,19 +95,23 @@ Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fich
 
 ## <a name="update-your-connection-string"></a>Mise à jour de votre chaîne de connexion
 
-Maintenant, retournez dans le portail Azure, afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
+1. Ouvrez le fichier config.js. 
 
-1. Dans le [portail Azure](http://portal.azure.com/), accédez à votre compte Azure Cosmos DB et, dans le menu de navigation de gauche, cliquez sur **Clés**, puis sur **Clés en lecture-écriture**. Vous allez utiliser les boutons Copier figurant sur le côté droit de l’écran pour copier l’URI et la clé primaire dans le fichier `app.js` à l’étape suivante.
-
-    ![Panneau Clés du portail Azure](./media/create-graph-nodejs/keys.png)
-
-2. Copiez votre valeur d’URI Gremlin à partir du portail (à l’aide du bouton Copier) et définissez-la comme valeur de la clé `config.endpoint` dans le fichier config.js. Le point de terminaison Gremlin doit correspondre uniquement au nom d’hôte, sans protocole/numéro de port comme `mygraphdb.graphs.azure.com` (et non `https://mygraphdb.graphs.azure.com` ou `mygraphdb.graphs.azure.com:433`).
+2. Dans le fichier config.js, renseignez la clé config.endpoint avec la valeur **URI Gremlin** à partir de la page **Vue d’ensemble** du portail Azure. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
-3. Copiez la valeur de la clé primaire à partir du portail, puis définissez-la comme valeur du paramètre config.primaryKey dans le fichier config.js. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
+    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-graph-nodejs/gremlin-uri.png)
+
+   Si la valeur **URI Gremlin** est vide, vous pouvez générer la valeur à partir de la page **Clés** dans le portail, à l’aide de la valeur **URI**, en supprimant https:// et en changeant les documents en graphiques.
+
+   Le point de terminaison Gremlin doit correspondre uniquement au nom d’hôte, sans protocole/numéro de port comme `mygraphdb.graphs.azure.com` (et non `https://mygraphdb.graphs.azure.com` ou `mygraphdb.graphs.azure.com:433`).
+
+3. Dans le fichier config.js, renseignez la valeur config.primaryKey avec la valeur **Clé primaire** à partir de la page **Clés** du portail Azure. 
 
     `config.primaryKey = "PRIMARYKEY";`
+
+   ![Panneau Clés du portail Azure](./media/create-graph-nodejs/keys.png)
 
 4. Entrez le nom de la base de données et le nom du graphique (conteneur) pour la valeur de config.database et de config.collection. 
 
@@ -118,8 +121,8 @@ Voici un exemple de ce à quoi votre fichier config.js terminé doit ressembler 
 var config = {}
 
 // Note that this must not have HTTPS or the port number
-config.endpoint = "mygraphdb.graphs.azure.com";
-config.primaryKey = "OjlhK6tjxfSXyKtrmCiM9O6gQQgu5DmgAoauzD1PdPIq1LZJmILTarHvrolyUYOB0whGQ4j21rdAFwoYep7Kkw==";
+config.endpoint = "testgraphacct.graphs.azure.com";
+config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
 config.collection = "Persons"
 
@@ -138,9 +141,11 @@ module.exports = config;
 
 Vous pouvez maintenant revenir à l’Explorateur de données, dans le portail Azure, pour afficher, modifier, interroger et manipuler vos nouvelles données graphiques.
 
-Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet **Collections**. Développez **graphdb**, **graphcoll**, puis cliquez sur **Graph**.
+Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet **Graphique**. Développez la base de données, suivie de la collection, puis cliquez sur **Graphique**.
 
-Les données générées par l’exemple d’application s’affichent dans le volet **Graphiques**.
+Les données générées par l’exemple d’application s’affichent dans le volet suivant de l’onglet **Graphique** lorsque vous cliquez sur **Appliquer un filtre**.
+
+Essayez de renseigner `g.V()` avec `.has('firstName', 'Thomas')` pour tester le filtre. Notez que la valeur respecte la casse.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examiner les SLA dans le Portail Azure
 

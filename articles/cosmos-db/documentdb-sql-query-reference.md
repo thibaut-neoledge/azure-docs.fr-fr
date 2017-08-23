@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/13/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 32b63b667c3db5b000c9066f0ed2609bafb21bf1
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 63b2d20c74df4fd6173994ee1a727594ba8afba3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -2521,7 +2520,7 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])
 ```  
   
 ####  <a name="bk_array_slice"></a> ARRAY_SLICE  
- Retourne une valeur booléenne qui indique si le tableau contient la valeur spécifiée.  
+ Retourne une partie d’une expression de tableau.
   
  **Syntaxe**  
   
@@ -2774,3 +2773,4 @@ SELECT ST_ISVALIDDETAILED({
  [Documentation Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
   
   
+

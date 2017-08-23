@@ -1,6 +1,6 @@
 ---
 title: Gestion et surveillance des sauvegardes de machines virtuelles Azure | Microsoft Docs
-description: "Découvrez comment gérer et surveiller les sauvegardes d&quot;une machine virtuelle Azure"
+description: "Découvrez comment gérer et surveiller les sauvegardes d'une machine virtuelle Azure"
 services: backup
 documentationcenter: 
 author: trinadhk
@@ -12,15 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 08/02/2017
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 4abc72962f5a67851aee9d64d7c8125e72d0ec09
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: d876bb1759600fa29a26730bfa8b4ec19db1e442
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Gestion des travaux de sauvegarde Azure communs et déclenchement des alertes dans le portail classique
@@ -38,8 +37,8 @@ Cet article fournit des informations sur les tâches de gestion et de surveillan
 > [!IMPORTANT]
 >Depuis mars 2017, vous ne pouvez plus utiliser le portail Classic pour créer des coffres de sauvegarde.
 >
-> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> **À compter du 1er novembre 2017** :
->- Les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
+> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> À compter du 15 octobre 2017, vous ne pourrez plus vous servir de PowerShell pour créer des coffres de sauvegarde. **D’ici au 1er novembre 2017** :
+>- tous les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
 >- Vous ne pourrez plus accéder à vos données de sauvegarde depuis le portail Classic. Au lieu de cela, vous devrez utiliser le portail Azure pour accéder à ces données au sein de coffres Recovery Services.
 
 ## <a name="manage-protected-virtual-machines"></a>Gérer des machines virtuelles protégées
@@ -245,7 +244,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 Les alertes basées sur des événements sont soumises aux limitations suivantes :
 
 1. Des alertes sont déclenchées sur toutes les machines virtuelles dans le coffre de sauvegarde. Vous ne pouvez pas le personnaliser pour obtenir des alertes pour un ensemble spécifique de machines virtuelles à l’intérieur d’un coffre de sauvegarde.
-2. Cette fonctionnalité est en version préliminaire. [En savoir plus](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
+2. Cette fonctionnalité est en version préliminaire. [En savoir plus](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. Vous recevez des alertes de « alerts-noreply@mail.windowsazure.com ». Actuellement, vous ne pouvez pas modifier l’expéditeur de courrier électronique.
 
 ## <a name="next-steps"></a>Étapes suivantes

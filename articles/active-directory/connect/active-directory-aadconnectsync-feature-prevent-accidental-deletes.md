@@ -21,16 +21,12 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 03/24/2017
 
 ---
-<a id="azure-ad-connect-sync-prevent-accidental-deletes" class="xliff"></a>
-
-# Azure AD Connect Sync : Prévention des suppressions accidentelles
+# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect Sync : Prévention des suppressions accidentelles
 Cette rubrique décrit la fonctionnalité Prévention des suppressions accidentelles dans Azure AD Connect.
 
 Lors de l’installation d’Azure AD Connect, la fonctionnalité de prévention des suppressions accidentelles est activée par défaut et configurée de manière à interdire une exportation de plus de 500 suppressions. Cette fonctionnalité est conçue pour vous protéger contre les modifications accidentelles de la configuration et contre les modifications apportées à votre répertoire local qui auraient une incidence sur de nombreux utilisateurs et d’autres objets.
 
-<a id="what-is-prevent-accidental-deletes" class="xliff"></a>
-
-## Présentation de la prévention des suppressions accidentelles
+## <a name="what-is-prevent-accidental-deletes"></a>Présentation de la prévention des suppressions accidentelles
 Voici quelques scénarios courants de nombreuses suppressions :
 
 * Modifications apportées au [filtrage](active-directory-aadconnectsync-configure-filtering.md) lorsque l’intégralité d’une [unité organisationnelle](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) ou d’un [domaine](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) est désélectionnée.
@@ -68,9 +64,7 @@ Si vous souhaitez que tous les éléments soient supprimés, procédez comme sui
 3. Tout en maintenant le connecteur Azure Active Directory sélectionné, sélectionnez l’action **Exécuter**, puis **Exporter**.
 4. Pour réactiver la protection, exécutez l’applet de commande PowerShell `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Remplacez 500 par la valeur que vous avez notée lors de la récupération du seuil de suppression actuel. Indiquez un compte et un mot de passe d’administrateur général Azure AD.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 **Rubriques de présentation**
 
 * [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)

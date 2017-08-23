@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 06/13/2016
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 823d1155bc011466d0f3bd0ccd8650be161fd28b
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 140bea93c4563666e8cfdf356eaf87500c1aca8e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Planification d'un Runbook dans Azure Automation
-Pour planifier le démarrage d'un Runbook dans Azure Automation à une heure spécifiée, liez-le à une ou plusieurs planifications. Vous pouvez configurer une planification de Runbooks dans le portail Azure Classic et dans le portail Azure pour qu’elle s’exécute une seule fois ou selon un calendrier horaire ou quotidien récurrent. Vous pouvez également planifier une exécution hebdomadaire ou mensuelle, ou encore qui interviendra certains jours de la semaine, certains jours du mois ou un jour spécifique du mois.  Un Runbook peut être lié à plusieurs planifications et une planification peut avoir plusieurs Runbooks qui lui sont liés.
+Pour planifier le démarrage d'un Runbook dans Azure Automation à une heure spécifiée, liez-le à une ou plusieurs planifications. Vous pouvez configurer une planification de runbooks dans le portail Azure Classic et dans le portail Azure pour qu’elle s’exécute une seule fois ou selon un calendrier horaire ou quotidien récurrent. Vous pouvez également planifier une exécution hebdomadaire ou mensuelle, ou encore qui interviendra certains jours de la semaine, certains jours du mois ou un jour spécifique du mois.  Un Runbook peut être lié à plusieurs planifications et une planification peut avoir plusieurs Runbooks qui lui sont liés.
 
 > [!NOTE]
 > Les planifications ne prennent pas en charge les configurations Azure Automation DSC pour le moment.
@@ -56,19 +56,19 @@ Les applets de commande du tableau suivant permettent de créer et de gérer les
 Vous pouvez utiliser le portail Azure, le portail Azure Classic ou Windows PowerShell pour créer une planification de Runbooks. Vous avez également la possibilité de créer une planification lorsque vous liez un Runbook à une planification à l’aide du portail Azure Classic ou du portail Azure.
 
 > [!NOTE]
-> Lorsque vous associez une planification à un Runbook, Automation stocke les versions actuelles des modules dans votre compte et les lie à cette planification.  Cela signifie que si vous aviez un module version 1.0 dans votre compte lorsque vous avez créé une planification puis mis à jour ce module vers la version 2.0, la planification continueront d’utiliser la version 1.0.  Pour utiliser la version mise à jour du module, vous devez créer une nouvelle planification. 
-> 
-> 
+> Azure Automation utilisera les modules les plus récents de votre compte Automation lors de l’exécution d’un nouveau travail planifié.  Pour éviter d’affecter vos runbooks et les processus qu’ils automatisent, vous devez tout d’abord tester les runbooks ayant des planifications associées avec un compte Automation dédié au test.  Cela permettra de vérifier que vos runbooks planifiés continuent de fonctionner correctement et, dans le cas contraire, vous pouvez résoudre les problèmes et appliquer les modifications nécessaires avant de migrer la version mise à jour du runbook en production.  
+>  Votre compte Automation n’obtiendra pas automatiquement les nouvelles versions des modules, sauf si vous les avez mis à jour manuellement en sélectionnant l’option [Mettre à jour les modules Azure](automation-update-azure-modules.md) du panneau **Modules**. 
+>  
 
 ### <a name="to-create-a-new-schedule-in-the-azure-portal"></a>Pour créer une planification à l’aide du portail Azure
 1. Dans le portail Azure, à partir de votre compte Automation, cliquez sur la mosaïque **Ressources** afin d’ouvrir le panneau **Ressources**.
 2. Cliquez sur la mosaïque **Planifications** pour ouvrir le panneau **Planifications**.
 3. Cliquez sur **Ajouter une planification** en haut du panneau.
 4. Dans le panneau **Nouvelle planification**, tapez un **Nom** et éventuellement une **Description** pour la nouvelle planification.
-5. Indiquez si la planification doit s’exécuter une seule fois ou selon un calendrier récurrent en sélectionnant **Une fois** ou **Périodicité**.  Si vous sélectionnez **Une fois**, indiquez une **Heure de début**, puis cliquez sur **Créer**.  Si vous sélectionnez **Périodicité**, spécifiez une **Heure de début** et indiquez la fréquence à laquelle vous souhaitez répéter le Runbook : par **heure**, par **jour**, par **semaine** ou par **mois**.  Si vous sélectionnez **semaine** ou **mois** dans la liste déroulante, l’option **Périodicité** apparaît dans le panneau. Sélectionnez cette option pour accéder au panneau d’options **Périodicité** et sélectionner le jour de semaine si vous avez sélectionné **semaine**.  Si vous avez sélectionné **mois**, vous pouvez choisir par **jours de la semaine** ou spécifier des jours précis du mois dans le calendrier. Pour finir, indiquez si vous souhaitez ou non exécuter le Runbook le dernier jour du mois, puis cliquez sur **OK**.   
+5. Indiquez si la planification doit s’exécuter une seule fois ou selon un calendrier récurrent en sélectionnant **Une fois** ou **Périodicité**.  Si vous sélectionnez **Une fois**, indiquez une **Heure de début**, puis cliquez sur **Créer**.  Si vous sélectionnez **Périodicité**, spécifiez une **Heure de début** et indiquez la fréquence à laquelle vous souhaitez répéter le Runbook : par **heure**, par **jour**, par **semaine** ou par **mois**.  Si vous sélectionnez **semaine** ou **mois** dans la liste déroulante, l’option **Périodicité** apparaît dans le panneau. Sélectionnez cette option pour accéder au panneau d’options **Périodicité** et sélectionner le jour de semaine si vous avez sélectionné **semaine**.  Si vous avez sélectionné **mois**, vous pouvez choisir par **jours de la semaine** ou spécifier des jours précis du mois dans le calendrier. Pour finir, indiquez si vous souhaitez ou non exécuter le runbook le dernier jour du mois, puis cliquez sur **OK**.   
 
 ### <a name="to-create-a-new-schedule-in-the-azure-classic-portal"></a>Pour créer une planification à l’aide du portail Azure Classic
-1. Dans le portail Azure Classic, sélectionnez Automation, puis sélectionnez le nom d’un compte Automation.
+1. Dans le portail Azure Classic, sélectionnez Automation, puis le nom d’un compte Automation.
 2. Sélectionnez l'onglet **Ressources** .
 3. En bas de la fenêtre, cliquez sur **Ajouter un paramètre**.
 4. Cliquez sur **Ajouter une planification**.
@@ -78,7 +78,7 @@ Vous pouvez utiliser le portail Azure, le portail Azure Classic ou Windows Power
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Pour créer une planification avec Windows PowerShell
 Vous pouvez utiliser l’applet de commande [New-AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) pour créer une planification dans Azure Automation pour les Runbooks classiques, ou utiliser l’applet de commande [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) pour les Runbooks exécutés dans le portail Azure. Vous devez spécifier l’heure de début de la planification et indiquer sa fréquence d’exécution.
 
-Les exemples de commandes suivant montrent comment créer une planification le 15 et le 30 de chaque mois à l’aide d’une applet de commande Azure Resource Manager.
+Les exemples de commandes suivants montrent comment créer une planification le 15 et le 30 de chaque mois à l’aide d’une cmdlet Azure Resource Manager.
 
     $automationAccountName = "MyAutomationAccount"
     $scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
@@ -103,7 +103,7 @@ Un Runbook peut être lié à plusieurs planifications et une planification peut
 4. Si le Runbook possède des paramètres, vous pouvez sélectionner l’option **Modifier les paramètres d’exécution (par défaut : Azure)** pour accéder au panneau **Paramètres**, dans lequel vous pourrez saisir les informations correspondantes.  
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-classic-portal"></a>Pour lier une planification à un Runbook avec le portail Azure Classic
-1. Dans le portail Azure Classic, sélectionnez **Automation** , puis cliquez sur le nom d’un compte Automation.
+1. Dans le portail Azure Classic, sélectionnez **Automation**, puis cliquez sur le nom d’un compte Automation.
 2. Sélectionnez l'onglet **Runbooks** .
 3. Cliquez sur le nom du Runbook à planifier.
 4. Cliquez sur l'onglet **Planification** .

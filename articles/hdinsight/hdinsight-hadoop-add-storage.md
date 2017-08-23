@@ -12,23 +12,23 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/15/2017
+ms.date: 08/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 1199840da725afdae3ee69a26db9ceedb2ab37e3
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 0853e8605e07c28867676e9c13b89263ade67c88
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
-Découvrez comment utiliser des actions de script pour ajouter des comptes de stockage Azure supplémentaires à un cluster HDInsight existant utilisant Linux comme système d’exploitation.
+Découvrez comment utiliser des actions de script pour ajouter des comptes de stockage Azure à HDInsight. Les étapes décrites dans ce document permettent d’ajouter un compte de stockage à un cluster HDInsight existant basé sur Linux.
 
 > [!IMPORTANT]
-> Ce document porte sur l’ajout de stockage supplémentaire à un cluster après que celui-ci a été créé. Pour plus d’informations sur l’ajout de comptes de stockage supplémentaires pendant la création du cluster, consultez la section __Utiliser du stockage supplémentaire__ du document [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage).
+> Ce document porte sur l’ajout de stockage supplémentaire à un cluster après que celui-ci a été créé. Pour plus d’informations sur l’ajout de comptes de stockage lors de la création du cluster, voir [Configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -50,7 +50,7 @@ Pendant le traitement, le script effectue les opérations suivantes :
 
 * Il ajoute le compte de stockage dans le fichier core-site.xml.
 
-* Il arrête et redémarre les services Oozie, YARN, MapReduce2 et HDFS pour qu’ils récupèrent les informations du nouveau compte de stockage.
+* Il arrête et redémarre les services Oozie, YARN, MapReduce2 et HDFS. L’arrêt et le redémarrage de ces services leur permettent d’utiliser le nouveau compte de stockage.
 
 > [!WARNING]
 > L’utilisation d’un compte de stockage dans un autre emplacement que le cluster HDInsight n’est pas prise en charge.
@@ -65,12 +65,14 @@ __Conditions requises__ :
 
 ## <a name="to-use-the-script"></a>Pour utiliser le script
 
-Pour plus d’informations sur l’utilisation des actions de script via le portail Azure, Azure PowerShell et l’interface de ligne de commande Azure, consultez la section Appliquer une action de script sur un cluster en cours d’exécution du document [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
+Le script peut être utilisé avec le portail Azure, Azure PowerShell ou Azure CLI 1.0. Pour plus d’informations, consultez le document [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
-Lorsque vous utilisez les informations fournies dans le document de personnalisation, remplacez l’URI des exemples d’actions de script par l’URI de ce script : https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh. Remplacez les paramètres des exemples par le nom du compte de stockage Azure et la clé du compte de stockage à ajouter au cluster.
-
-> [!NOTE]
-> Vous n’avez pas besoin de marquer ce script comme __Persistant__, car il met directement à jour la configuration Ambari.
+> [!IMPORTANT]
+> Lorsque vous suivez les étapes décrites dans le document de personnalisation, utilisez les informations suivantes pour appliquer ce script :
+>
+> * Remplacez l’URI des exemples d’actions de script par l’URI de ce script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
+> * Remplacez les paramètres des exemples par le nom du compte de stockage Azure et la clé du compte de stockage à ajouter au cluster. Si vous utilisez le portail Azure, ces paramètres doivent être séparés par une espace.
+> * Vous n’avez pas besoin de marquer ce script comme __Persistant__, car il met directement à jour la configuration Ambari.
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -122,7 +124,7 @@ Pour contourner ce problème, vous devez supprimer l’entrée existante pour le
 
 2. Dans la liste des services située à gauche de la page, sélectionnez __HDFS__. Ensuite, sélectionnez l’onglet __Configurations__ au centre de la page.
 
-3. Dans la __Filtrer...__, entrez une valeur de __fs.azure.account__. Des entrées sont renvoyées pour tous les comptes de stockage supplémentaires qui ont été ajoutés au cluster. Il existe deux types d’entrées : __keyprovider__ et __key__. Les deux contiennent le nom du compte de stockage dans le nom de la clé. 
+3. Dans la __Filtrer...__, entrez une valeur de __fs.azure.account__. Des entrées sont renvoyées pour tous les comptes de stockage supplémentaires qui ont été ajoutés au cluster. Il existe deux types d’entrées : __keyprovider__ et __key__. Les deux contiennent le nom du compte de stockage dans le nom de la clé.
 
     Voici des exemples d’entrées pour un compte de stockage nommé __mystorage__ :
 
@@ -142,7 +144,7 @@ Si le compte de stockage se trouve dans une région différente de celle du clus
 
 ### <a name="additional-charges"></a>Frais supplémentaires
 
-Si le compte de stockage se trouve dans une région différente de celle du cluster HDInsight, vous remarquerez peut-être des frais de sortie supplémentaires sur votre facture Azure. Des frais de sortie sont appliqués lorsque des données quittent un centre de données régional, même si le trafic est destiné à un autre centre de données Azure situé dans une autre région.
+Si le compte de stockage se trouve dans une région différente de celle du cluster HDInsight, vous remarquerez peut-être des frais de sortie supplémentaires sur votre facture Azure. Des frais de sortie sont appliqués lorsque des données quittent un centre de données régional. Ces frais sont appliqués même si le trafic est destiné à un autre centre de données Azure situé dans une autre région.
 
 > [!WARNING]
 > L’utilisation d’un compte de stockage dans une région différente de celle du cluster HDInsight n’est pas prise en charge.
@@ -150,3 +152,4 @@ Si le compte de stockage se trouve dans une région différente de celle du clus
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez découvert comment ajouter des comptes de stockage Azure supplémentaires à un cluster HDInsight existant. Pour plus d’informations sur les actions de script, consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).
+

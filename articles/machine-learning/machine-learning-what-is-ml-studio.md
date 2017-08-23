@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning Studio - De quoi s&quot;agit-il ? | Microsoft Docs"
-description: "Vue d&quot;ensemble d&quot;Azure ML Studio, un outil de glisser-déplacer pour créer rapidement des modèles à partir d&quot;une bibliothèque prête à l&quot;emploi d&quot;algorithmes et de modules."
+title: "Azure Machine Learning Studio - De quoi s'agit-il ? | Microsoft Docs"
+description: "Vue d'ensemble d'Azure ML Studio, un outil de glisser-déplacer pour créer rapidement des modèles à partir d'une bibliothèque prête à l'emploi d'algorithmes et de modules."
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
-ms.lasthandoff: 12/14/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 70a1d0acb8ec9bbb591f696281ea5e975b443a15
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio - De quoi s'agit-il ?
@@ -78,7 +78,7 @@ Une expérience se compose de jeux de données qui fournissent des données aux 
 * Tous les ports d'entrée des modules doivent comporter une connexion au flux de données
 * Tous les paramètres obligatoires de chaque module doivent être configurés
 
-Vous pouvez créer une expérience à partir de zéro, ou utiliser un exemple d’expérience existante comme modèle. Pour plus d’informations, consultez [Utilisez des exemples d’expériences pour créer de nouvelles expériences](machine-learning-sample-experiments.md).
+Vous pouvez créer une expérience à partir de zéro, ou utiliser un exemple d’expérience existante comme modèle. Pour plus d’informations, consultez [Copier des exemples d’expérience pour créer des expériences d’apprentissage automatique](machine-learning-sample-experiments.md).
 
 Pour obtenir un exemple de création d'une expérience simple, consultez la rubrique [Création d'une expérience simple dans Azure Machine Learning Studio](machine-learning-create-experiment.md).
 

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 6fdee57d33b19569ef892d0d32ea7007fd69faaf
-ms.lasthandoff: 03/23/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 18d6a8da38b42dcf5c1500f7fc26638aea26a809
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -55,7 +56,7 @@ L’Assistant Migration crée un rapport d’analyse visant à déceler tout pro
 * La migration ne concerne pas les autres composants comme SharePoint, les extensions serveur FrontPage (FPSE), les serveurs FTP et les certificats SSL.
 
 ## <a name="how-to-use-the-web-apps-migration-assistant"></a>Utilisation de l’Assistant Migration Web Apps
-Cette section présente pas à pas un exemple de migration de sites web qui utilisent une base de données SQL Server et s'exécutent sur un serveur local sous Windows Server 2003 R2 (IIS 6.0) :
+Cette section présente pas à pas un exemple de migration de sites web qui utilisent une base de données SQL Server et s’exécutent sur un serveur local sous Windows Server 2003 R2 (IIS 6.0) :
 
 1. Sur le serveur IIS ou votre ordinateur client, accédez à [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
    

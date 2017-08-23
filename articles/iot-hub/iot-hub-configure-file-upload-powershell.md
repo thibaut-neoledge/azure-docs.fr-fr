@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: deac38afc200a0c68751a061d3fb284f8244225b
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 66bb54927f3137aa7bfeb467962655a51bf71b4b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurer les chargements de fichiers IoT Hub à l’aide de Powershell
@@ -62,7 +61,7 @@ Vous connecter à votre compte Azure et sélectionner votre abonnement.
 
 Les étapes suivantes supposent que vous avez créé votre compte de stockage à l’aide du modèle de déploiement de **Resource Manager** et non à partir du modèle de déploiement **classique**.
 
-Vous avez besoin de la chaîne de connexion d’un compte de stockage Azure dans le même abonnement que votre IoT Hub pour configurer les chargements de fichiers en provenance de vos périphériques. Vous avez également besoin du nom d’un conteneur d’objets blob dans le compte de stockage. Utilisez la commande suivante pour récupérer vos clés de compte de stockage :
+Pour configurer les chargements de fichiers en provenance de vos appareils, vous avez besoin de la chaîne de connexion d’un compte de stockage Azure. Le compte de stockage doit être situé dans le même abonnement que votre IoT Hub. Vous avez également besoin du nom d’un conteneur d’objets blob dans le compte de stockage. Utilisez la commande suivante pour récupérer vos clés de compte de stockage :
 
 ```powershell
 Get-AzureRmStorageAccountKey `
@@ -126,7 +125,8 @@ Set-AzureRmIotHub `
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les fonctionnalités de téléchargement de fichiers d’IoT Hub, consultez [Télécharger des fichiers à partir d’un appareil][lnk-upload] dans le guide du développeur IoT Hub.
+
+Pour plus d’informations sur les fonctionnalités de chargement de fichiers d’IoT Hub, consultez [Chargements de fichiers avec IoT Hub][lnk-upload].
 
 Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
@@ -154,4 +154,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-powershell-iothub]: https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub
 [lnk-portal-hub]: iot-hub-create-through-portal.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-portal-storage]: ../storage/storage-create-storage-account.md
+[lnk-portal-storage]:../storage/common/storage-create-storage-account.md

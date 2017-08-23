@@ -1,7 +1,8 @@
 
 1. Visitez le [portail Azure].
-2. Cliquez sur **Parcourir tout** > **Applications mobiles** > le serveur principal que vous avez créé.
+2. Cliquez sur **App Services** > serveur principal que vous avez créé.
 3. Dans les paramètres de l’application mobile, cliquez sur **Démarrage rapide** > **Cordova**.
+![Portail Azure avec Démarrage rapide Mobile Apps en surbrillance][quickstart]
 4. Sous **Configurer votre application client**, sélectionnez **Création d'une application**, puis cliquez sur **Télécharger**.
 2. Décompressez le fichier ZIP téléchargé dans un répertoire sur votre disque dur, accédez au fichier de solution (.sln) et ouvrez-le à l’aide de Visual Studio.
 3. Dans Visual Studio, choisissez la plateforme de solution (Windows, iOS ou Android) dans la liste déroulante en regard de la flèche de démarrage. Sélectionnez un périphérique de déploiement spécifique ou un émulateur en cliquant sur le menu déroulant sur la flèche verte. Vous pouvez utiliser la plateforme Android par défaut et l’émulateur Ripple. Certains didacticiels plus avancés (les notifications push, par exemple) vous demanderont de sélectionner un émulateur ou un périphérique pris en charge.
@@ -10,8 +11,10 @@
 
 Le serveur principal insère les données de la requête dans la table SQL TodoItem dans la base de données SQL et renvoie des informations sur les éléments récemment stockés à l’application mobile. L’application mobile affiche ces données dans la liste.
 
-![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
-
 Vous pouvez répéter les étapes 3 à 5 pour les autres plateformes.
 
+<!-- Images. -->
+[quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
+
+<!-- URLs -->
 [portail Azure]: https://portal.azure.com/

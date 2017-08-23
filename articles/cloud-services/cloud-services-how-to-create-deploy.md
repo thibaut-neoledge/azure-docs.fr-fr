@@ -1,6 +1,6 @@
 ---
 title: "Création et déploiement d’un service cloud | Microsoft Docs"
-description: "Découvrez comment créer et déployer un service cloud à l&quot;aide de la méthode Création rapide dans Azure."
+description: "Découvrez comment créer et déployer un service cloud à l'aide de la méthode Création rapide dans Azure."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 07/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 71863e52dca951b1fc3847e1bba47977a6e49c7c
-
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 2a2172a78bfd3ac923edbc9de366b035629dd27b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Création et déploiement d'un service cloud
@@ -32,7 +33,7 @@ Le portail Azure Classic vous permet de créer et de déployer un service cloud 
 Cette rubrique explique comment utiliser la méthode Création rapide pour créer un service cloud et comment utiliser ensuite **Télécharger** pour télécharger et déployer un package de service cloud dans Azure. Si vous utilisez cette méthode, le portail Azure Classic met à votre disposition tous les liens nécessaires pour remplir les conditions requises au fur et à mesure. Si vous êtes prêt à déployer votre service cloud lorsque vous le créez, vous pouvez effectuer ces deux opérations en même temps à l'aide de **Custom Create**.
 
 > [!NOTE]
-> Si vous prévoyez de publier votre service cloud depuis Visual Studio Team Services (VSTS), utilisez Création rapide, puis configurez la publication VSTS dans **Création rapide** ou dans le tableau de bord. Pour plus d’informations, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Team Services][TFSTutorialForCloudService] ou **Démarrage rapide**.
+> Si vous prévoyez de publier votre service cloud depuis Visual Studio Team Services (VSTS), utilisez **Création rapide**, puis configurez la publication VSTS dans **Démarrage rapide** ou dans le tableau de bord.
 > 
 > 
 
@@ -120,17 +121,11 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
    
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
-[TFSTutorialForCloudService]: cloud-services-continuous-delivery-use-vso.md
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configuration générale de votre service cloud](cloud-services-how-to-configure.md).
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name.md).
 * [Gérez votre service cloud](cloud-services-how-to-manage.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

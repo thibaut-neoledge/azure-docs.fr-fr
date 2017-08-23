@@ -1,5 +1,5 @@
 ---
-title: "Créer Azure HDInsight (Hadoop) à l’aide de la ligne de commande | Microsoft Docs"
+title: "Créer des clusters Hadoop à l’aide de la ligne de commande - Azure HDInsight | Documents Microsoft"
 description: "Apprenez à créer des clusters HDInsight à l’aide de l’interface multiplateforme Azure CLI 1.0."
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: ccb2c827aa95ea967d740860ed17e6cc7bd3b392
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f2fcb46789d000cd66164508f1159338dcae5f9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/18/2017
 Les étapes de cette procédure présentent la création d’un cluster HDInsight 3.5 à l’aide d’Azure CLI 1.0.
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
 ## <a name="prerequisites"></a>Composants requis
@@ -40,7 +40,7 @@ Les étapes de cette procédure présentent la création d’un cluster HDInsigh
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Interface de ligne de commande Azure**. Les étapes décrites dans ce document ont été testées pour la dernière fois avec la version 0.10.1 de l’interface de ligne de commande Azure.
+* **Interface de ligne de commande Azure**. Les étapes décrites dans ce document ont été testées pour Azure CLI version 0.10.14.
 
     > [!IMPORTANT]
     > Les étapes décrites dans ce document ne fonctionnent pas avec Azure CLI 2.0. Azure CLI 2.0 ne prend pas en charge la création d’un cluster HDInsight.
@@ -51,7 +51,7 @@ Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir
 
 ## <a name="create-a-cluster"></a>Créer un cluster
 
-La procédure suivante doit être effectuée à partir d’une session d’invite de commande, shell ou terminal après l’installation et la configuration de l’interface CLI Azure.
+Les étapes suivantes doivent être exécutées à partir d’une ligne de commande, telle que PowerShell ou Bash.
 
 1. Utilisez la commande suivante pour vous identifier auprès de votre abonnement Azure :
 
@@ -67,21 +67,21 @@ La procédure suivante doit être effectuée à partir d’une session d’invit
 
         azure group create groupname location
 
-    * Remplacez **groupname** par un nom unique pour le groupe.
+    * Remplacez `groupname` par un nom unique pour le groupe.
 
-    * Remplacez **location** par la région géographique dans laquelle vous souhaitez créer le groupe.
+    * Remplacez `location` par la région géographique dans laquelle vous souhaitez créer le groupe.
 
-       Pour obtenir la liste des emplacements valides, utilisez la commande `azure location list` , puis un des emplacements de la colonne **Nom** .
+       Pour obtenir la liste des emplacements valides, utilisez la commande `azure location list` , puis un des emplacements de la colonne `Name`.
 
 4. Créez un compte de stockage. Ce compte de stockage est utilisé comme espace de stockage par défaut pour le cluster HDInsight.
 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
 
-    * Remplacez **groupname** par le nom du groupe créé à l’étape précédente.
+    * Remplacez `groupname` par le nom du groupe créé à l’étape précédente.
 
-    * Remplacez **location** par le même emplacement que celui utilisé à l’étape précédente.
+    * Remplacez `location` par le même emplacement que celui utilisé à l’étape précédente.
 
-    * Remplacez **storagename** par un nom de compte de stockage unique.
+    * Remplacez `storagename` par un nom de compte de stockage unique.
 
         > [!NOTE]
         > Pour plus d’informations sur les paramètres utilisés dans cette commande, utilisez `azure storage account create -h` pour afficher l’aide relative à cette commande.
@@ -90,36 +90,36 @@ La procédure suivante doit être effectuée à partir d’une session d’invit
 
         azure storage account keys list -g groupname storagename
 
-    * Remplacez **groupname** par le nom du groupe de ressources.
-    * Remplacez **storagename** par le nom du compte de stockage.
+    * Remplacez `groupname` par le nom du groupe de ressources.
+    * Remplacez `storagename` par le nom du compte de stockage.
 
-     Dans les données renvoyées, enregistrez la valeur **key** pour **key1**.
+     Dans les données renvoyées, enregistrez la valeur `key` par `key1`.
 
 6. Créez un cluster HDInsight.
 
-        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
+        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 3 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
-    * Remplacez **groupname** par le nom du groupe de ressources.
+    * Remplacez `groupname` par le nom du groupe de ressources.
 
-    * Remplacez **Hadoop** avec le type de cluster que vous souhaitez créer. Par exemple, Hadoop, HBase, Storm ou Spark.
+    * Remplacez `Hadoop` par le type de cluster que vous souhaitez créer. Par exemple, `Hadoop`, `HBase`, `Kafka`, `Spark` ou `Storm`.
 
      > [!IMPORTANT]
      > Il existe différents types de clusters HDInsight correspondant à la charge de travail ou à la technologie pour laquelle ils sont utilisés. Il n’existe aucune méthode prise en charge pour créer un cluster combinant plusieurs types, tels que Storm et HBase sur un seul cluster.
 
-    * Remplacez **location** par le même emplacement que celui utilisé lors des étapes précédentes.
+    * Remplacez `location` par le même emplacement que celui utilisé aux étapes précédentes.
 
-    * Remplacez **storagename** par le nom du compte de stockage.
+    * Remplacez `storagename` par le nom du compte de stockage.
 
-    * Remplacez **storagekey** par la clé obtenue à l’étape précédente.
+    * Remplacez `storagekey` par la clé obtenue à l’étape précédente.
 
     * Pour le paramètre `--defaultStorageContainer` , utilisez le même nom que celui utilisé pour le cluster.
 
-    * Remplacez **admin** et **httppassword** par le nom et le mot de passe à utiliser lors de l’accès au cluster via HTTPS.
+    * Remplacez `admin` et `httppassword` par le nom et le mot de passe à utiliser lors de l’accès au cluster via HTTPS.
 
-    * Remplacez **sshuser** ed **sshuserpassword** par le nom d’utilisateur et le mot de passe à utiliser lors de l’accès au cluster via SSH.
+    * Remplacez `sshuser` et `sshuserpassword` par le nom et le mot de passe à utiliser lors de l’accès au cluster via SSH
 
     > [!IMPORTANT]
-    > Cet exemple crée un cluster avec deux nœuds de travail. Si vous envisagez d’utiliser plus de 32 nœuds de travail (lors de la création ou de la mise à l’échelle du cluster), vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM. Vous pouvez définir la taille du nœud principal à l’aide du paramètre `--headNodeSize`.
+    > Cet exemple crée un cluster avec deux nœuds de travail. Vous pouvez également modifier le nombre de nœuds worker après la création du cluster en effectuant des opérations de mise à l’échelle. Si vous envisagez d’utiliser plus de 32 nœuds worker, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM. Vous pouvez définir la taille du nœud principal à l’aide du paramètre `--headNodeSize` pendant la création du cluster.
     >
     > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 

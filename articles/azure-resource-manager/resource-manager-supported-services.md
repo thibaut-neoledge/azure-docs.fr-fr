@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 07/25/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 09537fb4058f1fd27469fb9386bc52d938c027ec
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -55,7 +55,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement ; toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Pour inscrire un fournisseur de ressources, fournissez l'espace de noms :
+L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement. Toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à effectuer `/register/action`l’opération pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -69,6 +69,8 @@ RegistrationState : Registering
 ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
+
+Vous ne pouvez pas annuler l’inscription d’un fournisseur de ressources lorsque vous avez encore des types de ressources de ce fournisseur de ressources dans votre abonnement.
 
 Pour afficher des informations pour un fournisseur de ressources particulier, utilisez :
 
@@ -157,13 +159,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement ; toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Pour inscrire un fournisseur de ressources, fournissez l'espace de noms :
+L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement. Toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à effectuer `/register/action`l’opération pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
 ```
 
 Qui retourne un message indiquant que l’inscription est en cours.
+
+Vous ne pouvez pas annuler l’inscription d’un fournisseur de ressources lorsque vous avez encore des types de ressources de ce fournisseur de ressources dans votre abonnement.
 
 Pour afficher des informations pour un fournisseur de ressources particulier, utilisez :
 
@@ -255,9 +259,11 @@ Sélectionnez **Fournisseurs de ressources** et affichez la liste des fournisseu
 
 ![afficher les fournisseurs de ressources](./media/resource-manager-supported-services/show-resource-providers.png)
 
-Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement ; toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Pour inscrire un fournisseur de ressources, sélectionnez **Inscrire**.
+L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement. Toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à effectuer `/register/action`l’opération pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Pour inscrire un fournisseur de ressources, sélectionnez **Inscrire**.
 
 ![inscrire un fournisseur de ressources](./media/resource-manager-supported-services/register-provider.png)
+
+Vous ne pouvez pas annuler l’inscription d’un fournisseur de ressources lorsque vous avez encore des types de ressources de ce fournisseur de ressources dans votre abonnement.
 
 Pour afficher des informations pour un fournisseur de ressources particulier, sélectionnez **Autres services**.
 

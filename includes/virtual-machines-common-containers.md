@@ -17,7 +17,7 @@ Les machines virtuelles s’exécutent dans un environnement isolé de virtualis
 Les [conteneurs Linux](http://en.wikipedia.org/wiki/LXC), et ceux créés et hébergés à l’aide des outils docker, n’utilisent pas un hyperviseur pour assurer l’isolation. Avec des conteneurs, l’hôte conteneur utilise des fonctionnalités d’isolation des processus et systèmes de fichiers du noyau Linux pour exposer sur le conteneur, ses applications, certaines fonctionnalités du noyau et son propre système de fichiers isolés. Du point de vue d’une application exécutée dans un conteneur, le conteneur apparaît comme une instance du système d’exploitation unique. Une application à relation contenant-contenu ne peut pas voir les processus ou autres ressources en dehors de son conteneur.
 
 Le nombre de ressources utilisées dans un conteneur Docker est beaucoup moins important que dans une machine virtuelle. Les conteneurs Docker utilisent un modèle d’isolation et d’exécution d’applications qui ne partage pas le noyau de l’hôte Docker. Le conteneur utilise beaucoup moins d’espace disque car il ne contient pas le système d’exploitation complet. Le temps de démarrage et l’espace disque requis sont considérablement inférieurs à ceux dans une machine virtuelle.
-Les conteneurs Windows Server offrent les mêmes avantages que les conteneurs Linux pour les applications qui s’exécutent sur Windows. Les conteneurs Windows prennent en charge le format d’image Docker et l’API Docker, mais ils peuvent également être gérés à l’aide de PowerShell. Deux runtimes de conteneur sont disponibles avec les conteneurs Windows, les conteneurs Windows Server et les conteneurs Hyper-V. Les conteneurs Hyper-V fournissent une couche supplémentaire d’isolation en hébergeant chaque conteneur dans une machine virtuelle très optimisée. Pour en savoir plus sur les conteneurs Windows, consultez [À propos des conteneurs Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). Pour commencer à utiliser les conteneurs vous familiariser avec les conteneurs Windows dans Azure, découvrez comment [déployer un cluster Azure Container Service](/articles/container-service/container-service-deployment.md).
+Les conteneurs Windows Server offrent les mêmes avantages que les conteneurs Linux pour les applications qui s’exécutent sur Windows. Les conteneurs Windows prennent en charge le format d’image Docker et l’API Docker, mais ils peuvent également être gérés à l’aide de PowerShell. Deux runtimes de conteneur sont disponibles avec les conteneurs Windows, les conteneurs Windows Server et les conteneurs Hyper-V. Les conteneurs Hyper-V fournissent une couche supplémentaire d’isolation en hébergeant chaque conteneur dans une machine virtuelle très optimisée. Pour en savoir plus sur les conteneurs Windows, consultez [À propos des conteneurs Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). Pour commencer à utiliser les conteneurs vous familiariser avec les conteneurs Windows dans Azure, découvrez comment [déployer un cluster Azure Container Service](../articles/container-service/dcos-swarm/container-service-deployment.md).
 
 ## <a name="what-are-containers-good-for"></a>Quels sont les avantages des conteneurs ?
 
@@ -92,21 +92,20 @@ Souvent, ces fonctionnalités sont ensuite migrées vers des outils tels que [Pu
 Plus récemment, Azure a publié l’API REST de [gestion des ressources Azure](../articles/resource-manager-deployment-model.md) et a mis à jour les outils PowerShell et les outils de l’interface de ligne de commande Azure pour en faciliter l’utilisation. Vous pouvez déployer, modifier ou redéployer des topologies d'application intégrales à l'aide de [modèles Azure Resource Manager](../articles/resource-group-authoring-templates.md) avec l'API de gestion des ressources Azure en utilisant :
 
 * le [portail Azure avec des modèles](https://github.com/Azure/azure-quickstart-templates) &mdash; astuce : utilisez le bouton « DeployToAzure »
-* [l’interface de ligne de commande Azure](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* les [modules Azure PowerShell](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [l’interface de ligne de commande Azure](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>Déploiement et gestion de groupes entiers de machines virtuelles Azure et de conteneurs
 Plusieurs systèmes courants peuvent déployer des groupes entiers de machines virtuelles et installer Docker (ou autres systèmes d’hébergement de conteneurs Linux ) comme un groupe automatisable. Pour des liens directs, consultez la section [Conteneurs et outils](#containers-and-vm-technologies) ci-dessous. Plusieurs systèmes peuvent plus ou moins réaliser ces opérations ; cette liste n’est pas exhaustive. En fonction de vos compétences et scénarios, ils peuvent se révéler utiles ou non
 
 Docker possède son propre jeu d’outils de création de machines virtuelles ([docker-machine](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)), ainsi qu’un outil de gestion des clusters, conteneur de Docker et à équilibrage de charge ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). En outre, [l’extension Docker VM Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) est prise en charge par défaut pour [`docker-compose`](https://docs.docker.com/compose/) qui peut déployer des conteneurs d’applications configurés sur plusieurs conteneurs.
 
-En outre, vous pouvez essayer le [système d'exploitation de centre de données (Data Center Operating System, DCOS) de Mesosphere](http://docs.mesosphere.com/install/azurecluster/). DCOS est basé sur le « noyau de systèmes distribués » open source [mesos](http://mesos.apache.org/) qui vous permet de traiter votre centre de données comme un service adressable. DCOS intègre des packages pour plusieurs systèmes importants tels que [Spark](http://spark.apache.org/), [Kafka](http://kafka.apache.org/) et d’autres, ainsi que des services intégrés tels que [Marathon](https://mesosphere.github.io/marathon/) (un système de contrôle de conteneurs) et [Chronos](https://mesos.github.io/chronos/) (un planificateur distribué). Mesos est un dérivé de leçons tirées de Twitter, d’AirBnb et autres entreprises web à grande échelle. Vous pouvez également utiliser **swarm** en tant que moteur d’orchestration.
+En outre, vous pouvez essayer le [système d'exploitation de centre de données (Data Center Operating System, DCOS) de Mesosphere](http://docs.mesosphere.com). DCOS est basé sur le « noyau de systèmes distribués » open source [mesos](http://mesos.apache.org/) qui vous permet de traiter votre centre de données comme un service adressable. DCOS intègre des packages pour plusieurs systèmes importants tels que [Spark](http://spark.apache.org/), [Kafka](http://kafka.apache.org/) et d’autres, ainsi que des services intégrés tels que [Marathon](https://mesosphere.github.io/marathon/) (un système de contrôle de conteneurs) et [Chronos](https://mesos.github.io/chronos/) (un planificateur distribué). Mesos est un dérivé de leçons tirées de Twitter, d’AirBnb et autres entreprises web à grande échelle. Vous pouvez également utiliser **swarm** en tant que moteur d’orchestration.
 
 En outre, [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) est un système open source pour la gestion de groupes de machines virtuelles et de conteneurs, fondé sur les enseignements tirés de Google. Vous pouvez même utiliser [kubernetes avec weave pour fournir la prise en charge réseau](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.io/overview/) est une plateforme PaaS (Platform-as-a-Service) open source qui facilite le déploiement et la gestion des applications sur vos propres serveurs. Deis repose sur Docker et CoreOS pour fournir une plateforme PaaS légère avec un workflow inspiré de Heroku. Vous pouvez facilement [créer un groupe de machines virtuelles Azure à 3 nœuds et installer Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) sur Azure, puis [installer une application Go Hello World](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.io/overview/) est une plateforme PaaS (Platform-as-a-Service) open source qui facilite le déploiement et la gestion des applications sur vos propres serveurs. Deis repose sur Docker et CoreOS pour fournir une plateforme PaaS légère avec un workflow inspiré de Heroku.
 
-[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), une distribution Linux avec un encombrement optimisé, la prise en charge Docker et leur propre système de conteneurs appelé [rkt](https://github.com/coreos/rkt) disposent également d’un outil de gestion de groupes de conteneurs appelé [fleet](https://coreos.com/using-coreos/clustering/).
+[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), une distribution Linux avec un encombrement optimisé, la prise en charge Docker et leur propre système de conteneurs appelé [rkt](https://github.com/coreos/rkt) disposent également d’un outil de gestion de groupes de conteneurs appelé [fleet](https://coreos.com/fleet/docs/latest/).
 
 Ubuntu, une autre distribution Linux très populaire, prend très bien en charge Docker mais également les [clusters Linux (de type LXC)](https://help.ubuntu.com/lts/serverguide/lxc.html).
 
@@ -133,7 +132,7 @@ Liens pour les conteneurs Windows :
 
 Liens pour Docker pour Visual Studio :
 
-* [Visual Studio 2015 RC Tools pour Docker - Aperçu](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0)
+* [Visual Studio Tools pour Docker](https://docs.microsoft.com/en-us/dotnet/core/docker/visual-studio-tools-for-docker)
 
 Outils Docker :
 
@@ -161,20 +160,17 @@ Distributions Linux et exemples Azure :
 
 Configuration, gestion de clusters et orchestration de conteneurs :
 
-* [Fleet sur CoreOS](https://coreos.com/using-coreos/clustering/)
+* [Fleet sur CoreOS](https://coreos.com/fleet/docs/latest/)
 * Deis
-
-  * [Créer un groupe de machines virtuelles Azure à 3 nœuds, installer Deis et démarrer une application Go Hello World](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* kubernetes
 
   * [Guide complet du déploiement automatisé de cluster Kubernetes avec CoreOS et Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
   * [Visualiseur Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
 * [Mesos](http://mesos.apache.org/)
 
-  * [Système d’exploitation de centre de données (Data Center Operating System, DCOS) de Mesosphere](http://beta-docs.mesosphere.com/install/azurecluster/)
-* [Jenkins](https://jenkins-ci.org/) et [Hudson](http://hudson-ci.org/)
+  * [Système d’exploitation de centre de données (Data Center Operating System, DCOS) de Mesosphere](https://docs.mesosphere.com/1.7/overview/design/azure-container-service/)
+* [Jenkins](https://jenkins.io/) et [Hudson](http://hudson-ci.org/)
 
-  * [Blog : Plug-in Jenkins Slave pour Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
+  * [Plug-in Jenkins VM Agent pour Azure](https://wiki.jenkins.io/display/JENKINS/Azure+VM+Agents+plugin)
   * [Référentiel GitHub : Plug-in Jenkins Storage pour Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
   * [Tiers : Plug-in Hudson Slave pour Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
   * [Tiers : Plug-in Hudson Storage pour Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)

@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b3d6f232f1ad7a672746287130c15eb738c1b7a1
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 5335dae62e61659b68e8befb4ed0d404dffb800c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -92,8 +92,9 @@ Une action est une opération effectuée par le flux de travail défini dans une
    > 
 5. **Enregistrez** vos modifications (dans le coin supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
 
-## <a name="view-the-swagger"></a>Afficher Swagger
-Consultez les [détails sur Swagger](/connectors/office365connector/). 
+## <a name="connector-specific-details"></a>Détails spécifiques aux connecteurs
+
+Consultez tous les déclencheurs et les actions définies dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/office365connector/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).

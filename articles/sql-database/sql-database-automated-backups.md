@@ -15,15 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: cfd0d130186f851bc306065893b137c94cfb7d3d
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 88ee5b5c4a57b67190f3da2ebc8aed0964b804d5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="learn-about-sql-database-backups"></a>Découvrir les sauvegardes SQL Database
+# <a name="learn-about-automatic-sql-database-backups"></a>En savoir plus sur les sauvegardes automatiques SQL Database
 
 SQL Database crée automatiquement des sauvegardes de base de données et utilise le stockage géoredondant avec accès en lecture (RA-GRS) d’Azure pour fournir la géoredondance. Ces sauvegardes sont créées automatiquement et sans frais supplémentaires. Vous n’avez pas besoin de faire quoi que ce soit pour qu’elles se produisent. Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Si vous souhaitez conserver les sauvegardes dans votre propre conteneur de stockage, vous pouvez configurer une stratégie de rétention de sauvegarde à long terme. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 

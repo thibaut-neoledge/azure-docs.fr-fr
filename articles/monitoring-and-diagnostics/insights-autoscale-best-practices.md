@@ -1,8 +1,8 @@
 ---
 title: "Bonnes pratiques pour la mise à l’échelle automatique | Microsoft Docs"
-description: "Découvrez comment procéder efficacement à une mise à l’échelle automatique dans Machines virtuelles, Virtual Machine Scale Sets et Services cloud."
-author: kamathashwin
-manager: carmonm
+description: "Modèles de mise à l’échelle automatique d’Azure pour Web Apps, Virtual Machine Scale Sets et Cloud Services"
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
-ms.author: ashwink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f1e4a60cd98d40794c63dc334f242415445e0d6d
+ms.date: 07/07/2017
+ms.author: ancav
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 54dad831287376db7fb2dc46e4591be1499dc072
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="best-practices-for-autoscale"></a>Meilleures pratiques pour la mise à l’échelle automatique
@@ -151,4 +150,10 @@ La mise à l’échelle automatique notifie par e-mail les administrateurs et le
 * Les mesures ne sont pas disponibles pour que le service de mise à l’échelle automatique prenne une décision de mise à l’échelle.
 * Les mesures sont de nouveau disponibles (récupération) pour prendre une décision de mise à l’échelle.
   Outre les conditions ci-dessus, vous pouvez configurer des notifications par e-mail ou webhook pour être averti en cas d’action de mise à l’échelle réussie.
+  
+Vous pouvez également utiliser une alerte de journal d’activité pour surveiller l’intégrité du moteur de mise à l’échelle automatique. Voici des exemples pour [créer une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) ou [créer une alerte de journal d’activité pour surveiller tous les échecs d’opérations de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+## <a name="next-steps"></a>Étapes suivantes
+- [Créer une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Créer une alerte de journal d’activité pour surveiller tous les échecs d’opérations de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

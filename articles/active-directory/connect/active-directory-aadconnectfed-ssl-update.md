@@ -12,20 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/02/2017
 ms.author: anandy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9bb29624324305f5295e0a50ef79d8f4c6d063c0
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 87807a203d71b3abfe3e93132eb7d0b82b14b4ee
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---    
 
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Mettre à jour le certificat SSL pour une batterie de serveurs Active Directory Federation Services (AD FS)
 
 ## <a name="overview"></a>Vue d'ensemble
-Cet article explique comment utiliser Azure AD Connect pour mettre à jour le certificat SSL d’une batterie de serveurs Active Directory Federation Services (AD FS). Si la méthode de connexion dans Azure AD Connect est définie sur AD FS, vous pouvez utiliser l’outil Azure AD Connect pour mettre à jour facilement le certificat SSL pour la batterie de serveurs AD FS. Vous pouvez effectuer cela dans tous les serveurs de fédération et d’application web (WAP) en trois étapes simples :
+Cet article explique comment utiliser Azure AD Connect pour mettre à jour le certificat SSL d’une batterie de serveurs Active Directory Federation Services (AD FS). Vous pouvez utiliser l’outil Azure AD Connect pour une mise à jour facile du certificat SSL pour la batterie de serveurs AD FS même si la méthode d’authentification sélectionnée n’est pas AD FS.
+
+Vous pouvez effectuer l’ensemble de l’opération de mise à jour du certificat SSL pour la batterie de serveurs AD FS sur l’ensemble des serveurs de fédération et Proxy d’application Web (WAP) en trois étapes simples :
 
 ![Trois étapes](./media/active-directory-aadconnectfed-ssl-update/threesteps.png)
 

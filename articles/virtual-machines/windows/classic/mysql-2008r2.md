@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 1bfce97dba3cfc371900c0e3c6a93369e768c181
-ms.lasthandoff: 04/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 11850e5ce20efae88a7af9c1d2e4761ed2b70cd7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Installation de MySQL sur une machine virtuelle créée avec le modèle de déploiement classique exécutant Windows Server 2016
@@ -36,7 +36,7 @@ Si vous ne disposez pas d’une machine virtuelle s’exécutant sous Windows Se
 ## <a name="attach-a-data-disk"></a>Association d’un disque de données
 Une fois la machine virtuelle créée, vous pouvez éventuellement attacher un disque de données. L’ajout d’un disque de données est recommandé pour les charges de travail de production et pour éviter de manquer d’espace sur le lecteur incluant le système d’exploitation (C:).
 
-Consultez [Attacher un disque de données à une machine virtuelle Windows](../attach-disk-portal.md) et suivez les instructions permettant d’attacher un disque vide. Définissez le paramètre de cache d’hôte sur la valeur **Aucun** ou **Lecture seule**.
+Consultez [Attacher un disque de données à une machine virtuelle Windows](../attach-managed-disk-portal.md) et suivez les instructions permettant d’attacher un disque vide. Définissez le paramètre de cache d’hôte sur la valeur **Aucun** ou **Lecture seule**.
 
 ## <a name="log-on-to-the-virtual-machine"></a>Connexion à la machine virtuelle
 [Connectez-vous ensuite à la machine virtuelle](./connect-logon.md) pour installer MySQL.

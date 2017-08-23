@@ -1,6 +1,6 @@
 ---
 title: "Prise en main d’un exemple HBase sur HDInsight - Azure | Microsoft Docs"
-description: "Suivez cet exemple Apache HBase pour commencer à utiliser HBase sur HDInsight. Créez des tables à partir de l’interpréteur de commandes HBase et interrogez-les à l’aide de Hive."
+description: "Suivez cet exemple Apache HBase pour commencer à utiliser Hadoop sur HDInsight. Créez des tables à partir de l’interpréteur de commandes HBase et interrogez-les à l’aide de Hive."
 keywords: commande hbase, exemple hbase
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/09/2017
+ms.date: 07/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 5bac1fcc39d052dd1bd9bf710a45a3494b70cae9
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bbd8a838062795ee03ae02dc5e3fd45d841a6e17
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Prise en main d’un exemple Apache HBase dans HDInsight
@@ -42,7 +41,7 @@ La procédure suivante utilise un modèle Azure Resource Manager pour créer un 
 
 1. Cliquez sur l’image suivante pour ouvrir le modèle dans le portail Azure. Le modèle est situé dans un conteneur d’objets blob public. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Dans le panneau **Déploiement personnalisé**, entrez les valeurs suivantes :
    
    * **Abonnement** : sélectionnez l’abonnement Azure utilisé pour créer le cluster.
@@ -58,7 +57,7 @@ La procédure suivante utilise un modèle Azure Resource Manager pour créer un 
 3. Sélectionnez **J’accepte les termes et conditions mentionnés ci-dessus**, puis cliquez sur **Acheter**. La création d’un cluster prend environ 20 minutes.
 
 > [!NOTE]
-> Après la suppression d’un cluster HBase, vous pouvez créer un autre cluster HBase à l’aide du même conteneur d’objets blob par défaut. Le nouveau cluster utilisera les tables HBase créées dans le cluster d'origine. Pour éviter toute incohérence, nous vous recommandons de désactiver les tables HBase avant de supprimer le cluster.
+> Après la suppression d’un cluster HBase, vous pouvez créer un autre cluster HBase à l’aide du même conteneur d’objets blob par défaut. Le nouveau cluster utilise les tables HBase créées dans le cluster d’origine. Pour éviter toute incohérence, nous vous recommandons de désactiver les tables HBase avant de supprimer le cluster.
 > 
 > 
 
@@ -69,7 +68,7 @@ Pour la plupart des utilisateurs, les données s’affichent sous la forme tabul
 
 ![Données tabulaires HBase HDInsight][img-hbase-sample-data-tabular]
 
-Dans HBase, qui est une implémentation de BigTable, certaines données ont l’aspect suivant :
+Dans HBase (une implémentation de BigTable), certaines données ont l’aspect suivant :
 
 ![Données bigtable HBase HDInsight][img-hbase-sample-data-bigtable]
 
@@ -78,36 +77,47 @@ Dans HBase, qui est une implémentation de BigTable, certaines données ont l’
 
 1. À partir de SSH, exécutez la commande HBase suivante :
    
-        hbase shell
+    ```bash
+    hbase shell
+    ```
+
 2. Créez une HBase contenant deux familles de colonne :
-   
-        create 'Contacts', 'Personal', 'Office'
-        list
+
+    ```hbaseshell   
+    create 'Contacts', 'Personal', 'Office'
+    list
+    ```
 3. Insérez des données :
-   
-        put 'Contacts', '1000', 'Personal:Name', 'John Dole'
-        put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
-        put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
-        put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
-        scan 'Contacts'
+    
+    ```hbaseshell   
+    put 'Contacts', '1000', 'Personal:Name', 'John Dole'
+    put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
+    put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
+    put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
+    scan 'Contacts'
+    ```
    
     ![Interpréteur de commandes HBase Hadoop HDInsight][img-hbase-shell]
 4. Récupérez une seule ligne :
    
-        get 'Contacts', '1000'
+    ```hbaseshell
+    get 'Contacts', '1000'
+    ```
    
     Comme il n’y a qu’une seule ligne, les résultats sont les mêmes qu’avec la commande d’analyse.
    
     Pour en savoir plus sur le schéma de la table Hbase, voir [Introduction à la conception de schéma HBase][hbase-schema]. Pour obtenir plus de commandes HBase, consultez le [Guide de référence Apache HBase][hbase-quick-start].
 5. Quittez l’interpréteur de commandes.
    
-        exit
+    ```hbaseshell
+    exit
+    ```
 
 **Pour charger des données en bloc dans la table de contacts HBase**
 
 HBase propose plusieurs méthodes pour charger des données dans des tables.  Pour en savoir plus, consultez la rubrique [Chargement en bloc](http://hbase.apache.org/book.html#arch.bulk.load).
 
-Un exemple de fichier de données a été chargé dans un conteneur d’objets blob public, *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Le contenu du fichier de données est le suivant :
+Vous trouverez un exemple de fichier de données dans un conteneur de blobs public, *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Le contenu du fichier de données est le suivant :
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -125,14 +135,19 @@ Si vous le souhaitez, vous pouvez créer un fichier texte et le télécharger da
 > [!NOTE]
 > Cette procédure utilise la table de contacts HBase créée dans la dernière procédure.
 > 
-> 
 
-1. Depuis SSH, exécutez la commande suivante pour transformer le fichier de données en StoreFiles et le stocker sur un chemin d’accès relatif spécifié par Dimporttsv.bulk.output :  Si vous êtes dans le Shell HBase, utilisez la commande Quitter pour sortir.
-   
-        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+1. Depuis SSH, exécutez la commande suivante pour transformer le fichier de données en StoreFiles et le stocker au niveau d’un chemin d’accès relatif spécifié par Dimporttsv.bulk.output.  Si vous êtes dans le Shell HBase, utilisez la commande Quitter pour sortir.
+
+    ```bash   
+    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+    ```
+
 2. Exécutez la commande suivante pour charger les données à partir de /example/data/storeDataFileOutput vers la table HBase :
    
-        hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
+    ```bash
+    hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
+    ```
+
 3. Vous pouvez ouvrir l’interpréteur de commandes HBase et utiliser la commande d’analyse pour répertorier le contenu de la table.
 
 ## <a name="use-hive-to-query-hbase"></a>Utiliser Hive pour interroger HBase
@@ -142,47 +157,62 @@ Vous pouvez interroger les données des tables HBase à l’aide de Hive. Dans c
 1. Ouvrez **PuTTY**et connectez-vous au cluster.  Consultez les instructions de la procédure précédente.
 2. Dans la session SSH, utilisez la commande suivante pour démarrer Beeline :
 
-        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    ```bash
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    ```
+
     Pour plus d’informations sur Beeline, consultez [Utilisation de Hive avec Hadoop dans HDInsight via Beeline](hdinsight-hadoop-use-hive-beeline.md).
        
 3. Exécutez le script HiveQL suivant pour créer une table Hive mappant à la table HBase. Avant d'exécuter cette instruction, vous devez avoir créé l'exemple de table référencé dans ce didacticiel en utilisant l’interpréteur de commandes HBase.
-   
-        CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
-        STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
-        WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
-        TBLPROPERTIES ('hbase.table.name' = 'Contacts');
+
+    ```hiveql   
+    CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
+    STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+    WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
+    TBLPROPERTIES ('hbase.table.name' = 'Contacts');
+    ```
+
 4. Exécutez le script HiveQL suivant pour interroger les données dans la table HBase :
-   
-         SELECT count(rowkey) FROM hbasecontacts;
+
+    ```hiveql   
+    SELECT count(rowkey) FROM hbasecontacts;
+    ```
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Utilisation des API REST HBase à l’aide de Curl
 
-L’API REST est sécurisée à l’aide de l’ [authentification de base](http://en.wikipedia.org/wiki/Basic_access_authentication). Vous devez toujours effectuer les demandes à l’aide du protocole Secure HTTP (HTTPS) pour aider à vous assurer que vos informations d’identification sont envoyées en toute sécurité sur le serveur.
+L’API REST est sécurisée à l’aide de l’ [authentification de base](http://en.wikipedia.org/wiki/Basic_access_authentication). Vous devrez toujours effectuer les demandes à l’aide du protocole Secure HTTP (HTTPS) pour vous assurer que vos informations d’identification sont envoyées en toute sécurité au serveur.
 
 2. Utilisez la commande suivante pour répertorier les tables HBase existantes :
-   
-        curl -u <UserName>:<Password> \
-        -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+
+    ```bash
+    curl -u <UserName>:<Password> \
+    -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+    ```
+
 3. Utilisez la commande suivante pour créer une table HBase avec deux familles de colonnes :
-   
-        curl -u <UserName>:<Password> \
-        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
-        -H "Accept: application/json" \
-        -H "Content-Type: application/json" \
-        -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
-        -v
-   
+
+    ```bash   
+    curl -u <UserName>:<Password> \
+    -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
+    -v
+    ```
+
     Le schéma est fourni au format JSon.
 4. Utilisez la commande suivante pour insérer des données :
+
+    ```bash   
+    curl -u <UserName>:<Password> \
+    -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
+    -v
+    ```
    
-        curl -u <UserName>:<Password> \
-        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
-        -H "Accept: application/json" \
-        -H "Content-Type: application/json" \
-        -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
-        -v
-   
-    Vous devez coder en base64 les valeurs spécifiées dans le commutateur -d.  Dans l’exemple :
+    Vous devez coder en base64 les valeurs spécifiées dans le commutateur -d. Dans l’exemple :
    
    * MTAwMA==: 1000
    * UGVyc29uYWw6TmFtZQ==: Personal:Name
@@ -191,10 +221,12 @@ L’API REST est sécurisée à l’aide de l’ [authentification de base](http
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) vous permet d’insérer plusieurs valeurs (par lot).
 5. Utilisez la commande suivante pour obtenir une ligne :
    
-        curl -u <UserName>:<Password> \
-        -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
-        -H "Accept: application/json" \
-        -v
+    ```bash 
+    curl -u <UserName>:<Password> \
+    -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
+    -H "Accept: application/json" \
+    -v
+    ```
 
 Pour plus d’informations sur HBase Rest, voir le [Guide de référence Apache HBase](https://hbase.apache.org/book.html#_rest).
 
@@ -218,7 +250,7 @@ HBase dans HDInsight est livré avec une interface utilisateur web pour la surve
 
 **Pour accéder à l’interface utilisateur principale HBase**
 
-1. Ouvrez l’interface utilisateur web d’Ambari à l’adresse https://&lt;Clustername>.azurehdinsight.net.
+1. Connectez-vous à l’interface utilisateur web d’Ambari à l’adresse https://&lt;Clustername>.azurehdinsight.net.
 2. Dans le menu de gauche, cliquez sur **HBase**.
 3. Cliquez sur **Liens rapides** en haut de la page, pointez vers le lien de nœud Zookeeper actif, puis cliquez sur **HBase Master UI (Interface utilisateur principale HBase)**.  L’interface utilisateur est ouverte dans un autre onglet de navigateur :
 
@@ -242,7 +274,7 @@ Pour éviter toute incohérence, nous vous recommandons de désactiver les table
 Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel HBase pour HDInsight, vous avez appris à créer un cluster HBase, à créer des tables et à afficher les données de ces tables à partir de l’interpréteur de commandes HBase. Vous avez également appris à utiliser une requête Hive pour interroger les données des tables HBase et à utiliser les API REST C# HBase pour créer une table HBase et en extraire les données.
+Dans cet article, vous avez appris à créer un cluster HBase, à créer des tables et à afficher les données de ces tables à partir de l’interpréteur de commandes HBase. Vous avez également appris à utiliser une requête Hive pour interroger les données des tables HBase et à utiliser les API REST C# HBase pour créer une table HBase et en extraire les données.
 
 Pour plus d'informations, consultez les rubriques suivantes :
 

@@ -4,7 +4,7 @@ description: "Découvrez comment installer Data Lake Tools pour Visual Studio et
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
-manager: saveenr
+manager: jhubbard
 editor: cgronlun
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.service: data-lake-analytics
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/28/2017
 ms.author: saveenr, yanacai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 401e2d84e5e2eb9f66a16b299fbb93bd1943e04b
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 7bbbb08ff635477a88403a3ae6bd3486d31838ef
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Développer des scripts U-SQL à l’aide des outils Data Lake pour Visual Studio
@@ -111,7 +110,7 @@ OUTPUT @a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Prise en main de Data Lake Analytics à l’aide du [portail Azure](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) 
+* [Run U-SQL scripts on your own workstation for testing and debugging (Exécuter des scripts U-SQL sur votre station de travail pour les tests et le débogage)](data-lake-analytics-data-lake-tools-local-run.md)
 * [Débogage de travaux U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 * [Utilisation d’Azure Data Lake Tools pour Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 

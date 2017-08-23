@@ -1,6 +1,6 @@
 ---
 title: "Démarrage d’un Runbook dans Azure Automation | Microsoft Docs"
-description: "Résume les différentes méthodes qui peuvent être utilisées pour démarrer un Runbook dans Azure Automation et fournit des détails sur l&quot;utilisation du portail Azure et de Windows PowerShell."
+description: "Résume les différentes méthodes qui peuvent être utilisées pour démarrer un Runbook dans Azure Automation et fournit des détails sur l'utilisation du portail Azure et de Windows PowerShell."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2016
+ms.date: 08/07/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0bacd2ccb08d20c4e0457d9fc83468e747cde870
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 844831b63d5263987ed05370125fbe9f01913ab9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Démarrage d'un Runbook dans Azure Automation
@@ -29,8 +30,8 @@ Le tableau suivant vous aide à déterminer la méthode de démarrage d'un Runbo
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>Appel à partir de la ligne de commande avec les applets de commande Windows PowerShell.<br> <li>Possibilité d'inclusion dans une solution automatisée à plusieurs étapes.<br> <li>Demande authentifiée avec un certificat ou un principal du service / principal d'utilisateur OAuth.<br> <li>Fourniture de valeurs de paramètres simples et complexes.<br> <li>Suivi de l’état des tâches.<br> <li>Client requis pour prendre en charge les applets de commande PowerShell. |
 | [API Azure Automation](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>Méthode la plus souple, mais également la plus complexe.<br> <li>Appel à partir de n'importe quel code personnalisé qui peut envoyer des requêtes HTTP.<br> <li>Requête authentifiée avec un certificat ou un principal du service / principal d'utilisateur Oauth.<br> <li>Fourniture de valeurs de paramètres simples et complexes.<br> <li>Suivi de l’état des tâches. |
 | [Webhooks](automation-webhooks.md) |<li>Démarrage d'un Runbook à partir d'une simple requête HTTP.<br> <li>Authentification avec un jeton de sécurité dans l'URL.<br> <li>Le client ne peut pas remplacer les valeurs de paramètre spécifiées lors de la création du Webhook. Le Runbook peut définir un paramètre unique qui est rempli avec les détails de la requête HTTP.<br> <li>Aucune possibilité de suivre l’état des tâches via l’URL du Webhook. |
-| [Répondre à une alerte Azure](../log-analytics/log-analytics-alerts.md) |<li>Démarrer un Runbook en réponse à une alerte Azure.<br> <li>Configurer webhook pour Runbook et lien vers l'alerte.<br> <li>Authentification avec un jeton de sécurité dans l'URL.<br> <li>Actuellement, prend en charge l’alerte sur Metrics uniquement. |
-| [Planification](automation-schedules.md) |<li>Démarrage automatique du Runbook selon une planification horaire, quotidienne ou hebdomadaire.<br> <li>Manipulation de la planification via le portail Azure, les applets de commande PowerShell ou les API Azure.<br> <li>Fourniture des valeurs de paramètres à utiliser avec la planification. |
+| [Répondre à une alerte Azure](../log-analytics/log-analytics-alerts.md) |<li>Démarrer un Runbook en réponse à une alerte Azure.<br> <li>Configurer webhook pour Runbook et lien vers l'alerte.<br> <li>Authentification avec un jeton de sécurité dans l'URL. |
+| [Planification](automation-schedules.md) |<li>Démarrage automatique du runbook selon une planification horaire, quotidienne, hebdomadaire ou mensuelle.<br> <li>Manipulation de la planification via le portail Azure, les applets de commande PowerShell ou les API Azure.<br> <li>Fourniture des valeurs de paramètres à utiliser avec la planification. |
 | [À partir d'un autre Runbook](automation-child-runbooks.md) |<li>Utilisation d’un Runbook en tant qu’activité d’un autre Runbook.<br> <li>Utile pour les fonctionnalités utilisées par plusieurs Runbooks.<br> <li>Fourniture des valeurs de paramètres au Runbook enfant et utilisation de la sortie dans le Runbook parent. |
 
 L’image suivante illustre le processus détaillé du cycle de vie d’un Runbook. Elle illustre différentes formes de démarrage d’un Runbook dans Azure Automation, les composants requis pour que Runbook Worker hybride exécute des Runbooks Azure Automation, ainsi que les interactions entre les différents composants. Pour en savoir plus sur l’exécution des Runbooks Automation dans votre centre de données, consultez l’article [Runbooks Workers hybrides](automation-hybrid-runbook-worker.md)
@@ -39,17 +40,10 @@ L’image suivante illustre le processus détaillé du cycle de vie d’un Runbo
 
 ## <a name="starting-a-runbook-with-the-azure-portal"></a>Démarrage d'un Runbook avec le portail Azure
 1. Dans le portail Azure, sélectionnez **Automation** , puis cliquez sur le nom d'un compte Automation.
-2. Sélectionnez l'onglet **Runbooks** .
-3. Sélectionnez un Runbook, puis cliquez sur **Démarrer**.
+2. Dans le menu Hub, sélectionnez **Runbooks**.
+3. Dans le panneau **Runbooks**, sélectionnez un runbook, puis cliquez sur **Démarrer**.
 4. Si le Runbook possède des paramètres, vous devez fournir des valeurs avec une zone de texte pour chaque paramètre. Pour plus d'informations sur les paramètres, consultez [Paramètres du Runbook](#Runbook-parameters) ci-dessous.
-5. Sélectionnez **Afficher le travail** à côté du message du Runbook **Démarrage** ou sélectionnez l’onglet **Travaux** pour que le Runbook affiche l’état du travail du Runbook.
-
-## <a name="starting-a-runbook-with-the-azure-portal"></a>Démarrage d'un Runbook avec le portail Azure
-1. À partir de votre compte Automation, cliquez sur la partie **Runbooks** afin d’ouvrir le panneau **Runbooks**.
-2. Cliquez sur un Runbook pour ouvrir son panneau **Runbook** .
-3. Cliquez sur **Start**.
-4. Si le Runbook n'a aucun paramètre, vous devez confirmer si vous souhaitez le démarrer. Si le Runbook possède des paramètres, le panneau **Démarrer le Runbook** s'ouvre pour vous permettre de fournir les valeurs des paramètres. Pour plus d'informations sur les paramètres, consultez [Paramètres du Runbook](#Runbook-parameters) ci-dessous.
-5. Le panneau **Tâche** s'ouvre afin que vous puissiez suivre l'état de la tâche.
+5. Dans le panneau **Tâche**, vous pouvez afficher l’état du travail du runbook.
 
 ## <a name="starting-a-runbook-with-windows-powershell"></a>Démarrage d'un Runbook avec Windows PowerShell
 Vous pouvez utiliser l’applet de commande [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) pour démarrer un Runbook avec Windows PowerShell. L'exemple de code suivant démarre un Runbook appelé Test-Runbook.
@@ -188,12 +182,7 @@ jsmith
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* L’architecture du Runbook dans l’article fournit une vue d’ensemble globale des ressources de gestion des Runbooks dans Azure et sur site avec Runbook Worker hybride.  Pour en savoir plus sur l’exécution des Runbooks Automation dans votre centre de données, consultez l’article [Runbooks Workers hybrides](automation-hybrid-runbook-worker.md).
+* L’architecture des Runbooks dans cet article fournit une vue d’ensemble globale des ressources de gestion des Runbooks dans Azure et localement avec Runbook Worker hybride.  Pour en savoir plus sur l’exécution des Runbooks Automation dans votre centre de données, consultez l’article [Runbooks Workers hybrides](automation-hybrid-runbook-worker.md).
 * Pour en savoir plus sur la création de Runbooks modulaires à utiliser par d’autres Runbooks pour des fonctions spécifiques ou communes, consultez [Runbooks enfants](automation-child-runbooks.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

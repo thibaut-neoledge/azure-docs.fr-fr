@@ -22,8 +22,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 03/28/2017
 
 ---
-# Azure AD Connect Sync : exécuter l’Assistant Installation une deuxième fois
-<a id="azure-ad-connect-sync-running-the-installation-wizard-a-second-time" class="xliff"></a>
+# <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect Sync : exécuter l’Assistant Installation une deuxième fois
 La première fois que vous exécutez l’Assistant Installation d’Azure AD Connect, il vous guide dans la procédure de configuration de votre installation. Si vous réexécutez l’Assistant Installation, il vous propose des options de maintenance.
 
 Vous trouverez l’Assistant Installation dans le menu Démarrer sous le nom **Azure Connect AD**.
@@ -43,16 +42,14 @@ Sélectionnez l’une des tâches et cliquez sur **Suivant** pour continuer.
 >
 >
 
-## Afficher la configuration actuelle
-<a id="view-current-configuration" class="xliff"></a>
+## <a name="view-current-configuration"></a>Afficher la configuration actuelle
 Cette option vous donne un aperçu rapide de vos options actuellement configurées.
 
 ![Page avec la liste de toutes les options et leur état](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
 
 Cliquez sur **Précédent** pour revenir en arrière. Si vous sélectionnez **Quitter**, vous fermez l’Assistant Installation.
 
-## Personnaliser les options de synchronisation
-<a id="customize-synchronization-options" class="xliff"></a>
+## <a name="customize-synchronization-options"></a>Personnaliser les options de synchronisation
 Cette option est utilisée pour apporter des modifications à la configuration de la synchronisation. Vous voyez un sous-ensemble d’options provenant du chemin d’installation de la configuration personnalisée. Et ce, même si vous avez initialement utilisé l’installation rapide.
 
 * [Ajouter d’autres annuaires](active-directory-aadconnect-get-started-custom.md#connect-your-directories). Pour supprimer un annuaire, consultez [Supprimer un connecteur](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
@@ -66,16 +63,14 @@ Les autres options provenant de l’installation initiale ne peuvent pas être m
 * Modifier la méthode de jointure d’objets provenant de différentes forêts.
 * Activer le filtrage de groupe.
 
-## Actualiser le schéma d’annuaire
-<a id="refresh-directory-schema" class="xliff"></a>
+## <a name="refresh-directory-schema"></a>Actualiser le schéma d’annuaire
 Cette option est utilisée si vous avez modifié le schéma dans l’une de vos forêts AD DS locales. Par exemple, vous pouvez avoir installé Exchange ou effectué une mise à niveau vers un schéma Windows Server 2012 avec des objets de périphérique. Dans ce cas, vous devez demander à Azure AD Connect de relire le schéma AD DS et de mettre à jour son cache. Cette action régénère également les règles de synchronisation. Si vous ajoutez le schéma Exchange, par exemple, les règles de synchronisation d’Exchange sont ajoutées à la configuration.
 
 Lorsque vous sélectionnez cette option, tous les annuaires de votre configuration sont répertoriés. Vous pouvez conserver le paramètre par défaut et actualiser toutes les forêts ou désélectionner certaines d’entre elles.
 
 ![Page avec la liste de tous les annuaires de l’environnement](./media/active-directory-aadconnectsync-installation-wizard/refreshschema.png)
 
-## Configurer le mode de préproduction
-<a id="configure-staging-mode" class="xliff"></a>
+## <a name="configure-staging-mode"></a>Configurer le mode de préproduction
 Cette option permet d’activer et de désactiver le mode de préproduction sur le serveur. Vous trouverez plus d’informations sur le mode de préproduction et son utilisation dans [Opérations](active-directory-aadconnectsync-operations.md#staging-mode).
 
 L’option s’affiche si la préproduction est actuellement activée ou désactivée :   
@@ -84,14 +79,12 @@ L’option s’affiche si la préproduction est actuellement activée ou désact
 Pour modifier l’état, sélectionnez cette option et cochez ou décochez la case.  
 ![Option qui affiche également l’état actuel du mode de préproduction](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
-## Modifier la connexion de l’utilisateur
-<a id="change-user-sign-in" class="xliff"></a>
+## <a name="change-user-sign-in"></a>Modifier la connexion de l’utilisateur
 Cette option vous permet de passer de la synchronisation de mot de passe à la fédération ou l’inverse. Vous ne pouvez pas passer à **ne pas configurer**.
 
 Pour plus d’informations sur cette option, consultez [connexion de l’utilisateur](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le modèle de configuration utilisé par la synchronisation d’Azure AD Connect dans [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
 **Rubriques de présentation**

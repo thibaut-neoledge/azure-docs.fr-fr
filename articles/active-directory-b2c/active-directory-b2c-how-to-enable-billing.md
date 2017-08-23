@@ -12,10 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
-translationtype: Human Translation
-ms.sourcegitcommit: 43224628d5726ac2fb0e8c27c649421af7ceeee4
-ms.openlocfilehash: 6cf375fbfe265a53591b9987ebd32db6df73fcb4
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -29,17 +30,17 @@ Les frais d’utilisation courants pour Azure Active Directory B2C (ou Azure AD 
 https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ## <a name="step-1---create-an-azure-ad-b2c-tenant"></a>Étape 1 - Création d’un client Azure AD B2C
-
-Le client B2C doit être créé en premier. Ignorez cette étape si vous avez déjà créé votre client B2C. [Prise en main d’Azure Active Directory B2C](https://azure.microsoft.com/documentation/articles/active-directory-b2c-get-started/)
+Le client B2C doit être créé en premier. Ignorez cette étape si vous avez déjà créé votre client B2C. [Prise en main d’Azure Active Directory B2C](active-directory-b2c-get-started.md)
 
 ## <a name="step-2---open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Étape 2 - Ouverture du portail Azure dans le client Azure AD qui affiche votre abonnement Azure
-Accédez à portal.azure.com. Basculez vers le client Azure AD affichant l’abonnement Azure que vous souhaitez utiliser. Ce client Azure AD est différent du client B2C. Dans le portail Azure, cliquez sur le nom du compte dans le coin supérieur droit du tableau de bord pour sélectionner le client Azure AD. Un abonnement Azure est nécessaire pour continuer. [Obtenir un abonnement Azure](https://account.windowsazure.com/signup?showCatalog=True)
+Accédez au [portail Azure](https://portal.azure.com). Basculez vers le client Azure AD affichant l’abonnement Azure que vous souhaitez utiliser. Ce client Azure AD est différent du client B2C. Dans le portail Azure, cliquez sur le nom du compte dans le coin supérieur droit du tableau de bord pour sélectionner le client Azure AD. Un abonnement Azure est nécessaire pour continuer. [Obtenir un abonnement Azure](https://account.windowsazure.com/signup?showCatalog=True)
 
 ![Basculement vers votre client Azure AD](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
 ## <a name="step-3---create-a-b2c-tenant-resource-in-azure-marketplace"></a>Étape 3 - Création d’une ressource Client B2C dans Azure Marketplace
 Ouvrez Marketplace en cliquant sur l’icône Marketplace ou en sélectionnant le « + » vert dans le coin supérieur gauche du tableau de bord.  Recherchez et sélectionnez Azure Active Directory B2C. Sélectionnez Créer.
-![Sélectionner Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
+
+![Sélectionnez Place de marché](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
 
 ![Rechercher AD B2C](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
 
@@ -75,12 +76,5 @@ Lorsque vous cliquez sur la ressource Client B2C, vous pouvez :
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois ces étapes effectuées pour chacun de vos clients B2C, votre abonnement Azure est facturé conformément aux détails de votre contrat Azure Direct ou Enterprise.
 - Consulter l’utilisation et la facturation dans l’abonnement Azure sélectionné
-- Consulter les rapports détaillés d’utilisation quotidienne à l’aide de [l’API Usage Reporting](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
-
-
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    
+- Consulter les rapports détaillés d’utilisation quotidienne à l’aide de [l’API Usage Reporting](active-directory-b2c-reference-usage-reporting-api.md)
 

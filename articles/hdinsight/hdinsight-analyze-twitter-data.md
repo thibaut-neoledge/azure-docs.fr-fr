@@ -1,6 +1,6 @@
 ---
-title: "Analyse des données Twitter avec Hadoop dans HDInsight | Microsoft Docs"
-description: "Découvrez comment utiliser Hive pour analyser des données Twitter sur Hadoop dans HDInsight afin de déterminer la fréquence d&quot;utilisation d&quot;un mot particulier."
+title: "Analyse des données Twitter avec Hadoop dans HDInsight - Azure | Microsoft Docs"
+description: "Découvrez comment utiliser Hive pour analyser des données Twitter sur Hadoop dans HDInsight afin de déterminer la fréquence d'utilisation d'un mot particulier."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -12,14 +12,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 159e41f3d1b43abc830b79e1ea0bed05e05505a2
-ms.lasthandoff: 04/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 711d364c36c3aba699326f4a76d42891ba3219fb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/27/2017
 
 ---
 
@@ -28,7 +28,7 @@ Les sites web sociaux constituent l’un des principaux motifs de l’utilisatio
 Dans ce didacticiel, vous allez recevoir des tweets à l’aide de l’API de diffusion Twitter, puis utiliser Apache Hive sur Azure HDInsight pour récupérer une liste des utilisateurs de Twitter ayant envoyé le plus de tweets contenant un mot donné.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Pour les étapes spécifiques à un cluster basé sur Linux, consultez la rubrique [Analyse des données Twitter avec Hive dans HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour les étapes spécifiques à un cluster basé sur Linux, consultez la rubrique [Analyse des données Twitter avec Hive dans HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Composants requis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
@@ -50,7 +50,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
     ```
 
     > [!IMPORTANT]
-    > La prise en charge de la gestion des ressources HDInsight par Azure PowerShell à l’aide d’Azure Service Manager est **déconseillée** ; elle sera supprimée le 1er janvier 2017. Dans ce document, la procédure repose sur les nouvelles applets de commande HDInsight qui fonctionnent avec Azure Resource Manager.
+    > La prise en charge de la gestion des ressources HDInsight par Azure PowerShell à l’aide d’Azure Service Manager est **déconseillée** ; elle a été supprimée le 1er janvier 2017. Dans ce document, la procédure repose sur les nouvelles applets de commande HDInsight qui fonctionnent avec Azure Resource Manager.
     >
     > Suivez les étapes indiquées dans [Installation et de configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour installer la dernière version d’Azure PowerShell. Si vous devez modifier certains scripts pour utiliser les nouvelles applets de commande fonctionnant avec Azure Resource Manager, consultez [Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) pour plus d’informations.
 
@@ -461,7 +461,7 @@ Vous avez terminé tout le travail de préparation. Vous pouvez à présent appe
 Utilisez le script Windows PowerShell suivant pour exécuter le script Hive. Vous devez définir la première variable.
 
 > [!NOTE]
-> Pour utiliser les tweets et le script HiveQL que vous avez téléchargé dans les deux dernières sections, définissez la valeur $hqlScriptFile sur "/ tutorials/twitter/twitter.hql". Pour utiliser ceux qui ont été chargés sur un objet blob public pour vous, définissez $hqlScriptFile sur « wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql ».
+> Pour utiliser les tweets et le script HiveQL que vous avez téléchargé dans les deux dernières sections, définissez la valeur $hqlScriptFile sur "/ tutorials/twitter/twitter.hql". Pour utiliser ceux qui ont été chargés sur un objet blob public pour vous, définissez $hqlScriptFile sur « wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql ».
 
 ```powershell
 #region variables and constants
@@ -470,7 +470,7 @@ $httpUserName = "admin"
 $httpUserPassword = "<HDInsight Cluster HTTP User Password>"
 
 #use one of the following
-$hqlScriptFile = "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
+$hqlScriptFile = "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
 $hqlScriptFile = "/tutorials/twitter/twitter.hql"
 
 $statusFolder = "/tutorials/twitter/jobstatus"

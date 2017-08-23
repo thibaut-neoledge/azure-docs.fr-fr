@@ -23,9 +23,7 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-<a id="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection" class="xliff"></a>
-
-# Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante
+# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
@@ -37,9 +35,7 @@ Cet article vous explique comment utiliser le portail Azure pour ajouter des con
 
 Cet article s’applique aux réseaux virtuels créés à l’aide du modèle de déploiement Resource Manager qui contient une passerelle VPN RouteBased. Ces étapes ne s’appliquent pas aux configurations de connexion coexistante ExpressRoute/site à site. Consultez l’article [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md) (Connexions coexistantes ExpressRoute/S2S) pour en savoir plus sur les connexions coexistantes.
 
-<a id="deployment-models-and-methods" class="xliff"></a>
-
-### Outils et modèles de déploiement
+### <a name="deployment-models-and-methods"></a>Outils et modèles de déploiement
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 Nous mettons à jour ce tableau à mesure que de nouveaux articles et des outils supplémentaires sont disponibles pour cette configuration. Quand un article est disponible, le lien vers cet article est ajouté à ce tableau.
@@ -97,9 +93,7 @@ Vérifiez les points suivants :
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Voir le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) sur les machines virtuelles pour plus d’informations.
 

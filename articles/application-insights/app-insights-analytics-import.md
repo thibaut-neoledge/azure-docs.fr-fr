@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 8504be28baf202c0b04ee89b18122b29a93588ab
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 97db1c51a16fbf62abe8062938beefa16a4f7afd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="import-data-into-analytics"></a>Importer des données dans Analytics
@@ -60,19 +59,13 @@ Ce dont vous avez besoin :
 
  * Nous vous recommandons de créer un compte de stockage dédié pour vos blobs. Si vos blobs sont partagés avec d’autres processus, nos processus prendront plus de temps pour lire vos blobs.
 
-2. Bien que cette fonctionnalité soit disponible en version préliminaire, vous devez demander l’accès.
-
- * Depuis votre ressource Application Insights dans le [portail Azure](https://portal.azure.com), ouvrez Analytics. 
- * En bas du volet de schéma, cliquez sur le lien « Nous contacter » sous **Other Data Sources (Autres sources de données).** 
- * Si vous voyez « Ajouter une source de données », cela signifie que vous avez déjà accès.
-
 
 ## <a name="define-your-schema"></a>Définir votre schéma
 
 Avant de pouvoir importer des données, vous devez définir une *source de données,* qui spécifie le schéma de vos données.
 Vous pouvez avoir jusqu'à 50 sources de données dans une seule ressource Application Insights
 
-1. Démarrez l’Assistant Source de données.
+1. Démarrez l’Assistant Source de données. Utilisez le bouton Ajouter une nouvelle source de données. Vous pouvez également cliquer sur le bouton Paramètres en haut à droite, puis choisir Sources de données dans le menu déroulant.
 
     ![Ajouter une source de données](./media/app-insights-analytics-import/add-new-data-source.png)
 
@@ -373,6 +366,6 @@ Utilisez ce code pour chaque blob.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Visite guidée d’Analytics dans Application Insights](app-insights-analytics-tour.md)
+* [Présentation du langage de requête Log Analytics](app-insights-analytics-tour.md)
 * [Use *Logstash* to send data to Application Insights (Utiliser Logstash pour envoyer des données à Application Insights)](https://github.com/Microsoft/logstash-output-application-insights)
 

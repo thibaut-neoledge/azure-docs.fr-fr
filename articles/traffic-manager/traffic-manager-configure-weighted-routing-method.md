@@ -22,18 +22,14 @@ ms.lasthandoff: 05/08/2017
 
 ---
 
-<a id="configure-the-weighted-traffic-routing-method-in-traffic-manager" class="xliff"></a>
-
-# Configurer la méthode de routage du trafic par pondération dans Traffic Manager
+# <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configurer la méthode de routage du trafic par pondération dans Traffic Manager
 
 Il est courant d'utiliser un ensemble de points de terminaison identiques, comprenant des services cloud et des sites web, et de répartir le trafic en tourniquet. Les étapes suivantes décrivent comment configurer ce type de méthode de routage du trafic.
 
 > [!NOTE]
 > Azure Websites fournit déjà des fonctionnalités d’équilibrage de charge de tourniquet pour les sites web dans un centre de données (également appelé région). Traffic Manager vous permet de spécifier une méthode de routage du trafic en tourniquet (round robin) pour des sites web de différents centres de données.
 
-<a id="to-configure-the-weighted-traffic-routing-method" class="xliff"></a>
-
-## Pour configurer la méthode de routage du trafic par pondération
+## <a name="to-configure-the-weighted-traffic-routing-method"></a>Pour configurer la méthode de routage du trafic par pondération
 
 1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free/). 
 2. Dans la barre de recherche du portail, recherchez les **profils Traffic Manager** et cliquez sur le nom du profil pour lequel vous souhaitez configurer la méthode de routage.
@@ -52,9 +48,7 @@ Il est courant d'utiliser un ensemble de points de terminaison identiques, compr
 
 ![Configuration de la méthode de routage du trafic par pondération à l’aide de Traffic Manager][1]
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur la [méthode de routage du trafic prioritaire](traffic-manager-configure-priority-routing-method.md).
 - En savoir plus sur la [méthode de routage du trafic basé sur les performances](traffic-manager-configure-performance-routing-method.md).

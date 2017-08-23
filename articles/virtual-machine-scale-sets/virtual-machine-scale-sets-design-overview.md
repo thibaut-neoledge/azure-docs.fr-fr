@@ -1,6 +1,6 @@
 ---
-title: "Conception de groupes de machines virtuelles identiques Azure pour la mise à l’échelle | Microsoft Docs"
-description: "En savoir plus sur la conception de vos groupes de machines virtuelles identiques Azure pour la mise à l’échelle"
+title: "Considérations relatives à la conception des groupes de machines virtuelles identiques Azure | Microsoft Docs"
+description: "En savoir plus sur les considérations relatives à la conception des groupes de machines virtuelles identiques Azure"
 keywords: machine virtuelle linux, groupes de machines virtuelles identiques
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -16,42 +16,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e869b06935736fae72bd3b5407ebab7c3830098d
-ms.openlocfilehash: de3687a1bf36bf49db400a5660ac631f20b629d0
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 615361975e2ee15ce80f6efb39f57cae381209e5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/14/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="designing-vm-scale-sets-for-scale"></a>Conception de jeux de mise à l’échelle de machine virtuelle pour la mise à l’échelle
-Cette rubrique présente les considérations à prendre en compte pour créer des groupes identique de machines virtuelles. Pour plus d'informations sur les groupe identique de machines virtuelles, reportez-vous à la rubrique [Présentation des groupes de machines virtuelles identiques](virtual-machine-scale-sets-overview.md).
+# <a name="design-considerations-for-scale-sets"></a>Considérations relatives à la conception des groupes de machines virtuelles identiques
+Cette rubrique présente les considérations à prendre en compte pour créer des groupes de machines virtuelles identiques. Pour plus d'informations sur les groupes de machines virtuelles identiques, reportez-vous à la rubrique [Présentation des groupes de machines virtuelles identiques](virtual-machine-scale-sets-overview.md).
 
-## <a name="storage"></a>Storage
+## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Quand utiliser des groupes identiques plutôt que des machines virtuelles individuelles ?
+En règle générale, les groupes identiques sont utiles pour le déploiement d’infrastructures hautement disponibles où un ensemble de machines a une configuration similaire. Toutefois, certaines fonctionnalités sont uniquement disponibles dans les groupes identiques, tandis que d’autres le sont seulement dans les machines virtuelles individuelles. Afin de prendre une décision avisée et déterminer dans quel cas utiliser l’une ou l’autre de ces technologies, nous devons tout d’abord examiner certaines des fonctionnalités couramment utilisées disponibles avec les groupes identiques, mais pas avec les machines virtuelles individuelles :
+
+### <a name="scale-set-specific-features"></a>Fonctionnalités spécifiques des groupes identiques
+
+- Une fois la configuration du groupe identique spécifiée, vous pouvez simplement mettre à jour la propriété « capacity » pour déployer davantage de machines virtuelles en parallèle. Cette approche est beaucoup plus simple que d’écrire un script pour orchestrer le déploiement d’un grand nombre de machines virtuelles individuelles en parallèle.
+- Vous pouvez [utiliser la mise à l’échelle automatique d’Azure pour dimensionner automatiquement un groupe identique](./virtual-machine-scale-sets-autoscale-overview.md), mais pas les machines virtuelles individuelles.
+- Vous pouvez [réinitialiser les machines virtuelles des groupes identiques](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm), mais [pas les machines virtuelles individuelles](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+- Vous pouvez [sur-approvisionner](./virtual-machine-scale-sets-design-overview.md) les machines virtuelles d’un groupe identique pour une fiabilité accrue et un déploiement plus rapide. Vous ne pouvez pas adopter cette approche avec les machines virtuelles individuelles à moins d’écrire un code personnalisé à cette fin.
+- Vous pouvez spécifier une [stratégie de mise à niveau](./virtual-machine-scale-sets-upgrade-scale-set.md) pour faciliter le déploiement des mises à niveau sur les machines virtuelles de votre groupe identique. Avec des machines virtuelles individuelles, vous devez orchestrer les mises à jour vous-même.
+
+### <a name="vm-specific-features"></a>Fonctionnalités spécifiques des machines virtuelles
+
+Au contraire, certaines fonctionnalités sont uniquement disponibles dans les machines virtuelles (du moins pour le moment) :
+
+- Vous pouvez attacher des disques de données à des machines virtuelles individuelles spécifiques, mais ces derniers sont configurés pour toutes les machines virtuelles dans un groupe identique.
+- Vous pouvez attacher des disques de données non vides à des machines virtuelles individuelles, mais pas aux machines virtuelles d’un groupe identique.
+- Vous pouvez prendre un instantané d’une machine virtuelle individuelle, mais cela n’est pas possible dans un groupe identique.
+- Vous pouvez capturer une image à partir d’une machine virtuelle individuelle, mais cela n’est pas possible dans un groupe identique.
+- Vous pouvez migrer une machine virtuelle individuelle à partir de disques natifs vers des disques gérés, mais cela n’est pas possible dans un groupe identique.
+- Vous pouvez assigner des adresses IP publiques IPv6 aux cartes d’interface réseau des machines virtuelles individuelles, mais cela n’est pas possible dans un groupe identique. Notez que vous pouvez assigner des adresses IP publiques IPv6 aux équilibreurs de charge des machines virtuelles individuelles ou des machines de groupes identiques.
+
+## <a name="storage"></a>Stockage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Groupes identiques avec Azure Managed Disks
-Les groupes identiques peuvent désormais être créées avec [Azure Managed Disks](../storage/storage-managed-disks-overview.md). Managed Disks permet de bénéficier des avantages suivants :
+Les groupes identiques peuvent être créés avec [Azure Managed Disks](../storage/storage-managed-disks-overview.md) plutôt qu’à partir des comptes de stockage Azure traditionnels. Managed Disks permet de bénéficier des avantages suivants :
 - Vous n’êtes pas obligé de créer au préalable un ensemble de comptes de stockage Azure pour les machines virtuelles du groupe identique.
 - Vous pouvez définir des [disques de données associés](virtual-machine-scale-sets-attached-disks.md) pour les machines virtuelles de votre groupe identique.
 - Les groupes identiques peuvent être configurés pour [prendre en charge jusqu’à 1 000 machines virtuelles par groupe](virtual-machine-scale-sets-placement-groups.md). 
 
-Vous pouvez créer des groupes identiques avec Managed Disks à partir de la version « 2016-04-30-preview » de l’API Azure Compute. Pour plus d’informations sur la conversion d’un modèle de groupe identique vers Managed Disks, voir la page [Convert a scale set template to a managed disk scale set template](virtual-machine-scale-sets-convert-template-to-md.md) (Convertir un modèle de groupe identique en modèle de groupe identique Managed Disks).
+Si vous avez déjà un modèle, vous pouvez également [le mettre à jour pour qu’il utilise Managed Disks](virtual-machine-scale-sets-convert-template-to-md.md).
 
 ### <a name="user-managed-storage"></a>Stockage géré par l’utilisateur
 Un groupe identique qui n’est pas défini avec Azure Managed Disks repose sur les comptes de stockage créés par l’utilisateur pour stocker les disques du système d’exploitation des machines virtuelles dans le groupe. Un rapport de 20 machines virtuelles maximum par compte de stockage est recommandé pour atteindre la valeur d’E/S maximale, mais aussi pour tirer parti du _sur-approvisionnement_ (voir ci-dessous). Il est également recommandé de répartir dans l’alphabet les premiers caractères des noms de comptes de stockage. Cette méthode améliore la répartition sur les différents systèmes internes. 
 
->[!NOTE]
->La version d’API de VM Scale Sets `2016-04-30-preview` prend en charge l’utilisation d’Azure Managed Disks pour le disque du système d’exploitation et tous les disques de données supplémentaires. Pour plus d’informations, consultez les sections relatives à la [vue d’ensemble de Managed Disks](../storage/storage-managed-disks-overview.md) et à [l’utilisation de disques de données associés](virtual-machine-scale-sets-attached-disks.md). 
 
 ## <a name="overprovisioning"></a>Sur-approvisionnement
-À compter de la version d’API « 2016-03-30 », les groupes identiques de machines virtuelles sur-approvisionnent par défaut les machines virtuelles. Avec le sur-approvisionnement activé, le groupe identique crée en réalité plus de machines virtuelles par rapport au nombre demandé, puis supprime les machines virtuelles supplémentaires une fois ce nombre de machines virtuelles approvisionné. Le sur-approvisionnement améliore les taux de réussite de l’approvisionnement et réduit la durée du déploiement. Vous n’êtes pas facturé pour les machines virtuelles supplémentaires et elles ne seront pas comptabilisées dans vos limites de quotas.
+Par défaut, les groupes identiques activent « le sur-approvisionnement » de machines virtuelles. Avec le sur-approvisionnement activé, le groupe identique crée en réalité plus de machines virtuelles par rapport au nombre demandé, puis supprime les machines virtuelles supplémentaires une fois ce nombre de machines virtuelles approvisionné. Le sur-approvisionnement améliore les taux de réussite de l’approvisionnement et réduit la durée du déploiement. Vous n’êtes pas facturé pour les machines virtuelles supplémentaires et elles ne seront pas comptabilisées dans vos limites de quotas.
 
-Bien que le sur-approvisionnement améliore les taux de réussite de l’approvisionnement, il peut provoquer un comportement déroutant si une application n’est pas conçue pour gérer les machines virtuelles qui disparaissent, puis réapparaissent. Pour désactiver le sur-approvisionnement, vérifiez que votre modèle contient la chaîne suivante : "overprovision": "false". Vous trouverez plus de détails dans la [documentation de l’API REST de groupes identiques de machines virtuelles](https://msdn.microsoft.com/library/azure/mt589035.aspx).
+Bien que le sur-approvisionnement améliore les taux de réussite de l’approvisionnement, il peut provoquer un comportement déroutant si une application n’est pas conçue pour gérer les machines virtuelles qui disparaissent, puis réapparaissent. Pour désactiver le sur-approvisionnement, vérifiez que votre modèle contient la chaîne suivante : `"overprovision": "false"`. Vous trouverez plus de détails dans la [documentation de l’API REST de groupes identiques](/rest/api/virtualmachinescalesets/create-or-update-a-set).
 
 Si votre groupe identique utilise le stockage géré par l’utilisateur et que vous désactivez le sur-approvisionnement, vous pouvez avoir plus de 20 machines virtuelles par compte de stockage, mais il n’est pas recommandé de dépasser 40 pour des raisons de performances d’E/S. 
 
-## <a name="limits"></a>limites
-Un groupe identique basé sur une image Place de marché (également appelée image de plateforme) et configuré pour utiliser Azure Managed Disks peut prendre en charge jusqu’à 1 000 machines virtuelles. Si vous configurez votre groupe identique pour prendre en charge plus de 100 machines virtuelles, tous les scénarios ne fonctionnent pas de la même manière (par exemple l’équilibrage de charge). Pour plus d’informations, voir [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md) (Utilisation de grands groupes de machines virtuelles identiques). 
+## <a name="limits"></a>Limites
+Un groupe identique, basé sur une image de la Place de marché (également appelée image de plateforme) et configuré pour utiliser Azure Managed Disks, peut prendre en charge jusqu’à 1 000 machines virtuelles. Si vous configurez votre groupe identique pour prendre en charge plus de 100 machines virtuelles, tous les scénarios ne fonctionnent pas de la même manière (par exemple l’équilibrage de charge). Pour plus d’informations, consultez [Utilisation de grands groupes de machines virtuelles identiques](virtual-machine-scale-sets-placement-groups.md). 
 
 Un groupe identique configuré avec des comptes de stockage gérés par l’utilisateur est actuellement limité à 100 machines virtuelles (et 5 comptes de stockage sont recommandés pour cette échelle).
 

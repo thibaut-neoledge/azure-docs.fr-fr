@@ -1,0 +1,285 @@
+---
+title: "Se connecter à la base de données Azure pour MySQL avec C++ | Microsoft Docs"
+description: "Ce guide de démarrage rapide fournit un exemple de code C++ que vous pouvez utiliser pour vous connecter à la base de données Azure pour MySQL et pour interroger les données de cette dernière."
+services: mysql
+author: seanli1988
+ms.author: seal
+manager: janders
+editor: jasonwhowell
+ms.service: mysql-database
+ms.custom: mvc
+ms.devlang: C++
+ms.topic: hero-article
+ms.date: 08/03/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 63388b83b913d95136140fa4c56af0dbebbdad81
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/09/2017
+
+---
+
+# <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Base de données Azure pour MySQL : utiliser Connector/C++ pour vous connecter et interroger des données
+Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour MySQL à l’aide d’une application C++. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. La procédure décrite dans cet article repose sur l’hypothèse que vous connaissez les bases du développement en C++, mais que vous ne savez pas utiliser la base de données Azure pour MySQL.
+
+## <a name="prerequisites"></a>Composants requis
+Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
+- [Création d’un serveur Azure Database pour MySQL à l’aide du portail Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Création d’un serveur de base de données Azure pour MySQL à l’aide d’Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
+
+Il vous faudra également :
+- Installer [.NET Framework](https://www.microsoft.com/net/download)
+- Installez [Visual Studio](https://www.visualstudio.com/downloads/)
+- Installer [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 
+- Installer [Boost](http://www.boost.org/)
+
+## <a name="install-visual-studio-and-net"></a>Installer Visual Studio et .NET
+Les étapes de cette section supposent que vous êtes familiarisé avec l’utilisation de .NET.
+
+### <a name="windows"></a>**Windows**
+1. Installez Visual Studio 2017 Community, un environnement de développement intégré (IDE) complet, extensible et gratuit qui permet de créer des applications modernes pour Android, iOS et Windows, ainsi que des applications web et de base de données et des services cloud. Vous pouvez soit installer le composant .NET Framework complet, soit installer uniquement .NET Core. Les extraits de code de ce guide de démarrage rapide fonctionnent dans les deux cas. Si votre machine est déjà équipée de Visual Studio, ignorez les deux étapes suivantes.
+   - Téléchargez le [programme d’installation de Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
+   - Exécutez le programme d’installation et suivez que les invites.
+
+### <a name="configure-visual-studio"></a>**Configurer Visual Studio**
+1. Dans Visual Studio, sélectionnez Propriété du projet > Propriétés de configuration > C/C++ > Éditeur de liens > Général > Répertoires de bibliothèques supplémentaires, puis ajoutez le répertoire lib\opt du connecteur c++ (c’est-à-dire C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt).
+2. Dans Visual Studio, sélectionnez Propriété du projet > Propriétés de configuration > C/C++ > Général > Autres répertoires Include.
+   - Ajoutez le répertoire include/ du connecteur c++ (c’est-à-dire C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\).
+   - Ajoutez le répertoire racine de la bibliothèque Boost (c’est-à-dire C:\boost_1_64_0\)).
+3. Dans Visual Studio, sélectionnez Propriété du projet > Propriétés de configuration > C/C++ > Éditeur de liens > Entrée > Dépendances supplémentaires, puis ajoutez mysqlcppconn.lib dans le champ de texte.
+4. Copiez le fichier mysqlcppconn.dll à partir du dossier de bibliothèque de connecteur c++ à l’étape 3 dans le même répertoire que l’exécutable de l’application, ou ajoutez-le à la variable d’environnement pour que votre application puisse le retrouver.
+
+## <a name="get-connection-information"></a>Obtenir des informations de connexion
+Obtenez les informations requises pour vous connecter à la base de données Azure pour MySQL. Vous devez disposer du nom de serveur complet et des informations d’identification.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez le serveur que vous venez de créer, par exemple **myserver4demo**.
+3. Cliquez sur le nom du serveur.
+4. Sélectionnez la page **Propriétés** du serveur. Prenez note du **nom du serveur** et du **nom de connexion d’administrateur du serveur**.
+ ![Nom du serveur de base de données Azure pour MySQL](./media/connect-cpp/1_server-properties-name-login.png)
+5. Si vous avez oublié vos informations de connexion au serveur, accédez à la page **Vue d’ensemble** pour afficher le nom de connexion de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
+
+## <a name="connect-create-table-and-insert-data"></a>Se connecter, créer des tables et insérer des données
+Utilisez le code suivant pour vous connecter et charger les données à l’aide d’instructions SQL **CREATE TABLE** et **INSERT INTO**. Le code utilise la classe sql::Driver avec la méthode connect() pour établir une connexion à MySQL. Le code utilise ensuite les méthodes createStatement() et execute() pour exécuter les commandes de base de données. 
+
+Remplacez les paramètres Host, DBName, User et Password par les valeurs spécifiées lors de la création du serveur et de la base de données. 
+
+```c++
+#include <stdlib.h>
+#include <iostream>
+#include "stdafx.h"
+
+#include "mysql_connection.h"
+#include <cppconn/driver.h>
+#include <cppconn/exception.h>
+#include <cppconn/prepared_statement.h>
+using namespace std;
+
+int main()
+{
+    sql::Driver *driver;
+    sql::Connection *con;
+    sql::Statement *stmt;
+    sql::PreparedStatement *pstmt;
+
+    try
+    {
+        driver = get_driver_instance();
+        //for demonstration only. never save password in the code!
+        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+    }
+    catch (sql::SQLException e)
+    {
+        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        system("pause");
+        exit(1);
+    }
+
+    stmt = con>createStatement();
+    stmt>execute("DROP TABLE IF EXISTS inventory");
+    cout << "Finished dropping table (if existed)" << endl;
+    stmt>execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
+    cout << "Finished creating table" << endl;
+    delete stmt;
+
+    pstmt = con>prepareStatement("INSERT INTO inventory(name, quantity) VALUES(?,?)");
+    pstmt>setString(1, "banana");
+    pstmt>setInt(2, 150);
+    pstmt>execute();
+    cout << "One row inserted." << endl;
+
+    pstmt>setString(1, "orange");
+    pstmt>setInt(2, 154);
+    pstmt>execute();
+    cout << "One row inserted." << endl;
+
+    pstmt>setString(1, "apple");
+    pstmt>setInt(2, 100);
+    pstmt>execute();
+    cout << "One row inserted." << endl;
+    
+    delete pstmt;   
+    delete con;
+    system("pause");
+    return 0;
+
+```
+
+## <a name="read-data"></a>Lire les données
+
+Utilisez le code suivant pour vous connecter et lire des données à l’aide d’une instruction SQL **SELECT**. Le code utilise la classe sql::Driver avec la méthode connect() pour établir une connexion à MySQL. Ensuite, le code utilise les méthodes prepareStatement() et executeQuery() pour exécuter les commandes de sélection. Puis le code utilise next() pour accéder aux enregistrements dans les résultats. Enfin, le code utilise getInt() et getString() pour analyser les valeurs de l’enregistrement.
+
+Remplacez les paramètres Host, DBName, User et Password par les valeurs spécifiées lors de la création du serveur et de la base de données. 
+
+```csharp
+#include <stdlib.h>
+#include <iostream>
+#include "stdafx.h"
+
+#include "mysql_connection.h"
+#include <cppconn/driver.h>
+#include <cppconn/exception.h>
+#include <cppconn/resultset.h>
+#include <cppconn/prepared_statement.h>
+using namespace std;
+
+int main()
+{
+    sql::Driver *driver;
+    sql::Connection *con;
+    sql::PreparedStatement *pstmt;
+    sql::ResultSet *result;
+
+    try
+    {
+        driver = get_driver_instance();
+        //for demonstration only. never save password in the code!
+        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+    }
+    catch (sql::SQLException e)
+    {
+        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        system("pause");
+        exit(1);
+    }   
+
+//  select  
+    pstmt = con>prepareStatement("SELECT * FROM inventory;");
+    result = pstmt>executeQuery();  
+    
+    while (result>next())
+        printf("Reading from table=(%d, %s, %d)\n", result>getInt(1), result>getString(2).c_str(), result>getInt(3));   
+    
+    delete result;
+    delete pstmt;   
+    delete con;
+    system("pause");
+    return 0;
+}
+```
+
+## <a name="update-data"></a>Mettre à jour des données
+Utilisez le code suivant pour vous connecter et lire des données à l’aide d’une instruction SQL **UPDATE**. Le code utilise la classe sql::Driver avec la méthode connect() pour établir une connexion à MySQL. Ensuite, le code utilise les méthodes prepareStatement() et executeQuery() pour exécuter les commandes de mise à jour. 
+
+Remplacez les paramètres Host, DBName, User et Password par les valeurs spécifiées lors de la création du serveur et de la base de données. 
+
+```csharp
+#include <stdlib.h>
+#include <iostream>
+#include "stdafx.h"
+
+#include "mysql_connection.h"
+#include <cppconn/driver.h>
+#include <cppconn/exception.h>
+#include <cppconn/prepared_statement.h>
+using namespace std;
+
+int main()
+{
+    sql::Driver *driver;
+    sql::Connection *con;
+    sql::PreparedStatement *pstmt;
+
+    try
+    {
+        driver = get_driver_instance();
+        //for demonstration only. never save password in the code!
+        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+    }
+    catch (sql::SQLException e)
+    {
+        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        system("pause");
+        exit(1);
+    }   
+
+    //update
+    pstmt = con>prepareStatement("UPDATE inventory SET quantity = ? WHERE name = ?");
+    pstmt>setInt(1, 200);
+    pstmt>setString(2, "banana");
+    pstmt>executeQuery();
+    printf("Row updated\n");
+    
+    delete con;
+    delete pstmt;
+    system("pause");
+    return 0;
+}
+```
+
+
+## <a name="delete-data"></a>Suppression de données
+Utilisez le code suivant pour vous connecter et lire des données à l’aide d’une instruction SQL **DELETE**. Le code utilise la classe sql::Driver avec la méthode connect() pour établir une connexion à MySQL. Ensuite, le code utilise les méthodes prepareStatement() et executeQuery() pour exécuter les commandes de suppression.
+
+Remplacez les paramètres Host, DBName, User et Password par les valeurs spécifiées lors de la création du serveur et de la base de données. 
+
+```csharp
+#include <stdlib.h>
+#include <iostream>
+#include "stdafx.h"
+
+#include "mysql_connection.h"
+#include <cppconn/driver.h>
+#include <cppconn/exception.h>
+#include <cppconn/resultset.h>
+#include <cppconn/prepared_statement.h>
+using namespace std;
+
+int main()
+{
+    sql::Driver *driver;
+    sql::Connection *con;
+    sql::PreparedStatement *pstmt;
+    sql::ResultSet *result;
+
+    try
+    {
+        driver = get_driver_instance();
+        //for demonstration only. never save password in the code!
+        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+    }
+    catch (sql::SQLException e)
+    {
+        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        system("pause");
+        exit(1);
+    }
+        
+    //delete
+    pstmt = con>prepareStatement("DELETE FROM inventory WHERE name = ?");
+    pstmt>setString(1, "orange");
+    result = pstmt>executeQuery();
+    printf("Row deleted\n");    
+    
+    delete pstmt;
+    delete con;
+    delete result;
+    system("pause");
+    return 0;
+}
+```
+
+## <a name="next-steps"></a>Étapes suivantes
+> [!div class="nextstepaction"]
+> [Migrer une base de données MySQL vers une base de données Azure pour MySQL à l’aide des images mémoire et de la restauration](concepts-migrate-dump-restore.md)
+

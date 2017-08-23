@@ -12,7 +12,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 08/11/2017
 ms.author: nisoneji
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
@@ -20,12 +20,11 @@ ms.openlocfilehash: c49f283971b33a4e88573e1d67ba159021fbccb8
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/04/2017
 
-
 ---
 # <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>Répliquer des serveurs physiques ou des machines virtuelles VMware locaux sur un site secondaire dans le portail Azure Classic
 
 ## <a name="overview"></a>Vue d'ensemble
-InMage Scout dans Azure Site Recovery assure une réplication en temps réel entre des sites VMware locaux. InMage Scout est inclus dans les abonnements au service Azure Site Recovery.
+InMage Scout dans Azure Site Recovery assure une réplication en temps réel entre des sites VMware locaux. InMage Scout est inclus dans les abonnements au service Azure Site Recovery. 
 
 ## <a name="prerequisites"></a>Composants requis
 **Compte Azure**: vous devez disposer d’un compte [Microsoft Azure](https://azure.microsoft.com/) . Vous pouvez commencer avec une [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/). [En savoir plus](https://azure.microsoft.com/pricing/details/site-recovery/) sur la tarification Site Recovery.

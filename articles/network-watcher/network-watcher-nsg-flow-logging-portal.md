@@ -1,5 +1,5 @@
 ---
-title: "Gérer les journaux des flux de groupe de sécurité réseau avec Azure Network Watcher | Microsoft Docs"
+title: "Gérer les journaux de flux des groupes de sécurité réseau avec Azure Network Watcher | Microsoft Docs"
 description: "Cette page explique comment gérer les journaux des flux de groupe de sécurité réseau dans Azure Network Watcher"
 services: network-watcher
 documentationcenter: na
@@ -15,84 +15,93 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: bbea08798a601989d06774475cb25ee67e99add6
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 41cb5ffab9bd3a3bed75ffdb6a7383ca1690f810
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
 
-# <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Gérer les groupes de sécurité réseau dans le portail Azure
+# <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Gérer les journaux de flux des groupes de sécurité réseau sur le Portail Azure
 
 > [!div class="op_single_selector"]
-> - [portail Azure](network-watcher-nsg-flow-logging-portal.md)
+> - [Portail Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
-Les journaux des flux de groupe de sécurité réseau désignent une fonctionnalité de Network Watcher qui vous permet de visualiser des informations sur le trafic IP d’entrée et de sortie par le biais d’un groupe de sécurité réseau. Ces flux de journaux sont écrits au format json et affichent les flux entrants et sortants en fonction de la règle, la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), ainsi que l’autorisation ou le refus du trafic.
+Les journaux de flux des groupes de sécurité réseau correspondent à une fonctionnalité de Network Watcher qui permet de visualiser des informations sur le trafic IP d’entrée et de sortie par le biais d’un groupe de sécurité réseau. Ces journaux de flux, écrits au format JSON, fournissent des informations importantes, notamment : 
+
+- les flux entrants et sortants, règle par règle ;
+- la carte réseau à laquelle s’applique le flux ;
+- cinq informations sur le flux (adresse IP source ou de destination, port source ou de destination, protocole) ;
+- des informations indiquant si le trafic a été autorisé ou refusé.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Create a Network Watcher (Créer une instance Network Watcher)](network-watcher-create.md) pour créer une instance Network Watcher. Ce scénario suppose également qu’un groupe de ressources avec une machine virtuelle valide existe et peut être utilisé.
+Ce scénario suppose que vous ayez déjà suivi la procédure décrite sur la page [Créer une instance de Network Watcher](network-watcher-create.md). Il part également du principe que vous disposez d’un groupe de ressources et d’une machine virtuelle valide.
 
 ## <a name="register-insights-provider"></a>Inscription du fournisseur Insights
 
-Pour permettre au journal de flux de fonctionner correctement, le fournisseur **Microsoft.Insights** doit être enregistré. Pour inscrire le fournisseur, accédez à **Abonnements** et sélectionnez l’abonnement pour lequel vous souhaitez activer les journaux de flux. Sur le panneau **Abonnement**, sélectionnez **Fournisseurs de ressources**. Parcourez la liste des fournisseurs et vérifiez que **microsoft.insights** est enregistré. Si ce n’est pas le cas, cliquez sur **Inscrire**.
+Pour que la journalisation du flux fonctionne correctement, le fournisseur **Microsoft.Insights** doit être inscrit. Pour inscrire le fournisseur, suivez les étapes ci-dessous : 
 
-![afficher les fournisseurs][providers]
+1. Accédez à **Abonnements**, puis sélectionnez l’abonnement pour lequel vous souhaitez activer les journaux de flux. 
+2. Sur le panneau **Abonnement**, sélectionnez **Fournisseurs de ressources**. 
+3. Étudiez la liste des fournisseurs et vérifiez que le fournisseur **microsoft.insights** est inscrit. Sinon, sélectionnez **Inscrire**.
+
+![Afficher les fournisseurs][providers]
 
 ## <a name="enable-flow-logs"></a>Activer les journaux des flux
 
-Ces étapes vous guident tout au long de l’activation des journaux des flux sur un groupe de sécurité réseau.
-
-### <a name="step-1"></a>Étape 1 :
-
-Accédez à une instance Network Watcher et sélectionnez **Flow logs** (Journaux des flux)
-
-![vue d’ensemble des journaux des flux][1]
-
-### <a name="step-2"></a>Étape 2
-
-Sélectionnez un groupe de sécurité réseau dans la liste en cliquant dessus.
-
-![vue d’ensemble des journaux des flux][2]
-
-### <a name="step-3"></a>Étape 3 
-
-Dans le panneau **Flow logs settings** (Paramètres des journaux des flux), définissez l’état sur **Activé** et configurez un compte de stockage.  Lorsque vous avez terminé, cliquez sur **OK** et sur **Enregistrer**
-
-![vue d’ensemble des journaux des flux][3]
-
-## <a name="download-flow-logs"></a>Télécharger des journaux des flux
-
-Les journaux des flux sont enregistrés dans un compte de stockage. Pour afficher vos journaux des flux, vous devez les télécharger.
+Ces étapes vous guident tout au long du processus d’activation des journaux de flux sur un groupe de sécurité réseau.
 
 ### <a name="step-1"></a>Étape 1
 
-Pour télécharger des journaux des flux, cliquez sur **Vous pouvez télécharger les journaux de flux à partir des comptes de stockage configurés**.  Vous accédez à une vue du compte de stockage dans laquelle vous pouvez accéder à votre journal à télécharger.
+Accédez à une instance de Network Watcher, puis sélectionnez **Journaux de flux des NSG**.
 
-![paramètres des journaux des flux][4]
+![Vue d’ensemble des journaux de flux][1]
 
 ### <a name="step-2"></a>Étape 2
 
-Accédez au compte de stockage approprié, puis à **Conteneurs** > **insights-log-networksecuritygroupflowevent**
+Sélectionnez un groupe de sécurité réseau dans la liste.
 
-![paramètres des journaux des flux][5]
+![Vue d’ensemble des journaux de flux][2]
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 : 
 
-Accédez à l’emplacement du journal des flux, sélectionnez le journal des flux, puis cliquez sur **Télécharger**
+Dans le panneau **Paramètres des journaux de flux**, réglez l’état sur **Activé**, puis configurez un compte de stockage.  Quand vous avez terminé, sélectionnez **OK**. Ensuite, sélectionnez **Enregistrer**.
 
-![paramètres des journaux des flux][6]
+![Vue d’ensemble des journaux de flux][3]
 
-Pour plus d’informations sur la structure du journal, consultez [Network Security Group Flow log Overview (Vue d’ensemble des journaux des flux de groupe de sécurité réseau)](network-watcher-nsg-flow-logging-overview.md)
+## <a name="download-flow-logs"></a>Télécharger des journaux de flux
+
+Les journaux des flux sont enregistrés dans un compte de stockage. Téléchargez vos journaux de flux pour les afficher.
+
+### <a name="step-1"></a>Étape 1
+
+Pour télécharger des journaux de flux, sélectionnez **Vous pouvez télécharger les journaux de flux à partir de comptes de stockage configurés**. Cette étape vous amène sur une vue du compte de stockage qui vous permet de choisir les journaux à télécharger.
+
+![Paramètres des journaux de flux][4]
+
+### <a name="step-2"></a>Étape 2
+
+Accédez au compte de stockage approprié. Ensuite, sélectionnez **Conteneurs** > **insights-journal-networksecuritygroupflowevent**.
+
+![Paramètres des journaux de flux][5]
+
+### <a name="step-3"></a>Étape 3 :
+
+Accédez à l’emplacement du journal de flux, sélectionnez-le, puis sélectionnez **Télécharger**.
+
+![Paramètres des journaux de flux][6]
+
+Pour plus d’informations sur la structure du journal, consultez la page [Vue d’ensemble des journaux de flux des groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [visualiser vos journaux des flux de groupe de sécurité réseau avec Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Découvrez comment [visualiser vos journaux de flux des NSG avec Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
 
 <!-- Image references -->
 [1]: ./media/network-watcher-nsg-flow-logging-portal/figure1.png
@@ -102,3 +111,4 @@ Découvrez comment [visualiser vos journaux des flux de groupe de sécurité ré
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
 [providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png
+

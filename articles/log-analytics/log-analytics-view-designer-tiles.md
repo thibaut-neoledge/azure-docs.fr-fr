@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
-ms.openlocfilehash: 07938808a6ce39be80f38d93831db40130bcd4b5
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 806aba12d07c10816a106b9b2af0e824ceb25ade
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Référence de la vignette Concepteur de vues de Log Analytics
@@ -26,7 +27,10 @@ Le Concepteur de vues de Log Analytics permet de créer des vues personnalisées
 Autres articles disponibles concernant le Concepteur de vues :
 
 * [Concepteur de vues](log-analytics-view-designer.md) - vue d’ensemble du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
-* [Référence des composants de visualisation](log-analytics-view-designer-parts.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées. 
+* [Référence des composants de visualisation](log-analytics-view-designer-parts.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées.
+
+>[!NOTE]
+> Si votre espace de travail a été mis à niveau vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes de toutes les vues doivent être écrites à l’aide du [nouveau langage de requête](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Toutes les vues créées avant la mise à niveau de l’espace de travail sont automatiquement converties.
 
 Le tableau suivant répertorie les différents types de vignettes disponibles dans le Concepteur de vues.  Les sections suivantes décrivent en détail chaque type de vignette et ses propriétés.
 
@@ -176,10 +180,4 @@ La vignette **Deux chronologies** affiche les résultats de deux requêtes de jo
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur la [recherche dans les journaux](log-analytics-log-searches.md) pour prendre en charge les requêtes dans les vignettes.
 * Ajouter des [composants de visualisation](log-analytics-view-designer-parts.md) à votre vue personnalisée.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

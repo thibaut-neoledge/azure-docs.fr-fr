@@ -15,25 +15,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: huvalo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: a9ccbb3da29670da9a377be2212905c67b3ec7d0
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 283a296fb39863c2801be1093cc4f56904786abd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Application web Django Hello World sur une machine virtuelle Windows Server
-> [!div class="op_single_selector"]
-> * [Windows](python-django-web-app.md)
-> * [Mac/Linux](../../linux/python-django-web-app.md)
-> 
-> 
-
-<br>
 
 > [!IMPORTANT] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et le modèle de déploiement classique](../../../resource-manager-deployment-model.md). Cet article décrit le modèle de déploiement classique. Pour la plupart des nouveaux déploiements, nous recommandons d’utiliser le modèle Resource Manager. Pour obtenir un modèle Resource Manager que vous pouvez utiliser pour déployer Django, consultez [Déployer une application Django](https://azure.microsoft.com/documentation/templates/django-app/).
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et le modèle de déploiement classique](../../../resource-manager-deployment-model.md). Cet article décrit le modèle de déploiement classique. Pour la plupart des nouveaux déploiements, nous recommandons d’utiliser le modèle Resource Manager.
 
 Ce didacticiel vous montre comment héberger un site web Django dans Windows Server dans des machines virtuelles Azure. Dans le didacticiel, nous ne supposons aucune expérience préalable avec Azure. Quand vous avez terminé le didacticiel, vous pouvez avoir une application basée sur Django opérationnelle dans le cloud.
 

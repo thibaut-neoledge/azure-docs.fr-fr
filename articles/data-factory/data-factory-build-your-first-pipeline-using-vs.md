@@ -15,11 +15,10 @@ ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 0153ea9d0c9a957de4db401b95b531ab758879dd
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 6f31b082e47e46f023f593a5fe14ef6027b0d17d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Didacticiel : Créer une fabrique de données à l’aide de Visual Studio
@@ -104,8 +103,10 @@ Avec le service lié HDInsight à la demande, le cluster HDInsight à la demande
         "properties": {
         "type": "HDInsightOnDemand",
             "typeProperties": {
+                "version": "3.5",
                 "clusterSize": 1,
-                "timeToLive": "00:30:00",
+                "timeToLive": "00:05:00",
+                "osType": "Linux",
                 "linkedServiceName": "AzureStorageLinkedService1"
             }
         }
@@ -404,7 +405,7 @@ Vous pouvez également utiliser l’application de surveillance et de gestion po
 - Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Pour connaître l’ensemble des sources et des récepteurs pris en charge par l’activité de copie, consultez [Banques de données et formats pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Pour obtenir la liste des services de calcul pris en charge par Data Factory et les [activités de transformation](data-factory-data-transformation-activities.md) qui peuvent s’exécuter sur ceux-ci, consultez [Services liés de calcul](data-factory-compute-linked-services.md).
 - Consultez [Déplacer des données depuis et vers le Stockage Blob Azure à l’aide d’Azure Data Factory](data-factory-azure-blob-connector.md#azure-storage-linked-service) pour plus d’informations sur les propriétés JSON utilisées dans la définition de service lié Stockage Azure.
 - Vous pouvez utiliser votre propre cluster HDInsight au lieu d’utiliser un cluster HDInsight à la demande. Pour plus d’informations, consultez [Services de calcul liés](data-factory-compute-linked-services.md) .
--  La fabrique de données crée pour vous un cluster HDInsight **Windows** avec le code JSON précédent. Vous pouvez également faire en sorte qu’elle crée un cluster HDInsight **Linux** . Pour plus d’informations, voir [Service lié à la demande Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
+-  La fabrique de données crée pour vous un cluster HDInsight **Linux** avec le code JSON précédent. Pour plus d’informations, voir [Service lié à la demande Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
 - Le cluster HDInsight crée un **conteneur par défaut** dans le Stockage Blob que vous avez spécifié dans le code JSON (linkedServiceName). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. Ce comportement est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé dès qu’une tranche est traitée, à moins qu’il n’existe un cluster actif (timeToLive). Ce cluster est supprimé, une fois le traitement terminé.
     
     Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.

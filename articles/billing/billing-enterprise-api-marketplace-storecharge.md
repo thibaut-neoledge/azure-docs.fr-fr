@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 9f084dce3f01466aaa0e4c32d339c925d9faccd3
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 5539623f7ae35e14b6dafe6fdf9efe4bcaba4fd3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-# <a name="reporting-apis-for-enterprise-customers---marketplace-charges-preview"></a>API de création de rapports pour les clients Enterprise - Frais de la Place de marché (préversion)
+# <a name="reporting-apis-for-enterprise-customers---marketplace-store-charge"></a>API de création de rapports pour les clients Enterprise - Marketplace Store Charge
 
 L’API Marketplace Store Charge renvoie l’analyse détaillée des frais de magasin basée sur l’utilisation par jour pour la période de facturation ou les dates de début et de fin indiquées (les frais ponctuels ne sont pas inclus).
 
@@ -32,9 +31,13 @@ Les propriétés d’en-tête communes qui doivent être ajoutées sont spécifi
 
 |Méthode | URI de demande|
 |-|-|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacecharges|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacecharges|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
+
+> [!Note]
+> Pour utiliser la préversion de l’API, remplacez v2 par v1 dans l’URL ci-dessus.
+>
 
 ## <a name="response"></a>Réponse
  
@@ -100,6 +103,7 @@ Les propriétés d’en-tête communes qui doivent être ajoutées sont spécifi
 |extendedCost|Décimal|Estimation des frais en fonction de la quantité consommée et du coût global|
 <br/>
 ## <a name="see-also"></a>Voir aussi
+
 * [API Périodes de facturation](billing-enterprise-api-billing-periods.md)
 
 * [API Détails de l’utilisation](billing-enterprise-api-usage-detail.md) 

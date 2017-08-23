@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: ba82a5e25750fc6d9bd047ace3abb087e5dedfb3
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 4eb32dd18c57af8d46e7afb63047c0985458705d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Présentation des registres de conteneurs Docker privés
@@ -72,6 +72,6 @@ Les développeurs peuvent également effectuer un push vers un registre de conte
 * [Créer un registre de conteneur à l’aide du portail Azure](container-registry-get-started-portal.md)
 * [Créer un registre de conteneur à l’aide de l’interface de ligne de commande Azure](container-registry-get-started-azure-cli.md)
 * [Effectuer un push de votre première image à l’aide de l’interface CLI Docker](container-registry-get-started-docker-cli.md)
-* Pour générer une intégration continue et un workflow de déploiement à l’aide de Visual Studio Team Services, Azure Container Service et Azure Container Registry, consultez [ce didacticiel](../container-service/container-service-docker-swarm-setup-ci-cd.md).
+* Pour générer une intégration continue et un workflow de déploiement à l’aide de Visual Studio Team Services, Azure Container Service et Azure Container Registry, consultez [ce didacticiel](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md).
 * Si vous souhaitez configurer votre propre registre privé Docker dans Azure (sans les points de terminaison publics), consultez [Déploiement de votre propre registre Docker privé sur Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
 

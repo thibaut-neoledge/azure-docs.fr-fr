@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/20/2017
+ms.date: 08/08/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 616a29b3f7db817e63a3a3673b845cc86752af77
+ms.custom: azlog
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 5e672bd6b9356ce16663e843e4a4e7365cb159c3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="introduction-to-microsoft-azure-log-integration"></a>Présentation de l’intégration des journaux Microsoft Azure
@@ -45,6 +45,9 @@ Azure génère une journalisation complète pour chaque service Azure. Ces journ
 
 L’intégration des journaux Azure prend actuellement en charge l’intégration des journaux d’activité Azure, du journal des événements Windows à partir des machines virtuelles Windows de votre abonnement Azure, des alertes Azure Security Center, des journaux de diagnostic Azure et des journaux d’audit Azure Active Directory.
 
+>[!NOTE]
+Bien que l’intégration des journaux Azure soit une solution gratuite, le stockage des informations des fichiers de journaux est facturé, via Stockage Azure.
+
 Le tableau suivant explique la catégorie des journaux et les détails de l’intégration SIEM
 
 | Type de journal  |Log Analytics prenant en charge JSON (Splunk, ELK)| ArcSight  | QRadar  |   
@@ -55,8 +58,8 @@ Le tableau suivant explique la catégorie des journaux et les détails de l’in
 | Journaux de diagnostic (journaux des ressources) | Oui | L’utilisateur final doit créer le fichier de l’analyseur JSON FlexConnector. Pour plus d’informations sur cette opération, consultez la documentation d’ArcSight. | Vous devez créer une extension de source de journaux. Pour plus d’informations, consultez la documentation de QRadar. |
 | Journaux des machines virtuelles | Oui, via les événements transmis et non via JSON | Oui, via les événements transmis | Oui, via les événements transmis |
 
->[!NOTE]
-Bien que l’intégration des journaux Azure soit une solution gratuite, le stockage des informations des fichiers de journaux est facturé, via Stockage Azure.
+Pour obtenir plus d’informations sur les types de journaux pris en charge, consultez le [FAQ](security-azure-log-integration-faq.md)
+
 
 L’aide de la Communauté est disponible via le [forum MSDN d’intégration des journaux Azure](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Le forum permet aux membres de la communauté AzLog de s’entraider, grâce à des questions, des réponses, des conseils et des astuces, afin de profiter au mieux de l’intégration des journaux Azure. En outre, l’équipe d’intégration des journaux Azure supervise ce forum et apporte son aide lorsque cela est possible.
 
@@ -67,7 +70,7 @@ Ce document vous a présenté une vue d’ensemble de l’intégration des journ
 
 * [Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) : centre de téléchargement pour plus d’informations, la configuration système requise et les instructions d’installation pour l’intégration des journaux Azure.
 * [Prise en main de l’intégration des journaux Azure](security-azure-log-integration-get-started.md) : ce didacticiel vous guide dans la procédure d’installation de l’intégration des journaux Azure et d’intégration des journaux du stockage Azure WAD, des journaux d’activité Azure, des alertes Azure Security Center et des journaux d’audit Azure Active Directory.
-* [Étapes de configuration de partenaires](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : ce billet de blog vous montre comment configurer l’intégration des journaux Azure pour travailler avec des solutions de partenaires Splunk, HP ArcSight et IBM QRadar.
+* [Étapes de configuration de partenaires](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : ce billet de blog vous montre comment configurer l’intégration des journaux Azure pour travailler avec des solutions de partenaires Splunk, HP ArcSight et IBM QRadar. Ce blog représente notre position actuelle concernant la configuration des solutions de partenaires. Dans tous les cas, reportez-vous d’abord à la documentation de la solution du partenaire.
 * [Integrate Azure Activity logs and Azure Security Center Alerts over Syslog to QRadar](https://blogs.msdn.microsoft.com/azuresecurity/2016/09/24/integrate-azure-logs-to-qradar/) : ce billet de blog détaille les étapes pour envoyer des alertes d’activité et Azure Security Center sur syslog à QRadar
 * [FAQ de l’intégration des journaux Azure](security-azure-log-integration-faq.md) : ce forum aux questions répond aux questions sur l’intégration des journaux Azure.
 * [Intégration des alertes Security Center avec l’intégration des journaux Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) : ce document vous montre comment synchroniser les alertes Azure Security Center avec l’intégration des journaux Azure.

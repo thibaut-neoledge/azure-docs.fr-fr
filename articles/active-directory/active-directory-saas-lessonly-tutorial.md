@@ -2,56 +2,54 @@
 title: "Didacticiel : Intégration d’Azure Active Directory à Lesson.ly | Microsoft Docs"
 description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Lesson.ly."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: 8c9dc6e6-5d85-4553-8a35-c7137064b928
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 06/23/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: a14be44b66c5e61350785ddfaf5b96125a196103
-ms.openlocfilehash: 242cc7d58acb4af66d7ea5da4502db4ce2b414c6
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: fc1e1b2de0a138dbe88d794f802b002321948ab8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Didacticiel : Intégration d’Azure Active Directory à Lesson.ly
-L’objectif de ce didacticiel est de vous montrer comment intégrer Lesson.ly dans Azure AD (Azure Active Directory).
+
+Dans ce didacticiel, vous allez apprendre à intégrer Lesson.ly avec Azure Active Directory (Azure AD).
 
 L’intégration de Lesson.ly dans Azure AD vous offre les avantages suivants :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Lesson.ly.
-* Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Lesson.ly (via l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+- Dans Azure AD, vous pouvez contrôler qui a accès à Lesson.ly.
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Lesson.ly (via l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Composants requis
+
 Pour configurer l’intégration d’Azure AD à Lesson.ly, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD
-* Un abonnement Lesson.ly pour lequel l’authentification unique est activée
+- Un abonnement Azure AD
+- Un abonnement Lesson.ly pour lequel l’authentification unique est activée
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
-> 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
-* Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. 
-
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Lesson.ly à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -61,183 +59,196 @@ Pour configurer l’intégration de Lesson.ly à Azure AD, vous devez ajouter L
 
 **Pour ajouter Lesson.ly à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
-   
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+
     ![Active Directory][1]
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
-   
+
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+
     ![Applications][2]
-4. Cliquez sur **Ajouter** en bas de la page.
-   
+    
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+
     ![Applications][3]
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
-   
-    ![Applications][4]
-6. Dans la zone de recherche, entrez **Lesson.ly**.
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_01.png)
-7. Dans le volet de résultats, sélectionnez **Lesson.ly**, puis cliquez sur **Terminer** pour ajouter l’application.
 
-![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_02.png)
+4. Dans la zone de recherche, entrez **Lesson.ly**.
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique avec Azure AD avec Lesson.ly en fonction d’un utilisateur de test appelé « Britta Simon ».
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_search.png)
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir quel utilisateur de Lesson.ly équivaut à un utilisateur dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur de Lesson.ly associé doit être établie.
+5. Dans le panneau des résultats, sélectionnez **Lesson.ly**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-Pour ce faire, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Lesson.ly.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Lesson.ly, avec un utilisateur de test appelé « Britta Simon ».
+
+Pour que l’authentification unique fonctionne, Azure AD doit savoir quel utilisateur de Lesson.ly correspond à l’utilisateur dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur de Lesson.ly associé doit être établie.
+
+Dans Lesson.ly, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** pour établir la relation.
 
 Pour configurer et tester l’authentification unique avec Azure AD avec Lesson.ly, vous devez compléter les blocs de construction suivants :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Lesson.ly](#creating-a-Lessonly-test-user)** pour avoir un équivalent de Britta Simon dans Lesson.ly lié à la représentation Azure AD associée.
+3. **[Création d’un utilisateur de test Lesson.ly](#creating-a-lessonly-test-user)** pour obtenir un équivalent de Britta Simon dans Lesson.ly lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Lesson.ly avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
-Votre application Lesson.ly s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration **Attributs du jeton SAML** .
-La capture d’écran suivante montre un exemple :
-
-![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_06.png) 
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Lesson.ly.
 
 **Pour configurer l’authentification unique avec Azure AD avec Lesson.ly, procédez comme suit :**
 
-1. Dans le portail Azure Classic, sur la page d’intégration de l’application Lesson.ly, dans le menu en haut, cliquez sur **Attributs** pour ouvrir la boîte de dialogue **Attributs du jeton SAML**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_07.png) 
-2. Pour ajouter les mappages d’attribut requis, procédez comme suit :
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_08.png) 
-   
-    a. Pour chaque ligne de données dans le tableau ci-dessus, cliquez sur **Ajouter un attribut utilisateur**.
-   
-    b. Dans la zone de texte **Nom de l’attribut** , indiquez le nom d’attribut pour cette ligne.
-   
-    c. Dans la liste **Valeur de l’attribut** , sélectionnez la valeur d’attribut pour cette ligne.
-   
-    d. Cliquez sur **Terminé**
-3. Cliquez sur **Appliquer les modifications**.
-4. Dans votre navigateur, cliquez sur **Précédent** pour rouvrir la boîte de dialogue Démarrage rapide
-5. Cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
-   
-    ![Configurer l’authentification unique][6] 
-6. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Lesson.ly ?**, sélectionnez **Authentification unique avec Azure AD**, puis cliquez sur **Suivant**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_03.png) 
-7. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_04.png) 
+1. Dans le portail Azure, sur la page d’intégration de l’application **Lesson.ly**, cliquez sur **Authentification unique**.
 
-    a. Dans la zone de texte URL de connexion, tapez l’URL dont vos utilisateurs se servent pour se connecter à votre application Lessonly au format suivant : **« https://nomentreprise.Lesson.ly/signin »**. Lors du référencement d’un nom générique, la partie **nomentreprise** doit être remplacée par un nom réel.
+    ![Configurer l’authentification unique][4]
 
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_samlbase.png)
 
-1. Sur la page **Configurer l’authentification unique sur Lesson.ly** , procédez comme suit :
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_05.png) 
-   
-    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
-   
-    b. Cliquez sur **Suivant**.
-2. Pour que l’authentification unique soit configurée pour votre application, contactez votre équipe du support technique Lesson.ly à l’adresse dev@lessonly.com. Joignez le fichier de certificat téléchargé à votre courrier et partagez les URL des métadonnées (ID d’entité, URL d’authentification unique et URL de déconnexion) avec l’équipe Lesson.ly pour configurer l’authentification unique de son côté.
-3. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
-   
-   ![Authentification unique Azure AD][10]
-4. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
-   
-   ![Authentification unique Azure AD][11]
+3. Dans la section **Domaine et URL Lesson.ly**, effectuez les étapes suivantes :
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_url.png)
+
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant :
+    | |
+    |--|
+    | `https://<companyname>.lesson.ly/signin`|
+    | `https://<companyname>.lessonly.com/signin`|
+
+    >[!NOTE]
+    >Lors du référencement d’un nom générique, la partie **nomentreprise** doit être remplacée par un nom réel.
+    
+    b. Dans la zone de texte **Identificateur**, saisissez une URL au format suivant :
+    | |
+    |--|
+    | `https://<companyname>.lesson.ly/auth/saml/metadata`|
+    | `https://<companyname>.lessonly.com/auth/saml/metadata`|
+
+    > [!NOTE] 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Lesson.ly](mailto:dev@lessonly.com). 
+
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_certificate.png)
+
+5. L’application Lesson.ly s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration **Attributs du jeton SAML**. Les captures d’écran suivantes illustrent un exemple.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_06.png)
+           
+6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut du jeton SAML comme sur l’image précédente, puis procédez comme suit :
+
+    | Nom de l'attribut   | Valeur de l’attribut |
+    | ---------------  | ----------------|
+    | urn:oid:2.5.4.42 |user.givenname |
+    | urn:oid:2.5.4.4  |user.surname |
+    | urn:oid:0.9.2342.19200300.1001.3 |user.mail |
+
+    a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_attribute_04.png)
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_attribute_05.png)
+
+    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
+
+    c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
+    
+    d. Cliquez sur **OK**.     
+
+7. Cliquez sur le bouton **Enregistrer** .
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_general_400.png)
+
+8. Dans la section **Configuration de Lesson.ly**, cliquez sur **Configurer Lesson.ly** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_configure.png)
+
+9. Pour configurer l’authentification unique côté **Lesson.ly**, vous devez envoyer le **Certificat (Base64)** téléchargé et **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à [l’équipe de support Lesson.ly](mailto:dev@lessonly.com).
+
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-![Créer un utilisateur Azure AD][20]
+![Créer un utilisateur Azure AD][100]
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_09.png) 
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
-   
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_01.png) 
+
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+    
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_02.png) 
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+ 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_03.png) 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
-   
+
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+ 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_04.png) 
-5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_05.png) 
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
-6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_06.png) 
-   
-    a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-    b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-    e. Cliquez sur **Next**.
 
-7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_07.png) 
-8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_08.png) 
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
 
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
+
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
+
+    d. Cliquez sur **Create**.
+ 
 ### <a name="creating-a-lessonly-test-user"></a>Création d’un utilisateur de test Lesson.ly
+
 L’objectif de cette section est de créer l’utilisateur Britta Simon dans Lesson.ly. Lesson.ly. prend en charge l’approvisionnement juste-à-temps, qui est activé par défaut.
 
-Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur sera créé lors d’une tentative d’accès à Lesson.ly s’il n’existe pas déjà. [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
+Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur sera créé lors d’une tentative d’accès à Lesson.ly s’il n’existe pas déjà.
 
 > [!NOTE]
-> Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique Lesson.ly.
-> 
-> 
+> Si vous devez créer un utilisateur manuellement, contactez [l’équipe du support technique Lesson.ly](mailto:dev@lessonly.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Lesson.ly.
+
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Lesson.ly.
 
 ![Affecter des utilisateurs][200] 
 
 **Pour affecter Britta Simon à Lesson.ly, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
-   
-    ![Affecter des utilisateurs][201] 
-2. Dans la liste des applications, sélectionnez **Lesson.ly**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_50.png) 
-3. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
-   
-    ![Affecter des utilisateurs][203] 
-4. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
-5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
-   
-    ![Affecter des utilisateurs][205]
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
+    ![Affecter des utilisateurs][201] 
+
+2. Dans la liste des applications, sélectionnez **Lesson.ly**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_app.png) 
+
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+
+    ![Affecter des utilisateurs][202] 
+
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+
+    ![Affecter des utilisateurs][203]
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+    
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Lesson.ly dans le volet d’accès, vous devez être connecté automatiquement à votre application Lesson.ly.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
+
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
@@ -248,14 +259,11 @@ Lorsque vous cliquez sur la vignette Lesson.ly dans le volet d’accès, vous de
 [3]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_205.png
+
 

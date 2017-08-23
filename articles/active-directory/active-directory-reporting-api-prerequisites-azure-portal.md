@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8f8510b38d795a90850ef58084a04718cb5ac324
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 5fafd83c337e3c73260d89cdad7409a01ce5855b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Configuration requise pour accéder à l’API de création de rapports Azure AD
@@ -41,7 +41,7 @@ Pour préparer votre accès à l’API de création de rapports, vous devez :
 2. Accorder des autorisations 
 3. Rassembler les paramètres de configuration 
 
-Si vous avez des questions, des problèmes ou des commentaires, veuillez contacter [Aide à la création de rapports AAD](mailto:aadreportinghelp@microsoft.com).
+Si vous avez des questions, des problèmes ou des commentaires, [créez un ticket de support](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## <a name="register-an-azure-active-directory-application"></a>Inscrire une application Azure Active Directory
 
@@ -74,11 +74,11 @@ Pour configurer votre annuaire et lui permettre d’accéder à l’API de créa
 
     a. Dans la zone de texte **Nom**, tapez `Reporting API application`.
 
-    b. Pour **Type d’application**, sélectionnez `Web app / API`.
+    b. Sous **Type d’application**, sélectionnez **Application web/API**.
 
     c. Dans la zone de texte **URL d’authentification**, tapez `https://localhost`.
 
-    d. Cliquez sur **Create**. 
+    d. Cliquez sur **Créer**. 
 
 
 ## <a name="grant-permissions"></a>Accorder des autorisations 
@@ -181,7 +181,7 @@ Pour obtenir la clé secrète client de l’application, vous devez créer une n
 
     b. Dans **Expire le**, sélectionnez **Dans 2 ans**.
 
-    c. Cliquez sur **Save**.
+    c. Cliquez sur **Enregistrer**.
 
     d. Copiez la valeur de la clé.
 

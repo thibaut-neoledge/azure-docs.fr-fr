@@ -12,25 +12,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: d55de6c3f49abf3ac117dcb265dd7f1bcaa05f24
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: f83fac6cffc9e58582417324a4348ca3b6220f0c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Créer un IoT Hub avec un modèle Azure Resource Manager (PowerShell)
+
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-## <a name="introduction"></a>Introduction
 Vous pouvez utiliser Azure Resource Manager pour créer et gérer des hubs Azure IoT de façon programmée. Ce didacticiel vous montre comment utiliser un modèle Azure Resource Manager pour créer un IoT Hub à l’aide de PowerShell.
 
 > [!NOTE]
-> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md).  Cet article traite de l’utilisation du modèle de déploiement Azure Resource Manager.
-> 
-> 
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement Azure Resource Manager.
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -38,11 +36,10 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * [Azure PowerShell 1.0][lnk-powershell-install] ou version ultérieure.
 
 > [!TIP]
-> L’article [Utilisation d’Azure PowerShell avec Azure Resource Manager][lnk-powershell-arm] fournit des informations sur l’utilisation des scripts PowerShell et des modèles Resource Manager pour créer des ressources Azure. 
-> 
-> 
+> L’article [Utilisation d’Azure PowerShell avec Azure Resource Manager][lnk-powershell-arm] fournit des informations supplémentaires sur l’utilisation de PowerShell et des modèles Resource Manager pour créer des ressources Azure.
 
 ## <a name="connect-to-your-azure-subscription"></a>Connectez-vous à un abonnement Azure
+
 Dans une invite de commandes PowerShell, entrez la commande suivante pour vous connecter à votre abonnement Azure :
 
 ```powershell
@@ -75,11 +72,12 @@ Créez un groupe de ressources pour contenir votre IoT Hub avec la commande suiv
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
-## <a name="submit-an-azure-resource-manager-template-to-create-an-iot-hub"></a>Envoyer un modèle Azure Resource Manager pour créer un IoT Hub
+## <a name="submit-a-template-to-create-an-iot-hub"></a>Envoyer un modèle pour créer un hub IoT
+
 Utilisez un modèle JSON pour créer un IoT Hub dans votre groupe de ressources. Vous pouvez également utiliser un modèle Azure Resource Manager pour apporter des modifications à un IoT Hub existant.
 
 1. Utilisez un éditeur de texte pour créer un modèle Azure Resource Manager appelé **template.json** avec la définition de ressource suivante pour créer un IoT Hub standard. Cet exemple ajoute l’IoT Hub dans la zone **États-Unis de l’Est**, crée deux groupes de consommateurs (**cg1** et **cg2**) sur le point de terminaison compatible Event Hubs et utilise la version de l’API **2016-02-03**. Ce modèle vous demande également de transmettre le nom de l’IoT Hub en tant que paramètre appelé **hubName**. Pour obtenir la liste des emplacements qui prennent en charge IoT Hub, voir [Statut Azure][lnk-status].
-   
+
     ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -129,22 +127,25 @@ Utilisez un modèle JSON pour créer un IoT Hub dans votre groupe de ressources.
       }
     }
     ```
+
 2. Enregistrez le fichier de modèle Azure Resource Manager sur votre ordinateur local. Cet exemple suppose que vous l’enregistrez dans un dossier appelé **c:\templates**.
-3. Exécutez la commande suivante pour déployer votre nouvel IoT Hub, en utilisant le nom de votre IoT Hub en tant que paramètre. Dans cet exemple, le nom du service IoT Hub est **abcmyiothub** (ce nom doit être globalement unique et inclure votre nom ou vos initiales) :
-   
+
+3. Exécutez la commande suivante pour déployer votre nouvel IoT Hub, en utilisant le nom de votre IoT Hub en tant que paramètre. Dans cet exemple, le nom de l’IoT Hub est `abcmyiothub`. Le nom de votre IoT Hub doit être globalement unique :
+
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 4. La sortie affiche les clés de l’IoT Hub que vous avez créé.
-5. Vous pouvez vérifier que votre application a ajouté le nouvel IoT Hub en accédant au [portail Azure][lnk-azure-portal] et en affichant votre liste de ressources, ou en utilisant l’applet de commande PowerShell **Get-AzureRmResource**.
+
+5. Pour vérifier que votre application a bien ajouté le nouvel IoT Hub, accédez au [portail Azure][lnk-azure-portal] et affichez votre liste de ressources. Vous pouvez également utiliser l’applet de commande PowerShell **Get-AzureRmResource**.
 
 > [!NOTE]
 > Cet exemple d’application ajoute un IoT Hub S1 Standard qui vous est facturé. Lorsque vous avez terminé, vous pouvez supprimer le IoT Hub via le [portail Azure][lnk-azure-portal] ou à l’aide de l’applet de commande PowerShell **Remove-AzureRmResource**.
-> 
-> 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Maintenant que vous avez déployé un IoT Hub à l’aide d’un modèle Azure Resource Manager avec PowerShell, vous pouvez aller encore plus loin :
 
 * Découvrez les capacités de l’[API REST du fournisseur de ressources IoT Hub][lnk-rest-api].

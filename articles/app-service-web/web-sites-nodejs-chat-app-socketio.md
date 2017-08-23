@@ -3,8 +3,8 @@ title: "Créer une application de conversation instantanée Node.js avec Socket.
 description: "Didacticiel démontrant l’utilisation de socket.io dans une application web node.js hébergée sur Azure."
 services: app-service\web
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: c4c4af36-3ecf-4619-b586-ca90d53ce35b
 ms.service: app-service-web
@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
-translationtype: Human Translation
+ms.date: 08/17/2016
+ms.author: tarcher
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 4f5c04525437aefeccbe58e06b084433d0413dc1
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/21/2017
-
 
 ---
 # <a name="create-a-nodejs-chat-application-with-socketio-in-azure-app-service"></a>Créer une application de conversation instantanée Node.js avec Socket.IO dans Azure App Service

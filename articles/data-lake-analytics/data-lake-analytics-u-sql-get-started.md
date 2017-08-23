@@ -3,8 +3,8 @@ title: "Bien démarrer avec le langage U-SQL | Microsoft Docs"
 description: "Découvrez les principes de base du langage U-SQL."
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
@@ -12,32 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
-ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 4884d96e8126337f62af23316935978cfe219ec8
+ms.date: 06/23/2017
+ms.author: saveenr
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="get-started-with-u-sql"></a>Prise en main de U-SQL
+# <a name="get-started-with-u-sql"></a>Bien démarrer avec U-SQL
 U-SQL est un langage qui combine le langage SQL déclaratif avec le langage C# impératif pour vous permettre de traiter des données quelle que soit l’échelle. La fonctionnalité évolutive de requête distribuée d’U-SQL vous permet d’analyser efficacement les données entre magasins relationnels comme Azure SQL Database. Avec U-SQL, vous pouvez traiter des données non structurées en appliquant des schémas de lecture et en insérant une logique personnalisée et des fonctions définies par l'utilisateur. En outre, U-SQL comprend l’extensibilité qui vous donne un contrôle précis sur l’exécution à l’échelle. 
 
 ## <a name="learning-resources"></a>Ressources d’apprentissage
 
-Pour plus d’informations sur la **syntaxe du langage U-SQL**, consultez la [Référence du langage U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+* Le [Didacticiel U-SQL](http://aka.ms/usqltutorial) fournit une procédure pas à pas pour la plupart du langage U-SQL. La lecture de ce document est recommandée pour tous les développeurs qui veulent apprendre le langage U-SQL.
+* Pour plus d’informations sur la **syntaxe du langage U-SQL**, consultez la [Référence du langage U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+* Pour comprendre la [philosophie de conception d’U-SQL](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/), consultez l’article de blog Visual Studio **Présentation d’U-SQL – Un langage qui facilite le traitement du Big Data**.
 
-Pour comprendre la [philosophie de conception d’U-SQL](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/), consultez l’article de blog Visual Studio **Présentation d’U-SQL – Un langage qui facilite le traitement du Big Data**.
-
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Avant de parcourir les exemples U-SQL de ce document, lisez et suivez le [Didacticiel : Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Ce didacticiel explique les mécanismes de l’utilisation d’U-SQL avec Azure Data Lake Tools pour Visual Studio.
 
 ## <a name="your-first-u-sql-script"></a>Votre premier script U-SQL
 
-Le script U-SQL suivant est très simple et nous permet d’explorer de nombreux aspects du langage U-SQL.
+Le script U-SQL suivant est simple et nous permet d’explorer de nombreux aspects du langage U-SQL.
 
 ```
 @searchlog =
@@ -69,20 +68,13 @@ Notez le point d'interrogation en regard du type de données dans le champ `Dura
 
 Les instructions EXTRACT et OUTPUT utilisent des chemins d’accès. Les chemins d’accès peuvent être absolus ou relatifs :
 
-Ce chemin d’accès absolu fait référence à un fichier dans un Data Lake Store nommé `mystore` :
+Le chemin d’accès absolu suivant fait référence à un fichier dans un Data Lake Store nommé `mystore` :
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-Ce chemin d’accès absolu fait référence à un fichier dans un compte de Stockage Blob Azure nommé `myblobaccount` et dans un conteneur nommé `mycontainer` :
+Le chemin d’accès suivant commence par `"/"`. Il fait référence à un fichier dans le compte Data Lake Store par défaut :
 
-    wasb://mycontainer@myblobaccount.blob.core.windows.net/Samples/Data/SearchLog.tsv
-
- >[!NOTE]
- >Les conteneurs de stockage d’objets Blob Azure avec des autorisations d’accès aux objets Blob publics ou aux conteneurs publics ne sont pas pris en charge actuellement.
-
-Ce chemin d’accès relatif commence par `"/"`. Il fait référence à un fichier dans le compte Data Lake Store par défaut associé au compte Data Lake Analytics :
-
-    TO "/output/SearchLog-first-u-sql.csv"
+    /output/SearchLog-first-u-sql.csv
 
 ## <a name="use-scalar-variables"></a>Utiliser des variables scalaires
 
@@ -192,15 +184,16 @@ Les ensembles de lignes U-SQL ne conservent pas leur ordre pour la requête suiv
     GROUP BY Region;
 
     @res =
-    SELECT *
-    FROM @rs1
-    ORDER BY TotalDuration DESC
-    FETCH 5 ROWS;
+        SELECT *
+        FROM @rs1
+        ORDER BY TotalDuration DESC
+        FETCH 5 ROWS;
 
     OUTPUT @rs1
         TO @out1
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
+
     OUTPUT @res
         TO @out2
         ORDER BY TotalDuration DESC
@@ -226,21 +219,17 @@ La clause U-SQL HAVING peut être utilisée pour restreindre le résultat aux gr
             Region,
             SUM(Duration) AS TotalDuration
         FROM @searchlog
-    GROUP BY Region
-    HAVING SUM(Duration) > 200;
+        GROUP BY Region
+        HAVING SUM(Duration) > 200;
 
     OUTPUT @res
         TO "/output/Searchlog-having.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-## <a name="see-also"></a>Voir aussi
-* [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Développer des scripts U-SQL avec les outils Data Lake pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Utilisation des fonctions U-SQL dans les travaux Analytique Data Lake Azure](data-lake-analytics-use-window-functions.md)
+Pour les scénarios d’agrégation avancés, consultez la documentation de référence U-SQL sur les [fonctions d’agrégation, d’analytique et de référence](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
 
-## <a name="let-us-know-what-you-think"></a>Donnez-nous votre avis
-* [Soumettre une demande de fonctionnalité](http://aka.ms/adlafeedback)
-* [Obtenir de l'aide dans les forums](http://aka.ms/adlaforums)
-* [Faire des commentaires sur U-SQL](http://aka.ms/usqldiscuss)
+## <a name="next-steps"></a>Étapes suivantes
+* [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+* [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 

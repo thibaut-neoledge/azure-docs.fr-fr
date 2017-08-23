@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2016
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 76f59384db37967a9210ba5efa49b25788d21cdc
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: e66a3390c08b66e0f2f38725425cd78a36004118
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -112,7 +113,7 @@ La procédure qui suit décrit comment lier une nouvelle instance de base de don
     ![Link Page1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
 4. Cliquez sur **Créer une ressource** ou **Lier une ressource existante**.
-5. Choisissez le type de ressource à lier. Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur **Base de données SQL**. La version préliminaire du portail Azure Classic ne prend pas en charge la liaison d’un compte de stockage à un service cloud.
+5. Choisissez le type de ressource à lier. Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur **Base de données SQL**. (Seul le portail Azure Classic prend en charge la liaison d’un compte de stockage à un service cloud.)
 6. Pour terminer la configuration de la base de données, suivez les instructions de l’aide dans la zone **Bases de données SQL** du portail Azure Classic.
 
     Vous pouvez suivre l'état de l'opération de liaison dans la zone de messages.

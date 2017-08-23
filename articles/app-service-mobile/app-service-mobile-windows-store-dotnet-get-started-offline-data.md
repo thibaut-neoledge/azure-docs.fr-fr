@@ -2,8 +2,8 @@
 title: Activer la synchronisation hors connexion pour votre application de plateforme Windows universelle (UWP) avec Mobile Apps| Microsoft Docs
 description: "Découvrez comment utiliser une application Azure Mobile pour mettre en cache et synchroniser les données hors connexion dans votre application de plateforme Windows universelle (UWP)."
 documentationcenter: windows
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 services: app-service\mobile
 ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 7da4d87c6225754fe878a1812701c4dbafaea07a
-ms.lasthandoff: 03/09/2017
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 0830e5758419dccb7dcaaf2ae9671d9fa20b76a1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Activation de la synchronisation hors connexion pour votre application Windows
@@ -45,45 +45,43 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
 1. Installez le [Runtime SQLite pour la plateforme Windows universelle](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 2. Dans Visual Studio, ouvrez le gestionnaire de package NuGet du projet d’application UWP que vous avez finalisé dans le didacticiel [Créer une application Windows].
     Recherchez et installez le package NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
-3. Dans l’Explorateur de solutions, cliquez sur **Références** > **Ajouter une référence...** > **Windows universel** > **Extensions**, puis activez **SQLite pour plateforme Windows universelle** et **Runtime Visual C++ 2015 pour applications pour plateforme Windows universelle**.
-   
+3. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Références** > **Ajouter une référence...** > **Windows universel** > **Extensions**, puis activez **SQLite pour plateforme Windows universelle** et **Runtime Visual C++ 2015 pour applications pour plateforme Windows universelle**.
+
     ![Ajouter une référence SQLite UWP][1]
 4. Ouvrez le fichier MainPage.xaml.cs et supprimez les marques de commentaires de la définition `#define OFFLINE_SYNC_ENABLED`.
 5. Dans Visual Studio, appuyez sur **F5** pour régénérer et exécuter l'application cliente. L’application fonctionne comme elle le faisait avant l’activation de la synchronisation hors connexion. Toutefois, la base de données locale est maintenant remplie avec des données qui peuvent être utilisées dans un scénario hors connexion.
 
-## <a name="update-sync"></a>Mise à jour de l’application pour se déconnecter du serveur principal
-Dans cette section, vous rompez la connexion avec l’application mobile afin de simuler un scénario hors connexion. Lorsque vous ajouterez des éléments de données, votre gestionnaire d’exceptions signalera que l’application est en mode hors connexion. Dans cet état, les nouveaux éléments ajoutés au magasin local seront synchronisés avec le backend de l’application mobile lors de la prochaine opération Push en état connecté.
+## <a name="update-sync"></a>Mise à jour de l’application pour se déconnecter du backend
+Dans cette section, vous rompez la connexion avec votre backend d’application mobile afin de simuler un scénario hors connexion. Lorsque vous ajouterez des éléments de données, votre gestionnaire d’exceptions signalera que l’application est en mode hors connexion. Dans cet état, les nouveaux éléments ajoutés au magasin local seront synchronisés avec le backend de l’application mobile lors de la prochaine opération Push en état connecté.
 
 1. Modifiez App.xaml.cs dans le projet partagé. Mettez en commentaire l’initialisation de **MobileServiceClient** et ajoutez les lignes suivantes qui utilisent une URL d’application mobile incorrecte :
-   
+
          public static MobileServiceClient MobileService = new MobileServiceClient("https://your-service.azurewebsites.fail");
-   
+
     Vous pouvez également illustrer le comportement en mode hors connexion en désactivant les réseaux Wi-Fi et cellulaire sur l’appareil ou utiliser le mode avion.
 2. Appuyez sur **F5** pour générer et exécuter l'application. Notez que la synchronisation a échoué lors de l’actualisation au lancement de l’application.
-3. Entrez de nouveaux éléments et notez que l’opération Push échoue avec un état [CancelledByNetworkError] chaque fois que vous cliquez sur **Enregistrer**. Cependant, les nouveaux éléments todo existent dans le magasin local tant qu’ils ne sont pas transmis au backend d’applications mobiles.  Dans une application de production, si vous supprimez ces exceptions, l’application cliente se comporte comme si elle est encore connectée au backend de l’application mobile.
+3. Entrez de nouveaux éléments et notez que l’opération Push échoue avec un état [CancelledByNetworkError] chaque fois que vous cliquez sur **Enregistrer**. Cependant, les nouveaux éléments todo existent dans le magasin local tant qu’ils ne sont pas transmis au backend d’application mobile.  Dans une application de production, si vous supprimez ces exceptions, l’application cliente se comporte comme si elle est encore connectée au backend de l’application mobile.
 4. Fermez l’application et redémarrez-la pour vérifier que les nouveaux élément que vous avez créés sont conservés dans le magasin local.
 5. (Facultatif) Dans Visual Studio, ouvrez l’ **Explorateur de serveurs**. Accédez à votre base de données dans **Azure**->**Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**. Maintenant, vous pouvez accéder à votre table de base de données SQL et à son contenu. Vérifiez que les données dans la base de données backend n’ont pas changé.
 6. (Facultatif) Utilisez un outil REST tel que Fiddler ou Postman pour interroger votre serveur principal mobile, à l’aide d’une requête GET au format `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
 
-## <a name="update-online-app"></a>Mettre à jour l’application pour la reconnecter à votre backend d’applications mobiles
-Dans cette section, vous reconnectez l’application au serveur principal d’applications mobiles. Ces modifications simulent une reconnexion du réseau sur l’application.
+## <a name="update-online-app"></a>Mettre à jour l’application pour la reconnecter à votre backend d’application mobile
+Dans cette section, vous reconnectez l’application au backend d’application mobile. Ces modifications simulent une reconnexion du réseau sur l’application.
 
-Lors de la première exécution de l’application, le gestionnaire d’événements `OnNavigatedTo` appelle `InitLocalStoreAsync`. Cette méthode appelle ensuite `SyncAsync` pour permettre la synchronisation de votre magasin local avec la base de données du serveur principal. L’application fait une tentative de synchronisation au démarrage.
+Lors de la première exécution de l’application, le gestionnaire d’événements `OnNavigatedTo` appelle `InitLocalStoreAsync`. Cette méthode appelle ensuite `SyncAsync` pour permettre la synchronisation de votre magasin local avec la base de données du backend. L’application fait une tentative de synchronisation au démarrage.
 
 1. Ouvrez App.xaml.cs dans le projet partagé, et supprimez les commentaires de votre précédente initialisation de `MobileServiceClient` pour utiliser la bonne URL de l’application mobile.
-2. Appuyez sur **F5** pour régénérer et exécuter l'application. L’application synchronise vos modifications locales sur le serveur principal d’application mobile Azure Mobile par des opérations Push et Pull lorsque le gestionnaire d’événements `OnNavigatedTo` s’exécute.
-3. (Facultatif) Affichez les données mises à jour à l’aide de l’Explorateur d’objets SQL Server ou d’un outil REST tel que Fiddler. Notez que les données ont été synchronisées entre la base de données principale Azure Mobile App et le magasin local.
+2. Appuyez sur **F5** pour régénérer et exécuter l'application. L’application synchronise vos modifications locales sur le backend d’application mobile Azure par des opérations Push et Pull lorsque le gestionnaire d’événements `OnNavigatedTo` s’exécute.
+3. (Facultatif) Affichez les données mises à jour à l’aide de l’Explorateur d’objets SQL Server ou d’un outil REST tel que Fiddler. Notez que les données ont été synchronisées entre la base de données du backend d’application mobile Azure et le magasin local.
 4. Dans l'application, cochez la case en regard de quelques éléments pour les exécuter dans le magasin local.
-   
-   `UpdateCheckedTodoItem` appelle `SyncAsync` pour synchroniser chaque élément complété avec le serveur principal d’applications mobiles. `SyncAsync` appelle des opérations Push et Pull. Toutefois, **chaque fois que vous exécutez une opération Pull sur une table modifiée par le client, une opération push préalable est effectuée automatiquement**. Ce comportement garantit la cohérence de toutes les tables dans le magasin local, mais aussi des relations. Il peut entraîner un push inattendu.  Pour plus d’informations, consultez la page [Synchronisation des données hors connexion dans Azure Mobile Apps].
+
+   `UpdateCheckedTodoItem` appelle `SyncAsync` pour synchroniser chaque élément complété avec le backend d’application mobile. `SyncAsync` appelle des opérations Push et Pull. Toutefois, **chaque fois que vous exécutez une opération Pull sur une table modifiée par le client, une opération push préalable est effectuée automatiquement**. Ce comportement garantit la cohérence de toutes les tables dans le magasin local, mais aussi des relations. Il peut entraîner un push inattendu.  Pour plus d’informations, consultez la page [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
 ## <a name="api-summary"></a>Résumé de l’API
 Pour pouvoir prendre en charge les fonctionnalités hors connexion des services mobiles, nous avons utilisé l’interface [IMobileServiceSyncTable] et initialisé [MobileServiceClient.SyncContext][synccontext] avec une base de données SQL locale. Lorsque vous êtes hors connexion, Les opérations normales de création, lecture, mise à jour et suppression pour Mobile Apps fonctionnent comme si l’application était toujours connectée, mais toutes les opérations se rapportent au magasin local. Les méthodes suivantes servent à synchroniser le magasin local avec le serveur :
 
-* **[PushAsync]** Cette méthode étant membre de [IMobileServicesSyncContext], les modifications sur toutes les tables sont envoyées au serveur principal par opération Push. Seuls les enregistrements avec des modifications locales sont envoyés au serveur.
-* **[PullAsync]**
-   Une opération Pull est démarrée à partir une [IMobileServiceSyncTable]. Lorsque les modifications sont suivies dans une table, une opération Push implicite est exécutée pour s’assurer de la cohérence de toutes les tables du magasin local et des relations. Le paramètre *pushOtherTables* contrôle si d’autres tables dans le contexte sont envoyées par une opération Push implicite. Le paramètre *query* prend une chaîne de requête [IMobileServiceTableQuery<T>][IMobileServiceTableQuery]
-   ou OData pour filtrer les données renvoyées. Le paramètre *queryId* est utilisé pour définir la synchronisation incrémentielle. Pour en savoir plus, consultez  [Synchronisation des données hors connexion dans Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
+* **[PushAsync]** Cette méthode étant membre de [IMobileServicesSyncContext], les modifications sur toutes les tables sont envoyées au backend par push. Seuls les enregistrements avec des modifications locales sont envoyés au serveur.
+* **[PullAsync]** Une extraction (pull) est démarrée à partir d’une interface [IMobileServiceSyncTable]. Lorsque les modifications sont suivies dans une table, une opération Push implicite est exécutée pour s’assurer de la cohérence de toutes les tables du magasin local et des relations. Le paramètre *pushOtherTables* contrôle si d’autres tables dans le contexte sont envoyées par une opération Push implicite. Le paramètre *query* prend une chaîne de requête [IMobileServiceTableQuery<T>][IMobileServiceTableQuery] ou OData pour filtrer les données renvoyées. Le paramètre *queryId* est utilisé pour définir la synchronisation incrémentielle. Pour en savoir plus, consultez [Synchronisation des données hors connexion dans Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
 * **[PurgeAsync]** Votre application doit appeler régulièrement cette méthode pour vider les données obsolètes du magasin local. Utilisez le paramètre *force* lorsque vous avez besoin de vider toutes les modifications qui n’ont pas encore été synchronisées.
 
 Pour plus d’informations sur ces concepts, consultez la page [Synchronisation des données hors connexion dans Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).

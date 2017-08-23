@@ -15,16 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
-translationtype: Human Translation
-ms.sourcegitcommit: e1b909f419c8c04a9332a29669148321ab3dbd2d
-ms.openlocfilehash: 2afd8e04ac325f1c9f2dee8aed867b0d0a6b558d
-ms.lasthandoff: 02/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: c581b1468630a9f28204592c936360b72f42f0d8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/21/2017
 
 
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Modifier l’algorithme de hachage de signature pour l’approbation de partie de confiance Office 365
 ## <a name="overview"></a>Vue d'ensemble
 Azure Active Directory Federation Services (AD FS) signe ses jetons dans Microsoft Azure Active Directory pour vous assurer qu’ils sont infalsifiables. Cette signature peut reposer sur SHA1 ou SHA256. Azure Active Directory prend désormais en charge les jetons signés avec un algorithme SHA256 et recommande de configurer l’algorithme de signature de jetons SHA256 pour un niveau de sécurité optimal. Cet article décrit comment configurer l’algorithme de signature de jetons sur le niveau de sécurité le plus élevé, SHA256.
+
+>[!NOTE]
+>Microsoft recommande d’utiliser l’algorithme de signature de jetons SHA256, qui est plus sûr que SHA1. Cependant, SHA1 est toujours une option prise en charge.
 
 ## <a name="change-the-token-signing-algorithm"></a>Modification de l’algorithme de signature de jetons
 Une fois que vous avez défini l’algorithme de signature selon l’un des deux processus ci-dessous, ADFS signe les jetons avec SHA256 pour approuver la partie de confiance Office 365. Aucune autre modification de la configuration n’est requise, et ce changement n’a aucun impact sur votre capacité à accéder à Office 365 ou à d’autres applications Azure AD.

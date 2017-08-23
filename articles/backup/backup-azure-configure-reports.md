@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/30/2017
+ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ea438530808b418e1a3b4673a72de5df0738e797
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 649823705c9680677b84e77676bf7a004e4ed779
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
@@ -65,6 +64,11 @@ Suivez les étapes ci-dessous afin de configurer le compte de stockage pour le c
 
       ![Sélectionner le compte de stockage - Étape 6](./media/backup-azure-configure-reports/save-configuration.png)
 7. Vérifiez toutes les modifications et cliquez sur le bouton **Enregistrer** en haut, comme le montre la figure ci-dessus. Cette action garantit que toutes vos modifications sont enregistrées et que le compte de stockage est maintenant configuré de façon à stocker les données de rapports.
+
+> [!NOTE]
+> Une fois que vous configurez des rapports en enregistrant un compte de stockage, vous devez **attendre 24 heures** pour que le push de données initial soit complété. Vous devez importer le pack de contenu Azure Backup dans Power BI uniquement après cette heure. Consultez [la section FAQ](#frequently-asked-questions) pour plus de détails. 
+>
+>
 
 ## <a name="view-reports-in-power-bi"></a>Afficher les rapports dans Power BI 
 Une fois le compte de stockage configuré pour les rapports à l’aide du coffre Recovery Services, il faut environ 24 heures pour que les données de rapports commencent à arriver. Après 24 heures de configuration du compte de stockage, suivez les étapes ci-dessous pour afficher les rapports dans Power BI :

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 53425eaf388e5164d2664c163f56a33d48cf8a36
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: df5c836abbf09889f4859170359c0ee6c1b03378
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -120,9 +120,9 @@ Si l’application hébergée sur la machine virtuelle principale d’un équili
 * Configurez des machines virtuelles du pool principal distinctes par application. 
 * Configurez l’application dans les machines virtuelles à double carte d’interface réseau afin que chaque application utilise sa propre interface réseau et adresse IP. 
 
-### <a name="cause-4-accessing-the-internet-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Cause 4 : accès à l’adresse IP virtuelle de l’équilibreur de charge Internet à partir de la machine virtuelle du pool principal de l’équilibreur de charge
+### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Cause 4 : accès à l’adresse IP virtuelle de l’équilibreur de charge interne à partir de la machine virtuelle participante du pool principal de l’équilibreur de charge
 
-Si une adresse IP virtuelle de l’équilibreur de charge Internet est configurée dans un réseau virtuel et que l’une des machines virtuelles principales participant essaie d’y accéder, cela entraîne un échec. Ce scénario n’est pas pris en charge.
+Si une adresse IP virtuelle de l’équilibreur de charge interne est configurée dans un réseau virtuel et que l’une des machines virtuelles principales participantes essaie d’y accéder, cela entraîne une défaillance. Ce scénario n’est pas pris en charge.
 **Résolution** : évaluez Application Gateway ou d’autres proxys (par exemple, nginx ou haproxy) pour prendre en charge ce type de scénario. Pour plus d’informations sur Application Gateway, consultez la page [Vue d’ensemble de la passerelle Application Gateway](../application-gateway/application-gateway-introduction.md).
 
 ## <a name="additional-network-captures"></a>Captures de réseau supplémentaires

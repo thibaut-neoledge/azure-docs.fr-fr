@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/08/2017
+ms.date: 05/30/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: af5e181ce254fefe55c847d9988dd8245c75e864
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 0fbfb945c66926794721f2ce8cc183dac51ecb27
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Migrer un Service de cache géré vers le Cache Redis Azure
 Vous pouvez migrer les applications qui utilisent le Service de cache géré Azure vers le Cache Redis Azure sans modifier outre mesure votre application. Le degré de modification dépend des fonctionnalités du Service de cache géré utilisé par votre application de mise en cache. Bien que légèrement différentes, les API présentent des similitudes. Vous pouvez ainsi réutiliser, avec un minimum de modifications, une grande partie de votre code existant qui utilise le Service de cache géré pour accéder à un cache. Cette rubrique montre comment effectuer la configuration requise et modifier les applications pour migrer vos applications de Service de cache géré vers le Cache Redis Azure. Elle explique également comment utiliser certaines fonctionnalités du Cache Redis Azure pour implémenter les fonctionnalités d’un cache du Service de cache géré.
+
+>[!NOTE]
+>Le service de cache géré et le In-Role Cache ont été [supprimés](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) le 30 novembre 2016. Si vous disposez de déploiements pour le In-Role Cache que vous souhaitez faire migrer vers le Cache Redis Azure, vous pouvez suivre les étapes de cet article.
 
 ## <a name="migration-steps"></a>Étapes de la migration
 Vous devez exécuter les étapes suivantes pour migrer une application du Service de cache géré afin d’utiliser le Cache Redis Azure.
@@ -59,7 +63,7 @@ Cache Redis Microsoft Azure est disponible dans les niveaux suivants :
 
 * **De base** , avec un seul nœud. Plusieurs tailles jusqu'à 53 Go.
 * **Standard** : avec deux nœuds, principal et réplica. Plusieurs tailles jusqu'à 53 Go. Un contrat SLA de 99,9 %.
-* **Premium** - Deux nœuds (principal / réplica) contenant jusqu’à 10 partitions. Plusieurs tailles de 6 Go à 530 Go (nous contacter pour en savoir plus). Toutes les fonctionnalités du niveau Standard et d’autres, y compris la prise en charge du [cluster Redis](cache-how-to-premium-clustering.md), la [persistance Redis](cache-how-to-premium-persistence.md) et le [réseau virtuel Azure](cache-how-to-premium-vnet.md). Un contrat SLA de 99,9 %.
+* **Premium** - Deux nœuds (principal / réplica) contenant jusqu’à 10 partitions. Plusieurs tailles de 6 Go à 530 Go. Toutes les fonctionnalités du niveau Standard et d’autres, y compris la prise en charge du [cluster Redis](cache-how-to-premium-clustering.md), la [persistance Redis](cache-how-to-premium-persistence.md) et le [réseau virtuel Azure](cache-how-to-premium-vnet.md). Un contrat SLA de 99,9 %.
 
 Chaque option diffère en termes de fonctionnalités et de tarification. Les fonctionnalités sont décrites plus loin dans ce guide ; pour plus d'informations sur la tarification, consultez la page [Tarification - Cache](https://azure.microsoft.com/pricing/details/cache/).
 
@@ -77,7 +81,7 @@ Une fois le cache créé et configuré, vous devez supprimer la configuration du
 ### <a name="remove-the-managed-cache-service-configuration"></a>Suppression de la configuration du Service de cache géré
 Pour pouvoir configurer les applications clientes pour le Cache Redis Azure, vous devez au préalable supprimer la configuration et les références d’assembly existantes du Service de cache géré en désinstallant le package NuGet du Service de cache géré.
 
-Pour désinstaller ce package, cliquez avec le bouton droit sur le projet client dans l’**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. Sélectionnez le nœud **Packages installés**, puis entrez W**indowsAzure.Caching** dans la zone de recherche des packages installés. Sélectionnez **Cache** **Microsoft Azure** (ou **Mise en cache** **Microsoft Azure** en fonction de la version du package NuGet), cliquez sur **Désinstaller**, puis sur **Fermer**.
+Pour désinstaller ce package, cliquez avec le bouton droit sur le projet client dans l’**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. Sélectionnez le nœud **Packages installés**, puis entrez W**indowsAzure.Caching** dans la zone de recherche des packages installés. Sélectionnez **Cache**  **Microsoft Azure** (ou **Mise en cache** **Microsoft Azure** en fonction de la version du package NuGet), cliquez sur **Désinstaller**, puis sur **Fermer**.
 
 ![Désinstaller le package NuGet du Service de cache géré Azure](./media/cache-migrate-to-redis/IC757666.jpg)
 

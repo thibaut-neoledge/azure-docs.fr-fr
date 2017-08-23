@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 08/01/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 2ef14fccda5c38ebdbf9d64b4766b45503755af0
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 816bf1426704d3391550e80c0700f1b011683a94
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -34,15 +33,25 @@ ms.lasthandoff: 05/04/2017
    
     ![](./media/event-hubs-create/create-event-hub1.png)
 1. Lorsque vous avez vérifié la disponibilité de l’espace de noms, sélectionnez le niveau tarifaire (Basique ou Standard). Choisissez également un abonnement Azure, un groupe de ressources et l’emplacement où créer la ressource. 
-1. Cliquez sur **Créer** pour créer l’espace de noms.
-1. Dans la liste d’espaces de noms Event Hubs, cliquez sur l’espace de noms créé.      
-   
-    ![](./media/event-hubs-create/create-event-hub2.png)
-1. Dans le panneau de l’espace de noms, cliquez sur **Event Hubs**.
-   
-    ![](./media/event-hubs-create/create-event-hub3.png)
+1. Cliquez sur **Créer** pour créer l’espace de noms. Vous devrez peut-être attendre quelques minutes pour que le système approvisionne entièrement les ressources.
+2. Dans la liste des espaces de noms du portail, cliquez sur l’espace de noms que vous venez de créer.
+2. Cliquez sur **Stratégies d’accès partagé**, puis sur **RootManageSharedAccessKey**.
+    
+    ![](./media/event-hubs-create/create-event-hub7.png)
+
+3. Cliquez sur le bouton Copier pour copier la chaîne de connexion **RootManageSharedAccessKey** dans le Presse-papiers. Enregistrez cette chaîne de connexion dans un emplacement temporaire, tel que le Bloc-notes, pour une utilisation ultérieure.
+    
+    ![](./media/event-hubs-create/create-event-hub8.png)
 
 ## <a name="create-an-event-hub"></a>Création d'un concentrateur d'événements
+
+1. Dans la liste d’espaces de noms Event Hubs, cliquez sur le nouvel espace de noms.      
+   
+    ![](./media/event-hubs-create/create-event-hub2.png) 
+
+2. Dans le panneau de l’espace de noms, cliquez sur **Event Hubs**.
+   
+    ![](./media/event-hubs-create/create-event-hub3.png)
 
 1. Cliquez sur **Ajouter un Event Hub**en haut du panneau.
    
@@ -50,15 +59,6 @@ ms.lasthandoff: 05/04/2017
 1. Saisissez un nom pour votre concentrateur d’événements, puis cliquez sur **Créer**.
    
     ![](./media/event-hubs-create/create-event-hub5.png)
-1. Dans la liste de concentrateurs d’événements, cliquez sur le nom du concentrateur d’événements nouvellement créé. 
-    
-    ![](./media/event-hubs-create/create-event-hub6.png)
-1. Revenez au panneau de l’espace de noms (pas le panneau du concentrateur d’événements spécifique), cliquez sur **Stratégies d’accès partagé**, puis sur **RootManageSharedAccessKey**.
-    
-    ![](./media/event-hubs-create/create-event-hub7.png)
-1. Cliquez sur le bouton Copier pour copier la chaîne de connexion **RootManageSharedAccessKey** dans le Presse-papiers. Enregistrez cette chaîne de connexion pour l’utiliser plus tard dans ce didacticiel.
-    
-    ![](./media/event-hubs-create/create-event-hub8.png)
 
 Votre concentrateur d’événements est désormais créé et vous disposez des chaînes de connexion dont vous avez besoin pour envoyer et recevoir des événements.
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Connect Health : FAQ - Azure | Microsoft Docs"
-description: "Ce FAQ répond aux questions que vous pouvez vous poser au sujet d’Azure AD Connect. Ce FAQ couvre les questions sur l&quot;utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support."
+description: "Ce FAQ répond aux questions que vous pouvez vous poser au sujet d’Azure AD Connect. Ce FAQ couvre les questions sur l'utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: e22a1ccb958942cfa3c67194430af6bc74fdba64
-ms.openlocfilehash: 233691d19aa2553744f92af17f7ecf9fda2290e0
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 1f1c453267ea17d749a251539f4232131dae53d3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
@@ -138,6 +139,44 @@ Non. Il n’est pas nécessaire d’activer l’audit sur les serveurs proxy d�
 **Q : Comment les alertes Azure AD Connect Health sont-elles résolues ?**
 
 Les alertes Azure AD Connect Health sont résolues en cas de condition de réussite. Les agents Azure AD Connect Health détectent et signalent régulièrement au service les conditions de réussite. Pour certaines alertes, la suppression s’effectue en fonction d’un intervalle de temps. Concrètement, cela signifie que si la condition d’erreur n’est pas observée dans les 72 heures suivant la génération de l’alerte, cette dernière est automatiquement résolue.
+
+**Q : Le message suivant s’affiche « La demande d’authentification de test (transaction synthétique) n’est pas parvenue à obtenir un jeton ». Comment puis-je résoudre ce problème ?**
+
+Azure AD Connect Health pour AD FS génère cette alerte lorsque l’agent d’intégrité installé sur un serveur AD FS n’a pas pu obtenir de jeton dans le cadre d’une transaction synthétique démarrée par l’agent d’intégrité. L’agent d’intégrité utilise le contexte du système local et tente d’obtenir un jeton pour une partie de confiance interne. Il s’agit d’un test polyvalent permettant de vérifier que l’état des services AD FS leur permet d’émettre des jetons.
+
+Le plus souvent, ce test échoue lorsque l’agent d’intégrité ne parvient pas à résoudre le nom de la batterie de serveurs AD FS. Cela peut se produire si les serveurs AD FS se trouvent derrière un équilibreur de charge réseau et si la requête est lancée depuis un nœud qui se trouve également derrière l’équilibreur de charge (par opposition à un client normal qui est placé devant l’équilibreur). Pour corriger ce problème, mettez à jour le fichier « hosts » situé sous « C:\Windows\System32\drivers\etc » en incluant l’adresse IP du serveur AD FS ou une adresse IP de bouclage (127.0.0.1) pour le nom de la batterie de serveurs AD FS (par exemple, sts.contoso.com). L’ajout du fichier hôte a pour effet de court-circuiter l’appel réseau, ce qui permet à l’agent d’intégrité d’obtenir le jeton.
+
+**Q : J’ai reçu un e-mail m’informant que mes machines ne disposaient pas du correctif destiné à les protéger des dernières attaques de type ransomeware. Pourquoi ai-je reçu cet e-mail ?**
+
+Le service Azure AD Connect Health a analysé toutes les machines qu’il surveille pour vérifier que les correctifs nécessaires y ont été installés. L’e-mail est envoyé à l’administrateur des locataires si au moins l’une des machines qu’il gère ne dispose pas des correctifs nécessaires. La logique suivante a été utilisée pour déterminer si les correctifs ont été installés sur les machines :
+1. Rechercher tous les correctifs logiciels installés sur la machine
+2. Vérifier si au moins un des correctifs logiciels de la liste définie est présent
+3. Si c’est le cas, la machine est protégée. Si ce n’est pas le cas, la machine est exposée aux attaques.
+
+Vous pouvez utiliser le script PowerShell suivant pour effectuer cette vérification manuellement. Le script implémente la logique ci-dessus.
+
+```
+Function CheckForMS17-010 ()
+{
+    $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
+
+    #checks the computer it's run on if any of the listed hotfixes are present
+    $hotfix = Get-HotFix -ComputerName $env:computername | Where-Object {$hotfixes -contains $_.HotfixID} | Select-Object -property "HotFixID"
+
+    #confirms whether hotfix is found or not
+    if (Get-HotFix | Where-Object {$hotfixes -contains $_.HotfixID})
+    {
+        "Found HotFix: " + $hotfix.HotFixID
+    } else {
+        "Didn't Find HotFix"
+    }
+}
+
+CheckForMS17-010
+
+```
+
+
 
 ## <a name="related-links"></a>Liens connexes
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

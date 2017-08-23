@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 06/09/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 5f2615b3df14c82147ff8a2cd997458756581d01
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 518e6a481ab6385b03dd3ddc2e155fb724e677fe
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -43,13 +43,29 @@ Les rôles AAD contrôlent la possibilité d’approvisionnement de solutions pr
 
 Pour plus d’informations sur les rôles d’administrateur dans ADD, consultez la page [Attribution de rôles d’administrateur dans Azure AD][lnk-aad-admin]. Cet article se concentre sur les rôles d’annuaire **Administrateur général** et **Utilisateur** tels qu’utilisés par les solutions préconfigurées.
 
-**Administrateur général :** il peut y avoir de nombreux administrateurs généraux par client AAD. Lorsque vous créez un client AAD, vous en devenez par défaut l’administrateur. L’administrateur général peut approvisionner une solution préconfigurée et se voir attribuer le rôle **Administrateur** de l’application au sein de son locataire AAD. Toutefois, si un autre utilisateur du même locataire AAD crée une application, le rôle attribué par défaut à l’administrateur général est **Lecture seule**. Les administrateurs généraux peuvent attribuer des utilisateurs à des rôles pour les applications à l’aide du [portail Azure][lnk-portal].
+### <a name="global-administrator"></a>Administrateur général
 
-**Utilisateur :** pour chaque locataire AAD, il peut y avoir de nombreux utilisateurs de domaine. Un utilisateur de domaine peut approvisionner une solution préconfigurée via le site [azureiotsuite.com][lnk-azureiotsuite]. Le rôle par défaut qu’ils se voient attribuer pour l’application qu’ils approvisionnent est celui d’**administrateur**. Ils peuvent créer une application à l’aide du script build.cmd dans le référentiel [azure-iot-remote-monitoring][lnk-rm-github-repo] ou [azure-iot-predictive-maintenance][lnk-pm-github-repo]. Toutefois, ils se voient affecter par défaut le rôle **Lecture seule**, car ils n’ont pas l’autorisation d’attribuer des rôles. Si un autre utilisateur du locataire AAD crée une application, il se voit affecter le rôle **Lecture seule** par défaut pour cette application. Ils ne peuvent pas attribuer des rôles aux applications ; par conséquent, ils ne peuvent pas ajouter des utilisateurs ou des rôles pour les utilisateurs d’une application même s’ils l’ont approvisionnée.
+Il peut y avoir de nombreux administrateurs généraux pour chaque locataire AAD :
 
-**Utilisateur invité :** il peut y avoir de nombreux utilisateurs invités par locataire AAD. Les utilisateurs invités disposent d’un ensemble limité de droits au sein du client AAD. Par conséquent, les utilisateurs invités ne peuvent pas approvisionner une solution préconfigurée dans le client AAD.
+* Lorsque vous créez un client AAD, vous en devenez par défaut l’administrateur.
+* L’administrateur général peut approvisionner une solution préconfigurée et se voir attribuer le rôle **Administrateur** de l’application au sein de son locataire AAD.
+* Si un autre utilisateur du même locataire AAD crée une application, le rôle attribué par défaut à l’administrateur général est **Lecture seule**.
+* Les administrateurs généraux peuvent attribuer des rôles aux utilisateurs pour les applications à l’aide du [Portail Azure][lnk-portal].
 
-Pour plus d’informations, consultez les ressources suivantes :
+### <a name="domain-user"></a>Utilisateur de domaine
+
+Il peut y avoir de nombreux utilisateurs de domaine pour chaque locataire AAD :
+
+* Un utilisateur de domaine peut approvisionner une solution préconfigurée via le site [azureiotsuite.com][lnk-azureiotsuite]. Par défaut, l’utilisateur de domaine se voit accorder le rôle **Administrateur** dans l’application approvisionnée.
+* Un utilisateur de domaine peut créer une application à l’aide du script build.cmd qui se trouve dans le référentiel [azure-iot-remote-monitoring][lnk-rm-github-repo], [azure-iot-predictive-maintenance][lnk-pm-github-repo] ou [azure-iot-connected-factory][lnk-cf-github-repo]. Toutefois, le rôle accordé par défaut à l’utilisateur de domaine est **Lecture seule**, car un utilisateur de domaine n’est pas autorisé à attribuer des rôles.
+* Si un autre utilisateur du locataire AAD crée une application, l’utilisateur de domaine se voit attribuer le rôle **Lecture seule** par défaut pour cette application.
+* Un utilisateur de domaine ne peut pas attribuer des rôles pour des applications ; par conséquent, il ne peut pas ajouter des utilisateurs ou des rôles pour les utilisateurs d’une application, même s’ils l’ont approvisionnée.
+
+### <a name="guest-user"></a>Utilisateur invité
+
+Il peut y avoir de nombreux utilisateurs invités pour chaque locataire AAD. Les utilisateurs invités disposent d’un ensemble limité de droits au sein du client AAD. Par conséquent, les utilisateurs invités ne peuvent pas approvisionner une solution préconfigurée dans le client AAD.
+
+Pour plus d’informations sur les utilisateurs et les rôles dans AAD, consultez les ressources suivantes :
 
 * [Créer des utilisateurs dans Azure AD][lnk-create-edit-users]
 * [Affecter des utilisateurs aux applications][lnk-assign-app-roles]
@@ -58,13 +74,13 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 Les rôles d’administration Azure permettent de contrôler la fonctionnalité de mappage d’un abonnement Azure sur un client AD.
 
-L’article [Ajout ou modification de rôles d’administrateur Azure gérant l’abonnement ou les services][lnk-admin-roles] présente des informations supplémentaires sur les rôles de coadministrateur, d’administrateur de service et d’administrateur de compte Azure.
+Pour plus d’informations sur les rôles d’administrateur Azure, consultez l’article [Guide pratique pour ajouter ou modifier le coadministrateur, l’administrateur de services fédérés et l’administrateur de compte][lnk-admin-roles].
 
 ## <a name="application-roles"></a>Rôles d’application
 
 Les rôles d’application contrôlent l’accès aux périphériques de votre solution préconfigurée.
 
-Dans l’application créée, deux rôles et un rôle implicite sont définis lorsque vous approvisionnez une solution préconfigurée.
+Une application approvisionnée comporte deux rôles définis et un rôle implicite défini :
 
 * **Administrateur :** contrôle totalement l’ajout, la gestion et la suppression des appareils, ainsi que la modification des paramètres.
 * **Lecture seule :** peut afficher les appareils, actions, règles, travaux et télémétrie.
@@ -99,11 +115,11 @@ Vous devez être un administrateur général AAD pour modifier les rôles d’un
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Je suis un utilisateur/membre du domaine sur le client AAD et j’ai créé une solution préconfigurée. Comment puis-je me voir attribuer un rôle pour mon application ?
 
-Demandez à un administrateur général de vous attribuer le rôle d’administrateur général sur le client AAD pour obtenir les autorisations nécessaires pour affecter vous-même les rôles aux utilisateurs, ou demandez à un administrateur général de vous attribuer un rôle. Si vous souhaitez modifier le client AAD sur lequel votre solution préconfigurée a été déployée, passez à la question suivante.
+Demandez à un administrateur général de vous faire passer administrateur général du locataire AAD, puis attribuez vous-même des rôles aux utilisateurs. Vous pouvez également demander à un administrateur général d’attribuer directement un rôle. Si vous souhaitez modifier le client AAD sur lequel votre solution préconfigurée a été déployée, passez à la question suivante.
 
 ### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>Comment puis-je activer le client AAD auquel la solution préconfigurée de contrôle à distance et l’application sont affectées ?
 
-Vous pouvez exécuter un déploiement cloud à partir de <https://github.com/Azure/azure-iot-remote-monitoring>, puis redéployer avec un client AAD nouvellement créé. Comme vous êtes par défaut administrateur général, lorsque vous créez un client AAD, vous disposez des autorisations pour ajouter des utilisateurs et leur affecter des rôles.
+Vous pouvez exécuter un déploiement cloud à partir de <https://github.com/Azure/azure-iot-remote-monitoring>, puis redéployer avec un client AAD nouvellement créé. Comme vous êtes, par défaut, administrateur général, lorsque vous créez un locataire AAD, vous disposez des autorisations nécessaires pour ajouter des utilisateurs et leur attribuer des rôles.
 
 1. Créez un annuaire ADD dans le [portail Azure ][lnk-portal].
 2. Accédez à <https://github.com/Azure/azure-iot-remote-monitoring>.
@@ -135,6 +151,7 @@ Pour poursuivre votre formation concernant IoT Suite, découvrez comment [person
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
+[lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/

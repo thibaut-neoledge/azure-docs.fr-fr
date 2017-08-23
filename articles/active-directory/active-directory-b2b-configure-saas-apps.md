@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/23/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 42f93a638ea0bb5139063b76b223fd811ba58fb4
-ms.openlocfilehash: 98bf824831f60a70877e8c41f8b60c339df173d6
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 149a493f7b369415f0a2726dd6a576f0195c13d9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -81,7 +82,7 @@ Vous pouvez autoriser les utilisateurs à authentifier les utilisateurs invités
 
 1. Ajoutez l’application Box à partir des applications d’entreprise.
 
-2. Pour configurer l’authentification unique, procédez comme suit :
+2. Configurez l’authentification unique dans l’ordre suivant :
 
   ![Configurer l’authentification unique de Box](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
@@ -94,7 +95,7 @@ Vous pouvez autoriser les utilisateurs à authentifier les utilisateurs invités
 
  d. Pour configurer votre client Box.com pour utiliser Azure AD comme fournisseur d’identité, téléchargez le fichier de métadonnées et enregistrez-le sur votre lecteur local.
 
- e. Transférez le fichier de métadonnées à l’équipe de support Box, qui configurera l’authentification unique pour vous.
+ e. Transférez le fichier de métadonnées à l’équipe de support Box, qui configure l’authentification unique pour vous.
 
 3. Pour le paramétrage utilisateur automatique d’Azure AD, dans le volet gauche, sélectionnez **Approvisionnement**, puis **Autoriser**.
 

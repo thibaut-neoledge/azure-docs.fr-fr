@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 08/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 256f8323d199db98a1267a5139a1ab3f14a3441c
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 14945cf23ead64b90a9e9ad6503a96f1b0669675
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Charger des fichiers dans un compte Media Services à l’aide de REST
@@ -47,16 +47,20 @@ Le flux de travail classique de téléchargement de ressources se divise en diff
 
 AMS vous permet également de télécharger des ressources en bloc. Pour plus d’informations, consultez [cette](media-services-rest-upload-files.md#upload_in_bulk) section.
 
-## <a name="upload-assets"></a>Téléchargement de ressources
-### <a name="create-an-asset"></a>Créer une ressource
 > [!NOTE]
-> Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
-> 
 > Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 > 
-> Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect-programmatically.md). 
-> 
-> 
+
+## <a name="connect-to-media-services"></a>Connexion à Media Services
+
+Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI.
+
+## <a name="upload-assets"></a>Téléchargement de ressources
+
+### <a name="create-an-asset"></a>Créer une ressource
 
 Une ressource est un conteneur pour plusieurs types ou ensembles d’objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des légendes. Dans l’API REST, la création d’une ressource nécessite d’envoyer une demande POST vers Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la demande.
 
@@ -90,7 +94,6 @@ L’exemple suivant montre comment créer une ressource.
     Host: media.windows.net
 
     {"Name":"BigBuckBunny.mp4"}
-
 
 **Réponse HTTP**
 
@@ -150,7 +153,6 @@ Après avoir chargé votre fichier multimédia numérique dans un conteneur d’
        "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
     }
 
-
 **Réponse HTTP**
 
     HTTP/1.1 201 Created
@@ -184,7 +186,6 @@ Après avoir chargé votre fichier multimédia numérique dans un conteneur d’
        "MimeType":"video/mp4",
        "ContentChecksum":null
     }
-
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>Création d’AccessPolicy avec autorisation d’écriture.
 
@@ -269,7 +270,6 @@ L’exemple suivant montre comment créer un localisateur d’URL SAS, tel que d
        "Type":1
     }
 
-
 **Réponse HTTP**
 
 Si l’opération réussit, la réponse suivante est retournée :
@@ -349,7 +349,6 @@ Si l’opération réussit, l’élément suivant est retourné : HTTP/1.1 204 
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
     x-ms-version: 2.11
     Host: media.windows.net
-
 
 **Réponse HTTP**
 

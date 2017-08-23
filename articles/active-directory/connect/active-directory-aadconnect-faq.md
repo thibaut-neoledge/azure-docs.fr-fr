@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 27cc51d3f9220756fc1188f978dc158f17037bc3
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: fd5988b2d4170166902bb5cc39603d4a0f83be59
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/30/2017
+ms.lasthandoff: 08/01/2017
 
 ---
-# Forum Aux Questions sur Azure Active Directory Connect
-<a id="frequently-asked-questions-for-azure-active-directory-connect" class="xliff"></a>
+# <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Forum Aux Questions sur Azure Active Directory Connect
 
-## Installation générale
-<a id="general-installation" class="xliff"></a>
+## <a name="general-installation"></a>Installation générale
 **Q : L’installation fonctionnera-t-elle si l’option 2FA est activée pour l’administrateur global AD Azure ?**  
 Cela est pris en charge avec les builds de février 2016.
 
@@ -35,12 +33,11 @@ L’installation d’Azure AD Connect n’est possible qu’à partir de l’Ass
 Cela est pris en charge avec les builds de février 2016.
 
 **Q : L’agent AD DS Health fonctionne-t-il sur Server Core ?**  
-Oui. Après avoir installé l’agent, vous pouvez terminer le processus d’inscription à l’aide de l’applet commande PowerShell suivante : 
+Oui. Après avoir installé l’agent, vous pouvez terminer le processus d’inscription à l’aide de l’applet de commande PowerShell suivante : 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-## Réseau
-<a id="network" class="xliff"></a>
+## <a name="network"></a>Réseau
 **Q : J’ai un pare-feu, un périphérique réseau ou autre chose qui limite la durée maximale pendant laquelle les connexions peuvent rester ouvertes sur mon réseau. Quel doit être le seuil de délai côté client lors de l’utilisation d’Azure AD Connect ?**  
 Tous les logiciels réseau, périphériques physiques ou autres limitant la durée maximale pendant laquelle les connexions peuvent rester ouvertes doivent utiliser un seuil d'au moins 5 minutes (300 secondes) pour la connectivité entre le serveur où est installé le client Azure AD Connect et Azure Active Directory. Cela s'applique également à tous les outils de synchronisation de Microsoft Identity précédemment publiés.
 
@@ -50,21 +47,18 @@ Non, Azure AD Connect ne prend pas en charge les forêts/domaines locaux utilisa
 **Q : Les noms NetBios comportant un point sont-ils pris en charge ?**  
 Non, Azure AD Connect ne prend pas en charge les forêts/domaines locaux  dont le nom NetBios contient un point « . ».
 
-## Fédération
-<a id="federation" class="xliff"></a>
+## <a name="federation"></a>Fédération
 **Q : Que faire si je reçois un e-mail me demandant de renouveler mon certificat Office 365**  
 Suivez les instructions décrites dans la rubrique [Renouveler les certificats](active-directory-aadconnect-o365-certs.md) concernant le renouvellement du certificat.
 
 **Q : « Mettre à jour automatiquement la partie de confiance » est défini pour la partie de confiance Office 365. Dois-je effectuer une action lorsque mon certificat de signature de jetons bascule automatiquement ?**  
 Utilisez les instructions décrites dans l’article [Renouveler les certificats](active-directory-aadconnect-o365-certs.md).
 
-## Environnement
-<a id="environment" class="xliff"></a>
+## <a name="environment"></a>Environnement
 **Q : Est-il possible de renommer le serveur une fois qu’Azure AD Connect est installé ?**  
 Non. La modification du nom du serveur empêche le moteur de synchronisation de se connecter à la base de données SQL et le service de démarrer.
 
-## Données d’identité
-<a id="identity-data" class="xliff"></a>
+## <a name="identity-data"></a>Données d’identité
 **Q : L’attribut UPN (userPrincipalName) dans Azure AD ne correspond pas à l’UPN local. Pourquoi ?**  
 Reportez-vous aux articles suivants :
 
@@ -81,8 +75,7 @@ Non, cela n’est pas pris en charge actuellement.
 
 
 
-## Configuration personnalisée
-<a id="custom-configuration" class="xliff"></a>
+## <a name="custom-configuration"></a>Configuration personnalisée
 **Q : Où réside la documentation sur les applets de commande PowerShell pour Azure Active Directory ?**  
 À l’exception des applets de commande décrites sur ce site, les autres applets de commande PowerShell disponibles dans Azure AD Connect ne sont pas prises en charge par le client.
 
@@ -100,8 +93,7 @@ Non.
 
 
 
-## Résolution des problèmes
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>Résolution des problèmes
 **Q : Comment puis-je obtenir de l’aide avec Azure AD Connect ?**
 
 [Recherche dans la Base de connaissances Microsoft (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)

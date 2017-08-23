@@ -12,20 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 0e9c10b77110efe90239863ee603acbd54b17ead
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: dab2e54dedf55f0d9a0b0b4e66d101ed7df94bfa
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="smart-detection---performance-anomalies"></a>Détection intelligente - anomalies de performances
 
 [Application Insights](app-insights-overview.md) analyse automatiquement les performances de votre application web et peut vous avertir des éventuels problèmes. Vous pouvez lire ceci parce que vous avez reçu une de nos notifications de détection intelligente.
 
-Cette fonctionnalité ne requiert aucune configuration spéciale autre que la configuration de votre application pour Application Insights (sur [ASP.NET](app-insights-asp-net.md), Java(app-insights-java-get-started.md), ou [Node.js](app-insights-nodejs.md) et dans le [code de page web](app-insights-javascript.md)). Elle est active lorsque votre application génère suffisamment de données de télémétrie.
+Cette fonctionnalité ne requiert aucune configuration spéciale, sauf la configuration de votre application pour Application Insights (sur [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md) ou [Node.js](app-insights-nodejs.md) et dans le [code de page web](app-insights-javascript.md)). Elle est active lorsque votre application génère suffisamment de données de télémétrie.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>Quand pouvez-vous recevoir une notification de détection intelligente ?
 
@@ -192,3 +191,4 @@ Les détections intelligentes sont entièrement automatiques. Mais vous souhaite
 
 * [Alertes de mesures configurées manuellement](app-insights-alerts.md)
 * [Tests web de disponibilité](app-insights-monitor-web-app-availability.md)
+

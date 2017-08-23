@@ -5,7 +5,7 @@
     ![StorSimple - Créer une appliance cloud](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. Dans le panneau **Créer une appliance cloud**, spécifiez les détails suivants.
    
-    ![StorSimple - Créer une appliance cloud](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2.png)
+    ![StorSimple - Créer une appliance cloud](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Nom** : nom unique de votre appliance cloud.
    2. **Modèle** : sélectionnez le modèle de l’appliance cloud. Un modèle d’appareil 8010 offre 30 To de stockage Standard, tandis qu’un modèle d’appareil 8020 offre 64 To de stockage Premium. Spécifiez 8010 pour déployer des scénarios de récupération au niveau de l’élément à partir de sauvegardes. Sélectionnez 8020 pour déployer des charges de travail aux performances élevées et à faible latence ou pour une utilisation comme appareil secondaire à des fins de récupération d’urgence.

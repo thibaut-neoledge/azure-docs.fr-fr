@@ -37,8 +37,8 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 6. Collez **l’URL** App Service que vous avez copiée précédemment dans **Origines JavaScript autorisées**, puis collez l’URI de redirection dans **URI de redirection autorisée**. L’URI de redirection correspond à l’URL de votre application suivie du chemin d’accès, */.auth/login/google/callback*. Par exemple : `https://contoso.azurewebsites.net/.auth/login/google/callback`. Assurez-vous d'utiliser le schéma HTTPS. Cliquez ensuite sur **Créer**.
 7. Sur l'écran suivant, notez les valeurs de l'ID du client et de la clé secrète client.
 
-    > [AZURE.IMPORTANT]
-    La clé secrète client est une information d'identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
+    > [!IMPORTANT]
+    > La clé secrète client est une information d'identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
 
 
 ## <a name="secrets"> </a>Ajout des informations Google à votre application

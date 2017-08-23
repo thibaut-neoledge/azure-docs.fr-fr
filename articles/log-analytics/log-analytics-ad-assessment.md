@@ -12,22 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/03/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: fa214f1c8d7cfb4b3b1d475183a63a3028f2306f
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Optimisez votre environnement Active Directory avec la solution d’évaluation Active Directory dans Log Analytics
 
 ![Symbole d’AD Assessment](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
 
-La solution d’évaluation Active Directory permet d’évaluer les risques et l’intégrité de vos environnements de serveurs à intervalles réguliers. Cet article vous aidera à installer et à utiliser la solution pour vous permettre de prendre les mesures correctives pour régler des problèmes potentiels.
+La solution d’évaluation Active Directory permet d’évaluer les risques et l’intégrité de vos environnements de serveurs à intervalles réguliers. Cet article vous aide à installer et utiliser la solution pour vous permettre de prendre les mesures correctives en vue de régler des problèmes potentiels.
 
 Cette solution fournit une liste hiérarchisée de recommandations propres à votre infrastructure de serveurs déployée. Les recommandations sont classées en quatre domaines pour vous aider à rapidement mesurer les risques et prendre les mesures appropriées.
 
@@ -54,25 +53,39 @@ Utilisez les informations suivantes pour installer et configurer les solutions.
   >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Détails de la collecte de données d’évaluation Active Directory
-L’évaluation Active Directory collecte les données WMI, les données du registre et les données de performances à l’aide des agents que vous avez activés.
+
+Active Directory Assessment collecte les données provenant des sources suivantes à l’aide des agents que vous avez activés :
+
+- Collecteurs du Registre
+- Collecteurs LDAP
+- .NET Framework
+- Collecteurs de journaux des événements
+- Interfaces ADSI (Active Directory Service Interface)
+- Windows PowerShell
+- Collecteurs de données de fichier
+- Windows Management Instrumentation (WMI)
+- API de l’outil DCDIAG
+- API de service de réplication de fichiers (NTFRS)
+- Code C# personnalisé
+
 
 Le tableau suivant présente les méthodes de collecte de données pour les agents, indique si Operations Manager (SCOM) est requis, et précise la fréquence à laquelle les données sont collectées par un agent.
 
-| plateforme | Agent direct | Agent SCOM | Azure Storage | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
+| plateforme | Agent direct | Agent SCOM | Stockage Azure | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![Oui](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Oui](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Non](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Non](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Oui](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 jours |
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Hiérarchisation des recommandations
-Une valeur de pondération déterminant l'importance relative de la recommandation est attribuée à chaque recommandation. Seules les dix recommandations les plus importantes sont affichées.
+Une valeur de pondération déterminant l'importance relative de la recommandation est attribuée à chaque recommandation. Seules les 10 recommandations les plus importantes sont affichées.
 
 ### <a name="how-weights-are-calculated"></a>Calcul des pondérations
 Les pondérations sont des agrégations de valeurs basées sur trois facteurs clés :
 
-* La *probabilité* qu'une anomalie identifiée cause des problèmes. Une plus grande probabilité attribue un score global supérieur à la recommandation.
-* L' *impact* de l'anomalie sur votre organisation si elle devait causer des problèmes. Un plus grand impact attribue un score global supérieur à la recommandation.
-* L' *effort* requis pour implémenter la recommandation. Un plus grand effort attribue un score global inférieur à la recommandation.
+* La *probabilité* qu’une anomalie identifiée cause des problèmes. Une plus grande probabilité attribue un score global supérieur à la recommandation.
+* L’*impact* de l’anomalie sur votre organisation si elle devait causer des problèmes. Un plus grand impact attribue un score global supérieur à la recommandation.
+* L’*effort* requis pour implémenter la recommandation. Un plus grand effort attribue un score global inférieur à la recommandation.
 
-La pondération de chaque recommandation est exprimée en pourcentage du score total disponible pour chaque domaine. Par exemple, si une recommandation dans le domaine de la sécurité et de la conformité a un score de 5 %, l'implémentation de cette recommandation augmentera votre score global de sécurité et conformité de 5 %.
+La pondération de chaque recommandation est exprimée en pourcentage du score total disponible pour chaque domaine. Par exemple, si une recommandation dans le domaine de la sécurité et de la conformité a un score de 5 %, l’implémentation de cette recommandation augmente votre score global de sécurité et conformité de 5 %.
 
 ### <a name="focus-areas"></a>Domaines
 **Sécurité et conformité** : ce domaine présente les recommandations relatives aux menaces de sécurité potentielles et violations de stratégies d’entreprise, ainsi qu’aux exigences techniques, juridiques et réglementaires.
@@ -98,7 +111,7 @@ Consultez le résumé des évaluations de conformité pour votre infrastructure,
 2. Sur la page **Évaluation** , passez en revue les informations de résumé dans l’un des panneaux relatifs à un domaine, puis cliquez sur l’un d’entre eux pour afficher les recommandations y afférentes.
 3. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.  
     ![Image des recommandations d’évaluation](./media/log-analytics-ad-assessment/ad-focus.png)
-4. Vous pouvez effectuer les actions correctives suggérées dans **Actions suggérées**. Une fois l'élément traité, les évaluations ultérieures indiqueront que des mesures ont été prises et votre score de conformité augmentera. Les éléments corrigés apparaissent comme **objets passés**.
+4. Vous pouvez effectuer les actions correctives suggérées dans **Actions suggérées**. Une fois l’élément traité, les évaluations ultérieures indiquent que des mesures ont été prises et votre score de conformité augmente. Les éléments corrigés apparaissent comme **objets passés**.
 
 ## <a name="ignore-recommendations"></a>Ignorer les recommandations
 Si vous souhaitez ignorer, des recommandations, vous pouvez créer un fichier texte qu’OMS utilisera pour empêcher les recommandations d'apparaître dans les résultats de votre évaluation.
@@ -109,6 +122,10 @@ Si vous souhaitez ignorer, des recommandations, vous pouvez créer un fichier te
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
+>[!NOTE]
+> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), remplacez la requête ci-dessus par la requête ci-dessous.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
    Voici une capture d’écran montrant la requête de recherche de journal : ![Échecs de recommandations](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 2. Choisissez les recommandations que vous souhaitez ignorer. Vous utiliserez les valeurs RecommendationId dans la procédure suivante.
@@ -128,6 +145,11 @@ Une fois les prochaines évaluations planifiées exécutées, par défaut tous l
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
+>[!NOTE]
+> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), remplacez la requête ci-dessus par la requête ci-dessous.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
 2. Si vous décidez ultérieurement d’afficher les recommandations ignorées, supprimez tous les fichiers IgnoreRecommendations.txt, ou supprimez les valeurs RecommendationID de ces fichiers.
 
 ## <a name="ad-assessment-solutions-faq"></a>FAQ sur les solutions d'évaluation AD

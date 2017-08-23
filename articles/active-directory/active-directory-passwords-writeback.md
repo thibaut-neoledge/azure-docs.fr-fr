@@ -6,22 +6,21 @@ keywords: "Gestion des mots de passe Active Directory, gestion des mots de passe
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: fde08bfc3a73c54ee53b5d8efffd3001894416b3
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 7783d0fc30b4b7d098a89595771993b33fb0aa97
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="password-writeback-overview"></a>Vue d’ensemble de l’écriture différée de mot de passe
@@ -82,7 +81,7 @@ Nous vous recommandons d’utiliser la fonctionnalité de mise à jour automatiq
 
 DirSync et Azure AD Sync ne sont plus pris en charge pour l’activation de l’écriture différée du mot de passe. L’article [Mettre à niveau depuis DirSync et Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md) contient des informations supplémentaires pour faciliter votre transition.
 
-Les étapes suivantes supposent que vous avez déjà configuré Azure AD Connect dans votre environnement à l’aide des paramètres [Express](./connect/active-directory-aadconnect-get-started-express.md) ou [Personnalisé](./connect/active-directory-aadconnect-get-started-custom.md).
+Les étapes suivantes partent du principe que vous avez déjà configuré Azure AD Connect dans votre environnement à l’aide des paramètres [Express](./connect/active-directory-aadconnect-get-started-express.md) ou [Personnalisé](./connect/active-directory-aadconnect-get-started-custom.md).
 
 1. Pour configurer et activer le journal de l’écriture différée du mot de passe sur votre serveur Azure AD Connect et démarrer l’Assistant de configuration **Azure AD Connect**.
 2. Dans l’écran d’accueil, cliquez sur **Configurer**.
@@ -198,3 +197,4 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec la réinitialisation de mot de passe en libre-service.
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Activation de l’écriture différée du mot de passe dans Azure AD Connect"
+

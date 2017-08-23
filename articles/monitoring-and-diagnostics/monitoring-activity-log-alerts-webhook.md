@@ -1,9 +1,32 @@
+---
+title: "Recevoir des alertes de journal d’activité sur les notifications de service Azure | Microsoft Docs"
+description: "Soyez informé par e-mail, SMS ou Webhook en cas de problème lié au service Azure."
+author: johnkemnetz
+manager: orenr
+editor: 
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: johnkem
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: c8339c08333aaa471b42f6468ca2a59ee4efacf9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/18/2017
+
+---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook pour les alertes de journal d’activité Azure
-Dans le cadre de la définition d’un groupe d’actions, vous êtes en mesure de configurer des points de terminaison de webhook pour recevoir des notifications d’alertes de journal d’activité. Les webhooks vous permettent d’acheminer ces notifications vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Cet article montre également à quoi ressemble la charge utile d’une requête HTTP POST pour un webhook.
+Dans le cadre de la définition d’un groupe d’actions, vous êtes en mesure de configurer des points de terminaison Webhook pour recevoir des notifications d’alerte de journal d’activité. Les webhooks vous permettent d’acheminer ces notifications vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Cet article montre également à quoi ressemble la charge utile d’une requête HTTP POST pour un webhook.
 
-Pour plus d’informations sur la configuration et le schéma des alertes de journal d’activité Azure, [consultez plutôt cette page](monitoring-activity-log-alerts.md).
+Pour plus d’informations sur la création d’alertes de journal d’activité Azure, [consultez plutôt cette page](monitoring-activity-log-alerts.md).
 
-Pour plus d’informations sur la configuration et le schéma des groupes d’actions, [consultez plutôt cette page](monitoring-action-groups.md)
+Pour plus d’informations sur la création de groupes d’actions, [consultez plutôt cette page](monitoring-action-groups.md)
 
 ## <a name="authenticating-the-webhook"></a>Authentification du webhook
 Le webhook peut procéder à une authentification via une autorisation par jeton : l’URI du webhook est enregistré avec un ID de jeton, par exemple, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -90,7 +113,7 @@ La charge utile JSON contenue dans l’opération POST varie en fonction de cham
                     "stage": "Active",
                     "communicationId": "...",
                     "version": "0.1"
-                },
+                }
             }
         },
         "properties": {}
@@ -136,3 +159,4 @@ Pour plus d’informations sur les schémas des alertes de journal d’activité
 * [Utiliser une application logique pour envoyer un SMS par le biais de Twilio à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Cet exemple s’applique aux alertes de métrique, mais peut être modifié pour fonctionner avec une alerte de journal d’activité.
 * [Utiliser une application logique pour envoyer un message Slack à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Cet exemple s’applique aux alertes de métrique, mais peut être modifié pour fonctionner avec une alerte de journal d’activité.
 * [Utiliser une application logique pour envoyer un message à une file d’attente Azure à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Cet exemple s’applique aux alertes de métrique, mais peut être modifié pour fonctionner avec une alerte de journal d’activité.
+

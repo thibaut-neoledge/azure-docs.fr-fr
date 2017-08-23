@@ -1,6 +1,6 @@
 ---
 title: "Créer une identité pour une application Azure dans le portail | Microsoft Docs"
-description: "Décrit comment créer une application et un principal du service Azure Active Directory qui peuvent être utilisés avec le contrôle d&quot;accès basé sur les rôles dans Azure Resource Manager pour gérer l&quot;accès aux ressources."
+description: "Décrit comment créer une application et un principal du service Azure Active Directory qui peuvent être utilisés avec le contrôle d'accès basé sur les rôles dans Azure Resource Manager pour gérer l'accès aux ressources."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: c66c895eb9b905ea265341783c153a9554bd1259
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5d24fb99e1095d53e5ea547e53b80178d9cb77c0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources
@@ -161,43 +160,17 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
 ## <a name="log-in-as-the-application"></a>Se connecter en tant qu’application
 
-Votre application est maintenant configurée dans Azure Active Directory. Vous disposez d’un ID et d’une clé à utiliser pour la connexion en tant qu’application. L’application se voit affecter un rôle qui lui permet d’effectuer certaines actions. 
+Votre application est maintenant configurée dans Azure Active Directory. Vous disposez d’un ID et d’une clé à utiliser pour la connexion en tant qu’application. L’application se voit affecter un rôle qui lui permet d’effectuer certaines actions. Pour plus d’informations sur la connexion en tant qu’application via différentes plateformes, voir :
 
-Pour vous connecter via PowerShell, consultez [Fournir des informations d’identification via PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
+* [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
+* [Interface de ligne de commande Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
+* [REST](/rest/api/#create-the-request)
+* [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+* [Java](/java/azure/java-sdk-azure-authenticate)
+* [Node.JS](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
+* [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-Pour vous connecter via Azure CLI, voir [Fournir des informations d’identification via Azure CLI](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
-
-Pour obtenir le jeton d’accès pour les opérations REST, consultez [Create the request](/rest/api/#create-the-request) (Créer la demande).
-
-Pour savoir comment vous connecter via le code de l’application, examinez les exemples d’applications suivants.
-
-### <a name="sample-applications"></a>Exemples d'applications
-Les exemples d’applications suivants montrent comment ouvrir une session en tant qu’application AD.
-
-**.NET**
-
-* [Deploy an SSH Enabled VM with a Template with .NET (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle dans .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-* [Manage Azure resources and resource groups with .NET (Gérer des ressources et des groupes de ressources Azure avec .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-
-**Java**
-
-* [Getting Started with Resources - Deploy Using Azure Resource Manager Template - in Java (Découverte des ressources - Déployer à l’aide du modèle Azure Resource Manager dans Java)](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-* [Getting Started with Resources - Manage Resource Group - in Java (Découverte des ressources - Gérer un groupe de ressources dans Java)](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
-
-**Python**
-
-* [Deploy an SSH Enabled VM with a Template in Python (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle dans Python)](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-* [Managing Azure Resource and Resource Groups with Python (Gérer des ressources et des groupes de ressources Azure avec Python)](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-
-**Node.JS**
-
-* [Deploy an SSH Enabled VM with a Template in Node.js (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle dans Node.js)](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-* [Manage Azure resources and resource groups with Node.js (Gérer des ressources et des groupes de ressources Azure avec Node.js)](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-
-**Ruby**
-
-* [Deploy an SSH Enabled VM with a Template in Ruby (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle dans Ruby)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-* [Managing Azure Resource and Resource Groups with Ruby (Gérer des ressources et des groupes de ressources Azure avec Ruby)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour configurer une application mutualisée, consultez le [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).

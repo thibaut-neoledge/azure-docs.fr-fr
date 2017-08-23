@@ -1,28 +1,32 @@
 ---
 title: "Accès conditionnel aux applications locales - Azure AD | Microsoft Docs"
-description: "Explique comment configurer l&quot;accès conditionnel pour que les applications que vous publiez soient accessibles à distance à l’aide du proxy d&quot;application Azure AD."
+description: "Explique comment configurer l'accès conditionnel pour que les applications que vous publiez soient accessibles à distance à l’aide du proxy d'application Azure AD."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 2e97722b-eb4e-4078-b607-9fed210d8a0f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 07/23/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: c16e07925389cc17ff156cae767366223fefa18f
+ms.reviewer: harshja
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 463946256f9e335fa6d98fc904835e5c3dc2725e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>Utilisation de l’accès conditionnel dans le proxy d’application Azure AD
+
+>[!NOTE]
+>Cet article s’applique au portail Azure Classic, dont la mise hors service a commencé. Nous vous recommandons d’utiliser le [portail Azure](https://portal.azure.com). Dans le portail Azure, les applications de Proxy d’application ont les mêmes fonctionnalités d’accès conditionnel que toute autre application SaaS. Pour en savoir plus sur l’accès conditionnel, consultez la section [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+
 Vous pouvez configurer les règles d’accès pour accorder l’accès conditionnel aux applications publiées à l’aide du proxy d’application. Vous pouvez ainsi effectuer les opérations suivantes :
 
 * Exiger l’authentification multifacteur par application.

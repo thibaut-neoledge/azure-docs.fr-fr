@@ -1,6 +1,6 @@
 ---
-title: Restauration d&quot;une application dans Azure App Service
-description: "Découvrez comment restaurer votre application à partir d&quot;une sauvegarde."
+title: Restauration d'une application dans Azure App Service
+description: "Découvrez comment restaurer votre application à partir d'une sauvegarde."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin;aelnably
+ms.author: cephalin
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: 61396e8a3521c25eaf49c66a4948e520377d342a
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/09/2017
-
 
 ---
 # <a name="restore-an-app-in-azure"></a>Restauration d'une application dans Azure App Service

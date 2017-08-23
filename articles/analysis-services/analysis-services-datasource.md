@@ -1,6 +1,6 @@
 ---
-title: "Connexions de source de données | Microsoft Docs"
-description: "Décrit les connexions de source de données pour les modèles de données dans Azure Analysis Services."
+title: "Sources de données prises en charge par Azure Analysis Services | Microsoft Docs"
+description: "Décrit les sources de données prises en charge pour les modèles de données dans Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,22 +13,48 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 08/15/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: aebabd15e781e726def545960ce3c1ec7674c530
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: a0fe91568d747148b3940e9c90db15481c765a9c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 06/03/2017
 
 ---
-# <a name="datasource-connections"></a>Connexions de source de données
+# <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
+Les serveurs Azure Analysis Services prennent en charge la connexion aux données sources dans le cloud et en local au sein de votre organisation. Des sources de données supplémentaires prises en charge sont ajoutées en permanence. Vérifiez ces données régulièrement. 
+
+Les sources de données actuellement prises en charge sont les suivantes :
+
+| Cloud  |
+|---|
+| Stockage Blob Azure*  |
+| Base de données SQL Azure  |
+| Azure Data Warehouse |
+
+
+| Local  |   |   |   |
+|---|---|---|---|
+| Base de données Access  | Dossier* | Oracle Database  | Base de données Teradata |
+| Active Directory*  | Document JSON*  | Base de données PostgreSQL*  |Table XML* |
+| Analysis Services  | Lignes issues d’un fichier binaire*  | SAP HANA*  |
+| Système de plateforme d’analyse  | MySQL Database  | SAP Business Warehouse*  | |
+| Dynamics CRM*  | Flux OData*  | SharePoint*  |
+| Classeur Excel  | Requête ODBC  | Base de données SQL  |
+| Exchange*  | OLE DB  | Base de données Sybase  |
+
+\* Modèles Tabular 1400 uniquement. 
+
+> [!IMPORTANT]
+> La connexion aux sources de données sur site nécessite une [passerelle de données locale](analysis-services-gateway.md) installée sur un ordinateur dans votre environnement.
+
+## <a name="data-providers"></a>Fournisseurs de données
+
 Les modèles de données dans Azure Analysis Services peuvent nécessiter différents fournisseurs de données lors de la connexion à certaines sources de données. Dans certains cas, les modèles tabulaires de connexion aux sources de données à l’aide de fournisseurs natifs tels que SQL Server Native Client (SQLNCLI11) peuvent renvoyer une erreur.
 
-Pour les modèles de données en mémoire ou DirectQuery qui se connectent à une source de données cloud comme Azure SQL Database, si vous utilisez des fournisseurs natifs autres que SQLOLEDB, vous pouvez voir le message d’erreur : **« Le fournisseur ’SQLNCLI11.1’ n’est pas inscrit »**. Ou bien, si vous disposez d’un modèle de requête directe (DirectQuery) de connexion à des sources de données locales et que vous utilisez des fournisseurs natifs, vous pouvez voir le message d’erreur : **« Erreur lors de la création du jeu de lignes OLE DB. Syntaxe incorrecte à proximité de 'LIMITE' »**.
+Pour les modèles de données qui se connectent à une source de données cloud comme Azure SQL Database, si vous utilisez des fournisseurs natifs autres que SQLOLEDB, vous pouvez voir le message d’erreur : **« Le fournisseur 'SQLNCLI11.1' n’est pas inscrit »**. Ou bien, si vous disposez d’un modèle de requête directe (DirectQuery) de connexion à des sources de données locales et que vous utilisez des fournisseurs natifs, vous pouvez voir le message d’erreur : **« Erreur lors de la création du jeu de lignes OLE DB. Syntaxe incorrecte à proximité de 'LIMITE' »**.
 
-## <a name="data-source-providers"></a>Fournisseurs de sources de données
 Les fournisseurs de source de données suivants sont pris en charge pour les modèles de données en mémoire ou DirectQuery lors de la connexion à des sources de données locales ou dans le cloud :
 
 ### <a name="cloud"></a>Cloud

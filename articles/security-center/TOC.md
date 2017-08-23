@@ -6,6 +6,7 @@
 ### [Réponse aux incidents](security-center-incident-response.md)
 ### [Utiliser les recommandations pour améliorer la sécurité](security-center-using-recommendations.md)
 ## [Migration de la plateforme](security-center-platform-migration.md)
+### [FAQ sur la migration de la plateforme](security-center-platform-migration-faq.md)
 
 # Prise en main
 ## [Démarrage rapide](security-center-get-started.md)
@@ -57,9 +58,10 @@
 ## Détecter et répondre
 ### [Fonctionnalités de détection](security-center-detection-capabilities.md)
 ### [Gérer les alertes de sécurité](security-center-managing-and-responding-alerts.md)
+### [Types d’alertes de sécurité](security-center-alerts-type.md)
+### [Validation de l’alerte](security-center-alert-validation.md)
 ### [Gérer les incidents de sécurité](security-center-incident.md)
 ### [Intégration des journaux Azure](security-center-integrating-alerts-with-log-integration.md)
-### [Types d’alertes de sécurité](security-center-alerts-type.md)
 ### [Rapport d’informations sur les menaces](security-center-threat-report.md)
 
 ## Résolution des problèmes
@@ -72,9 +74,10 @@
 ## [Sécurité Azure](/azure/security/)
 
 # Ressources
-## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog Azure sur la sécurité, la confidentialité et la conformité](http://blogs.msdn.com/b/azuresecurity/)
 ## [Tarification](security-center-pricing.md)
-## [Vue d’ensemble du service](https://azure.microsoft.com/services/security-center/)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+## [Présentation du service](https://azure.microsoft.com/services/security-center/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=security-center)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)

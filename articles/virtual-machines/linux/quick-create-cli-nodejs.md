@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: edfdb04ad8afc28f5a89d41a45a1704c7a4c6098
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: ec1b34e4f539d2e95bb1f99fca3a6a0ec682ef51
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Création d'une machine virtuelle Linux à l’aide d’Azure CLI 1.0
@@ -204,7 +204,6 @@ myAdminUser@myVM:~$
 ## <a name="next-steps"></a>Étapes suivantes
 La commande `azure vm quick-create` permet de déployer rapidement une machine virtuelle pour se connecter à un shell bash et être opérationnel. Toutefois, l’utilisation de `vm quick-create` ne vous confère pas un contrôle étendu et ne vous permet pas de créer un environnement plus complexe.  Pour déployer une machine virtuelle Linux personnalisée en fonction de votre infrastructure, lisez l’un des articles ci-dessous :
 
-* [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Créer votre propre environnement personnalisé pour une machine virtuelle Linux à l’aide des commandes de l’interface de ligne de commande Azure directement](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Création d’une machine virtuelle Linux sécurisée par SSH dans Azure à l’aide de modèles](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

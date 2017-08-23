@@ -21,15 +21,11 @@ ms.lasthandoff: 06/13/2017
 
 ---
 
-<a id="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
-
-# Problème de configuration de l’authentification unique avec mot de passe pour une application de la galerie Azure AD
+# <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problème de configuration de l’authentification unique avec mot de passe pour une application de la galerie Azure AD
 
 Cet article vous aide à comprendre les problèmes courants auxquels les utilisateurs sont confrontés lors de la configuration d’une **authentification unique avec mot de passe** pour une application de la galerie Azure AD.
 
-<a id="credentials-are-filled-in-but-the-extension-does-not-submit-them" class="xliff"></a>
-
-## Les informations d’identification sont fournies, mais l’extension ne les envoie pas
+## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Les informations d’identification sont fournies, mais l’extension ne les envoie pas
 
 Cela se produit généralement lorsque le fournisseur de l’application a modifié sa page de connexion pour ajouter un champ, pour modifier un identificateur sous-jacent que nous utilisions en vue de détecter les champs de nom d’utilisateur et de mot de passe ou pour modifier le fonctionnement de la connexion pour l’application. Heureusement, dans de nombreux cas, Microsoft peut collaborer avec les fournisseurs d’applications afin de résoudre rapidement les problèmes.
 
@@ -37,9 +33,7 @@ Bien que Microsoft dispose de technologies lui permettant de détecter automatiq
 
 En outre, **si vous êtes en contact avec le fournisseur de l’application,** **mettez-le en relation avec nous** afin que nous puissions collaborer pour intégrer nativement son application avec Azure Active Directory. Pour commencer, vous pouvez rediriger le fournisseur vers la page [Affichage de votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-<a id="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect" class="xliff"></a>
-
-## Les informations d’identification sont fournies et envoyées, mais la page indique qu’elles sont incorrectes
+## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Les informations d’identification sont fournies et envoyées, mais la page indique qu’elles sont incorrectes
 
 Pour résoudre ce problème, vérifiez les points suivants :
 
@@ -67,9 +61,7 @@ Bien que Microsoft dispose de technologies lui permettant de détecter automatiq
 
 En outre, **si vous êtes en contact avec le fournisseur de l’application,** **mettez-le en relation avec nous** afin que nous puissions collaborer pour intégrer nativement son application avec Azure Active Directory. Pour commencer, vous pouvez rediriger le fournisseur vers la page [Affichage de votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-<a id="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer" class="xliff"></a>
-
-## L’extension fonctionne avec Chrome et Firefox, mais pas avec Internet Explorer
+## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>L’extension fonctionne avec Chrome et Firefox, mais pas avec Internet Explorer
 
 Il existe deux causes principales à ce problème :
 
@@ -83,9 +75,7 @@ Il existe deux causes principales à ce problème :
 
 En outre, **si vous êtes en contact avec le fournisseur de l’application,** **mettez-le en relation avec nous** afin que nous puissions collaborer pour intégrer nativement son application avec Azure Active Directory. Pour commencer, vous pouvez rediriger le fournisseur vers la page [Affichage de votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-<a id="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field" class="xliff"></a>
-
-## Vérifiez si la page de connexion à l’application a été modifiée récemment ou requiert un champ supplémentaire.
+## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Vérifiez si la page de connexion à l’application a été modifiée récemment ou requiert un champ supplémentaire.
 
 Si la page de connexion à l’application a considérablement changé, cela provoque parfois l’interruption de nos intégrations. Par exemple, cela peut être le cas lorsque le fournisseur d’une application ajoute un champ de connexion, un captcha ou une authentification multifacteur à son système. Heureusement, dans de nombreux cas, Microsoft peut collaborer avec les fournisseurs d’applications afin de résoudre rapidement les problèmes.
 
@@ -93,9 +83,7 @@ Bien que Microsoft dispose de technologies lui permettant de détecter automatiq
 
 En outre, **si vous êtes en contact avec le fournisseur de l’application,** **mettez-le en relation avec nous** afin que nous puissions collaborer pour intégrer nativement son application avec Azure Active Directory. Pour commencer, vous pouvez rediriger le fournisseur vers la page [Affichage de votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
-
-## Comment installer l’extension de navigateur du volet d’accès
+## <a name="how-to-install-the-access-panel-browser-extension"></a>Comment installer l’extension de navigateur du volet d’accès
 
 Pour installer l’extension de navigateur du volet d’accès, effectuez les étapes suivantes :
 
@@ -119,9 +107,7 @@ Vous pouvez également télécharger l’extension pour Chrome et Firefox à par
 
 -   [Extension du volet d’accès pour Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
 
 

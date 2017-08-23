@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 08/18/2017
 ms.author: subramar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 9cfdb94d1e030fe9d467389acf8894d79efd17d1
 ms.contentlocale: fr-fr
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Spécifier des ressources dans un manifeste de service
@@ -108,7 +107,7 @@ Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. Vous d
                      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
-    <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
+    <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
     <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
@@ -129,7 +128,7 @@ Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. Vous d
 
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="Stateful1">
-      <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+      <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_ ]">
         <UniformInt64Partition PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>

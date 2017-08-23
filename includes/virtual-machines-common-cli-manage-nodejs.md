@@ -12,7 +12,7 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 Cet article traite des commandes de base que vous utiliserez avec Azure CLI pour gérer vos ressources (principalement des machines virtuelles) et interagir avec elles dans votre abonnement Azure.  Pour plus d’informations sur les commutateurs et options de ligne de commande spécifiques, vous pouvez utiliser les options et l’aide en ligne des commandes en tapant `azure <command> <subcommand> --help` ou `azure help <command> <subcommand>`.
 
 > [!NOTE]
-> Ces exemples n’incluent pas les opérations basées sur des modèles qui sont recommandées pour les déploiements de machines virtuelles dans le Gestionnaire de ressources. Pour plus d’informations, consultez les articles [Utilisation de l’interface de ligne de commande Azure (CLI) avec Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) et [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Ces exemples n’incluent pas les opérations basées sur des modèles qui sont recommandées pour les déploiements de machines virtuelles dans le Gestionnaire de ressources. Pour plus d’informations, consultez les articles [Utilisation de l’interface de ligne de commande Azure (CLI) avec Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) et [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 

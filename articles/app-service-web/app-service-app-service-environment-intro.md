@@ -1,6 +1,6 @@
 ---
-title: "Présentation de l&quot;environnement App Service"
-description: "Découvrez la fonctionnalité Environnement App Service qui fournit des unités d&quot;échelle sécurisées, dédiées et appartenant à un réseau virtuel pour exécuter toutes vos applications."
+title: "Présentation d’App Service Environment v1"
+description: "Découvrez la fonctionnalité App Service Environment v1, qui fournit des unités d’échelle sécurisées, dédiées et appartenant à un réseau virtuel pour exécuter toutes vos applications."
 services: app-service
 documentationcenter: 
 author: stefsch
@@ -12,16 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
-ms.author: stefsch
-translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 91b1d6315a9414789b28442f3f19d14c2aed8f00
-ms.lasthandoff: 03/01/2017
-
+ms.date: 07/11/2017
+ms.author: ccompy
+ms.translationtype: HT
+ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
+ms.openlocfilehash: 38cb79eb32bd61cdbfb6da91d50e6713d71a2b0d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="introduction-to-app-service-environment"></a>Présentation de l'environnement App Service
+# <a name="introduction-to-app-service-environment-v1"></a>Présentation d’App Service Environment v1
+
+> [!NOTE]
+> Cet article traite de l’environnement App Service v1.  Il existe une version plus récente de l’environnement App Service Environment, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la section [Présentation de l’environnement App Service Environment](../app-service/app-service-environment/intro.md).
+> 
+
 ## <a name="overview"></a>Vue d'ensemble
 Un environnement App Service est une option de plan de service [Premium][PremiumTier] d’Azure App Service qui fournit un environnement totalement isolé et dédié pour exécuter en toute sécurité des applications Azure App Service de grande envergure, comme [Web Apps][WebApps], [Mobile Apps][MobileApps] et [API Apps][APIApps].  
 

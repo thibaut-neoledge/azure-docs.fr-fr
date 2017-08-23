@@ -1,6 +1,6 @@
 ---
-title: "Déplacement de fichiers vers et à partir d’une machine virtuelle Linux à l’aide de SCP | Microsoft Docs"
-description: "Déplacement sécurisé de fichiers vers et à partir d’une machine virtuelle Linux à l’aide de SCP et d’une paire de clés SSH."
+title: "Déplacer des fichiers vers et depuis des machines virtuelles Linux Azure avec SCP | Microsoft Docs"
+description: "Déplacez, en toute sécurité, des fichiers vers et depuis une machine virtuelle Linux dans Azure à l’aide de SCP et d’une paire de clés SSH."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -13,84 +13,68 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 07/12/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1935bde486d8f6f8e80a73447c4b0ea5d4671b45
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 736f7c11ec3de04f1ad52ee29d0a4c952c9b0545
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
-<a id="moving-files-to-and-from-a-linux-vm-using-scp" class="xliff"></a>
+# <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Déplacer des fichiers vers et depuis une machine virtuelle Linux à l’aide de SCP
 
-# Déplacement de fichiers vers et à partir d’une machine virtuelle Linux à l’aide de SCP
+Cet article explique comment déplacer des fichiers à partir de votre poste de travail vers une machine virtuelle Linux Azure ou à partir d’une machine virtuelle Linux Azure vers votre poste de travail, à l’aide de la copie sécurisée (SCP). Le déplacement de fichiers entre votre poste de travail et une machine virtuelle Linux, de manière rapide et sécurisée, constitue une partie essentielle de la gestion de votre infrastructure Azure. 
 
-Cet article explique comment déplacer des fichiers à partir de votre poste de travail vers une machine virtuelle Linux Azure ou à partir d’une machine virtuelle Linux Azure vers votre poste de travail, à l’aide de la copie sécurisée (SCP).  Par exemple, nous déplaçons des fichiers de configuration Azure vers une machine virtuelle Linux et nous extrayons un répertoire de fichiers journaux, à l’aide de SCP et de clés SSH.   
+Pour cet article, vous avez besoin d’une machine virtuelle Linux déployée dans Azure à l’aide de [fichiers de clés publiques et privées SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vous avez également besoin d’un client SCP pour votre ordinateur local. Celui-ci est construit par-dessus SSH et inclus dans l’interpréteur de commandes Bash par défaut de la plupart des ordinateurs Mac et Linux et dans certains interpréteurs de commandes Windows.
 
-Pour cet article, les conditions requises sont les suivantes :
-
-- [un compte Azure](https://azure.microsoft.com/pricing/free-trial/)
-
-- [des fichiers de clés SSH publiques et privées](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-<a id="quick-commands" class="xliff"></a>
-
-## Commandes rapides
+## <a name="quick-commands"></a>Commandes rapides
 
 Copier un fichier vers la machine virtuelle Linux
 
 ```bash
-scp file user@host:directory/targetfile
+scp file azureuser@azurehost:directory/targetfile
 ```
 
 Copier un fichier à partir de la machine virtuelle Linux
 
 ```bash
-scp user@host:directory/file targetfile
+scp azureuser@azurehost:directory/file targetfile
 ```
 
-<a id="detailed-walkthrough" class="xliff"></a>
+## <a name="detailed-walkthrough"></a>Procédure pas à pas
 
-## Procédure pas à pas
+Par exemple, nous déplaçons un fichier de configuration Azure vers une machine virtuelle Linux et nous extrayons un répertoire de fichiers journaux, en utilisant à la fois SCP et des clés SSH.   
 
-Le déplacement de fichiers entre votre poste de travail et une machine virtuelle Linux, de manière rapide et sécurisée, constitue une partie essentielle de la gestion de votre infrastructure Azure.  Pour cet article, nous utilisons SCP, un outil basé sur SSH et inclus dans le shell Bash par défaut de Linux, Mac et Windows.
+## <a name="ssh-key-pair-authentication"></a>Authentification avec une paire de clés SSH
 
-<a id="ssh-key-pair-authentication" class="xliff"></a>
+SCP utilise SSH pour la couche de transport. SSH gère l’authentification sur l’hôte de destination, puis déplace le fichier dans un tunnel chiffré fourni par défaut avec SSH. Pour l’authentification SSH, des noms d’utilisateur et des mots de passe peuvent être utilisés. Toutefois, l’authentification par clé publique et privée SSH est recommandée en tant que meilleure pratique de sécurité. Une fois que SSH a authentifié la connexion, SCP commence à copier le fichier. À l’aide d’une valeur `~/.ssh/config` correctement configurée et de clés publiques et privées SSH, la connexion SCP peut être établie simplement à l’aide d’un nom de serveur (ou d’une adresse IP). Si vous n’avez qu’une seule clé SSH, SCP la recherche dans le répertoire `~/.ssh/` et l’utilise par défaut pour se connecter à la machine virtuelle.
 
-## Authentification avec une paire de clés SSH
+Pour plus d’informations sur la configuration de votre `~/.ssh/config` et les clés publiques et privées SSH, consultez [Créer des clés SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-SCP utilise SSH pour la couche de transport.  En utilisant SSH pour le transport, SSH gère l’authentification sur l’hôte de destination tout en déplaçant le fichier dans un tunnel chiffré fourni par défaut avec SSH.  Pour l’authentification SSH, il est possible d’utiliser des noms d’utilisateur et des mots de passe, mais l’authentification par clé SSH publique et privée est fortement recommandée en tant que pratique de sécurité optimale. Une fois que SSH a authentifié la connexion, SCP commence alors le processus de copie du fichier.  À l’aide d’une valeur `~/.ssh/config` correctement configurée et de clés publique et privée SSH, la connexion SCP peut être établie sans utiliser de nom d’utilisateur et simplement à l’aide d’un nom de serveur.  Si vous n’avez qu’une clé SSH, SCP la recherche dans le répertoire `~/.ssh/` et l’utilise par défaut pour se connecter à la machine virtuelle.
+## <a name="scp-a-file-to-a-linux-vm"></a>Copie sécurisée (SCP) d’un fichier vers une machine virtuelle Linux
 
-Pour plus d’informations sur la configuration de votre `~/.ssh/config` et les clés publique et privée SSH, consultez l’article [Créer des clés SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour le premier exemple, nous copions un fichier de configuration Azure vers une machine virtuelle Linux qui est utilisée pour déployer l’automatisation. Étant donné que ce fichier contient des informations d’identification d’API Azure, notamment des secrets, sa sécurité est importante. Le tunnel chiffré fourni par SSH protège le contenu du fichier.
 
-<a id="scp-a-file-to-a-linux-vm" class="xliff"></a>
-
-## Copie sécurisée (SCP) d’un fichier vers une machine virtuelle Linux
-
-Pour le premier exemple, nous copions un fichier d’informations d’identification Azure vers une machine virtuelle Linux qui est utilisée pour déployer l’automatisation.  Étant donné que ce fichier contient des informations d’identification d’API Azure, notamment des secrets, la sécurité est importante et le tunnel chiffré fourni par SSH protège le contenu du fichier.
+La commande suivante copie le fichier local *.azure/config* vers une machine virtuelle Azure avec le nom de domaine complet *myserver.eastus.cloudapp.azure.com*. Le nom d’utilisateur administrateur sur la machine virtuelle Azure est *azureuser*. Le fichier est ciblé dans le répertoire */home/azureuser/*. Substituez vos propres valeurs dans cette commande.
 
 ```bash
-scp ~/.azure/credentials myserver:/home/ahmet/.azure/credentials
+scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config
 ```
 
-<a id="scp-a-directory-from-a-linux-vm" class="xliff"></a>
+## <a name="scp-a-directory-from-a-linux-vm"></a>Copie sécurisée (SCP) d’un répertoire à partir d’une machine virtuelle Linux
 
-## Copie sécurisée (SCP) d’un répertoire à partir d’une machine virtuelle Linux
+Pour cet exemple, nous copions un répertoire de fichiers journaux à partir de la machine virtuelle Linux sur votre poste de travail. Un fichier journal est susceptible de contenir des données sensibles ou secrètes. Toutefois, l’utilisation de SCP garantit que le contenu des fichiers journaux est chiffré. L’utilisation de SCP pour transférer les fichiers constitue le moyen le plus simple de copier le répertoire et les fichiers journaux sur votre poste de travail tout en assurant leur sécurité.
 
-Pour cet exemple, nous copions un répertoire de fichiers journaux à partir de la machine virtuelle Linux sur votre poste de travail.  Un fichier journal peut contenir, ou pas, des données sensibles ou confidentielles et l’utilisation de SCP garantit que le contenu des fichiers journaux est chiffré.  L’utilisation de SCP pour transférer les fichiers de manière sécurisée est le moyen le plus simple pour copier le répertoire et les fichiers journaux sur votre poste de travail tout en respectant la sécurité.
+La commande suivante copie les fichiers contenus dans le répertoire */home/azureuser/logs/* sur la machine virtuelle Azure dans le répertoire/tmp local :
 
 ```bash
-scp -r myserver:/home/ahmet/logs/ /tmp/.
+scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
 L’indicateur de l’interface de ligne de commande `-r` indique à SCP de copier de manière récursive les fichiers et les répertoires à partir du point du répertoire indiqué dans la commande.  Notez également que la syntaxe de ligne de commande est similaire à une commande de copie `cp`.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Gérer les utilisateurs, SSH et vérifier ou réparer les disques de machines virtuelles Azure Linux à l'aide de l’extension VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Désactiver les mots de passe SSH sur votre machine virtuelle Linux en configurant SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

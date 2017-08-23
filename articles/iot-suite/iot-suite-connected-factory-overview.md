@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/27/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 97da0f4dc5d5528bfb803eefe9037651939a8efd
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: a7d31be48ef06064b01cdb2dfd0331b34adbec4d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Prise en main de la solution préconfigurée d’usine connectée
-
-## <a name="introduction"></a>Introduction
 
 Les [solutions préconfigurées][lnk-preconfigured-solutions] d’Azure IoT Suite regroupent plusieurs services Azure IoT pour offrir des solutions de bout en bout permettant d’implémenter des scénarios IoT d’entreprise. La solution préconfigurée d’*usine connectée* se connecte et surveille vos appareils industriels. Vous pouvez utiliser la solution pour analyser le flux de données à partir de vos appareils et pour encourager la productivité et la rentabilité opérationnelle.
 
@@ -116,15 +113,15 @@ Si votre abonnement a accès à l’API Bing Maps, la carte *Usines* vous prése
 
 ## <a name="view-alerts"></a>Afficher les alertes
 
-Le panneau historique **Alertes** vous présente les alertes qui sont générées en raison d’une valeur rapportée ou d’une valeur d’OEE/KPI calculée dépassant son seuil configuré. Ce panneau affiche les alertes à chaque niveau de la hiérarchie, de la vue du niveau du poste à la vue globale. Les alertes contiennent une description de l’alerte, la date, l’heure, l’emplacement et le nombre d’occurrences. Vous pouvez obtenir un aperçu des données à l’origine de l’alerte à l’aide des données Time Series Insights. Les données Time Series Insights sont affichées dans les alertes, le cas échéant. Si vous êtes un administrateur, vous pouvez effectuer des actions par défaut sur les alertes telles que :
+Le panneau **Alertes** vous présente les alertes générées en raison d’une valeur rapportée ou d’une valeur d’OEE/KPI calculée dépassant son seuil configuré. Ce panneau affiche les alertes à chaque niveau de la hiérarchie, de la vue du niveau du poste à la vue globale. Les alertes contiennent une description de l’alerte, la date, l’heure, l’emplacement et le nombre d’occurrences. Vous pouvez obtenir un aperçu des données à l’origine de l’alerte à l’aide des données Time Series Insights. Les données Time Series Insights sont affichées dans les alertes, le cas échéant. Si vous êtes un administrateur, vous pouvez effectuer des actions par défaut sur les alertes telles que :
 
 * Fermer l’alerte.
 * Accuser réception de l’alerte.
 
 Vous pouvez facultativement effectuer d’autres actions plus complexes. Par exemple, pour le nœud OPC UA Pressure de l’Assembly, vous pouvez :
 
-* Charger une page web dans une nouvelle fenêtre de navigateur pour afficher des informations de support.
-* Appeler une méthode OPC UA sur l’appareil pour limiter la cause de l’alerte.
+* Affichez des informations de support dans une page web dans une nouvelle fenêtre de navigateur.
+* Limiter la cause de l’alerte en appelant une méthode OPC UA sur l’appareil.
 * Supprimer la disponibilité des actions par défaut.
 
     ![Alertes de la solution préconfigurée d’usine connectée][cf-img-alerts]
@@ -148,7 +145,7 @@ L’OEE évalue l’efficacité du processus de fabrication à l’aide de param
 
 1. Pour afficher l’OEE d’un quelconque niveau de la hiérarchie, accédez à la vue spécifique souhaitée. L’OEE de cette vue s’affiche dans le panneau avec chacun des éléments qui composent le pourcentage d’OEE.
 
-2. Pour approfondir l’analyse de l’OEE d’un quelconque niveau de données de la hiérarchie, cliquez sur le pourcentage d’OEE, le pourcentage de disponibilité, le pourcentage de performance ou le pourcentage de qualité. Un panneau de contexte s’affiche avec des visualisations Time Series Insights qui présente des données de la dernière heure, des 24 dernières heures et des 7 derniers jours.
+2. Pour approfondir l’analyse de l’OEE d’un quelconque niveau de données de la hiérarchie, cliquez sur le pourcentage d’OEE, de disponibilité, de performance ou de qualité. Un panneau de contexte s’affiche avec des visualisations Time Series Insights qui présente des données de la dernière heure, des 24 dernières heures et des 7 derniers jours.
 
     ![Visualisation TSI de la solution préconfigurée d’usine connectée][cf-img-tsi-visualization]
 
@@ -164,7 +161,7 @@ La solution fournit deux indicateurs de performance clés : *unités par heure* 
 
 1. Pour afficher les unités par heure ou l’énergie utilisée d’un quelconque niveau de la hiérarchie, accédez à la vue spécifique souhaitée. Les unités par heure et l’énergie utilisée s’affichent dans le panneau.
 
-2. Pour approfondir l’analyse des unités par heure ou de l’énergie utilisée d’un quelconque niveau des données de la hiérarchie, cliquez sur la jauge des unités produites ou de l’énergie utilisée dans le panneau **Indicateurs de performance clés**. Un panneau de contexte s’affiche avec des visualisations Time Series Insights vous permettant de consulter les données de la dernière heure, des 24 dernières heures et des 7 derniers jours.
+2. Pour approfondir l’analyse des unités par heure ou de l’énergie utilisée d’un quelconque niveau des données de la hiérarchie, cliquez sur la jauge dans le panneau **Indicateurs de performance clés**. Un panneau de contexte s’affiche avec des visualisations Time Series Insights vous permettant de consulter les données de la dernière heure, des 24 dernières heures et des 7 derniers jours.
 
 ## <a name="scenario-review"></a>Analyse du scénario
 
@@ -172,7 +169,7 @@ Dans ce scénario, vous avez surveillé les valeurs OEE et KPI de vos usines dan
 
 ## <a name="other-features"></a>Autres fonctionnalités
 
-Les sections suivantes décrivent quelques fonctionnalités supplémentaires de la solution préconfigurée d’usine connectée qui ne sont pas décrites dans le cadre du scénario précédent.
+Les sections suivantes décrivent quelques fonctionnalités supplémentaires de la solution d’usine connectée qui ne sont pas décrites dans le scénario précédent.
 
 ## <a name="apply-filters"></a>Appliquer des filtres
 
@@ -182,7 +179,7 @@ Les sections suivantes décrivent quelques fonctionnalités supplémentaires de 
 
     ![Filtres de la solution préconfigurée d’usine connectée][cf-img-alert-filter]
 
-3. Choisissez le filtre dont vous avez besoin. Si nécessaire, vous pouvez également saisir du texte libre dans les champs de filtre.
+3. Choisissez le filtre nécessaire. Il est également possible d’entrer du texte libre dans les champs du filtre.
 
 4. Le filtre est ensuite appliqué pour vous. L’état du filtre apparaît également dans le tableau de bord sous la forme d’un entonnoir affiché dans les tables d’usines et d’alertes.
 
@@ -215,7 +212,7 @@ Lorsque vous déployez la solution préconfigurée, vous configurez automatiquem
 
 ## <a name="publish-a-node"></a>Publier un nœud
 
-Lorsque vous parcourez un *serveur OPC UA simulé*, vous pouvez également choisir de publier de nouveaux nœuds. Vous pouvez analyser les données de télémétrie de ces nœuds dans la solution. Ces *serveurs OPC UA simulés* vous permettent d’expérimenter plus facilement la solution préconfigurée sans avoir à déployer des appareils physiques réels.
+Lorsque vous parcourez un *serveur OPC UA simulé*, vous pouvez également choisir de publier de nouveaux nœuds. Vous pouvez analyser les données de télémétrie de ces nœuds dans la solution. Ces *serveurs OPC UA simulés* vous permettent d’expérimenter plus facilement la solution préconfigurée sans déployer des appareils physiques réels.
 
 1. Accédez à un nœud de l’arborescence du navigateur de serveur OPC UA que vous souhaitez publier.
 
@@ -223,7 +220,7 @@ Lorsque vous parcourez un *serveur OPC UA simulé*, vous pouvez également chois
 
 3. Choisissez **Publier**.
 
-    ![Nœud de publication d’usine connectée][cf-img-publish-node]
+    ![L’usine connectée publie le nœud][cf-img-publish-node]
 
 4. Un panneau de contexte vous indiquant que la publication a réussi s’affiche. Le nœud s’affiche dans la vue du niveau poste avec une coche.
 

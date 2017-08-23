@@ -17,15 +17,14 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 55c195754f18cd52fc098061f0e16607292a1948
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 18fd43d0b1d6276ebc41a0ad33d861a27a472551
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/17/2017
+ms.lasthandoff: 07/24/2017
 
 ---
-<a id="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go" class="xliff"></a>
-# Mise à niveau de votre abonnement d’essai gratuit ou Microsoft Imagine pour le paiement à l’utilisation
+# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Mise à niveau de votre abonnement d’essai gratuit ou Microsoft Imagine pour le paiement à l’utilisation
 Mettez à niveau votre abonnement [d’Évaluation gratuite](https://azure.microsoft.com/free/) de [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) vers le [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) à partir du portail de compte Azure. La mise à niveau en soi ne coûte rien. Vous êtes facturé uniquement pour les services que vous utilisez.
 
 1. Connectez-vous au [Portail de compte Azure](https://account.windowsazure.com/subscriptions) et accédez à l’onglet **Abonnements**.
@@ -36,6 +35,6 @@ Mettez à niveau votre abonnement [d’Évaluation gratuite](https://azure.micro
    
     ![Capture d’écran présentant les éléments à sélectionner pour confirmer que vous souhaitez mettre à niveau votre abonnement](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-Utilisez les avantages restants de votre version d’essai gratuite, comme la limite de 30 jours ou le crédit de 200 $. Une fois que vous utilisez tous les avantages, votre abonnement est mis à niveau.
+Utilisez les avantages restants de votre version d’essai gratuite, comme la limite de 30 jours ou le crédit. Une fois que vous utilisez tous les avantages, votre abonnement est mis à niveau.
 
 

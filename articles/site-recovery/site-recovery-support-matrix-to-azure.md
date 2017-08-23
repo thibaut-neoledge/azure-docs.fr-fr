@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 07/04/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 6664cb20393ec5f588c8eeb119d6f606a0072861
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: a2ccc3d43a56a569897e1efe24f576eb92610ec3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication de machines virtuelles locales vers Azure
@@ -43,7 +42,7 @@ Cet article résume les composants et les configurations pris en charge pour Azu
 
 **Déploiement** | **Support**
 --- | ---
-**Machine virtuelle VMware/serveur physique** | vSphere 6.0, 5.5 ou 5.1 avec les dernières mises à jour
+**Machine virtuelle VMware/serveur physique** | vCenter 6.5, 6.0 ou 5.5
 **Hyper-V (avec VMM)** | System Center Virtual Machine Manager 2016 et System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
@@ -53,7 +52,7 @@ Cet article résume les composants et les configurations pris en charge pour Azu
 
 **Déploiement** | **Support**
 --- | ---
-**Machine virtuelle VMware/serveur physique** | vCenter 5.5 ou 6.0 (prise en charge des fonctionnalités 5.5 uniquement) 
+**Machine virtuelle VMware/serveur physique** | vSphere 6.5, 6.0 ou 5.5
 **Hyper-V (avec / sans Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 avec les dernières mises à jour.<br></br>Si SCVMM est utilisé, les hôtes Windows Server 2016 doivent être gérés par SCVMM 2016.
 
 
@@ -67,7 +66,7 @@ Le tableau ci-dessous récapitule la prise en charge des systèmes d’exploitat
 
  **Serveur VMware/physique** | **Hyper-V (avec ou sans VMM)** |
 --- | --- |
-Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/>CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/>Serveur LTS Ubuntu 14.04[ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(La mise à niveau des machines de réplication de SLES 11 SP3 vers SLES 11 SP4 n’est pas prise en charge. Si une machine répliquée a été mise à niveau, de SLES 11SP3 vers SLES 11 SP4, vous devez désactiver la réplication et protéger à nouveau la machine après la mise à niveau.) | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx)
+Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/>*Windows Server 2016* n’est actuellement pas pris en charge sur les machines virtuelles VMware et les serveurs physiques. <br/><br/> Red Hat Enterprise Linux : 5.2 à 5.11, 6.1 à 6.8, 7.0 à 7.3 <br/><br/>CentOS : 5.2 à 5.11, 6.1 à 6.8, 7.0 à 7.3 <br/><br/>Serveur LTS Ubuntu 14.04[ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Serveur LTS Ubuntu 16.04 [ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(La mise à niveau des machines de réplication de SLES 11 SP3 vers SLES 11 SP4 n’est pas prise en charge. Si une machine répliquée a été mise à niveau, de SLES 11SP3 vers SLES 11 SP4, vous devez désactiver la réplication et protéger à nouveau la machine après la mise à niveau.) | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 
 >[!IMPORTANT]
@@ -82,19 +81,24 @@ Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec
 **Version release** | **Version du service Mobilité** | **Version du noyau** |
 --- | --- | --- |
 14.04 LTS | 9.9 | 3.13.0-24-generic à 3.13.0-117-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-75-generic |
+14.04 LTS | 9.10 | 3.13.0-24-generic à 3.13.0-121-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-81-generic |
+LTS 16.04 | 9.10 | 4.4.0-21-generic à 4.4.0-81-generic,<br/>4.8.0-34-generic à 4.8.0-56-generic,<br/>4.10.0-14-generic à 4.10.0-24-generic |
+
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Systèmes de fichiers pris en charge et configurations de stockage invité sous Linux (serveurs physiques / VMware)
 
 Les systèmes de fichiers et le logiciel de configuration de stockage suivants sont pris en charge sur les serveurs Linux exécutés sur des serveurs VMware ou physiques :
-* Systèmes de fichiers : ext3, ext4, ReiserFS (Suse Linux Enterprise Server uniquement), XFS (jusqu’à v4 uniquement)
+* Systèmes de fichiers : ext3, ext4, ReiserFS (Suse Linux Enterprise Server uniquement), XFS
 * Gestionnaire de volume : LVM2
 * Logiciel multichemin : Device Mapper
 
-Les serveurs physiques avec le contrôleur de stockage HP CCISS ne sont pas pris en charge.
+Les périphériques de stockage Paravirtualized (exportés par les pilotes paravirtualized) ne sont pas pris en charge.<br/>
+Les unités de bloc d’entrée et de sortie en file d’attente ne sont pas prises en charge.<br/>
+Les serveurs physiques avec le contrôleur de stockage HP CCISS ne sont pas pris en charge.<br/>
 
 >[!Note]
 > Sur les serveurs Linux, les répertoires suivants (s’ils sont configurés en tant que partitions / systèmes de fichiers séparés) doivent tous se trouver sur le même disque (le disque du système d’exploitation) sur le serveur source : / (racine), /boot, / usr, / usr/local, / var, /etc.<br/><br/>
-> Les fonctionnalités de XFS v5 telles que les sommes de contrôle des métadonnées ne sont actuellement pas prises en charge par ASR sur les systèmes de fichiers XFS. Assurez-vous que vos systèmes de fichiers XFS n’utilisent pas de fonctionnalités v5. Vous pouvez utiliser l’utilitaire xfs_info pour vérifier le superbloc XFS pour la partition. Si ftype est défini sur 1, les fonctionnalités XFSv5 sont utilisées.
+> Les fonctionnalités XFSv5 sur des systèmes de fichiers XFS tels que les sommes de contrôle de métadonnées sont prises en charge à partir de la version 9.10 du service Mobilité. Si vous utilisez les fonctionnalités XFSv5, assurez-vous d’exécuter la version 9.10 ou ultérieure du service Mobilité. Vous pouvez utiliser l’utilitaire xfs_info pour vérifier le superbloc XFS pour la partition. Si ftype est défini sur 1, les fonctionnalités XFSv5 sont utilisées.
 >
 
 
@@ -105,7 +109,7 @@ Les tableaux suivants récapitulent la prise en charge de la configuration rése
 
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | ---
-Association de cartes réseau | Oui<br/><br/>Non pris en charge dans des machines physiques| Oui
+Association de cartes réseau | Oui<br/><br/>Non pris en charge lorsque les machines physiques sont répliquées| Oui
 VLAN | Oui | Oui
 IPv4 | Oui | Oui
 IPv6 | Non | Non
@@ -118,7 +122,7 @@ Association de cartes réseau | Non | Non
 IPv4 | Oui | Oui
 IPv6 | Non | Non
 Adresse IP statique (Windows) | Oui | Oui
-Adresse IP statique (Linux) | Non | Non
+Adresse IP statique (Linux) | Oui <br/><br/>Les machines virtuelles sont configurées pour utiliser le protocole DHCP lors de la restauration automatique  | Non
 Plusieurs cartes réseau | Oui | Oui
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuration de réseau des machines virtuelles Azure basculées
@@ -155,12 +159,13 @@ VMDK | Oui | N/A
 VHD/VHDX | N/A | Oui
 Machine virtuelle de 2e génération | N/A | Oui
 EFI/UEFI| Non | Oui
-Disque de cluster partagé | Oui pour VMware<br/><br/> N/A pour les serveurs physiques | Non
+Disque de cluster partagé | Non | Non
 Disque chiffré | Non | Non
 NFS | Non | N/A
 SMB 3.0 | Non | Non
 RDM | Oui<br/><br/> N/A pour les serveurs physiques | N/A
-Disque > 1 To | Non | Non
+Disque > 1 To | Oui<br/><br/>Jusqu’à 4095 Go | Oui<br/><br/>Jusqu’à 4095 Go
+Disque avec une taille de secteur de 4K | Oui | Oui, les machines virtuelles de génération 1 sont prises en charge<br/><br/>Les machines virtuelles de génération 2 ne sont pas prises en charge.
 Volume avec disque à bandes > 1 To<br/><br/> Gestion des volumes logiques | Oui | Oui
 Espaces de stockage | Non | Oui
 Ajout/suppression de disque à chaud | Non | Non
@@ -182,9 +187,10 @@ Service Import/Export | Non | Non
 ## <a name="support-for-azure-compute-configuration"></a>Prise en charge de la configuration de calcul Azure
 
 **Fonctionnalité de calcul** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
---- | --- | --- | ---
+--- | --- | --- 
 Groupes à haute disponibilité | Oui | Oui
 HUB | Oui | Oui  
+Disques gérés | Oui | Oui<br/><br/>La restauration automatique locale depuis une machine virtuelle Azure avec disques gérés n’est actuellement pas prise en charge.
 
 ## <a name="failed-over-azure-vm-requirements"></a>Configuration requise des machines virtuelles Azure basculées
 
@@ -192,12 +198,12 @@ Vous pouvez déployer Site Recovery pour répliquer des machines virtuelles et d
 
 **Entité** | **Configuration requise** | **Détails**
 --- | --- | ---
-**Système d’exploitation invité** | Pour une réplication de Hyper-V sur Azure, Site Recovery prend en charge tous les systèmes d’exploitation [pris en charge par Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Pour une réplication de VMware et de serveur physique, vérifiez les [conditions préalables](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+**Système d’exploitation invité** | Pour une réplication de Hyper-V sur Azure, Site Recovery prend en charge tous les systèmes d’exploitation [pris en charge par Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Pour une réplication de VMware et de serveur physique, vérifiez les [conditions préalables](site-recovery-vmware-to-azure-classic.md) | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 **Architecture du système d’exploitation invité** | 64 bits | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
-**Taille du disque du système d’exploitation** | Jusqu’à 1 023 Go | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+**Taille du disque du système d’exploitation** | Jusqu'à 2048 Go si vous répliquez des **machines virtuelles VMware ou des serveurs physiques vers Azure**.<br/><br/>Jusqu’à 2048 Go pour les machines virtuelles **Hyper-V Génération 1**.<br/><br/>Jusqu’à 300 Go pour les **machines virtuelles Hyper-V Génération 2**.  | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 **Nombre de disques du système d’exploitation** | 1 | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 **Nombre de disques de données** | 64 ou moins si vous répliquez des **machines virtuelles VMware sur Azure** ; 16 ou moins si vous répliquez des **machines virtuelles Hyper-V sur Azure** | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
-**Taille du disque dur virtuel de données** | Jusqu’à 1 023 Go | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+**Taille du disque dur virtuel de données** | Jusqu’à 4095 Go | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 **Adaptateurs réseau** | Prise en charge de plusieurs adaptateurs réseau. |
 **Disque dur virtuel partagé** | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 **Disque FC** | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.

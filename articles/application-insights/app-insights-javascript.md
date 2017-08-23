@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 1ae47899443d5552178078a417b7d1ebe91966d2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/13/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
@@ -197,7 +196,7 @@ Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la
 > 
 > 
 
-Vous pouvez également utiliser le puissant [langage des requêtes Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) pour effectuer des recherches dans les vues de pages.
+Vous pouvez également utiliser le puissant [langage de requête Log Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) pour effectuer des recherches dans les vues de pages.
 
 ### <a name="page-view-properties"></a>Propriétés d'affichage de la page
 * **Durée d’affichage de la page** 

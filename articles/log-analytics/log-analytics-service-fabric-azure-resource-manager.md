@@ -20,7 +20,6 @@ ms.openlocfilehash: 6f864581fe1d1771371d6805407cb881fedb4187
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Évaluer les micro-services et applications Service Fabric avec le portail Azure | Microsoft Docs
 
@@ -78,6 +77,8 @@ En suivant la même procédure que celle mentionnée ci-dessus, indiquez les par
 ### <a name="viewing-performance-data"></a>Affichage des données de performances
 Pour afficher les données de performances de vos nœuds :
 </br>
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 * Lancez l’espace de travail Log Analytics à partir du portail Azure.
 

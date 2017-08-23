@@ -1,6 +1,6 @@
 ---
-title: "Gérer les utilisateurs dans Azure Analysis Services | Microsoft Docs"
-description: "Découvrez comment gérer les utilisateurs sur un serveur Analysis Services dans Azure."
+title: Authentification et autorisations utilisateur dans Azure Analysis Services | Documents Microsoft
+description: "En savoir plus sur l’authentification et les autorisations utilisateur dans Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,84 +13,75 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/18/2016
+ms.date: 08/15/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 194910a3e4cb655b39a64d2540994d90d34a68e4
-ms.openlocfilehash: 039ed6f4be9f3e0f6b92e5a9f11e12392912df9d
-ms.lasthandoff: 02/16/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 766b2fc3b68d223d80de1da9ef36aec269fe0de9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 ---
-# <a name="manage-users-in-azure-analysis-services"></a>Gérer les utilisateurs dans Azure Analysis Services
-Dans Azure Analysis Services, il existe deux types d’utilisateur : les administrateurs de serveur et les utilisateurs de base de données. 
+# <a name="authentication-and-user-permissions"></a>Authentification et autorisations utilisateur
+Azure Analysis Services utilise Azure Active Directory (Azure AD) pour l’authentification utilisateur et de gestion d’identités. Tout utilisateur qui crée, gère ou se connecte à un serveur Azure Analysis Services doit avoir une identité d’utilisateur valide dans un [client Azure AD](../active-directory/active-directory-administer.md) dans le même abonnement.
 
-## <a name="server-administrators"></a>Administrateurs de serveur
-Vous pouvez utiliser les **Administrateurs Analysis Services** dans le panneau de commande de votre serveur dans le portail ou Propriétés du serveur dans SSMS pour gérer les administrateurs de serveur. Les administrateurs Analysis Services sont des administrateurs de serveur de base de données disposant de droits pour les tâches d’administration de base de données courantes comme l’ajout et la suppression de bases de données et la gestion des utilisateurs. Par défaut, l’utilisateur qui crée le serveur dans le portail Azure est automatiquement ajouté en tant qu’administrateur Analysis Services.
+Azure Analysis Services prend en charge [la collaboration Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). Avec B2B, les utilisateurs extérieurs à une organisation peuvent être invités en tant qu’utilisateurs invités dans un répertoire Azure AD. Les invités peuvent être issus d’un autre répertoire client Azure AD ou n’importe quelle adresse e-mail valide. Une fois l’utilisateur invité et accepte l’invitation envoyée par e-mail à partir d’Azure, l’identité de l’utilisateur est ajoutée au répertoire client. Ces identités peuvent ensuite être ajoutées aux groupes de sécurité ou en tant que membres d’un administrateur de serveurs ou rôle de bases de données.
 
-![Administrateurs de serveur dans le portail Azure](./media/analysis-services-manage-users/aas-manage-users-admins.png)
+![Architecture de l’authentification Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
-Vous devez également connaître les informations suivantes :
+## <a name="authentication"></a>Authentification
+Tous les outils et les applications clientes utilisent une ou plusieurs [bibliothèques clientes](analysis-services-data-providers.md) des Services d’analyse (AMO, MSOLAP, ADOMD) pour se connecter à un serveur. 
 
-* Windows Live ID n’est pas un type d’identité pris en charge pour Azure Analysis Services.  
-* Les administrateurs Analysis Services doivent être des utilisateurs Azure Active Directory valides.
-* Lors de la création d’un serveur Azure Analysis Services via des modèles Azure Resource Manager, les administrateurs Analysis Services utilisent un tableau JSON des utilisateurs qui doivent être ajoutés en tant qu’administrateurs.
+Les trois bibliothèques clientes prennent en charge les deux flux interactif d’Azure AD et les méthodes d’authentification non interactive. Les deux méthodes non-interactives, les méthodes de mot de passe Active Directory et d’authentification intégrée Active Directory peuvent être utilisées dans les applications qui utilisent AMOND et MSOLAP. Ces deux méthodes n’entraînent jamais l’affichage de boîtes de dialogue contextuelles.
 
-Les administrateurs Analysis Services peut être différents des administrateurs de ressources Azure, qui peuvent gérer les ressources pour les abonnements Azure. Cela maintient la compatibilité avec les comportements de gestion XMLA et TSML existants dans Analysis Services et vous permet de répartir les responsabilités entre la gestion des ressources Azure et la gestion de bases de données Analysis Services. Pour afficher tous les rôles et types d’accès de votre ressource Azure Analysis Services, utilisez le contrôle d’accès (IAM) dans le panneau de commande.
+Les applications clientes comme Excel et Power BI Desktop et les outils tels que SSMS et SSDT installent les dernières versions des bibliothèques lors de la mise à jour vers la version la plus récente. Power BI Desktop, SSMS et SSDT sont mis à jour tous les mois. Excel est [mis à jour avec Office 365](https://support.office.com/en-us/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Les mises à jour Office 365 sont moins fréquentes et certaines organisations utilisent le canal différé, c’est-à-dire que les mises sont différées d’au moins trois mois.
 
-### <a name="to-add-administrators-using-azure-portal"></a>Pour ajouter des administrateurs à l’aide du portail Azure
-1. Dans le panneau de contrôle de votre serveur, cliquez sur **Administrateurs Analysis Services**.
-2. Dans le panneau **\<nom_serveur > Administrateurs Analysis Services**, cliquez sur **Ajouter**.
-3. Dans le panneau **Ajouter des administrateurs de serveur**, sélectionnez les comptes d’utilisateur à ajouter.
+ En fonction de l’application cliente ou de l’outil que vous utilisez, le type d’authentification et la façon dont vous vous connectez peuvent être différents. Chaque application peut prendre en charge des fonctionnalités différentes pour la connexion aux services cloud comme Azure Analysis Services.
 
-## <a name="database-users"></a>Utilisateurs de base de données
-Les utilisateurs de base de données doivent être ajoutés aux rôles de base de données. Les rôles définissent les utilisateurs et les groupes qui ont les mêmes autorisations sur une base de données. Par défaut, les bases de données tabulaires ont un rôle d’utilisateur par défaut avec des autorisations de lecture. Pour en savoir plus, consultez [Rôles dans les modèles tabulaires](https://msdn.microsoft.com/library/hh213165.aspx).
 
-Les utilisateurs de la base de données de modèle Azure Analysis Services *doivent se trouver dans votre Azure Active Directory*. Les noms d’utilisateur doivent être spécifiés par adresse de messagerie professionnelle ou par UPN. Cela diffère des bases de données tabulaires locales qui prennent en charge les utilisateurs par les noms d’utilisateur de domaine Windows. 
+### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
+Les serveurs Azure Analysis Services prennent en charge les connexions depuis [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et versions ultérieures à l’aide de l’authentification Windows, l’authentification du mot de passe Active Directory et l’authentification universelle Active Directory. En général, il est recommandé d'utiliser l’authentification universelle Active Directory, car :
 
-Vous pouvez créer des rôles de base de données, ajouter des utilisateurs et des groupes aux rôles et configurer la sécurité de niveau ligne dans SQL Server Data Tools (SSDT) ou dans SQL Server Management Studio (SSMS). Vous pouvez également ajouter des utilisateurs aux rôles (ou les en supprimer) à l’aide des [applets de commande PowerShell Analysis Services](https://msdn.microsoft.com/library/hh758425.aspx) ou du langage [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL).
+*  Elle prend en charge les méthodes d’authentification interactive et non interactive.
 
-**Exemple de script TMSL**
+*  Elle prend en charge les utilisateurs invités d’Azure B2B dans le client Azure AS. Lors de la connexion à un serveur, les utilisateurs invités doivent sélectionner l’authentification universelle Active Directory.
 
-Dans cet exemple, un utilisateur et un groupe sont ajoutés au rôle Utilisateurs pour la base de données SalesBI.
+*  Elle prend en charge authentification multifacteur (MFA). Azure MFA permet d’assurer l’accès aux données et applications avec une gamme d’options de vérification simples : appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile. L’authentification multifacteur (MFA) interactive avec Azure AD peut afficher une boîte de dialogue contextuelle de validation.
 
-```
-{
-  "createOrReplace": {
-    "object": {
-      "database": "SalesBI",
-      "role": "Users"
-    },
-    "role": {
-      "name": "Users",
-      "description": "All allowed users to query the model",
-      "modelPermission": "read",
-      "members": [
-        {
-          "memberName": "user1@contoso.com",
-          "identityProvider": "AzureAD"
-        },
-        {
-          "memberName": "group1@contoso.com",
-          "identityProvider": "AzureAD"
-        }
-      ]
-    }
-  }
-}
-```
+### <a name="sql-server-data-tools-ssdt"></a>Outils SQL Server Data Tools (SSDT)
+SSDT se connecte à Azure Analysis Services à l’aide de l’authentification universelle Active Directory avec prise en charge MFA. Les utilisateurs sont invités à se connecter à Azure sur le premier déploiement à l’aide de leur ID d’organisation (e-mail). Les utilisateurs doivent se connecter à Azure avec un compte disposant d’autorisations d’administrateur de serveur sur le serveur sur lequel ils sont déployés. Lors de la première connexion à Azure, un jeton est attribué. SSDT met en cache le jeton en mémoire pour de futures reconnexions.
 
-## <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
+### <a name="power-bi-desktop"></a>Power BI Desktop
+Power BI Desktop se connecte à Azure Analysis Services à l’aide de l’authentification universelle Active Directory avec prise en charge MFA. Les utilisateurs sont invités à se connecter à Azure sur le premier déploiement à l’aide de leur ID d’organisation (e-mail). Les utilisateurs doivent se connecter à Azure avec un compte inclus dans un administrateur de serveurs ou rôle de bases de données.
 
-Les administrateurs d’abonnement peuvent utiliser l’option **Contrôle d’accès** du panneau de contrôle pour configurer les rôles. Cette procédure est différente de celle appliquée aux administrateurs de serveur ou aux utilisateurs de base de données, dont la configuration s’effectue au niveau du serveur ou de la base de données (comme indiqué ci-dessus). 
+### <a name="excel"></a>Excel
+Les utilisateurs Excel peuvent se connecter à un serveur en utilisant un compte Windows, un ID d’organisation (e-mail) ou une adresse e-mail externe. Les identités de messagerie externes doivent exister dans Azure AD en tant qu’utilisateur invité.
+
+## <a name="user-permissions"></a>Autorisations utilisateur
+
+**Les administrateurs de serveur** sont spécifiques à une instance de serveur Azure Analysis Services. Ils se connectent avec des outils comme le portail Azure, SSMS et SSDT pour effectuer des tâches telles que l’ajout de bases de données et la gestion des rôles d’utilisateur. Par défaut, l’utilisateur qui crée le serveur dans le portail Azure est automatiquement ajouté en tant qu’administrateur Analysis Services. Les autres administrateurs peuvent être ajoutés à l’aide du portail Azure ou SSMS. Les administrateurs de serveur doivent posséder un compte dans le client Azure AD dans le même abonnement. Pour en savoir plus, consultez [Gérer les administrateurs de serveur](analysis-services-server-admins.md). 
+
+
+**Les utilisateurs de bases de données** se connectent aux bases de données de modèle à l’aide d’applications clientes comme Excel ou Power BI. Les utilisateurs de bases de données doivent être ajoutés aux rôles de bases de données. Les rôles de bases de données définissent l’administrateur, les processus ou les autorisations de lecture pour une base de données. Il est important de comprendre que le rôle des utilisateurs de bases de données avec des autorisations d’administrateur est différent de celui des administrateurs de serveurs. Toutefois, par défaut, les administrateurs de serveurs sont également administrateurs de bases de données. Pour en savoir plus, consultez [Gérer les rôles et les utilisateurs de bases de données](analysis-services-database-users.md).
+
+**Propriétaires de ressources Azure**. Les propriétaires des ressources gèrent les ressources pour un abonnement Azure. Les propriétaires des ressources peuvent ajouter des identités d’utilisateurs Azure AD au propriétaire ou rôles de contributeur au sein d’un abonnement à l’aide de **Contrôle d’accès** dans le portail Azure ou avec les modèles Azure Resource Manager. 
 
 ![Contrôle des accès dans le portail Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Les rôles s’appliquent aux utilisateurs ou comptes qui doivent effectuer des tâches dans le portail ou à l’aide de modèles Azure Resource Manager. Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md).
+Les rôles à ce niveau s’appliquent aux utilisateurs ou comptes qui doivent effectuer des tâches dans le portail ou à l’aide de modèles Azure Resource Manager. Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md). 
+
+
+## <a name="database-roles"></a>Rôles de bases de données
+
+ Les rôles définis pour un modèle tabulaire sont des rôles de bases de données. Autrement dit, les rôles contiennent des membres constitués d’utilisateurs d’Azure AD et les groupes de sécurité qui ont des autorisations spécifiques qui définissent l’action que ces membres peuvent effectuer sur une base de données du modèle. Un rôle de bases de données est créé en tant qu’objet distinct dans la base de données et s’applique uniquement à la base de données dans laquelle il est créé.   
+  
+ Par défaut, lorsque vous créez un nouveau projet de modèle tabulaire, le projet de modèle n’a aucun rôle. Les rôles peuvent être définis à l’aide de la boîte de dialogue Gestionnaire de rôles dans SSDT. Lorsque les rôles sont définis lors de la conception du projet de modèle, ils sont appliqués uniquement à la base de données de l’espace de travail modèle. Lorsque le modèle est déployé, les mêmes rôles sont appliqués au modèle déployé. Après avoir déployé un modèle, les administrateurs de serveurs et de bases de données peuvent gérer les rôles et les membres à l’aide de SSMS. Pour en savoir plus, consultez [Gérer les rôles et les utilisateurs de bases de données](analysis-services-database-users.md).
+  
+
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous n’avez pas déjà déployé un modèle tabulaire sur votre serveur, c’est le moment de le faire. Pour en savoir plus, voir [Déployer sur Azure Analysis Services](analysis-services-deploy.md).
 
-Si vous avez déployé un modèle sur votre serveur, vous êtes prêt à vous connecter à celui-ci à l’aide d’un client ou d’un navigateur. Pour en savoir plus, voir [Obtenir les données du serveur Azure Analysis Services](analysis-services-connect.md).
-
-
+[Gérer l’accès aux ressources avec les groupes Azure Active Directory](../active-directory/active-directory-manage-groups.md)   
+[Gérer les utilisateurs et rôles de bases de données](analysis-services-database-users.md)  
+[Gérer les administrateurs de serveurs](analysis-services-server-admins.md)  
+[Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md)  

@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 08/03/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f40289f9b5c693557cc8fa0f411c58ede1aa1d48
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 4dfe9c755f3e7d5414ae04dd4027defd6cef2e4a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Créer des applications mobiles avec Xamarin et Azure Cosmos DB
@@ -37,7 +36,7 @@ Azure Cosmos DB fournit les fonctionnalités clés suivantes aux développeurs d
 * Mise à l’échelle illimitée. Vos collections Azure Cosmos DB [augmentent à mesure que votre application grandit](partition-data.md). Vous pouvez commencer par des données de petite taille et un débit réduit, soit quelques centaines de requêtes par seconde. Vos collections peuvent inclure jusqu’à plusieurs pétaoctets de données et un débit arbitrairement élevé, soit des centaines de millions de requêtes par seconde.
 * Distribution globale. Les utilisateurs d’applications mobiles sont en déplacement, souvent aux quatre coins du monde. Azure Cosmos DB est une [base de données mondialement distribuée](distribute-data-globally.md). Cliquez sur la carte pour rendre les données accessibles à vos utilisateurs.
 * Autorisation riche intégrée. Avec Azure Cosmos DB, vous implémentez facilement des modèles très répandus, comme les [données par utilisateur](https://aka.ms/documentdb-xamarin-todouser) ou les données partagées par plusieurs utilisateurs, sans recourir à un code d’autorisation complexe personnalisé.
-* Requêtes géospatiales. Beaucoup d’applications mobiles proposent aujourd’hui des expériences géocontextuelles. Grâce à la prise en charge de première classe des [types géospatiaux](geospatial.md), DocumentDB rend ces expériences faciles à accomplir.
+* Requêtes géospatiales. Beaucoup d’applications mobiles proposent aujourd’hui des expériences géocontextuelles. Grâce à la prise en charge de première classe des [types géospatiaux](geospatial.md), Azure Cosmos DB rend la création de ces expériences facile à accomplir.
 * Pièces jointes binaires. Vos données d’application comprennent souvent des blobs binaires. La prise en charge native des pièces jointes simplifie l’utilisation d’Azure Cosmos DB comme guichet unique pour les données de votre application.
 
 ## <a name="azure-cosmos-db-and-xamarin-tutorial"></a>Didacticiel Azure Cosmos DB et Xamarin
@@ -46,7 +45,7 @@ Le didacticiel suivant explique comment créer une application mobile à l’aid
 ### <a name="get-started"></a>Prise en main
 La prise en main d’Azure Cosmos DB est simple. Utilisez le portail Azure pour créer un compte Azure Cosmos DB. Cliquez sur l’onglet **Démarrage rapide**. Téléchargez l’exemple de liste de tâches Xamarin Forms, qui est déjà connecté à votre compte Azure Cosmos DB. 
 
-![Démarrage rapide d’Azure Cosmos DB pour les applications mobiles](media/mobile-apps-with-xamarin/documentdb-quickstart.png)
+![Démarrage rapide d’Azure Cosmos DB pour les applications mobiles](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
 
 Si vous disposez déjà d’une application Xamarin, vous pouvez également ajouter le [package NuGet d’Azure Cosmos DB](documentdb-sdk-dotnet-core.md). Azure Cosmos DB prend en charge les bibliothèques partagées Xamarin.IOS, Xamarin.Android et Xamarin Forms.
 
@@ -91,18 +90,18 @@ Si vous souhaitez que deux utilisateurs puissent accéder à la même liste des 
 ### <a name="scale-on-demand"></a>Mise à l’échelle à la demande
 Azure Cosmos DB est une base de données gérée en tant que service. À mesure que votre base d’utilisateurs augmente, vous n’avez pas à vous soucier de la configuration des machines virtuelles ou de l’augmentation de la mémoire à tores magnétiques. Il vous suffit d’indiquer à Azure Cosmos DB, le nombre d’opérations par seconde (débit) dont votre application a besoin. Vous pouvez spécifier le débit via l’onglet **Mise à l’échelle** à l’aide d’une mesure de débit appelée Unité de requête par seconde (RU). Par exemple, une opération de lecture d’un document de 1 Ko nécessite 1 RU. Vous pouvez également ajouter des alertes à la mesure **Débit**, afin de surveiller la croissance du trafic et de modifier le débit par programme lorsque des alertes se déclenchent.
 
-![Débit de mise à l’échelle d’Azure Cosmos DB à la demande](media/mobile-apps-with-xamarin/documentdb-scale.png)
+![Débit de mise à l’échelle d’Azure Cosmos DB à la demande](media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png)
 
 ### <a name="go-planet-scale"></a>Développement à l’échelle de la planète
 À mesure que votre application gagne en popularité, vous pouvez acquérir des utilisateurs aux quatre coins du monde. Peut-être souhaitez-vous pouvoir faire face à des événements imprévus. Accédez au portail Azure et ouvrez votre compte Azure Cosmos DB. Cliquez sur la carte permettre la réplication continue de vos données dans différentes régions du monde. Grâce à cette fonctionnalité, vos données sont disponibles où que se trouvent vos utilisateurs. Vous pouvez également ajouter des stratégies de basculement, afin d’être prêt à affronter toute situation d’urgence.
 
-![Mise à l’échelle d’Azure Cosmos DB dans différentes régions géographiques](media/mobile-apps-with-xamarin/documentdb-replicate-globally.png)
+![Mise à l’échelle d’Azure Cosmos DB dans différentes régions géographiques](media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png)
 
 Félicitations ! Vous avez terminé la solution et vous disposez d’une application mobile avec Xamarin et Azure Cosmos DB. Vous pouvez utiliser une procédure similaire pour créer des applications Cordova, à l’aide du Kit de développement logiciel (SDK) JavaScript DocumentDB, ainsi que des applications iOS/Android natives, à l’aide des API REST DocumentDB.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Affichez le code source de [Xamarin et Azure Cosmos DB sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
-* Téléchargez le [Kit de développement logiciel (SDK) .NET Core de DocumentDB](documentdb-sdk-dotnet-core.md).
+* Téléchargez le [SDK .NET Core Azure Cosmos DB](documentdb-sdk-dotnet-core.md).
 * Consultez davantage d’exemples de code pour les [applications .NET](documentdb-dotnet-samples.md).
 * Découvrez plus en détail les [riches fonctionnalités d’interrogation d’Azure Cosmos DB](documentdb-sql-query.md).
 * Découvrez plus en détail la [prise en charge géospatiale dans Azure Cosmos DB](geospatial.md).

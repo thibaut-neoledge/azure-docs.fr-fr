@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2017
+ms.date: 08/07/2017
 ms.author: sethm;hillaryc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 3466bbd23cb20df826ad919b8c76289d89375f04
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 5a4e69ea7e13cb017f8fb432c524c6a8ce9228a8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="partitioned-queues-and-topics"></a>Files d’attente et rubriques partitionnées
@@ -32,6 +31,7 @@ Le partitionnement est activé par défaut lors de la création d’entités sur
 Il n’est pas possible de modifier l’option de partitionnement dans une file d’attente ou une rubrique existante dans les niveaux Standard ou Premium. Vous pouvez uniquement définir l’option lorsque vous créez l’entité.
 
 ## <a name="how-it-works"></a>Fonctionnement
+
 Chaque file d’attente ou rubrique partitionnée est constituée de plusieurs fragments. Chaque fragment est stocké dans une banque de messagerie différente et géré par un courtier de messages différent. Lorsqu’un message est envoyé à une file d’attente ou une rubrique partitionnée, Service Bus affecte le message à l’un des fragments. La sélection est effectuée au hasard par Service Bus ou à l’aide d’une clé de partition que l’expéditeur peut spécifier.
 
 Lorsqu’un client souhaite recevoir un message à partir d’une file d’attente partitionnée ou à partir d’un abonnement à une rubrique partitionnée, Service Bus interroge tous les fragments des messages, puis retourne le premier message qui est obtenu à partir de l’une des banques de messagerie au destinataire. Service Bus place les autres messages en cache pour les retourner quand il reçoit d'autres requêtes de réception. Un client destinataire n’est pas conscient de ce partitionnement ; le comportement côté client d’une file d’attente ou d’une rubrique partitionnée (par exemple, lecture, exécution, report, rebut, préchargement) est identique à celui d’une entité ordinaire.
@@ -39,6 +39,7 @@ Lorsqu’un client souhaite recevoir un message à partir d’une file d’atten
 Il n’existe aucun coût supplémentaire lors de l’envoi d’un message à, ou lors de la réception d’un message depuis, une file d’attente ou une rubrique partitionnée.
 
 ## <a name="enable-partitioning"></a>Activation du partitionnement
+
 Pour utiliser des rubriques et des files d’attente partitionnées avec Azure Service Bus, utilisez le Kit de développement logiciel (SDK) Microsoft Azure version 2.2 ou version ultérieure, ou spécifiez `api-version=2013-10` dans vos requêtes HTTP.
 
 ### <a name="standard"></a>Standard

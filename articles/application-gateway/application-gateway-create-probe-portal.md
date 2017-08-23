@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a12e9d342daf41ee9f83cadb9e29ee867be055de
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 65e9bba4ce9ac41ae2a9a8c3fa7f661165fc1403
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Créer une sonde personnalisée pour Application Gateway à l’aide du portail
@@ -38,7 +37,7 @@ Si vous ne disposez pas déjà d’une passerelle d’application, consultez [Cr
 
 ## <a name="createprobe"></a>Créer la sonde
 
-Les sondes sont configurées via un processus en deux étapes sur le portail. La première étape consiste à créer la sonde. Dans la deuxième étape, vous allez ajouter la sonde aux paramètres http back-end de la passerelle d’application.
+Les sondes sont configurées via un processus en deux étapes sur le portail. La première étape consiste à créer la sonde. Dans la deuxième étape, vous allez ajouter la sonde aux paramètres http backend de la passerelle d’application.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit d’un mois](https://azure.microsoft.com/free).
 
@@ -57,7 +56,7 @@ Les sondes sont configurées via un processus en deux étapes sur le portail. La
   |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom d’hôte utilisé pour la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway, sinon utilisez '127.0.0.1'. Cette valeur est différente du nom d’hôte de la machine virtuelle.|
   |**Chemin d’accès**|/ ou un autre chemin|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut de http://contoso.com, utilisez simplement « / ». |
   |**Intervalle (secondes)**|30|Fréquence d’exécution de la sonde pour le contrôle d’intégrité. Il n’est pas recommandé de définir la valeur sur moins de 30 secondes.|
-  |**Délai d’expiration (secondes)**|30|Intervalle de temps précédant l’expiration de la sonde. L’intervalle de délai d’attente doit être suffisamment élevé pour qu’un appel HTTP puisse être envoyé afin de garantir que la page d’intégrité du serveur principal est disponible.|
+  |**Délai d’expiration (secondes)**|30|Intervalle de temps précédant l’expiration de la sonde. L’intervalle de délai d’attente doit être suffisamment élevé pour qu’un appel HTTP puisse être envoyé afin de garantir que la page d’intégrité backend est disponible.|
   |**Seuil de défaillance sur le plan de l’intégrité**|3|Nombre d’échecs nécessaires pour marquer l’instance comme étant défaillante. Un seuil de 0 signifie qu’en cas d’échec de contrôle d’intégrité, le serveur principal est immédiatement identifié comme défaillant.|
 
   > [!IMPORTANT]
@@ -67,14 +66,14 @@ Les sondes sont configurées via un processus en deux étapes sur le portail. La
 
 Maintenant que la sonde a été créée, il est temps de l’ajouter à la passerelle. Les paramètres de la sonde sont définis sur les paramètres http principaux de la passerelle d’application.
 
-1. Cliquez sur **Paramètres HTTP** dans la passerelle d’application pour afficher le panneau de configuration, puis cliquez sur les paramètres http back-end actuels répertoriés dans la fenêtre.
+1. Cliquez sur **Paramètres HTTP** dans la passerelle d’application pour afficher le panneau de configuration, puis cliquez sur les paramètres http backend actuels répertoriés dans la fenêtre.
 
   ![fenêtre de paramètres https][2]
 
 1. Dans le panneau des paramètres **appGatewayBackEndHttpSettings**, cochez la case **Utiliser la sonde personnalisée**, puis choisissez la sonde créée à la section [Créer la sonde](#createprobe) dans la liste déroulante **Sonde personnalisée**.
 Quand vous avez terminé, cliquez sur **Enregistrer** pour appliquer les paramètres.
 
-La sonde par défaut vérifie l’accès par défaut à l’application web. Maintenant qu’une sonde personnalisée a été créée, la passerelle d’application utilise le chemin personnalisé défini pour contrôler l’intégrité des serveurs back-end. En fonction des critères qui ont été définis, la passerelle d’application vérifie le chemin spécifié dans la sonde. Si l’appel à host:Port/path ne retourne pas de réponse d’état HTTP 200-299, le serveur est mis hors service après avoir atteint le seuil de défaillance sur le plan de l’intégrité. La détection continue sur l’instance défaillante pour déterminer quand elle sera rétablie. Une fois l’instance ajoutée au pool de serveurs intègre, le trafic recommence à circuler vers elle et la détection de l’instance continue comme d’habitude en fonction des intervalles définis par l’utilisateur.
+La sonde par défaut vérifie l’accès par défaut à l’application web. Maintenant qu’une sonde personnalisée a été créée, la passerelle d’application utilise le chemin personnalisé défini pour contrôler l’intégrité des serveurs backend. En fonction des critères qui ont été définis, la passerelle d’application vérifie le chemin spécifié dans la sonde. Si l’appel à host:Port/path ne retourne pas de réponse d’état HTTP 200-399, le serveur est mis hors service après avoir atteint le seuil de défaillance sur le plan de l’intégrité. La détection continue sur l’instance défaillante pour déterminer quand elle sera rétablie. Une fois l’instance ajoutée au pool de serveurs intègre, le trafic recommence à circuler vers elle et la détection de l’instance continue comme d’habitude en fonction des intervalles définis par l’utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

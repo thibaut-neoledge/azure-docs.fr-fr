@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 25502e4124442ed1853e3c3d9226107328c29316
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: fb7d391e3118a9dccde5501c3f30c6f580932a30
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Contrôle du trafic des applications web Azure avec Azure Traffic Manager
@@ -50,7 +49,7 @@ Lorsque vous utilisez Azure Traffic Manager avec Azure, tenez compte des points 
 * Les points de terminaison d’applications web, que vous spécifiez dans un profil Azure Traffic Manager, s’affichent dans la section **Noms de domaine** de la page Configurer de l’application web du profil, mais ils ne sont pas configurables ici.
 * Lorsque vous avez ajouté une application web à un profil, l’ **URL du site** dans le tableau de bord de l’application web sur le portail affiche l’URL du domaine personnalisé de l’application web (s’il est défini). Sinon, elle affiche l’URL du profil Traffic Manager (par exemple, `contoso.trafficmgr.com`). Le nom de domaine direct de l’application web et l’URL de Traffic Manager sont tous deux affichés dans la page Configurer de l’application web dans la section **Noms de domaine** .
 * Vos noms de domaines personnalisés fonctionnent comme prévu, mais en plus de les ajouter à vos applications web, vous devez configurer votre carte DNS pour qu’elle pointe vers l’URL de Traffic Manager. Pour plus d’informations sur la configuration d’un domaine personnalisé pour une application web Azure, consultez la page [Configuration d’un nom de domaine personnalisé pour un site web Azure](app-service-web-tutorial-custom-domain.md).
-* Vous ne pouvez ajouter que des applications web en mode standard à un profil Azure Traffic Manager.
+* Vous ne pouvez ajouter que des applications web en mode standard ou Premium à un profil Azure Traffic Manager.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour une vue d'ensemble conceptuelle et technique d'Azure Traffic Manager, consultez la rubrique [Vue d'ensemble de Traffic Manager](../traffic-manager/traffic-manager-overview.md).

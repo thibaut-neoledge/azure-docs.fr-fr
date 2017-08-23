@@ -16,6 +16,7 @@
 ### [Ajouter des instructions switch](logic-apps-switch-case.md)
 ### [Ajouter du code personnalisé avec Azure Functions](logic-apps-azure-functions.md)
 ### [Boucles, étendues et décomposition des données](logic-apps-loops-and-scopes.md)
+### [Messages du processus de traitement par lot](logic-apps-batch-process-send-receive-messages.md)
 ### [Créer des définitions d’application logique](logic-apps-author-definitions.md)
 ### [Appeler, déclencher ou imbriquer des applications logiques](logic-apps-http-endpoint.md)
 ### [Créer des API personnalisées pour les applications logiques](logic-apps-create-api-app.md)
@@ -64,6 +65,7 @@
 ### [Gérer des applications logiques avec Visual Studio](logic-apps-manage-from-vs.md)
 ### [Gérer les comptes d’intégration](logic-apps-enterprise-integration-accounts.md)
 ### [Surveiller l’état de l’application logique](logic-apps-monitor-your-logic-apps.md)
+### [Surveiller l’état de l’application logique dans OMS avec Log Analytics](logic-apps-monitor-your-logic-apps-oms.md)
 ### [Surveiller les messages B2B](logic-apps-monitor-b2b-message.md)
 #### [Suivre des messages B2B dans OMS](logic-apps-track-b2b-messages-omsportal.md)
 #### [Interroger OMS à propos des messages B2B](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
@@ -140,5 +142,6 @@
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)

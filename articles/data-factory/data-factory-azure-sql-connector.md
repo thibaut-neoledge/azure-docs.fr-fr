@@ -22,12 +22,10 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-# Copier des données vers et depuis Azure SQL Database en utilisant Azure Data Factory
-<a id="copy-data-to-and-from-azure-sql-database-using-azure-data-factory" class="xliff"></a>
+# <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copier des données vers et depuis Azure SQL Database en utilisant Azure Data Factory
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données vers et depuis Azure SQL Database. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.  
 
-## Scénarios pris en charge
-<a id="supported-scenarios" class="xliff"></a>
+## <a name="supported-scenarios"></a>Scénarios pris en charge
 Vous pouvez copier des données **depuis Azure SQL Database** vers les magasins de données suivants :
 
 [!INCLUDE [data-factory-supported-sinks](../../includes/data-factory-supported-sinks.md)]
@@ -36,12 +34,10 @@ Vous pouvez copier des données depuis les magasins de données suivants **vers 
 
 [!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
-## Type d’authentification pris en charge
-<a id="supported-authentication-type" class="xliff"></a>
+## <a name="supported-authentication-type"></a>Type d’authentification pris en charge
 Le connecteur Azure SQL Database prend en charge l’authentification de base.
 
-## Prise en main
-<a id="getting-started" class="xliff"></a>
+## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données vers/depuis Azure SQL Database à l’aide de différents outils/API.
 
 Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant de copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
@@ -59,8 +55,7 @@ Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data
 
 Les sections suivantes offrent des informations détaillées sur les propriétés JSON utilisées pour définir les entités Data Factory propres à Azure SQL Database : 
 
-## Propriétés du service lié
-<a id="linked-service-properties" class="xliff"></a>
+## <a name="linked-service-properties"></a>Propriétés du service lié
 Un service lié SQL Azure lie une base de données SQL Azure à votre fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Azure.
 
 | Propriété | Description | Requis |
@@ -71,8 +66,7 @@ Un service lié SQL Azure lie une base de données SQL Azure à votre fabrique d
 > [!IMPORTANT]
 > Configurez le [pare-feu Azure SQL Database](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) et le serveur de base de données pour [autoriser les services Azure à accéder au serveur](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). En outre, si vous copiez des données vers Azure SQL Database à partir d’un emplacement situé en dehors d’Azure, y compris à partir de sources de données locales avec la passerelle de la fabrique de données, configurez la plage d’adresses IP appropriée pour l’ordinateur qui envoie des données à Azure SQL Database.
 
-## Propriétés du jeu de données
-<a id="dataset-properties" class="xliff"></a>
+## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour spécifier un jeu de données afin de représenter les données d’entrée ou de sortie dans une base de données SQL Azure, vous devez définir la propriété de type du jeu de données sur : **AzureSqlTable**. Définissez la propriété **linkedServiceName** du jeu de données sur le nom du service lié Azure SQL.  
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
@@ -83,8 +77,7 @@ La section typeProperties est différente pour chaque type de jeu de données et
 | --- | --- | --- |
 | TableName |Nom de la table ou de la vue dans l’instance Azure SQL Database à laquelle le service lié fait référence. |Oui |
 
-## Propriétés de l’activité de copie
-<a id="copy-activity-properties" class="xliff"></a>
+## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
 
 > [!NOTE]
@@ -94,8 +87,7 @@ En revanche, les propriétés disponibles dans la section **typeProperties** de 
 
 Si vous déplacez des données à partir d’une Azure SQL Database, vous définissez le type de source dans l’activité de copie sur **SqlSource**. De même, si vous déplacez des données vers une Azure SQL Database, vous définissez le type de récepteur dans l’activité de copie sur **SqlSink**. Cette section fournit une liste de propriétés prises en charge par SqlSource et SqlSink.
 
-### SqlSource
-<a id="sqlsource" class="xliff"></a>
+### <a name="sqlsource"></a>SqlSource
 Dans le cas d’une activité de copie, quand la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
@@ -113,8 +105,7 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 >
 >
 
-### Exemple SqlSource
-<a id="sqlsource-example" class="xliff"></a>
+### <a name="sqlsource-example"></a>Exemple SqlSource
 
 ```JSON
 "source": {
@@ -146,8 +137,7 @@ END
 GO
 ```
 
-### SqlSink
-<a id="sqlsink" class="xliff"></a>
+### <a name="sqlsink"></a>SqlSink
 **SqlSink** prend en charge les propriétés suivantes :
 
 | Propriété | Description | Valeurs autorisées | Requis |
@@ -160,8 +150,7 @@ GO
 | storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non |
 | sqlWriterTableType |Spécifiez le nom du type de table à utiliser dans la procédure stockée. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Nom de type de table. |Non |
 
-#### Exemple SqlSink
-<a id="sqlsink-example" class="xliff"></a>
+#### <a name="sqlsink-example"></a>Exemple SqlSink
 
 ```JSON
 "sink": {
@@ -178,12 +167,10 @@ GO
 }
 ```
 
-## Exemples JSON pour copier des données vers et depuis SQL Database
-<a id="json-examples-for-copying-data-to-and-from-sql-database" class="xliff"></a>
+## <a name="json-examples-for-copying-data-to-and-from-sql-database"></a>Exemples JSON pour copier des données vers et depuis SQL Database
 Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers et depuis une base de données Azure SQL et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie de Microsoft Azure Data Factory.
 
-### Exemple : Copie de données depuis Azure SQL Database vers un objet blob Azure
-<a id="example-copy-data-from-azure-sql-database-to-azure-blob" class="xliff"></a>
+### <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>Exemple : Copie de données depuis Azure SQL Database vers un objet blob Azure
 L’exemple définit les entités de fabrique de données suivantes :
 
 1. Un service lié de type [AzureSqlDatabase](#linked-service-properties).
@@ -375,8 +362,7 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 
 Consultez la section [Sql Source](#sqlsource) et [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) pour obtenir la liste des propriétés prises en charge par SqlSource et BlobSink.
 
-### Exemple : Copie de données d’un objet blob Azure vers Azure SQL Database
-<a id="example-copy-data-from-azure-blob-to-azure-sql-database" class="xliff"></a>
+### <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>Exemple : Copie de données d’un objet blob Azure vers Azure SQL Database
 L’exemple définit les entités Data Factory suivantes :  
 
 1. Un service lié de type [AzureSqlDatabase](#linked-service-properties).
@@ -562,8 +548,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 ```
 Consultez la section [Sql Sink](#sqlsink) et [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) pour obtenir la liste des propriétés prises en charge par SqlSink et BlobSource.
 
-## Colonnes d’identité dans la base de données cible
-<a id="identity-columns-in-the-target-database" class="xliff"></a>
+## <a name="identity-columns-in-the-target-database"></a>Colonnes d’identité dans la base de données cible
 Cette section fournit un exemple pour copier des données d’une table source sans colonne d’identité vers une table de destination avec une colonne d’identité.
 
 **Table source :**
@@ -634,12 +619,10 @@ Notez que la table cible possède une colonne d’identité.
 
 Notez que vos tables source et cible ont des schémas différents (la cible possède une colonne supplémentaire avec identité). Dans ce scénario, vous devez spécifier la propriété **structure** dans la définition du jeu de données cible, qui n’inclut pas la colonne d’identité.
 
-## Appel d’une procédure stockée pour un récepteur SQL
-<a id="invoke-stored-procedure-from-sql-sink" class="xliff"></a>
+## <a name="invoke-stored-procedure-from-sql-sink"></a>Appel d’une procédure stockée pour un récepteur SQL
 Pour obtenir un exemple d’appel d’une procédure stockée à partir d’un récepteur SQL dans l’activité de copie d’un pipeline, consultez l’article [Appeler une procédure stockée pour un récepteur SQL dans l’activité de copie](data-factory-invoke-stored-procedure-from-copy-activity.md). 
 
-## Mappage de type pour Azure SQL Database
-<a id="type-mapping-for-azure-sql-database" class="xliff"></a>
+## <a name="type-mapping-for-azure-sql-database"></a>Mappage de type pour Azure SQL Database
 Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md) , l’activité de copie convertit automatiquement les types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
 1. Conversion de types natifs source en types .NET
@@ -682,17 +665,14 @@ Lors du déplacement des données vers et à partir de Microsoft Azure SQL Da
 | varchar |String, Char[] |
 | xml |xml |
 
-## Mapper les colonnes source aux colonnes de récepteur
-<a id="map-source-to-sink-columns" class="xliff"></a>
+## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes de récepteur
 Pour en savoir plus sur le mappage de colonnes du jeu de données source à des colonnes du jeu de données récepteur, voir [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).
 
-## Copie renouvelée
-<a id="repeatable-copy" class="xliff"></a>
+## <a name="repeatable-copy"></a>Copie renouvelée
 Lors de la copie de données sur une base de données SQL Server, l’activité de copie ajoute des données à la table de récepteur par défaut. Pour effectuer une opération UPSERT à la place, consultez l’article [Écriture renouvelée sur SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink). 
 
 Lorsque vous copiez des données à partir de magasins de données relationnels, gardez à l’esprit la répétabilité de l’opération, afin d’éviter des résultats imprévus. Dans Azure Data Factory, vous pouvez réexécuter une tranche manuellement. Vous pouvez également configurer une stratégie de nouvelles tentatives pour un jeu de données, afin qu’une tranche soit réexécutée en cas de défaillance. Lorsqu’une tranche est réexécutée d’une manière ou d’une autre, vous devez vous assurer que les mêmes données sont lues et ce, quel que soit le nombre d’exécutions de la tranche. Voir [Lecture renouvelée de sources relationnelles](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-## Performances et réglage
-<a id="performance-and-tuning" class="xliff"></a>
+## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 

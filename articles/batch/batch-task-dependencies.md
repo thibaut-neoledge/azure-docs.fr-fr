@@ -12,13 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/02/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 12b121783f6d95a952441f1a570d58af9ec1eb7a
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 465306d2de8d1dbe6ba1f0cd74be720b78a50de3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -153,10 +154,11 @@ Par exemple, supposons qu’une tâche dépendante attend des données de l’ac
 
 Une action de dépendance est basée sur une condition de sortie pour la tâche parente. Vous pouvez indiquer une action de dépendance pour toutes les conditions de sortie suivantes ; pour un environnement .NET, consultez la classe [ExitConditions][net_exitconditions] :
 
-- Lorsqu’une erreur de planification se produit
-- Lorsqu’une tâche se termine avec un code de sortie défini par la propriété **ExitCodes**
-- Lorsqu’une tâche se termine avec un code de sortie dans une plage définie par la propriété **ExitCodeRanges**
-- Dans le cas par défaut, si la tâche se termine avec un code de sortie non défini par **ExitCodes** ou **ExitCodeRanges** ou si la tâche se termine avec une erreur de planification et que la propriété **SchedulingError** 
+- Lorsqu’une erreur de prétraitement se produit.
+- Lorsqu’une erreur de chargement de fichier se produit. Si la tâche se termine avec un code de sortie qui a été spécifié via **exitCodes** ou **exitCodeRanges**, puis rencontre une erreur de chargement de fichier, l’action spécifiée par le code de sortie est prioritaire.
+- Lorsque la tâche se termine avec un code de sortie défini par la propriété **ExitCodes**.
+- Lorsque la tâche se termine avec un code de sortie dans une plage définie par la propriété **ExitCodeRanges**.
+- Le cas par défaut : si la tâche se termine avec un code de sortie non défini par **ExitCodes** ou **ExitCodeRanges**, ou si la tâche se termine avec une erreur de prétraitement et si la propriété **PreProcessingError** n’est pas définie, ou si la tâche échoue avec une erreur de chargement de fichier et si la propriété **FileUploadError** n’est pas définie. 
 
 Pour spécifier une action de dépendance dans .NET, définissez la propriété [ExitOptions][net_exitoptions].[ DependencyAction][net_dependencyaction] pour la condition de sortie. La propriété **DependencyAction** accepte l’une des deux valeurs suivantes :
 
@@ -165,29 +167,29 @@ Pour spécifier une action de dépendance dans .NET, définissez la propriété 
 
 Le paramètre par défaut de la propriété **DependencyAction** est **Satisfy** pour le code de sortie 0 et **Block** pour toutes les autres conditions de sortie.
 
-L’extrait de code suivant définit la propriété **DependencyAction** d’une tâche parente. Si la tâche parente se termine avec une erreur de planification ou avec les codes d’erreur spécifiés, la tâche dépendante est bloquée. Si la tâche parente se termine avec une autre erreur non nulle, la tâche dépendante peut être exécutée.
+L’extrait de code suivant définit la propriété **DependencyAction** d’une tâche parente. Si la tâche parente se termine avec une erreur de prétraitement ou avec les codes d’erreur spécifiés, la tâche dépendante est bloquée. Si la tâche parente se termine avec une autre erreur non nulle, la tâche dépendante peut être exécutée.
 
 ```csharp
 // Task A is the parent task.
 new CloudTask("A", "cmd.exe /c echo A")
 {
     // Specify exit conditions for task A and their dependency actions.
-    ExitConditions = new ExitConditions()
+    ExitConditions = new ExitConditions
     {
-        // If task A exits with a scheduling error, block any downstream tasks (in this example, task B).
-        SchedulingError = new ExitOptions()
+        // If task A exits with a pre-processing error, block any downstream tasks (in this example, task B).
+        PreProcessingError = new ExitOptions
         {
             DependencyAction = DependencyAction.Block
         },
         // If task A exits with the specified error codes, block any downstream tasks (in this example, task B).
-        ExitCodes = new List<ExitCodeMapping>()
+        ExitCodes = new List<ExitCodeMapping>
         {
             new ExitCodeMapping(10, new ExitOptions() { DependencyAction = DependencyAction.Block }),
             new ExitCodeMapping(20, new ExitOptions() { DependencyAction = DependencyAction.Block })
         },
         // If task A succeeds or fails with any other error, any downstream tasks become eligible to run 
         // (in this example, task B).
-        Default = new ExitOptions()
+        Default = new ExitOptions
         {
             DependencyAction = DependencyAction.Satisfy
         }

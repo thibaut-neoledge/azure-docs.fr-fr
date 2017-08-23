@@ -21,22 +21,16 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 01/05/2017
 
 ---
-<a id="generic-sql-connector-step-by-step" class="xliff"></a>
-
-# Connecteur SQL générique - Guide pas à pas
+# <a name="generic-sql-connector-step-by-step"></a>Connecteur SQL générique - Guide pas à pas
 Cette rubrique est un guide pas à pas. Elle explique comment créer un simple exemple de base de données Ressources humaines et l’utiliser pour importer certains utilisateurs et leur appartenance à un groupe.
 
-<a id="prepare-the-sample-database" class="xliff"></a>
-
-## Préparer l’exemple de base de données
+## <a name="prepare-the-sample-database"></a>Préparer l’exemple de base de données
 Sur un serveur exécutant SQL Server, exécutez le script SQL disponible dans [l’Annexe A](#appendix-a). Un exemple de base de données portant le nom GSQLDEMO est créé. Le modèle objet pour la base de données créée a l’aspect suivant :   
 ![Modèle objet](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/objectmodel.png)
 
 Créez également l’utilisateur que vous souhaitez utiliser pour vous connecter à la base de données. Dans cette procédure pas à pas, l’utilisateur est appelé FABRIKAM\SQLUser et il est situé dans le domaine.
 
-<a id="create-the-odbc-connection-file" class="xliff"></a>
-
-## Créer le fichier de connexion ODBC
+## <a name="create-the-odbc-connection-file"></a>Créer le fichier de connexion ODBC
 Le connecteur SQL générique utilise ODBC pour se connecter au serveur distant. Nous devons tout d’abord créer un fichier avec les informations de connexion ODBC.
 
 1. Démarrez l’utilitaire de gestion ODBC sur votre serveur :   
@@ -66,9 +60,7 @@ Le connecteur SQL générique utilise ODBC pour se connecter au serveur distant.
 
 Nous avons maintenant le fichier dont nous avons besoin et pouvons commencer à créer le connecteur.
 
-<a id="create-the-generic-sql-connector" class="xliff"></a>
-
-## Créer le connecteur SQL générique
+## <a name="create-the-generic-sql-connector"></a>Créer le connecteur SQL générique
 1. Dans l’interface Synchronization Service Manager, cliquez sur **Connecteurs**, puis sur **Créer**. Sélectionnez **SQL générique (Microsoft)** et donnez-lui un nom descriptif.  
    ![Connecteur1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector1.png)
 2. Recherchez le fichier DSN que vous avez créé dans la section précédente et téléchargez-le sur le serveur. Entrez les informations de connexion à la base de données.  
@@ -89,9 +81,7 @@ Nous avons maintenant le fichier dont nous avons besoin et pouvons commencer à 
    ![Connecteur9](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector9.png)
 10. Dans **Sélectionner les types d’objet** et **Sélectionner les attributs**, sélectionnez les types d’objet et tous les attributs. Sur la page **Configurer les ancres**, cliquez sur **Terminer**.
 
-<a id="create-run-profiles" class="xliff"></a>
-
-## Créer les profils d’exécution
+## <a name="create-run-profiles"></a>Créer les profils d’exécution
 1. Dans l’interface Synchronization Service Manager, cliquez sur **Connecteurs**, puis sur **Configurer les profils d’exécution**. Cliquez sur **Nouveau profil**. Nous commençons par **Importation intégrale**.  
    ![ProfilExecution1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile1.png)
 2. Sélectionnez le type **Importation intégrale (intermédiaire uniquement)**.  
@@ -107,18 +97,14 @@ Nous avons maintenant le fichier dont nous avons besoin et pouvons commencer à 
 6. Facultatif : si vous le souhaitez, vous pouvez configurer des profils d’exécution supplémentaires. Pour cette procédure pas à pas, seule l’importation intégrale est utilisée.
 7. Cliquez sur **OK** pour terminer de modifier les profils d’exécution.
 
-<a id="add-some-test-data-and-test-the-import" class="xliff"></a>
-
-## Ajouter quelques données de test et tester l’importation
+## <a name="add-some-test-data-and-test-the-import"></a>Ajouter quelques données de test et tester l’importation
 Remplissez quelques données de test dans votre exemple de base de données. Lorsque vous êtes prêt, sélectionnez **Exécuter** et **Importation intégrale**.
 
 Voici un utilisateur avec deux numéros de téléphone et un groupe avec quelques membres.  
 ![cs1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs1.png)  
 ![cs2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
 
-<a id="appendix-a" class="xliff"></a>
-
-## Annexe A
+## <a name="appendix-a"></a>Annexe A
 **Script SQL pour créer l’exemple de base de données**
 
 ```SQL

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 6da663ea282e09b01ce380827fa7e31505712516
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 964b39053cf91285202f3af165f4313a15e9f9ee
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Prise en charge SSH pour Azure Web App sur Linux
@@ -56,7 +55,7 @@ Si vous n’êtes pas déjà authentifié, vous devez le faire à l’aide de vo
 
 Pour qu’une image Docker personnalisée prenne en charge la communication entre le conteneur et le client dans le portail Azure, procédez comme suit pour votre image Docker. 
 
-Cette procédure est affichée dans le référentiel Azure App Service en tant qu’exemple [ici](https://github.com/Azure-App-Service/node/tree/master/4.4.7-1).
+Cette procédure est affichée dans le référentiel Azure App Service en tant qu’exemple [ici](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Incluez l’installation `openssh-server` dans [l’instruction `RUN`](https://docs.docker.com/engine/reference/builder/#run) au sein du fichier Dockerfile de votre image et définissez le mot de passe du compte racine sur `"Docker!"`. 
 
@@ -90,7 +89,7 @@ Cette procédure est affichée dans le référentiel Azure App Service en tant q
     EXPOSE 2222 80
     ```
 
-4. Veillez à démarrer le service ssh. L’exemple [ici](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/init_container.sh) utilise un script shell dans le répertoire */bin*.
+4. Veillez à démarrer le service ssh. L’exemple [ici](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) utilise un script shell dans le répertoire */bin*.
 
     ```bash
     #!/bin/bash

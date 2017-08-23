@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2017
+ms.date: 08/02/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a05c878f876eadc5160ef9765f764595cade76a9
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide d’Azure CLI
 
-Cet article vous explique comment créer une connexion de passerelle VPN entre des réseaux virtuels. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents. Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager et utilisent Azure CLI. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
+Cet article vous explique comment créer une connexion de passerelle VPN entre des réseaux virtuels. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents. Lors de la connexion de réseaux virtuels provenant de différents abonnements, les abonnements ne sont pas tenus d’être associés au même locataire Active Directory. 
+
+Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager et utilisent Azure CLI. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -43,7 +44,7 @@ Vous pouvez combiner une communication de réseau virtuel à réseau virtuel ave
 
 ![À propos des connexions](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-### <a name="why-connect-virtual-networks"></a>Pourquoi connecter des réseaux virtuels ?
+### <a name="why"></a>Pourquoi connecter des réseaux virtuels ?
 
 Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivantes :
 
@@ -184,11 +185,11 @@ Nous utilisons les valeurs suivantes dans les exemples :
   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-4---create-the-connections"></a>Étape 4 - créez les connexions
+### <a name="createconnect"></a>Étape 4 : créez les connexions
 
 Vous avez maintenant deux réseaux virtuels avec des passerelles VPN. L’étape suivante consiste à créer des connexions à la passerelle VPN entre les passerelles de réseau virtuel. Si vous avez utilisé les exemples ci-dessus, vos passerelles de réseau virtuel se trouvent dans différents groupes de ressources. Lorsque les passerelles se trouvent dans différents groupes de ressources, vous devez identifier et spécifier l’ID de ressource pour chaque passerelle lors de la connexion. Si vos réseaux virtuels sont dans le même groupe de ressources, vous pouvez utiliser le [deuxième ensemble d’instructions](#samerg) , dans la mesure où il n’est pas nécessaire de spécifier les ID de ressource.
 
-### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a>Pour connecter des réseaux virtuels qui se trouvent dans différents groupes de ressources
+### <a name="diffrg"></a>Connexion de réseaux virtuels qui se trouvent dans différents groupes de ressources
 
 1. Obtenez l’ID de ressource de VNet1GW à partir de la sortie de la commande suivante :
 
@@ -257,7 +258,7 @@ Vous avez maintenant deux réseaux virtuels avec des passerelles VPN. L’étape
 
 ![Diagramme v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
-Dans ce scénario, nous connectons TestVNet1 et TestVNet5. Les réseaux virtuels se trouvent dans différents abonnements. Cette configuration nécessite l’ajout d’une connexion supplémentaire entre réseaux virtuels pour connecter TestVNet1 à TestVNet5.
+Dans ce scénario, nous connectons TestVNet1 et TestVNet5. Les réseaux virtuels se trouvent dans différents abonnements. Les abonnements ne sont pas tenus d’être associés au même locataire Active Directory. Cette configuration nécessite l’ajout d’une connexion supplémentaire entre réseaux virtuels pour connecter TestVNet1 à TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Étape 5 : créez et configurez TestVNet1
 
@@ -321,7 +322,7 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnemen
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-8---create-the-connections"></a>Étape 8 : créez les connexions
+### <a name="connections5"></a>Étape 8 : créez les connexions
 
 Étant donné que les passerelles se trouvent dans différents abonnements, nous avons divisé cette étape en deux sessions CLI notées **[Abonnement 1]** et **[Abonnement 5]**. Pour basculer entre les abonnements, utilisez ’az account list --all’ pour répertorier les abonnements disponibles pour votre compte, puis ’az account set --subscription <subscriptionID>’ pour basculer vers l’abonnement que vous souhaitez utiliser.
 

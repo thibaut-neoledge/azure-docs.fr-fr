@@ -22,11 +22,8 @@ ms.openlocfilehash: abb5bcf91a0155f1311bc28657b6208c00e945d1
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/07/2017
 
-
 ---
-<a id="build-apache-spark-machine-learning-applications-on-azure-hdinsight" class="xliff"></a>
-
-# Créer des applications de Machine Learning Apache Spark sur Azure HDInsight
+# <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Créer des applications de Machine Learning Apache Spark sur Azure HDInsight
 
 Découvrez comment créer une application de Machine Learning Apache Spark à l’aide d’un cluster Spark sur HDInsight. Cet article montre comment utiliser le bloc-notes Jupyter disponible avec le cluster pour créer et tester l’application. L’application utilise l’exemple de données HVAC.csv, qui est disponible par défaut sur tous les clusters.
 
@@ -111,7 +108,7 @@ Dans cette application, nous utilisons un pipeline Spark ML pour effectuer une 
             return LabeledDocument((values[6]), textValue, hot)
 
         # Load the raw HVAC.csv file, parse it using the function
-        data = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
         documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
         training = documents.toDF()
@@ -203,23 +200,17 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 ## <a name="seealso"></a>Voir aussi
 * [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-<a id="scenarios" class="xliff"></a>
-
-### Scénarios
+### <a name="scenarios"></a>Scénarios
 * [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 * [Analyse des journaux de site web à l’aide de Spark dans HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-<a id="create-and-run-applications" class="xliff"></a>
-
-### Créer et exécuter des applications
+### <a name="create-and-run-applications"></a>Créer et exécuter des applications
 * [Créer une application autonome avec Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
-<a id="tools-and-extensions" class="xliff"></a>
-
-### Outils et extensions
+### <a name="tools-and-extensions"></a>Outils et extensions
 * [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
@@ -227,9 +218,7 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-<a id="manage-resources" class="xliff"></a>
-
-### Gestion des ressources
+### <a name="manage-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
@@ -243,5 +232,5 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 

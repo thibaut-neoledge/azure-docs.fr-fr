@@ -1,21 +1,19 @@
 ---
-title: "Guide du développeur Azure Key Vault | Microsoft Docs"
-description: "Les développeurs peuvent utiliser le coffre de clés Azure pour gérer les clés de chiffrement dans l&quot;environnement Microsoft Azure."
+title: "Guide du développeur de coffre de clés Azure"
+description: "Les développeurs peuvent utiliser le coffre de clés Azure pour gérer les clés de chiffrement dans l'environnement Microsoft Azure."
 services: key-vault
-documentationcenter: 
 author: BrucePerlerMS
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 08/04/2017
 ms.author: bruceper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: b046e95e2167009727f6ea8f3dd237619c61434f
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 115862aca98926e354e4703f86cb4a7e1d1f72a2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur de coffre de clés Azure
@@ -29,16 +27,20 @@ Key Vault vous permet d’accéder en toute sécurité aux informations sensible
 
 Pour des informations plus générales sur le coffre de clés Azure Key Vault, voir [Qu’est-ce qu’Azure Key Vault ?](key-vault-whatis.md).
 
-## <a name="public-preview---may-10-2017"></a>Version préliminaire publique - 10 mai 2017
+## <a name="public-previews"></a>Préversions publiques
+
+Nous publions régulièrement la préversion publique d’une nouvelle fonctionnalité de Key Vault. Essayez-les et envoyez votre avis à azurekeyvault@microsoft.com, notre adresse e-mail dédiée aux commentaires.
+
+### <a name="storage-account-keys---july-10-2017"></a>Clés de compte de stockage - 10 juillet 2017
 
 >[!NOTE]
->Pour cette version préliminaire d’Azure Key Vault, seule la fonctionnalité de **suppression réversible** est disponible en version préliminaire. Azure Key Vault, dans son ensemble, est un service de production complet.
+>Pour cette mise à jour d’Azure Key Vault, seule la fonctionnalité **Clés de compte de stockage** est en préversion.
 
-Cette version préliminaire inclut notre nouvelle fonctionnalité de suppression réversible, une suppression récupérable des coffres de clés et des objets de coffre de clés, ainsi que des interfaces mises à jour pour les développeurs ; [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) et [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
+Cette préversion inclut notre nouvelle fonctionnalité Clés de compte de stockage, disponible par le biais de ces interfaces : [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) et [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
 
-Pour plus d’informations sur la nouvelle fonctionnalité de suppression réversible, consultez [Azure Key Vault soft delete overview (Présentation de la suppression réversible d’Azure Key Vault)](key-vault-ovw-soft-delete.md).
+Pour plus d’informations sur la nouvelle fonctionnalité Clés de compte de stockage, consultez la page [Vue d’ensemble des clés de compte de stockage Azure Key Vault](key-vault-ovw-storage-keys.md).
 
-## <a name="videos"></a>Vidéos
+## <a name="videos"></a>vidéos
 
 Cette vidéo vous montre comment créer votre propre coffre de clés et comment l'utiliser à partir de l'exemple d'application « Hello Key Vault ».
 
@@ -71,7 +73,7 @@ Le système de gestion Key Vault à destination des programmeurs se compose de p
 
 - [Informations de référence sur l’API .NET pour Key Vault](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
 
-Pour plus d’informations sur la version 2.x du Kit de développement logiciel (SDK) .NET, voir les [Notes de publication](key-vault-dotnet2api-release-notes.md).
+Pour plus d’informations sur la version 2.x du kit SDK .NET, consultez les [Notes de publication](key-vault-dotnet2api-release-notes.md).
 
 #### <a name="java"></a>Java
 
@@ -79,7 +81,9 @@ Pour plus d’informations sur la version 2.x du Kit de développement logiciel 
 
 #### <a name="nodejs"></a>Node.js
 
-- [Informations de référence sur l’API Node.js pour la gestion de coffres de clés](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
+Dans Node.js, l’API de gestion des coffres et l’API des objets de coffres sont distinctes. Key Vault Management permet de créer et de mettre à jour les coffres de clés. L’API Key Vault Operations sert à travailler avec des objets de coffres, comme les clés, les secrets et les certificats. 
+
+- [Informations de référence sur l’API Node.js pour Key Vault Management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
 - [Informations de référence sur l’API Node.js pour les opérations Key Vault](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
 
 ### <a name="quick-start"></a>Démarrage rapide
@@ -107,8 +111,9 @@ Les articles et scénarios suivants fournissent des conseils spécifiques sur l�
 - [Configuration de Key Vault avec une rotation des clés et un audit de bout en bout](key-vault-key-rotation-log-monitoring.md) : cet article décrit la procédure de configuration de la rotation des clés et de l’audit avec Azure Key Vault.
 - [Déploiement d’Azure App Service Certificate via Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) fournit des instructions détaillées pour déployer les certificats stockés dans Key Vault dans le cadre l’offre [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/).
 - [Autoriser de nombreuses applications à accéder à un coffre de clés](key-vault-group-permissions-for-apps.md) La stratégie de contrôle de Key Vault ne prend en charge que 16 entrées. Mais vous pouvez créer un groupe de sécurité Azure Active Directory. Ajoutez tous les principaux du service associés à ce groupe de sécurité et accordez à ce groupe de sécurité l’accès à Key Vault.
-
-Pour obtenir des conseils plus spécifiques sur certaines tâches, en relation avec l’intégration et l’utilisation de coffres de clés avec Azure, voir les [exemples de modèles Azure Resource Manager de Ryan Jones pour Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- Pour obtenir des conseils plus spécifiques sur certaines tâches, en relation avec l’intégration et l’utilisation de coffres de clés avec Azure, voir les [exemples de modèles Azure Resource Manager de Ryan Jones pour Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- [Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI](key-vault-soft-delete-cli.md) décrit l’utilisation et le cycle de vie d’un coffre de clés et des différents objets du coffre de clés quand la suppression réversible est activée.
+- [Guide pratique pour utiliser la suppression réversible Key Vault avec PowerShell](key-vault-soft-delete-powershell.md) décrit l’utilisation et le cycle de vie d’un coffre de clés et des différents objets du coffre de clés quand la suppression réversible est activée.
 
 ## <a name="integrated-with-key-vault"></a>Intégration avec Key Vault
 
@@ -120,20 +125,20 @@ Ces articles concernent d’autres scénarios et services qui utilisent ou intè
 
 ## <a name="key-vault-overviews-and-concepts"></a>Concepts et présentations des coffres de clés
 
-- [Mondes de sécurité des coffres de clés](key-vault-ovw-security-worlds.md)
-- [Suppression réversible de coffres de clés](key-vault-ovw-soft-delete.md)
+- [Comportement de suppression réversible de Key Vault](key-vault-ovw-soft-delete.md) : décrit une fonctionnalité qui permet la récupération des objets supprimés, que la suppression soit accidentelle ou intentionnelle.
+- [Limitation du client Key Vault](key-vault-ovw-throttling.md) : vous oriente vers les concepts de base de la limitation et propose une approche pour votre application.
+- [Vue d’ensemble des clés de compte de stockage Key Vault](key-vault-ovw-storage-keys.md) : décrit les clés de comptes de stockage Azure d’intégration Key Vault.
+- [Mondes de sécurité Key Vault](key-vault-ovw-security-worlds.md) : décrit les relations entre les régions et les zones de sécurité.
 
 ## <a name="social"></a>Réseaux sociaux
 
 - [Blog de Key Vault](http://aka.ms/kvblog)
 - [Forum de Key Vault](http://aka.ms/kvforum)
 
-
 ## <a name="supporting-libraries"></a>Bibliothèques connexes
 
 - [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) fournit les interfaces **IKey** et **IKeyResolver** pour localiser des clés à partir d’identificateurs et effectuer des opérations avec des clés.
 - [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) fournit des fonctionnalités étendues pour Azure Key Vault.
 
-## <a name="other-key-vault-resources"></a>Autres ressources Key Vault
 
 

@@ -15,60 +15,62 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 7af4865a5455c314c1bdeb315fb87b0f92c1ddf9
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: f6b149f0e656d2263705048aa5b644f5bb4a5712
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-# <a name="reporting-apis-for-enterprise-customers---balance-and-summary-preview"></a>API de création de rapports pour les clients Enterprise - Balance and Summary (préversion)
+# <a name="reporting-apis-for-enterprise-customers---balance-and-summary"></a>API de création de rapports pour les clients Enterprise - Balance and Summary
 
-L’API Balance and Charge (Solde et frais) permet un résumé mensuel des informations sur les soldes, nouveaux achats, frais de service Place de marché Azure, ajustements et dépassement des frais.
+L’API Balance and Summary (Solde et résumé) offre un résumé mensuel des informations sur les soldes, nouveaux achats, frais de service Place de marché Azure, ajustements et dépassement des frais.
 
 
-##<a name="request"></a>Requête 
+##<a name="request"></a>Demande 
 Les propriétés d’en-tête communes qui doivent être ajoutées sont spécifiées [ici](billing-enterprise-api.md). Si aucune période de facturation n’est spécifiée, les données de la période de facturation en cours sont retournées.
 
 |Méthode | URI de demande|
 |-|-|
-|GET| https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/balancesummary|
-|GET| https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/balancesummary|
+|GET| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/balancesummary|
+|GET| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/balancesummary|
 
+> [!Note]
+> Pour utiliser la préversion de l’API, remplacez v2 par v1 dans l’URL ci-dessus.
+>
 
 ## <a name="response"></a>Réponse
 
         {
             "id": "enrollments/100/billingperiods/201507/balancesummaries",
-              "billingPeriodId": 201507,
-              "currencyCode": "USD",
-              "beginningBalance": 0,
-              "endingBalance": 1.1,
-              "newPurchases": 1,
-              "adjustments": 1.1,
-              "utilized": 1.1,
-              "serviceOverage": 1,
-              "chargesBilledSeparately": 1,
-              "totalOverage": 1,
-              "totalUsage": 1.1,
-              "azureMarketplaceServiceCharges": 1,
-              "newPurchasesDetails": [
+            "billingPeriodId": 201507,
+            "currencyCode": "USD",
+            "beginningBalance": 0,
+            "endingBalance": 1.1,
+            "newPurchases": 1,
+            "adjustments": 1.1,
+            "utilized": 1.1,
+            "serviceOverage": 1,
+            "chargesBilledSeparately": 1,
+            "totalOverage": 1,
+            "totalUsage": 1.1,
+            "azureMarketplaceServiceCharges": 1,
+            "newPurchasesDetails": [
                 {
-                  "name": "",
-                  "value": 1
+                "name": "",
+                "value": 1
                 }
-              ],
-              "adjustmentDetails": [
+            ],
+            "adjustmentDetails": [
                 {
-                  "name": "Promo Credit",
-                  "value": 1.1
+                "name": "Promo Credit",
+                "value": 1.1
                 },
                 {
-                  "name": "SIE Credit",
-                  "value": 1.0
+                "name": "SIE Credit",
+                "value": 1.0
                 }
-              ]
+            ]
         }
 
 
@@ -95,6 +97,7 @@ Les propriétés d’en-tête communes qui doivent être ajoutées sont spécifi
 
 <br/>
 ## <a name="see-also"></a>Voir aussi
+
 * [API Périodes de facturation](billing-enterprise-api-billing-periods.md)
 
 * [API Détails de l’utilisation](billing-enterprise-api-usage-detail.md) 

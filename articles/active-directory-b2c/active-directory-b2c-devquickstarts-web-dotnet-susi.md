@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
 manager: krassk
-editor: 
+editor: barbaraselden
 ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -14,46 +14,70 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 87b8b91fc5970bd127dfdc47e24d99a19471aa8c
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 14736524bf3c6d299838d8e3dc8b18db117d1041
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="azure-ad-b2c-sign-up--sign-in-in-a-aspnet-web-app"></a>Azure AD B2C : inscription et connexion dans une application web ASP.NET
+# <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Créer une application web ASP.NET avec inscription, connexion, modification du profil et réinitialisation du mot de passe Azure Active Directory B2C
 
-Avec Azure AD B2C, vous pouvez ajouter à votre application web des fonctionnalités de gestion des identités performantes. Cet article explique comment créer une application web ASP.NET qui inclut l’inscription/la connexion des utilisateurs, la modification du profil et la réinitialisation du mot de passe.
+Ce didacticiel vous explique les procédures suivantes :
+
+> [!div class="checklist"]
+> * Ajouter des fonctionnalités d’identité Azure AD B2C à votre application web
+> * Inscrire votre application web auprès de votre répertoire Azure AD B2C
+> * Créer une stratégie d’inscription/de connexion d’utilisateur, de modification du profil et de réinitialisation du mot de passe pour votre application web
+
+## <a name="prerequisites"></a>Composants requis
+
+- Vous devez connecter votre locataire B2C à un compte Azure. Vous pouvez créer un compte Azure gratuit [ici](https://azure.microsoft.com/en-us/).
+- Vous avez besoin de [Microsoft Visual Studio](https://www.visualstudio.com/) ou d’un programme similaire pour afficher et modifier l’exemple de code.
 
 ## <a name="create-an-azure-ad-b2c-directory"></a>Créer un répertoire Azure AD B2C
 
-Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client. Un répertoire est un conteneur destiné à recevoir tous vos utilisateurs, applications, groupes, etc. Si vous n’en possédez pas déjà un, [créez un répertoire B2C](active-directory-b2c-get-started.md) avant d’aller plus loin dans ce guide.
+Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client. Un répertoire est un conteneur destiné à recevoir tous vos utilisateurs, applications, groupes et autres. Si vous n’en possédez pas déjà un, créez un répertoire B2C avant d’aller plus loin dans ce guide.
 
-## <a name="create-an-application"></a>Création d'une application
+[!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
-Vous devez maintenant créer dans votre répertoire B2C une application web. fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
+> [!NOTE]
+> 
+> Vous devez connecter le locataire B2C à votre abonnement Azure. Après avoir sélectionné **Créer**, sélectionnez l’option **Lier un locataire Azure AD B2C existant à mon abonnement Azure**, puis, dans le menu déroulant **Locataire Azure AD B2C**, sélectionnez le locataire que vous souhaitez associer.
 
-* Incluez une **application web/API web** dans l’application.
-* Entrez `https://localhost:44316/` comme **URI de redirection**. Il s’agit de l’URL par défaut pour cet exemple de code.
-* Notez également l' **ID d'application** affecté à votre application.  Vous en aurez besoin ultérieurement.
+## <a name="create-and-register-an-application"></a>Créer et inscrire une application
+
+Vous devez maintenant créer et inscrire l’application dans votre répertoire B2C. Cela fournit certaines informations nécessaires à Azure AD B2C pour communiquer de manière sécurisée avec votre application. 
+
+[!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## <a name="create-your-policies"></a>Création de vos stratégies
+Lorsque vous avez terminé, vous aurez une API et une application native dans vos paramètres d’application.
 
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cet exemple de code contient trois expériences liées à l’identité : **l’inscription et la connexion**, la **modification du profil** et la **réinitialisation du mot de passe**.  Vous devez créer une stratégie de chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md). Lorsque vous créez des stratégies, veillez à :
+## <a name="create-policies-on-your-b2c-tenant"></a>Créer des stratégies dans votre locataire B2C
 
-* Choisir **Inscription par le biais d’un ID utilisateur** ou **Inscription par le biais d’une adresse e-mail** dans le panneau des fournisseurs d’identité.
-* Choisir le **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription et de connexion.
-* Choisir la revendication **Nom d’affichage** comme revendication d’application pour chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
-* Copiez le **nom** de chaque stratégie après sa création. Vous aurez besoin des noms de ces stratégies ultérieurement.
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cet exemple de code contient trois expériences liées à l’identité : **l’inscription et la connexion**, la **modification du profil** et la **réinitialisation du mot de passe**.  Vous devez créer une stratégie de chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md). Pour chaque stratégie, veillez à sélectionner l’attribut de nom d’affichage ou la revendication et à copier le nom de votre stratégie pour une utilisation ultérieure.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+### <a name="add-your-identity-providers"></a>Ajouter vos fournisseurs d’identité
+
+À partir de vos paramètres, sélectionnez **Fournisseurs d’identité** et choisissez User ID Sign up (Inscription par identifiant utilisateur) ou Email signup (Inscription par courrier électronique).
+
+### <a name="create-a-sign-up-and-sign-in-policy"></a>Créer une stratégie d’inscription et de connexion
+
+[!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
+
+### <a name="create-a-profile-editing-policy"></a>Création d’une stratégie de modification de profil
+
+[!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
+
+### <a name="create-a-password-reset-policy"></a>Création d’une stratégie de réinitialisation du mot de passe
+
+[!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
 Une fois vos stratégies créées, vous pouvez générer votre application.
 
-## <a name="download-the-code"></a>Téléchargement du code
+## <a name="download-the-sample-code"></a>Télécharger l’exemple de code
 
 Le code associé à ce didacticiel est stocké sur [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). Vous pouvez cloner l’exemple en exécutant :
 
@@ -63,9 +87,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 Une fois l’exemple de code téléchargé, ouvrez le fichier .sln Visual Studio pour commencer. Le fichier solution contient deux projets : `TaskWebApp` et `TaskService`. `TaskWebApp` est l’application web MVC avec laquelle l’utilisateur interagit. `TaskService` est l’API web du serveur principal de l’application qui stocke la liste de tâches de chaque utilisateur. Cet article traite uniquement de l’application `TaskWebApp`. Pour savoir comment générer `TaskService` à l’aide d’Azure AD B2C, consultez [notre didacticiel sur les API web .NET](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-### <a name="update-the-azure-ad-b2c-configuration"></a>Mettre à jour la configuration Azure AD B2C
+## <a name="update-code-to-use-your-tenant-and-policies"></a>Mettre à jour le code pour utiliser votre locataire et vos stratégies
 
-Notre exemple est configuré pour utiliser les stratégies et l’ID client du locataire de notre démonstration. Si vous souhaitez utiliser votre propre locataire, vous devez ouvrir `web.config` dans le projet `TaskWebApp` et remplacer les valeurs comme suit :
+Notre exemple est configuré pour utiliser les stratégies et l’ID client du locataire de notre démonstration. Pour le connecter à votre propre locataire, vous devez ouvrir `web.config` dans le projet `TaskWebApp` et remplacer les valeurs suivantes :
 
 * `ida:Tenant` par le nom de votre locataire
 * `ida:ClientId` par votre ID d’application web
@@ -74,11 +98,34 @@ Notre exemple est configuré pour utiliser les stratégies et l’ID client du l
 * `ida:EditProfilePolicyId` par votre nom de stratégie « Modifier le profil »
 * `ida:ResetPasswordPolicyId` par votre nom de stratégie « Réinitialiser le mot de passe »
 
-## <a name="add-authentication-support"></a>Ajouter le support de l’authentification
+## <a name="launch-the-app"></a>Lancer l’application
+À partir de Visual Studio, lancez l’application. Accédez à l’onglet Liste de tâches et notez que l’URl est : https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
+
+Inscrivez-vous à l’application à l’aide de votre adresse e-mail ou nom d’utilisateur. Déconnectez-vous, puis reconnectez-vous et modifiez le profil ou réinitialisez le mot de passe. Déconnectez-vous et connectez-vous en tant qu’autre utilisateur. 
+
+## <a name="add-social-idps"></a>Ajout d’IDP sociaux
+
+Actuellement, l’application prend uniquement en charge l’inscription et la connexion d’utilisateur à l’aide de **comptes locaux** (les comptes stockés dans votre répertoire B2C qui utilisent un nom d’utilisateur et un mot de passe). Avec Azure AD B2C, vous pouvez ajouter la prise en charge d’autres **fournisseurs d’identité** sans modifier votre code.
+
+Pour ajouter des fournisseurs d’identité sociaux à votre application, commencez par suivre les instructions détaillées figurant dans ces articles. Pour chaque fournisseur d’identité que vous souhaitez prendre en charge, vous devez inscrire une application dans ce système et obtenir un ID client.
+
+* [Définir Facebook en tant qu’IDP](active-directory-b2c-setup-fb-app.md)
+* [Définir Google en tant qu’IDP](active-directory-b2c-setup-goog-app.md)
+* [Définir Amazon en tant qu’IDP](active-directory-b2c-setup-amzn-app.md)
+* [Définir LinkedIn en tant qu’IDP](active-directory-b2c-setup-li-app.md)
+
+Après avoir ajouté les fournisseurs d’identité à votre répertoire B2C, modifiez chacune de vos trois stratégies pour inclure ces nouveaux fournisseurs, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md). Après avoir enregistré vos stratégies, exécutez à nouveau l’application.  Les nouveaux fournisseurs d’identité doivent être ajoutés comme options d’inscription et de connexion dans chacune de vos expériences relatives à l’identité.
+
+Vous pouvez tester vos stratégies et observer le résultat sur votre exemple d’application. Ajoutez ou supprimez des fournisseurs d’identité, manipulez des revendications d’application ou modifiez des attributs d’inscription. Faites des essais jusqu’à ce que vous compreniez la façon dont les stratégies, les requêtes d’authentification et la bibliothèque OWIN sont liées.
+
+## <a name="sample-code-walkthrough"></a>Exemple de code de procédure pas à pas
+Les sections suivantes vous montrent comment l’exemple de code d’application est configuré. Vous pouvez les utiliser comme guide pour le développement de vos futures applications.
+
+### <a name="add-authentication-support"></a>Ajouter le support de l’authentification
 
 Vous pouvez à présent configurer votre application pour utiliser Azure AD B2C. Votre application communique avec Azure AD B2C en envoyant des demandes d’authentification OpenID Connect. Les demandes déterminent l’expérience utilisateur que votre application souhaite exécuter en spécifiant la stratégie. Vous pouvez utiliser la bibliothèque OWIN de Microsoft pour envoyer des requêtes, exécuter les stratégies, gérer les sessions utilisateur, etc.
 
-### <a name="install-owin"></a>Installer OWIN
+#### <a name="install-owin"></a>Installer OWIN
 
 Pour commencer, ajoutez au projet les packages NuGet du middleware OWIN à l’aide de la console du gestionnaire de package Visual Studio.
 
@@ -88,7 +135,7 @@ PM> Install-Package Microsoft.Owin.Security.Cookies
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
-### <a name="add-an-owin-startup-class"></a>Ajouter une classe de démarrage OWIN
+#### <a name="add-an-owin-startup-class"></a>Ajouter une classe de démarrage OWIN
 
 Ajoutez une classe de démarrage OWIN à l’API appelée `Startup.cs`.  Cliquez avec le bouton droit sur le projet, sélectionnez **Ajouter** et **Nouvel élément**, puis recherchez OWIN. L’intergiciel OWIN appelle la méthode `Configuration(…)` lorsque votre application démarre.
 
@@ -108,7 +155,7 @@ public partial class Startup
 }
 ```
 
-### <a name="configure-the-authentication-middleware"></a>Configurer le middleware d’authentification
+#### <a name="configure-the-authentication-middleware"></a>Configurer le middleware d’authentification
 
 Ouvrez le fichier `App_Start\Startup.Auth.cs` et implémentez la méthode `ConfigureAuth(...)`. Les paramètres que vous fournissez dans `OpenIdConnectAuthenticationOptions` servent de coordonnées pour que votre application puisse communiquer avec Azure AD B2C. Si vous ne spécifiez pas certains paramètres, la valeur par défaut est utilisée. Par exemple, nous ne spécifions pas `ResponseType` dans l’exemple. Par conséquent, la valeur par défaut `code id_token` est utilisée dans chaque requête sortante pour Azure Active Directory B2C.
 
@@ -164,7 +211,7 @@ public partial class Startup
 
 Dans `OpenIdConnectAuthenticationOptions` ci-dessus, nous définissons un ensemble de fonctions de rappel pour les notifications spécifiques qui sont reçues par le middleware OpenID Connect. Ces comportements sont définis en utilisant un objet `OpenIdConnectAuthenticationNotifications` et sont stockés dans la variable `Notifications`. Dans notre exemple, nous définissons trois rappels différents en fonction de l’événement.
 
-#### <a name="using-different-policies"></a>Utilisation de différentes stratégies
+### <a name="using-different-policies"></a>Utilisation de différentes stratégies
 
 La notification `RedirectToIdentityProvider` est déclenchée chaque fois qu’une demande est envoyée à Azure AD B2C. Dans la fonction de rappel `OnRedirectToIdentityProvider`, nous vérifions dans l’appel sortant si nous souhaitons utiliser une stratégie différente. Pour effectuer une réinitialisation de mot de passe ou modifier un profil, vous devez utiliser la stratégie correspondante, par exemple la stratégie de réinitialisation du mot de passe, au lieu de la stratégie d’inscription ou de connexion par défaut.
 
@@ -197,13 +244,13 @@ private Task OnRedirectToIdentityProvider(RedirectToIdentityProviderNotification
 }
 ```
 
-#### <a name="handling-authorization-codes"></a>Gestion des codes d’autorisation
+### <a name="handling-authorization-codes"></a>Gestion des codes d’autorisation
 
 La notification `AuthorizationCodeReceived` est déclenchée lors de la réception d’un code d’autorisation. Le middleware OpenID Connect ne prend pas en charge l’échange de codes pour les jetons d’accès. Vous pouvez échanger manuellement le code pour le jeton dans une fonction de rappel. Pour plus d’informations, consultez cette [documentation](active-directory-b2c-devquickstarts-web-api-dotnet.md).
 
-#### <a name="handling-errors"></a>Gestion des erreurs
+### <a name="handling-errors"></a>Gestion des erreurs
 
-La notification `AuthenticationFailed` est déclenchée lors de l’échec de l’authentification. Dans la méthode de rappel associée, vous pouvez gérer les erreurs comme vous le souhaitez. Vous devez toutefois ajouter une vérification du code d’erreur `AADB2C90118`. Lors de l’exécution de la stratégie d’inscription ou de connexion, l’utilisateur a la possibilité de cliquer sur un lien **Vous avez oublié votre mot de passe ?**. Dans ce cas, Azure AD B2C envoie à votre application un code d’erreur indiquant qu’elle doit effectuer une demande à l’aide de la stratégie de réinitialisation de mot de passe à la place.
+La notification `AuthenticationFailed` est déclenchée lors de l’échec de l’authentification. Dans la méthode de rappel associée, vous pouvez gérer les erreurs comme vous le souhaitez. Vous devez toutefois ajouter une vérification du code d’erreur `AADB2C90118`. Lors de l’exécution de la stratégie d’inscription ou de connexion, l’utilisateur a la possibilité de sélectionner un lien **Vous avez oublié votre mot de passe ?**. Dans ce cas, Azure AD B2C envoie à votre application un code d’erreur indiquant qu’elle doit effectuer une demande à l’aide de la stratégie de réinitialisation de mot de passe à la place.
 
 ```CSharp
 /*
@@ -233,9 +280,9 @@ private Task OnAuthenticationFailed(AuthenticationFailedNotification<OpenIdConne
 }
 ```
 
-## <a name="send-authentication-requests-to-azure-ad"></a>Envoyer des demandes d’authentification à Azure AD
+### <a name="send-authentication-requests-to-azure-ad"></a>Envoyer des demandes d’authentification à Azure AD
 
-Votre application est maintenant correctement configurée pour communiquer avec Azure AD B2C en utilisant le protocole d’authentification OpenID Connect. OWIN a pris en charge tous les détails de la création de messages d’authentification, de la validation des jetons d’Azure AD B2C et de la gestion des sessions utilisateur. Il ne reste plus qu’à initier le flux de chaque utilisateur.
+Votre application est maintenant correctement configurée pour communiquer avec Azure AD B2C en utilisant le protocole d’authentification OpenID Connect. OWIN gère tous les détails de la création de messages d’authentification, de la validation des jetons d’Azure AD B2C et de la gestion des sessions utilisateur. Il ne reste plus qu’à initier le flux de chaque utilisateur.
 
 Lorsqu’un utilisateur sélectionne **S’inscrire/se connecter**, **Modifier le profil** ou **Réinitialiser le mot de passe** dans l’application web, l’action associée est appelée dans `Controllers\AccountController.cs` :
 
@@ -314,7 +361,7 @@ public void SignOut()
 }
 ```
 
-En plus d’appeler explicitement une stratégie, vous pouvez utiliser une balise `[Authorize]` dans vos contrôleurs qui exécutera une stratégie si l’utilisateur n’est pas connecté. Ouvrez `Controllers\HomeController.cs` et ajoutez la balise `[Authorize]` au contrôleur des revendications.  OWIN sélectionne la dernière stratégie configurée lorsque la balise `[Authorize]` est atteinte.
+En plus d’appeler explicitement une stratégie, vous pouvez utiliser une balise `[Authorize]` dans vos contrôleurs qui exécute une stratégie si l’utilisateur n’est pas connecté. Ouvrez `Controllers\HomeController.cs` et ajoutez la balise `[Authorize]` au contrôleur des revendications.  OWIN sélectionne la dernière stratégie configurée lorsque la balise `[Authorize]` est atteinte.
 
 ```CSharp
 // Controllers\HomeController.cs
@@ -326,7 +373,7 @@ public ActionResult Claims()
   ...
 ```
 
-## <a name="display-user-information"></a>Afficher les informations utilisateur
+### <a name="display-user-information"></a>Afficher les informations utilisateur
 
 Lors de l’authentification des utilisateurs avec OpenID Connect, Azure AD B2C retourne un jeton d’ID à l’application qui contient des **revendications**. Il s’agit d’assertions concernant l’utilisateur. Vous pouvez utiliser des revendications pour personnaliser votre application.
 
@@ -345,23 +392,4 @@ public ActionResult Claims()
 ```
 
 Vous pouvez accéder à toutes les revendications que votre application reçoit de la même façon.  Une liste de toutes les revendications reçues par l’application est disponible sur la page **Revendications** .
-
-## <a name="run-the-sample-app"></a>Exécution de l'exemple d'application
-
-Enfin, vous pouvez générer et exécuter votre application. Inscrivez-vous à l’application à l’aide d’une adresse de messagerie ou d’un nom d’utilisateur. Déconnectez-vous, puis reconnectez-vous en tant que même utilisateur. Modifiez le profil ou réinitialisez le mot de passe. Déconnectez-vous et inscrivez-vous en tant qu’autre utilisateur. Notez que les informations affichées sous l’onglet **Revendications** correspondent aux informations configurées dans vos stratégies.
-
-## <a name="add-social-idps"></a>Ajout d’IDP sociaux
-
-Actuellement, l’application prend uniquement en charge l’inscription et la connexion d’utilisateurs avec des **comptes locaux**. Il s’agit de comptes stockés dans votre répertoire B2C qui utilisent un nom d’utilisateur et un mot de passe. Avec Azure AD B2C, vous pouvez ajouter la prise en charge d’autres **fournisseurs d’identité** sans modifier votre code.
-
-Pour ajouter des fournisseurs d’identité sociaux à votre application, commencez par suivre les instructions détaillées figurant dans ces articles. Pour chaque fournisseur d’identité que vous souhaitez prendre en charge, vous devez inscrire une application dans ce système et obtenir un ID client.
-
-* [Définir Facebook en tant qu’IDP](active-directory-b2c-setup-fb-app.md)
-* [Définir Google en tant qu’IDP](active-directory-b2c-setup-goog-app.md)
-* [Définir Amazon en tant qu’IDP](active-directory-b2c-setup-amzn-app.md)
-* [Définir LinkedIn en tant qu’IDP](active-directory-b2c-setup-li-app.md)
-
-Après avoir ajouté les fournisseurs d’identité à votre répertoire B2C, vous devez modifier chacune de vos trois stratégies pour inclure ces nouveaux fournisseurs, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md). Après avoir enregistré vos stratégies, exécutez à nouveau l’application.  Les nouveaux fournisseurs d’identité doivent être ajoutés comme options d’inscription et de connexion dans chacune de vos expériences relatives à l’identité.
-
-Vous pouvez tester vos stratégies et observer le résultat sur votre exemple d’application. Ajoutez ou supprimez des fournisseurs d’identité, manipulez des revendications d’application ou modifiez des attributs d’inscription. Faites des essais jusqu’à ce que vous compreniez la façon dont les stratégies, les requêtes d’authentification et la bibliothèque OWIN sont liées.
 

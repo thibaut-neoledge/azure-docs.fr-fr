@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 053e2ae7f382bc55a6638ccd612289ab2ba64e52
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 331d08da8a70eee893fb1b01b1fef4475cc8bca0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
@@ -152,7 +151,7 @@ Vous pouvez éventuellement lier un compte de stockage à usage général à vot
 
 Nous vous recommandons de créer un compte de stockage dédié à votre compte Batch.
 
-![Création d’un compte de stockage « à usage général »][storage_account]
+![Créer un compte de stockage à usage général][storage_account]
 
 > [!NOTE]
 > Azure Batch prend actuellement en charge uniquement le type de compte de stockage à usage général. Ce type de compte est décrit à l’étape 5, [Créez un compte de stockage] (../storage/storage-create-storage-account.md#create-a-storage-account), dans [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).

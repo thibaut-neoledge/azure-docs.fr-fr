@@ -3,7 +3,7 @@ title: "Concevez votre première solution Azure SQL Database | Microsoft Docs"
 description: "Apprenez à concevoir votre première base de données SQL Azure."
 services: sql-database
 documentationcenter: 
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/20/2017
-ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8af9ea0a76b9a0606284505195ee3f52b1964604
+ms.date: 08/03/2017
+ms.author: carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 69cfffdae5ce2db53acc6d668dbe468c3ef22dc2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -42,13 +41,15 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Composants requis
 
-Pour effectuer ce didacticiel, assurez-vous que vous avez installé la dernière version de [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
+Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
+- La dernière version de [SSMS](https://msdn.microsoft.com/library/ms174173.aspx) (SQL Server Management Studio).
+- La dernière version de [BCP et SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433).
 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database-in-the-azure-portal"></a>Créer une base de données SQL vide dans le portail Azure
+## <a name="create-a-blank-sql-database"></a>Créer une base de données SQL vide
 
 Une base de données SQL Azure est créée avec un ensemble défini de [ressources de calcul et de stockage](sql-database-service-tiers.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL Database](sql-database-features.md). 
 
@@ -96,12 +97,12 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
    ![notification](./media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Créer une règle de pare-feu au niveau du serveur dans le portail Azure
+## <a name="create-a-server-level-firewall-rule"></a>créer une règle de pare-feu au niveau du serveur ;
 
 Le service SQL Database crée un pare-feu au niveau du serveur qui empêche les applications et les outils externes de se connecter au serveur ou à toute base de données sur le serveur, sauf si une règle de pare-feu est créée pour ouvrir le pare-feu à des adresses IP spécifiques. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur de base de données SQL](sql-database-firewall-configure.md) pour l’adresse IP de votre client afin de permettre la connectivité externe via le pare-feu de base de données SQL pour votre adresse IP uniquement. 
 
 > [!NOTE]
-> SQL Database communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
+> SQL Database communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
 >
 
 1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Bases de données SQL**. La page de présentation de votre base de données s’ouvre, affiche le nom de serveur complet (tel que **mynewserver20170313.database.windows.net**) et fournit des options pour poursuivre la configuration. Copiez ce nom de serveur complet pour une utilisation ultérieure.
@@ -110,7 +111,7 @@ Le service SQL Database crée un pare-feu au niveau du serveur qui empêche les 
    > Vous avez besoin du nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les guides de démarrage rapide suivants.
    > 
 
-   ![nom du serveur](./media/sql-database-get-started-portal/server-name.png) 
+   ![nom du serveur](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils, comme illustré sur l’image précédente. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre. 
 
@@ -130,7 +131,7 @@ Vous pouvez maintenant vous connecter au serveur SQL Database et à ses bases de
 > [!IMPORTANT]
 > Par défaut, l’accès via le pare-feu SQL Database est activé pour tous les services Azure. Cliquez sur **ÉTEINT** sur cette page pour le désactiver pour tous les services Azure.
 
-## <a name="get-connection-information-in-the-azure-portal"></a>Obtenir des informations de connexion dans le portail Azure
+## <a name="sql-server-connection-information"></a>Informations de connexion SQL Server
 
 Obtenez le nom de serveur complet de votre serveur Azure SQL Database dans le portail Azure. Utilisez le nom de serveur complet pour vous connecter à votre serveur avec SQL Server Management Studio.
 
@@ -138,7 +139,7 @@ Obtenez le nom de serveur complet de votre serveur Azure SQL Database dans le po
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
 3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**.
 
-   ![informations de connexion](./media/sql-database-get-started-portal/server-name.png)
+   ![informations de connexion](./media/sql-database-connect-query-dotnet/server-name.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>Connexion à la base de données avec SSMS
 
@@ -168,7 +169,7 @@ Utilisez [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-
 
    ![objets de base de données](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="create-tables-in-the-database-with-ssms"></a>Créer des tables dans la base de données avec SSMS 
+## <a name="create-tables-in-the-database"></a>Créer des tables dans la base de données 
 
 Créez un schéma de base de données avec quatre tables qui modélisent un système de gestion des étudiants pour les universités à l’aide de [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference) :
 
@@ -239,7 +240,7 @@ Le diagramme suivant montre comment ces tables sont liées entre elles. Certaine
 
    ![tables ssms-créées](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## <a name="load-data-into-the-tables-with-ssms"></a>Charger des données dans les tables avec SSMS
+## <a name="load-data-into-the-tables"></a>Charger des données dans les tables
 
 1. Créez un dossier nommé **SampleTableData** dans le dossier Téléchargements pour y stocker les exemples de données pour votre base de données. 
 
@@ -263,7 +264,7 @@ Le diagramme suivant montre comment ces tables sont liées entre elles. Certaine
 
 Vous avez maintenant chargé des exemples de données dans les tables que vous avez créées précédemment.
 
-## <a name="query-the-tables-with-ssms"></a>Interroger les tables avec SSMS
+## <a name="query-data"></a>Données de requête
 
 Exécutez les requêtes suivantes pour récupérer des informations à partir des tables de base de données. Consultez [Écriture des requêtes SQL](https://technet.microsoft.com/library/bb264565.aspx) pour en savoir plus sur l’écriture des requêtes SQL. La première requête réunit les quatre tables pour rechercher tous les étudiants inscrits au cours de « Dominick Pope » pour lequel ils ont une note supérieure à 75 %. La deuxième requête réunit les quatre tables et recherche tous les cours que « Noe Coleman » a déjà suivis.
 
@@ -300,7 +301,7 @@ Exécutez les requêtes suivantes pour récupérer des informations à partir de
    AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time-using-the-azure-portal"></a>Restaurer une base de données à un point antérieur dans le temps à l’aide du portail Azure
+## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restaurer une version antérieure d’une base de données
 
 Imaginez que vous avez supprimé une table par inadvertance. Il s’agit de quelque chose que vous ne pouvez pas récupérer facilement. Azure SQL Database vous permet de revenir à n’importe quel moment des 35 derniers jours et de restaurer ce moment pour obtenir une nouvelle base de données. Vous pouvez utiliser cette base de données pour récupérer vos données supprimées. Les étapes suivantes restaurent la base de données à un point situé avant l’ajout des tables.
 
@@ -329,8 +330,10 @@ Dans ce didacticiel, vous avez appris à exécuter des tâches de base de donné
 > * créez des tables
 > * Charger des données en bloc
 > * Interroger ces données
-> * Restaurer la base de données à un point antérieur dans le temps à l’aide des fonctionnalités de [restauration à un point dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) de SQL Database. Passez au didacticiel suivant pour apprendre à migrer vos données.
+> * Restaurer la base de données à un point antérieur dans le temps à l’aide des fonctionnalités de [restauration à un point dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) de SQL Database
+
+Passez au didacticiel suivant pour en savoir plus sur la conception d’une base de données à l’aide de Visual Studio et C#.
 
 > [!div class="nextstepaction"]
->[Migrer votre base de données SQL Server vers Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+>[Concevoir une base de données SQL Azure et se connecter avec C# et ADO.NET](sql-database-design-first-database-csharp.md)
 

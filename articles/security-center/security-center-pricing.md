@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9c20ace9112c62e733b7b679e3f0be717144f3c2
-ms.openlocfilehash: 933a485e36b3cf0f514f28fc069d49161605af3a
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 367b8f38cb9fcf3dc36db83641cb1696710608ef
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -33,11 +33,6 @@ Security Center est proposé en deux niveaux :
 
 Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
 
-> [!NOTE]
-> Security Center utilise le stockage Azure pour enregistrer les données de sécurité générées à partir de vos nœuds protégés. Les coûts associés à ce stockage ne sont pas inclus dans le prix du service. Ils sont facturés séparément au [tarif normal du stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). Les frais de stockage s’appliquent également pendant la période d’essai gratuit de 60 jours.
->
->
-
 ## <a name="try-standard-free-for-60-days"></a>Essayer gratuitement le niveau Standard pendant 60 jours
 Le niveau Standard est gratuit les 60 premiers jours. Une fois ces 60 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
 
@@ -49,7 +44,6 @@ Pour obtenir le niveau Standard :
 4. Dans le panneau **Choisir votre niveau tarifaire**, sélectionnez **Standard**.
 5. Cliquez sur **Sélectionner**.
 
-![Niveau standard][1]
 
 ## <a name="why-upgrade-to-standard"></a>Pourquoi passer au niveau Standard ?
 Le niveau Standard de Security Center fournit toutes les fonctionnalités du niveau Gratuit, ainsi qu’une détection avancée des menaces. La détection avancée des menaces vous aide à identifier les menaces actives qui ciblent vos ressources Azure, et vous donne les informations nécessaires pour corriger rapidement le problème.
@@ -79,11 +73,17 @@ Pour vérifier que la collecte des données est activée :
 2. Sélectionnez un abonnement.
 3. Si la **Collecte des données** est désactivée, activez-la, puis enregistrez la modification.
 
+> [!NOTE]
+> Si vous utilisez le niveau Gratuit d’Azure Security Center, vous pouvez désactiver la collecte de données à partir des machines virtuelles dans la stratégie de sécurité. La collecte de données est obligatoire pour les abonnements du niveau Standard.
+>
+>
+
 Pour plus d’informations, consultez [Activer la collecte des données dans Azure Security Center](security-center-enable-data-collection.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Ce document vous a présenté la tarification de Security Center. Pour plus d’informations sur la tarification, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
 * Pour plus d’informations sur les fonctionnalités de détection avancée de Security Center, consultez [Fonctionnalités de détection d’Azure Security Center](security-center-detection-capabilities.md).
+* Pour en savoir plus sur la gestion et la protection des données dans Security Center, consultez [Sécurité des données Azure Security Center](security-center-data-security.md).
 * Si vous avez des questions sur l’utilisation d’Azure Security Center, consultez le [FAQ d’Azure Security Center](security-center-faq.md).
 * Si vous avez des questions sur l’utilisation de Security Center ou d’Azure, consultez les [forums Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
 

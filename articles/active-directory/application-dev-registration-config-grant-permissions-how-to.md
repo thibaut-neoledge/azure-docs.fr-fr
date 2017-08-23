@@ -21,15 +21,11 @@ ms.lasthandoff: 04/14/2017
 
 ---
 
-<a id="how-to-grant-permissions-to-a-custom-developed-application" class="xliff"></a>
-
-# Octroyer des autorisations à une application personnalisée
+# <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Octroyer des autorisations à une application personnalisée
 
 Si vous souhaitez octroyer un consentement de façon préventive sur votre application ou que vous rencontrez une erreur indiquant que vous n’avez pas donné votre consentement pour une application, essayez les étapes ci-dessous.
 
-<a id="how-to-perform-admin-consent-for-your-application" class="xliff"></a>
-
-## Donner un consentement d’administrateur pour une application
+## <a name="how-to-perform-admin-consent-for-your-application"></a>Donner un consentement d’administrateur pour une application
 
 Cette opération a pour effet d’accorder un consentement à l’application pour tous les utilisateurs de votre organisation.
 
@@ -39,15 +35,11 @@ Cette opération a pour effet d’accorder un consentement à l’application po
 
 Vous pouvez également créer une demande que vous envoyez à *login.microsoftonline.com* avec les configurations de votre application, à laquelle vous ajoutez *&prompt=admin\_consent*. Une fois que la connexion a été effectuée avec les informations d’identification d’administrateur, l’application reçoit le consentement pour tous les utilisateurs.
 
-<a id="how-to-force-user-consent-for-your-application" class="xliff"></a>
-
-## Forcer le consentement d’utilisateur pour votre application
+## <a name="how-to-force-user-consent-for-your-application"></a>Forcer le consentement d’utilisateur pour votre application
 
 * Ajoutez des demandes d’authentification *&prompt=consent* qui nécessitent que les utilisateurs finaux donnent leur consentement chaque fois qu’ils s’authentifient.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Consentement et intégration d’applications pour Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
 

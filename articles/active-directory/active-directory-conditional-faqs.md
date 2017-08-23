@@ -1,6 +1,6 @@
 ---
 title: "Forum aux questions sur l’accès conditionnel Azure Active Directory | Microsoft Docs"
-description: "Forum Aux Questions concernant l’accès conditionnel  "
+description: "Trouvez les réponses aux questions les plus fréquentes sur l’accès conditionnel dans Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,44 +11,54 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 07/05/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: dee29df176389f39907d302cedc6143c0d3e3322
-ms.lasthandoff: 04/12/2017
-
+ms.reviewer: calebb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e81c5e943d8e9e9cc322d19900c48377f22a8968
+ms.openlocfilehash: 62e8cecf3177d08f2614bd76956b45da75af0947
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/17/2017
 
 ---
-# <a name="azure-active-directory-conditional-access-faq"></a>Forum aux questions sur l’accès conditionnel Azure Active Directory
+# <a name="azure-active-directory-conditional-access-faqs"></a>Forum aux questions sur l’accès conditionnel Azure Active Directory
 
 ## <a name="which-applications-work-with-conditional-access-policies"></a>A quelles applications les stratégies d’accès conditionnel s’appliquent-elles ?
 
-**A :** Reportez-vous à [Applications et navigateurs qui utilisent des règles d’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-supported-apps.md).
-
----
+Pour plus d’informations sur les applications qui fonctionnent avec les stratégies d’accès conditionnel, consultez [Applications et navigateurs qui utilisent des règles d’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-supported-apps.md).
 
 ## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users"></a>Les stratégies d’accès conditionnel s’appliquent-elles à la collaboration B2B et aux utilisateurs invités ?
-**R :** Les stratégies sont appliquées aux utilisateurs dans le cadre d’une collaboration B2B. Toutefois, dans certains cas, un utilisateur peut ne pas remplir les conditions de la stratégie, par exemple si son organisation ne prend pas en charge l’authentification multifacteur. La stratégie ne s’applique actuellement pas aux utilisateurs SharePoint invités. Comme la relation d’invité est conservée au sein de SharePoint, les comptes d’invités ne bénéficient pas des stratégies d’accès au niveau du serveur d’authentification. L’accès invité peut être géré au niveau de SharePoint.
 
----
+Les stratégies sont appliquées aux utilisateurs dans le cadre d’une collaboration business-to-business (B2B). Toutefois, dans certains cas, un utilisateur peut ne pas être en mesure de satisfaire aux exigences de la stratégie. Par exemple, il est possible que l’organisation d’un utilisateur invité ne prenne pas en charge l’authentification multifacteur. 
+
+
 
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>La stratégie SharePoint Online s’applique-t-elle également à OneDrive Entreprise ?
-**R :** Oui.
 
----
+Oui. Une stratégie SharePoint Online s’applique également à OneDrive Entreprise.
+
 
 ## <a name="why-cant-i-set-a-policy-on-client-apps-like-word-or-outlook"></a>Pourquoi ne puis-je pas définir une stratégie pour les applications clientes telles que Word ou Outlook ?
-**R :** La stratégie d’accès conditionnel définit les conditions requises pour accéder à un service et s’applique lorsque l’authentification est effectuée sur ce service. La stratégie n’est donc pas définie directement sur une application cliente, mais appliquée lorsqu’elle est appelée dans un service. Par exemple, une stratégie définie sur SharePoint s’applique aux clients qui appellent SharePoint, et la stratégie définie sur Exchange s’applique à Outlook.
 
---- 
+Une stratégie d’accès conditionnel définit les conditions requises pour accéder à un service. Elle est appliquée quand l’authentification à ce service a lieu. La stratégie n’est pas définie directement sur une application cliente. Au lieu de cela, elle est appliquée quand un client appelle un service. Par exemple, une stratégie définie sur SharePoint s’applique aux clients qui appellent SharePoint. Une stratégie définie sur Exchange s’applique à Outlook.
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>La stratégie d’accès conditionnel s’applique-t-elle aux comptes de service ?
-**R :** Les stratégies d’accès conditionnel s’appliquent à tous les comptes d’utilisateurs. Cela inclut les comptes d’utilisateurs utilisés comme comptes de service. Dans de nombreux cas, un compte de service qui s’exécute sans assistance n’est pas en mesure de remplir les conditions d’une stratégie. C’est par exemple le cas lorsque l’authentification multi-facteur est requise. Dans ces cas, les comptes de service peuvent être exclus d’une stratégie à l’aide des paramètres de gestion de stratégie accès conditionnel. Pour en savoir plus sur l’application d’une stratégie à des utilisateurs, rendez-vous ici.
 
----
+Les stratégies d’accès conditionnel s’appliquent à tous les comptes d’utilisateur. Cela inclut les comptes d’utilisateur utilisés comme comptes de service. Souvent, un compte de service qui s’exécute sans assistance ne peut pas répondre aux exigences d’une stratégie d’accès conditionnel. Par exemple, l’authentification multifacteur peut être obligatoire. Les comptes de service peuvent être exclus d’une stratégie à l’aide des paramètres de gestion de stratégie d’accès conditionnel. 
 
-## <a name="are-graph-apis-available-to-configure-configure-conditional-access-policies"></a>Y a-t-il des API Graph disponibles pour configurer des stratégies d’accès conditionnel ?
-**A :** Pas encore. 
+## <a name="are-graph-apis-available-for-configuring-conditional-access-policies"></a>Des API graphiques sont-elles disponibles pour la configuration des stratégies d’accès conditionnel ?
 
----
+Actuellement, non. 
+
+## <a name="what-is-the-default-exclusion-policy-for-unsupported-device-platforms"></a>Quelle est la stratégie d’exclusion par défaut pour les plateformes d’appareils non prises en charge ?
+
+À l’heure actuelle, les stratégies d’accès conditionnel sont appliquées de manière sélective aux utilisateurs d’appareils iOS et Android. Les applications sur d’autres plateformes d’appareils ne sont pas, par défaut, affectées par la stratégie d’accès conditionnel pour appareils iOS et Android. Un administrateur de locataires peut choisir de remplacer la stratégie globale pour interdire l’accès aux utilisateurs sur des plateformes non prises en charge.
+
+
+## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Comment les stratégies d’accès conditionnel fonctionnent-elles pour Microsoft Teams ?  
+
+Microsoft Teams s’appuie fortement sur Exchange Online et SharePoint Online pour les principaux scénarios de productivité, tels que les réunions, les calendriers et le partage de fichiers. Les stratégies d’accès conditionnel définies pour ces applications cloud s’appliquent à Microsoft Teams quand un utilisateur se connecte.
+
+Microsoft Teams est également pris en charge séparément en tant qu’application cloud dans les stratégies d’accès conditionnel Azure Active Directory. Les stratégies d’autorité de certification définies pour ces applications cloud s’appliquent à Microsoft Teams quand un utilisateur se connecte.
+
+Les clients de bureau Microsoft Teams pour Windows et Mac prennent en charge l’authentification moderne. L’authentification moderne permet d’utiliser la connexion basée sur la bibliothèque ADAL (Azure Active Directory Authentication Library) pour les applications clientes Microsoft Office sur plusieurs plateformes. 

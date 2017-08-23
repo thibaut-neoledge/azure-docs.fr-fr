@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 4b649379ce41a4d6cea93b42fc492fdc0940e689
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 75c3279d2d02cb3c6e949d191c88a1eb18b58a27
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="url-path-based-routing-overview"></a>Présentation du routage basé sur le chemin d’accès de l’URL
@@ -33,7 +32,10 @@ Dans l’exemple suivant, Application Gateway achemine le trafic pour contoso.co
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
 Les demandes pour http://contoso.com/video* sont acheminées vers VideoServerPool, et celles pour http://contoso.com/images* vers ImageServerPool. DefaultServerPool est sélectionné si aucun des modèles de chemin d’accès ne correspond.
-    
+
+> [!IMPORTANT]
+> Les règles sont traitées suivant leur ordre d’affichage dans le portail. Il est vivement recommandé de configurer des écouteurs multisites avant un écouteur de base.  Vous avez ainsi l’assurance que le trafic est acheminé vers le serveur principal approprié. Si un écouteur de base est indiqué en premier et correspond à une demande entrante, elle est traitée par cet écouteur.
+
 ## <a name="urlpathmap-configuration-element"></a>Élément de configuration UrlPathMap
 
 L’élément urlPathMap est utilisé pour spécifier les modèles de chemin d’accès aux mappages de pools de serveurs principaux. L’exemple de code suivant est un extrait de l’élément urlPathMap issu du fichier de modèle.
@@ -68,7 +70,7 @@ L’élément urlPathMap est utilisé pour spécifier les modèles de chemin d�
 ```
 
 > [!NOTE]
-> PathPattern : ce paramètre est une liste de modèles de chemin d’accès à utiliser pour la correspondance. Chaque modèle doit commencer par le signe « * » et le seul endroit où un astérisque est autorisé est à la fin après un signe « / ». La chaîne transmise à l’outil de correspondance de chemin d’accès n’inclut pas de texte après le premier signe ? ou #. De plus, ces caractères ne sont pas autorisés ici.
+> PathPattern : ce paramètre est une liste de modèles de chemin d’accès à utiliser pour la correspondance. Chaque modèle doit commencer par le signe « / », et le seul emplacement autorisé pour un astérisque (« * ») est à la fin après un signe « / ». La chaîne transmise à l’outil de correspondance de chemin d’accès n’inclut pas de texte après le premier signe ? ou #. De plus, ces caractères ne sont pas autorisés ici.
 
 Pour plus d’informations, vous pouvez consulter un [modèle Resource Manager utilisant le routage basé sur URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) .
 

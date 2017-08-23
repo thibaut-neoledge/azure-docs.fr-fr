@@ -4,7 +4,7 @@ description: "Prise en main du didacticiel pour la solution IoT Stream Analytics
 keywords: "solution IOT, fonctions de fenêtre"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 43acd0e8e6b106013fc4491e3785f6efefc51493
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 1031cd63dede9ed202fdc11b153a550766d9cb19
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -131,7 +130,7 @@ Si vous n’avez pas de compte Azure, vous pouvez [demander un essai gratuit](ht
 > 
 > 
 
-Pour tirer pleinement parti de votre crédit Azure gratuit d’une valeur de 200 $, suivez les instructions de la section « Nettoyer votre compte Azure » à la fin de cet exercice.
+Pour tirer pleinement parti de votre crédit Azure gratuit, suivez les instructions de la section « Nettoyer votre compte Azure » à la fin de cet article.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Configurer les ressources Azure nécessaires pour le didacticiel
 Ce didacticiel nécessite que vous disposiez de 2 concentrateurs d’événements pour la réception des flux de données *d’entrée* et de *sortie*. Azure SQL Database produit les résultats des travaux Stream Analytics. Stockage Azure stocke les données de référence sur les inscriptions de véhicules.

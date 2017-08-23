@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 07/21/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: c1e28c5ad7fd3236899ac0ffe9f3d43241061897
-ms.openlocfilehash: 5f253c3a10e5bfdfa9fe36912b5ebcbc9abae3eb
-ms.lasthandoff: 02/15/2017
-
+ms.reviewer: jeedes
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: f4180601e720351a8b0e95ccffe7712028cfba08
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Didacticiel : Intégration d’Azure Active Directory à ServiceNow
@@ -32,7 +33,7 @@ L’intégration de ServiceNow et ServiceNow Express à Azure AD vous offre les 
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 Pour configurer l’intégration d’Azure AD à ServiceNow et ServiceNow Express, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD
@@ -432,7 +433,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
    
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
-    c. Cliquez sur **Next**.
+    c. Cliquez sur **Suivant**.
 
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
@@ -446,7 +447,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
    
    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
-   e. Cliquez sur **Next**.
+   e. Cliquez sur **Suivant**.
 
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    

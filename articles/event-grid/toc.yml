@@ -1,0 +1,40 @@
+- name: Event Grid
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: À propos d’Event Grid
+      href: overview.md
+- name: Démarrages rapides
+  items:
+    - name: Créer et acheminer des événements personnalisés
+      href: custom-event-quickstart.md
+- name: Didacticiels
+  items:
+    - name: Surveiller les modifications apportées aux machines virtuelles avec les applications logiques
+      href: monitor-virtual-machine-changes-event-grid-logic-app.md
+- name: Concepts
+  items:
+    - name: Concepts d’Event Grid
+      href: concepts.md
+    - name: Sécurité et authentification
+      href: security-authentication.md
+    - name: Livraison et nouvelle tentative
+      href: delivery-and-retry.md
+- name: Référence
+  items:
+    - name: REST
+      href: /rest/api/eventgrid
+    - name: Schéma d’abonnement
+      href: subscription-creation-schema.md
+    - name: Schéma d’événement
+      href: event-schema.md
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/details/event-grid/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Dépassement de capacité de la pile
+      href: 'http://stackoverflow.com/questions/tagged/azure-event-grid'
