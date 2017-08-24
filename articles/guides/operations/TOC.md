@@ -72,18 +72,18 @@
 
 ## [Stockage](azure-operations-guide.md#azure-storage)
 
-### [stockage d’objets blob Azure](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Prise en main d’Azure Blob Storage à l’aide de .NET](../../storage/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Prise en main d’Azure File Storage sur Windows](../../storage/storage-file-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
-### [Utilisation de Stockage Fichier Azure avec Linux](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Prise en main du stockage de tables Azure](../../storage/storage-dotnet-how-to-use-tables.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Prise en main du stockage de files d’attente](../../storage/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Créer un compte de stockage](../../storage/storage-create-storage-account.md#create-a-storage-account)
-### [Utilisation d'Azure PowerShell avec Azure Storage](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Utilisation de l’interface de ligne de commande Azure avec Microsoft Azure Storage.](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Outils clients d’Azure Storage](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [stockage d’objets blob Azure](../../storage/blobs/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Prise en main d’Azure Blob Storage à l’aide de .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Prise en main d’Azure File Storage sur Windows](../../storage/files/storage-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### [Utilisation de Stockage Fichier Azure avec Linux](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Prise en main du stockage de tables Azure](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Prise en main du stockage de files d’attente](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+### [Utilisation d'Azure PowerShell avec Azure Storage](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Utilisation de l’interface de ligne de commande Azure avec Microsoft Azure Storage.](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Outils clients d’Azure Storage](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Référence de l'API REST des services de Stockage Azure](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
-### [Utilisation des signatures d’accès partagé](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Utilisation des signatures d’accès partagé](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 
 

@@ -64,12 +64,12 @@
 ### [Machine virtuelle Linux à partir d’un modèle](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Machine virtuelle Windows à partir d’un modèle](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## Stocker des données
-### [Objets blob](../../storage/storage-dotnet-how-to-use-blobs.md)
-### [Partages de fichiers](../../storage/storage-dotnet-how-to-use-files.md)
-### [Paires clé-valeur](../../storage/storage-dotnet-how-to-use-tables.md)
+### [Objets blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+### [Partages de fichiers](../../storage/files/storage-dotnet-how-to-use-files.md)
+### [Paires clé-valeur](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [Documents JSON](../../documentdb/documentdb-get-started.md)
 ### [Tables relationnelles](../../sql-database/sql-database-get-started.md)
-### [Files d’attente](../../storage/storage-dotnet-how-to-use-queues.md)
+### [Files d’attente](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Scale
 ### [Applications Web et mobiles](../../app-service-web/web-sites-scale.md)
