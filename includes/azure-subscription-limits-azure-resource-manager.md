@@ -4,7 +4,7 @@
 | Nombre total de cœurs de machine virtuelle par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> par région | Contacter le support technique |
 | Nombre de cœurs de gamme de machine virtuelle (Dv2, F, etc.) par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> par région | Contacter le support technique |
 | [Coadministrateurs](../articles/billing-add-change-azure-subscription-administrator.md) par abonnement |Illimité |Illimité |
-| [Comptes de stockage](../articles/storage/storage-create-storage-account.md) par abonnement |200 |200<sup>2</sup> |
+| [Comptes de stockage](../articles/storage/common/storage-create-storage-account.md) par abonnement |200 |200<sup>2</sup> |
 | [Groupes de ressources](../articles/azure-resource-manager/resource-group-overview.md) par abonnement |800 |800 |
 | [Groupes à haute disponibilité](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) par abonnement |2 000 par région |2 000 par région |
 | Lectures API Resource Manager |15 000 par heure |15 000 par heure |

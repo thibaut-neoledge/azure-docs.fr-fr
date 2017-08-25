@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Bien démarrer avec la création de solutions avec la bibliothèque cliente Batch pour .NET
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/04/2017
 >
 >
 
-Découvrez les principes de base [d’Azure Batch][azure_batch] et la bibliothèque [Batch .NET][net_api] dans cet article où nous décrivons l’application C# étape par étape. Nous allons voir comment l’exemple d’application tire parti du service Batch pour traiter une charge de travail parallèle dans le cloud, ainsi que la façon dont cette application interagit avec [Azure Storage](../storage/storage-introduction.md) pour la gestion intermédiaire et la récupération des fichiers. Vous allez vous familiariser avec les flux de travail d’application Batch et découvrir une vue d’ensemble des principaux composants de Batch, tels que les travaux, les tâches, les pools et les nœuds de calcul.
+Découvrez les principes de base [d’Azure Batch][azure_batch] et la bibliothèque [Batch .NET][net_api] dans cet article où nous décrivons l’application C# étape par étape. Nous allons voir comment l’exemple d’application tire parti du service Batch pour traiter une charge de travail parallèle dans le cloud, ainsi que la façon dont cette application interagit avec [Azure Storage](../storage/common/storage-introduction.md) pour la gestion intermédiaire et la récupération des fichiers. Vous allez vous familiariser avec les flux de travail d’application Batch et découvrir une vue d’ensemble des principaux composants de Batch, tels que les travaux, les tâches, les pools et les nœuds de calcul.
 
 ![Flux de travail de la solution Batch (de base)][11]<br/>
 
@@ -41,10 +41,10 @@ Cet article suppose que vous avez acquis une connaissance pratique de C# et Visu
 ### <a name="accounts"></a>Comptes
 * **Compte Azure** : si vous ne possédez pas encore d’abonnement Azure, [créez un compte Azure gratuit][azure_free_account].
 * **Compte Batch**: une fois que vous disposez d’un abonnement Azure, [créez un compte Azure Batch](batch-account-create-portal.md).
-* **Compte de stockage** : voir la section [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) de l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
+* **Compte de stockage** : voir la section [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) de l’article [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md).
 
 > [!IMPORTANT]
-> Le service Batch ne prend actuellement en charge *que* le type de compte de stockage à **usage général**, comme décrit à l’étape 5, [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) dans [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
+> Le service Batch ne prend actuellement en charge *que* le type de compte de stockage à **usage général**, comme décrit à l’étape 5, [Création d’un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) dans [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -128,7 +128,7 @@ Accédez à la partie supérieure de la méthode `MainAsync` dans le fichier `Pr
 ![Créer des conteneurs dans le service Stockage Azure][1]
 <br/>
 
-Batch prend en charge l’interaction avec Azure Storage. Les conteneurs présents dans votre compte de stockage fournissent les fichiers nécessaires aux tâches s’exécutant dans votre compte Batch. Les conteneurs fournissent également un emplacement pour stocker les données de sortie générées par les tâches. L’application cliente *DotNetTutorial* commence par créer trois conteneurs dans [Azure Blob Storage](../storage/storage-introduction.md):
+Batch prend en charge l’interaction avec Azure Storage. Les conteneurs présents dans votre compte de stockage fournissent les fichiers nécessaires aux tâches s’exécutant dans votre compte Batch. Les conteneurs fournissent également un emplacement pour stocker les données de sortie générées par les tâches. L’application cliente *DotNetTutorial* commence par créer trois conteneurs dans [Azure Blob Storage](../storage/common/storage-introduction.md):
 
 * **application**: ce conteneur stockera l’application exécutée par les tâches, ainsi que toutes ses dépendances, telles que les DLL.
 * **input**: les tâches téléchargeront les fichiers de données à traiter à partir du conteneur *input* .
@@ -188,7 +188,7 @@ private static async Task CreateContainerIfNotExistAsync(
 Une fois les conteneurs créés, l’application peut charger les fichiers destinés à être utilisés par les tâches.
 
 > [!TIP]
-> L’article [Utilisation du stockage blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md) offre un bon aperçu de l’utilisation des conteneurs de stockage Azure et des objets blob. Il doit se trouver au début de votre liste de lecture lorsque vous commencez à travailler avec le traitement Batch.
+> L’article [Utilisation du stockage blob à partir de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) offre un bon aperçu de l’utilisation des conteneurs de stockage Azure et des objets blob. Il doit se trouver au début de votre liste de lecture lorsque vous commencez à travailler avec le traitement Batch.
 >
 >
 
@@ -286,7 +286,7 @@ Les signatures d’accès partagé sont des chaînes qui, une fois intégrées �
 * **Signatures d’accès partagé de conteneur**: une fois que chaque tâche a mené à bien l’opération qui lui était affectée sur le nœud de calcul, elle charge son fichier de sortie dans le conteneur *output* de Stockage Azure. Pour ce faire, TaskApplication utilise une signature d’accès partagé de conteneur qui fournit un accès en écriture au conteneur dans le chemin d’accès lors du chargement du fichier. L’obtention de la signature d’accès partagé de conteneur obéit à la même procédure que l’obtention de signature d’accès partagé de l’objet blob. Dans DotNetTutorial, vous constaterez que la méthode d’assistance `GetContainerSasUrl` appelle [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] pour ce faire. Vous en saurez plus sur la façon dont TaskApplication utilise la signature d’accès partagé de conteneur en consultant la section l’« étape 6 : Surveiller les tâches » ci-après.
 
 > [!TIP]
-> Pour en savoir plus sur la sécurisation de l’accès aux données présentes dans votre compte Stockage Azure, consultez la série sur les signatures d’accès partagé en deux parties, [Partie 1 : Présentation du modèle de signature d’accès partagé (SAP)](../storage/storage-dotnet-shared-access-signature-part-1.md) et [Partie 2 : Création et utilisation d’une signature d’accès partagé avec Stockage Blob](../storage/storage-dotnet-shared-access-signature-part-2.md).
+> Pour en savoir plus sur la sécurisation de l’accès aux données présentes dans votre compte Stockage Azure, consultez la série sur les signatures d’accès partagé en deux parties, [Partie 1 : Présentation du modèle de signature d’accès partagé (SAP)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) et [Partie 2 : Création et utilisation d’une signature d’accès partagé avec Stockage Blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md).
 >
 >
 

@@ -17,7 +17,7 @@ Le stockage de fichiers est composé des éléments suivants :
 
 ![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
-* **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure](../articles/storage/storage-scalability-targets.md) .
+* **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure](../articles/storage/common/storage-scalability-targets.md) .
 * **Partage** : un partage de stockage de fichiers est un partage de fichiers SMB dans Azure. 
   Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans la limite de la capacité totale de 5 To du partage de fichiers.
 * **Répertoire** : hiérarchie optionnelle de répertoires. 

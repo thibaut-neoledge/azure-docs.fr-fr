@@ -17,10 +17,10 @@ ms.date: 8/11/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 7cc29feaf7411bac1d081f7f7aa3daf92fae88d1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5a6aad672ddaa43f993daf4cf48975e91d2657da
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sauvegarde Azure
@@ -35,7 +35,7 @@ Les solutions de sauvegarde traditionnelles ont évolué et considèrent désorm
 
 **Mise à l’échelle illimitée** : Azure Backup utilise la puissance et l’échelle illimitée du cloud Azure pour garantir la haute disponibilité, sans supplément de maintenance ou de surveillance. Vous pouvez configurer des alertes pour fournir des informations sur les événements, mais vous n’avez pas à vous soucier de la haute disponibilité de vos données dans le cloud.
 
-**Diverses options de stockage** : la réplication du stockage est l’un des facteurs de haute disponibilité. La solution Sauvegarde Azure propose deux types de réplications : le [stockage localement redondant](../storage/storage-redundancy.md#locally-redundant-storage) et le [stockage géoredondant](../storage/storage-redundancy.md#geo-redundant-storage). Choisissez l’option de stockage de sauvegarde en fonction de vos besoins :
+**Diverses options de stockage** : la réplication du stockage est l’un des facteurs de haute disponibilité. La solution Sauvegarde Azure propose deux types de réplications : le [stockage localement redondant](../storage/common/storage-redundancy.md#locally-redundant-storage) et le [stockage géoredondant](../storage/common/storage-redundancy.md#geo-redundant-storage). Choisissez l’option de stockage de sauvegarde en fonction de vos besoins :
 
 * Le stockage localement redondant (LRS) réplique vos données trois fois (il crée trois copies de vos données) dans un centre de données associé au sein de la même région. Le stockage LRS est une option à faible coût qui protège vos données contre les défaillances matérielles locales.
 
@@ -95,10 +95,10 @@ Le tableau suivant montre les composants Azure Backup prenant en charge Linux.
 | Sauvegarde des machines virtuelles IaaS Azure |Sauvegarde cohérente au niveau application à l’aide de [l’infrastructure pré et post-script](backup-azure-linux-app-consistent.md)<br/> [Récupération de fichiers granulaire](backup-azure-restore-files-from-vm.md)<br/> [Restaurer tous les disques de machines virtuelles](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Restauration de machines virtuelles](backup-azure-arm-restore-vms.md#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Utilisation des machines virtuelles Premium Storage avec Azure Backup
-Azure Backup protège les machines virtuelles Premium Storage. Stockage Premium Azure est un stockage SSD conçu pour supporter des charges de travail nécessitant de nombreuses E/S. Stockage Premium est intéressant pour les charges de travail des machines virtuelles. Pour plus d’informations sur le stockage Premium, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
+Azure Backup protège les machines virtuelles Premium Storage. Stockage Premium Azure est un stockage SSD conçu pour supporter des charges de travail nécessitant de nombreuses E/S. Stockage Premium est intéressant pour les charges de travail des machines virtuelles. Pour plus d’informations sur le stockage Premium, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/common/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Sauvegarder des machines virtuelles Premium Storage
-Au moment de sauvegarder des machines virtuelles de stockage Premium, le service de sauvegarde crée un emplacement temporaire intermédiaire appelé « AzureBackup- » dans le compte Stockage Premium. La taille de l’emplacement intermédiaire est égale à la taille de la capture instantanée de point de récupération. Vérifiez que le compte de stockage Premium dispose d’un espace libre suffisant pour prendre en compte cet emplacement intermédiaire temporaire. Pour plus d’informations, consultez l’article [Limites du stockage Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets). Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à l’ensemble de la [tarification de Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing).
+Au moment de sauvegarder des machines virtuelles de stockage Premium, le service de sauvegarde crée un emplacement temporaire intermédiaire appelé « AzureBackup- » dans le compte Stockage Premium. La taille de l’emplacement intermédiaire est égale à la taille de la capture instantanée de point de récupération. Vérifiez que le compte de stockage Premium dispose d’un espace libre suffisant pour prendre en compte cet emplacement intermédiaire temporaire. Pour plus d’informations, consultez l’article [Limites du stockage Premium](../storage/common/storage-premium-storage.md#scalability-and-performance-targets). Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à l’ensemble de la [tarification de Premium Storage](../storage/common/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Évitez de modifier l'emplacement intermédiaire.

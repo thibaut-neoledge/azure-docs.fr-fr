@@ -2,6 +2,6 @@ Data Lake Analytics simplifie la gestion complexe d’une infrastructure distrib
 
 | **Ressource** | **Limite par défaut** | **Commentaires** |
 | --- | --- | --- |
-| nombre maximal de travaux simultanés |3 | |
-| Parallélisme maximal par compte |60 |Utilisez n’importe quelle combinaison contenant jusqu'à 60 unités de parallélisme réparties sur trois travaux. |
+| nombre maximal de travaux simultanés |20 | |
+| Parallélisme maximal par compte |250 |Utilisez n’importe quelle combinaison contenant jusqu'à 60 unités de parallélisme réparties sur trois travaux. |
 

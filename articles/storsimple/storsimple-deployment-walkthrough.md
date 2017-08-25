@@ -1,6 +1,6 @@
 ---
 title: "Déploiement d’un appareil StorSimple local | Microsoft Docs"
-description: "Décrit les procédures et meilleures pratiques de déploiement du service et de l’appareil StorSimple. (S&quot;applique à Microsoft Azure StorSimple version .3 et versions antérieures.)"
+description: "Décrit les procédures et meilleures pratiques de déploiement du service et de l’appareil StorSimple. (S'applique à Microsoft Azure StorSimple version .3 et versions antérieures.)"
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2063acbafd6766d00dee9509ee7def73bdc5b982
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device"></a>Déploiement de votre appareil StorSimple local
@@ -141,7 +142,7 @@ Avant de commencer, assurez-vous que :
 |  | | |
 | **NTP** |Nous déclenchons une synchronisation horaire dès que le serveur NTP est en entrée. Vérifiez que le port UDP 123 est ouvert lorsque vous entrez `time.windows.com` ou des serveurs horaires publics. |[Télécharger et utiliser ce script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 |  | | |
-| **Proxy (facultatif)** |S'agit-il d'un URI et d'un port de proxy valides ? </br>  Le mode d'authentification est-il correct ? |<code>wget http://bing.com &#124; % {$_.StatusCode}</code></br>Cette commande doit être exécutée immédiatement après la configuration du proxy Web. Si un code d’état de 200 est retourné, cela indique que la connexion est établie. |
+| **Proxy (facultatif)** |S'agit-il d'un URI et d'un port de proxy valides ? </br> Le mode d'authentification est-il correct ? |<code>wget http://bing.com &#124; % {$_.StatusCode}</code></br>Cette commande doit être exécutée immédiatement après la configuration du proxy Web. Si un code d’état de 200 est retourné, cela indique que la connexion est établie. |
 | &nbsp; |Le trafic est-il acheminé via le proxy ? |Exécutez la validation DNS, la vérification NTP ou la vérification HTTP une fois après la configuration du proxy sur votre appareil. Ceci vous indique clairement si le trafic est bloqué au niveau du proxy ou ailleurs. |
 |  | | |
 | **Inscription** |Vérifiez si les ports TCP sortants 443, 80, 9354 sont ouverts. |`Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Plus d'informations sur l'applet de commande Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -239,7 +240,7 @@ Vous pouvez à tout moment effectuer une sauvegarde manuelle. Pour connaître le
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Configuration d’un compte de stockage pour le service
 Il s’agit d’une étape facultative que vous devez exécuter uniquement si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service. Un compte de stockage Microsoft Azure est requis pour créer un conteneur de volumes StorSimple.
 
-Si vous devez créer un compte de stockage Azure dans une autre région, consultez la page [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md) pour obtenir des instructions détaillées.
+Si vous devez créer un compte de stockage Azure dans une autre région, consultez la page [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md) pour obtenir des instructions détaillées.
 
 Procédez comme suit dans le Portail Azure Classic, sur la page **Service StorSimple Manager** .
 
@@ -282,10 +283,5 @@ Pour créer une sauvegarde manuelle à la demande pour un seul volume sur votre 
 ## <a name="next-steps"></a>Étapes suivantes
 * Configuration d’un [appareil virtuel](storsimple-virtual-device-u2.md).
 * Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

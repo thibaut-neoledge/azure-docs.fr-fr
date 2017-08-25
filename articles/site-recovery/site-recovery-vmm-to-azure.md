@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 958b61f5de732a882e0a2682b8dd4e18504a6ae7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Répliquer vers Azure des machines virtuelles Hyper-V hébergées dans des clouds VMM à l’aide de Site Recovery sur le Portail Azure
@@ -81,8 +81,8 @@ Vous devez avoir un réseau Azure, auquel les machines virtuelles Azure créées
 Les réseaux Azure utilisés par Site Recovery ne peuvent pas être [déplacés](../azure-resource-manager/resource-group-move-resources.md), que ce soit dans le même abonnement ou dans des abonnements différents.
 
 ### <a name="set-up-an-azure-storage-account"></a>Configurer un compte de stockage Azure
-* Vous avez besoin d’un compte de stockage Azure Standard ou Premium pour accueillir les données répliquées sur Azure. Un [Stockage Premium](../storage/storage-premium-storage.md) est utilisé pour des machines virtuelles nécessitant en permanence des performances d’E/S élevées et une faible latence pour héberger des charges de travail consommatrices d’E/S. Si vous souhaitez utiliser un compte Premium pour stocker les données répliquées, vous avez aussi besoin d’un compte de stockage standard afin de stocker les journaux de réplication qui capturent les modifications apportées en continu aux données locales. Ce compte doit se trouver dans la même région que le coffre Recovery Services.
-* Selon le modèle de ressource que vous souhaitez utiliser pour les machines virtuelles Azure ayant fait l’objet d’un basculement, vous allez configurer un compte en [mode Azure Resource Manager](../storage/storage-create-storage-account.md) ou en [mode Classic](../storage/storage-create-storage-account-classic-portal.md).
+* Vous avez besoin d’un compte de stockage Azure Standard ou Premium pour accueillir les données répliquées sur Azure. Un [Stockage Premium](../storage/common/storage-premium-storage.md) est utilisé pour des machines virtuelles nécessitant en permanence des performances d’E/S élevées et une faible latence pour héberger des charges de travail consommatrices d’E/S. Si vous souhaitez utiliser un compte Premium pour stocker les données répliquées, vous avez aussi besoin d’un compte de stockage standard afin de stocker les journaux de réplication qui capturent les modifications apportées en continu aux données locales. Ce compte doit se trouver dans la même région que le coffre Recovery Services.
+* Selon le modèle de ressource que vous souhaitez utiliser pour les machines virtuelles Azure ayant fait l’objet d’un basculement, vous allez configurer un compte en [mode Azure Resource Manager](../storage/common/storage-create-storage-account.md) ou en [mode Classic](../storage/common/storage-create-storage-account.md).
 * Nous vous recommandons de configurer un compte avant de commencer. Sinon, vous devrez le faire lors du déploiement de Site Recovery.
 - Notez que les comptes de stockage utilisés par Site Recovery ne peuvent pas être [déplacés](../azure-resource-manager/resource-group-move-resources.md), que ce soit dans le même abonnement ou dans des abonnements différents.
 
@@ -221,7 +221,7 @@ Spécifiez le compte Azure Storage à utiliser pour la réplication, ainsi que l
    ![Storage](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
 
 
-   * Si vous souhaitez créer un compte de stockage en mode Classic, vous pouvez le faire dans le Portail Azure. [En savoir plus](../storage/storage-create-storage-account-classic-portal.md)
+   * Si vous souhaitez créer un compte de stockage en mode Classic, vous pouvez le faire dans le Portail Azure. [En savoir plus](../storage/common/storage-create-storage-account.md)
    * Si vous utilisez un compte de stockage Premium pour les données répliquées, configurez un compte de stockage standard supplémentaire, afin de stocker les journaux de réplication qui capturent les modifications apportées en continu aux données locales.
 5. Si vous n’avez pas créé de réseau Azure et que vous souhaitez le faire avec Azure Resource Manager, cliquez sur **+Réseau** afin d’effectuer l’opération en ligne. Dans le panneau **Créer un réseau virtuel** , spécifiez le nom, la plage d’adresses, les informations sur le sous-réseau associé, l’abonnement et l’emplacement du réseau virtuel. Ce réseau doit se trouver au même emplacement que le coffre Recovery Services.
 
@@ -261,7 +261,7 @@ Voici le processus exécuté lorsque le mappage réseau démarre :
 3. Dans **Fréquence de copie**, spécifiez la fréquence selon laquelle répliquer les données delta après la réplication initiale (toutes les 30 secondes ou toutes les 5 ou 15 minutes).
 
     > [!NOTE]
-    >  Une fréquence de 30 secondes n’est pas prise en charge lors de la réplication sur un Stockage Premium. La limitation est déterminée par le nombre d’instantanés par objet blob (100) pris en charge par le Stockage Premium. [En savoir plus](../storage/storage-premium-storage.md#snapshots-and-copy-blob)
+    >  Une fréquence de 30 secondes n’est pas prise en charge lors de la réplication sur un Stockage Premium. La limitation est déterminée par le nombre d’instantanés par objet blob (100) pris en charge par le Stockage Premium. [En savoir plus](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)
 
 4. Dans **Rétention des points de récupération**, spécifiez la durée de la fenêtre de rétention pour chaque point de récupération (en heures). Les machines protégées peuvent être récupérées à tout moment pendant cette fenêtre temporelle.
 5. Dans **Fréquence des captures instantanées cohérentes de l’application**, spécifiez la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications (entre 1 et 12 heures). Hyper-V utilise deux types d’instantanés : un instantané standard qui fournit un instantané incrémentiel de la machine virtuelle complète et un instantané cohérent avec l'application qui prend un instantané des données d'application d'une machine virtuelle. Les instantanés cohérents avec l'application utilisent le service VSS (Volume Shadow Copy Service) pour s'assurer que les applications sont dans un état cohérent lors de la prise des instantanés. Notez que si vous activez les instantanés cohérents avec l'application, cela affectera les performances des applications exécutées sur les machines virtuelles sources. Assurez-vous que la valeur définie est inférieure au nombre de points de récupération supplémentaires que vous configurez.
@@ -307,7 +307,7 @@ Avant de commencer, assurez-vous que votre compte d’utilisateur Azure a les [a
 3. Dans **Cible**, sélectionnez l’abonnement, le modèle de déploiement suite au basculement et le compte de stockage utilisé pour les données répliquées.
 
     ![Activer la réplication](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
-4. Sélectionnez le compte de stockage que vous souhaitez utiliser. Si vous souhaitez utiliser un compte de stockage différent de ceux dont vous disposez, vous pouvez en [créer un](#set-up-an-azure-storage-account). Si vous utilisez un compte de stockage Premium pour les données répliquées, vous devez sélectionner un compte de stockage Standard supplémentaire, afin de stocker les journaux de réplication qui capturent les modifications apportées en continu aux données locales. Pour créer un compte de stockage à l’aide du modèle Resource Manager, cliquez sur **Créer**. Si vous souhaitez créer un compte de stockage en mode Classic, vous pouvez le faire [dans le Portail Azure](../storage/storage-create-storage-account-classic-portal.md). Cliquez ensuite sur **OK**.
+4. Sélectionnez le compte de stockage que vous souhaitez utiliser. Si vous souhaitez utiliser un compte de stockage différent de ceux dont vous disposez, vous pouvez en [créer un](#set-up-an-azure-storage-account). Si vous utilisez un compte de stockage Premium pour les données répliquées, vous devez sélectionner un compte de stockage Standard supplémentaire, afin de stocker les journaux de réplication qui capturent les modifications apportées en continu aux données locales. Pour créer un compte de stockage à l’aide du modèle Resource Manager, cliquez sur **Créer**. Si vous souhaitez créer un compte de stockage en mode Classic, vous pouvez le faire [dans le Portail Azure](../storage/common/storage-create-storage-account.md). Cliquez ensuite sur **OK**.
 5. Sélectionnez le sous-réseau et le réseau Azure auxquels les machines virtuelles Azure se connectent lorsqu’elles sont créées après le basculement. Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer le paramètre réseau à l’ensemble des machines que vous sélectionnez à des fins de protection. Sélectionnez **Configurer ultérieurement** pour sélectionner le réseau Azure pour chaque machine. Si vous souhaitez utiliser un réseau différent de ceux dont vous disposez, [créez-le](#set-up-an-azure-network). Pour créer un réseau en mode Resource Manager, cliquez sur **Créer**. Si vous souhaitez créer un réseau en suivant le modèle classique, utilisez le [Portail Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Sélectionnez un sous-réseau, le cas échéant. Cliquez ensuite sur **OK**.
 6. Dans **Machines virtuelles** > **Sélectionner les machines virtuelles**, cliquez sur chaque machine à répliquer. Vous pouvez uniquement sélectionner les machines pour lesquelles la réplication peut être activée. Cliquez ensuite sur **OK**.
 

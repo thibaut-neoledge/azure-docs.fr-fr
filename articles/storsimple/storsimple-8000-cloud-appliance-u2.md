@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/10/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 905a70bfd37ccdb9f2944b4a9348c3b60dedda44
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e7f58c8c1414f41d1d43e98b2faa327165f6eb75
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Déployer et gérer une appliance cloud StorSimple dans Azure (Update 3 et versions ultérieures)
@@ -45,7 +45,7 @@ StorSimple Cloud Appliance est disponible en deux modèles, un 8010 Standard (an
 | **Capacité maximale** |30 To |64 To |
 | **Microsoft Azure** |Standard_A3 (4 cœurs, 7 Go de mémoire)| Standard_DS3 (4 cœurs, 14 Go de mémoire)|
 | **Disponibilité des régions** |Toutes les régions Azure |Régions Azure qui prennent en charge le stockage Premium et les machines virtuelles Azure DS3<br></br>Utilisez [cette liste](https://azure.microsoft.com/regions/services/) afin de déterminer si **Machines virtuelles > Série DS** et **Stockage > Stockage sur disque** sont disponibles dans votre région. |
-| **Type de stockage** |Utilise le stockage Azure Standard pour les disques locaux<br></br> Découvrez comment [créer un compte de stockage Standard](../storage/storage-create-storage-account.md) |Utilise le stockage Azure Standard pour les disques locaux<sup>2</sup> <br></br>Découvrez comment [créer un compte de stockage Premium](../storage/storage-premium-storage.md) |
+| **Type de stockage** |Utilise le stockage Azure Standard pour les disques locaux<br></br> Découvrez comment [créer un compte de stockage Standard](../storage/common/storage-create-storage-account.md) |Utilise le stockage Azure Standard pour les disques locaux<sup>2</sup> <br></br>Découvrez comment [créer un compte de stockage Premium](../storage/common/storage-premium-storage.md) |
 | **Aide relative à la charge de travail** |Récupération au niveau des éléments des fichiers à partir de sauvegardes |Scénarios de développement et de test cloud <br></br>Faible latence et charges de travail aux performances plus élevées<br></br>Appareil secondaire pour la récupération d’urgence |
 
 <sup>1</sup> *Anciennement, 1100*.
@@ -94,7 +94,7 @@ Avant d’approvisionner l’appliance cloud, vous devez effectuer les préparat
 Apportez les mises à jour suivantes à votre service StorSimple Device Manager avant de créer une appliance cloud :
 
 * Ajoutez des [enregistrements de contrôle d’accès](storsimple-8000-manage-acrs.md) pour les machines virtuelles qui vont être les serveurs hôtes de votre appliance cloud.
-* Utilisez un [compte de stockage](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) dans la même région que l’appliance cloud. Des comptes de stockage dans différentes régions peuvent entraîner une dégradation des performances. Vous pouvez utiliser un compte de stockage Standard ou Premium avec l’appliance cloud. Plus d’informations sur la création d’un [compte de stockage Standard](../storage/storage-create-storage-account.md) ou d’un [compte de stockage Premium](../storage/storage-premium-storage.md)
+* Utilisez un [compte de stockage](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) dans la même région que l’appliance cloud. Des comptes de stockage dans différentes régions peuvent entraîner une dégradation des performances. Vous pouvez utiliser un compte de stockage Standard ou Premium avec l’appliance cloud. Plus d’informations sur la création d’un [compte de stockage Standard](../storage/common/storage-create-storage-account.md) ou d’un [compte de stockage Premium](../storage/common/storage-premium-storage.md)
 * Utilisez un compte de stockage différent pour la création de l’appliance cloud de celui utilisé pour vos données. L’utilisation du même compte de stockage peut entraîner une dégradation des performances.
 
 Assurez-vous de disposer des informations suivantes avant de commencer :

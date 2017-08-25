@@ -14,7 +14,7 @@ Le service d’objets blob contient les composants suivants :
 
 ![Architecture d’objets blob](./media/storage-blob-concepts-include/blob1.png)
 
-* **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Ce compte de stockage peut être un **compte de stockage à usage général** ou un **compte de stockage d’objets blob** spécialisé pour le stockage des objets/blobs. Pour plus d’informations, voir [À propos des comptes de stockage Azure](../articles/storage/storage-create-storage-account.md).
+* **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Ce compte de stockage peut être un **compte de stockage à usage général** ou un **compte de stockage d’objets blob** spécialisé pour le stockage des objets/blobs. Pour plus d’informations, voir [À propos des comptes de stockage Azure](../articles/storage/common/storage-create-storage-account.md).
 * **Conteneur :** un conteneur regroupe un ensemble d'objets blob. Tous les objets blob doivent figurer dans un conteneur. Un compte peut contenir un nombre illimité de conteneurs. Un conteneur peut stocker un nombre illimité d’objets blob. Notez que le nom du conteneur doit être en minuscules.
 * **Objet blob :** fichier de tout type et de toute taille. Azure Storage propose trois types d’objets blob : les objets blob de blocs, les objets blob d’ajouts et les objets blob de pages.
   

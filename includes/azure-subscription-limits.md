@@ -2,7 +2,7 @@
 | --- | --- | --- |
 | Cœurs par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10 000 |
 | [Coadministrateurs](../articles/billing-add-change-azure-subscription-administrator.md) par abonnement |200 |200 |
-| [Comptes de stockage](../articles/storage/storage-create-storage-account.md) par abonnement<sup>2</sup> |200 |250 |
+| [Comptes de stockage](../articles/storage/common/storage-create-storage-account.md) par abonnement<sup>2</sup> |200 |250 |
 | [Services cloud](../articles/cloud-services/cloud-services-choose-me.md) par abonnement |20 |200 |
 | [Réseaux locaux](http://msdn.microsoft.com/library/jj157100.aspx) par abonnement |10 |500 |
 | Serveurs de bases de données SQL par abonnement |6 |150 |

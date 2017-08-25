@@ -59,7 +59,7 @@ Le tableau suivant fournit une rapide vue d’ensemble des différences entre le
 | Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non |Non |Non |Oui |
 | Nombre de copies de données conservées sur des nœuds distincts. |3 |3 |6 |6 |
 
-Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../articles/storage/storage-redundancy.md). Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble d’Azure Managed Disks](../articles/storage/storage-managed-disks-overview.md).
+Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../articles/storage/common/storage-redundancy.md). Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble d’Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Coûts de stockage
 Les prix varient selon le type de stockage et la disponibilité que vous sélectionnez.
@@ -75,7 +75,7 @@ Les prix varient selon le type de stockage et la disponibilité que vous sélect
 Consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/) pour connaître les informations de tarification des différents types de stockage et options de disponibilité.
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité
-Un groupe à haute disponibilité est un regroupement logique de machines virtuelles qui permet à Azure de comprendre comment votre application est conçue, afin de garantir la redondance et la disponibilité. Il est recommandé de créer au moins deux machines virtuelles dans un groupe à haute disponibilité, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Lorsqu’une seule machine virtuelle utilise le [stockage Azure Premium](../articles/storage/storage-premium-storage.md), le SLA Azure s’applique pour les événements de maintenance non planifiés. 
+Un groupe à haute disponibilité est un regroupement logique de machines virtuelles qui permet à Azure de comprendre comment votre application est conçue, afin de garantir la redondance et la disponibilité. Il est recommandé de créer au moins deux machines virtuelles dans un groupe à haute disponibilité, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Lorsqu’une seule machine virtuelle utilise le [stockage Azure Premium](../articles/storage/common/storage-premium-storage.md), le SLA Azure s’applique pour les événements de maintenance non planifiés. 
 
 Un groupe à haute disponibilité est composé de deux regroupements supplémentaires qui vous protègent contre les défaillances matérielles et autorisent l’application des mises à jour en toute sécurité dans des domaines d’erreur (FD) et des domaines de mise à jour (UD).
 
@@ -90,7 +90,7 @@ Un domaine d’erreur est un groupe logique de matériels sous-jacents qui parta
 Un domaine de mise à jour est un groupe logique de matériels sous-jacents qui peuvent faire l’objet d’une opération de maintenance ou être redémarrés en même temps. Lorsque vous créez des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure distribue automatiquement vos machines virtuelles dans ces domaines de mise à jour. Cette approche garantit qu’au moins une instance de votre application reste toujours en cours d’exécution, car la plateforme Azure fait l’objet d’une maintenance périodique. Le redémarrage des domaines de mise à jour peut ne pas suivre un ordre séquentiel au cours de la maintenance planifiée, mais un seul domaine de mise à jour peut être redémarré à la fois.
 
 ### <a name="managed-disk-fault-domains"></a>Domaines d’erreur des disques gérés
-Les machines virtuelles faisant appel à des [disques gérés Azure](../articles/storage/storage-faq-for-disks.md) sont alignées sur les domaines d’erreur des disques gérés lorsqu’un groupe à haute disponibilité géré est utilisé. Cet alignement garantit que tous les disques gérés attachés à une machine virtuelle se trouvent dans le même domaine d’erreur de disques gérés. Seules des machines virtuelles avec des disques gérés peuvent être créées dans un groupe à haute disponibilité géré. Le nombre de domaines d’erreur de disques gérés varie en fonction de la région (deux ou trois par région).
+Les machines virtuelles faisant appel à des [disques gérés Azure](../articles/virtual-machines/windows/faq-for-disks.md) sont alignées sur les domaines d’erreur des disques gérés lorsqu’un groupe à haute disponibilité géré est utilisé. Cet alignement garantit que tous les disques gérés attachés à une machine virtuelle se trouvent dans le même domaine d’erreur de disques gérés. Seules des machines virtuelles avec des disques gérés peuvent être créées dans un groupe à haute disponibilité géré. Le nombre de domaines d’erreur de disques gérés varie en fonction de la région (deux ou trois par région).
 
 ![Domaines d’erreur des disques gérés](./media/virtual-machines-common-manage-availability/md-fd.png)
 

@@ -11,7 +11,6 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
     ID de graphique|sample-graph|L’ID de votre nouveau graphique. Les noms de graphiques sont soumis aux mêmes exigences de nombre de caractères que les ID de bases de données.
     Capacité de stockage| 10 Go|Conservez la valeur par défaut. Il s’agit de la capacité de stockage de la base de données.
     Débit|400 unités de requête|Conservez la valeur par défaut. Vous pourrez augmenter le débit ultérieurement si vous souhaitez réduire la latence.
-    RU/m|Off|Conservez la valeur par défaut. 
     Clé de partition|/userid|Clé de partition qui distribuera les données uniformément sur chaque partition. Il est important de sélectionner la clé de partition correcte pour obtenir un graphique performant. Pour plus d’informations sur ce point, consultez [Conception du partitionnement](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
 3. Une fois le formulaire rempli, cliquez sur **OK**.

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: ead9fcc5ec582420d731faccb7abba0dc815ed84
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f9a9ff81913dda1457123525fe509d194798db14
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Déployer et gérer un appareil virtuel StorSimple dans Azure
@@ -35,7 +34,7 @@ L’appareil virtuel StorSimple est disponible en deux modèles, un 8010 Standar
 | **Microsoft Azure** |Standard_A3 (4 cœurs, 7 Go de mémoire) |Standard_DS3 (4 cœurs, 14 Go de mémoire) |
 | **Compatibilité des versions** |Les versions exécutant une version antérieure de la mise à jour préliminaire 2 ou version ultérieure |Les versions exécutant Update 2 ou version ultérieure |
 | **Disponibilité des régions** |Toutes les régions Azure |Toutes les régions Azure qui prennent en charge le stockage Premium et les machines virtuelles Azure DS3<br></br> Utilisez [cette liste](https://azure.microsoft.com/en-us/regions/services) afin de déterminer si *Machines virtuelles > Série DS* et *Stockage > Stockage sur disque* sont disponibles dans votre région. |
-| **Type de stockage** |Utilise le stockage Azure Standard pour les disques locaux<br></br> Découvrez comment [créer un compte de stockage Standard](../storage/storage-create-storage-account.md) |Utilise le stockage Azure Standard pour les disques locaux<sup>2</sup> <br></br>Découvrez comment [créer un compte de stockage Premium](../storage/storage-premium-storage.md) |
+| **Type de stockage** |Utilise le stockage Azure Standard pour les disques locaux<br></br> Découvrez comment [créer un compte de stockage Standard](../storage/common/storage-create-storage-account.md) |Utilise le stockage Azure Standard pour les disques locaux<sup>2</sup> <br></br>Découvrez comment [créer un compte de stockage Premium](../storage/common/storage-premium-storage.md) |
 | **Aide relative à la charge de travail** |Récupération au niveau des éléments des fichiers à partir de sauvegardes |Scénarios de développement et de test dans le cloud, faible latence, charges de travail plus performantes <br></br>Appareil secondaire pour la récupération d’urgence |
 
 <sup>1</sup> *Anciennement, 1100*.
@@ -84,7 +83,7 @@ Avant d’approvisionner l’appareil virtuel, vous devez effectuer les prépara
 Apportez les mises à jour suivantes à votre service Azure StorSimple avant de créer un appareil virtuel :
 
 * Ajoutez des [enregistrements de contrôle d’accès](storsimple-manage-acrs.md) pour les machines virtuelles qui vont être les serveurs hôtes de votre appareil virtuel.
-* Utilisez un [compte de stockage](storsimple-manage-storage-accounts.md#add-a-storage-account) dans la même région que l’appareil virtuel. Des comptes de stockage dans différentes régions peuvent entraîner une dégradation des performances. Vous pouvez utiliser un compte de stockage Standard ou Premium avec l’appareil virtuel. Plus d’informations sur la création d’un [compte de stockage Standard](../storage/storage-create-storage-account.md) ou d’un [compte de stockage Premium](../storage/storage-premium-storage.md)
+* Utilisez un [compte de stockage](storsimple-manage-storage-accounts.md#add-a-storage-account) dans la même région que l’appareil virtuel. Des comptes de stockage dans différentes régions peuvent entraîner une dégradation des performances. Vous pouvez utiliser un compte de stockage Standard ou Premium avec l’appareil virtuel. Plus d’informations sur la création d’un [compte de stockage Standard](../storage/common/storage-create-storage-account.md) ou d’un [compte de stockage Premium](../storage/common/storage-premium-storage.md)
 * Utilisez un compte de stockage différent pour la création de l’appareil virtuel de celui utilisé pour vos données. L’utilisation du même compte de stockage peut entraîner une dégradation des performances.
 
 Assurez-vous de disposer des informations suivantes avant de commencer :
