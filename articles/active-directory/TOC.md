@@ -10,16 +10,9 @@
 ## [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md)
 ## [Ajouter un nom de domaine personnalisé](add-custom-domain.md)
 ## [Configurer la marque de la société](customize-branding.md)
+## [Ajouter des utilisateurs dans Azure AD](add-users-azure-active-directory.md)
+## [Attribuer des licences à des utilisateurs](license-users-groups.md)
 ## [Configurer la réinitialisation du mot de passe libre-service](active-directory-passwords-getting-started.md)
-## Gérer les licences Azure AD
-### [Portail Azure](active-directory-licensing-get-started-azure-portal.md)
-### [Portail classique](active-directory-licensing-what-is.md)
-### [Attribuer des licences à l’aide de groupes](active-directory-licensing-whatis-azure-portal.md)
-#### [Attribuer des licences à un groupe](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Identifier et résoudre les problèmes de licence dans un groupe](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrer des utilisateurs individuels titulaires d’une licence aux licences par groupe](active-directory-licensing-group-migration-azure-portal.md)
-#### [Scénarios supplémentaires pour la gestion des licences par groupe](active-directory-licensing-group-advanced.md)
-#### [Exemples PowerShell pour les licences basées sur les groupes](active-directory-licensing-ps-examples.md)
 
 
 # Procédures
@@ -44,11 +37,6 @@
 #### [Comparaison d’outils](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Gestion des utilisateurs
-### Ajouter des utilisateurs
-#### [Portail Azure](active-directory-users-create-azure-portal.md)
-#### [Portail classique](active-directory-create-users.md)
-
-
 ### [Attribuer des licences à l’aide de groupes](active-directory-licensing-whatis-azure-portal.md)
 #### [Attribuer des licences à un groupe](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identifier et résoudre les problèmes de licence dans un groupe](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -147,16 +135,10 @@
 ### [FAQ](device-management-faq.md)
 ### Tâches
 #### [Configurer des appareils joints Azure AD hybrides](device-management-hybrid-azuread-joined-devices-setup.md) 
-#### Résolution des problèmes
-##### [Appareils Windows 10 et Windows Server 2016 joints Azure AD hybrides](device-management-troubleshoot-hybrid-join-windows-current.md)
-##### [Appareils Windows hérités joints Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
-### Inscrire des appareils
 #### [Déployer en local](active-directory-device-registration-on-premises-setup.md)
-#### [FAQ](active-directory-device-registration-faq.md)
-#### Résolution des problèmes
-##### [Résolution des problèmes pour Windows 10 et Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
-##### [Résolution des problèmes pour les clients de bas niveau Windows](active-directory-device-registration-troubleshoot-windows-legacy.md)
+### Résolution des problèmes
+#### [Appareils Windows 10 et Windows Server 2016 joints Azure AD hybrides](device-management-troubleshoot-hybrid-join-windows-current.md)
+#### [Appareils Windows hérités joints Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Planification](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Configuration de l’inscription des appareils](active-directory-azureadjoin-setup.md)

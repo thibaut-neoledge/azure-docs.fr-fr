@@ -8,6 +8,7 @@
 ## [Sécurité de Service Fabric](azure-service-fabric-security-overview.md)
 ## [Gestion des identités](security-identity-management-overview.md)
 ## [Sécurité IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Vue d’ensemble du chiffrement Azure](security-azure-encryption-overview.md)
 ## [Architecture de la sécurité](azure-security-architecture-overview.md)
 ### [Activer la sécurité opérationnelle](azure-operational-security.md)
 ### [Détection avancée des menaces](azure-threat-detection.md)
@@ -30,7 +31,7 @@
 
 ## Sécurité du stockage
 ### [Meilleures pratiques en matière de chiffrement et de sécurité des données](azure-security-data-encryption-best-practices.md)
-### [Guide sur la sécurité du stockage](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Guide sur la sécurité du stockage](../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Sécurité des calculs
 ### [Meilleures pratiques pour les machines virtuelles Azure](azure-security-best-practices-vms.md)
@@ -63,11 +64,12 @@
 
 ## Services PaaS
 ### [Sécurisation des déploiements PaaS](security-paas-deployments.md)
-#### [Sécurisation des applications mobiles et web PaaS à l’aide de SQL](security-paas-applications-using-sql.md)
-#### [Meilleures pratiques en matière de sécurité de la base de données SQL](azure-database-security-best-practices.md)
-#### [Liste de contrôle de la sécurité de la base de données SQL](azure-database-security-checklist.md)
 #### [Sécurisation des applications mobiles et web PaaS à l’aide d’App Services](security-paas-applications-using-app-services.md)
+#### [Sécurisation des applications mobiles et web PaaS à l’aide de SQL](security-paas-applications-using-sql.md)
+##### [Meilleures pratiques en matière de sécurité de la base de données SQL](azure-database-security-best-practices.md)
+##### [Liste de contrôle de la sécurité de la base de données SQL](azure-database-security-checklist.md)
 ####[Liste de contrôle de la sécurité opérationnelle](azure-operational-security-checklist.md)
+#### [Sécurisation des applications mobiles et web PaaS à l’aide du stockage Azure](security-paas-applications-using-storage.md)
 
 ## Internet des Objets
 ### [Sécuriser votre déploiement IoT](../iot-suite/iot-suite-security-deployment.md)

@@ -115,6 +115,8 @@
           items:
             - name: Vue d'ensemble
               href: app-service-linux-intro.md
+            - name: Gérer à l’aide de l’interface CLI
+              href: app-service-linux-cli.md
             - name: Créer l’application web sur Linux
               href: app-service-linux-how-to-create-web-app.md
             - name: Application web Ruby sur Linux
