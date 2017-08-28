@@ -2,7 +2,7 @@
 title: "Présélections de travaux pour MES (Media Encoder Standard) | Microsoft Docs"
 description: "Cette rubrique vous propose une vue d’ensemble des présélections de travaux pour MES (Media Encoder Standard)."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

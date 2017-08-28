@@ -12,14 +12,13 @@ ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 024a9dd00d086d5c1cc14d6731b34ee0eab3b2c5
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 62f89087af9a82eddeec4dd745a26c3559bb0c04
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -27,26 +26,28 @@ ms.lasthandoff: 06/29/2017
 
 
 ## <a name="introduction"></a>Introduction
-Les hubs d’événements représentent un système d’ingestion à l’extensibilité élevée en mesure d’absorber des millions d’événements par seconde, ce qui permet à une application de traiter et d’analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectés dans des hubs d’événements, vous pouvez transformer et stocker des données à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage.
+Les concentrateurs d’événements représentent un système d’ingestion à l’extensibilité élevée en mesure d’absorber des millions d’événements par seconde, ce qui permet à une application de traiter et d’analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectés dans des hubs d’événements, vous pouvez transformer et stocker des données à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage.
 
 Pour plus d’informations, consultez la section [Vue d’ensemble d’Event Hubs][Event Hubs overview].
 
-Ce didacticiel explique comment recevoir des événements dans un Event Hub à l’aide d’une application console en Java.
+Ce didacticiel explique comment recevoir des événements dans un concentrateur d’événements à l’aide d’une application console en Java.
 
-Pour effectuer ce didacticiel, vous devrez disposer des éléments suivants :
+## <a name="prerequisites"></a>Composants requis
+
+Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
 * Un environnement de développement Java. Pour ce didacticiel, nous partons du principe que la solution utilisée est [Eclipse](https://www.eclipse.org/).
 * Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 ## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Recevoir des messages avec EventProcessorHost en Java
 
-EventProcessorHost est une classe Java qui simplifie la réception d’événements provenant d’Event Hubs grâce à la gestion des points de contrôle permanents et des réceptions en parallèle d’Event Hubs. EventProcessorHost permet de répartir des événements sur plusieurs récepteurs, même quand ils sont hébergés dans des nœuds différents. Cet exemple illustre l'utilisation de la classe EventProcessorHost pour un récepteur unique.
+**EventProcessorHost** est une classe Java qui simplifie la réception d’événements provenant d’Event Hubs grâce à la gestion des points de contrôle permanents et des réceptions en parallèle d’Event Hubs. EventProcessorHost permet de répartir des événements sur plusieurs récepteurs, même quand ils sont hébergés dans des nœuds différents. Cet exemple illustre l'utilisation de la classe EventProcessorHost pour un récepteur unique.
 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
-Pour utiliser EventProcessorHost, vous devez disposer d’un [compte de stockage Azure][Azure Storage account] :
+Pour utiliser EventProcessorHost, vous devez disposer d’un [compte Azure Storage][Azure Storage account] :
 
-1. Connectez-vous au [portail Azure Classic][Azure classic portal]et cliquez sur **NOUVEAU** en bas de l’écran.
-2. Cliquez sur **Services de données**, sur **Stockage**, puis sur **Création rapide**, et tapez un nom pour votre compte de stockage. Sélectionnez la région de votre choix, puis cliquez sur **Créer un compte de stockage**.
+1. Connectez-vous au [portail Azure][Azure portal], puis cliquez sur **+ Nouveau** à gauche de l’écran.
+2. Cliquez sur **Stockage**, puis sur **Compte de stockage**. Dans le panneau **Créer un compte de stockage** , tapez un nom pour votre compte de stockage. Renseignez les autres champs, sélectionnez la région souhaitée, puis cliquez sur **Créer**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
@@ -54,12 +55,12 @@ Pour utiliser EventProcessorHost, vous devez disposer d’un [compte de stockage
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    Copiez la clé d’accès principale à utiliser ultérieurement au cours de ce didacticiel.
+    Copiez la clé d’accès principale dans un dossier temporaire afin de pouvoir l’utiliser ultérieurement au cours de ce didacticiel.
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Créer un projet Java à l’aide de l’hôte EventProcessor
 La bibliothèque cliente Java pour Event Hubs est utilisable dans les projets Maven à partir du [référentiel central Maven][Maven Package]. Elle peut être référencée à l’aide de la déclaration de dépendance ci-après dans votre fichier projet Maven :    
 
-```XML
+```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
@@ -79,9 +80,9 @@ La bibliothèque cliente Java pour Event Hubs est utilisable dans les projets Ma
 
 Pour différents types d’environnements de génération, vous pouvez obtenir explicitement les fichiers JAR les plus récents à partir du [référentiel central Maven][Maven Package] ou du [point de distribution de version sur GitHub](https://github.com/Azure/azure-event-hubs/releases).  
 
-1. Pour l’exemple suivant, créez tout d’abord un nouveau projet Maven pour une application de console/shell dans votre environnement de développement Java favori. La classe sera appelée ```ErrorNotificationHandler```.     
+1. Pour l’exemple suivant, créez tout d’abord un nouveau projet Maven pour une application de console/shell dans votre environnement de développement Java favori. La classe est appelée `ErrorNotificationHandler`.     
    
-    ```Java
+    ```java
     import java.util.function.Consumer;
     import com.microsoft.azure.eventprocessorhost.ExceptionReceivedEventArgs;
    
@@ -94,9 +95,9 @@ Pour différents types d’environnements de génération, vous pouvez obtenir e
         }
     }
     ```
-2. Utilisez le code suivant pour créer une classe appelée ```EventProcessor```.
+2. Utilisez le code suivant pour créer une classe appelée `EventProcessor`.
    
-    ```Java
+    ```java
     import com.microsoft.azure.eventhubs.EventData;
     import com.microsoft.azure.eventprocessorhost.CloseReason;
     import com.microsoft.azure.eventprocessorhost.IEventProcessor;
@@ -147,9 +148,9 @@ Pour différents types d’environnements de génération, vous pouvez obtenir e
         }
     }
     ```
-3. Créez une classe finale appelée ```EventProcessorSample```, à l’aide du code ci-après.
+3. Créez une autre classe appelée `EventProcessorSample` à l’aide du code ci-après.
    
-    ```Java
+    ```java
     import com.microsoft.azure.eventprocessorhost.*;
     import com.microsoft.azure.servicebus.ConnectionStringBuilder;
     import com.microsoft.azure.eventhubs.EventData;
@@ -212,9 +213,9 @@ Pour différents types d’environnements de génération, vous pouvez obtenir e
         }
     }
     ```
-4. Remplacez les champs suivants par les valeurs utilisées lorsque vous avez créé le Event Hub et le compte de stockage.
+4. Remplacez les champs suivants par les valeurs utilisées lorsque vous avez créé le concentrateur d’événements et le compte de stockage.
    
-    ```Java
+    ```java
     final String namespaceName = "----ServiceBusNamespaceName-----";
     final String eventHubName = "----EventHubName-----";
    
@@ -226,7 +227,7 @@ Pour différents types d’environnements de génération, vous pouvez obtenir e
     ```
 
 > [!NOTE]
-> Ce didacticiel utilise une seule instance de EventProcessorHost. Pour augmenter le débit, il est recommandé d’exécuter plusieurs instances d’EventProcessorHost, de préférence sur des machines séparées.  Cela favorise également la redondance.   Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup** . Lors de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances de EventProcessorHost basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés.
+> Ce didacticiel utilise une seule instance de EventProcessorHost. Pour augmenter le débit, il est recommandé d’exécuter plusieurs instances d’EventProcessorHost, de préférence sur des machines séparées.  Cela offre également davantage de redondance. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup** . Lors de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances de EventProcessorHost basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés.
 > 
 > 
 
@@ -239,8 +240,8 @@ Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[Azure Storage account]: ../storage/storage-create-storage-account.md
-[Azure classic portal]: http://manage.windowsazure.com
+[Azure Storage account]: ../storage/common/storage-create-storage-account.md
+[Azure portal]: https://portal.azure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
 <!-- Images -->

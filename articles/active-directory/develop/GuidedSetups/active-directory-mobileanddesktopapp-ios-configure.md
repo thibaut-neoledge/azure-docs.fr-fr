@@ -1,4 +1,24 @@
+---
+title: "Prise en main d’Azure AD v2 iOS - Configuration| Microsoft Docs"
+description: "Cet article explique comment les applications iOS (Swift) peuvent appeler une API qui nécessite des jetons d’accès à partir d’un point de terminaison Azure Active Directory v2."
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 8a4f412102c0e75654030f5d4f8aab575fdcebba
+ms.contentlocale: fr-fr
 
+---
 ## <a name="create-an-application-express"></a>Créer une application (Express)
 Maintenant, vous devez inscrire votre application dans le *portail d’inscription des applications de Microsoft* :
 1. Inscrivez votre application via le [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure).
@@ -49,3 +69,4 @@ Sous le nœud racine <code>dict</code>, ajoutez le code suivant :
 Remplacez <i><code>[Your_Application_Id_Here]</code></i> par l’ID d’application que vous venez d’inscrire.
 </li>
 </ol>
+

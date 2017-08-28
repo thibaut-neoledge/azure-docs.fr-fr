@@ -1,6 +1,6 @@
 ---
-title: "Vérifier la connectivité avec Azure Network Watcher - API Azure REST | Microsoft Docs"
-description: "Cette page explique comment vérifier la connectivité avec Network Watcher à l’aide de l’API Azure REST"
+title: "Vérifier la connectivité avec Azure Network Watcher - portail Azure | Microsoft Docs"
+description: "Cette page explique comment vérifier la connectivité avec Network Watcher dans le portail Azure"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -11,31 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2017
+ms.date: 08/02/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 9a900752dccfd82524951a01ebf70f882a35afd9
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: ca62bea581acb59d3c3c0b8a204cc9d42de2b27f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-rest-api"></a>Vérifier la connectivité avec Azure Network Watcher à l’aide de l’API Azure REST
+# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Vérifier la connectivité avec Azure Network Watcher à l’aide du portail Azure
 
 > [!div class="op_single_selector"]
+> - [Portail](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [API REST Azure](network-watcher-connectivity-rest.md)
 
 Découvrez comment utiliser la connectivité pour vérifier si une connexion TCP directe entre une machine virtuelle et un point de terminaison donné peut être établie.
-
-Cet article vous guide dans les différents types de contrôle de connectivité.
-
-* [Vérifier la connectivité à une machine virtuelle](#check-connectivity-to-a-virtual-machine)
-* [Valider les problèmes de routage](#validate-routing-issues)
-* [Vérifier la latence du site Web](#check-website-latency)
-* [Vérifier la connectivité à un point de terminaison de stockage](#check-connectivity-to-a-storage-endpoint)
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

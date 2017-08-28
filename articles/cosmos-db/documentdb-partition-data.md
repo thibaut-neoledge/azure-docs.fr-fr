@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: e62b9742875512e70e5369978c1c90bdc9c6c1cb
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Partitionnement dans Azure Cosmos DB à l’aide de l’API DocumentDB
@@ -43,7 +42,10 @@ Pour commencer avec le code, téléchargez le projet à partir de l’[exemple d
 <a name="partition-keys"></a>
 <a name="single-partition-and-partitioned-collections"></a>
 <a name="migrating-from-single-partition"></a>
-## Clés de partition Dans l’API DocumentDB, vous spécifiez la définition de la clé de partition sous la forme d’un chemin d’accès JSON. Le tableau suivant présente des exemples de définitions de clé de partition ainsi que les valeurs correspondantes. La clé de partition est spécifiée en tant que chemin d’accès. Par exemple, `/department` représente le service de la propriété. 
+
+## <a name="partition-keys"></a>Clés de partition
+
+Dans l’API DocumentDB, vous spécifiez la définition de la clé de partition sous la forme d’un chemin d’accès JSON. Le tableau suivant présente des exemples de définitions de clé de partition ainsi que les valeurs correspondantes. La clé de partition est spécifiée en tant que chemin d’accès. Par exemple, `/department` représente le service de la propriété. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -77,7 +79,7 @@ Pour commencer avec le code, téléchargez le projet à partir de l’[exemple d
 
 Observons comment le choix de la clé de partition a une incidence sur les performances de votre application.
 
-## <a name="working-with-the-documentdb-sdks"></a>Utilisation des kits de développement logiciel (SDK) DocumentDB
+## <a name="working-with-the-azure-cosmos-db-sdks"></a>Utilisation des kits SDK Azure Cosmos DB
 Avec l’[API REST version 2015-12-16](/rest/api/documentdb/), Azure Cosmos DB a ajouté la prise en charge du partitionnement automatique. Afin de créer des conteneurs partitionnés, vous devez télécharger le Kit de développement logiciel (SDK) version 1.6.0 ou une version plus récente sur l’une des plateformes SDK prises en charge (.NET, Node.js, Java, Python, MongoDB). 
 
 ### <a name="creating-containers"></a>Création de conteneurs
@@ -207,7 +209,7 @@ Vous pouvez gérer l’exécution de requêtes parallèles en réglant les param
 * En définissant `MaxDegreeOfParallelism`, vous pouvez contrôler le degré de parallélisme, c’est-à-dire le nombre maximal de connexions réseau simultanées aux partitions du conteneur. Si vous définissez cette valeur sur -1, le degré de parallélisme est géré par le Kit de développement logiciel (SDK). Si la valeur `MaxDegreeOfParallelism` n’est pas spécifiée ou définie sur 0, qui est la valeur par défaut, il n’y a qu’une seule connexion réseau aux partitions du conteneur.
 * En définissant `MaxBufferedItemCount`, vous pouvez compenser l’utilisation de la mémoire côté client et la latence de la requête. Si vous omettez ce paramètre ou que vous lui affectez la valeur -1, le nombre d’éléments mis en mémoire tampon pendant l’exécution de requêtes parallèles est géré par le Kit de développement logiciel (SDK).
 
-Avec un même état de collection, une requête parallèle retourne les résultats dans l’ordre d’exécution en série. Lorsque vous effectuez une requête entre plusieurs partitions qui comporte le tri (ORDER BY et/ou TOP), le Kit de développement logiciel (SDK) de DocumentDB émet la requête en parallèle sur plusieurs partitions et fusionne les résultats partiellement triés côté client pour produire des résultats globalement classés.
+Avec un même état de collection, une requête parallèle retourne les résultats dans l’ordre d’exécution en série. Lorsque vous effectuez une requête sur plusieurs partitions qui inclut le tri (ORDER BY et/ou TOP), le kit SDK d’Azure Cosmos DB émet la requête en parallèle sur plusieurs partitions et fusionne les résultats partiellement triés côté client pour produire des résultats classés globalement.
 
 ### <a name="executing-stored-procedures"></a>Exécution de procédures stockées
 Vous pouvez également exécuter des transactions atomiques sur des documents avec le même ID d’appareil, par exemple, si vous conservez des agrégats ou le dernier état d’un appareil dans un élément unique. 
@@ -222,9 +224,9 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 Dans la section suivante, nous examinons la manière de passer des conteneurs à partition unique à des conteneurs partitionnés.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, nous proposons une vue d’ensemble de l’utilisation du partitionnement des conteneurs Cosmos DB avec l’API DocumentDB. Consultez également [Partitionnement et mise à l’échelle horizontale](../cosmos-db/partition-data.md) pour découvrir une vue d’ensemble des concepts et bonnes pratiques pour le partitionnement avec l’API Azure Cosmos DB. 
+Dans cet article, nous avons fourni une vue d’ensemble de l’utilisation du partitionnement des conteneurs Azure Cosmos DB avec l’API DocumentDB. Consultez également [Partitionnement et mise à l’échelle horizontale](../cosmos-db/partition-data.md) pour découvrir une vue d’ensemble des concepts et bonnes pratiques pour le partitionnement avec l’API Azure Cosmos DB. 
 
-* Effectuez un test des performances et de la mise à l’échelle avec Cosmos DB. Consultez la page [Test des performances et de la mise à l’échelle avec Azure Cosmos DB](performance-testing.md) pour obtenir un exemple.
+* Effectuez un test des performances et de la mise à l’échelle avec Azure Cosmos DB. Consultez la page [Test des performances et de la mise à l’échelle avec Azure Cosmos DB](performance-testing.md) pour obtenir un exemple.
 * Commencez à coder avec les [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md) ou [l’API REST](/rest/api/documentdb/)
 * Apprenez-en davantage sur le [débit approvisionné dans Azure Cosmos DB](request-units.md)
 

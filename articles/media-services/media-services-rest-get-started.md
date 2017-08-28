@@ -4,7 +4,7 @@ description: "Ce didacticiel vous présente les étapes d’implémentation d’
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 88194b59-e479-43ac-b179-af4f295e3780
 ms.service: media-services

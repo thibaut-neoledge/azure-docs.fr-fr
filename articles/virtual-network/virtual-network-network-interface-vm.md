@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 9f040a87367219a937d4f5a83fd23ce1ba328c8c
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 57f95b765b1b116814683a6643db16091c3041f6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 
@@ -64,26 +64,26 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour créer une machine virtu
 Lorsque vous créez une machine virtuelle via le portail, celui-ci crée une interface réseau avec des paramètres par défaut, et l’attache à la machine virtuelle pour vous. Vous ne pouvez pas ajouter d’interfaces réseau existantes à une nouvelle machine virtuelle, ou créer une machine virtuelle avec plusieurs interfaces réseau via le portail Azure. Vous pouvez en revanche effectuer les deux opérations à l’aide de l’interface de ligne de commande ou de PowerShell. Vous pouvez ajouter à une machine virtuelle autant d’interfaces réseau que le permet la taille de la machine virtuelle que vous créez. Pour découvrir le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle, lisez les articles sur les tailles des machines virtuelles [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Actuellement, les interfaces réseau que vous ajoutez à une machine virtuelle ne peuvent pas être attachées à une autre machine virtuelle. Pour en savoir plus sur la création, la modification ou la suppression d’interfaces réseau, consultez l’article [Gérer les interfaces réseau](virtual-network-network-interface.md#create-a-network-interface).
 
 > [!WARNING]
-> Si l’interface réseau dispose d’une adresse IPv6 privée qui lui est assignée, vous pouvez uniquement ajouter cette interface réseau à la machine virtuelle lors de la création de cette dernière. Vous ne pouvez pas ajouter d’interfaces réseau supplémentaires à la machine virtuelle lorsque vous la créez, ou une fois qu’elle est créée, tant que l’adresse IPv6 est assignée à l’interface réseau et attachée à la machine virtuelle. Consultez [Ajouter, modifier ou supprimer des adresses IP pour des cartes réseau Azure](virtual-network-network-interface-addresses.md) pour en savoir plus sur l’assignation d’adresses IP à des interfaces réseau.
+> Si une interface réseau dispose d’une adresse IPv6 privée qui lui est assignée, vous pouvez uniquement ajouter cette interface réseau à la machine virtuelle lors de la création de cette dernière. Vous ne pouvez pas associer plusieurs interfaces réseau supplémentaires à la machine virtuelle lorsque vous la créez, ou une fois qu’elle est créée, tant que l’adresse IPv6 est assignée à une interface réseau attachée à une machine virtuelle. Consultez [Ajouter, modifier ou supprimer des adresses IP pour des cartes réseau Azure](virtual-network-network-interface-addresses.md) pour en savoir plus sur l’assignation d’adresses IP à des interfaces réseau.
 
 **Commandes**
 
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Ajouter une interface réseau existante à une machine virtuelle existante
 
 Vous pouvez ajouter à une machine virtuelle autant d’interfaces réseau que le permet la taille de ladite machine virtuelle. Pour découvrir le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle, lisez les articles sur les tailles des machines virtuelles [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). La machine virtuelle à laquelle vous souhaitez ajouter une interface réseau doit prendre en charge le nombre d’interfaces réseau que vous souhaitez ajouter et se trouver à l’état arrêté (libéré). Actuellement, les interfaces réseau que vous voulez ajouter ne peuvent pas être attachées à une autre machine virtuelle. Vous ne pouvez pas ajouter d’interface réseau à une machine virtuelle existante via le portail Azure. Pour ajouter des interfaces réseau à une machine virtuelle existante, vous devez utiliser l’interface de ligne de commande ou PowerShell. 
 
 > [!WARNING]
-> Si une interface réseau possède une adresse IPv6 privée qui lui est assignée, elle ne peut pas être ajoutée à une machine virtuelle existante. Vous pouvez uniquement ajouter une interface réseau avec une adresse IPv6 privée assignée à une machine virtuelle lorsque vous créez la machine virtuelle. Consultez [Ajouter, modifier ou supprimer des adresses IP pour des cartes réseau Azure](virtual-network-network-interface-addresses.md) pour en savoir plus sur l’assignation d’adresses IP à des interfaces réseau.
+> Si une interface réseau possède une adresse IPv6 privée qui lui est assignée, elle ne peut pas être ajoutée à une machine virtuelle existante. Vous pouvez uniquement ajouter une interface réseau avec une adresse IPv6 privée assignée à une machine virtuelle lorsque vous créez une machine virtuelle. Consultez [Ajouter, modifier ou supprimer des adresses IP pour des cartes réseau Azure](virtual-network-network-interface-addresses.md) pour en savoir plus sur l’assignation d’adresses IP à des interfaces réseau.
 
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add) (référence) ou [procédure détaillée](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Add-AzureRmVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (référence) ou [procédure détaillée](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|PowerShell|[Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (référence) ou [procédure détaillée](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="vm-view-nic"></a> Afficher les interfaces réseau d’une machine virtuelle
 
@@ -99,18 +99,25 @@ Vous pouvez afficher les interfaces réseau actuellement attachées à une machi
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
-|PowerShell|[Get-AzureRmVM](/powershell/resourcemanager/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-remove-nic"></a> Supprimer une interface réseau d’une machine virtuelle
 
-La machine virtuelle dont vous souhaitez supprimer une interface réseau doit se trouver à l’état arrêté (désalloué) et au moins deux interfaces réseau doivent y être attachées. Vous pouvez supprimer n’importe quelle interface réseau, mais au moins une interface réseau doit toujours être attachée à la machine virtuelle. Si vous supprimez une interface réseau principale, Azure affecte l’attribut principal à l’interface réseau restée attachée à la machine virtuelle le plus longtemps. Vous pouvez désigner vous-même toute interface réseau en tant qu’interface réseau principale. Vous ne pouvez pas supprimer d’interfaces réseau d’une machine virtuelle ou définir l’attribut principal pour une interface réseau via le portail Azure. En revanche, ces deux opérations sont possibles à l’aide de l’interface de ligne de commande ou de PowerShell. 
+La machine virtuelle dont vous souhaitez supprimer (ou dissocier) une interface réseau doit se trouver à l’état arrêté (désalloué) et au moins deux interfaces réseau doivent y être attachées. Vous pouvez supprimer n’importe quelle interface réseau, mais au moins une interface réseau doit toujours être attachée à la machine virtuelle. Si vous supprimez une interface réseau principale, Azure affecte l’attribut principal à l’interface réseau restée attachée à la machine virtuelle le plus longtemps. 
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte disposant des autorisations associées au rôle Propriétaire, Collaborateur ou Collaborateur de réseau pour votre abonnement. Pour en savoir plus sur l’assignation de rôles à des comptes, consultez [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+2. Dans la zone qui contient le texte *Rechercher des ressources* en haut du portail Azure, saisissez *machines virtuelles*. Lorsque la mention **machines virtuelles** apparaît dans les résultats de recherche, cliquez dessus.
+3. Dans le panneau **Machines virtuelles** qui s’affiche, cliquez sur le nom de la machine virtuelle pour laquelle vous souhaitez supprimer une interface réseau.
+4. Dans la section **PARAMÈTRES** du panneau Machine virtuelle qui s’affiche pour la machine virtuelle sélectionnée, cliquez sur **Interfaces réseau**. Pour en savoir plus sur les paramètres d’interface réseau et comment les modifier, consultez l’article [Gérer les interfaces réseau](virtual-network-network-interface.md). Pour en savoir plus sur l’ajout, la modification ou la suppression d’adresses IP d’une interface réseau, consultez [Ajouter, modifier ou supprimer des adresses IP pour des cartes réseau Azure](virtual-network-network-interface-addresses.md).
+5. Dans le panneau Interfaces réseau qui s’affiche, cliquez sur **...** à droite de l’interface réseau que vous souhaitez dissocier.
+6. Cliquez sur **Dissocier**. S’il n’existe qu’une seule interface réseau associée à la machine virtuelle, l’option **Dissocier** n’est pas disponible. Cliquez sur **Oui** dans la fenêtre de confirmation qui s’affiche.
 
 **Commandes**
 
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove) (référence) ou [procédure détaillée](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
-|PowerShell|[Remove-AzureRMVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (référence) ou [procédure détaillée](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
+|PowerShell|[Remove-AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (référence) ou [procédure détaillée](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour créer une machine virtuelle avec plusieurs interfaces réseau ou adresses IP, lisez les articles suivants :

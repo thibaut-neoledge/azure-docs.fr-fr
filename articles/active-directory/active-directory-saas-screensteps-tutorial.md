@@ -1,155 +1,273 @@
 ---
 title: "Didacticiel : Intégration d’Azure Active Directory à ScreenSteps | Microsoft Docs"
-description: "Découvrez comment utiliser ScreenSteps avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et ScreenSteps."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 4563fe94-a88f-4895-a07f-79df44889cf9
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/23/2017
+ms.date: 08/14/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 7fbb8874367bda9be618332947ffa2c9942fe4ec
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b6ded8ba1adf03fdccbdb7573c09fae1857c8b16
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Didacticiel : Intégration d’Azure AD à ScreenSteps
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et ScreenSteps.
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-* Un abonnement Azure valide
-* Un locataire ScreenSteps
+Dans ce didacticiel, vous allez apprendre à intégrer ScreenSteps à Azure Active Directory (Azure AD).
 
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à ScreenSteps pourront se connecter à l’application à l’aide de l’authentification unique sur votre site d’entreprise ScreenSteps (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+L’intégration de ScreenSteps à Azure AD vous offre les avantages suivants :
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+- Dans Azure AD, vous pouvez contrôler qui a accès à ScreenSteps.
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à ScreenSteps (via l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
 
-1. Activation de l’intégration d’applications pour ScreenSteps
-2. Configuration de l’authentification unique (SSO) 
-3. Configuration de l'approvisionnement des utilisateurs
-4. Affectation d’utilisateurs
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-![Scénario](./media/active-directory-saas-screensteps-tutorial/IC778516.png "Scénario")
+## <a name="prerequisites"></a>Composants requis
 
-## <a name="enable-the-application-integration-for-screensteps"></a>Activer l’intégration d’applications pour ScreenSteps
-Cette section décrit l’activation de l’intégration d’applications pour ScreenSteps.
+Pour configurer l’intégration d’Azure AD à ScreenSteps, vous avez besoin des éléments suivants :
 
-**Pour activer l’intégration d’applications pour ScreenSteps, procédez comme suit :**
+- Un abonnement Azure AD
+- Un abonnement ScreenSteps pour lequel l’authentification unique est activée
 
-1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
+> [!NOTE]
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
-    ![Active Directory](./media/active-directory-saas-screensteps-tutorial/IC700993.png "Active Directory")
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+Vous devez en outre suivre les recommandations ci-dessous :
 
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
-    ![Applications](./media/active-directory-saas-screensteps-tutorial/IC700994.png "Applications")
-4. Cliquez sur **Ajouter** en bas de la page.
+## <a name="scenario-description"></a>Description du scénario
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-    ![Ajouter une application](./media/active-directory-saas-screensteps-tutorial/IC749321.png "Ajouter une application")
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+1. Ajout de ScreenSteps à partir de la galerie
+2. Configuration et test de l’authentification unique Azure AD
 
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-screensteps-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
-6. Dans la **zone de recherche**, entrez **ScreenSteps**.
+## <a name="adding-screensteps-from-the-gallery"></a>Ajout de ScreenSteps à partir de la galerie
+Pour configurer l’intégration de ScreenSteps à Azure AD, vous devez ajouter ScreenSteps à partir de la galerie à votre liste d’applications SaaS managées.
 
-    ![Galerie d’applications](./media/active-directory-saas-screensteps-tutorial/IC778517.png "Galerie d’applications")
-7. Dans le volet des résultats, sélectionnez **ScreenSteps**, puis cliquez sur **Terminer** pour ajouter l’application.
+**Pour ajouter ScreenSteps à partir de la galerie, effectuez les étapes suivantes :**
 
-    ![ScreenSteps](./media/active-directory-saas-screensteps-tutorial/IC778518.png "ScreenSteps")
-   
-## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur ScreenSteps avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
-**Pour configurer l’authentification unique, procédez comme suit :**
+    ![Bouton Azure Active Directory][1]
 
-1. Sur la page d’intégration d’applications **ScreenSteps** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-screensteps-tutorial/IC778519.png "Configurer l’authentification unique")
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à ScreenSteps**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+    ![Panneau Applications d’entreprise][2]
+    
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-screensteps-tutorial/IC778520.png "Configurer l’authentification unique")
+    ![Bouton Nouvelle application][3]
 
-3. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise ScreenSteps en tant qu’administrateur.
+4. Dans la zone de recherche, tapez **ScreenSteps**, sélectionnez **ScreenSteps** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-4. Cliquez sur **Account Management**.
+    ![ScreenSteps dans la liste des résultats](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_addfromgallery.png)
 
-    ![Account management](./media/active-directory-saas-screensteps-tutorial/IC778523.png "Account management")
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-5. Cliquez sur **Single Sign-on**.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec ScreenSteps avec un utilisateur de test appelé « Britta Simon ».
 
-    ![Remote authentication](./media/active-directory-saas-screensteps-tutorial/IC778524.png "Remote authentication")
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur ScreenSteps équivalent dans Azure AD. En d’autres termes, une relation doit être établie entre l’utilisateur Azure AD et l’utilisateur ScreenSteps associé.
 
-6. Cliquez sur **Créer un point de terminaison d’authentification unique**.
+Dans ScreenSteps, attribuez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** pour établir la relation.
 
-    ![Remote authentication](./media/active-directory-saas-screensteps-tutorial/IC778525.png "Remote authentication")
+Pour configurer et tester l’authentification unique Azure AD avec ScreenSteps, vous devez suivre les indications des sections suivantes :
 
-7. Dans la section **Créer un point de terminaison d’authentification unique**, procédez comme suit :
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Créer un utilisateur de test ScreenSteps](#create-a-screensteps-test-user)** pour avoir un équivalent de Britta Simon dans ScreenSteps lié à la représentation Azure AD associée.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
-    ![Create an authentication endpoint](./media/active-directory-saas-screensteps-tutorial/IC778526.png "Create an authentication endpoint")
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-    1. Dans la zone de texte **Title** , tapez un titre.
-    2. Dans la liste **Mode**, sélectionnez **SAML**.
-    3. Cliquez sur **Create**.
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application ScreenSteps.
 
-8. Modifiez le nouveau point de terminaison.
+**Pour configurer l’authentification unique Azure AD avec ScreenSteps, effectuez les étapes suivantes :**
 
-    ![Modifier un point de terminaison](./media/active-directory-saas-screensteps-tutorial/IC778528.png "Modifier un point de terminaison")
+1. Dans le portail Azure, dans la page d’intégration de l’application **ScreenSteps**, cliquez sur **Authentification unique**.
 
-9. Dans la section **Edit Single Sign-on Endpoint (Modifier un point de terminaison d’authentification unique)**, procédez comme suit :
+    ![Lien Configurer l’authentification unique][4]
 
-    ![Remote authentication endpoint](./media/active-directory-saas-screensteps-tutorial/IC778527.png "Remote authentication endpoint")
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Boîte de dialogue Authentification unique](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_samlbase.png)
 
-    1. Copiez l’**URL du consommateur SAML** dans le Presse-papiers.
+3. Dans la section **Domaine et URL ScreenSteps**, effectuez les étapes suivantes :
 
-10. Dans la page **Configurer l’URL de l’application** du portail Azure Classic, dans la zone de texte **URL de connexion ScreenSteps**, collez l’**URL du consommateur SAML**, puis cliquez sur **Suivant**.
+    ![Informations d’authentification unique dans Domaine et URL ScreenSteps](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_url.png)
 
-    ![Configurer l’URL de l’application](./media/active-directory-saas-screensteps-tutorial/IC778521.png "Configurer l’URL de l’application")
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenantname>.ScreenSteps.com`
 
-11. Dans la page **Configurer l’authentification unique sur ScreenSteps**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sur votre ordinateur.
+    > [!NOTE] 
+    > Cette valeur n’est pas la valeur réelle. Vous devez remplacer cette valeur par l’URL de connexion réelle. La procédure est expliquée plus loin dans le didacticiel. 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-screensteps-tutorial/IC778522.png "Configurer l’authentification unique")
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
+    ![Lien de téléchargement du certificat](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_certificate.png) 
 
-12. Revenez à la section **Edit Single Sign-on Endpoint (Modifier un point de terminaison d’authentification unique)**, puis procédez comme suit :
+5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Remote authentication endpoint](./media/active-directory-saas-screensteps-tutorial/IC778527.png "Remote authentication endpoint")
+    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-screensteps-tutorial/tutorial_general_400.png)
 
-    1. Cliquez sur **Upload new SAML Certificate file** (Charger le nouveau certificat SAML), puis chargez le certificat téléchargé.
-    2. Dans la page **Configurer l’authentification unique sur ScreenSteps** du portail Azure Classic, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **Remote Login URL**.
-    3. Dans la page **Configurer l’authentification unique sur ScreenSteps** du portail Azure Classic, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **Log out URL**.
-    4. Sélectionnez un **groupe** auquel attribuer des utilisateurs lorsque ces derniers sont approvisionnés.
-    5. Cliquez sur **Update**.
-    6. Revenez à **Edit Single Sign-on Endpoint (Modifier un point de terminaison d’authentification unique)**.
-    7. Cliquez sur le bouton **Make default for account** (Configurer par défaut pour le compte) pour utiliser ce point de terminaison pour tous les utilisateurs qui se connectent à ScreenSteps. Vous pouvez également cliquer sur le bouton **Ajouter au site** pour utiliser ce point de terminaison pour des sites spécifiques dans **ScreenSteps**.
+6. Dans la section **Configuration de ScreenSteps**, cliquez sur **Configurer ScreenSteps** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
+    ![Configuration de ScreenSteps](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_configure.png) 
 
-12. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+7. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise ScreenSteps en tant qu’administrateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-screensteps-tutorial/IC778542.png "Configurer l’authentification unique")
+8. Cliquez sur **Account Settings** (Paramètres du compte).
 
-## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+    ![Account management](./media/active-directory-saas-screensteps-tutorial/ic778523.png "Account management")
 
+9. Cliquez sur **Single Sign-on**.
 
+    ![Remote authentication](./media/active-directory-saas-screensteps-tutorial/ic778524.png "Remote authentication")
 
-## <a name="assign-users"></a>Affecter des utilisateurs
-Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
+10. Cliquez sur **Créer un point de terminaison d’authentification unique**.
 
-**Pour affecter des utilisateurs à ScreenSteps, procédez comme suit :**
+    ![Remote authentication](./media/active-directory-saas-screensteps-tutorial/ic778525.png "Remote authentication")
 
-1. Dans le portail Azure Classic, créez un compte de test.
-2. Sur la page d’intégration d’applications **ScreenSteps**, cliquez sur **Affecter des utilisateurs**.
+11. Dans la section **Créer un point de terminaison d’authentification unique**, procédez comme suit :
 
-    ![Affecter des utilisateurs](./media/active-directory-saas-screensteps-tutorial/IC778548.png "Affecter des utilisateurs")
-3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+    ![Create an authentication endpoint](./media/active-directory-saas-screensteps-tutorial/ic778526.png "Create an authentication endpoint")
+    
+    a. Dans la zone de texte **Title** , tapez un titre.
+    
+    b. Dans la liste **Mode**, sélectionnez **SAML**.
+    
+    c. Cliquez sur **Create**.
 
+12. Cliquez sur **Edit** (Modifier) pour modifier le nouveau point de terminaison.
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+    ![Modifier un point de terminaison](./media/active-directory-saas-screensteps-tutorial/ic778528.png "Modifier un point de terminaison")
+
+13. Dans la section **Edit Single Sign-on Endpoint (Modifier un point de terminaison d’authentification unique)**, procédez comme suit :
+
+    ![Remote authentication endpoint](./media/active-directory-saas-screensteps-tutorial/ic778527.png "Remote authentication endpoint")
+
+    a. Cliquez sur **Upload new SAML Certificate file** (Charger le nouveau fichier de certificat SAML), puis chargez le certificat que vous avez téléchargé à partir du portail Azure.
+    
+    b. Collez la valeur **URL du service d’authentification unique SAML** copiée dans le portail Azure dans la zone de texte **Remote Login URL** (URL de connexion distante).
+    
+    c. Collez la valeur **URL de déconnexion** que vous avez copiée à partir du portail Azure dans la zone de texte **Log out URL** (URL de déconnexion).
+    
+    d. Sélectionnez un **groupe** auquel attribuer des utilisateurs lorsque ces derniers sont approvisionnés.
+    
+    e. Cliquez sur **Update**.
+
+    f. Copiez la valeur **SAML Consumer URL** (URL du consommateur SAML) dans le Presse-papiers, puis collez-la dans la zone de texte **URL de connexion** située dans la section **Domaine et URL ScreenSteps**.
+    
+    g. Revenez à **Edit Single Sign-on Endpoint (Modifier un point de terminaison d’authentification unique)**.
+    
+    h. Cliquez sur le bouton **Make default for account** (Configurer par défaut pour le compte) pour utiliser ce point de terminaison pour tous les utilisateurs qui se connectent à ScreenSteps. Vous pouvez également cliquer sur le bouton **Ajouter au site** pour utiliser ce point de terminaison pour des sites spécifiques dans **ScreenSteps**.
+
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+
+   ![Créer un utilisateur de test Azure AD][100]
+
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+
+1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
+
+    ![Bouton Azure Active Directory](./media/active-directory-saas-screensteps-tutorial/create_aaduser_01.png)
+
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/active-directory-saas-screensteps-tutorial/create_aaduser_02.png)
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+
+    ![Bouton Ajouter](./media/active-directory-saas-screensteps-tutorial/create_aaduser_03.png)
+
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+
+    ![Boîte de dialogue Utilisateur](./media/active-directory-saas-screensteps-tutorial/create_aaduser_04.png)
+
+    a. Dans la zone **Nom**, tapez **BrittaSimon**.
+
+    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
+
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+
+    d. Cliquez sur **Create**.
+ 
+### <a name="create-a-screensteps-test-user"></a>Créer un utilisateur de test ScreenSteps
+
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ScreenSteps. Pour ajouter des utilisateurs à la plateforme ScreenSteps, contactez [l’équipe du support ScreenSteps](https://www.screensteps.com/contact). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à ScreenSteps.
+
+![Attribuer le rôle utilisateur][200] 
+
+**Pour attribuer Britta Simon à ScreenSteps, effectuez les étapes suivantes :**
+
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+
+    ![Affecter des utilisateurs][201] 
+
+2. Dans la liste des applications, sélectionnez **ScreenSteps**.
+
+    ![Lien ScreenSteps dans la liste des applications](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_app.png)  
+
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+
+    ![Lien « Utilisateurs et groupes »][202]
+
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+
+    ![Volet Ajouter une attribution][203]
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+    
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
+
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
+Si vous cliquez sur la vignette ScreenSteps dans le volet d’accès, vous devez être automatiquement connecté à votre application ScreenSteps.
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Ressources supplémentaires
+
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_203.png
 
 

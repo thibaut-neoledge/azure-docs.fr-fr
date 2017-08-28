@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 05538e1633d6e8353cc7980d081af3672a3f97d8
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a7ce4d771e9c655687f72f4b46c7405cf64aeb74
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) .NET Core Azure Cosmos DB : notes de publication et ressources
@@ -58,6 +58,11 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 > [!NOTE] 
 > Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB n’est pas encore compatible avec les applications de plateforme Windows universelle (UWP). Si un Kit de développement logiciel (SDK) .NET Core qui prend en charge les applications UWP vous intéresse, envoyez un e-mail à l’adresse [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
+
+* Ajout de la prise en charge du paramètre PartitionKeyRangeId en tant qu’option FeedOption pour la définition de l’étendue des résultats des requêtes sur une valeur de plage de clés de partition spécifique. 
+* Ajout de la prise en charge du paramètre StartTime en tant qu’option ChangeFeedOption pour le démarrage de la recherche de modifications après cette heure. 
+
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
 *   Correction d’un problème dans la classe JsonSerializable qui peut provoquer une exception de dépassement de la capacité de la pile.
@@ -76,7 +81,6 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-*   Prise en charge ajoutée pour la fonctionnalité Unité de requête par minute (RU/m).
 *   Prise en charge ajoutée pour un nouveau niveau de cohérence nommé ConsistentPrefix.
 *   Prise en charge ajoutée pour les mesures de requête liées aux partitions individuelles.
 *   Prise en charge ajoutée pour la limitation de la taille du jeton de continuation concernant les requêtes.
@@ -86,7 +90,7 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 ### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
 
 * Résolution du problème qui ignorait la valeur PartitionKey fournie dans FeedOptions pour les requêtes d’agrégation.
-* Résolution du problème de gestion transparente des partitions pendant l’exécution d’une requête Order By (Trier par) entre partitions intermédiaire.
+* Résolution du problème de gestion transparente des partitions pendant l’exécution d’une requête Order By (Trier par) entre partitions intermédiaires.
 
 ### <a name="a-name121121"></a><a name="1.2.1"/>1.2.1
 
@@ -133,6 +137,7 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.5.0](#1.5.0) |10 août 2017 |--- | 
 | [1.4.1](#1.4.1) |7 août 2017 |--- |
 | [1.4.0](#1.4.0) |2 août 2017 |--- |
 | [1.3.2](#1.3.2) |12 juin 2017 |--- |

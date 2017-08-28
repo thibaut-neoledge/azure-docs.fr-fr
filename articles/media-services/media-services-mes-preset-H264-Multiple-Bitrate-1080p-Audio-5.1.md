@@ -2,7 +2,7 @@
 title: "H264 - Vitesse de transmission multiple - 1 080 pixels - Audio 5.1 | Microsoft Docs"
 description: "Cette rubrique offre une vue d’ensemble de la présélection de travaux **H264 -Vitesse de transmission multiple - 1 080 pixels  – Audio 5.1**."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

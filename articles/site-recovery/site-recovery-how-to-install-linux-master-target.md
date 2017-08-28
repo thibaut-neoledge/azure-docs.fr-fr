@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 02/13/2017
+ms.date: 08/11/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 9c057534ae8168146d389a1d76213d48e24ae9cb
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="install-a-linux-master-target-server"></a>Installer un serveur cible maître Linux
@@ -50,6 +50,15 @@ Créez le serveur cible maître selon les instructions de dimensionnement suivan
 - **Taille du disque de système d’exploitation** : 100 Go ou plus (pour installer CentOS6.6)
 - **Taille du disque supplémentaire pour le lecteur de conservation** : 1 To
 - **Cœurs d’UC** : 4 cœurs ou plus
+
+Les noyaux Ubuntu suivants sont pris en charge.
+
+
+|Série de noyau  |Prise en charge jusqu'à  |
+|---------|---------|
+|4.4      |4.4.0-81-generic         |
+|4.8      |4.8.0-56-generic         |
+|4.10     |4.10.0-24-generic        |
 
 
 ## <a name="deploy-the-master-target-server"></a>Déployer le serveur cible maître
@@ -200,7 +209,7 @@ Pour ce faire, procédez comme suit :
 
 Le serveur cible maître Azure Site Recovery nécessite une version spécifique de Ubuntu. Vous devez donc veiller à ce que les mises à niveau du noyau de la machine virtuelle soient désactivées.
 
- Si elles sont activées, toute mise à niveau entraîne un dysfonctionnement du serveur cible maître.
+Si elles sont activées, toute mise à niveau entraîne un dysfonctionnement du serveur cible maître.
 
 #### <a name="download-and-install-additional-packages"></a>Télécharger et installer les packages supplémentaires
 

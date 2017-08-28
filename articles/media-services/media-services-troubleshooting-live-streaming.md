@@ -4,7 +4,7 @@ description: "Cette rubrique fournit des suggestions sur la façon de résoudre 
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 3a7f6c1d-ce57-4fa4-a7a6-edb526b3ffbf
 ms.service: media-services

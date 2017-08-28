@@ -2,7 +2,7 @@
 title: "Présentation du modèle de licence PlayReady de Media Services"
 description: "Cette rubrique donne un aperçu d’un modèle de licence PlayReady utilisé pour configurer des licences PlayReady."
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

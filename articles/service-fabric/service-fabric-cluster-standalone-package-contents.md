@@ -11,14 +11,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/10/2017
+ms.date: 8/10/2017
 ms.author: chackdan;maburlik
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 54fa2a5ea9bd54add6df68db6ce492299ca94207
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 6a6bacedde04419449a061554d5ce9ad37259a2f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -54,6 +53,9 @@ Dans le package autonome Service Fabric [téléchargé](http://go.microsoft.com/
 
 ## <a name="cluster-configuration-samples"></a>Exemples de configuration du cluster
 Vous trouverez les dernières versions des modèles de configuration du cluster sur la page GitHub : [Exemples de configuration de cluster autonome](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+
+## <a name="independent-runtime-package"></a>Package de runtime indépendant
+Le package de runtime le plus récent est téléchargé automatiquement lors du déploiement du cluster, à partir du [lien de téléchargement du runtime Service Fabric de Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).
 
 ## <a name="related"></a>Rubriques connexes
 * [Créer un cluster Azure Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md)

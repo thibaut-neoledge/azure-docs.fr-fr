@@ -4,7 +4,7 @@ description: "Le processeur multimédia Azure Media Motion Detector vous permet 
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: d144f813-1a55-442f-a895-5c4cb6d0aeae
 ms.service: media-services

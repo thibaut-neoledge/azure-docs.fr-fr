@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 195f5b7453a2ca576cfdbf39acd1f644c9edad33
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 3e15370c7602276ef323708632b324fe05497f41
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -77,7 +77,7 @@ Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], four
     </dependency>
     ```
 
-9. Dans le dossier **src**, créez un fichier nommé **Config.properties**, puis copiez-y le contenu ci-après en remplaçant les valeurs suivantes :
+9. Dans le dossier **src**, créez un fichier nommé **Config.properties**, puis copiez-y le contenu ci-après en remplaçant les valeurs `receive rule key` et `event hub name` :
 
     ```java
     eventhubspout.username = ReceiveRule

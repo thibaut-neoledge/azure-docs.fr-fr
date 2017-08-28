@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/12/2017
+ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 2ab86ed8aafb01e97b3ac9ba0411f4b80f88ac5b
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: e1fe2b94d462a30f09cb23ab905542aa121ba46b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="use-azure-portal-to-restore-virtual-machines"></a>Utiliser le portail Azure pour restaurer des machines virtuelles
@@ -131,7 +130,7 @@ Si vous souhaitez personnaliser la machine virtuelle que vous créez à partir d
 
 Une fois l’opération de restauration terminée, vous pouvez :
 * [Utiliser un modèle pour personnaliser la machine virtuelle restaurée](#use-templates-to-customize-restore-vm)
-* [Utilisez les disques restaurés pour les attacher à une machine virtuelle existante](../virtual-machines/windows/attach-disk-portal.md)
+* [Utilisez les disques restaurés pour les attacher à une machine virtuelle existante](../virtual-machines/windows/attach-managed-disk-portal.md)
 * [Créer une machine virtuelle à l’aide de PowerShell à partir de disques restaurés](./backup-azure-vms-automation.md#restore-an-azure-vm)
 
 Sur le panneau **Configuration de la restauration**, cliquez sur **OK** pour finaliser la configuration de la restauration. Sur le panneau **Restaurer**, cliquez sur **Restaurer** pour déclencher l’opération de restauration.
@@ -172,19 +171,11 @@ Une fois [l’opération de restauration des disques terminée](#Track-the-resto
 Pour obtenir le modèle généré dans le cadre de l’option de restauration des disques,
 
 1. Accédez aux détails de la tâche correspondant à l’opération de restauration. 
-2. Cette opération répertorie l’URI de modèle à partir duquel télécharger le modèle. Notez le nom du conteneur à partir des valeurs. 
+2. Dans la fenêtre Détails du travail de restauration, cliquez sur le bouton *Déployer un modèle* pour lancer le déploiement du modèle. 
 
      ![Détail du travail de restauration](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
-     
-3. Notez le nom du compte de stockage cible, le nom du conteneur et l’URI de l’objet blob de modèle à partir des valeurs. Accédez à *compte de stockage cible > sélectionner des objets blob > Conteneurs*, puis accédez au fichier et téléchargez le fichier qui commence par le nom *azuredeploy*.
-
-    ![download-template-storage-account](./media/backup-azure-arm-restore-vms/download-template.png)
-    
-   Vous pouvez également utiliser [Azure Storage Explorer](http://storageexplorer.com/) pour accéder à l’abonnement correspondant > compte de stockage cible > conteneurs d’objets blob et sélectionnez le nom du conteneur noté à l’étape précédente. Dans le volet de droite qui affiche les fichiers inclus dans le conteneur, téléchargez le fichier qui commence par le nom *azuredeploy*. 
    
-   ![download-template-storage-explorer](./media/backup-azure-arm-restore-vms/template-storage-explorer-download.png)
-     
-Une fois le modèle est téléchargé, utiliser le déploiement du modèle pour [modifier et déployer le modèle](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) ou ajouter d’autres personnalisations en [créant un modèle](../azure-resource-manager/resource-group-authoring-templates.md) avant de déployer. Vous pouvez utiliser l’option Charger le fichier pour déployer le modèle téléchargé plus haut. 
+Sur le volet Déployer un modèle, utilisez la procédure de déploiement pour [modifier et déployer le modèle](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), ou ajoutez des personnalisations en [créant un modèle](../azure-resource-manager/resource-group-authoring-templates.md) avant d’effectuer le déploiement. 
 
    ![chargement du déploiement de modèle](./media/backup-azure-arm-restore-vms/loading-template.png)
    
@@ -196,7 +187,7 @@ Après avoir entré les valeurs requises, acceptez les *Conditions générales*,
 * Si vous utilisez une distribution Linux basée sur cloud-init telle qu’Ubuntu, le mot de passe est bloqué après la restauration pour des raisons de sécurité. Pour [réinitialiser le mot de passe](../virtual-machines/linux/classic/reset-access.md), utilisez l’extension VMAccess sur la machine virtuelle restaurée. Nous vous recommandons d’utiliser des clés SSH sur ces distributions pour éviter de réinitialiser le mot de passe après la restauration.
 * Les extensions présentes au cours de la configuration de sauvegarde sont installées, mais pas activées. En cas de problème, réinstallez les extensions. 
 * Si la machine virtuelle sauvegardée a une IP statique, la machine virtuelle restaurée aura une adresse IP dynamique après la restauration pour éviter tout conflit lors de la création d’une machine virtuelle restaurée. En savoir plus sur la façon dont vous pouvez [ajouter une adresse IP statique à la machine virtuelle restaurée](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-* La machine virtuelle restaurée n’aura pas de valeur de disponibilité définie. Nous recommandons d’utiliser l’option de restauration des disques et [d’ajouter un groupe à haute disponibilité](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) lors de la création d’une machine virtuelle depuis PowerShell ou de modèles à l’aide de disques restaurés. 
+* La machine virtuelle restaurée n’aura pas de valeur de disponibilité définie. Nous recommandons d’utiliser l’option de restauration des disques et [d’ajouter un groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md) lors de la création d’une machine virtuelle depuis PowerShell ou de modèles à l’aide de disques restaurés. 
 
 
 ## <a name="backup-for-restored-vms"></a>Sauvegarde de machines virtuelles restaurées
@@ -206,15 +197,15 @@ Si vous avez restauré une machine virtuelle sur le même groupe de ressources a
 Azure Backup permet de restaurer des machines virtuelles sauvegardées sur le centre de données associé en cas de défaillance du centre de données principal sur lequel s’exécutent les machines virtuelles et si vous avez configuré le coffre de sauvegarde pour qu’il soit géo-redondant. Le cas échéant, vous devez sélectionner un compte de stockage présent dans le centre de données associé ; le reste du processus de restauration est le même. Azure Backup utilise le service de calcul du centre de données géo-redondant associé pour créer la machine virtuelle restaurée. En savoir plus sur la [résilience des centres de données Azure](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
 
 ## <a name="restoring-domain-controller-vms"></a>Restauration de machines virtuelles d’un contrôleur de domaine
-Azure Backup prend en charge la sauvegarde de machines virtuelles d’un contrôleur de domaine. Vous devez toutefois faire preuve de prudence au cours du processus de restauration. Le processus de restauration correct dépend de la structure du domaine. Dans le cas le plus simple, vous avez un seul contrôleur de domaine dans un domaine unique. Plus communément pour les charges de production, vous avez un domaine unique avec plusieurs contrôleurs de domaine, dont certains sont peut-être sur site. Enfin, vous avez peut-être une forêt avec plusieurs domaines. 
+Azure Backup prend en charge la sauvegarde de machines virtuelles d’un contrôleur de domaine. Vous devez toutefois faire preuve de prudence au cours du processus de restauration. Le processus de restauration correct dépend de la structure du domaine. Dans le cas le plus simple, vous disposez d’un seul contrôleur de domaine dans un domaine unique. Plus communément pour les charges de production, vous disposez d’un domaine unique avec plusieurs contrôleurs de domaine, dont certains sont peut-être locaux. Enfin, vous disposez peut-être d’une forêt avec plusieurs domaines. 
 
-Du point de vue d’Active Directory, la machine virtuelle Azure est semblable à toute autre machine virtuelle sur un hyperviseur pris en charge moderne. La principale différence avec les hyperviseurs sur site est qu’aucune console de machine virtuelle n’est disponible dans Azure. Une console est nécessaire pour certains scénarios tels que la récupération à l’aide d’une sauvegarde de type Récupération complète (BMR, Bare Metal Recovery). Toutefois, la restauration d’une machine virtuelle à partir du coffre de sauvegarde constitue un remplacement total de la récupération complète. Le mode DSRM (Active Directory Restore Mode) est également disponible, donc tous les scénarios de récupération Active Directory sont viables. Pour plus d’informations, consultez les rubriques sur les [considérations en matière de sauvegarde et de restauration pour les contrôleurs de domaine virtualisés](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) et la [planification de la récupération de forêt Active Directory](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
+Du point de vue d’Active Directory, la machine virtuelle Azure est semblable à toute autre machine virtuelle sur un hyperviseur moderne pris en charge. La principale différence avec les hyperviseurs locaux est qu’aucune console de machine virtuelle n’est disponible dans Azure. Une console est nécessaire pour certains scénarios tels que la récupération à l’aide d’une sauvegarde de type Récupération complète (BMR, Bare Metal Recovery). Toutefois, la restauration d’une machine virtuelle à partir du coffre de sauvegarde consiste en un remplacement total de la récupération complète. Le mode DSRM (Active Directory Restore Mode) étant également disponible, tous les scénarios de récupération Active Directory sont viables. Pour plus d’informations, voir les [considérations en matière de sauvegarde et de restauration pour les contrôleurs de domaine virtualisés](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) et la [planification de la récupération de forêt Active Directory](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
 
 ### <a name="single-dc-in-a-single-domain"></a>Contrôleur de domaine unique dans un seul domaine
 La machine virtuelle peut être restaurée (comme toute autre machine virtuelle) depuis le portail Azure ou à l’aide de PowerShell.
 
 ### <a name="multiple-dcs-in-a-single-domain"></a>Contrôleurs de domaine multiples dans un seul domaine
-Lorsque d’autres contrôleurs de domaine du même domaine sont accessibles sur le réseau, le contrôleur de domaine peut être restauré comme n’importe quelle machine virtuelle. S’il s’agit du dernier contrôleur de domaine dans le domaine, ou si une récupération dans un réseau isolé est effectuée, une procédure de récupération de forêt doit être appliquée.
+Lorsque d’autres contrôleurs de domaine du même domaine sont accessibles sur le réseau, le contrôleur de domaine peut être restauré comme n’importe quelle machine virtuelle. S’il s’agit du dernier contrôleur de domaine dans le domaine, ou si une récupération dans un réseau isolé est effectuée, il convient de suivre une procédure de récupération de forêt.
 
 ### <a name="multiple-domains-in-one-forest"></a>Domaines multiples dans une seule forêt
 Lorsque d’autres contrôleurs de domaine du même domaine sont accessibles sur le réseau, le contrôleur de domaine peut être restauré comme n’importe quelle machine virtuelle. Toutefois, dans tous les autres cas, une récupération de forêt est recommandée.

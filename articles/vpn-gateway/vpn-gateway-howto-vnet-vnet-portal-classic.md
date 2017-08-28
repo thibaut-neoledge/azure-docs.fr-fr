@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: a95283a5c52a2860a4c4ac9e47938fe7c6b1be84
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 77097d59077cd8e199acdb5dc0d8427369565eea
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurer une connexion de réseau virtuel à réseau virtuel (classique)
@@ -48,7 +48,7 @@ Les réseaux virtuels que vous connectez peuvent être situés dans différents 
 
 ![Connexions de réseau virtuel à réseau virtuel](./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png)
 
-### <a name="why-connect-virtual-networks"></a>Pourquoi connecter des réseaux virtuels ?
+### <a name="why"></a>Pourquoi connecter des réseaux virtuels ?
 
 Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivantes :
 
@@ -70,7 +70,7 @@ Pour plus d’informations sur les connexions de réseau virtuel à réseau virt
 
 Avant de commencer cet exercice, téléchargez et installez la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). Nous utilisons le portail pour la plupart des étapes, mais vous devez utiliser PowerShell pour créer les connexions entre les réseaux virtuels. Vous ne pouvez pas créer des connexions à l’aide du portail Azure.
 
-## <a name="step1"></a>Étape 1 : planifier vos plages d’adresses IP
+## <a name="plan"></a>Étape 1 : planifier vos plages d’adresses IP
 
 Il est important de choisir les plages que vous utiliserez pour configurer vos réseaux virtuels. Pour cette configuration, vous devez vous assurer que vos plages de réseau virtuel ne se chevauchent pas entre elles ou avec un réseau local auquel elles se connectent.
 
@@ -168,11 +168,11 @@ Chaque réseau virtuel doit disposer d’une passerelle de réseau virtuel. La p
 6. Cliquez sur **OK**.
 7. Dans le panneau **Nouvelle connexion VPN**, cliquez sur **OK** pour commencer à créer votre passerelle de réseau virtuel. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée.
 
-## <a name="step-5---configure-testvnet4-settings"></a>Étape 5 : configurer les paramètres de TestVNet4
+## <a name="vnet4settings"></a>Étape 5 : configurer les paramètres de TestVNet4
 
 Répétez les étapes jusqu’à la [Création d’un site local](#localsite) et la [Création de la passerelle de réseau virtuel](#gw) pour configurer TestVNet4, en remplaçant les valeurs si cela est nécessaire. Si vous effectuez cette opération en guise d’exercice, utilisez les [valeurs d’exemple](#vnetvalues).
 
-## <a name="step-6---update-the-local-sites"></a>Étape 6 : mettre à jour les sites locaux
+## <a name="updatelocal"></a>Étape 6 : mettre à jour les sites locaux
 
 Une fois vos passerelles de réseau virtuel créées pour les deux réseaux virtuels, vous devez ajuster les valeurs **d’adresse IP de passerelle VPN** des sites locaux.
 
@@ -208,7 +208,7 @@ Une fois vos passerelles de réseau virtuel créées pour les deux réseaux virt
 6. Fermez les autres panneaux.
 7. Répétez ces étapes pour TestVNet4.
 
-## <a name="step-7---retrieve-values-from-the-network-configuration-file"></a>Étape 7 : récupérer des valeurs à partir du fichier de configuration réseau
+## <a name="getvalues"></a>Étape 7 : récupérer des valeurs à partir du fichier de configuration réseau
 
 Lorsque vous créez des réseaux virtuels classiques dans le portail Azure, le nom que vous voyez ne correspond pas au nom complet que vous utilisez pour PowerShell. Par exemple, un réseau virtuel qui semble être nommé **TestVNet1** dans le portail Azure peut avoir un nom beaucoup plus long dans le fichier de configuration réseau. Le nom peut ressembler à ceci : **Group ClassicRG TestVNet1**. Lorsque vous créez vos connexions, il est important d’utiliser les valeurs que vous voyez dans le fichier de configuration réseau.
 
@@ -246,7 +246,7 @@ Dans les étapes suivantes, vous allez vous connecter à votre compte Azure et t
   ```
 4. Dans un éditeur de texte, ouvrez le fichier, puis affichez les noms de vos réseaux virtuels et de vos sites. Ces noms sont ceux que vous utiliserez lorsque vous allez créer vos connexions.<br>Les noms des réseaux virtuels sont répertoriés comme suit : **VirtualNetworkSite name =**<br>Les noms des sites sont répertoriés comme suit : **LocalNetworkSiteRef name =**
 
-## <a name="step-8---create-the-vpn-gateway-connections"></a>Étape 8 : créer les connexions de passerelle VPN
+## <a name="createconnections"></a>Étape 8 : créer les connexions de passerelle VPN
 
 Lorsque vous avez terminé les étapes précédentes, vous pouvez définir les clés prépartagées IPsec/IKE et créer la connexion. Cet ensemble d’étapes utilise PowerShell. Les connexions de réseau virtuel à réseau virtuel pour le modèle de déploiement classique ne peuvent pas être configurées dans le portail Azure.
 

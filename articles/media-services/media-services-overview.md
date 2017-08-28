@@ -4,7 +4,7 @@ description: Cette rubrique offre une vue d'ensemble d'Azure Media Services
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
 ms.service: media-services

@@ -3,7 +3,7 @@ title: Configurer votre cluster Azure Service Fabric autonome | Microsoft Docs
 description: "Découvrez comment configurer votre cluster Service Fabric autonome ou privé."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
@@ -13,19 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
-ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 3b65f9391a4ff5a641546f8d0048f36386a7efe8
+ms.author: dekapur
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 30fadddabf89d379beffdf214cfe8a8145d7a29b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Paramètres de configuration pour un cluster Windows autonome
 Cet article explique comment configurer un cluster Service Fabric autonome à l’aide du fichier ***ClusterConfig.JSON***. Vous pouvez utiliser ce fichier pour spécifier des informations telles que les nœuds Service Fabric et leurs adresses IP, différents types de nœuds sur le cluster, les configurations de sécurité, ainsi que la topologie du réseau en termes de domaines d’erreur et de mise à niveau, pour votre cluster autonome.
 
-Lorsque vous [téléchargez le package Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), quelques exemples de fichier ClusterConfig.JSON sont téléchargés sur votre ordinateur de travail. Les exemples comprenant *DevCluster* dans leurs noms vous permettent de créer un cluster avec les trois nœuds sur le même ordinateur, comme des nœuds logiques. Parmi ces nœuds, au moins un doit être marqué comme nœud principal. Ce cluster est utile pour un environnement de test ou de développement et n’est pas pris en charge comme cluster de production. Les exemples comprenant *MultiMachine* dans leurs noms vous permettent de créer un cluster de niveau de production, avec chaque nœud sur un ordinateur distinct. Le nombre de nœuds principaux pour ce cluster dépend du [niveau de fiabilité](#reliability).
+Lorsque vous [téléchargez le package Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), quelques exemples de fichier ClusterConfig.JSON sont téléchargés sur votre ordinateur de travail. Les exemples comprenant *DevCluster* dans leurs noms vous permettent de créer un cluster avec les trois nœuds sur le même ordinateur, comme des nœuds logiques. Parmi ces nœuds, au moins un doit être marqué comme nœud principal. Ce cluster est utile pour un environnement de test ou de développement et n’est pas pris en charge comme cluster de production. Les exemples comprenant *MultiMachine* dans leurs noms vous permettent de créer un cluster de niveau de production, avec chaque nœud sur un ordinateur distinct.
 
 1. *ClusterConfig.Unsecure.DevCluster.JSON* et *ClusterConfig.Unsecure.MultiMachine.JSON* montrent comment créer un cluster de test ou de production non sécurisé respectivement. 
 2. *ClusterConfig.Windows.DevCluster.JSON* et *ClusterConfig.Windows.MultiMachine.JSON* montrent comment créer un cluster de test ou de production sécurisé à l’aide de la [sécurité Windows](service-fabric-windows-cluster-windows-security.md).
@@ -83,15 +82,7 @@ La section **properties** du fichier ClusterConfig.JSON permet de configurer le 
 <a id="reliability"></a>
 
 ### <a name="reliability"></a>Fiabilité
-La section**reliabilityLevel** définit le nombre de copies des services système qui peuvent s’exécuter sur les nœuds principaux du cluster. Cette valeur augmente la fiabilité de ces services et, par conséquent, du cluster. Vous pouvez définir cette variable sur *Bronze*, *Silver*, *Gold* ou *Platinum* pour 3, 5, 7 ou 9 copies de ces services, respectivement. Reportez-vous à l’exemple ci-dessous.
-
-    "reliabilityLevel": "Bronze",
-
-Notez que dans la mesure où un nœud principal exécute une copie unique des services système, vous avez besoin d’au moins 3 nœuds principaux pour le niveau de fiabilité *Bronze*, 5 pour *Silver*, 7 pour *Gold* et 9 pour *Platinum*.
-
-Si vous ne spécifiez pas la propriété reliabilityLevel dans votre fichier clusterConfig.json, notre système calcule la propriété reliabilityLevel optimale en fonction du nombre de nœuds « Type de nœud principal » dont vous disposez. Par exemple, si vous disposez de 4 nœuds principaux, la propriété reliabilityLevel est définie sur Bronze ; si vous avez 5 nœuds de ce type, la propriété reliabilityLevel est définie sur Silver. Dans un futur proche, nous allons supprimer la possibilité de configurer votre niveau de fiabilité, étant donné que le cluster détectera et utilisera automatiquement le niveau de fiabilité optimal.
-
-La propriété reliabilityLevel peut être mise à niveau. Vous pouvez créer une v2 du fichier clusterConfig.json et monter ou descendre en puissance via une [mise à niveau de la configuration du cluster autonome](service-fabric-cluster-upgrade-windows-server.md). Vous pouvez également mettre à niveau vers une v2 du fichier clusterConfig.json dans laquelle la propriété reliabilityLevel n’est pas spécifiée, afin qu’elle soit calculée automatiquement. 
+Le concept de **reliabilityLevel** définit le nombre de répliques ou instances des services système Service Fabric qui peuvent s’exécuter sur les nœuds principaux du cluster. Il détermine augmente la fiabilité de ces services et, par conséquent, du cluster. La valeur est calculée par le système au moment de la création et de la mise à niveau du cluster.
 
 ### <a name="diagnostics"></a>Diagnostics
 La section **diagnosticsStore** vous permet de configurer des paramètres pour activer les diagnostics et corriger les défaillances de nœud ou du cluster, comme illustré dans l’extrait de code suivant. 
@@ -150,7 +141,7 @@ La section **nodeTypes** décrit le type des nœuds de votre cluster. Au moins u
         "isPrimary": true
     }]
 
-La valeur **name** représente le nom convivial de ce type de nœud particulier. Pour créer un nœud de ce type, affectez son nom convivial à la variable **nodeTypeRef** pour ce nœud, comme indiqué [ci-dessus](#clusternodes). Pour chaque type de nœud, définissez les points de terminaison de connexion qui seront utilisés. Vous pouvez choisir n’importe quel numéro de port pour ces points de terminaison de connexion, à condition qu’ils n’entrent pas en conflit avec d’autres points de terminaison de ce cluster. Un cluster à plusieurs nœuds contient un ou plusieurs nœuds principaux (c'est-à-dire que **isPrimary** a la valeur *true*) en fonction du [**reliabilityLevel**](#reliability). Consultez la rubrique [Considérations en matière de planification de la capacité du cluster Service Fabric](service-fabric-cluster-capacity.md) pour plus d’informations sur les valeurs **nodeTypes** et **reliabilityLevel** et pour connaître la différence entre les types de nœud principal et non principal. 
+La valeur **name** représente le nom convivial de ce type de nœud particulier. Pour créer un nœud de ce type, affectez son nom convivial à la variable **nodeTypeRef** pour ce nœud, comme indiqué [ci-dessus](#clusternodes). Pour chaque type de nœud, définissez les points de terminaison de connexion qui seront utilisés. Vous pouvez choisir n’importe quel numéro de port pour ces points de terminaison de connexion, à condition qu’ils n’entrent pas en conflit avec d’autres points de terminaison de ce cluster. Un cluster à plusieurs nœuds contient un ou plusieurs nœuds principaux (c'est-à-dire que **isPrimary** a la valeur *true*) en fonction du [**reliabilityLevel**](#reliability). Consultez la rubrique [Considérations en matière de planification de la capacité du cluster Service Fabric](service-fabric-cluster-capacity.md) pour plus d’informations sur **nodeTypes** et **reliabilityLevel** et pour connaître la différence entre les types de nœud principal et non principal. 
 
 #### <a name="endpoints-used-to-configure-the-node-types"></a>Points de terminaison utilisés pour configurer les types de nœuds
 * *clientConnectionEndpointPort* est le port utilisé par le client pour se connecter au cluster lorsque vous utilisez les API clientes. 

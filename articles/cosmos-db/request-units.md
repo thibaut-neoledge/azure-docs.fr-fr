@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 88edb489d967a5bc5cc1c4aa1aeb5abcd6539d12
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 7a4efc0fb9b3855b9dbbe445768ceb2a9940d0b2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
@@ -31,7 +31,7 @@ Désormais disponible : [calculatrice d’unités de requête](https://www.docu
 
 Azure Cosmos DB prend en charge un certain nombre d’API avec différentes opérations allant des lectures et des écritures simples aux requêtes de graphe complexes. Toutes les requêtes n’étant pas égales, la quantité normalisée **d’unités de requête** qui leur est affectée est fonction de la quantité de calcul requise pour traiter chaque requête. Le nombre d’unités de requête d’une opération est déterministe. Dans Azure Cosmos DB, vous pouvez suivre le nombre d’unités de requête consommées par une opération via un en-tête de réponse. 
 
-Pour fournir des performances prévisibles, vous devez réserver le débit par unité de 100 RU/seconde. Pour chaque bloc de 100 RU/seconde, vous pouvez attacher un bloc de 1 000 RU/minute. Combiner la configuration par seconde et par minute s’avère extrêmement puissant, car vous n’avez pas besoin d’effectuer une configuration pour les pics de charge et vous pouvez économiser jusqu’à 75 % de coûts par rapport à un service utilisant uniquement la configuration par seconde.
+Pour fournir des performances prévisibles, vous devez réserver le débit par unité de 100 RU/seconde. 
 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :  
 
@@ -45,7 +45,7 @@ Azure Cosmos DB étant une base de données multimodèle, il est important de no
 ## <a name="request-units-and-request-charges"></a>Unités de requête et frais de requête
 Azure Cosmos DB offre des performances élevées et prévisibles en *réservant* des ressources pour répondre aux besoins de débit de votre application.  Étant donné que les schémas d’accès et de charge des applications changent au fil du temps, Azure Cosmos DB vous permet de facilement augmenter ou diminuer la quantité de débit réservé disponible pour votre application.
 
-Avec Azure Cosmos DB, un débit réservé est spécifié en termes de traitement d’unités de requête par seconde ou par minute (module complémentaire).  Imaginez que les unités de requête sont des unités de mesure du débit : vous *réservez* une quantité d’unités de requête garantie accessible par seconde ou par minute à votre application.  Chaque opération dans Azure Cosmos DB (écriture d’un document, exécution d’une requête, mise à jour d’un document) consomme des ressources de processeur, de mémoire et d’E/S par seconde.  Autrement dit, chaque opération entraîne des *frais de requête*, exprimés en *unités de requête*.  Comprendre les facteurs qui ont un impact sur les frais d’unités de requête et cerner les demandes de débit de votre application vous permettent d’exécuter votre application de la manière la plus rentable possible. L’Explorateur de requêtes est également un outil merveilleux pour tester le cœur d’une requête.
+Avec Azure Cosmos DB, un débit réservé est spécifié en termes de traitement d’unités de requête par seconde. On peut considérer les unités de requête un peu comme une devise de débit : vous *réservez* une quantité d’unités de requête garantie accessible par seconde à votre application.  Chaque opération dans Azure Cosmos DB (écriture d’un document, exécution d’une requête, mise à jour d’un document) consomme des ressources de processeur, de mémoire et d’E/S par seconde.  Autrement dit, chaque opération entraîne des *frais de requête*, exprimés en *unités de requête*.  Comprendre les facteurs qui ont un impact sur les frais d’unités de requête et cerner les demandes de débit de votre application vous permettent d’exécuter votre application de la manière la plus rentable possible. L’Explorateur de requêtes est également un outil merveilleux pour tester le cœur d’une requête.
 
 Nous vous recommandons de commencer par visionner la vidéo suivante, dans laquelle Aravind Ramachandran explique les unités de requête et les performances prévisibles avec Azure Cosmos DB.
 
@@ -54,7 +54,7 @@ Nous vous recommandons de commencer par visionner la vidéo suivante, dans laque
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Spécification de la capacité d’unités de requête dans Azure Cosmos DB
-Lorsque vous démarrez une nouvelle collection, table ou un nouveau graphique, vous spécifiez le nombre d’unités de requête (RU par seconde) à réserver. Vous pouvez également décider si vous souhaitez activer des RU par minute. Si vous les activez, vous obtiendrez 10 fois ce que vous obtenez par seconde, mais par minute. En fonction du débit configuré, Azure Cosmos DB alloue des partitions physiques pour héberger votre collection et répartit/rééquilibre les données sur les partitions à mesure qu’elles se développent.
+Lorsque vous démarrez une nouvelle collection, table ou un nouveau graphique, vous spécifiez le nombre d’unités de requête (RU par seconde) à réserver. En fonction du débit configuré, Azure Cosmos DB alloue des partitions physiques pour héberger votre collection et répartit/rééquilibre les données sur les partitions à mesure qu’elles se développent.
 
 Azure Cosmos DB nécessite la spécification d’une clé de partition lorsqu’une collection est configurée avec 2 500 unités de requête ou plus. Une clé de partition est également requise ultérieurement pour mettre à l’échelle le débit de votre collection au-delà de 2 500 unités de requête. Il est donc fortement recommandé de configurer une [clé de partition](partition-data.md) lors de la création d’un conteneur, quel que soit le débit initial. Dans la mesure où vos données doivent parfois être réparties sur plusieurs partitions, vous devez choisir une clé de partition ayant une cardinalité élevée (de plusieurs centaines à plusieurs millions de valeurs distinctes) de manière qu’Azure Cosmos DB puisse mettre à l’échelle votre collection/table/graphique et vos requêtes de manière uniforme. 
 
@@ -336,7 +336,7 @@ Avec ces informations, nous pouvons estimer les besoins en unités de requête p
 Dans ce cas, nous estimons l’exigence de débit moyen à 1275 unités de requête par seconde.  Arrondi à la centaine la plus proche, nous devons approvisionner 1 300 unités de requête par seconde pour la collection de cette application.
 
 ## <a id="RequestRateTooLarge"></a> Dépassement des limites de débit réservé dans Azure Cosmos DB
-Rappelez-vous que la consommation d’unités de requête est évaluée sous forme de taux par seconde si l’unité de requête par minute est désactivée ou si la totalité du budget a été dépensée. Pour les applications qui dépassent le taux d’unités de requête configuré pour un conteneur, les requêtes pour cette collection sont limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur met fin à la demande de manière préventive avec RequestRateTooLargeException (code d’état HTTP 429) et il retourne l’en-tête x-ms-retry-after-ms indiquant la durée, en millisecondes, pendant laquelle l’utilisateur doit attendre avant de réessayer.
+Souvenez-vous que la consommation d’unités de requête est évaluée en fonction d’un taux par seconde, si le budget est vide. Pour les applications qui dépassent le taux d’unités de requête configuré pour un conteneur, les requêtes pour cette collection sont limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur met fin à la demande de manière préventive avec RequestRateTooLargeException (code d’état HTTP 429) et il retourne l’en-tête x-ms-retry-after-ms indiquant la durée, en millisecondes, pendant laquelle l’utilisateur doit attendre avant de réessayer.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge

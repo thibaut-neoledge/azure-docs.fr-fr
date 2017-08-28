@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/1/2017
+ms.date: 8/16/2017
 ms.author: saurse;trinadhk;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: d8a85da4c929180c7ca52a19724d2be702fe3e9c
-ms.openlocfilehash: db71f7ea9561542fe9b579bf471cf2b81f5997cd
-ms.lasthandoff: 02/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 231dd61f95267b3a504ed70e9b3a5abc470b69b2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restauration de fichiers sur un serveur Windows ou un ordinateur client Windows à l’aide du modèle de déploiement Resource Manager
@@ -33,47 +33,15 @@ Cet article explique comment restaurer des données depuis un coffre de sauvegar
 * Restaurer des données sur l’ordinateur à partir duquel les sauvegardes ont été effectuées.
 * Restaurez les données sur un autre ordinateur.
 
-En janvier 2017, Microsoft a publié une mise à jour de la pré-version de l’agent MARS. Outre des correctifs de bogues, cette mise à jour propose une restauration instantanée, ce qui vous permet de monter une capture instantanée de point de récupération inscriptible comme volume de récupération. Vous pouvez ensuite explorer le volume de récupération et les copies de fichiers sur un ordinateur local et sélectionner les fichiers à restaurer.
+En janvier 2017, Microsoft a publié une mise à jour de la pré-version de l’agent MARS. Outre des correctifs de bogues, cette mise à jour propose la fonction de restauration instantanée, ce qui vous permet de monter une capture instantanée de point de récupération inscriptible comme volume de récupération. Vous pouvez ensuite explorer le volume de récupération, copier les fichiers sur un ordinateur local et sélectionner les fichiers à restaurer.
 
 > [!NOTE]
-> La [Mise à jour de la Sauvegarde Azure de janvier 2017](https://support.microsoft.com/en-us/help/3216528?preview) est nécessaire si vous souhaitez utiliser la restauration instantanée pour restaurer des données. De plus, les données de sauvegarde doivent être protégées dans des coffres pour les pays listés dans l’article relatif au support. Consultez la [Mise à jour de la Sauvegarde Azure de janvier 2017](https://support.microsoft.com/en-us/help/3216528?preview) pour obtenir la liste la plus récente des pays qui prennent en charge la restauration instantanée. Actuellement, la restauration instantanée n’est **pas** disponible dans tous les pays.
+> La [Mise à jour de la Sauvegarde Azure de janvier 2017](https://support.microsoft.com/en-us/help/3216528?preview) est nécessaire si vous souhaitez utiliser la restauration instantanée pour restaurer des données. De plus, les données de sauvegarde doivent être protégées dans des coffres pour les pays listés dans l’article relatif au support. Consultez la [Mise à jour de la Sauvegarde Azure de janvier 2017](https://support.microsoft.com/en-us/help/3216528?preview) pour obtenir la liste la plus récente des pays qui prennent en charge la restauration instantanée. La restauration instantanée n’est actuellement **pas** disponible dans tous les pays.
 >
 
-La restauration instantanée est disponible pour une utilisation dans des coffres Recovery Services dans le portail Azure et dans des coffres de sauvegarde dans le portail classique. Si vous souhaitez utiliser la restauration instantanée, téléchargez la mise à jour MARS et suivez les procédures mentionnant la restauration instantanée.
+La restauration instantanée est disponible pour une utilisation dans des coffres Recovery Services dans le portail Azure et dans des coffres de sauvegarde dans le portail classique. Si vous souhaitez utiliser la restauration instantanée, téléchargez la mise à jour MARS et suivez les procédures mentionnant cette opération.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-
-## <a name="recover-data-to-the-same-machine"></a>Récupération des données sur le même ordinateur
-Si vous avez supprimé accidentellement un fichier et que vous voulez le restaurer sur le même ordinateur (à partir duquel la sauvegarde est effectuée), les étapes suivantes vous aident à récupérer les données.
-
-1. Ouvrez le composant logiciel enfichable **Microsoft Azure Backup** .
-2. Cliquez sur **Récupérer des données** pour lancer le flux de travail.
-
-    ![Récupérer des données](./media/backup-azure-restore-windows-server/recover.png)
-3. Sélectionnez l’option **Ce serveur (*nomdevotremachine*)** pour restaurer le fichier sauvegardé sur le même ordinateur.
-
-    ![Même ordinateur](./media/backup-azure-restore-windows-server/samemachine.png)
-4. Vous pouvez choisir **Naviguer jusqu’aux fichiers** ou **Rechercher des fichiers**.
-
-    Conservez l’option par défaut si vous envisagez de restaurer un ou plusieurs fichiers dont le chemin est connu. Si vous n’êtes pas certain de la structure de dossiers, mais que vous voulez rechercher un fichier, choisissez l’option **Rechercher des fichiers** . Dans cette section, nous choisissons l’option par défaut.
-
-    ![Parcourir les fichiers](./media/backup-azure-restore-windows-server/browseandsearch.png)
-5. Sélectionnez le volume à partir duquel vous voulez restaurer le fichier.
-
-    Vous pouvez restaurer le fichier à partir de n’importe quel point dans le temps. Les dates qui s’affichent en **gras** dans le contrôle Calendrier indiquent la disponibilité d’un point de restauration. Une fois qu’une date est sélectionnée, en fonction de votre planification de sauvegarde (et de la réussite d’une opération de sauvegarde), vous pouvez sélectionner un point dans le temps dans la liste déroulante **Heure** .
-
-    ![Volume et date](./media/backup-azure-restore-windows-server/volanddate.png)
-6. Sélectionnez les éléments à restaurer. Vous pouvez sélectionner plusieurs fichiers/dossiers à restaurer.
-
-    ![Sélectionner des fichiers](./media/backup-azure-restore-windows-server/selectfiles.png)
-7. Spécifiez les paramètres de récupération.
-
-    ![Options de récupération](./media/backup-azure-restore-windows-server/recoveroptions.png)
-
-   * Vous avez la possibilité d’effectuer la restauration à l’emplacement d’origine (dans lequel le fichier/dossier sera remplacé) ou dans un autre emplacement sur le même ordinateur.
-   * Si le fichier/dossier que vous voulez restaurer existe dans l’emplacement cible, vous avez la possibilité de créer des copies (deux versions du même fichier), de remplacer les fichiers dans l’emplacement cible ou d’ignorer la récupération des fichiers qui existent dans la cible.
-   * Il est vivement recommandé de conserver l’option par défaut qui consiste à restaurer les ACL sur les fichiers récupérés.
-8. Une fois ces entrées fournies, cliquez sur **Suivant**. Le flux de travail de récupération, qui consiste à restaurer les fichiers sur cet ordinateur, commence.
 
 ## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>Utiliser la restauration instantanée pour récupérer des données sur le même ordinateur
 
@@ -91,7 +59,7 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
 
     ![Choisissez l’option Ce serveur pour restaurer les données sur le même ordinateur](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Sur le volet **Sélectionner un mode de récupération**, choisissez **Fichiers et dossiers individuels**, puis cliquez sur **Suivant**.
+4. Sur le volet **Sélectionnez le mode de récupération**, choisissez **Fichiers et dossiers individuels**, puis cliquez sur **Suivant**.
 
     ![Parcourir les fichiers](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
 
@@ -119,49 +87,8 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
     ![Démontez le volume et confirmez](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Si vous ne cliquez pas sur Démonter, le Volume de récupération reste monté pendant six heures à compter du montage. Aucune opération de sauvegarde ne s’exécute tant que le volume est monté. Toute opération de sauvegarde planifiée pour s’exécuter au moment où le volume de récupération est monté s’exécutera une fois qu’il sera démonté.
+    > Si vous ne cliquez pas sur Démonter, le volume de récupération reste monté pendant 6 heures à compter du montage. Toutefois, la durée du montage est étendue jusqu’à un maximum de 24 heures en cas de copie de fichier en cours. Aucune opération de sauvegarde ne s’exécute tant que le volume est monté. Toute opération de sauvegarde planifiée pour s’exécuter au moment où le volume de récupération est monté s’exécutera une fois qu’il sera démonté.
     >
-
-## <a name="recover-to-an-alternate-machine"></a>Récupération sur un autre ordinateur
-
-Si votre serveur entier est perdu, vous pouvez toujours récupérer les données d’Azure Backup sur un autre ordinateur. Les étapes suivantes illustrent le flux de travail.  
-
-Les termes ci-après sont utilisés pour cette procédure :
-
-- *Ordinateur source* : ordinateur d’origine à partir duquel la sauvegarde a été effectuée et qui est actuellement indisponible.
-- *Ordinateur cible* : ordinateur sur lequel les données sont récupérées.
-- *Exemple d’archivage* : archivage de sauvegarde dans lequel *l’ordinateur source* et *l’ordinateur cible* sont enregistrés. <br/>
-
-> [!NOTE]
-> Les sauvegardes effectuées à partir d’un ordinateur ne peuvent pas être restaurées sur un ordinateur qui exécute une version antérieure du système d’exploitation. Par exemple, si les sauvegardes sont effectuées à partir d’un ordinateur Windows 7, elles peuvent être restaurées sur un ordinateur Windows 8 ou supérieur. Toutefois l’inverse n’est pas vrai.
->
->
-
-1. Ouvrez le composant logiciel enfichable **Microsoft Azure Backup** sur l’ *ordinateur cible*.
-2. Vérifiez que *l’ordinateur cible* et *l’ordinateur source* sont inscrits auprès du même archivage de sauvegarde.
-3. Cliquez sur **Récupérer des données** pour lancer le flux de travail.
-
-    ![Récupérer des données](./media/backup-azure-restore-windows-server-classic/recover.png)
-4. Sélectionnez **Un autre serveur**
-
-    ![Un autre serveur](./media/backup-azure-restore-windows-server-classic/anotherserver.png)
-5. Fournissez le fichier d’informations d’identification de coffre qui correspond à l’ *exemple d’archivage*. Si le fichier d’informations d’identification de coffre n’est pas valide (ou a expiré), téléchargez un nouveau fichier d’informations d’identification de coffre à partir de l’ *exemple d’archivage* dans le portail Azure Classic. Une fois que le fichier d’informations d’identification de coffre est fourni, l’archivage de sauvegarde correspondant au fichier d’informations d’identification de coffre s’affiche.
-6. Sélectionnez l’ *ordinateur source* dans la liste des ordinateurs affichés.
-
-    ![Liste des ordinateurs](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-7. Sélectionnez l’option **Rechercher des fichiers** ou **Naviguer jusqu’aux fichiers**. Dans cette section, nous utilisons l’option **Rechercher des fichiers** .
-
-    ![action](./media/backup-azure-restore-windows-server-classic/search.png)
-8. Dans l’écran suivant, sélectionnez le volume et la date. Recherchez le nom du fichier/dossier que vous souhaitez restaurer.
-
-    ![Éléments de recherche](./media/backup-azure-restore-windows-server-classic/searchitems.png)
-9. Sélectionnez l’emplacement vers lequel les fichiers doivent être restaurés.
-
-    ![Emplacement de restauration](./media/backup-azure-restore-windows-server-classic/restorelocation.png)
-10. Fournissez la phrase secrète de chiffrement qui a été fournie pendant l’inscription de *l’ordinateur source* dans *l’exemple d’archivage*.
-
-    ![Chiffrement](./media/backup-azure-restore-windows-server-classic/encryption.png)
-11. Une fois l’entrée fournie, cliquez sur **Récupérer**pour déclencher la restauration des fichiers de sauvegarde dans la destination fournie.
 
 
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Utiliser la restauration instantanée pour restaurer des données sur un autre ordinateur
@@ -172,7 +99,7 @@ Les termes ci-après sont utilisés pour cette procédure :
 
 * *Ordinateur source* : ordinateur d’origine à partir duquel la sauvegarde a été effectuée et qui est actuellement indisponible.
 * *Ordinateur cible* : ordinateur sur lequel les données sont récupérées.
-* *Exemple d’archivage* : coffre Recovery Services dans lequel *l’ordinateur source* et *l’ordinateur cible* sont enregistrés. <br/>
+* *Exemple d’archivage* – coffre Recovery Services dans lequel *l’ordinateur source* et *l’ordinateur cible* sont enregistrés. <br/>
 
 > [!NOTE]
 > Il est impossible de restaurer les sauvegardes sur un ordinateur cible qui fonctionne avec une version antérieure du système d’exploitation. Par exemple, une sauvegarde effectuée à partir d’un ordinateur Windows 7 ne peut pas être restaurée sur un ordinateur sous Windows 8 ou une version ultérieure. Il n’est pas possible de restaurer sur un ordinateur Windows 7 une sauvegarde effectuée à partir d’un ordinateur Windows 8.
@@ -194,6 +121,7 @@ Les termes ci-après sont utilisés pour cette procédure :
 5. Fournissez le fichier d’informations d’identification correspondant à *l’Exemple de coffre*, puis cliquez sur **Suivant**.
 
     Si le fichier d’informations d’identification du coffre n’est pas valide (ou a expiré), téléchargez un nouveau fichier d’informations d’identification de coffre à partir de *l’Exemple de coffre* dans le Portail Azure. Une fois que vous avez fourni des informations d’identification de coffre valides, le nom du Coffre de sauvegarde correspondant s’affiche.
+
 
 6. Sur le volet **Sélectionner un serveur de sauvegarde**, sélectionnez *l’Ordinateur source* dans la liste des ordinateurs affichés et fournissez la phrase secrète. Cliquez ensuite sur **Suivant**.
 
@@ -224,8 +152,35 @@ Les termes ci-après sont utilisés pour cette procédure :
     ![Chiffrement](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Si vous ne cliquez pas sur Démonter, le Volume de récupération reste monté pendant six heures à compter du montage. Aucune opération de sauvegarde ne s’exécute tant que le volume est monté. Toute opération de sauvegarde planifiée pour s’exécuter au moment où le volume de récupération est monté s’exécutera une fois qu’il sera démonté.
+    > Si vous ne cliquez pas sur Démonter, le volume de récupération reste monté pendant 6 heures à compter du montage. Toutefois, la durée du montage est étendue jusqu’à un maximum de 24 heures en cas de copie de fichier en cours. Aucune opération de sauvegarde ne s’exécute tant que le volume est monté. Toute opération de sauvegarde planifiée pour s’exécuter au moment où le volume de récupération est monté s’exécutera une fois qu’il sera démonté.
     >
+
+## <a name="troubleshooting"></a>Résolution des problèmes
+Si Azure Backup ne monte pas efficacement le volume de montage, même lorsque vous cliquez plusieurs fois sur **Monter**, ou ne parvient pas à le monter et génère une ou plusieurs erreurs, suivez la procédure ci-dessous pour entamer une récupération normale.
+
+1.  Si le processus de montage s’exécute depuis plusieurs minutes, annulez-le.
+
+2.  Vérifiez que vous disposez de la dernière version de l’agent de sauvegarde Azure. Pour en savoir plus sur la version de l’agent de sauvegarde Azure, cliquez sur la zone **À propos de l’agent Microsoft Azure Recovery Services** du volet **Actions** de la console de sauvegarde Microsoft Azure, et assurez-vous que le numéro de **version** est égal ou supérieur à celui qu’indique [cet article](https://go.microsoft.com/fwlink/?linkid=229525). Vous pouvez télécharger la dernière version [ici](https://go.microsoft.com/fwLink/?LinkID=288905).
+
+3.  Cliquez sur **Gestionnaire de périphériques** -> **Contrôleurs de stockage** et vérifiez que vous pouvez localiser **l’initiateur Microsoft iSCSI**. Si la réponse est oui, accédez directement à l’étape 7 ci-dessous. 
+
+4.  Si vous ne pouvez pas localiser le service Initiateur iSCSI de Microsoft indiqué à l’étape 3, vérifiez si, sous **Gestionnaire de périphériques** -> **Contrôleurs de stockage**, l’entrée **Appareil inconnu** s’affiche, associée à l’ID matériel **ROOT\ISCSIPRT**.
+
+5.  Cliquez avec le bouton droit sur l’entrée **Appareil inconnu** et sélectionnez **Mettre à jour le pilote**.
+
+6.  Mettez à jour le pilote, en sélectionnant l’option **Rechercher automatiquement un pilote logiciel mis à jour**. Suite à la mise à jour, l’entrée **Appareil inconnu** est remplacée par **Initiateur Microsoft iSCSI**, comme indiqué ci-dessous. 
+
+    ![Chiffrement](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
+
+7.  Cliquez sur **Gestionnaire des tâches** -> **Services (local)** -> **Service Initiateur iSCSI de Microsoft**. 
+
+    ![Chiffrement](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
+    
+8.  Redémarrez le service Initiateur iSCSI de Microsoft en cliquant avec le bouton droit sur ce dernier, en cliquant sur **Arrêter**, puis en cliquant à nouveau sur le bouton droit et en sélectionnant **Démarrer**.
+
+9.  Recommencez la récupération à l’aide de la restauration instantanée. 
+
+Si elle échoue encore, redémarrez votre serveur/client. Si un redémarrage n’est pas souhaitable, ou si la récupération échoue même après le redémarrage du serveur, essayez de l’exécuter au moyen d’un autre ordinateur et contactez le Support Azure en accédant au [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), puis en soumettant une demande de support.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Maintenant que vous avez restauré vos fichiers et vos dossiers, vous pouvez [gérer vos sauvegardes](backup-azure-manage-windows-server.md).

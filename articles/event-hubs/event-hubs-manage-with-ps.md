@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a3ba385e15510139929735adb5e50b6291846356
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 2b49c01153b1104612e6ebf9c88566fc40d1f635
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Utiliser PowerShell pour gérer des ressources Event Hubs
 
-Microsoft Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion des services Azure. Cet article explique comment utiliser le [module PowerShell du Gestionnaire de ressources Event Hubs](/powershell/module/azurerm.eventhub) pour approvisionner et gérer les entités Event Hubs (espaces de noms, Event Hubs et groupes de consommateurs) avec une console Azure PowerShell locale ou un script.
+Microsoft Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion des services Azure. Cet article explique comment utiliser le [module PowerShell du Gestionnaire de ressources Event Hubs](/powershell/module/azurerm.eventhub) pour approvisionner et gérer les entités Event Hubs (espaces de noms, concentrateurs d’événements individuels et groupes de consommateurs) à l’aide d’une console Azure PowerShell locale ou d’un script.
 
-Vous pouvez également gérer les ressources Event Hubs avec des modèles Azure Resource Manager. Pour plus d’informations, consultez l’article [Créer un espace de noms Event Hubs avec Event Hub et un groupe de consommateurs à l’aide d’un modèle Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
+Vous pouvez également gérer les ressources Event Hubs avec des modèles Azure Resource Manager. Pour plus d’informations, consultez l’article [Créer un espace de noms Event Hubs avec un concentrateur d’événements et un groupe de consommateurs à l’aide d’un modèle Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -38,7 +37,7 @@ Avant de débuter, vous avez besoin des éléments suivants :
 
 ## <a name="get-started"></a>Prise en main
 
-La première étape consiste à utiliser PowerShell pour vous connecter à votre compte Azure et à votre abonnement Azure. Suivez les instructions décrites dans [Prise en main des applets de commande Azure PowerShell](/powershell/azure/get-started-azureps) pour vous connecter à votre compte Azure, récupérer les ressources de votre abonnement Azure et accéder à celles-ci.
+La première étape consiste à utiliser PowerShell pour vous connecter à votre compte Azure et à votre abonnement Azure. Suivez les instructions décrites dans [Prise en main des applets de commande Azure PowerShell](/powershell/azure/get-started-azureps) pour vous connecter à votre compte Azure, puis récupérez les ressources de votre abonnement Azure et accédez à celles-ci.
 
 ## <a name="provision-an-event-hubs-namespace"></a>Approvisionner un espace de noms Event Hubs
 
@@ -79,33 +78,33 @@ Cette partie du script effectue les opérations suivantes :
     }
     ```
 
-## <a name="create-an-event-hub"></a>Création d’un concentrateur d’événements
+## <a name="create-an-event-hub"></a>Création d'un concentrateur d'événements
 
-Pour créer un Event Hub, vérifiez l’espace de noms à l’aide du script décrit dans la section précédente. Ensuite, utilisez l’applet de commande New-[AzureRmEventHub](/powershell/module/azurerm.eventhub/new-azurermeventhub) pour créer l’Event Hub :
+Pour créer un concentrateur d’événements, vérifiez l’espace de noms à l’aide du script décrit dans la section précédente. Ensuite, utilisez l’applet de commande [New-AzureRmEventHub](/powershell/module/azurerm.eventhub/new-azurermeventhub) pour créer le concentrateur d’événements :
 
 ```powershell
-# Check if Event Hub already exists
+# Check if event hub already exists
 $CurrentEH = Get-AzureRMEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 
 if($CurrentEH)
 {
-    Write-Host "The Event Hub $EventHubName already exists in the $Location region:"
+    Write-Host "The event hub $EventHubName already exists in the $Location region:"
     # Report what was found
     Get-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 }
 else
 {
-    Write-Host "The $EventHubName Event Hub does not exist."
-    Write-Host "Creating the $EventHubName Event Hub in the $Location region..."
+    Write-Host "The $EventHubName event hub does not exist."
+    Write-Host "Creating the $EventHubName event hub in the $Location region..."
     New-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName -Location $Location -MessageRetentionInDays 3
     $CurrentEH = Get-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
-    Write-Host "The $EventHubName Event Hub in Resource Group $ResGrpName in the $Location region has been successfully created."
+    Write-Host "The $EventHubName event hub in Resource Group $ResGrpName in the $Location region has been successfully created."
 }
 ```
 
 ### <a name="create-a-consumer-group"></a>Créer un groupe de consommateurs
 
-Pour créer un groupe de consommateurs au sein d’un Event Hub, vérifiez l’espace de noms et l’Event Hub à l’aide des scripts de la section précédente. Ensuite, utilisez l’applet de commande [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) pour créer le groupe de consommateurs dans l’Event Hub. Par exemple :
+Pour créer un groupe de consommateurs au sein d’un concentrateur d’événements, vérifiez l’espace de noms et l’instance Event Hub à l’aide des scripts de la section précédente. Ensuite, utilisez l’applet de commande [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) pour créer le groupe de consommateurs dans le concentrateur d’événements. Par exemple :
 
 ```powershell
 # Check if consumer group already exists
@@ -113,7 +112,7 @@ $CurrentCG = Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -Na
 
 if($CurrentCG)
 {
-    Write-Host "The consumer group $ConsumerGroupName in Event Hub $EventHubName already exists in the $Location region:"
+    Write-Host "The consumer group $ConsumerGroupName in event hub $EventHubName already exists in the $Location region:"
     # Report what was found
     Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 }
@@ -123,7 +122,7 @@ else
     Write-Host "Creating the $ConsumerGroupName consumer group in the $Location region..."
     New-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName -ConsumerGroupName $ConsumerGroupName
     $CurrentCG = Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
-    Write-Host "The $ConsumerGroupName consumer group in Event Hub $EventHubName in Resource Group $ResGrpName in the $Location region has been successfully created."
+    Write-Host "The $ConsumerGroupName consumer group in event hub $EventHubName in Resource Group $ResGrpName in the $Location region has been successfully created."
 }
 ```
 
@@ -139,9 +138,9 @@ Set-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $
 Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName -ConsumerGroupName $ConsumerGroupName
 ```
 
-## <a name="remove-event-hub"></a>Supprimer un Event Hub
+## <a name="remove-event-hub"></a>Supprimer un concentrateur d’événements
 
-Pour supprimer les entités Event Hubs que vous avez créées, vous pouvez utiliser les applets de commande `Remove-*`, comme dans l’exemple suivant :
+Pour supprimer les concentrateur d’événements que vous avez créés, vous pouvez utiliser les applets de commande `Remove-*`, comme dans l’exemple suivant :
 
 ```powershell
 # Clean up

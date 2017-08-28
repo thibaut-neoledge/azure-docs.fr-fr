@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 91c443f6d9998f15f4b1b1eaad33f0a319fcf4d4
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: aa1cec2ef11da6aa8a8c4089be36994ab5f61682
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
@@ -265,9 +265,12 @@ Assurez-vous que les paramètres suivants sont configurés correctement pour la 
     ```
     Vérifiez que le rapport indique que le disque est propre et sain.
 
-2. Définissez les paramètres Données de configuration de démarrage (BCD). Exécutez ces commandes dans une fenêtre CMD avec élévation de privilèges :
+2. Définissez les paramètres Données de configuration de démarrage (BCD). 
+
+    > [!Note]
+    > Veillez à exécuter ces commandes dans une fenêtre de commande avec privilèges élevés et **NON** dans PowerShell :
    
-   ```PowerShell
+   ```CMD
    bcdedit /set {bootmgr} integrityservices enable
    
    bcdedit /set {default} device partition=C:

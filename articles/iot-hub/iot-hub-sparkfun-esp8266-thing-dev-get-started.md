@@ -1,10 +1,10 @@
 ---
 title: "ESP8266 vers cloud - Connecter la carte Sparkfun ESP8266 Thing Dev à Azure IoT Hub | Microsoft Docs"
-description: "Découvrez comment connecter un appareil Arduino, la carte Sparkfun ESP8266 Thing Dev, à Azure IoT Hub, service cloud Microsoft qui vous aide à gérer vos ressources IoT."
+description: "Dans ce didacticiel, découvrez comment configurer et connecter Sparkfun ESP8266 Thing Dev à Azure IoT Hub pour lui permettre d’envoyer des données à la plateforme cloud Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: 
 ms.assetid: 587fe292-9602-45b4-95ee-f39bba10e716
@@ -13,14 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 08/16/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 0b7ce531c73d991897f1c35932e795a97dd33162
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 557f0cdf375b345e0dbe0526f5a5bd3c050dec38
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>Connecter la carte Sparkfun ESP8266 Thing Dev à Azure IoT Hub dans le cloud
@@ -192,6 +191,14 @@ L’exemple d’application permet de simuler des données de température et d�
 
 1. Dans l’IDE Arduino, cliquez sur **Outil** > **Port**, puis sélectionnez le port série de la carte Sparkfun ESP8266 Thing Dev.
 1. Cliquez sur **Croquis** > **Téléverser** pour générer et déployer l’exemple d’application sur la carte Sparkfun ESP8266 Thing Dev.
+
+> [!Note]
+> Si vous utilisez macOS, vous avez probablement pu voir les messages suivants lors du chargement. `warning: espcomm_sync failed`,`error: espcomm_open failed`. Ouvrez la fenêtre du terminal et terminez les actions ci-dessous pour résoudre ce problème.
+> ```bash
+> cd /System/Library/Extensions/IOUSBFamily.kext/Contents/PlugIns
+> sudo mv AppleUSBFTDI.kext AppleUSBFTDI.disabled
+> sudo touch /System/Library/Extensions
+> ```
 
 ### <a name="enter-your-credentials"></a>Entrer vos informations d’identification
 

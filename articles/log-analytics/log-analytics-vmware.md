@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/11/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: a9fc8427e76ee8fa48fa8f1ad452c6fe9b544ce2
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 17072c4b6e4fdf6e4dc2b7a6a4ded7fa9f9f6fde
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -79,9 +79,9 @@ La solution Analyse VMware collecte diverses mesures de performances et données
 
 Le tableau suivant présente les méthodes de collecte des données et d’autres informations sur le mode de collecte.
 
-| plateforme | Agent OMS pour Linux | Agent SCOM | Azure Storage | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
+| plateforme | Agent OMS pour Linux | Agent SCOM | Stockage Azure | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
-| Linux |![Oui](./media/log-analytics-vmware/oms-bullet-green.png) |![Non](./media/log-analytics-vmware/oms-bullet-red.png) |![Non](./media/log-analytics-vmware/oms-bullet-red.png) |![Non](./media/log-analytics-containers/oms-bullet-red.png) |![Non](./media/log-analytics-vmware/oms-bullet-red.png) |Toutes les 3 minutes. |
+| Linux |&#8226; |  |  |  |  |Toutes les 3 minutes. |
 
 Le tableau suivant affiche des exemples de champs de données collectés par la solution Analyse VMware :
 

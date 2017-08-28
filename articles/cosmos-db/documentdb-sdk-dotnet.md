@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2c796156df6ed2a891d423030bdd07b5c19f3235
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 317792e04244a96cf8e47bc7e4a7f633f7a6d8c3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) .NET Azure Cosmos DB : téléchargement et notes de publication
@@ -53,6 +53,11 @@ ms.lasthandoff: 08/09/2017
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="a-name11701170"></a><a name="1.17.0"/>1.17.0 
+
+* Ajout de la prise en charge du paramètre PartitionKeyRangeId en tant qu’option FeedOption pour la définition de l’étendue des résultats des requêtes sur une valeur de plage de clés de partition spécifique. 
+* Ajout de la prise en charge du paramètre StartTime en tant qu’option ChangeFeedOption pour le démarrage de la recherche de modifications après cette heure.
+
 ### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
 * Correction d’un problème dans la classe JsonSerializable, susceptible de provoquer une exception de dépassement de la capacité de la pile.
 
@@ -67,7 +72,6 @@ ms.lasthandoff: 08/09/2017
 *   Correction d’un problème qui concernait les ordinateurs x64 qui ne prennent pas en charge l’instruction SSE4 et renvoient une SEHException lors de l’exécution de requêtes d’API Azure Cosmos DB DocumentDB.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
-*   Ajout de la prise en charge de la fonctionnalité Unité de requête par minute (RU/m).
 *   Prise en charge ajoutée pour un nouveau niveau de cohérence nommé ConsistentPrefix.
 *   Prise en charge ajoutée pour les mesures de requête liées aux partitions individuelles.
 *   Prise en charge ajoutée pour la limitation de la taille du jeton de continuation concernant les requêtes.
@@ -254,6 +258,7 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.17.0](#1.17.0) |10 août 2017 |--- |
 | [1.16.1](#1.16.1) |7 août 2017 |--- |
 | [1.16.0](#1.16.0) |2 août 2017 |--- |
 | [1.15.0](#1.15.0) |30 juin 2017 |--- |

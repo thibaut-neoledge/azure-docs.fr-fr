@@ -4,7 +4,7 @@ description: "Découvrez comment accéder à une API Azure Media Services avec l
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

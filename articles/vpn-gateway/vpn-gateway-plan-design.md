@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: b9b53ca61ff9448b4b587f6c406046b3d1a80d15
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0ebc3ef4a64432e993dd6ed69766bb64544fe433
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>Planification et conception de la passerelle VPN
@@ -40,13 +40,13 @@ Si vous voulez connecter vos sites locaux en toute sécurité à un réseau virt
 * Quel est le type de passerelle VPN requis par la solution que vous souhaitez créer ?
 * Quelle référence SKU de passerelle devez-vous utiliser ?
 
-### <a name="planning-table"></a>Tableau de planification
+### <a name="planningtable"></a>Tableau de planification
 
 Le tableau suivant peut vous aider à déterminer la meilleure option de connectivité pour votre solution.
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### <a name="gateway-skus"></a>SKU de passerelle
+### <a name="gwsku"></a>SKU de passerelle
 
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -69,7 +69,7 @@ Commencez par consulter les diagrammes dans l’article [À propos de la passere
 
 Les sections suivantes présentent les principes de base d’une passerelle VPN. 
 
-#### <a name="networking-services-limits"></a>Limites des services de mise en réseau
+#### <a name="servicelimits"></a>Limites des services de mise en réseau
 
 Faites défiler les tables pour afficher les [limites des services de mise en réseau](../azure-subscription-service-limits.md#networking-limits). Les limites indiquées peuvent affecter votre conception.
 

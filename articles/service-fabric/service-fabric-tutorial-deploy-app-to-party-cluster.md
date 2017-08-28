@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: c0546fd5b1398759ef98afa267146ced8a4084da
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 6624d683edb548a65d07ab4012c599faaf940ed0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -42,6 +42,13 @@ Avant de commencer ce didacticiel :
 - [Installez Visual Studio 2017](https://www.visualstudio.com/) et les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
 - [Installez le Kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md).
 
+## <a name="download-the-voting-sample-application"></a>Télécharger l’exemple d’application de vote
+Si vous n’avez pas généré l’exemple d’application de vote lors de la [première partie de cette série de didacticiels](service-fabric-tutorial-create-dotnet-app.md), vous pouvez le télécharger. Dans une fenêtre Commande, exécutez la commande suivante pour cloner le référentiel de l’exemple d’application sur votre ordinateur local.
+
+```
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
+```
+
 ## <a name="set-up-a-party-cluster"></a>Configurer un cluster tiers
 Les clusters tiers sont des clusters Service Fabric gratuits et limités dans le temps. Ils sont hébergés sur Azure et exécutés par l’équipe Service Fabric, dont tous les membres peuvent déployer des applications et en savoir plus sur la plateforme gratuitement.
 
@@ -50,16 +57,28 @@ Pour accéder à un cluster tiers, rendez-vous sur le site http://aka.ms/tryserv
 > [!NOTE]
 > Les clusters tiers ne sont pas sécurisés. Vos applications et toutes les données que vous y placez sont donc visibles par d’autres personnes. Ne déployez aucun élément que vous souhaitez cacher aux autres utilisateurs. Veillez à lire les conditions d’utilisation pour plus d’informations.
 
-## <a name="make-your-application-ready-for-deployment"></a>Préparer l’application pour le déploiement
-Notre service d’API web ASP.NET Core agit comme le serveur frontal de cette application et accepte le trafic externe. Associez donc ce service à un port fixe et connu. Spécifiez le port dans le fichier **ServiceManifest.xml** des services.
+## <a name="configure-the-listening-port"></a>Configurer le port d’écoute
+Lorsque le service frontal VotingWeb est créé, Visual Studio sélectionne de manière aléatoire le port d’écoute du service.  Le service VotingWeb joue le rôle de serveur frontal de cette application et accepte le trafic externe. Associez ce service à un port fixe et connu. Dans l’Explorateur de solutions, ouvrez *VotingWeb/PackageRoot/ServiceManifest.xml*.  Recherchez la ressource **Endpoint** dans la section **Resources**, puis remplacez la valeur du **port** par 80.
 
-1. Dans l’Explorateur de solutions, ouvrez **WebAPIFrontEnd -> PackageRoot -> ServiceManifest.xml**.
-2. Définissez l’attribut **Port** de l’élément **Point de terminaison** existant sur **80** et enregistrez les modifications.
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+Mettez également à jour la valeur de la propriété d’URL d’application dans le projet Voting, afin qu’un navigateur web s’ouvre sur le port adéquat lorsque vous effectuez le débogage en appuyant sur F5.  Dans l’Explorateur de solutions, sélectionnez le projet **Voting** et mettez à jour la propriété **URL de l’application**.
+
+![URL de l’application](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## <a name="deploy-the-app-to-the-azure"></a>Déployer l’application dans Azure
 Maintenant que l’application est prête, vous pouvez la déployer sur le cluster tiers directement à partir de Visual Studio.
 
-1. Cliquez avec le bouton droit sur **MyApplication** dans l’Explorateur de solutions et choisissez **Publier**.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Voting**, puis choisissez **Publier**.
 
     ![Boîte de dialogue Publier](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
@@ -67,7 +86,7 @@ Maintenant que l’application est prête, vous pouvez la déployer sur le clust
 
     Une fois la publication terminée, vous devez être en mesure d’envoyer une demande à l’application via un navigateur.
 
-3. Ouvrez le navigateur de votre choix et saisissez l’adresse du cluster (le point de terminaison de connexion sans les informations de port ; par exemple, win1kw5649s.westus.cloudapp.azure.com) et ajoutez `/api/values` à l’URL.
+3. Ouvrez le navigateur de votre choix et saisissez l’adresse du cluster (le point de terminaison de connexion sans les informations de port ; par exemple, win1kw5649s.westus.cloudapp.azure.com).
 
     Vous devez maintenant obtenir le même résultat que lors de l’exécution de l’application en local.
 
@@ -76,21 +95,22 @@ Maintenant que l’application est prête, vous pouvez la déployer sur le clust
 ## <a name="remove-the-application-from-a-cluster-using-service-fabric-explorer"></a>Supprimer l’application d’un cluster à l’aide de Service Fabric Explorer
 Service Fabric Explorer est une interface utilisateur graphique qui permet d’explorer et de gérer des applications dans un cluster Service Fabric.
 
-Pour supprimer l’application déployée sur le cluster tiers :
+Pour supprimer l’application du cluster tiers :
 
 1. Accédez à Service Fabric Explorer à l’aide du lien fourni sur la page d’inscription du cluster tiers. Par exemple, http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
-2. Dans Service Fabric Explorer, accédez au nœud **fabric://MyApplication** dans l’arborescence sur le côté gauche.
+2. Dans Service Fabric Explorer, accédez au nœud **fabric://Voting**, dans l’arborescence figurant sur le côté gauche.
 
 3. Cliquez sur le bouton **Action** dans le volet **Essentials** à droite, puis choisissez **Supprimer l’application**. Confirmez la suppression de l’instance d’application, ce qui supprime l’instance de notre application en cours d’exécution dans le cluster.
 
 ![Supprimer l’application dans Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
 
+## <a name="remove-the-application-type-from-a-cluster-using-service-fabric-explorer"></a>Supprimer le type d’application d’un cluster à l’aide de Service Fabric Explorer
 Les applications sont déployées en tant que types d’applications dans un cluster Service Fabric, ce qui vous permet d’avoir plusieurs instances et versions de l’application en cours d’exécution au sein du cluster. Après avoir supprimé l’instance en cours d’exécution de notre application, nous pouvons également supprimer le type pour nettoyer le déploiement.
 
-Pour plus d’informations sur le modèle d’application dans Service Fabric, reportez-vous à la rubrique [Modéliser une application dans Service Fabric](service-fabric-application-model.md).
+Pour plus d’informations sur le modèle d’application dans Service Fabric, consultez [Modéliser une application dans Service Fabric](service-fabric-application-model.md).
 
-1. Accédez au nœud **MyApplicationType** dans l’arborescence.
+1. Accédez au nœud **VotingType** dans l’arborescence.
 
 2. Cliquez sur le bouton **Action** dans le volet **Essentials** à droite, puis choisissez **Unprovision Type** (Annuler la mise en service du type). Confirmez l’annulation de la mise en service du type d’application.
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 97368f0b9e89ffd0cd982b6e8670d5a1f62ad42c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Optimisez votre environnement Active Directory avec la solution d’évaluation Active Directory dans Log Analytics
@@ -73,7 +73,7 @@ Le tableau suivant présente les méthodes de collecte de données pour les agen
 
 | plateforme | Agent direct | Agent SCOM | Stockage Azure | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Oui](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Oui](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Non](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Non](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Oui](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 jours |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |7 jours |
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Hiérarchisation des recommandations
 Une valeur de pondération déterminant l'importance relative de la recommandation est attribuée à chaque recommandation. Seules les 10 recommandations les plus importantes sont affichées.
@@ -176,13 +176,6 @@ Une fois les prochaines évaluations planifiées exécutées, par défaut tous l
 *Combien de temps la collecte de données prend-elle ?*
 
 * La collecte de données sur le serveur prend environ 1 heure. Cela peut prendre plus de temps sur les serveurs dotés d'un grand nombre de serveurs Active Directory.
-
-*Quels types de données sont collectés ?*
-
-* Les types de données suivants sont collectés :
-  * WMI
-  * Registre
-  * Compteurs de performances
 
 *Est-il possible de configurer les périodes de collecte de données ?*
 

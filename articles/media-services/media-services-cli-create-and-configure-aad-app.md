@@ -4,7 +4,7 @@ description: "Cette rubrique montre comment utiliser l’interface CLI 2.0 pour
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

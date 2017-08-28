@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: cb36fdd0032d6d3c47e68a782d3bba427fe9fcd5
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-risk-events"></a>Événements à risque dans Azure Active Directory
@@ -50,7 +50,14 @@ Les investissements continus de Microsoft dans le processus de détection assure
 
 ### <a name="leaked-credentials"></a>Informations d’identification divulguées
 
-Il arrive que les chercheurs en sécurité de Microsoft découvrent des informations d’identification divulguées dans le web invisible. Ces informations d’identification sont généralement publiées en texte brut. Elles sont comparées aux informations d’identification d’Azure AD, et s’il existe une correspondance, elles sont signalées comme étant des « informations d’identification divulguées » dans Identity Protection.
+Souvent, lorsque les cybercriminels compromettent les mots de passe valides d’utilisateurs légitimes, ils le font dans le but de les rendre publics. En général, les mots de passe volés sont publiés sur le « dark web », ou bien ils sont échangés ou vendus sur le marché noir. Le service Microsoft chargé des informations d’identification volées acquiert les paires nom d’utilisateur/mot de passe en surveillant les sites publics et les sites du « dark web », et en travaillant avec :
+
+- Des chercheurs
+- Les lois en vigueur
+- Les équipes de sécurité Microsoft
+- D’autres sources approuvées 
+
+Lorsque le service acquiert les paires nom d’utilisateur/mot de passe, celles-ci sont vérifiées par rapport aux informations d’identification valides actuelles des utilisateurs AAD. Lorsqu’une correspondance est trouvée, cela signifie que le mot de passe d’un utilisateur a été compromis. Un *événement à risque lié à une fuite d’informations d’identification* est alors créé.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Connexions depuis des adresses IP anonymes
 

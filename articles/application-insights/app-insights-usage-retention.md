@@ -11,22 +11,22 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 75abfb977a47ccef45bcc2124b31fbd06ea7d68e
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 2363e725d44facc5417c0baf3f80c8b55fdca470
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analyse de la rétention utilisateur des applications web avec Azure Application Insights
 
-Le panneau de rétention dans [Azure Application Insights](app-insights-overview.md) vous aide à analyser le nombre d’utilisateurs qui reviennent vers votre application et la fréquence à laquelle ils exécutent des tâches particulières ou atteignent des objectifs. Par exemple, si vous exécutez un site de jeu, vous pouvez comparer le nombre d’utilisateurs qui reviennent sur le site après avoir perdu à un jeu avec le nombre d’utilisateurs qui reviennent après avoir gagné. Cette information peut vous aider à améliorer l’expérience de vos utilisateurs et votre stratégie commerciale.
+La fonction de rétention [d’Azure Application Insights](app-insights-overview.md) vous aide à analyser le nombre d’utilisateurs qui reviennent vers votre application et la fréquence à laquelle ils exécutent des tâches particulières ou atteignent des objectifs. Par exemple, si vous exécutez un site de jeu, vous pouvez comparer le nombre d’utilisateurs qui reviennent sur le site après avoir perdu à un jeu avec le nombre d’utilisateurs qui reviennent après avoir gagné. Cette information peut vous aider à améliorer l’expérience de vos utilisateurs et votre stratégie commerciale.
 
 ## <a name="get-started"></a>Prise en main
 
-Si aucune donné n’apparaît dans le panneau de rétention du portail Application Insights, [découvrez comment prendre en main les outils d’utilisation](app-insights-usage-overview.md).
+Si aucune donnée n’apparaît dans l’outil de rétention du portail Application Insights, [découvrez comment prendre en main les outils d’utilisation](app-insights-usage-overview.md).
 
 ## <a name="the-retention-tool"></a>Outil de rétention
 
@@ -37,8 +37,11 @@ Si aucune donné n’apparaît dans le panneau de rétention du portail Applicat
 3. Ajoutez un ou plusieurs filtres sur les propriétés. Par exemple, vous pouvez cibler les utilisateurs d’un pays ou d’une région spécifique. Cliquez sur **Mettre à jour** après avoir défini les filtres. 
 4. Le graphique de rétention globale récapitule la rétention utilisateur sur la période sélectionnée. 
 5. La grille affiche le nombre d’utilisateurs conservés en fonction du générateur de requêtes au point 2. Chaque ligne représente une cohorte d’utilisateurs ayant effectué l’un des événements pendant la période de temps indiquée. Chaque cellule de la ligne indique combien de cette cohorte sont revenus au moins une fois pendant une période ultérieure. Certains utilisateurs peuvent revenir pendant plusieurs périodes. 
-6. Les cartes d’aperçu affichent les 5 principaux événements de lancement et les 5 principaux événements renvoyés pour aider les utilisateurs à mieux comprendre leur rapport de rétention. 
+6. Les cartes d’aperçu affichent les cinq principaux événements de lancement et les cinq principaux événements renvoyés pour aider les utilisateurs à mieux comprendre leur rapport de rétention. 
 
+![Passage de la souris sur la fonction de rétention](./media/app-insights-usage-retention/hover.png)
+
+Les utilisateurs peuvent survoler les cellules de l’outil de rétention pour accéder au bouton Analytics ainsi qu’à des info-bulles qui expliquent la signification de la cellule. Le bouton Analytics redirige les utilisateurs vers l’outil Analytics avec une requête prédéfinie pour générer des utilisateurs à partir de la cellule. 
 
 ## <a name="use-business-events-to-track-retention"></a>Utiliser des événements commerciaux pour suivre la rétention
 
@@ -66,6 +69,9 @@ Ou dans le code de serveur ASP.NET :
 - Si vous envoyez déjà des événements personnalisés ou des affichages de page, explorez les outils d’utilisation pour savoir comment les utilisateurs emploient votre service.
     - [Utilisateurs, sessions, événements](app-insights-usage-segmentation.md)
     - [Entonnoirs](usage-funnels.md)
+    - [Flux d’utilisateurs](app-insights-usage-flows.md)
     - [Classeurs](app-insights-usage-workbooks.md)
     - [Ajouter du contexte utilisateur](app-insights-usage-send-user-context.md)
+
+
 

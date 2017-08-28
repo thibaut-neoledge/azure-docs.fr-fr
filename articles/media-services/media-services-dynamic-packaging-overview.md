@@ -2,7 +2,7 @@
 title: "Vue d’ensemble de l’empaquetage dynamique Azure Media Services | Microsoft Docs"
 description: Cette rubrique donne une vue d'ensemble de l'empaquetage dynamique.
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

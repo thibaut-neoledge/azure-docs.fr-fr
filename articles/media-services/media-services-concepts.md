@@ -4,7 +4,7 @@ description: "Cette rubrique fournit une vue d'ensemble des concepts liés à Az
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: dcefc8bc-e2ea-4b38-a643-9010f4436fb5
 ms.service: media-services

@@ -1,5 +1,5 @@
 ---
-title: "Configuration de la stratégie SSL et du chiffrement SSL de bout en bout avec la passerelle Application Gateway | Microsoft Docs"
+title: "Configuration du chiffrement SSL de bout en bout avec Azure Application Gateway | Microsoft Docs"
 description: "Cet article explique comment configurer le chiffrement SSL de bout en bout avec la passerelle Application Gateway à l’aide d’Azure Resource Manager PowerShell"
 services: application-gateway
 documentationcenter: na
@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 07/19/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: c76dc14998ebf01a938c67d6c78384e169f83266
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6d969d6a0c649c263e1d5bb99bdbceec484cb9a3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="configure-ssl-policy-and-end-to-end-ssl-with-application-gateway-using-powershell"></a>Configuration de la stratégie SSL et du chiffrement SSL de bout en bout avec la passerelle Application Gateway à l’aide de PowerShell
+# <a name="configure-end-to-end-ssl-with-application-gateway-using-powershell"></a>Configuration du chiffrement SSL de bout en bout avec Application Gateway à l’aide de PowerShell
 
 ## <a name="overview"></a>Vue d'ensemble
 
 La passerelle Application Gateway prend en charge le chiffrement de bout en bout du trafic. Pour cela, la passerelle Application Gateway arrête la connexion SSL au niveau de la passerelle d’application. La passerelle applique ensuite les règles de routage au trafic, chiffre à nouveau le paquet puis transfère le paquet au serveur principal approprié selon les règles de routage définies. Toute réponse du serveur web passe par le même processus vers l’utilisateur final.
 
-La désactivation de certaines versions du protocole SSL est une autre fonctionnalité prise en charge par la passerelle Application Gateway. La passerelle Application Gateway prend en charge la désactivation des versions de protocole suivantes : **TLSv1.0**, **TLSv1.1** et **TLSv1.2**.
+La passerelle Application Gateway prend également en charge la définition d’options SSL personnalisées. Application Gateway prend en charge la désactivation des versions suivantes du protocole : **TLSv1.0**, **TLSv1.1** et **TLSv1.2** ; elle permet aussi de définir les suites de chiffrement à utiliser et l’ordre de préférence.  Pour en savoir plus sur les options SSL configurables, consultez cette [vue d’ensemble de la stratégie SSL](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 et SSL 3.0 sont désactivés par défaut et ne peuvent pas être activés. Considérés comme non sécurisés, ils ne peuvent pas être utilisés avec Application Gateway.
@@ -40,9 +41,9 @@ Dans ce scénario, vous allez apprendre à créer une passerelle d’application
 Ce scénario va :
 
 * créer un groupe de ressources nommé **appgw-rg** ;
-* créer un réseau virtuel nommé **appgwvnet** avec un bloc CIDR réservé de 10.0.0.0/16 ;
+* créer un réseau virtuel nommé **appgwvnet** avec un espace d’adresse de 10.0.0.0/16 ;
 * créer deux sous-réseaux appelés **appgwsubnet** et **appsubnet** ;
-* créer une petite passerelle d’application prenant en charge le chiffrement SSL de bout en bout qui désactive certains protocoles SSL.
+* créer une petite passerelle d’application prenant en charge le chiffrement SSL de bout en bout qui limite les versions de protocoles SSL et les suites de chiffrement.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -93,7 +94,7 @@ $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPr
 ```
 
 > [!NOTE]
-> Les sous-réseaux configurés pour la passerelle d’application doivent être correctement dimensionnés. Une passerelle d’application peut être configurée pour 10 instances maximum. Chaque instance prend 1 adresse IP du sous-réseau. Un sous-réseau trop petit peut nuire à la montée en charge d’une passerelle d’application.
+> Les sous-réseaux configurés pour la passerelle d’application doivent être correctement dimensionnés. Une passerelle d’application peut être configurée pour 10 instances maximum. Chaque instance prend une adresse IP du sous-réseau. Un sous-réseau trop petit peut nuire à la montée en charge d’une passerelle d’application.
 > 
 > 
 
@@ -132,11 +133,11 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 ```
 
 > [!IMPORTANT]
-> La passerelle Application Gateway ne prend pas en charge l’utilisation d’une adresse IP publique créée avec un nom de domaine défini. Seule une adresse IP publique avec un nom de domaine créé dynamiquement est prise en charge. Si vous avez besoin d’un nom DNS convivial pour la passerelle Application Gateway, il est recommandé d’utiliser un enregistrement cname comme alias.
+> La passerelle Application Gateway ne prend pas en charge l’utilisation d’une adresse IP publique créée avec un nom de domaine défini. Seule une adresse IP publique avec un nom de domaine créé dynamiquement est prise en charge. Si vous avez besoin d’un nom DNS convivial pour la passerelle Application Gateway, il est recommandé d’utiliser un enregistrement CNAME comme alias.
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Créer un objet de configuration de passerelle Application Gateway
 
-Avant de créer la passerelle d’application, vous devez installer tous les éléments de configuration. Les étapes suivantes permettent de créer les éléments de configuration nécessaires à une ressource Application Gateway.
+Tous les éléments de configuration sont définis avant la création de la passerelle Application Gateway. Les étapes suivantes permettent de créer les éléments de configuration nécessaires à une ressource Application Gateway.
 
 ### <a name="step-1"></a>Étape 1 :
 
@@ -146,9 +147,9 @@ Créez une configuration IP de passerelle application : ce paramètre détermine
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
 ```
 
-### <a name="step-2"></a>Étape 2 :
+### <a name="step-2"></a>Étape 2
 
-Créez une configuration IP frontale : ce paramètre mappe une adresse IP privée ou publique au composant frontal de la passerelle d’application. L’étape suivante associe l’adresse IP publique à l’étape précédente à la configuration IP frontale.
+Créez une configuration IP frontale : ce paramètre mappe une adresse IP privée ou publique au composant frontal de la passerelle d’application. L’étape suivante associe l’adresse IP publique à l’étape précédente à la configuration IP frontale.
 
 ```powershell
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
@@ -178,7 +179,7 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 Configurez le certificat pour la passerelle d’application. Ce certificat sert à chiffrer et à chiffrer à nouveau le trafic sur la passerelle d’application.
 
 ```powershell
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+$cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
 ```
 
 > [!NOTE]
@@ -189,15 +190,15 @@ $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFil
 Créez l’écouteur HTTP pour la passerelle d’application. Affectez la configuration IP frontale, le port et le certificat SSL à utiliser.
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
 ```
 
 ### <a name="step-7"></a>Étape 7
 
-Téléchargez le certificat à utiliser sur les ressources du pool principal pour lequel le chiffrement SSL est activé.
+Chargez le certificat à utiliser sur les ressources du pool principal pour lequel le chiffrement SSL est activé.
 
 > [!NOTE]
-> La sonde par défaut obtient la clé publique de la liaison SSL **par défaut** sur l’adresse IP du serveur principal et compare la valeur de clé publique reçue à celle que vous fournissez ici. La clé publique récupérée n’est pas nécessairement le site vers lequel vous souhaitez que trafic soit dirigé **si** vous utilisez des en-têtes d’hôte et SNI sur le serveur principal. En cas de doute, visitez https://127.0.0.1/ sur les serveurs principaux pour confirmer le certificat utilisé pour la liaison SSL **par défaut**. Utilisez la clé publique de cette demande dans cette section. Si vous utilisez des en-têtes d’hôte et SNI sur les liaisons HTTPS et que vous ne recevez pas une réponse et un certificat à partir d’une demande de navigateur manuelle vers https://127.0.0.1/ sur les serveurs principaux, vous devez configurer une liaison SSL par défaut sur les serveurs principaux. Si vous ne le faites pas, les sondes échouent et le serveur principal ne figure pas dans la liste approuvée.
+> La sonde par défaut obtient la clé publique de la liaison SSL **par défaut** sur l’adresse IP du serveur principal et compare la valeur de clé publique reçue à celle que vous fournissez ici. La clé publique récupérée n’est pas nécessairement le site vers lequel vous souhaitez que le trafic soit dirigé **si** vous utilisez des en-têtes d’hôte et SNI sur le serveur principal. En cas de doute, visitez https://127.0.0.1/ sur les serveurs principaux pour confirmer le certificat utilisé pour la liaison SSL **par défaut**. Utilisez la clé publique de cette demande dans cette section. Si vous utilisez des en-têtes d’hôte et SNI sur les liaisons HTTPS et que vous ne recevez pas une réponse et un certificat à partir d’une demande de navigateur manuelle vers https://127.0.0.1/ sur les serveurs principaux, vous devez configurer une liaison SSL par défaut sur les serveurs principaux. Si vous ne le faites pas, les sondes échouent et le serveur principal ne figure pas dans la liste approuvée.
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
@@ -235,18 +236,18 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 ### <a name="step-11"></a>Étape 11
 
-Configurez la stratégie SSL à utiliser sur la passerelle Application Gateway. La passerelle Application Gateway prend en charge la possibilité de désactiver certaines versions du protocole SSL.
+Configurez la stratégie SSL à utiliser sur la passerelle Application Gateway. La passerelle Application Gateway prend en charge la possibilité de définir une version minimale pour les versions du protocole SSL.
 
-Les valeurs suivantes représentent une liste des versions de protocole qui peuvent être désactivées.
+Les valeurs suivantes représentent une liste des versions de protocole pouvant être définies.
 
 * **TLSv1_0**
 * **TLSv1_1**
 * **TLSv1_2**
 
-L’exemple suivant désactive **TLSv1\_0**.
+Définit la version minimale de protocole sur **TLSv1_2** et active **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** et **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** uniquement.
 
 ```powershell
-$sslPolicy = New-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0
+$SSLPolicy = New-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 ```
 
 ## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
@@ -254,10 +255,10 @@ $sslPolicy = New-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_
 À l’aide des étapes précédentes, créez la passerelle Application Gateway. La création de la passerelle est un processus à long terme.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgateway -SslCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslPolicy $sslPolicy -AuthenticationCertificates $authcert -Verbose
+$appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
-## <a name="disable-ssl-protocol-versions-on-an-existing-application-gateway"></a>Désactivation de versions du protocole SSL sur une passerelle Application Gateway existante
+## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Limiter les versions du protocole SSL sur une passerelle Application Gateway existante
 
 Les étapes précédentes vous guident dans la création d’une application en utilisant un chiffrement SSL de bout en bout et en désactivant certaines versions du protocole SSL. L’exemple suivant désactive certaines stratégies SSL sur une passerelle d’application existante.
 
@@ -271,10 +272,11 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName Ad
 
 ### <a name="step-2"></a>Étape 2 :
 
-Définissez une stratégie SSL. Dans l’exemple suivant, TLSv1.0 et TLSv1.1 sont désactivés.
+Définissez une stratégie SSL. Dans l’exemple suivant, TLSv1.0 et TLSv1.1 sont désactivées et les suites de chiffrement **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** et **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** sont les seules autorisées.
 
 ```powershell
-Set-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0, TLSv1_1 -ApplicationGateway $gw
+Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+
 ```
 
 ### <a name="step-3"></a>Étape 3 :
@@ -287,7 +289,7 @@ $gw | Set-AzureRmApplicationGateway
 
 ## <a name="get-application-gateway-dns-name"></a>Obtenir le nom DNS d’une passerelle Application Gateway
 
-Une fois la passerelle créée, l’étape suivante consiste à configurer le serveur frontal pour la communication. Lorsque vous utilisez une adresse IP publique, la passerelle Application Gateway requiert un nom DNS attribué dynamiquement, ce qui n’est pas convivial. Pour s’assurer que les utilisateurs finaux peuvent atteindre la passerelle Application Gateway, un enregistrement CNAME peut être utilisé pour pointer vers le point de terminaison public de la passerelle Application Gateway. [Configuration d’un nom de domaine personnalisé pour Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Pour ce faire, récupérez les détails de la passerelle Application Gateway et de son nom IP/DNS associé à l’aide de l’élément PublicIPAddress attaché à la passerelle Application Gateway. Le nom DNS de la passerelle Application Gateway doit être utilisé pour créer un enregistrement CNAME qui pointe les deux applications web sur ce nom DNS. L’utilisation de A-records n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle Application Gateway.
+Une fois la passerelle créée, l’étape suivante consiste à configurer le serveur frontal pour la communication. Lorsque vous utilisez une adresse IP publique, la passerelle Application Gateway requiert un nom DNS attribué dynamiquement, ce qui n’est pas convivial. Pour s’assurer que les utilisateurs finaux peuvent atteindre la passerelle d’application, un enregistrement CNAME peut être utilisé pour pointer vers le point de terminaison public de la passerelle d’application. [Configuration d’un nom de domaine personnalisé pour Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Pour ce faire, récupérez les détails de la passerelle Application Gateway et de son nom IP/DNS associé à l’aide de l’élément PublicIPAddress attaché à la passerelle Application Gateway. Le nom DNS de la passerelle Application Gateway doit être utilisé pour créer un enregistrement CNAME qui pointe les deux applications web sur ce nom DNS. L’utilisation de A-records n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle Application Gateway.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -319,10 +321,5 @@ DnsSettings              : {
 
 Pour en savoir plus sur le renforcement de la sécurité de vos applications web avec un pare-feu d’applications Web via la passerelle Application Gateway, consultez la rubrique [Vue d’ensemble du pare-feu d'applications web](application-gateway-webapplicationfirewall-overview.md)
 
-[scenario]: ./media/application-gateway-end-to-end-ssl-powershell/scenario.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+[scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png
 

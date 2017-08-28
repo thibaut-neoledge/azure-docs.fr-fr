@@ -2,7 +2,7 @@
 title: "Présélection de tâches Media Encoder Standard H264 multidébit 4K - Azure | Microsoft Docs"
 description: "Cette rubrique offre une vue d’ensemble de la présélection de tâches **H264 multidébit 4K**."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

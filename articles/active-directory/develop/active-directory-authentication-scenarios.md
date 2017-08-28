@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 49ac46d8a04e31df1e5c31a60e387c8cd0b93037
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Scénarios d’authentification pour Azure AD
@@ -239,7 +238,7 @@ L’identité d’application et l’identité d’utilisateur délégué sont d
 ##### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>Identité d’utilisateur délégué avec octroi du code d’autorisation OAuth 2.0
 1. Un utilisateur est déjà connecté à une application web, dont le mécanisme d’authentification est indépendant d’Azure AD.
 2. L’application web a besoin d’un code d’autorisation pour obtenir un jeton d’accès et adresse donc une demande au point de terminaison d’autorisation d’Azure AD via le navigateur, en indiquant l’ID d’application et l’URI de redirection de l’application web une fois l’authentification réussie. L’utilisateur se connecte à Azure AD.
-3. Si l’utilisateur de l’application web n’a pas encore consenti à autoriser l’application web à appeler l’API web en son nom, il doit donner son consentement. L’application affiche les autorisations nécessaires et, si certaines d’entre elles sont des autorisations administrateur, un utilisateur normal de l’annuaire ne peut pas donner le consentement. Ce processus de consentement s’applique uniquement aux applications mutualisées, pas aux applications à client unique, car l’application a déjà les autorisations nécessaires.
+3. Si l’utilisateur de l’application web n’a pas encore consenti à autoriser l’application web à appeler l’API web en son nom, il doit donner son consentement. L’application affiche les autorisations nécessaires et, si certaines d’entre elles sont des autorisations administrateur, un utilisateur normal de l’annuaire ne peut pas donner le consentement. Ce consentement s’applique à l’application unique et multi-locataire.  Dans le cas d’un client unique, un administrateur peut effectuer le consentement d’administrateur pour consentir pour le compte de leurs utilisateurs.  Cela est possible à l’aide du bouton `Grant Permissions` situé dans le [Portail Azure](https://portal.azure.com). 
 4. Une fois que l’utilisateur a donné son consentement, l’application web reçoit le code d’autorisation dont elle a besoin pour obtenir un jeton d’accès.
 5. À l’aide du code d’autorisation émis par Azure AD, l’application web envoie une demande au point de terminaison de jeton d’Azure AD. Celle-ci comprend le code d’autorisation, des détails sur l’application cliente (ID d’application et URI de redirection) et la ressource souhaitée (URI ID d’application de l’API web).
 6. Le code d’autorisation et les informations sur l’application web et l’API web sont validés par Azure AD. Si la validation réussit, Azure AD renvoie deux jetons : un jeton d’accès JWT et un jeton d’actualisation JWT.

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 9687b8342723239d1ab07bcaf59176f4a0911215
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 181ed544ae4697753490642fea8eef636322a114
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Reprotection d’Azure vers un site local
@@ -58,7 +58,10 @@ Lorsque vous vous préparez pour reprotéger les machines virtuelles, prenez ou 
 
     D’autres conditions préalables s’appliquent au serveur cible maître. Elles sont répertoriées dans la section [Points à vérifier après l’installation du serveur cible maître](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
-* Un serveur de configuration est requis en local lorsque vous effectuez une restauration automatique. Lors de la restauration automatique, la machine virtuelle doit exister dans la base de données du serveur de configuration. Sinon, la restauration automatique échoue. Veillez à effectuer des sauvegardes régulières de votre serveur. En cas d’incident, restaurez le serveur avec la même adresse IP pour que la restauration automatique réussisse.
+* Un serveur de configuration est requis en local lorsque vous effectuez une restauration automatique. Lors de la restauration automatique, la machine virtuelle doit exister dans la base de données du serveur de configuration. Sinon, la restauration automatique échoue. 
+
+> [!IMPORTANT]
+> Veillez à effectuer des sauvegardes régulières de votre serveur de configuration. En cas d’incident, restaurez le serveur avec la même adresse IP pour que la restauration automatique réussisse.
 
 * Définissez le paramètre `disk.EnableUUID=true` dans les paramètres de configuration de la machine virtuelle cible maître dans VMware. Si cette ligne n’existe pas, ajoutez-la. Ce paramètre est nécessaire pour fournir un UUID cohérent au disque de machine virtuelle (VMDK) et lui assurer ainsi un montage correct.
 
@@ -115,7 +118,7 @@ Pour plus d’informations sur l’installation d’un serveur cible maître, co
 
 #### <a name="what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback"></a>Quels types de banques de données sont pris en charge sur l’hôte ESXi local lors d’une restauration automatique ?
 
-Actuellement, Azure Site Recovery prend en charge la restauration automatique uniquement vers une banque de données de système de fichiers de machine virtuelle (VMFS). Les banques de données vSAN ou NFS ne sont pas prises en charge. En raison de cette limitation, l’entrée de sélection de banque de données dans l’écran de reprotection est vide s’il s’agit d’une banque de données NFS, ou affiche la banque de données vSAN mais échoue lors de l’exécution du travail. Si vous voulez une restauration automatique, vous pouvez créer une banque de données VMFS locale, puis opérer la restauration automatique sur celle-ci. Cette restauration automatique entraînera un téléchargement complet du VMDK.
+Actuellement, Azure Site Recovery prend en charge la restauration automatique uniquement vers une banque de données de système de fichiers de machine virtuelle (VMFS) ou vSAN. Les banques de données NFS ne sont pas prises en charge. En raison de cette limitation, l’entrée de sélection de banque de données dans l’écran de reprotection est vide s’il s’agit d’une banque de données NFS, ou affiche la banque de données vSAN mais échoue lors de l’exécution du travail. Si vous voulez une restauration automatique, vous pouvez créer une banque de données VMFS locale, puis opérer la restauration automatique sur celle-ci. Cette restauration automatique entraînera un téléchargement complet du VMDK.
 
 ### <a name="common-things-to-check-after-completing-installation-of-the-master-target-server"></a>Points à vérifier après l’installation du serveur cible maître
 

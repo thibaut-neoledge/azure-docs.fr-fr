@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 452a50ef4a01ac328c4c2de8767181107eb57cd6
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 5ed888cbb422766cf2094f5980dfd1c599bd431c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="agile-software-development-with-azure-app-service"></a>Développement logiciel agile avec Azure App Service
@@ -39,7 +39,7 @@ Le tableau suivant comporte une courte liste de prérequis associés au dévelop
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="what-you-will-do"></a>Procédure à suivre
-Vous découvrirez un flux de travail de type développement-test-intermédiaire-production pour publier les modifications apportées à l’exemple d’application [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), qui se compose de deux [applications web](/services/app-service/web/), l’une étant un serveur frontal (FE) et l’autre un serveur principal d’API Web (BE), et d’une [base de données SQL](/services/sql-database/). Vous utiliserez l’architecture de déploiement illustrée ci-dessous :
+Vous découvrirez un flux de travail de type développement-test-intermédiaire-production pour publier les modifications apportées à l’exemple d’application [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), qui se compose de deux [applications web](/services/app-service/web/), l’une étant un serveur frontal (FE) et l’autre un serveur principal d’API Web (BE), et d’une [base de données SQL](/services/sql-database/). Vous utiliserez l’architecture de déploiement suivante :
 
 ![](./media/app-service-agile-software-development/what-1-architecture.png)
 
@@ -58,12 +58,12 @@ Vous utiliserez également la stratégie de création de branchement typique, qu
 
 ![](./media/app-service-agile-software-development/what-2-branches.png) 
 
-## <a name="what-you-will-need"></a>Éléments requis
+## <a name="what-you-need"></a>Ce dont vous avez besoin
 * Un compte Azure
 * Un compte [GitHub](https://github.com/)
-* Git Shell (installé avec [GitHub for Windows](https://windows.github.com/)) - cela permet d’exécuter des commandes PowerShell et Git dans la même session 
-* Dernières informations [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi)
-* Compréhension élémentaire des concepts et outils suivants :
+* Git Shell (installé avec [GitHub for Windows](https://windows.github.com/)) - vous permet d’exécuter des commandes PowerShell et Git dans la même session 
+* Dernières informations [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)
+* Compréhension élémentaire des outils suivants :
   * Déploiement de modèles [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) (voir également [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md))
   * [Git](http://git-scm.com/documentation)
   * [PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
@@ -90,19 +90,19 @@ Dans un scénario classique d’opérations de développement, vous disposez d�
 
 1. Créez votre branchement dans le référentiel [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) . Pour plus d’informations sur la création de votre branchement, consultez [Branchement dans un référentiel](https://help.github.com/articles/fork-a-repo/). Une fois votre branchement créé, il est visible dans votre navigateur.
    
-   ![](./media/app-service-agile-software-development/production-1-private-repo.png)
+    ![](./media/app-service-agile-software-development/production-1-private-repo.png)
 2. Ouvrez une session Git Shell. Si vous n’avez pas encore Git Shell, installez [GitHub for Windows](https://windows.github.com/) .
 3. Créez un clone local de votre branchement en exécutant la commande suivante :
-   
-     git clone https://github.com/<your_fork>/ToDoApp.git 
+
+        git clone https://github.com/<your_fork>/ToDoApp.git 
 4. Lorsque le clone local est créé, accédez à *&lt;racine_référentiel>*\ARMTemplates, puis exécutez le script deploy.ps1 comme suit :
    
-     .\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
+        .\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
 5. Lorsque vous y êtes invité, tapez le nom d’utilisateur et le mot de passe souhaités pour l’accès à la base de données.
    
    Vous devez voir l’avancement de la configuration des différentes ressources Azure. Lorsque le déploiement est terminé, le script lance l’application dans le navigateur et émet un signal sonore convivial.
    
-   ![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
+    ![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
    
    > [!TIP]
    > Examinez *&lt;racine_référentiel>*\ARMTemplates\Deploy.ps1 pour voir comment il génère des ressources avec des ID uniques. Vous pouvez utiliser la même approche pour créer des clones de déploiement sans vous soucier des noms de ressource en conflit.
@@ -110,15 +110,15 @@ Dans un scénario classique d’opérations de développement, vous disposez d�
    > 
 6. De retour dans votre session Git Shell, exécutez :
    
-     .\swap –Name ToDoApp<unique_string>master
+        .\swap –Name ToDoApp<unique_string>master
    
-   ![](./media/app-service-agile-software-development/production-4-swap.png)
+    ![](./media/app-service-agile-software-development/production-4-swap.png)
 7. Lorsque le script se termine, revenez en arrière pour accéder à l’adresse du serveur frontal (http://ToDoApp*&lt;chaîne_unique>*master.azurewebsites.net/) afin d’afficher l’application qui s’exécute en production.
-8. Connectez-vous au [portail Azure](https://portal.azure.com/) et observez ce qui est créé.
+8. Connectez-vous au [portail Azure](https://portal.azure.com/) et observez ce qui a été créé.
    
    Les deux applications web doivent figurer dans le même groupe de ressources, et le nom de l’une d’elles doit comporter le suffixe `Api` . Si vous examinez l’affichage de groupe de ressources, vous pouvez voir également la base de données et le serveur SQL, le plan App Service et les emplacements intermédiaires pour les applications web. Parcourez les différentes ressources et comparez-les à *&lt;racine_référentiel>*\ARMTemplates\ProdAndStage.json pour voir comment elles sont configurées dans le modèle.
    
-   ![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
+    ![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
 Vous venez de configurer l’environnement de production. Vous allez lancer une nouvelle mise à jour de l’application.
 
@@ -127,7 +127,9 @@ Vous venez de configurer l’environnement de production. Vous allez lancer une 
 
 1. Créez d’abord l’environnement de test. Dans votre session Git Shell, exécutez les commandes suivantes afin de créer l’environnement pour une nouvelle branche appelée **NewUpdate**. 
    
-     git checkout -b NewUpdate   git push origin NewUpdate   .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch NewUpdate
+        git checkout -b NewUpdate
+        git push origin NewUpdate 
+        .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch NewUpdate
 2. Lorsque vous y êtes invité, tapez le nom d’utilisateur et le mot de passe souhaités pour l’accès à la base de données. 
    
    Lorsque le déploiement est terminé, le script lance l’application dans le navigateur et émet un signal sonore convivial. Vous disposez alors d’une nouvelle branche avec son propre environnement de test. Prenez un moment pour examiner plus longuement cet environnement de test :
@@ -139,7 +141,9 @@ Vous venez de configurer l’environnement de production. Vous allez lancer une 
    * La suppression de cet environnement de test est aussi simple que la suppression du groupe de ressources. Vous découvrirez [ultérieurement](#delete)comment procéder.
 3. Poursuivez avec la création d’une branche de développement en exécutant les commandes suivantes :
    
-     git checkout -b Dev   git push origin Dev   .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch Dev
+        git checkout -b Dev
+        git push origin Dev
+        .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch Dev
 4. Lorsque vous y êtes invité, tapez le nom d’utilisateur et le mot de passe souhaités pour l’accès à la base de données. 
    
    Prenez un moment pour examiner un certain nombre de points sur cet environnement de développement : 
@@ -167,7 +171,7 @@ Vous devez disposer de six applications web (trois ensembles de deux application
 ![](./media/app-service-agile-software-development/test-2-all-webapps.png)
 
 > [!NOTE]
-> Notez que ProdandStage.json ordonne à l’environnement de production d’utiliser le niveau de tarification **Standard** , qui est approprié pour l’extensibilité de l’application de production.
+> ProdandStage.json ordonne à l’environnement de production d’utiliser le niveau de tarification **Standard**, qui est approprié pour l’extensibilité de l’application de production.
 > 
 > 
 
@@ -176,39 +180,41 @@ Les fichiers de modèle ProdAndStage.json et Dev.json comportent déjà les para
 
 1. Assurez-vous de vous situer dans la branche Dev du référentiel local. Pour ce faire, exécutez la commande suivante dans Git Shell :
    
-     git checkout Dev
-2. Apportez une modification simple à la couche d’interface utilisateur de l’application. Pour cela, vous allez éditer le code pour activer l’utilisation des listes [Bootstrap](http://getbootstrap.com/components/). Ouvrez *&lt;racine_référentiel>*\src\MultiChannelToDo.Web\index.cshtml et apportez les modifications mises en évidence ci-dessous :
+        git checkout Dev
+2. Apportez une modification à la couche d’interface utilisateur de l’application. Pour cela, vous allez éditer le code pour activer l’utilisation des listes [Bootstrap](http://getbootstrap.com/components/). Ouvrez *&lt;racine_référentiel>*\src\MultiChannelToDo.Web\index.cshtml et apportez les modifications mises en évidence ci-dessous :
    
-   ![](./media/app-service-agile-software-development/commit-1-changes.png)
+    ![](./media/app-service-agile-software-development/commit-1-changes.png)
    
-   > [!NOTE]
-   > Si vous ne pouvez pas lire l’image ci-dessus : 
-   > 
-   > * Ligne 18, remplacez `check-list` par `list-group`.
-   > * Ligne 19, remplacez `class="check-list-item"` par `class="list-group-item"`.
-   > 
-   > 
+    > [!NOTE]
+    > Si vous ne pouvez pas lire l’image ci-dessus : 
+    > 
+    > * Ligne 18, remplacez `check-list` par `list-group`.
+    > * Ligne 19, remplacez `class="check-list-item"` par `class="list-group-item"`.
+    > 
+    > 
 3. Enregistrez la modification. De retour dans Git Shell, exécutez les commandes suivantes :
    
-     cd <repository_root> git add .
-     git commit -m "changed to bootstrap style" git push origin Dev
+        cd <repository_root>
+        git add .
+        git commit -m "changed to bootstrap style"
+        git push origin Dev
    
    Ces commandes git ont pour effet de « vérifier le code » comme ce serait le cas dans un autre système de contrôle de code source, tel que TFS. Lorsque vous exécutez `git push`, la nouvelle validation déclenche une transmission automatique de type push à Azure, lequel reconstruit ensuite l’application pour refléter la modification dans l’environnement de développement.
-4. Pour vérifier que cette transmission de code de type push à votre environnement de développement s’est bien produite, accédez au volet d’application web de votre environnement de développement et examinez la partie **Déploiement** . Le message de la dernière validation doit y figurer.
+4. Pour vérifier que cette transmission de code de type push à votre environnement de développement s’est bien produite, accédez à la page d’application web de votre environnement de développement et examinez la partie **Déploiement**. Le message de la dernière validation doit y figurer.
    
-   ![](./media/app-service-agile-software-development/commit-2-deployed.png)
+    ![](./media/app-service-agile-software-development/commit-2-deployed.png)
 5. Cliquez alors sur **Parcourir** pour voir la nouvelle modification dans l’application en direct dans Azure.
    
-   ![](./media/app-service-agile-software-development/commit-3-webapp-in-browser.png)
+    ![](./media/app-service-agile-software-development/commit-3-webapp-in-browser.png)
    
    Il s’agit d’une modification relativement mineure pour l’application. Toutefois, bien souvent les modifications apportées à une application web complexe ont des effets secondaires inattendus et indésirables. Pouvoir facilement tester chaque validation dans les générations en direct vous permet d’intercepter les problèmes avant qu’ils ne s’affichent sur l’ordinateur de vos clients.
 
-À ce stade, vous devez avoir conscience qu’en tant que développeur du projet **NewUpdate** , vous pourrez créer aisément un environnement de développement pour vous-même, puis générer chaque validation et tester chaque génération.
+À ce stade, vous devez avoir conscience qu’en tant que développeur du projet **NewUpdate** , vous pouvez créer aisément un environnement de développement pour vous-même, puis générer chaque validation et tester chaque génération.
 
 ## <a name="merge-code-into-test-environment"></a>Fusionner le code dans l’environnement de test
 Lorsque vous êtes prêt à envoyer votre code à la branche NewUpdate à partir de la branche Dev, le processus git standard se déroule ainsi :
 
-1. Fusionnez les nouvelles validations de NewUpdate dans la branche Dev de GitHub, comme les validations créées par d’autres développeurs. Toute nouvelle validation dans GitHub déclenchera une transmission de type push et une validation dans l’environnement de développement. Vous pouvez vérifier que votre code fonctionne toujours dans la branche Dev avec les dernières informations de la branche NewUpdate.
+1. Fusionnez les nouvelles validations de NewUpdate dans la branche Dev de GitHub, comme les validations créées par d’autres développeurs. Toute nouvelle validation dans GitHub déclenche une transmission de type push et une validation dans l’environnement de développement. Vous pouvez vérifier que votre code fonctionne toujours dans la branche Dev avec les dernières informations de la branche NewUpdate.
 2. Fusionnez toutes vos nouvelles validations entre la branche Dev et la branche NewUpdate dans GitHub. Cette action déclenche une transmission de code de type push et une génération dans l’environnement de test. 
 
 Du fait que le déploiement continu est déjà configuré avec ces branches git, vous n’avez aucune action à effectuer (comme les générations d’intégration). Vous devez simplement effectuer des actions de contrôle de code source standard à l’aide de git ; Azure s’occupe ensuite de tous les processus de génération à votre place.
@@ -222,7 +228,7 @@ Maintenant, nous allons transmettre le code à la branche **NewUpdate** . Dans G
 
 Et voilà ! 
 
-Accédez au panneau d’application web pour votre environnement de test afin de voir votre validation (fusionnée dans la branche NewUpdate) qui est à présent transférée à l’environnement de test. Cliquez ensuite sur **Parcourir** pour vérifier que la modification du style s’exécute désormais en direct dans Azure.
+Accédez à la page d’application web pour votre environnement de test afin de voir votre validation (fusionnée dans la branche NewUpdate) qui est à présent transférée à l’environnement de test. Cliquez ensuite sur **Parcourir** pour vérifier que la modification du style s’exécute désormais en direct dans Azure.
 
 ## <a name="deploy-update-to-production"></a>Déployer la mise à jour en production
 La transmission de type push du code à l’environnement intermédiaire et de production doit être similaire à la transmission de type push du code à l’environnement de test. Cette opération est très simple. 
@@ -234,9 +240,9 @@ Dans Git Shell, exécutez les commandes suivantes :
     git merge NewUpdate
     git push origin master
 
-N’oubliez pas que selon la façon dont l’environnement intermédiaire et de production est programmé dans ProdandStage.json, votre nouveau code est envoyé à l’emplacement **intermédiaire** et s’y exécute. Par conséquent, si vous accédez à l’URL de l’emplacement intermédiaire, vous y verrez le nouveau code en cours d’exécution. Pour ce faire, exécutez l’applet de commande `Show-AzureWebsite` dans Git Shell.
+N’oubliez pas que selon la façon dont l’environnement intermédiaire et de production est programmé dans ProdandStage.json, votre nouveau code est envoyé à l’emplacement **intermédiaire** et s’y exécute. Par conséquent, si vous accédez à l’URL de l’emplacement intermédiaire, vous pouvez y voir le nouveau code en cours d’exécution. Pour ce faire, exécutez l’applet de commande suivante dans Git Shell.
 
-    Show-AzureWebsite -Name ToDoApp<unique_string>master -Slot Staging
+    Start-Process -FilePath "http://ToDoApp<unique_string>master-Staging.azurewebsites.net"
 
 Une fois que vous avez vérifié la mise à jour dans l’emplacement intermédiaire, la seule chose qui reste à faire est de la faire passer en production. Dans Git Shell, il suffit d’exécuter les commandes suivantes :
 
@@ -247,8 +253,8 @@ Félicitations ! Vous venez de publier une nouvelle mise à jour pour votre app
 
 <a name="delete"></a>
 
-## <a name="delete-dev-and-test-enviroments"></a>Supprimer les environnements de développement et de test
-Comme vous avez volontairement conçu vos environnements de développement et de test en tant que groupes de ressources autonomes, il est très facile de les supprimer. Pour supprimer ceux que vous avez créés dans ce didacticiel, c’est-à-dire les branches GitHub et les artefacts Azure, il suffit d’exécuter les commandes suivantes dans Git Shell :
+## <a name="delete-dev-and-test-environments"></a>Supprimer des environnements de développement et de test
+Comme vous avez volontairement conçu vos environnements de développement et de test en tant que groupes de ressources autonomes, il est facile de les supprimer. Pour supprimer ceux que vous avez créés dans ce didacticiel, c’est-à-dire les branches GitHub et les artefacts Azure, il suffit d’exécuter les commandes suivantes dans Git Shell :
 
     git branch -d Dev
     git push origin :Dev

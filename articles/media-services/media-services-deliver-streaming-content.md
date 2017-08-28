@@ -2,7 +2,7 @@
 title: "Publier du contenu Azure Media Services à l’aide de .NET | Microsoft Docs"
 description: "Apprenez à créer un localisateur utilisé pour générer une URL de diffusion en continu. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET."
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

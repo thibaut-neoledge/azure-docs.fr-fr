@@ -4,7 +4,7 @@ description: "En savoir plus sur la licence du kit de portage Smooth Streaming c
 services: media-services
 documentationcenter: 
 author: xpouyat
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services

@@ -13,17 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 08/14/2017
 ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: fef21c512aa8a6af32cec20e2e44cf4e20ac24ae
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6510e0270bb2efa252a2b2ad40014c5d26b74a81
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="nodejs-tutorial-documentdb-nodejs-console-application"></a>Didacticiel Node.js : application de console Node.js DocumentDB
+# <a name="nodejs-tutorial-use-the-documentdb-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Didacticiel Node.js : utilisez l’API DocumentDB dans Azure Cosmos DB pour créer une application de console Node.js
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -66,7 +65,7 @@ Commençons par créer un compte Azure Cosmos DB. Si vous avez déjà un compte 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupNode"></a>Étape 2 : configurer votre application Node.js
+## <a id="SetupNode"></a>Étape 2 : configurer votre application Node.js
 1. Ouvrez votre terminal préféré.
 2. Recherchez le dossier ou le répertoire où vous souhaitez enregistrer votre application Node.js.
 3. Créez deux fichiers JavaScript vides avec les commandes suivantes :
@@ -84,19 +83,19 @@ Parfait ! Vous avez terminé l’installation, nous pouvons donc passer à l’
 ## <a id="Config"></a>Étape 3 : définir les configurations de votre application
 Ouvrez ```config.js``` dans l’éditeur de texte de votre choix.
 
-Puis, copiez et collez l’extrait de code ci-dessous et attribuez aux propriétés ```config.endpoint``` et ```config.primaryKey``` l’URI de votre point de terminaison DocumentDB et votre clé primaire. Ces deux configurations se trouvent dans le [portail Azure](https://portal.azure.com).
+Puis, copiez et collez l’extrait de code ci-dessous et attribuez aux propriétés ```config.endpoint``` et ```config.primaryKey``` l’URI de votre point de terminaison Azure Cosmos DB et votre clé primaire. Ces deux configurations se trouvent dans le [portail Azure](https://portal.azure.com).
 
 ![Didacticiel Node.js : capture d’écran du portail Azure, présentant un compte Azure Cosmos DB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte Azure Cosmos DB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés - Base de données de nœud][keys]
 
     // ADD THIS PART TO YOUR CODE
     var config = {}
 
-    config.endpoint = "~your DocumentDB endpoint uri here~";
+    config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
 Copiez et collez ```database id```, ```collection id``` et ```JSON documents``` dans votre objet ```config``` ci-dessous, où vous avez défini vos propriétés ```config.endpoint``` et ```config.authKey```. Si vous disposez déjà de données que vous souhaitez stocker dans votre base de données, vous pouvez utiliser [l’outil de migration de données](import-data.md) d’Azure Cosmos DB au lieu d’ajouter les définitions de document.
 
-    config.endpoint = "~your DocumentDB endpoint uri here~";
+    config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
     // ADD THIS PART TO YOUR CODE
@@ -166,7 +165,7 @@ Copiez et collez ```database id```, ```collection id``` et ```JSON documents``` 
     };
 
 
-Les définitions de base de données, de collection et de document vous serviront de DocumentDB ```database id```, de ```collection id``` et de données de documents.
+Les définitions de base de données, de collection et de document vous servent de ```database id```, de ```collection id``` et de données de documents Azure Cosmos DB.
 
 Enfin, exportez votre objet ```config``` pour pouvoir y faire référence dans le fichier ```app.js```.
 
@@ -196,10 +195,10 @@ Copiez et collez le code pour utiliser l’élément ```config.endpoint``` déj�
     // ADD THIS PART TO YOUR CODE
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
-Maintenant que vous avez le code permettant d’initialiser le client DocumentDB, voyons comment utiliser les ressources DocumentDB.
+Maintenant que vous avez le code permettant d’initialiser le client Azure Cosmos DB, voyons comment utiliser les ressources Azure Cosmos DB.
 
 ## <a name="step-5-create-a-node-database"></a>Étape 5 : Création d’une base de données de nœud
-Copiez et collez le code ci-dessous pour définir l’état HTTP correspondant à Non trouvé, l’URL de la base de données et l’URL de la collection. Le client DocumentDB utilise ces URL pour trouver la base de données et la collection appropriées.
+Copiez et collez le code ci-dessous pour définir l’état HTTP correspondant à Non trouvé, l’URL de la base de données et l’URL de la collection. Le client Azure Cosmos DB utilise ces URL pour trouver la base de données et la collection appropriées.
 
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
@@ -314,10 +313,10 @@ Copiez et collez le code sous l’appel à **getDatabase** pour exécuter la fon
 
 Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la commande : ```node app.js```
 
-Félicitations ! Vous avez créé une base de données DocumentDB.
+Félicitations ! Vous avez créé une collection Azure Cosmos DB.
 
 ## <a id="CreateDoc"></a>Étape 7 : Création d’un document
-Vous pouvez créer un [document](documentdb-resources.md#documents) à l’aide de la fonction [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) de la classe **DocumentClient**. Les documents correspondent à du contenu JSON (arbitraire) défini par l'utilisateur. Vous pouvez maintenant insérer un document dans DocumentDB.
+Vous pouvez créer un [document](documentdb-resources.md#documents) à l’aide de la fonction [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) de la classe **DocumentClient**. Les documents correspondent à du contenu JSON (arbitraire) défini par l'utilisateur. Vous pouvez maintenant insérer un document dans Azure Cosmos DB.
 
 Copiez et collez la fonction **getFamilyDocument** sous la fonction **getCollection** pour créer les documents contenant les données JSON enregistrées dans l’objet ```config```. Là encore, nous allons nous assurer qu’un document avec le même ID n’existe pas déjà.
 
@@ -366,14 +365,14 @@ Copiez et collez le code situé sous l’appel à **getCollection** pour exécut
 
 Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la commande : ```node app.js```
 
-Félicitations ! Vous avez créé un document DocumentDB.
+Félicitations ! Vous avez créé un document Azure Cosmos DB.
 
-![Didacticiel Node.js : diagramme illustrant la relation hiérarchique existant entre le compte, la base de données, la collection et les documents - Base de données de nœud](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
+![Didacticiel Node.js : diagramme illustrant la relation hiérarchique existant entre le compte, la base de données, la collection et les documents - Base de données de nœud](./media/documentdb-nodejs-get-started/node-js-tutorial-cosmos-db-account.png)
 
 ## <a id="Query"></a>Étape 8 : interroger les ressources Azure Cosmos DB
 Azure Cosmos DB prend en charge les [requêtes enrichies](documentdb-sql-query.md) sur les documents JSON stockés dans chaque collection. L’exemple de code suivant illustre une requête que vous pouvez exécuter sur les documents dans votre collection.
 
-Copiez et collez la fonction **queryCollection** sous la fonction **getFamilyDocument** dans le fichier app.js. DocumentDB prend en charge des requêtes similaires à SQL comme indiqué ci-dessous. Pour plus d’informations sur la création de requêtes complexes, consultez [Query Playground](https://www.documentdb.com/sql/demo) et la [documentation relative aux requêtes](documentdb-sql-query.md).
+Copiez et collez la fonction **queryCollection** sous la fonction **getFamilyDocument** dans le fichier app.js. Azure Cosmos DB prend en charge des requêtes similaires à SQL, comme indiqué ci-dessous. Pour plus d’informations sur la création de requêtes complexes, consultez [Query Playground](https://www.documentdb.com/sql/demo) et la [documentation relative aux requêtes](documentdb-sql-query.md).
 
                 } else {
                     resolve(result);
@@ -405,11 +404,11 @@ Copiez et collez la fonction **queryCollection** sous la fonction **getFamilyDoc
     };
 
 
-Le schéma suivant montre comment la syntaxe de requête SQL de DocumentDB est appelée sur la collection que vous avez créée.
+Le schéma suivant montre comment la syntaxe de requête SQL d’Azure Cosmos DB est appelée sur la collection que vous avez créée.
 
 ![Didacticiel Node.js : diagramme illustrant l’étendue et la signification de la requête - Base de données de nœud](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
-Le mot clé [FROM](documentdb-sql-query.md#FromClause) est facultatif dans la requête, car les requêtes DocumentDB sont déjà étendues à une collection unique. Par conséquent, « FROM Families f » peut être remplacé par «FROM root r » ou par tout autre nom de variable que vous choisissez. DocumentDB déduira que Families, root ou le nom de variable choisi fait par défaut référence à la collection actuelle.
+Le mot clé [FROM](documentdb-sql-query.md#FromClause) est facultatif dans la requête, car les requêtes Azure Cosmos DB sont déjà étendues à une collection unique. Par conséquent, « FROM Families f » peut être remplacé par «FROM root r » ou par tout autre nom de variable que vous choisissez. Azure Cosmos DB déduit alors que Families, root ou le nom de variable choisi fait par défaut référence à la collection actuelle.
 
 Copiez et collez le code sous l’appel à **getFamilyDocument** pour exécuter la fonction **queryCollection**.
 
