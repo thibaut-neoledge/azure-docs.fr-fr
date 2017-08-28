@@ -11,14 +11,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 05/12/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 34cccf6a0962f72e04a90516fa7643db2533d85d
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf07c4142d025517637e31b27f1f34b6d402d6fe
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Ajouter des fonctionnalités à votre première application web
@@ -58,7 +58,7 @@ Les trois activités dans ce didacticiel ne sont que quelques exemples des nombr
     Par conséquent, si vous ouvrez une session non authentifiée dans un autre navigateur, un écran de connexion s’affiche lorsque vous accédez à la même URL.  
     <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
     Si vous n’avez jamais utilisé Azure Active Directory, le répertoire par défaut peut ne pas contenir d’utilisateurs Azure AD. Dans ce cas, le seul compte ici est probablement le compte Microsoft avec votre abonnement Azure. C’est pour cette raison que vous avez été automatiquement connecté à l’application dans le même navigateur plus tôt.
-   Vous pouvez utiliser ce même compte Microsoft pour vous connecter sur cette page de connexion.
+    Vous pouvez utiliser ce même compte Microsoft pour vous connecter sur cette page de connexion.
 
 Félicitations, vous authentifiez désormais tout le trafic vers votre application web.
 
@@ -82,7 +82,7 @@ En bref, vous pouvez adapter la taille de votre application web de deux manière
 
 Sans plus attendre, préparons à présent la mise à l’échelle automatique.
 
-1. Nous allons tout d’abord procéder à la montée en puissance pour activer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > **Monter en puissance (Plan App Service)**.  
+1. Nous allons tout d’abord procéder à la montée en puissance pour activer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** >  **Monter en puissance (Plan App Service)**.  
     ![Monter en puissance - panneau Paramètres](./media/app-service-web-get-started/scale-up-settings.png)
 2. Faites défiler la page, puis sélectionnez le niveau **S1 Standard** (le plus bas niveau prenant en charge la mise à l’échelle automatique, encerclé dans la capture d’écran), puis cliquez sur **Sélectionner**.  
     ![Monter en puissance - choisir un niveau](./media/app-service-web-get-started/scale-up-select.png)
@@ -151,7 +151,7 @@ En outre, découvrez comment en faire plus avec l’application déployée. Voic
 * [Sauvegarder votre application](web-sites-backup.md) : définissez la sauvegarde et la restauration de votre application web. Anticipez les défaillances inattendues et récupérez vos données après leur survenue.
 * [Activer les journalisation des données](web-sites-enable-diagnostic-log.md) : consultez les journaux IIS dans Azure ou dans les traces de votre application. Lisez-les dans un flux, téléchargez-les ou déplacez-les dans [Application Insights](../application-insights/app-insights-overview.md) pour une analyse clé en main.
 * [Analyser votre application à la recherche de vulnérabilités](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
-  analysez votre application pour la protéger contre les menaces modernes à l’aide du service fourni par [Tinfoil Security](https://www.tinfoilsecurity.com/).
+  Analysez votre application pour la protéger contre les menaces modernes à l’aide du service fourni par [Tinfoil Security](https://www.tinfoilsecurity.com/).
 * [Exécuter des travaux en arrière-plan](../azure-functions/functions-overview.md) : exécutez des tâches pour le traitement de données, la création de rapports, etc.
 * [Découvrir le fonctionnement d’App Service](../app-service/app-service-how-works-readme.md)
 
