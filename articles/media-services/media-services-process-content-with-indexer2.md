@@ -4,7 +4,7 @@ description: "Azure Media Indexer permet de rendre le contenu de vos fichiers mu
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 85d25525-a498-44eb-ae3a-2ca5ceb8e53d
 ms.service: media-services

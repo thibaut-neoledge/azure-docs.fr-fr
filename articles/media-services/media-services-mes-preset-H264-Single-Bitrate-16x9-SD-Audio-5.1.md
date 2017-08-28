@@ -2,7 +2,7 @@
 title: "H264 - Vitesse de transmission unique - 16 x 9 SD - Audio 5.1 | Microsoft Docs"
 description: "La rubrique présente une vue d’ensemble de la présélection de travaux **H264 - Vitesse de transmission unique - 16 x 9 SD - Audio 5.1**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

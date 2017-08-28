@@ -20,7 +20,6 @@ ms.openlocfilehash: 146c9f5c751443608f8f405be949398f9f721053
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Remplacer un lecteur de disque sur votre appareil de la gamme StorSimple 8000
 
@@ -105,6 +104,7 @@ Quand un lecteur est défectueux dans votre appareil StorSimple et que vous l’
 3. Le support de lecteur étant inséré, fermez la poignée du support de lecteur tout en continuant à pousser le support de lecteur dans le châssis, jusqu’à ce que la poignée du support de lecteur s’enclenche en position verrouillée.
 4. Utilisez la clé de verrouillage qui a été fournie par Microsoft (tournevis Torx anti-effraction) pour sécuriser la poignée du support à son emplacement en tournant la vis de verrouillage d’un quart de tour dans le sens des aiguilles d’une montre.
 5. Vérifiez que le remplacement a réussi et que le lecteur est opérationnel. Dans le portail Azure, accédez à **Paramètres** > **Hardware health** (Intégrité matérielle). Sous **Composants partagés** ou **Composants partagés EBOD**, l’état du disque doit être en vert, indiquant qu’il est intègre.
+<!---Loc Comment: It seems it should say "Device settings > Hardware health" instead of "Settings > Hardware health"---->
    
    > [!NOTE]
    > Plusieurs heures peuvent être nécessaires pour que l’état du disque passe en vert après le remplacement.

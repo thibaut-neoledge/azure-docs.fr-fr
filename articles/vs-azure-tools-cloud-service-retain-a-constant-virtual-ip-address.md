@@ -3,8 +3,8 @@ title: "Conservation d’une adresse IP virtuelle constante pour un service clo
 description: "Découvrez comment vous assurer que l’adresse IP virtuelle de votre service cloud Azure ne change pas."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 4a58e2c6-7a79-4051-8a2c-99182ff8b881
 ms.service: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
 ms.openlocfilehash: c54c4c044bb4a6afd880fe101d7bb0cffdacb579
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/04/2017
-
 
 ---
 # <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Conserver une adresse IP virtuelle constante pour un service cloud Azure

@@ -4,7 +4,7 @@ description: "Cet article explique comment utiliser le portail Azure pour config
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services

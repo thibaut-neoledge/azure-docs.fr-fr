@@ -2,7 +2,7 @@
 title: H264 - Vitesse de transmission unique - 720 pixels pour Android | Microsoft Docs
 description: "Cette rubrique offre une vue d’ensemble de la présélection de travaux **H264 - Vitesse de transmission unique - 720 pixels pour Android**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

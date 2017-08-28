@@ -3,8 +3,8 @@ title: "Profilage d’un service cloud local dans l’émulateur de calcul | Mic
 services: cloud-services
 description: "Examen des problèmes de performances dans les services cloud à l’aide du profileur Visual Studio"
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 tags: 
 ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0440827a5f5f82a43a88d601a6d090436b81df8e
 ms.openlocfilehash: bb06e93608f7914b0f8c9b971cc285a849056345
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/06/2017
 
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Test des performances d'un service cloud local dans l'émulateur de calcul Azure avec le profileur Visual Studio
@@ -174,9 +175,4 @@ L'instrumentalisation d'exécutables Azure dans l'émulateur de calcul n'est pas
 [15]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally013.png
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

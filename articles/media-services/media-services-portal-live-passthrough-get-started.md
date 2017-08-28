@@ -4,7 +4,7 @@ description: "Ce didacticiel vous guide tout au long des étapes de création d�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
 ms.service: media-services

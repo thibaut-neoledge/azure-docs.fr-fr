@@ -37,4 +37,4 @@
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Dépassement de capacité de la pile
-      href: 'http://stackoverflow.com/questions/tagged/azure-event-grid'
+      href: 'http://stackoverflow.com/questions/tagged/azure-eventgrid'

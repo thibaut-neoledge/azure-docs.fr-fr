@@ -4,7 +4,7 @@ description: "Cet article vous montre comment utiliser la télémétrie d’Azur
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: f8f55e37-0714-49ea-bf4a-e6c1319bec44
 ms.service: media-services

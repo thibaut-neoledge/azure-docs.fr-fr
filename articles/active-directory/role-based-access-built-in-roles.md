@@ -3,7 +3,7 @@ title: "Actions et NotActions - Contrôle d’accès en fonction du rôle Azure 
 description: "Cette rubrique décrit les rôles intégrés pour le contrôle d’accès en fonction du rôle (RBAC). Des rôles sont ajoutés en permanence. Veillez donc à consulter la documentation la plus récente."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: andredm7
 manager: femila
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/28/2017
-ms.author: curtand
+ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation

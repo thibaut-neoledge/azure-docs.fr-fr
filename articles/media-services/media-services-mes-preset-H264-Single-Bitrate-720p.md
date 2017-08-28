@@ -2,7 +2,7 @@
 title: "Présélection Media Encoder Standard H264 - Vitesse de transmission unique - 720 pixels - Azure | Microsoft Docs"
 description: "Cette rubrique offre une vue d’ensemble de la présélection de tâche **H264 - Vitesse de transmission unique - 720 pixels**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

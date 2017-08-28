@@ -4,7 +4,7 @@ description: "Cette rubrique offre une vue d’ensemble des scénarios Microsoft
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.service: media-services
 ms.workload: media

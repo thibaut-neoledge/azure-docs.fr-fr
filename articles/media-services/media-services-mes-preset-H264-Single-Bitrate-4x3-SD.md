@@ -2,7 +2,7 @@
 title: "Présélection Media Encoder Standard H264 - Vitesse de transmission unique - 4 x 3 SD - Azure | Microsoft Docs"
 description: "Cette rubrique présente une vue d’ensemble de la présélection de travaux **H264 - Vitesse de transmission unique - 4 x 3 SD**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

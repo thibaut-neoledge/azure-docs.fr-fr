@@ -2,7 +2,7 @@
 title: "Présélection de tâches Media Encoder Standard H264 multidébit 1 080 pixels - Azure | Microsoft Docs"
 description: "Cette rubrique offre une vue d’ensemble de la présélection de tâches **H264 multidébit 1 080 pixels**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

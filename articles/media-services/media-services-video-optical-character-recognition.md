@@ -4,7 +4,7 @@ description: "Azure Media Analytics OCR (reconnaissance optique de caractères) 
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
 ms.service: media-services

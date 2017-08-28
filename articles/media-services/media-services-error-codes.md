@@ -2,7 +2,7 @@
 title: "Codes d’erreur d’Azure Media Services | Microsoft Docs"
 description: "Cette rubrique fournit une vue d’ensemble des codes d’erreur d’Azure Media Services."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

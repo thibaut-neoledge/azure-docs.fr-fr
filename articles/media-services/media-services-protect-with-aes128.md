@@ -4,7 +4,7 @@ description: "Microsoft Azure Media Services vous permet de transmettre du conte
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
 ms.service: media-services

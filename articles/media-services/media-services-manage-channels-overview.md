@@ -4,7 +4,7 @@ description: "Cette rubrique fournit une vue d’ensemble du streaming en direct
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
