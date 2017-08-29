@@ -4,7 +4,7 @@ description: "Découvrez les concepts et techniques Azure Functions dont vous av
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "guide de développement, azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="azure-functions-developers-guide"></a>Guide de développement Azure Functions

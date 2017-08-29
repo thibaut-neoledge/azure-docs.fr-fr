@@ -4,7 +4,7 @@ description: Utilisation de liaisons du fichiers externes dans Azure Functions
 services: functions
 documentationcenter: 
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: functions

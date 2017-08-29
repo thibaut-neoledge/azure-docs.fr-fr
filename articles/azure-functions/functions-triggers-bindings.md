@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser des déclencheurs et des liaisons dans
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: cc41debb2523df77be4db05817a4c7ac55604439
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/23/2017
-
 
 ---
 
