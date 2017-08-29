@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
+ms.translationtype: HT
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 08/18/2017
 
 ---
 # <a name="azure-active-directory-faq"></a>Forum Aux Questions sur Azure Active Directory
@@ -28,7 +28,7 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory 
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Accédez à Azure et à Azure Active Directory
- **Q : Pourquoi le message « Aucun abonnement trouvé » s’affiche-t-il lorsque j’essaie d’accéder à Azure AD dans le portail Azure Classic (https://manage.windowsazure.com)?**
+**Q : Pourquoi le message « Aucun abonnement trouvé » s’affiche-t-il lorsque j’essaie d’accéder à Azure AD dans le portail Azure Classic ?**
 
 **R :** Pour accéder au portail Azure Classic, chaque utilisateur doit y être autorisé dans le cadre d’un abonnement Azure. Si vous possédez un abonnement Office 365 ou Azure AD payant, accédez à [http://aka.ms/accessAAD](http://aka.ms/accessAAD) pour procéder à une étape d’activation unique. Si ce n’est pas le cas, vous devez activer un [compte Azure](https://azure.microsoft.com/pricing/free-trial/) gratuit ou un abonnement payant.
 
@@ -212,5 +212,5 @@ Pour plus d’informations, consultez [Automatisation de l’approvisionnement e
 - - -
 **Q : Puis-je configurer une connexion LDAP sécurisée avec Azure AD ?**
 
-**R :** Non.  Azure AD ne prend pas en charge le protocole LDAP.
+**R :** Non. Azure AD ne prend pas en charge le protocole LDAP.
 

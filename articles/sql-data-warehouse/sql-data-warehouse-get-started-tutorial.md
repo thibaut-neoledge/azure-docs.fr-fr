@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 95e14824ba3b705bb909ec983652dd3305b98805
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Prise en main de SQL Data Warehouse
@@ -63,8 +62,7 @@ SQL Data Warehouse est un type spécial de base de données conçu pour le tra
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Nouveau** > **Bases de données** > **SQL Data Warehouse**.
 
-    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
-    ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![Nouveau panneau](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![Choisir DW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Renseignez les détails relatifs au déploiement.
 
@@ -84,8 +82,7 @@ SQL Data Warehouse est un type spécial de base de données conçu pour le tra
 
     **Sélectionner le compteur de performance** : nous vous recommandons de commencer par le modèle 400DWU standard.
 
-4. Choisissez **Épingler au tableau de bord**
-    ![Épingler au tableau de bord](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
+4. Choisissez **Épingler au tableau de bord** ![Épingler au tableau de bord](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
 5. Installez-vous confortablement et attendez le déploiement de votre entrepôt de données. Il est normal que ce processus prenne plusieurs minutes. Le portail vous informe lorsque votre entrepôt de données est opérationnel. 
 
@@ -657,7 +654,7 @@ Si vous avez terminé votre exploration, n’oubliez pas d’interrompre votre i
 
 [Migrating Data to Azure SQL Data Warehouse][] (Migration de données vers Microsoft Azure SQL Data Warehouse)
 
-[Gestion de la concurrence et des charges de travail]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Gestion de la concurrence et des charges de travail]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Meilleures pratiques pour Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [surveillance des requêtes]: sql-data-warehouse-manage-monitor.md
 [Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/ (10 meilleures pratiques pour la création d’un entrepôt de données relationnelles à grande échelle)

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: c3911c1435054417f61ba4767d6f622430afcf4b
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 5c8e99f3ba52ef5d6f9f99ac24891c38e8970fff
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>Configurer une connexion point à site vers un réseau virtuel à l’aide d’une authentification par certificat : portail Azure
@@ -33,7 +33,9 @@ Cet article vous explique comment créer un réseau virtuel avec une connexion p
 >
 >
 
-Une configuration point à site (P2S) vous permet de connecter de manière sécurisée un ordinateur client individuel à un réseau virtuel. Les connexions point à site sont utiles lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel. La connexion VPN P2S est initiée à partir de l’ordinateur client à l’aide du client VPN Windows natif. Les clients qui se connectent utilisent des certificats pour l’authentification. 
+Une connexion par passerelle VPN point à site (P2S) vous permet de créer une connexion sécurisée à votre réseau virtuel à partir d’un ordinateur de client individuel. Les connexions VPN point à site sont utiles lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un emplacement distant, par exemple lorsque vous travaillez à distance depuis votre domicile ou en conférence. De même, l’utilisation d’un VPN P2S est une solution utile qui constitue une alternative au VPN Site à Site lorsqu’un nombre restreint de clients doivent se connecter à un réseau virtuel. 
+
+P2S utilise le Protocole SSTP (Secure Socket Tunneling Protocol), qui est un protocole VPN basé sur le protocole SSL. Une connexion VPN P2S est établie en étant démarrée à partir de l’ordinateur du client.
 
 ![Diagramme point à site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
 
@@ -164,6 +166,8 @@ Assurez-vous que le certificat client a été exporté dans un fichier .pfx avec
 3. Votre connexion est établie.
 
   ![Connexion établie](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
+
+#### <a name="troubleshooting-p2s-connections"></a>Résolution des problèmes liés aux connexions P2S
 
 [!INCLUDE [verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 

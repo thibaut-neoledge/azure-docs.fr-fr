@@ -1,4 +1,4 @@
-Pour utiliser les files d’attente Service Bus dans Azure, vous devez d’abord créer un espace de noms. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application. 
+Pour commencer à utiliser des files d’attente Service Bus dans Azure, vous devez d’abord créer un espace de noms avec un nom unique dans Azure. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
 
 Pour créer un espace de noms :
 

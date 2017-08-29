@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 27e5dbff8d4a9a2ed82ab6691aa82c2668fec958
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 
-## <a name="connecting-to-virtual-networks"></a>Connexion à des réseaux virtuels
+## <a name="connecting"></a>Connexion à des réseaux virtuels
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>Puis-je me connecter à des réseaux virtuels dans différentes régions Azure ?
 
@@ -229,3 +229,4 @@ Des informations supplémentaires sur les réseaux virtuels sont disponibles dan
 
 * Pour plus d’informations sur la passerelle VPN, consultez [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md).
 * Pour plus d’informations sur les paramètres de configuration de la passerelle VPN, consultez [À propos des paramètres de configuration de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md).
+

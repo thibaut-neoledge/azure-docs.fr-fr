@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: a613bbe84a3834ab4fb237779248c7ad8d75b563
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 257e0bc442f29bfe6683fb0511deac50d92c1720
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Didacticiel Adventure Works
@@ -53,7 +53,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
   
 -   Une instance d’Azure Analysis Services ou de SQL Server Analysis Services 2017 sur laquelle déployer votre modèle. Inscrivez-vous pour bénéficier d’un [essai gratuit d’Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) et [créez un serveur](../analysis-services-create-server.md). Ou inscrivez-vous et téléchargez [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
 
--   Une base de données SQL Server ou SQL Azure avec l’[exemple de base de données AdventureWorksDW2014](http://go.microsoft.com/fwlink/?LinkID=335807). Cet exemple de base de données inclut les données nécessaires pour suivre ce didacticiel. Téléchargez les [éditions gratuites de SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads). Ou inscrivez-vous pour obtenir un [essai gratuit d’Azure SQL Database](https://azure.microsoft.com/services/sql-database/). 
+-   Un entrepôt de données SQL Server ou Azure SQL Data Warehouse avec l’[exemple de base de données AdventureWorksDW2014](http://go.microsoft.com/fwlink/?LinkID=335807). Cet exemple de base de données inclut les données nécessaires pour suivre ce didacticiel. Téléchargez les [éditions gratuites de SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads). Ou inscrivez-vous pour obtenir un [essai gratuit d’Azure SQL Database](https://azure.microsoft.com/services/sql-database/). 
 
     **Important** : Si vous installez l’exemple de base de données sur un serveur SQL Server local et que vous déployez votre modèle sur un serveur Azure Analysis Services, une [passerelle de données locale](../analysis-services-gateway.md) est nécessaire.
 
@@ -64,7 +64,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 -   Une application cliente telle que [Power BI Desktop](https://powerbi.microsoft.com/desktop/) ou Excel. 
 
 ## <a name="scenario"></a>Scénario  
-Ce didacticiel repose sur la société fictive Adventure Works Cycles. Adventure Works est une grande entreprise multinationale spécialisée dans la fabrication et la distribution de métaux et de pièces détachées de vélos pour les marchés de l’Amérique du Nord, de l’Europe et de l’Asie. L’entreprise compte 500 employés. Par ailleurs, Adventure Works emploie plusieurs équipes commerciales régionales pour couvrir son marché. Votre projet consiste à créer un modèle tabulaire afin de permettre aux utilisateurs commerciaux et marketing d’analyser les données des ventes sur Internet dans la base de données AdventureWorksDW.  
+Ce didacticiel repose sur la société fictive Adventure Works Cycles. Adventure Works est une grande société de fabrication multinationale qui produit et distribue des bicyclettes, des parties et des accessoires pour les marchés d’Amérique du Nord, Europe et Asie. L’entreprise compte 500 employés. Par ailleurs, Adventure Works emploie plusieurs équipes commerciales régionales pour couvrir son marché. Votre projet consiste à créer un modèle tabulaire afin de permettre aux utilisateurs commerciaux et marketing d’analyser les données des ventes sur Internet dans la base de données AdventureWorksDW.  
   
 Pour effectuer ce didacticiel, vous devez suivre plusieurs leçons. Chaque leçon comprend des tâches. Il est indispensable d’exécuter chaque tâche dans l’ordre pour terminer la leçon. Une leçon peut comporter plusieurs tâches qui aboutissent au même résultat, mais la façon d’exécuter chaque tâche diffère légèrement. Cette méthode montre qu’il existe souvent plusieurs façons d’effectuer une tâche et de vous tester sur l’utilisation des compétences acquises au cours des leçons et tâches précédentes.  
   
@@ -78,19 +78,19 @@ Ce didacticiel comprend les leçons suivantes :
   
 |Leçon|Durée estimée|  
 |----------|------------------------------|  
-|[Leçon 1 : Créer un projet de modèle tabulaire](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)|10 minutes|  
-|[Leçon 2 : Obtenir des données](../tutorials/aas-lesson-2-get-data.md)|10 minutes|  
-|[Leçon 3 : Marquer en tant que table de dates](../tutorials/aas-lesson-3-mark-as-date-table.md)|3 minutes|  
-|[Leçon 4 : Créer des relations](../tutorials/aas-lesson-4-create-relationships.md)|10 minutes|  
-|[Leçon 5 : Créer des colonnes calculées](../tutorials/aas-lesson-5-create-calculated-columns.md)|15 minutes|
-|[Leçon 6 : Créer des mesures](../tutorials/aas-lesson-6-create-measures.md)|30 minutes|  
-|[Leçon 7 : Afficher des indicateurs de performance clés](../tutorials/aas-lesson-7-create-key-performance-indicators.md)|15 minutes|  
-|[Leçon 8 : Créer des perspectives](../tutorials/aas-lesson-8-create-perspectives.md)|5 minutes|  
-|[Leçon 9 : Créer des hiérarchies](../tutorials/aas-lesson-9-create-hierarchies.md)|20 minutes|  
-|[Leçon 10 : Créer des partitions](../tutorials/aas-lesson-10-create-partitions.md)|15 minutes|  
-|[Leçon 11 : Créer des rôles](../tutorials/aas-lesson-11-create-roles.md)|15 minutes|  
-|[Leçon 12 : Analyser dans Excel](../tutorials/aas-lesson-12-analyze-in-excel.md)|5 minutes| 
-|[Leçon 13 : Déployer](../tutorials/aas-lesson-13-deploy.md)|5 minutes|  
+|[1 - Créer un nouveau projet de modèle tabulaire](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)|10 minutes|  
+|[2 - Obtenir des données](../tutorials/aas-lesson-2-get-data.md)|10 minutes|  
+|[3 - Marquer en tant que Table de dates](../tutorials/aas-lesson-3-mark-as-date-table.md)|3 minutes|  
+|[4 - créer des relations](../tutorials/aas-lesson-4-create-relationships.md)|10 minutes|  
+|[5 - Créer des colonnes calculées](../tutorials/aas-lesson-5-create-calculated-columns.md)|15 minutes|
+|[6 - Créer des mesures](../tutorials/aas-lesson-6-create-measures.md)|30 minutes|  
+|[7 - Créer des indicateurs de performance clés (KPI)](../tutorials/aas-lesson-7-create-key-performance-indicators.md)|15 minutes|  
+|[8 - Créer des perspectives](../tutorials/aas-lesson-8-create-perspectives.md)|5 minutes|  
+|[9 - Créer des hiérarchies](../tutorials/aas-lesson-9-create-hierarchies.md)|20 minutes|  
+|[10 - Créer des partitions](../tutorials/aas-lesson-10-create-partitions.md)|15 minutes|  
+|[11 - Créer des rôles](../tutorials/aas-lesson-11-create-roles.md)|15 minutes|  
+|[12 - Analyser dans Excel](../tutorials/aas-lesson-12-analyze-in-excel.md)|5 minutes| 
+|[13 - Déployer](../tutorials/aas-lesson-13-deploy.md)|5 minutes|  
   
 ## <a name="supplemental-lessons"></a>Leçons supplémentaires  
 Il n’est pas obligatoire de suivre ces leçons pour terminer le didacticiel, mais elles peuvent être utiles pour mieux comprendre les fonctionnalités avancées de création de modèles tabulaires.  

@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 ms.author: rachelap;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 26011d72644f8b13a711d847d83175ce384f2053
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e38c540071cb49b0177e79178566d72ecb5f8886
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Créer et déployer une application API Java dans Azure App Service
@@ -278,7 +277,7 @@ Dans cet article, vous avez pu commencer avec un fichier Swagger JSON et un code
 <a name="see-also"></a>
 
 ## <a name="see-also"></a>Voir aussi
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
+Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez [Azure pour les développeurs Java](/java/azure).
 
 <!-- URL List -->
 
@@ -287,14 +286,14 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [kit de développement logiciel Java Document DB]: ../documentdb/documentdb-java-application.md
 [version d’évaluation gratuite]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
-[Centre de développement Java pour Azure]: /develop/java/
+[Azure Java Developer Center]: /develop/java/
 [Kit 8 de développeur Java]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
 [l’éditeur Swagger en ligne]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
-[kit de développement logiciel de stockage pour Java]: ../storage/storage-java-how-to-use-blob-storage.md
+[kit de développement logiciel de stockage pour Java]:../storage/blobs/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
 [l’éditeur Swagger]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com

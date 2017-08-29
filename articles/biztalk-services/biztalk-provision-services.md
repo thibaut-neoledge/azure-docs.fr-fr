@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 299a6fb23cd0fa725324bbdbdc669ff125a99d1b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: eca77b4a82eb67e1755717bb4429f8d450a64dc5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Créer des services BizTalk Services à l’aide du portail Azure
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/31/2017
 > Pour vous connecter au portail Azure, vous devez disposer d’un compte Azure et d’un abonnement Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Consultez [Version d'évaluation gratuite d'Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
-## <a name="create-a-biztalk-service"></a>Création d'un service BizTalk
+## <a name="CreateService"></a>Créer un service BizTalk
 Selon l'édition que vous choisissez, tous les paramètres du service BizTalk peuvent ne pas être disponibles.
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -233,13 +232,14 @@ Quand un service Azure BizTalk est créé, une URL HTTPS qui inclut le nom de vo
 
 <ul>
 <li><strong>Utilisation avancée de la clé</strong> : au minimum, Azure BizTalk Services exige l’authentification du serveur.</li>
-<li><strong>Nom commun</strong> : entrez le nom de domaine complet (FQDN) de l’URL de votre service Azure BizTalk. Voir <a HREF="#BizTalk">Création d’un service BizTalk</a> dans cet article.</li>
+<li><strong>Nom commun</strong> : entrez le nom de domaine complet (FQDN) de l’URL de votre service Azure BizTalk. Voir <a HREF="#CreateService">Création d’un service BizTalk</a> dans cet article.</li>
 </ul>
 <br/>
 Un certificat nouveau ou différent peut être ajouté après la création du service BizTalk.
 </td>
 </tr>
 </table>
+<!---Loc Comment: Please, check link [Create a BizTalk Service] since it is not redirecting to any location.--->
 
 
 

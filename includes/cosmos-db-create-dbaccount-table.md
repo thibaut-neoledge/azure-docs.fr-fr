@@ -1,5 +1,5 @@
 1. Dans une nouvelle fenêtre, connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu de gauche, cliquez sur **Nouveau**, cliquez ensuite sur **Bases de données**, puis cliquez sur **Azure Cosmos DB**.
+2. Dans le volet de gauche, cliquez sur **Nouveau** et sur **Bases de données**, puis sous **Azure Cosmos DB**, cliquez sur **Créer**.
    
    ![Capture d’écran du portail Azure, mettant en surbrillance l’option Plus de services, et Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
 

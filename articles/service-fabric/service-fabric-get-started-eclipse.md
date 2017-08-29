@@ -12,14 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2016
+ms.date: 08/21/2016
 ms.author: saysa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 9cc621380a6b22a6b1da617d76c56e4773bb3dde
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 98c1b99972b9ad7a396d72b98e727286f6822e42
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -147,6 +146,9 @@ Pour mettre à niveau votre application à l’aide d’Eclipse Neon, vous pouve
 Ce processus crée et enregistre un profil de configuration d’exécution que vous pouvez utiliser à tout moment pour mettre à niveau votre application. Il permet également d’obtenir la dernière version mise à jour du type d’application à partir du fichier de manifeste d’application.
 
 La mise à niveau de l’application prend quelques minutes. Vous pouvez contrôler la mise à niveau de l’application dans Service Fabric Explorer.
+
+## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Migration d’anciennes applications Java Service Fabric à utiliser avec Maven
+Nous avons récemment déplacé les bibliothèques Java Service Fabric vers un référentiel Maven depuis le Kit de développement logiciel (SDK) Java Service Fabric. Tandis que les nouvelles applications que vous générez à l’aide d’Eclipse génèrent les derniers projets mis à jour (en mesure de fonctionner avec Maven), vous pouvez mettre à jour vos services sans état Service Fabric existants ou vos applications Java d’acteur existantes ayant utilisé le Kit de développement logiciel (SDK) précédemment, afin d’utiliser les dépendances Java Service Fabric à partir de Maven. Suivez les étapes mentionnées [ici](service-fabric-migrate-old-javaapp-to-use-maven.md) pour vous assurer qu’une version plus ancienne de votre application fonctionne avec Maven.
 
 <!-- Images -->
 

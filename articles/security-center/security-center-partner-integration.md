@@ -12,14 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 4d0909e926de14a0cbe9799b969ac7a1946d69d1
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="partner-integration-in-azure-security-center"></a>Intégration des partenaires dans Azure Security Center
@@ -62,9 +61,9 @@ Selon la configuration de votre environnement Azure et la stratégie de sécurit
 
 ## <a name="manage-partner-solutions"></a>Gestion des solutions de partenaires
 
-Après le déploiement, sélectionnez la vignette **Solutions de partenaires** dans le panneau **Security Center** pour afficher les informations concernant l’intégrité de la solution et effectuer les tâches de gestion basiques. Pour plus d’informations sur la gestion des solutions de partenaire dans Security Center, consultez [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md).
+Pour afficher les informations concernant l’intégrité de la solution et effectuer les tâches de gestion basiques après le déploiement, accédez au panneau **Security Center** sélectionnez l’option **Solutions de partenaire**. Pour plus d’informations sur la gestion des solutions de partenaire dans Security Center, consultez [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md).
 
-![Intégration des partenaires](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
+![Intégration des partenaires](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
 
 > [!NOTE]
 > La prise en charge du point de terminaison Symantec se limite à la détection. Aucune alerte d’intégrité n’est disponible.
