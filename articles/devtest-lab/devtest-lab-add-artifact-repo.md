@@ -1,5 +1,5 @@
 ---
-title: "Ajouter un dépôt d’artefacts Git à un laboratoire dans Azure DevTest Labs | Microsoft Docs"
+title: "Ajouter un dépôt Git à un laboratoire dans Azure DevTest Labs | Microsoft Docs"
 description: "Ajouter un dépôt GitHub ou Visual Studio Team Services Git pour vos sources d’artefacts personnalisés dans Azure DevTest Labs"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 55b8b97a8cabedf86e2b92d9490be74c72a5fb09
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 053f92a65f9ae29154d471fd22ee842620b4f273
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="add-a-git-repository-to-store-custom-artifacts-and-azure-resource-manager-templates-for-use-in-azure-devtest-labs"></a>Ajouter un référentiel Git pour stocker des artefacts personnalisés et des modèles Azure Resource Manager pour une utilisation dans Azure DevTest Labs
+# <a name="add-a-git-repository-to-store-custom-artifacts-and-azure-resource-manager-templates"></a>Ajouter un référentiel Git pour stocker des artefacts personnalisés et des modèles Azure Resource Manager
 
 Si vous souhaitez [créer des artefacts personnalisés](devtest-lab-artifact-author.md) pour les machines virtuelles dans votre laboratoire, ou [utiliser des modèles Azure Resource Manager pour créer un environnement de test personnalisé](devtest-lab-create-environment-from-arm.md), vous devez également ajouter un référentiel Git privé afin d’inclure les artefacts ou modèles Azure Resource Manager que votre équipe crée. Le dépôt peut être hébergé sur [GitHub](https://github.com) ou sur [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
@@ -77,20 +76,20 @@ Pour obtenir l’URL de clonage du dépôt Visual Studio Team Services et le jet
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste.
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.   
-4. Dans le panneau du laboratoire, sélectionnez **Configuration et stratégies**.
-5. Dans le panneau **Configuration et stratégies** du laboratoire, sélectionnez **Référentiels**.
-6. Dans le panneau **Référentiels**, sélectionnez **+ Ajouter**.
+4. Sur le panneau de gauche, sélectionnez **Configuration et stratégies**.
+5. Dans la zone **Configuration et stratégies** du labo, sélectionnez **Référentiels**.
+6. Dans la zone **Référentiels**, sélectionnez **+ Ajouter**.
 
     ![Bouton Ajouter un référentiel](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
-7. Dans le deuxième panneau **Référentiels** , spécifiez les éléments suivants :
+7. Sur la seconde page **Référentiels**, spécifiez les informations suivantes :
 
-   * **Nom** : entrez un nom pour le dépôt.
+   * **Nom** - Entrez un nom pour le dépôt.
    * **Url de clonage Git** : entrez l’URL de clonage Git HTTPS que vous avez précédemment copiée à partir de GitHub ou Visual Studio Team Services.
    * **Branche** : entrez la branche pour obtenir vos définitions.
    * **Jeton d’accès personnel**: entrez le jeton d’accès personnel obtenu précédemment à partir de GitHub ou Visual Studio Team Services.
    * **Chemins de dossiers** : entrez au moins un chemin d’accès de dossier relatif à l’URL du clone contenant votre artefact ou vos définitions de modèle Azure Resource Manager. Lorsque vous spécifiez un sous-répertoire, veillez à inclure la barre oblique dans le chemin d’accès du dossier.
 
-     ![Panneau du référentiel](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+     ![Zone Référentiels](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 8. Sélectionnez **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -98,11 +97,11 @@ Après avoir créé votre référentiel Git privé, vous pouvez effectuer au moi
 * Stocker vos [artefacts personnalisés](devtest-lab-artifact-author.md) que vous pouvez utiliser ultérieurement pour créer des machines virtuelles.
 * [Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager](devtest-lab-create-environment-from-arm.md), puis stocker les modèles dans votre référentiel privé.
 
-Lorsque vous créez une machine virtuelle, vous pouvez vérifier que les artefacts ou modèles sont ajoutés à votre référentiel Git. Ces éléments sont immédiatement disponibles dans la liste des artefacts ou modèles, avec le nom de votre référentiel privé affiché dans la colonne spécifiant la source. 
+Lorsque vous créez une machine virtuelle, vous pouvez vérifier que les artefacts ou les modèles sont ajoutés à votre référentiel Git. Ils sont immédiatement disponibles dans la liste des artefacts ou des modèles ; le nom de votre référentiel privé s’affiche dans la colonne spécifiant la source. 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="related-blog-posts"></a>Billets de blog connexes
-* [How to troubleshoot failing Artifacts in AzureDevTestLabs (Comment résoudre les problèmes d’échec des artefacts dans AzureDevTestLabs)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
-* [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab (Joindre une machine virtuelle à un domaine Active Directory existant à l’aide du modèle ARM dans Azure Dev Test Lab)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Guide pratique pour résoudre les échecs des artefacts dans Azure DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
+* [Joindre une machine virtuelle à un domaine AD existant à l’aide d’un modèle Resource Manager dans Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 

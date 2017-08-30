@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/21/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3ac234b27a0675f484018c357a65ab65049ceee0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e42841b126a9df9240bec3f489589d5ce4a6db80
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="limitations-of-azure-cloud-shell"></a>Limitations d’Azure Cloud Shell
-Azure Cloud Shell a les limitations connues suivantes.
+Azure Cloud Shell a les limitations connues suivantes :
 
 ## <a name="system-state-and-persistence"></a>État du système et persistance
 La machine qui fournit votre session Cloud Shell est temporaire. En effet, elle est recyclée lorsque votre session reste inactive pendant 20 minutes. Cloud Shell requiert qu’un partage de fichiers soit monté. Par conséquent, votre abonnement doit être en mesure de configurer des ressources de stockage pour accéder à Cloud Shell. Autres éléments à prendre en compte :
@@ -39,12 +39,12 @@ Même si certaines commandes situées dans le répertoire `clouddrive` (par exem
 Cloud Shell prend en charge les dernières versions de Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox et Apple Safari. Safari en mode privé n’est pas pris en charge.
 
 ## <a name="copy-and-paste"></a>Copier et coller
-Étant donné que les commandes Ctrl + C et Ctrl + V ne fonctionnent pas comme des raccourcis clavier permettant de copier et coller sur les ordinateurs Windows, utilisez les commandes Ctrl + Inser et MAJ + Insert pour copier et coller.
+Étant donné que les commandes Ctrl + C et Ctrl + V ne fonctionnent pas comme des raccourcis permettant de copier et coller dans Cloud Shell sur les ordinateurs Windows, utilisez les commandes Ctrl + Inser et Maj + Inser pour copier et coller respectivement.
 
 Des options de copier-coller du bouton droit sont également disponibles, mais sont soumises à l’accès au Presse-papiers du navigateur.
 
 ## <a name="editing-bashrc"></a>Modifier .bashrc
-Soyez prudent lorsque vous modifiez .bashrc, car cela peut entraîner des erreurs inattendues dans Cloud Shell.
+Faites attention lorsque vous modifiez .bashrc : cela peut entraîner des erreurs inattendues dans Cloud Shell.
 
 ## <a name="bashhistory"></a>.bash_history
 Votre historique de commandes de l’interpréteur de commandes risque d’être incohérent en raison d’interruptions de sessions Cloud Shell ou de sessions simultanées.
@@ -53,7 +53,7 @@ Votre historique de commandes de l’interpréteur de commandes risque d’être
 Cloud Shell est destiné aux cas d’usage interactif. De fait, les sessions non interactives longues se terminent sans avertissement.
 
 ## <a name="network-connectivity"></a>Connectivité réseau
-Dans Cloud Shell, la latence est soumise à la connectivité Internet locale. Cependant, Cloud Shell continue d’essayer de fonctionner avec les instructions envoyées.
+La latence dans Cloud Shell est soumise à la connectivité Internet locale, Cloud Shell continue d’essayer de traiter les instructions envoyées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Démarrage rapide de Cloud Shell](quickstart.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 3e6bcf301a9257a60e6b921934bb6a04b4dd5d53
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c9df4e1f7677b2ed10684f6f3c981f2abf64f171
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="installing-python-and-the-sdk"></a>Installation de Python et du kit SDK
@@ -50,7 +50,7 @@ Il existe plusieurs façons de télécharger CPython :
 Sauf en cas de nécessité particulière, nous vous recommandons d’opter pour l’une des deux premières options.
 
 ## <a name="sdk-installation-on-windows-linux-and-macos-client-libraries-only"></a>Installation du SDK sous Windows, Linux et macOS (bibliothèques client uniquement)
-Si vous avez déjà installé Python, vous pouvez utiliser pip pour installer un lot de toutes les bibliothèques client dans votre environnement Python 2.7 ou Python 3.3+ existant. Cela télécharge les packages à partir du [Python Package Index][Python Package Index] (PyPI).
+Si vous avez déjà installé Python, vous pouvez utiliser pip pour installer un lot de toutes les bibliothèques client dans votre environnement Python 2.7 ou Python 3.3+ existant. Cela télécharge les packages depuis [l’index Python Package][Python Package Index] (PyPI).
 
 Vous aurez peut-être besoin de droits d’administrateur :
 
@@ -67,13 +67,13 @@ Vous pouvez installer chaque bibliothèque individuellement pour chaque service 
 L’aperçu des packages peut être installé à l’aide de l’indicateur `--pre` :
 
 ```console
-   $ pip install --pre azure-mgmt-compute # will install only the latest Compute Management library
+   $ pip install --pre azure-mgmt-compute # installs only the latest Compute Management library
 ```
 
 Vous pouvez également installer un ensemble de bibliothèques Azure d’une seule ligne à l’aide du méta-package `azure` . Étant donné que tous les packages de ce méta-package ne sont pas encore publiés de façon stable, le méta-package `azure` est encore en version préliminaire.
 Toutefois, les packages de base peuvent pour l’instant être considérés comme « stables » du point de vue de la qualité / l’exhaustivité du code
 
-* ils seront officiellement étiquetés comme tels, en phase avec d’autres langages, dès que possible.
+* ils sont officiellement étiquetés comme tels dans la synchronisation avec d’autres langues, dès que possible.
   Nous ne prévoyons pas d’autres changements majeurs d’ici-là.
 
 Puisqu’il s’agit d’une version préliminaire, vous devez utiliser l’indicateur `--pre` :
@@ -109,11 +109,11 @@ Pour Linux et macOS, les principaux scénarios Azure pris en charge sont les sui
 2. Exécution de votre application sur une machine virtuelle Linux
 3. Développement et publication de sites web Azure à l'aide de Git
 
-Le premier scénario vous permet de créer des applications web enrichies qui tirent parti des fonctionnalités PaaS d’Azure, comme le [Stockage Blob](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), le [Stockage File d’attente](storage/storage-python-how-to-use-queue-storage.md) ou le [Stockage Table](storage/storage-python-how-to-use-table-storage.md), par le biais de wrappers Python pour les API REST Azure. Le fonctionnement de ces derniers est identique sous Windows, Mac et Linux.  Vous pouvez également utiliser ces bibliothèques clientes à partir de votre ordinateur de développement local ou une machine virtuelle Linux s'exécutant sur Azure.
+Le premier scénario vous permet de créer des applications web enrichies qui tirent parti des fonctionnalités PaaS d’Azure, comme le [Stockage Blob](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), le [Stockage File d’attente](storage/queues/storage-python-how-to-use-queue-storage.md) ou le [Stockage Table](cosmos-db/table-storage-how-to-use-python.md), par le biais de wrappers Python pour les API REST Azure. Le fonctionnement de ces derniers est identique sous Windows, Mac et Linux.  Vous pouvez également utiliser ces bibliothèques clientes à partir de votre ordinateur de développement local ou une machine virtuelle Linux s'exécutant sur Azure.
 
 Pour le scénario nécessitant une machine virtuelle, vous pouvez tout simplement démarrer une machine virtuelle Linux de votre choix (Ubuntu, CentOS, Suse) et exécuter/gérer les logiciels souhaités.  Par exemple, vous pouvez exécuter [IPython][IPython] REPL/Notebook sur votre machine Windows/Mac/Linux et pointer votre navigateur vers une machine virtuelle multiprocesseur Linux ou Windows exécutant le moteur IPython Engine sur Azure.
 
-Pour plus d’informations sur la configuration d’une machine virtuelle Linux, voir le didacticiel [Création d’une machine virtuelle exécutant Linux](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+Pour plus d’informations sur la configuration d’une machine virtuelle Linux, consultez le didacticiel [Créer une machine virtuelle exécutant Linux](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
 À l'aide du déploiement Git, vous pouvez développer une application web Python et la publier sur un site web Azure à partir de n'importe quel système d'exploitation.  Quand vous placez votre référentiel sur Azure, il crée automatiquement un environnement virtuel et utilise pip pour installer vos packages requis.
 
@@ -162,5 +162,5 @@ Pour plus d’informations sur le développement et la publication de sites web 
 [Configuring Python with Azure Websites]: web-sites-python-configure.md
 [table storage]: storage-python-how-to-use-table-storage.md
 [queue storage]: storage-python-how-to-use-queue-storage.md
-[blob storage]: storage-python-how-to-use-blob-storage.md
+[blob storage]:storage/blobs/storage-python-how-to-use-blob-storage.md
 

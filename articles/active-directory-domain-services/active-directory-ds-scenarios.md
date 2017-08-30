@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/23/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 359653f29adc538a4fe2f2143e8132bdd9a9d15b
-ms.lasthandoff: 02/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 72514dabf3af0b282d1bb49c542c13f7095e03d8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Scénarios de déploiement et cas d'usage
@@ -38,7 +38,7 @@ Les serveurs et les autres infrastructures étant en fin de vie, Contoso transf�
 Considérez ces quelques points importants pour ce scénario de déploiement :
 
 * Les domaines gérés fournis par les services de domaine Azure AD offrent par défaut une structure d’unité d’organisation plate. Toutes les machines jointes au domaine résident dans une unité d’organisation plate. Toutefois, vous pouvez choisir de créer des unités d’organisation personnalisées.
-* Les services de domaine Azure AD prennent en charge une stratégie de groupe simple sous forme d’un objet de stratégie de groupe intégré pour les conteneurs d’utilisateurs et d’ordinateurs par défaut. Vous ne pouvez pas cibler la stratégie de groupe par unité d’organisation/service, effectuer un filtrage WMI ou créer des objets de stratégie de groupe personnalisés.
+* Les services de domaine Azure AD prennent en charge une stratégie de groupe simple sous forme d’un objet de stratégie de groupe intégré pour les conteneurs d’utilisateurs et d’ordinateurs par défaut. Vous pouvez créer des objets GPO personnalisés et les cibler vers des unités d’organisation personnalisées.
 * Les services de domaine Azure AD prennent en charge le schéma de l’objet de base de l’ordinateur AD. Vous ne pouvez pas étendre le schéma de l’objet de l’ordinateur.
 
 ## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>Le transfert d’une application sur site qui utilise l’authentification de liaison LDAP pour les services d’Infrastructure Azure
@@ -77,10 +77,8 @@ Considérez ces quelques points importants pour ce scénario de déploiement :
 * Assurez-vous que l’application utilise un ensemble nom d’utilisateur/mot de passe pour l’authentification. L’authentification basée sur un certificat/carte à puce n’est pas prise en charge par les services de domaine Azure AD.
 * Vous ne pouvez pas modifier les mots de passe directement sur le domaine géré. Les utilisateurs finaux peuvent modifier leur mot de passe soit à l’aide du mécanisme de modification de mot de passe en libre-service Azure AD, soit depuis le répertoire local. Ces modifications sont automatiquement synchronisées et disponibles dans le domaine géré.
 
-## <a name="azure-remoteapp"></a>Azure RemoteApp
-Azure RemoteApp permet à l’administrateur de Contoso de créer une collection jointe à un domaine. Cette fonctionnalité permet aux applications distantes prises en charge par Azure RemoteApp de s’exécuter sur les ordinateurs joints à un domaine et d’accéder à d’autres ressources à l’aide de l’authentification intégrée de Windows. Contoso peut utiliser les services de domaine Azure AD pour fournir un domaine géré utilisé par les collections jointes à un domaine Azure RemoteApp.
+## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Déploiements des services Bureau à distance Windows Server dans Azure
+Vous pouvez utiliser les Services de domaine Azure AD pour fournir des services de domaine AD gérés à vos serveurs Bureau à distance déployés dans Azure.
 
-![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
-
-Pour plus d’informations sur ce scénario de déploiement, consultez l’article du blog des services Bureau à distance intitulé [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)(en anglais).
+Pour plus d’informations sur ce scénario de déploiement, consultez le guide pratique pour [intégrer les Services de domaine Azure AD à votre déploiement RDS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
 

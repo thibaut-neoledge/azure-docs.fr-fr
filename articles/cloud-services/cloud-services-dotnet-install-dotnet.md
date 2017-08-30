@@ -1,6 +1,6 @@
 ---
-title: "Installer .NET sur un rôle de service cloud | Microsoft Docs"
-description: "Cet article explique comment installer manuellement le .NET Framework sur les rôles web et les rôles de travail de Cloud Services."
+title: "Installer .NET sur des rôles d’Azure Cloud Services | Microsoft Docs"
+description: "Cet article explique comment installer manuellement .NET Framework sur vos rôles web et rôles de travail de Cloud Services."
 services: cloud-services
 documentationcenter: .net
 author: thraka
@@ -15,49 +15,49 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: e6154d990e10f67d4b30b889a62a99cedcbfccbe
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: a9cffa275ae6b9315b821d3160b17a997a1523f7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
-# <a name="install-net-on-a-cloud-service-role"></a>Installer .NET sur un rôle de service cloud
-Cet article décrit comment installer différentes versions de .NET Framework sur les rôles web de service cloud et de travail associés au SE invité. Par exemple, vous pouvez appliquer cette procédure pour installer .NET 4.6.1 sur la famille 4 de système d’exploitation invité Azure, qui n’est fournie avec aucune des versions de .NET 4.6. Pour obtenir les dernières informations sur les versions de système d’exploitation invité, consultez les [Actualités concernant les versions de système d’exploitation invité Azure](cloud-services-guestos-update-matrix.md).
+# <a name="install-net-on-azure-cloud-services-roles"></a>Installer .NET sur des rôles d’Azure Cloud Services
+Cet article décrit comment installer des versions de .NET Framework qui ne sont fournies avec le SE invité Azure. Vous pouvez utiliser .NET sur le SE invité pour configurer vos rôles web et rôles de travail de Cloud Services.
 
->[!NOTE]
->Le SE invité 5 comprend .NET 4.6.
+Par exemple, vous pouvez installer .NET 4.6.1 sur la famille de SE invités 4, qui n’est fournie avec une version de .NET 4.6. (La famille de SE invités 5 est fournie avec .NET 4.6.) Pour obtenir les dernières informations sur les versions de SE invité Azure, consultez les [Actualités concernant les versions de SE invité Azure](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
->Azure SDK 2.9 contient une restriction sur le déploiement de .NET 4.6 sur le SE invité 4 ou version inférieure. Un correctif est disponible [ici](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
+>Azure SDK 2.9 contient une restriction sur le déploiement de .NET 4.6 sur la famille de SE invités 4 ou version antérieure. Un correctif pour la restriction est disponible sur le site [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
-Le processus d'installation de .NET sur les rôles web et les rôles de travail nécessite que vous incluiez le package du programme d'installation de .NET dans le cadre de votre projet cloud et que vous lanciez le programme d'installation dans le cadre des tâches de démarrage du rôle.  
+Pour installer .NET sur vos rôles web et rôles de travail, incluez le programme d’installation web de .NET dans le cadre de votre projet de service cloud. Démarrez le programme d’installation dans le cadre des tâches de démarrage des rôles. 
 
 ## <a name="add-the-net-installer-to-your-project"></a>Ajouter le programme d'installation de .NET à votre projet
-* Téléchargez le programme d’installation web du .NET Framework que vous souhaitez installer.
-  * [Programme d’installation Web .NET 4.7](http://go.microsoft.com/fwlink/?LinkId=825298)
-  * [Programme d’installation Web .NET 4.6.1](http://go.microsoft.com/fwlink/?LinkId=671729)
+Pour télécharger le programme d'installation web de .NET Framework, sélectionnez la version à installer :
 
-* Pour un rôle web
-  1. Dans l’**Explorateur de solutions**, dans le projet de service cloud, sous **Rôles**, cliquez avec le bouton droit sur votre rôle, puis sélectionnez **Ajouter > Nouveau dossier**. Créez un dossier intitulé *bin*
-  2. Cliquez avec le bouton droit sur le dossier **bin**, puis sélectionnez **Ajouter > Élément existant**. Sélectionnez le programme d'installation de .NET, puis ajoutez-le au dossier bin.
+* [Programme d’installation web de .NET 4.7](http://go.microsoft.com/fwlink/?LinkId=825298)
+* [Programme d’installation web de.NET 4.6.1](http://go.microsoft.com/fwlink/?LinkId=671729)
+
+Pour ajouter le programme d’installation pour un rôle *web* :
+  1. Dans l’**Explorateur de solutions**, dans votre projet de service cloud, sous **Rôles**, cliquez avec le bouton droit sur votre rôle *web*, puis sélectionnez **Ajouter** > **Nouveau dossier**. Créez un dossier intitulé **bin**.
+  2. Cliquez avec le bouton droit sur le dossier bin, puis sélectionnez **Ajouter** > **Élément existant**. Sélectionnez le programme d'installation de .NET, puis ajoutez-le au dossier bin.
   
-* Pour un rôle de travail
-  1. Cliquez avec le bouton droit sur votre rôle, puis sélectionnez **Ajouter > Élément existant**. Sélectionnez le programme d'installation de .NET, puis ajoutez-le au rôle. 
+Pour ajouter le programme d’installation pour un rôle *de travail* :
+* Cliquez avec le bouton droit sur votre rôle *de travail*, puis sélectionnez **Ajouter** > **Élément existant**. Sélectionnez le programme d'installation de .NET, puis ajoutez-le au rôle. 
 
-Les fichiers ajoutés de cette façon dans le dossier de contenu du rôle sont ajoutés automatiquement au package de service cloud et déployés dans un emplacement similaire sur la machine virtuelle. Répétez ce processus pour tous les rôles web et tous les rôles de travail de Cloud Services, pour que tous les rôles disposent d'une copie du programme d'installation.
+Les fichiers ajoutés de cette façon dans le dossier de contenu du rôle sont automatiquement ajoutés à votre package de service cloud et déployés dans un emplacement similaire sur la machine virtuelle. Répétez ce processus pour chaque rôle web et chaque rôle de travail de service cloud afin que tous les rôles disposent d'une copie du programme d'installation.
 
 > [!NOTE]
-> Même si votre application cible .NET 4.6, nous vous conseillons d’installer .NET 4.6.1 sur votre rôle de service cloud. Le système d’exploitation invité Azure inclut les mises à jour [3098779](https://support.microsoft.com/kb/3098779) et [3097997](https://support.microsoft.com/kb/3097997). Installer .NET 4.6 en plus de ces mises à jour peut causer des problèmes lors de l’exécution de vos applications .NET. C’est pourquoi nous vous conseillons d’installer directement .NET 4.6.1 au lieu de .NET 4.6. Pour plus d’informations, consultez [cet article de la base de connaissances](https://support.microsoft.com/kb/3118750).
+> Même si votre application cible .NET 4.6, nous vous conseillons d’installer .NET 4.6.1 sur votre rôle de service cloud. Le SE invité inclut les mises à jour [ 3098779](https://support.microsoft.com/kb/3098779) et [3097997](https://support.microsoft.com/kb/3097997) de la base de connaissances. L’installation de NET 4.6 en plus de ces mises à jour peut causer des problèmes lors de l’exécution de vos applications .NET. Pour éviter ces problèmes, installez .NET 4.6.1 au lieu de la version 4.6. Pour plus d’informations, consultez cet [article sur la base de connaissances 3118750](https://support.microsoft.com/kb/3118750).
 > 
 > 
 
 ![Contenu du rôle avec les fichiers d'installation][1]
 
 ## <a name="define-startup-tasks-for-your-roles"></a>Définir des tâches de démarrage pour vos rôles
-Les tâches de démarrage permettent d'effectuer des opérations avant le démarrage d'un rôle. L’installation du .NET Framework dans le cadre de la tâche de démarrage permet de garantir qu’il sera installé avant l’exécution du code de votre application. Pour plus d’informations sur les tâches de démarrage, consultez [Exécuter des tâches de démarrage dans Azure](cloud-services-startup-tasks.md). 
+Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations avant le démarrage d’un rôle. L’installation de .NET Framework dans le cadre de la tâche de démarrage permet de garantir qu’il sera installé avant l’exécution du code de votre application. Pour plus d’informations sur les tâches de démarrage, consultez [Exécuter des tâches de démarrage dans Azure](cloud-services-startup-tasks.md). 
 
-1. Ajoutez le code suivant au fichier *ServiceDefinition.csdef* sous le nœud **WebRole** ou **WorkerRole** pour tous les rôles :
+1. Ajoutez le contenu suivant au fichier ServiceDefinition.csdef sous le nœud **WebRole** ou **WorkerRole** pour tous les rôles :
    
     ```xml
     <LocalResources>
@@ -77,18 +77,21 @@ Les tâches de démarrage permettent d'effectuer des opérations avant le démar
     </Startup>
     ```
    
-    La configuration précédente exécute la commande de console *install.cmd* avec des privilèges d’administrateur pour installer le .NET Framework. La configuration crée également un *LocalStorage* nommé *NETFXInstall*. Le script de démarrage configure le dossier temporaire pour qu’il utilise cette ressource de stockage local. Il est important que la taille de cette ressource soit paramétrée au minimum sur 1 024 Mo pour garantir l’installation correcte du Framework. Pour plus d’informations sur les tâches de démarrage, consultez [Tâches courantes de démarrage dans le service cloud](cloud-services-startup-tasks-common.md). 
+    La configuration précédente exécute la commande de console `install.cmd` avec des privilèges d’administrateur pour installer .NET Framework. La configuration crée également un élément **LocalStorage** nommé **NETFXInstall**. Le script de démarrage configure le dossier temporaire pour qu’il utilise cette ressource de stockage local. 
+    
+    > [!IMPORTANT]
+    > Afin de garantir l’installation correcte de Framework, définissez la taille de cette ressource sur 1 024 Mo au minimum.
+    
+    Pour plus d’informations sur les tâches de démarrage, consultez [Tâches courantes de démarrage dans Azure Cloud Services](cloud-services-startup-tasks-common.md).
 
-2. Créez un fichier **install.cmd** et ajoutez-le à tous les rôles en cliquant avec le bouton droit sur chaque rôle, puis en sélectionnant **Ajouter > Élément existant**. Tous les rôles doivent maintenant avoir le fichier du programme d'installation de .NET, ainsi que le fichier install.cmd.
-   
-   ![Contenu du rôle avec tous les fichiers][2]
-   
-   > [!NOTE]
-   > Utilisez un éditeur de texte de base tel que le Bloc-notes pour créer ce fichier. Si vous utilisez Visual Studio pour créer un fichier texte et que vous le renommez ensuite « .cmd », le fichier peut toujours contenir une marque d’ordre d’octet UTF-8, et l’exécution de la première ligne du script générera une erreur. Vérifiez que la première ligne du fichier est une commande REM. Le traitement de la marque d’ordre d’octet UTF-8 pourra ainsi être ignoré. 
-   > 
-   > 
+2. Créez un fichier nommé **install.cmd** et ajoutez le script d’installation suivant au fichier.
 
-3. Ajoutez le script suivant au fichier **install.cmd** :
+    Le script vérifie si la version de .NET Framework spécifiée est déjà installée sur l'ordinateur en interrogeant le Registre. Si la version de .NET n'est pas installée, le programme d'installation web de .NET est lancé. Pour résoudre les éventuels problèmes, le script enregistre toutes les activités dans le fichier startuptasklog-(date et heures actuelles).txt qui est conservé dans le stockage local **InstallLogs**.
+
+    > [!IMPORTANT]
+    > Utilisez un éditeur de texte de base tel que le Bloc-notes de Windows pour créer le fichier install.cmd. Si vous utilisez Visual Studio pour créer un fichier texte dont vous changez ensuite l’extension à .cmd, le fichier risque de toujours contenir une marque d’ordre d’octet UTF-8 qui pourrait générer une erreur lors de l’exécution de la première ligne du script. Pour éviter cette erreur, assurez-vous que la première ligne du script est une instruction REM qui peut être ignorée par le traitement de la marque d’ordre d’octet. 
+    > 
+    >
    
     ```cmd
     REM Set the value of netfx to install appropriate .NET Framework. 
@@ -179,17 +182,21 @@ Les tâches de démarrage permettent d'effectuer des opérations avant le démar
     EXIT /B 0
     ```
    
-    Le script d'installation vérifie si la version de .NET Framework spécifiée est déjà installée sur l'ordinateur en interrogeant le Registre. Si la version de .NET n'est pas installée, le programme d'installation Web de .NET est lancé. Pour résoudre les éventuels problèmes, le script enregistre toutes les activités dans un fichier nommé *startuptasklog-(currentdatetime).txt* qui est stocké dans le stockage local *InstallLogs*.
-   
    > [!NOTE]
-   > Le script vous indique toujours comment installer .NET 4.5.2 ou .NET 4.6 à des fins de continuité. Il est inutile d’installer .NET 4.5.2 manuellement, car il est déjà disponible sur le système d’exploitation invité Azure. Au lieu d’installer .NET 4.6, nous vous conseillons d’installer directement .NET 4.6.1 en raison du problème décrit [ici](https://support.microsoft.com/kb/3118750).
+   > Le script vous indique comment installer la version .NET 4.5.2 ou .4.6 à des fins de continuité, même si la version .NET 4.5.2 est déjà disponible sur le SE invité Azure. Nous vous conseillons d’installer directement .NET 4.6.1 au lieu de la version 4.6, tel que décrit dans l’[article de la base de connaissances 3118750](https://support.microsoft.com/kb/3118750).
    > 
    > 
 
-## <a name="configure-diagnostics-to-transfer-the-startup-task-logs-to-blob-storage"></a>Configurer les diagnostics pour transférer les journaux des tâches de démarrage vers le stockage d’objets blob
-Pour simplifier la résolution des problèmes d’installation, vous pouvez configurer Azure Diagnostics de façon à transférer tous les fichiers journaux générés par le script de démarrage ou le programme d’installation de .NET vers le stockage d’objets blob. Grâce à cette approche, vous pouvez afficher les journaux en téléchargeant les fichiers journaux à partir du stockage d’objets blob au lieu d’accéder au rôle par le biais du Bureau à distance.
+3. Ajoutez le fichier install.cmd à chaque rôle en sélectionnant**Ajouter** > **Élément existant** dans l’**Explorateur de solutions**, tel que décrit précédemment dans cette rubrique. 
 
-Pour configurer les diagnostics, ouvrez le fichier *diagnostics.wadcfgx*, puis ajoutez-y le code suivant sous le nœud **Directories** : 
+    Une fois cette étape réalisée, tous les rôles doivent avoir le fichier du programme d'installation de .NET et le fichier install.cmd.
+
+   ![Contenu du rôle avec tous les fichiers][2]
+
+## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>Configurer les diagnostics pour transférer les journaux de démarrage vers le stockage Blob
+Pour simplifier la résolution des problèmes d’installation, vous pouvez configurer Azure Diagnostics de façon à transférer tous les fichiers journaux générés par le script de démarrage ou le programme d’installation de .NET vers le stockage Blob Azure. Grâce à cette approche, vous pouvez afficher les journaux en téléchargeant les fichiers journaux depuis le stockage Blob au lieu d’accéder au rôle par le biais du Bureau à distance.
+
+Pour configurer les diagnostics, ouvrez le fichier diagnostics.wadcfgx et ajoutez le contenu suivant sous le nœud **Directories** : 
 
 ```xml 
 <DataSources>
@@ -199,15 +206,15 @@ Pour configurer les diagnostics, ouvrez le fichier *diagnostics.wadcfgx*, puis a
 </DataSources>
 ```
 
-Ce code XML configure Azure Diagnostics de façon à transférer tous les fichiers du répertoire *log* de la ressource *NETFXInstall* vers le compte de stockage de diagnostics dans le conteneur d’objets blob *netfx-install*.
+Ce code XML configure Diagnostics de façon à transférer tous les fichiers du répertoire log de la ressource **NETFXInstall** vers le compte de stockage de Diagnostics dans le conteneur d’objets blob **netfx-install**.
 
-## <a name="deploying-your-service"></a>Déploiement du service
-Quand vous déployez un service, les tâches de démarrage installent le .NET Framework, s’il n’est pas encore installé. Vos rôles seront à l’état *Occupé* pendant l’installation du .NET Framework et peuvent même être redémarrés si l’installation le nécessite. 
+## <a name="deploy-your-cloud-service"></a>Déployer votre service cloud
+Quand vous déployez votre service cloud, les tâches de démarrage installent .NET Framework, s’il n’est pas déjà installé. Vos rôles de service cloud seront à l’état *Occupé* pendant l’installation de .NET Framework et peuvent même être redémarrés si l’installation le nécessite. 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Installation du .NET Framework][Installing the .NET Framework]
-* [Comment : déterminer les versions .NET Framework installées][How to: Determine Which .NET Framework Versions Are Installed]
-* [Résolution des problèmes liés aux installations .NET Framework][Troubleshooting .NET Framework Installations]
+* [Identifier les versions de .NET Framework installées][How to: Determine Which .NET Framework Versions Are Installed]
+* [Résolution des problèmes liés aux installations de .NET Framework][Troubleshooting .NET Framework Installations]
 
 [How to: Determine Which .NET Framework Versions Are Installed]: https://msdn.microsoft.com/library/hh925568.aspx
 [Installing the .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
@@ -216,6 +223,4 @@ Quand vous déployez un service, les tâches de démarrage installent le .NET Fr
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
-
-
 

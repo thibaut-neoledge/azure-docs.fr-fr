@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 9a9ca74b959d1940bf30a903a8eab65cad87b74a
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: accf292f70bf0eafdefc00c3feeaf8e346605401
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-active-directory-reporting-faq"></a>FAQ sur les rapports Azure Active Directory
@@ -83,25 +83,31 @@ Pour plus d’informations, consultez la page [Rapports Azure Active Directory](
 
 **Q : Peut-on voir les données du mois dernier après avoir obtenu une licence Azure AD Premium ?**
 
-**R :**: Si vous êtes récemment passé à une version Premium (y compris une version d’évaluation), vous pouvez voir les données jusqu’à 7 jours au début. Au fur et à mesure de l’accumulation des données, vous verrez jusqu’à 30 jours.
+**R :** Si vous êtes récemment passé à une version Premium (y compris une version d’évaluation), vous pouvez voir les données jusqu’à 7 jours dans un premier temps. Au fur et à mesure de l’accumulation des données, vous verrez jusqu’à 30 jours.
 
 ---
 
-**Q : ldentity Protection m’informe d’un événement à risque, mais je ne vois pas à quelle connexion il correspond parmi toutes les connexions répertoriées. Est-ce normal?**
-**R:**: Oui, Identity Protection évalue les risques pour tous les flux d’authentification, qu’ils soient interactifs ou non. Toutefois, seules les connexions interactives sont répertoriées.
+**Q : ldentity Protection m’informe d’un événement à risque, mais je ne vois pas à quelle connexion il correspond parmi toutes les connexions répertoriées. Est-ce normal ?**
+
+**R :** Oui, Identity Protection évalue les risques pour tous les flux d’authentification, qu’ils soient interactifs ou non. Toutefois, seules les connexions interactives sont répertoriées.
 
 ---
 
 **Q : Comment puis-je télécharger le rapport « Utilisateurs avec indicateur de risque » dans le portail Azure ?**
 
-**R :** L’option permettant de télécharger le rapport « Utilisateurs avec indicateur de risque » sera bientôt disponible.
+**R :** L’option permettant de télécharger le rapport *Utilisateurs avec indicateur de risque* sera bientôt disponible.
 
 ---
 
-**Q : Comment puis-je connaître la raison pour laquelle une connexion ou un utilisateur a été signalé comme étant « à risque » dans le portail Azure ?**
+**Q : Comment puis-je savoir pourquoi une connexion ou un utilisateur ont été signalés comme étant « à risque » dans le portail Azure ?**
 
 **R :** Les utilisateurs de l’édition Premium peuvent en savoir plus sur les événements à risque sous-jacents en cliquant sur l’utilisateur répertorié sous « Utilisateurs avec indicateur de risque » ou en cliquant sur « Connexions à risque ». Les utilisateurs de l’édition gratuite et de l’édition De base peuvent voir les utilisateurs et les connexions à risque, mais pas les événements à risque sous-jacents.
 
 ---
 
+**Q : comment les adresses IP sont-elles calculées dans le rapport des connexions et des connexions risquées ??**
+
+**R :** les adresses IP sont émises de manière à ce qu’il n’existe aucune connexion définitive entre une adresse IP et l’endroit où se trouve physiquement l’ordinateur avec cette adresse. Ceci est compliqué par des facteurs tels que les fournisseurs mobiles et les VPN qui émettent des adresses IP à partir de pools centraux souvent très éloignés de l’endroit où l’appareil client est réellement utilisé. Étant donné ce qui précède, la conversion de l’adresse IP en un emplacement physique constitue la meilleure solution pour les suivis, les données de registre, les recherches inversées et d’autres informations. 
+
+---
 

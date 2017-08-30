@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 08/17/2017
 ms.author: curtand
-ms.reviewer: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
+ms.reviewer: aaronsm
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: fc0d297598c334ca8f6f8a2bd3ae948c87956342
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Intégrer l’authentification unique Azure Active Directory aux applications SaaS
@@ -33,6 +33,9 @@ ms.lasthandoff: 05/08/2017
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
 Pour commencer à configurer l’authentification unique pour une application que vous importez dans votre organisation, vous utiliserez un annuaire existant dans Azure Active Directory (Azure AD). Vous pouvez utiliser un annuaire Azure AD que vous obtenez via Microsoft Azure, Office 365 ou Windows Intune. Si vous avez deux ou plusieurs de ces éléments, consultez [Administration de votre annuaire Azure AD](active-directory-administer.md) afin de déterminer celui à utiliser.
+
+> [!IMPORTANT]
+> Microsoft recommande de gérer Azure AD à l’aide du [Centre d’administration Azure AD](https://aad.portal.azure.com) dans le portail Azure au lieu d’utiliser le portail Azure classique référencé dans cet article. Pour savoir comment attribuer des rôles d’administrateur dans le centre d’administration Azure AD, consultez la section [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-enterprise-apps-manage-sso.md).
 
 ## <a name="authentication"></a>Authentification
 Pour les applications qui prennent en charge les protocoles SAML 2.0, WS-Federation ou OpenID Connect, Azure Active Directory utilise des certificats de signature afin d’établir des relations de confiance. Pour plus d'informations, consultez [Gestion des certificats pour l’authentification unique fédérée](active-directory-sso-certs.md).
@@ -72,7 +75,7 @@ Pour les applications SaaS figurant dans la galerie d’applications, Azure AD f
 
 Si l’application n’apparaît pas dans la galerie d’applications, vous pouvez [l’ajouter à la galerie d’applications Azure AD comme application personnalisée](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
-Vous trouverez des informations beaucoup plus détaillées sur tous ces problèmes dans la bibliothèque Azure.com, en commençant par la rubrique [Accès aux applications et authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Vous trouverez des informations beaucoup plus détaillées sur tous ces problèmes dans la bibliothèque Azure.com, en commençant par [À quoi correspond l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 Consultez aussi l’[Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md).
 

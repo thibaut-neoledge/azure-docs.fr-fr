@@ -13,39 +13,78 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 08/17/2017
 ms.author: genli;markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: dd4ac14a703663175bb477de587da8f4ad510c7c
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 6ed651bb8caafd18cec93e68ac70e27f92133e5c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
-# <a name="troubleshoot-azure-backup-failure-vm-agent-unable-to-communicate-with-azure-backup"></a>Résoudre les échecs de sauvegarde Azure : l’agent de machine virtuelle ne peut pas communiquer avec la Sauvegarde Azure
-## <a name="summary"></a>Résumé
-Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Une des quatre conditions peut empêcher le déclenchement de l’instantané, qui à son tour risque de faire échouer la sauvegarde. Cet article indique les étapes à appliquer pour résoudre les échecs de sauvegarde liés à des problèmes de communication avec l’agent et l’extension de machine virtuelle.
+# <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Résoudre les problèmes de sauvegarde Microsoft Azure : problèmes liés à un agent et/ou une extension
+
+Cet article indique les étapes à appliquer pour résoudre les échecs de sauvegarde liés à des problèmes de communication avec l’agent et l’extension de machine virtuelle.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="symptom"></a>Symptôme
-La Sauvegarde Azure pour une machine virtuelle IaaS (infrastructure as a service) échoue en renvoyant le message d’erreur suivant dans les informations d’erreur de travail dans le [Portail Azure](https://portal.azure.com/) : « L’agent de la machine virtuelle ne peut pas communiquer avec le service Sauvegarde Azure. Échec de l’opération de capture instantanée en raison de l’absence de connectivité réseau sur la machine virtuelle. ».
+## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>L’agent de machine virtuelle ne peut pas communiquer avec la sauvegarde Microsoft Azure
+Une fois que vous avez enregistré et planifié une machine virtuelle pour le service de sauvegarde Azure, ce dernier lance le travail en communiquant avec l’agent de la machine virtuelle pour prendre un instantané jusqu’à une date et heure. Une des conditions suivantes peut empêcher le déclenchement de l’instantané, qui à son tour risque de faire échouer la sauvegarde. Suivez les étapes de résolution des problèmes ci-dessous dans l’ordre indiqué et recommencez l’opération.
+##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Cause 1 : [La machine virtuelle ne possède aucun accès à Internet](#the-vm-has-no-internet-access)
+##### <a name="cause-2-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Cause 2 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (pour les machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Cause 3 : [L’agent installé dans la machine virtuelle est obsolète (pour les machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Cause 4 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Cause 5 : [L’extension de sauvegarde ne peut être mise à jour ou chargée](#the-backup-extension-fails-to-update-or-load)
 
-## <a name="cause-1-the-vm-has-no-internet-access"></a>Cause 1 : la machine virtuelle ne possède aucun accès à Internet
+## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>L’opération de capture instantanée a échoué, car la machine virtuelle ne présente aucune connectivité réseau
+Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Une des conditions suivantes peut empêcher le déclenchement de l’instantané, qui à son tour risque de faire échouer la sauvegarde. Suivez les étapes de résolution des problèmes ci-dessous dans l’ordre indiqué et recommencez l’opération.
+##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Cause 1 : [La machine virtuelle ne possède aucun accès à Internet](#the-vm-has-no-internet-access)
+##### <a name="cause-2-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Cause 2 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### <a name="cause-3-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Cause 3 : [L’extension de sauvegarde ne peut être mise à jour ou chargée](#the-backup-extension-fails-to-update-or-load)
+
+## <a name="vmsnapshot-extension-operation-failed"></a>Échec de l’opération d’extension VMSnapshot
+
+Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Une des conditions suivantes peut empêcher le déclenchement de l’instantané, qui à son tour risque de faire échouer la sauvegarde. Suivez les étapes de résolution des problèmes ci-dessous dans l’ordre indiqué et recommencez l’opération.
+##### <a name="cause-1-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Cause 1 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### <a name="cause-2-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Cause 2 : [L’extension de sauvegarde ne peut être mise à jour ou chargée](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-3-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Cause 3 : [La machine virtuelle ne possède aucun accès à Internet](#the-vm-has-no-internet-access)
+##### <a name="cause-4-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Cause 4 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (pour les machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### <a name="cause-5-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Cause 5 : [L’agent installé dans la machine virtuelle est obsolète (pour les machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+
+## <a name="unable-to-perform-the-operation-as-the-vm-agent-is-not-responsive"></a>Impossible d’effectuer l’opération, car l’agent de machine virtuelle ne répond pas
+
+Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Une des conditions suivantes peut empêcher le déclenchement de l’instantané, qui à son tour risque de faire échouer la sauvegarde. Suivez les étapes de résolution des problèmes ci-dessous dans l’ordre indiqué et recommencez l’opération.
+##### <a name="cause-1-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (pour les machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### <a name="cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (pour les machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+##### <a name="cause-3-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Cause 3 : [La machine virtuelle ne possède aucun accès à Internet](#the-vm-has-no-internet-access)
+
+## <a name="backup-failed-with-an-internal-error---please-retry-the-operation-in-a-few-minutes"></a>Échec de l’opération de sauvegarde avec une erreur interne : veuillez retenter l’opération dans quelques minutes
+
+Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Une des conditions suivantes peut empêcher le déclenchement de l’instantané, qui à son tour risque de faire échouer la sauvegarde. Suivez les étapes de résolution des problèmes ci-dessous dans l’ordre indiqué et recommencez l’opération.
+##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Cause 1 : [La machine virtuelle ne possède aucun accès à Internet](#the-vm-has-no-internet-access)
+##### <a name="cause-2-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Cause 2 : [L’agent est installé sur la machine virtuelle, mais ne répond pas (pour les machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Cause 3 : [L’agent installé dans la machine virtuelle est obsolète (pour les machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Cause 4 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Cause 5 : [L’extension de sauvegarde ne peut être mise à jour ou chargée](#the-backup-extension-fails-to-update-or-load)
+
+
+## <a name="causes-and-solutions"></a>Causes et solutions
+
+### <a name="the-vm-has-no-internet-access"></a>La machine virtuelle ne possède aucun accès à Internet
 Selon la configuration requise pour le déploiement, la machine virtuelle n’a pas accès à Internet, ou a des restrictions en place qui empêchent l’accès à l’infrastructure Azure.
 
 Pour fonctionner correctement, l’extension de sauvegarde nécessite une connectivité vers les adresses IP publiques Azure. L’extension envoie des commandes vers un point de terminaison Azure Storage (HTTP URL) pour gérer les instantanés de la machine virtuelle. Si l’extension n’a pas accès à Internet public, la sauvegarde échoue.
 
-### <a name="solution"></a>Solution
+####  <a name="solution"></a>Solution
 Pour résoudre le problème, essayez l’une des méthodes répertoriées ci-dessous :
-#### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Autorisez l’accès aux plages IP du centre de données Azure.
+##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Autorisez l’accès aux plages IP du centre de données Azure.
 
 1. Obtenez la [liste des adresses IP de centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) pour y autoriser l’accès.
 2. Débloquez les adresses IP en exécutant l’applet de commande **New-NetRoute** de la machine virtuelle Azure dans une fenêtre PowerShell avec élévation de privilèges. Exécutez l’applet de commande en tant qu’administrateur.
 3. Ajoutez des règles au groupe de sécurité réseau (le cas échéant) pour autoriser l’accès aux adresses IP.
 
-#### <a name="create-a-path-for-http-traffic-to-flow"></a>Créez un chemin d'accès pour le trafic HTTP
+##### <a name="create-a-path-for-http-traffic-to-flow"></a>Créez un chemin d'accès pour le trafic HTTP
 
 1. Si des restrictions réseau ont été mises en place (un groupe de sécurité réseau, par exemple), déployez un serveur proxy HTTP pour acheminer le trafic.
 2. Ajoutez des règles au groupe de sécurité réseau (le cas échéant) pour autoriser l’accès à Internet à partir du serveur proxy HTTP.
@@ -54,9 +93,23 @@ Pour savoir comment configurer un proxy HTTP pour les sauvegardes de machines vi
 
 Si vous utilisez Managed Disks, vous devrez peut-être disposer d’un port supplémentaire (8443) ouvert sur les pare-feu.
 
-## <a name="cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Cause 2 : l’agent installé dans la machine virtuelle est obsolète (pour les machines virtuelles Linux)
+### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>L’agent est installé dans la machine virtuelle, mais ne répond pas (pour les machines virtuelles Windows)
 
-### <a name="solution"></a>Solution
+#### <a name="solution"></a>Solution
+Il se peut que l’agent de machine virtuelle soit endommagé ou que le service ait été arrêté. La réinstallation de l’agent de machine virtuelle peut vous aider à obtenir la version la plus récente et à redémarrer la communication.
+
+1. Vérifiez que le service d’agent invité Windows apparaît dans les services de la machine virtuelle (services.msc). Essayez de redémarrer le service d’agent invité Windows et de démarrer la sauvegarde.<br>
+2. S’il ne figure pas dans les services, vérifiez si le service d’agent invité Windows est installé sous Programmes et fonctionnalités.
+4. S’il ne figure pas sous Programmes et fonctionnalités, désinstallez l’agent invité Windows.
+5. Téléchargez et installez la [dernière version du MSI de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous avez besoin de privilèges d’administrateur pour terminer l’installation.
+6. Les services d’agent invité Windows devraient alors apparaître dans les services.
+7. Essayez d’exécuter une sauvegarde à la demande/ad hoc en cliquant sur « Sauvegarder maintenant » dans le portail.
+
+Vérifiez également que **[.NET 4.5 est installé dans le système](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)** de la machine virtuelle. Si ce n’est pas le cas, l’agent de machine virtuelle ne pourra pas communiquer avec le service.
+
+### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>L’agent installé dans la machine virtuelle est obsolète (pour les machines virtuelles Linux)
+
+#### <a name="solution"></a>Solution
 La plupart des échecs des machines virtuelles Linux liés aux agents ou aux extensions sont causés par des problèmes qui affectent un agent obsolète de machine virtuelle. Pour résoudre ce problème, suivez ces recommandations générales :
 
 1. Suivez les instructions fournies pour la [mise à jour d’un agent de machine virtuelle Linux](../virtual-machines/linux/update-agent.md).
@@ -84,32 +137,29 @@ Si nous exigeons une journalisation détaillée pour waagent, procédez comme su
 2. Modifiez la valeur **Logs.Verbose** en remplaçant *n* par *O*.
 3. Enregistrez cette modification, puis redémarrez waagent en suivant les étapes précédentes de cette section.
 
-## <a name="cause-3-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Cause 3 : l’agent est installé sur la machine virtuelle mais ne répond pas (pour les machines virtuelles Windows)
+### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Impossible de récupérer l’état de l’instantané ou de capturer un instantané
+La sauvegarde de machine virtuelle émet une commande de capture instantanée à destination du stockage sous-jacent. La sauvegarde peut échouer, car elle n’a pas accès au compte de stockage ou parce que l’exécution de la tâche d’instantané est différée.
 
-### <a name="solution"></a>Solution
-Il se peut que l’agent de machine virtuelle soit endommagé ou que le service ait été arrêté. La réinstallation de l’agent de machine virtuelle peut vous aider à obtenir la version la plus récente et à redémarrer la communication.
+#### <a name="solution"></a>Solution
+Voici les causes possibles de l’échec d’une tâche de capture instantanée :
 
-1. Vérifiez que le service d’agent invité Windows apparaît dans les services de la machine (services.msc).
-2. S’il n’y figure pas, vérifiez si le service d’agent invité Windows est installé sous Programmes et fonctionnalités.
-3. S’il ne figure pas sous Programmes et fonctionnalités, désinstallez l’agent invité Windows.
-4. Téléchargez et installez le fichier [MSI de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous avez besoin de privilèges d’administrateur pour terminer l’installation.
-5. Les services d’agent invité Windows devraient alors apparaître dans les services.
-6. Essayez d’exécuter une sauvegarde à la demande/ad hoc en cliquant sur « Sauvegarder maintenant » dans le portail.
+| Cause : | Solution |
+| --- | --- |
+| La sauvegarde SQL Server a été configurée que la machine virtuelle. | Par défaut, la sauvegarde de machine virtuelle exécute une sauvegarde complète VSS sur les machines virtuelles Windows. Sur les machines virtuelles exécutant des serveurs basés sur SQL Server et sur lesquelles la sauvegarde SQL Server est configurée, des retards d’exécution des captures instantanées peuvent survenir.<br><br>Définissez la clé de Registre suivante si vous rencontrez des échecs de sauvegarde en raison de problèmes de capture instantanée.<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
+| L’état de la machine virtuelle est rapporté de manière incorrecte en raison de l’arrêt de la machine virtuelle dans RDP. | Si vous avez arrêté la machine virtuelle dans Remote Desktop Protocol (RDP), retournez sur le portail pour vérifier que l’état de la machine virtuelle est correct. Si ce n’est pas le cas, arrêtez la machine virtuelle dans le portail à l’aide de l’option **Arrêter** dans le tableau de bord de la machine virtuelle. |
+| Plusieurs machines virtuelles du même service cloud sont configurées pour exécuter la sauvegarde en même temps. | Il est recommandé d’étaler les planifications de sauvegarde entre les différentes machines virtuelles d’un même service cloud. |
+| Forte sollicitation du processeur ou de la mémoire sur la machine virtuelle. | Si la machine virtuelle sollicite fortement le processeur (plus de 90 pour cent) ou la mémoire, la tâche de capture instantanée est mise en file d’attente et retardée, puis finit par expirer. En pareille situation, essayez de procéder à une sauvegarde à la demande. |
+| La machine virtuelle ne peut pas obtenir l’adresse d’hôte/de structure du protocole DHCP. | Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne.  Si la machine virtuelle ne peut pas bénéficier de l’adresse d’hôte/de structure de la réponse DHCP 245, elle ne peut ni télécharger, ni exécuter d’extension. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via la plateforme. L’option DHCP à l’intérieur de la machine virtuelle doit être laissée désactivée. Pour en savoir plus, consultez la [définition d’une adresse IP privée interne statique](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
-Vérifiez également que **.NET 4.5 est installé sur le système**. Si ce n’est pas le cas, l’agent de machine virtuelle ne pourra pas communiquer avec le service.
-
-## <a name="cause-4-the-backup-extension-fails-to-update-or-load"></a>Cause 4 : l’extension de sauvegarde ne peut être mise à jour ou chargée.
+### <a name="the-backup-extension-fails-to-update-or-load"></a>L’extension de sauvegarde ne peut être ni mise à jour ni chargée
 Si les extensions ne peuvent pas être chargées, la sauvegarde échoue en raison de l’impossibilité de capturer un instantané.
 
-### <a name="solution"></a>Solution
+#### <a name="solution"></a>Solution
 
-Pour les invités Windows :
+**Pour les invités Windows :** vérifiez que le service iaasvmprovider est activé et qu’il a un type de démarrage *automatique*. Si ce n’est pas le cas, activez le service pour déterminer si la sauvegarde suivante réussit.
 
-Vérifiez que le service iaasvmprovider est activé et qu’il a un type de démarrage *automatique*. Si ce n’est pas le cas, activez le service pour déterminer si la sauvegarde suivante réussit.
+**Pour les invités Linux :** vérifiez que la dernière version de VMSnapshot pour Linux (extension utilisée par la sauvegarde) est 1.0.91.0.<br>
 
-Pour les hôtes Linux :
-
-La dernière version de VMSnapshot pour Linux (extension utilisée par la sauvegarde) est 1.0.91.0
 
 Si l’extension de sauvegarde rencontre toujours un échec lors de la mise à jour ou du chargement, vous pouvez forcer le rechargement de l’extension VMSnapshot en désinstallant l’extension. La prochaine tentative de sauvegarde rechargera l’extension.
 
@@ -120,21 +170,8 @@ Pour désinstaller l’extension, procédez comme suit :
 3. Cliquez sur **Paramètres**.
 4. Cliquez sur **Extensions**.
 5. Cliquez sur **Extension Vmsnapshot**.
-6. Cliquer sur **Désinstaller**.  
+6. Cliquer sur **Désinstaller**.
 
 Cette procédure réinstalle l’extension lors de la sauvegarde suivante.
 
-## <a name="cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Cause 5 : Impossible de récupérer l’état de l’instantané ou de capturer un instantané
-La sauvegarde de machine virtuelle émet une commande de capture instantanée à destination du stockage sous-jacent. La sauvegarde peut échouer, car elle n’a pas accès au compte de stockage ou parce que l’exécution de la tâche d’instantané est différée.
-
-### <a name="solution"></a>Solution
-Voici les causes possibles de l’échec d’une tâche de capture instantanée :
-
-| Cause : | Solution |
-| --- | --- |
-| La sauvegarde SQL Server a été configurée que la machine virtuelle. | Par défaut, la sauvegarde de machine virtuelle exécute une sauvegarde complète VSS sur les machines virtuelles Windows. Sur les machines virtuelles exécutant des serveurs basés sur SQL Server et sur lesquelles la sauvegarde SQL Server est configurée, des retards d’exécution des captures instantanées peuvent survenir.<br><br>Définissez la clé de Registre suivante si vous rencontrez des échecs de sauvegarde en raison de problèmes de capture instantanée.<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
-| L’état de la machine virtuelle est rapporté de manière incorrecte en raison de l’arrêt de la machine virtuelle dans RDP. | Si vous avez arrêté la machine virtuelle dans Remote Desktop Protocol (RDP), retournez sur le portail pour vérifier que l’état de la machine virtuelle est correct. Si ce n’est pas le cas, arrêtez la machine virtuelle dans le portail à l’aide de l’option **Arrêter** dans le tableau de bord de la machine virtuelle. |
-| Plusieurs machines virtuelles du même service cloud sont configurées pour exécuter la sauvegarde en même temps. | Il est recommandé d’étaler les planifications de sauvegarde entre les différentes machines virtuelles d’un même service cloud. |
-| Forte sollicitation du processeur ou de la mémoire sur la machine virtuelle. | Si la machine virtuelle sollicite fortement le processeur (plus de 90 pour cent) ou la mémoire, la tâche de capture instantanée est mise en file d’attente et retardée, puis finit par expirer. En pareille situation, essayez de procéder à une sauvegarde à la demande. |
-| La machine virtuelle ne peut pas obtenir l’adresse d’hôte/de structure du protocole DHCP. | Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne.  Si la machine virtuelle ne peut pas bénéficier de l’adresse d’hôte/de structure de la réponse DHCP 245, elle ne peut ni télécharger, ni exécuter d’extension. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via la plateforme. L’option DHCP à l’intérieur de la machine virtuelle doit être laissée désactivée. Pour en savoir plus, consultez la [définition d’une adresse IP privée interne statique](../virtual-network/virtual-networks-reserved-private-ip.md). |
 

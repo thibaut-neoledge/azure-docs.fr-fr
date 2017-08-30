@@ -12,34 +12,47 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 08/18/2017
 ms.author: masnider
-translationtype: Human Translation
-ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
-ms.openlocfilehash: 8a8419497bda3f1df523d6aff28028548abc155a
-
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 22223923f6783f11178b44c3c3087f17eb8dc41b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/19/2017
 
 ---
 
-# <a name="throttling-the-behavior-of-the-service-fabric-cluster-resource-manager"></a>Limitation du comportement de Service Fabric Cluster Resource Manager
-Même si vous avez configuré le Cluster Resource Manager , le cluster peut être interrompu. Par exemple, il peut y avoir des défaillance de nœud ou de domaine d’erreur simultanées. Que se passe-t-il alors si cela se produit pendant une mise à niveau ? Le Gestionnaire de ressources de cluster essaie de résoudre tous les problèmes, mais cela peut introduire une évolution dans le cluster. Les limitations servent de filet de sécurité afin que le cluster puisse utiliser des ressources pour se stabiliser. Les nœuds reviennent, les partitions réseau sont réparées et les bits corrigés sont déployés.
+# <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Limitations de Service Fabric Cluster Resource Manager
+Même si vous avez configuré le Cluster Resource Manager , le cluster peut être interrompu. Par exemple, il peut y avoir des défaillances de nœud et de domaine d’erreur simultanées. Que se passe-t-il alors si cela se produit pendant une mise à niveau ? Le Gestionnaire de ressources de cluster essaie de résoudre tous les problèmes en utilisant des ressources du cluster pour tenter de réparer et réorganiser le cluster. Les limitations servent de filet de sécurité afin que le cluster puisse utiliser des ressources pour se stabiliser. Les nœuds reviennent, les partitions réseau sont réparées et les bits corrigés sont déployés.
 
-Pour résoudre ce genre de problème, le Gestionnaire de ressources de cluster Service Fabric comprend plusieurs limitations. Ces limitations sont relativement lourdes. Ces paramètres par défaut ne doivent pas être modifiés, sauf si le volume de travail que le cluster peut effectuer en parallèle a été revu avec attention.
+Pour résoudre ce genre de problème, le Gestionnaire de ressources de cluster Service Fabric comprend plusieurs limitations. Ces limitations sont toutes relativement importantes. En règle générale, elles ne doivent pas être modifiées sans une planification et des tests minutieux.
 
-Les limitations ont des valeurs par défaut que l’équipe Service Fabric a considérées comme pertinentes. Si vous devez les modifier, vous devez les adapter à la charge de travail réelle attendue. Vous pouvez décider que vous avez besoin de certaines limitations, même si cela signifie que la stabilisation du cluster prend généralement plus de temps.
+Si vous modifiez les limitations du Gestionnaire de ressources de cluster, vous devez les adapter à votre charge réelle prévue. Vous pouvez décider que vous avez besoin de certaines limitations, même si cela signifie que la stabilisation du cluster prend parfois plus de temps. Des tests sont nécessaires pour déterminer les valeurs correctes des limitations. Les limitations doivent être suffisamment élevées pour permettre au cluster de répondre aux modifications dans un délai raisonnable, et suffisamment faibles pour réellement empêcher une consommation trop importante des ressources. 
+
+La plupart du temps, les clients utilisent des limitations, car ils travaillent déjà dans un environnement aux ressources restreintes. Par exemple, une bande passante réseau limitée pour des nœuds individuels ou des disques qui ne sont pas en mesure de générer de nombreux réplicas avec état en parallèle en raison des limites de débit. Sans limitations, les opérations risqueraient de saturer ces ressources, ce qui provoquerait l’échec ou le ralentissement de ces opérations. Dans ces cas de figure, les clients utilisaient des limitations et savaient qu’ils devaient prolonger la durée nécessaire au cluster pour avoir un état stable. Les clients comprenaient également qu’ils pourraient fonctionner avec une fiabilité globale inférieure pendant l’application des limitations.
+
 
 ## <a name="configuring-the-throttles"></a>Configuration des limitations
-Les limitations qui sont incluses par défaut sont les suivantes :
 
-* GlobalMovementThrottleThreshold : ce paramètre contrôle le nombre total de mouvements dans le cluster au cours d’une certaine période (définie comme valeur GlobalMovementThrottleCountingInterval en secondes)
-* MovementPerPartitionThrottleThreshold : ce paramètre contrôle le nombre total de mouvements pour n’importe quelle partition de service au cours d’une certaine période (la valeur MovementPerPartitionThrottleCountingInterval en secondes)
+Service Fabric dispose de deux mécanismes pour limiter le nombre de mouvements de réplicas. Le mécanisme par défaut qui existait avant Service Fabric 5.7 correspond à une limitation sous forme de nombre absolu de déplacements autorisés. Il ne fonctionne pas avec des clusters de toutes tailles. En particulier, pour les grands clusters, la valeur par défaut peut être trop petite, ce qui ralentirait considérablement l’équilibrage même lorsqu’il est nécessaire, tout en n’ayant aucun effet sur les clusters plus petits. Le mécanisme antérieur a été remplacé par une limitation basée sur des pourcentages, qui s’adapte mieux aux clusters dynamiques dans lesquels le nombre de services et de nœuds change régulièrement.
+
+Les limitations sont basées sur des pourcentages du nombre de réplicas dans les clusters. Ces limitations permettent, par exemple, de définir la règle : « Ne pas déplacer plus de 10 % des réplicas dans un intervalle de 10 minutes ».
+
+Les paramètres de configuration de la limitation basée sur des pourcentages sont :
+
+  - GlobalMovementThrottleThresholdPercentage : nombre maximal de mouvements autorisés dans le cluster à tout moment, exprimé en pourcentage du nombre total de réplicas dans le cluster. 0 indique aucune limite. La valeur par défaut est 0. Si ce paramètre et le paramètre GlobalMovementThrottleThreshold sont tous deux spécifiés, la limite la plus conservatrice est utilisée.
+  - GlobalMovementThrottleThresholdPercentageForPlacement : nombre maximal de mouvements autorisés durant la phase de placement, exprimé en pourcentage du nombre total de réplicas dans le cluster. 0 indique aucune limite. La valeur par défaut est 0. Si ce paramètre et le paramètre GlobalMovementThrottleThresholdForPlacement sont tous deux spécifiés, la limite la plus conservatrice est utilisée.
+  - GlobalMovementThrottleThresholdPercentageForBalancing : nombre maximal de mouvements autorisés durant la phase d’équilibrage, exprimé en pourcentage du nombre total de réplicas dans le cluster. 0 indique aucune limite. La valeur par défaut est 0. Si ce paramètre et le paramètre GlobalMovementThrottleThresholdForBalancing sont tous deux spécifiés, la limite la plus conservatrice est utilisée.
+
+Lorsque vous spécifiez le pourcentage de la limitation, vous devez par exemple indiquer 5 % sous la forme 0.05. L’intervalle régissant ces limitations correspond au paramètre GlobalMovementThrottleCountingInterval, qui est exprimé en secondes.
+
 
 ``` xml
 <Section Name="PlacementAndLoadBalancing">
-     <Parameter Name="GlobalMovementThrottleThreshold" Value="1000" />
+     <Parameter Name="GlobalMovementThrottleThresholdPercentage" Value="0" />
+     <Parameter Name="GlobalMovementThrottleThresholdPercentageForPlacement" Value="0" />
+     <Parameter Name="GlobalMovementThrottleThresholdPercentageForBalancing" Value="0" />
      <Parameter Name="GlobalMovementThrottleCountingInterval" Value="600" />
-     <Parameter Name="MovementPerPartitionThrottleThreshold" Value="50" />
-     <Parameter Name="MovementPerPartitionThrottleCountingInterval" Value="600" />
 </Section>
 ```
 
@@ -51,19 +64,19 @@ via ClusterConfig.json pour les déploiements autonomes ou Template.json pour le
     "name": "PlacementAndLoadBalancing",
     "parameters": [
       {
-          "name": "GlobalMovementThrottleThreshold",
-          "value": "1000"
+          "name": "GlobalMovementThrottleThresholdPercentage",
+          "value": "0.0"
+      },
+      {
+          "name": "GlobalMovementThrottleThresholdPercentageForPlacement",
+          "value": "0.0"
+      },
+      {
+          "name": "GlobalMovementThrottleThresholdPercentageForBalancing",
+          "value": "0.0"
       },
       {
           "name": "GlobalMovementThrottleCountingInterval",
-          "value": "600"
-      },
-      {
-          "name": "MovementPerPartitionThrottleThreshold",
-          "value": "50"
-      },
-      {
-          "name": "MovementPerPartitionThrottleCountingInterval",
           "value": "600"
       }
     ]
@@ -71,14 +84,15 @@ via ClusterConfig.json pour les déploiements autonomes ou Template.json pour le
 ]
 ```
 
-La plupart du temps, les clients utilisent ces limitations, car ils travaillent déjà dans un environnement aux ressources restreintes. Par exemple, une bande passante réseau limitée dans les nœuds individuels ou des disques qui ne sont pas en mesure de générer de nombreux réplicas en parallèle en raison des limites de débit. Avec ces restrictions en place, les opérations déclenchées en réponse aux incidents échouaient ou fonctionnaient au ralenti, même sans les limitations. Dans ces cas de figure, les clients savaient qu’ils devaient prolonger la durée nécessaire au cluster pour avoir un état stable. Les clients comprenaient également qu’ils pourraient fonctionner avec une fiabilité globale inférieure pendant l’application des limitations.
+### <a name="default-count-based-throttles"></a>Limitations basées sur le nombre par défaut
+Ces informations sont fournies dans le cas où vous avez d’anciens clusters ou conservez ces configurations en clusters qui ont par la suite été mis à niveau. En règle générale, il est recommandé de remplacer ces dernières par les limitations basées sur des pourcentages mentionnées précédemment. Étant donné que la limitation basée sur des pourcentages est désactivée par défaut, ces limitations demeurent les limitations par défaut d’un cluster jusqu'à ce qu’elles soient désactivées et remplacées par les limitations basées sur des pourcentages. 
+
+  - GlobalMovementThrottleThreshold : ce paramètre contrôle le nombre total de mouvements dans le cluster au cours d’une certaine période. Cette dernière est exprimée en secondes à l’aide du paramètre GlobalMovementThrottleCountingInterval. La valeur par défaut du paramètre GlobalMovementThrottleThreshold est 1000 et la valeur par défaut du paramètre GlobalMovementThrottleCountingInterval est 600.
+  - MovementPerPartitionThrottleThreshold : ce paramètre contrôle le nombre total de mouvements pour n’importe quelle partition de service au cours d’une certaine période. Cette dernière est exprimée en secondes à l’aide du paramètre MovementPerPartitionThrottleCountingInterval. La valeur par défaut du paramètre MovementPerPartitionThrottleThreshold est 50 et la valeur par défaut du paramètre MovementPerPartitionThrottleCountingInterval est 600.
+
+La configuration de ces limitations est similaire à celle de la limitation basée sur des pourcentages.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur la façon dont Cluster Resource Manager gère et équilibre la charge du cluster, consultez l’article sur l’ [équilibrage de la charge](service-fabric-cluster-resource-manager-balancing.md)
-* Cluster Resource Manager comporte de nombreuses options permettant de décrire le cluster. Pour en savoir plus sur celles-ci, consultez cet article sur la [description d’un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
+- Pour en savoir plus sur la façon dont Cluster Resource Manager gère et équilibre la charge du cluster, consultez l’article sur l’ [équilibrage de la charge](service-fabric-cluster-resource-manager-balancing.md)
+- Cluster Resource Manager comporte de nombreuses options permettant de décrire le cluster. Pour en savoir plus sur celles-ci, consultez cet article sur la [description d’un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 

@@ -1,6 +1,6 @@
 ---
 title: "Ingrédients du manuel de PoC Azure Active Directory | Microsoft Docs"
-description: "Explorer et implémenter rapidement des scénarios de gestion de l&quot;identité et de l&quot;accès"
+description: "Explorer et implémenter rapidement des scénarios de gestion de l'identité et de l'accès"
 services: active-directory
 keywords: azure active directory, manuel, preuve de concept, PoC
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
+ms.date: 04/12/2017
 ms.author: dstefan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 2a555326e5bb2eb7b89e80be721b20488c4f7a2d
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/12/2017
-
 
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-ingredients"></a>Ingrédients du manuel de preuve de concept Azure Active Directory 

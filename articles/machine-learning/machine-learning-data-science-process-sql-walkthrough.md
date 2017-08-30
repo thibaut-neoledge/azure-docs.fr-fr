@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
-ms.openlocfilehash: a5e0a76a29a82d5364ee1adb5c912e76064dd1f9
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6c5361c7e47209c8eb4d5630b44b3dcfeedeaf01
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server
 Dans ce didacticiel, vous allez explorer le processus de création et de déploiement d’un modèle d’apprentissage automatique à l’aide de SQL Server et d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
 
-## <a name="a-namedatasetanyc-taxi-trips-dataset-description"></a><a name="dataset"></a>Description du jeu de données NYC Taxi Trips
+## <a name="dataset"></a>Description du jeu de données NYC Taxi Trips
 Les données NYC Taxi Trip se présentent sous la forme de fichiers CSV compressés d’une taille totale approximative de 20 Go (soit environ 48 Go après la décompression des fichiers), contenant plus de 173 millions de courses et le prix de chacune. Chaque enregistrement de course inclut le lieu et l’heure d’embarquement et de débarquement, le numéro de licence (du chauffeur) rendu anonyme et le numéro de médaillon (numéro d’identification unique) du taxi. Les données portent sur toutes les courses effectuées en 2013 et sont fournies dans les deux jeux de données ci-après pour chaque mois :
 
 1. Le fichier CSV trip_data contient les détails de chaque course, comme le nombre de passagers, les points d’embarquement et de débarquement, la durée du trajet et la distance parcourue. Voici quelques exemples d’enregistrements :
@@ -45,10 +46,10 @@ Les données NYC Taxi Trip se présentent sous la forme de fichiers CSV compress
 
 La clé unique permettant de joindre trip\_data et trip\_fare se compose des champs suivants : medallion (médaillon), hack\_licence (licence de taxi) et pickup\_datetime (date et heure d’embarquement).
 
-## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>Exemples de tâches de prédiction
+## <a name="mltasks"></a>Exemples de tâches de prédiction
 Nous allons formuler trois problèmes de prédiction reposant sur le champ *tip\_amount* (montant du pourboire), à savoir :
 
-1. Classification binaire : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à&0; $ constitue un exemple positif, alors qu’une *tip\_amount* de&0; $ est un exemple négatif.
+1. Classification binaire : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une *tip\_amount* de 0 $ est un exemple négatif.
 2. Classification multiclasse : prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
    
         Class 0 : tip_amount = $0
@@ -58,7 +59,7 @@ Nous allons formuler trois problèmes de prédiction reposant sur le champ *tip\
         Class 4 : tip_amount > $20
 3. Tâche de régression : prédire le montant du pourboire versé pour une course.  
 
-## <a name="a-namesetupasetting-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Configuration de l’environnement de science des données Azure pour l’analyse avancée
+## <a name="setup"></a>Configuration de l’environnement de science des données Azure pour l’analyse avancée
 Comme vous l’explique le guide [Planifier votre environnement](machine-learning-data-science-plan-your-environment.md) , vous disposez de plusieurs options pour travailler sur le jeu de données NYC Taxi Trips dans Azure :
 
 * manipuler les données dans des objets blob Azure, puis les modéliser dans Azure Machine Learning ;
@@ -68,7 +69,7 @@ Dans ce didacticiel, nous allons décrire les procédures d’importations de do
 
 Pour configurer votre environnement de science des données Azure :
 
-1. [Créez un compte de stockage](../storage/storage-create-storage-account.md)
+1. [Créez un compte de stockage](../storage/common/storage-create-storage-account.md)
 2. [Création d’un espace de travail Microsoft Azure Machine Learning](machine-learning-create-workspace.md)
 3. [Approvisionnez une machine virtuelle de science des données](machine-learning-data-science-setup-sql-server-virtual-machine.md), qui fournit un serveur SQL Server et un serveur Notebook IPython.
    
@@ -81,9 +82,9 @@ Pour configurer votre environnement de science des données Azure :
    > 
    > 
 
-Selon la taille du jeu de données, l’emplacement source des données et l’environnement cible Azure sélectionné, ce scénario est semblable au [Scénario \#&5; : jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
+Selon la taille du jeu de données, l’emplacement source des données et l’environnement cible Azure sélectionné, ce scénario est semblable au [Scénario \# 5 : jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
 
-## <a name="a-namegetdataaget-the-data-from-public-source"></a><a name="getdata"></a>Récupérer les données de la source publique
+## <a name="getdata"></a>Récupérer les données de la source publique
 Pour récupérer le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) depuis son emplacement public, vous pouvez utiliser l’une des méthodes décrites dans l’article [Déplacer des données vers et depuis le stockage d’objets blob Azure](machine-learning-data-science-move-azure-blob.md) afin de copier les données dans votre nouvelle machine virtuelle.
 
 Pour copier les données à l’aide d’AzCopy :
@@ -97,7 +98,7 @@ Pour copier les données à l’aide d’AzCopy :
     Une fois AzCopy exécuté, le dossier de données doit contenir 24 fichiers CSV compressés (12 pour trip\_data et 12 pour trip\_fare).
 4. Décompressez les fichiers téléchargés. Notez le dossier dans lequel résident les fichiers décompressés. Ce dossier sera désigné par la chaîne <chemin\_des\_fichiers\_de_données\>.
 
-## <a name="a-namedbloadabulk-import-data-into-sql-server-database"></a><a name="dbload"></a>Importer en bloc les données dans une base de données SQL Server
+## <a name="dbload"></a>Importer en bloc les données dans une base de données SQL Server
 Les performances de chargement et de transfert de grandes quantités de données dans une base de données SQL et des requêtes ultérieures peuvent être optimisées à l’aide de *tables et de vues partitionnées*. Dans cette section, nous allons suivre les instructions de l’article [Importations de données en bloc en parallèle à l’aide de tables de partition SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md) pour créer une base de données et charger les données dans des tables partitionnées en parallèle.
 
 1. Pendant que vous êtes connecté à votre machine virtuelle, démarrez **SQL Server Management Studio**.
@@ -138,7 +139,7 @@ Les performances de chargement et de transfert de grandes quantités de données
 11. Dans **SQL Server Management Studio**, explorez l’exemple de script **sample\_queries.sql** fourni. Pour exécuter l’un des exemples de requêtes, mettez en surbrillance les lignes de la requête concernées, puis cliquez sur **!Exécuter** dans la barre d’outils.
 12. Les données NYC Taxi Trips sont chargées dans deux tables distinctes. Pour améliorer les opérations de jointure, il est vivement recommandé d’indexer les tables. L’exemple de script **create\_partitioned\_index.sql** crée des index partitionnés sur la clé de jointure composite **medallion, hack\_license et pickup\_datetime**.
 
-## <a name="a-namedbexploreadata-exploration-and-feature-engineering-in-sql-server"></a><a name="dbexplore"></a>Exploration des données et ingénierie de caractéristiques dans SQL Server
+## <a name="dbexplore"></a>Exploration des données et ingénierie de caractéristiques dans SQL Server
 Dans cette section, nous allons effectuer des tâches d’exploration des données et de génération de fonctionnalités en exécutant des requêtes SQL directement dans **SQL Server Management Studio** à l’aide de la base de données SQL Server créée précédemment. Le dossier **Exemples de scripts** comporte un exemple de script nommé **sample\_queries.sql**. Modifiez ce script de façon à changer le nom de la base de données s’il est différent du nom par défaut : **TaxiNYC**.
 
 Dans cet exercice, nous allons :
@@ -253,7 +254,7 @@ La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, g
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 
-## <a name="a-nameipnbadata-exploration-and-feature-engineering-in-ipython-notebook"></a><a name="ipnb"></a>Exploration des données et conception de fonctionnalités dans Notebook IPython
+## <a name="ipnb"></a>Exploration des données et conception de fonctionnalités dans Notebook IPython
 Dans cette section, nous allons effectuer des tâches d’exploration des données et de génération de fonctionnalités en exécutant des requêtes Python et SQL dans la base de données SQL Server créée précédemment. Le dossier **Exemples de notebooks IPython** comporte un exemple de notebook IPython nommé **machine-Learning-data-science-process-sql-story.ipynb**. Ce notebook est également disponible sur [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
 
 Lorsque vous travaillez sur des données volumineuses, il est recommandé de procéder comme suit :
@@ -552,7 +553,7 @@ Nous pouvons à présent passer aux phases de création et de déploiement de mo
 2. Classification multiclasse : prédire la fourchette du pourboire versé en fonction des classes précédemment définies.
 3. Tâche de régression : prédire le montant du pourboire versé pour une course.  
 
-## <a name="a-namemlmodelabuilding-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Création de modèles dans Azure Machine Learning
+## <a name="mlmodel"></a>Création de modèles dans Azure Machine Learning
 Pour démarrer l’exercice de modélisation, connectez-vous à votre espace de travail Azure Machine Learning. Si vous n’avez pas encore créé d’espace de travail d’apprentissage automatique, consultez l’article [Créer un espace de travail Azure Machine Learning](machine-learning-create-workspace.md).
 
 1. Pour plus d’informations sur la prise en main d’Azure Machine Learning, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](machine-learning-what-is-ml-studio.md)
@@ -580,7 +581,7 @@ Dans cet exercice, nous avons déjà exploré et généré les données dans SQL
 2. Dans le panneau **Propriétés**, sélectionnez **Azure SQL Database** dans le champ **Source de données**.
 3. Dans le champ **Nom du serveur de base de données** , entrez le nom DNS de la base de données. Format : `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Dans le champ **Nom de la base de données** , entrez le nom de la base de données.
-5. Entrez le **nom d’utilisateur SQL** dans le champ **Nom de compte d’utilisateur du serveur et le mot de passe dans le champ **Mot de passe de compte d’utilisateur du serveur**.
+5. Entrez le **nom d’utilisateur SQL** dans le champ ****Nom de compte d’utilisateur du serveur et le mot de passe dans le champ** Mot de passe de compte d’utilisateur du serveur.
 6. Activez l’option **Accepter tout certificat de serveur** .
 7. Dans la zone de texte **Requête de base de données** , collez la requête qui extrait les champs de base de données nécessaires (y compris les champs calculés tels que les étiquettes) et qui sous-échantillonne les données pour obtenir la taille d’échantillon souhaitée.
 
@@ -595,7 +596,7 @@ La figure ci-après illustre un exemple d’expérience de classification binair
 > 
 > 
 
-## <a name="a-namemldeployadeploying-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Déploiement de modèles dans Azure Machine Learning
+## <a name="mldeploy"></a>Déploiement de modèles dans Azure Machine Learning
 Lorsque votre modèle est prêt, vous pouvez facilement le déployer sous la forme d’un service web directement à partir de l’expérience. Pour plus d’informations sur le déploiement de services web Azure Machine Learning, consultez [Déployer un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Pour déployer un nouveau service web, vous devez :
@@ -653,9 +654,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/21/2017
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: a54d38948ee5a752297167c7f4435e52b5dbb27f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a76acd67e9ba7822f2837b3c08e2ede389047f11
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
@@ -52,6 +52,8 @@ Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compt
 * [Application Gateway](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
+* [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Azure Event Grid](#azure-event-grid-limits)
 * [Cache Redis Azure](#azure-redis-cache-limits)
 * [Azure RemoteApp](#azure-remoteapp-limits)
 * [Sauvegarde](#backup-limits)
@@ -64,8 +66,7 @@ Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compt
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
-* [Base de données de documents](#documentdb-limits)
-* [Concentrateurs d'événements](#event-hubs-limits)
+* [Hubs d'événements](#event-hubs-limits)
 * [IoT Hub](#iot-hub-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics / Operational Insights](#log-analytics-limits)
@@ -139,7 +140,7 @@ Les limites suivantes s'appliquent lorsque vous utilisez Azure Resource Manager 
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### <a name="storage-limits"></a>Limites de stockage
-Pour plus d'informations sur les limites des comptes de stockage, consultez [Objectifs de performance et d’extensibilité Azure Storage](storage/storage-scalability-targets.md).
+Pour plus d'informations sur les limites des comptes de stockage, consultez [Objectifs de performance et d’extensibilité Azure Storage](storage/common/storage-scalability-targets.md).
 <!--like # storage accts --> 
 #### <a name="storage-service-limits"></a>Limites de service de stockage
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
@@ -182,8 +183,8 @@ Le tableau suivant indique les limites d’Azure BizTalk Services.
 
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
-### <a name="documentdb-limits"></a>Limites de DocumentDB
-DocumentDB est une base de données à l’échelle mondiale dans laquelle le débit et le stockage peuvent être mis à l’échelle en pour gérer ce que votre application requiert. Si vous avez des questions sur l’échelle fournie par DocumentDB, envoyez un e-mail à askdocdb@microsoft.com.
+### <a name="azure-cosmos-db-limits"></a>Limites d’Azure Cosmos DB
+Azure Cosmos DB est une base de données à l’échelle mondiale dans laquelle le débit et le stockage peuvent être mis à l’échelle pour gérer tous les besoins de votre application. Si vous avez des questions sur l’échelle fournie par Azure Cosmos DB, envoyez un e-mail à askcosmosdb@microsoft.com.
 
 ### <a name="mobile-engagement-limits"></a>Limites Mobile Engagement
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
@@ -243,6 +244,9 @@ Pour en savoir plus sur les limites à un niveau plus granulaire, notamment la t
 
 ### <a name="active-directory-limits"></a>Limites d'Active Directory
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
+
+### <a name="azure-event-grid-limits"></a>Limites d’Azure Event Grid
+[!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
 
 ### <a name="azure-remoteapp-limits"></a>Limites Azure RemoteApp
 [!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]

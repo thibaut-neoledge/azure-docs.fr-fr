@@ -16,11 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/05/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 3dc48f5dcb50db81d9f461c41570640839fcce26
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 172b4c8f5c098d776cb689543f5d8f163b8895b4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Guide de chiffrage de disques virtuels sur une machine virtuelle Linux
@@ -274,15 +273,13 @@ L’état doit maintenant signaler que le disque du système d’exploitation et
 
 
 ## <a name="add-additional-data-disks"></a>Ajouter des disques de données supplémentaires
-Une fois que vous avez chiffré vos disques de données, vous pouvez ajouter ultérieurement d’autres disques virtuels à votre machine virtuelle et également les chiffrer. Lorsque vous exécutez la commande `az vm encryption enable`, incrémentez la version de la séquence à l’aide du paramètre `--sequence-version`. Ce paramètre de version de séquence permet d’effectuer des opérations répétées sur la même machine virtuelle.
-
-Par exemple, ajoutons un second disque virtuel à votre machine virtuelle comme suit :
+Une fois que vous avez chiffré vos disques de données, vous pouvez ajouter ultérieurement d’autres disques virtuels à votre machine virtuelle et également les chiffrer. Par exemple, ajoutons un second disque virtuel à votre machine virtuelle comme suit :
 
 ```azurecli
 az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
 ```
 
-Réexécutez la commande pour chiffrer les disques virtuels, cette fois en ajoutant le paramètre `--sequence-version` et en incrémentant la valeur de notre première exécution comme suit :
+Réexécutez la commande pour chiffrer les disques virtuels de la façon suivante :
 
 ```azurecli
 az vm encryption enable \
@@ -292,8 +289,7 @@ az vm encryption enable \
     --aad-client-secret $sp_password \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
-    --volume-type all \
-    --sequence-version 2
+    --volume-type all
 ```
 
 

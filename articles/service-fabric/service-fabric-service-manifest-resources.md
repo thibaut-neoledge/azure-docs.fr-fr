@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 9cfdb94d1e030fe9d467389acf8894d79efd17d1
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 08141edfbc8be9bf7bf303419e1e482d5f884860
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/29/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Spécifier des ressources dans un manifeste de service
@@ -138,4 +138,64 @@ Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. Vous d
   </Certificates>
 </ApplicationManifest>
 ```
+
+## <a name="overriding-endpoints-in-servicemanifestxml"></a>Écraser des points de terminaison dans ServiceManifest.xml
+
+Dans ServiceManifest, ajoutez une section ResourceOverrides, qui sera la sœur de la section ConfigOverrides. Vous pouvez y spécifier le remplacement de la section Points de terminaison dans la section Ressources spécifiée dans le manifeste de service.
+
+Pour pouvoir remplacer EndPoint dans ServiceManifest à l’aide d’ApplicationParameters, modifiez ainsi ApplicationManifest :
+
+Dans la section ServiceManifestImport, ajoutez une nouvelle section « ResourceOverrides ».
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Stateless1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <ResourceOverrides>
+      <Endpoints>
+        <Endpoint Name="ServiceEndpoint" Port="[Port]" Protocol="[Protocol]" Type="[Type]" />
+        <Endpoint Name="ServiceEndpoint1" Port="[Port1]" Protocol="[Protocol1] "/>
+      </Endpoints>
+    </ResourceOverrides>
+        <Policies>
+           <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint"/>
+        </Policies>
+  </ServiceManifestImport>
+```
+
+Dans Parameters, ajoutez le code ci-dessous :
+
+```xml
+  <Parameters>
+    <Parameter Name="Port" DefaultValue="" />
+    <Parameter Name="Protocol" DefaultValue="" />
+    <Parameter Name="Type" DefaultValue="" />
+    <Parameter Name="Port1" DefaultValue="" />
+    <Parameter Name="Protocol1" DefaultValue="" />
+  </Parameters>
+```
+
+Lors du déploiement de l’application, vous pouvez à présent passer ces valeurs comme ApplicationParameters, par exemple :
+
+```powershell
+PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
+```
+
+Remarque : Si les valeurs affectées à ApplicationParameters sont vides, on revient à la valeur par défaut fournie dans ServiceManifest pour le nom EndPointName correspondant.
+
+Par exemple :
+
+Si, dans ServiceManifest, vous avez spécifié :
+
+```xml
+  <Resources>
+    <Endpoints>
+      <Endpoint Name="ServiceEndpoint1" Protocol="tcp"/>
+    </Endpoints>
+  </Resources>
+```
+
+Et que la valeur Port1 et Protocol1 des paramètres d’application est Null ou vide. Le port est toujours déterminé par ServiceFabric. Et Protocol a la valeur tcp.
+
+Supposons que vous spécifiez une valeur incorrecte. Par exemple, pour Port, vous avez spécifié la valeur de chaîne « Foo » au lieu d’un entier.  La commande New-ServiceFabricApplication échouera avec une erreur : « The override parameter with name ’ServiceEndpoint1’ attribute ’Port1’ in section ’ResourceOverrides’ is invalid. The value specified is ’Foo’ and required is ’int’. » (Le paramètre de remplacement portant le nom « ServiceEndpoint1 » pour l’attribut « Port1 » dans la section « ResourceOverrides » n’est pas valide. La valeur spécifiée est « Foo » alors que le type « int » est requis.)
 

@@ -1,6 +1,6 @@
 ---
-title: "Tolérance de panne de l’activité de copie dans Azure Data Factory - Ignorer les lignes incompatibles | Microsoft Docs"
-description: "Découvrir la tolérance de panne consistant à ignorer les lignes incompatibles en cours de copie à l’aide d’Azure Data Factory"
+title: "Ajouter une tolérance de panne de l’activité de copie dans Azure Data Factory en ignorant les lignes incompatibles | Microsoft Docs"
+description: "Découvrez comment ajouter une tolérance de panne de l’activité de copie dans Azure Data Factory en ignorant les lignes incompatibles durant la copie"
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,33 +14,36 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: d613537657af3bbe379a53e92532bf6b184d762b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e2a108752259d5da3b401666c6bdbaad13b7ea90
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/21/2017
 
 ---
-# <a name="copy-activity-fault-tolerance---skip-incompatible-rows"></a>Tolérance de panne de l’activité de copie - Ignorer les lignes incompatibles
+# <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Ajouter une tolérance de panne de l’activité de copie en ignorant les lignes incompatibles
 
-Avec l’[activité de copie](data-factory-data-movement-activities.md), vous disposez de différentes options pour traiter les lignes incompatibles lors de la copie de données entre les magasins de données source et récepteur. Vous pouvez choisir d’abandonner et de laisser en échec l’activité de copie en cas de rencontre de données incompatibles (comportement par défaut), ou de continuer à copier toutes les données en ignorant les lignes incompatibles. Vous avez également la possibilité de journaliser les lignes incompatibles dans Stockage Blob Azure afin de pouvoir examiner la cause de l’échec, corriger les données sur la source de données, puis réessayer.
+Avec l’[activité de copie](data-factory-data-movement-activities.md) dans Azure Data Factory, vous avez deux moyens de traiter les lignes incompatibles lors de la copie de données entre les magasins de données source et récepteur :
+
+- Vous pouvez abandonner et laisser en échec l’activité de copie en cas de détection de données incompatibles (comportement par défaut).
+- Vous pouvez continuer à copier toutes les données en ajoutant une tolérance de panne et en ignorant les lignes de données incompatibles. Vous avez également la possibilité de journaliser les lignes incompatibles dans le stockage Blob Azure afin de pouvoir examiner la cause de l’échec dans le journal, corriger les données sur la source de données, puis effectuer une nouvelle tentative de copie.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
-Actuellement, l’activité de copie offre la possibilité de détecter, d’ignorer et de journaliser les situations d’incompatibilité suivantes pendant la copie :
+L’activité de copie offre la possibilité de détecter, d’ignorer et de journaliser les incompatibilités de données suivantes :
 
-- **Incompatibilité de type de données entre les types natifs source et récepteur**
+- **Incompatibilité entre le type de données sources et le type natif récepteur**
 
-    Exemple : copie à partir d’un fichier CSV dans Stockage Blob Azure vers Azure SQL Database, alors que le schéma défini dans Azure SQL Database présente trois colonnes de type *INT*. Les lignes comportant des données numériques (par exemple `123,456,789`) dans le fichier CSV source sont copiées avec succès, tandis que les lignes contenant des valeurs non numériques (par exemple `123,456,abc`) sont ignorées en tant que lignes incompatibles.
+    Exemple : copie de données d’un fichier CSV du stockage Blob Azure dans une base de données SQL avec une définition de schéma contenant trois colonnes de type **INT**. Les lignes du fichier CSV qui contiennent des données numériques, telles que `123,456,789`, sont correctement copiées dans le magasin récepteur. En revanche, les lignes qui contiennent des valeurs non numériques, telles que `123,456,abc`, sont considérées comme incompatibles et ignorées.
 
-- **Incompatibilité de nombre de colonnes entre la source et le récepteur**
+- **Incompatibilité du nombre de colonnes entre la source et le récepteur**
 
-    Exemple : copie à partir d’un fichier CSV dans Stockage Blob Azure vers Azure SQL Database, alors que le schéma défini dans Azure SQL Database compte six colonnes. Les lignes contenant six colonnes dans le fichier CSV source sont copiées avec succès, tandis que les lignes contenant un autre nombre de colonnes sont ignorées en tant que lignes incompatibles.
+    Exemple : copie de données d’un fichier CSV du stockage Blob Azure dans une base de données SQL avec une définition de schéma contenant six colonnes. Les lignes du fichier CSV qui contiennent six colonnes sont correctement copiées dans le magasin récepteur. Les lignes du fichier CSV qui contiennent plus ou moins de six colonnes sont considérées comme incompatibles et ignorées.
 
 - **Violation de clé primaire lors de l’écriture dans une base de données relationnelle**
 
-    Exemple : pour copier à partir de SQL Server vers Azure SQL Database, il existe une clé primaire définie dans la base de données Azure SQL Database réceptrice, mais aucune clé primaire correspondante n’est définie dans le serveur SQL Server source. Les lignes en double qui peuvent exister dans la source ne sont pas autorisées lors de l’écriture dans le récepteur. L’activité de copie ne copie que la première ligne vers le récepteur, ignorant toutes les autres lignes contenant une valeur de clé primaire figurant dans la source et redondantes sur le récepteur.
+    Exemple : copie de données depuis un serveur SQL dans une base de données SQL. Il existe une clé primaire définie dans la base de données SQL réceptrice, mais aucune clé primaire correspondante n’est définie dans le serveur SQL source. Les lignes en double qui peuvent exister dans la source ne sont pas copiées dans le récepteur. L’activité de copie ne copie que la première ligne des données sources dans le récepteur. Toutes les lignes sources suivantes contenant une valeur de clé primaire en double sont considérées comme incompatibles et ignorées.
 
 ## <a name="configuration"></a>Configuration
-L’exemple suivant fournit la définition JSON spécifiant comment configurer la manière d’ignorer les lignes incompatibles dans le cadre de l’activité de copie :
+L’exemple suivant fournit une définition JSON pour configurer la manière d’ignorer les lignes incompatibles dans le cadre de l’activité de copie :
 
 ```json
 "typeProperties": {
@@ -60,22 +63,22 @@ L’exemple suivant fournit la définition JSON spécifiant comment configurer l
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | --- | --- | --- | --- |
-| enableSkipIncompatibleRow | Activer ou non l’option d’ignorer les lignes incompatibles. | true<br/>False (valeur par défaut) | Non |
-| redirectIncompatibleRowSettings | Groupe de propriétés qui peuvent être spécifiées lorsque vous souhaitez journaliser les lignes incompatibles. | &nbsp; | Non |
-| linkedServiceName | Service lié de Stockage Azure pour stocker le journal contenant toutes les lignes ignorées. | Spécifiez le nom d’un service lié [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) faisant référence à l’instance de Stockage Azure que vous utilisez pour stocker le fichier journal. | Non |
-| path | Chemin d’accès du fichier journal contenant toutes les lignes ignorées. | Spécifiez le chemin d’accès sur Stockage Blob souhaité pour journaliser les données incompatibles. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non |
+| **enableSkipIncompatibleRow** | Activer ou non l’option d’ignorer les lignes incompatibles. | true<br/>False (valeur par défaut) | Non |
+| **redirectIncompatibleRowSettings** | Groupe de propriétés qui peuvent être spécifiées lorsque vous souhaitez journaliser les lignes incompatibles. | &nbsp; | Non |
+| **linkedServiceName** | Service lié de Stockage Azure pour stocker le journal contenant les lignes ignorées. | Nom d’un service lié [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) faisant référence à l’instance de stockage que vous souhaitez utiliser pour stocker le fichier journal. | Non |
+| **path** | Chemin d’accès du fichier journal contenant les lignes ignorées. | Spécifiez le chemin d’accès sur Stockage Blob que vous souhaitez utiliser pour journaliser les données incompatibles. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non |
 
 ## <a name="monitoring"></a>Surveillance
-Une fois l’exécution de l’activité de copie terminée, vous pouvez voir le nombre de lignes ignorées dans la section Surveillance comme suit :
+Une fois l’exécution de l’activité de copie terminée, vous pouvez voir le nombre de lignes ignorées dans la section Surveillance :
 
-![Ignorer la surveillance des lignes incompatibles](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
+![Le système de surveillance a ignoré les lignes incompatibles](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
 
-Si vous configurez la journalisation des lignes incompatibles afin de pouvoir déterminer celles qui ont été ignorées et la cause racine de l’incompatibilité, le chemin d’accès du fichier journal est le suivant : `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`.
+Si vous configurez la journalisation des lignes incompatibles, le chemin d’accès du fichier journal est le suivant : `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`. Vous pourrez y vérifier les lignes qui ont été ignorées et la cause racine de l’incompatibilité.
 
 Les données d’origine et l’erreur correspondante sont consignées dans le fichier journal. Voici un exemple de contenu de fichier journal :
 ```
 data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'.,
-data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).,
+data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

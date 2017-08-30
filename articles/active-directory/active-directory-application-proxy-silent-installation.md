@@ -1,27 +1,28 @@
 ---
-title: "Installer sans assistance le connecteur du proxy d’application Azure AD | Microsoft Docs"
+title: Installation sans assistance du connecteur Azure AD App Proxy | Documents Microsoft
 description: "Explique comment effectuer une installation silencieuse du connecteur du Proxy d’application Azure AD pour offrir un accès à distance sécurisé à vos applications locales."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/10/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: f4d72d4d11ee64e3431879f6ad1b5d8d091a0c87
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 9e28c89d8f64f0ae3d4150017ca544e606075c45
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 08/24/2017
 
 ---
+
 # <a name="silently-install-the-azure-ad-application-proxy-connector"></a>Installer silencieusement le connecteur du Proxy d'application Azure AD
 Vous souhaitez pouvoir envoyer un script d’installation vers plusieurs serveurs Windows ou vers des serveurs Windows sans interface utilisateur. Cette rubrique vous aide à créer un script Windows PowerShell qui active l’installation sans assistance pour l’installation et l’inscription de votre connecteur de Proxy d’application Azure AD.
 
@@ -32,13 +33,13 @@ Cette fonctionnalité est utile lorsque vous souhaitez :
 * Intégrer l’installation et l’inscription du connecteur dans le cadre d’une autre procédure.
 * Créer une image de serveur standard qui contient les exécutables du connecteur, mais qui n’est pas inscrite.
 
-Le Proxy d’application fonctionne avec un service Windows Server léger appelé connecteur, à l’intérieur de votre réseau. Pour que le connecteur du Proxy d'application puisse fonctionner, il doit être inscrit auprès de votre annuaire Azure AD à l'aide d'un identifiant d’administrateur global et d’un mot de passe. Généralement, ces informations sont saisies pendant l'installation du connecteur dans une boîte de dialogue contextuelle. Vous pouvez néanmoins utiliser Windows PowerShell pour créer un objet d’informations d’identification afin d’entrer vos informations d’inscription, ou vous pouvez créer votre propre jeton et l’utiliser pour communiquer vos informations d’inscription.
+Le Proxy d’application fonctionne avec un service Windows Server léger appelé connecteur, à l’intérieur de votre réseau. Pour que le connecteur du Proxy d'application puisse fonctionner, il doit être inscrit auprès de votre annuaire Azure AD à l'aide d'un identifiant d’administrateur global et d’un mot de passe. Généralement, ces informations sont saisies pendant l'installation du connecteur dans une boîte de dialogue contextuelle. Toutefois, vous pouvez utiliser Windows PowerShell pour créer un objet d’informations d’identification pour entrer vos informations d’inscription. Ou vous pouvez créer votre propre jeton et l’utiliser pour entrer vos informations d’inscription.
 
 ## <a name="install-the-connector"></a>Installation du connecteur
 Pour installer les MSI du connecteur sans inscrire le connecteur, procédez comme suit :
 
 1. Ouvrez une invite de commandes.
-2. Exécutez la commande suivante dans laquelle /q signifie une installation silencieuse ; l’installation ne vous demande pas d’accepter le Contrat de Licence Utilisateur Final.
+2. Exécutez la commande suivante dans laquelle /q signifie une installation silencieuse : l’installation ne vous demande pas d’accepter le Contrat de licence d’utilisateur final.
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 

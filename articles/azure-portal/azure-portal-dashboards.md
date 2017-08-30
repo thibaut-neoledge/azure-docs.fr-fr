@@ -1,5 +1,5 @@
 ---
-title: Tableaux de bord du portail Azure | Microsoft Docs
+title: "Créer et partager des tableaux de bord du portail Azure | Documents Microsoft"
 description: "Cet article vous explique comment créer et modifier des tableaux de bord dans le portail Azure."
 services: azure-portal
 documentationcenter: 
@@ -14,19 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: dc5b6f194a7e34d5061b9fa2e4a6123f54f6c14a
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 5429e68723448ff5db6ef0ed8da1b927e97e6dd9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="creating-and-sharing-dashboards-in-the-azure-portal"></a>Création et partage des tableaux de bord dans le portail Azure
+# <a name="create-and-share-dashboards-in-the-azure-portal"></a>Créer et partager des tableaux de bord dans le portail Azure
 Vous pouvez créer plusieurs tableaux de bord et les partager avec d’autres personnes ayant accès à vos abonnements Azure.  Cet article présente les principes fondamentaux de création, de modification, de publication et de gestion de l’accès aux tableaux de bord.
-
-## <a name="customizing-dashboards-versus-blades"></a>Personnalisation des tableaux de bord et panneaux
-Depuis l’apparition des tableaux de bord il y a quelques mois, la personnalisation des panneaux est de moins en moins utilisée, tandis que la personnalisation des tableaux de bord s’est rapidement développée. Cette nette tendance montre que vous préférez personnaliser les tableaux de bord plutôt que les panneaux. Afin de suivre cette tendance, nous allons supprimer la possibilité de personnaliser les panneaux et concentrer nos efforts sur l’amélioration des fonctionnalités du tableau de bord. Si vous avez personnalisé un panneau, votre personnalisation sera bientôt supprimée. Pour conserver cette personnalisation, épinglez les mosaïques personnalisées à un tableau de bord. Cliquez simplement avec le bouton droit sur la mosaïque et sélectionnez **Épingler au tableau de bord** , comme indiqué dans l’image suivante.
-
-![enregistrer une mosaïque personnalisée](./media/azure-portal-dashboards/save-customization.png)
 
 ## <a name="create-a-dashboard"></a>Création d’un tableau de bord
 Pour créer un tableau de bord, sélectionnez le bouton **Nouveau tableau de bord** en regard du nom du tableau de bord actuel.  
@@ -99,10 +95,5 @@ Une fois votre tableau de bord publié, le volet de contrôle **Partage + accès
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour gérer les ressources, voir [Gérer les ressources Azure sur le portail](../azure-resource-manager/resource-group-portal.md).
 * Pour déployer des ressources, voir [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

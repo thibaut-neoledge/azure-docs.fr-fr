@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 221eadc2e93c2be0f985386277fcfab69e46416b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9e40eba285aeb1cce6b77311d1b69a6b96967a0b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
@@ -268,6 +268,7 @@ Vous voyez s’afficher la progression de l’opération de mise à jour (manuel
 ### <a name="to-disableenable-auto-update-feature"></a>Pour activer/désactiver une fonctionnalité de mise à jour automatique
 Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique comme suit :
 
+[Pour une passerelle à nœud unique]
 1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
 2. Accédez au dossier C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.   
@@ -280,153 +281,167 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -on  
     ```
+[[Pour une passerelle hautement disponible et évolutive à plusieurs nœuds (version préliminaire)](data-factory-data-management-gateway-high-availability-scalability.md)]
+1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
+2. Accédez au dossier C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
+3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.   
 
-## <a name="configuration-manager"></a>Gestionnaire de configuration
-Une fois la passerelle installée, vous pouvez lancer le Gestionnaire de configuration de passerelle de gestion des données de l’une des manières suivantes :
+    Pour une passerelle avec une fonctionnalité de haute disponibilité (version préliminaire), un paramètre AuthKey supplémentaire est requis.
+    ```PowerShell
+    .\GatewayAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
+    ```
+4. Pour la réactiver :
 
-1. Dans la fenêtre **Rechercher**, saisissez **passerelle de gestion de données** pour accéder à cet utilitaire.
-2. Exécutez l’exécutable **ConfigManager.exe** dans le dossier : **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+    ```PowerShell
+    .\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
 
-### <a name="home-page"></a>page d'accueil
-La page d’accueil permet d’effectuer les actions suivantes :
 
-* Afficher l’état de la passerelle (connectée au service cloud ou non, etc.).
-* **Inscrire** à l’aide d’une clé à partir du portail.
-* **Arrêter** et démarrer le **service hôte de passerelle de gestion des données** sur l’ordinateur de passerelle.
-* **Planifier les mises à jour** à un moment spécifique de la journée.
-* Afficher la date de la **dernière mise à jour**de la passerelle.
+## Configuration Manager
+Once you install the gateway, you can launch Data Management Gateway Configuration Manager in one of the following ways:
 
-### <a name="settings-page"></a>Page Paramètres
-La page Paramètres permet d’effectuer les actions suivantes :
+1. In the **Search** window, type **Data Management Gateway** to access this utility.
+2. Run the executable **ConfigManager.exe** in the folder: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
-* Afficher, modifier et exporter le **certificat** utilisé par la passerelle. Ce certificat est utilisé pour chiffrer les informations d’identification de la source de données.
-* Modifier le **port HTTPS** du point de terminaison. La passerelle ouvre un port pour définir les informations d’identification de la source de données.
-* **l’état** du point de terminaison.
-* Afficher le **Certificat SSL** qui est utilisé pour la communication SSL entre le portail et la passerelle pour définir les informations d’identification pour les sources de données.  
+### Home page
+The Home page allows you to do the following actions:
 
-### <a name="diagnostics-page"></a>Page Diagnostics
-La page Diagnostics permet d’effectuer les actions suivantes :
+* View status of the gateway (connected to the cloud service etc.).
+* **Register** using a key from the portal.
+* **Stop** and start the **Data Management Gateway Host service** on the gateway machine.
+* **Schedule updates** at a specific time of the days.
+* View the date when the gateway was **last updated**.
 
-* Activer la **journalisation**détaillée, afficher les journaux dans l’observateur d’événements et envoyer des journaux à Microsoft en cas de défaillance.
-* **Tester la connexion** à une source de données.  
+### Settings page
+The Settings page allows you to do the following actions:
 
-### <a name="help-page"></a>Help page
-Cette page d’aide affiche les informations suivantes :  
+* View, change, and export **certificate** used by the gateway. This certificate is used to encrypt data source credentials.
+* Change **HTTPS port** for the endpoint. The gateway opens a port for setting the data source credentials.
+* **Status** of the endpoint
+* View **SSL certificate** is used for SSL communication between portal and the gateway to set credentials for data sources.  
 
-* Brève description de la passerelle
-* Numéro de version
-* Liens vers l’aide en ligne, la déclaration de confidentialité et le contrat de licence.  
+### Diagnostics page
+The Diagnostics page allows you to do the following actions:
 
-## <a name="monitor-gateway-in-the-portal"></a>Passerelle de surveillance dans le portail
-Dans le portail Azure, vous pouvez afficher un instantané en quasi temps réel de l’utilisation des ressources (processeur, mémoire, réseau (entrée/sortie), etc.) sur un ordinateur de passerelle.  
+* Enable verbose **logging**, view logs in event viewer, and send logs to Microsoft if there was a failure.
+* **Test connection** to a data source.  
 
-1. Dans le portail Azure, accédez à la page d’accueil de votre fabrique de données, puis cliquez sur la vignette **Services liés**. 
+### Help page
+The Help page displays the following information:  
 
-    ![Page d'accueil Data Factory](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
-2. Sélectionnez la **passerelle** dans la page **Services liés**.
+* Brief description of the gateway
+* Version number
+* Links to online help, privacy statement, and license agreement.  
 
-    ![Page Services liés](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
-3. Dans la page **Passerelle**, vous pouvez consulter l’utilisation de la mémoire et du processeur de la passerelle.
+## Monitor gateway in the portal
+In the Azure portal, you can view near-real time snapshot of resource utilization (CPU, memory, network(in/out), etc.) on a gateway machine.  
 
-    ![Utilisation du processeur et de la mémoire de la passerelle](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png) 
-4. Activez **Paramètres avancés** pour plus d’informations, notamment sur l’utilisation du réseau.
+1. In Azure portal, navigate to the home page for your data factory, and click **Linked services** tile. 
+
+    ![Data factory home page](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
+2. Select the **gateway** in the **Linked services** page.
+
+    ![Linked services page](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
+3. In the **Gateway** page, you can see the memory and CPU usage of the gateway.
+
+    ![CPU and memory usage of gateway](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png) 
+4. Enable **Advanced settings** to see more details such as network usage.
     
-    ![Surveillance avancée de la passerelle](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
+    ![Advanced monitoring of gateway](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
 
-Le tableau suivant fournit les descriptions des colonnes utilisées dans la liste **Nœuds de passerelle** :  
+The following table provides descriptions of columns in the **Gateway Nodes** list:  
 
-Propriété de surveillance | Description
+Monitoring Property | Description
 :------------------ | :---------- 
-Nom | Nom de la passerelle logique et nœuds associés à la passerelle. Le nœud est un ordinateur Windows local sur lequel la passerelle est installée. Pour plus d’informations sur la multitude de nœuds (jusqu’à quatre) dans une seule passerelle logique, consultez [Passerelle de gestion des données - Haute disponibilité et scalabilité](data-factory-data-management-gateway-high-availability-scalability.md).    
-État | État de la passerelle logique et des nœuds de passerelle. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, consultez la section [État de la passerelle](#gateway-status). 
-Version | Indique la version de la passerelle logique et de chaque nœud de passerelle. La version de la passerelle logique est déterminée selon la version de la majorité des nœuds dans le groupe. S’il existe des nœuds de différentes versions dans l’installation de la passerelle logique, seuls les nœuds dont le numéro de version est identique à celui de la passerelle logique fonctionnent correctement. Les autres sont en mode limité et ont besoin d’une mise à jour manuelle (uniquement si la mise à jour automatique échoue). 
-Mémoire disponible | Mémoire disponible sur un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
-Utilisation du processeur | Utilisation du processeur d’un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
-Réseau (entrée/sortie) | Utilisation du réseau d’un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
-Tâches simultanées (en cours d’exécution/limite) | Nombre de travaux ou tâches qui s’exécutent sur chaque nœud. Cette valeur est un instantané en quasi temps réel. La limite correspond au nombre maximal de travaux simultanés pour chaque nœud. Cette valeur est définie selon la taille de l’ordinateur. Vous pouvez augmenter la limite pour monter en puissance l’exécution de tâches simultanées dans les scénarios avancés, où le processeur/la mémoire /le réseau sont sous-utilisés, alors que les activités expirent. Cette fonctionnalité est également disponible avec une passerelle à nœud unique (même quand la fonctionnalité Haute disponibilité et scalabilité n’est pas activée).  
-Rôle | Il existe deux types de rôles dans une passerelle à plusieurs nœuds : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur, utilisé pour extraire des tâches/travaux auprès de services cloud et les répartir entre les différents nœuds rôles de travail (y compris lui-même).
+Name | Name of the logical gateway and nodes associated with the gateway. Node is an on-premises Windows machine that has the gateway installed on it. For information on having more than one node (up to four nodes) in a single logical gateway, see [Data Management Gateway - high availability and scalability](data-factory-data-management-gateway-high-availability-scalability.md).    
+Status | Status of the logical gateway and the gateway nodes. Example: Online/Offline/Limited/etc. For information about these statuses, See [Gateway status](#gateway-status) section. 
+Version | Shows the version of the logical gateway and each gateway node. The version of the logical gateway is determined based on version of majority of nodes in the group. If there are nodes with different versions in the logical gateway setup, only the nodes with the same version number as the logical gateway function properly. Others are in the limited mode and need to be manually updated (only in case auto-update fails). 
+Available memory | Available memory on a gateway node. This value is a near real-time snapshot. 
+CPU utilization | CPU utilization of a gateway node. This value is a near real-time snapshot. 
+Networking (In/Out) | Network utilization of a gateway node. This value is a near real-time snapshot. 
+Concurrent Jobs (Running/ Limit) | Number of jobs or tasks running on each node. This value is a near real-time snapshot. Limit signifies the maximum concurrent jobs for each node. This value is defined based on the machine size. You can increase the limit to scale up concurrent job execution in advanced scenarios, where CPU/memory/network is under-utilized, but activities are timing out. This capability is also available with a single-node gateway (even when the scalability and availability feature is not enabled).  
+Role | There are two types of roles in a multi-node gateway – Dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes (including itself).
 
-Dans cette page figurent des paramètres plus significatifs en présence de deux nœuds ou plus (scénario d’augmentation du nombre des instances) dans la passerelle. Consultez [Passerelle de gestion des données - Haute disponibilité et scalabilité](data-factory-data-management-gateway-high-availability-scalability.md) pour plus d’informations sur la configuration d’une passerelle à plusieurs nœud.
+In this page, you see some settings that make more sense when there are two or more nodes (scale out scenario) in the gateway. See [Data Management Gateway - high availability and scalability](data-factory-data-management-gateway-high-availability-scalability.md) for details about setting up a multi-node gateway.
 
-### <a name="gateway-status"></a>État de la passerelle
-Le tableau suivant indique les états possibles d’un **nœud de passerelle** : 
+### Gateway status
+The following table provides possible statuses of a **gateway node**: 
 
-État  | Commentaires/Scénarios
+Status  | Comments/Scenarios
 :------- | :------------------
-En ligne | Nœud connecté au service Data Factory.
-Hors ligne | Le nœud est hors connexion.
-Mise à niveau | Le nœud est en cours de mise à jour automatique.
-Limité | Dû à un problème de connectivité. Éventuellement dû à un problème de port HTTP 8050, à un problème de connectivité du bus de service ou à un problème de synchronisation des informations d’identification. 
-Inactif | La configuration du nœud est différente de celle de la majorité des autres nœuds.<br/><br/> Un nœud peut être inactif quand il ne parvient pas à se connecter à d’autres nœuds. 
+Online | Node connected to Data Factory service.
+Offline | Node is offline.
+Upgrading | The node is being auto-updated.
+Limited | Due to Connectivity issue. May be due to HTTP port 8050 issue, service bus connectivity issue, or credential sync issue. 
+Inactive | Node is in a configuration different from the configuration of other majority nodes.<br/><br/> A node can be inactive when it cannot connect to other nodes. 
 
 
-Le tableau suivant indique les états possibles d’une **passerelle logique**. L’état de la passerelle dépend des états des nœuds de passerelle. 
+The following table provides possible statuses of a **logical gateway**. The gateway status depends on statuses of the gateway nodes. 
 
-État | Commentaires
+Status | Comments
 :----- | :-------
-Doit être inscrite | Aucun nœud n’est encore inscrit sur cette passerelle logique.
-En ligne | Les nœuds de passerelle sont en ligne.
-Hors ligne | Aucun nœud n’est en ligne.
-Limité | Tous les nœuds inclus dans cette passerelle ne sont pas dans un état intègre. Cet état est un avertissement pouvant indiquer que certains nœuds sont en panne ! <br/><br/>Peut être dû à un problème de synchronisation des informations d’identification sur le nœud répartiteur/rôle de travail. 
+Needs Registration | No node is yet registered to this logical gateway
+Online | Gateway Nodes are online
+Offline | No node in online status.
+Limited | Not all nodes in this gateway are in healthy state. This status is a warning that some node might be down! <br/><br/>Could be due to credential sync issue on dispatcher/worker node. 
 
-## <a name="scale-up-gateway"></a>Monter en puissance la passerelle
-Vous pouvez configurer le nombre de **travaux de déplacement de données simultanés** qui peuvent s’exécuter sur un nœud pour augmenter la capacité de déplacement des données entre les magasins de données locaux et dans le cloud. 
+## Scale up gateway
+You can configure the number of **concurrent data movement jobs** that can run on a node to scale up the capability of moving data between on-premises and cloud data stores. 
 
-Quand la mémoire disponible et le processeur ne sont pas correctement utilisés, mais que la capacité inactive s’élève à 0, vous devez monter en puissance en augmentant le nombre de travaux simultanés pouvant s’exécuter sur un nœud. Vous pouvez également monter en puissance quand les activités expirent parce que la passerelle est surchargée. Dans les paramètres avancés d’un nœud de passerelle, vous pouvez augmenter la capacité maximale d’un nœud. 
+When the available memory and CPU are not utilized well, but the idle capacity is 0, you should scale up by increasing the number of concurrent jobs that can run on a node. You may also want to scale up when activities are timing out because the gateway is overloaded. In the advanced settings of a gateway node, you can increase the maximum capacity for a node. 
   
 
-## <a name="troubleshooting-gateway-issues"></a>Résolution des problèmes de la passerelle
-Consultez l’article [Résolution des problèmes de la passerelle](data-factory-troubleshoot-gateway-issues.md) pour plus d’informations/de conseils pour résoudre les problèmes liés à la passerelle de gestion des données.  
+## Troubleshooting gateway issues
+See [Troubleshooting gateway issues](data-factory-troubleshoot-gateway-issues.md) article for information/tips for troubleshooting issues with using the data management gateway.  
 
-## <a name="move-gateway-from-one-machine-to-another"></a>Déplacer la passerelle d’une machine vers une autre
-Cette section décrit les opérations pour déplacer une passerelle client d’une machine vers une autre.
+## Move gateway from one machine to another
+This section provides steps for moving gateway client from one machine to another machine.
 
-1. Dans le portail, accédez à la **page d’accueil de Data Factory**, puis cliquez sur la vignette **Services liés**.
+1. In the portal, navigate to the **Data Factory home page**, and click the **Linked Services** tile.
 
-    ![Lien de passerelles de données](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
-2. Sélectionnez votre passerelle dans la section **PASSERELLES DE DONNÉES** de la page **Services liés**.
+    ![Data Gateways Link](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+2. Select your gateway in the **DATA GATEWAYS** section of the **Linked Services** page.
 
-    ![Page Services liés avec une passerelle sélectionnée](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
-3. Dans la page **Passerelle de données**, cliquez sur **Télécharger et installer la passerelle de données**.
+    ![Linked Services page with gateway selected](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
+3. In the **Data gateway** page, click **Download and install data gateway**.
 
-    ![Télécharger le lien de passerelle](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
-4. Dans la page **Configurer**, cliquez sur **Télécharger et installer la passerelle de données**, puis suivez les instructions pour installer la passerelle de données sur la machine.
+    ![Download gateway link](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
+4. In the **Configure** page, click **Download and install data gateway**, and follow instructions to install the data gateway on the machine.
 
-    ![Page Configurer](./media/data-factory-data-management-gateway/ConfigureBlade.png)
-5. Laissez le **Gestionnaire de configuration de la passerelle de gestion des données** ouvert.
+    ![Configure page](./media/data-factory-data-management-gateway/ConfigureBlade.png)
+5. Keep the **Microsoft Data Management Gateway Configuration Manager** open.
 
-    ![Gestionnaire de configuration](./media/data-factory-data-management-gateway/ConfigurationManager.png)    
-6. Dans la page **Configurer** du portail, cliquez sur **Recréer une clé** dans la barre de commandes, puis, dans le message d’avertissement, cliquez sur **Oui**. Cliquez sur le **bouton de copie** en regard du texte de la clé qui copie la clé dans le presse-papiers. La passerelle de l’ancienne machine cesse de fonctionner dès que vous recréez la clé.  
+    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)    
+6. In the **Configure** page in the portal, click **Recreate key** on the command bar, and click **Yes** for the warning message. Click **copy button** next to key text that copies the key to the clipboard. The gateway on the old machine stops functioning as soon you recreate the key.  
 
-    ![Recréer une clé](./media/data-factory-data-management-gateway/RecreateKey.png)
-7. Collez la **clé** dans la zone de texte sur la page **Inscrire la passerelle** du **Gestionnaire de configuration de passerelle de gestion des données** sur votre machine. (Facultatif) Cochez la case **Afficher la clé de passerelle** pour afficher le texte de la clé.
+    ![Recreate key](./media/data-factory-data-management-gateway/RecreateKey.png)
+7. Paste the **key** into text box in the **Register Gateway** page of the **Data Management Gateway Configuration Manager** on your machine. (optional) Click **Show gateway key** check box to see the key text.
 
-    ![Copier la clé et s’inscrire](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
-8. Cliquez sur **S’inscrire** pour enregistrer la passerelle auprès du service cloud.
-9. Dans l’onglet **Paramètres**, cliquez sur **Modifier** pour sélectionner le certificat utilisé avec l’ancienne passerelle, entrez le **mot de passe**, puis cliquez sur **Terminer**.
+    ![Copy key and Register](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
+8. Click **Register** to register the gateway with the cloud service.
+9. On the **Settings** tab, click **Change** to select the same certificate that was used with the old gateway, enter the **password**, and click **Finish**.
 
-   ![Spécifier le certificat](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
+   ![Specify Certificate](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
 
-   Vous pouvez exporter un certificat à partir de l’ancienne passerelle en procédant comme suit : lancez le Gestionnaire de configuration de passerelle de gestion des données sur l’ancien panneau, basculez vers l’onglet **Certificat**, cliquez sur le bouton **Exporter** et suivez les instructions.
-10. Une fois l’inscription de la passerelle terminée, vous devez voir **Inscription** définie sur **Inscrit** et **État** défini sur la valeur **Démarré** sur la page d’accueil du Gestionnaire de configuration de passerelle.
+   You can export a certificate from the old gateway by doing the following steps: launch Data Management Gateway Configuration Manager on the old machine, switch to the **Certificate** tab, click **Export** button and follow the instructions.
+10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the Home page of the Gateway Configuration Manager.
 
-## <a name="encrypting-credentials"></a>Chiffrement des informations d’identification
-Pour chiffrer les informations d’identification dans Data Factory Editor, procédez comme suit :
+## Encrypting credentials
+To encrypt credentials in the Data Factory Editor, do the following steps:
 
-1. Lancez le navigateur web sur **l’ordinateur passerelle**, accédez au [portail Azure](http://portal.azure.com). Recherchez votre fabrique de données si nécessaire, ouvrez-la dans la page **DATA FACTORY**, puis cliquez sur **Créer et déployer** pour démarrer Data Factory Editor.   
-2. Cliquez sur un **service lié** existant dans l’arborescence pour afficher sa définition JSON ou créez un autre service lié qui nécessite une passerelle de gestion des données (par exemple, SQL Server ou Oracle).
-3. Dans l’éditeur JSON, entrez le nom de la passerelle pour la propriété **gatewayName** .
-4. Entrez le nom du serveur pour la propriété **Data Source** dans **connectionString**.
-5. Entrez le nom de la base de données pour la propriété **Initial Catalog** dans **connectionString**.    
-6. Cliquez sur le bouton **Chiffrer** dans la barre de commandes qui lance l’application ClickOnce **Gestionnaire d’informations d’identification**. La boîte de dialogue **Définition des informations d’identification** doit s’afficher.
+1. Launch web browser on the **gateway machine**, navigate to [Azure portal](http://portal.azure.com). Search for your data factory if needed, open data factory in the **DATA FACTORY** page and then click **Author & Deploy** to launch Data Factory Editor.   
+2. Click an existing **linked service** in the tree view to see its JSON definition or create a linked service that requires a data management gateway (for example: SQL Server or Oracle).
+3. In the JSON editor, for the **gatewayName** property, enter the name of the gateway.
+4. Enter server name for the **Data Source** property in the **connectionString**.
+5. Enter database name for the **Initial Catalog** property in the **connectionString**.    
+6. Click **Encrypt** button on the command bar that launches the click-once **Credential Manager** application. You should see the **Setting Credentials** dialog box.
 
-    ![Boîte de dialogue de définition des informations d’identification](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
-7. Dans la boîte de dialogue **Configuration des informations d’identification** , procédez comme suit :
-   1. Sélectionnez l’ **authentification** que le service de Data Factory doit utiliser pour se connecter à la base de données.
-   2. Entrez le nom de l’utilisateur ayant accès à la base de données dans le paramètre **USERNAME** .
-   3. Entrez le mot de passe de l’utilisateur dans le paramètre **PASSWORD** .  
-   4. Cliquez sur **OK** pour chiffrer les informations d’identification et fermer la boîte de dialogue.
-8. Vous devez maintenant voir une propriété **encryptedCredential** dans **connectionString**.
+    ![Setting credentials dialog](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
+7. In the **Setting Credentials** dialog box, do the following steps:
+   1. Select **authentication** that you want the Data Factory service to use to connect to the database.
+   2. Enter name of the user who has access to the database for the **USERNAME** setting.
+   3. Enter password for the user for the **PASSWORD** setting.  
+   4. Click **OK** to encrypt credentials and close the dialog box.
+8. You should see a **encryptedCredential** property in the **connectionString** now.
 
     ```JSON
     {

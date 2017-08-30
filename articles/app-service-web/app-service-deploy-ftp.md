@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: cephalin;dariac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 816113f7635a003e22a5172113e5039dbcc1ceac
-ms.openlocfilehash: 5dc546849bd02ccf4d02f3e6363a3e2fc3898259
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 9078abbc4ed7eff6975201443992f7bbb84bf57c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
+
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Déployer votre application dans Azure App Service avec FTP/S
+
 Cet article vous explique comment utiliser FTP ou FTPS pour déployer votre application web, votre backend d’applications mobiles ou votre application API dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Le point de terminaison FTP/S de votre application est déjà actif. Aucune configuration n’est nécessaire pour activer le déploiement FTP/S. 
+Le point de terminaison FTP/S de votre application est déjà actif. Aucune configuration n’est nécessaire pour activer le déploiement FTP/S.
+
+> [!IMPORTANT]
+> Nous prenons en permanence des mesures pour améliorer la sécurité de la plateforme Microsoft Azure. Dans le cadre de cet effort continu, une mise à niveau des Applications Web est prévue pour les régions d’Allemagne centrale et d’Allemagne du nord-est. L’utilisation du protocole FTP en texte brut pour les déploiements est désactivée pendant cette Web Apps. La recommandation faite à nos clients consiste à basculer vers FTPS pour les déploiements. Aucune interruption de votre service n’aura lieu pendant cette mise à niveau qui est prévue le 5 septembre. Nous vous remercions du soutien apporté à cet effort.
 
 <a name="step1"></a>
 ## <a name="step-1-set-deployment-credentials"></a>Étape 1 : définir les informations d’identification du déploiement

@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/21/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 26428ad0d3acda959235ffa780294154ba61bca5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 61a8bfcf3704f361432400771d8fcc8b81927b53
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -32,8 +32,8 @@ Lors du premier démarrage, Cloud Shell vous invite à associer un partage de fi
 
 Lorsque vous utilisez des paramètres de base et sélectionnez uniquement un abonnement, Cloud Shell crée trois ressources pour vous dans la région prise en charge la plus proche de vous :
 * Groupe de ressources : `cloud-shell-storage-<region>`
-* Compte de stockage : `cs-uniqueGuid`
-* Partage de fichiers : `cs-<user>-<domain>-com-uniqueGuid`
+* Compte de stockage : `cs<uniqueGuid>`
+* Partage de fichiers : `cs-<user>-<domain>-com-<uniqueGuid>`
 
 ![Paramètre d’abonnement](media/basic-storage.png)
 
@@ -41,7 +41,7 @@ Le partage de fichiers est monté comme un `clouddrive` dans votre répertoire `
 
 ### <a name="use-existing-resources"></a>Utiliser les ressources existantes
 
-L’option Avancé vous permet d’associer des ressources existantes. Lorsque l’invite de configuration du stockage s’affiche, sélectionnez **Afficher les paramètres avancés** pour visualiser des options supplémentaires. Les partages de fichiers existants reçoivent une image utilisateur de 5 Go pour conserver votre répertoire `$Home`. Les listes déroulantes sont filtrées sur la région Cloud Shell qui vous a été attribuée, ainsi que sur les comptes de stockage localement redondant et géoredondant.
+L’option Avancé vous permet d’associer des ressources existantes. Lorsque l’invite de configuration du stockage s’affiche, sélectionnez **Afficher les paramètres avancés** pour visualiser des options supplémentaires. Les partages de fichiers existants reçoivent une image utilisateur de 5 Go pour conserver votre répertoire `$Home`. Les menus déroulants sont filtrés sur la région Cloud Shell ainsi que sur les comptes de stockage localement redondants et géoredondants.
 
 ![Paramètre Groupe de ressources](media/advanced-storage.png)
 
@@ -71,7 +71,7 @@ Si vous montez un partage de fichiers existant, les comptes de stockage doivent 
 * Situés dans votre région affectée. Lors de l’intégration, la région qui vous est affectée est répertoriée dans le nom de groupe de ressources `cloud-shell-storage-<region>`.
 
 ### <a name="supported-storage-regions"></a>Régions de stockage prises en charge
-Les fichiers Azure doivent résider dans la même région que la machine Cloud Shell sur laquelle le montage est effectué. Les machines Cloud Shell existent dans les régions suivantes :
+Les fichiers Azure doivent résider dans la même région que la machine Cloud Shell sur laquelle le montage est effectué. Les clusters Cloud Shell existent actuellement dans les régions suivantes :
 |Domaine|Région|
 |---|---|
 |Amérique|Est des États-Unis, Sud du centre des États-Unis, Ouest des États-Unis|
@@ -94,7 +94,7 @@ Pour afficher plus de détails, exécutez `clouddrive mount -h`, comme illustré
 ![Exécution de la commande clouddrive mount](media/mount-h.png)
 
 ## <a name="unmount-clouddrive"></a>Démonter `clouddrive`
-Vous pouvez démonter un partage de fichiers monté sur Cloud Shell à tout moment. Toutefois, puisque Cloud Shell nécessite qu’un partage de fichiers soit monté, vous serez invité à créer et à monter un nouveau partage de fichiers lors de la prochaine session.
+Vous pouvez démonter un partage de fichiers monté sur Cloud Shell à tout moment. Une fois le partage de fichiers démonté, vous êtes invité à monter un nouveau partage de fichiers avant la prochaine session.
 
 Pour supprimer un partage de fichiers de Cloud Shell :
 1. Exécutez `clouddrive unmount`.
@@ -107,23 +107,23 @@ Pour afficher plus de détails, exécutez `clouddrive unmount -h`, comme illustr
 ![Exécution de la commande clouddrive unmount](media/unmount-h.png)
 
 > [!WARNING]
-> L’exécution de cette commande ne va pas supprimer de ressources. Toutefois, la suppression manuelle d’un groupe de ressources, d’un compte de stockage ou d’un partage de fichiers mappé à Cloud Shell va effacer votre image disque du répertoire `$Home`, ainsi que tous les autres fichiers présents dans votre partage de fichiers. Il est impossible d’annuler cette opération.
+> L’exécution de cette commande ne supprime pas de ressources. La suppression manuelle du groupe de ressources, compte de stockage ou partage de fichiers mappé à Cloud Shell efface votre image du répertoire `$Home` et tout autre fichier présent dans votre partage de fichiers. Il est impossible d’annuler cette opération.
 
 ## <a name="list-clouddrive-file-shares"></a>Répertorier les partages de fichiers `clouddrive`
 Pour détecter quel partage de fichiers est monté comme `clouddrive`, exécutez la commande `df` suivante. 
 
-Le chemin vers clouddrive affiche le nom de votre compte de stockage et le partage de fichiers dans l’URL. Par exemple, `//storageaccountname.file.core.windows.net/filesharename`
+Le chemin de fichier vers clouddrive affiche le nom de votre compte de stockage et le partage de fichiers dans l’URL. Par exemple, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
-Filesystem                                          1K-blocks   Used  Available Use% Mounted on
-overlay                                             29711408 5577940   24117084  19% /
-tmpfs                                                 986716       0     986716   0% /dev
-tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
-/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
-shm                                                    65536       0      65536   0% /dev/shm
-//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
-justin@Azure:~$
+Filesystem                                               1K-blocks     Used Available Use% Mounted on
+overlay                                                   30428648 15585636  14826628  52% /
+tmpfs                                                       986704        0    986704   0% /dev
+tmpfs                                                       986704        0    986704   0% /sys/fs/cgroup
+/dev/sda1                                                 30428648 15585636  14826628  52% /etc/hosts
+shm                                                          65536        0     65536   0% /dev/shm
+//mystoragename.file.core.windows.net/fileshareName        6291456  5242944   1048512  84% /usr/justin/clouddrive
+/dev/loop0                                                 5160576   601652   4296780  13% /home/justin
 ```
 
 ## <a name="transfer-local-files-to-cloud-shell"></a>Transférer des fichiers locaux vers Cloud Shell

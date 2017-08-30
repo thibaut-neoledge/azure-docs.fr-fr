@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 35d7f6d655f53891c00ca6c736c8c12b99fdc5ef
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 1ebabe4844732412e04bab8c277f7ebbc4a5737c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="get-started-with-reliable-services"></a>Prise en main de Reliable Services
@@ -166,22 +165,17 @@ La génération de modèles automatique Yeoman inclut un script Gradle permettan
 $ gradle
 ```
 
-Cela génère un package d’application Service Fabric qui peut être déployé à l’aide de l’interface de ligne de commande Azure Service Fabric.
+Cela génère un package d’application Service Fabric qui peut être déployé à l’aide de l’interface CLI Azure Service Fabric.
 
-### <a name="deploy-with-xplat-cli"></a>Déploiement avec l’interface de ligne de commande XPlat
+### <a name="deploy-with-service-fabric-cli"></a>Effectuer un déploiement à l’aide de l’interface CLI Service Fabric
 
-Si vous utilisez la CLI XPlat, le script install.sh contient les commandes Azure CLI nécessaires pour déployer le package d’application. Exécutez le script install.sh pour déployer l’application.
+Le script install.sh contient les commandes de l’interface CLI Service Fabric nécessaires pour déployer le package d’application. Exécutez le script install.sh pour déployer l’application.
 
 ```bash
 $ ./install.sh
 ```
 
-### <a name="deploy-with-azure-cli-20"></a>Déploiement avec Azure CLI 2.0
+## <a name="next-steps"></a>Étapes suivantes
 
-Si vous utilisez Azure CLI 2.0, consultez la documentation de référence sur la gestion d’un [cycle de vie des applications à l’aide d’Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
-
-## <a name="related-articles"></a>Articles connexes
-
-* [Prise en main de Service Fabric et d’Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Prise en main de l’interface de ligne de commande Service Fabric XPlat](service-fabric-azure-cli.md)
+* [Bien démarrer avec l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
 
