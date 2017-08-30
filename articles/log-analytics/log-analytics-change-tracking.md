@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 7e0fa9a83c3c83145a4813422bf73a0e711d0ecc
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivi des modifications apportées aux logiciels dans votre environnement grâce à la solution de suivi des modifications
@@ -28,13 +28,13 @@ ms.lasthandoff: 07/06/2017
 
 Cet article vous aidera à utiliser la solution de suivi des modifications de Log Analytics pour identifier facilement les modifications dans votre environnement. La solution suit les modifications apportées aux logiciels Windows et Linux, aux clés de Registre, fichiers et services Windows et aux démons Linux. Identifier les modifications de configuration peut vous aider à identifier les problèmes opérationnels.
 
-Vous installez la solution pour mettre à jour le type d’agent que vous avez installé. Les modifications apportées à des logiciels installés, aux services Windows et aux démons Linux sur les serveurs analysés sont lues, puis les données sont envoyées au service cloud Log Analytics pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
+Vous installez la solution pour mettre à jour le type d’agent que vous avez installé. Les modifications apportées aux logiciels, services Windows et démons Linux installés sur les serveurs analysés sont lues. Ensuite, les données sont envoyées au service Log Analytics dans le cloud pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
 
 ## <a name="installing-and-configuring-the-solution"></a>Installation et configuration de la solution
 Utilisez les informations suivantes pour installer et configurer la solution.
 
 * Vous devez disposer d’un agent [Windows](log-analytics-windows-agents.md), d'un [Operations Manager](log-analytics-om-agents.md) ou d'un agent [Linux](log-analytics-linux-agents.md) sur chaque ordinateur où vous souhaitez analyser les modifications.
-* Ajoutez la solution de suivi des modifications à votre espace de travail OMS depuis la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).  Aucune configuration supplémentaire n’est requise.
+* Ajoutez la solution Change Tracking à votre espace de travail OMS à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Vous pouvez également ajouter la solution en utilisant les informations contenues dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md). Aucune configuration supplémentaire n'est nécessaire.
 
 ### <a name="configure-linux-files-to-track"></a>Configuration des fichiers Linux à suivre
 Suivez les étapes ci-dessous pour configurer les fichiers à suivre sur les ordinateurs Linux.
@@ -43,7 +43,7 @@ Suivez les étapes ci-dessous pour configurer les fichiers à suivre sur les ord
 2. Sur la page **Paramètres** cliquez sur **Données**, puis sur **Suivi des fichiers Linux**.
 3. Sous Suivi des modifications des fichiers Linux, tapez le chemin d’accès complet, y compris le nom du fichier que vous souhaitez suivre, puis cliquez sur le symbole **Ajouter**. Par exemple : « /etc/*.conf »
 4. Cliquez sur **Save**.  
-  
+
 > [!NOTE]
 > Le suivi des fichiers Linux est doté de fonctionnalités supplémentaires, y compris le suivi du répertoire, la récursivité dans les répertoires et le suivi des caractères génériques.
 
@@ -72,16 +72,16 @@ Utilisez les étapes suivantes pour configurer les clés de Registre à suivre s
 2. **Liens** (gestion des références de lien symbolique Linux pour les autres fichiers ou répertoires)
    * **Ignorer** (ignorer les liens symboliques pendant les opérations de récursivité pour ne pas inclure les fichiers/répertoires référencés)
    * **Suivre** (suivre les liens symboliques pendant les opérations de récursivité pour inclure aussi les fichiers/répertoires référencés)
-   * **Gérer** (suivre les liens symboliques et modifier le traitement des contenus renvoyés) 
-   
+   * **Gérer** (suivre les liens symboliques et modifier le traitement des contenus renvoyés)
+
    > [!NOTE]   
-   > L’option de liens « Gérer » est déconseillée, car la récupération des contenus de fichier n’est actuellement pas prise en charge.
-   
+   > L’option permettant de « Gérer » les liens n’est pas recommandée. L’extraction du contenu du fichier n’est pas prise en charge.
+
 3. **Traiter récursivement** (traiter récursivement via les niveaux de dossiers et suivre tous les fichiers respectant l’instruction de chemin d’accès)
 4. **Sudo** (activer les répertoires ou fichiers d’accès qui nécessitent un privilège sudo)
 
 ### <a name="limitations"></a>Limites
-La solution de suivi des modifications ne prend pas en charge les éléments suivants :
+Actuellement, la solution Change Tracking ne prend pas en charge les éléments suivants :
 
 * Dossiers (répertoires) pour le suivi des fichiers Windows
 * Récursivité pour le suivi des fichiers Windows
@@ -102,9 +102,9 @@ Le suivi des modifications collecte des métadonnées d’inventaire logiciel et
 
 Le tableau suivant présente les méthodes de collecte des données et d’autres informations sur le mode de collecte en vue du suivi des modifications.
 
-| plateforme | Agent direct | Agent SCOM | Agent Linux | Azure Storage | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
+| plateforme | Agent direct | Agent Operations Manager | Agent Linux | Azure Storage | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows et Linux |![Oui](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Oui](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Oui](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Non](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Non](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Oui](./media/log-analytics-change-tracking/oms-bullet-green.png) | Entre 5 minutes et 50 minutes, selon le type de modification. Pour plus d’informations, voir plus bas. |
+| Windows et Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | Entre 5 minutes et 50 minutes, selon le type de modification. Pour plus d’informations, consultez le tableau suivant. |
 
 
 Le tableau suivant indique la fréquence de collecte de données selon les types de modification.
@@ -128,7 +128,7 @@ Log Analytics assure le suivi et la surveillance du Registre Windows avec la sol
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
     - Surveille les scripts qui s’exécutent à l’arrêt.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
-    - Surveille les clés qui sont chargées avant que l’utilisateur ne se connecte à son compte Windows pour les programmes 32 bits s’exécutant sur des ordinateurs 64 bits.
+    - Surveille les clés qui sont chargées avant que l’utilisateur ne se connecte à son compte Windows. La clé est utilisée pour les programmes 32 bits s’exécutant sur des ordinateurs 64 bits.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components
     - Surveille les modifications apportées aux paramètres d’application.
 - HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
@@ -142,9 +142,9 @@ Log Analytics assure le suivi et la surveillance du Registre Windows avec la sol
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Surveille l’enregistrement du gestionnaire des icônes de recouvrement pour les programmes 32 bits s’exécutant sur des ordinateurs 64 bits.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Surveille les nouveaux plug-ins d’objet application d’assistance du navigateur Internet Explorer, qui permettent d’accéder à l’objet Document Object Model (DOM) de la page active et de contrôler la navigation.
+    - Surveille la présence de nouveaux plug-ins d’objet application d’assistance du navigateur pour Internet Explorer. Utilisé pour accéder à l’objet DOM (Document Object Model) de la page actuelle et contrôler la navigation.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Surveille les nouveaux plug-ins d’objet application d’assistance du navigateur Internet Explorer, qui permettent d’accéder à l’objet Document Object Model (DOM) de la page active et de contrôler la navigation pour les programmes 32 bits s’exécutant sur des ordinateurs 64 bits.
+    - Surveille la présence de nouveaux plug-ins d’objet application d’assistance du navigateur pour Internet Explorer. Utilisé pour accéder à l’objet DOM (Document Object Model) de la page actuelle et contrôler la navigation pour les programmes 32 bits s’exécutant sur des ordinateurs 64 bits.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
     - Surveille les nouvelles extensions Internet Explorer, notamment les menus d’outils personnalisés et les boutons de barre d’outils personnalisés.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions

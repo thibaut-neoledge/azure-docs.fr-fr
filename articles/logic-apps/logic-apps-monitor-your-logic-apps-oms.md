@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 91c747a4fbb3c3c3d799741e7d3b5d4646931136
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 0e9f0ef3c87b5c0da1cc4ad16d37178c8f5c9625
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -72,7 +72,7 @@ Si vous avez déjà activé Log Analytics lors de la création de votre applicat
 
    ![Choisir « Portail OMS »](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
 
-4. Dans la page d’accueil OMS, choisissez **Galerie de solutions**.
+4. Sur votre page d’accueil OMS, si la bannière de mise à niveau s’affiche, choisissez la bannière de manière à mettre à niveau d’abord votre espace de travail OMS. Puis choisissez **Galerie de solutions**.
 
    ![Sélection de « Galerie de solutions »](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
 
@@ -91,6 +91,11 @@ Si vous avez déjà activé Log Analytics lors de la création de votre applicat
 1. Pour afficher le nombre et l’état des exécutions de votre application logique, accédez à la vue d’ensemble de votre espace de travail OMS. Passez en revue les détails de la vignette **Logic Apps Management**.
 
    ![Vignette de présentation affichant l’état et le nombre d’exécutions de l’application logique](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+
+   > [!Note]
+   > Si cette bannière de mise à niveau s’affiche au lieu de la vignette Logic Apps Management, choisissez la bannière de manière à mettre à niveau d’abord votre espace de travail OMS.
+  
+   > ![Mettre à niveau « Espace de travail OMS »](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
 
 2. Pour afficher un récapitulatif plus détaillé des exécutions de votre application logique, choisissez la vignette **Logic Apps Management**.
 

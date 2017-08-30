@@ -55,6 +55,7 @@
 #### [Utiliser Azure Backup Server pour sauvegarder une batterie de serveurs SharePoint](backup-azure-backup-sharepoint-mabs.md)
 #### [Utiliser Azure Backup Server pour sauvegarder SQL](backup-azure-sql-mabs.md)
 #### [Protéger l’état du système et la récupération complète](backup-mabs-system-state-and-bmr.md)
+### [Récupérer des données à partir d’un serveur de sauvegarde Azure](backup-azure-alternate-dpm-server.md)
 
 ## Gestionnaire de protection des données
 ### [Préparer les charges de travail DPM dans le portail Azure](backup-azure-dpm-introduction.md)

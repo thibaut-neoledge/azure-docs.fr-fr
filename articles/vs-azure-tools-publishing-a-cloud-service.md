@@ -1,10 +1,10 @@
 ---
 title: "Publication d’un service cloud à l’aide des outils Azure | Microsoft Docs"
-description: "Découvrez comment publier des projets de service cloud Azure à l&quot;aide de Visual Studio."
+description: "Découvrez comment publier des projets de service cloud Azure à l'aide de Visual Studio."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 1a07b6e4-3678-4cbf-b37e-4520b402a3d9
 ms.service: multiple
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5e83532c65c5f6699d401ec9371ac2ad7f3868e8
-
+ms.date: 8/14/2017
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 23cea0486a769d4f446f5114016d5accbe8113cf
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="publishing-a-cloud-service-using-the-azure-tools"></a>Publication d’un service cloud à l’aide des outils Azure
@@ -62,7 +63,7 @@ Lorsque vous publiez votre application Azure, vous pouvez effectuer l'une des t�
    > Pour supprimer cet environnement de déploiement après son déploiement, vous devez utiliser le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
    > 
    > 
-4. (Facultatif) Une fois vos instances de rôle démarrées, Visual Studio affiche automatiquement l’environnement de déploiement dans le nœud **Services cloud** de l’Explorateur de serveurs. À partir de là, vous pouvez voir l'état de chaque instance de rôle. Consultez [Gestion des ressources Azure avec Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md). L’illustration suivante montre les instances de rôle toujours à l’état d’initialisation :
+4. (Facultatif) Une fois vos instances de rôle démarrées, Visual Studio affiche automatiquement l’environnement de déploiement dans le nœud **Services cloud** de l’Explorateur de serveurs. Vous pouvez y voir l’état de chaque instance de rôle. Consultez [Gestion des ressources Azure avec Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md). L’illustration suivante montre les instances de rôle toujours à l’état d’initialisation :
    
     ![VST_DeployComputeNode](./media/vs-azure-tools-publishing-a-cloud-service/IC744134.png)
 
@@ -147,10 +148,5 @@ Vous devrez peut-être inclure des fichiers spécifiques dans votre package de s
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la publication sur Azure depuis Visual Studio, consultez [Assistant Publication d’application Azure](vs-azure-tools-publish-azure-application-wizard.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

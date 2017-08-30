@@ -14,7 +14,7 @@
     | **Abonnement** | Choisissez votre abonnement | Sélectionnez l’abonnement Azure à utiliser. |
     | **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Nom du groupe de ressources où créer votre application de fonction. |
     | **[Plan App Service](../articles/azure-functions/functions-scale.md)** | Plan de consommation | Veillez à choisir la **Consommation** sous **Taille** lorsque vous créez un nouveau plan.  |
-    | **[Compte de stockage](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | Nom globalement unique | Utilisez un compte de stockage existant ou créez-en un.   |
+    | **[Compte de stockage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** | Nom globalement unique | Utilisez un compte de stockage existant ou créez-en un.   |
 
 4. Cliquez sur **Créer** pour créer une application de fonction dans Azure avec ces paramètres. Une fois l’approvisionnement terminé, notez la valeur **URL du site**, qui est l’adresse de votre application de fonction dans Azure. 
 

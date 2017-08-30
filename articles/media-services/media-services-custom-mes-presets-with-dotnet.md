@@ -4,7 +4,7 @@ description: "Cette rubrique explique comment effectuer un encodage avancé en p
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services

@@ -1,120 +1,192 @@
 ---
-title: "Didacticiel : intégration d’Azure Active Directory à Rally Software | Microsoft Docs"
-description: "Apprenez à utiliser Rally Software avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
+title: "Didacticiel : Intégration d’Azure Active Directory à Rally Software | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Rally Software."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: ba25fade-e152-42dd-8377-a30bbc48c3ed
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/23/2017
+ms.date: 08/04/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8d913c024fce9945cfd5eaf336deed259dfbef50
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6481c9ef0ca71419ccfa6f7956f4702985743df3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Rally Software
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Rally Software.  
+# <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Didacticiel : Intégration d’Azure Active Directory à Rally Software
 
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+Dans ce didacticiel, vous allez apprendre à intégrer Rally Software à Azure Active Directory (Azure AD).
 
-* Un abonnement Azure valide
-* Un locataire Rally Software
+L’intégration de Rally Software à Azure AD vous offre les avantages suivants :
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+- Dans Azure AD, vous pouvez contrôler qui a accès à Rally Software.
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Rally Software (via l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
 
-1. Activation de l’intégration d’application pour Rally Software
-2. Configuration de l’authentification unique (SSO)
-3. Configuration de l'approvisionnement des utilisateurs
-4. Affectation d’utilisateurs
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-![Scénario](./media/active-directory-saas-rally-software-tutorial/IC769525.png "Scénario")
+## <a name="prerequisites"></a>Composants requis
 
-## <a name="enable-the-application-integration-for-rally-software"></a>Activer l’intégration d’applications pour Rally Software
-Cette section décrit l’activation de l’intégration d’application pour Rally Software.
+Pour configurer l’intégration d’Azure AD à Rally Software, vous avez besoin des éléments suivants :
 
-**Pour activer l’intégration d’applications pour Rally Software, procédez comme suit :**
+- Un abonnement Azure AD
+- Un abonnement Rally Software pour lequel l’authentification unique est activée
 
-1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
+> [!NOTE]
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+
+Vous devez en outre suivre les recommandations ci-dessous :
+
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Description du scénario
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+
+1. Ajout de Rally Software à partir de la galerie
+2. Configuration et test de l’authentification unique Azure AD
+
+## <a name="adding-rally-software-from-the-gallery"></a>Ajout de Rally Software à partir de la galerie
+Pour configurer l’intégration de Rally Software à Azure AD, vous devez ajouter Rally Software à partir de la galerie, à votre liste d’applications SaaS managées.
+
+**Pour ajouter Rally Software à partir de la galerie, effectuez les étapes suivantes :**
+
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+
+    ![Bouton Azure Active Directory][1]
+
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+
+    ![Panneau Applications d’entreprise][2]
+    
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+
+    ![Bouton Nouvelle application][3]
+
+4. Dans la zone de recherche, tapez **Rally Software**, sélectionnez **Rally Software** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+
+    ![Rally Software dans la liste des résultats](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Rally Software à l’aide d’un utilisateur de test appelé « Britta Simon ».
+
+Pour que l’authentification unique fonctionne, Azure AD a besoin de savoir qui est l’utilisateur Rally Software équivalent dans Azure AD. En d’autres termes, un lien entre un utilisateur Azure AD et l’utilisateur Rally Software associé doit être établi.
+
+Dans Rally Software, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** pour établir la relation.
+
+Pour configurer et tester l’authentification unique Azure AD avec Rally Software, vous devez suivre les indications des sections suivantes :
+
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur de test Rally Software](#create-a-rally-software-test-user)** pour avoir un équivalent de Britta Simon dans Rally Software lié à la représentation Azure AD de l’utilisateur.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Rally Software.
+
+**Pour configurer l’authentification unique Azure AD avec Rally Software, effectuez les étapes suivantes :**
+
+1. Dans le portail Azure, dans la page d’intégration de l’application **Rally Software**, cliquez sur **Authentification unique**.
+
+    ![Lien Configurer l’authentification unique][4]
+
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Boîte de dialogue Authentification unique](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_samlbase.png)
+
+3. Dans la section **Domaine et URL Rally Software**, effectuez les étapes suivantes :
+
+    ![Informations d’authentification unique dans Domaine et URL Rally Software](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_url.png)
+
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenant-name>.rally.com`
+
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<tenant-name>.rally.com`
+
+    > [!NOTE] 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support Rally Software](https://help.rallydev.com/). 
+ 
+
+
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_certificate.png) 
+
+5. Cliquez sur le bouton **Enregistrer** .
+
+    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-rally-software-tutorial/tutorial_general_400.png)
+
+6. Dans la section **Configuration de Rally Software**, cliquez sur **Configurer Rally Software** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’ID d’entité SAML** à partir de la **section Référence rapide**.
+
+    ![Configuration de Rally Software](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_configure.png) 
+
+7. Connectez-vous à votre locataire **Rally Software** .
+
+8. Dans la barre d’outils située en haut, cliquez sur **Setup**, puis sélectionnez **Subscription**.
    
-    ![Active Directory](./media/active-directory-saas-rally-software-tutorial/IC700993.png "Active Directory")
+    ![Subscription](./media/active-directory-saas-rally-software-tutorial/ic769531.png "Subscription")
 
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+9. Cliquez sur le bouton **Action**. Sélectionnez **Modifier l’abonnement** en haut à droite de la barre d’outils.
 
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
+10. Dans la page **Subscription**, procédez comme suit, puis cliquez sur **Save & Close** :
    
-    ![Applications](./media/active-directory-saas-rally-software-tutorial/IC700994.png "Applications")
-
-4. Cliquez sur **Ajouter** en bas de la page.
+    ![Authentication](./media/active-directory-saas-rally-software-tutorial/ic769542.png "Authentication")
    
-    ![Ajouter une application](./media/active-directory-saas-rally-software-tutorial/IC749321.png "Ajouter une application")
+    a. Sélectionnez **Rally or SSO authentication** dans la liste déroulante Authentication.
 
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
-   
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-rally-software-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
+    b. Dans la zone de texte **Identity provider URL** (URL du fournisseur d’identité), collez **l’ID d’entité SAML** copié à partir du portail Azure. 
 
-6. Dans la **zone de recherche**, tapez **rally**.
-   
-    ![Galerie d’applications](./media/active-directory-saas-rally-software-tutorial/IC769526.png "Galerie d’applications")
+    c. Dans la zone de texte **SSO Logout** (Déconnexion SSO), collez **l’URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-7. Dans le volet des résultats, sélectionnez **Rally Software**, puis cliquez sur **Terminer** pour ajouter l’application.
-   
-    ![Rally Software](./media/active-directory-saas-rally-software-tutorial/IC769527.png "Rally Software")
-   
-## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Rally Software avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans le cadre de cette procédure, vous devez charger un certificat vers Rally Software.
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-**Pour configurer l’authentification unique, procédez comme suit :**
+   ![Créer un utilisateur de test Azure AD][100]
 
-1. Dans le portail Azure Classic, sur la page d’intégration d’applications **Rally Software**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-rally-software-tutorial/IC749323.png "Configurer l’authentification unique")
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Rally**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
-   
-    ![Authentification unique avec Microsoft Azure AD](./media/active-directory-saas-rally-software-tutorial/IC769528.png "Authentification unique avec Microsoft Azure AD")
+1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
 
-3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Rally Software**, tapez votre URL selon le modèle suivant « *https://\<nom-locataire\>.rally.com* », puis cliquez sur **Suivant**.
-   
-    ![Configurer l’URL de l’application](./media/active-directory-saas-rally-software-tutorial/IC769529.png "Configurer l’URL de l’application")
+    ![Bouton Azure Active Directory](./media/active-directory-saas-rally-software-tutorial/create_aaduser_01.png)
 
-4. Dans la page **Configurer l’authentification unique sur Rally** , cliquez sur Télécharger les métadonnées, puis enregistrez le fichier de métadonnées sur votre ordinateur.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-rally-software-tutorial/IC769530.png "Configurer l’authentification unique")
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
-5. Connectez-vous à votre locataire **Rally Software** .
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/active-directory-saas-rally-software-tutorial/create_aaduser_02.png)
 
-6. Dans la barre d’outils située en haut, cliquez sur **Setup**, puis sélectionnez **Subscription**.
-   
-    ![Subscription](./media/active-directory-saas-rally-software-tutorial/IC769531.png "Subscription")
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
-7. Cliquez sur le bouton **Action** dans la barre d’outils située sur la droite, puis sélectionnez **Edit Subscription**.
+    ![Bouton Ajouter](./media/active-directory-saas-rally-software-tutorial/create_aaduser_03.png)
 
-8. Dans la page **Subscription**, procédez comme suit, puis cliquez sur **Save & Close** :
-   
-    ![Authentication](./media/active-directory-saas-rally-software-tutorial/IC769542.png "Authentication")
-   
-  1. Sélectionnez **Rally or SSO authentication** dans la liste déroulante Authentication.
-  2. Dans la page **Configurer l’authentification unique sur Rally Software** du portail Azure Classic, copiez la valeur de **ID de fournisseur d’identité** et collez-la dans la zone de texte **Identity Provider URL**.
-  3. Dans la page **Configurer l’authentification unique sur Rally Software** du portail Azure Classic, copiez la valeur **URL de déconnexion distante**.
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
-9. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-rally-software-tutorial/IC769547.png "Configurer l’authentification unique")
-   
-## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
+    ![Boîte de dialogue Utilisateur](./media/active-directory-saas-rally-software-tutorial/create_aaduser_04.png)
 
-Pour AAD les utilisateurs puissent se connecter, ils doivent être approvisionnés dans l’application Rally Software à l’aide de leurs noms d’utilisateur Azure Active Directory.
+    a. Dans la zone **Nom**, tapez **BrittaSimon**.
+
+    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
+
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+
+    d. Cliquez sur **Create**.
+ 
+### <a name="create-a-rally-software-test-user"></a>Créer un utilisateur de test Rally Software
+
+Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être attribués dans l’application Rally Software avec leur nom d’utilisateur Azure Active Directory.
 
 **Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :**
 
@@ -122,38 +194,82 @@ Pour AAD les utilisateurs puissent se connecter, ils doivent être approvisionn�
 
 2. Accédez à **Setup \> USERS**, puis cliquez sur **+ Add New**.
    
-    ![Utilisateurs](./media/active-directory-saas-rally-software-tutorial/IC781039.png "Utilisateurs")
+    ![Utilisateurs](./media/active-directory-saas-rally-software-tutorial/ic781039.png "Utilisateurs")
 
 3. Tapez le nom dans la zone de texte New User, puis cliquez sur **Add with Details**.
 
 4. Dans la section **Create User** , procédez comme suit :
    
-    ![Create User](./media/active-directory-saas-rally-software-tutorial/IC781040.png "Create User")
+    ![Create User](./media/active-directory-saas-rally-software-tutorial/ic781040.png "Create User")
+
+    a. Dans la zone de texte **User Name** (Nom d’utilisateur), tapez le nom complet d’un utilisateur, par exemple **Britta Simon**.
    
-   1. Dans la zone de texte **User Name** , tapez le nom de l’utilisateur Azure AD que vous souhaitez approvisionner.
-   2. Dans la zone de texte **Email Address** , tapez l’adresse de messagerie de l’utilisateur Azure AD que vous souhaitez approvisionner.
-   3. Cliquez sur **Enregistrer et fermer**.
+    b. Dans la zone de texte **E-mail Address** (Adresse e-mail), entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon@contoso.com**.
 
->[!NOTE]
->Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Rally Software pour approvisionner des comptes d’utilisateur Azure Active Directory.
-> 
-> 
+    c. Dans la zone de texte **Prénom**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 
-## <a name="assign-users"></a>Affecter des utilisateurs
-Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
+    d. Dans la zone de texte **Nom**, entrez le nom de l’utilisateur, par exemple **Simon**.
 
-**Pour affecter des utilisateurs à Rally Software, procédez comme suit :**
+    e. Cliquez sur **Enregistrer et fermer**.
 
-1. Dans le portail Azure Classic, créez un compte de test.
+   >[!NOTE]
+   >Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Rally Software pour approvisionner des comptes d’utilisateur Azure AD.
 
-2. Dans la page d’intégration d’application **Rally Software**, cliquez sur **Affecter des utilisateurs**.
-   
-    ![Affecter des utilisateurs](./media/active-directory-saas-rally-software-tutorial/IC769548.png "Affecter des utilisateurs")
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
-   
-    ![Oui](./media/active-directory-saas-rally-software-tutorial/IC767830.png "Oui")
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Rally Software.
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+![Attribuer le rôle utilisateur][200] 
+
+**Pour attribuer Britta Simon à Rally Software, effectuez les étapes suivantes :**
+
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+
+    ![Affecter des utilisateurs][201] 
+
+2. Dans la liste des applications, sélectionnez **Rally Software**.
+
+    ![Lien Rally Software dans la liste des applications](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_app.png)  
+
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+
+    ![Lien « Utilisateurs et groupes »][202]
+
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+
+    ![Volet Ajouter une attribution][203]
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+    
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
+
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
+Lorsque vous cliquez sur la vignette Rally Software dans le panneau d’accès, vous devez être connecté automatiquement à votre application Rally Software.
+
+## <a name="additional-resources"></a>Ressources supplémentaires
+
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_203.png
 
 

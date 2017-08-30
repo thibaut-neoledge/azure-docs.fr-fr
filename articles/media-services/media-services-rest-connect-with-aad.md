@@ -4,7 +4,7 @@ description: "Découvrez comment accéder à une API Azure Media Services avec l
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: erikre
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media
@@ -18,7 +18,6 @@ ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: a4531b69c44337c4863016810123f7f89bf7f98f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/01/2017
-
 
 ---
 

@@ -13,20 +13,20 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c32f2ca2c799332652d38d882a4d6337bade4f93
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 8ebc6f2dd7502fd75ffdd4d5d68338382cb1a46b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Bien démarrer avec l’authentification par certificat dans Azure Active Directory
 
 L’authentification par certificat vous permet d’être authentifié par Azure Active Directory avec un certificat client sur un appareil Windows, Android ou iOS lors de la connexion de votre compte Exchange Online à : 
 
-- Des applications mobiles Office, telles que Microsoft Outlook et Microsoft Word ;   
+- Des applications mobiles Office, telles que Microsoft Outlook et Microsoft Word   
 
-- Des clients Exchange ActiveSync (EAS). 
+- Des clients Exchange ActiveSync (EAS) 
 
 La configuration de cette fonctionnalité élimine le besoin d’entrer un nom d’utilisateur et un mot de passe dans certaines applications de messagerie et Microsoft Office sur votre appareil mobile. 
 
@@ -41,13 +41,15 @@ Cette rubrique :
 
 Pour configurer l’authentification par certificat, les éléments suivants doivent se vérifier :  
 
+- L’authentification basée sur les certificats est uniquement prise en charge dans les environnements fédérés pour les applications de navigateur ou les clients natifs qui utilisent l’authentification moderne (ADAL). La seule exception est Exchange Active Sync (EAS) pour EXO qui peut être utilisé à la fois pour les comptes fédérés et les comptes managés. 
+
 - L’autorité de certification racine et les autorités de certification intermédiaires doivent être configurées dans Azure Active Directory.  
 
 - Chaque autorité de certification doit avoir une liste de révocation de certificat (CRL) qui peut être référencée via une URL accessible sur Internet.  
 
 - Vous devez disposer d’au moins une autorité de certification configurée dans Azure Active Directory. Vous trouverez les étapes associées dans la section [Configurer les autorités de certification](#step-2-configure-the-certificate-authorities).  
 
-- Pour les clients Exchange ActiveSync, le certificat client doit avoir l’adresse de messagerie routable de l’utilisateur dans Exchange Online, dans la valeur Nom du principal ou la valeur Nom RFC822 du champ Autre nom de l’objet. Azure Active Directory mappe la valeur RFC822 à l’attribut Adresse proxy dans le répertoire.  
+- Pour les clients Exchange ActiveSync, le certificat client doit avoir l’adresse de messagerie routable de l’utilisateur dans Exchange Online, dans la valeur Nom du principal ou la valeur Nom RFC822 du champ Autre nom de l’objet. Azure Active Directory mappe la valeur RFC822 à l’attribut Adresse proxy dans l’annuaire.  
 
 - Votre appareil client doit avoir accès à au moins une autorité de certification qui émet des certificats clients.  
 
@@ -107,7 +109,7 @@ Pour la configuration, vous pouvez utiliser [Azure Active Directory PowerShell V
    
         Install-Module -Name AzureAD –RequiredVersion 2.0.0.33 
 
-Comme première étape de configuration, vous devez établir une connexion avec votre client. Dès qu’il existe une connexion à votre client, vous pouvez examiner, ajouter, supprimer et modifier les autorités de certification approuvées qui sont définies dans votre répertoire. 
+Comme première étape de configuration, vous devez établir une connexion avec votre client. Dès qu’il existe une connexion à votre client, vous pouvez examiner, ajouter, supprimer et modifier les autorités de certification approuvées qui sont définies dans votre annuaire. 
 
 ### <a name="connect"></a>Connecter
 
@@ -118,7 +120,7 @@ Pour établir une connexion avec votre client, utilisez l’applet de commande [
 
 ### <a name="retrieve"></a>Récupération 
 
-Pour récupérer les autorités de certification approuvées qui sont définies dans votre répertoire, utilisez l’applet de commande [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0). 
+Pour récupérer les autorités de certification approuvées qui sont définies dans votre annuaire, utilisez l’applet de commande [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0). 
 
     Get-AzureADTrustedCertificateAuthority 
  

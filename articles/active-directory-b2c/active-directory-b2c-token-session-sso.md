@@ -66,7 +66,7 @@ Voici quelques cas d’usage que vous pouvez activer à l’aide de ces proprié
     > 
     > 
 
-## <a name="token-compatibility-settings"></a>Paramètres de compatibilité de jeton
+## <a name="token-compatibility-settings"></a>Paramètres de conformité de jeton
 Nous avons apporté des modifications de mise en forme aux revendications importantes dans les jetons de sécurité émis par Azure AD B2C. Cela a été fait pour améliorer la prise en charge du protocole standard et pour une meilleure interopérabilité avec les bibliothèques d’identité tierces. Toutefois, pour éviter d’interrompre les applications existantes, nous avons créé les propriétés suivantes pour permettre aux clients de participer en fonction de leurs besoins :
 
 * **Revendication de l’émetteur (iss)** : identifie le client Azure AD B2C qui a émis le jeton.

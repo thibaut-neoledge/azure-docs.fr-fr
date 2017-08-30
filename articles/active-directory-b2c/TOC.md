@@ -46,6 +46,7 @@
 ## [Configurer des jetons](active-directory-b2c-token-session-sso.md)
 ## [Activer l’authentification multifacteur](active-directory-b2c-reference-mfa.md)
 ## [Utiliser des attributs personnalisés](active-directory-b2c-reference-custom-attr.md)
+## [Personnaliser le mot de passe](active-directory-b2c-reference-password-complexity.md)
 ## [Personnalisation de l’interface utilisateur](active-directory-b2c-reference-ui-customization.md)
 ### [Outil d’assistance pour la personnalisation](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Personnalisation de la langue](active-directory-b2c-reference-language-customization.md)
@@ -56,9 +57,12 @@
 ## [Stratégies personnalisées](active-directory-b2c-overview-custom.md)
 ## Guides
 ### [Prise en main](active-directory-b2c-get-started-custom.md)
-### Configurer les fournisseurs OIDC
+### Configurer les fournisseurs OIDC et OAUTH2
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Compte Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
+#### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
 ### Configurer les fournisseurs SAML
+#### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Intégration des API RESTful
 #### [Valider les entrées utilisateur](active-directory-b2c-rest-api-validation-custom.md)
@@ -68,11 +72,12 @@
 #### [Attributs personnalisés](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Personnaliser l’interface utilisateur](active-directory-b2c-ui-customization-custom.md)
 #### [Personnaliser les jetons](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Personnaliser le mot de passe](active-directory-b2c-reference-password-complexity-custom.md)
 ### Résolution des problèmes
 #### [Collecter les journaux à l’aide d’Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Référence
 ### [Notes de publication](active-directory-b2c-developer-notes-custom.md)
-
+### [Définition de l’infrastructure de confiance](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 # Référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glossaire

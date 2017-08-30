@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 08/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 297fe8850499212ca41b0b5ca132b7de8c761297
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Azure Cosmos DB Node.js : notes de publication et ressources
@@ -62,19 +62,27 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="1.12.2"/>1.12.2</a>
+*   Documentation npm mise à jour.
+
+### <a name="1.12.1"/>1.12.1</a>
+* Correction d’un bogue dans executeStoredProcedure où les documents impliqués disposaient de caractères Unicode spéciaux (LS, PS).
+* Correction d’un bogue lors de la gestion de documents contenant des caractères Unicode dans la clé de partition.
+* Prise en charge rétablie de la création de collections avec le support de nom. Problème GitHub n° 114.
+* Prise en charge rétablie du jeton d’autorisation. Problème GitHub n° 178.
+
 ### <a name="1.12.0"/>1.12.0</a>
-* Prise en charge ajoutée de la fonctionnalité [Unité de requête par minute (RU/m)](../cosmos-db/request-units-per-minute.md).
 * Ajout de la prise en charge d’un nouveau [niveau de cohérence](consistency-levels.md) nommé ConsistentPrefix.
 * Ajout de la prise en charge de UriFactory.
-* Correction d’un bogue de prise en charge d’unicode. (Problème GitHub N° 171)
+* Correction d’un bogue de prise en charge des caractères Unicode. Problème GitHub n° 171.
 
 ### <a name="1.11.0"/>1.11.0</a>
 * Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG).
 * Ajout de l’option permettant de contrôler le degré de parallélisme des requêtes entre les partitions.
 * Ajout de l’option permettant de désactiver la vérification SSL en cas d’exécution sur l’émulateur Azure Cosmos DB.
 * Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
-* Correction du bogue de jeton de continuation pour la collection à partition unique (github #107).
-* Correction du bogue executeStoredProcedure lors de la gestion du 0 comme paramètre unique (github #155).
+* Correction du bogue de jeton de continuation pour la collection à partition unique. Problème GitHub n° 107.
+* Correction du bogue executeStoredProcedure lors de la gestion du 0 comme paramètre unique. Problème GitHub n° 155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * En-tête agent utilisateur fixe pour inclure la version du Kit de développement logiciel (SDK).
@@ -89,7 +97,7 @@ ms.lasthandoff: 07/25/2017
 * Ajout de la prise en charge des requêtes TOP/ORDER BY pour les collections partitionnées.
 
 ### <a name="1.9.0"/>1.9.0</a>
-* Ajout de la prise en charge d’une stratégie de nouvelle tentative pour les requêtes limitées. (Les requêtes limitées reçoivent une exception de taux de requête excessif, code d’erreur 429.) Par défaut, Azure Cosmos DB accepte neuf nouvelles tentatives pour chaque requête lorsque le code d’erreur 429 est retourné, conformément au temps retryAfter spécifié dans l’en-tête de réponse. Il est désormais possible de définir un intervalle fixe de nouvelle tentative dans la propriété RetryOptions sur l’objet ConnectionPolicy, si vous souhaitez ignorer le temps retryAfter retourné par le serveur entre chaque nouvelle tentative. Azure Cosmos DB attend maintenant au maximum 30 secondes pour chaque requête limitée (quel que soit le nombre de nouvelles tentatives) et renvoie la réponse avec un code d’erreur 429. Cette durée peut également être remplacée dans la propriété RetryOptions sur l’objet ConnectionPolicy.
+* Ajout de la prise en charge d’une stratégie de nouvelle tentative pour les requêtes limitées. (Les requêtes limitées reçoivent une exception de taux de requête excessif, code d’erreur 429.) Par défaut, Azure Cosmos DB accepte neuf nouvelles tentatives pour chaque requête lorsque le code d’erreur 429 est renvoyé, conformément à l’heure de retryAfter spécifiée dans l’en-tête de réponse. Il est désormais possible de définir un intervalle fixe de nouvelle tentative dans la propriété RetryOptions sur l’objet ConnectionPolicy, si vous souhaitez ignorer le temps retryAfter retourné par le serveur entre chaque nouvelle tentative. Azure Cosmos DB attend maintenant au maximum 30 secondes pour chaque requête limitée (quel que soit le nombre de nouvelles tentatives) et renvoie la réponse avec un code d’erreur 429. Cette durée peut également être remplacée dans la propriété RetryOptions sur l’objet ConnectionPolicy.
 * Cosmos DB renvoie maintenant x-ms-throttle-retry-count et x-ms-throttle-retry-wait-time-ms comme en-têtes de réponse dans chaque requête pour signaler le nombre limite de nouvelles tentatives et le cumul de temps d’attente observé par la requête entre les nouvelles tentatives.
 * La classe RetryOptions a été ajoutée pour exposer la propriété RetryOptions sur la classe ConnectionPolicy, qui peut être utilisée pour substituer certaines des options de nouvelle tentative par défaut.
 
@@ -160,9 +168,9 @@ ms.lasthandoff: 07/25/2017
 * Kit de développement logiciel (SDK) GA
 
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
-Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
+Microsoft envoie une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
-Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit de développement logiciel (SDK) actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du Kit de développement logiciel (SDK) dès que possible.
+Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible.
 
 Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé.
 
@@ -170,6 +178,8 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.12.2](#1.12.2) |10 août 2017 |--- |
+| [1.12.1](#1.12.1) |10 août 2017 |--- |
 | [1.12.0](#1.12.0) |10 mai 2017 |--- |
 | [1.11.0](#1.11.0) |16 mars 2017 |--- |
 | [1.10.2](#1.10.2) |27 janvier 2017 |--- |

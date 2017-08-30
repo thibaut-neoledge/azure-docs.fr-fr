@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser des déclencheurs et des liaisons Azur
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"

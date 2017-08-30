@@ -4,7 +4,7 @@ description: "Cette rubrique montre comment utiliser .NET pour encoder vos élé
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 03431b64-5518-478a-a1c2-1de345999274
 ms.service: media-services

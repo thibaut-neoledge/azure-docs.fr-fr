@@ -140,6 +140,8 @@
 ## Surveiller et résoudre des problèmes
 ### [Problèmes de réplication Azure vers Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [Problèmes de réplication d’un site local vers Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Problèmes d’installation du service Mobilité](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [Basculement sur les problèmes Azure](site-recovery-failover-to-azure-troubleshoot.md)
 ### [Collecter les journaux et résoudre les problèmes locaux](site-recovery-monitoring-and-troubleshooting.md)
 
 # Référence

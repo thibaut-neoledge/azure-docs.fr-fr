@@ -4,7 +4,7 @@ description: "Cette rubrique explique comment configurer l’encodeur Elemental 
 services: media-services
 documentationcenter: 
 author: cenkdin
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 9c6bf6a9-6273-4fdd-9477-f0e565280b5b
 ms.service: media-services
@@ -14,10 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: cenkd;anilmur;juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: bb4966cbd2af7a14caeac108a001b0820a67d2a1
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/11/2017
 
 ---
 # <a name="use-the-elemental-live-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur Elemental Live pour envoyer un flux live à débit binaire unique
@@ -74,7 +75,7 @@ Pendant le démarrage du canal, vous pouvez [configurer l’encodeur](media-serv
 >
 >
 
-### <a name="a-idconfigureelementalrtpaconfigure-the-elemental-live-encoder"></a><a id=configure_elemental_rtp></a>Configurer l’encodeur Elemental Live
+### <a id=configure_elemental_rtp></a>Configurer l’encodeur Elemental Live
 Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le reste de cette section décrit la procédure de configuration plus en détail.
 
 **Vidéo**:
@@ -173,9 +174,4 @@ Pour obtenir des instructions détaillées, reportez-vous à la rubrique consacr
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -5,20 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: librown
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2017
+ms.date: 08/12/2017
 ms.author: kgremban
+ms.reviewer: librown
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: ec52f719f33db0d893d707b59293fa75a8ff4314
-ms.openlocfilehash: 033392783fd98cbdb23fd0254c93687754808286
-ms.lasthandoff: 02/10/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 002b850221c25111c33c145cb45973488bbbb4e1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Connectez-vous avec votre téléphone, et non votre mot de passe
@@ -29,7 +30,7 @@ Cette fonctionnalité est disponible sur les appareils iOS et Android, et est co
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Vous êtes nombreux à utiliser l’application Microsoft Authenticator pour accomplir le processus de vérification en deux étapes lorsque vous vous connectez à votre compte Microsoft. Vous tapez votre mot de passe, puis accédez à l’application pour approuver une notification ou obtenir un code de vérification. Avec la connexion par téléphone, tout le processus de vérification d’identité se fait sur votre téléphone, sans nécessiter de mot de passe. Le déroulement reste similaire à celui de la vérification en deux étapes, qui fait appel à un élément que vous connaissez et un autre que vous possédez. Le téléphone est toujours l’élément que vous possédez, mais l’élément connu que vous devez entrer est le code PIN du téléphone ou votre clé biométrique. 
+Vous êtes nombreux à utiliser l’application Microsoft Authenticator pour accomplir le processus de vérification en deux étapes lorsque vous vous connectez à votre compte Microsoft. Vous tapez votre mot de passe, puis accédez à l’application pour approuver une notification ou obtenir un code de vérification. Avec la connexion par téléphone, tout le processus de vérification d’identité se fait sur votre téléphone, sans nécessiter de mot de passe. La connexion par téléphone nécessite une vérification en deux étapes, qui fait appel à un élément que vous connaissez et à un autre que vous possédez, pour prouver votre identité. Le téléphone est toujours l’élément que vous possédez, et le code PIN du téléphone ou votre clé biométrique est l’élément que vous connaissez. 
 
 ## <a name="how-to-get-started"></a>Pour commencer
 
@@ -39,7 +40,7 @@ Pour vous connecter à votre compte Microsoft personnel avec votre téléphone, 
 
   - Si vous ne disposez pas encore de l’application Microsoft Authenticator, installez-la et ajoutez votre compte Microsoft personnel en suivant la procédure présentée dans l’article [Microsoft Authenticator](microsoft-authenticator-app-how-to.md). Les comptes qui viennent d’être ajoutés sont automatiquement activés. Vous n’avez donc rien d’autre à faire.
 
-  - Si vous utilisez déjà Microsoft Authenticator pour la vérification en deux étapes, sélectionnez votre compte dans la page d’accueil de l’application, puis choisissez Activer la connexion par téléphone dans le menu déroulant.
+  - Si vous utilisez déjà Microsoft Authenticator pour la vérification en deux étapes, sélectionnez votre compte dans la page d’accueil de l’application, puis choisissez **Activer la connexion par téléphone** dans le menu déroulant.
 
   >[!NOTE] 
   >Pour protéger votre compte, nous exigeons l’utilisation d’un code PIN ou d’un verrou biométrique sur votre appareil. Si vous laissez votre téléphone déverrouillé, une demande vous invitant à configurer un verrou avant d’activer la connexion par téléphone s’affiche dans l’application. 
@@ -66,7 +67,7 @@ Pour le moment, la connexion par téléphone ne peut pas être utilisée pour d�
 
 Parfois. Nous sommes en train d’élargir le champ d’application de la connexion par téléphone, mais elle n’est pas encore prise en charge dans l’ensemble de l’écosystème Microsoft. Lorsqu’elle n’est pas disponible, nous utilisons toujours la vérification en deux étapes pour sécuriser la connexion. C’est pourquoi vous ne devez pas désactiver la vérification en deux étapes pour votre compte. 
  
-### <a name="okay-if-i-keep-two-step-verification-turned-on-for-my-account-will-i-have-to-approve-two-notifications"></a>Si je laisse la vérification en deux étapes activée pour mon compte, devrai-je approuver deux notifications ?
+### <a name="okay-if-i-keep-two-step-verification-turned-on-for-my-account-do-i-have-to-approve-two-notifications"></a>Si je laisse la vérification en deux étapes activée pour mon compte, dois-je approuver deux notifications ?
 
 Non. La connexion à votre compte Microsoft avec votre téléphone est considérée comme un processus de vérification en deux étapes. Au lieu de taper votre mot de passe, puis d’approuver une notification, vous confirmez votre identité en accomplissant le déverrouillage de votre téléphone, puis en approuvant une notification. Nous ne vous envoyons pas de deuxième notification à approuver.
 

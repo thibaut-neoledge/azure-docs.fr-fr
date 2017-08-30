@@ -4,7 +4,7 @@ description: "Ce didacticiel vous guide tout au long du processus de chargement 
 services: media-services
 documentationcenter: 
 author: johndeu
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: 86cb6a979d3aa429c0f501a5ebf37db4bff8ba99
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/18/2017
-
 
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Chargement de fichiers dans un compte Media Services à l’aide du service Aspera Server On Demand dans Azure

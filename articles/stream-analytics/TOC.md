@@ -13,6 +13,7 @@
 ### [Médias sociaux](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Notation en temps réel avec Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Traitement d’événements en temps réel](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Détection d’anomalies dans le guide d’utilisation d’Azure (version préliminaire)](stream-analytics-machine-learning-anomaly-detection.md)
 
 ## Créer des travaux
 ### [Créer des entrées](stream-analytics-define-inputs.md)
@@ -66,7 +67,7 @@
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog](http://blogs.msdn.com/b/streamanalytics/)
 ## [Forum de commentaires](http://feedback.azure.com/forums/270577-azure-stream-analytics)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 ## [Tarification](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Notes de publication](stream-analytics-release-notes.md)

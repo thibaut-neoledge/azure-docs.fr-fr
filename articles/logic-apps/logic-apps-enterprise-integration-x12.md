@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 4a41d9eb8b28aed499bb20e17e3c979962c78bcd
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Échangez des messages X12 dans le cadre d’une intégration d’entreprise avec Logic Apps
@@ -272,6 +271,9 @@ Outre le jeu de caractères, vous pouvez entrer un autre ensemble de délimiteur
 | Caractère de remplacement |Entrez un caractère de remplacement pour remplacer tous les caractères de séparation dans les données de charge utile lors de la génération du message X12 sortant. |
 | Terminateur de segment |Entrez un caractère unique pour indiquer la fin d’un segment EDI. |
 | Suffixe |Sélectionnez le caractère utilisé avec l’identificateur de segment. Si vous désignez un suffixe, l’élément de données de terminateur de segment peut être vide. Si le terminateur de segment est laissé vide, vous devez désigner un suffixe. |
+
+> [!TIP]
+> Pour fournir des valeurs de caractère spécial, modifiez l’accord au format JSON et fournissez la valeur ASCII du caractère spécial.
 
 ### <a name="validation"></a>Validation
 

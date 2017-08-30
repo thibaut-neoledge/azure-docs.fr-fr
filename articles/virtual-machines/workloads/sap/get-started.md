@@ -18,10 +18,10 @@ ms.date: 03/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 8f34fd29fe6c93eb4cd1a05c79bf9b47072451f2
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: c35892421c3d3019204c9e763980e813930d19a8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -234,14 +234,14 @@ ms.lasthandoff: 08/04/2017
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
-[storage-azure-cli]:../../../storage/storage-azure-cli.md
-[storage-azure-cli-copy-blobs]:../../../storage/storage-azure-cli.md#copy-blobs
-[storage-introduction]:../../../storage/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../../storage/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/storage-premium-storage.md
-[storage-redundancy]:../../../storage/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/storage-scalability-targets.md
-[storage-use-azcopy]:../../../storage/storage-use-azcopy.md
+[storage-azure-cli]:../../../storage/common/storage-azure-cli.md
+[storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
+[storage-introduction]:../../../storage/common/storage-introduction.md
+[storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
+[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-redundancy]:../../../storage/common/storage-redundancy.md
+[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
@@ -477,12 +477,12 @@ Mise à jour : juin 2017
 
 [Ce guide est disponible ici][dbms-guide]
 
-### <a name="using-azure-as-dr-site-for-an-sap-on-premise-landscape"></a>Utilisation d’Azure comme site de récupération d’urgence dans un paysage SAP local
-Titre : SAP NetWeaver : Création d’une solution de récupération d’urgence basée sur Hyper-V & Microsoft Azure 
+### <a name="using-azure-site-recovery-for-sap-workload"></a>Utilisation d’Azure Site Recovery pour les charges de travail SAP
+Titre : SAP NetWeaver : Création d’une solution de récupération d’urgence avec Azure Site Recovery 
 
-Résumé : Ce document décrit comment utiliser Azure comme emplacement de récupération d’urgence dans un paysage SAP local à l’aide d’Azure Site Recovery Services. Azure Site Recovery Services est décrit à la première étape. La deuxième étape traite de la conception nécessaire pour utiliser Azure Site Recovery Services afin de répliquer des systèmes SAP NetWeaver dans Azure à des fins de récupération d’urgence. 
+Résumé : ce document décrit comment les services Azure Site Recovery sont utilisés pour gérer des scénarios de récupération d’urgence. Il expose les situations dans lesquelles Azure est utilisé comme emplacement de récupération d’urgence dans un paysage SAP local à l’aide d’Azure Site Recovery Services. Le document décrit également le scénario de récupération d’urgence Aure-to-Azure (A2A) et la façon dont il est géré avec Azure Site Recovery.  
 
-Mise à jour : février 2016
+Mise à jour : août 2017
 
 [Ce guide est disponible ici](http://aka.ms/asr-sap)
 

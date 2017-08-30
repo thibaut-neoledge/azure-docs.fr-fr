@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/27/2017
+ms.date: 8/9/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 781431dc8dd576e6fb6807ade4a0a1e909abcab7
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -58,7 +58,7 @@ Service Fabric prend en charge la spécification de [plug-ins de volume Docker](
 </ApplicationManifest>
 ```
 
-Dans l’exemple précédent, l’étiquette `Source` pour le `Volume` fait référence au dossier source. Le dossier source peut être un dossier de la machine virtuelle qui héberge les conteneurs ou un magasin distant persistant. L’étiquette `Destination` est l’emplacement de mappage de la `Source` dans le conteneur en cours d’exécution. 
+Dans l’exemple précédent, l’étiquette `Source` pour le `Volume` fait référence au dossier source. Le dossier source peut être un dossier de la machine virtuelle qui héberge les conteneurs ou un magasin distant persistant. L’étiquette `Destination` correspond à l’emplacement auquel est mappé l’élément `Source` dans le conteneur en cours d’exécution. 
 
 Lorsque vous spécifiez un plug-in de volume, Service Fabric crée automatiquement le volume à l’aide des paramètres spécifiés. La balise `Source` est le nom du volume, et la balise `Driver` spécifie le plug-in de pilote de volume. Des options peuvent être spécifiées à l’aide de la balise `DriverOption`, comme indiqué dans l’extrait de code suivant :
 
@@ -72,8 +72,7 @@ Si un pilote de journalisation Docker est spécifié, il est nécessaire de dép
 
 Consultez les articles suivants pour déployer des conteneurs dans un cluster Service Fabric :
 
-[Déployer un conteneur Windows sur Service Fabric sous Windows Server 2016](service-fabric-deploy-container.md)
 
-[Déployer un conteneur Docker sur Service Fabric sous Linux](service-fabric-deploy-container-linux.md)
+[Déployer un conteneur sur Service Fabric](service-fabric-deploy-container.md)
 
 

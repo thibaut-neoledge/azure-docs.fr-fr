@@ -4,7 +4,7 @@ description: "Apprendre à créer des bibliothèques de classes .NET à utiliser
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"

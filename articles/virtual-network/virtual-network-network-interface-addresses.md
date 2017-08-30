@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6722365e5a5e4c58d91dd178de264a403d53c02
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 17ddb30c87d757176ce9428264135252c02bf713
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 
@@ -63,7 +63,7 @@ Vous pouvez ajouter autant d’adresses [privées](#private) et [publiques](#pub
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az network nic ip-config create](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-ip-address-settings"></a>Modifier les paramètres d’adresse IP
 
@@ -84,7 +84,7 @@ Vous pouvez modifier la méthode d’affectation d’une adresse IPv4, modifier 
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-ip-addresses"></a>Supprimer des adresses IP
 
@@ -102,7 +102,7 @@ Vous pouvez supprimer des adresses IP [privées](#private) et [publiques](#publi
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az network nic ip-config delete](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="ip-configurations"></a>Configurations IP
 
@@ -113,7 +113,7 @@ Les adresses IP [privées](#private) et (éventuellement) [publiques](#public) 
 Une configuration IP principale est assignée à chaque interface réseau. Une configuration IP principale :
 
 - Dispose d’une adresse [privée](#private) [IPv4](#ipv4) qui lui est assignée. Vous ne pouvez pas assigner d’adresse [IPv6](#ipv6) privée à une configuration IP principale.
-- Une adresse IPv4 [publique](#public) peut également lui être assignée. Vous ne pouvez pas assigner d’adresse IPv6 publique à une configuration IP principale ou secondaire. Toutefois, vous pouvez assigner une adresse IPv6 publique à un équilibreur de charge Azure, qui peut équilibrer la charge du trafic vers l’adresse IPv6 privée d’une machine virtuelle. Consultez les [informations et limitations relatives à IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations) pour en savoir plus.
+- Une adresse IPv4 [publique](#public) peut également lui être assignée. Vous ne pouvez pas assigner d’adresse IPv6 publique à une configuration IP principale ou secondaire. Toutefois, vous pouvez assigner une adresse IPv6 publique à un équilibreur de charge Azure, qui peut équilibrer la charge du trafic vers l’adresse IPv6 privée d’une machine virtuelle. Pour en savoir plus, consultez les [informations et limitations relatives à IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations).
 
 ### <a name="secondary"></a>Secondaire
 
@@ -142,13 +142,13 @@ Par défaut, les serveurs DHCP Azure assignent l’adresse IPv4 privée pour la 
 
 Il est parfois nécessaire de définir manuellement l’adresse IP d’une interface réseau au sein du système d’exploitation de la machine virtuelle. Par exemple, vous devez définir manuellement les adresses IP principales et secondaires d’un système d’exploitation Windows lors de l’ajout de plusieurs adresses IP à une machine virtuelle Azure. Pour une machine virtuelle Linux, vous devrez peut-être uniquement définir manuellement les adresses IP secondaires. Consultez [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](virtual-network-multiple-ip-addresses-portal.md#os-config) pour en savoir plus. Lorsque vous définissez manuellement l’adresse IP au sein du système d’exploitation, il est recommandé de toujours assigner les adresses à la configuration IP d’une interface réseau à l’aide de la méthode d’affectation statique (plutôt que dynamique). La méthode statique garantit que l’adresse ne change pas dans Azure. Si vous devez modifier l’adresse assignée à une configuration IP, il est recommandé de :
 
-1. Redéfinir l’attribution de l’adresse IP sur la valeur DHCP au sein du système d’exploitation, puis redémarrer la machine virtuelle, pour vous assurer que la machine virtuelle reçoit une adresse à partir des serveurs DHCP Azure.
+1. Pour vous assurer que la machine virtuelle reçoit une adresse à partir des serveurs DHCP Azure, redéfinissez l’attribution de l’adresse IP sur la valeur DHCP au sein du système d’exploitation, puis redémarrez la machine virtuelle.
 2. Arrêter (libérer) la machine virtuelle.
 3. Modifier l’adresse IP pour la configuration IP dans Azure.
 4. Démarrez la machine virtuelle.
 5. [Configurer manuellement](virtual-network-multiple-ip-addresses-portal.md#os-config) les adresses IP secondaires dans le système d’exploitation (ainsi que l’adresse IP principale dans Windows) pour obtenir ce que vous avez défini dans Azure.
  
-Si vous suivez les étapes précédentes, l’adresse IP privée assignée à l’interface réseau dans Azure sera identique à celle assignée dans le système d’exploitation de la machine virtuelle. Pour garder une trace des machines virtuelles de votre abonnement au sein desquelles vous avez défini manuellement les adresses IP dans un système d’exploitation, pensez à ajouter une [balise](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) Azure aux machines virtuelles. Vous pouvez utiliser « attribution d’adresses IP : statique », par exemple. De cette manière, vous pouvez facilement trouver les machines virtuelles de votre abonnement pour lesquelles vous avez défini manuellement l’adresse IP dans le système d’exploitation.
+Si vous suivez les étapes précédentes, l’adresse IP privée assignée à l’interface réseau dans Azure reste identique à celle assignée dans le système d’exploitation de la machine virtuelle. Pour garder une trace des machines virtuelles de votre abonnement au sein desquelles vous avez défini manuellement les adresses IP dans un système d’exploitation, pensez à ajouter une [balise](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) Azure aux machines virtuelles. Vous pouvez utiliser « attribution d’adresses IP : statique », par exemple. De cette manière, vous pouvez facilement trouver les machines virtuelles de votre abonnement pour lesquelles vous avez défini manuellement l’adresse IP dans le système d’exploitation.
 
 En plus de permettre à une machine virtuelle de communiquer avec d’autres ressources dans les mêmes réseaux virtuels ou des réseaux virtuels connectés, une adresse IP privée permet à une machine virtuelle de communiquer en sortie vers Internet. Les connexions sortantes correspondent à une adresse de réseau source convertie par Azure en adresse IP publique non prédictible. Pour en savoir plus sur la connectivité Internet sortante d’Azure, voir [À propos de la connectivité Internet sortante d’Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous ne pouvez communiquer en entrée vers l’adresse IP privée d’une machine virtuelle à partir d’Internet.
 
@@ -183,17 +183,15 @@ Chaque interface réseau doit avoir une configuration IP [principale](#primary) 
 
 ### <a name="ipv6"></a>IPv6
 
-Vous pouvez assigner zéro ou une adresse [IPv6](#ipv6) privée à une configuration IP secondaire d’une interface réseau. L’interface réseau ne peut pas déjà avoir de configuration IP secondaire. Vous ne pouvez pas ajouter de configuration IP avec une adresse IPv6 à l’aide du portail. Pour ajouter une configuration IP avec une adresse IPv6 privée à une interface réseau existante, vous devez utiliser PowerShell ou l’interface CLI. L’interface réseau ne peut pas être attachée à une machine virtuelle existante.
+Vous pouvez assigner zéro ou une adresse [IPv6](#ipv6) privée à une configuration IP secondaire d’une interface réseau. L’interface réseau ne peut pas déjà avoir de configuration IP secondaire. Vous ne pouvez pas ajouter de configuration IP avec une adresse IPv6 à l’aide du portail. Pour ajouter une configuration IP avec une adresse IPv6 privée à une interface réseau existante, utilisez PowerShell ou l’interface CLI. L’interface réseau ne peut pas être attachée à une machine virtuelle existante.
 
 > [!NOTE]
-> Même si vous pouvez créer une interface réseau avec une adresse IPv6 à l’aide du portail, vous ne pouvez pas créer de machine virtuelle avec une adresse IPv6 privée, ni attacher d’interface réseau lors de la création d’une machine virtuelle, à l’aide du portail. Vous devez utiliser PowerShell ou Azure CLI 2.0 pour créer une interface réseau avec une adresse IPv6 privée, puis attacher l’interface réseau lors de la création d’une machine virtuelle. Vous ne pouvez pas attacher d’interface réseau, avec une adresse IPv6 privée qui lui est assignée, à une machine virtuelle existante. Vous ne pouvez pas ajouter d’adresse IPv6 privée à la configuration IP d’une interface réseau attachée à une machine virtuelle, quel que soit l’outil utilisé (portail, CLI ou PowerShell).
+> Bien que vous puissiez créer une interface réseau avec une adresse IPv6 à l’aide du portail, il vous est impossible de l’utiliser pour ajouter une interface réseau existante à un ordinateur virtuel nouveau ou existant. Utilisez PowerShell ou Azure CLI 2.0 pour créer une interface réseau avec une adresse IPv6 privée, puis attachez l’interface réseau lors de la création d’une machine virtuelle. Vous ne pouvez pas attacher d’interface réseau, avec une adresse IPv6 privée qui lui est assignée, à une machine virtuelle existante. Vous ne pouvez pas ajouter d’adresse IPv6 privée à la configuration IP d’une interface réseau attachée à une machine virtuelle, quel que soit l’outil utilisé (portail, CLI ou PowerShell).
 
 Vous ne pouvez pas assigner d’adresse IPv6 publique à une configuration IP principale ou secondaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour créer une machine virtuelle avec différentes configurations IP, consultez les articles suivants :
-
-**Commandes**
 
 |Tâche|Outil|
 |---|---|

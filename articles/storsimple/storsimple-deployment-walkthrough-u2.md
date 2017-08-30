@@ -1,6 +1,6 @@
 ---
 title: "Déployer votre appareil StorSimple (Update 2) | Microsoft Docs"
-description: "Décrit les procédures et meilleures pratiques de déploiement du service et de l&quot;appareil StorSimple Update 2."
+description: "Décrit les procédures et meilleures pratiques de déploiement du service et de l'appareil StorSimple Update 2."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
-ms.openlocfilehash: f71c7e080b2c0b382f241d55b9ca0c7507c24a88
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3286db40856c9f0eb2564c01f1483870952a19e6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-2"></a>Déploiement de votre appareil StorSimple local (Update 2)
@@ -177,7 +178,7 @@ Vous pouvez à tout moment effectuer une sauvegarde manuelle. Pour connaître le
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Configuration d’un compte de stockage pour le service
 Il s’agit d’une étape facultative que vous devez exécuter uniquement si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service. Un compte de stockage Microsoft Azure est requis pour créer un conteneur de volumes StorSimple.
 
-Si vous devez créer un compte de stockage Azure dans une autre région, consultez la page [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md) pour obtenir des instructions détaillées.
+Si vous devez créer un compte de stockage Azure dans une autre région, consultez la page [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md) pour obtenir des instructions détaillées.
 
 Procédez comme suit dans le portail de gestion, sur la page **Service StorSimple Manager** .
 
@@ -220,10 +221,5 @@ Procédez comme suit dans le portail de gestion pour créer une sauvegarde manue
 ## <a name="next-steps"></a>Étapes suivantes
 * Configuration d’un [appareil virtuel](storsimple-virtual-device-u2.md).
 * Utilisez le [service StorSimple Manager](storsimple-manager-service-administration.md) pour gérer votre appareil StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

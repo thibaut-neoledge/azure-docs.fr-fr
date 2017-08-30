@@ -1,5 +1,5 @@
 ---
-title: "Configurer votre environnement de développement sur Mac OS X | Microsoft Docs"
+title: "Configurer votre environnement de développement sur Mac OS X afin de travailler avec Azure Service Fabric | Microsoft Docs"
 description: "Installez le runtime, le kit de développement logiciel et créez un cluster de développement local. Une fois la configuration terminée, vous serez prêt à générer des applications sur Mac OS X."
 services: service-fabric
 documentationcenter: java
@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 08/21/2017
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e5d14eb0a656d67030f4c0d3d510aec0e9cafae7
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8b4fc0ab9034263418cac42ced203035e0a8fcad
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurer votre environnement de développement sur Mac OS X
@@ -51,7 +51,6 @@ Pour créer la machine virtuelle locale contenant un cluster Service Fabric à 5
     ```
     Cette procédure permet de désactiver le fichier `Vagrantfile` contenant la configuration de la machine virtuelle, ainsi que l’emplacement à partir duquel la machine virtuelle est téléchargée.
 
-
 2. Accédez au clone local du référentiel.
 
     ```bash
@@ -75,24 +74,46 @@ Pour créer la machine virtuelle locale contenant un cluster Service Fabric à 5
 
     ![La configuration du cluster démarre après l’approvisionnement de la machine virtuelle][cluster-setup-script]
 
->[!TIP]
-> Si le téléchargement de la machine virtuelle prend un certain temps, vous pouvez la télécharger à l’aide de wget ou de curl ou via un navigateur en accédant au lien spécifié par **config.vm.box_url** dans le fichier `Vagrantfile`. Après l’avoir téléchargée localement, modifiez `Vagrantfile` pour pointer vers le chemin d’accès local où vous avez téléchargé l’image. Par exemple, si vous avez téléchargé l’image vers /home/users/test/azureservicefabric.tp8.box, définissez **config.vm.box_url** sur ce chemin.
->
+    >[!TIP]
+    > Si le téléchargement de la machine virtuelle prend un certain temps, vous pouvez la télécharger à l’aide de wget ou de curl ou via un navigateur en accédant au lien spécifié par **config.vm.box_url** dans le fichier `Vagrantfile`. Après l’avoir téléchargée localement, modifiez `Vagrantfile` pour pointer vers le chemin d’accès local où vous avez téléchargé l’image. Par exemple, si vous avez téléchargé l’image vers /home/users/test/azureservicefabric.tp8.box, définissez **config.vm.box_url** sur ce chemin.
+    >
 
 5. Vérifiez que le cluster a été configuré correctement en accédant à Service Fabric Explorer à l’adresse http://192.168.50.50:19080/Explorer (en supposant que vous avez conservé l’adresse IP du réseau privé par défaut).
 
     ![Service Fabric Explorer affiché depuis le Mac hôte][sfx-mac]
 
+
+## <a name="create-application-on-mac-using-yeoman"></a>Créer l’application sur Mac à l’aide de Yeoman
+Service Fabric fournit des outils de génération de modèles automatique qui vous aideront à créer une application Service Fabric depuis un terminal à l’aide du générateur de modèles Yeoman. Suivez les étapes ci-dessous pour vous assurer que le générateur de modèles Yeoman Service Fabric est en état de fonctionnement sur votre machine.
+
+1. Vous devez installer Node.js et NPM sur votre mac. Si ce n’est pas le cas, vous pouvez installer Node.js et NPM à l’aide de Homebrew via la commande suivante. Pour vérifier quelles sont les versions de Node.js et de NPM installées sur votre Mac, vous pouvez utiliser l’option ``-v``.
+
+  ```bash
+  brew install node
+  node -v
+  npm -v
+  ```
+2. Installer le générateur de modèles [Yeoman](http://yeoman.io/) sur votre machine à partir de NPM
+
+  ```bash
+  npm install -g yo
+  ```
+3. Installez le générateur Yeoman que vous souhaitez utiliser, en suivant les étapes indiquées dans la [documentation](service-fabric-get-started-linux.md) de prise en main. Pour créer des Applications Service Fabric à l’aide de Yeoman, suivez les étapes -
+
+  ```bash
+  npm install -g generator-azuresfjava       # for Service Fabric Java Applications
+  npm install -g generator-azuresfguest      # for Service Fabric Guest executables
+  npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
+  ```
+4. Pour générer une application Java Service Fabric sur Mac, vous devez installer - JDK 1.8 et Gradle sur la machine.
+
+
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Installer le plug-in Service Fabric pour Eclipse Neon
 
 Service Fabric fournit un plug-in pour **Eclipse Neon pour IDE Java** qui peut simplifier le processus de création, de génération et de déploiement des services Java. Vous pouvez suivre les étapes d’installation mentionnées dans cette [documentation](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) générale relative à l’installation ou à la mise à jour du plug-in Eclipse Service Fabric.
 
-## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>Utilisation du plug-in Eclipse de Service Fabric sur Mac
-
-Assurez-vous d’avoir effectué les étapes présentées dans la [documentation du plug-in Eclipse de Service Fabric](service-fabric-get-started-eclipse.md). Les étapes de création, de génération et de déploiement d’une application Java Service Fabric à l’aide du conteneur vagrant invité sur un hôte Mac sont pratiquement identiques à celles décrites dans la documentation générale, mis à part pour les points suivants :
-
-* Étant donné que les bibliothèques Service Fabric sont indispensables pour la génération de votre application Java Service Fabric, le projet Eclipse doit être créé dans un chemin d’accès partagé. Par défaut, le contenu se trouvant dans le chemin d’accès sur votre ordinateur hôte qui contient ``Vagrantfile`` est partagé avec le chemin d’accès ``/vagrant`` sur l’invité.
-* Si vous avez ``Vagrantfile`` dans un chemin d’accès, par exemple, ``~/home/john/allprojects/``, vous devez créer votre projet Service Fabric ``MyActor`` à l’emplacement ``~/home/john/allprojects/MyActor`` et le chemin d’accès à votre espace de travail Eclipse serait ``~/home/john/allprojects``.
+>[!TIP]
+> Par défaut, nous prenons en charge l’adresse IP par défaut comme indiqué dans le fichier ``Vagrantfile`` du ``Local.json`` de l’application générée. En cas de modification, si vous déployez Vagrant avec une adresse IP différente, mettez également à jour l’adresse IP correspondante dans le fichier ``Local.json`` de votre application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 <!-- Links -->

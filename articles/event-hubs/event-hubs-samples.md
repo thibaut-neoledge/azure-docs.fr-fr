@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 89049688ab60842910f1bab8e56c349029dd17a7
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ae9fbd97a1747d8f14c561f247a0973bb11fd039
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -46,11 +45,11 @@ L’exemple de [prise en main de l’envoi](https://github.com/Azure/azure-event
 
 ### <a name="receive-events"></a>Recevoir des événements 
 
-L’exemple de [prise en main de la réception avec l’hôte du processeur d’événements](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) est une application console .NET Core qui reçoit des messages à partir d’un Event Hub à l’aide de `Event Processor Host`.
+L’exemple de [prise en main de la réception avec l’hôte du processeur d’événements](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) est une application console .NET Core qui reçoit des messages à partir d’un concentrateur d’événements à l’aide de l’hôte du processeur d’événements.
 
-## <a name="net-framework"></a>.NET Framework    
+## <a name="net-framework"></a>.NET Framework   
 
-Ces exemples présentent d’autres fonctionnalités d’Azure Event Hubs, ciblant la [bibliothèque .NET Framework](https://msdn.microsoft.com/library/w0x726c2.aspx).
+Ces exemples présentent d’autres fonctionnalités d’Azure Event Hubs, ciblant la [bibliothèque .NET Framework](/dotnet/framework/index).
  
 ### <a name="notify-users-of-events-received"></a>Avertir les utilisateurs de la réception d’événements
 
@@ -77,7 +76,7 @@ L’exemple [d’importation des données à partir du web](https://github.com/A
 Pour en savoir plus sur les versions de .NET Framework, visitez les liens suivants :
 
 - [Infrastructures et cibles](/dotnet/articles/standard/frameworks)
-- [.NET Framework 4.6 et 4.5](https://msdn.microsoft.com/library/w0x726c2.aspx)
+- [.NET Framework 4.6 et 4.5](/dotnet/framework/index)
 
 Pour plus d’informations sur les hubs d’événements, consultez les articles suivants :
 

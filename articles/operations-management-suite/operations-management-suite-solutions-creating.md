@@ -21,7 +21,6 @@ ms.openlocfilehash: 312f84fe2aaf3f63fe2b8d818786ef1c570ccfe1
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/11/2017
 
-
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Concevoir et générer une solution de gestion dans Operations Management Suite (OMS) (préversion)
 > [!NOTE]
@@ -86,4 +85,3 @@ Une fois que vous avez terminé et testé votre solution, vous pouvez la rendre 
 * Découvrez comment [créer un fichier de solution](operations-management-suite-solutions-solution-file.md) pour votre solution de gestion.
 * Découvrez comment [créer des modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates), recherchez des exemples de modèles Resource Manager.
-

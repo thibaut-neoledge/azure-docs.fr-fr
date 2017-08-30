@@ -127,7 +127,7 @@ Dans cette section, vous créez un espace de travail et un projet Maven pour l�
      
      Cliquez sur **Terminer**.
 3. Ouvrez le fichier pom.xml du nouveau projet dans l’Explorateur de projets. Sélectionnez l’onglet **Dépendances** . Comme il s’agit d’un nouveau projet, aucun package n’est encore répertorié.
-4. Ouvrez la vue Référentiels Maven. **Cliquez sur Fenêtre > Afficher la vue > Autres > Maven > Référentiels Maven **, puis cliquez sur **OK**. La vue **Référentiels Maven** s’affiche en bas de l’IDE.
+4. Ouvrez la vue Référentiels Maven. **Cliquez sur Fenêtre > Afficher la vue > Autres > Maven > Référentiels Maven** puis cliquez sur **OK**. La vue **Référentiels Maven** s’affiche en bas de l’IDE.
 5. Ouvrez **Référentiels globaux**, cliquez avec le bouton droit sur le référentiel **central**, puis sélectionnez **Reconstruire l’index**.
    
     ![][1]

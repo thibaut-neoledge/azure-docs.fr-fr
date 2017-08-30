@@ -1,0 +1,12 @@
+- name: Vue d'ensemble
+  items:
+    - name: Introduction
+      href: ./common/storage-introduction.md
+    - name: 'Choisir des objets blob, des fichiers ou des disques de données'
+      href: ./common/storage-decide-blobs-files-disks.md
+- name: Objets blob
+  href: ./blobs/storage-blobs-introduction.md
+- name: Fichiers
+  href: ./files/storage-files-introduction.md
+- name: Files d’attente
+  href: ./queues/storage-queues-introduction.md

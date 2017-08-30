@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Groupes de machines virtuelles identiques Azure et disques de données associés
@@ -99,10 +99,21 @@ Vous pouvez également ajouter un disque en ajoutant une nouvelle entrée à la 
     }          
 ]
 ```
+
 Puis sélectionnez _PUT_ pour appliquer les modifications à votre groupe identique. Cet exemple doit fonctionner tant que vous utilisez une taille de machine virtuelle qui prend en charge plus de deux disques de données associés.
 
 > [!NOTE]
 > Lorsque vous apportez une modification à une définition de groupe identique comme l’ajout ou la suppression d’un disque de données, elle s’applique à toutes les machines virtuelles qui sont créées, mais elle s’applique aux machines virtuelles existantes uniquement si la propriété _upgradePolicy_ est définie sur « Automatique ». Si elle est définie sur « Manuel », vous devez appliquer manuellement le nouveau modèle aux machines virtuelles existantes. Pour cela, dans le portail, utilisez la commande PowerShell _Update-AzureRmVmssInstance_ ou la commande _az vmss update-instances_ de la CLI.
+
+## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Ajout de disques de données pré-remplis à un groupe identique existant 
+> En ajoutant des disques à un modèle de groupe identique existant, le disque sera donc toujours vide à la création. Ce scénario inclut aussi les nouvelles instances créées par le groupe identique. Ce comportement se produit, car la définition du groupe identique contient un disque de données vide. Afin de créer des disques de données préremplis pour un modèle de groupe identique existant, vous pouvez choisir une des deux options suivantes :
+
+* Copier des données à partir de la machine virtuelle de l’instance 0 vers les disques de données dans les autres machines virtuelles en exécutant un script personnalisé.
+* Créer une image gérée avec le disque du système d’exploitation et le disque de données (avec les données requises), et créer un nouveau groupe identique avec l’image. De cette manière, chaque nouvelle machine virtuelle créée disposera d’un disque de données dans la définition du groupe identique. Étant donné que cette définition fait référence à une image avec un disque de données qui disposent de données personnalisées, chaque machine virtuelle sur le groupe identique apparaît automatiquement avec ces modifications.
+
+> Vous trouverez ici comme créer une image personnalisée : [Créer une image gérée d’une machine virtuelle généralisée dans Azure](/azure/virtual-machines/windows/capture-image-resource/) 
+
+> L’utilisateur doit capturer la machine virtuelle de l’instance 0 qui possède les données requises, puis utiliser le VHD pour définir l’image.
 
 ## <a name="removing-a-data-disk-from-a-scale-set"></a>Supprimer un disque de données d’un groupe identique
 Vous pouvez supprimer un disque de données d’un groupe de machines virtuelles identiques à l’aide de la commande _az vmss disk detach_ d’Azure CLI. Par exemple, la commande suivante supprime le disque défini au niveau du numéro d’unité logique (LUN) 2 :

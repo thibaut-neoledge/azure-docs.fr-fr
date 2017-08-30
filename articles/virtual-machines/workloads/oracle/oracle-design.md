@@ -1,5 +1,5 @@
 ---
-title: "Concevoir et implémenter une base de données Oracle sur Azure | Microsoft Docs"
+title: "Concevoir et implémenter une base de données Oracle sur Azure | Microsoft Docs"
 description: "Concevez et implémentez une base de données Oracle dans votre environnement Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,67 +16,69 @@ ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: e13e61a2d055ce4f9777cea8bf6199f2acf9e7bf
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 9bd9ff35cebc2aeaf0558dcf1a37887050682f0a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
 
-# <a name="design-and-implement-of-oracle-database-on-azure"></a>Concevoir et implémenter une base de données Oracle sur Azure
+# <a name="design-and-implement-an-oracle-database-in-azure"></a>Concevoir et implémenter une base de données Oracle dans Azure
 
 ## <a name="assumptions"></a>Hypothèses
 
-- Planification de la migration d’une base de données Oracle locale vers Azure
-- Présentation des diverses mesures de rapports Oracle AWR
-- Définition d’un planning de référence pour les performances d’application et l’utilisation de la plateforme
+- Vous prévoyez de migrer une base de données Oracle locale vers Azure.
+- Vous comprenez les différentes métriques contenues dans les rapports Oracle AWR.
+- Vous avez une connaissance élémentaire des performances d’application et de l’utilisation de la plateforme.
 
 ## <a name="goals"></a>Objectifs
 
-- Présentation de l’optimisation de votre déploiement Oracle sur Azure
-- Explorer les options de réglage des performances pour une base de données Oracle dans un environnement Azure
+- Comprendre comment optimiser votre déploiement Oracle sur Azure
+- Explorer les options de réglage des performances d’une base de données Oracle dans un environnement Azure
 
-### <a name="on-premises-vs-on-azure"></a>Ressources locales et ressources Azure
+## <a name="the-differences-between-an-on-premises-and-azure-implementation"></a>Différences entre une implémentation locale et une implémentation Azure 
 
-Voici quelques considérations importantes à prendre en compte lors de la migration d’applications locales vers Azure. Contrairement aux ressources locales, les ressources (machines virtuelles, disques, réseau virtuel, etc.) dans Azure sont partagées avec les autres clients. En outre, la ressource peut être limitée en fonction d’exigences définies. Au lieu de se concentrer sur ce qui permet d’éviter l’échec (temps moyen entre défaillances), Azure se concentre sur ce qui permet de survivre à un échec (temps moyen de récupération).
+Voici quelques éléments importants à prendre en compte lorsque vous migrez des applications locales vers Azure. 
 
-Le tableau suivant répertorie quelques-unes de ces différences.
+L’une des principales différences est que, dans une implémentation Azure, les ressources, telles que les machines virtuelles, les disques et les réseaux virtuels, sont partagées avec les autres clients. Les ressources peuvent aussi être limitées en fonction des critères définis. Au lieu de se concentrer sur ce qui permet d’éviter un échec (temps moyen entre les défaillances), Azure est plus axé sur la survie à un échec (temps moyen de récupération).
+
+Le tableau suivant liste certaines des différences qui existent entre une implémentation locale et une implémentation Azure d’une base de données Oracle.
 
 > 
-> |  | **Local** | **Microsoft Azure** |
+> |  | **Implémentation locale** | **Implémentation Azure** |
 > | --- | --- | --- |
 > | **Mise en réseau** |LAN/WAN  |SDN (Software-Defined Networking)|
 > | **Groupe de sécurité** |Outils de restriction d’adresse IP/de port |[Groupe de sécurité réseau](https://azure.microsoft.com/blog/network-security-groups) |
-> | **Résilience** |MTBF (temps moyen entre défaillances) |MTTR (temps moyen de récupération)|
+> | **Résilience** |MTBF (temps moyen entre les défaillances) |MTTR (temps moyen de récupération)|
 > | **Maintenance planifiée** |Correctifs/mises à niveau|[Groupes à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (correctifs/mises à niveau gérés par Azure) |
 > | **Ressource** |Dédié  |Partagée avec d’autres clients|
 > | **Régions** |Centres de données |[Paires de régions](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
 > | **Stockage** |SAN/disques physiques |[Stockage géré par Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **Mettre à l'échelle** |Verticale |Horizontale|
+> | **Mettre à l'échelle** |Mise à l’échelle verticale |Mise à l’échelle horizontale|
 
 
 ### <a name="requirements"></a>Configuration requise
 
-- Déterminer le taux de croissance et la taille de la base de données
-- Déterminer les exigences en termes d’E/S par seconde ; une estimation peut être réalisée à partir d’un rapport AWR Oracle ou d’autres outils de surveillance réseau
+- Déterminez le taux de croissance et la taille de la base de données.
+- Déterminez les E/S par seconde requises, que vous pouvez estimer en vous basant sur les rapports AWR Oracle ou d’autres outils de surveillance réseau.
 
 ## <a name="configuration-options"></a>Options de configuration
 
-Quatre zones potentielles peuvent être paramétrées pour améliorer les performances dans un environnement Azure.
+Quatre zones potentielles que vous pouvez paramétrer pour améliorer les performances dans un environnement Azure :
 
 - Taille de la machine virtuelle
 - Débit du réseau
 - Types de disque et configurations
 - Paramètres de cache des disques
 
-### <a name="generate-awr-report"></a>Générer un rapport AWR
+### <a name="generate-an-awr-report"></a>Générer un rapport AWR
 
-Si vous disposez d’une base de données Oracle existante et si vous planifiez une migration vers Azure. Vous pouvez exécuter le rapport Oracle AWR pour obtenir les mesures (E/S par seconde, Mbits/s, GiO/s, etc.), puis sélectionner la machine virtuelle à partir des mesures que vous avez collectées. Vous pouvez également contacter votre équipe d’infrastructure pour obtenir des informations similaires.
+Si vous disposez d’une base de données Oracle que vous envisagez de migrer vers Azure, vous avez plusieurs options. Vous pouvez exécuter le rapport AWR Oracle pour obtenir les métriques (E/S par seconde, Mbits/s, Gibits/s, etc.). Ensuite, choisissez la machine virtuelle en fonction des métriques que vous avez collectées. Vous pouvez également contacter votre équipe d’infrastructure pour obtenir des informations similaires.
 
-Vous pouvez envisager d’exécuter votre rapport AWR lors de charges de travail régulières et maximales, pour comparer la différence. En fonction de ces rapports, vous pouvez dimensionner les machines virtuelles selon la charge de travail moyenne ou maximale.
+Pour comparer, vous pouvez exécuter votre rapport AWR lors de charges de travail normales et maximales. En fonction de ces rapports, vous pouvez dimensionner les machines virtuelles selon la charge de travail moyenne ou maximale.
 
-L’exemple suivant montre comment générer un rapport AWR.
+L’exemple suivant montre comment générer un rapport AWR :
 
 ```bash
 $ sqlplus / as sysdba
@@ -86,7 +88,7 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 ### <a name="key-metrics"></a>Mesures clés
 
-Voici les mesures qui peuvent être tirées du rapport AWR.
+Voici les métriques que vous pouvez obtenir avec le rapport AWR :
 
 - Nombre total de cœurs
 - Vitesse d’horloge du processeur
@@ -102,143 +104,138 @@ Voici les mesures qui peuvent être tirées du rapport AWR.
 
 ### <a name="virtual-machine-size"></a>Taille de la machine virtuelle
 
-#### <a name="1-initial-estimate-of-vm-size-is-based-on-cpumemoryio-usage-from-the-awr-report"></a>1. L’estimation initiale de la taille de la machine virtuelle est basée sur l’utilisation du processeur/de la mémoire/des E/S selon le rapport AWR.
+#### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. Estimer la taille de la machine virtuelle en fonction des données d’utilisation du processeur, de la mémoire ou des E/S du rapport AWR
 
-Vous pouvez examiner les cinq principaux événements en premier plan expirés, qui indiquent l’emplacement des goulots d’étranglement.
+Vous pouvez examiner les cinq principaux événements de premier plan expirés, qui indiquent l’emplacement des goulots d’étranglement.
 
-Par exemple : dans le diagramme ci-dessous, la synchronisation des fichiers journaux est en haut, et elle indique le nombre d’attentes d’écriture de LGWR sur la mémoire tampon pour le fichier journal de restauration par progression. Cela indique qu’un stockage/des disques de meilleure qualité sont requis. En outre, le nombre de processeurs (cœurs) et la mémoire apparaissent dans le diagramme.
+Par exemple, dans le diagramme suivant, la synchronisation des fichiers journaux se trouve en haut. Cela indique le nombre d’attentes nécessaires pour que le LGWR écrive le tampon journal dans le fichier journal Redo. Ces résultats indiquent qu’un stockage ou des disques plus performants sont nécessaires. Le diagramme montre aussi le nombre de processeurs (cœurs) et la quantité de mémoire.
 
 ![Capture d’écran de la page Rapport AWR](./media/oracle-design/cpu_memory_info.png)
 
-Le diagramme ci-dessous montre le nombre total d’E/S en lecture et écriture. 59 Go sont en lecture et 247,3 Go sont en écriture pendant le rapport.
+Le diagramme suivant montre le nombre total d’E/S de lecture et d’écriture. 59 Go ont été lus et 247,3 Go ont été écrits au moment de la création du rapport.
 
 ![Capture d’écran de la page Rapport AWR](./media/oracle-design/io_info.png)
 
-#### <a name="2-estimate-the-vm-size"></a>2. Estimer la taille de la machine virtuelle
+#### <a name="2-choose-a-vm"></a>2. Choisir une machine virtuelle
 
-À partir des informations collectées dans le rapport AWR, l’étape suivante consiste à choisir une machine virtuelle de taille similaire et qui répond à vos besoins. Les machines virtuelles disponibles sont répertoriées dans ce lien suivant : [tailles des machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes-memory).
+À partir des informations collectées dans le rapport AWR, l’étape suivante consiste à choisir une machine virtuelle de taille similaire qui réponde à vos besoins. Vous trouverez la liste des machines virtuelles disponibles dans l’article [Mémoire optimisée](https://docs.microsoft.com/azure/virtual-machinFine tune es/virtual-machines-windows-sizes-memory).
 
-#### <a name="3-fine-tune-the-vm-sizing-with-similar-vm-series-based-on-the-acu"></a>3. Ajustez la taille de la machine virtuelle aux séries de machines virtuelles similaires en fonction de l’ACU
+#### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. Ajuster la taille de la machine virtuelle aux séries de machines virtuelles similaires en fonction de l’ACU
 
-Une fois que vous avez choisi les machines virtuelles, faites attention à l’ACU pour les machines virtuelles. Vous pouvez choisir une machine virtuelle similaire, basée sur la valeur ACU, afin de mieux répondre à vos propres besoins. Pour plus d’informations, consultez [Unité de calcul Azure (ACU)](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
+Une fois que vous avez choisi la machine virtuelle, faites attention à sa valeur ACU. Vous choisirez peut-être une autre machine virtuelle en fonction de la valeur ACU, qui répondra mieux à vos besoins. Pour plus d’informations, consultez [Unité de calcul Azure (ACU)](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
 
 ![Capture d’écran de la page Unités ACU](./media/oracle-design/acu_units.png)
 
 ### <a name="network-throughput"></a>Débit du réseau
 
-Voici la relation entre le débit et le nombre d’E/S par seconde.
+Le diagramme suivant montre la relation entre le débit et le nombre d’E/S par seconde :
 
 ![Capture d’écran du débit](./media/oracle-design/throughput.png)
 
-Le débit réseau total est une estimation basée sur ce qui suit :
+Le débit réseau total est estimé selon les informations suivantes  :
 - Trafic SQL*Net
-- Mbits/s x nombre de serveurs (flux sortant tel que Data Guard)
+- Mbits/s x nombre de serveurs (flux sortant tel qu’Oracle Data Guard)
 - Autres facteurs, comme la réplication de l’application
 
 ![Capture d’écran du débit SQL*Net](./media/oracle-design/sqlnet_info.png)
 
-Selon vos besoins en bande passante réseau, il existe différents types de passerelle (Basic, VpnGw, ExpressRoute). Pour en savoir plus, consultez [Tarification de Passerelle VPN](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h)
+Selon vos besoins en bande passante réseau, vous pouvez choisir différents types de passerelles, notamment une passerelle de base, VpnGw ou Azure ExpressRoute. Pour plus d’informations, consultez [Tarification Passerelle VPN](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
 
-Recommandations
+**Recommandations**
 
 - La latence réseau est supérieure par rapport à un déploiement local. La diminution des allers-retours réseau peut considérablement améliorer les performances.
-- Consolidez les applications disposant de transactions élevées ou les applications bavardes sur la même machine virtuelle pour réduire les allers-retours.
+- Pour réduire le nombre d’allers-retours, regroupez les applications avec un nombre élevé de transactions et les applications « bavardes » sur une même machine virtuelle.
 
 ### <a name="disk-types-and-configurations"></a>Types de disque et configurations
 
-- Disque de système d’exploitation par défaut : avec données persistantes et mise en cache. Ce disque est optimisé pour un accès au système d’exploitation à l’heure de démarrage, mais il n’est pas conçu pour les charges de travail transactionnelles ou Data Warehouse (analyse)
+- *Disques du système d’exploitation par défaut* : ces types de disques permettent la persistance et la mise en cache des données. Ils sont optimisés pour un accès au système d’exploitation au moment du démarrage, mais ils ne sont pas conçus pour les charges de travail transactionnelles ou d’entrepôt de données (analytiques).
 
-- Disques non gérés : vous gérez les comptes de stockage que vous utilisez pour stocker les fichiers de disque dur virtuel (VHD) correspondant à vos disques de machine virtuelle. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage Azure.
+- *Disques non managés* : ces types de disques permettent de gérer les comptes de stockage qui stockent les fichiers de disque dur virtuel (VHD) correspondant à vos disques de machine virtuelle. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage Azure.
 
-- Disques gérés : Azure gère les comptes de stockage que vous utilisez pour vos disques de machine virtuelle. Vous spécifiez le type de disque (Premium ou Standard) et la taille de disque dont vous avez besoin. Azure crée et gère le disque pour vous.
+- *Disques managés* : Azure gère les comptes de stockage que vous utilisez pour vos disques de machine virtuelle. Vous spécifiez le type de disque (Premium ou Standard) et la taille de disque dont vous avez besoin. Azure crée et gère le disque pour vous.
 
-- Disques de stockage Premium (les mieux adaptés aux charges de travail de production) : le stockage Premium prend en charge les disques de machines virtuelles pouvant être joints à des machines virtuelles de taille spécifique, notamment les séries DS, DSv2, GS et F. Le disque Premium est fourni dans différentes tailles. Vous pouvez choisir un disque de 32 Go à 4 096 Go. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle.
+- *Disques de stockage Premium* : ces types de disques sont mieux adaptés aux charges de production. Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique, telles que les machines de séries DS, DSv2, GS, et F. Le disque Premium est fourni dans différentes tailles, allant de 32 Go à 4 096 Go. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle.
 
-Lorsque vous créez un disque géré à partir du portail, vous pouvez choisir le type de compte afin de spécifier le type de disque que vous souhaitez utiliser. Tous les disques disponibles n’apparaissent pas dans la zone de liste déroulante. En effet, le stockage Azure est intégré dans les machines virtuelles, et les limites sont définies en fonction des références (SKU) (par exemple, nombre maximal de disques, E/S par seconde maximales). Par conséquent, une fois que vous avez choisi une taille de machine virtuelle, seules les références de stockage Premium disponibles pour cette taille de machine virtuelle sont affichées.
+Lorsque vous créez un disque managé dans le portail, vous pouvez choisir le **Type de compte** associé au type de disque que vous souhaitez utiliser. N’oubliez pas que les disques disponibles ne s’affichent pas tous dans le menu déroulant. Une fois que vous avez choisi une taille de machine virtuelle, le menu affiche uniquement les références SKU de stockage Premium disponibles qui sont associées à cette taille de machine virtuelle.
 
-![Capture d’écran de la page de disque géré](./media/oracle-design/premium_disk01.png)
+![Capture d’écran de la page de disque managé](./media/oracle-design/premium_disk01.png)
 
-Pour plus d’informations, consultez l’article portant sur [le stockage Premium Azure](https://docs.microsoft.com/azure/storage/storage-premium-storage).
+Pour plus d’informations, consultez [Stockage Premium hautes performances et disques managés pour les machines virtuelles](https://docs.microsoft.com/azure/storage/storage-premium-storage).
 
 Une fois que vous avez configuré votre stockage sur une machine virtuelle, vous pouvez tester la charge des disques avant de créer une base de données. Le fait de connaître la latence et le débit du taux d’E/S peut vous aider à déterminer si les machines virtuelles prennent en charge le débit attendu avec les cibles de latence.
 
-Divers outils sont dédiés au test de charge d’application : Oracle Orion, Sysbench, Fio, etc.
+Divers outils sont dédiés au test de charge d’application, comme Oracle Orion, Sysbench et Fio.
 
-Exécutez de nouveau le test de charge après avoir déployé la base de données Oracle et lancez vos charges de travail régulières et maximales. Les résultats vous permettent d’afficher la ligne de base de votre environnement.
+Réexécutez le test de charge après avoir déployé une base de données Oracle. Démarrez vos charges de travail normales et maximales pour voir la base de référence de votre environnement.
 
-Il peut être plus important de dimensionner le stockage en fonction du taux d’E/S par seconde que le stockage lui-même. Par exemple, si les E/S par seconde requises sont égales à 5 000, mais si vous n’avez besoin que de 200 Go. Vous pouvez tout de même obtenir le disque Premium de classe P30, même s’il offre plus de 200 Go de stockage.
+Il peut être plus important de dimensionner le stockage en fonction du taux d’E/S par seconde que le stockage lui-même. Par exemple, si le taux d’E/S par seconde nécessaire est de 5 000, alors que vous n’avez besoin que de 200 Go, vous pouvez quand même obtenir le disque Premium de classe P30, même s’il est fourni avec plus de 200 Go de stockage.
 
-Le taux d’E/S par seconde peut être obtenu à partir du rapport AWR. Il est déterminé par le journal de restauration par progression, les lectures physiques et les taux d’écriture.
+Le taux d’E/S par seconde se trouve dans le rapport AWR. Il est déterminé par le journal Redo, les lectures physiques et le taux d’écritures.
 
 ![Capture d’écran de la page Rapport AWR](./media/oracle-design/awr_report.png)
 
-Par exemple : la restauration par progression fait 12 200 000 octets par seconde, ce qui est égal à 11,63 Mbits/s. Le nombre d’E/S par seconde est égal à 12 200 000/2 358 = 5 174
+Par exemple : la restauration par progression fait 12 200 000 octets par seconde, ce qui est égal à 11,63 Mbits/s.
+Le nombre d’E/S par seconde est égal à 12 200 000/2 358 = 5 174.
 
-Une fois que vous avez une vision claire des exigences en termes d’E/S, vous pouvez choisir une combinaison de disques mieux adaptée à ces exigences
+Une fois que vous avez une vision claire de vos besoins en E/S, vous pouvez choisir une combinaison de disques mieux adaptée à ces besoins.
 
-Recommandations
+**Recommandations**
 
-- Pour l’espace disque de données, répartition de la charge de travail d’E/S sur plusieurs disques à l’aide du stockage géré ou d’Oracle ASM
-- Lorsque la taille du bloc d’E/S augmente, pour les opérations de lecture et d’écriture intensives, ajout de disques de données
-- Augmenter la taille de bloc pour les processus séquentiels volumineux
-- Utiliser la compression de données pour réduire les E/S (données et index)
-- Séparer les journaux de restauration par progression, système, temporaire et annuler le flux de transport sur des disques de données distincts
-- Il est recommandé de ne pas placer de fichiers d’application sur le disque du système d’exploitation par défaut (/dev/sda). Ce disque est optimisé pour les démarrages rapides de machine virtuelle. Il peut ne pas fournir de performances optimales pour votre application.
+- Pour l’espace disque logique de données, répartissez la charge de travail d’E/S sur plusieurs disques à l’aide du stockage managé ou d’Oracle ASM.
+- Lorsque la taille du bloc d’E/S augmente pour les opérations de lecture et d’écriture intensives, ajoutez des disques de données.
+- Augmentez la taille du bloc pour les processus séquentiels volumineux.
+- Utilisez la compression de données pour réduire les E/S (données et index).
+- Placez les flux de transport Redo, System, Temp et Undo sur des disques de données distincts.
+- Ne placez pas de fichiers d’application sur les disques du système d’exploitation par défaut (/dev/sda). Ces disques sont optimisés pour les démarrages rapides de machine virtuelle et risquent de ne pas fournir de performances optimales pour votre application.
 
 ### <a name="disk-cache-settings"></a>Paramètres de cache des disques
 
-Il existe trois solutions pour la mise en cache de l’hôte.
+Il existe trois solutions pour la mise en cache de l’hôte :
 
-- Lecture seule : toutes les demandes mises en cache pour les lectures ultérieures. Toutes les écritures conservées directement dans les objets blob de stockage Windows Azure
+- *Lecture seule* : toutes les demandes sont mises en cache pour les lectures ultérieures. Toutes les écritures sont conservées directement dans le Stockage Blob Azure.
 
-- Lecture-écriture : algorithme de type lecture anticipée. Les lectures et les écritures sont mises en cache pour les lectures ultérieures. Les écritures qui ne sont pas de type double écriture sont d’abord conservées dans le cache local. Pour SQL Server, les écritures sont conservées dans le stockage WA, car il utilise la double écriture. Il fournit la latence de disque la plus faible pour les charges de travail légères
+- *Lecture-écriture* : il s’agit d’un algorithme de type « lecture anticipée ». Les lectures et les écritures sont mises en cache pour les lectures ultérieures. Les écritures qui ne sont pas de type double écriture sont d’abord conservées dans le cache local. Pour SQL Server, les écritures sont conservées dans Stockage Azure, car il utilise la double écriture. Il fournit également la latence de disque la plus faible pour les charges de travail légères.
 
-- Aucun (désactivé) : cela vous permet de contourner le cache. Toutes les données sont transférées sur le disque et conservées dans le stockage Windows Azure. Cette méthode vous donne le taux d’E/S le plus élevé pour les charges de travail intensives d’E/S. Vous devez également tenir compte du coût de transaction.
+- *Aucun* (désactivé) : cette option vous permet de contourner le cache. Toutes les données sont transférées sur le disque et conservées dans Stockage Azure. Cette méthode vous donne le taux d’E/S le plus élevé pour les charges de travail intensives d’E/S. Vous devez également tenir compte du coût de transaction.
 
-Recommandations
+**Recommandations**
 
-Pour optimiser le débit, il est recommandé de commencer par Aucun pour la mise en cache de l’hôte. Pour le stockage Premium, vous devez désactiver les barrières lorsque vous montez le système de fichiers conformément aux options Lecture seule ou Aucun. Mettez à jour le fichier/etc/fstab avec l’UUID sur les disques.
+Pour optimiser le débit, il est recommandé de commencer par **Aucun** pour la mise en cache de l’hôte. Pour le stockage Premium, vous devez désactiver les barrières lorsque vous montez le système de fichiers conformément aux options **Lecture seule** ou **Aucun**. Mettez à jour le fichier/etc/fstab avec l’UUID sur les disques.
 
 Pour plus d’informations, consultez [Stockage Premium pour les machines virtuelles Linux](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
 ![Capture d’écran de la page de disque géré](./media/oracle-design/premium_disk02.png)
 
-- Pour les disques du système d’exploitation, utilisez la mise en cache par défaut Lecture/écriture
-- Pour SYSTEM, TEMP et UNDO, utilisez Aucun
-- Pour DATA, utilisez Aucun, mais si votre base de données est en lecture seule ou en lecture intensive, utilisez la mise en cache en lecture seule
+- Pour les disques du système d’exploitation, utilisez la mise en cache par défaut **Lecture/Écriture**.
+- Pour SYSTEM, TEMP et UNDO, utilisez **Aucun** pour la mise en cache.
+- Pour DATA, utilisez **Aucun** pour la mise en cache. Toutefois, si votre base de données est en lecture seule ou en lecture intensive, utilisez la mise en cache **Lecture seule**.
 
-Une fois que votre configuration de disque de données est enregistrée, le paramètre de mise en cache de l’hôte (AFAIK) ne peut pas être modifié, sauf si vous démontez le disque au niveau du système d’exploitation, puis le remontez après modification.
+Une fois que votre configuration de disque de données est enregistrée, vous ne pouvez pas modifier le paramètre de mise en cache de l’hôte, sauf si vous démontez le disque au niveau du système d’exploitation, puis le remontez après modification.
 
 
 ## <a name="security"></a>Sécurité
 
-Une fois que vous avez configuré votre environnement Azure. L’étape suivante consiste à sécuriser votre réseau. Voici quelques recommandations :
+Une fois votre environnement Azure configuré, l’étape suivante consiste à sécuriser votre réseau. Voici quelques recommandations :
 
-- Stratégie de groupe de sécurité réseau
+- *Stratégie du groupe de sécurité réseau* : le groupe de sécurité réseau peut être défini par un sous-réseau ou une carte réseau. Il est plus simple de contrôler la sécurité de l’accès au niveau du sous-réseau et de forcer le routage pour les éléments tels que les pare-feu d’application.
 
-Le groupe de sécurité réseau peut être défini par un sous-réseau ou une carte réseau.  Il est plus simple de contrôler la sécurité de l’accès au niveau du sous-réseau et de forcer le routage pour les éléments tels que les pare-feu d’application.
+- *Jumpbox* : pour un accès plus sécurisé, les administrateurs ne doivent pas se connecter directement au service d’application ou à la base de données. Une jumpbox sert de média entre la machine de l’administrateur et les ressources Azure.
+![Capture d’écran de la page relative à la topologie Jumpbox](./media/oracle-design/jumpbox.png)
 
-- Jumpbox ![Capture d’écran de la page relative à la topologie Jumpbox](./media/oracle-design/jumpbox.png)
+    L’accès à la machine de l’administrateur doit être limité à l’adresse IP de la jumpbox. La jumpbox doit avoir accès à l’application et à la base de données.
 
-Pour un accès plus sécurisé, les administrateurs ne doivent pas se connecter directement au service d’application ou à la base de données. Une jumpbox sert de média entre la machine de l’administrateur et les ressources Azure.
-
-L’accès à la machine de l’administrateur doit être limité à l’adresse IP de la jumpbox. La jumpbox a alors accès à l’application/la base de données.
-
-- Réseau privé (sous-réseaux)
-
-Il est recommandé de disposer du service d’application et de la base de données sur des sous-réseaux séparés. La stratégie de groupe de sécurité réseau peut ainsi définir un meilleur contrôle.
+- *Réseau privé* (sous-réseaux) : il est recommandé de placer le service d’application et la base de données sur des sous-réseaux distincts, afin de mieux contrôler la stratégie de groupe de sécurité réseau.
 
 
-## <a name="additional-readings"></a>Documentation supplémentaire :
+## <a name="additional-reading"></a>Documentation supplémentaire
 
 - [Configurer Oracle ASM](configure-oracle-asm.md)
 - [Implémenter Oracle Data Guard sur une machine virtuelle Linux Azure](configure-oracle-dataguard.md)
 - [Implémenter Oracle Golden Gate sur une machine virtuelle Linux Azure](configure-oracle-golden-gate.md)
-- [Sauvegarder et récupérer une base de données de la base de données Oracle Database 12c sur une machine virtuelle Linux Azure](oracle-backup-recovery.md)
+- [Sauvegarde et récupération Oracle](oracle-backup-recovery.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Didacticiel : créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
-
-[Explorer des exemples Azure CLI de déploiement de machines virtuelles](../../linux/cli-samples.md)
+- [Didacticiel : créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
+- [Explorer des exemples Azure CLI de déploiement de machines virtuelles](../../linux/cli-samples.md)
 

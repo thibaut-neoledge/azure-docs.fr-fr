@@ -4,7 +4,7 @@ description: "Vue d’ensemble de l’API REST Media Services"
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: f4d2fe502e6b6a93c0e455a5369b63deb9074c82
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a874bc48cc94fff32382ccdb832f0fbd3d08e03f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations
@@ -103,13 +103,14 @@ Voici une liste complète des verbes HTTP pouvant être utilisés lors de requê
 | MERGE |Met à jour un objet existant avec des modifications de propriété nommées. |
 | HEAD |Retourne les métadonnées d’un objet d’une réponse GET. |
 
-## <a name="limitation"></a>Limitation
-Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser **Skip** et **Take** (.NET)/ **top** (REST) comme décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et cet exemple [d’API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-
-## <a name="discovering-media-services-model"></a>Découverte du modèle Media Services
+## <a name="discover-media-services-model"></a>Découvrir le modèle Media Services
 Pour rendre les entités Media Services plus détectables, l’opération $metadata peut être utilisée. Elle vous permet de récupérer l’ensemble des types d’entité, des propriétés d’entité, des associations, des fonctions, des actions valides, etc. L’exemple suivant montre comment construire l’URI : https://media.windows.net/API/$metadata.
 
 Vous devez ajouter « ?api-version=2.x » à la fin de l’URI si vous souhaitez afficher les métadonnées dans un navigateur ou n’incluez pas l’en-tête x-ms-version dans votre requête.
+
+## <a name="connect-to-media-services"></a>Connexion à Media Services
+
+Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

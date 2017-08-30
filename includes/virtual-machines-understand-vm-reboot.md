@@ -85,7 +85,7 @@ La durée de l’arrêt peut être de cinq minutes ou beaucoup plus longue. Voic
 
 Il se peut que les machines virtuelles soient temporairement arrêtées lorsque les demandes d’E/S sont constamment limitées en raison d’un volume d’opérations d’E/S par seconde dépassant les limites d’E/S du disque. (Stockage de disque standard limité à 500 E/S par seconde.) Pour atténuer ce problème, utilisez l’entrelacement de disques ou configurez l’espace de stockage au sein de la machine virtuelle invitée en fonction de la charge de travail. Pour en savoir plus, consultez [Configuration de machines virtuelles Azure pour des performances de stockage optimales](http://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
-Des limites d’E/S par seconde plus élevées sont disponibles via le stockage Premium Azure avec jusqu’à 80 000 E/S par seconde. Pour plus d’informations, consultez [Stockage Premium hautes performances](../articles/storage/storage-premium-storage.md).
+Des limites d’E/S par seconde plus élevées sont disponibles via le stockage Premium Azure avec jusqu’à 80 000 E/S par seconde. Pour plus d’informations, consultez [Stockage Premium hautes performances](../articles/storage/common/storage-premium-storage.md).
 
 ### <a name="other-incidents"></a>Autres incidents
 Dans de rares circonstances, un problème étendu peut affecter plusieurs serveurs dans un centre de données Azure. Si cela se produit, l’équipe Azure envoie des notifications par e-mail aux abonnements concernés. Vous pouvez consulter le [Tableau de bord d’intégrité des services Azure](https://azure.microsoft.com/status/) et le portail Azure pour connaître l’état des pannes en cours et des incidents passés.

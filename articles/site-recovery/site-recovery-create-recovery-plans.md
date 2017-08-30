@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 618c6fead3dbad385c4ded39352eea0cfcf1b134
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 1b0d64cd592c4738311797b826e490639340f92a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="create-recovery-plans"></a>Créer des plans de récupération
@@ -44,6 +44,7 @@ Publiez des commentaires ou des questions au bas de cet article, ou sur le [Foru
     - Pour une réplication de VMM vers Azure, sélectionnez **Type de source** > **VMM**.  Sélectionnez le serveur VMM source et **Azure** en tant que cible.
     - Pour la réplication d’Hyper-V vers Azure (sans VMM), sélectionnez **Type de source** > **Site Hyper-V**. Sélectionnez le site en tant que source et **Azure** en tant que cible.
     - Pour une réplication de machine virtuelle VMware ou de serveur physique local vers Microsoft Azure, sélectionnez un serveur de configuration en tant que source et **Azure** en tant que cible.
+    - Pour un plan de récupération Azure vers Azure, sélectionnez une région Azure comme source et une région Azure secondaire comme cible. Les régions Azure secondaires sont uniquement celles dans lesquelles les machines virtuelles sont protégées.
 2. Dans **Sélectionner les machines virtuelles**, sélectionnez les machines virtuelles (ou le groupe de réplication) que vous voulez ajouter au groupe par défaut (Groupe 1) dans le plan de récupération.
 
 ## <a name="customize-and-extend-recovery-plans"></a>Personnaliser et étendre les plans de récupération

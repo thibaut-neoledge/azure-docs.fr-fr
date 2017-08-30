@@ -4,7 +4,7 @@ description: "Découvrez comment développer des fonctions à l’aide de JavaSc
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"

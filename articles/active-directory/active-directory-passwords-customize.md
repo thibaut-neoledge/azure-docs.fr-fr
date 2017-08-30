@@ -6,14 +6,14 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
@@ -53,7 +53,7 @@ Les administrateurs des services AD FS peut ajouter un lien à leur page de conn
 
 L’exécution de la commande suivante sur votre serveur AD FS ajoute un lien vers la page de connexion AD FS permettant aux utilisateurs d’accéder directement au flux de travail de réinitialisation de mot de passe libre-service.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?<A/></p>" ```
+``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
 
 ## <a name="customize-the-sign-in-and-access-panel-look-and-feel"></a>Personnaliser l’apparence du panneau d’accès et de connexion
 

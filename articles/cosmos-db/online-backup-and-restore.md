@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/11/2017
 ms.author: raprasa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: a438b5079ae48c82fb2dbd5ce4547302364e0ef5
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 130f0eb259621737d6dbdb151e363915fb334ce1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/26/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Sauvegarde et restauration en ligne automatiques avec Azure Cosmos DB
@@ -50,13 +49,16 @@ L’image suivante illustre les sauvegardes complètes périodiques de toutes le
 
 ![Sauvegardes complètes périodiques de toutes les entités Cosmos DB dans Stockage Azure GRS](./media/online-backup-and-restore/automatic-backup.png)
 
-## <a name="retention-period-for-a-given-snapshot"></a>Période de rétention pour un instantané donné
-Comme décrit ci-dessus, nous prenons des instantanés de vos données toutes les 4 heures et conservons les deux derniers pendant 30 jours. Conformément à nos obligations réglementaires, les instantanés sont supprimés au bout de 90 jours.
+## <a name="backup-retention-period"></a>Période de rétention des sauvegardes
+Comme décrit ci-dessus, Azure Cosmos DB prend des captures instantanées de vos données toutes les quatre heures et conserve les deux dernières captures instantanées de chaque partition pendant 30 jours. Conformément à nos obligations réglementaires, les instantanés sont supprimés au bout de 90 jours.
 
 Si vous souhaitez conserver vos propres instantanés, vous pouvez utiliser l’exportation à l’option d’exportation vers un fichier JSON de l’[outil de migration de données](import-data.md#export-to-json-file) d’Azure Cosmos DB pour planifier des sauvegardes supplémentaires. 
 
-## <a name="restore-database-from-the-online-backup"></a>Restaurer la base de données à partir de la sauvegarde en ligne
-En cas de suppression accidentelle de vos données, vous pouvez [émettre un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [appeler le support technique Azure](https://azure.microsoft.com/support/options/) pour restaurer les données à partir de la dernière sauvegarde automatique. Pour obtenir une capture instantanée spécifique de votre sauvegarde à restaurer, Cosmos DB nécessite que les données nous soient accessibles pendant au moins la durée du cycle de sauvegarde de cette capture instantanée.
+## <a name="restoring-a-database-from-an-online-backup"></a>Restauration d’une base de données depuis une sauvegarde en ligne
+En cas de suppression accidentelle de vos données, vous pouvez [émettre un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [appeler le support technique Azure](https://azure.microsoft.com/support/options/) pour restaurer les données à partir de la dernière sauvegarde automatique. Si vous devez restaurer votre base de données en raison d’un problème d’altération des données, consultez [Gestion de l’altération des données](#handling-data-corruption) lorsque vous devez prendre des mesures supplémentaires pour empêcher les données altérées de pénétrer les sauvegardes. Pour obtenir une capture instantanée spécifique de votre sauvegarde à restaurer, Cosmos DB requiert que les données soient accessibles pendant la durée du cycle de sauvegarde de cette capture instantanée.
+
+## <a name="handling-data-corruption"></a>Gestion de l’altération des données
+Azure Cosmos DB conserve les deux dernières sauvegardes de chaque partition dans le système. Ce modèle fonctionne parfaitement lorsque un conteneur (collection de documents, graphique, table) ou une base de données est accidentellement supprimé car une des dernières versions peut être restaurée. Toutefois, dans le cas où les utilisateurs présentent un problème d’altération des données, Azure Cosmos DB peut ne pas être informé de l’altération des données et il est possible que l’altération pénètre les sauvegardes. Dès que l’altération est supprimée, vous devez supprimer le conteneur altéré (collection/graphique/table) afin que les sauvegardes soient protégés contre l’écrasement des données altérées. Étant donné que la dernière sauvegarde peut dater de quatre heures, l’utilisateur peut employer [modifier le flux](change-feed.md) pour capturer et stocker les quatre dernières heures de données avant de supprimer le conteneur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

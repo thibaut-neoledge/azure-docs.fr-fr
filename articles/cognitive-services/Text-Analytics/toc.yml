@@ -1,20 +1,45 @@
-- name: Text Analytics Documentation
+- name: Documentation Text Analytics
   href: ../index.md
-- name: Overview
+- name: Vue d'ensemble
   href: overview.md
-- name: Quick Start Guide
-  href: quick-start.md
-- name: Reference
+  items: null
+- name: Démarrages rapides
   items:
-    - name: API Reference content
+    - name: 'C#'
+      href: quick-start.md
+- name: Procédures
+  items:
+    - name: Inscription
+      href: text-analytics-howto-signup.md
+    - name: Obtenir une clé d’accès
+      href: text-analytics-howto-accesskey.md
+    - name: Appeler l’API Text Analytics
+      href: text-analytics-howto-call-api.md
+    - name: Détecter la langue
+      href: text-analytics-howto-language-detection.md
+    - name: Analyser les sentiments
+      href: text-analytics-howto-sentiment-analysis.md
+    - name: Extraire les mots clés
+      href: text-analytics-howto-keyword-extraction.md
+- name: Référence
+  items:
+    - name: Référence API
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
-    - name: Windows SDK
-      href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-Windows'
-    - name: Android SDK
-      href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-Android'
-    - name: .Net Standard SDK
+    - name: Kit de développement logiciel (SDK).NET Standard
       href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet'
-- name: Resources
+- name: Ressources
   items:
-    - name: Azure Roadmap
+    - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Nous contacter
+      href: 'https://azure.microsoft.com/overview/sales-number/'
+    - name: Contenu externe et contenu de la communauté
+      href: text-analytics-resource-external-community.md
+    - name: Forum Aux Questions
+      href: text-analytics-resource-faq.md
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+    - name: Dépassement de capacité de la pile
+      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
+    - name: User Voice
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'

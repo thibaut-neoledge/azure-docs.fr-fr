@@ -13,37 +13,37 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 08/23/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 194910a3e4cb655b39a64d2540994d90d34a68e4
-ms.openlocfilehash: 90a0cfb7c7cd7d3364ff42559dd7fdc7b2951abf
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 530f3b5c9e90cb45ffb6e12d0d08a35f8d687471
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="create-an-office-data-connection-odc-file"></a>Créer un fichier Office Data Connection (.odc)
+# <a name="create-an-office-data-connection-file"></a>Créer un fichier Office Data Connection
 
-Les informations de cet article expliquent comment créer un fichier .odc pour se connecter à un serveur Azure Analysis Services à partir d’Excel 2016 version 16.0.7369.2117 ou une version antérieure, ou Excel 2013. Un [fournisseur MSOLAP.7 mis à jour](analysis-services-data-providers.md) est également requis.
+Les informations de cet article expliquent comment créer un fichier Office Data Connection pour se connecter à un serveur Azure Analysis Services à partir d’Excel 2016 version 16.0.7369.2117 ou une version antérieure, ou Excel 2013. Un [fournisseur MSOLAP.7 mis à jour](analysis-services-data-providers.md) est également requis.
 
 
-1. Copiez l’exemple de fichier de connexion .odc et collez-le dans un éditeur de texte. 
+1. Copiez l’exemple de fichier de connexion et collez-le dans un éditeur de texte. 
 
-2. Dans **odc:ConnectionString**, modifiez les propriétés suivantes :
+2. Dans `odc:ConnectionString`, modifiez les propriétés suivantes :
 
-    *   Dans **Data Source=asazure://*region*.asazure.windows.net/*servername*;** remplacez *region* par la région de votre serveur Analysis Services et *servername* par le nom de votre serveur.
+    *   Dans `Data Source=asazure://<region>.asazure.windows.net/<servername>;`, modifiez `<region>` sur la région de votre serveur Analysis Services et `<servername>` avec sur le nom de votre serveur.
 
-    *   Dans **Initial Catalog=*database*;** remplacez *database* par le nom de votre base de données.
+    *   Dans `Initial Catalog=<database>;`, modifiez `<database>` sur le nom de votre base de données.
 
-3. Dans **&lt;odc:CommandText>*Model*&lt;/odc:CommandText>** remplacez *Model* par le nom de votre modèle ou perspective. 
+3. Dans `<odc:CommandText>Model</odc:CommandText>`, modifiez `Model` sur le nom de votre perspective ou modèle. 
 
-4. Enregistrez le fichier avec une extension **.odc** pour le dossier C:\Users\\*nom d’utilisateur*\Documents\My Data Sources.
+4. Enregistrez le fichier avec une extension `.odc` pour le dossier C:\Users\\*nom d’utilisateur*\Documents\My Data Sources.
 
 5. Cliquez avec le bouton droit sur le fichier, puis cliquez sur **Ouvrir dans Excel**. Ou, dans Excel, sur le ruban **Données**, cliquez sur **Connexions existantes**, sélectionnez votre fichier, puis cliquez sur **Ouvrir**.
 
 
 
-**Exemple de fichier connexion.odc**
+**Exemple de fichier de connexion**
 ```
 <html xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns="http://www.w3.org/TR/REC-html40">

@@ -3,7 +3,7 @@ title: "Comment utiliser les mots de passe d’application dans Azure MFA ? | M
 description: "Cette page permet aux utilisateurs de comprendre ce que sont les mots de passe d’application et leur utilisation avec Azure MFA."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: yossib
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
@@ -36,21 +36,21 @@ Voici quelques points à retenir sur l’utilisation de mots de passe d’applic
 
 * Vous ne pouvez pas créer vos propres mots de passe d’application. En effet, ils sont générés automatiquement. Étant donné que vous ne devez entrer le mot de passe qu’une seule fois par application, il est préférable d’utiliser un mot de passe plus complexe, généré automatiquement, plutôt que d’en créer un que vous pouvez mémoriser.
 * À l’heure actuelle, un utilisateur peut posséder jusqu’à 40 mots de passe. Si vous essayez d’en créer un une fois que vous avez atteint la limite, vous devrez supprimer l’un de vos mots de passe d’application existants avant de pouvoir en créer un autre.
-* Il est recommandé d’utiliser un mot de passe d’application par appareil, et non par application. Par exemple, vous pouvez créer un mot de passe d’application pour votre ordinateur portable et utiliser ce mot de passe pour toutes vos applications sur cet ordinateur. Ensuite, créez un second mot de passe à utiliser pour toutes les applications sur votre bureau. 
+* Il est recommandé d’utiliser un mot de passe d’application par appareil, et non par application. Par exemple, vous pouvez créer un mot de passe d’application pour votre ordinateur portable et utiliser ce mot de passe pour toutes vos applications sur cet ordinateur. Ensuite, créez un second mot de passe à utiliser pour toutes les applications sur votre bureau.
 * Vous obtenez un mot de passe d’application la première fois que vous vous inscrivez pour la vérification en deux étapes.  Si vous avez besoin d’autres mots de passe, vous pouvez les créer.
 
 
 
 ## <a name="creating-and-deleting-app-passwords"></a>Création et suppression des mots de passe d’application
-À la première connexion, vous obtenez un mot de passe d’application que vous pouvez utiliser.  En outre, vous pouvez également créer et supprimer des mots de passe d’application par la suite.  La procédure à suivre dépend de l’utilisation de l’authentification multifacteur. Répondez aux questions suivantes pour déterminer où vous devez aller pour gérer les mots de passe d’application : 
+À la première connexion, vous obtenez un mot de passe d’application que vous pouvez utiliser.  En outre, vous pouvez également créer et supprimer des mots de passe d’application par la suite.  La procédure à suivre dépend de l’utilisation de l’authentification multifacteur. Répondez aux questions suivantes pour déterminer où vous devez aller pour gérer les mots de passe d’application :
 
 1. Utilisez-vous la vérification en deux étapes pour votre compte Microsoft personnel ? Si oui, reportez-vous à l’article [Mots de passe d’application et vérification en deux étapes](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) pour obtenir de l’aide. Si non, passez à la question 2.
 
-2. Vous utilisez la vérification en deux étapes pour votre compte professionnel ou scolaire. Est-ce que vous l’utilisez pour vous connecter à des applications Office 365 ? Si oui, reportez-vous à l’article [Créer un mot de passe d’application pour Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) pour obtenir de l’aide. Si non, passez à la question 3. 
+2. Vous utilisez la vérification en deux étapes pour votre compte professionnel ou scolaire. Est-ce que vous l’utilisez pour vous connecter à des applications Office 365 ? Si oui, reportez-vous à l’article [Créer un mot de passe d’application pour Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) pour obtenir de l’aide. Si non, passez à la question 3.
 
 3. Utilisez-vous la vérification en deux étapes avec Microsoft Azure ? Si oui, reportez-vous à la section [Gérer les mots de passe d’application dans le portail Azure](#manage-app-passwords-in-the-Azure-portal) de cet article. Si non, passez à la question 4.
 
-4. Vous ne savez pas exactement dans quels cas vous utilisez la vérification en deux étapes ? Consultez la section [Gérer les mots de passe d’application à l’aide du portail Myapps](#manage-app-passwords-with-the-myapps-portal) de cet article. 
+4. Vous ne savez pas exactement dans quels cas vous utilisez la vérification en deux étapes ? Consultez la section [Gérer les mots de passe d’application à l’aide du portail Myapps](#manage-app-passwords-with-the-myapps-portal) de cet article.
 
 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Gérer les mots de passe d’application dans le portail Azure
@@ -63,7 +63,7 @@ Si vous utilisez la vérification en deux étapes avec Azure, vous devrez créer
 4. Cliquez sur **Créer**.
 5. Saisissez un nom pour le mot de passe d’application, puis cliquez sur **Suivant**
 6. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application.
-   
+
    ![Cloud](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
 
 
@@ -115,5 +115,5 @@ Si vous n’êtes pas sûr des cas dans lesquels vous utilisez l’authentificat
 
 - [Gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md)
 
-- Essayez l’[application Microsoft Authenticator](microsoft-authenticator-app-how-to.md) pour vérifier vos connexions grâce aux notifications d’application, plutôt que de recevoir des SMS ou des appels. 
+- Essayez l’[application Microsoft Authenticator](microsoft-authenticator-app-how-to.md) pour vérifier vos connexions grâce aux notifications d’application, plutôt que de recevoir des SMS ou des appels.
 

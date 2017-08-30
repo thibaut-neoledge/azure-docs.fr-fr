@@ -1,6 +1,6 @@
 ---
 title: "Utilisation des files d’attente Azure Service Bus avec Java | Microsoft Docs"
-description: "Découvrez comment utiliser les files d&quot;attente Service Bus dans Azure. Exemples de code écrits en Java."
+description: "Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en Java."
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -11,17 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 285f3bc3faeffc94c639658ba375910bc4463e25
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 170f431525ffdc93a01fc085e48e69c3a774968e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
-# <a name="how-to-use-service-bus-queues"></a>Utilisation des files d’attente Service Bus
+# <a name="how-to-use-service-bus-queues-with-java"></a>Utilisation des files d’attente Service Bus avec Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Cet article décrit l’utilisation des files d’attente Service Bus. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java][Azure SDK for Java]. Les scénarios couverts dans ce guide sont les suivants : **création de files d’attente**, **envoi et réception de messages** et **suppression de files d’attente**.
@@ -48,7 +47,7 @@ import javax.xml.datatype.*;
 ## <a name="create-a-queue"></a>Création d’une file d’attente
 Vous pouvez effectuer des opérations de gestion pour les files d’attente Service Bus via la classe **ServiceBusContract**. Un objet **ServiceBusContract** est construit avec une configuration appropriée qui encapsule le jeton SAP avec des autorisations pour le gérer, et la classe **ServiceBusContract** est le point de communication unique avec Azure.
 
-La classe **ServiceBusService** fournit des méthodes pour créer, énumérer et supprimer des files d’attente. L’exemple suivant montre comment un objet **ServiceBusService** peut servir à créer une file d’attente nommée « TestQueue » avec un espace de noms nommé « HowToSample » :
+La classe **ServiceBusService** fournit des méthodes pour créer, énumérer et supprimer des files d’attente. L’exemple suivant montre comment un objet **ServiceBusService** peut servir à créer une file d’attente nommée `TestQueue` avec un espace de noms nommé `HowToSample` :
 
 ```java
 Configuration config =
@@ -73,7 +72,7 @@ catch (ServiceException e)
 }
 ```
 
-Il existe des méthodes sur **QueueInfo** qui permettent de paramétrer des propriétés de la file d’attente, par exemple : la valeur par défaut « time-to-live » (TTL) à appliquer aux messages envoyés à la file d’attente. L’exemple suivant montre comment créer une file d’attente nommée `TestQueue` avec une taille maximale de 5 Go :
+Il existe des méthodes sur `QueueInfo` qui permettent de paramétrer des propriétés de la file d’attente, par exemple : la valeur par défaut « time-to-live » (TTL) à appliquer aux messages envoyés à la file d’attente. L’exemple suivant montre comment créer une file d’attente nommée `TestQueue` avec une taille maximale de 5 Go :
 
 ````java
 long maxSizeInMegabytes = 5120;
@@ -82,7 +81,7 @@ queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
 CreateQueueResult result = service.createQueue(queueInfo);
 ````
 
-Notez que vous pouvez utiliser la méthode **listQueues** sur les objets **ServiceBusContract** pour vérifier s’il existe déjà une file d’attente d’un nom déterminé dans un espace de noms de service.
+Notez que vous pouvez utiliser la méthode `listQueues` sur les objets **ServiceBusContract** pour vérifier s’il existe déjà une file d’attente d’un nom déterminé dans un espace de noms de service.
 
 ## <a name="send-messages-to-a-queue"></a>Envoi de messages à une file d'attente
 Pour envoyer un message à une file d’attente Service Bus, votre application obtient un objet **ServiceBusContract**. Le code suivant montre comment envoyer un message pour la file d’attente `TestQueue` créée plus haut dans l’espace de noms `HowToSample` :

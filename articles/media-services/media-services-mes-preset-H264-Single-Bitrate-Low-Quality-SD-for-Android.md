@@ -2,7 +2,7 @@
 title: "H264 - Vitesse de transmission unique basse qualité SD pour Android | Microsoft Docs"
 description: "La rubrique présente une vue d’ensemble de la présélection de travaux **H264 - Vitesse de transmission unique haute qualité SD pour Android**."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

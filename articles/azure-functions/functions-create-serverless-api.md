@@ -3,7 +3,7 @@ title: "Créer une API sans serveur à l’aide d’Azure Functions | Microsoft 
 description: "Guide pratique : créer une API sans serveur à l’aide d’Azure Functions"
 services: functions
 author: mattchenderson
-manager: erikre
+manager: cfowler
 ms.service: functions
 ms.tgt_pltfrm: na
 ms.devlang: multiple

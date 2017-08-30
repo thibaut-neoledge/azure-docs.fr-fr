@@ -4,7 +4,7 @@ description: "Découvrez comment ajouter des unités d’encodage avec .NET"
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
 ms.service: media-services

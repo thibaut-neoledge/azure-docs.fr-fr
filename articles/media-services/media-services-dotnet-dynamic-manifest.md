@@ -4,7 +4,7 @@ description: "Cette rubrique décrit comment créer des filtres pour que votre c
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
 ms.service: media-services

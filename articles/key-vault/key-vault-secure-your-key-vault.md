@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="secure-your-key-vault"></a>Sécuriser votre coffre de clés
@@ -197,7 +197,7 @@ Le rôle personnalisé défini peut uniquement être assigné à l’abonnement 
 
 L’attribution de rôles personnalisés aux développeurs/opérateurs pour l’autorisation « déploiement/action » se limite au groupe de ressources. De cette manière, seules les machines virtuelles créées dans le groupe de ressources « ContosoAppRG » obtiennent les secrets (certificat SSL et certificat Bootstrap). Les machines virtuelles créées par l’équipe de développeurs/opérateurs ne pourront pas obtenir ces secrets, même si elles connaissent les URI de secret.
 
-Cet exemple illustre un scénario simple. Les scénarios réels peuvent être plus complexes et vous devrez peut-être modifier les autorisations d’accès à votre coffre de clés selon vos besoins. Par exemple, dans notre exemple, nous partons du principe que l’équipe de sécurité fournira les références de clé et de secret (URI et empreintes) que l’équipe de développeurs/opérateurs doit référencer dans ses applications. Par conséquent, elle n’a pas besoin d’accorder aux développeurs/opérateurs un accès au plan de données. Notez également que cet exemple se focalise sur la sécurisation de votre coffre de clés. Une considération similaire doit être accordée pour sécuriser [vos machines virtuelles](https://azure.microsoft.com/services/virtual-machines/security/), [comptes de stockage](../storage/storage-security-guide.md) et autres ressources Azure.
+Cet exemple illustre un scénario simple. Les scénarios réels peuvent être plus complexes et vous devrez peut-être modifier les autorisations d’accès à votre coffre de clés selon vos besoins. Par exemple, dans notre exemple, nous partons du principe que l’équipe de sécurité fournira les références de clé et de secret (URI et empreintes) que l’équipe de développeurs/opérateurs doit référencer dans ses applications. Par conséquent, elle n’a pas besoin d’accorder aux développeurs/opérateurs un accès au plan de données. Notez également que cet exemple se focalise sur la sécurisation de votre coffre de clés. Une considération similaire doit être accordée pour sécuriser [vos machines virtuelles](https://azure.microsoft.com/services/virtual-machines/security/), [comptes de stockage](../storage/common/storage-security-guide.md) et autres ressources Azure.
 
 > [!NOTE]
 > Remarque : cet exemple montre comment l’accès au coffre de clés sera verrouillé en production. Les développeurs doivent posséder leur propre abonnement ou groupe de ressources avec des autorisations complètes pour gérer leurs coffres de clés, les machines virtuelles et le compte de stockage où ils développent l’application.

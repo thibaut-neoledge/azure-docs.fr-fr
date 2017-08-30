@@ -4,7 +4,7 @@ description: "Cette rubrique explique comment traiter vos éléments multimédia
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services

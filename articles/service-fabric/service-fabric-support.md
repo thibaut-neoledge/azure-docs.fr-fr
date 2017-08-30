@@ -15,11 +15,10 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: pkc
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 70b2fefa654a73693a8064654cde1d767bfdd496
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 78e68cff3a757cbbcd8dc6f53120e6a4af54591a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-service-fabric-support-options"></a>Options de support d’Azure Service Fabric
@@ -71,7 +70,7 @@ Le [Forum de commentaires Azure pour Service Fabric][uservoice-forum] est le mei
 
 Veillez à ce que votre cluster exécute toujours une version prise en charge de Service Fabric. Lorsque nous annonçons le lancement d’une nouvelle version de Service Fabric, la fin de la prise en charge de la version précédente est signalée 60 jours minimum après la date de lancement. Les nouvelles versions sont annoncées [sur le blog de l’équipe Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
-Consultez les documents suivants pour savoir plus en détails comment faire en sorte que votre cluster exécute toujours une version prise en charge de Service Fabric.
+Consultez les documents suivants pour savoir plus en détail comment faire en sorte que votre cluster exécute toujours une version prise en charge de Service Fabric.
 
 - [Mettre à niveau la version de Service Fabric sur un cluster Azure](service-fabric-cluster-upgrade.md)
 - [Mettre à niveau la version de Service Fabric sur un cluster de serveurs Windows autonome](service-fabric-cluster-upgrade-windows-server.md)
@@ -84,7 +83,8 @@ Voici la liste des versions de Service Fabric prises en charge et la date associ
 | 5.3.* |Inférieure ou égale à la version 2.3 |24 février 2017 |
 | 5.4.* |Inférieure ou égale à la version 2.4 |10 mai 2017     |
 | 5.5.* |Inférieure ou égale à la version 2.5 |10 août 2017    |
-| 5.6.* |Inférieure ou égale à la version 2.6 |Version actuelle ; par conséquent, pas de date de fin
+| 5.6.* |Inférieure ou égale à la version 2.6 |13 octobre 2017    |
+| 5.7.* |Inférieure ou égale à la version 2.7 |Version actuelle ; par conséquent, pas de date de fin
 
 <a id="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versions préliminaires de Service Fabric – non pris en charge pour la production.

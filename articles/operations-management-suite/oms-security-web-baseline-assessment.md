@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 8be49b182df675fe3235d148b87379e1dff3a384
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 40b0c6ca933ea02ac9f5fe3bfaaf87a310542a8d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="web-baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Évaluation de la base de référence web dans la solution de sécurité et d’audit d’Operations Management Suite
@@ -29,6 +29,9 @@ Ce document vous aide à utiliser les capacités d’évaluation de la base de r
 La solution de sécurité d’OMS permet actuellement d’évaluer la base de référence de sécurité pour les systèmes d’exploitation. Elle analyse les paramètres de système d’exploitation de vos serveurs toutes les 24 heures et affiche les paramètres potentiellement vulnérables. Pour plus d’informations à ce sujet, consultez [Évaluation de la base de référence dans la solution de sécurité et d’audit d’Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline).
 
 L’objectif d’une évaluation de la base de référence web consiste à identifier les paramètres de serveur web potentiellement vulnérables. On distingue trois principales sources pour les configurations de base de référence web : les configurations .NET, ASP.NET et IIS.  Tout comme l’évaluation de la base de référence du système d’exploitation, la solution de sécurité d’OMS va analyser vos serveurs web toutes les 24 heures et fournir un aperçu de leur état de sécurité.  Dans Internet Information Services (IIS), les configurations sont hautement personnalisables, ce qui permet de remplacer différents niveaux de site et d’application. L’analyseur vérifie les paramètres au niveau de chaque site/application en complément du niveau racine par défaut. Cela vous aide à identifier les paramètres potentiellement vulnérables et à rapidement les corriger, en suivant également nos recommandations pour ces paramètres.
+
+>[!NOTE] 
+>Vous pouvez télécharger les identificateurs de configuration communs et les règles de base utilisés par la solution Sécurité d’OMS sur cette [page](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335?redir=0).
 
 
 ## <a name="web-security-baseline-assessment"></a>Évaluation de la base de référence de la sécurité web

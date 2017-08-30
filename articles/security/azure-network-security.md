@@ -1,5 +1,4 @@
 ---
-
 title: Azure Network Security | Microsoft Docs
 description: "Découvrez les services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise."
 services: security
@@ -16,11 +15,10 @@ ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: bec61dd630348e4657862077f07b1313ed0ed373
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -60,7 +58,7 @@ Microsoft Azure inclut une infrastructure réseau solide pour prendre en charge 
 
 L’[infrastructure réseau Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines) vous permet de connecter en toute sécurité les ressources Azure entre elles en utilisant des réseaux virtuels. Un réseau virtuel est une représentation de votre propre réseau dans le cloud. Un réseau virtuel est une isolation logique du réseau cloud Azure dédié à votre abonnement. Vous pouvez connecter des réseaux virtuels à vos réseaux locaux.
 
-Azure prend en charge la connectivité d’une liaison réseau étendu dédiée entre votre réseau local et un réseau virtuel Azure Virtual Network via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). La liaison entre Azure et votre site se fait par une connexion dédiée qui ne passe pas par l’Internet public. Si votre application Azure s’exécute dans plusieurs centres de données, vous pouvez utiliser [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) pour acheminer intelligemment les requêtes des utilisateurs vers différentes instances de l’application. Vous pouvez aussi acheminer le trafic vers des services qui ne s’exécutent pas dans Azure s’ils sont accessibles par Internet.
+Azure prend en charge la connectivité d’une liaison réseau étendu dédiée entre votre réseau local et un réseau virtuel Azure Virtual Network via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). La liaison entre Azure et votre site se fait via une connexion dédiée qui ne passe pas par l’Internet public. Si votre application Azure s’exécute dans plusieurs centres de données, vous pouvez utiliser [Microsoft Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) pour acheminer intelligemment les requêtes des utilisateurs vers différentes instances de l’application. Vous pouvez aussi acheminer le trafic vers des services qui ne s’exécutent pas dans Azure s’ils sont accessibles par Internet.
 
 ## <a name="enterprise-view-of-azure-networking-components"></a>Composants de mise en réseau Azure destinées aux grandes entreprises
 Azure propose de nombreux composants de mise en réseau en rapport avec les débats sur la sécurité réseau. Nous décrivons ces composants de mise en réseau et examinons plus particulièrement les problèmes de sécurité qui leur sont associés.
@@ -316,7 +314,7 @@ Ce flux de communications est rendu possible par l’utilisation, par Microsoft�
 
 -   entre un réseau virtuel et votre réseau local via une passerelle VPN.
 
-Nombreuses sont les entreprises à avoir des exigences de sécurité et de conformité strictes qui nécessitent d’inspecter localement tous les paquets réseau pour appliquer des stratégies spécifiques. Azure propose un mécanisme appelé [tunneling forcé](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) qui achemine le trafic des machines virtuelles vers le réseau local en créant un itinéraire personnalisé ou au moyen de publications [BGP (Border Gateway Protocol)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) via ExpressRoute ou VPN.  
+Nombreuses sont les entreprises à avoir des exigences de sécurité et de conformité strictes qui nécessitent d’inspecter localement tous les paquets réseau pour appliquer des stratégies spécifiques. Azure propose un mécanisme appelé [tunneling forcé](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) qui achemine le trafic des machines virtuelles vers le réseau local en créant un itinéraire personnalisé ou au moyen de publications [BGP (Border Gateway Protocol)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) via ExpressRoute ou VPN.
 
 Le tunneling forcé dans Azure est configuré par le biais d’itinéraires définis par l’utilisateur de réseau virtuel. La redirection du trafic vers un site local est exprimée comme un itinéraire par défaut vers la passerelle VPN Azure.
 
@@ -388,7 +386,6 @@ Application Gateway vous permet d’optimiser les performances et la disponibili
 
 
 Un [pare-feu d’applications web (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) est également intégré à Application Gateway. Il protège les applications web contre les vulnérabilités et le code malveillant exploitant une faille de sécurité les plus courants sur le web. La passerelle Application Gateway peut être configurée en tant que passerelle Internet, passerelle exclusivement interne ou une combinaison des deux.
- 
 
 Le pare-feu WAF Application Gateway peut être exécuté en mode détection ou prévention. Il est fréquent que les administrateurs l’exécutent en mode détection pour repérer le trafic à caractère malveillant. Quand du code potentiellement malveillant est détecté, l’activation du mode prévention a pour effet de bloquer le trafic entrant suspect.
 
@@ -495,7 +492,7 @@ Resource Manager offre plusieurs avantages :
 
 -   Vous pouvez gérer votre infrastructure à l’aide de modèles déclaratifs plutôt que de scripts.
 
--   Vous pouvez définir les dépendances entre les ressources de façon à les déployer dans le bon ordre.
+-   Vous pouvez définir les dépendances entre les ressources, de façon à les déployer dans le bon ordre.
 
 -   Vous pouvez appliquer le contrôle d’accès à tous les services dans votre groupe de ressources, car le contrôle d’accès en fonction du rôle (RBAC) est intégré en mode natif à la plateforme de gestion.
 

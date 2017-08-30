@@ -1,5 +1,5 @@
 ---
-title: "Réinitialiser l’accès avec l’extension VMAccess et Azure CLI 2.0 | Microsoft Docs"
+title: "Réinitialiser l’accès à une machine virtuelle Linux Azure | Microsoft Docs"
 description: "Guide pratique de gestion des utilisateurs et de réinitialisation de l’accès sur des machines virtuelles Linux à l’aide de l’extension VMAccess et Azure CLI 2.0"
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,112 +13,94 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 08/04/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e23e2b2d5f30a2ec30564287c96ffc9c671c0dbf
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 587c73278a9a92776276a811c5c4c8d3db773de3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
-<a id="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20" class="xliff"></a>
-
-# Gérer les utilisateurs, SSH et vérifier ou réparer les disques de machines virtuelles Linux à l’aide de l’extension VMAccess avec Azure CLI 2.0
+# <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Gérer les utilisateurs, SSH et vérifier ou réparer les disques de machines virtuelles Linux à l’aide de l’extension VMAccess avec Azure CLI 2.0
 Le disque de votre machine virtuelle Linux affiche des erreurs. Vous avez d'une certaine manière réinitialisé le mot de passe racine de votre machine virtuelle Linux ou supprimé accidentellement votre clé privée SSH. Dans les anciens centres de données, vous deviez aller sur place et ouvrir le KVM pour accéder à la console du serveur. Considérez l’extension Azure VMAccess comme ce commutateur KVM qui vous permet d’accéder à la console pour réinitialiser l’accès à Linux ou effectuer la maintenance au niveau du disque.
 
-Cet article vous explique comment utiliser l’extension Azure VMAccess pour vérifier ou réparer un disque, réinitialiser l’accès des utilisateurs, gérer les comptes d’utilisateur ou réinitialiser la configuration SSHD sous Linux. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Cet article vous explique comment utiliser l’extension Azure VMAccess pour vérifier ou réparer un disque, réinitialiser l’accès des utilisateurs, gérer les comptes d’utilisateur ou réinitialiser la configuration SSH sous Linux. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-<a id="ways-to-use-the-vmaccess-extension" class="xliff"></a>
-
-## Méthodes d’utilisation de l’extension VMAccess
+## <a name="ways-to-use-the-vmaccess-extension"></a>Méthodes d’utilisation de l’extension VMAccess
 Il existe deux façons d’utiliser l’extension VMAccess sur vos machines virtuelles Linux :
 
 * À l’aide de l’interface Azure CLI 2.0 et des paramètres requis.
 * [À l’aide de fichiers JSON bruts que l’extension VMAccess va traiter](#use-json-files-and-the-vmaccess-extension) et exploiter.
 
-Les exemples suivants utilisent [az vm access](/cli/azure/vm/access), ainsi que les paramètres appropriés. Pour suivre ces étapes, vous devez disposer de la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/#login).
+Les exemples suivants utilisent des commandes [az vm user](/cli/azure/vm/user). Pour suivre ces étapes, vous devez disposer de la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/#login).
 
-<a id="reset-ssh-key" class="xliff"></a>
-
-## Réinitialisation d’une clé SSH
+## <a name="reset-ssh-key"></a>Réinitialisation d’une clé SSH
 L’exemple suivant réinitialise la clé SSH pour l’utilisateur `azureuser` sur la machine virtuelle `myVM` :
 
 ```azurecli
-az vm access set-linux-user \
+az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
   --username azureuser \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-<a id="reset-password" class="xliff"></a>
-
-## Réinitialiser le mot de passe
+## <a name="reset-password"></a>Réinitialiser le mot de passe
 L’exemple suivant réinitialise le mot de passe pour l’utilisateur `azureuser` sur la machine virtuelle `myVM` :
 
 ```azurecli
-az vm access set-linux-user \
+az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
   --username azureuser \
   --password myNewPassword
 ```
 
-<a id="reset-sshd" class="xliff"></a>
-
-## Réinitialiser SSHD
-L’exemple suivant réinitialise la configuration SSHD sur une machine virtuelle nommée `myVM` :
+## <a name="restart-ssh"></a>Redémarrer SSH
+L’exemple suivant redémarre le démon SSH et réinitialise la configuration SSH à ses valeurs par défaut sur une machine virtuelle nommée `myVM` :
 
 ```azurecli
-az vm access reset-linux-ssh \
+az vm user reset-ssh \
   --resource-group myResourceGroup \
   --name myVM
 ```
 
-<a id="create-a-user" class="xliff"></a>
-
-## Créer un utilisateur
+## <a name="create-a-user"></a>Créer un utilisateur
 L’exemple suivant crée un utilisateur nommé `myNewUser` à l’aide de la clé SSH pour authentification sur la machine virtuelle nommée `myVM` :
 
 ```azurecli
-az vm access set-linux-user \
+az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
   --username myNewUser \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-<a id="deletes-a-user" class="xliff"></a>
-
-## Supprime un utilisateur
+## <a name="delete-a-user"></a>Supprimer un utilisateur
 L’exemple suivant supprime un utilisateur nommé `myNewUser` sur la machine virtuelle `myVM` :
 
 ```azurecli
-az vm access delete-linux-user \
+az vm user delete \
   --resource-group myResourceGroup \
   --name myVM \
   --username myNewUser
 ```
 
 
-<a id="use-json-files-and-the-vmaccess-extension" class="xliff"></a>
-
-## Utilisation de fichiers JSON et de l’extension VMAccess
+## <a name="use-json-files-and-the-vmaccess-extension"></a>Utilisation de fichiers JSON et de l’extension VMAccess
 Les exemples suivants utilisent des fichiers JSON bruts. Utilisez [az vm extension set](/cli/azure/vm/extension#set), puis appelez vos fichiers JSON. Ces fichiers JSON peuvent également être appelés à partir de modèles Azure. 
 
-<a id="reset-user-access" class="xliff"></a>
+### <a name="reset-user-access"></a>Réinitialisation de l’accès utilisateur
+Si vous ne pouvez plus accéder à la racine de votre machine virtuelle Linux, vous pouvez lancer un script VMAccess pour réinitialiser la clé SSH ou le mot de passe d’un utilisateur.
 
-### Réinitialisation de l’accès utilisateur
-Si vous ne pouvez plus accéder à la racine de votre machine virtuelle Linux, vous pouvez lancer un script VMAccess pour réinitialiser le mot de passe d’un utilisateur.
-
-Pour réinitialiser la clé SSH d’un utilisateur, créez un fichier nommé `reset_ssh_key.json` avec le contenu suivant :
+Pour réinitialiser la clé SSH d’un utilisateur, créez un fichier nommé `reset_ssh_key.json` et ajoutez des paramètres au format suivant. Remplacez par vos propres valeurs les paramètres `username` et `ssh_key` :
 
 ```json
 {
   "username":"azureuser",
-  "ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNG1vHY7P2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7iUo5IdwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5woYtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== azureuser@myVM"
+  "ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNGxxxxxx2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7xxxxxxwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5wxxtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== azureuser@myVM"
 }
 ```
 
@@ -134,7 +116,7 @@ az vm extension set \
   --protected-settings reset_ssh_key.json
 ```
 
-Pour réinitialiser le mot de passe d’un utilisateur, créez un fichier nommé `reset_user_password.json` avec le contenu suivant :
+Pour réinitialiser le mot de passe d’un utilisateur, créez un fichier nommé `reset_user_password.json` et ajoutez des paramètres au format suivant. Remplacez par vos propres valeurs les paramètres `username` et `password` :
 
 ```json
 {
@@ -155,12 +137,8 @@ az vm extension set \
   --protected-settings reset_user_password.json
 ```
 
-<a id="reset-ssh" class="xliff"></a>
-
-### Réinitialisation de SSH
-Si vous apportez des modifications à la configuration SSHD des machines virtuelles Linux et fermez la connexion SSH avant de vérifier vos changements, vous risquez de ne plus pouvoir retourner à votre configuration SSH.  VMAccess peut servir à rétablir la configuration SSHD avec des paramètres reconnus comme adéquats sans connexion par le biais de SSH.
-
-Pour réinitialiser la configuration SSHD, créez un fichier nommé `reset_sshd.json` avec le contenu suivant :
+### <a name="restart-ssh"></a>Redémarrer SSH
+Pour redémarrer le démon SSH et réinitialiser la configuration SSH à ses valeurs par défaut, créez un fichier nommé `reset_sshd.json`. Ajoutez le contenu suivant :
 
 ```json
 {
@@ -180,12 +158,9 @@ az vm extension set \
   --protected-settings reset_sshd.json
 ```
 
-<a id="manage-users" class="xliff"></a>
+### <a name="manage-users"></a>Gestion des utilisateurs
 
-### Gestion des utilisateurs
-VMAccess est un script Python qui peut servir à gérer les utilisateurs de votre machine virtuelle Linux sans connexion ni utilisation du compte sudo ou racine.
-
-Pour créer un utilisateur, créez un fichier nommé `create_new_user.json` avec le contenu suivant :
+Pour créer un utilisateur qui utilise une clé SSH lors de l’authentification, créez un fichier nommé `create_new_user.json` et ajoutez des paramètres au format suivant. Remplacez par vos propres valeurs les paramètres `username` et `ssh_key` :
 
 ```json
 {
@@ -207,11 +182,11 @@ az vm extension set \
   --protected-settings create_new_user.json
 ```
 
-Pour supprimer un utilisateur, créez un fichier nommé `delete_user.json` avec le contenu suivant :
+Pour supprimer un utilisateur, créez un fichier nommé `delete_user.json` avec le contenu suivant. Remplacez par vos propres valeurs le paramètre `remove_user` :
 
 ```json
 {
-  "remove_user":"myDeleteUser"
+  "remove_user":"myNewUser"
 }
 ```
 
@@ -227,17 +202,15 @@ az vm extension set \
   --protected-settings delete_user.json
 ```
 
-<a id="check-or-repair-the-disk" class="xliff"></a>
+### <a name="check-or-repair-the-disk"></a>Vérification ou réparation du disque
+L’utilisation de VMAccess vous permet également de vérifier et de réparer un disque que vous avez ajouté à la machine virtuelle Linux.
 
-### Vérification ou réparation du disque
-À l'aide de VMAccess, vous pouvez lancer une opération fsck sur le disque de votre machine virtuelle Linux. Vous pouvez également effectuer une vérification de disque et une réparation de disque à l’aide d’un VMAccess.
-
-Pour vérifier puis réparer le disque, utilisez ce script VMAccess, créez un fichier nommé `disk_check_repair.json` et ajoutez le contenu suivant :
+Pour vérifier puis réparer le disque, créez un fichier nommé `disk_check_repair.json` et ajoutez des paramètres au format suivant. Remplacez par vos propres valeurs le nom de `repair_disk` :
 
 ```json
 {
   "check_disk": "true",
-  "repair_disk": "true, user-disk-name"
+  "repair_disk": "true, mydiskname"
 }
 ```
 
@@ -253,15 +226,13 @@ az vm extension set \
   --protected-settings disk_check_repair.json
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 La mise à jour de Linux à l’aide d’une extension Azure VMAccess est une méthode permettant d’apporter des modifications à une machine virtuelle Linux en cours d’exécution. Vous pouvez également utiliser des outils tels que cloud-init et des modèles Azure Resource Manager pour modifier votre machine virtuelle Linux au démarrage.
 
-[À propos des extensions et des fonctionnalités des machines virtuelles](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Extensions et fonctionnalités de machine virtuelle pour Linux](extensions-features.md)
 
-[Création de modèles Azure Resource Manager avec des extensions de machine virtuelle Linux](../windows/extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Création de modèles Azure Resource Manager avec des extensions de machine virtuelle Linux](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Utilisation de cloud-init pour personnaliser une machine virtuelle Linux lors de la création](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Utilisation de cloud-init pour personnaliser une machine virtuelle Linux lors de la création](using-cloud-init.md)
 
 

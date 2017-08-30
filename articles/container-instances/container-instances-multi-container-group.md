@@ -202,5 +202,5 @@ Comme vous pouvez le voir, l’annexe envoie régulièrement une requête HTTP �
 Ce document a couvert les étapes nécessaires pour le déploiement d’une instance de conteneur Azure à plusieurs conteneurs. Pour une expérience d’Azure Container Instances de bout en bout, voir le didacticiel d’Azure Container Instances.
 
 > [!div class="nextstepaction"]
-> [Didacticiel Azure Container Instances] :./container-instances-tutorial-prepare-app.md
+> [Didacticiel Azure Container Instances] :./container-instances-tutorial-prepare-app.md
 

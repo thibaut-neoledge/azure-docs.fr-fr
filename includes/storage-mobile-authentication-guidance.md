@@ -12,7 +12,7 @@ L’authentification par clé partagée signifie que votre application utilisera
 > 
 > 
 
-Lorsque vous utilisez une authentification par clé partagée, vous créez une [chaîne de connexion](../articles/storage/storage-configure-connection-string.md). La chaîne de connexion comporte les éléments suivants :  
+Lorsque vous utilisez une authentification par clé partagée, vous créez une [chaîne de connexion](../articles/storage/common/storage-configure-connection-string.md). La chaîne de connexion comporte les éléments suivants :  
 
 * **DefaultEndpointsProtocol** : vous avez le choix entre les protocoles HTTP et HTTPS. Toutefois, l’utilisation du protocole HTTPS est fortement recommandée.
 * **Nom du compte** : nom de votre compte de stockage.
@@ -36,5 +36,5 @@ L’exemple suivant montre comment utiliser l’Explorateur de stockage Microsof
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Comme vous pouvez le voir, lorsque vous utilisez une SAP, vous n’exposez pas votre clé de compte dans votre application. Vous pouvez en savoir plus sur les SAP et les meilleures pratiques en matière d’utilisation de SAP en consultant [Signatures d’accès partagé : présentation du modèle SAP](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
+Comme vous pouvez le voir, lorsque vous utilisez une SAP, vous n’exposez pas votre clé de compte dans votre application. Vous pouvez en savoir plus sur les SAP et les meilleures pratiques en matière d’utilisation de SAP en consultant [Signatures d’accès partagé : présentation du modèle SAP](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

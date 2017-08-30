@@ -65,6 +65,10 @@
           href: sql-database-servers-databases.md
         - name: Niveaux de service
           href: sql-database-service-tiers.md
+        - name: Limites des ressources
+          href: sql-database-resource-limits.md
+        - name: Bases de données uniques
+          href: sql-database-single-database-resources.md
         - name: Pools élastiques
           href: sql-database-elastic-pool.md
         - name: Architecture de connectivité
@@ -75,8 +79,6 @@
           href: sql-database-what-is-a-dtu.md
         - name: Référence DTU
           href: sql-database-benchmark-overview.md
-        - name: limites
-          href: sql-database-resource-limits.md
         - name: PaaS ou IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
         - name: Audit
@@ -416,7 +418,7 @@
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?service=sql-database'
-    - name: Conseils sur l’architecture
-      href: /azure/architecture/guide/
+    - name: Centre des architectures
+      href: /azure/architecture/
     - name: Témoignages client
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

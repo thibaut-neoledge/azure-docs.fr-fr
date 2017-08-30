@@ -1,36 +1,33 @@
 ---
-title: Administration de votre annuaire Azure AD | Microsoft Docs
-description: "Explique ce qu’est un client Azure AD et comment gérer Azure depuis Azure Active Directory"
+title: "Comment utiliser une vue d’ensemble du répertoire du locataire Azure Active Direcory | Microsoft Docs"
+description: "Explique ce qu’est un locataire Azure AD et comment gérer Azure à l’aide d’Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: curtand
 manager: femila
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
-ms.workload: infrastructure-services
+ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/25/2017
+ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: d68b641ac934c3930366be3dbf89a86e9611c7b7
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: b1390ba45f52473129dce6b904690b040af8f7e2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="administer-your-azure-ad-directory"></a>Administration de votre annuaire Azure AD
+# <a name="manage-your-azure-ad-directory"></a>Gérer votre répertoire Azure AD
+
 ## <a name="what-is-an-azure-ad-tenant"></a>Qu'est-ce qu'un locataire Azure AD ?
-Dans le monde réel, le terme « client » peut être défini comme un groupe ou une société qui occupe un immeuble. Par exemple, votre organisation possède probablement des bureaux dans un immeuble. Cet immeuble se trouve peut-être dans une rue, entouré de nombreuses autres organisations. Votre organisation est dans ce cas considérée comme l’occupant des lieux. Cet immeuble est un actif de votre organisation qui vous permet d’exercer votre activité en toute sécurité. Il définit les limites entre votre entreprise et les autres entreprises de votre rue. Autrement dit, il vous permet d’isoler votre organisation et ses actifs des autres organisations.
+Dans Azure Active Directory (Azure AD), un locataire est une instance dédiée d’un répertoire Azure AD reçue par votre organisation lorsqu’elle s’inscrit à un service cloud de Microsoft tel qu’Azure ou Office 365. Chaque annuaire Azure AD est distinct et indépendant des autres annuaires Azure AD. De la même manière qu’un immeuble de bureaux d’entreprise est un élément d’actif sûr propre à votre organisation, un annuaire Azure AD est également conçu pour être un élément d’actif sûr pour les seuls besoins de votre organisation. L’architecture Azure AD isole les données du client et ses informations d’identité de façon à ce que les utilisateurs et les administrateurs d’un répertoire Azure AD ne puissent accéder accidentellement ou de façon malveillante aux données d’un autre répertoire.
 
-Dans le contexte du cloud, un client peut être défini comme un client ou une organisation qui possède et gère une instance spécifique de ce service cloud. Avec la plateforme d’identité fournie par Microsoft Azure, un client consiste simplement en une instance dédiée d’Azure Active Directory (Azure AD) que votre organisation reçoit et possède quand elle s’inscrit à un service cloud Microsoft tel qu’Azure ou Office 365.
-
-Chaque annuaire Azure AD est distinct et indépendant des autres annuaires Azure AD. De la même manière qu’un immeuble de bureaux d’entreprise est un élément d’actif sûr propre à votre organisation, un annuaire Azure AD est également conçu pour être un élément d’actif sûr pour les seuls besoins de votre organisation. Par son architecture, Azure AD isole les données et les informations d’identité des clients, ce qui évite tout risque de brassage. Autrement dit, les utilisateurs et les administrateurs d’un annuaire Azure AD ne peuvent pas accéder aux données d’un autre annuaire par accident ou malveillance.
-
-![Gérer Azure Active Directory][1]
+![Gérer Azure Active Directory](./media/active-directory-administer/aad_portals.png)
 
 ## <a name="how-can-i-get-an-azure-ad-directory"></a>Comment puis-je obtenir un annuaire Azure AD ?
 Azure AD fournit l’annuaire principal et les fonctionnalités de gestion d’identité qui existent derrière la plupart des services cloud Microsoft, y compris :
@@ -42,110 +39,86 @@ Azure AD fournit l’annuaire principal et les fonctionnalités de gestion d’
 
 Quand vous vous inscrivez à ces services cloud Microsoft, vous obtenez un annuaire Azure AD. Vous pouvez créer des annuaires supplémentaires en fonction des besoins. Par exemple, vous pouvez mettre à jour votre premier annuaire en tant qu’annuaire de production, puis créer un autre annuaire pour les tests ou l’environnement intermédiaire.
 
-> [!NOTE]
-> Une fois inscrit au premier service, nous vous recommandons d’utiliser le compte d’administrateur associé à votre organisation au moment de vous inscrire à d’autres services cloud Microsoft.
-> 
-> 
+### <a name="using-the-azure-ad-directory-that-comes-with-a-new-azure-subscription"></a>Utilisation du répertoire Azure AD fournit avec un nouvel abonnement Azure
 
-Quand vous vous inscrivez à un service cloud Microsoft, vous êtes invité à fournir des détails sur votre organisation et sur l’inscription de son nom de domaine Internet. C’est sur la base de ces informations qu’est créée une nouvelle instance d’annuaire Azure AD pour votre organisation. Ce même annuaire sert à authentifier les tentatives de connexion quand vous vous abonnez à plusieurs services cloud Microsoft.
+Nous vous recommandons d’utiliser le compte d’administrateur que vous avez utilisé pour votre premier service lorsque vous vous inscrivez à d’autres services Microsoft. Les informations que vous fournissez la première fois que vous vous inscrivez à un service Microsoft sont utilisées pour créer une nouvelle instance de l’annuaire Azure AD pour votre organisation. Si vous utilisez ce répertoire pour authentifier les tentatives de connexion lorsque vous vous abonnez à d’autres services Microsoft, ils peuvent utiliser les comptes d’utilisateur, les stratégies et paramètres existants, ou l’intégration de répertoire local que vous configurez dans votre répertoire par défaut.
 
-Les services supplémentaires tirent pleinement parti des comptes d’utilisateurs, des stratégies, des paramètres ou de l’intégration d’annuaire locale existants, que vous configurez pour améliorer l’efficacité entre l’infrastructure d’identité locale de votre organisation et Azure AD.
+Ainsi, le fait de s’inscrire à un abonnement Microsoft Intune et de synchroniser par la suite votre répertoire Active Directory local avec votre annuaire Azure AD vous permet de vous inscrire à un autre service Microsoft tel qu’Office 365 et de bénéficier facilement des mêmes avantages liés à l’intégration de répertoire dont vous disposez avec Microsoft Intune.
 
-Par exemple, si vous avez initialement souscrit un abonnement Microsoft Intune et exécuté les étapes nécessaires pour mieux intégrer votre service Active Directory local à votre annuaire Azure AD en déployant la synchronisation d’annuaires et/ou des serveurs d’authentification unique, vous pouvez vous inscrire à un autre service cloud Microsoft comme Office 365, qui peut également bénéficier des mêmes avantages liés à l’intégration d’annuaire que ceux dont vous bénéficiez actuellement avec Microsoft Intune.
+Pour plus d’informations sur l’intégration de votre annuaire local à Azure AD, consultez [Intégration de répertoire avec Azure AD Connect](active-directory-aadconnect.md).
 
-Pour plus d’informations sur l’intégration de votre annuaire local à Azure AD, consultez la rubrique [Intégration d’annuaire](active-directory-aadconnect.md).
-
-### <a name="associate-an-azure-ad-directory-with-a-new-azure-subscription"></a>Association d’un annuaire Azure AD à un abonnement Azure
-Vous pouvez associer un nouvel abonnement Azure au même annuaire qui authentifie les connexions pour un abonnement Office 365 ou Microsoft Intune existant. Connectez-vous au portail Azure à l’aide de votre compte professionnel ou scolaire. Le portail Azure vous renvoie un message pour indiquer qu’il n’a trouvé aucun abonnement pour ce compte. Sélectionnez **S’inscrire à Azure**, pour permettre l’administration de votre annuaire dans le portail de gestion. Pour plus d’informations, consultez la rubrique [Gestion de l’annuaire associé à votre abonnement Office 365 dans Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
-
-Pour visualiser une vidéo qui traite de questions courantes sur l’utilisation d’Azure AD, consultez la rubrique [Azure Active Directory - Questions courantes sur l’inscription, la connexion et l’utilisation](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions).
+### <a name="associate-an-existing-azure-ad-directory-with-a-new-azure-subscription"></a>Associer un annuaire Azure AD à un nouvel abonnement Azure
+Vous pouvez associer un nouvel abonnement Azure au même répertoire authentifiant les connexions d’un abonnement Office 365 ou Microsoft Intune existant. Pour plus d’informations sur ce scénario, consultez [Transférer la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md)
 
 ### <a name="create-an-azure-ad-directory-by-signing-up-for-a-microsoft-cloud-service-as-an-organization"></a>Création d’un annuaire Azure AD en vous inscrivant à un service cloud Microsoft en tant qu’organisation
 Si vous n’êtes pas encore abonné à un service cloud Microsoft, cliquez sur l’un des liens ci-dessous pour vous inscrire. Un annuaire Azure AD est créé automatiquement dès votre inscription à un premier service.
 
-* [Microsoft Azure](https://account.windowsazure.com/organization)
+* [Microsoft Azure](https://account.azure.com/organization)
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
-### <a name="manage-an-azure-provisioned-default-directory"></a>Gestion d’un annuaire par défaut fourni par Azure
-Aujourd’hui, un annuaire est créé automatiquement quand vous vous inscrivez à Azure et que votre abonnement est associé à cet annuaire. Mais, si vous vous êtes inscrit à Azure avant octobre 2013, un annuaire n’a pas été créé automatiquement. Dans ce cas, Azure peut avoir « remblayé » votre compte en configurant un annuaire par défaut pour ce dernier. Dans ce cas, votre abonnement a été associé à cet annuaire par défaut.
+### <a name="how-to-change-the-default-directory-for-a-subscription"></a>Comment modifier le répertoire par défaut d’un abonnement
 
-Ce processus a été instauré en octobre 2013 dans le cadre d’une amélioration globale du modèle de sécurité pour Azure. Il permet d’offrir des fonctionnalités d’identité professionnelle à tous les clients Azure, et garantit que toutes les ressources Azure sont accessibles uniquement aux utilisateurs figurant dans l’annuaire. Vous ne pouvez pas utiliser Azure sans annuaire. Pour cela, tout utilisateur s’étant inscrit avant le 7 juillet 2013 mais ne disposant pas d’annuaire devait en créer un. Si vous aviez déjà créé un annuaire, votre abonnement était associé à celui-ci.
+1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/Home/Index) avec un compte qui est l’administrateur du compte de l’abonnement pour transférer la propriété de l’abonnement.
+2. Vérifiez que l’utilisateur dont vous voulez être le propriétaire de l’abonnement est dans le répertoire cible.
+3. Cliquez sur **Transférer la propriété de l’abonnement**.
+4. Spécifiez le destinataire. Le destinataire reçoit automatiquement un e-mail contenant un lien d’acceptation.
+5. Le destinataire clique sur le lien et suit les instructions, notamment pour la saisie des informations de paiement. Lorsque le destinataire a terminé, l’abonnement est transféré. 
+6. Le répertoire par défaut de l’abonnement est modifié pour être remplacé par le répertoire contenant l’utilisateur si le transfert de la propriété de l’abonnement a réussi.
 
-L’utilisation d’Azure AD est gratuite. L’annuaire est une ressource gratuite. Il existe un niveau Azure Active Directory Premium supplémentaire qui fait l’objet d’une licence séparée, et fournit des fonctionnalités supplémentaires telles que la marque de société et la réinitialisation de mot de passe libre-service.
+### <a name="manage-the-default-directory-in-azure"></a>Gérer le répertoire par défaut dans Azure
+Lorsque vous vous inscrivez à Azure, un annuaire Azure AD par défaut est associé à votre abonnement. L’utilisation d’Azure AD n’engendre aucun coût et vos répertoires sont une ressource gratuite. Certains services Azure AD payants sont concédés sous licence distincte et fournissent des fonctionnalités supplémentaires telles que des logos à l’inscription et une réinitialisation de mot de passe en libre-service. Vous pouvez également créer un domaine personnalisé à l’aide d’un nom DNS que vous possédez à la place du domaine par défaut *. onmicrosoft.com.
 
-Pour modifier le nom complet de votre annuaire, cliquez sur celui-ci dans le portail de gestion, puis cliquez sur **Configurer**. Comme expliqué plus loin dans cette rubrique, vous pouvez ajouter ou supprimer un annuaire. Pour associer votre abonnement à un autre répertoire, cliquez sur l’extension **Paramètres** figurant dans le volet de navigation gauche ; en bas de la page **Abonnements**, cliquez sur **Modifier l’annuaire**. Vous pouvez également créer un domaine personnalisé à l’aide d’un nom DNS que vous avez enregistré à la place du domaine par défaut *.onmicrosoft.com, ce qui peut être préférable avec un service tel que SharePoint Online.
-
-## <a name="how-can-i-manage-directory-data"></a>Comment puis-je gérer les données d’un annuaire ?
-En tant qu’administrateur d’un ou de plusieurs abonnements de service cloud Microsoft, vous pouvez utiliser le [Centre d’administration Azure AD](https://aad.portal.azure.com), le portail de compte Microsoft Intune ou le centre d’administration Office 365 pour gérer les données d’annuaire de votre entreprise. Vous pouvez également télécharger et exécuter les applets de commande du [Module Microsoft Azure Active Directory pour Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) pour vous aider à gérer les données stockées dans Azure AD.
+## <a name="how-can-i-manage-directory-data"></a>Comment puis-je gérer les données d’un répertoire ?
+Pour administrer un ou plusieurs abonnements de service de cloud Microsoft, vous pouvez utiliser le [centre d’administration Azure AD](https://aad.portal.azure.com), le portail de compte Microsoft Intune, ou le [Centre d’administration Office 365](https://portal.office.com/) pour gérer les données d’annuaire de votre organisation. Vous pouvez également utiliser [les applets de commande Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory) pour vous aider à gérer les données stockées dans Azure AD.
 
 À partir de ces portails (ou applets de commande), vous pouvez :
 
 * créer et gérer des comptes d’utilisateurs et de groupe ;
-* gérer le ou les services cloud apparentés auxquels votre organisation s’est abonnée ;
-* configurer une intégration locale à votre service d’annuaire.
+* Gérer les services cloud associés pour les abonnements de votre organisation
+* Configurer l’intégration locale avec les services d’identité et d’authentification Azure AD
 
-Le [Centre d’administration Azure](https://aad.portal.azure.com), le Centre d’administration Office 365, le portail de compte Microsoft Intune et les applets de commande Azure AD peuvent tous lire et écrire dans une instance partagée unique d’Azure AD associée à l’annuaire de votre organisation, comme le montre l’illustration suivante. Les portails (ou applets de commande) agissent ainsi comme une interface frontale qui extrait ou modifie vos données d’annuaire.
+Le centre d’administration Azure AD, le centre d’administration Office 365, le portail du compte Microsoft Intune et les applets de commande Azure AD sont tous lus depuis et écrits vers une seule instance partagée d’Azure AD qui est associée au répertoire de votre organisation. Chacun de ces outils agit comme une interface frontale qui extrait ou modifie vos données d’annuaire.
 
-![][2]
+Lorsque vous modifiez les données de votre organisation à l’aide d’un des portails ou des applets de commande en étant connecté dans le contexte de l’un de ces services, les modifications sont également affichées dans les autres portails la prochaine fois que vous vous connectez. Ces données sont partagées entre les services de cloud computing Microsoft auxquels vous êtes abonné.
 
-Les portails de compte cités ci-dessus et les applets de commande Azure AD PowerShell associées utilisés pour gérer les utilisateurs et les groupes s’appuient sur la plateforme Azure AD.
-
-Quand vous modifiez les données de votre organisation via l’un de ces portails (ou applets de commande) tout en étant connecté dans le cadre de l’un de ces services, la modification est aussi visible dans les autres portails lors de votre prochaine connexion dans le cadre de ce service, car ces données sont partagées entre les services cloud Microsoft auxquels vous êtes abonné.
-Par exemple, si vous avez utilisé le Centre d’administration Office 365 pour bloquer un utilisateur, cette action l’empêche de se connecter aux autres services auxquels votre organisation est actuellement abonnée. Si vous consultez ensuite le compte de cet utilisateur dans le contexte du portail de compte Microsoft Intune, vous verrez qu’il est bloqué.
+Ainsi, le fait d’utiliser le centre d’administration Office 365 pour empêcher un utilisateur de se connecter empêche l’utilisateur de se connecter à tous les autres services auxquels votre organisation est abonnée. Si vous affichez le même compte d’utilisateur dans le portail de compte Microsoft Intune, vous constatez également que l’utilisateur est bloqué.
 
 ## <a name="how-can-i-add-and-manage-multiple-directories"></a>Comment puis-je ajouter et gérer plusieurs annuaires ?
-Vous pouvez ajouter un annuaire Azure AD dans le [portail AD classique](https://manage.windowsazure.com). Dans le volet **Vue d’ensemble**, sélectionnez l’extension **Active Directory** sur la gauche, puis cliquez sur **Nouveau**.
+Vous pouvez [ajouter un annuaire Azure AD dans le portail Azure](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Renseignez les informations et sélectionnez **Créer**.
 
-Vous pouvez gérer chaque annuaire comme une ressource entièrement indépendante : chaque annuaire est un homologue complet et logiquement indépendant des autres annuaires que vous gérez ; il n’existe aucune relation parent-enfant entre les annuaires. Cette indépendance entre les annuaires vaut pour les ressources, l’administration et la synchronisation.
+Vous pouvez gérer chaque répertoire comme une ressource entièrement indépendante : chaque répertoire est un homologue, entièrement sélectionné et logiquement indépendant des autres répertoires que vous gérez ; il n’existe aucune relation parent-enfant entre les répertoires. Cette indépendance entre les annuaires vaut pour les ressources, l’administration et la synchronisation.
 
-* **Indépendance des ressources**. Si vous créez ou supprimez une ressource dans un annuaire, cela n’a aucun effet sur les ressources d’un autre annuaire, si l’on excepte le cas des utilisateurs externes, comme décrit ci-dessous. Si vous utilisez un domaine personnalisé (par exemple, « contoso.com ») pour un annuaire, il ne peut être utilisé avec aucun autre annuaire.
-* **Indépendance de l’administration**.  Si un utilisateur non administrateur de l’annuaire « Contoso » crée l’annuaire de test « Test », alors :
+* **Indépendance des ressources**. Si vous créez ou supprimez une ressource dans un répertoire, cela est sans effet sur les ressources d’un autre annuaire, à l’exception partielle des utilisateurs externes. Si vous utilisez un domaine personnalisé (par exemple, « contoso.com ») pour un annuaire, il ne peut être utilisé avec aucun autre annuaire.
+* **Indépendance de l’administration**.  Si un utilisateur qui n’est pas un administrateur de répertoire « Contoso » crée un répertoire de test « Test », alors :
   
-  * l’outil de synchronisation d’annuaires, pour synchroniser les données avec une seule forêt Active Directory ;
-  * Les administrateurs de l’annuaire « Contoso » n’ont pas de privilèges d’administration directs sur l’annuaire « Test », à moins qu’un administrateur de « Test » leur ait spécifiquement accordé ces privilèges. Les administrateurs de « Contoso » peuvent contrôler l’accès à l’annuaire « Test » en vertu du contrôle qu’ils exercent sur le compte d’utilisateur qui a créé « Test ».
+  * Les administrateurs de l’annuaire « Contoso » n’ont pas de privilèges d’administration directs sur l’annuaire « Test », à moins qu’un administrateur de « Test » leur ait spécifiquement accordé ces privilèges. Les administrateurs de « Contoso » peuvent contrôler l’accès au répertoire « Test » en vertu du contrôle qu’ils exercent sur le compte d’utilisateur qui a créé « Test ».
     
-    Et si vous modifiez le rôle d’administrateur d’un utilisateur dans un annuaire (ou que vous l’ajoutez ou le modifiez), la modification n’affecte pas le rôle d’administrateur que l’utilisateur peut avoir dans un autre annuaire.
-* **Indépendance de la synchronisation**. Vous pouvez configurer chaque annuaire Azure AD de manière indépendante pour obtenir la synchronisation des données depuis une même instance de l’un des éléments suivants :
-  
-  * l’outil de synchronisation d’annuaires, pour synchroniser les données avec une seule forêt Active Directory ;
-  * le connecteur Azure Active Directory pour Forefront Identity Manager, pour synchroniser les données avec une ou plusieurs forêts locales et/ou des sources de données non AD.
+  * Si vous assignez ou supprimez un rôle d’administrateur à un utilisateur dans un répertoire, la modification n’affecte pas le rôle d’administrateur que l’utilisateur peut avoir dans un autre répertoire.
+* **Indépendance de la synchronisation**. Vous pouvez configurer chaque locataire Azure AD de manière indépendante de sorte que les données soient synchronisées à partir d’une même instance de l’outil de synchronisation d'annuaires Azure AD Connect.
 
-De même, sachez qu’à la différence des autres ressources Azure, vos annuaires ne sont pas des ressources enfants d’un abonnement Azure. Ainsi, si vous annulez votre abonnement ou si vous le laissez expirer, vous pouvez toujours accéder à vos données d’annuaire à l’aide d’Azure AD PowerShell, de l’API Graph Azure ou d’autres interfaces, telles que le Centre d’administration Office 365. Vous pouvez également associer un autre abonnement à l’annuaire.
+Contrairement aux autres ressources Azure, vos annuaires ne sont pas des ressources enfants d’un abonnement Azure. Ainsi, si vous annulez votre abonnement ou si vous le laissez expirer, vous pouvez toujours accéder à vos données d’annuaire à l’aide d’Azure AD PowerShell, de l’API Graph Azure ou d’autres interfaces, telles que le Centre d’administration Office 365. Vous pouvez également associer un autre abonnement à l’annuaire.
 
-## <a name="how-can-i-delete-an-azure-ad-directory"></a>Comment puis-je supprimer un annuaire Azure AD ?
-Un administrateur général peut supprimer un annuaire Azure AD à partir du portail. Quand un annuaire est supprimé, toutes les ressources qu’il contient sont également supprimées ; vous devez donc vous assurer que vous n’avez pas besoin de l’annuaire avant de le supprimer.
+## <a name="how-to-prepare-to-delete-an-azure-ad-directory"></a>Comment préparer la suppression d’un répertoire Azure AD
+Un administrateur général peut supprimer un annuaire Azure AD à partir du portail. Lorsqu’un répertoire est supprimé, toutes les ressources qui sont contenues dans ce répertoire sont également supprimées. Vérifiez que vous n’avez pas besoin du répertoire avant de le supprimer.
 
 > [!NOTE]
-> Si l’utilisateur s’est connecté avec un compte professionnel ou scolaire, il ne doit pas essayer de supprimer son annuaire de base. Par exemple, si l’utilisateur s’est connecté avec le compte joe@contoso.onmicrosoft.com, il ne peut pas supprimer l’annuaire dont le domaine par défaut est contoso.onmicrosoft.com.
-> 
-> 
+> Si l’utilisateur s’est connecté avec un compte professionnel ou scolaire, il ne doit pas essayer de supprimer son répertoire de base. Par exemple, si l’utilisateur s’est connecté avec le compte joe@contoso.onmicrosoft.com, il ne peut pas supprimer l’annuaire dont le domaine par défaut est contoso.onmicrosoft.com.
 
-### <a name="conditions-that-must-be-met-to-delete-an-azure-ad-directory"></a>Conditions qui doivent être remplies pour supprimer un annuaire Azure AD
-Azure AD nécessite que certaines conditions soient remplies pour supprimer un annuaire. Cela limite le risque que la suppression d’un annuaire n’affecte les utilisateurs ou les applications, avec par exemple l’incapacité pour les utilisateurs de se connecter à Office 365 ou d’accéder à des ressources dans Azure. Par exemple, en cas de suppression involontaire d’un annuaire associé à un abonnement, les utilisateurs ne pourraient plus accéder aux ressources Azure pour cet abonnement.
+Azure AD nécessite que certaines conditions soient remplies pour supprimer un annuaire. Cela limite le risque que la suppression d’un répertoire n’affecte négativement les utilisateurs ou les applications. La capacité des utilisateurs à se connecter à Office 365 ou à accéder à des ressources dans Azure en est un exemple. En cas de suppression involontaire d’un répertoire associé à un abonnement, les utilisateurs n’auraient par exemple plus accès aux ressources Azure de cet abonnement.
 
 Les conditions à remplir sont les suivantes :
 
-* Il ne reste qu’un seul utilisateur dans l’annuaire : l’administrateur général chargé de supprimer l’annuaire. Tous les autres utilisateurs doivent être supprimés avant de pouvoir supprimer le répertoire. Si les utilisateurs sont synchronisés en local, la synchronisation doit être désactivée et les utilisateurs supprimés dans l’annuaire cloud via le portail de gestion ou le module Azure pour Windows PowerShell. Il n’est pas nécessaire de supprimer des groupes ou des contacts, tels que les contacts ajoutés à partir du centre d’administration Office 365.
+* Le seul utilisateur dans le répertoire doit être l’administrateur général chargé de la suppression du répertoire. Tous les autres utilisateurs doivent être supprimés avant de pouvoir supprimer le répertoire. Si les utilisateurs sont synchronisés en local, la synchronisation doit être désactivée et les utilisateurs doivent être supprimés dans l’annuaire de cloud à l’aide du portail Azure ou des applets de commande Azure PowerShell. Il n’est pas nécessaire de supprimer des groupes ou des contacts, tels que les contacts ajoutés à partir du centre d’administration Office 365.
 * Aucune application ne doit se trouver dans l’annuaire. Elles doivent toutes être supprimées avant de pouvoir supprimer l’annuaire.
-* L’annuaire ne doit être associé à aucun abonnement Microsoft Online Services, tel que Microsoft Azure, Office 365 ou Azure AD. Par exemple, si un annuaire par défaut a été créé pour vous dans Azure, vous ne pouvez pas le supprimer si votre abonnement Azure utilise toujours cet annuaire à des fins d’authentification. De même, vous ne pouvez pas supprimer un annuaire auquel un autre utilisateur a associé un abonnement. Pour associer votre abonnement à un autre annuaire, connectez-vous au portail de gestion Azure et cliquez sur **Paramètres** dans le volet de navigation gauche. Ensuite, au bas de la page **Abonnements**, cliquez sur **Modifier l’annuaire**. Pour plus d’informations sur les abonnements Azure, consultez la page [Comment sont associés les abonnements Azure et Azure AD ?](active-directory-how-subscriptions-associated-directory.md).
+* Le répertoire ne doit être lié à aucun fournisseur d’authentification Multi-Factor Authentication.
+* L’annuaire ne doit être associé à aucun abonnement Microsoft Online Services, tel que Microsoft Azure, Office 365 ou Azure AD. Par exemple, si un annuaire par défaut a été créé pour vous dans Azure, vous ne pouvez pas le supprimer si votre abonnement Azure utilise toujours cet annuaire à des fins d’authentification. De même, vous ne pouvez pas supprimer un répertoire auquel un autre utilisateur a associé un abonnement. 
 
-> [!NOTE]
-> Si l’utilisateur s’est connecté avec un compte professionnel ou scolaire, il ne doit pas essayer de supprimer son annuaire de base. Par exemple, si l’utilisateur s’est connecté avec le compte joe@contoso.onmicrosoft.com, il ne peut pas supprimer l’annuaire dont le domaine par défaut est contoso.onmicrosoft.com.
-> 
-> 
 
-* L’annuaire ne doit être lié à aucun fournisseur d’authentification Multi-Factor Authentication.
-
-## <a name="additional-resources"></a>Ressources supplémentaires
+## <a name="next-steps"></a>Étapes suivantes
 * [Forum Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 * [Forum Azure Multi-Factor Authentication](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
-* [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
-* [Gestion d’Azure AD à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
+* [Questions relatives à Stack Overflow pour Azure](http://stackoverflow.com/questions/tagged/azure)
+* [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md)
-
-<!--Image references-->
-[1]: ./media/active-directory-administer/aad_portals.png
-[2]: ./media/active-directory-administer/azure_tenants.png
 

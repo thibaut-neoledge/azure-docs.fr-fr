@@ -1,7 +1,27 @@
+---
+title: "Configuration guidée d’Azure AD v2 JS SPA - Introduction | Microsoft Docs"
+description: "Comment les applications JavaScript SPA peuvent appeler une API qui nécessite des jetons d’accès à partir d’un point de terminaison Azure Active Directory v2"
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 06/01/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 4f40ba0eb6ce3e55a1e5458bc6e83060fcf6624c
+ms.contentlocale: fr-fr
 
+---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Appeler l’API Microsoft Graph à partir d’une application à page unique (SPA) JavaScript
 
-Ce guide explique comment une application à page unique JavaScript peut permettre l’identification de comptes personnels et professionnels, peut obtenir un jeton d’accès et appeler l’API Microsoft Graph ou d’autres API qui nécessitent des jetons d’accès provenant d’un point de terminaison Azure Active Directory v2.
+Ce guide explique comment une application à page unique JavaScript peut permettre l’identification de comptes personnels, scolaires et professionnels, peut obtenir un jeton d’accès et appeler l’API Microsoft Graph ou d’autres API qui nécessitent des jetons d’accès provenant d’un point de terminaison Azure Active Directory v2.
 
 ### <a name="how-this-guide-works"></a>Fonctionnement de ce guide
 
@@ -10,7 +30,8 @@ Ce guide explique comment une application à page unique JavaScript peut permett
 <!--start-collapse-->
 ### <a name="more-information"></a>Informations complémentaires
 
-L’exemple d’application créé dans le cadre de ce guide permet à une application SPA JavaScript d’interroger l’API Microsoft Graph ou une API web qui accepte les jetons à partir d’un point de terminaison Azure Active Directory v2. Pour ce scénario, une fois l’utilisateur authentifié, un jeton est ajouté aux requêtes HTTP via l’en-tête d’autorisation. L’acquisition et le renouvellement de jetons sont gérés par la bibliothèque d’authentification Microsoft (MSAL).
+L’exemple d’application créé dans le cadre de ce guide permet à une application SPA JavaScript d’interroger l’API Microsoft Graph ou une API web qui accepte les jetons à partir d’un point de terminaison Azure Active Directory v2. Pour ce scénario, une fois l’utilisateur authentifié, un jeton d’accès est demandé et ajouté aux requêtes HTTP via l’en-tête d’autorisation. L’acquisition et le renouvellement de jetons sont gérés par la bibliothèque d’authentification Microsoft (MSAL).
+
 <!--end-collapse-->
 
 <!--start-collapse-->
@@ -21,4 +42,9 @@ Ce guide utilise la bibliothèque suivante :
 |Bibliothèque|Description|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Bibliothèque d’authentification Microsoft pour JavaScript Preview|
+
+> [!NOTE]
+> *msal.js* cible le *point de terminaison Azure Active Directory v2*, ce qui permet aux comptes personnels, scolaires et professionnels de se connecter et d’acquérir des jetons. Le *point de terminaison Azure Active Directory v2* a [certaines limitations](..\active-directory-v2-limitations.md). Si vous êtes uniquement intéressé par les comptes scolaires et professionnels, utilisez *adal.js* et le *point de terminaison v1*. Pour comprendre les différences entre les points de terminaison v1 et v2, lisez la [comparaison v1-v2](..\active-directory-v2-compare.md).
+
 <!--end-collapse-->
+

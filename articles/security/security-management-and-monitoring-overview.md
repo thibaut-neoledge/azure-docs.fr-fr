@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f0c174d7d845dd7e48de6388270dde2469d89a12
-ms.lasthandoff: 03/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Présentation de la gestion et surveillance de la sécurité Azure
@@ -26,7 +26,7 @@ Azure propose divers mécanismes de sécurité pour favoriser la gestion et surv
 
 La sécurité de vos services Microsoft Cloud est une collaboration et une responsabilité partagée entre vous et Microsoft. Une responsabilité partagée signifie que Microsoft est responsable de Microsoft Azure et de l’intégrité physique de ses centres de données (grâce à l’utilisation de mesures de protection telles que des portes sécurisées au moyen de badges, des clôtures et des gardes). En outre, Azure fournit des niveaux élevés de sécurité du cloud sur la couche logicielle, répondant aux attentes exigeantes de ses clients en matière de sécurité, de confidentialité et de conformité.
 
-Vos données et identités vous appartiennent, ainsi que la responsabilité de les protéger, la sécurité de vos ressources locales et celle des composants cloud que vous contrôlez. Microsoft vous fournit des fonctionnalités et des contrôles de sécurité pour vous aider à protéger vos données et applications. Votre responsabilité en matière de sécurité dépend du type de service cloud.
+Vos données et identités vous appartiennent, ainsi que la responsabilité de les protéger, la sécurité de vos ressources locales et celle des composants cloud que vous contrôlez. Microsoft vous fournit des fonctionnalités et des contrôles de sécurité pour vous aider à protéger vos données et applications. Votre niveau de responsabilité en matière de sécurité dépend du type de service cloud.
 
 Le graphique suivant résume le partage de la responsabilité entre Microsoft et le client.
 

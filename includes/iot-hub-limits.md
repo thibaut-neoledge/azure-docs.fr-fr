@@ -53,7 +53,7 @@ Le service IoT Hub limite les demandes cas de dépassement des quotas suivants 
 | Envois cloud-à-appareil | 83,33/s/unité (5000/min/unité) (pour S3), 1,67/s/unité (100/min/unité) (pour S1 et S2). |
 | Réceptions cloud-à-appareil |833,33/s/unité (50 000/min/unité) (pour S3), 16,67/s/unité (1 000/min/unité) (pour S1 et S2). |
 | Opérations de téléchargement de fichier |83,33 notifications de chargement de fichier/s/unité (5 000/min/unité) (pour S3), 1,67 notifications de chargement de fichier/s/unité (100/min/unité) (pour S1 et S2). <br/> 10000 URI de signature d’accès partagé peuvent être générés à la fois pour un compte Azure Storage.<br/> 10 URI de signature d’accès partagé/appareil peuvent être générés à la fois. |
-| Méthodes directes | 1500/s/unité (pour S3), 30/s/unité (pour S2), 10/s/unité (pour S1) |
+| Méthodes directes | 3 000/s/unité (pour S3), 60/s/unité (pour S2), 20/s/unité (pour S1) |
 | Lectures de représentations d’appareil | 50/s/unité (pour S3), 10/s ou 1/s/unité maximum (pour S2), 10/s (pour S1) |
 | Mises à jour de jumeaux d’appareils | 50/s/unité (pour S3), 10/s ou 1/s/unité maximum (pour S2), 10/s (pour S1) |
 | Opérations de travaux <br/> (créer, mettre à jour, répertorier, supprimer) | 83,33/s/unité (5 000/min/unité) (pour S3), 1,67/s/unité (100/min/unité) (pour S2), 1,67/s/unité (100/min/unité) (pour S1) |

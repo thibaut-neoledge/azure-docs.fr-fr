@@ -1,6 +1,6 @@
 ---
-title: "Accès aux tableaux de bord du Portail Azure | Microsoft Docs"
-description: "Cet article vous explique comment partager l’accès à un tableau de bord dans le Portail Azure."
+title: "Partage de tableaux de bord de portail Azure à l’aide de RBAC | Microsoft Docs"
+description: "Cet article vous explique comment partager un tableau de bord dans le Portail Azure en utilisant le contrôle d'accès en fonction du rôle."
 services: azure-portal
 documentationcenter: 
 author: tfitzmac
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a2f3252aa271c0ec6750c38c6d5060dbfe73a0e2
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 927ec9251b5231a5d9a0e8278f5dc46e9abdde0e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="sharing-azure-dashboards"></a>Partage des tableaux de bord Azure
-Après avoir configuré un tableau de bord, vous pouvez le publier et le partager avec d’autres utilisateurs de votre organisation. Vous permettez à d’autres utilisateurs d’accéder à votre tableau de bord au moyen du [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-configure.md)Azure. Vous affectez un utilisateur ou un groupe d’utilisateurs à un rôle, qui définit si ces utilisateurs peuvent visualiser ou modifier le tableau de bord publié. 
+# <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partage de tableaux de bord Azure à l’aide du contrôle d’accès en fonction du rôle
+Après avoir configuré un tableau de bord, vous pouvez le publier et le partager avec d’autres utilisateurs de votre organisation. Vous permettez à d’autres utilisateurs de voir votre tableau de bord au moyen du [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-configure.md) Azure. Vous affectez un utilisateur ou un groupe d’utilisateurs à un rôle, qui définit si ces utilisateurs peuvent visualiser ou modifier le tableau de bord publié. 
 
 Tous les tableaux de bord publiés sont implémentés en tant que ressources Azure, ce qui signifie qu’ils constituent des éléments gérables dans votre abonnement et qu’ils sont contenus dans un groupe de ressources.  En termes de contrôle d’accès, les tableaux de bord sont traités de la même manière que les autres ressources, telles qu’une machine virtuelle ou un compte de stockage.
 
@@ -76,10 +77,5 @@ Votre tableau de bord est à présent publié. Si les autorisations héritées d
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir la liste des rôles, voir [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md).
 * Pour plus d’informations sur la gestion des ressources, voir [Gérer les ressources Azure sur le portail](resource-group-portal.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

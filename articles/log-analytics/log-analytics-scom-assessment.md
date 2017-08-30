@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 8094f6e619bde8b25323cddb42bc04b1ead62113
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -65,9 +65,9 @@ System Center Operations Manager Assessment collecte des données WMI, des donn�
 
 Le tableau suivant présente les méthodes de collecte de données pour System Center Operations Manager Assessment, et précise la fréquence à laquelle les données sont collectées par un agent.
 
-| plateforme | Agent direct | Agent SCOM | Azure Storage | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
+| plateforme | Agent direct | Agent SCOM | Stockage Azure | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |  ![Non](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![Non](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![Non](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![Oui](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![Non](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | sept jours |
+| Windows | | | | &#8226; | | sept jours |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>Comptes d’identification Operations Manager pour OMS
 
@@ -184,8 +184,8 @@ Une valeur de pondération déterminant l'importance relative de la recommandati
 Les pondérations sont des agrégations de valeurs basées sur trois facteurs clés :
 
 - La *probabilité* qu'une anomalie identifiée cause des problèmes. Une plus grande probabilité attribue un score global supérieur à la recommandation.
-- L' *impact* de l'anomalie sur votre organisation si elle devait causer des problèmes. Un plus grand impact attribue un score global supérieur à la recommandation.
-- L' *effort* requis pour implémenter la recommandation. Un plus grand effort attribue un score global inférieur à la recommandation.
+- L’*impact* de l’anomalie sur votre organisation si elle devait causer des problèmes. Un plus grand impact attribue un score global supérieur à la recommandation.
+- L’*effort* requis pour implémenter la recommandation. Un plus grand effort attribue un score global inférieur à la recommandation.
 
 La pondération de chaque recommandation est exprimée en pourcentage du score total disponible pour chaque domaine. Par exemple, si une recommandation dans le domaine Disponibilité et continuité d’activité a un score de 5 %, l’implémentation de cette recommandation augmente votre score Disponibilité et continuité d’activité global de 5 %.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: nini
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6f864581fe1d1771371d6805407cb881fedb4187
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Évaluer les micro-services et applications Service Fabric avec le portail Azure | Microsoft Docs
@@ -56,11 +56,12 @@ Quand vous appuyez sur le bouton Déployer ci-dessus, le portail Azure s’affic
 
 ![Service Fabric](./media/log-analytics-service-fabric/3.png)
 
-Acceptez les conditions légales et appuyez sur Créer pour lancer le déploiement. Une fois le déploiement terminé, le nouvel espace de travail et le nouveau cluster doivent s’afficher, tandis que les tables WADServiceFabric*Event, WADWindowsEventLogs et WADETWEvent doivent être ajoutées :
+Acceptez les conditions légales et cliquez sur **Créer** pour lancer le déploiement. Une fois le déploiement terminé, le nouvel espace de travail et le nouveau cluster doivent s’afficher, tandis que les tables WADServiceFabric*Event, WADWindowsEventLogs et WADETWEvent doivent être ajoutées :
 
 ![Service Fabric](./media/log-analytics-service-fabric/4.png)
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace-with-vm-extension-installed"></a>Déployez un cluster Service Fabric connecté à un espace de travail Log Analytics avec l’extension de machine virtuelle installée.
+
 Ce modèle effectue les actions suivantes :
 
 1. Déploie un cluster Azure Service Fabric déjà connecté à un espace de travail Log Analytics. Vous pouvez créer un espace de travail ou utiliser un espace de travail existant.
@@ -75,48 +76,53 @@ En suivant la même procédure que celle mentionnée ci-dessus, indiquez les par
 ![Service Fabric](./media/log-analytics-service-fabric/5.png)
 
 ### <a name="viewing-performance-data"></a>Affichage des données de performances
+
 Pour afficher les données de performances de vos nœuds :
-</br>
+
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-* Lancez l’espace de travail Log Analytics à partir du portail Azure.
-
-![Service Fabric](./media/log-analytics-service-fabric/6.png)
-
-* Accédez à Paramètres dans le volet gauche, puis sélectionnez Données >> Compteurs de performances Windows >> Ajouter les compteurs de performances sélectionnés : ![Service Fabric](./media/log-analytics-service-fabric/7.png)
-* Dans Recherche dans les journaux, utilisez les requêtes suivantes pour étudier les mesures clés sur vos nœuds :
-  </br>
+- Lancez l’espace de travail Log Analytics à partir du portail Azure.
+  ![Service Fabric](./media/log-analytics-service-fabric/6.png)
+- Accédez à Paramètres dans le volet gauche, puis sélectionnez Données >> Compteurs de performances Windows >> Ajouter les compteurs de performances sélectionnés : ![Service Fabric](./media/log-analytics-service-fabric/7.png)
+- Dans Recherche dans les journaux, utilisez les requêtes suivantes pour étudier les mesures clés sur vos nœuds :
 
     a. Comparez l’utilisation moyenne du processeur sur tous les nœuds au cours de l’heure écoulée pour identifier les nœuds qui ont des problèmes et l’intervalle de temps dans lequel un nœud a connu une pointe d’activité :
 
-    ``` Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
+    ```
+    Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR.
+    ```
 
     ![Service Fabric](./media/log-analytics-service-fabric/10.png)
 
     b. Examinez des graphiques en courbes similaires pour la mémoire disponible sur chaque nœud avec cette requête :
 
-    ```Type=Perf ObjectName=Memory CounterName="Available MBytes Memory" | measure avg(CounterValue) by Computer Interval 1HOUR.```
+    ```
+    Type=Perf ObjectName=Memory CounterName="Available MBytes Memory" | measure avg(CounterValue) by Computer Interval 1HOUR.
+    ```
 
     Pour répertorier tous les nœuds avec la valeur moyenne exacte de mégaoctets disponibles pour chaque nœud, utilisez cette requête :
 
-    ```Type=Perf (ObjectName=Memory) (CounterName="Available MBytes") | measure avg(CounterValue) by Computer ```
+    ```
+    Type=Perf (ObjectName=Memory) (CounterName="Available MBytes") | measure avg(CounterValue) by Computer
+    ```
 
     ![Service Fabric](./media/log-analytics-service-fabric/11.png)
 
-
     c. Pour explorer au niveau du détail un nœud spécifique, notamment l’utilisation moyenne, minimale, maximale et au 75e centile du processeur par heure, utilisez cette requête (en remplaçant le champ Computer) :
 
-    ```Type=Perf CounterName="% Processor Time" InstanceName=_Total Computer="BaconDC01.BaconLand.com"| measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR```
+    ```
+    Type=Perf CounterName="% Processor Time" InstanceName=_Total Computer="BaconDC01.BaconLand.com"| measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR
+    ```
 
     ![Service Fabric](./media/log-analytics-service-fabric/12.png)
 
-    Pour plus d’informations sur les mesures de performances dans Log Analytics, cliquez [ici.] (https://blogs.technet.microsoft.com/msoms/tag/metrics/)
+Obtenez plus d’informations sur les métriques de performance dans Log Analytics dans le [blog Operations Management Suite](https://blogs.technet.microsoft.com/msoms/tag/metrics/).
 
 
 ## <a name="adding-an-existing-storage-account-to-log-analytics"></a>Ajout d’un compte de stockage existant à Log Analytics
+
 Ce modèle ajoute simplement vos comptes de stockage existant à un espace de travail Log Analytics, nouveau ou existant.
-</br>
 
 [![Déploiement sur Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Foms-existing-storage-account%2Fazuredeploy.json)
 
@@ -130,6 +136,7 @@ Une fois ce modèle déployé, vous pouvez voir le compte de stockage connecté 
 ![Service Fabric](./media/log-analytics-service-fabric/9.png)
 
 ## <a name="view-service-fabric-events"></a>Afficher les événements Service Fabric
+
 Une fois les déploiements terminés et la solution Service Fabric activée dans votre espace de travail, sélectionnez la vignette **Service Fabric** dans le portail Log Analytics pour lancer le tableau de bord Service Fabric. Le tableau de bord comprend les colonnes figurant dans le tableau suivant. Chaque colonne répertorie les 10 premiers événements, classés selon leur nombre, correspondant aux critères de cette colonne pour l’intervalle de temps spécifié. Vous pouvez exécuter une recherche dans les journaux qui fournit la liste complète. Pour cela, cliquez sur **Afficher tout** en bas à droite de chaque colonne ou cliquez sur l’en-tête de colonne.
 
 | **Événement Service Fabric** | **description** |
@@ -148,7 +155,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 | plateforme | Agent direct | Agent Operations Manager | Azure Storage | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Oui](./media/log-analytics-malware/oms-bullet-green.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |10 minutes |
+| Windows |  |  | &#8226; |  |  |10 minutes |
 
 > [!NOTE]
 > Vous pouvez modifier l’étendue de ces événements dans la solution Service Fabric en cliquant sur **Données basées sur les 7 derniers jours** dans la partie supérieure du tableau de bord. Vous pouvez également afficher les événements générés durant les sept derniers jours, la journée précédente ou les six dernières heures. Vous pouvez aussi sélectionner **Personnalisé** pour spécifier une plage de dates personnalisée.
@@ -156,5 +163,6 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Utilisez [Recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher des données détaillées sur les événements Service Fabric.
 

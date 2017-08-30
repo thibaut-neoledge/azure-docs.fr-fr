@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser le portail Azure pour accéder à l’
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media
@@ -18,7 +18,6 @@ ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 0a32c758693c1889d7acfa6510bffba46b7eabc2
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/01/2017
-
 
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Prise en main de l’authentification Azure AD à l’aide du portail Azure

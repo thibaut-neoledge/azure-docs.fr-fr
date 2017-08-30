@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser des déclencheurs et des liaisons Azur
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
@@ -292,5 +292,5 @@ Pour obtenir un exemple de fonction utilisant des déclencheurs et de liaisons d
 
 <!-- LINKS -->
 
-[« CloudQueueMessage »]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+[`CloudQueueMessage`]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
 

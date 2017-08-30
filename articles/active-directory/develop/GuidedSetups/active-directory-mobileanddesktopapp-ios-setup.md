@@ -1,4 +1,24 @@
+---
+title: "Prise en main d’Azure AD v2 iOS - Paramétrage | Microsoft Docs"
+description: "Cet article explique comment les applications iOS (Swift) peuvent appeler une API qui nécessite des jetons d’accès à partir d’un point de terminaison Azure Active Directory v2."
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 78c6ca83a2711ad81b7819a8723869980a1925a3
+ms.contentlocale: fr-fr
 
+---
 ## <a name="setting-up-your-ios-application"></a>Configuration de votre application iOS
 
 Cette section fournit des instructions détaillées sur la façon de créer un projet pour illustrer comment intégrer une application iOS (Swift) avec l’option *Se connecter avec Microsoft* pour pouvoir interroger des API web qui nécessitent un jeton.
@@ -137,3 +157,4 @@ Un fichier Main.storyboard doit être automatiquement créé dans le cadre de vo
     </scene>
 </scenes>
 ```
+

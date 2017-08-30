@@ -4,7 +4,7 @@ description: "Découvrez comment créer un modèle Azure Resource Manager qui d�
 services: Functions
 documtationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: Azure Functions, fonctions, architecture sans serveur, infrastructure sous forme code, azure resource manager

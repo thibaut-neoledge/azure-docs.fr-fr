@@ -18,7 +18,7 @@
 # Exemples
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
-## [Interface de ligne de commande Azure](samples-cli.md)
+## [Interface de ligne de commande Service Fabric](samples-cli.md)
 # Concepts
 ## [Comprendre les microservices](service-fabric-overview-microservices.md)
 ## [Grandes lignes](service-fabric-content-roadmap.md)
@@ -113,11 +113,14 @@
 #### [Limitation](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Mouvement de service](service-fabric-cluster-resource-manager-movement-cost.md)
 
+## [Intégration avec la gestion des API](service-fabric-api-management-overview.md)
+
 ## Surveiller et diagnostiquer
 ### [Vue d'ensemble](service-fabric-diagnostics-overview.md)
 ### [Modèle d'intégrité](service-fabric-health-introduction.md)
 ### [Diagnostics des services Reliable Services avec état](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostics dans Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### [Compteurs de performances pour Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md)
 
 # Procédures
 ## Configuration de l'environnement de développement
@@ -126,6 +129,7 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 
 ## Générer une application
+### [Créer votre première application C# dans Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 ### Générer un service invité exécutable
 #### [Héberger une application Node.js sur Windows](quickstart-guest-app.md)
 #### [Déployer un fichier exécutable invité](service-fabric-deploy-existing-app.md)
@@ -176,11 +180,14 @@
 #### Prise en main
 ##### [C# sur Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java sur Linux](service-fabric-reliable-actors-get-started-java.md)
+##### [Intervenant Java sur Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Envoi de notifications](service-fabric-reliable-actors-events.md)
 #### [Définir des minuteries et des rappels](service-fabric-reliable-actors-timers-reminders.md)
 #### [Configurer KVSActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Configurer les paramètres de communication](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Configurer ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+
+### [Migrer l’ancienne application Java pour prendre en charge Maven](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Configurer le proxy inverse pour une communication sécurisée](service-fabric-reverseproxy-configure-secure-communication.md)
 
@@ -203,9 +210,7 @@
 ### [Déboguer un service Java dans Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Surveiller et diagnostiquer localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## Intégration avec la gestion des API
-### [Vue d'ensemble](service-fabric-api-management-overview.md)
-### [Démarrage rapide](service-fabric-api-management-quick-start.md)
+## [Déploiement de Gestion des API et de Service Fabric sur Azure](service-fabric-api-management-quick-start.md)
 
 ## Migrer à partir de Services cloud
 ### [Comparer Services cloud et Service Fabric](service-fabric-cloud-services-migration-differences.md)
@@ -218,7 +223,7 @@
 ### Déployer ou supprimer des applications
 #### [Déployer des applications sur un cluster local](service-fabric-get-started-with-a-local-cluster.md)
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
+#### [Interface de ligne de commande Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -253,6 +258,7 @@
 #### [Mettre à niveau](service-fabric-cluster-upgrade.md)
 #### [Définir un contrôle d’accès](service-fabric-cluster-security-roles.md)
 #### [Configurer](service-fabric-cluster-fabric-settings.md)
+#### [Ouvrir un port dans l’équilibreur de charge](create-load-balancer-rule.md)
 #### [Gérer les certificats de cluster](service-fabric-cluster-security-update-certs-azure.md)
 #### [Supprimer](service-fabric-cluster-delete.md)
 
@@ -272,8 +278,7 @@
 ### [Visualiser un cluster](service-fabric-visualizing-your-cluster.md)
 ### [Se connecter à un cluster sécurisé](service-fabric-connect-to-secure-cluster.md)
 
-### [Gérer un cluster à l’aide de l’interface de ligne de commande XPlat](service-fabric-azure-cli.md)
-### [Gérer un cluster à l’aide des commandes 2.0 de l’interface de ligne de commande Azure](service-fabric-azure-cli-2-0.md)
+### [Gérer un cluster à l’aide de l’interface de ligne de commande de Service Fabric](service-fabric-cli.md)
 ### [Corriger des nœuds de cluster](service-fabric-patch-orchestration-application.md)
 
 ### Gérer et orchestrer les ressources de cluster

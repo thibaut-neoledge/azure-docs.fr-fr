@@ -11,32 +11,36 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 08/17/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 194367028c3c2c571dd8645a794f67a0c3a21d4c
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 9069166259265f5d2b43043b75039e239f397f6c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Définir une page d’accueil personnalisée pour les applications publiées à l’aide du proxy d’application Azure AD
 
-Cet article explique comment configurer des applications pour diriger les utilisateurs vers une page d’accueil personnalisée lorsqu’ils accèdent aux applications à partir du volet d’accès Azure Active Directory (Azure AD) et du lanceur d’applications Office 365.
+Cet article explique comment configurer des applications pour diriger les utilisateurs vers une page d’accueil personnalisée. Lorsque vous publiez une application avec le proxy d’application, vous définissez une URL interne, mais parfois, ce n’est pas la page que vos utilisateurs doivent d’abord voir. Définissez une page d’accueil personnalisée afin que vos utilisateurs accèdent à la bonne page lorsqu’ils accèdent à des applications à partir du volet d’accès Azure Active Directory ou du lanceur d’applications Office 365.
 
-Lorsque les utilisateurs lancent l’application, ils sont dirigés par défaut vers l’URL du domaine racine de l’application publiée. La page d’arrivée est généralement définie comme URL de page d’accueil. Par exemple, pour l’application principale, http://ExpenseApp, l’URL publiée est la suivante : *https://expenseApp-contoso.msappproxy.net*. Par défaut, l’URL de page d’accueil est définie comme suit : *https://expenseApp-contoso.msappproxy.net*.
+Lorsque les utilisateurs lancent l’application, ils sont dirigés par défaut vers l’URL du domaine racine de l’application publiée. La page d’arrivée est généralement définie comme URL de page d’accueil. Le module PowerShell Azure AD permet de définir l’URL de la page d’accueil personnalisée lorsque vous souhaitez que les utilisateurs de l’application arrivent sur une page spécifique au sein de l’application. 
 
-Avec le module Azure AD Powershell, vous pouvez définir des URL de page d’accueil personnalisées pour des instances lorsque vous souhaitez que les utilisateurs de l’application arrivent sur l’une de ses pages spécifique (par exemple, *https://expenseApp-contoso.msappproxy.net/login/login.aspx*).
+Par exemple :
+- Sur votre réseau d’entreprise, les utilisateurs accèdent à *https://ExpenseApp/login/login.aspx* pour se connecter et accéder à votre application.
+- Comme vous disposez d’autres ressources comme les images dont le proxy d’application a besoin pour accéder au niveau supérieur de la structure de dossiers, vous publiez l’application avec *https://ExpenseApp* en tant qu’URL interne.
+- L’URL externe par défaut est *https://ExpenseApp-contoso.msappproxy.net*, qui n’envoie pas vos utilisateurs vers la page de connexion.  
+- Définissez *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* comme URL de la page d’accueil pour offrir à vos utilisateurs une expérience transparente. 
 
 >[!NOTE]
 >Si vous octroyez aux utilisateurs un accès aux applications publiées, celles-ci sont affichées dans le [volet d’accès Azure AD](active-directory-saas-access-panel-introduction.md) et le [lanceur d’applications Office 365](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Avant de définir l’URL de page d’accueil, n’oubliez pas les éléments suivants :
+Avant de définir l’URL de page d’accueil, n’oubliez pas les exigences suivantes :
 
 * Vérifiez que le chemin d’accès que vous spécifiez est un chemin d’accès de sous-domaine de l’URL du domaine racine.
 
@@ -50,20 +54,23 @@ Avant de définir l’URL de page d’accueil, n’oubliez pas les éléments su
 2. Accédez à **Azure Active Directory** > **Inscriptions des applications** et choisissez votre application dans la liste. 
 3. Dans les paramètres, sélectionnez **Propriétés**.
 4. Mettez à jour le champ **URL de la page d’accueil** avec votre nouveau chemin d’accès. 
+
+   ![Fournir la nouvelle URL de la page d’accueil](./media/application-proxy-office365-app-launcher/homepage.png)
+
 5. Sélectionnez **Enregistrer**.
 
 ## <a name="change-the-home-page-with-powershell"></a>Changer la page d’accueil à l’aide de PowerShell
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Installer le module Azure AD PowerShell
 
-Avant de définir une URL de page d’accueil personnalisée à l’aide de PowerShell, installez un package non standard du module Azure AD PowerShell. Vous pouvez télécharger le package à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/1.1.23.0), qui utilise le point de terminaison de l’API Graph. 
+Avant de définir une URL de page d’accueil personnalisée à l’aide de PowerShell, installez le module Azure AD PowerShell. Vous pouvez télécharger le package à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), qui utilise le point de terminaison de l’API Graph. 
 
 Pour installer le package, procédez comme suit :
 
 1. Ouvrez une fenêtre PowerShell standard, puis exécutez la commande suivante :
 
     ```
-     Install-Module -Name AzureAD -RequiredVersion 1.1.23.0
+     Install-Module -Name AzureAD
     ```
     Si vous l’exécutez en tant que non-administrateur, utilisez l’option `-scope currentuser`.
 2. Pendant l’installation, sélectionnez **Y** pour installer deux packages depuis Nuget.org. Les deux packages sont requis. 
@@ -98,9 +105,9 @@ Obtenez l’ObjectID de l’application, puis recherchez l’application en fonc
 
 ### <a name="update-the-home-page-url"></a>Mettre à jour l’URL de la page d’accueil
 
-Dans le même module PowerShell que celui utilisé à l’étape 1, procédez comme suit :
+Dans le même module PowerShell que celui utilisé à l’étape 1, effectuez les étapes suivantes :
 
-1. Vérifiez que vous avez la bonne application et remplacez *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* par le GUID (ObjectID) que vous avez copié à l’étape précédente.
+1. Vérifiez que vous avez la bonne application et remplacez *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* par l’ObjectID que vous avez copié à l’étape précédente.
 
     ```
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
@@ -108,16 +115,13 @@ Dans le même module PowerShell que celui utilisé à l’étape 1, procédez c
 
  Maintenant que vous avez vérifié l’application, vous êtes prêt à mettre à jour la page d’accueil comme suit.
 
-2. Créez un objet d’application vide pour conserver les modifications que vous souhaitez apporter.  
-
- >[!NOTE]
- >Il s’agit uniquement d’une variable pour contenir les valeurs que vous souhaitez mettre à jour, donc rien n’a réellement été créé.
+2. Créez un objet d’application vide pour conserver les modifications que vous souhaitez apporter. Cette variable contient les valeurs que vous souhaitez mettre à jour. Rien n’est créé lors de cette étape.
 
     ```
     $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
     ```
 
-3. Définissez l’URL de page d’accueil sur la valeur souhaitée. La valeur doit correspondre à un chemin d’accès de sous-domaine de l’application publiée. Par exemple, si vous modifiez l’URL de page d’accueil *https://sharepoint-iddemo.msappproxy.net/* et la remplacez par *https://sharepoint-iddemo.msappproxy.net/hybrid/*, les utilisateurs de l’application accèderont directement à la page d’accueil personnalisée.
+3. Définissez l’URL de page d’accueil sur la valeur souhaitée. La valeur doit correspondre à un chemin d’accès de sous-domaine de l’application publiée. Par exemple, si vous modifiez l’URL de page d’accueil *https://sharepoint-iddemo.msappproxy.net/* et la remplacez par *https://sharepoint-iddemo.msappproxy.net/hybrid/*, les utilisateurs de l’application accèdent directement à la page d’accueil personnalisée.
 
     ```
     $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
@@ -134,7 +138,7 @@ Dans le même module PowerShell que celui utilisé à l’étape 1, procédez c
     ```
 
 >[!NOTE]
->Les modifications que vous apportez à l’application peuvent réinitialiser l’URL de page d’accueil. Si cela se produit, répétez l’étape 2.
+>Les modifications que vous apportez à l’application peuvent réinitialiser l’URL de page d’accueil. Si l’URL de votre page d’accueil se réinitialise, répétez l’étape 2.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

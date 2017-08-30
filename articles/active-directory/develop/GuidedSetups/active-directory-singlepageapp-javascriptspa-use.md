@@ -1,123 +1,176 @@
+---
+title: "Configuration guidée d’Azure AD v2 JS SPA - Utilisation | Microsoft Docs"
+description: "Comment les applications JavaScript SPA peuvent appeler une API qui nécessite des jetons d’accès à partir d’un point de terminaison Azure Active Directory v2"
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 06/01/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ceec3760648535aecdb1d9ed6a1d1750dc2d0334
+ms.contentlocale: fr-fr
 
-## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utiliser la bibliothèque d’authentification Microsoft (MSAL) afin d’obtenir un jeton pour l’API Microsoft Graph
+---
+## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Utiliser Microsoft Authentication Library (MSAL) pour connecter l’utilisateur
 
-Ajoutez le code suivant à votre `index.html` dans la balise `<body>` :
+1.  Créez un fichier appelé `app.js`. Si vous utilisez Visual Studio, sélectionnez le projet (dossier racine du projet), cliquez avec le bouton droit, puis sélectionnez `Add` > `New Item` > `JavaScript File` :
+2.  Ajoutez le code suivant à votre fichier `app.js` :
 
-```html
-<script type="text/javascript">
+```javascript
+// Graph API endpoint to show user profile
+var graphApiEndpoint = "https://graph.microsoft.com/v1.0/me";
 
-    var graphAPIMeEndpoint = "https://graph.microsoft.com/v1.0/me";
-    var graphAPIScopes = ["https://graph.microsoft.com/user.read"];
+// Graph API scope used to obtain the access token to read user profile
+var graphAPIScopes = ["https://graph.microsoft.com/user.read"];
 
-    // Initialize application
-    var userAgentApplication = new Msal.UserAgentApplication(msalconfig.clientID);
+// Initialize application
+var userAgentApplication = new Msal.UserAgentApplication(msalconfig.clientID, null, loginCallback, {
+    redirectUri: msalconfig.redirectUri
+});
 
-    // Set redirect URI
+//Previous version of msal uses redirect url via a property
+if (userAgentApplication.redirectUri) {
     userAgentApplication.redirectUri = msalconfig.redirectUri;
+}
 
-    displayUserInfo();
-
-    function displayUserInfo() {
+window.onload = function () {
+    // If page is refreshed, continue to display user info
+    if (!userAgentApplication.isCallback(window.location.hash) && window.parent === window && !window.opener) {
         var user = userAgentApplication.getUser();
         if (user) {
-            // Display the user info
-            var userInfoElement = document.getElementById("userInfo");
-            userInfoElement.parentElement.classList.remove("hidden");
-            userInfoElement.innerHTML = JSON.stringify(user, null, 4);
-
-            // Show Sign-Out button
-            document.getElementById("signOutButton").classList.remove("hidden");
+            callGraphApi();
         }
     }
+}
 
-    function callGraphAPI() {
-        if (userAgentApplication.getAllUsers().length === 0) {
-            userAgentApplication.loginPopup()
-                .then(function (token) {
-                    console.log(token);
-                    displayUserInfo();
-                    callGraphAPI();
-                }, function (error) {
-                    showError("login", error, document.getElementById("errorMessage"));
-                });
-        } else {
-            var responseElement = document.getElementById("graphResponse");
-            responseElement.parentElement.classList.remove("hidden");
-            responseElement.innerText = "Calling Graph ...";
-            callWebApiWithScope(graphAPIMeEndpoint,
-                graphAPIScopes,
-                responseElement,
-                document.getElementById("errorMessage"),
-                document.getElementById("accessToken"));
-        }
-    }
+/**
+ * Call the Microsoft Graph API and display the results on the page. Sign the user in if necessary
+ */
+function callGraphApi() {
+    var user = userAgentApplication.getUser();
+    if (!user) {
+        // If user is not signed in, then prompt user to sign in via loginRedirect.
+        // This will redirect user to the Azure Active Directory v2 Endpoint
+        userAgentApplication.loginRedirect(graphAPIScopes);
+        // The call to loginRedirect above frontloads the consent to query Graph API during the sign-in.
+        // If you want to use dynamic consent, just remove the graphAPIScopes from loginRedirect call.
+        // As such, user will be prompted to give consent when requested access to a resource that 
+        // he/she hasn't consented before. In the case of this application - 
+        // the first time the Graph API call to obtain user's profile is executed.
+    } else {
+        // If user is already signed in, display the user info
+        var userInfoElement = document.getElementById("userInfo");
+        userInfoElement.parentElement.classList.remove("hidden");
+        userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-    function callWebApiWithScope(endpoint, scope, responseElement, errorElement, showTokenElement) {
-        userAgentApplication.acquireTokenSilent(scope)
+        // Show Sign-Out button
+        document.getElementById("signOutButton").classList.remove("hidden");
+
+        // Now Call Graph API to show the user profile information:
+        var graphCallResponseElement = document.getElementById("graphResponse");
+        graphCallResponseElement.parentElement.classList.remove("hidden");
+        graphCallResponseElement.innerText = "Calling Graph ...";
+
+        // In order to call the Graph API, an access token needs to be acquired.
+        // Try to acquire the token used to query Graph API silently first:
+        userAgentApplication.acquireTokenSilent(graphAPIScopes)
             .then(function (token) {
-                callWebApiWithToken(endpoint, token, responseElement, errorElement, showTokenElement);
+                //After the access token is acquired, call the Web API, sending the acquired token
+                callWebApiWithToken(graphApiEndpoint, token, graphCallResponseElement, document.getElementById("accessToken"));
+
             }, function (error) {
-                if (error.indexOf("interaction_required" !== -1)) {
-                    userAgentApplication.acquireTokenPopup(scope).then(function(token) {
-                            callWebApiWithToken(endpoint, token, responseElement, errorElement, showTokenElement);
-                        },
-                        function(error) {
-                            showError(endpoint, error, errorElement);
-                        });
-                } else {
-                    showError(endpoint, error, errorElement);
+                // If the acquireTokenSilent() method fails, then acquire the token interactively via acquireTokenRedirect().
+                // In this case, the browser will redirect user back to the Azure Active Directory v2 Endpoint so the user 
+                // can reenter the current username/ password and/ or give consent to new permissions your application is requesting.
+                // After authentication/ authorization completes, this page will be reloaded again and callGraphApi() will be executed on page load.
+                // Then, acquireTokenSilent will then get the token silently, the Graph API call results will be made and results will be displayed in the page.
+                if (error) {
+                    userAgentApplication.acquireTokenRedirect(graphAPIScopes);
                 }
             });
-    }
 
-    function showAPIResponse(data, token, responseElement, showTokenElement) {
-        console.log(data);
-        responseElement.innerHTML = JSON.stringify(data, null, 4);
-        if (showTokenElement) {
-            showTokenElement.parentElement.classList.remove("hidden");
-            showTokenElement.innerHTML = token;
-        }
     }
+}
 
-    function showError(endpoint, error, errorElement) {
-        console.error(error);
-        var formattedError = JSON.stringify(error, null, 4);
-        if (formattedError.length < 3) {
-            formattedError = error;
-        }
-        errorElement.innerHTML = "Error calling " + endpoint + ": " + formattedError;
+/**
+ * Callback method from sign-in: if no errors, call callGraphApi() to show results.
+ * @param {string} errorDesc - If error occur, the error message
+ * @param {object} token - The token received from login
+ * @param {object} error - The error string
+ * @param {string} tokenType - the token type: usually id_token
+ */
+function loginCallback(errorDesc, token, error, tokenType) {
+    if (errorDesc) {
+        showError(msal.authority, error, errorDesc);
+    } else {
+        callGraphApi();
     }
-</script>
+}
+
+/**
+ * Show an error message in the page
+ * @param {string} endpoint - the endpoint used for the error message
+ * @param {string} error - Error string
+ * @param {string} errorDesc - Error description
+ */
+function showError(endpoint, error, errorDesc) {
+    var formattedError = JSON.stringify(error, null, 4);
+    if (formattedError.length < 3) {
+        formattedError = error;
+    }
+    document.getElementById("errorMessage").innerHTML = "An error has occurred:<br/>Endpoint: " + endpoint + "<br/>Error: " + formattedError + "<br/>" + errorDesc;
+    console.error(error);
+}
+
 ```
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Informations complémentaires
-#### <a name="sign-in-the-user"></a>Connexion de l’utilisateur
-Quand un utilisateur clique sur le bouton « Call Microsoft Graph API » pour la première fois, `loginPopup` est exécuté pour connecter l’utilisateur. Cette méthode affiche une fenêtre de navigateur invitant l’utilisateur à se connecter. Une fois l’utilisateur connecté, les informations utilisateur sont mises en cache par MSAL et un jeton est retourné. Ce jeton est le *jeton d’ID* et contient des informations de base sur l’utilisateur, telles que son nom d’affichage. Si vous envisagez d’utiliser les données fournies par ce jeton à toutes fins que ce soit, vous devez vous assurer que ce jeton est validé par le serveur principal afin de garantir qu’il a été émis pour un utilisateur valide de votre application.
 
-L’application SPA créée dans ce guide n’utilise pas directement le jeton d’ID. En effet, elle appelle `acquireTokenSilent` et/ou `acquireTokenPopup` pour acquérir un *jeton d’accès* utilisé pour interroger l’API Microsoft Graph. Si vous avez besoin d’un exemple qui valide le jeton d’ID, regardez [cet exemple d’application](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "exemple Github active-directory-javascript-singlepageapp-dotnet-webapi-v2") dans GitHub. Cet exemple utilise une API web ASP.NET pour la validation du jeton.
+Quand un utilisateur clique sur le bouton *Call Microsoft Graph API* (Appeler l’API Graph Microsoft) pour la première fois, la méthode `callGraphApi` appelle `loginRedirect` pour connecter l’utilisateur. Cette méthode redirige l’utilisateur vers le *point de terminaison Microsoft Azure Active Directory v2* afin de demander et valider les informations d’identification de l’utilisateur. Une fois connecté, l’utilisateur est redirigé vers la page *index.html* d’origine. Ensuite, un jeton est reçu, puis traité par `msal.js`, et les informations contenues dans le jeton sont mises en cache. Ce jeton est le *jeton d’ID* et contient des informations de base sur l’utilisateur, telles que son nom d’affichage. Si vous envisagez d’utiliser les données fournies par ce jeton à toutes fins que ce soit, vous devez vous assurer que ce jeton est validé par le serveur principal afin de garantir qu’il a été émis pour un utilisateur valide de votre application.
+
+L’application SPA créée dans ce guide n’utilise pas directement le jeton d’ID. En effet, elle appelle `acquireTokenSilent` et/ou `acquireTokenRedirect` pour acquérir un *jeton d’accès* utilisé pour interroger l’API Microsoft Graph. Si vous avez besoin d’un exemple qui valide le jeton d’ID, regardez [cet exemple d’application](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "exemple Github active-directory-javascript-singlepageapp-dotnet-webapi-v2") dans GitHub. Cet exemple utilise une API web ASP.NET pour la validation du jeton.
 
 #### <a name="getting-a-user-token-interactively"></a>Obtention d’un jeton d’utilisateur de manière interactive
-L’appel de la méthode `acquireTokenPopup(scope)` affiche une fenêtre de navigateur invitant l’utilisateur à se connecter. En général, les applications obligent un utilisateur à se connecter de manière interactive la première fois qu’elles doivent accéder à une ressource protégée ou lorsqu’une opération silencieuse d’acquisition de jeton échoue (par exemple, en cas d’expiration du mot de passe de l’utilisateur).
+
+Après la première connexion, il n’est pas souhaitable de demander aux utilisateurs de se réauthentifier chaque fois qu’ils ont besoin d’un jeton pour accéder à une ressource. Par conséquent, *acquireTokenSilent* doit être utilisé pour acquérir des jetons dans la plupart des situations. Il existe cependant des situations dans lesquelles vous devez forcer les utilisateurs à interagir avec le point de terminaison Azure Active Directory v2. Voici quelques exemples de telles situations :
+-   Les utilisateurs doivent réentrer leurs informations d’identification, car le mot de passe a expiré.
+-   Votre application demande l’accès à une ressource pour laquelle l’utilisateur doit donner son consentement.
+-   Une authentification à 2 facteurs est demandée.
+
+Le fait d’appeler *acquireTokenRedirect(scope)* entraîne la redirection des utilisateurs vers le point de terminaison Azure Active Directory v2 (ou l’appel de *acquireTokenPopup(scope)* entraîne l’affichage d’une fenêtre contextuelle) avec lequel ils doivent interagir en confirmant leurs informations d’identification, en consentant à ce que l’application accède à la ressource ou en effectuant l’authentification à 2 facteurs.
 
 #### <a name="getting-a-user-token-silently"></a>Obtention d’un jeton d’utilisateur en mode silencieux
-La méthode ` acquireTokenSilent` gère les acquisitions et renouvellements de jetons sans aucune interaction de l’utilisateur. Quand `loginPopup` est exécuté pour la première fois, c’est en général la méthode `acquireTokenSilent` qui est utilisée pour obtenir les jetons permettant d’accéder aux ressources protégées pour les appels suivants, ainsi que pour les demandes ou renouvellements de jetons en mode silencieux.
-`acquireTokenSilent` finira par échouer, si l’utilisateur a modifié son mot de passe sur un autre appareil, par exemple. Votre application peut gérer cette exception de deux manières :
+La méthode ` acquireTokenSilent` gère les acquisitions et renouvellements de jetons sans aucune interaction de l’utilisateur. Quand `loginRedirect` (ou `loginPopup`) est exécuté pour la première fois, c’est en général la méthode `acquireTokenSilent` qui est utilisée pour obtenir les jetons permettant d’accéder aux ressources protégées pour les appels suivants, car les appels de demande ou de renouvellement des jetons sont émis de manière silencieuse.
+`acquireTokenSilent` risque d’échouer dans certains cas (par exemple, si le mot de passe a expiré). Votre application peut gérer cette exception de deux manières :
 
-1.  En appelant immédiatement `acquireTokenPopup`, suite à quoi l’utilisateur est invité à se connecter. Cette méthode est généralement employée avec les applications en ligne dans lesquelles aucun contenu hors connexion n’est disponible pour l’utilisateur. L’exemple créé avec cette installation guidée utilise ce modèle.
-2. Les applications peuvent également signaler à l’utilisateur qu’une connexion interactive est requise afin qu’il puisse choisir le bon moment pour se connecter ou que l’application puisse réessayer d’exécuter `acquireTokenSilent` ultérieurement. Cette solution est généralement retenue lorsque l’utilisateur peut utiliser d’autres fonctionnalités de l’application sans être perturbé, notamment lorsque du contenu hors connexion est disponible dans l’application. Dans ce cas, l’utilisateur peut décider du moment où il se connecte pour accéder à la ressource protégée ou pour actualiser les informations obsolètes, ou votre application peut choisir de réexécuter `acquireTokenSilent` après une indisponibilité temporaire du réseau.
+1.  En appelant immédiatement `acquireTokenRedirect` pour que l’utilisateur soit invité à se connecter. Cette méthode est couramment employée avec les applications en ligne dans lesquelles aucun contenu non authentifié n’est disponible pour l’utilisateur. L’exemple créé avec cette installation guidée utilise ce modèle.
 
-`acquireTokenSilent` va également échouer si l’utilisateur n’a pas encore donné son consentement pour l’étendue demandée par l’appel. Par exemple, la première fois qu’un utilisateur exécute l’application créée par ce guide, l’étendue *user.read* est fournie en tant que paramètre. Étant donné que l’utilisateur connecté n’a pas donné son consentement pour lire son profil, `acquireTokenSilent` génère une exception contenant `interaction_required`, ce qui indique généralement que `acquireTokenPopup` doit être appelé pour résoudre le problème. Dans ce cas, une fenêtre contextuelle est créée pour afficher l’écran de consentement de l’étendue demandée.
+2. Les applications peuvent également signaler à l’utilisateur qu’une connexion interactive est requise afin qu’il puisse choisir le bon moment pour se connecter ou que l’application puisse réessayer d’exécuter `acquireTokenSilent` ultérieurement. Cette solution est couramment retenue lorsque l’utilisateur peut utiliser d’autres fonctionnalités de l’application sans être perturbé, notamment lorsque du contenu non authentifié est disponible dans l’application. Dans ce cas, l’utilisateur peut décider de se connecter pour accéder à la ressource protégée ou pour actualiser les informations obsolètes.
 
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Appeler l’API Microsoft Graph à l’aide du jeton que vous venez d’obtenir
 
-Ajoutez le code suivant à votre index.html dans la balise `<body>` :
+Ajoutez le code suivant à votre fichier `app.js` :
 
-```html
- <script type="text/javascript">
-function callWebApiWithToken(endpoint, token, responseElement, errorElement, showTokenElement) {
+```javascript
+/**
+ * Call a Web API using an access token.
+ * @param {any} endpoint - Web API endpoint
+ * @param {any} token - Access token
+ * @param {object} responseElement - HTML element used to display the results
+ * @param {object} showTokenElement = HTML element used to display the RAW access token
+ */
+function callWebApiWithToken(endpoint, token, responseElement, showTokenElement) {
     var headers = new Headers();
     var bearer = "Bearer " + token;
     headers.append("Authorization", bearer);
@@ -126,7 +179,6 @@ function callWebApiWithToken(endpoint, token, responseElement, errorElement, sho
         headers: headers
     };
 
-    // Note that fetch API is not available in all browsers
     fetch(endpoint, options)
         .then(function (response) {
             var contentType = response.headers.get("content-type");
@@ -134,27 +186,31 @@ function callWebApiWithToken(endpoint, token, responseElement, errorElement, sho
                 response.json()
                     .then(function (data) {
                         // Display response in the page
-                        showAPIResponse(data, token, responseElement, showTokenElement);
+                        console.log(data);
+                        responseElement.innerHTML = JSON.stringify(data, null, 4);
+                        if (showTokenElement) {
+                            showTokenElement.parentElement.classList.remove("hidden");
+                            showTokenElement.innerHTML = token;
+                        }
                     })
                     .catch(function (error) {
-                        showError(endpoint, error, errorElement);
+                        showError(endpoint, error);
                     });
             } else {
                 response.json()
                     .then(function (data) {
-                        // Display response in the page
-                        showError(endpoint, data, errorElement);
+                        // Display response as error in the page
+                        showError(endpoint, data);
                     })
                     .catch(function (error) {
-                        showError(endpoint, error, errorElement);
+                        showError(endpoint, error);
                     });
             }
         })
         .catch(function (error) {
-            showError(endpoint, error, errorElement);
+            showError(endpoint, error);
         });
 }
-</script>
 ```
 <!--start-collapse-->
 
@@ -166,12 +222,14 @@ Dans l’exemple d’application créé par ce guide, la méthode `callWebApiWit
 
 ## <a name="add-a-method-to-sign-out-the-user"></a>Ajouter une méthode pour déconnecter l’utilisateur
 
-Ajoutez le code suivant à votre index.html dans la balise `<body>` :
+Ajoutez le code suivant à votre fichier `app.js` :
 
-```html
- <script type="text/javascript">
-    function signOut() {
-        userAgentApplication.logout();
-    }
-</script>
+```javascript
+/**
+ * Sign-out the user
+ */
+function signOut() {
+    userAgentApplication.logout();
+}
 ```
+

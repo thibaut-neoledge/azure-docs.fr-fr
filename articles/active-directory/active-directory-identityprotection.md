@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 8132b4844260a997e62effd167f2f1206f3edbcd
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
@@ -122,7 +122,8 @@ Les sections suivantes fournissent plus de détails, ainsi que les étapes liée
 
 ## <a name="risky-sign-ins"></a>Connexions risquées
 
-Azure Active Directory détecte certains [types d’événement à risque](active-directory-reporting-risk-events.md#risk-event-types) en temps réel. Tous les événements à risque en temps réel qui sont détectés pendant la connexion d’un utilisateur viennent alimenter un concept logique appelé *connexion risquée*. Une connexion risquée est une tentative de connexion susceptible d’émaner d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. Le cycle de vie d’une connexion risquée se termine lorsqu’un utilisateur se déconnecte.
+Azure Active Directory détecte les [types d’événements à risque](active-directory-reporting-risk-events.md#risk-event-types) en temps réel et hors connexion. Tous les événements à risque qui sont détectés pendant la connexion d’un utilisateur viennent alimenter un concept logique appelé « connexion risquée ». Une connexion risquée est une tentative de connexion susceptible d’émaner d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
+
 
 ### <a name="sign-in-risk-level"></a>Niveau de risque d’une connexion
 
@@ -212,7 +213,7 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez�
 
 ## <a name="users-flagged-for-risk"></a>Utilisateurs associés à un indicateur de risque
 
-Tous les [événements à risque](active-directory-identity-protection-risk-events.md) détectés par Azure Active Directory pour un utilisateur alimentent un concept logique appelé *Utilisateurs avec indicateur de risque*. Un *utilisateur avec indicateur de risque* ou un *utilisateur risqué* signale un compte d’utilisateur susceptible d’être compromis.   
+Tous les [événements à risque](active-directory-identity-protection-risk-events.md) actifs détectés par Azure Active Directory pour un utilisateur alimentent un concept logique appelé « risque de l’utilisateur ». Un utilisateur signalé comme présentant un risque indique qu’un compte d’utilisateur est susceptible d’avoir été compromis.
 
 ![Utilisateurs associés à un indicateur de risque](./media/active-directory-identityprotection/1200.png)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 17e5f98923345cdf88e6d3e2ef194f54dd1105c2
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: a47961dfdaf178a6b793bd68105d9792a9275bb3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -54,7 +54,8 @@ Lorsque vous quittez une session, veillez à fermer chaque fenêtre de session d
 * Faites défiler le texte du terminal avec la souris ou le pavé tactile.
 
 ## <a name="exit-command"></a>Commande Quitter
-Cliquez sur `exit` pour mettre un terme à la session active. Ce comportement se produit par défaut au bout de 10 minutes en l’absence d’interaction.
+Cliquez sur `exit` pour mettre un terme à la session active. Ce comportement se produit par défaut au bout de 20 minutes en l’absence d’interaction.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Démarrage rapide de Cloud Shell](quickstart.md)
+

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: ed62e35930b64919f4be0f3491f4eda995b81e7f
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: b6bf353a2bad28b0db3a88e971e5c6b209b7ab2b
 ms.contentlocale: fr-fr
 ms.lasthandoff: 08/10/2017
 
@@ -24,7 +24,9 @@ ms.lasthandoff: 08/10/2017
 Cet article vous aide à configurer la solution Haute disponibilité et scalabilité avec la passerelle de gestion des données.    
 
 > [!NOTE]
-> Cet article part du principe que vous connaissez déjà les bases de la passerelle de gestion des données. Si ce n’est pas le cas, consultez [Passerelle de gestion des données](data-factory-data-management-gateway.md).  
+> Cet article part du principe que vous connaissez déjà les bases de la passerelle de gestion des données. Si ce n’est pas le cas, consultez [Passerelle de gestion des données](data-factory-data-management-gateway.md).
+
+>**Cette fonctionnalité en version préliminaire est officiellement prise en charge sur les versions 2.12.xxxx.x et ultérieures de la passerelle de gestion des données**. Assurez-vous que vous utilisez la version 2.12.xxxx.x ou une version supérieure. Téléchargez [ici](https://www.microsoft.com/download/details.aspx?id=39717) la dernière version de la passerelle de gestion des données.
 
 ## <a name="overview"></a>Vue d'ensemble
 Vous pouvez associer des passerelles de gestion des données installées sur plusieurs ordinateurs locaux à une seule passerelle logique du portail. Ces ordinateurs sont appelés **nœuds**. Vous pouvez associer jusqu’à **quatre nœuds** à une passerelle logique. Avoir plusieurs nœuds (ordinateurs locaux avec une passerelle installée) procure les avantages suivants à une passerelle logique :  
@@ -125,7 +127,7 @@ Cette section part du principe que vous avez parcouru les deux articles suivants
 11. Pour supprimer un nœud de passerelle, cliquez sur **Supprimer un nœud** dans la barre d’outils, sélectionnez le nœud à supprimer, puis cliquez sur **Supprimer** dans la barre d’outils. Cette action supprime le nœud sélectionné du groupe. Notez que cette action ne désinstalle pas du nœud (ordinateur Windows local) le logiciel de la passerelle de gestion des données. Utilisez **Ajouter ou supprimer des programmes** dans le Panneau de configuration de l’ordinateur local pour désinstaller la passerelle. Quand vous désinstallez la passerelle du nœud, elle est automatiquement supprimée dans le portail.   
 
 ## <a name="upgrade-an-existing-gateway"></a>Mettre à niveau une passerelle existante
-Vous pouvez mettre à niveau une passerelle existante pour utiliser la fonctionnalité Haute disponibilité et scalabilité. Cette fonctionnalité est uniquement opérationnelle avec des nœuds dont la version de la passerelle de gestion des données est supérieure ou égale à 2.9.xxxx. Pour connaître la version installée de la passerelle de gestion des données sur un ordinateur, consultez l’onglet **Aide** du Gestionnaire de configuration de passerelle de gestion des données. 
+Vous pouvez mettre à niveau une passerelle existante pour utiliser la fonctionnalité Haute disponibilité et scalabilité. Cette fonctionnalité est uniquement opérationnelle avec des nœuds dont la version de la passerelle de gestion des données est supérieure ou égale à 2.12.xxxx. Pour connaître la version installée de la passerelle de gestion des données sur un ordinateur, consultez l’onglet **Aide** du Gestionnaire de configuration de passerelle de gestion des données. 
 
 1. Pour mettre à jour la passerelle sur l’ordinateur local en lui appliquant la version la plus récente, téléchargez et exécutez un package d’installation MSI à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Consultez la section [Installation](data-factory-data-management-gateway.md#installation) pour plus d’informations.  
 2. Accédez au portail Azure. Lancez la **page Data Factory** de votre fabrique de données. Cliquez sur la vignette Services liés pour lancer la **page Services liés**. Sélectionnez la passerelle pour lancer la **page Passerelle**. Cliquez sur **Fonctionnalité en préversion** pour l’activer comme indiqué dans l’image suivante : 
@@ -247,3 +249,4 @@ Après la suppression, cliquez sur **Fonctionnalités de préversion** dans la m
 Consultez les articles suivants :
 - [Passerelle de gestion des données](data-factory-data-management-gateway.md) - fournit une vue d’ensemble descriptive de la passerelle.
 - [Déplacer des données entre des magasins de données locaux et dans le cloud](data-factory-move-data-between-onprem-and-cloud.md) - contient une procédure pas à pas donnant des instructions sur l’utilisation d’une passerelle à nœud unique. 
+

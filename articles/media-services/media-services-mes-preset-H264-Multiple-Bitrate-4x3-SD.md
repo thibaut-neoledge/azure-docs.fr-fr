@@ -2,7 +2,7 @@
 title: "H264 - Vitesse de transmission multiples - 4 x 3 SD| Microsoft Docs"
 description: "Cette rubrique vous procure une vue d’ensemble de la présélection de travaux **H264 - Vitesse de transmission multiple - 4 x 3 SD**."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

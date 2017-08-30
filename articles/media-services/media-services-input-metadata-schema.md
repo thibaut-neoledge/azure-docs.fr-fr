@@ -2,7 +2,7 @@
 title: "Schéma de métadonnées d’entrée Azure Media Services | Microsoft Docs"
 description: "Cette rubrique fournit une vue d’ensemble du schéma de métadonnées d’entrée d’Azure Media Services."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

@@ -10,6 +10,5 @@ Vous pouvez maintenant utiliser l’Explorateur de données pour créer une tabl
     ID de la table|sample-database|L’ID de votre nouvelle table. Les noms de tables sont soumis aux mêmes exigences de nombre de caractères que les ID de bases de données. Les noms de base de données doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?` ni d’espace de fin.
     Capacité de stockage| 10 Go|Conservez la valeur par défaut. Il s’agit de la capacité de stockage de la base de données.
     Débit|400 unités de requête|Conservez la valeur par défaut. Vous pourrez augmenter le [débit](../articles/cosmos-db/request-units.md) ultérieurement si vous souhaitez réduire la latence.
-    RU/m|Off|Utilisez la valeur par défaut.
 
 3. Une fois le formulaire rempli, cliquez sur **OK**.

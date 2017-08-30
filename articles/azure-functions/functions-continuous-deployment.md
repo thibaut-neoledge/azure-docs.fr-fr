@@ -4,7 +4,7 @@ description: "Utilisez les fonctionnalités de déploiement continu d’Azure Ap
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
@@ -20,7 +20,6 @@ ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 3756f1a039730bfd99b0375ce9bfeaf27178f2e0
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/25/2017
-
 
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Déploiement continu pour Azure Functions

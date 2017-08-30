@@ -4,7 +4,7 @@ description: "Cette rubrique offre une vue d’ensemble des tâches prédéfinie
 services: media-services
 documentationcenter: 
 author: Asolanki
-manager: erikre
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

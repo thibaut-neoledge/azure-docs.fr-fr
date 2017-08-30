@@ -2,7 +2,7 @@
 title: "H264 - Vitesse de transmission multiples - 16 x 9 pour iOS | Microsoft Docs"
 description: "Cette rubrique vous procure une vue d’ensemble de la présélection de travaux**H264 - Vitesse de transmission multiples - 16x9 pour iOS**"
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

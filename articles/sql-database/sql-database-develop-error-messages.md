@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 407d8cef2508e4b2344953db86bc9829081cda7c
-ms.openlocfilehash: 72faf68d8a9779b612723f9ee6589cc332bf5ed5
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 2ef879aa31c8ee44a2c6281438f24a8b94649b1b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-error-and-other-issues"></a>Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes
@@ -40,14 +39,15 @@ Le tableau suivant décrit les codes d’erreur SQL pour les erreurs de perte de
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>Erreurs de connexion de base de données et erreurs temporaires les plus courantes
 L’infrastructure Azure a la capacité de reconfigurer dynamiquement les serveurs quand des charges de travail importantes sont à traiter dans le service SQL Database.  Ce comportement dynamique peut entraîner la perte par votre programme client de sa connexion à SQL Database. Ce type d’erreur état est connu sous le nom d’ *erreur temporaire*.
 
-Si votre programme client possède une logique de nouvelle tentative, il peut tenter de rétablir une connexion après avoir donné à l'erreur temporaire le temps de se corriger elle-même.  Nous vous recommandons de patienter 5 secondes avant votre première tentative. Si vous effectuez une nouvelle tentative avant 5 secondes, vous risquez de submerger le service cloud. Pour chaque nouvelle tentative, le délai doit augmenter de manière exponentielle, sans dépasser 60 secondes.
+Il est fortement recommandé que votre programme client possède une logique de nouvelle tentative afin qu’il puisse rétablir une connexion après avoir donné à l’erreur temporaire le temps de se corriger elle-même.  Nous vous recommandons de patienter 5 secondes avant votre première tentative. Si vous effectuez une nouvelle tentative avant 5 secondes, vous risquez de submerger le service cloud. Pour chaque nouvelle tentative, le délai doit augmenter de manière exponentielle, sans dépasser 60 secondes.
 
 Les erreurs temporaires se manifestent généralement comme l'un des messages d'erreur suivants à partir de vos programmes clients :
 
-* La base de données <db_name> sur le serveur <Azure_instance> n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session <session_id>
-* La base de données <db_name> sur le serveur <Azure_instance> n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session <session_id>. (Microsoft SQL Server, erreur : 40613)
+* La base de données &lt;db_name&gt; sur le serveur &lt;Azure_instance&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l’ID de suivi de session &lt;session_id&gt;.
+* La base de données &lt;db_name&gt; sur le serveur &lt;Azure_instance&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l’ID de suivi de session &lt;session_id&gt;. (Microsoft SQL Server, erreur : 40613)
 * Une connexion existante a été fermée de force par l'hôte distant.
 * System.Data.Entity.Core.EntityCommandExecutionException: Une erreur s'est produite lors de l'exécution de la définition de la commande. Consultez l'exception interne pour plus d'informations. ---> System.Data.SqlClient.SqlException: Une erreur de niveau transport s'est produite lors de la réception des résultats à partir du serveur. (fournisseur : fournisseur de session, erreur : 19 - connexion physique non utilisable)
+* Une tentative de connexion à une base de données secondaire a échoué car la base de données est en cours de reconfiguration et qu’elle est occupée à appliquer de nouvelles pages tout en gérant une transaction active sur la base de données primaire. 
 
 Pour obtenir des exemples de code de logique de nouvelle tentative, voir :
 
@@ -68,6 +68,7 @@ Les erreurs suivantes sont temporaires et doivent être relancées dans la logiq
 | 49918 |16 |Impossible de traiter la requête. Ressources insuffisantes pour traiter la demande.<br/><br/>Le service est actuellement occupé. Relancez la requête ultérieurement. |
 | 49919 |16 |Processus ne peut pas créer ou mettre à jour de la demande. Opérations de mise à jour ou de création en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes de création ou de mise à jour pour votre abonnement ou le serveur. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) pour les opérations en attente. Patientez jusqu’à ce que les demandes de création ou de mise à jour soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
 | 49920 |16 |Impossible de traiter la requête. Opérations en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes pour cet abonnement. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) pour l'état de l'opération. Patientez jusqu’à ce que les requêtes soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
+| 4221 |16 |La connexion au serveur de lecture secondaire a échoué en raison d’une longue attente sur 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. Le réplica n’est pas disponible pour la connexion, car il manque des versions de ligne pour les transactions qui étaient en cours lorsque le réplica a été recyclé. Le problème peut être résolu en restaurant ou en validant les transactions actives au niveau du réplica principal. Les occurrences de cette erreur peuvent être réduites en évitant les transactions d’écriture longues sur le serveur principal. |
 
 ## <a name="database-copy-errors"></a>Erreurs de copie de base de données
 Les erreurs suivantes peuvent survenir lors de la copie d’une base de données dans la base de données SQL Azure. Pour en savoir plus, consultez [Copie d’une base de données SQL Azure](sql-database-copy.md).
@@ -210,7 +211,7 @@ Les erreurs suivantes n’entrent dans aucune des catégories précédentes.
 | 40651 |16 |Impossible de créer le serveur, car l’abonnement <subscription-id> est désactivé. |
 | 40652 |16 |Impossible de déplacer ou de créer le serveur. L'abonnement <subscription-id> va dépasser le quota du serveur. |
 | 40671 |17 |Échec de la communication entre la passerelle et le service de gestion. Veuillez réessayer ultérieurement. |
-| 40852 |16 |Impossible d’ouvrir la base de données '%.*ls' on server '%.*ls' demandée par la connexion. L’accès à la base de données est autorisé uniquement à l’aide d’une chaîne de connexion sécurisée. Pour accéder à cette base de données, modifiez vos chaînes de connexion pour y insérer « secure » sur le serveur de nom de domaine complet  -  ’nom de servur’.database.windows.net doit être transformé en ’nom de serveur’.database.`secure`.windows.net. |
+| 40852 |16 |Impossible d’ouvrir la base de données '%.*ls' on server '%.*ls' demandée par la connexion. L’accès à la base de données est autorisé uniquement à l’aide d’une chaîne de connexion sécurisée. Pour accéder à cette base de données, modifiez vos chaînes de connexion pour y insérer « secure » sur le serveur de nom de domaine complet  -  ’nom de servur’.database.windows.net doit être transformé en ’nom de serveur’.database`secure`.windows.net. |
 | 45168 |16 |Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations DB CRUD simultanées pour un serveur unique (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement. |
 | 45169 |16 |Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations CRUD simultanées pour un abonnement unique (par exemple, créer le serveur). L'abonnement spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées, et la demande a été rejetée. Réessayez ultérieurement. |
 

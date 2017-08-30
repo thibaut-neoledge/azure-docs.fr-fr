@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 08/16/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 398abb0a56f1a12ad563dce889c602af4a5b9bcf
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 7f56f6d89a9990ab7e7f50a86993e9e22b73d646
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Didacticiel Power BI pour Azure Cosmos DB : visualiser les données à l’aide du connecteur Power BI
@@ -35,7 +35,10 @@ Après avoir terminé ce didacticiel pour Power BI, vous serez en mesure de rép
 * Comment transformer des données JSON imbriquées dans Power BI Desktop ?
 * Comment publier et partager mes rapports dans PowerBI.com ?
 
-## <a name="prerequisites"></a>Composants requis
+> [!NOTE]
+> Le connecteur Power BI pour Azure Cosmos DB se connecte à Power BI Desktop pour extraire et transformer les données. Les rapports créés dans Power BI Desktop peuvent ensuite être publiés sur PowerBI.com. L’extraction et la transformation directes des données Azure Cosmos DB ne peuvent pas être effectuées sur PowerBI.com. 
+
+## <a name="prerequisites"></a>Prérequis
 Avant de suivre les instructions de ce didacticiel Power BI, assurez-vous de disposer des ressources suivantes :
 
 * [La dernière version de Power BI Desktop](https://powerbi.microsoft.com/desktop).
@@ -193,7 +196,7 @@ Pour créer un tableau de bord partageable, cliquez sur le bouton **Épingler un
 
    ![Capture d’écran des nouveau rapport et jeu de données dans PowerBI.com](./media/powerbi-visualize/power-bi-pin-live-tile.png)
 
-Ensuite, suivez les instructions de [Pin a tile from a report (Épingler une vignette d’un rapport)](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) afin de créer un tableau de bord. 
+Ensuite, suivez les instructions dans [Épingler une vignette d’un rapport](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) afin de créer un tableau de bord. 
 
 Vous pouvez également apporter des modifications ad hoc au rapport avant de créer un tableau de bord. Toutefois, il est recommandé d’utiliser Power BI Desktop pour effectuer les modifications et republier le rapport sur PowerBI.com.
 

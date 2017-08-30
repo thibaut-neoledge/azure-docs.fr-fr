@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 99bb3db7cc80e8426e1dca14bc3d733ee6c7342c
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Créez un registre de conteneur Docker privé à l’aide d’Azure CLI 2.0
@@ -35,7 +35,7 @@ Utilisez les commandes [d’Azure CLI 2.0](https://github.com/Azure/azure-cli) p
 ## <a name="prerequisites"></a>Composants requis
 * **Azure CLI 2.0** : pour installer et découvrir la CLI 2.0, consultez les [instructions d’installation](/cli/azure/install-azure-cli). Connectez-vous à votre abonnement Azure en exécutant `az login`. Pour plus d’informations, consultez [Prise en main CLI 2.0](/cli/azure/get-started-with-azure-cli).
 * **Groupe de ressources** : créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md#resource-groups) avant de créer un registre de conteneur, ou utilisez un groupe de ressources existant. Assurez-vous que le groupe de ressources est dans un emplacement où le service Container Registry est [disponible](https://azure.microsoft.com/regions/services/). Pour créer un groupe de ressources à l’aide de la CLI 2.0, consultez la [référence de l’interface CLI 2.0](/cli/azure/group).
-* **Compte de stockage** (facultatif) : créez un [compte de stockage](../storage/storage-introduction.md) Azure standard pour prendre en charge le registre de conteneur dans le même emplacement. Si vous ne spécifiez pas de compte de stockage lors de la création d’un registre avec `az acr create`, la commande en crée un pour vous. Pour créer un compte de stockage à l’aide de la CLI 2.0, consultez la [référence de l’interface CLI 2.0](/cli/azure/storage/account). Pour l’instant, l’offre Stockage Premium n’est pas prise en charge.
+* **Compte de stockage** (facultatif) : créez un [compte de stockage](../storage/common/storage-introduction.md) Azure standard pour prendre en charge le registre de conteneur dans le même emplacement. Si vous ne spécifiez pas de compte de stockage lors de la création d’un registre avec `az acr create`, la commande en crée un pour vous. Pour créer un compte de stockage à l’aide de la CLI 2.0, consultez la [référence de l’interface CLI 2.0](/cli/azure/storage/account). Pour l’instant, l’offre Stockage Premium n’est pas prise en charge.
 * **Principal de service** (facultatif) : lorsque vous créez un registre avec la CLI, par défaut son accès n’est pas configuré. Selon vos besoins, vous pouvez affecter un principal de service Azure Active Directory existant à un registre (ou en créer et en affecter un nouveau), ou activer le compte d’utilisateur Admin du registre. Consultez les sections disponibles plus loin dans cet article. Pour plus d’informations sur l’accès au registre, consultez la section relative à [l’authentification auprès d’un conteneur](container-registry-authentication.md).
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur

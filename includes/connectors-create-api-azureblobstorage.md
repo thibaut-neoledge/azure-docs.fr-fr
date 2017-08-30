@@ -1,6 +1,6 @@
 ### <a name="prerequisites"></a>Composants requis
 * Un compte Azure (que vous pouvez [créer gratuitement)](https://azure.microsoft.com/free)
-* Un [compte de stockage Blob Azure](../articles/storage/storage-create-storage-account.md), avec son nom et sa clé d’accès. Ces informations sont répertoriées dans les propriétés du compte de stockage, dans le Portail Azure. Pour en savoir plus, consultez [Introduction à Azure Storage](../articles/storage/storage-introduction.md).
+* Un [compte de stockage Blob Azure](../articles/storage/common/storage-create-storage-account.md), avec son nom et sa clé d’accès. Ces informations sont répertoriées dans les propriétés du compte de stockage, dans le Portail Azure. Pour en savoir plus, consultez [Introduction à Azure Storage](../articles/storage/common/storage-introduction.md).
 
 Avant d’utiliser votre compte de stockage d’objets blob Azure dans une application logique, connectez-vous à votre compte de stockage d’objets blob Azure. Cette opération est très simple à effectuer dans votre application logique, sur le portail Azure.  
 

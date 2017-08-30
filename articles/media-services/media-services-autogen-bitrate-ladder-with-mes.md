@@ -4,7 +4,7 @@ description: "Cette rubrique explique comment utiliser Media Encoder Standard (M
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
 ms.service: media-services

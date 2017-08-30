@@ -1,5 +1,5 @@
 ---
-title: Applets de commande Azure Active Directory PowerShell pour la gestion des groupes dans Azure AD | Microsoft Docs
+title: "Exemples PowerShell pour gérer des groupes dans Azure Active Directory | Documents Microsoft"
 description: "Cette page fournit des exemples PowerShell pour vous aider à gérer vos groupes dans Azure Active Directory"
 keywords: Azure AD, Azure Active Directory, PowerShell, Groupes, Gestion des groupes
 services: active-directory
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: rodejo
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c2a313c5ad011d03309a962bf2905750a478b890
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f1ce76178baa44428afca5631c749c2739ad779e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets d’Azure Active Directory version 2 pour la gestion de groupe
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/05/2017
 >
 >
 
-Le document suivant fournit des exemples montrant comment utiliser PowerShell pour gérer des groupes dans Azure Active Directory (Azure AD).  Il fournit également des informations sur la configuration du module Azure AD PowerShell. Vous devez tout d’abord [télécharger le module Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
+Cet article contient des exemples expliquant comment utiliser PowerShell pour gérer vos groupes dans Azure Active Directory (Azure AD).  Il fournit également des informations sur la configuration à l’aide du module Azure AD PowerShell. Vous devez tout d’abord [télécharger le module Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="installing-the-azure-ad-powershell-module"></a>Installation du module Azure AD PowerShell
 Pour installer le module PowerShell Azure AD, utilisez les commandes suivantes :
@@ -46,10 +46,10 @@ Pour vérifier que le module a été installé, utilisez la commande suivante :
     ---------- ---------    ----                                ----------------
     Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 
-Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande du module Azure AD, consultez la [documentation de référence en ligne](/powershell/azure/install-adv2?view=azureadps-2.0).
+Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande du module Azure AD, consultez la documentation de référence en ligne pour [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 ## <a name="connecting-to-the-directory"></a>Connexion au répertoire
-Avant de pouvoir gérer des groupes à l’aide des applets de commande Azure AD PowerShell, vous devez connecter votre session PowerShell au répertoire que vous voulez gérer. Pour ce faire, utilisez la commande suivante :
+Avant de pouvoir gérer des groupes à l’aide des applets de commande Azure AD PowerShell, vous devez connecter votre session PowerShell au répertoire que vous voulez gérer. Utilisez la commande suivante :
 
     PS C:\Windows\system32> Connect-AzureAD
 
@@ -72,7 +72,7 @@ Vous pouvez utiliser le paramètre -objectID pour récupérer un groupe spécifi
 
     PS C:\Windows\system32> get-azureadgroup -ObjectId e29bae11-4ac0-450c-bc37-6dae8f3da61b
 
-L’applet de commande renvoie à présent le groupe dont le paramètre objectID correspond à la valeur du paramètre que vous avez entré :
+L’applet de commande renvoie à présent l’objectID correspond à la valeur du paramètre que vous avez saisi :
 
     DeletionTimeStamp            :
     ObjectId                     : e29bae11-4ac0-450c-bc37-6dae8f3da61b
@@ -109,7 +109,8 @@ Vous pouvez rechercher un groupe spécifique en utilisant le paramètre -filter.
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-Notez que les applets de commande Azure AD PowerShell implémentent la norme de requête OData. Vous trouverez plus d’informations [ici](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
+> [!NOTE] 
+> Les applets de commande AzureAD PowerShell mettent en œuvre la norme de requête OData. Pour plus d’informations, consultez **$filter** dans [options de requête système OData à l’aide du point de terminaison OData](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
 
 ## <a name="creating-groups"></a>Création de groupes
 Pour créer un nouveau groupe dans votre répertoire, utilisez l’applet de commande New-AzureADGroup. Cette applet de commande crée un nouveau groupe de sécurité appelé « Marketing » :
@@ -222,13 +223,12 @@ L’applet de commande renvoie la liste des propriétaires du groupe spécifié�
     ----------------- --------                             ----------
                           e831b3fd-77c9-49c7-9fca-de43e109ef67 User
 
-Si vous souhaitez supprimer un propriétaire d’un groupe, utilisez Remove-AzureADGroupOwner :
+Si vous souhaitez supprimer un propriétaire d’un groupe, utilisez l’applet de commande Remove-AzureADGroupOwner :
 
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="reserved-aliases"></a>Alias réservés 
-Quand un groupe est créé, certain points de terminaison autorisent l’utilisateur final à spécifier un mailNickname ou alias à utiliser dans l’adresse e-mail du groupe.   
-Les groupes avec les alias de messagerie hautement privilégiés suivants peuvent uniquement être créés par un administrateur général Azure AD. 
+Quand un groupe est créé, certain points de terminaison autorisent l’utilisateur final à spécifier un mailNickname ou alias à utiliser dans l’adresse e-mail du groupe. Les groupes avec les alias de messagerie hautement privilégiés suivants peuvent uniquement être créés par un administrateur général Azure AD. 
   
 * abuse 
 * admin 

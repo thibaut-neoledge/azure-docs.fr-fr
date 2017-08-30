@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 32569d7e75a7a4ddee28041c0487ff158c20fd78
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d30c09d23a84200ba81df133c9de5b11910ffb61
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Solutions Batch et HPC pour les charges de travail de calcul à grande échelle
@@ -106,7 +106,7 @@ Les services de calcul Azure sont au cœur d'une solution Big Compute, et les di
 ### <a name="storage-services"></a>Services de stockage
 Une solution Big Compute fonctionne généralement sur un jeu de données d'entrée et génère des données pour ses résultats. Voici quelques-uns des services de stockage Azure utilisés dans les solutions Big Compute :
 
-* [Stockage de file d’attente, table et blob](https://azure.microsoft.com/documentation/services/storage/) : gère de grandes quantités de données non structurées, de données NoSQL et de messages de flux de travail et de communication. Par exemple, vous pouvez utiliser le stockage d’objets blob pour les jeux volumineux de données techniques ou pour les images d’entrée ou les fichiers multimédias traités par votre application. Vous pouvez utiliser les files d'attente pour la communication asynchrone dans une solution. Voir l’article [Introduction à Microsoft Azure Storage](../storage/storage-introduction.md).
+* [Stockage de file d’attente, table et blob](https://azure.microsoft.com/documentation/services/storage/) : gère de grandes quantités de données non structurées, de données NoSQL et de messages de flux de travail et de communication. Par exemple, vous pouvez utiliser le stockage d’objets blob pour les jeux volumineux de données techniques ou pour les images d’entrée ou les fichiers multimédias traités par votre application. Vous pouvez utiliser les files d'attente pour la communication asynchrone dans une solution. Voir l’article [Introduction à Microsoft Azure Storage](../storage/common/storage-introduction.md).
 * [Stockage de fichiers Azure](https://azure.microsoft.com/services/storage/files/) : partage des fichiers communs et des données dans Azure à l’aide du protocole SMB standard, qui est requis pour certaines solutions de cluster HPC.
 * [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) : fournit un système Apache HDFS à très grande échelle pour le cloud, utile pour l’analyse interactive, en temps réel et en mode batch.
 

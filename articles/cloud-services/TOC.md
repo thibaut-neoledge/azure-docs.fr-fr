@@ -17,9 +17,9 @@
 ### [Créer et déployer une application Node.js](cloud-services-nodejs-develop-deploy-app.md)
 ### [Créer une application web Node.js avec Express](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Storage et Visual Studio
-#### [Stockage Blob et services connectés](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Stockage File d’attente et services connectés](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Stockage Table et services connectés](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Stockage Blob et services connectés](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Stockage File d’attente et services connectés](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Stockage Table et services connectés](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Configurer des packages pour une création et un déploiement continu
 #### [TFS et Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configurer les règles de trafic pour un rôle](cloud-services-enable-communication-role-instances.md)

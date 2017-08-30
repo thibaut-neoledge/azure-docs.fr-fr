@@ -289,9 +289,9 @@ Sur la base des hypothèses qui précèdent, créez un volume hiérarchisé Stor
     ![Console d’administration de Veeam, sélection du volume](./media/storsimple-configure-backup-target-using-veeam/veeamimage4.png)
 
 
-5.  Dans la boîte de dialogue **Storage Compatibility Settings (Paramètres de compatibilité du stockage)**, cochez la case **Use per-VM backup files (Utiliser les fichiers de sauvegarde par machine virtuelle)**.
+5.  Dans la boîte de dialogue **Storage Compatibility Settings (Paramètres de conformité du stockage)**, cochez la case **Use per-VM backup files (Utiliser les fichiers de sauvegarde par machine virtuelle)**.
 
-    ![Console de gestion Veeam, paramètres de compatibilité de stockage](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
+    ![Console de gestion Veeam, paramètres de conformité de stockage](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
 6.  Dans la boîte de dialogue **New Backup Repository (Nouveau référentiel de sauvegarde)**, cochez la case **Enable vPower NFS service on the mount server (recommended) (Activer le service NFS vPower sur le serveur de montage (recommandé))**. Sélectionnez **Suivant**.
 

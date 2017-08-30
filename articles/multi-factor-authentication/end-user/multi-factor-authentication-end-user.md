@@ -3,7 +3,7 @@ title: "Prise en main de la vérification en deux étapes | Microsoft Docs"
 description: "Il s'agit de la page d'authentification multifacteur Azure qui aide les utilisateurs à prendre en main Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
 ms.translationtype: Human Translation
@@ -48,5 +48,4 @@ Sélectionnez l’une de ces rubriques pour commencer.
 | [Modification des paramètres](multi-factor-authentication-end-user-manage-settings.md) |Montre comment modifier vos paramètres, comme le numéro de téléphone ou la méthode d'inscription par défaut. |
 | [Aide relative aux mots de passe d'application](multi-factor-authentication-end-user-app-passwords.md) |Trouvez des informations sur la création et l'utilisation de mots de passe d'application. |
 | [Utilisation de l'application mobile](microsoft-authenticator-app-how-to.md) |L’application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-
 

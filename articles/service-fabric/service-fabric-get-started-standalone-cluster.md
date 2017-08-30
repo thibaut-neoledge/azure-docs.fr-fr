@@ -3,7 +3,7 @@ title: Configurer un cluster Azure Service Fabric autonome | Microsoft Docs
 description: "Créez un cluster de développement autonome avec trois nœuds s’exécutant sur le même ordinateur. Une fois l’installation terminée, vous serez prêt à créer un cluster de plusieurs ordinateurs."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 
@@ -13,13 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/06/2017
-ms.author: ryanwi
+ms.author: dekapur
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: a96150a6a7f83d1c220e0450f7704634a1f6ed1b
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
-
 
 ---
 

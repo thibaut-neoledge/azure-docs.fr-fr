@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser des liaisons Azure Event Hubs dans Azu
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
@@ -21,7 +21,6 @@ ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 19021bef8b7156b3049f43b0275c0ed0c6b22514
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="azure-functions-event-hubs-bindings"></a>Liaisons d’Event Hubs Azure Functions

@@ -5,7 +5,7 @@ metadata:
   document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
   title: "Documentation Azure CDN\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
   description: Base de données Azure pour PostgreSQL est un service de base de données relationnelle dans le cloud de Microsoft conçu pour les développeurs basés sur le moteur de base de données PostgreSQL open source.
-  services: app-service
+  services: postgresql
   author: jasonwhowell
   manager: jhubbard
   ms.service: postgresql

@@ -12,37 +12,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/09/2017
 ms.author: ashwink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8165147d9ff811b26f7fe2626c892f2aba5bb4f8
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f06e5dd7d17c1d7795fb1f112e649cd42d7dd6d4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemples de démarrage rapide Azure Monitor PowerShell
 Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions de surveillance Azure Insights. Azure Monitor permet une mise à l'échelle automatique des services cloud, des machines virtuelles et des applications web, et d’envoyer des notifications d'alerte ou d’appeler des URL web basées sur des valeurs de données de télémétrie configurées.
 
 > [!NOTE]
-> Azure Monitor est le nouveau nom de ce qui était appelé « Azure Insights » jusqu’au 25 septembre 2016. Toutefois, les espaces de noms et, par conséquent, les commandes ci-dessous contiennent toujours « insights ».
+> Azure Monitor est le nouveau nom de ce qui était appelé « Azure Insights » jusqu’au 25 septembre 2016. Toutefois, les espaces de noms et, par conséquent, les commandes suivantes contiennent toujours « insights ».
 > 
 > 
 
 ## <a name="set-up-powershell"></a>Configurer PowerShell
-Si vous ne l’avez déjà fait, configurez PowerShell pour s’exécuter sur votre ordinateur. Pour plus d’informations, consultez la rubrique [Comment installer et configurer PowerShell](/powershell/azure/overview) .
+Si vous ne l’avez déjà fait, configurez PowerShell pour s’exécuter sur votre ordinateur. Pour plus d’informations, consultez l’article [Guide pratique pour installer et configurer PowerShell](/powershell/azure/overview).
 
 ## <a name="examples-in-this-article"></a>Exemples de cet article
 Les exemples de cet article montrent comment utiliser les applets de commande Azure Monitor. Vous pouvez également consulter la liste complète des applets de commande PowerShell Azure Monitor dans la rubrique [Applets de commande Azure Monitor (Insights)](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
 
 ## <a name="sign-in-and-use-subscriptions"></a>Se connecter et utiliser des abonnements
-Connectez-vous d’abord à votre abonnement Azure.
+Tout d’abord, connectez-vous à votre abonnement Azure.
 
 ```PowerShell
 Login-AzureRmAccount
 ```
 
-Vous devez vous identifier. Une fois cette opération effectuée, vos compte, ID de locataire et ID d'abonnement par défaut s’affichent. Toutes les applets de commande Azure fonctionnent dans le cadre de votre abonnement par défaut. Pour afficher la liste des abonnements auxquels vous avez accès, utilisez la commande suivante.
+Vous devez vous identifier. Vos informations de compte, d’ID de locataire et d’ID d’abonnement par défaut s’affichent alors. Toutes les applets de commande Azure fonctionnent dans le cadre de votre abonnement par défaut. Pour afficher la liste des abonnements auxquels vous avez accès, utilisez la commande suivante.
 
 ```PowerShell
 Get-AzureRmSubscription
@@ -139,14 +139,11 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 
 `Get-AzureRmAlertRule` prend en charge d'autres paramètres. Consultez [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) pour plus d'informations.
 
-## <a name="create-alert-rules"></a>Créer des règles d'alerte
+## <a name="create-metric-alerts"></a>Créer des alertes de métriques
 Vous pouvez utiliser l’applet de commande `Add-AlertRule` pour créer, mettre à jour ou désactiver une règle d'alerte.
 
 Vous pouvez créer des propriétés de messagerie et webhook à l'aide de `New-AzureRmAlertRuleEmail` et `New-AzureRmAlertRuleWebhook`, respectivement. Dans l'applet de commande de la règle d'alerte, affectez ces éléments comme des actions à la propriété **Actions** de la règle d'alerte.
 
-La section suivante contient un exemple montrant comment créer une règle d'alerte avec différents paramètres.
-
-### <a name="alert-rule-on-a-metric"></a>Règle d'alerte d'une mesure
 Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer une alerte à l'aide d'une mesure.
 
 | paramètre | value |
@@ -155,7 +152,7 @@ Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer 
 | Emplacement de cette règle d'alerte |Est des États-Unis |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName de l'alerte créée |\PhysicalDisk(_Total)\Écritures disque/s. Pour savoir comment récupérer les noms exacts des métriques, voir l’applet de commande `Get-MetricDefinitions` ci-dessous |
+| MetricName de l'alerte créée |\PhysicalDisk(_Total)\Écritures disque/s. Pour savoir comment récupérer le nom exact des métriques, voir la cmdlet `Get-MetricDefinitions`. |
 | operator |GreaterThan |
 | Valeur de seuil (nombre/s pour cette métrique) |1 |
 | WindowSize (format hh:mm:ss) |00:05:00 |
@@ -189,40 +186,6 @@ Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 
 L'applet de commande Add alert met également à jour la règle, s'il existe une règle d'alerte pour les propriétés spécifiées. Pour désactiver une règle d’alerte, incluez le paramètre **-DisableRule**.
 
-### <a name="alert-on-activity-log-event"></a>Alerte d’événement de journal d’activité
-> [!NOTE]
-> Cette fonctionnalité est en version préliminaire et sera supprimée à l’avenir (elle est en cours de remplacement).
-> 
-> 
-
-Dans ce scénario, vous enverrez un courrier électronique lorsqu’un site web est démarré dans mon abonnement dans le groupe de ressources *abhingrgtest123*.
-
-Configurer une règle de courrier électronique
-
-```PowerShell
-$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
-```
-
-Configurer une règle webhook
-
-```PowerShell
-$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
-```
-
-Créer la règle sur l'événement
-
-```PowerShell
-Add-AzureRmLogAlertRule -Name superalert1 -Location "East US" -ResourceGroup myrg1 -OperationName microsoft.web/sites/start/action -Status Succeeded -TargetResourceGroup abhingrgtest123 -Actions $actionEmail, $actionWebhook
-```
-
-Récupérer la règle d'alerte
-
-```PowerShell
-Get-AzureRmAlertRule -Name superalert1 -ResourceGroup myrg1 -DetailedOutput
-```
-
-L’applet de commande `Add-AlertRule` permet d’utiliser divers autres paramètres. Pour plus d’informations, voir [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
-
 ## <a name="get-a-list-of-available-metrics-for-alerts"></a>Obtenir la liste des mesures disponibles pour les alertes
 Vous pouvez utiliser l’applet de commande `Get-AzureRmMetricDefinition` pour afficher la liste de toutes les métriques pour une ressource spécifique.
 
@@ -239,8 +202,8 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 Une liste complète des options disponibles pour `Get-AzureRmMetricDefinition` est disponible dans [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
 ## <a name="create-and-manage-autoscale-settings"></a>Créer et gérer les paramètres de mise à l'échelle automatique
-Une ressource, par exemple une application Web, une machine virtuelle, un service cloud ou un jeu de mise à l’échelle de machine virtuelle ne peut avoir qu'un seul paramètre de mise à l'échelle automatique configuré.
-Cependant, chaque paramètre de mise à l'échelle automatique peut avoir plusieurs profils. Par exemple, un pour un profil de mise à l'échelle en fonction des performances et un second pour un profil basé sur une planification. Chaque profil peut avoir plusieurs règles configurées. Pour plus d’informations sur la mise à l’échelle automatique, voir [Mise à l’échelle automatique d’une application](../cloud-services/cloud-services-how-to-scale.md).
+Une ressource, par exemple une application web, une machine virtuelle, un service cloud ou un groupe de machines virtuelles identiques, ne peut avoir qu’un seul paramètre de mise à l’échelle automatique configuré.
+Cependant, chaque paramètre de mise à l'échelle automatique peut avoir plusieurs profils. Par exemple, un pour un profil de mise à l’échelle en fonction des performances et un autre pour un profil basé sur une planification. Chaque profil peut avoir plusieurs règles configurées. Pour plus d’informations sur la mise à l’échelle automatique, voir [Mise à l’échelle automatique d’une application](../cloud-services/cloud-services-how-to-scale.md).
 
 Voici la procédure que nous allons suivre :
 
@@ -249,9 +212,9 @@ Voici la procédure que nous allons suivre :
 3. Facultatif : créez des notifications de mise à l'échelle automatique en configurant les propriétés de courrier électronique et webhook.
 4. Créez un paramètre de mise à l'échelle automatique avec un nom pour la ressource cible en mappant les profils et les notifications que vous avez créés aux étapes précédentes.
 
-Les exemples suivants vous montrent comment créer un paramètre de mise à l'échelle automatique pour un jeu de mise à l’échelle de machines virtuelles d’un système d'exploitation Windows à l'aide de la mesure d'utilisation du processeur.
+Les exemples suivants montrent comment créer un paramètre de mise à l’échelle automatique pour un groupe de machines virtuelles identiques sur un système d’exploitation Windows à l’aide de la métrique d’utilisation du processeur.
 
-Tout d'abord, créez une règle de montée en charge, avec une augmentation du nombre d’instances.
+Tout d’abord, créez une règle de montée en charge, avec augmentation du nombre d’instances.
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionValue 1

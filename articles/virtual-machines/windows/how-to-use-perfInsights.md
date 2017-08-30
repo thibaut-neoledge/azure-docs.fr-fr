@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 99386a92b76d0d58f7f5c94d30d3423559eee685
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: f22bd42302b96118dba0d4e5e387c6798a0b8777
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights 
@@ -311,7 +311,7 @@ Dans la perspective Volume (*VolumeMap*), les tables affichent tous les disques 
 
 Si la machine virtuelle cible héberge toutes les instances de SQL Server, un onglet supplémentaire nommé **SQL Server** apparaît dans le rapport :
 
-![onglet SQL](media/how-to-use-perfInsights/sqltab.png)
+![onglet sql](media/how-to-use-perfInsights/sqltab.png)
 
 Cette section contient une « vue d’ensemble » et des sous-onglets supplémentaires pour chacune des instances de SQL Server hébergées sur la machine virtuelle.
 
@@ -350,3 +350,4 @@ Ce message sera envoyé à partir de **CTS Automated Diagnostics Services** (cts
 Pour plus de sécurité, vous devez modifier votre mot de passe à la première utilisation.
 
 Après vous être connecté à DTM, une boîte de dialogue s’affiche pour vous inviter à charger le fichier **CollectedData\_aaaa-MM-jj\_hh\_mm\_ss.zip** collecté par PerfInsights.
+

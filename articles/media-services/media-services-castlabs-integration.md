@@ -4,7 +4,7 @@ description: "Cet article décrit comment vous pouvez utiliser Azure Media Servi
 services: media-services
 documentationcenter: 
 author: Mingfeiy
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 2a9a408a-a995-49e1-8d8f-ac5b51e17d40
 ms.service: media-services

@@ -1,14 +1,16 @@
-## <a name="meaning-of-migration-of-iaas-resources-from-classic-to-resource-manager"></a>Signification de la migration de ressources IaaS de l’environnement Classic vers Resource Manager
+## <a name="meaning-of-migration-of-iaas-resources-from-the-classic-deployment-model-to-resource-manager"></a>Signification de la migration de ressources IaaS du modèle de déploiement classique vers Resource Manager
 Avant d’entrer dans les détails, examinons le différence entre les opérations du plan de données et celles du plan de gestion pour les ressources IaaS.
 
 * *Plan de gestion/contrôle* décrit l’ensemble des appels destinés au plan de gestion/contrôle ou à l’API en vue de modifier les ressources. Par exemple, les opérations telles que la création d’une machine virtuelle, le redémarrage d’une machine virtuelle et la mise à jour d’un réseau virtuel avec un nouveau sous-réseau permettent de gérer les ressources en cours d’exécution. Elles n’affectent pas directement la connexion à des instances.
 * *Plan de données* (application) décrit le runtime de l’application proprement dite et implique une interaction avec les instances qui ne passent pas par l’API Azure. Par exemple, l’accès à votre site web ou l’extraction de données à partir d’une instance de serveur SQL ou d’un serveur MongoDB en cours d’exécution sont considérés comme des interactions d’application ou de plan de données. La copie d’un objet blob à partir d’un compte de stockage et l’accès à une adresse IP publique sur RDP ou SSH dans la machine virtuelle constituent également des opérations du plan de données. Ces opérations garantissent le fonctionnement continu de l’application dans l’ensemble des services de calcul, de mise en réseau et de stockage.
 
+En arrière-plan, les plans de données du modèle de déploiement classique et de la pile de Resource Manager sont similaires. Pendant le processus de migration, nous traduisons la représentation des ressources du modèle de déploiement classique à celle de la pile de Resource Manager. Par conséquent, vous devez utiliser des nouveaux outils, API et Kits de développement logiciel (SDK) pour gérer vos ressources dans la pile de Resource Manager.
+
 ![Capture d’écran qui illustre la différence entre un plan de gestion/contrôle et le plan de données](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+
 
 > [!NOTE]
 > Dans certains scénarios de migration, la plateforme Azure arrête, désalloue, puis redémarre vos machines virtuelles. Cela entraîne un bref temps d’arrêt du forfait de données.
->
 >
 
 ## <a name="the-migration-experience"></a>Expérience de migration
@@ -31,25 +33,40 @@ Procédez comme suit pour la migration
 >
 
 ### <a name="validate"></a>Valider
-L’opération de validation constitue la première étape du processus de migration. L’objectif de cette étape est d’analyser les données en arrière-plan pour les ressources dont vous souhaitez effectuer la migration et d’indiquer si ces ressources peuvent ou non faire l’objet d’une migration.
+L’opération de validation constitue la première étape du processus de migration. L’objectif de cette étape est d’analyser l’état des ressources que vous souhaitez faire migrer dans le modèle de déploiement classique et d’indiquer si ces ressources peuvent ou non faire l’objet d’une migration.
 
-Vous sélectionnez le réseau virtuel ou le service hébergé (s’il ne s’agit pas d’un réseau virtuel) que vous souhaitez valider pour la migration.
+Vous sélectionnez le réseau virtuel ou un service cloud (s’il ne s’agit pas d’un réseau virtuel) que vous souhaitez valider pour la migration.
 
 * Si la migration d’une ressource est impossible, la plateforme Azure en indique les raisons.
 
-Lors de la validation de services de stockage, vous trouverez le compte migré dans un groupe de ressources portant le même nom que votre compte de stockage avec, en suffixe, «-Migrated ».  Par exemple, si votre compte de stockage est nommé « mystorage », vous trouverez la ressource activée par Azure Resource Manager dans un groupe de ressources nommé « mystorage-Migrated », contenant un compte de stockage nommé « mystorage ».
+#### <a name="checks-not-done-in-validate"></a>Vérifications non effectuées dans l’étape « Valider »
+
+Valider les opérations permet uniquement d’analyser l’état des ressources dans le modèle de déploiement classique. Cette opération permet de vérifier tous les échecs et les scénarios non pris en charge en raison de diverses configurations dans le modèle de déploiement classique. Il est impossible de vérifier tous les problèmes que pourrait causer la pile d’Azure Resource Manager aux ressources pendant la migration. Ces problèmes ne sont vérifiés que lorsque les ressources ne subissent leur transformation dans l’étape suivante de la migration, à savoir « Préparer ». Le tableau ci-dessous répertorie tous les problèmes qui ne sont pas vérifiés dans l’étape « Valider ».
+
+
+|Vérifications réseau non effectuées dans l’étape « Valider »|
+|-|
+|Un réseau virtuel ayant des passerelles ER et VPN|
+|Connexion à la passerelle de réseau virtuel dans l’état déconnecté|
+|Tous les circuits ER sont migrés par avance vers la pile d’Azure Resource Manager|
+|Quota de vérifications Azure Resource Manager des ressources réseau, à savoir : adresse IP publique statique, adresses IP publiques dynamiques, équilibreur de charge, groupes de sécurité réseau, tables de routage, interfaces réseau |
+| Vérifier que toutes les règles d’équilibrage de charge sont valides sur le déploiement/réseau virtuel |
+| Chercher les adresses IP privées en conflit entre machines virtuelles arrêtées et désallouées dans le même réseau virtuel |
 
 ### <a name="prepare"></a>Préparation
-L’opération de préparation constitue la deuxième étape du processus de migration. Le rôle de cette étape est de simuler la transformation des ressources IaaS Classic en ressources Resource Manager et de vous les présenter côte à côte pour que vous puissiez les visualiser.
+L’opération de préparation constitue la deuxième étape du processus de migration. Le rôle de cette étape est de simuler la transformation des ressources IaaS du modèle de déploiement classique en ressources Resource Manager et de vous les présenter côte à côte pour que vous puissiez les visualiser.
 
-Vous sélectionnez le réseau virtuel ou le service hébergé (s’il ne s’agit pas d’un réseau virtuel) que vous souhaitez préparer pour la migration.
+> [!NOTE] 
+> Vos ressources classiques ne sont pas modifiées lors de cette étape. C’est donc une étape sûre à exécuter si vous essayez la migration. 
+
+Vous sélectionnez le réseau virtuel ou le service cloud (s’il ne s’agit pas d’un réseau virtuel) que vous souhaitez préparer pour la migration.
 
 * Si la ressource ne peut pas être migrée, la plateforme Azure arrête le processus de migration et indique la raison de l’échec de l’opération de préparation.
 * Si la migration de la ressource est possible, la plateforme Azure commence par verrouiller les opérations du plan de gestion pour les ressources concernées. Par exemple, vous ne pourrez pas ajouter de disque de données à une machine virtuelle en cours de migration.
 
-La plateforme Azure démarre ensuite la migration des métadonnées du déploiement Classic vers Resource Manager pour les ressources faisant l’objet de la migration.
+La plateforme Azure démarre ensuite la migration des métadonnées du modèle de déploiement classique vers Resource Manager pour les ressources faisant l’objet de la migration.
 
-Une fois l’opération de préparation terminée, vous avez la possibilité de visualiser les ressources tant dans le déploiement Classic quand dans le déploiement Resource Manager. Pour chaque service cloud du modèle de déploiement classique, nous créons un nom de groupe de ressources au format `cloud-service-name>-Migrated`.
+Une fois l’opération de préparation terminée, vous avez la possibilité de visualiser les ressources tant dans le modèle de déploiement classique que dans le déploiement Resource Manager. Pour chaque service cloud du modèle de déploiement classique, nous créons un nom de groupe de ressources au format `cloud-service-name>-Migrated`.
 
 > [!NOTE]
 > Il n’est pas possible de sélectionner le nom du groupe de ressources créé pour les ressources migrées (par exemple, « -Migré »). Toutefois, une fois la migration terminée, vous pouvez utiliser la fonctionnalité de déplacement Azure Resource Manager pour déplacer des ressources vers n’importe quel groupe de ressources. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../articles/resource-group-move-resources.md)
@@ -60,9 +77,12 @@ Voici deux captures d’écran qui illustrent le résultat après une opération
 
 ![Capture d’écran qui affiche les ressources du portail Azure Resource Manager lors d’une opération de préparation](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
 
+Voici un aperçu des coulisses de vos ressources à la fin de l’étape « Préparer ». Notez que la ressource dans le plan de données est la même. Elle est représentée dans le plan de gestion (modèle de déploiement classique) et dans le plan de contrôle (Resource Manager).
+
+![Coulisses de l’étape « Préparer »](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+
 > [!NOTE]
-> Lors de cette phase de migration, les machines virtuelles qui ne font pas partie d’un réseau virtuel Classic sont arrêtées et désallouées.
->
+> Lors de cette phase de migration, les machines virtuelles qui ne font pas partie d’un réseau virtuel classique sont arrêtées et désallouées.
 >
 
 ### <a name="check-manual-or-scripted"></a>Vérification (manuelle ou sur la base d’un script)
@@ -77,27 +97,33 @@ Aucun délai maximum ne vous est imposé pour la validation de la migration. Vou
 Si vous constatez certains problèmes, vous pouvez toujours abandonner la migration et revenir au modèle de déploiement Classic. Après que vous êtes revenu en arrière, la plateforme Azure ouvre les opérations du plan de gestion sur les ressources pour vous permettre de reprendre les opérations normales sur ces machines virtuelles dans le modèle de déploiement classique.
 
 ### <a name="abort"></a>Abandon
-L’abandon est une étape facultative qui vous permet d’abandonner la migration en annulant vos modifications et en revenant au modèle de déploiement Classic.
+L’abandon est une étape facultative qui vous permet d’abandonner la migration en annulant vos modifications et en revenant au modèle de déploiement Classic. Cette opération supprime les métadonnées de Resource Manager pour les ressources créées à l’étape « Préparer » précédente. 
+
+![Coulisses de l’étape « Abandonner »](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+
 
 > [!NOTE]
 > Vous ne pouvez plus effectuer cette opération une fois que vous avez déclenché l’opération de validation.     
 >
->
 
 ### <a name="commit"></a>Validation
-Après avoir terminé la validation, vous pouvez valider la migration. Les ressources n’apparaissent plus dans l’environnement Classic et sont disponibles uniquement dans le modèle de déploiement Resource Manager. Les ressources migrées peuvent être gérées uniquement dans le nouveau portail.
+Après avoir terminé la validation, vous pouvez valider la migration. Les ressources n’apparaissent plus dans le modèle de déploiement classique et sont disponibles uniquement dans le modèle de déploiement Resource Manager. Les ressources migrées peuvent être gérées uniquement dans le nouveau portail.
 
 > [!NOTE]
 > Il s’agit d’une opération idempotente. En cas d’échec, il est recommandé de retenter l’opération. Si le problème persiste, créez un ticket de support ou publiez un billet avec la balise ClassicIaaSMigration sur notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
 >
 >
-<br>
-Voici un diagramme de flux des étapes lors d’un processus de migration
+
+![Coulisses de l’étape « Soumettre »](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+
+## <a name="where-to-begin-migration"></a>Par quoi commencer la migration ?
+
+Voici un organigramme qui montre comment procéder à la migration
 
 ![Capture d’écran illustrant les étapes de la migration](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="translation-of-classic-to-azure-resource-manager-resources"></a>Traduction de ressources classiques en ressources Azure Resource Manager
-Les représentations Classic et Resource Manager des ressources sont décrites dans la table suivante. D’autres fonctionnalités et ressources ne sont pas prises en charge actuellement.
+## <a name="translation-of-classic-deployment-model-to-azure-resource-manager-resources"></a>Traduction de ressources du modèle de déploiement classique en ressources Azure Resource Manager
+Les représentations des ressources du modèle de déploiement classique et de Resource Manager sont décrites dans la table suivante. D’autres fonctionnalités et ressources ne sont pas prises en charge actuellement.
 
 | Représentation Classic | Représentation Resource Manager | Remarques détaillées |
 | --- | --- | --- |

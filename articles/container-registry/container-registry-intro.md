@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 4eb32dd18c57af8d46e7afb63047c0985458705d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fd0356286be46f99fd9ab8eabc53256103038407
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Présentation des registres de conteneurs Docker privés
@@ -49,7 +49,7 @@ Les développeurs peuvent également effectuer un push vers un registre de conte
 
 
 ## <a name="key-concepts"></a>Concepts clés
-* **Registre** : créez au moins un registre de conteneur dans votre abonnement Azure. Chaque registre est pris en charge par un [compte de stockage](../storage/storage-introduction.md) Azure standard dans le même emplacement. Tirez parti du stockage local proche du réseau de vos images de conteneur en créant un registre dans le même emplacement Azure que vos déploiements. Un nom de Registre complet se présente sous la forme `myregistry.azurecr.io`.
+* **Registre** : créez au moins un registre de conteneur dans votre abonnement Azure. Chaque registre est pris en charge par un [compte de stockage](../storage/common/storage-introduction.md) Azure standard dans le même emplacement. Tirez parti du stockage local proche du réseau de vos images de conteneur en créant un registre dans le même emplacement Azure que vos déploiements. Un nom de Registre complet se présente sous la forme `myregistry.azurecr.io`.
 
   Vous [contrôlez l’accès](container-registry-authentication.md) à un registre de conteneur à l’aide d’un [principal de service](../active-directory/active-directory-application-objects.md) pris en charge par Azure Active Directory ou un compte d’administration fourni. Exécutez la commande `docker login` standard pour vous authentifier auprès d’un registre.
 

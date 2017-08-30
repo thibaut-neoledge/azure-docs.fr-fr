@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/16/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 74f95d571da2e3066958cf3c5ab1938a5c631f7d
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualiser en temps réel des données de capteur à partir de votre Azure IoT Hub en utilisant la fonctionnalité Web Apps d’Azure App Service
@@ -83,7 +83,7 @@ Sur GitHub, nous avons mis à disposition une application web qui affiche des do
 
    ![Configurer votre déploiement d’application web pour utiliser le référentiel Git local](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-2. Cliquez sur **informations d’identification du déploiement**, créez un nom d’utilisateur et un mot de passe à utiliser pour se connecter au référentiel Git dans Azure, puis cliquez sur **OK**.
+2. Cliquez sur **Informations d’identification du déploiement**, créez un nom d’utilisateur et un mot de passe pour vous connecter au référentiel Git dans Azure, puis cliquez sur **Enregistrer**.
 
 3. Cliquez sur **Vue d’ensemble**, puis notez de la valeur de l’**URL de clone Git**.
 
@@ -112,6 +112,9 @@ Sur la page **Vue d’ensemble** de votre application web, cliquez sur l’URL p
 Vous devriez alors voir les données de température et d’humidité en temps réel à partir de votre IoT Hub.
 
 ![Page d’application web affichant l’humidité et la température en temps réel](media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
+
+> [!NOTE]
+> Vérifiez que l’exemple d’application s’exécute correctement sur votre appareil. Si ce n’est pas le cas, vous obtiendrez un graphique vide ; vous pouvez consulter les didacticiels sous [Configurer votre appareil](iot-hub-raspberry-pi-kit-node-get-started.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous avez correctement utilisé votre application web pour visualiser en temps réel des données de capteur à partir de votre IoT Hub.

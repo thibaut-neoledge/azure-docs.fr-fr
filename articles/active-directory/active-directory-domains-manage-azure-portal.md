@@ -12,53 +12,52 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/10/2017
 ms.author: curtand;jeffsta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: b483dcce0bec933e5dab6c990f4912cb596ebda0
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 402c1be07b8ee885ee5341128fb3f419611b924d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
-Un nom de domaine est une partie importante de l’identificateur de nombreuses ressources de répertoire : il fait partie du nom ou de l’adresse électronique d’un utilisateur, de l’adresse d’un groupe et parfois de l’URI ID d’application pour une application. Une ressource dans Azure Active Directory (Azure AD) peut inclure un nom de domaine déjà vérifié comme appartenant au répertoire qui contient la ressource. Seul un administrateur général peut effectuer des tâches de gestion de domaine dans Azure AD.
+Un nom de domaine est une partie importante de l’identificateur de nombreuses ressources d’annuaire : il fait partie du nom ou de l’adresse e-mail d’un utilisateur, de l’adresse d’un groupe et parfois de l’URI ID d’application pour une application. Une ressource dans Azure Active Directory (Azure AD) peut inclure un nom de domaine déjà vérifié comme appartenant à l’annuaire qui contient la ressource. Seul un administrateur général peut effectuer des tâches de gestion de domaine dans Azure AD.
 
-## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Définir le nom de domaine principal pour votre répertoire Azure AD
-Lors de la création du répertoire, le nom de domaine initial, par exemple « contoso.onmicrosoft.com », est également le nom de domaine principal. Le domaine principal est le nom de domaine par défaut pour un nouvel utilisateur lorsque vous créez un nouvel utilisateur. Cela simplifie le processus permettant à un administrateur de créer des utilisateurs dans le portail. Pour modifier le nom de domaine principal, procédez comme suit :
+## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Définir le nom de domaine principal de votre annuaire Azure AD
+Lors de la création de l’annuaire, le nom de domaine initial, par exemple « contoso.onmicrosoft.com », est également le nom de domaine principal. Le domaine principal est le nom de domaine par défaut pour un nouvel utilisateur lorsque vous créez un nouvel utilisateur. Le fait de définir un nom de domaine principal simplifie le processus permettant à un administrateur de créer des utilisateurs dans le portail. Pour modifier le nom de domaine principal, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-2. Sélectionnez **Plus de services**, saisissez **Azure Active Directory** dans la zone de texte, puis sélectionnez **Entrée**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour l’annuaire.
+2. Sélectionnez **Autres services**, tapez **Azure Active Directory** dans la zone de texte et sélectionnez **Entrée**.
    
    ![Ouvrir la gestion des utilisateurs](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. Dans le panneau ***nom-répertoire***, sélectionnez **Noms de domaine**.
-4. Dans le panneau ***nom-répertoire* - Noms de domaine**, sélectionnez le nom de domaine que vous souhaitez définir comme nom de domaine principal.
+3. Dans le panneau ***nom-annuaire***, sélectionnez **Noms de domaine**.
+4. Dans le panneau ***nom-annuaire* - Noms de domaine**, sélectionnez le nom de domaine que vous souhaitez définir comme nom de domaine principal.
 5. Dans le panneau ***NomDomaine*** (autrement dit, le panneau qui s’ouvre avec votre nouveau nom de domaine en titre), sélectionnez la commande **Convertir en principal**. Confirmez votre choix lorsque vous y êtes invité.
    
    ![Créer un nom de domaine principal](./media/active-directory-domains-manage-azure-portal/make-primary.png)
 
-Vous pouvez modifier le nom de domaine principal de votre répertoire en n’importe quel domaine personnalisé vérifié qui n’est pas fédéré. La modification du domaine principal de votre répertoire ne changera pas les noms des utilisateurs existants.
+Vous pouvez modifier le nom de domaine principal de votre annuaire en n’importe quel domaine personnalisé vérifié qui n’est pas fédéré. La modification du domaine principal de votre annuaire ne change pas les noms des utilisateurs existants.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad"></a>Ajouter des noms de domaine personnalisés à Azure AD
-Vous pouvez ajouter jusqu’à 900 noms de domaine personnalisés à chaque répertoire Azure AD. Le processus permettant d’ [ajouter un nom de domaine personnalisé supplémentaire](active-directory-domains-add-azure-portal.md) est le même pour le premier nom de domaine personnalisé.
+Vous pouvez ajouter jusqu’à 900 noms de domaine personnalisés à chaque annuaire Azure AD. Le processus permettant d’ [ajouter un nom de domaine personnalisé supplémentaire](add-custom-domain.md) est le même pour le premier nom de domaine personnalisé.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Ajouter des sous-domaines d’un domaine personnalisé
-Si vous souhaitez ajouter un nom de domaine de troisième niveau, tel que « europe.contoso.com » à votre répertoire, vous devez tout d’abord ajouter et vérifier le domaine de second niveau, tel que contoso.com. Le sous-domaine est automatiquement vérifié par Azure AD. Pour voir que le sous-domaine que vous venez d’ajouter a été vérifié, actualisez la page dans le navigateur qui répertorie les domaines.
+Si vous souhaitez ajouter un nom de domaine de troisième niveau, tel que « europe.contoso.com » à votre annuaire, vous devez tout d’abord ajouter et vérifier le domaine de second niveau, tel que contoso.com. Le sous-domaine est automatiquement vérifié par Azure AD. Pour voir que le sous-domaine que vous venez d’ajouter a été vérifié, actualisez la page dans le navigateur qui répertorie les domaines.
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>Que faire en cas de modification du bureau d’enregistrement DNS pour votre nom de domaine personnalisé ?
 Si vous modifiez le bureau d’enregistrement DNS de votre nom de domaine personnalisé, vous pouvez continuer à utiliser votre nom de domaine personnalisé sans interruption et sans tâches de configuration supplémentaires dans Azure AD. Si vous utilisez votre nom de domaine personnalisé avec Office 365, Intune ou autres services s’appuyant sur des noms de domaine personnalisés dans Azure AD, reportez-vous à la documentation de ces services.
 
 ## <a name="delete-a-custom-domain-name"></a>Supprimer un nom de domaine personnalisé
-Vous pouvez supprimer un nom de domaine personnalisé de votre répertoire Azure AD si votre organisation n’utilise plus ce nom de domaine ou si vous souhaitez l’utiliser avec un autre répertoire Azure AD.
+Vous pouvez supprimer un nom de domaine personnalisé de votre annuaire Azure AD si votre organisation n’utilise plus ce nom de domaine ou si vous souhaitez l’utiliser avec un autre annuaire Azure AD.
 
-Pour supprimer un nom de domaine personnalisé, vous devez d’abord vous assurer qu’aucune des ressources de votre répertoire ne s’appuie sur le nom de domaine. Vous ne pouvez pas supprimer un nom de domaine de votre répertoire si :
+Pour supprimer un nom de domaine personnalisé, vous devez d’abord vous assurer qu’aucune des ressources de votre annuaire ne s’appuie sur le nom de domaine. Vous ne pouvez pas supprimer un nom de domaine de votre annuaire si :
 
 * L’utilisateur dispose d’un nom d’utilisateur, d’une adresse de messagerie ou d’une adresse de proxy qui incluent le nom de domaine.
 * Le groupe dispose d’une adresse de messagerie ou d’une adresse de proxy qui incluent le nom de domaine.
 * Une application dans Azure AD dispose d’une URI ID d’application qui inclut le nom de domaine.
 
-Vous devez modifier ou supprimer n’importe quelle ressource de ce type dans votre répertoire Azure AD pour pouvoir supprimer le nom de domaine personnalisé.
+Vous devez modifier ou supprimer n’importe quelle ressource de ce type dans votre annuaire Azure AD pour pouvoir supprimer le nom de domaine personnalisé.
 
 ## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Utiliser PowerShell ou API Graph pour gérer les noms de domaine
 La plupart des tâches de gestion des noms de domaine dans Azure Active Directory peuvent également être accomplies à l’aide de Microsoft PowerShell, ou encore par programmation à l’aide d’API Graph d’Azure AD.
@@ -67,6 +66,6 @@ La plupart des tâches de gestion des noms de domaine dans Azure Active Director
 * [Utilisation d’API Graph pour gérer les noms de domaine dans Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Ajouter des noms de domaines personnalisés](active-directory-domains-add-azure-portal.md)
+* [Ajouter des noms de domaines personnalisés](add-custom-domain.md)
 
 
