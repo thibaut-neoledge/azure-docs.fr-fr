@@ -4,7 +4,7 @@ description: "Quand votre entreprise configure Azure Multi-Factor Authentication
 services: multi-factor-authentication
 keywords: "utilisation du répertoire azure, active directory dans le cloud, didacticiel sur active directory"
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: pblachar
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: HT
 ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
@@ -36,7 +36,7 @@ Si votre service informatique vous impose d’utiliser la vérification en deux 
 
 Pour commencer, sélectionnez **Le configurer maintenant**.
 
-Si vous ne voyez pas un écran semblable à celui-ci quand vous vous connectez, suivez les instructions indiquées dans [Gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) pour accéder à la page de paramètres où vous pouvez gérer vos options de vérification. 
+Si vous ne voyez pas un écran semblable à celui-ci quand vous vous connectez, suivez les instructions indiquées dans [Gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) pour accéder à la page de paramètres où vous pouvez gérer vos options de vérification.
 
 ## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Décider du mode de vérification de vos connexions
 

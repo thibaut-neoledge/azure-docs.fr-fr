@@ -1,6 +1,6 @@
 ---
 title: "Qu’est-ce qu’une inscription libre-service à Azure ? | Microsoft Docs"
-description: "Présentation de l’inscription libre-service à Azure, gestion du processus d&quot;inscription, et prise en charge d&quot;un nom de domaine DNS."
+description: "Présentation de l’inscription libre-service à Azure, gestion du processus d'inscription, et prise en charge d'un nom de domaine DNS."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2017
+ms.date: 08/28/2017
 ms.author: curtand
+ms.reviewer: elkuzmen
+ms.custom: it-pro
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 63818878e01dd52a988e10a6e4f624638ea1cfae
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="what-is-self-service-signup-for-azure"></a>Qu’est-ce qu’une inscription libre-service à Azure ?

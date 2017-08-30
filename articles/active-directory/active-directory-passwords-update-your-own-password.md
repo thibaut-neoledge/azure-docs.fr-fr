@@ -48,9 +48,9 @@ Suivez les étapes ci-dessous pour accéder à la réinitialisation de mot de pa
 
    > [!NOTE]
    > Si le personnel informatique n’a pas activé cette fonctionnalité, un lien « Contactez votre administrateur » s’affiche afin que le personnel puisse vous aider, par e-mail ou via leur propre portail web.
-   > 
+   >
    > Si vous avez besoin de déverrouiller votre compte, à ce stade choisissez l’option « Je connais mon mot de passe, mais je ne peux toujours pas me connecter ».
-   > 
+   >
 
 3. Selon la façon dont votre personnel informatique a configuré la fonction SSPR, vous verrez apparaître une ou plusieurs des options ci-après. Vous ou votre personnel informatique avez déjà rempli certaines de ces informations avant d’utiliser l’article [S’inscrire à la réinitialisation de mot de passe en libre-service](active-directory-passwords-reset-register.md).
 
