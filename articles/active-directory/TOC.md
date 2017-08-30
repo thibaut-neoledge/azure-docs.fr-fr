@@ -44,7 +44,6 @@
 #### [Scénarios supplémentaires pour la gestion des licences par groupe](active-directory-licensing-group-advanced.md)
 #### [Exemples PowerShell pour les licences basées sur les groupes](active-directory-licensing-ps-examples.md)
 ### [Ajouter des utilisateurs à partir d’autres répertoires (portail classique)](active-directory-create-users-external.md)
-### [Suppression d’utilisateurs](active-directory-users-delete-user-azure-portal.md)
 ### [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
 ### [Réinitialiser un mot de passe](active-directory-users-reset-password-azure-portal.md)
 ### [Gérer les informations de travail utilisateur](active-directory-users-work-info-azure-portal.md)
@@ -132,10 +131,14 @@
 
 ## Gérer des appareils
 ### [Introduction](device-management-introduction.md)
+### [Utilisation du portail Azure](device-management-azure-portal.md)
 ### [FAQ](device-management-faq.md)
 ### Tâches
+#### [Configurer les appareils Windows 10 inscrits dans Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Configurer les appareils joints Azure AD](device-management-azuread-joined-devices-setup.md)
 #### [Configurer des appareils joints Azure AD hybrides](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Déployer en local](active-directory-device-registration-on-premises-setup.md)
+#### [Enregistrement dans Azure AD lors de la première exécution de Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Résolution des problèmes
 #### [Appareils Windows 10 et Windows Server 2016 joints Azure AD hybrides](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Appareils Windows hérités joints Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
@@ -297,7 +300,6 @@
 #### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
 #### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
 #### [Référence technique](active-directory-conditional-access-technical-reference.md)
-#### [Applications prises en charge](active-directory-conditional-access-supported-apps.md)
 #### [Comprendre les stratégies d’appareils](active-directory-conditional-access-device-policies.md)
 #### [Configurer l’accès aux applications connectées](active-directory-conditional-access-policy-connected-applications.md)
 #### [Correction](active-directory-conditional-access-device-remediation.md)

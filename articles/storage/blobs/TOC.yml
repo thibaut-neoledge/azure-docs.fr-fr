@@ -38,6 +38,8 @@
           href: storage-blob-storage-tiers.md
         - name: Conception d’applications à haute disponibilité à l’aide de RA-GRS
           href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Réaction aux événements
+          href: storage-blob-event-overview.md
         - name: Cibles de performance et d’évolutivité
           href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Liste de contrôle des performances et de l’évolutivité
@@ -74,6 +76,8 @@
           href: storage-properties-metadata.md
         - name: Utiliser l’émulateur de stockage
           href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Acheminer des événements vers un point de terminaison personnalisé
+          href: storage-blob-event-quickstart.md
         - name: Domaines personnalisés
           href: storage-custom-domain-name.md
         - name: Recherche dans le Stockage Blob avec la Recherche Azure

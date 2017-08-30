@@ -20,6 +20,10 @@
       href: security-authentication.md
     - name: Livraison et nouvelle tentative
       href: delivery-and-retry.md
+- name: Procédures
+  items:
+    - name: Acheminer des événements de stockage Blob
+      href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Référence
   items:
     - name: REST
