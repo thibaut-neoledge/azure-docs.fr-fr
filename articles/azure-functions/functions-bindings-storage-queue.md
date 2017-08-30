@@ -292,5 +292,5 @@ Pour obtenir un exemple de fonction utilisant des déclencheurs et de liaisons d
 
 <!-- LINKS -->
 
-[« CloudQueueMessage »]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+[`CloudQueueMessage`]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
 
