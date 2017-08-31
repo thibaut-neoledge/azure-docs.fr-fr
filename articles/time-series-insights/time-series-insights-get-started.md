@@ -8,16 +8,17 @@ author: op-ravi
 manager: santoshb
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: eb710795916a2d7beea75a6408a0982fb4dc8750
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/26/2017
 
 ---
@@ -30,23 +31,23 @@ Un environnement Time Series est une ressource Azure disposant d’une capacité
 
 Procédez comme suit pour créer votre environnement :
 
-1.    Connectez-vous au [portail Azure](https://portal.azure.com).
-2.    Cliquez sur le signe plus (« + ») dans le coin supérieur gauche.
-3.    Recherchez « Time Series Insights » dans la zone de recherche.
+1.  Connectez-vous au [portail Azure](https://portal.azure.com).
+2.  Cliquez sur le signe plus (« + ») dans le coin supérieur gauche.
+3.  Recherchez « Time Series Insights » dans la zone de recherche.
 
   ![Créer l’environnement Time Series Insights](media/get-started/getstarted-create-environment1.png)
 
-4.    Sélectionnez « Time Series Insights », puis cliquez sur « Créer ».
+4.  Sélectionnez « Time Series Insights », puis cliquez sur « Créer ».
 
   ![Créer le groupe de ressources Time Series Insights](media/get-started/getstarted-create-environment2.png)
 
-5.    Spécifiez le nom de l’environnement. Ce nom représente l’environnement dans l’[explorateur time series](https://insights.timeseries.azure.com).
-6.    Sélectionnez un abonnement. Choisissez celui qui contient votre source d’événement. Time Series Insights peut détecter automatiquement les ressources Azure IoT Hub et Concentrateur d’événements existant dans le même abonnement.
-7.    Sélectionnez ou créez un groupe de ressources. Un groupe de ressources correspond à une collection de ressources Azure utilisées ensemble.
-8.    Sélectionnez un emplacement d’hébergement. Pour éviter de déplacer des données entre des centres de données, choisissez l’emplacement qui contient votre source d’événement.
-9.    Sélectionnez un niveau tarifaire.
-10.    Sélectionnez la capacité. Vous pouvez modifier la capacité d’un environnement après sa création.
-11.    Créez votre environnement. Vous pouvez également épingler votre environnement au tableau de bord pour y accéder facilement à chaque fois que vous vous connectez.
+5.  Spécifiez le nom de l’environnement. Ce nom représente l’environnement dans l’[explorateur time series](https://insights.timeseries.azure.com).
+6.  Sélectionnez un abonnement. Choisissez celui qui contient votre source d’événement. Time Series Insights peut détecter automatiquement les ressources Azure IoT Hub et Concentrateur d’événements existant dans le même abonnement.
+7.  Sélectionnez ou créez un groupe de ressources. Un groupe de ressources correspond à une collection de ressources Azure utilisées ensemble.
+8.  Sélectionnez un emplacement d’hébergement. Pour éviter de déplacer des données entre des centres de données, choisissez l’emplacement qui contient votre source d’événement.
+9.  Sélectionnez un niveau tarifaire.
+10. Sélectionnez la capacité. Vous pouvez modifier la capacité d’un environnement après sa création.
+11. Créez votre environnement. Vous pouvez également épingler votre environnement au tableau de bord pour y accéder facilement à chaque fois que vous vous connectez.
 
   ![Créer l’épingle Time Series Insights sur le tableau de bord](media/get-started/getstarted-create-environment3.png)
 

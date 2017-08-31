@@ -6,7 +6,7 @@ metadata:
   title: 'Documentation Azure Cosmos DB - Didacticiels, Référence des API'
   description: 'Apprenez à utiliser Azure Cosmos DB pour créer des bases de données multi-modèles distribuées mondialement. Le composant Didacticiels vous montre comment créer et interroger des documents, des bases de données de graphique et de clé/valeur.'
   services: cosmos-db
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: cosmos-db
   ms.tgt_pltfrm: na

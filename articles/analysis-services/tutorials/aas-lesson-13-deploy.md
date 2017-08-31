@@ -3,7 +3,7 @@ title: "Leçon 13 du didacticiel Azure Analysis Services : Déployer | Microsoft
 description: "Explique comment déployer le projet du didacticiel Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

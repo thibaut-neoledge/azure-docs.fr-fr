@@ -3,7 +3,7 @@ title: "Leçon 9 du didacticiel Azure Analysis Services : Créer des hiérarchie
 description: 
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

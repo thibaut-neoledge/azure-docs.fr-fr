@@ -3,7 +3,7 @@ title: "Leçon 12 du didacticiel Azure Analysis Services : Analyser dans Excel
 description: "Explique comment utiliser la fonctionnalité Analyser dans Excel dans le projet du didacticiel Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

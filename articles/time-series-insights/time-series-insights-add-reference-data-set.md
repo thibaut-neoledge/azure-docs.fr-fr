@@ -8,7 +8,7 @@ author: venkatgct
 manager: almineev
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -23,15 +23,11 @@ ms.lasthandoff: 07/04/2017
 
 ---
 
-<a id="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
-
-# Créer un jeu de données de référence pour votre environnement Time Series Insights à l’aide du portail Ibiza
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Créer un jeu de données de référence pour votre environnement Time Series Insights à l’aide du portail Ibiza
 
 Un jeu de données de référence est une collection d’éléments à laquelle s’ajoutent les événements issus de votre source d’événements. Le moteur d’entrée Time Series Insights joint un événement à partir de votre source d’événements à un élément dans votre jeu de données de référence. Cet événement ajouté est ensuite disponible pour la requête. Ce type de jointure repose sur les clés définies dans votre jeu de données de référence.
 
-<a id="steps-to-add-a-reference-data-set-to-your-environment" class="xliff"></a>
-
-## Procédure d’ajout d’un jeu de données de référence à votre environnement
+## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Procédure d’ajout d’un jeu de données de référence à votre environnement
 
 1. Connectez-vous au [portail Ibiza](https://portal.azure.com).
 2. Cliquez sur « Toutes les ressources » dans le menu de gauche du portail Ibiza.
@@ -50,9 +46,7 @@ Un jeu de données de référence est une collection d’éléments à laquelle 
 
 7. Cliquez sur « Créer ».
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Gérez les données de référence](time-series-insights-manage-reference-data-csharp.md) par programme.
 * Pour obtenir des informations de référence d’API complètes, consultez le document [API de données de référence](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

@@ -2,7 +2,7 @@
 title: "Documentation Azure Logic Apps - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à développer des applications logiques qui automatisent et simplifient les workflows métier en local et dans le cloud. Didacticiels, modèles et références d’API."
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

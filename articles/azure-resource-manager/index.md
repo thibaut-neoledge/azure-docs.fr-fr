@@ -2,7 +2,7 @@
 title: "Documentation Azure Resource Manager - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment utiliser Resource Manager pour déployer et gérer des ressources de solution en tant que groupe et créer des modèles de déploiement de ressources cohérents et reproductibles."
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

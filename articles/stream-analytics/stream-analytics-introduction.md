@@ -4,7 +4,7 @@ description: "Découvrez Stream Analytics, un service géré qui vous permet d�
 keywords: "analyse en tant que service, services gérés, traitement des données de diffusion en continu, analyse de diffusion en continu, qu’est-ce que Stream Analytics"
 services: stream-analytics
 documentationcenter: 
-author: jenniehubbard
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/08/2017
-ms.author: jhubbard
+ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 5081ecaf569aef9e2f99cc27e91c4b64a25b0deb
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 6bb70ba7588b8c6e9261fca097403e7fccb041eb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -98,6 +98,6 @@ En tant que service géré dans le Cloud, Stream Analytics permet d’éviter la
 * En savoir plus sur le langage de requête de type SQL pour Stream Analytics, ainsi que sur les concepts uniques comme les [fonctions de fenêtre](stream-analytics-window-functions.md).
 * Découvrez comment [mettre à l’échelle des travaux Stream Analytics](stream-analytics-scale-jobs.md). 
 * Découvrez comment [intégrer Stream Analytics et Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-* Trouvez les réponses aux questions que vous vous posez sur Stream Analytics dans le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+* Trouvez les réponses aux questions que vous vous posez sur Stream Analytics dans le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 

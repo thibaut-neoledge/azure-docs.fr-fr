@@ -2,7 +2,7 @@
 title: "Documentation Azure Site Recovery - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment configurer la récupération d’urgence cloud et la continuité d’activité pour les serveurs physiques et les machines virtuelles en déployant et en gérant la réplication."
 services: site-recovery
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

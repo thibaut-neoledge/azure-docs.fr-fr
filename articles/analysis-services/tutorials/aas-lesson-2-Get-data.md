@@ -3,7 +3,7 @@ title: "Leçon 2 du didacticiel Azure Analysis Services : Obtenir des données |
 description: "Explique comment obtenir et importer des données dans le projet du didacticiel Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

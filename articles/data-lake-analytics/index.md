@@ -2,8 +2,8 @@
 title: "Documentation Azure Data Lake Analytics - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez les analyses Big Data avec Data Lake Analytics. Des didacticiels vous montrent comment exécuter des analyses interactives par lots en temps réel, et comment écrire des requêtes U-SQL."
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics

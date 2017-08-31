@@ -1,13 +1,24 @@
 ---
-layout: LandingPage
 title: Documentation Service Bus Relay
 description: "Découvrez comment le service Azure Relay fonctionne dans un environnement local et de cloud hybride, et accédez à des procédures, des didacticiels, des vidéos, des informations de référence sur les API et bien plus encore."
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
 ms.translationtype: HT
 ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
 ms.contentlocale: fr-fr
 ms.lasthandoff: 08/04/2017
 
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Documentation Service Bus Relay
 Découvrez comment le service Azure Relay facilite la mise en œuvre d’applications hybrides entre des environnements locaux et cloud dans un réseau d’entreprise et le cloud public, sans avoir à ouvrir une connexion de pare-feu ni à exiger de modifications intrusives dans une infrastructure de réseau d’entreprise.

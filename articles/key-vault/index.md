@@ -2,7 +2,7 @@
 title: "Documentation Azure Key Vault - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser Key Vault pour créer et gérer des clés d’accès et de chiffrement pour vos ressources, applications et solutions cloud. Didacticiels, références d’API et autres."
 services: key-vault
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

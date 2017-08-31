@@ -2,7 +2,7 @@
 title: "Documentation Azure Monitor - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser les services de surveillance et de diagnostic pour suivre les performances, préserver la sécurité et identifier des tendances. Références d’API, meilleures pratiques et autres documents."
 services: monitoring-and-diagnostics
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -2,7 +2,7 @@
 title: "Documentation Azure IoT Hub - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des milliards de ressources IoT (Internet of Things, Internet des objets). Didacticiels, références d’API, vidéos et autres documents."
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

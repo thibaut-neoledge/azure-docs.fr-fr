@@ -3,7 +3,7 @@ title: "Leçon 7 du didacticiel Azure Analysis Services : Créer des indicateu
 description: "Indique comment créer des indicateurs de performance clés dans le projet du didacticiel Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

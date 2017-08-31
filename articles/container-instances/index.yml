@@ -5,7 +5,7 @@ metadata:
   title: Documentation d’Azure Container Instances - Didacticiels | Microsoft Docs
   description: 'Azure Container Instances propose la façon la plus simple et rapide d’exécuter un conteneur dans Azure, sans avoir à configurer des machines virtuelles et sans avoir à adopter un service de niveau supérieur.'
   services: container-instances
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: container-instances
   ms.tgt_pltfrm: na

@@ -3,7 +3,7 @@ title: "Modèles Profil utilisateur dans Gestion des API Azure | Microsoft Docs"
 description: "Découvrez comment personnaliser le contenu des pages Profil utilisateur dans le portail des développeurs dans Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 2e3b73ef-d223-44fe-9280-c3af3fd4a030
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: cd6cfe3fde93624faec844f91ea9193527495df4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modèles Profil utilisateur dans Gestion des API Azure
@@ -35,7 +37,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 > [!NOTE]
 >  Les exemples de modèles par défaut inclus dans la documentation suivante sont susceptibles d’être modifiés et améliorés de façon régulière. Vous pouvez afficher les modèles dynamiques par défaut dans le portail des développeurs en accédant aux modèles individuels souhaités. Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
-##  <a name="a-nameprofilea-profile"></a><a name="Profile"></a> Profil  
+##  <a name="Profile"></a> Profil  
  Le modèle **Profil** vous permet de personnaliser la section Profil utilisateur de la page Profil utilisateur dans le portail des développeurs.  
   
  ![Page Profil utilisateur](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Page Profil utilisateur APIM")  
@@ -180,7 +182,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 }  
 ```  
   
-##  <a name="a-namesubscriptionsa-subscriptions"></a><a name="Subscriptions"></a> Abonnements  
+##  <a name="Subscriptions"></a> Abonnements  
  Le modèle **Abonnements** vous permet de personnaliser la section Abonnements de la page Profil utilisateur dans le portail des développeurs.  
   
  ![Page d’abonnement utilisateur](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Page d’abonnement utilisateur APIM")  
@@ -401,7 +403,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 }  
 ```  
   
-##  <a name="a-nameapplicationsa-applications"></a><a name="Applications"></a> Applications  
+##  <a name="Applications"></a> Applications  
  Le modèle **Applications** vous permet de personnaliser la section Abonnements de la page Profil utilisateur dans le portail des développeurs.  
   
  ![Page Applications du compte d’utilisateur](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "APIM Applications du compte d’utilisateur APIM")  
@@ -564,7 +566,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 }  
 ```  
   
-##  <a name="a-nameupdateaccountinfoa-update-account-info"></a><a name="UpdateAccountInfo"></a> Mettre à jour les informations du compte  
+##  <a name="UpdateAccountInfo"></a> Mettre à jour les informations du compte  
  Le modèle **Mettre à jour les informations du compte** vous permet de personnaliser la page **Mettre à jour les informations du compte** dans le portail des développeurs.  
   
  ![Modèles de page Mettre à jour les informations du compte dans le portail des développeurs](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Modèles de page Mettre à jour les informations du compte dans le portail des développeurs APIM")  
@@ -623,8 +625,3 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

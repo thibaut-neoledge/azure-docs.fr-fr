@@ -3,7 +3,7 @@ title: "Leçon 10 du didacticiel Azure Analysis Services : Créer des partitions
 description: "Explique comment créer des partitions dans le projet du didacticiel Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: "Documentation Azure Container Registry - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment créer et gérer des Registres de conteneurs pour stocker vos images de déploiement avec un service de Registre Docker géré. Didacticiels, référence d’API et autres."
 services: container-registry
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97a09226c0f784c4834e96e47ac9052844ff7a36
 ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -108,9 +110,4 @@ Découvrez comment utiliser le Registre de conteneurs pour stocker et gérer des
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

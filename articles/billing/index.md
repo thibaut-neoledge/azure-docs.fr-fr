@@ -2,7 +2,7 @@
 title: "Documentation de la facturation Azure - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à comprendre votre facturation Azure, ainsi qu’à gérer et analyser l’utilisation et les coûts. Didacticiels, FAQ, références d’API et autres documents."
 services: billing
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

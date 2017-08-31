@@ -3,7 +3,7 @@ title: "Stratégies d’authentification dans Gestion des API Azure | Microsoft 
 description: "Découvrez les stratégies d’authentification disponibles dans Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
@@ -14,21 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: f447e43799e56114d52b0dc0f5c36265f2870c8e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-authentication-policies"></a>Stratégies d’authentification dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nameauthenticationpoliciesa-authentication-policies"></a><a name="AuthenticationPolicies"></a> Stratégies d’authentification  
+##  <a name="AuthenticationPolicies"></a> Stratégies d’authentification  
   
 -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) : authentification avec un service principal à l’aide de l’authentification de base.  
   
 -   [Authenticate with client certificate](api-management-authentication-policies.md#ClientCertificate) : authentification avec un service principal à l’aide de certificats clients.  
   
-##  <a name="a-namebasica-authenticate-with-basic"></a><a name="Basic"></a> Authenticate with Basic  
+##  <a name="Basic"></a> Authenticate with Basic  
  La stratégie `authentication-basic` permet l’authentification auprès d’un service principal à l’aide de l’authentification de base. Cette stratégie définit en réalité l’en-tête d’autorisation HTTP sur la valeur correspondant aux informations d’identification fournies dans la stratégie.  
   
 ### <a name="policy-statement"></a>Déclaration de stratégie  
@@ -63,7 +65,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** API  
   
-##  <a name="a-nameclientcertificatea-authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Authenticate with client certificate  
+##  <a name="ClientCertificate"></a> Authenticate with client certificate  
  La stratégie `authentication-certificate` permet l’authentification auprès d’un service principal à l’aide d’un certificat client. Le certificat doit être [installé dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=511599) en premier et identifié par son empreinte.  
   
 ### <a name="policy-statement"></a>Déclaration de stratégie  
@@ -100,8 +102,3 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation des stratégies, consultez [Stratégies dans Gestion des API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

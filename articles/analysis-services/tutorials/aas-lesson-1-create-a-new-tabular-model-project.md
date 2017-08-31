@@ -3,7 +3,7 @@ title: "Leçon 1 du didacticiel Azure Analysis Services : Créer un projet de m
 description: "Explique comment créer un projet du didacticiel Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -3,7 +3,7 @@ title: "Stratégies de mise en cache dans Gestion des API Azure | Microsoft Docs
 description: "Découvrez les stratégies de mise en cache disponibles dans Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-caching-policies"></a>Stratégies de mise en cache dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-namecachingpoliciesa-caching-policies"></a><a name="CachingPolicies"></a> Stratégies de mise en cache  
+##  <a name="CachingPolicies"></a> Stratégies de mise en cache  
   
 -   Stratégies de mise en cache des réponses  
   
@@ -38,7 +40,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
     -   [Remove value from cache](#RemoveCacheByKey) : supprime un élément du cache par clé.  
   
-##  <a name="a-namegetfromcachea-get-from-cache"></a><a name="GetFromCache"></a> Get from cache  
+##  <a name="GetFromCache"></a> Get from cache  
  La stratégie `cache-lookup` permet d’effectuer une recherche dans le cache et de renvoyer une réponse mise en cache valide si elle est disponible. Cette stratégie peut être appliquée dans les cas où le contenu de la réponse reste statique pendant un certain temps. La mise en cache de la réponse réduit les besoins en bande passante et en calcul imposés par le serveur web principal et limite la latence perçue par les consommateurs de l’API.  
   
 > [!NOTE]
@@ -128,7 +130,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** API, operation, product (API, opération, produit)  
   
-##  <a name="a-namestoretocachea-store-to-cache"></a><a name="StoreToCache"></a> Store to cache  
+##  <a name="StoreToCache"></a> Store to cache  
  La stratégie `cache-store` met en cache la réponse en fonction des paramètres de cache spécifiés. Cette stratégie peut être appliquée dans les cas où le contenu de la réponse reste statique pendant un certain temps. La mise en cache de la réponse réduit les besoins en bande passante et en calcul imposés par le serveur web principal et limite la latence perçue par les consommateurs de l’API.  
   
 > [!NOTE]
@@ -201,7 +203,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** API, operation, product (API, opération, produit)  
   
-##  <a name="a-namegetfromcachebykeya-get-value-from-cache"></a><a name="GetFromCacheByKey"></a> Get value from cache  
+##  <a name="GetFromCacheByKey"></a> Get value from cache  
  La stratégie `cache-lookup-value` permet d’effectuer une recherche dans le cache par clé et de renvoyer une valeur mise en cache. La clé peut avoir une valeur de chaîne arbitraire. Elle est généralement fournie à l’aide d’une expression de stratégie.  
   
 > [!NOTE]
@@ -246,7 +248,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** global, API, opération, produit (global, API, opération, produit)  
   
-##  <a name="a-namestoretocachebykeya-store-value-in-cache"></a><a name="StoreToCacheByKey"></a> Store value in cache  
+##  <a name="StoreToCacheByKey"></a> Store value in cache  
  La stratégie `cache-store-value` effectue le stockage du cache par clé. La clé peut avoir une valeur de chaîne arbitraire. Elle est généralement fournie à l’aide d’une expression de stratégie.  
   
 > [!NOTE]
@@ -289,7 +291,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** global, API, opération, produit (global, API, opération, produit)  
   
-###  <a name="a-nameremovecachebykeya-remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Remove value from cache  
+###  <a name="RemoveCacheByKey"></a> Remove value from cache  
  La stratégie `cache-remove-value` supprime un élément mis en cache identifié par sa clé. La clé peut avoir une valeur de chaîne arbitraire. Elle est généralement fournie à l’aide d’une expression de stratégie.  
   
 #### <a name="policy-statement"></a>Déclaration de stratégie  
@@ -330,8 +332,3 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation des stratégies, consultez [Stratégies dans Gestion des API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

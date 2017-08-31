@@ -2,7 +2,7 @@
 title: "Documentation Azure Traffic Manager - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à gérer le trafic entrant pour des performances applicatives optimales. La documentation montre comment répartir le trafic sur les points de terminaison de service Azure ou externes."
 services: traffic-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: 17727bace2ffbe77123e8d027b4a49b6ca92669e
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/18/2017
 
 ---

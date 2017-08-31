@@ -3,7 +3,7 @@ title: "Leçon supplémentaire du didacticiel Azure Analysis Services : Lignes 
 description: "Explique comment créer une expression de lignes de détails dans le didacticiel Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

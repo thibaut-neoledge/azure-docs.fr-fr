@@ -2,7 +2,7 @@
 title: "Documentation Azure Data Catalog - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment configurer un catalogue de données dans lequel votre organisation peut rechercher, comprendre et utiliser des sources de données. Didacticiels, référence d’API et autres documents."
 services: data-catalog
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

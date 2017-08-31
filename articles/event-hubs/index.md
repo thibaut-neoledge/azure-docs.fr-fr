@@ -2,7 +2,7 @@
 title: "Documentation Azure Event Hubs - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment utiliser Event Hubs pour ingérer des millions d’événements par seconde à partir des appareils IoT connectés et des applications sur de nombreuses plateformes."
 services: event-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

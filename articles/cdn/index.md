@@ -2,7 +2,7 @@
 title: "Documentation Azure CDN - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser un réseau de distribution de contenu (CDN) pour diffuser du contenu de centres de données mondiaux vers n’importe quel appareil. Didacticiels, références d’API et autres documents."
 services: cdn
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

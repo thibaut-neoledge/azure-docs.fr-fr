@@ -2,7 +2,7 @@
 title: "Documentation sur la sécurité Azure - Didacticiels | Microsoft Docs"
 description: "Découvrez comment personnaliser les options de sécurité dans les services Azure pour répondre aux besoins de vos déploiements de services et de données dans le cloud."
 services: security
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

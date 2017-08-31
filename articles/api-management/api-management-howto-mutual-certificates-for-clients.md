@@ -3,7 +3,7 @@ title: "Sécuriser les API avec l’authentification de certificat client dans l
 description: "Apprenez à sécuriser l’accès aux API à l’aide des certificats clients"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.service: api-management

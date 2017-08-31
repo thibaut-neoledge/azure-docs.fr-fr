@@ -2,7 +2,7 @@
 title: "Documentation Azure HDInsight - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez Hadoop sur HDInsight. La documentation vous montre comment utiliser, entre autres, Hadoop, Spark, HBase et R-Server pour traiter, analyser et interpréter le Big Data."
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
