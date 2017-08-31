@@ -10,3 +10,7 @@
   href: ./files/storage-files-introduction.md
 - name: Files d’attente
   href: ./queues/storage-queues-introduction.md
+- name: Tables
+  href: ../cosmos-db/table-storage-overview.md
+- name: Disques
+  href: ../virtual-machines/windows/managed-disks-overview.md

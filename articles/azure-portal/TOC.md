@@ -1,16 +1,21 @@
-# [Vue d’ensemble](../azure-portal-overview.md)
+# Vue d'ensemble
+## [À propos du portail Azure](../azure-portal-overview.md)
+# Didacticiels
+## [DevOps avec le portail Azure](tutorial-azureportal-devops.md)
+# Concepts
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-
-# Prise en main
-## [Déployer à l’aide d’un modèle Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
-
-# Procédure
+## [Raccourcis clavier](azure-portal-keyboard-shortcuts.md)
+## [Navigateurs et appareils pris en charge](../azure-preview-portal-supported-browsers-devices.md)
+# Procédures
 ## Déployer
 ### [Créer des modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
-
+### [Déployer à l’aide d’un modèle Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
+### [Créer et partager des tableaux de bord Azure](azure-portal-dashboards.md)
 ## Gérer
-### [Utiliser le portail en version préliminaire pour gérer les ressources](../azure-resource-manager/resource-group-portal.md)
-### [Gérer l’accès à l’aide de RBAC](../active-directory/role-based-access-control-configure.md)
+### [Activer le contraste élevé ou modifier le thème](azure-portal-change-theme-high-contrast.md)
+### [Utiliser le portail pour gérer les ressources](../azure-resource-manager/resource-group-portal.md)
+### [Gérer l’accès à l’aide du contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md)
+### [Partager des tableaux de bord à l’aide du contrôle d’accès en fonction du rôle](azure-portal-dashboard-share-access.md)
 ### [Utiliser des balises pour organiser les ressources](../azure-resource-manager/resource-group-using-tags.md)
 ### [Mettre à l’échelle vos ressources](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [Créer un principal du service Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)

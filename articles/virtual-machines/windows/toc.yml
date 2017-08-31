@@ -108,6 +108,10 @@
           href: csharp.md
         - name: 'Utiliser un modèle avec C#'
           href: csharp-template.md
+        - name: Créer une machine virtuelle avec Chef
+          href: chef-automation.md
+        - name: Utiliser Java
+          href: java.md
         - name: Utiliser Python
           href: python.md
         - name: Utiliser un modèle

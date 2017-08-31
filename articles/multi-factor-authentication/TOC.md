@@ -18,9 +18,10 @@
 #### [Configuration avancée pour l’extension NPS](nps-extension-advanced-configuration.md)
 ### [Créer un fournisseur d’authentification](multi-factor-authentication-get-started-auth-provider.md)
 ### Déployer MFA en local
-#### [Installer le portail utilisateurs](multi-factor-authentication-get-started-portal.md)
+#### [Installation du portail de l'utilisateur](multi-factor-authentication-get-started-portal.md)
 #### [Configurations VPN avancées](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Service Web de l’application mobile](multi-factor-authentication-get-started-server-webservice.md)
+#### [Configurer la haute disponibilité](mfa-server-high-availability.md)
 #### [Authentification Windows](multi-factor-authentication-get-started-server-windows.md)
 #### [Mettre à niveau le serveur MFA](multi-factor-authentication-server-upgrade.md)
 #### [Mettre à niveau à partir de PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)

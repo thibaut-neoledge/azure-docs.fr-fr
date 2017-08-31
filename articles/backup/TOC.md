@@ -8,9 +8,27 @@
 ## [Sauvegarder des serveurs VMware](backup-azure-backup-server-vmware.md)
 
 # Procédures
+
+## Azure Backup Server
+### [Matrice de protection du serveur de sauvegarde Azure](backup-mabs-protection-matrix.md)
+### Installation ou mise à niveau
+#### [Préparer les charges de travail du serveur de sauvegarde Azure dans le portail Azure](backup-azure-microsoft-azure-backup.md)
+#### [Préparer les charges de travail du serveur de sauvegarde Azure dans le portail classique](backup-azure-microsoft-azure-backup-classic.md)
+#### [Ajouter du stockage à un serveur de sauvegarde Azure](backup-mabs-add-storage.md)
+#### [Mettre à jour le serveur de sauvegarde Azure vers la version 2](backup-mabs-upgrade-to-v2.md)
+#### [Installation sans assistance du serveur de sauvegarde Azure](backup-mabs-unattended-install.md)
+### Protection des charges de travail
+#### [Utiliser le serveur de sauvegarde Azure pour sauvegarder un serveur VMware](backup-azure-backup-server-vmware.md)
+#### [Utiliser Azure Backup Server pour sauvegarder Exchange](backup-azure-exchange-mabs.md)
+#### [Utiliser Azure Backup Server pour sauvegarder une batterie de serveurs SharePoint](backup-azure-backup-sharepoint-mabs.md)
+#### [Utiliser Azure Backup Server pour sauvegarder SQL](backup-azure-sql-mabs.md)
+#### [Protéger l’état du système et la récupération complète](backup-mabs-system-state-and-bmr.md)
+### [Récupérer des données à partir d’un serveur de sauvegarde Azure](backup-azure-alternate-dpm-server.md)
+
 ## Machines virtuelles Azure
 ### Préparation de la machine virtuelle
 #### [Préparer des machines virtuelles déployées par Resource Manager](backup-azure-arm-vms-prepare.md)
+#### [Sauvegardes cohérentes des applications des machines virtuelles Linux](backup-azure-linux-app-consistent.md)
 #### [Préparer des machines virtuelles Azure](backup-azure-vms-prepare.md)
 ### Planifier votre environnement
 #### [Planifier l’infrastructure de sauvegarde de machines virtuelles](backup-azure-vms-introduction.md)
@@ -29,6 +47,32 @@
 #### [Restaurer des machines virtuelles dans Azure](backup-azure-restore-vms.md)
 #### [Restaurer la clé et le secret du Key Vault pour les machines virtuelles chiffrées](backup-azure-restore-key-secret.md)
 
+## Configurer les rapports de la Sauvegarde Azure
+### [Configurer les rapports de sauvegarde Azure](backup-azure-configure-reports.md)
+### [Modèle de données pour les rapports de sauvegarde Azure](backup-azure-reports-data-model.md)
+### [Modèle de données Log Analytics pour la sauvegarde Azure](backup-azure-log-analytics-data-model.md)
+
+## Gestionnaire de protection des données
+### [Préparer les charges de travail DPM dans le portail Azure](backup-azure-dpm-introduction.md)
+### [Préparer les charges de travail DPM dans le portail classique](backup-azure-dpm-introduction-classic.md)
+### [Utiliser System Center DPM pour sauvegarder un serveur Exchange](backup-azure-backup-exchange-server.md)
+### [Récupérer des données sur un autre serveur DPM](backup-azure-alternate-dpm-server.md)
+### [Utiliser DPM pour sauvegarder des charges de travail SQL Server](backup-azure-backup-sql.md)
+### [Utiliser DPM pour sauvegarder une batterie de serveurs SharePoint](backup-azure-backup-sharepoint.md)
+
+## Utiliser PowerShell
+### [Machines virtuelles Azure dans le portail Azure](backup-azure-vms-automation.md)
+### [Machines virtuelles Azure dans le portail classique](backup-azure-vms-classic-automation.md)
+### [DPM dans le portail Azure](backup-dpm-automation.md)
+### [DPM dans le portail classique](backup-dpm-automation-classic.md)
+### [Windows Server dans le portail Azure](backup-client-automation.md)
+### [Windows Server dans le portail classique](backup-client-automation-classic.md)
+
+## Base de données SQL Azure
+### [Configurer la rétention des sauvegardes à long terme](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Afficher les sauvegardes dans un coffre Recovery Services](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Restaurer à partir d’une rétention des sauvegardes à long terme](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Supprimer des sauvegardes à long terme SQL Azure](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
 
 ## Windows Server
 ### [Sauvegarder les fichiers et dossiers de Windows Server](backup-configure-vault.md)
@@ -41,48 +85,10 @@
 #### [Gérer les coffres Sauvegarde à l’aide du modèle de déploiement classique](backup-azure-manage-windows-server-classic.md)
 #### [Récupérer des fichiers sur un client Windows à l’aide du modèle de déploiement classique](backup-azure-restore-windows-server-classic.md)
 
-## Azure Backup Server
-### [Matrice de protection du serveur de sauvegarde Azure](backup-mabs-protection-matrix.md)
-### Installation ou mise à niveau
-#### [Préparer les charges de travail du serveur de sauvegarde Azure dans le portail Azure](backup-azure-microsoft-azure-backup.md)
-#### [Préparer les charges de travail du serveur de sauvegarde Azure dans le portail classique](backup-azure-microsoft-azure-backup-classic.md)
-#### [Ajouter du stockage à un serveur de sauvegarde Azure](backup-mabs-add-storage.md)
-#### [Mettre à jour le serveur de sauvegarde Azure vers la version 2](backup-mabs-upgrade-to-v2.md)
-#### [Installation sans assistance du serveur de sauvegarde Azure](backup-mabs-unattended-install.md)
-### Protection des charges de travail
-#### [Utiliser le serveur de sauvegarde Azure pour sauvegarder un serveur VMware](backup-azure-backup-server-vmware.md)
-#### [Utiliser Azure Backup Server pour sauvegarder Exchange](backup-azure-exchange-mabs.md)
-#### [Utiliser Azure Backup Server pour sauvegarder une batterie de serveurs SharePoint](backup-azure-backup-sharepoint-mabs.md)
-#### [Utiliser Azure Backup Server pour sauvegarder SQL](backup-azure-sql-mabs.md)
-#### [Protéger l’état du système et la récupération complète](backup-mabs-system-state-and-bmr.md)
-### [Récupérer des données à partir d’un serveur de sauvegarde Azure](backup-azure-alternate-dpm-server.md)
-
-## Gestionnaire de protection des données
-### [Préparer les charges de travail DPM dans le portail Azure](backup-azure-dpm-introduction.md)
-### [Préparer les charges de travail DPM dans le portail classique](backup-azure-dpm-introduction-classic.md)
-### [Utiliser System Center DPM pour sauvegarder un serveur Exchange](backup-azure-backup-exchange-server.md)
-### [Récupérer des données sur un autre serveur DPM](backup-azure-alternate-dpm-server.md)
-### [Utiliser DPM pour sauvegarder des charges de travail SQL Server](backup-azure-backup-sql.md)
-### [Utiliser DPM pour sauvegarder une batterie de serveurs SharePoint](backup-azure-backup-sharepoint.md)
-
-## Base de données SQL Azure
-### [Configurer la rétention des sauvegardes à long terme](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
-### [Afficher les sauvegardes dans un coffre Recovery Services](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
-### [Restaurer à partir d’une rétention des sauvegardes à long terme](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
-### [Supprimer des sauvegardes à long terme SQL Azure](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
-
-## Utiliser PowerShell
-### [Machines virtuelles Azure dans le portail Azure](backup-azure-vms-automation.md)
-### [Machines virtuelles Azure dans le portail classique](backup-azure-vms-classic-automation.md)
-### [DPM dans le portail Azure](backup-dpm-automation.md)
-### [DPM dans le portail classique](backup-dpm-automation-classic.md)
-### [Windows Server dans le portail Azure](backup-client-automation.md)
-### [Windows Server dans le portail classique](backup-client-automation-classic.md)
-
-## Forum Aux Questions
-### [FAQ sur le coffre Recovery Services](backup-azure-backup-faq.md)
-### [FAQ sur la sauvegarde de la machine virtuelle Azure](backup-azure-vm-backup-faq.md)
-### [FAQ sur la sauvegarde de fichiers-dossiers à l’aide de l’agent Azure Backup](backup-azure-file-folder-backup-faq.md)
+## Coffre Recovery Services
+### [Vue d’ensemble des coffres Recovery Services](backup-azure-recovery-services-vault-overview.md)
+### [Mise à niveau d’un coffre de sauvegarde vers le coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md)
+### [Supprimer un coffre Recovery Services](backup-azure-delete-vault.md)
 
 ## Résolution des problèmes
 ### [Problèmes de sauvegarde de machines virtuelles Azure dans le portail Azure](backup-azure-vms-troubleshoot.md)
@@ -92,17 +98,17 @@
 ### [Résolution des problèmes de serveur de sauvegarde Azure](backup-azure-mabs-troubleshoot.md)
 
 # Concepts
-## [Vue d’ensemble des coffres Recovery Services](backup-azure-recovery-services-vault-overview.md)
-## [Mise à niveau d’un coffre de sauvegarde vers le coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Supprimer un coffre Recovery Services](backup-azure-delete-vault.md)
+
+## Forum Aux Questions
+### [FAQ sur le coffre Recovery Services](backup-azure-backup-faq.md)
+### [FAQ sur la sauvegarde de la machine virtuelle Azure](backup-azure-vm-backup-faq.md)
+### [FAQ sur la sauvegarde de fichiers-dossiers à l’aide de l’agent Azure Backup](backup-azure-file-folder-backup-faq.md)
+
 ## [Contrôle d’accès en fonction du rôle](backup-rbac-rs-vault.md)
 ## [Sécurité pour les sauvegardes hybrides](backup-azure-security-feature.md)
-## [Configurer les rapports de sauvegarde Azure](backup-azure-configure-reports.md)
-## [Modèle de données pour les rapports de sauvegarde Azure](backup-azure-reports-data-model.md)
-## [Modèle de données Log Analytics pour la sauvegarde Azure](backup-azure-log-analytics-data-model.md)
 ## [Configurer la sauvegarde hors connexion](backup-azure-backup-import-export.md)
 ## [Remplacer votre bibliothèque de bandes](backup-azure-backup-cloud-as-tape.md)
-## [Sauvegardes cohérentes des applications des machines virtuelles Linux](backup-azure-linux-app-consistent.md)
+
 
 # Référence
 ## [PowerShell](/powershell/module/azurerm.recoveryservices.backup)
