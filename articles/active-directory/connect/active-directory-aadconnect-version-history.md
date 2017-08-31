@@ -115,7 +115,7 @@ Télécharger| [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?
 * Correction d’un problème lié à la cmdlet Initialize-ADSyncDomainJoinedComputerSync, qui modifiait le domaine vérifié configuré sur l’objet de point de connexion de service existant, même si ce domaine était toujours valide. Ce problème se produit lorsque votre locataire Azure AD dispose de plusieurs domaines vérifiés qui peuvent être utilisés pour configurer le point de connexion de service.
 
 #### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
-* L’écriture différée de mot de passe est désormais disponible en version préliminaire avec le cloud Microsoft Azure Government et Microsoft Cloud Allemagne. Pour en savoir plus sur la prise en charge d’Azure AD Connect pour les différentes instances de service, reportez-vous à l’article [Azure AD Connect : Considérations spéciales relatives aux instances](active-directory-aadconnect-instances.md).
+* La réécriture du mot de passe est désormais disponible en version préliminaire avec le cloud Microsoft Azure Government et Microsoft Cloud Allemagne. Pour en savoir plus sur la prise en charge d’Azure AD Connect pour les différentes instances de service, reportez-vous à l’article [Azure AD Connect : Considérations spéciales relatives aux instances](active-directory-aadconnect-instances.md).
 
 * La cmdlet Initialize-ADSyncDomainJoinedComputerSync dispose désormais d’un nouveau paramètre facultatif, nommé AzureADDomain. Ce paramètre vous permet d’indiquer quel domaine vérifié doit être utilisé pour configurer le point de connexion de service.
 
@@ -146,7 +146,7 @@ Le problème qui se pose est le suivant : l’option **Synchroniser tous les do
 
 #### <a name="fixed-issues"></a>Problèmes résolus
 
-* Correction d’un problème lié à l’écriture différée de mot de passe, qui permet à un administrateur Azure Active Directory de réinitialiser le mot de passe d’un compte d’utilisateur privilégié Active Directory local. Le problème se produit lorsqu’Azure AD Connect se voit accorder l’autorisation de réinitialiser le mot de passe à la place du compte privilégié. Le problème est résolu dans cette version d’Azure AD Connect, car l’administrateur d’Azure AD n’est plus autorisé à réinitialiser le mot de passe d’un compte d’utilisateur privilégié AD local, sauf s’il est le propriétaire de ce compte. Pour en savoir plus, voir [Avis de sécurité Microsoft 4033453](https://technet.microsoft.com/library/security/4033453).
+* Correction d’un problème lié à la réécriture du mot de passe, qui permet à un administrateur Azure Active Directory de réinitialiser le mot de passe d’un compte d’utilisateur privilégié Active Directory local. Le problème se produit lorsqu’Azure AD Connect se voit accorder l’autorisation de réinitialiser le mot de passe à la place du compte privilégié. Le problème est résolu dans cette version d’Azure AD Connect, car l’administrateur d’Azure AD n’est plus autorisé à réinitialiser le mot de passe d’un compte d’utilisateur privilégié AD local, sauf s’il est le propriétaire de ce compte. Pour en savoir plus, voir [Avis de sécurité Microsoft 4033453](https://technet.microsoft.com/library/security/4033453).
 
 * Correction d’un problème lié à la fonctionnalité [msDS-ConsistencyGuid en tant que sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor), à cause duquel Azure AD Connect ne peut écrire de données en différé dans un attribut msDS-ConsistencyGuid local. Le problème se produit lorsqu’il y a plusieurs forêts AD locales ajoutées à Azure AD Connect et que *l’option Les identités utilisateurs existent sur plusieurs annuaires* est sélectionnée. Lorsqu’une configuration de ce type est utilisée, les règles de synchronisation résultantes ne remplissent pas l’attribut sourceAnchorBinary dans le métaverse. L’attribut sourceAnchorBinary est utilisé en tant qu’attribut source pour l’attribut msDS-ConsistencyGuid. Par conséquent, l’écriture différée vers l’attribut ms-DSConsistencyGuid n’a pas lieu. Afin de résoudre le problème, les règles de synchronisation suivantes ont été mises à jour pour faire en sorte que l’attribut sourceAnchorBinary du métaverse soit toujours rempli :
   * In from AD - InetOrgPerson AccountEnabled.xml
@@ -460,9 +460,9 @@ Publication : août 2016
 * L’Assistant Azure AD Connect ne parvient pas à authentifier le compte Azure AD fourni si le mot de passe du compte contient un trop grand nombre de caractères spéciaux. Un message d’erreur du type « Impossible de valider les informations d’identification. Une erreur inattendue s’est produite. » est renvoyé.
 * La désinstallation du serveur intermédiaire désactive la synchronisation de mot de passe dans le client Azure AD et provoque l’échec de la synchronisation de mot de passe avec le serveur actif.
 * La synchronisation du mot de passe échoue dans de rares cas lorsqu’aucun hachage de mot de passe n’est stocké sur l’utilisateur.
-* Lorsque le serveur Azure AD Connect est activé pour le mode intermédiaire, l’écriture différée de mot de passe n’est pas temporairement désactivée.
-* L’assistant Azure AD Connect n’affiche pas la configuration réelle de synchronisation de mot de passe et d’écriture différée de mot de passe lorsque le serveur est en mode intermédiaire. Il les affiche toujours comme étant désactivées.
-* Les modifications apportées à la synchronisation de mot de passe et à l’écriture différée de mot de passe ne sont pas conservées par l’Assistant Azure AD lorsque le serveur est en mode intermédiaire.
+* Lorsque le serveur Azure AD Connect est activé pour le mode intermédiaire, la réécriture du mot de passe n’est pas temporairement désactivée.
+* L’assistant Azure AD Connect n’affiche pas la configuration réelle de synchronisation de mot de passe et de réécriture du mot de passe lorsque le serveur est en mode intermédiaire. Il les affiche toujours comme étant désactivées.
+* Les modifications apportées à la synchronisation de mot de passe et à la réécriture du mot de passe ne sont pas conservées par l’Assistant Azure AD lorsque le serveur est en mode intermédiaire.
 
 **Améliorations :**
 
@@ -590,7 +590,7 @@ Publication : novembre 2015
   * La file d'attente des nouvelles tentatives de mot de passe est infinie et la limite de 5 000 objets supprimés a été supprimée.
 * Impossible de se connecter à Active Directory avec le niveau fonctionnel de forêt Windows Server 2016.
 * Impossible de modifier le groupe utilisé pour le filtrage de groupes après l’installation initiale.
-* Aucun profil utilisateur n’est plus créé sur le serveur Azure AD Connect pour chaque utilisateur effectuant une modification de mot de passe avec l’écriture différée du mot de passe activée.
+* Aucun profil utilisateur n’est plus créé sur le serveur Azure AD Connect pour chaque utilisateur effectuant une modification de mot de passe avec la réécriture du mot de passe activée.
 * Impossible d’utiliser des entiers longs dans des règles de synchronisation.
 * La case à cocher « Écriture différée des appareils » reste désactivée s’il existe des contrôleurs de domaine inaccessibles.
 
@@ -611,7 +611,7 @@ Publication : août 2015
 * Si le compte utilisé sur le connecteur Active Directory est modifié en dehors de l’Assistant, l’Assistant échoue lors des exécutions suivantes.
 * L’installation d’Azure AD Connect sur un contrôleur de domaine échoue parfois.
 * Impossible d’activer et de désactiver le « Mode de préproduction » si des attributs d’extension ont été ajoutés.
-* L’écriture différée de mot de passe échoue dans certaines configurations en raison d’un mot de passe incorrect sur le connecteur Active Directory.
+* La réécriture du mot de passe échoue dans certaines configurations en raison d’un mot de passe incorrect sur le connecteur Active Directory.
 * Impossible de mettre à niveau DirSync si un nom unique (DN) est utilisé lors du filtrage des attributs.
 * Utilisation du processeur excessive lors de la réinitialisation du mot de passe.
 
@@ -650,7 +650,7 @@ Publication : mai 2015
 
 **Problèmes résolus :**
 
-* L’écriture différée de mot de passe à partir d’Azure AD échoue en raison d’une erreur de connectivité Azure Service Bus.
+* La réécriture du mot de passe à partir d’Azure AD échoue en raison d’une erreur de connectivité Azure Service Bus.
 
 ## <a name="104910413"></a>1.0.491.0413
 Publication : avril 2015

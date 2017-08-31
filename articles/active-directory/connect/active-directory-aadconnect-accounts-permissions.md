@@ -64,7 +64,7 @@ Le [compte](#active-directory-account) destiné à la lecture et à l’écritur
 | Toutes les propriétés en lecture/écriture iNetOrgPerson |Importation et Exchange hybride |
 | Toutes les propriétés en lecture/écriture Groupe |Importation et Exchange hybride |
 | Toutes les propriétés en lecture/écriture Contact |Importation et Exchange hybride |
-| Réinitialiser le mot de passe |Préparation pour l’activation de l’écriture différée du mot de passe |
+| Réinitialiser le mot de passe |Préparation pour l’activation de la réécriture du mot de passe |
 
 ## <a name="custom-settings-installation"></a>Installation à l’aide des paramètres personnalisés
 Azure AD Connect 1.1.524.0 ou version ultérieure comprend une option permettant à l’Assistant Azure AD Connect de créer le compte utilisé pour se connecter à Active Directory.  Les versions antérieures nécessitent que le compte soit créé avant l’installation. Les autorisations que vous devez accorder à ce compte se trouvent sous [Créer le compte AD DS](#create-the-ad-ds-account). 
@@ -91,7 +91,7 @@ Les autorisations dont vous avez besoin dépendent des fonctionnalités facultat
 | Synchronisation de mot de passe |<li>Répliquer les changements d’annuaires</li>  <li>Répliquer les changements d’annuaire Tout |
 | Déploiement Exchange hybride |Autorisations d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
 | Dossier public de messagerie Exchange |Autorisations de lecture sur les attributs documentées dans [Dossier public de messagerie Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) pour les dossiers publics. | 
-| Écriture différée du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../active-directory-passwords-writeback.md) pour les utilisateurs. |
+| Réécriture du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../active-directory-passwords-writeback.md) pour les utilisateurs. |
 | Écriture différée des appareils |Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md). |
 | Écriture différée de groupe |Lire, créer, mettre à jour et supprimer des objets de groupe pour les **groupes Office 365** synchronisés.  Pour plus d’informations, consultez [Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback).|
 
