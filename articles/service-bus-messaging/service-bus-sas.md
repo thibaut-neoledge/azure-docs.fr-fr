@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09577d3160137b7879a5c128552d8dcbef89bb0d
-ms.openlocfilehash: c025629c7700c0ee7b6495a922b9bf6823769cfa
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -358,7 +357,7 @@ Le tableau suivant affiche les droits d’accès requis pour effectuer diverses 
 | **Règles** | | |
 | Créer une règle |gérer |../myTopic/Subscriptions/mySubscription |
 | Supprimer une règle |gérer |../myTopic/Subscriptions/mySubscription |
-| Énumérer des règles |Gérer ou écouter |.. /myTopic/Subscriptions/mySubscription/Rules 
+| Énumérer des règles |Gérer ou écouter |../myTopic/Subscriptions/mySubscription/Rules 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

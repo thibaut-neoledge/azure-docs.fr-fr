@@ -4,7 +4,7 @@ description: "Ce document contient des procédures pas à pas décrivant la mani
 services: media-services
 documentationcenter: 
 author: xstof
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: christoc;xpouyat;juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 5cb610b4b2387af48ef29acdcc5e40e154f515a7
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 565497bd5a35e3c4d69d29512307cf3ca2364bdd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Didacticiels de workflows avancés Media Encoder Premium
@@ -370,7 +370,7 @@ En vérifiant maintenant les propriétés à la racine du workflow, nous pouvons
 
 Chaque fois que vous souhaitez accéder à ces propriétés à partir du code ou d’une expression, vous pouvez procéder de la manière suivante :
 
-* à partir du code en ligne d’un composant, directement sous la racine : node.getPropertyAsString('.. / video1bitrate', null)
+* à partir du code en ligne d’un composant, directement sous la racine : node.getPropertyAsString('../ video1bitrate', null)
 * dans une expression : ${ROOT_video1bitrate}
 
 Complétons le groupe « Streaming Bitrates » en y publiant également le débit binaire de notre piste audio. Dans les propriétés de l’encodeur AAC, recherchez le paramètre de débit binaire et sélectionnez Publier dans la liste déroulante en regard de celui-ci. Publiez la propriété à la racine du graphique en lui attribuant le nom « audio1bitrate » et le nom d’affichage « Audio 1 Bitrate » au sein de notre groupe personnalisé « Streaming Bitrates ».
