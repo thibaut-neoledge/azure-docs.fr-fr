@@ -38,7 +38,7 @@ Il existe deux niveaux de sécurité dans Azure App Service.
 * toutes les communications entre votre application App Service et des ressources externes, telles que la gestion de PowerShell, une interface de ligne de commande, des kits de développement logiciel Azure, des API REST et des connexions hybrides, sont correctement chiffrés ;
 * la gestion continue des menaces protège les ressources App Service contre les programmes malveillants, le déni de service distribué (DDoS), les attaques de l’intercepteur (man-in-the-middle, MITM) et bien d’autres menaces. 
 
-Pour plus d’informations sur la sécurité de l’infrastructure et de la plateforme dans Azure, consultez [Centre de gestion de la confidentialité Azure](https://azure.microsoft.com/support/trust-center/security/).
+Pour plus d’informations sur la sécurité de l’infrastructure et de la plateforme dans Azure, consultez [Centre de confidentialité Azure](https://azure.microsoft.com/support/trust-center/security/).
 
 #### <a name="application-security"></a>Sécurité des applications
 Si Azure est responsable de la sécurisation de l’infrastructure et de la plateforme sur laquelle votre application s’exécute, il vous incombe de sécuriser votre application elle-même. En d’autres termes, vous devez développer, déployer et gérer votre code d’application et le contenu de manière sécurisée. Sinon, votre code d’application ou le contenu peut encore être vulnérable aux menaces telles que :
@@ -105,7 +105,7 @@ Vous pouvez rechercher le lien FTPS pour votre application en procédant comme s
 Pour plus d'informations sur FTPS, consultez la page [Protocole FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur la sécurité de la plateforme Azure, ou pour savoir comme signaler **un incident de sécurité ou un abus**, ou pour informer Microsoft que vous allez exécuter un **test de pénétration** de votre site, consultez la section Sécurité du [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
+Pour plus d’informations sur la sécurité de la plateforme Azure, ou pour savoir comme signaler **un incident de sécurité ou un abus**, ou pour informer Microsoft que vous allez exécuter un **test de pénétration** de votre site, consultez la section Sécurité du [Centre de confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
 Pour plus d’informations sur les fichiers **web.config** ou **applicationhost.config** des applications App Service, consultez la page [Options de configuration déverrouillées dans les applications web Azure App Service](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 

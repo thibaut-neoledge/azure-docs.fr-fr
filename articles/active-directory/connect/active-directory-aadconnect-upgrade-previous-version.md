@@ -80,7 +80,7 @@ Vous devez configurer ce qui suit de la même façon sur les deux serveurs :
 
 * Connexion aux mêmes forêts
 * Tout filtrage de domaine et d’unité organisationnelle
-* Fonctionnalités facultatives identiques, telles que la synchronisation de mot de passe et l’écriture différée du mot de passe
+* Fonctionnalités facultatives identiques, telles que la synchronisation de mot de passe et la réécriture du mot de passe
 
 **Migrer les règles de synchronisation personnalisées**  
 Pour déplacer des règles de synchronisation personnalisées, procédez comme suit :
