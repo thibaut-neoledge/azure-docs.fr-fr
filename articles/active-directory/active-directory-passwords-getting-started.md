@@ -73,7 +73,7 @@ Pour activer la synchronisation d’identité locale avec Azure AD, vous devez 
 
 * [Mise à niveau à partir de DirSync ou d’Azure AD Sync vers Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Prise en main d’Azure AD Connect à l’aide de paramètres express](./connect/active-directory-aadconnect-get-started-express.md)
-* [Configurez l’écriture différée du mot de passe](active-directory-passwords-writeback.md#configuring-password-writeback) pour écrire des mots de passe en différé à partir d’Azure AD dans votre répertoire local.
+* [Configurez la réécriture du mot de passe](active-directory-passwords-writeback.md#configuring-password-writeback) pour réécrire des mots de passe à partir d’Azure AD dans votre répertoire local.
 
 ## <a name="disabling-self-service-password-reset"></a>Désactivation de la réinitialisation de mot de passe en libre-service
 
