@@ -39,7 +39,7 @@ Nous devons d’abord nous assurer que le fichier [**machine.config**](active-di
 
 Les URL requises doivent également être ouvertes dans le serveur proxy. La liste officielle est documentée dans [URL et plages d’adresses IP Office 365 ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-Parmi ces URL, le tableau suivant indique celles qui représentent le strict minimum pour pouvoir se connecter à Azure AD. Cette liste n’inclut pas de fonctionnalités facultatives, comme l’écriture différée du mot de passe ou Azure AD Connect Health. Elle est documentée ici pour faciliter le dépannage de la configuration initiale.
+Parmi ces URL, le tableau suivant indique celles qui représentent le strict minimum pour pouvoir se connecter à Azure AD. Cette liste n’inclut pas de fonctionnalités facultatives, comme la réécriture du mot de passe ou Azure AD Connect Health. Elle est documentée ici pour faciliter le dépannage de la configuration initiale.
 
 | URL | Port | Description |
 | --- | --- | --- |
