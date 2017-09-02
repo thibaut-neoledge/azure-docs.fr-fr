@@ -1,6 +1,6 @@
 ---
 title: "Affichage et modification de l’offre incitative revendeurs des fournisseurs de solutions Cloud | Microsoft Docs"
-description: "Affichage et modification de votre sélection concernant l&quot;offre incitative revendeurs des fournisseurs de solutions Cloud"
+description: "Affichage et modification de votre sélection concernant l'offre incitative revendeurs des fournisseurs de solutions Cloud"
 services: marketplace-publishing
 documentationcenter: na
 author: DavidBosland
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 08/31/2017
 ms.author: DavidBosland
 ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 97cd45563dbd2341620658e05dbbd9ff0519b1aa
 ms.contentlocale: fr-fr
 ms.lasthandoff: 12/08/2016
-
 
 ---
 # <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-the-azure-marketplace"></a>Affichage et modification de « l'offre incitative revendeurs » des fournisseurs de solutions Cloud dans Azure Marketplace
