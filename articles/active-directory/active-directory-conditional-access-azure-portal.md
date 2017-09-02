@@ -13,21 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 0f7e00d1fe6e47e4a04eb2853f09e195a03405ce
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 20572ecbde79bc2722f3a25f297c92d8e722a3e8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accès conditionnel dans Azure Active Directory
-
-> [!div class="op_single_selector"]
-> * [Portail Azure](active-directory-conditional-access-azure-portal.md)
-> * [portail Azure Classic](active-directory-conditional-access.md)
 
 Tout d’abord, dans un appareil où mobilité et cloud occupent le premier plan, Azure Active Directory autorise une authentification unique sur les appareils, applications et services depuis n’importe où. Avec la prolifération des appareils (y compris des appareils BYOD), des réseaux d’entreprise externes et des applications SaaS tierces, les professionnels de l’informatique sont confrontés à deux objectifs contradictoires :
 
@@ -73,11 +69,11 @@ L’implémentation actuelle d’Azure Active Directory vous permet de configure
 
 - **Multi-factor Authentication** - Grâce à l’authentification multifacteur, vous pouvez appliquer une authentification renforcée. En tant que fournisseur, vous pouvez combiner Azure Multi-Factor Authentication ou une authentification multifacteur locale, avec AD FS (Active Directory Federation Services). L’authentification multifacteur contribue à empêcher tout accès à vos ressources par un utilisateur non autorisé qui peut avoir obtenu l’accès aux informations d’identification d’un utilisateur valide.
 
-- **Appareil conforme** - Vous pouvez définir des stratégies d’accès conditionnel au niveau de l’appareil. Vous pouvez configurer une stratégie permettant seulement aux ordinateurs conformes ou aux appareils mobiles inscrits dans une application de gestion des appareils mobiles d’accéder aux ressources de votre organisation. Par exemple, vous pouvez utiliser Intune pour vérifier la conformité de l’appareil, puis la signaler à Azure AD pour application lorsque l’utilisateur tente d’accéder à une application. Pour obtenir des informations détaillées sur l’utilisation d’Intune afin de protéger les applications et les données, consultez Protéger les données et les applications avec Microsoft Intune. Vous pouvez également utiliser Intune pour appliquer la protection des données pour les appareils perdus ou volés. Pour plus d’informations, consultez Protection de vos données avec effacement complet ou sélectif à l’aide de Microsoft Intune.
+- **Appareil conforme** - Vous pouvez définir des stratégies d’accès conditionnel au niveau de l’appareil. Vous pouvez configurer une stratégie permettant seulement aux ordinateurs conformes ou aux appareils mobiles inscrits dans une application de gestion des appareils mobiles d’accéder aux ressources de votre organisation. Par exemple, vous pouvez utiliser Intune pour vérifier la conformité de l’appareil, puis la signaler à Azure AD pour application lorsque l’utilisateur tente d’accéder à une application. Pour obtenir des informations détaillées sur l’utilisation d’Intune afin de protéger les applications et les données, consultez [Protéger les données et les applications avec Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune). Vous pouvez également utiliser Intune pour appliquer la protection des données pour les appareils perdus ou volés. Pour plus d’informations, consultez [Protection de vos données avec effacement complet ou sélectif à l’aide de Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune).
 
-- **Appareil joint à un domaine** – vous pouvez exiger que l’appareil utilisé pour vous connecter à Azure Active Directory soit joint à un domaine. Cette stratégie s’applique aux tablettes de l’entreprise, ordinateurs portables et ordinateurs de bureau Windows. Pour plus d’informations sur la configuration de l’inscription automatique des appareils joints à un domaine dans Azure AD, consultez [Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration.md).
+- **Appareil joint à un domaine** – vous pouvez exiger que l’appareil utilisé pour vous connecter à Azure Active Directory soit joint à un domaine de votre environnement Active Directory (AD) local. Cette stratégie s’applique aux tablettes de l’entreprise, ordinateurs portables et ordinateurs de bureau Windows. 
 
-Si vous avez sélectionné plusieurs exigences dans une stratégie d’accès conditionnel, vous pouvez également les configurer en vue de les appliquer. Vous pouvez rendre un ou l’ensemble des contrôles sélectionnés obligatoires.
+Si vous avez sélectionné plusieurs contrôles, vous pouvez également indiquer si tous ces contrôles sont requis lors du traitement de votre stratégie.
 
 ![Contrôle](./media/active-directory-conditional-access-azure-portal/06.png)
 
@@ -137,10 +133,19 @@ Vous pouvez utiliser le niveau de risque de connexion calculé en tant que condi
 
 ### <a name="device-platforms"></a>Plateformes d’appareils
 
-La plateforme d’appareils se caractérise par le système d’exploitation qui s’exécute sur votre appareil (Android, iOS, Windows Phone ou Windows). Vous pouvez définir les plateformes d’appareils incluses et celles qui sont exclues d’une stratégie.  
-Pour utiliser des plateformes d’appareils dans la stratégie, commencez par régler les options de configuration sur **Oui**, puis sélectionnez une, plusieurs ou l’ensemble des plateformes d’appareils auxquelles s’applique la stratégie. Si vous sélectionnez certaines plateformes d’appareils, la stratégie ne s’applique qu’à celles-ci. Dans ce cas, la stratégie est sans effet sur les connexions aux autres plateformes prises en charge.
+La plateforme d’appareils se caractérise par le système d’exploitation qui s’exécute sur votre appareil :
+
+- Android
+- iOS
+- Windows Phone
+- Windows
+- Mac OS (préversion). 
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/02.png)
+
+Vous pouvez définir les plateformes d’appareils incluses et celles qui sont exclues d’une stratégie.  
+Pour utiliser des plateformes d’appareils dans la stratégie, commencez par régler les options de configuration sur **Oui**, puis sélectionnez une, plusieurs ou l’ensemble des plateformes d’appareils auxquelles s’applique la stratégie. Si vous sélectionnez certaines plateformes d’appareils, la stratégie ne s’applique qu’à celles-ci. Dans ce cas, la stratégie est sans effet sur les connexions aux autres plateformes prises en charge.
+
 
 ### <a name="locations"></a>Emplacements
 
@@ -198,4 +203,4 @@ De nombreux clients Intune utilisent l’accès conditionnel pour vérifier que 
 
 Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
-Pour plus d’informations sur les éléments à connaître ce que vous devez évite lors de la configuration des stratégies d’accès conditionnel, consultez 
+Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md). 

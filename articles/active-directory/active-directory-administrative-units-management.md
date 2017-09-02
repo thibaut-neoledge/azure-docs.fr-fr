@@ -1,5 +1,5 @@
 ---
-title: "Gestion des unités administratives dans Azure Active Directory"
+title: "Version préliminaire de la gestion des unités administratives dans Azure Active Directory"
 description: "Utilisation d'unités administratives pour une délégation plus précise des autorisations dans Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/20/2017
+ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 439dc6635a0df8c70da41bd3aadfa04616e4cc1b
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: e12a0aea8264b1ea67c26294ec5bbe9c404a171e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Gestion des unités administratives dans Azure AD - version préliminaire publique

@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/30/2017
+ms.date: 08/21/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 9f13e6300f77e2d9e84b0f7ce7f3cf289c327157
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Utilisation d’un tunnel SSH pour accéder à l’interface Web Ambari, JobHistory, NameNode, Oozie et d’autres interfaces Web
@@ -40,6 +39,9 @@ Les interfaces utilisateur web suivantes nécessitent un tunnel SSH :
 * Interface HBase Master et interface de journaux
 
 Si vous utilisez des actions de script pour personnaliser votre cluster, tous les services ou utilitaires que vous installez et qui exposent une interface utilisateur Web nécessitent un tunnel SSH. Par exemple, si vous installez Hue à l'aide d'une action de script, vous devez utiliser un tunnel SSH pour accéder à l'interface utilisateur Web Hue.
+
+> [!IMPORTANT]
+> Si vous bénéficiez d’un accès direct à HDInsight via un réseau virtuel, il est inutile d’utiliser des tunnels SSH. Pour avoir un exemple d’accès direct à HDInsight via un réseau virtuel, consultez le document [Connecter HDInsight à votre réseau local](connect-on-premises-network.md).
 
 ## <a name="what-is-an-ssh-tunnel"></a>Définition d’un tunnel SSH
 
@@ -114,7 +116,7 @@ Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinate
    > [!NOTE]
    > La sélection de **DNS Distant** résout les requêtes DNS à l’aide du cluster HDInsight. Ce paramètre résout les éléments DNS en utilisant le nœud principal du cluster.
 
-2. Vérifiez que le tunnel fonctionne en vous rendant sur un site tel que [http://www.whatismyip.com/](http://www.whatismyip.com/). Si le proxy est configuré correctement, l’adresse IP renvoyée est celle d’une machine du centre de données Microsoft Azure.
+2. Vérifiez que le tunnel fonctionne en vous rendant sur un site tel que [http://www.whatismyip.com/](http://www.whatismyip.com/). L’adresse IP renvoyée doit être celle utilisée par le centre de données Microsoft Azure.
 
 ## <a name="verify-with-ambari-web-ui"></a>Vérification avec l'interface utilisateur Web Ambari
 

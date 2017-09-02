@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f9272946fe4a03a732aa686680bba054c8ef1688
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 0c65ac74316421a0258f01143baa25ffecb5be3b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
@@ -28,7 +28,9 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   [Control flow](api-management-advanced-policies.md#choose) : applique de manière conditionnelle les instructions de stratégie en fonction des résultats de l’évaluation des [expressions](api-management-policy-expressions.md) booléennes.  
   
--   [Forward request](#ForwardRequest) : transfère la demande vers le service principal.  
+-   [Forward request](#ForwardRequest) : transfère la demande vers le service principal.
+
+-   [Limit concurrency](#LimitConcurrency) : empêche les stratégies incluses d’exécuter plus de requêtes simultanées que le nombre spécifié.
   
 -   [Log to Event Hub](#log-to-eventhub) : envoie des messages au format spécifié à un Event Hub défini par une entité Enregistreur d’événements. 
 
@@ -266,6 +268,56 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** toutes les étendues  
   
+##  <a name="LimitConcurrency"></a> Limit concurrency  
+ La stratégie `limit-concurrency` empêche les stratégies incluses d’exécuter plus de requêtes simultanées que le nombre spécifié. En cas de dépassement du seuil, les requêtes sont ajoutées à la file d’attente jusqu’à ce que la longueur maximale de cette dernière soit atteinte. Lorsque la file est pleine, les nouvelles requêtes échouent immédiatement.
+  
+###  <a name="LimitConcurrencyStatement"></a> Instruction de la stratégie  
+  
+```xml  
+<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+        <!— nested policy statements -->  
+</limit-concurrency>
+``` 
+
+### <a name="examples"></a>Exemples  
+  
+####  <a name="ChooseExample"></a> Exemple  
+ L’exemple suivant montre comment limiter le nombre de requêtes transmises à un serveur principal en fonction de la valeur d’une variable contextuelle.
+ 
+```xml  
+<policies>
+  <inbound>…</inbound>
+  <backend>
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+      <forward-request timeout="120"/>
+    <limit-concurrency/>
+  </backend>
+  <outbound>…</outbound>
+</policies>
+```
+
+### <a name="elements"></a>Éléments  
+  
+|Élément|Description|Requis|  
+|-------------|-----------------|--------------|    
+|limit-concurrency|Élément racine.|Oui|  
+  
+### <a name="attributes"></a>Attributs  
+  
+|Attribut|Description|Requis|Default|  
+|---------------|-----------------|--------------|--------------|  
+|key|Une chaîne. Expression autorisée. Spécifie l’étendue de la simultanéité. Peut être partagée par plusieurs stratégies.|Oui|N/A|  
+|max-count|Nombre entier. Spécifie le nombre maximal de requêtes autorisées à entrer dans la stratégie.|Oui|N/A|  
+|timeout|Nombre entier. Expression autorisée. Spécifie le nombre de secondes pendant lesquelles une requête doit attendre avant d’échouer avec l’erreur « 403 Too Many Requests » (Trop de requêtes).|Non|Infini|  
+|max-queue-length|Nombre entier. Expression autorisée. Spécifie la longueur maximale de la file d’attente. Les requêtes entrantes essayant d’entrer dans cette stratégie échouent avec l’erreur « 403 Too Many Request » (Trop de requêtes) dès que la file est pleine.|Non|Infini|  
+  
+###  <a name="ChooseUsage"></a> Utilisation  
+ Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+  
+-   **Sections de la stratégie :** inbound, outbound, backend, on-error  
+  
+-   **Étendues de la stratégie :** toutes les étendues  
+
 ##  <a name="log-to-eventhub"></a> Log to Event Hub  
  La stratégie `log-to-eventhub` envoie des messages au format spécifié à un Event Hub défini par une entité Enregistreur d’événements. Comme son nom l’indique, la stratégie est utilisée pour enregistrer certaines informations sur le contexte de la réponse ou de la demande à des fins d’analyse en ligne ou hors ligne.  
   
@@ -963,6 +1015,6 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
--    [Stratégies dans Gestion des API](api-management-howto-policies.md) 
--    [Expressions de stratégie](api-management-policy-expressions.md)
+-   [Stratégies dans Gestion des API](api-management-howto-policies.md) 
+-   [Expressions de stratégie](api-management-policy-expressions.md)
 

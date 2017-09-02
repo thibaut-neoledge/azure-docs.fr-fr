@@ -3,7 +3,7 @@ title: "Historique de publication des versions du connecteur | Microsoft Docs"
 description: "Cette rubrique répertorie toutes les versions des connecteurs de Forefront Identity Manager (FIM) et Microsoft Identity Manager (MIM)."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: fimguy
 manager: femila
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
-ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: e9699abe0c1bdb6ea449c99e087ae56adb717b8d
+ms.date: 08/18/2017
+ms.author: fimguy
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 426f58a24798fd43f5079dd153b9e84d324da622
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="connector-version-release-history"></a>Historique de publication des versions du connecteur
 Les connecteurs de Forefront Identity Manager (FIM) et Microsoft Identity Manager (MIM) sont fréquemment mis à jour.
 
 > [!NOTE]
-> Cette rubrique ne concerne que FIM et MIM. Ces connecteurs ne sont pas pris en charge sur Azure AD Connect.
+> Cette rubrique ne concerne que FIM et MIM. Ces connecteurs ne sont pas pris en charge pour l’installation sur Azure AD Connect. Les connecteurs finaux sont préinstallés sur AADConnect lors de la mise à niveau vers la version spécifiée.
 
 Cette rubrique répertorie toutes les versions des connecteurs qui ont été publiées.
 
@@ -38,23 +38,36 @@ Liens connexes :
 * [connecteur PowerShell](active-directory-aadconnectsync-connector-powershell.md) 
 * [connecteur Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
 
+
+## <a name="116040-aadconnect-11xxx0"></a>1.1.604.0 (AADConnect 1.1.XXX.0)
+
+
+### <a name="fixed-issues"></a>Problèmes résolus :
+
+* Services web génériques :
+  * Correction d’un problème empêchant la création d’un projet SOAP lorsqu’il existait deux points de terminaison ou plus.
+* SQL générique :
+  * Dans l’opération d’importation, GSQL ne convertissait pas l’heure correctement lors de l’enregistrement dans l’espace du connecteur. Le format de date et d’heure par défaut de l’espace de connecteur de GSQL « aaaa-MM-jj hh:mm:ssZ » a été remplacé par « aaaa-MM-jj HH:mm:ssZ ».
+
 ## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
 
 ### <a name="fixed-issues"></a>Problèmes résolus :
 
 * Services web génériques :
-  * L’outil Wsconfig n’a pas converti correctement le tableau Json à partir de « exemple de demande » pour la méthode de service REST. Pour cette raison, des problèmes se sont produits lors de la sérialisation de ce tableau Json pour la demande REST.
-  * L’outil de configuration du connecteur de service web ne prend pas en charge l’utilisation de symboles d’espace dans les noms d’attributs JSON. Le modèle de substitution peut être ajouté manuellement au fichier WSConfigTool.exe.config, par exemple ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+  * L’outil Wsconfig n’a pas converti correctement le tableau Json à partir de « exemple de demande » pour la méthode de service REST. Ceci entraînait des problèmes lors de la sérialisation de ce tableau Json pour la demande REST.
+  * L’outil de configuration du connecteur de service web ne prend pas en charge l’utilisation de symboles d’espace dans les noms d’attribut JSON 
+    * Un modèle de substitution peut être ajouté manuellement dans le fichier WSConfigTool.exe.config, par exemple ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
 
 * Lotus Notes :
-  * Quand l’option **Allow custom certifiers for Organization/Organizational Units** (Autoriser les certificateurs personnalisés pour les organisations/unités d’organisation) est désactivée, le connecteur échoue pendant l’exportation (mise à jour). Après le flux d’exportation, tous les attributs sont exportés vers Domino, mais au moment de l’exportation KeyNotFoundException est retournée à la synchronisation. Cela se produit car l’opération de renommage échoue quand elle tente de changer le nom unique (attribut UserName) en modifiant l’un des attributs ci-dessous :  
-    - LastName
-    - FirstName
-    - MiddleInitial
-    - AltFullName
-    - AltFullNameLanguage
-    - Unité d’organisation
-    - altcommonname
+  * Quand l’option **Allow custom certifiers for Organization/Organizational Units** (Autoriser les certificateurs personnalisés pour les organisations/unités d’organisation) est désactivée, le connecteur échoue pendant l’exportation (mise à jour). Après le flux d’exportation, tous les attributs sont exportés vers Domino, mais au moment de l’exportation KeyNotFoundException est retournée à la synchronisation. 
+    * Cela se produit car l’opération de renommage échoue quand elle tente de changer le nom unique (attribut UserName) en modifiant l’un des attributs ci-dessous :  
+      - LastName
+      - FirstName
+      - MiddleInitial
+      - AltFullName
+      - AltFullNameLanguage
+      - Unité d’organisation
+      - altcommonname
 
   * Quand l’option **Allow custom certifiers for Organization/Organizational Units** (Autoriser les certificateurs personnalisés pour les organisations/unités d’organisation) est activée, mais que les certificateurs nécessaires sont encore vides, une exception KeyNotFoundException se produit.
 

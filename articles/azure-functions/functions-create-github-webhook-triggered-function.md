@@ -1,26 +1,26 @@
 ---
 title: "Création d’une fonction dans Azure déclenchée par un webhook GitHub | Microsoft Docs"
 description: "Utilisez Azure Functions pour créer une fonction sans serveur appelée par un webhook GitHub."
-services: azure-functions
+services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 038bb4cf0a9278416261c05ddaa0ee97d83b63c5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Créer une fonction déclenchée par un webhook GitHub
@@ -52,7 +52,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
     ![Page de démarrage rapide des fonctions sur le portail Azure](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Sélectionnez le modèle **GitHubWebHook** pour le langage de votre choix. **Nommez votre fonction**, puis cliquez sur **Créer**.
+2. Sélectionnez le modèle **WebHook GitHub** pour le langage de votre choix. **Nommez votre fonction**, puis cliquez sur **Créer**.
 
      ![Créer une fonction déclenchée par un webhook GitHub dans le portail Azure](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 

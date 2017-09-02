@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: bd1b931681331d4de06e227983dfce98b4cc84f2
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Résolution des problèmes de synchronisation de mot de passe avec Azure AD Connect Sync
@@ -165,7 +165,7 @@ Effectuez les étapes suivantes pour déterminer la raison pour laquelle aucun m
 
     ![Sortie de script PowerShell à partir des paramètres de synchronisation de mot de passe](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/psverifyconfig.png)  
 
-3. Si cette fonction n’est pas activée dans Azure AD ou si l’état du canal de synchronisation n’est pas activé, exécutez l’Assistant Installation d’Azure AD Connect. Sélectionnez **Personnaliser les options de synchronisation** et décochez la synchronisation de mot de passe. Cette modification désactive temporairement la fonction. Réexécutez l’Assistant, puis réactivez la synchronisation de mot de passe. Réexécutez le script pour vérifier que la configuration est correcte.
+3. Si cette fonction n’est pas activée dans Azure AD ou si l’état du canal de synchronisation n’est pas activé, exécutez l’Assistant Installation d’Azure AD Connect. Sélectionnez **Personnaliser les options de synchronisation** et désélectionnez la synchronisation de mot de passe. Cette modification désactive temporairement la fonction. Réexécutez l’Assistant, puis réactivez la synchronisation de mot de passe. Réexécutez le script pour vérifier que la configuration est correcte.
 
 4. Recherchez des erreurs dans le journal des événements. Recherchez les événements suivants, qui indiquent un problème :
     * Source : « Synchronisation d’annuaires » ID : 0, 611, 652, 655 Si vous voyez ces événements, vous avez un problème de connectivité. Le message du journal des événements contient des informations sur la forêt où vous avez un problème. Pour plus d’informations, consultez [Problème de connectivité](#connectivity problem).
@@ -269,6 +269,10 @@ La colonne Statut peut avoir les valeurs suivantes :
 | SourceConnectorNotPresent |Aucun objet trouvé dans l'espace de connecteur Active Directory local. |
 | TargetNotExportedToDirectory |L'objet dans l'espace de connecteur Azure AD n'a pas encore été exporté. |
 | MigratedCheckDetailsForMoreInfo |L'entrée de journal a été créée avant la version 1.0.9125.0 et est affichée dans son état hérité. |
+| Error |Le service a renvoyé une erreur inconnue. |
+| Unknown |Une erreur s’est produite lors de la tentative de traitement d’un lot de hachages de mot de passe.  |
+| MissingAttribute |Des attributs spécifiques (par exemple, le hachage Kerberos) requis par Azure AD Domain Services ne sont pas disponibles. |
+| RetryRequestedByTarget |Des attributs spécifiques (par exemple, le hachage Kerberos) requis par Azure AD Domain Services n’étaient pas disponibles précédemment. Une tentative pour resynchroniser le hachage de mot de passe de l’utilisateur est effectuée. |
 
 ## <a name="scripts-to-help-troubleshooting"></a>Scripts pour faciliter le dépannage
 

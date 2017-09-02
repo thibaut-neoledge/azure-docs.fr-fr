@@ -1,6 +1,6 @@
 ---
 title: "Créer des groupes d’actions avec les modèles Resource Manager | Microsoft Docs"
-description: "Les groupes d’actions permettent de vous informer par le biais de webhooks sous forme d’e-mail, de SMS ou d’appel lorsque certains événements se produisent."
+description: "Découvrez comment créer un groupe d’actions à l’aide d’un modèle Azure Resource Manager."
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -15,26 +15,27 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 88e7b2e7781b80ea360531f4c3a45256de83b594
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 76bf353cac13f1c2169380f8dd3c1e163d4f3f41
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Créer un groupe d’actions avec un modèle Resource Manager
-Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) pour configurer les groupes d’action. Les modèles vous permettent de configurer automatiquement des groupes d’actions sur vos ressources lorsqu’elles sont créées pour vous assurer que toutes les parties concernées reçoivent une notification lorsqu’une alerte est déclenchée.
+Cet article vous explique comment utiliser un [modèle Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) pour configurer les groupes d’action. À l’aide de modèles, vous pouvez configurer automatiquement des groupes d’actions qui peuvent être réutilisés dans certains types d’alertes. Ces groupes d’actions vous assurent que toutes les parties concernées sont averties lorsqu’une alerte est déclenchée.
 
-Procédure de base :
+Étapes élémentaires :
 
-1.  Créez un modèle sous la forme d’un fichier JSON qui décrit comment créer le groupe d’actions.
-2.  [Déployez le modèle à l’aide de n’importe quelle méthode de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+1. Créez un modèle sous la forme d’un fichier JSON qui décrit comment créer le groupe d’actions.
 
-Ci-dessous, nous décrivons comment créer un modèle Resource Manager pour un groupe d’actions où les définitions d’action sont codées en dur dans le modèle, puis pour un modèle qui se sert des informations de configuration Webhook en tant que paramètres d’entrée lorsque vous déployez le modèle.
+2. Déployez le modèle à l’aide de [n’importe quelle méthode de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
-## <a name="resource-manager-template-for-an-action-group"></a>Modèle Resource Manager pour un groupe d’actions
+Nous allons tout d’abord présenter comment créer un modèle Resource Manager pour un groupe d’actions où les définitions d’action sont codées en dur dans le modèle. Nous allons ensuite expliquer comment créer un modèle qui utilise les informations de configuration de webhook comme des paramètres d’entrée lorsque le modèle est déployé.
 
-Pour créer un groupe d’actions à l’aide d’un modèle Resource Manager, vous créez une ressource de type `Microsoft.Insights/actionGroups` et renseignez toutes les propriétés. Voici quelques exemples de modèles qui créent un groupe d’actions.
+## <a name="resource-manager-templates-for-an-action-group"></a>Modèles Resource Manager pour un groupe d’actions
+
+Pour créer un groupe d’actions à l’aide d’un modèle Resource Manager, vous créez une ressource de type `Microsoft.Insights/actionGroups`. Vous renseignez ensuite toutes les propriétés associées. Voici deux exemples de modèles qui créent un groupe d’actions.
 
 ```json
 {
@@ -170,7 +171,7 @@ Pour créer un groupe d’actions à l’aide d’un modèle Resource Manager, v
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur les [groupes d’actions](monitoring-action-groups.md)  
-En savoir plus sur les [alertes](monitoring-overview-alerts.md)  
-[Ajouter des alertes à l’aide d’un modèle Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* En savoir plus sur les [groupes d’actions](monitoring-action-groups.md).
+* En savoir plus sur les [alertes](monitoring-overview-alerts.md).
+* En savoir pour sur l’ajout d’[alertes à l’aide d’un modèle Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
 

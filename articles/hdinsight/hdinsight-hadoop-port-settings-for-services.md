@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/02/2017
+ms.date: 08/23/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: b1a4ca17a53a6d337d704bc4eef6d441de1f32d8
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: f4e42ca177ac6c11111d4ffc0d772cafc13f8657
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Ports utilisés par les services Hadoop sur HDInsight
@@ -75,13 +75,19 @@ Tous les services exposés publiquement sur Internet doivent être authentifiés
 > [!NOTE]
 > Certains services sont disponibles uniquement sur certains types de clusters. Par exemple, HBase est disponible uniquement sur les clusters de type HBase.
 
+> [!IMPORTANT]
+> Certains services s’exécutent uniquement sur un nœud principal à la fois. Si vous tentez de vous connecter au service sur le nœud principal et que vous rencontrez une erreur 404, recommencez à l’aide du nœud secondaire.
+
 ### <a name="ambari"></a>Ambari
 
-| Service | Nœuds | Port | Chemin | Protocole | 
+| Service | Nœuds | Port | Chemin d'accès de l'URL | Protocole | 
 | --- | --- | --- | --- | --- |
 | Interface utilisateur Web d'Ambari | Nœuds principaux | 8080 | / | HTTP |
 | API Ambari REST | Nœuds principaux | 8080 | /api/v1 | HTTP |
 
+Exemples :
+
+* API Ambari REST : `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### <a name="hdfs-ports"></a>Ports HDFS
 
@@ -161,6 +167,11 @@ Tous les services exposés publiquement sur Internet doivent être authentifiés
 
 ### <a name="spark-ports"></a>Ports Spark
 
-| Service | Nœuds | Port | Protocole | Description |
-| --- | --- | --- | --- | --- |
-| Serveurs Thrift Spark |Nœuds principaux |10002 |Thrift |Service pour se connecter à Spark SQL (Thrift/JDBC) |
+| Service | Nœuds | Port | Protocole | Chemin d'accès de l'URL | Description |
+| --- | --- | --- | --- | --- | --- |
+| Serveurs Thrift Spark |Nœuds principaux |10002 |Thrift | &nbsp; | Service de connexion à Spark SQL (Thrift/JDBC) |
+| Serveur Livy | Nœuds principaux | 8998 | HTTP | /batches | Service d’exécution des instructions, des travaux et des applications |
+
+Exemples :
+
+* Livy : `curl "http://10.0.0.11:8998/batches"`. Dans cet exemple, `10.0.0.11` est l’adresse IP du nœud principal qui héberge le service Livy.

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C : FAQ | Microsoft Docs'
+title: Forum aux questions (FAQ) - Azure AD B2C | Microsoft Docs
 description: Forum aux questions sur Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 08/16/2017
 ms.author: saeeda
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: f06e02cb15532a4e0f6660ca3a88a7031d498632
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: e8b28bc9ccc12b280b1746272519bd4c9ea9e4a4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/17/2017
 
 ---
-# <a name="azure-active-directory-b2c-faqs"></a>Azure Active Directory B2C : FAQ
+# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum aux questions (FAQ) 
 Cette page répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) B2C. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Puis-je utiliser les fonctionnalités d’Azure AD B2C dans mon client Azure AD existant, basé sur les employés ?
@@ -36,7 +36,11 @@ Dans un locataire Azure AD, les utilisateurs qui appartiennent au locataire se c
 Dans un locataire Azure AD B2C, la plupart des applications demandent que l’utilisateur se connecte avec une adresse e-mail arbitraire (par exemple, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Ce type de compte est un compte local.  Nous prenons également en charge les noms d’utilisateur arbitraires en tant que comptes locaux (par exemple joe, bob, sarah ou jim). Vous pouvez choisir l’un de ces deux types de comptes locaux en configurant Azure AD B2C dans le portail Azure.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Quels fournisseurs d’identité sociaux prenez-vous en charge maintenant ? Lesquels envisagez-vous de prendre en charge à l'avenir ?
-Nous prenons actuellement en charge Facebook, Google +, LinkedIn, Compte Microsoft, Amazon, Twitter (préversion), WeChat (préversion), Weibo (préversion) et QQ (préversion).  Nous continuerons à ajouter la prise en charge d’autres fournisseurs d’identité sociaux populaires en fonction de la demande des clients.
+Nous prenons actuellement en charge Facebook, Google+, LinkedIn, Amazon, Twitter (aperçu), WeChat (aperçu), Weibo (aperçu) et QQ (aperçu). Nous ajouterons la prise en charge d’autres fournisseurs d’identité sociaux populaires en fonction de la demande des clients.
+
+Azure AD B2C a également ajouté la prise en charge des [stratégies personnalisées](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Ces [stratégies personnalisées](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) permettent au développeur de créer sa propre stratégie qui avec n’importe quel fournisseur d’identité prend en charge [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) ou SAML. 
+
+Bien démarrer avec les stratégies personnalisées en consultant notre [pack de démarrage des stratégies personnalisées](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Puis-je configurer des étendues pour collecter plus d’informations sur les clients depuis différents fournisseurs d’identité sociaux ?
 Non, mais cette fonctionnalité est sur notre feuille de route. Les étendues par défaut utilisées pour notre jeu de fournisseurs d'identité sociaux pris en charge sont :
@@ -51,7 +55,7 @@ Non, mais cette fonctionnalité est sur notre feuille de route. Les étendues pa
 Non, vous pouvez héberger votre application n'importe où (dans le cloud ou sur site). Pour interagir avec Azure AD B2C, il suffit qu’elle puisse envoyer et recevoir des requêtes HTTP sur les points de terminaison accessibles publiquement.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Je dispose de plusieurs locataires Azure AD B2C. Comment puis-je les gérer sur le portail Azure ?
-Chaque locataire Azure AD B2C a son propre panneau de fonctionnalités B2C sur le portail Azure. Consultez [Azure Active Directory B2C : inscription de votre application](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) pour savoir comment accéder au panneau de fonctionnalités B2C d’un client spécifique sur le portail Azure. Le basculement d’un annuaire Azure AD B2C à un autre sur le portail Azure ne garde pas le panneau de fonctionnalités B2C ouvert dans la plupart des navigateurs.
+Avant d’ouvrir « Azure AD B2C » dans le menu à gauche du portail Azure, vous devez basculer dans le répertoire que vous souhaitez gérer.  Changez de répertoire en cliquant sur votre identité dans le coin supérieur droit du portail Azure, puis sélectionnez un répertoire dans la liste déroulante qui s’affiche.  Pour obtenir une procédure détaillée avec des images, consultez [Accéder aux paramètres d’Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Comment puis-je personnaliser les e-mails de vérification (le contenu et le champ « De: ») envoyés par Azure AD B2C ?
 Vous pouvez utiliser la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md) pour personnaliser le contenu des e-mails de vérification. Plus précisément, ces deux éléments du message peuvent être personnalisés :
@@ -84,7 +88,7 @@ Non, Azure AD Connect n'est pas conçu pour fonctionner avec Azure AD B2C. Utili
 Non, pour des raisons de sécurité, les pages Azure AD B2C ne peuvent pas être ouvertes dans un iFrame.  Notre service communique avec le navigateur pour interdire les iFrames.  La communauté de sécurité en général et la spécification OAUTH2 déconseillent d’utiliser des iFrames pour les expériences d’identité en raison du risque d’attaques par détournement de clics.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C fonctionne-t-il avec les systèmes CRM, tels que Microsoft Dynamics ?
-L’intégration de base avec le portail Microsoft Dynamics 365 sera bientôt disponible.
+L’intégration avec le portail Microsoft Dynamics 365 est disponible.  Consultez [Configuration du portail Dynamics 365 pour utiliser Azure AD B2C pour l’authentification ](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C fonctionne-t-il avec SharePoint localement 2016 ou version antérieure ?
 Azure AD B2C n’est pas conçu pour le scénario de partage partenaire externe SharePoint ; consultez plutôt cet article sur [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).
@@ -108,8 +112,8 @@ Pas actuellement. Cette fonctionnalité est sur notre feuille de route. La véri
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Comment supprimer mon client Azure AD B2C ?
 Procédez comme suit pour supprimer votre client Azure AD B2C :
 
-1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) sur le portail Azure.
-1. Accédez aux panneaux **Applications**, **Fournisseurs d’identité** et **Toutes les stratégies**, puis supprimez toutes les entrées dans chacun d’eux.
+1. Suivez ces étapes pour [accéder aux paramètres d’Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) sur le portail Azure.
+1. Accédez à **Applications**, **Fournisseurs d’identité** et à **Toutes les stratégies**, puis supprimez toutes les entrées dans chacun d’eux.
 1. À présent, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) en tant qu’administrateur d’abonnements. (Utilisez le compte professionnel ou scolaire ou le compte Microsoft que vous avez utilisé pour vous inscrire à Azure.)
 1. Accédez à l’extension Active Directory sur la gauche, puis cliquez sur votre client B2C.
 1. Cliquez sur l’onglet **Users** .

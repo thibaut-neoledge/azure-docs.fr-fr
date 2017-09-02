@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/23/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddcd8baea7694d957820870b2f991a35200d0ca
-ms.lasthandoff: 12/28/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 0a4a08a58302c113405756ad7d3bb6487887a72a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Services de domaine Azure AD : nous contacter
@@ -29,7 +29,7 @@ Vous pouvez nous envoyer un e-mail à : [Commentaires sur les services de domain
 
 Veillez à inclure les éléments suivants, pour nous permettre d’examiner le problème.
 
-* L’ **ID de locataire** pour votre répertoire Azure AD. L’ID de locataire est le GUID indiqué dans la barre d’adresses du navigateur lorsque vous accédez à la page dans laquelle vous activez les Services de domaine AAD pour votre répertoire.
+* L’**ID de locataire/répertoire** pour votre répertoire Azure AD. L’ID de locataire est le GUID que vous voyez dans le champ d’ID de répertoire de la [page Propriétés de votre répertoire](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
 * Le **nom de domaine DNS** que vous avez configuré pour votre domaine géré des Services de domaine AAD.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires

@@ -1,6 +1,6 @@
 ---
-title: "Personnaliser les règles de pare-feu d’applications web dans Azure Application Gateway Azure | Microsoft Docs"
-description: "Cette page fournit des informations sur la personnalisation des règles de pare-feu d’applications web dans Application Gateway avec le portail."
+title: "Personnaliser les règles de pare-feu d’applications web dans Azure Application Gateway - Portail Azure | Microsoft Docs"
+description: "Cet article fournit des informations sur la personnalisation des règles de pare-feu d’applications web dans Application Gateway avec le portail Azure."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -16,48 +16,57 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: c3e93614f012eecff0e88f5f2ad13db199406f4a
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: cdcbadbc3765dfc583c26e1b1453863d421c9a72
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
-# <a name="customize-web-application-firewall-rules-through-the-portal"></a>Personnaliser les règles de pare-feu d’applications web via le portail
+# <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personnaliser les règles de pare-feu d’applications web via le portail Azure
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](application-gateway-customize-waf-rules-portal.md)
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
 
-Le pare-feu d’applications web Application Gateway fournit une protection pour les applications web. Ces protections sont assurées par des jeux de règles OWASP CRS. Certaines règles peuvent entraîner des faux positifs et bloquer le trafic réel.  La passerelle d’application permet donc de personnaliser des règles et des groupes de règles sur une passerelle d’application reposant sur un pare-feu d’applications web. Pour plus d’informations sur les règles et groupes de règles spécifiques, rendez-vous sur la page [web application firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md) (Règles et groupes de règles CRS de pare-feu d’applications web).
+Le pare-feu d’applications web (WAF) Azure Application Gateway fournit une protection pour les applications web. Ces protections sont fournies par le jeu de règles (Core Rule Set, CRS) de l’Open Web Application Security Project (OWASP). Certaines règles peuvent entraîner des faux positifs et bloquer le trafic réel. Par conséquent, Application Gateway permet de personnaliser des règles et des groupes de règles. Pour plus d’informations sur les règles et groupes de règles spécifiques, consultez la [List of web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md) (Liste de règles et groupes de règles CRS de pare-feu d’applications web).
 
 >[!NOTE]
-> Si votre passerelle Application Gateway n’utilise pas la couche WAF, l’option de mise à niveau de la passerelle Application Gateway vers la couche WAF s’affiche comme indiqué dans l’image suivante :
+> Si votre passerelle Application Gateway n’utilise pas la couche WAF, l’option de mise à niveau de la passerelle Application Gateway vers la couche WAF s’affiche dans le volet de droite. 
 
-![activer WAF][fig1]
+![Activer WAF][fig1]
 
 ## <a name="view-rule-groups-and-rules"></a>Afficher les règles et groupes de règles
 
-Accédez à une passerelle Application Gateway et sélectionnez le **pare-feu d’applications web**.  Cliquez sur **Configuration de règle avancée**.  Un tableau s’affiche sur la page de tous les groupes de règles fournis avec l’ensemble de règles choisi.
+**Pour afficher les règles et groupes de règles**
+   1. Accédez à la passerelle Application Gateway, puis sélectionnez **Pare-feu d’applications web**.  
+   2. Sélectionnez **Configuration de règle avancée**.  
+   Un tableau s’affiche sur la page de tous les groupes de règles fournis avec l’ensemble de règles choisi. Toutes les cases à cocher de la règle sont sélectionnées.
 
-![configurer des règles désactivées][1]
+![Configurer des règles désactivées][1]
 
 ## <a name="search-for-rules-to-disable"></a>Rechercher des règles à désactiver
 
-Le panneau des paramètres de pare-feu d’applications web permet de filtrer les règles par une recherche de texte. Le résultat affiche uniquement les groupes de règles et les règles contenant le texte recherché.
+Le panneau des **paramètres de pare-feu d’applications web** permet de filtrer les règles à l’aide d’une recherche de texte. Le résultat affiche uniquement les groupes de règles et les règles contenant le texte que vous avez recherché.
 
-![rechercher des règles][2]
+![Rechercher des règles][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>Désactiver les règles et les groupes de règles
 
-Lors de la désactivation des règles, vous pouvez désactiver un groupe de règles entier, ou des règles spécifiques sous un ou plusieurs groupes de règles.  Une fois que vous avez désélectionné les règles à désactiver, cliquez sur **Enregistrer**.  Cette étape permet d’enregistrer les modifications apportées à la passerelle d’application.
+Lorsque vous désactivez des règles, vous pouvez désactiver un groupe de règles entier, ou des règles spécifiques sous un ou plusieurs groupes de règles. 
 
-![enregistrer les modifications][3]
+**Pour désactiver des groupes de règles ou des règles spécifiques**
+
+   1. Recherchez les règles ou les groupes de règles que vous voulez désactiver.
+   2. Désactivez les cases à cocher correspondant aux règles que vous voulez désactiver. 
+   2. Sélectionnez **Enregistrer**. 
+
+![Enregistrer les modifications][3]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré les règles désactivées, découvrez comment afficher les journaux WAF en vous rendant sur [Application Gateway Diagnostics](application-gateway-diagnostics.md#diagnostic-logging) (Diagnostics de la passerelle Application Gateway)
+Après avoir configuré vos règles désactivées, vous pouvez apprendre à afficher vos journaux WAF. Pour plus d’informations, consultez [Diagnostics Application Gateway](application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
