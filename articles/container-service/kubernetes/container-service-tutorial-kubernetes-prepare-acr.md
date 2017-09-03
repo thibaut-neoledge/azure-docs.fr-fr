@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: f8346fd6bd78c32cd67a2f988046cad2a8fc2455
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 3e1f7617bf2fc52ee4c15598f51a46276f4dc57d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -40,50 +40,32 @@ Dans les didacticiels suivants, cette instance ACR est intégrée à un cluster 
 
 Dans le [didacticiel précédent](./container-service-tutorial-kubernetes-prepare-app.md), une image conteneur a été créée pour une application Azure Vote. Dans ce didacticiel, cette image est envoyée à Azure Container Registry. Si vous n’avez pas créé l’image de l’application Azure Vote, retournez au [Didacticiel 1 : Créer des images conteneur](./container-service-tutorial-kubernetes-prepare-app.md). Sinon, les étapes présentées en détail ici fonctionnent avec n’importe quelle image de conteneur.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="deploy-azure-container-registry"></a>Déployer Azure Container Registry
 
 Lorsque vous déployez un registre de conteneurs Azure, il vous faut tout d’abord un groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *eastus*.
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *westeurope*.
 
-```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+```azurecli
+az group create --name myResourceGroup --location westeurope
 ```
 
-Créez un registre de conteneurs Azure à l’aide de la commande [az acr create](/cli/azure/acr#create). Le nom d’un registre de conteneurs **doit être unique**. Dans l’exemple suivant, nous utilisons le nom myContainerRegistry007.
+Créez un registre de conteneurs Azure à l’aide de la commande [az acr create](/cli/azure/acr#create). Le nom d’un registre de conteneurs **doit être unique**.
 
-```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic --admin-enabled true
+```azurecli
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
 Dans le reste de ce didacticiel, nous utilisons « acrname ». Ce nom correspond au registre de conteneurs que vous avez choisi.
 
-## <a name="get-registry-information"></a>Obtenir des informations sur le Registre 
-
-Une fois l’instance ACR créée, le nom, le nom du serveur de connexion et le mot de passe d’authentification sont nécessaires. Le code suivant retourne chacune de ces valeurs. Notez chaque valeur, elles sont référencées tout au long de ce didacticiel.  
-
-Serveur de connexion au Registre de conteneurs (mettez-le à jour avec le nom de votre Registre) :
-
-```azurecli-interactive
-az acr show --name <acrName> --query loginServer
-```
-
-Mot de passe du Registre de conteneurs :
-
-```azurecli-interactive
-az acr credential show --name <acrName> --query passwords[0].value
-```
-
 ## <a name="container-registry-login"></a>Connexion au registre de conteneurs
 
-Vous devez vous connecter à votre instance ACR avant de lui envoyer des images. Utilisez la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/) pour terminer l’opération. Lors de l’exécution de la connexion docker, vous devez fournir le nom du serveur de connexion ACR et les informations d’identification ACR.
+Vous devez vous connecter à votre instance ACR avant de lui envoyer des images. Utilisez la commande [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) pour terminer l’opération. Vous devez fournir le nom unique qui a été donné au Registre de conteneurs au moment de sa création.
 
-```bash
-docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
+```azurecli
+az acr login --name <acrName>
 ```
 
 Après son exécution, la commande retourne le message « Connexion réussie ».
@@ -107,7 +89,13 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
-Marquer l’image *azure-vote-front* à l’aide du loginServer du registre de conteneurs. En outre, ajoutez `:redis-v1` à la fin du nom de l’image. Cette balise indique la version de l’image.
+Pour obtenir le nom de loginServer, exécutez la commande suivante.
+
+```azurecli
+az acr show --name <acrName> --query loginServer --output table
+```
+
+Maintenant, marquez l’image *azure-vote-front* avec le loginServer du Registre de conteneurs. En outre, ajoutez `:redis-v1` à la fin du nom de l’image. Cette balise indique la version de l’image.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
@@ -145,8 +133,8 @@ Quelques minutes sont nécessaires pour achever l’opération.
 
 Pour retourner une liste d’images qui ont été déplacées dans le registre de conteneurs Azure, utilisez la commande [az acr repository list](/cli/azure/acr/repository#list). Mettez à jour la commande avec le nom d’instance ACR.
 
-```azurecli-interactive
-az acr repository list --name <acrName> --username <acrName> --password <acrPassword> --output table
+```azurecli
+az acr repository list --name <acrName> --output table
 ```
 
 Output:
@@ -159,8 +147,8 @@ azure-vote-front
 
 Puis, pour afficher les balises d’une image spécifique, utilisez la commande [az acr repository show-tags](/cli/azure/acr/repository#show-tags).
 
-```azurecli-interactive
-az acr repository show-tags --name <acrName> --username <acrName> --password <acrPassword> --repository azure-vote-front --output table
+```azurecli
+az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
 Output:

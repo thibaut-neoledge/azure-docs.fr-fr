@@ -12,20 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/18/2016
+ms.date: 8/17/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 03875b4215943a8bbabeb15610776a221cbf7b71
-
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 613f17081fcb70b126caaae7ade5739d336662a7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="setting-up-named-authentication-credentials"></a>Configuration des informations d’authentification nommées
-Pour publier une application dans Azure à partir de Visual Studio, ou pour analyser un service cloud existant, vous devez fournir des informations d’identification que Visual Studio pourra utiliser pour authentifier les demandes effectuées auprès d’Azure. Il existe plusieurs emplacements dans Visual Studio à partir desquels vous pouvez vous connecter pour fournir ces informations d’identification. Par exemple, à partir de l’Explorateur de serveurs, vous pouvez ouvrir le menu contextuel du nœud **Azure**, puis sélectionner **Se connecter à Azure**. Quand vous vous connectez, les informations d’abonnement associées à votre compte Azure sont disponibles dans Visual Studio. Vous n’avez donc rien à faire de plus.
+Pour publier une application dans Azure à partir de Visual Studio, ou pour analyser un service cloud existant, vous devez fournir des informations d’identification que Visual Studio pourra utiliser pour authentifier les demandes effectuées auprès d’Azure. Il existe plusieurs emplacements dans Visual Studio à partir desquels vous pouvez vous connecter pour fournir ces informations d’identification. Par exemple, à partir de l’Explorateur de serveurs, vous pouvez ouvrir le menu contextuel du nœud **Azure**, puis sélectionner **Se connecter à Abonnement Microsoft Azure...**. Quand vous vous connectez, les informations d’abonnement associées à votre compte Azure sont disponibles dans Visual Studio. Vous n’avez donc rien à faire de plus.
 
 Les outils Azure prennent également en charge une ancienne méthode d’authentification, qui est l’utilisation du fichier d’abonnement (fichier .publishsettings). Cette rubrique explique cette méthode, qui est toujours prise en charge dans le kit de développement logiciel (SDK) Azure 2.2.
 
-Les éléments suivants sont requis pour l’authentification dans Azure.
+Les éléments suivants sont indispensables pour l’authentification dans Azure :
 
 * Votre ID d’abonnement
 * Un certificat X.509 v3 valide
@@ -49,7 +50,7 @@ Si vous souhaitez créer vous-même un certificat, vous pouvez consulter les ins
 ## <a name="modify-or-export-authentication-credentials-in-visual-studio"></a>Modifier ou exporter des informations d’authentification dans Visual Studio
 Vous pouvez également configurer, modifier ou exporter vos informations d’authentification à partir de la boîte de dialogue **Nouvel abonnement** qui s’affiche quand vous effectuez l’une des actions suivantes :
 
-* Dans l’**Explorateur de serveurs**, ouvrez le menu contextuel du nœud **Azure**, puis choisissez **Gérer les abonnements**. Sélectionnez l’onglet **Certificats**, puis choisissez le bouton **Nouveau** ou **Modifier**.
+* Dans l’**Explorateur de serveurs**, ouvrez le menu contextuel du nœud **Azure**, choisissez **Gérer et filtrer les abonnements...**, sélectionnez l’onglet **Certificats**, puis au choix **Importer**, **Nouveau** ou **Modifier**.
 * Quand vous publiez un service cloud Azure à partir de l’Assistant **Publication d’application Azure**, sélectionnez **Gérer** dans la liste **Choisir votre abonnement**. Ensuite, sélectionnez l’onglet Certificats, puis sélectionnez le bouton **Nouveau** ou **Modifier**.
 
 La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** est ouverte.
@@ -73,9 +74,4 @@ La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** e
        La page du service s’ouvre.
    4. Sous l’onglet **Certificats**, choisissez le bouton **Télécharger**.
    5. Collez le chemin d’accès complet du fichier .cer que vous venez de créer, puis entrez le mot de passe que vous avez spécifié.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

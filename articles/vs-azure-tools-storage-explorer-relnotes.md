@@ -9,54 +9,68 @@ editor:
 ms.assetid: 
 ms.service: storage
 ms.devlang: multiple
-ms.topic: release-notes
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3525661bd55aead07ce8d97464ba16393d28c04c
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 63a24f6b153390533bba0888fd1051508c65bf6e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notes de publication pour l’explorateur de stockage Microsoft Azure (aperçu)
 
-Cet article contient les notes de publication pour l’explorateur de stockage Azure 0.8.15. (aperçu), ainsi que les notes de publication des versions précédentes.
+Cet article contient les notes de publication pour l’explorateur de stockage Azure 0.8.16 (préversion), ainsi que les notes de publication des versions précédentes.
 
 [L’explorateur de stockage Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) (version préliminaire) est une application autonome qui vous permet d’utiliser facilement les données Stockage Azure sur Windows, macOS et Linux.
 
-## <a name="version-0815-preview"></a>Version 0.8.15 (aperçu)
-7/13/2017
+## <a name="version-0816-preview"></a>Version 0.8.16 (préversion)
+8/21/2017
 
-### <a name="download-azure-storage-explorer-0815-preview"></a>Télécharger l’explorateur de stockage Azure 0.8.15 (aperçu)
-- [Explorateur de stockage Azure 0.8.15 (aperçu) pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorateur de stockage Azure 0.8.15 (aperçu) pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorateur de stockage Azure 0.8.15 (aperçu) pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-0816-preview"></a>Télécharger l’explorateur de stockage Azure 0.8.16 (préversion)
+- [Explorateur de stockage Azure 0.8.16 (préversion) pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorateur de stockage Azure 0.8.16 (préversion) pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorateur de stockage Azure 0.8.16 (préversion) pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Nouveau
+* Lorsque vous ouvrez un objet blob, l’explorateur de stockage vous invite à charger le fichier téléchargé si une modification est détectée
+* Expérience de connexion Azure Stack améliorée
+* Amélioration des performances de chargement/téléchargement d’un grand nombre de fichiers de petite taille en même temps
 
-* Amélioration des performances de chargement et de téléchargement de l’objet blob.
-* Amélioration de l’expérience de fichiers en conflit pour le chargement et le téléchargement de l’objet blob.
-* Amélioration de l’affichage des erreurs dans le journal d’activité pendant le chargement et le téléchargement de l’objet blob.
-* Augmentation de la taille maximale des chargements et des téléchargements de l’objet blob à 8 To pour les objets blob de pages et ~4,7 To pour les objets blob de blocs.
 
-### <a name="known-issues"></a>Problèmes connus
+### <a name="fixes"></a>Correctifs
+* Pour certains types d’objets blob, choisir l’option « remplacer » pendant un conflit de chargement pouvait parfois entraîner le redémarrage du chargement. 
+* Dans la version 0.8.15, les chargements se bloquaient quelquefois à 99 %.
+* Si, au cours d’un chargement de fichiers sur un partage de fichiers, vous choisissiez de charger dans un répertoire qui n’existait pas encore, le chargement échouait.
+* L’explorateur de stockage créait de façon incorrecte des horodatages pour les requêtes de table et les signatures d’accès partagé.
 
-* L’annulation d’une tâche peut prendre un certain temps après avoir cliqué sur « Annuler ». Il s’agit d’une [limitation de la bibliothèque de nœuds de stockage Azure](https://github.com/Azure/azure-storage-node/issues/317).
-* Après avoir effectué un chargement de l’objet blob, l’onglet qui a initié le chargement est actualisé. Il s’agit d’une modification du comportement précédent, qui entraîne également un retour vers la racine du conteneur dans lequel vous vous trouvez. 
-* Si vous choisissez un certificat de code PIN/carte à puce incorrect vous devrez redémarrer l’explorateur de stockage afin qu’il oublie cette décision.
-* Le panneau des paramètres de compte peut indiquer que vous devez entrer à nouveau vos informations d’identification pour filtrer les abonnements.
+
+Problèmes connus
+* Actuellement, l’utilisation d’une chaîne de connexion clé et nom ne fonctionne pas. Une solution est prévue dans la prochaine version. En attendant, vous pouvez utiliser l’attachement avec le nom et la clé.
+* Si vous essayez d’ouvrir un fichier avec un nom de fichier Windows non valide, le téléchargement se solde par une erreur de fichier introuvable.
+* L’annulation d’une tâche peut prendre un certain temps après avoir cliqué sur « Annuler ». Il s’agit d’une limitation de la bibliothèque de nœuds de stockage Azure.
+* Après avoir effectué un chargement de l’objet blob, l’onglet qui a initié le chargement est actualisé. Il s’agit d’une modification du comportement précédent, qui entraîne également un retour vers la racine du conteneur dans lequel vous vous trouvez.
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect, vous devez redémarrer pour que l’explorateur de stockage oublie cette décision.
+* Le panneau des paramètres de compte peut indiquer qu’il vous faut entrer à nouveau vos informations d’identification pour filtrer les abonnements.
 * Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
-* La version gcc doit être mise à jour ou mise à niveau lors de l’installation d’Ubuntu 14.04 : vous trouverez les étapes de mise à niveau ci-dessous : 
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
-* Pour les utilisateurs sur Ubuntu 17.04, l’installation de GConf est nécessaire. Elle peut être effectuée en exécutant les commandes suivantes, puis en redémarrant votre ordinateur : 
-    * sudo apt-get install libgconf-2-4
+* Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre ordinateur :
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Pour les utilisateurs sur Ubuntu 17.04, l’installation de GConf est nécessaire. Elle peut être effectuée en exécutant les commandes suivantes, puis en redémarrant votre ordinateur :
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-0814-preview"></a>Version 0.8.14 (aperçu)
 06/22/2017
@@ -82,10 +96,16 @@ Cet article contient les notes de publication pour l’explorateur de stockage A
 * Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
 * Bien qu’Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint. 
 * La version gcc doit être mise à jour ou mise à niveau lors de l’installation d’Ubuntu 14.04 : vous trouverez les étapes de mise à niveau ci-dessous :
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+
+
 
 ## <a name="previous-releases"></a>Versions précédentes
 
@@ -104,6 +124,7 @@ Cet article contient les notes de publication pour l’explorateur de stockage A
 * [Version 0.7.20160129.1](#version-07201601291)
 * [Version 0.7.20160105.0](#version-07201601050)
 * [Version 0.7.20151116.0](#version-07201511160)
+
 
 ### <a name="version-0813"></a>Version 0.8.13
 05/12/2017
@@ -131,10 +152,14 @@ Cet article contient les notes de publication pour l’explorateur de stockage A
 * Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint. 
 * La version gcc doit être mise à jour ou mise à niveau lors de l’installation d’Ubuntu 14.04 : vous trouverez les étapes de mise à niveau ci-dessous :
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
 
 ### <a name="version-0812--0811--0810"></a>Version 0.8.12 / 0.8.11 / 0.8.10
 04/07/2017
@@ -170,10 +195,14 @@ Cet article contient les notes de publication pour l’explorateur de stockage A
 * Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint. 
 * La version gcc doit être mise à jour ou mise à niveau lors de l’installation d’Ubuntu 14.04 : vous trouverez les étapes de mise à niveau ci-dessous :
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
 
 ### <a name="version-089--088"></a>Version 0.8.9 / 0.8.8
 02/23/2017

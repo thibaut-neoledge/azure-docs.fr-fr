@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 86073f5d15253d658fcb371e913dd3a543a2b075
-ms.lasthandoff: 03/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 20a720833842f9579fd4fccaa39e964def48197e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -26,16 +26,16 @@ ms.lasthandoff: 03/30/2017
 
 L’outil Azure Import/Export (WAImportExport.exe) sert à créer et gérer des travaux pour le service Azure Import/Export, ce qui vous permet de transférer de grandes quantités de données vers ou à partir du Stockage Blob Azure.
 
-Cette documentation s’applique à la version la plus récente de l’outil Azure Import/Export. Pour plus d’informations sur l’utilisation de la version v1 de l’outil, consultez [Utilisation de l’outil Azure Import/Export - v1](storage-import-export-tool-how-to-v1.md).
+Cette documentation s’applique à la version la plus récente de l’outil Azure Import/Export. Pour plus d’informations sur l’utilisation du modèle de déploiement classique, consultez [Utilisation de l’outil Azure Import/Export v1](storage-import-export-tool-how-to-v1.md).
 
-Dans ces articles, vous allez apprendre à utiliser l’outil pour effectuer les opérations suivantes :  
+Les articles suivants vous montrent comment :  
 
-- Installer et configurer l’outil Import/Export.
+- Installer et configurer l’outil Azure Import/Export.
 - Préparer vos disques durs pour un travail dans lequel vous importez des données à partir de vos disques vers le Stockage Blob Azure.
 - Vérifier l’état d’un travail avec les fichiers journaux de copie. 
 - Réparer un travail d’importation. 
 - Réparer un travail d’exportation. 
-- Résoudre les problèmes de l’outil Azure Import/Export, au cas où vous rencontrez un problème lors d’un processus. 
+- Résoudre les problèmes liés à l’outil Azure Import/Export. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

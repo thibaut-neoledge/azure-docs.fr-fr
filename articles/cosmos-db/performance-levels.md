@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 38afe40cf45cf13d587faf13cc5216e4326b84a0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c8d4733e57eb760dbb8e8ca96f6ba55671d1742f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Mise hors service des niveaux de performances S1, S2 et S3
@@ -59,7 +58,7 @@ Le tableau suivant compare les options de débit et de stockage disponibles dans
 |Débit maximal|Illimité|10 000 RU/s|250 RU/s|1 000 RU/s|2 500 RU/s|
 |Débit minimal|2 500 RU/s|400 RU/s|250 RU/s|1 000 RU/s|2 500 RU/s|
 |Stockage maximal|Illimité|10 Go|10 Go|10 Go|10 Go|
-|Prix|Débit : 6 USD / 100 RU/s<br><br>Stockage : 0,25 USD/Go|Débit : 6 USD / 100 RU/s<br><br>Stockage : 0,25 USD/Go|25 USD|50 USD|100 USD|
+|Prix (mensuel)|Débit : 6 USD / 100 RU/s<br><br>Stockage : 0,25 USD/Go|Débit : 6 USD / 100 RU/s<br><br>Stockage : 0,25 USD/Go|25 USD|50 USD|100 USD|
 
 Vous êtes un client Contrat Entreprise ? Si oui, voir [Quelles sont les conséquences pour moi en tant que client Contrat Entreprise ?](#ea-customer)
 

@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: d7506c8abb6eca7e2681764b2bedc2f4755b768a
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: d136b71c9587d4035009a2ef2296fd93f9e984fe
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Choisir une option de SQL Server cloud : Base de données SQL Azure (PaaS) ou SQL Server sur des machines virtuelles Azure (IaaS)
@@ -66,7 +65,7 @@ Le tableau suivant résume les principales caractéristiques de SQL Database et 
 |  |Nouvelles applications conçues pour le cloud qui ont des contraintes de temps de développement et de marketing. |Applications existantes qui requièrent une migration rapide vers le cloud avec un minimum de modifications. Scénarios de développement et de test rapides lorsque vous ne souhaitez pas acheter du matériel SQL Server local non destiné à la production. |
 |  | Équipes qui nécessitent une haute disponibilité, une récupération d’urgence et une mise à niveau pour la base de données. |Équipes qui peuvent configurer et gérer une haute disponibilité, une récupération d’urgence et une mise à jour corrective pour SQL Server. Certaines fonctionnalités automatisées simplifient considérablement cette procédure. | |
 |  | Équipes qui ne souhaitent pas gérer le système d’exploitation sous-jacent et les paramètres de configuration. |Vous avez besoin d’un environnement personnalisé avec des droits d’administration complets. | |
-|  | Bases de données de moins de 1 To ou bases de données plus volumineuses pouvant être [partitionnées horizontalement ou verticalement](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) à l’aide d’un modèle de scale-out. |Instances SQL Server avec 64 To de stockage maximum. L’instance peut prendre en charge autant de bases de données que nécessaire. | |
+|  | Bases de données de moins de 4 To ou bases de données plus volumineuses pouvant être [partitionnées horizontalement ou verticalement](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) à l’aide d’un modèle de scale-out. |Instances SQL Server avec 64 To de stockage maximum. L’instance peut prendre en charge autant de bases de données que nécessaire. | |
 |  | [Création d’applications SaaS (logiciel en tant que service)](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migration et création d’applications d’entreprise et hybrides. | |
 |  | | |
 | **Ressources :** |Vous ne souhaitez pas utiliser les ressources informatiques pour la configuration et la gestion de l’infrastructure sous-jacente, mais vous voulez vous concentrer sur la couche d’application. |Vous disposez de ressources informatiques pour la configuration et la gestion. Certaines fonctionnalités automatisées simplifient considérablement cette procédure. |
@@ -140,7 +139,7 @@ Choisissez **Azure SQL Database** dans les cas suivants :
 
 Choisissez **SQL Server sur les machines virtuelles Azure** dans les cas suivants :
 
-* Vous disposez d’applications locales existantes que vous souhaitez migrer ou étendre vers le cloud, ou vous souhaitez créer des applications d’entreprise supérieures à 1 To. Cette approche offre une compatibilité SQL à 100 %, une capacité de base de données importante, un contrôle total sur SQL Server et Windows et un tunneling sécurisé en local. Cette approche réduit les coûts de développement et de modification des applications existantes.
+* Vous disposez d’applications locales existantes que vous souhaitez migrer ou étendre dans le cloud, ou vous souhaitez créer des applications d’entreprise de plus de 4 To. Cette approche offre une compatibilité SQL à 100 %, une capacité de base de données importante, un contrôle total sur SQL Server et Windows et un tunneling sécurisé en local. Cette approche réduit les coûts de développement et de modification des applications existantes.
 * Vous disposez de ressources informatiques et vous pouvez bénéficier en fin de compte des correctifs, des sauvegardes et de la haute disponibilité de la base de données. Certaines fonctionnalités automatisées simplifient considérablement ces opérations. 
 
 ## <a name="next-steps"></a>Étapes suivantes

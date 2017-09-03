@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: e8ff96587a840236adfb277b3a33b11db71f7d8e
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 482bcf08b1256e26e15f7093fda621da4fdd5344
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication Azure vers Azure
@@ -131,15 +131,15 @@ Machines virtuelles migrées à l’aide de Site Recovery | Prises en charge | S
 
 **Configuration** | **Prise en charge/Non prise en charge** | **Notes**
 --- | --- | ---
-Taille maximale du disque du système d’exploitation | 1 023 Go | Voir [Disques utilisés par les machines virtuelles](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms).
-Taille maximale de disque de données | 1 023 Go | Voir [Disques utilisés par les machines virtuelles](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms).
+Taille maximale du disque du système d’exploitation | 1 023 Go | Voir [Disques utilisés par les machines virtuelles](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
+Taille maximale de disque de données | 1 023 Go | Voir [Disques utilisés par les machines virtuelles](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
 Nombre de disques de données | Jusqu’à 64, tel que pris en charge par une taille spécifique de machine virtuelle Azure | Voir [Tailles de machine virtuelle Azure](../virtual-machines/windows/sizes.md).
-Disque temporaire | Toujours exclus de la réplication | Le disque temporaire est exclu de la réplication. Dans les recommandations Azure, il est stipulé que vous ne devez pas placer de données persistantes sur un disque temporaire. Pour plus d’informations, consultez [Disque temporaire sur des machines virtuelles Azure](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk).
+Disque temporaire | Toujours exclus de la réplication | Le disque temporaire est exclu de la réplication. Dans les recommandations Azure, il est stipulé que vous ne devez pas placer de données persistantes sur un disque temporaire. Pour plus d’informations, consultez [Disque temporaire sur des machines virtuelles Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
 Taux de modification des données sur le disque | Au plus 6 Mbits/s par disque | Si le taux moyen de modification des données sur le disque est en permanence supérieur à 6 Mbits/s, la réplication ne pourra pas suivre. Toutefois, s’il s’agit d’une rafale de données occasionnelle, que le taux de modification des données est supérieur à 6 Mbits/s pendant un certain laps de temps, et qu’il redescend par la suite, la réplication pourra rattraper le retard. Dans ce cas, certains points de récupération pourront être légèrement différés.
 Disques sur des comptes de stockage Standard | Pris en charge |
 Disques sur des comptes de stockage Premium | Pris en charge | Si une machine virtuelle a des disques répartis sur des comptes de stockage Standard et Premium, vous pouvez sélectionner un compte de stockage cible différent pour chaque disque afin d’être sûr d’avoir la même configuration de stockage dans la région cible.
-Disques gérés Standard | Non pris en charge |  
-Disques gérés Premium | Non pris en charge |
+Disques managés Standard | Non pris en charge |  
+Disques managés Premium | Non pris en charge |
 Espaces de stockage | Pris en charge |         
 Chiffrement au repos (SSE) | Pris en charge | Pour les comptes de stockage du cache et cible, vous pouvez sélectionner un compte de stockage compatible SSE.     
 Azure Disk Encryption (ADE) | Non pris en charge |
@@ -152,7 +152,7 @@ ZRS | Non pris en charge |
 Stockage à froid et à chaud | Non pris en charge | Les disques de machine virtuelle ne sont pas pris en charge sur le stockage à froid et à chaud.
 
 >[!IMPORTANT]
-> Veillez à respecter les [conseils de stockage](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) pour vos machines virtuelles sources Azure afin d’éviter les problèmes de performances. Si vous suivez les paramètres par défaut, Site Recovery crée les comptes de stockage nécessaires en fonction de la configuration source. Si vous personnalisez et sélectionnez vos propres paramètres, veillez à respecter les (../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) comme sources de machines virtuelles.
+> Veillez à respecter les [conseils de stockage](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) pour vos machines virtuelles sources Azure afin d’éviter les problèmes de performances. Si vous suivez les paramètres par défaut, Site Recovery crée les comptes de stockage nécessaires en fonction de la configuration source. Si vous personnalisez et sélectionnez vos propres paramètres, veillez à respecter les (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) comme étant vos machines virtuelles sources.
 
 ## <a name="support-for-network-configuration"></a>Prise en charge de la configuration réseau
 **Configuration** | **Prise en charge/Non prise en charge** | **Notes**

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 08/16/2017
 ms.author: yushwang
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ea5546a636bd567853438ae2620ae24ce2d7da23
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 93873a530ba7190de964b9f5b2e0e63371d95fcc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurer des connexions VPN S2S en mode actif/actif avec des passerelles VPN Azure
@@ -39,7 +39,9 @@ Cet article fournit des instructions concernant la configuration d’une connexi
 Vous pouvez combiner ces instructions afin de créer une topologie de réseau plus complexe et hautement disponible correspondant à vos besoins.
 
 > [!IMPORTANT]
-> Veuillez noter que le mode actif/actif fonctionne uniquement dans la référence (SKU) HighPerformance.
+> Notez que le mode actif/actif utilise uniquement les références suivantes : 
+  * VpnGw1, VpnGw2, VpnGw3
+  * HigPerformance (pour les anciennes références héritées)
 > 
 > 
 
@@ -48,7 +50,7 @@ Les étapes suivantes permettent de configurer votre passerelle VPN Azure en mod
 
 * Vous devez créer deux configurations IP de passerelle avec deux adresses IP publiques.
 * Vous devez définir l’indicateur EnableActiveActiveFeature.
-* La référence SKU de passerelle doit être HighPerformance.
+* La référence (SKU) de la passerelle doit être VpnGw1, VpnGw2, VpnGw3 ou HigPerformance (référence héritée).
 
 Les autres propriétés sont les mêmes que celles des passerelles en mode actif/actif. 
 
@@ -122,10 +124,10 @@ $gw1ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2. Créer la passerelle VPN avec une configuration en mode actif/actif
-Créez la passerelle de réseau virtuel pour TestVNet1. Notez qu’il existe deux entrées GatewayIpConfig, et que l’indicateur EnableActiveActiveFeature est défini. Le mode actif/actif requiert une passerelle VPN basée sur un itinéraire correspondant à la référence (SKU) HighPerformance. La création d’une passerelle peut prendre un certain temps (30 minutes ou plus).
+Créez la passerelle de réseau virtuel pour TestVNet1. Notez qu’il existe deux entrées GatewayIpConfig, et que l’indicateur EnableActiveActiveFeature est défini. La création d’une passerelle peut prendre un certain temps (45 minutes ou plus).
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
+New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
 ```
 
 #### <a name="3-obtain-the-gateway-public-ip-addresses-and-the-bgp-peer-ip-address"></a>3. Obtenir les adresses IP publiques de passerelle et l’adresse IP d’homologue BGP
@@ -253,15 +255,17 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupNa
 #### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. Paramètres VPN et BGP pour votre deuxième périphérique VPN local
 De même, ci-dessous figurent les paramètres vous allez entrer pour le deuxième périphérique VPN :
 
-      - Site5 ASN            : 65050
-      - Site5 BGP IP         : 10.52.255.254
-      - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
-      - Azure VNet ASN       : 65010
-      - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
-      - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
-      - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
-                             Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
-      - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
+- Site5 ASN            : 65050
+- Site5 BGP IP         : 10.52.255.254
+- Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+- Azure VNet ASN       : 65010
+- Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+- Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+- Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+- eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
 
 Une fois la connexion (les tunnels) établie, vous disposez d’appareils VPN à double redondance et de tunnels reliant votre réseau local et Azure :
 
@@ -331,7 +335,7 @@ $gw2ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW2IPconf2 -Subnet
 Créez la passerelle VPN avec le numéro AS et l’indicateur « EnableActiveActiveFeature ». Notez que vous devez substituer la valeur par défaut de l’ASN sur vos passerelles VPN Azure. Les ASN des réseaux virtuels connectés doivent être différents pour activer BGP et le routage de transit.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet2ASN -EnableActiveActiveFeature
+New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet2ASN -EnableActiveActiveFeature
 ```
 
 ### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>Étape 2 - Connecter les passerelles TestVNet1 et TestVNet2
@@ -366,8 +370,8 @@ Une fois ces étapes terminées, la connexion s’établit en quelques minutes, 
 ## <a name ="aaupdate"></a>Partie 4 : mettre à jour une passerelle existante entre les modes actif/actif et actif/passif
 La dernière section décrit comment configurer une passerelle VPN Azure existante pour passer du mode actif/passif au mode actif/actif, ou inversement.
 
-> [!IMPORTANT]
-> Veuillez noter que le mode actif/actif fonctionne uniquement dans la référence (SKU) HighPerformance.
+> [!NOTE]
+> Cette section comprend les étapes de redimensionnement d’une référence (SKU) héritée (ancienne référence) d’une passerelle VPN déjà créée, en passant de Standard à HighPerformance. Ces étapes ne mettent pas à niveau une ancienne référence (SKU) héritée vers une des nouvelles références.
 > 
 > 
 
@@ -396,7 +400,7 @@ Add-AzureRmVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPc
 ```
 
 #### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3. Activer le mode actif/actif et mettre à jour la passerelle
-Vous devez définir l’objet passerelle dans PowerShell pour déclencher la mise à jour réelle. En outre, la référence SKU de l’objet passerelle doit être définie sur HighPerformance, car elle a été créée avec la valeur Standard.
+Vous devez définir l’objet passerelle dans PowerShell pour déclencher la mise à jour réelle. En outre, la référence de la passerelle de réseau virtuel doit être définie (redimensionnée) sur HighPerformance, car elle a été créée précédemment avec la valeur Standard.
 
 ```powershell
 Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature -GatewaySku HighPerformance
@@ -428,5 +432,3 @@ Cette mise à jour peut prendre de 30 à 45 minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour connaître les différentes étapes.
-
-

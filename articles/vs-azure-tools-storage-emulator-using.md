@@ -3,8 +3,8 @@ title: "Configuration et utilisation de l’émulateur de stockage avec Visual S
 description: "Configuration et utilisation de l’émulateur de stockage avec Visual Studio"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: c8e7996f-6027-4762-806e-614b93131867
 ms.service: storage
@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ad193695e703b365f87b1d28ec4e8af8a705a086
-
+ms.date: 8/17/2017
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 729e953cae9d65e637be0fdaec9027312fdb6c6a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configuration et utilisation de l’émulateur de stockage avec Visual Studio
@@ -26,10 +27,10 @@ ms.openlocfilehash: ad193695e703b365f87b1d28ec4e8af8a705a086
 ## <a name="overview"></a>Vue d'ensemble
 L’environnement de développement du Kit de développement logiciel (SDK) Azure comprend l’émulateur de stockage, un utilitaire qui simule les services de stockage d’objets blob, de files d’attente et de tables d’Azure Storage sur votre ordinateur de développement local. Si vous créez un service cloud qui utilise les services de stockage Azure ou écrivez une application externe qui appelle les services de stockage, vous pouvez tester localement votre code sur l’émulateur de stockage. Azure Tools pour Microsoft Visual Studio intègre la gestion de l’émulateur de stockage dans Visual Studio. Azure Tools initialise la base de données de l’émulateur de stockage à la première utilisation, il démarre le service de l’émulateur de stockage quand vous exécutez ou déboguez votre code dans Visual Studio, et il fournit un accès en lecture seule aux données de l’émulateur de stockage via l’Explorateur de stockage Azure.
 
-Pour plus d’informations sur l’émulateur de stockage, y compris la configuration système requise et les instructions de configuration personnalisée, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](storage/storage-use-emulator.md).
+Pour plus d’informations sur l’émulateur de stockage, y compris la configuration système requise et les instructions de configuration personnalisée, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](storage/common/storage-use-emulator.md).
 
 > [!NOTE]
-> Il existe quelques différences de fonctionnalité entre la simulation de l’émulateur de stockage et les services de stockage Azure. Pour plus d’informations sur ces différences, consultez [Différences entre l’émulateur de stockage et Azure Storage](storage/storage-use-emulator.md) dans la documentation du Kit de développement logiciel (SDK) Azure.
+> Il existe quelques différences de fonctionnalité entre la simulation de l’émulateur de stockage et les services de stockage Azure. Pour plus d’informations sur ces différences, consultez [Différences entre l’émulateur de stockage et Azure Storage](storage/common/storage-use-emulator.md) dans la documentation du Kit de développement logiciel (SDK) Azure.
 > 
 > 
 
@@ -47,18 +48,13 @@ Il est possible de lancer automatiquement l’émulateur de stockage quand vous 
 La première fois que vous exécutez ou déboguez votre service à partir de Visual Studio, l’émulateur de stockage lance un processus d’initialisation. Ce processus réserve des ports locaux pour l’émulateur de stockage et crée la base de données de l’émulateur de stockage. Une fois terminé, ce processus n’aura pas besoin d’être réexécuté, à moins que la base de données de l’émulateur de stockage ne soit supprimée.
 
 > [!NOTE]
-> À compter de la version de juin 2012 d’Azure Tools, l’émulateur de stockage est exécuté par défaut dans SQL Express LocalDB. Dans les versions antérieures d’Azure Tools, l’émulateur de stockage est exécuté sur une instance par défaut de SQL Express 2005 ou 2008, que vous devez installer avant de pouvoir installer le Kit de développement logiciel (SDK) Azure. Vous pouvez également exécuter l’émulateur de stockage sur une instance nommée de SQL Express ou sur une instance nommée ou par défaut de Microsoft SQL Server. Si vous avez besoin de configurer l’émulateur de stockage pour qu’il soit exécuté sur une instance autre que celle par défaut, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](storage/storage-use-emulator.md).
+> À compter de la version de juin 2012 d’Azure Tools, l’émulateur de stockage est exécuté par défaut dans SQL Express LocalDB. Dans les versions antérieures d’Azure Tools, l’émulateur de stockage est exécuté sur une instance par défaut de SQL Express 2005 ou 2008, que vous devez installer avant de pouvoir installer le Kit de développement logiciel (SDK) Azure. Vous pouvez également exécuter l’émulateur de stockage sur une instance nommée de SQL Express ou sur une instance nommée ou par défaut de Microsoft SQL Server. Si vous avez besoin de configurer l’émulateur de stockage pour qu’il soit exécuté sur une instance autre que celle par défaut, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](storage/common/storage-use-emulator.md).
 > 
 > 
 
 L’émulateur de stockage fournit une interface utilisateur qui permet de voir l’état des services de stockage local, ainsi que de les démarrer, arrêter et réinitialiser. Une fois que le service d’émulateur de stockage a été démarré, vous pouvez afficher l’interface utilisateur et démarrer ou arrêter le service en double-cliquant sur l’icône de zone de notification de l’émulateur Microsoft Azure dans la barre des tâches Windows.
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Affichage des données de l’émulateur de stockage dans l’Explorateur de serveurs
-Le nœud Azure Storage dans l’Explorateur de serveurs permet d’afficher des données et de modifier les paramètres des données d’objets blob et de tables de vos comptes de stockage, y compris celui de l’émulateur de stockage. Pour plus d’informations, consultez [Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs](https://msdn.microsoft.com/library/azure/ff683677.aspx) .
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+Le nœud Azure Storage dans l’Explorateur de serveurs permet d’afficher des données et de modifier les paramètres des données d’objets blob et de tables de vos comptes de stockage, y compris celui de l’émulateur de stockage. Consultez [Gérer les ressources Stockage Blob Azure avec l’explorateur de stockage (préversion)](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) pour plus d’informations.
 
 

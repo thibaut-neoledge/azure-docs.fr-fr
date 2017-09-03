@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 891ed3f496ca394c9139ad9f94986a19d8cef769
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: cd498198e0f206ddca2e3396813b2f2093ec3731
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service #
@@ -62,11 +62,18 @@ Un ASE présente la dépendance d’accès entrant suivante :
 
 | Utilisation | À partir | À |
 |-----|------|----|
-| Gestion | Internet | Sous-réseau de l’ASE : 454, 455 |
+| Gestion | Adresses de gestion App Service | Sous-réseau de l’ASE : 454, 455 |
 |  Communications internes de l’ASE | Sous-réseau de l’ASE : tous les ports | Sous-réseau de l’ASE : tous les ports
-|  Autoriser le trafic entrant provenant d’Azure Load Balancer | Équilibrage de charge Azure | Quelconque
+|  Autoriser le trafic entrant provenant d’Azure Load Balancer | Équilibrage de charge Azure | Sous-réseau de l’ASE : tous les ports
+|  Adresses IP affectées par l’application | Adresses affectées par l’application | Sous-réseau de l’ASE : tous les ports
 
-Le trafic entrant fournit la commande et le contrôle de l’ASE en plus de la surveillance du système. Les adresses IP ne sont pas constantes pour ce trafic. Par conséquent, la configuration de la sécurité réseau doit autoriser l’accès sur les ports 454 et 455 à partir de toutes les adresses IP.
+Le trafic entrant fournit la commande et le contrôle de l’ASE en plus de la surveillance du système. Les adresses IP sources pour ce trafic sont répertoriées dans le document [Adresses de gestion App Service Environment][ASEManagement]. Par conséquent, la configuration de la sécurité réseau doit autoriser l’accès sur les ports 454 et 455 à partir de toutes les adresses IP.
+
+Le sous-réseau de l’ASE comprend divers ports utilisés pour la communication des composants internes ; ces ports peuvent changer.  Tous les ports du sous-réseau de l’ASE doivent être accessibles à partir du sous-réseau de l’ASE. 
+
+Pour permettre la communication entre l’équilibreur de charge Azure et le sous-réseau de l’ASE, les ports 454, 455 et 16001 (au minimum) doivent être ouverts. Le port 16001 sert à maintenir le trafic entre l’équilibreur de charge et le sous-réseau de l’ASE. Si vous utilisez un ASE ILB, vous pouvez limiter le trafic aux ports 454, 455 et 16001.  Si vous utilisez un ASE externe, vous devez prendre en compte les ports d’accès application normaux.  Si vous utilisez des adresses affectées par l’application, vous devez les ouvrir à tous les ports.  Quand une adresse est affectée à une application spécifique, l’équilibreur de charge utilise des ports qui ne sont pas connus à l’avance pour l’envoi du trafic HTTP et HTTPS à l’ASE.
+
+Si vous utilisez des adresses IP affectées par l’application, vous devez autoriser le trafic entre les adresses IP affectées à vos applications et le sous-réseau de l’ASE.
 
 Pour l’accès sortant, un ASE dépend de plusieurs systèmes externes. Ces dépendances système sont définies avec des noms DNS et ne sont pas mappées à un ensemble fixe d’adresses IP. Par conséquent, l’ASE requiert un accès sortant vers toutes les adresses IP sur divers ports à partir de son sous-réseau. Un ASE présente les dépendances d’accès sortant suivantes :
 
@@ -245,4 +252,5 @@ Pour déployer votre ASE dans un réseau virtuel intégré à ExpressRoute, pré
 [AppDeploy]: ../../app-service-web/web-sites-deploy.md
 [ASEWAF]: ../../app-service-web/app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[ASEManagement]: ./management-addresses.md
 
