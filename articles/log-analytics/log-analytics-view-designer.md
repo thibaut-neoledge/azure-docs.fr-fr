@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d65f730a0f84b89d0228a22b42d0421ad4f2678f
-ms.lasthandoff: 03/09/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: e3c463d749dc4179df58286b9bb75584880a6bc6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Utiliser le Concepteur de vues pour créer des vues personnalisées dans Log Analytics
@@ -26,8 +26,11 @@ Le Concepteur de vues de [Log Analytics](log-analytics-overview.md) permet de cr
 
 Autres articles disponibles concernant le Concepteur de vues :
 
-* [Référence de vignette](log-analytics-view-designer-tiles.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées. 
-* [Référence des composants de visualisation](log-analytics-view-designer-parts.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées. 
+* [Référence de vignette](log-analytics-view-designer-tiles.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées.
+* [Référence des composants de visualisation](log-analytics-view-designer-parts.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées.
+
+>[!NOTE]
+> Si votre espace de travail a été mis à niveau vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes de toutes les vues doivent être écrites à l’aide du [nouveau langage de requête](https://go.microsoft.com/fwlink/?linkid=856078).  Toutes les vues créées avant la mise à niveau de l’espace de travail sont automatiquement converties.
 
 ## <a name="concepts"></a>Concepts
 Les vues créées avec le Concepteur de vues contiennent les éléments répertoriés dans le tableau suivant.
@@ -96,5 +99,4 @@ Les vues ne comprennent qu’une seule ligne de composants de visualisation.  R�
 ## <a name="next-steps"></a>Étapes suivantes
 * Ajouter des [vignettes](log-analytics-view-designer-tiles.md) à votre vue personnalisée.
 * Ajouter des [composants de visualisation](log-analytics-view-designer-parts.md) à votre vue personnalisée.
-
 

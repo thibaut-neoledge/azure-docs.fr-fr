@@ -3,7 +3,7 @@ title: "Connexion par téléphone Microsoft Authenticator - Comptes Microsoft e
 description: "Utilisez votre téléphone pour vous connecter à votre compte Microsoft au lieu de taper votre mot de passe. Cet article répond aux questions fréquentes concernant cette fonctionnalité."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,44 +12,44 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 002b850221c25111c33c145cb45973488bbbb4e1
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 9fb25f9f26a220c90f82add02fa5bdb954a926c3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Connectez-vous avec votre téléphone, et non votre mot de passe
 
-L’application Microsoft Authenticator vous permet de sécuriser vos comptes en effectuant une vérification en deux étapes après avoir entré votre mot de passe. Mais saviez-vous qu’elle peut remplacer complètement le mot de passe de votre compte Microsoft personnel ? 
+L’application Microsoft Authenticator vous permet de sécuriser vos comptes en effectuant une vérification en deux étapes après avoir entré votre mot de passe. Mais saviez-vous qu’elle peut remplacer complètement le mot de passe de votre compte Microsoft personnel ?
 
-Cette fonctionnalité est disponible sur les appareils iOS et Android, et est compatible avec les comptes Microsoft personnels. 
+Cette fonctionnalité est disponible sur les appareils iOS et Android, et est compatible avec les comptes Microsoft personnels.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Vous êtes nombreux à utiliser l’application Microsoft Authenticator pour accomplir le processus de vérification en deux étapes lorsque vous vous connectez à votre compte Microsoft. Vous tapez votre mot de passe, puis accédez à l’application pour approuver une notification ou obtenir un code de vérification. Avec la connexion par téléphone, tout le processus de vérification d’identité se fait sur votre téléphone, sans nécessiter de mot de passe. La connexion par téléphone nécessite une vérification en deux étapes, qui fait appel à un élément que vous connaissez et à un autre que vous possédez, pour prouver votre identité. Le téléphone est toujours l’élément que vous possédez, et le code PIN du téléphone ou votre clé biométrique est l’élément que vous connaissez. 
+Vous êtes nombreux à utiliser l’application Microsoft Authenticator pour accomplir le processus de vérification en deux étapes lorsque vous vous connectez à votre compte Microsoft. Vous tapez votre mot de passe, puis accédez à l’application pour approuver une notification ou obtenir un code de vérification. Avec la connexion par téléphone, tout le processus de vérification d’identité se fait sur votre téléphone, sans nécessiter de mot de passe. La connexion par téléphone nécessite une vérification en deux étapes, qui fait appel à un élément que vous connaissez et à un autre que vous possédez, pour prouver votre identité. Le téléphone est toujours l’élément que vous possédez, et le code PIN du téléphone ou votre clé biométrique est l’élément que vous connaissez.
 
 ## <a name="how-to-get-started"></a>Pour commencer
 
-Pour vous connecter à votre compte Microsoft personnel avec votre téléphone, procédez comme suit : 
+Pour vous connecter à votre compte Microsoft personnel avec votre téléphone, procédez comme suit :
 
-1. Activez la connexion par téléphone pour votre compte. 
+1. Activez la connexion par téléphone pour votre compte.
 
   - Si vous ne disposez pas encore de l’application Microsoft Authenticator, installez-la et ajoutez votre compte Microsoft personnel en suivant la procédure présentée dans l’article [Microsoft Authenticator](microsoft-authenticator-app-how-to.md). Les comptes qui viennent d’être ajoutés sont automatiquement activés. Vous n’avez donc rien d’autre à faire.
 
   - Si vous utilisez déjà Microsoft Authenticator pour la vérification en deux étapes, sélectionnez votre compte dans la page d’accueil de l’application, puis choisissez **Activer la connexion par téléphone** dans le menu déroulant.
 
-  >[!NOTE] 
-  >Pour protéger votre compte, nous exigeons l’utilisation d’un code PIN ou d’un verrou biométrique sur votre appareil. Si vous laissez votre téléphone déverrouillé, une demande vous invitant à configurer un verrou avant d’activer la connexion par téléphone s’affiche dans l’application. 
+  >[!NOTE]
+  >Pour protéger votre compte, nous exigeons l’utilisation d’un code PIN ou d’un verrou biométrique sur votre appareil. Si vous laissez votre téléphone déverrouillé, une demande vous invitant à configurer un verrou avant d’activer la connexion par téléphone s’affiche dans l’application.
 
-3. La plupart des pages où vous entrez habituellement le mot de passe de votre compte Microsoft comportent un lien indiquant **Utiliser une application à la place**. Sélectionnez ce lien pour vous connecter avec votre téléphone. 
+3. La plupart des pages où vous entrez habituellement le mot de passe de votre compte Microsoft comportent un lien indiquant **Utiliser une application à la place**. Sélectionnez ce lien pour vous connecter avec votre téléphone.
 
 4. Microsoft envoie une notification à votre téléphone. Approuvez la notification pour vous connecter à votre compte.   
 
-## <a name="faq"></a>Forum Aux Questions 
+## <a name="faq"></a>Forum Aux Questions
 
 ### <a name="how-is-signing-in-with-my-phone-more-secure-than-typing-a-password"></a>En quoi la connexion par téléphone est-elle plus sécurisée que la saisie d’un mot de passe ?  
 
@@ -61,11 +61,11 @@ La clé utilisée est similaire à celles utilisées dans Windows Hello et les s
 
 À l’heure actuelle, la fonctionnalité de connexion par téléphone ne fonctionne qu’avec les applications et les services web s’appuyant sur des comptes Microsoft personnels et avec les applications iOS, Android ou de Windows 10 qui utilisent un compte Microsoft personnel. Lorsque vous vous connectez à ces sites web ou applications, la page où vous entrez habituellement votre mot de passe comporte un lien indiquant **Utiliser une application à la place**. 
 
-Pour le moment, la connexion par téléphone ne peut pas être utilisée pour déverrouiller un PC Windows, une XBOX ou la version de bureau des applications Microsoft telles que les applications Office. 
+Pour le moment, la connexion par téléphone ne peut pas être utilisée pour déverrouiller un PC Windows, une XBOX ou la version de bureau des applications Microsoft telles que les applications Office.
  
 ### <a name="does-this-replace-two-step-verification-should-i-turn-it-off"></a>Cette fonctionnalité remplace-t-elle la vérification en deux étapes ? Dois-je désactiver cette dernière ?   
 
-Parfois. Nous sommes en train d’élargir le champ d’application de la connexion par téléphone, mais elle n’est pas encore prise en charge dans l’ensemble de l’écosystème Microsoft. Lorsqu’elle n’est pas disponible, nous utilisons toujours la vérification en deux étapes pour sécuriser la connexion. C’est pourquoi vous ne devez pas désactiver la vérification en deux étapes pour votre compte. 
+Parfois. Nous sommes en train d’élargir le champ d’application de la connexion par téléphone, mais elle n’est pas encore prise en charge dans l’ensemble de l’écosystème Microsoft. Lorsqu’elle n’est pas disponible, nous utilisons toujours la vérification en deux étapes pour sécuriser la connexion. C’est pourquoi vous ne devez pas désactiver la vérification en deux étapes pour votre compte.
  
 ### <a name="okay-if-i-keep-two-step-verification-turned-on-for-my-account-do-i-have-to-approve-two-notifications"></a>Si je laisse la vérification en deux étapes activée pour mon compte, dois-je approuver deux notifications ?
 
@@ -73,7 +73,7 @@ Non. La connexion à votre compte Microsoft avec votre téléphone est considér
 
 ### <a name="what-if-i-lose-my-phone-or-dont-have-it-with-me-how-can-i-access-my-account"></a>Et si je perds mon téléphone ou je ne l’ai pas sur moi, comment puis-je accéder à mon compte ?  
 
-Vous pouvez toujours cliquer sur **Utiliser votre mot de passe à la place** sur la page de connexion pour revenir à la saisie du mot de passe. Notez bien que si vous utilisez la vérification en deux étapes, vous avez toujours besoin d’une deuxième méthode pour vérifier votre connexion. C’est pourquoi nous vous recommandons vivement d’avoir des informations de sécurité supplémentaires à jour dans votre compte. Vous pouvez gérer vos informations de sécurité à l’adresse https://account.live.com/proofs/manage. 
+Vous pouvez toujours cliquer sur **Utiliser votre mot de passe à la place** sur la page de connexion pour revenir à la saisie du mot de passe. Notez bien que si vous utilisez la vérification en deux étapes, vous avez toujours besoin d’une deuxième méthode pour vérifier votre connexion. C’est pourquoi nous vous recommandons vivement d’avoir des informations de sécurité supplémentaires à jour dans votre compte. Vous pouvez gérer vos informations de sécurité à l’adresse https://account.live.com/proofs/manage.
  
 ### <a name="how-do-i-stop-using-this-feature-and-go-back-to-entering-my-password"></a>Comment faire pour arrêter d’utiliser cette fonctionnalité et revenir à la saisie du mot de passe ?
 

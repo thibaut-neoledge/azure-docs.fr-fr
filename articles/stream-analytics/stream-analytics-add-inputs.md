@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: ea8f28183f2621e25a53ea7a73ab9f6c5c2b8d07
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Ajout d'une entrée de données de diffusion en continu ou de données de référence à une tâche Stream Analytics
 Découvrez comment connecter une source de données à votre tâche Stream Analytics en tant qu’entrée de données de diffusion en continu à partir de Event Hubs ou référencer des données à partir du stockage d’objets blob.
 
-Les tâches Azure Stream Analytics peuvent être connectées à une ou plusieurs entrées de données, chacune d'entre elles définissant une connexion à une source de données existante. Comme les données sont envoyées à la source de données, elles sont utilisées par la tâche Stream Analytics et traitées en temps réel en tant que données de diffusion en continu. Stream Analytics propose une intégration de pointe à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et au [Stockage Blob Azure](../storage/storage-dotnet-how-to-use-blobs.md) externes et internes à l’abonnement du travail.
+Les tâches Azure Stream Analytics peuvent être connectées à une ou plusieurs entrées de données, chacune d'entre elles définissant une connexion à une source de données existante. Comme les données sont envoyées à la source de données, elles sont utilisées par la tâche Stream Analytics et traitées en temps réel en tant que données de diffusion en continu. Stream Analytics propose une intégration de pointe à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et au [Stockage Blob Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md) externes et internes à l’abonnement du travail.
 
 Cet article est une étape dans le [parcours d'apprentissage de Stream Analytics](/documentation/learning-paths/stream-analytics/).
 
@@ -74,7 +74,7 @@ Pour ajouter une entrée à votre tâche Stream Analytics :
     ![Tester la connexion de l’entrée de données de diffusion en continu](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## <a name="get-help-with-streaming-data-inputs"></a>Obtenir de l'aide sur les entrées de données de diffusion en continu
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

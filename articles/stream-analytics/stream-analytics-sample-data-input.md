@@ -4,7 +4,7 @@ description: "Identifiez les problèmes lors du dépannage des travaux Stream An
 keywords: "résoudre les problèmes d’entrée, échantillonnage des entrées"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 5d3dbd24fcc42c9539d1943170027ca493f80784
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: db9686fad7153d63fc659869b93821200e08397c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-stream-analytics-input-stream-sampling"></a>Échantillonnage de flux d’entrée Azure Stream Analytics
@@ -59,7 +58,7 @@ Une fois que vous êtes satisfait des résultats, vous pouvez enregistrer votre 
 
 ## <a name="get-help"></a>Obtenir de l'aide
 
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

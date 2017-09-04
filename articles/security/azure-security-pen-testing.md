@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 08/24/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: bc8ca9bb349f41a6ae7371b4fc33cc09fb179c11
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="pen-testing"></a>Test de pénétration
@@ -43,5 +43,5 @@ Vous avez la possibilité d’effectuer plusieurs tests :
 
 En revanche, vous ne pouvez effectuer aucune forme [d’attaque par déni de service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack), c’est-à-dire que nous ne pouvez ni initier une attaque par déni de service proprement dite, ni effectuer les tests associés permettant de déterminer, démontrer ou simuler n’importe quel type d’attaque de déni de service.
 
-Prêt à vous lancer dans les tests de pénétration de vos applications hébergées dans Microsoft Azure ? Si tel est le cas, rendez-vous sur la page [Penetration Test Overview](https://security-forms.azure.com/penetration-testing/terms) (Présentation du test de pénétration) et cliquez sur le bouton Create a Testing Request (Créer une demande de test) au bas de la page. Vous trouverez également d’autres informations sur les conditions de test de pénétration ainsi que des liens utiles sur la manière de signaler des failles de sécurité liées à Azure ou à tout autre service Microsoft.
+Prêt à vous lancer dans les tests de pénétration de vos applications hébergées dans Microsoft Azure ? Si tel est le cas, rendez-vous sur la page [Penetration Test Overview](https://technet.microsoft.com/library/mt784683.aspx) (Présentation du test de pénétration) et cliquez sur le bouton Create a Testing Request (Créer une demande de test) au bas de la page. Vous trouverez également d’autres informations sur les conditions de test de pénétration ainsi que des liens utiles sur la manière de signaler des failles de sécurité liées à Azure ou à tout autre service Microsoft.
 

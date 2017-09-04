@@ -2,7 +2,7 @@
 title: "Gestion des éléments multimédias et des entités connexes avec le Kit de développement logiciel (SDK) Media Services .NET"
 description: "Apprenez à gérer des éléments multimédias et leurs entités associées avec le Kit de développement logiciel (SDK) pour .NET."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: e3de7c26af5cbc930defe542727a1250825fb1f8
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gestion des éléments multimédias et des entités connexes avec le Kit de développement logiciel (SDK) Media Services .NET
@@ -38,8 +38,7 @@ Cette rubrique montre comment gérer les entités Azure Media Services avec .NET
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Obtenir une référence pointant vers un élément multimédia
-L’obtention d’une référence pointant vers un élément multimédia existant dans Media Services est une tâche fréquente. L’exemple de code suivant montre comment vous pouvez obtenir une référence pointant vers un élément multimédia à partir de la collection Assets sur l’objet de contexte du serveur, en fonction d’un ID d’élément multimédia.
-L’exemple de code suivant utilise une requête Linq pour obtenir une référence pointant vers un objet IAsset existant.
+L’obtention d’une référence pointant vers un élément multimédia existant dans Media Services est une tâche fréquente. L’exemple de code suivant montre comment vous pouvez obtenir une référence pointant vers un élément multimédia à partir de la collection Assets sur l’objet de contexte du serveur, en fonction d’un ID d’élément multimédia. L’exemple de code suivant utilise une requête Linq pour obtenir une référence pointant vers un objet IAsset existant.
 
     static IAsset GetAsset(string assetId)
     {

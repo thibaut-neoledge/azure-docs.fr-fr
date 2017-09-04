@@ -3,7 +3,7 @@ title: "Modèles Produit dans Gestion des API Azure | Microsoft Docs"
 description: "Découvrez comment personnaliser le contenu des pages Produit dans le portail des développeurs Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 49f9254c-4c5f-4ed4-9c8d-798f44e805ee
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 393b10042f35afabf00672f9015f714e211a9d43
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: dae757231d8f2ff7fcd8e032d941c0fa9f192796
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modèles Produit dans Gestion des API Azure
@@ -31,7 +33,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 > [!NOTE]
 >  Les exemples de modèles par défaut inclus dans la documentation suivante sont susceptibles d’être modifiés et améliorés de façon régulière. Vous pouvez afficher les modèles dynamiques par défaut dans le portail des développeurs en accédant aux modèles individuels souhaités. Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
-##  <a name="a-nameproductlista-product-list"></a><a name="ProductList"></a> Liste de produits  
+##  <a name="ProductList"></a> Liste de produits  
  Le modèle **Liste de produits** vous permet de personnaliser le corps de la page Liste de produits dans le portail des développeurs.  
   
  ![Liste de produits](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
@@ -117,7 +119,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 }  
 ```  
   
-##  <a name="a-nameproducta-product"></a><a name="Product"></a> Produit  
+##  <a name="Product"></a> Produit  
  Le modèle **Produit** vous permet de personnaliser le corps de la page Produit dans le portail des développeurs.  
   
  ![Page Produit dans le portail des développeurs](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
@@ -258,8 +260,3 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

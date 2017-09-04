@@ -3,8 +3,8 @@ title: Configuration de Diagnostics pour les services cloud et les machines virt
 description: "Décrit comment configurer les informations de diagnostic pour le débogage des services cloud Azure et des machines virtuelles dans Visual Studio."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76bcb201bb8d862426048b828c0c4cce0335455c
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 2516c0eb8ce470577731db9b844d5b9038465477
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure
@@ -301,10 +302,5 @@ Maintenant, dans la fenêtre **Propriétés**, définissez la propriété **Copi
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la journalisation des diagnostics dans Azure, consultez [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](cloud-services/cloud-services-dotnet-diagnostics.md) et [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](app-service-web/web-sites-enable-diagnostic-log.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

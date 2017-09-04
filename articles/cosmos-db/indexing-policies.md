@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 2c03b498b1530388a48db4d2925debc2e03e30aa
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Comment Azure Cosmos DB indexe-t-il les données ?
@@ -77,8 +77,6 @@ Azure Cosmos DB prend en charge trois modes d’indexation qui peuvent être con
 > La configuration de la stratégie d’indexation en mode « Aucun » a pour effet secondaire de supprimer un index existant. Utilisez-la si vos modèles d'accès ne requièrent que l’attribut « id » et/ou « self-link » (lien réflexif).
 > 
 > 
-
-L’exemple suivant montre comment utiliser le Kit de développement logiciel (SDK) .NET d’Azure Cosmos DB pour créer une collection Azure Cosmos DB avec une indexation automatique cohérente de toutes les insertions de document.
 
 Le tableau suivant indique la cohérence des requêtes en fonction du mode d'indexation (Cohérent et Différé) qui a été configuré pour la collection et du niveau de cohérence spécifié pour la requête. Cela s'applique aux requêtes effectuées à l'aide de n'importe quelle interface : API REST, Kit de développement logiciel (SDK) ou à partir de déclencheurs et de procédures stockées. 
 

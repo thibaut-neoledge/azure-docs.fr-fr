@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: ce1857395176ef50a16a7291170fb220896fd792
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 5c4bcda308f001572e1c34e991616fc209250a02
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="nosql-tutorial-build-a-documentdb-api-java-console-application"></a>Didacticiel NoSQL : Générer une application console Java avec l’API DocumentDB
@@ -82,11 +82,11 @@ Le répertoire contient un fichier `pom.xml` pour le projet et un dossier `src` 
 ## <a id="Connect"></a>Étape 3 : se connecter à un compte Azure Cosmos DB
 Ensuite, revenez au [portail Azure](https://portal.azure.com) pour récupérer votre point de terminaison et votre clé primaire. Le point de terminaison et la clé primaire Azure Cosmos DB sont nécessaires pour que votre application sache où se connecter et qu’Azure Cosmos DB approuve la connexion de votre application.
 
-Dans le portail Azure, accédez à votre compte Azure Cosmos DB, puis cliquez sur **Clés**. Copiez l’URI à partir du portail et collez-le dans `<your endpoint URI>` dans le fichier Program.java. Ensuite, copiez la clé primaire à partir du portail, puis collez-la dans `<your key>`.
+Dans le portail Azure, accédez à votre compte Azure Cosmos DB, puis cliquez sur **Clés**. Copiez l’URI à partir du portail et collez-le dans `https://FILLME.documents.azure.com` dans le fichier Program.java. Ensuite, copiez la clé primaire à partir du portail, puis collez-la dans `FILLME`.
 
     this.client = new DocumentClient(
-        "<your endpoint URI>",
-        "<your key>"
+        "https://FILLME.documents.azure.com",
+        "FILLME"
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 

@@ -4,7 +4,7 @@ description: "Comment exécuter une tâche de diffusion en continu dans Azure St
 keywords: "diffusion en continu de tâches"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9d46950f-2b69-49ce-a567-df558c5dd820
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: cf2a4227ba464b5ccf21f95da9031c83e1d49c27
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 03d43476c1946221538acccd1251c64ed3f02e13
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="how-to-run-a-streaming-job-in-azure-stream-analytics"></a>Comment exécuter une tâche de diffusion en continu dans Azure Stream Analytics
@@ -47,7 +46,7 @@ Pour démarrer la tâche :
    ![Progression du travail de streaming dans le portail Azure](./media/stream-analytics-run-a-job/6-stream-analytics-run-a-job.png)  
 
 ## <a name="get-help"></a>Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

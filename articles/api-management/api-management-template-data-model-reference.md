@@ -3,7 +3,7 @@ title: "Référence du modèle de données du modèle Gestion des API Azure | Mi
 description: "Découvrez les représentations de type et d’entité des éléments courants utilisés dans les modèles de données pour les modèles du portail des développeurs dans la Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 080ac72246e62948c3defe329028f27751e8c78d
-ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Référence du modèle de données du modèle Gestion des API Azure
@@ -49,7 +51,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 -   [User sign in](#UseSignIn)  
 -   [User sign up](#UserSignUp)  
   
-##  <a name="a-nameapia-api"></a><a name="API"></a> API  
+##  <a name="API"></a> API  
  L’entité `API` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -63,7 +65,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |authenticationSettings|[Paramètres d’authentification du serveur d’autorisation](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Collection de paramètres d’authentification inclus dans cette API.|  
 |subscriptionKeyParameterNames|objet|Propriété facultative utilisable pour donner des noms personnalisés aux paramètres de requête et/ou d’en-tête contenant la clé de l’abonnement. Lorsque cette propriété est présente, elle doit contenir au moins une des deux propriétés suivantes.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="a-nameapisummarya-api-summary"></a><a name="APISummary"></a> API summary  
+##  <a name="APISummary"></a> API summary  
  L’entité `API summary` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -72,7 +74,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |name|string|Nom de l’API. Ne doit pas être vide. La longueur maximale est de 100 caractères.|  
 |description|string|Description de l’API. Ne doit pas être vide. Peut comporter des balises de mise en forme. La longueur maximale est de 1 000 caractères.|  
   
-##  <a name="a-nameapplicationa-application"></a><a name="Application"></a> Application  
+##  <a name="Application"></a> Application  
  L’entité `application` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -90,7 +92,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |Pièces jointes|Collection d’entités [Attachment](#Attachment).|Pièces jointes de l’application, telles que des captures d’écran ou des icônes.|  
 |Icône|[Attachment](#Attachment)|Icône de l’application.|  
   
-##  <a name="a-nameattachmenta-attachment"></a><a name="Attachment"></a> Attachment  
+##  <a name="Attachment"></a> Attachment  
  L’entité `attachment` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -100,7 +102,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |Type|string|Type de pièce jointe.|  
 |ContentType|string|Type de média de la pièce jointe.|  
   
-##  <a name="a-namesamplea-code-sample"></a><a name="Sample"></a> Code sample  
+##  <a name="Sample"></a> Code sample  
   
 |Propriété|Type|Description|  
 |--------------|----------|-----------------|  
@@ -117,7 +119,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |En-têtes|Collection d’entités [Header](#Header).|En-têtes de cette opération.|  
 |parameters|Collection d’entités [Parameter](#Parameter).|Paramètres définis pour cette opération.|  
   
-##  <a name="a-namecommenta-comment"></a><a name="Comment"></a> Comment  
+##  <a name="Comment"></a> Comment  
  L’entité `API` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -127,7 +129,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |DeveloperCompany|string|Nom de l’entreprise du développeur.|  
 |PostedOn|DateTime|Date et l’heure auxquelles le commentaire a été publié.|  
   
-##  <a name="a-nameissuea-issue"></a><a name="Issue"></a> Issue  
+##  <a name="Issue"></a> Issue  
  L’entité `issue` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -143,7 +145,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |Pièces jointes|Collection d’entités [Attachment](api-management-template-data-model-reference.md#Attachment).|Pièces jointes à ce problème.|  
 |Services|Collection d’entités [API](#API).|API auxquelles l’utilisateur qui a consigné le problème est abonné.|  
   
-##  <a name="a-namefilteringa-filtering"></a><a name="Filtering"></a> Filtering  
+##  <a name="Filtering"></a> Filtering  
  L’entité `filtering` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -151,7 +153,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |Modèle|string|Terme de recherche actuel ; ou `null` en l’absence de terme de recherche.|  
 |Placeholder|string|Texte à afficher dans la zone de recherche si aucun terme de recherche n’est spécifié.|  
   
-##  <a name="a-nameheadera-header"></a><a name="Header"></a> Header  
+##  <a name="Header"></a> Header  
  Cette section décrit la représentation `parameter`.  
   
 |Propriété|Description|Type|  
@@ -164,7 +166,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |required|booléenne|Indique si l’en-tête est requis.|  
 |readOnly|booléenne|Indique si l’en-tête est en lecture seule.|  
   
-##  <a name="a-namehttprequesta-http-request"></a><a name="HTTPRequest"></a> HTTP Request  
+##  <a name="HTTPRequest"></a> HTTP Request  
  Cette section décrit la représentation `request`.  
   
 |Propriété|Type|Description|  
@@ -174,7 +176,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |parameters|tableau de [Parameter](#Parameter)|Collection de paramètres de demande d’opération.|  
 |representations|tableau de [Representation](#Representation)|Collection de représentations de demande d’opération.|  
   
-##  <a name="a-namehttpresponsea-http-response"></a><a name="HTTPResponse"></a> HTTP Response  
+##  <a name="HTTPResponse"></a> HTTP Response  
  Cette section décrit la représentation `response`.  
   
 |Propriété|Type|Description|  
@@ -183,7 +185,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |description|string|Description de la réponse de l’opération.|  
 |representations|tableau de [Representation](#Representation)|Collection de représentations de la réponse de l’opération.|  
   
-##  <a name="a-nameoperationa-operation"></a><a name="Operation"></a> Operation  
+##  <a name="Operation"></a> Operation  
  L’entité `operation` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -198,7 +200,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |request|[Demande HTTP](#HTTPRequest)|Entité qui contient les détails de la demande.|  
 |responses|tableau de [HTTP Response](#HTTPResponse)|Tableau d’entités [HTTP Response](#HTTPResponse) de l’opération.|  
   
-##  <a name="a-namemenua-operation-menu"></a><a name="Menu"></a> Operation menu  
+##  <a name="Menu"></a> Operation menu  
  L’entité `operation menu` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -208,7 +210,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |Action|string|Type de menu.|  
 |MenuItems|Collection d’entités [Operation menu item](#MenuItem).|Opérations de l’API actuelle.|  
   
-##  <a name="a-namemenuitema-operation-menu-item"></a><a name="MenuItem"></a> Operation menu item  
+##  <a name="MenuItem"></a> Operation menu item  
  L’entité `operation menu item` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -217,7 +219,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |Intitulé|string|Description de l’opération.|  
 |HttpMethod|string|Méthode HTTP de l’opération.|  
   
-##  <a name="a-namepaginga-paging"></a><a name="Paging"></a> Paging  
+##  <a name="Paging"></a> Paging  
  L’entité `paging` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -228,7 +230,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |ShowAll|booléenne|Indique si tous les résultats doivent être affichés sur une seule page.|  
 |PageCount|number|Nombre de pages de résultats.|  
   
-##  <a name="a-nameparametera-parameter"></a><a name="Parameter"></a> Parameter  
+##  <a name="Parameter"></a> Parameter  
  Cette section décrit la représentation `parameter`.  
   
 |Propriété|Description|Type|  
@@ -241,7 +243,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |kind|number|Indique si ce paramètre est un paramètre de chemin d’accès (1) ou un paramètre de chaîne de requête (2).|  
 |typeName|string|Type de paramètre.|  
   
-##  <a name="a-nameproducta-product"></a><a name="Product"></a> Product  
+##  <a name="Product"></a> Product  
  L’entité `product` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -254,7 +256,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |AllowMultipleSubscriptions|booléenne|Spécifie si un utilisateur peut avoir plusieurs abonnements à ce produit en même temps.|  
 |MultipleSubscriptionsCount|number|Nombre d’abonnements à ce produit de l’utilisateur actuel.|  
   
-##  <a name="a-nameprovidera-provider"></a><a name="Provider"></a> Provider  
+##  <a name="Provider"></a> Provider  
  L’entité `provider` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -263,7 +265,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |AuthenticationType|string|Type de fournisseur. (Azure Active Directory, compte Facebook, compte Google, compte Microsoft, Twitter).|  
 |Caption|string|Nom complet du fournisseur.|  
   
-##  <a name="a-namerepresentationa-representation"></a><a name="Representation"></a> Representation  
+##  <a name="Representation"></a> Representation  
  Cette section décrit une `representation`.  
   
 |Propriété|Type|Description|  
@@ -271,7 +273,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |contentType|string|Spécifie un type de contenu inscrit ou personnalisé pour cette représentation, par exemple, `application/xml`.|  
 |sample|string|Exemple de la représentation.|  
   
-##  <a name="a-namesubscriptiona-subscription"></a><a name="Subscription"></a> Subscription  
+##  <a name="Subscription"></a> Subscription  
  L’entité `subscription` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -297,7 +299,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |CancelUrl|string|URL relative pour annuler l’abonnement.|  
 |RenewUrl|string|URL relative pour renouveler l’abonnement.|  
   
-##  <a name="a-namesubscriptionsummarya-subscription-summary"></a><a name="SubscriptionSummary"></a> Subscription summary  
+##  <a name="SubscriptionSummary"></a> Subscription summary  
  L’entité `subscription summary` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -305,7 +307,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |ID|string|Identificateur de ressource. Identifie exclusivement l’abonnement dans l’instance de service Gestion des API actuelle. La valeur est une URL relative valide au format `subscriptions/{sid}`, où `{sid}` est un identificateur d’abonnement. Cette propriété est en lecture seule.|  
 |DisplayName|string|Nom complet de l’abonnement.|  
   
-##  <a name="a-nameuseraccountinfoa-user-account-info"></a><a name="UserAccountInfo"></a> User account info  
+##  <a name="UserAccountInfo"></a> User account info  
  L’entité `user account info` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -318,7 +320,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |ProviderName|string|Nom du fournisseur d’authentification.|  
 |IsBasicAccount|booléenne|True si ce compte a été inscrit avec une adresse de messagerie et un mot de passe ; False si le compte a été inscrit à l’aide d’un fournisseur.|  
   
-##  <a name="a-nameusesignina-user-sign-in"></a><a name="UseSignIn"></a> User sign in  
+##  <a name="UseSignIn"></a> User sign in  
  L’entité `user sign in` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -336,7 +338,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |UserRegistrationTerms|string|Conditions qu’un utilisateur doit accepter pour pouvoir se connecter.|  
 |UserRegistrationTermsEnabled|booléenne|Indique si les conditions sont activées.|  
   
-##  <a name="a-nameusersignupa-user-sign-up"></a><a name="UserSignUp"></a> User sign up  
+##  <a name="UserSignUp"></a> User sign up  
  L’entité `user sign up` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -356,9 +358,4 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

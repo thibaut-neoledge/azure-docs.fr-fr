@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d0c7f35a0f7336bab59007c35803d4f13054e35a
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 051f1b37eab254d4ab4f806166ac8d0b8cab944d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="introduction-to-blob-storage"></a>Présentation du Stockage Blob
 
-Le Stockage Blob Azure est un service permettant de stocker de gros volumes de données d’objets non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiquement dans le monde ou pour le stockage privé de données d'applications.
+Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données d’objets non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiquement dans le monde ou pour le stockage privé de données d'applications.
 
 Voici quelques utilisations courantes du stockage d’objets blob :
 
 * Mise à disposition d’images ou de documents directement dans un navigateur
 * Stockage de fichiers pour un accès distribué
-* Streaming de contenu vidéo et audio
+* Diffusion en continu de vidéo et d’audio
 * Stockage de données pour la sauvegarde et la restauration, la récupération d’urgence et l’archivage
 * Stockage des données pour l’analyse par un service local ou hébergé par Azure
 
@@ -54,4 +54,4 @@ Le service d’objets blob contient les composants suivants :
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer un compte de stockage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Prise en main du Stockage Blob avec .NET](storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Prise en main du Stockage Blob avec .NET](storage-dotnet-how-to-use-blobs.md)

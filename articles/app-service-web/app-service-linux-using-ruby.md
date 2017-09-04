@@ -4,7 +4,7 @@ description: "Utilisation de Ruby dans l’application web Azure App Service sur
 keywords: azure app service, application web, faq, linux, oss, ruby
 services: app-service
 documentationCenter: 
-authors: aelnably
+author: ahmedelnably
 manager: erikre
 editor: 
 ms.assetid: 
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: ad724b99426c1873c173da905c89b471ee64ffa6
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 56105d1bc153e552e12c0c408c8f6075e4eff9d0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -49,7 +48,6 @@ Pour plus d’informations sur la création d’une application Ruby, consultez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Qu’est-ce que Web App sur Linux ?](app-service-linux-intro.md)
-* [Création d’applications web dans Web App sur Linux](app-service-linux-how-to-create-web-app.md)
 * [Déploiement Git local vers Azure App Service](app-service-deploy-local-git.md)
 * [FAQ de l’application web Azure App Service sur Linux](app-service-linux-faq.md)
 * [Créer une application Ruby avec Azure Web App sur Linux](app-service-linux-ruby-get-started.md)

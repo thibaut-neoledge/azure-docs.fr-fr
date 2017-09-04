@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 026c4491818c8719c68a759ee9595ad9c765d526
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: f8f7d51003f8a55b7f51e8cc2cea838e8e5a6196
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-on-linux"></a>Déploiement continu avec l’application web Azure sur Linux
@@ -87,8 +87,7 @@ Pour l’URL du webhook, vous devez fournir l’URL obtenue à l’**étape 3**.
 Lorsque l’image est mise à jour, l’application web est mise à jour automatiquement avec la nouvelle image.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Qu’est-ce que l’application web Azure sur Linux ?](./app-service-linux-intro.md)
-* [Création d’applications dans Azure Web App sur Linux](./app-service-linux-how-to-create-web-app.md)
+* [Qu’est-ce qu’Azure Web App sur Linux ?](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
 * [Utiliser la configuration PM2 pour Node.js dans Azure Web App sur Linux](app-service-linux-using-nodejs-pm2.md)
 * [Utilisation de .NET Core dans l’application web Azure sur Linux](app-service-linux-using-dotnetcore.md)
