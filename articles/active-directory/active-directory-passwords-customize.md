@@ -104,7 +104,7 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [**Données**](active-directory-passwords-data.md) : comprenez mieux les données requises et leur utilisation dans la gestion des mots de passe.
 * [**Déploiement**](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation du mot de passe libre-service sur vos utilisateurs grâce aux conseils figurant ici.
 * [**Stratégie**](active-directory-passwords-policy.md) : comprenez et définissez les stratégies de mot de passe d’Azure AD.
-* [**Écriture différée du mot de passe**](active-directory-passwords-writeback.md) : fonctionnement de l’écriture différée du mot de passe avec votre répertoire local.
+* [**Réécriture du mot de passe**](active-directory-passwords-writeback.md) : fonctionnement de la réécriture du mot de passe avec votre répertoire local.
 * [**Rapports**](active-directory-passwords-reporting.md) : découvrez si, quand et où vos utilisateurs accèdent aux fonctionnalités de réinitialisation de mot de passe en libre-service.
 * [**Présentation technique approfondie**](active-directory-passwords-how-it-works.md) : découvrez ce qui se passe sous le capot pour mieux comprendre le fonctionnement.
 * [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) : Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours.
