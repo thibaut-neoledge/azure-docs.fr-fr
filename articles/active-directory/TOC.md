@@ -123,7 +123,7 @@
 ### [Données utilisées par SSPR](active-directory-passwords-data.md)
 ### [Génération des rapports sur SSPR](active-directory-passwords-reporting.md)
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
-### [Écriture différée du mot de passe](active-directory-passwords-writeback.md)
+### [Réécriture du mot de passe](active-directory-passwords-writeback.md)
 ### [Synchronisation de hachage de mot de passe](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [Résolution des problèmes](active-directory-passwords-troubleshoot.md)
 ### [FORUM AUX QUESTIONS](active-directory-passwords-faq.md)
