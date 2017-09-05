@@ -95,5 +95,5 @@ La capture d’écran suivante montre comment utiliser l’enregistrement d’au
 
 Pour plus d’informations sur les clés principales et les jetons de ressource, consultez [Sécurisation de l’accès aux données Azure Cosmos DB](secure-access-to-data.md).
 
-Pour plus d’informations sur les certifications Microsoft, consultez le [Centre de gestion de la confidentialité Azure](https://azure.microsoft.com/support/trust-center/).
+Pour plus d’informations sur les certifications Microsoft, consultez le [Centre de confidentialité Azure](https://azure.microsoft.com/support/trust-center/).
 
