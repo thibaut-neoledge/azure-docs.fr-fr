@@ -1,5 +1,5 @@
 ## <a name="overview"></a>Vue d'ensemble
-Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en déployant une image à partir d’ [Azure Marketplace](https://azure.microsoft.com/marketplace/), le lecteur du système d’exploitation par défaut est de 127 Go. Même s’il est possible d’ajouter des disques de données à la machine virtuelle (le nombre dépend de la référence (SKU) choisie) et de plus, il est recommandé d’installer les applications et les charges de travail intensives du processeur sur ces disques supplémentaires, il peut arriver que les clients doivent développer le lecteur du système d’exploitation pour prendre en charge certains scénarios, tels que les suivants :
+Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en déployant une image à partir d’[Azure Marketplace](https://azure.microsoft.com/marketplace/), le lecteur du système d’exploitation par défaut est de 127 Go (par défaut, certaines images peuvent avoir de plus petits disques de système d’exploitation). Même s’il est possible d’ajouter des disques de données à la machine virtuelle (le nombre dépend de la référence (SKU) choisie) et de plus, il est recommandé d’installer les applications et les charges de travail intensives du processeur sur ces disques supplémentaires, il peut arriver que les clients doivent développer le lecteur du système d’exploitation pour prendre en charge certains scénarios, tels que les suivants :
 
 1. Prendre en charge les applications héritées qui installent des composants sur le lecteur du système d’exploitation.
 2. Migrer un ordinateur physique ou une machine virtuelle depuis un emplacement local avec un lecteur de système d’exploitation plus volumineux.
@@ -42,7 +42,7 @@ Dans cet article, nous allons exécuter la tâche consistant à redimensionner l
    ```
    
    > [!WARNING]
-   > La nouvelle taille doit être supérieure à la taille du disque actuelle. La valeur maximale autorisée est de 1 023 Go.
+   > La nouvelle taille doit être supérieure à la taille du disque actuelle. La valeur maximale autorisée est de 2 048 Go. (Il est possible d’étendre la taille de l’objet blob du disque virtuel, mais le système d’exploitation ne peut utiliser que l’espace des premiers 2 048 Go.)
    > 
    > 
 6. La mise à jour de la machine virtuelle peut prendre quelques secondes. Une fois que l’exécution de la commande est terminée, redémarrez la machine virtuelle comme suit :

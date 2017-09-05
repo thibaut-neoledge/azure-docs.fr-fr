@@ -1,6 +1,6 @@
 ---
 title: "Présentation de l’architecture de traitement des messages d’Azure Service Bus | Microsoft Docs"
-description: "Décrit l’architecture de traitement et de relais de message d’Azure Service Bus."
+description: "Décrit l’architecture de traitement de message d’Azure Service Bus."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: ced46c64c1c105aa987759e05ab3680bc399f9a0
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 83456d775c5ff2a2476ba46e9c78a8dc1bb482e8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="service-bus-architecture"></a>Architecture de Service Bus
@@ -28,9 +27,9 @@ Cet article décrit l’architecture de traitement de message d’Azure Service 
 ## <a name="service-bus-scale-units"></a>Unités d'échelle de Service Bus
 Service Bus est organisé par *unités d'échelle*. Une unité d'échelle est une unité de déploiement et contient tous les composants requis pour exécuter le service. Chaque région déploie une ou plusieurs unités d'échelle Service Bus.
 
-Un espace de noms Service Bus est mappé à une unité d'échelle. L’unité d’échelle gère tous les types d’entités Service Bus : relais et entités de messagerie répartie (files d’attente, rubriques, abonnements). Une unité d'échelle Service Bus est constituée des éléments suivants :
+Un espace de noms Service Bus est mappé à une unité d'échelle. L’unité d’échelle gère tous les types d’entités Service Bus : files d’attente, rubriques, abonnements. Une unité d'échelle Service Bus est constituée des éléments suivants :
 
-* **Un ensemble de nœuds de passerelle.** Les nœuds de passerelle authentifient les requêtes entrantes et gèrent les requêtes de relais. Chaque nœud de passerelle a une adresse IP publique.
+* **Un ensemble de nœuds de passerelle.** Les nœuds de passerelle authentifient les requêtes entrantes. Chaque nœud de passerelle a une adresse IP publique.
 * **Un ensemble de nœuds de broker de messagerie.** Les nœuds de broker de messagerie traitent les requêtes concernant les entités de messagerie.
 * **Une banque de passerelle.** La banque de passerelle conserve les données pour chaque entité définie dans cette unité d'échelle. La banque de passerelle est implémentée sur une base de données SQL Azure.
 * **Plusieurs banques de messagerie.** Les banques de messagerie conservent les messages de l’ensemble des files d’attente, rubriques et abonnements qui sont définis dans cette unité d’échelle. Elles contiennent également toutes les données d’abonnement. Une file d’attente ou une rubrique est mappée à une banque de messagerie, sauf si l’option [Partitionnement des entités de messagerie](service-bus-partitioning.md) est activée. Les abonnements sont stockés dans la même banque de messagerie que leur rubrique parent. Sauf pour Service Bus [Premium Messaging](service-bus-premium-messaging.md), les banques de messagerie sont implémentées sur des bases de données SQL Azure.
@@ -43,18 +42,10 @@ Lorsqu'un client envoie une requête à Service Bus, l'équilibrage de charge Az
 
 ![Traitement des requêtes de messagerie entrantes](./media/service-bus-architecture/ic690644.png)
 
-## <a name="processing-of-incoming-relay-requests"></a>Traitement des requêtes de relais entrantes
-Lorsqu’un client envoie une requête au service [Azure Relay](/azure/service-bus-relay/), Azure Load Balancer la transmet à l’un des nœuds de passerelle. Si la requête est une requête d'écoute, le nœud de passerelle crée un relais. Si la requête est une requête de connexion à un relais spécifique, le nœud de passerelle transfère la requête de connexion au nœud de passerelle qui possède le relais. Le nœud de passerelle qui possède le relais envoie une requête de rendez-vous au client d'écoute, lui demandant de créer un canal temporaire au nœud de passerelle qui a reçu la requête de connexion.
-
-Lorsque la connexion au relais est établie, les clients peuvent échanger des messages via le nœud de passerelle utilisé pour le rendez-vous.
-
-![Traitement des requêtes WCF Relay entrantes](./media/service-bus-architecture/ic690645.png)
-
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez une vue d'ensemble de l’architecture Service Bus, consultez les liens suivants pour plus d'informations :
 
 * [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
-* [Vue d’ensemble d’Azure Relay](../service-bus-relay/relay-what-is-it.md)
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Solution de messages de file d’attente utilisant les files d’attente Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 

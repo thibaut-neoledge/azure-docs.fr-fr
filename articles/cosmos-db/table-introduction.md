@@ -12,25 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/09/2017
+ms.date: 08/29/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: ef57753aeeace0086c815d83600f92422996032a
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 3ccc3b176df2f0a5d864554a74508292d272bd5a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Présentation d’Azure Cosmos DB : API de table
 
-[Azure Cosmos DB](introduction.md) est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale pour les applications stratégiques. Azure Cosmos DB fournit la [distribution mondiale clés en main](distribute-data-globally.md), la [mise à l’échelle élastique du débit et du stockage](partition-data.md), des latences de l’ordre de quelques millisecondes dans le monde entier dans plus de 99 pour cent des cas, [cinq niveaux de cohérence bien définis](consistency-levels.md) et une garantie d’une haute disponibilité, le tout soutenu par nos [contrats SLA de pointe](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexe automatiquement les données](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sans avoir à s’occuper de la gestion des schémas et des index. Il est multi-modèle et prend en charge les modèles de données en colonnes, graphiques et clé-valeur. 
+[Azure Cosmos DB](introduction.md) fournit l’API de table (version préliminaire) pour des applications écrites pour le service de stockage de table Azure et nécessite des fonctionnalités premium telles que la [distribution globale clés en main](distribute-data-globally.md), un [débit dédié](partition-data.md), des latences inférieures à 10 millisecondes dans 99 pour cent des cas partout dans le monde, une haute disponibilité garantie et un [indexage secondaire automatique](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Ces applications peuvent migrer vers Azure Cosmos DB à l’aide de l’API de table sans aucune modification de code, jouissent des fonctionnalités premium.
 
-![API de stockage de table Azure et Azure Cosmos DB](./media/table-introduction/premium-tables.png) 
+Nous vous recommandons de commencer par visionner la vidéo suivante, dans laquelle Aravind Ramachandran explique comment prendre en main l’API de table pour Azure Cosmos DB.
 
-Azure Cosmos DB fournit l’API Table (version préliminaire) pour les applications qui ont besoin d’un magasin de paires clé-valeur avec un schéma flexible, des performances prévisibles, une distribution globale et un débit élevé. L’API Table fournit les mêmes fonctionnalités que le stockage Table Azure, mais il tire parti des avantages du moteur Azure Cosmos DB. 
-
-Vous pouvez continuer à utiliser le stockage Table Azure pour les tables présentant des exigences de débit et de stockage inférieures. Azure Cosmos DB introduira la prise en charge des tables optimisées pour le stockage dans une prochaine mise à jour, et les comptes de stockage de table Azure nouveaux ou existants seront mis à niveau vers Azure Cosmos DB.
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
+> 
+> 
 
 ## <a name="premium-and-standard-table-apis"></a>API de table standard et Premium
 Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des avantages suivants en les déplaçant vers la version préliminaire de « table premium » d’Azure Cosmos DB :
@@ -38,7 +37,7 @@ Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des 
 |  | Stockage de table Azure | Azure Cosmos DB : stockage de table (version préliminaire) |
 | --- | --- | --- |
 | Latence | Rapide, mais aucune limite supérieure sur la latence | Une latence de quelques millisecondes pour les lectures et écritures, soutenue par des lectures à < 10 ms de latence et des écritures à < 15 ms de latence dans plus de 99 pour cent des cas, à n’importe quelle échelle, n’importe où dans le monde |
-| Débit | Modèle de débit hautement évolutif, mais non dédié. Les tables ont une limite d’évolutivité de 20 000 opérations/s | Hautement évolutif avec un [débit dédié réservé par table](request-units.md), qui est soutenu par des contrats SLA. Les comptes n’ont aucune limite supérieure sur le débit, et prennent en charge > 10 millions d’opérations/s par table |
+| Débit | Modèle de débit variable. Les tables ont une limite d’évolutivité de 20 000 opérations/s | Hautement évolutif avec un [débit dédié réservé par table](request-units.md), qui est soutenu par des contrats SLA. Les comptes n’ont aucune limite supérieure sur le débit, et prennent en charge > 10 millions d’opérations/s par table |
 | Diffusion mondiale | Une région unique avec une région de lecture secondaire en option pour la haute disponibilité. Vous ne pouvez pas lancer le basculement | [Distribution mondiale clés en main](distribute-data-globally.md) de 1 à plus de 30 régions, prise en charge des [basculements automatiques et manuels](regional-failover.md) à tout moment, partout dans le monde |
 | Indexation | Index primaire uniquement sur PartitionKey et RowKey. Pas d’index secondaire | Indexation automatique et complète de toutes les propriétés, aucune gestion des index |
 | Requête | L’exécution des requêtes utilise un index de clé primaire, et effectue une recherche dans le cas contraire. | Les requêtes peuvent tirer parti de l’indexation automatique de propriétés pour des temps de requête rapides. Le moteur de base de données d’Azure Cosmos DB est capable de prendre en charge les agrégats, les données géospatiales et le tri. |
@@ -53,7 +52,9 @@ Créez un compte Azure Cosmos DB dans le [portail Azure](https://portal.azure.co
 ## <a name="next-steps"></a>Étapes suivantes
 
 Voici quelques conseils pour vous aider à démarrer :
-* Commencez avec [l’API de table Azure Cosmos DB](create-table-dotnet.md) à l’aide du SDK de table .NET existant.
-* En savoir plus sur la [distribution globale avec Azure Cosmos DB](distribute-data-globally.md).
-* Apprenez-en davantage sur le [débit approvisionné dans Azure Cosmos DB](request-units.md).
+* [Créer une application .NET à l’aide de l’API de table](create-table-dotnet.md)
+* [Développer avec l’API de table dans .NET](tutorial-develop-table-dotnet.md)
+* [Interroger des données de table avec l’API de table](tutorial-query-table.md)
+* [Comment configurer la distribution mondiale Azure Cosmos DB à l’aide de l’API de table](tutorial-global-distribution-table.md)
+* [Kit de développement logiciel (SDK) de l’API de table d’Azure Cosmos DB pour .NET](table-sdk-dotnet.md)
 

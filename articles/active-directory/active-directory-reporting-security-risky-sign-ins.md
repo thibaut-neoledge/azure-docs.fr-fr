@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: f31482a8b37858b93391afc561223a1b1110a1a9
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 45a6f63bd920c9a70c25b8dfae084ea030256cf4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapport de connexions à risque dans le portail Azure Active Directory
@@ -52,7 +52,7 @@ Toutefois, le niveau de granularité d’un rapport varie entre les éditions :
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Édition Azure Active Directory gratuite et de base
 
-La version gratuite et la version de base d’Azure Active Directory proposent une fonction de création de listes des connexions risquées qui ont été détectées pour les utilisateurs. Un rapport sur les événements à risque fournit les informations suivantes :
+La version gratuite et la version de base d’Azure Active Directory proposent une fonction de création de listes des connexions risquées qui ont été détectées pour les utilisateurs. Ce rapport répertorie :
 
 - **Utilisateur** : nom d’utilisateur qui a été utilisé pendant l’opération de connexion.
 - **IP** : adresse IP du périphérique qui a été utilisé pour la connexion à Azure Active Directory.
@@ -60,7 +60,6 @@ La version gratuite et la version de base d’Azure Active Directory proposent
 - **Heure de connexion** : heure à laquelle la connexion a été effectuée.
 - **État** : état de la connexion.
 
-Ce rapport vous offre la possibilité de télécharger les données qu’il inclut.
 
 ![Connexions risquées](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
@@ -74,6 +73,15 @@ Selon votre analyse de la connexion à risque, vous pouvez envoyer des commentai
 ![Connexions risquées](./media/active-directory-reporting-security-risky-sign-ins/21.png)
 
 Pour en savoir plus, voir [Fermeture manuelle des événements à risque](active-directory-identityprotection.md#closing-risk-events-manually).
+
+Ce rapport fournit une option permettant de :
+
+- Rechercher des ressources
+- Télécharger les données du rapport
+
+
+![Connexions risquées](./media/active-directory-reporting-security-risky-sign-ins/93.png)
+
 
 ## <a name="azure-active-directory-premium-editions"></a>Éditions Premium d’Azure Active Directory
 

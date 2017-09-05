@@ -12,23 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 08/28/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ed72325ca9db99405c6173eb882a92f80cd77f47
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e3f8dd4b820da8a14437aa313e4296dc17111674
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
-<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure Classic
 
-# Activer Azure Active Directory Domain Services à l’aide du portail Azure Classic
+> [!IMPORTANT]
+> L’expérience de portail Azure Classic présentée dans cet article et permettant d’activer Azure AD Domain Services sera bientôt supprimée. Pour découvrir plus de déploiements, [**utilisez plutôt la nouvelle expérience de portail Azure (préversion)**](active-directory-ds-getting-started.md).
+>
 
-<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
-
-## Tâche 3 : Activer Azure Active Directory Domain Services
+## <a name="task-3-enable-azure-active-directory-domain-services"></a>Tâche 3 : Activer Azure Active Directory Domain Services
 Pour activer Azure Active Directory Domain Services (Azure AD DS) afin de gérer votre répertoire, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com).
@@ -99,8 +98,6 @@ Pour activer Azure Active Directory Domain Services (Azure AD DS) afin de gér
 >
 >
 
-<a id="next-step" class="xliff"></a>
-
-## Étape suivante
+## <a name="next-step"></a>Étape suivante
 [Tâche 4 : Mettre à jour les paramètres DNS pour le réseau virtuel Azure](active-directory-ds-getting-started-update-dns.md)
 

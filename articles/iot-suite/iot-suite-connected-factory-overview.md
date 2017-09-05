@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: a7d31be48ef06064b01cdb2dfd0331b34adbec4d
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: d502c8e2e2715899279f6ebcf7ed89c19a1bb9a6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Prise en main de la solution préconfigurée d’usine connectée
@@ -53,7 +53,7 @@ Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 4. Cliquez sur la vignette pour visualiser les détails de votre solution dans le volet droit.
 
 > [!NOTE]
-> Si vous rencontrez des problèmes lors du déploiement de la solution préconfigurée, consultez les articles [Autorisations sur le site azureiotsuite.com][lnk-permissions] et [Forum Aux Questions][lnk-faq]. Si les problèmes persistent, créez un ticket de service sur le [Portail][lnk-portal].
+> Si vous rencontrez des problèmes lors du déploiement de la solution préconfigurée, consultez les articles [Autorisations sur le site azureiotsuite.com][lnk-permissions] et le [FAQ sur l’usine connectée](iot-suite-faq-cf.md). Si les problèmes persistent, créez un ticket de service sur le [Portail][lnk-portal].
 
 Certains détails de votre solution semblent-ils faire défaut ? Faites-nous part de vos suggestions concernant les fonctionnalités sur [UserVoice](https://feedback.azure.com/forums/321918-azure-iot).
 
@@ -81,11 +81,11 @@ Grâce au tableau de bord de solution, vous pouvez gérer la solution déployée
 
 Le tableau de bord affiche les informations suivantes :
 
-* Un panneau **Liste d’usines** qui indique l’état, l’emplacement et la configuration de production actuelle dans la solution. Lors de la première exécution de la solution, il existe un nombre d’appareils simulés. La simulation de la ligne de production se compose de trois serveurs OPC UA réels par ligne de production qui effectuent des tâches simulées et partagent des données. Pour plus d’informations sur l’OPC UA, consultez le [FAQ][lnk-faq].
+* Un panneau **Liste d’usines** qui indique l’état, l’emplacement et la configuration de production actuelle dans la solution. Lors de la première exécution de la solution, il existe un nombre d’appareils simulés. La simulation de la ligne de production se compose de trois serveurs OPC UA réels par ligne de production qui effectuent des tâches simulées et partagent des données. Pour plus d’informations sur l’OPC UA, consultez le [FAQ sur l’usine connectée](iot-suite-faq-cf.md).
 * Une **carte** qui affiche l’emplacement de chaque appareil connecté à la solution. La solution peut utiliser l’API Bing Maps pour tracer les informations sur la carte. Si votre abonnement est activé pour l’API Bing Maps Enterprise, cette fonctionnalité est automatiquement utilisée. Sinon, consultez le [FAQ][lnk-faq] pour savoir comment rendre le mappage dynamique.
 * Un panneau **Alertes** qui affiche les alertes générées lorsqu’une valeur de télémétrie ou d’OEE/KPI dépasse un seuil spécifique.
-* Un panneau **Efficacité globale de l’équipement** qui affiche les valeurs OEE pour l’ensemble de l’entreprise, ou l’usine/la ligne de production/le poste que vous visualisez. Cette valeur est agrégée à partir de la vue du poste au niveau de l’entreprise. La données d’OEE et ses éléments constitutifs peuvent être analysés de manière plus approfondie.
-* Le panneau **Indicateurs de performance clés** qui affiche le nombre d’unités produites et l’énergie utilisée par l’ensemble de l’entreprise ou l’usine/la ligne de fabrication/le poste que vous visualisez. Ces valeurs est agrégées à partir d’une vue du poste au niveau de l’entreprise.
+* Un panneau **Efficacité globale de l’équipement** qui affiche les valeurs OEE pour l’ensemble de l’entreprise, ou l’usine/la ligne de production/le poste que vous visualisez. Cette valeur est agrégée à partir de la vue du poste au niveau de l’entreprise. Les données d’OEE et ses éléments constitutifs peuvent être analysés de manière plus approfondie.
+* Le panneau **Indicateurs de performance clés** qui affiche le nombre d’unités produites et l’énergie utilisée par l’ensemble de l’entreprise ou l’usine/la ligne de fabrication/le poste que vous visualisez. Ces valeurs sont agrégées à partir d’une vue du poste au niveau de l’entreprise.
 
 ## <a name="view-factories"></a>Afficher les usines
 

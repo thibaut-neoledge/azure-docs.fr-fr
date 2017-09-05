@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: darosa;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a916f643c7e6727d6053865d1c0bd2f683a53b3f
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: a0c169e0580468e83a07c077f8c60e83d3fb52f2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Couches messagerie Service Bus Premium et Standard
@@ -47,7 +47,7 @@ Les sections suivantes décrivent les quelques différences entre les couches de
 
 ### <a name="partitioned-queues-and-topics"></a>Files d’attente et rubriques partitionnées
 
-Les files d’attente et rubriques partitionnées sont prises en charge dans la messagerie Premium ; en fait ces entités sont toujours partitionnées (et ne peut pas être désactivées). Toutefois, les files d’attente et les rubriques partitionnées Premium ne fonctionnent pas de la même manière que dans les couches Standard et De base de la messagerie Service Bus. La messagerie Premium n’utilise pas SQL comme magasin de données et ne permet plus la concurrence de ressources associée à une plateforme partagée. Par conséquent, le partitionnement n’est pas nécessaire pour améliorer les performances. En outre, le nombre de partitions est passé de 16 partitions dans la messagerie Standard à 2 partitions dans la messagerie Premium. Si le fait d’avoir deux partitions garantit la disponibilité, ce nombre est aussi mieux adapté à l’environnement d’exécution Premium. 
+Les files d’attente et rubriques partitionnées sont prises en charge dans la messagerie Premium ; en fait ces entités sont toujours partitionnées (et ne peut pas être désactivées). Toutefois, les files d’attente et les rubriques partitionnées Premium ne fonctionnent pas de la même manière que dans les couches Standard de la messagerie Service Bus. La messagerie Premium n’utilise pas SQL comme magasin de données et ne permet plus la concurrence de ressources associée à une plateforme partagée. Par conséquent, le partitionnement n’est pas nécessaire pour améliorer les performances. En outre, le nombre de partitions est passé de 16 partitions dans la messagerie Standard à 2 partitions dans la messagerie Premium. Si le fait d’avoir deux partitions garantit la disponibilité, ce nombre est aussi mieux adapté à l’environnement d’exécution Premium. 
 
 Avec la messagerie Premium, lorsque vous spécifiez la taille d’une entité avec [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), cette taille est divisée de manière égale entre les 2 partitions, contrairement aux [entités partitionnées Standard](service-bus-partitioning.md#standard) dans lesquelles la taille totale correspond à 16 fois la taille spécifiée. 
 
