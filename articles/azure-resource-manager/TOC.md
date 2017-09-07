@@ -6,8 +6,8 @@
 ## [Applications gérées](managed-application-overview.md)
 
 # Prise en main
-## [Exportation du modèle](resource-manager-export-template.md)
 ## [Création et déploiement du modèle](resource-manager-create-first-template.md)
+## [Extension de VS Code pour les modèles](resource-manager-vscode-extension.md)
 ## [Visual Studio avec Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Exemples
@@ -20,8 +20,8 @@
 
 # Procédures
 ## Créer des modèles
-### [Meilleures pratiques relatives aux modèles](resource-manager-template-best-practices.md)
 ### [Sections du modèle](resource-group-authoring-templates.md)
+### [Meilleures pratiques relatives aux modèles](resource-manager-template-best-practices.md)
 ### [Lier à d’autres modèles](resource-group-linked-templates.md)
 ### [Définir la dépendance entre les ressources](resource-group-define-dependencies.md)
 ### [Créer plusieurs instances](resource-group-create-multiple.md)
@@ -33,6 +33,7 @@
 ### [Partager l’état entre les modèles liés](best-practices-resource-manager-state.md)
 ### [Modèles pour la conception de modèles](best-practices-resource-manager-design-templates.md)
 
+
 ## Déployer
 ### PowerShell
 #### [Déployer un modèle](resource-group-template-deploy.md)
@@ -42,7 +43,9 @@
 #### [Déployer un modèle](resource-group-template-deploy-cli.md)
 #### [Déployer un modèle privé avec un jeton SAS](resource-manager-cli-sas-token.md)
 #### [Exporter un modèle et le redéployer](resource-manager-export-template-cli.md)
-### [Portail](resource-group-template-deploy-portal.md)
+### Portail
+#### [Déploiement des ressources](resource-group-template-deploy-portal.md)
+#### [Exportation du modèle](resource-manager-export-template.md)
 ### [API REST](resource-group-template-deploy-rest.md)
 ### [Déploiement de groupes inter-ressources](resource-manager-cross-resource-group-deployment.md)
 ### [Intégration continue avec Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

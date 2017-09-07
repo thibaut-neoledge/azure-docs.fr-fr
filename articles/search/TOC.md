@@ -59,7 +59,8 @@
 #### [Syntaxe de requête Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Exemples de requête de syntaxe Lucene](search-query-lucene-examples.md)
 #### [Syntaxe d’expression de filtre](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### Recherche personnalisée
+### Analyseurs dans Recherche Azure
+#### [Vue d'ensemble](search-analyzers.md)
 #### [Analyseurs de langage](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Résultats de pagination](search-pagination-page-layout.md)
