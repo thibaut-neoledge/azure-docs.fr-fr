@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a5bc3a72eccc48ec26ef5f029d780175d66080c0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Déploiement de StorSimple Virtual Array - Préparation du portail Azure
@@ -144,7 +144,7 @@ Procédez comme suit dans le [portail Azure](https://portal.azure.com/).
 
 Il s’agit d’une étape facultative que vous devez exécuter uniquement si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service.
 
-Si vous devez créer un compte de stockage Azure dans une autre région, consultez la rubrique [Créez un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) pour obtenir des instructions détaillées.
+Si vous devez créer un compte de stockage Azure dans une autre région, consultez la rubrique [Créez un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) pour obtenir des instructions détaillées.
 
 Procédez comme suit dans le [portail Azure](https://ms.portal.azure.com/) sur la page du service StorSimple Device Manager pour ajouter un compte de stockage Microsoft Azure existant.
 

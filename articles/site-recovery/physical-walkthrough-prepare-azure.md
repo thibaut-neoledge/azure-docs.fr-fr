@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 2b277f1fb96f347cc60d1395fafb7e2707883a77
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b7411fa6aba04ffd34f3f4bd03e706ca75afc9c8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-5-prepare-azure-resources-for-physical-server-replication-to-azure"></a>Étape 5 : Préparer les ressources Azure pour la réplication de serveurs physiques vers Azure
@@ -54,9 +53,9 @@ Prenez connaissance des [conditions préalables](physical-walkthrough-prerequisi
 ## <a name="set-up-an-azure-storage-account"></a>Configurer un compte de stockage Azure
 
 - Site Recovery réplique les serveurs locaux vers le stockage Azure. Des machines virtuelles Azure sont créées à partir du stockage après le basculement.
-- Configurer un [compte de stockage Azure](../storage/storage-create-storage-account.md#create-a-storage-account) pour les données répliquées.
+- Configurer un [compte de stockage Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) pour les données répliquées.
 - Site Recovery dans le portail Azure peut utiliser les comptes de stockage configurés dans le Gestionnaire des ressources ou en mode classique.
-- Le compte de stockage peut être standard ou [premium](../storage/storage-premium-storage.md).
+- Le compte de stockage peut être standard ou [premium](../storage/common/storage-premium-storage.md).
 - Si vous configurez un compte premium, vous aurez également besoin d’un compte standard supplémentaire pour les données de journal.
 
 

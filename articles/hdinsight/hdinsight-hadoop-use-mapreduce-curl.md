@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: df22c7315cc55df0e7963bc03a215ab09589b25b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8238bb829df95dcb8c99c0b7fff53c627a56f47c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Exécution des tâches MapReduce avec Hadoop sur HDInsight avec REST
@@ -97,7 +97,7 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des tâches MapR
 
 4. Lorsque l’état de la tâche passe à `SUCCEEDED`, vous pouvez récupérer les résultats depuis le Stockage Blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie. Dans cet exemple, l’emplacement est `/example/curl`. Cette adresse stocke le résultat de la tâche dans le stockage par défaut du cluster : `/example/curl`.
 
-Vous pouvez répertorier et télécharger ces fichiers à l’aide de l’[interface Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Pour plus d’informations sur l’utilisation des objets blob à partir de l’interface CLI Azure, consultez le document [Utiliser Azure CLI 2.0 avec Stockage Azure](../storage/storage-azure-cli.md#create-and-manage-blobs).
+Vous pouvez répertorier et télécharger ces fichiers à l’aide de l’[interface Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Pour plus d’informations sur l’utilisation des objets blob à partir de l’interface CLI Azure, consultez le document [Utiliser Azure CLI 2.0 avec Stockage Azure](../storage/common/storage-azure-cli.md#create-and-manage-blobs).
 
 ## <a id="nextsteps"></a>Étapes suivantes
 

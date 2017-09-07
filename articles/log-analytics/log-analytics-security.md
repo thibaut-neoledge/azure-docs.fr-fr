@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: fa33a031a9e05f3079f1ed68d2ac0902b3070fa6
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9ae1629462d375c1061d9c7b25975c789ee661c9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="log-analytics-data-security"></a>Sécurité des données Log Analytics
@@ -157,7 +156,7 @@ Si un agent ne peut pas communiquer avec le service pour une raison quelconque, 
 Comme décrit ci-dessus, les données provenant de vos agents sont envoyées via le protocole SSL aux centres de données Microsoft Azure. Vous pouvez également utiliser ExpressRoute pour sécuriser davantage les données. ExpressRoute vous permet de vous connecter directement à Azure à partir de votre réseau étendu (WAN) existant, comme un VPN MPLS fourni par un fournisseur de services réseau. Pour plus d’informations, voir [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Le service Log Analytics reçoit et traite les données
-Le service Log Analytics s’assure que les données entrantes proviennent d’une source approuvée en validant des certificats et l’intégrité des données à l’aide de la certification Azure. Les données brutes non traitées sont ensuite stockées sous la forme d’un objet blob dans [Microsoft Stockage Azure](../storage/storage-introduction.md), et ne sont pas chiffrées. Toutefois, chaque Azure Storage Blob dispose d’un ensemble unique de clés auquel seul cet utilisateur peut accéder. Le type des données stockées dépend des types de solutions qui ont été importées et utilisées pour collecter des données. Ensuite, le service Log Analytics traite les données brutes pour l’Azure Storage Blob.
+Le service Log Analytics s’assure que les données entrantes proviennent d’une source approuvée en validant des certificats et l’intégrité des données à l’aide de la certification Azure. Les données brutes non traitées sont ensuite stockées sous la forme d’un objet blob dans [Microsoft Stockage Azure](../storage/common/storage-introduction.md), et ne sont pas chiffrées. Toutefois, chaque Azure Storage Blob dispose d’un ensemble unique de clés auquel seul cet utilisateur peut accéder. Le type des données stockées dépend des types de solutions qui ont été importées et utilisées pour collecter des données. Ensuite, le service Log Analytics traite les données brutes pour l’Azure Storage Blob.
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Utiliser Log Analytics pour accéder aux données
 Vous pouvez vous connecter à Log Analytics dans le portail OMS à l’aide du compte professionnel ou d’un compte Microsoft que vous avez précédemment configuré. Tout le trafic entre le portail OMS et Log Analytics dans OMS est envoyé via un canal HTTPS sécurisé. Lorsque vous utilisez le portail OMS, un ID de session est généré sur le client utilisateur (navigateur web), et les données sont stockées dans un cache local jusqu’à la fin de la session. Ensuite, le cache est supprimé. Les cookies côté client qui ne contiennent pas d’informations d’identification personnelle ne sont pas supprimés automatiquement. Les cookies de session sont marqués HTTPOnly et sécurisés. Après une période d’inactivité prédéfinie, il est mis fin à la session du portail OMS.

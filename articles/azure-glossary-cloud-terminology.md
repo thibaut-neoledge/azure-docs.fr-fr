@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/16/2017
 ms.author: monicar
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 800eadb6cc558303553a204771b18cec525a2af9
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 1607ca31a81c0941895611f626d54f6fbb294a20
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : un dictionnaire de la terminologie des technologies cloud sur la plateforme Azure
@@ -30,8 +30,8 @@ Le glossaire Microsoft Azure est un petit dictionnaire de la terminologie des te
 * [Termes de cloud computing](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - Termes généraux liés aux technologies cloud.
 
 ## <a name="account"></a>compte
-Compte scolaire, professionnel ou personnel utilisé pour accéder à et gérer un abonnement Azure.  
-Voir [Association des abonnements Azure avec Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
+Compte utilisé pour l’accès et la gestion d’un abonnement Azure. On l’appelle souvent « compte Azure », bien qu’il puisse s’agir d’un compte Microsoft professionnel, scolaire ou personnel existant, ou encore d’un nom d’utilisateur et d’un mot de passe Office 365. Vous pouvez également créer un compte pour gérer un abonnement Azure lorsque vous vous inscrivez pour bénéficier de la [version d’évaluation gratuite](https://azure.microsoft.com).  
+Consultez les pages [Sign up for an Azure subscription with your Office 365 account](billing/billing-use-existing-office-365-account-azure-subscription.md) (S’inscrire à un abonnement Azure avec un compte Office 365) et [Accounts you can use to sign in](active-directory/active-directory-how-subscriptions-associated-directory.md) (Comptes utilisables pour l’inscription).
 
 ## <a name="api-app"></a>application API
 Autre nom pour [application App Service](#app-service-app).
@@ -119,11 +119,11 @@ Les contrats SLA décrivent les engagements de Microsoft en matière de temps d�
 Voir [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="sas"></a>signature d’accès partagé (SAP)
-Signature qui vous permet d’accorder un accès limité à une ressource, sans exposer votre clé de compte. Par exemple, le [stockage Azure utilise SAP](storage/storage-dotnet-shared-access-signature-part-1.md) pour accorder l’accès client à des objets tels que des objets BLOB. [IoT Hub utilise SAP](iot-hub/iot-hub-devguide-security.md#security-tokens) pour accorder à des appareils l’autorisation d’envoyer des données de télémétrie.
+Signature qui vous permet d’accorder un accès limité à une ressource, sans exposer votre clé de compte. Par exemple, le [stockage Azure utilise SAP](storage/common/storage-dotnet-shared-access-signature-part-1.md) pour accorder l’accès client à des objets tels que des objets BLOB. [IoT Hub utilise SAP](iot-hub/iot-hub-devguide-security.md#security-tokens) pour accorder à des appareils l’autorisation d’envoyer des données de télémétrie.
 
 ## <a name="storage-account"></a>compte de stockage
 Compte qui vous donne accès aux services Azure Objet blob, File d’attente, Table et Fichier dans le stockage Azure. Le nom du compte de stockage définit l’espace de noms unique pour vos objets de données de stockage Azure.  
-Voir [À propos des comptes de stockage Azure](storage/storage-create-storage-account.md)
+Voir [À propos des comptes de stockage Azure](storage/common/storage-create-storage-account.md)
 
 ## <a name="subscription"></a>abonnement
 Accord d’un client avec Microsoft qui lui permet de bénéficier de services Azure. La tarification des abonnements et les conditions associées sont régies par l’offre choisie pour l’abonnement.

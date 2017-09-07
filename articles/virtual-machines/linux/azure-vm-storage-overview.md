@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 598d6a62fc7c4a769043c4d6d6547e5b8f8a5d5a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5e8a62bb180de7288531139594cb61440cab04c5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Stockage des machines virtuelles Azure et Linux
@@ -26,15 +26,15 @@ Le service Stockage Azure est la solution de stockage cloud pour les application
 
 ## <a name="managed-disks"></a>Managed Disks
 
-Les machines virtuelles Azure prennent désormais en charge [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), ce qui vous permet de créer vos machines virtuelles sans avoir à créer ou à gérer vous-mêmes [des comptes de stockage Azure](../../storage/storage-introduction.md). Vous choisissez un compte de stockage Premium ou Standard et la taille du disque. Azure crée ensuite les disques de machine virtuelle pour vous. Les machines virtuelles intégrant des disques gérés offrent de nombreux avantages, notamment :
+Les machines virtuelles Azure prennent désormais en charge [Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), ce qui vous permet de créer vos machines virtuelles sans avoir à créer ou à gérer vous-mêmes [des comptes de stockage Azure](../../storage/common/storage-introduction.md). Vous choisissez un compte de stockage Premium ou Standard et la taille du disque. Azure crée ensuite les disques de machine virtuelle pour vous. Les machines virtuelles intégrant des disques gérés offrent de nombreux avantages, notamment :
 
 - Une extensibilité automatique. Azure crée les disques et gère le stockage sous-jacent pour prendre en charge jusqu’à 10 000 disques par abonnement.
 - Une fiabilité accrue avec les groupes à haute disponibilité. Azure garantit que les disques de machine virtuelle sont automatiquement isolés les uns des autres au sein des groupes à haute disponibilité.
 - Un meilleur contrôle d’accès. Les disques gérés offrent un large choix d’options de [contrôle d’accès en fonction du rôle (RBAC) d’Azure](../../active-directory/role-based-access-control-what-is.md).
 
-La tarification des disques gérés est différente de celle des disques non gérés. Pour en savoir plus, consultez la rubrique relative à la [tarification et à la facturation des disques gérés](../../storage/storage-managed-disks-overview.md#pricing-and-billing).
+La tarification des disques gérés est différente de celle des disques non gérés. Pour en savoir plus, consultez la rubrique relative à la [tarification et à la facturation des disques gérés](../windows/managed-disks-overview.md#pricing-and-billing).
 
-Vous pouvez convertir des machines virtuelles existantes qui utilisent des disques non gérés pour utiliser des disques gérés avec la commande [az vm convert](/cli/azure/vm#convert). Pour en savoir plus, consultez la [Procédure de conversion d’une machine virtuelle Linux à partir de disques non gérés vers Azure Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vous ne pouvez pas convertir un disque non géré vers un disque géré s’il se trouve dans un compte de stockage qui est, ou qui a été à un moment donné, chiffré à l’aide [d’Azure SSE (Storage Service Encryption)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les étapes suivantes décrivent comment convertir des disques non gérés qui sont, ou ont été, dans un compte de stockage chiffré :
+Vous pouvez convertir des machines virtuelles existantes qui utilisent des disques non gérés pour utiliser des disques gérés avec la commande [az vm convert](/cli/azure/vm#convert). Pour en savoir plus, consultez la [Procédure de conversion d’une machine virtuelle Linux à partir de disques non gérés vers Azure Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vous ne pouvez pas convertir un disque non géré vers un disque géré s’il se trouve dans un compte de stockage qui est, ou qui a été à un moment donné, chiffré à l’aide [d’Azure SSE (Storage Service Encryption)](../../storage/common/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les étapes suivantes décrivent comment convertir des disques non gérés qui sont, ou ont été, dans un compte de stockage chiffré :
 
 - Copiez le disque dur virtuel (VHD) avec la commande [az storage blob copy start](/cli/azure/storage/blob/copy#start) dans un compte de stockage pour lequel Azure Storage Service Encryption n’a jamais été activé.
 - Créez une machine virtuelle qui utilise des disques gérés et spécifiez ce fichier de disque dur virtuel lors de la création avec la commande [az vm create](/cli/azure/vm#create), ou
@@ -92,7 +92,7 @@ Caractéristiques du Stockage Premium :
 * Disques de stockage Premium : le Stockage Premium Azure prend en charge les disques de machines virtuelles pouvant être attachés à des machines virtuelles Azure des séries DS, DSv2 ou GS.
 * Objet blob de pages Premium : le Stockage Premium prend en charge les objets blob de pages Azure, utilisés pour stocker les disques persistants des Machines Virtuelles Azure.
 * Stockage Premium localement redondant : un compte de Stockage Premium prend uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication et conserve trois copies des données dans une même région.
-* [Stockage Premium](../../storage/storage-premium-storage.md)
+* [Stockage Premium](../../storage/common/storage-premium-storage.md)
 
 ## <a name="premium-storage-supported-vms"></a>Machines virtuelles non prises en charge par le Stockage Premium
 Le Stockage Premium prend en charge les machines virtuelles Azure des séries DS, DSv2, GS et Fs. Vous pouvez utiliser des disques de Stockage Standard et Premium avec les machines virtuelles prises en charge par le Stockage Premium. Mais vous ne pouvez pas utiliser des disques de stockage Premium avec des séries de machines virtuelles non compatibles avec le Stockage Premium.
@@ -115,7 +115,7 @@ Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s�
 
 File Storage repose sur la même technologie que Blob Storage, Table Storage et Queue Storage : il offre donc la disponibilité, la durabilité, l’évolutivité et la redondance géographique intégrées à la plateforme de stockage Azure. Pour plus d’informations sur les objectifs et les limites des performances du Stockage Fichier, consultez Objectifs d’évolutivité et de performances du Stockage Azure.
 
-* [Utilisation de Stockage Fichier Azure avec Linux](../../storage/storage-how-to-use-files-linux.md)
+* [Utilisation de Stockage Fichier Azure avec Linux](../../storage/files/storage-how-to-use-files-linux.md)
 
 ## <a name="hot-storage"></a>Stockage chaud
 Le niveau de stockage à chaud Azure est optimisé pour le stockage des données souvent sollicitées.  Le stockage à chaud est le type de stockage par défaut pour les magasins d’objets blob.
@@ -155,7 +155,7 @@ Le stockage géo-redondant avec accès en lecture (RA-GRS) optimise la disponibi
 
 Pour une présentation approfondie de la redondance du Stockage Azure, consultez :
 
-* [Réplication Azure Storage](../../storage/storage-redundancy.md)
+* [Réplication Azure Storage](../../storage/common/storage-redundancy.md)
 
 ## <a name="scalability"></a>Extensibilité
 Azure Storage est massivement évolutif, ce qui vous permet de stocker et de traiter des centaines de téraoctets de données pour prendre en charge les scénarios Big Data exigés par les analyses scientifiques ou financières et les applications multimédias. Vous pouvez également stocker les petites quantités de données requises pour un petit site Web professionnel. Quels que soient vos besoins, vous payez uniquement pour les données que vous stockez. Azure Storage stocke actuellement des dizaines de billions d'objets client uniques et traite en moyenne des millions de requêtes par seconde.
@@ -197,7 +197,7 @@ Cette section explique comment sécuriser les données pendant leur transfert ve
 ## <a name="encryption-at-rest"></a>Chiffrement au repos
 Nous nous pencherons sur Storage Service Encryption (SSE) et sur la procédure d’activation de ce service pour un compte de stockage, qui a pour effet de chiffrer automatiquement les objets blob de bloc, les objets blog de pages et les objets blob d’ajout quand ils sont écrits dans Azure Storage. Nous verrons aussi comment utiliser Azure Disk Encryption et explorerons les différences fondamentales entre Disk Encryption, SSE et le chiffrement côté client, ainsi que des cas d’utilisation. Nous nous pencherons brièvement sur la conformité aux normes FIPS des ordinateurs de l’administration américaine.
 
-* [Guide de sécurité du Stockage Azure](../../storage/storage-security-guide.md)
+* [Guide de sécurité du Stockage Azure](../../storage/common/storage-security-guide.md)
 
 ## <a name="temporary-disk"></a>Disque temporaire
 Chaque machine virtuelle contient un disque temporaire. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Les données présentes sur le disque temporaire peuvent être perdues lors d’un [événement de maintenance](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quand vous [redéployez une machine virtuelle](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Lors d’un redémarrage standard de la machine virtuelle, les données présentes sur le disque temporaire doivent normalement être conservées.

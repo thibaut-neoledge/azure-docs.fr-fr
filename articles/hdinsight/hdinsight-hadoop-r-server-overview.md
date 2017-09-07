@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 0e1812bf867abff1ddd1b0534ceae692fad70484
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c88bf04f904d6784b882f524ac8737ca70003c91
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introduction à R Server et aux fonctionnalités Open Source R sur HDInsight
@@ -39,11 +38,11 @@ Les modèles ou prévisions résultant des analyses peuvent être téléchargés
 Pour inclure R Server dans un cluster HDInsight, vous devez sélectionner le type de cluster R Server lors de la création d’un cluster HDInsight via le portail Azure. Le type de cluster R Server inclut R Server sur les nœuds de données du cluster et sur un nœud périphérique, qui sert de zone d’accueil pour l’analyse R Server. Pour une description détaillée de la création du cluster, consultez la page [Bien démarrer avec R Server sur HDInsight](hdinsight-hadoop-r-server-get-started.md).
 
 ## <a name="learn-about-data-storage-options"></a>En savoir plus sur les options de stockage de données
-Le stockage par défaut du système de fichiers HDFS de clusters HDInsight peut être associé à un compte de stockage Azure ou bien à un magasin Azure Data Lake. Cette association garantit que toutes les données chargées dans l’espace de stockage en cluster au cours de l’analyse sont rendues persistantes. Il existe différents outils permettant de gérer le transfert de données vers l’option de stockage sélectionnée, notamment la fonctionnalité de chargement sur le portail du compte de stockage et l’utilitaire [AzCopy](../storage/storage-use-azcopy.md).
+Le stockage par défaut du système de fichiers HDFS de clusters HDInsight peut être associé à un compte de stockage Azure ou bien à un magasin Azure Data Lake. Cette association garantit que toutes les données chargées dans l’espace de stockage en cluster au cours de l’analyse sont rendues persistantes. Il existe différents outils permettant de gérer le transfert de données vers l’option de stockage sélectionnée, notamment la fonctionnalité de chargement sur le portail du compte de stockage et l’utilitaire [AzCopy](../storage/common/storage-use-azcopy.md).
 
 Vous avez la possibilité d’ajouter un accès à des objets Blob et des magasins Data Lake supplémentaires pendant le processus d’approvisionnement du cluster, quelle que soit l’option de stockage principal utilisée. Consultez la page [Bien démarrer avec R Server sur HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started) pour plus d’informations sur l’ajout d’accès à des comptes supplémentaires. Consultez l’article supplémentaire [Options de stockage Azure pour R Server sur HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) pour plus d’informations sur l’utilisation de plusieurs comptes de stockage.
 
-Vous pouvez également utiliser [Azure Files](../storage/storage-how-to-use-files-linux.md) comme option de stockage pour une utilisation sur le nœud de périphérie. Le service Azure Files vous permet de monter un partage de fichiers qui a été créé dans un compte Azure Storage sur le système de fichiers Linux. Pour plus d’informations concernant ces options de stockage de données pour R Server sur un cluster HDInsight, consultez la page [Options de stockage Azure pour R Server sur des clusters HDInsight](hdinsight-hadoop-r-server-storage.md).
+Vous pouvez également utiliser [Azure Files](../storage/files/storage-how-to-use-files-linux.md) comme option de stockage pour une utilisation sur le nœud de périphérie. Le service Azure Files vous permet de monter un partage de fichiers qui a été créé dans un compte Azure Storage sur le système de fichiers Linux. Pour plus d’informations concernant ces options de stockage de données pour R Server sur un cluster HDInsight, consultez la page [Options de stockage Azure pour R Server sur des clusters HDInsight](hdinsight-hadoop-r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Accéder à R Server sur le cluster
 Vous pouvez vous connecter à R Server sur le nœud périphérique à l’aide d’un navigateur, à condition que vous ayez choisi d’inclure RStudio Server lors du processus d’approvisionnement. Si vous ne l’avez pas installé pendant l’approvisionnement du cluster, vous pourrez l’ajouter par la suite. Pour plus d’informations sur l’installation de RStudio Server après la création d’un cluster, consultez la page [Installer RStudio Server sur des clusters HDInsight](hdinsight-hadoop-r-server-install-r-studio.md). Vous pouvez également vous connecter à R Server à l’aide de SSH/PuTTY pour accéder à la console R. 

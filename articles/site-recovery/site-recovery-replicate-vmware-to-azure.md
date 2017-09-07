@@ -15,11 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: asgang
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 0478acb27f7e1f8ca85f43ac244b5bdb70109a93
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e0047a996c9bfd7d950b32f0871ddd7608924b42
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -63,7 +62,7 @@ Lors de la réplication de machines virtuelles VMware, prenez note des points su
 7. Sélectionnez le compte de stockage Azure que vous souhaitez utiliser pour les données de réplication. Notez les points suivants :
 
    * Vous pouvez sélectionner un compte Standard Storage ou Premium Storage. Si vous sélectionnez un compte Premium, vous devez spécifier un compte de stockage standard supplémentaire pour les journaux de réplication en cours. Les comptes doivent se trouver dans la même région que le coffre Recovery Services.
-   * Si vous souhaitez utiliser un compte de stockage différent de ceux que vous possédez déjà, vous pouvez en créer un*Lien d’espace réservé pour la création d’un compte de stockage à l’aide de Resource Manager qui sera abordée dans la section de prise en main*. Pour créer un compte de stockage à l’aide de Resource Manager, cliquez sur **Créer**. Si vous souhaitez créer un compte de stockage en mode Classic, vous pouvez le faire dans le [portail Azure](../storage/storage-create-storage-account-classic-portal.md).
+   * Si vous souhaitez utiliser un compte de stockage différent de ceux que vous possédez déjà, vous pouvez en créer un*Lien d’espace réservé pour la création d’un compte de stockage à l’aide de Resource Manager qui sera abordée dans la section de prise en main*. Pour créer un compte de stockage à l’aide de Resource Manager, cliquez sur **Créer**. Si vous souhaitez créer un compte de stockage en mode Classic, vous pouvez le faire dans le [portail Azure](../storage/common/storage-create-storage-account.md).
 
 8. Sélectionnez le sous-réseau et le réseau Azure auxquels les machines virtuelles Azure se connectent lorsqu’elles sont démarrées après le basculement. Ce réseau doit se trouver dans la même région que le coffre Recovery Services. Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer le paramètre réseau à l’ensemble des machines que vous sélectionnez à des fins de protection. Sélectionnez **Configurer ultérieurement** pour sélectionner le réseau Azure pour chaque machine. Si vous n’avez pas de réseau, vous devez en [créer un](#set-up-an-azure-network). Pour créer un réseau à l’aide de Resource Manager, cliquez sur **Créer**. Si vous souhaitez créer un réseau en suivant le modèle classique, utilisez le [Portail Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Sélectionnez un sous-réseau, le cas échéant. Cliquez ensuite sur **OK**.
 

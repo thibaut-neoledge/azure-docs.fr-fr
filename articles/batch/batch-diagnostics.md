@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 8221f34641f2e59bbcaf05c3a17f23411df6b634
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b7bc6fd9921ab0f2374ace33ea5c1ab93a78f860
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Consigner des événements pour l’analyse et l’évaluation de diagnostic des solutions Batch
@@ -33,7 +33,7 @@ Comme de nombreux services Azure, le service Batch génère des événements de 
 
 ## <a name="prerequisites"></a>Configuration requise
 * [Compte Azure Batch](batch-account-create-portal.md)
-* [Compte Stockage Azure](../storage/storage-create-storage-account.md#create-a-storage-account)
+* [Compte Stockage Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   
   Pour conserver les journaux de diagnostic de Batch, vous devez créer un compte Stockage Azure dans lequel Azure stocke les journaux. Vous spécifiez ce compte de stockage lorsque vous [activez la journalisation des diagnostics](#enable-diagnostic-logging) pour votre compte Batch. Le compte de stockage que vous spécifiez lorsque vous activez la collecte de journaux n’est pas identique à un compte de stockage lié tel que décrit dans les articles relatifs aux [packages d’application](batch-application-packages.md) et à la [persistance en sortie des tâches](batch-task-output.md).
   

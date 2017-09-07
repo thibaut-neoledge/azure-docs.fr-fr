@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: b1b29ba11bc489a6ad67c2d9043cdb8a2dca7ef8
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 76cd54cd234dfe43e8f0d61f0b66f0ed0c09e8b7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="provision-the-microsoft-data-science-virtual-machine"></a>Approvisionnement d’une machine virtuelle pour la science des données
@@ -60,7 +60,7 @@ Une image [CentOS](machine-learning-data-science-linux-dsvm-intro.md) est égale
 Avant de pouvoir créer une machine virtuelle de science des données Microsoft, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**: pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Un compte de stockage Azure**: pour en créer un, consultez la page [Créer un compte de stockage Azure](../storage/storage-create-storage-account.md#create-a-storage-account). Le compte de stockage peut également être créé dans le cadre du processus de création de la machine virtuelle si vous ne souhaitez pas utiliser de compte existant.
+* **Un compte de stockage Azure**: pour en créer un, consultez la page [Créer un compte de stockage Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account). Le compte de stockage peut également être créé dans le cadre du processus de création de la machine virtuelle si vous ne souhaitez pas utiliser de compte existant.
 
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Création d’une machine virtuelle pour la science des données
 Voici les étapes de création d’une instance de la machine virtuelle de sciences des données :

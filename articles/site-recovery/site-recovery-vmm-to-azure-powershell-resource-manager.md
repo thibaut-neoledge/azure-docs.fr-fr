@@ -1,6 +1,6 @@
 ---
 title: "Réplication de machines virtuelles Hyper-V dans des clouds VMM à l’aide d’Azure Site Recovery et de PowerShell (Resource Manager) | Microsoft Docs"
-description: "Réplication de machines virtuelles Hyper-V dans des clouds VMM à l&quot;aide d&quot;Azure Site Recovery et PowerShell"
+description: "Réplication de machines virtuelles Hyper-V dans des clouds VMM à l'aide d'Azure Site Recovery et PowerShell"
 services: site-recovery
 documentationcenter: 
 author: Rajani-Janaki-Ram
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 933cb8692abea1f66192605208ddd9c0b9057235
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 34086044db752f09f1282517b59856091e85c2fc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Réplication vers Azure de machines virtuelles Hyper-V hébergées dans des clouds VMM à l’aide de PowerShell et d’Azure Resource Manager
@@ -59,7 +58,7 @@ Assurez-vous que les conditions préalables sont remplies :
 ### <a name="azure-prerequisites"></a>Conditions préalables pour Azure
 * Vous aurez besoin d’un compte [Microsoft Azure](https://azure.microsoft.com/) . Si vous n’en avez pas, commencez avec un [compte gratuit](https://azure.microsoft.com/free). Vous pouvez aussi consulter la [Tarification d’Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
 * Vous avez besoin d’un abonnement Fournisseur de solutions cloud si vous essayez une réplication vers un abonnement de ce type. Pour en savoir plus sur le programme Fournisseur de solutions cloud, consultez [S’inscrire au programme Fournisseur de solutions cloud](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
-* Vous avez besoin d’un compte de stockage Azure v2 (Resource Manager) pour stocker les données répliquées dans Azure. La géo-réplication doit être activée pour ce compte. Ce dernier doit se trouver dans la même région que le service Azure Site Recovery et être associé au même abonnement ou à l’abonnement Fournisseur de solutions cloud. Pour en savoir plus sur la configuration d’Azure Storage, consultez [Introduction à Microsoft Azure Storage](../storage/storage-introduction.md) .
+* Vous avez besoin d’un compte de stockage Azure v2 (Resource Manager) pour stocker les données répliquées dans Azure. La géo-réplication doit être activée pour ce compte. Ce dernier doit se trouver dans la même région que le service Azure Site Recovery et être associé au même abonnement ou à l’abonnement Fournisseur de solutions cloud. Pour en savoir plus sur la configuration d’Azure Storage, consultez [Introduction à Microsoft Azure Storage](../storage/common/storage-introduction.md) .
 * Vous devez vous assurer que les machines virtuelles que vous voulez protéger sont conformes à la [configuration requise des machines virtuelles Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 > [!NOTE]

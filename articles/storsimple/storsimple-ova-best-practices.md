@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 56e8f5cf3886c740853a40781c42b3e36144134b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Bonnes pratiques liées à StorSimple Virtual Array
@@ -146,7 +145,7 @@ Utilisez les recommandations suivantes pour les comptes de stockage associés à
   
   * Nous vous recommandons de le créer dans la région la plus proche du bureau distant où votre baie virtuelle StorSimple Virtual Array est déployée, pour réduire au maximum la latence.
   * N’oubliez pas que vous ne pouvez pas déplacer un compte de stockage d’une région à une autre. De plus, vous ne pouvez pas déplacer un service d’un abonnement à un autre.
-  * Utilisez un compte de stockage qui met en œuvre la redondance entre les centres de données. Le stockage géoredondant (GRS), le stockage redondant dans une zone (ZRS) et le stockage localement redondant (LRS) sont tous pris en charge avec votre baie virtuelle. Pour plus d’informations sur les différents types de comptes de stockage, consultez la page [Réplication du stockage Azure](../storage/storage-redundancy.md).
+  * Utilisez un compte de stockage qui met en œuvre la redondance entre les centres de données. Le stockage géoredondant (GRS), le stockage redondant dans une zone (ZRS) et le stockage localement redondant (LRS) sont tous pris en charge avec votre baie virtuelle. Pour plus d’informations sur les différents types de comptes de stockage, consultez la page [Réplication du stockage Azure](../storage/common/storage-redundancy.md).
 
 ### <a name="shares-and-volumes"></a>Partages et volumes
 Pour votre baie virtuelle StorSimple Virtual Array, vous pouvez mettre en service des partages lorsqu’elle est configurée comme un serveur de fichiers et des volumes lorsqu’elle est configurée comme un serveur iSCSI. Les bonnes pratiques permettant la création de partages et de volumes sont associées à la taille et au type configuré.

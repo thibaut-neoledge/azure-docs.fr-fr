@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/25/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 8d7b3b8293120bb7e9f00a90da09f94ca7cba29b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4688fc4bc74a9e0e04487cfbe965006070fd9a7b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -34,13 +34,13 @@ Avant d’exécuter un test de basculement, nous vous recommandons de vérifier 
 
 ## <a name="managed-disk-considerations"></a>Remarques relatives au disque géré
 
-Les [disques gérés](../storage/storage-managed-disks-overview.md) simplifient la gestion des disques des machines virtuelles Azure, en gérant les comptes de stockage associés aux disques de machines virtuelles. 
+Les [disques gérés](../virtual-machines/windows/managed-disks-overview.md) simplifient la gestion des disques des machines virtuelles Azure, en gérant les comptes de stockage associés aux disques de machines virtuelles. 
 
 - Les disques gérés sont créés et attachés à la machine virtuelle uniquement en cas de basculement vers Azure. Lorsque vous activez la protection, les données des machines virtuelles locales sont répliquées sur des comptes de stockage.
 - Des disques gérés ne peuvent être créés que pour des machines virtuelles déployées à l’aide du modèle de déploiement Resource Manager.
 - La restauration automatique d’Azure vers l’environnement Hyper-V local n’est actuellement pas prise en charge pour les ordinateurs avec disques gérés. Vous ne devez définir **Utiliser des disques gérés** sur **Oui** que si vous effectuez une migration (basculement vers Azure sans restauration automatique).
 - Lorsque ce paramètre est activé, seuls des groupes à haute disponibilité dans les groupes de ressources pour lesquels l’option **Utiliser des disques gérés** est activée peuvent être sélectionnés. Les machines virtuelles dotées de disques gérés doivent se trouver dans des groupes à haute disponibilité dont le paramètre **Utiliser des disques gérés** est défini sur **Oui**. Lorsque ce paramètre n’est pas activé pour les machines virtuelles, seuls les groupes à haute disponibilité des groupes de ressources dont le paramètre relatif aux disques gérés n’est pas activé peuvent être sélectionnés. [En savoir plus](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
-- - Si le compte de stockage que vous utilisez pour la réplication a été chiffré à l’aide du chiffrement du service de stockage, la création de disques gérés lors du basculement est impossible. Dans ce cas, n’activez pas l’utilisation des disques gérés, ni ne désactivez la protection de la machine virtuelle, et réactivez-la pour utiliser un compte de stockage pour lequel le chiffrement n’est pas activé. [En savoir plus](../storage/storage-managed-disks-overview.md#managed-disks-and-encryption).
+- - Si le compte de stockage que vous utilisez pour la réplication a été chiffré à l’aide du chiffrement du service de stockage, la création de disques gérés lors du basculement est impossible. Dans ce cas, n’activez pas l’utilisation des disques gérés, ni ne désactivez la protection de la machine virtuelle, et réactivez-la pour utiliser un compte de stockage pour lequel le chiffrement n’est pas activé. [En savoir plus](../virtual-machines/windows/managed-disks-overview.md#managed-disks-and-encryption).
 
  
 ## <a name="network-considerations"></a>Remarques relatives au réseau
@@ -66,9 +66,9 @@ Nous vous recommandons de vérifier les propriétés de la machine source avant 
     ![Activer la réplication](./media/vmm-to-azure-walkthrough-test-failover/test-failover2.png)
 3. Dans **Calcul et réseau**, vous pouvez :
     - Modifier le nom de la machine virtuelle Azure. Le nom doit répondre aux [exigences Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Spécifier un [groupe de ressources](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md) post-basculement.
+    - Spécifier un [groupe de ressources] post-basculement.
     - Spécifier une taille cible pour la machine virtuelle Azure.
-    - Sélectionner un [groupe à haute disponibilité](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+    - Sélectionner un [groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md).
     - Indiquer s’il faut utiliser [des disques gérés](#managed-disk-considerations). Sélectionnez **Oui**, si vous souhaitez attacher des disques gérés à votre machine lors de la migration vers Azure.
     - Afficher ou modifier les paramètres réseau, y compris le réseau/sous-réseau dans lequel la machine virtuelle Azure se trouve après le basculement et l’adresse IP qui lui sera affectée.
 

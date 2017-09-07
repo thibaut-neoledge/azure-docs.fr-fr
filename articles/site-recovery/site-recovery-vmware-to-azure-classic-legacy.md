@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: d50a4bdbafccd645ca339b2dd1ab97456704e3ae
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 325be23cffc9c728a8af6f92a0f3dce6d31da4ae
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-vmware-virtual-machines-and-physical-servers-to-azure-with-azure-site-recovery-using-the-classic-portal-legacy"></a>Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery à l’aide du portail classique (hérité)
@@ -122,8 +122,8 @@ Les principaux domaines à prendre en considération sont les suivants :
 * **Nombre de sources par serveur cible maître**: plusieurs ordinateurs source peuvent être protégés avec un seul serveur cible maître. Cependant, un seul ordinateur source ne peut pas être protégé sur plusieurs serveurs cibles maîtres, car à mesure que les disques sont répliqués, un disque dur virtuel qui reflète le volume du disque est créé dans le stockage d'objets blob Azure et attaché en tant que disque de données au serveur cible maître.  
 * **Taux de modification quotidien maximum par source**: il y a trois facteurs à prendre en considération lorsque vous envisagez le taux de modification par source recommandé. Pour les considérations basées sur la cible, deux IOPS sont requises sur le disque cible pour chaque opération sur la source. Cela est dû au fait qu’il y aura une lecture d’anciennes données et une écriture de nouvelles données sur le disque cible.
   * **Taux de modification quotidien pris en charge par le serveur de traitement**: un ordinateur source ne peut pas couvrir plusieurs serveurs de traitement. Un seul serveur de traitement peut prendre en charge jusqu'à 1 To de taux de modification quotidien. Par conséquent, 1 To est le taux de modification quotidien maximal des données pris en charge pour un ordinateur source.
-  * **Débit maximal pris en charge par le disque cible**: l’attrition maximale par disque source ne peut pas dépasser 144 Go/jour (avec une taille d'écriture de 8 Ko). Reportez-vous au tableau dans la section cible principale pour le débit et les IOPS de la cible pour différentes tailles d’écriture. Ce nombre doit être divisé en deux, car chaque IOP source génère 2 IOPS sur le disque cible. Pour en savoir plus, consultez [Objectifs de performance et évolutivité d’Azure Storage](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) lors de la configuration de la cible pour des comptes de stockage premium.
-  * **Débit maximal pris en charge par le compte de stockage**: une source ne peut pas couvrir plusieurs comptes de stockage. Étant donné qu'un compte de stockage prend un maximum de 20 000 requêtes par seconde et que chaque IOP source génère 2 IOPS sur le serveur cible maître, nous vous recommandons de maintenir le nombre d'IOPS sur la source à 10 000. Pour en savoir plus, consultez [Objectifs de performance et évolutivité d’Azure Storage](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) lors de la configuration de la source pour des comptes de stockage premium.
+  * **Débit maximal pris en charge par le disque cible**: l’attrition maximale par disque source ne peut pas dépasser 144 Go/jour (avec une taille d'écriture de 8 Ko). Reportez-vous au tableau dans la section cible principale pour le débit et les IOPS de la cible pour différentes tailles d’écriture. Ce nombre doit être divisé en deux, car chaque IOP source génère 2 IOPS sur le disque cible. Pour en savoir plus, consultez [Objectifs de performance et évolutivité d’Azure Storage](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) lors de la configuration de la cible pour des comptes de stockage premium.
+  * **Débit maximal pris en charge par le compte de stockage**: une source ne peut pas couvrir plusieurs comptes de stockage. Étant donné qu'un compte de stockage prend un maximum de 20 000 requêtes par seconde et que chaque IOP source génère 2 IOPS sur le serveur cible maître, nous vous recommandons de maintenir le nombre d'IOPS sur la source à 10 000. Pour en savoir plus, consultez [Objectifs de performance et évolutivité d’Azure Storage](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) lors de la configuration de la source pour des comptes de stockage premium.
 
 ### <a name="considerations-for-component-servers"></a>Considérations relatives aux serveurs de composants
 Le tableau 1 résume les tailles de machine virtuelle pour le serveur de configuration et le serveur cible maître.
@@ -180,7 +180,7 @@ Le stockage pour chaque serveur cible maître inclut un disque de système d’e
 La planification de la capacité pour le serveur cible maître dépend des points suivants :
 
 * Limitations et performances de stockage Azure
-  * Pour une machine virtuelle de niveau standard, le nombre maximal de disques fortement sollicités est d'environ 40 (20 000/500 IOPS par disque) dans un seul compte de stockage. Pour en savoir plus, consultez [Objectifs d’évolutivité pour les comptes de stockage standard](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) et [Objectifs d’évolutivité pour les comptes de stockage premium](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
+  * Pour une machine virtuelle de niveau standard, le nombre maximal de disques fortement sollicités est d'environ 40 (20 000/500 IOPS par disque) dans un seul compte de stockage. Pour en savoir plus, consultez [Objectifs d’évolutivité pour les comptes de stockage standard](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) et [Objectifs d’évolutivité pour les comptes de stockage premium](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
 * Taux de modification quotidien
 * Stockage de volume de rétention.
 
@@ -199,7 +199,7 @@ Notez les points suivants :
 | **Composant** | **Configuration requise** | **Détails** |
 | --- | --- | --- |
 | **Compte Azure** |Vous aurez besoin d’un compte [Microsoft Azure](https://azure.microsoft.com/) . Vous pouvez commencer avec une [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/). | |
-| **Stockage Azure** |Vous aurez besoin d’un compte Azure Storage pour stocker les données répliquées<br/><br/> Vous avez besoin d’un [compte de stockage géoredondant standard](../storage/storage-redundancy.md#geo-redundant-storage) ou d’un [compte de stockage premium](../storage/storage-premium-storage.md).<br/><br/> Ce dernier doit se trouver dans la même région que le service Azure Site Recovery et être associé au même abonnement. Nous ne prenons pas en charge le déplacement des comptes de stockage créés à l’aide du [nouveau Portail Azure](../storage/storage-create-storage-account.md) dans les groupes de ressources.<br/><br/> Pour en savoir plus, consultez [Introduction à Microsoft Azure Storage](../storage/storage-introduction.md). | |
+| **Stockage Azure** |Vous aurez besoin d’un compte Azure Storage pour stocker les données répliquées<br/><br/> Vous avez besoin d’un [compte de stockage géoredondant standard](../storage/common/storage-redundancy.md#geo-redundant-storage) ou d’un [compte de stockage premium](../storage/common/storage-premium-storage.md).<br/><br/> Ce dernier doit se trouver dans la même région que le service Azure Site Recovery et être associé au même abonnement. Nous ne prenons pas en charge le déplacement des comptes de stockage créés à l’aide du [nouveau Portail Azure](../storage/common/storage-create-storage-account.md) dans les groupes de ressources.<br/><br/> Pour en savoir plus, consultez [Introduction à Microsoft Azure Storage](../storage/common/storage-introduction.md). | |
 | **Réseau virtuel Azure** |Vous aurez besoin d'un réseau virtuel Azure sur lequel le serveur de configuration et le serveur cible maître seront déployés. Il doit être dans le même abonnement et la même région que le coffre Azure Site Recovery. Si vous souhaitez répliquer des données avec une connexion ExpressRoute ou VPN, le réseau virtuel Azure doit être connecté à votre réseau local par le biais d'une connexion ExpressRoute ou d'un VPN de site à site. | |
 | **Ressources Azure** |Assurez-vous d'avoir suffisamment de ressources Azure pour déployer tous les composants. En savoir plus sur les [limites d’abonnement Azure](../azure-subscription-service-limits.md). | |
 | **Azure Virtual Machines** |Les machines virtuelles à protéger doivent être conformes aux [conditions préalables requises pour Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).<br/><br/> **Nombre de disques** : un serveur protégé peut prendre en charge jusqu’à 31 disques.<br/><br/> **Taille des disques** : la capacité d’un disque ne doit pas dépasser 1023 Go.<br/><br/> **Clustering** : les serveurs en cluster ne sont pas pris en charge.<br/><br/> **Démarrage** : le démarrage UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface) n’est pas pris en charge.<br/><br/> **Volumes** : les volumes chiffrés par Bitlocker ne sont pas pris en charge.<br/><br/> **Noms des serveurs**: les noms doivent contenir entre 1 et 63 caractères (lettres, chiffres et traits d’union). Le nom doit commencer par une lettre ou un chiffre et se terminer par une lettre ou un chiffre. Une fois qu'un ordinateur est protégé, vous pouvez modifier le nom Azure. | |
@@ -352,7 +352,7 @@ Notez les points suivants :
 Notez que les quatre premières adresses IP d’un sous-réseau sont réservées à un usage interne Azure. Indiquez une autre adresse IP disponible.
 
 > [!NOTE]
-> Sélectionnez DS4 standard lors de la configuration de la protection des charges de travail qui nécessitent des performances d’E/S élevées et une faible latence pour héberger des charges de travail gourmandes en E/S à l’aide du [compte de stockage Premium](../storage/storage-premium-storage.md).
+> Sélectionnez DS4 standard lors de la configuration de la protection des charges de travail qui nécessitent des performances d’E/S élevées et une faible latence pour héberger des charges de travail gourmandes en E/S à l’aide du [compte de stockage Premium](../storage/common/storage-premium-storage.md).
 >
 >
 
@@ -643,10 +643,10 @@ Ajoutez des ordinateurs comme suit :
 3. Dans **Sélectionner les machines virtuelles** si vous protégez des machines virtuelles VMware, sélectionnez un serveur vCenter qui gère vos machines virtuelles (ou l’hôte EXSi sur lequel elles sont exécutées), puis sélectionnez les machines.
 
     ![Ajouter un serveur V-Center](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)    
-4. Dans **Spécifier les ressources cibles** , sélectionnez les serveurs cibles maîtres et le stockage à utiliser pour la réplication, puis déterminez si les paramètres doivent être utilisés pour toutes les charges de travail. Sélectionnez [Compte de stockage Premium](../storage/storage-premium-storage.md) lors de la configuration de la protection des charges de travail qui nécessitent des performances d’E/S élevées et une faible latence pour héberger des charges de travail gourmandes en E/S. Si vous souhaitez utiliser un compte de stockage Premium pour vos disques de charges de travail, vous devez utiliser la cible maître de série DS. Vous ne pouvez pas utiliser de disques de stockage Premium avec une cible maître qui n’est pas de série DS.
+4. Dans **Spécifier les ressources cibles** , sélectionnez les serveurs cibles maîtres et le stockage à utiliser pour la réplication, puis déterminez si les paramètres doivent être utilisés pour toutes les charges de travail. Sélectionnez [Compte de stockage Premium](../storage/common/storage-premium-storage.md) lors de la configuration de la protection des charges de travail qui nécessitent des performances d’E/S élevées et une faible latence pour héberger des charges de travail gourmandes en E/S. Si vous souhaitez utiliser un compte de stockage Premium pour vos disques de charges de travail, vous devez utiliser la cible maître de série DS. Vous ne pouvez pas utiliser de disques de stockage Premium avec une cible maître qui n’est pas de série DS.
 
    > [!NOTE]
-   > Nous ne prenons pas en charge le déplacement des comptes de stockage créés à l’aide du [nouveau Portail Azure](../storage/storage-create-storage-account.md) dans les groupes de ressources.
+   > Nous ne prenons pas en charge le déplacement des comptes de stockage créés à l’aide du [nouveau Portail Azure](../storage/common/storage-create-storage-account.md) dans les groupes de ressources.
    >
    >
 

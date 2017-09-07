@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 9b212bcfcb604319ff9bc39fd284a5eb98c0d2c3
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b4c97e8f51581f9a3f7c5a8d8e82562255fe7b48
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Création et gestion de tâches de bases de données SQL élastiques à l’aide de PowerShell (version préliminaire)
@@ -610,7 +609,7 @@ Utilisez [Get-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/get-azu
     Write-Output $jobTriggers
 
 ## <a name="to-create-a-data-tier-application-dacpac-for-execution-across-databases"></a>Créer une application de la couche Données (DACPAC) pour une exécution dans des bases de données
-Pour créer un DACPAC, voir [Applications de la couche Données](https://msdn.microsoft.com/library/ee210546.aspx). Pour déployer un DACPAC, utilisez l’ [applet de commande New-AzureSqlJobContent](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent). Le fichier DACPAC doit être accessible au service. Il est recommandé de charger un DACPAC créé dans Azure Storage et de créer une [signature d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md) pour ce DACPAC.
+Pour créer un DACPAC, voir [Applications de la couche Données](https://msdn.microsoft.com/library/ee210546.aspx). Pour déployer un DACPAC, utilisez l’ [applet de commande New-AzureSqlJobContent](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent). Le fichier DACPAC doit être accessible au service. Il est recommandé de charger un DACPAC créé dans Azure Storage et de créer une [signature d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md) pour ce DACPAC.
 
     $dacpacUri = "{Uri}"
     $dacpacName = "{Dacpac Name}"

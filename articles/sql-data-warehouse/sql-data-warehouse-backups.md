@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: ef2e6e7a19c7ed1730fdec5eca73c941e1b319c4
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 54c0149a769e654139bbdf709802d49127f041ac
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="sql-data-warehouse-backups"></a>Sauvegardes de SQL Data Warehouse
@@ -35,15 +35,15 @@ SQL Data Warehouse protège vos données en les stockant dans un stockage Premiu
 
 Pour en savoir plus sur :
 
-* Stockage Premium Azure : consultez [Introduction à Stockage Premium Azure](../storage/storage-premium-storage.md).
-* Stockage localement redondant : consultez [Réplication de Stockage Azure](../storage/storage-redundancy.md#locally-redundant-storage).
+* Stockage Premium Azure : consultez [Introduction à Stockage Premium Azure](../storage/common/storage-premium-storage.md).
+* Stockage localement redondant : consultez [Réplication de Stockage Azure](../storage/common/storage-redundancy.md#locally-redundant-storage).
 
 ## <a name="azure-storage-blob-snapshots"></a>Captures instantanées d’objet blob Stockage Azure
 Un avantage de l’utilisation de Stockage Premium Azure est que SQL Data Warehouse utilise des captures instantanées d’objet blob Stockage Azure pour sauvegarder localement l’entrepôt de données. Vous pouvez restaurer un entrepôt de données à un point de restauration de capture instantanée. Les captures instantanées démarrent au minimum toutes les huit heures et sont disponibles pendant sept jours.  
 
 Pour en savoir plus sur :
 
-* Captures instantanées d’objets blob Azure : consultez [Créer une capture instantanée d’objets blob](../storage/storage-blob-snapshots.md).
+* Captures instantanées d’objets blob Azure : consultez [Créer une capture instantanée d’objets blob](../storage/blobs/storage-blob-snapshots.md).
 
 ## <a name="geo-redundant-backups"></a>Sauvegardes géoredondantes
 Toutes les 24 heures, SQL Data Warehouse stocke l’entrepôt de données complet dans le stockage Standard. L’entrepôt de données complet est créé de façon à correspondre au moment de la dernière capture instantanée. Le stockage standard appartient à un compte de stockage géoredondant avec un accès en lecture (RA-GRS). La fonctionnalité RA-GRS du service Stockage Microsoft Azure réplique les fichiers de sauvegarde sur un [centre de données associé](../best-practices-availability-paired-regions.md). Cette géoréplication vous garantit de pouvoir restaurer un entrepôt de base de données dans le cas où vous ne pouvez pas accéder aux captures instantanées de votre région primaire. 
@@ -62,8 +62,8 @@ Cette fonctionnalité est activée par défaut. Si vous ne souhaitez pas utilise
 
 Pour en savoir plus sur :
 
-* Le stockage géoredondant, consultez la section [Réplication Azure Storage](../storage/storage-redundancy.md).
-* Le stockage RA-GRS, consultez la section [Stockage géoredondant avec accès en lecture](../storage/storage-redundancy.md#read-access-geo-redundant-storage).
+* Le stockage géoredondant, consultez la section [Réplication Azure Storage](../storage/common/storage-redundancy.md).
+* Le stockage RA-GRS, consultez la section [Stockage géoredondant avec accès en lecture](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
 
 ## <a name="data-warehouse-backup-schedule-and-retention-period"></a>Planification et période de rétention des sauvegardes d’entrepôt de données
 SQL Data Warehouse crée des captures instantanées sur vos entrepôts de données en ligne toutes les quatre à huit heures et conserve chaque capture instantanée pendant sept jours. Vous pouvez restaurer votre base de données en ligne à un des points de restauration des sept derniers jours. 

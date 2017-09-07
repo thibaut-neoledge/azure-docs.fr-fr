@@ -3,8 +3,8 @@ title: "Préparation de la publication ou du déploiement d’une application Az
 description: "Découvrez les procédures de configuration des services de compte de stockage et cloud et de votre application Azure."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 5d747a7c34b340c6f98dabb2c3ff4d3340e74e4a
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 967501fa8ac4b2471a62afabc18a12a71776eaac
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="prepare-to-publish-or-deploy-an-azure-application-from-visual-studio"></a>Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio
@@ -116,16 +117,11 @@ Vous devez configurer tous les rôles qui accèdent aux services de stockage pou
        * **Spécifier des points de terminaison personnalisés** pour chacun des trois services. Vous pouvez ensuite taper ces points de terminaison dans le champ du service.
 
          > [!NOTE]
-         > Si vous créez des points de terminaison personnalisés, vous pouvez créer une chaîne de connexion plus complexe. Lorsque vous utilisez ce format de chaîne, vous pouvez spécifier des points de terminaison de service de stockage qui incluent un nom de domaine personnalisé que vous avez enregistré pour votre compte de stockage avec le service Blob. Vous pouvez également accorder l'accès uniquement aux ressources Blob dans un seul conteneur au moyen d’une signature d'accès partagé. Pour plus d’informations sur la création de points de terminaison personnalisés, consultez [Configuration des chaînes de connexion Stockage Azure](storage/storage-configure-connection-string.md).
+         > Si vous créez des points de terminaison personnalisés, vous pouvez créer une chaîne de connexion plus complexe. Lorsque vous utilisez ce format de chaîne, vous pouvez spécifier des points de terminaison de service de stockage qui incluent un nom de domaine personnalisé que vous avez enregistré pour votre compte de stockage avec le service Blob. Vous pouvez également accorder l'accès uniquement aux ressources Blob dans un seul conteneur au moyen d’une signature d'accès partagé. Pour plus d’informations sur la création de points de terminaison personnalisés, consultez [Configuration des chaînes de connexion Stockage Azure](storage/common/storage-configure-connection-string.md).
          >
          >
 11. Pour enregistrer les modifications de la chaîne de connexion, sélectionnez le bouton **OK**, puis sélectionnez le bouton **Enregistrer** dans la barre d’outils. Après avoir enregistré ces modifications, vous pouvez récupérer la valeur de cette chaîne de connexion dans votre code à l’aide de [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). Lorsque vous publiez votre application dans Azure, sélectionnez la configuration de service qui contient le compte de stockage Azure pour la chaîne de connexion. Une fois votre application publiée, vérifiez que l'application fonctionne comme prévu par rapport aux services de stockage Azure
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la publication d’applications entre Visual Studio et Azure, consultez la page [Publication d’un service cloud en utilisant les outils Azure](vs-azure-tools-publishing-a-cloud-service.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

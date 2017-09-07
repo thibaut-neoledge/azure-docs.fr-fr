@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 08/10/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 183cb2ad4f2a80f9a0e1e7a33f1cacae006c0df4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2779655aee3af3a351b30f18b4c9d9918e9f2210
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
@@ -40,22 +39,19 @@ Cet article aborde les points suivants :
 > [!NOTE]
 > Si vous n’êtes pas familiarisé avec l’activité de copie, voir [Déplacer des données à l’aide de l’activité de copie](data-factory-data-movement-activities.md) avant de lire cet article.
 >
->
 
 ## <a name="performance-reference"></a>Performances de référence
+
+À titre de référence, le tableau ci-dessous décrit la valeur de débit de copie en Mbits/s pour les paires de source et de récepteur données à partir de tests internes. À des fins de comparaison, il montre également comment les différents paramètres [d’unités de déplacement des données cloud](#cloud-data-movement-units) ou [d’évolutivité de la passerelle de gestion des données](data-factory-data-management-gateway-high-availability-scalability.md) (plusieurs nœuds de passerelle) peuvent améliorer les performances de copie.
+
 ![Matrice des performances](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [!NOTE]
-> Vous pouvez obtenir un débit plus élevé en exploitant davantage d’unités de déplacement des données (DMU) que le nombre maximum par défaut, à savoir 32, pour l’exécution d’une activité de copie de cloud à cloud. Par exemple, avec 100 unités DMU, vous pouvez copier des données depuis Azure Blob vers Azure Data Lake Store à **1,0 Go/s**. Pour en savoir plus sur cette fonctionnalité et le scénario pris en charge, consultez la section [Unités de déplacement de données cloud](#cloud-data-movement-units). Contactez le [support Azure](https://azure.microsoft.com/support/) pour demander plus de DMU.
->
->
 
 **Points à noter :**
 * Le débit est calculé à l’aide de la formule suivante : [taille des données lues à partir de la source]/[durée d’exécution de l’activité de copie].
 * Les chiffres de référence des performances dans le tableau ont été mesurés à l’aide du jeu de données [TPC-H](http://www.tpc.org/tpch/) durant une seule exécution de l’activité de copie.
-* Pour effectuer des copies entre des magasins de données cloud, définissez **cloudDataMovementUnits** sur 1 et sur 4 (ou 8) pour la comparaison. **parallelCopies** n’est pas spécifiée. Consultez la section [Copie en parallèle](#parallel-copy) pour plus d’informations sur ces fonctionnalités.
 * Dans le cas de banques de données Azure, la source et le récepteur sont dans la même région Azure.
-* Pour le déplacement hybride de données (local vers cloud ou cloud vers local), une seule instance de passerelle était exécutée sur un ordinateur qui a été séparé de la banque de données locale. La configuration est présentée dans le tableau suivant. Lorsqu’une seule activité était exécutée sur la passerelle, l’opération de copie n’a utilisé qu’une petite partie du processeur ou de la mémoire de l’ordinateur de test, ou de la bande passante réseau.
+* Pour une copie hybride entre des magasins de données en local et dans le cloud, chaque nœud de passerelle était exécuté sur un ordinateur isolé du magasin de données local et présentant les caractéristiques ci-dessous. Lorsqu’une seule activité était exécutée sur la passerelle, l’opération de copie n’a utilisé qu’une petite partie du processeur ou de la mémoire de l’ordinateur de test, ou de la bande passante réseau. Pour en savoir plus, voir [Considérations relatives à la passerelle de gestion des données](#considerations-for-data-management-gateway).
     <table>
     <tr>
         <td>UC</td>
@@ -70,6 +66,10 @@ Cet article aborde les points suivants :
         <td>Interface Internet : 10 Gbits/s ; interface intranet : 40 Gbits/s</td>
     </tr>
     </table>
+
+
+> [!TIP]
+> Vous pouvez obtenir un débit plus élevé en exploitant davantage d’unités de déplacement des données (DMU) que le nombre maximum par défaut, à savoir 32, pour l’exécution d’une activité de copie de cloud à cloud. Par exemple, avec 100 unités DMU, vous pouvez copier des données depuis Azure Blob vers Azure Data Lake Store à **1,0 Go/s**. Pour en savoir plus sur cette fonctionnalité et le scénario pris en charge, consultez la section [Unités de déplacement de données cloud](#cloud-data-movement-units). Contactez le [support Azure](https://azure.microsoft.com/support/) pour demander plus de DMU.
 
 ## <a name="parallel-copy"></a>Copie en parallèle
 Vous pouvez lire les données de la source ou écrire des données sur la destination **en parallèle dans une exécution de l’activité de copie**. Cette fonctionnalité améliore le débit d’une opération de copie et réduit le temps nécessaire pour déplacer des données.
@@ -115,7 +115,6 @@ Les **valeurs autorisées** pour la propriété **cloudDataMovementUnits** sont 
 
 > [!NOTE]
 > Si vous avez besoin de plus d’unités de déplacement de données cloud pour un débit plus élevé, contactez le [support Azure](https://azure.microsoft.com/support/). Actuellement, un paramètre de 8 et plus fonctionne uniquement lorsque vous **copiez plusieurs fichiers à partir d’un stockage blob, d’une instance Data Lake Store, d’Amazon S3, d’un FTP cloud, d’un SFTP cloud vers un stockage blob, une instance Data Lake Store ou Azure SQL Database**.
->
 >
 
 ### <a name="parallelcopies"></a>parallelCopies
@@ -247,15 +246,21 @@ Nous vous recommandons d’effectuer cette procédure pour régler les performan
    * Fonctionnalités de performances :
      * [Copie en parallèle](#parallel-copy)
      * [Unités de déplacement de données cloud](#cloud-data-movement-units)
-     * [Copie intermédiaire](#staged-copy)   
+     * [Copie intermédiaire](#staged-copy)
+     * [Évolutivité de la passerelle de gestion des données](data-factory-data-management-gateway-high-availability-scalability.md)
+   * [Passerelle de gestion de données](#considerations-for-data-management-gateway)
    * [Source](#considerations-for-the-source)
    * [Section sink](#considerations-for-the-sink)
    * [Sérialisation et désérialisation](#considerations-for-serialization-and-deserialization)
    * [Compression](#considerations-for-compression)
    * [Mappage de colonnes](#considerations-for-column-mapping)
-   * [Passerelle de gestion de données](#considerations-for-data-management-gateway)
    * [Autres points à considérer](#other-considerations)
 3. **Étendez la configuration à l’ensemble de votre jeu de données**. Lorsque vous êtes satisfait des résultats et des performances de l’exécution, vous pouvez étendre la définition et la période active du pipeline pour couvrir l’ensemble de votre jeu de données.
+
+## <a name="considerations-for-data-management-gateway"></a>Considérations relatives à la passerelle de gestion des données
+**Configuration de la passerelle :** nous vous recommandons d’utiliser un ordinateur dédié pour héberger la passerelle de gestion des données. Voir [Considérations relatives à l’utilisation de la passerelle de gestion des données](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
+
+**Analyse et mise à l’échelle de la passerelle :** une seule passerelle logique comportant un ou plusieurs nœuds de passerelle peut traiter simultanément plusieurs exécutions de l’activité de copie. Vous pouvez afficher un instantané en temps quasi réel de l’utilisation des ressources (processeur, mémoire, réseau (entrant/sortant), etc.) sur un ordinateur de passerelle, et voir le nombre de travaux simultanés en cours d’exécution par rapport à la limite dans le portail Azure. Voir [Surveillance de la passerelle dans le portail](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Si vous avez besoin de déplacer des données hybrides avec de nombreuses exécutions d’activité de copie simultanées ou avec un gros volume de données à copier, vous devriez envisager [d’augmenter la taille des instances de passerelle](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) afin de mieux utiliser vos ressources ou de configurer plus de ressources pour répondre à vos besoins de copie. 
 
 ## <a name="considerations-for-the-source"></a>Considérations relatives à la source
 ### <a name="general"></a>Généralités
@@ -342,13 +347,6 @@ Vous pouvez définir la propriété **columnMappings** dans l’activité de cop
 
 Si votre banque de données source peut faire l’objet de requêtes, par exemple, s’il s’agit d’une banque de données relationnelle telle que SQL Database ou SQL Server ou s’il ne s’agit pas d’une banque NoSQL comme le Stockage Table ou Azure Cosmos DB, envisagez d’envoyer le filtrage de colonnes et la logique de réorganisation à la propriété **query** , au lieu d’utiliser le mappage de colonnes. Ainsi, la projection survient alors que le service de déplacement de données lit les données à partir de la banque de données source, la où elle est beaucoup plus efficace.
 
-## <a name="considerations-for-data-management-gateway"></a>Considérations relatives à la passerelle de gestion des données
-Pour des recommandations relatives à la configuration de la passerelle, voir [Considérations relatives à l’utilisation de la passerelle de gestion des données](data-factory-data-management-gateway.md#considerations-for-using-gateway).
-
-**Environnement de l’ordinateur de la passerelle :**nous vous recommandons d’utiliser un ordinateur dédié pour héberger la passerelle de gestion des données. Utilisez des outils comme PerfMon pour examiner l’utilisation du processeur, de la mémoire et de la bande passante pendant une opération de copie sur l’ordinateur de la passerelle. Basculez vers un ordinateur plus puissant si la bande passante du processeur, de la mémoire ou du réseau forme un goulot d’étranglement.
-
-**Exécutions simultanées de l’activité de copie**: une seule instance de la passerelle de gestion des données peut traiter plusieurs exécutions de l’activité de copie en même temps, ou simultanément. Le nombre maximum de travaux simultanés est calculé en fonction de la configuration matérielle de l’ordinateur passerelle. Les travaux de copie excédentaires sont placés en file d’attente jusqu’à ce que la passerelle les récupère ou jusqu’à l’expiration d’un autre travail. Pour éviter tout conflit de ressources sur l’ordinateur passerelle, vous pouvez planifier votre activité de copie par phases afin de réduire le nombre de travaux de copie figurant dans la file d’attente en même temps, ou envisager de fractionner la charge sur plusieurs ordinateurs passerelles.
-
 ## <a name="other-considerations"></a>Autres points à considérer
 Si la taille des données à copier est importante, vous pouvez ajuster votre logique métier pour partitionner davantage les données à l’aide du mécanisme de découpage dans Data Factory. Ensuite, planifiez l’activité de copie pour qu’elle s’exécute plus fréquemment pour réduire la taille des données pour chaque exécution d’activité de copie.
 
@@ -404,7 +402,7 @@ Dans ce cas, la compression de données bzip2 pourrait ralentir l’ensemble du 
 ## <a name="reference"></a>Référence
 Voici des références relatives à la surveillance et au réglage des performances pour quelques banques de données prises en charge :
 
-* Azure Storage (le Stockage Blob et le Stockage Table) : [Objectifs d’évolutivité d’Azure Storage](../storage/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité d’Azure Storage](../storage/storage-performance-checklist.md)
+* Azure Storage (le Stockage Blob et le Stockage Table) : [Objectifs d’évolutivité d’Azure Storage](../storage/common/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité d’Azure Storage](../storage/common/storage-performance-checklist.md)
 * Base de données SQL Azure : vous pouvez [surveiller les performances](../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU)
 * Azure SQL Data Warehouse : sa capacité est mesurée en Data Warehouse Units (DWU) ; voir [Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB : [Niveaux de performances d’Azure Cosmos DB](../documentdb/documentdb-performance-levels.md)

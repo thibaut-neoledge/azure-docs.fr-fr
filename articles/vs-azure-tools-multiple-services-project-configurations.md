@@ -1,10 +1,10 @@
 ---
-title: "Configuration de votre projet Azure à l&quot;aide de plusieurs configurations de service | Microsoft Docs"
+title: "Configuration de votre projet Azure à l'aide de plusieurs configurations de service | Microsoft Docs"
 description: "Découvrez comment configurer un projet de service cloud Azure en modifiant les fichiers ServiceDefinition.csdef et ServiceConfiguration.cscfg."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7e720b7d1f874f83d7d2ff516704f61b5e39601d
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 24b2530b23211c654072a6edc8a31e53989bf0a8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Configuration de votre projet Azure à l'aide de plusieurs configurations de service
@@ -64,9 +65,9 @@ Sur la page **Paramètres** , vous pouvez ajouter des paramètres de configurati
 ### <a name="configuring-a-connection-string-to-a-storage-account"></a>Configuration d’une chaîne de connexion à un compte de stockage
 Une chaîne de connexion est un paramètre de configuration qui fournit des informations de connexion et d'authentification à l'émulateur de stockage ou à un compte de stockage Azure. Chaque fois que votre code doit accéder aux données de services de stockage Azure (données Blob, File d'attente ou Table) à partir du code en cours d’exécution dans un rôle, vous devez définir une chaîne de connexion pour ce compte de stockage.
 
-Une chaîne de connexion qui pointe vers un compte de stockage Azure doit utiliser un format défini. Pour plus d’informations sur la création de chaînes de connexion, consultez [Configuration des chaînes de connexion Stockage Azure](storage/storage-configure-connection-string.md).
+Une chaîne de connexion qui pointe vers un compte de stockage Azure doit utiliser un format défini. Pour plus d’informations sur la création de chaînes de connexion, consultez [Configuration des chaînes de connexion Stockage Azure](storage/common/storage-configure-connection-string.md).
 
-Lorsque vous êtes prêt à tester votre service avec les services de stockage Azure, ou lorsque vous êtes prêt à déployer votre service cloud dans Azure, vous pouvez modifier la valeur des chaînes de connexion pour qu’elles pointent vers votre compte de stockage Azure. Sélectionnez (**…**) et **Entrer les informations d’identification du compte de stockage**. Entrez vos informations de compte, notamment le nom et la clé de votre compte. Dans la boîte de dialogue **Chaîne de connexion au compte de stockage** , vous pouvez également indiquer si vous souhaitez utiliser des points de terminaison HTTPS par défaut (option par défaut), des points de terminaison HTTP par défaut ou des points de terminaison personnalisés. Vous pouvez décider d’utiliser des points de terminaison personnalisés si vous avez inscrit un nom de domaine personnalisé pour votre service, comme décrit dans [Configuration d’un nom de domaine personnalisé pour des données d’objets blob dans un compte de stockage Azure](storage/storage-custom-domain-name.md).
+Lorsque vous êtes prêt à tester votre service avec les services de stockage Azure, ou lorsque vous êtes prêt à déployer votre service cloud dans Azure, vous pouvez modifier la valeur des chaînes de connexion pour qu’elles pointent vers votre compte de stockage Azure. Sélectionnez (**…**) et **Entrer les informations d’identification du compte de stockage**. Entrez vos informations de compte, notamment le nom et la clé de votre compte. Dans la boîte de dialogue **Chaîne de connexion au compte de stockage** , vous pouvez également indiquer si vous souhaitez utiliser des points de terminaison HTTPS par défaut (option par défaut), des points de terminaison HTTP par défaut ou des points de terminaison personnalisés. Vous pouvez décider d’utiliser des points de terminaison personnalisés si vous avez inscrit un nom de domaine personnalisé pour votre service, comme décrit dans [Configuration d’un nom de domaine personnalisé pour des données d’objets blob dans un compte de stockage Azure](storage/blobs/storage-custom-domain-name.md).
 
 > [!IMPORTANT]
 > Vous devez modifier vos chaînes de connexion pour qu’elles pointent vers un compte de stockage Azure avant de déployer votre service. Dans le cas contraire, le rôle pourrait ne pas démarrer, ou alterner entre les états initialisation, occupé et arrêt.
@@ -105,10 +106,5 @@ Pour configurer les paramètres qui s'appliquent à un projet de service cloud A
 | Événements de build |Sur cette page, vous pouvez définir des événements pré-build et post-build. |
 | Développement |Sur cette page, vous pouvez spécifier des instructions de configuration de build et les conditions dans lesquelles les événements post-build s’exécutent. |
 | Web |Sur cette page, vous pouvez configurer les paramètres relatifs au serveur web. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

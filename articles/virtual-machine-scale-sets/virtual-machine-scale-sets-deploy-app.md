@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: e6a5e3a378a5661c09f770a202c10d270f324447
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fa7d9d3bef4cb326844ede76171e8c566e87116b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -47,7 +47,7 @@ Effectuez également les étapes suivantes :
 
 4. Créez un [groupe de machines virtuelles identiques][vmss-create] avec l’URI de l’image que vous avez capturée à l’étape précédente.
 
-Pour plus d’informations sur les disques, consultez [Vue d’ensemble de Managed Disks](../storage/storage-managed-disks-overview.md) et [Utiliser des disques de données attachés](virtual-machine-scale-sets-attached-disks.md).
+Pour plus d’informations sur les disques, consultez [Vue d’ensemble de Managed Disks](../virtual-machines/windows/managed-disks-overview.md) et [Utiliser des disques de données attachés](virtual-machine-scale-sets-attached-disks.md).
 
 ## <a name="install-when-the-scale-set-is-provisioned"></a>Installer quand le groupe identique est approvisionné
 

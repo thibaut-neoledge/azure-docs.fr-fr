@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 3d0508c5cc31ab9fda728596895aaab8e4cb7814
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6c9b7423fa56886104bc6060d25904277b75f30c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Définir la stratégie de protection des données pour votre solution d’identités hybrides
@@ -34,7 +34,7 @@ Comme expliqué dans la section [Déterminer les exigences de synchronisation de
 
 Une fois authentifié, le nom d’utilisateur principal (UPN) est lu à partir du jeton d’authentification, et la partition répliquée ainsi que le conteneur correspondant au domaine de l’utilisateur sont déterminés. Les informations sur l’existence de l’utilisateur, l’état activé et le rôle sont utilisées par le système d’autorisation pour déterminer si l’accès demandé au client cible est autorisé pour cet utilisateur dans cette session. Certaines actions autorisées (en particulier, créer un utilisateur, réinitialiser un mot de passe) créent une piste d’audit utilisable par un administrateur client pour gérer les efforts ou enquêtes de conformité.
 
-Le déplacement des données à partir de votre centre de données local dans Azure Storage via une connexion Internet n’est pas toujours réalisable en raison du volume de données, de la disponibilité de la bande passante ou d’autres considérations. Le [service Import/Export Azure Storage](../storage/storage-import-export-service.md) fournit une option basée sur le matériel pour placer/récupérer de grands volumes de données dans Blob Storage. Cela vous permet d’envoyer des lecteurs de disques durs [chiffrés BitLocker](https://technet.microsoft.com/library/dn306081#BKMK_BL2012R2) directement à un centre de données Azure où des opérateurs cloud chargeront le contenu vers votre compte de stockage, ou ils peuvent télécharger vos données Azure pour que vos lecteurs vous les renvoient. Seuls les disques chiffrés sont acceptés pour ce processus (à l’aide d’une clé BitLocker générée par le service lui-même lors de la configuration du projet). La clé BitLocker est fournie à Azure séparément, fournissant ainsi le partage de clé hors bande.
+Le déplacement des données à partir de votre centre de données local dans Azure Storage via une connexion Internet n’est pas toujours réalisable en raison du volume de données, de la disponibilité de la bande passante ou d’autres considérations. Le [service Import/Export Azure Storage](../storage/common/storage-import-export-service.md) fournit une option basée sur le matériel pour placer/récupérer de grands volumes de données dans Blob Storage. Cela vous permet d’envoyer des lecteurs de disques durs [chiffrés BitLocker](https://technet.microsoft.com/library/dn306081#BKMK_BL2012R2) directement à un centre de données Azure où des opérateurs cloud chargeront le contenu vers votre compte de stockage, ou ils peuvent télécharger vos données Azure pour que vos lecteurs vous les renvoient. Seuls les disques chiffrés sont acceptés pour ce processus (à l’aide d’une clé BitLocker générée par le service lui-même lors de la configuration du projet). La clé BitLocker est fournie à Azure séparément, fournissant ainsi le partage de clé hors bande.
 
 Dans la mesure où les données en transit peuvent exister dans différents scénarios, il est également utile de savoir que Microsoft Azure utilise la [mise en réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/) pour isoler le trafic des clients les uns des autres, en utilisant des mesures telles que les pare-feu de niveau hôte et invité, le filtrage des paquets IP, le blocage des ports et les points de terminaison HTTPS. Toutefois, la plupart des communications internes d’Azure, y compris d’infrastructure à infrastructure et d’infrastructure à client (en local), sont également chiffrées. Un autre scénario important est la communication au sein des centres de données Azure ; Microsoft gère les réseaux pour garantir qu’aucune machine virtuelle ne peut emprunter l’identité ou espionner l’adresse IP d’une autre machine virtuelle. TLS/SSL est utilisé lors de l’accès d’Azure Storage ou des bases de données SQL ou lors de la connexion aux services cloud. Dans ce cas, l’administrateur du client est responsable de l’obtention d’un certificat TLS/SSL et du déploiement sur son infrastructure client. Le trafic de données entre des machines virtuelles dans le même déploiement ou entre des locataires dans un déploiement unique via Microsoft Azure Virtual Network peut être protégé à l’aide des protocoles de communication chiffrée comme HTTPS, SSL/TLS ou d’autres.
 

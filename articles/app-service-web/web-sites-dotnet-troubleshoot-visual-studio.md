@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: rachelap
-translationtype: Human Translation
-ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
-ms.openlocfilehash: d22c9e2026c3efc63c5a3baa7ad4505aa269e31d
-ms.lasthandoff: 12/08/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: abfd9a4c1b346377d7f1fc30455a1487b113537d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio
@@ -466,7 +466,7 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
     Ce paramètre spécifie le centre de données Azure qui hébergera votre compte de stockage. Pour les besoins de ce didacticiel, votre choix n’aura pas une grande incidence, mais dans le cas d’une application web de production, votre compte de stockage et votre serveur web doivent se trouver dans la même région, afin de réduire les frais d’acheminement des données et de latence. L’application web (que vous créerez ultérieurement) doit s’exécuter dans une région aussi proche que possible pour les navigateurs qui y auront accès, afin de minimiser la latence.
 3. Dans la liste déroulante **Réplication**, sélectionnez **Redondant en local**.
    
-    Lorsque la géo-réplication est activée pour un compte de stockage, le contenu stocké est répliqué dans un centre de données secondaire pour activer le basculement vers cet emplacement en cas de sinistre majeur à l'emplacement principal. La géo-réplication peut engendrer des coûts supplémentaires. Dans le cas des comptes test et de développement, vous êtes en général peu enclin à payer pour la géo-réplication. Pour plus d’informations, consultez [Création, gestion ou suppression d’un compte de stockage](../storage/storage-create-storage-account.md).
+    Lorsque la géo-réplication est activée pour un compte de stockage, le contenu stocké est répliqué dans un centre de données secondaire pour activer le basculement vers cet emplacement en cas de sinistre majeur à l'emplacement principal. La géo-réplication peut engendrer des coûts supplémentaires. Dans le cas des comptes test et de développement, vous êtes en général peu enclin à payer pour la géo-réplication. Pour plus d’informations, consultez [Création, gestion ou suppression d’un compte de stockage](../storage/common/storage-create-storage-account.md).
 4. Cliquez sur **Create**.
 
     ![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    
@@ -487,7 +487,7 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
     ![Manage Table Storage](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-choosestorageacct.png)
 9. Dans la zone **Manage table storage for application diagnostics** , cliquez sur la coche pour fermer la zone.
 10. Sous l’onglet **Configurer** du portail Azure Classic, cliquez sur **Enregistrer**.
-11. Dans la fenêtre de navigateur qui affiche l’application web, cliquez sur **Accueil**, puis sur **À propos de ** et sur **Contact**.
+11. Dans la fenêtre de navigateur qui affiche l’application web, cliquez sur **Accueil**, puis sur **À propos de** et sur **Contact**.
 
      Les informations de journalisation générées par la navigation sur ces pages Web seront écrites sur le compte de stockage.
 12. Dans l’onglet **Journaux** de la fenêtre **Application web Microsoft Azure**, dans Visual Studio, cliquez sur **Actualiser** sous **Synthèse de diagnostic**.

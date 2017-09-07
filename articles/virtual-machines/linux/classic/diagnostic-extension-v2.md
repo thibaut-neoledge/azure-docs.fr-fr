@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5bc983ef1ffaac5d6de7bbc2cdf51838d8051aac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Utilisation de l’extension de diagnostic Linux pour analyser les données de performances et de diagnostic d’une machine virtuelle Linux
@@ -152,7 +152,7 @@ Cette section explique comment empêcher l’extension de collecter des fichiers
 
 ## <a name="review-your-data"></a>Passer en revue vos données
 
-Les données de performance et de diagnostic sont stockées dans une table Azure Storage. Pour savoir comment accéder aux données de la table de stockage à l’aide des scripts de la CLI Azure, consultez la page [Utilisation du stockage de tables Azure à partir de Ruby](../../../storage/storage-ruby-how-to-use-table-storage.md) .
+Les données de performance et de diagnostic sont stockées dans une table Azure Storage. Pour savoir comment accéder aux données de la table de stockage à l’aide des scripts de la CLI Azure, consultez la page [Utilisation du stockage de tables Azure à partir de Ruby](../../../cosmos-db/table-storage-how-to-use-ruby.md) .
 
 Vous pouvez aussi utiliser les outils d’interface utilisateur suivants pour accéder aux données :
 

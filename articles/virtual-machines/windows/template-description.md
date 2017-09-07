@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 61e9cab7ba0b1b86a54b5282662bef3bdfba6e7d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d9b9121bc5e38396ba4def6c17f9b373c2b48056
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -288,7 +288,7 @@ Plusieurs éléments de profil sont utilisés lors de la définition d’une res
 
 ## <a name="disks-and-images"></a>Disques et images
    
-Dans Azure, les fichiers de disque dur virtuel peuvent représenter [des disques ou des images](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Lorsque le système d’exploitation dans un fichier vhd est spécialisé pour être une machine virtuelle spécifique, il est appelé disque. Lorsque le système d’exploitation dans un fichier de disque dur virtuel est généralisé afin d'être utilisé pour créer plusieurs machines virtuelles, il est appelé image.   
+Dans Azure, les fichiers de disque dur virtuel peuvent représenter [des disques ou des images](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Lorsque le système d’exploitation dans un fichier vhd est spécialisé pour être une machine virtuelle spécifique, il est appelé disque. Lorsque le système d’exploitation dans un fichier de disque dur virtuel est généralisé afin d'être utilisé pour créer plusieurs machines virtuelles, il est appelé image.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Créer des machines virtuelles et des disques à partir d’une image de plateforme
 

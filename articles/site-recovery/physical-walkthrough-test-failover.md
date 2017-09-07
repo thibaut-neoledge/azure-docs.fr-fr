@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: e6ebab3e4d7deeefbab395b0a898fbf441d75b5d
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 94aa3bfc700cad3de9fc5516c0c9a4d86ade3fed
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-11-run-a-test-failover-of-physical-servers-to-azure"></a>Étape 11 : Exécuter un test de basculement des serveurs physiques vers Azure
@@ -35,7 +34,7 @@ Avant d’exécuter un test de basculement, nous vous recommandons de vérifier 
 
 ## <a name="managed-disk-considerations"></a>Remarques relatives aux disques gérés
 
-Les [disques gérés](../storage/storage-managed-disks-overview.md) simplifient la gestion des disques des machines virtuelles Azure, en gérant les comptes de stockage associés aux disques de machines virtuelles. 
+Les [disques gérés](../virtual-machines/windows/managed-disks-overview.md) simplifient la gestion des disques des machines virtuelles Azure, en gérant les comptes de stockage associés aux disques de machines virtuelles. 
 
 - Lorsque vous activez la protection pour un serveur, les données des machines virtuelles sont répliquées vers un compte de stockage. Les disques gérés sont créés et attachés à la machine virtuelle uniquement en cas de basculement.
 - Des disques gérés ne peuvent être créés que pour des machines virtuelles Azure déployées à l’aide du modèle du gestionnaire de ressources.  
@@ -70,10 +69,10 @@ Nous vous recommandons de vérifier les propriétés du serveur source avant d�
 2. Dans le panneau **Élément répliqué**, vous pouvez voir un résumé des informations de machine, l’état d’intégrité et les derniers points de récupération disponibles. Cliquez sur **Propriétés** pour obtenir plus de détails.
 3. Dans **Calcul et réseau**, vous pouvez :
     - Modifier le nom de la machine virtuelle Azure. Le nom doit répondre aux [exigences Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Spécifier un [groupe de ressources](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md) post-basculement.
-    - Spécifier une taille cible pour la machine virtuelle Azure
-    - Sélectionnez un [groupe à haute disponibilité](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
-    - Indiquez s’il faut utiliser des [disques gérés](#managed-disk-considerations). Sélectionnez **Oui**, si vous souhaitez attacher des disques gérés à votre machine lors de la migration vers Azure.
+    - Spécifier un [groupe de ressources] post-basculement.
+    - Spécifier une taille cible pour la machine virtuelle Azure.
+    - Sélectionner un [groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md).
+    - Indiquer s’il faut utiliser [des disques gérés](#managed-disk-considerations). Sélectionnez **Oui**, si vous souhaitez attacher des disques gérés à votre machine lors de la migration vers Azure.
     - Affichez ou modifiez les paramètres réseau, y compris le réseau/sous-réseau dans lequel la machine virtuelle Azure se trouve après le basculement et l’adresse IP qui lui sera affectée.
 4. Des informations sur les disques de données et du système d’exploitation de la machine virtuelle s’affichent dans **Disques**.
 

@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: a8740f3b78de37c09ff7a9250682d47fa9bec1e3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a716de21e21148a082f49f0f416b14ca0eaa8192
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Modèles d'application et stratégies de développement pour SQL Server dans les machines virtuelles Azure
@@ -51,7 +51,7 @@ Les couches d’application décrivent les regroupements logiques des fonctionna
 
 Avant de lire cet article, vous devez connaître les concepts fondamentaux de SQL Server et Azure. Pour plus d’informations, consultez les pages [Documentation en ligne de SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), [SQL Server dans des machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md) et [Azure.com](https://azure.microsoft.com/).
 
-Cet article décrit plusieurs modèles d’application qui peuvent convenir à de simples applications, ainsi qu’à des applications métier très complexes. Avant de détailler chaque modèle, nous vous recommandons de vous familiariser avec les services de stockage de données disponibles dans Azure, tels que [Azure Storage](../../../storage/storage-introduction.md), [Base de données SQL Azure](../../../sql-database/sql-database-technical-overview.md) et [SQL Server dans une machine virtuelle Azure](virtual-machines-windows-sql-server-iaas-overview.md). Pour prendre les meilleures décisions de conception de vos applications, apprenez comment utiliser au mieux chaque service de stockage de données.
+Cet article décrit plusieurs modèles d’application qui peuvent convenir à de simples applications, ainsi qu’à des applications métier très complexes. Avant de détailler chaque modèle, nous vous recommandons de vous familiariser avec les services de stockage de données disponibles dans Azure, tels que [Azure Storage](../../../storage/common/storage-introduction.md), [Base de données SQL Azure](../../../sql-database/sql-database-technical-overview.md) et [SQL Server dans une machine virtuelle Azure](virtual-machines-windows-sql-server-iaas-overview.md). Pour prendre les meilleures décisions de conception de vos applications, apprenez comment utiliser au mieux chaque service de stockage de données.
 
 ### <a name="choose-sql-server-in-an-azure-virtual-machine-when"></a>Choisissez SQL Server dans une machine virtuelle Azure lorsque :
 * Vous avez besoin de contrôler SQL Server et Windows. Par exemple, cela peut inclure la version de SQL Server, des correctifs spéciaux, une configuration des performances, etc.
@@ -192,7 +192,7 @@ Comme indiqué dans le schéma, l’équilibreur de charge Azure distribue le tr
 
 ![Modèles d’application avec Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-Une autre approche d’implémentation de ce modèle d’application consiste à utiliser un rôle web consolidé contenant les composants des niveaux de présentation et métier comme indiqué dans le schéma suivant. Ce modèle d’application est utile pour les applications qui requièrent une conception avec état. Comme Azure fournit des nœuds de calcul sans état sur les rôles web et de travail, nous vous recommandons d’implémenter une logique pour stocker l’état de session à l’aide d’une des technologies suivantes : [Mise en cache Azure](https://azure.microsoft.com/documentation/services/redis-cache/), [Stockage de table Azure](../../../storage/storage-dotnet-how-to-use-tables.md) ou [Base de données SQL Azure](../../../sql-database/sql-database-technical-overview.md).
+Une autre approche d’implémentation de ce modèle d’application consiste à utiliser un rôle web consolidé contenant les composants des niveaux de présentation et métier comme indiqué dans le schéma suivant. Ce modèle d’application est utile pour les applications qui requièrent une conception avec état. Comme Azure fournit des nœuds de calcul sans état sur les rôles web et de travail, nous vous recommandons d’implémenter une logique pour stocker l’état de session à l’aide d’une des technologies suivantes : [Mise en cache Azure](https://azure.microsoft.com/documentation/services/redis-cache/), [Stockage de table Azure](../../../cosmos-db/table-storage-how-to-use-dotnet.md) ou [Base de données SQL Azure](../../../sql-database/sql-database-technical-overview.md).
 
 ![Modèles d’application avec Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 

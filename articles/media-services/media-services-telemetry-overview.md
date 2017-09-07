@@ -4,7 +4,7 @@ description: "Cet article donne une vue d’ensemble des données de télémétr
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
 ms.service: media-services
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: bc16ef727f0c3942b0be8c633717fd52da246c55
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 25520a447a9f2c459fd073779e4922377b6d1d4d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -74,7 +74,7 @@ Les données de télémétrie sont stockées en agrégat dans une table, « Tel
 Propriété|Valeur|Exemples/notes
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>L’ID de compte est inclus dans la clé de partition afin de simplifier les workflows dans lesquels plusieurs comptes Media Services écrivent sur le même compte de stockage.
-RowKey|{secondes avant minuit}_{valeur aléatoire}|01688_00199<br/><br/>La clé de ligne commence par le nombre de secondes avant minuit pour autoriser les requêtes supérieures de style n au sein d’une partition. Pour plus d’informations, consultez [cet](../storage/storage-table-design-guide.md#log-tail-pattern) article. 
+RowKey|{secondes avant minuit}_{valeur aléatoire}|01688_00199<br/><br/>La clé de ligne commence par le nombre de secondes avant minuit pour autoriser les requêtes supérieures de style n au sein d’une partition. Pour plus d’informations, consultez [cet](../cosmos-db/table-storage-design-guide.md#log-tail-pattern) article. 
 Timestamp|Date/Heure|Timestamp automatique à partir de la table Azure 2016-09-09T22:43:42.241Z
 Type|Le type de l’entité offrant les données de télémétrie|Channel/StreamingEndpoint/Archive<br/><br/>Le type d’événement est simplement une valeur de chaîne.
 Nom|Le nom de l’événement de télémétrie|ChannelHeartbeat/StreamingEndpointRequestLog

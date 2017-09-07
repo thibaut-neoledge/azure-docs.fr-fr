@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 33ccb820b786b9aa28f9e10c35ef1d2c00eaf7f1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4c39d71a2a2f9451531f0c0082c05fd6dc54fbd5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -67,7 +67,7 @@ Azure SQL Database prend également en charge TDE (Transparent Data Encryption) 
 Azure Data Lake Store assure également le chiffrement des données stockées dans le compte. Dans ce cas, il chiffre automatiquement les données avant qu’elles soient rendues persistantes, il les déchiffre avant qu’elles soient récupérées. Ainsi, ces opérations sont totalement transparentes vis-à-vis du client qui accède aux données. Pour plus d’informations, consultez [Sécurité dans Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Stockage Blob Azure et Stockage de tables Azure
-Stockage Blob Azure et le stockage de tables Azure prennent en charge SSE (Storage Service Encryption), qui chiffre vos données avant qu’elles ne soient persistantes dans le stockage et qui les déchiffre avant leur récupération. Pour plus d’informations, consultez [Azure Storage Service Encryption pour les données au repos](../storage/storage-service-encryption.md).
+Stockage Blob Azure et le stockage de tables Azure prennent en charge SSE (Storage Service Encryption), qui chiffre vos données avant qu’elles ne soient persistantes dans le stockage et qui les déchiffre avant leur récupération. Pour plus d’informations, consultez [Azure Storage Service Encryption pour les données au repos](../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
 Amazon S3 prend en charge le chiffrement des données au repos côté client et côté serveur. Pour plus d’informations, consultez [Protection des données à l’aide du chiffrement](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Actuellement, Data Factory ne prend pas en charge Amazon S3 dans un cloud privé virtuel (VPC).

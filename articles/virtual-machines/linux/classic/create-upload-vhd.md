@@ -1,6 +1,6 @@
 ---
 title: "Création et téléchargement d’un VHD Linux dans Azure | Microsoft Docs"
-description: "Création et téléchargement d’un disque dur virtuel (VHD) Azure contenant le système d&quot;exploitation Linux avec le modèle de déploiement Classic"
+description: "Création et téléchargement d’un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux avec le modèle de déploiement Classic"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8bb0357a1ac2effd1144afd2af1741205592d253
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 23c30c954875598ce3e01db137b0ef8cda9779f4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux
@@ -74,7 +74,7 @@ azure login
 <a id="upload"> </a>
 
 ## <a name="step-3-upload-the-image-to-azure"></a>Étape 3 : chargement de l’image dans Azure
-Vous avez besoin d’un compte de stockage vers lequel charger votre fichier de disque dur virtuel. Vous pouvez choisir un compte de stockage existant ou [en créer un](../../../storage/storage-create-storage-account.md).
+Vous avez besoin d’un compte de stockage vers lequel charger votre fichier de disque dur virtuel. Vous pouvez choisir un compte de stockage existant ou [en créer un](../../../storage/common/storage-create-storage-account.md).
 
 Utilisez l’interface de ligne de commande Azure pour charger l’image, à l’aide de la commande suivante :
 

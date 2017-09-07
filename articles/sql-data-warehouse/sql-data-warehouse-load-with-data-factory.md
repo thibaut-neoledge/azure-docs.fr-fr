@@ -1,5 +1,4 @@
 ---
-
 title: "Chargement de données dans Azure SQL Data Warehouse – Data Factory | Microsoft Docs"
 description: "Ce didacticiel charge les données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory et utilise une base de données SQL Server comme source de données."
 services: sql-data-warehouse
@@ -16,13 +15,11 @@ ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6474104846eefa1aa7e137e7914b7a7f1ee8a83a
-ms.openlocfilehash: aad76a633b127d23d59dae995d7a503023c5eac7
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 12a35213e07ff16bdc1c27be106792bcc032ac80
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/09/2017
-
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -38,7 +35,7 @@ Vous pouvez utiliser Azure Data Factory pour charger des données dans Azure SQL
 
 - Vous avez besoin d’un **SQL Data Warehouse** en ligne. Si vous n’en possédez pas encore, découvrez comment [créer un SQL Data Warehouse](sql-data-warehouse-get-started-provision.md).
 
-- Vous avez besoin d’un **compte de stockage Azure**. Si vous ne possédez pas encore de compte de stockage Azure, découvrez [comment créer un compte de stockage](../storage/storage-create-storage-account.md). Les performances se trouvent améliorées si le compte de stockage et l’entrepôt de données se situent dans la même région Azure.
+- Vous avez besoin d’un **compte de stockage Azure**. Si vous ne possédez pas encore de compte de stockage Azure, découvrez [comment créer un compte de stockage](../storage/common/storage-create-storage-account.md). Les performances se trouvent améliorées si le compte de stockage et l’entrepôt de données se situent dans la même région Azure.
 
 ## <a name="configure-a-data-factory"></a>Configurer une fabrique de données
 1. Connectez-vous au [portail Azure][].
@@ -114,7 +111,7 @@ Maintenant, il convient d’indiquer la base de données SQL Server locale à pa
 
     ![Mapper le schéma](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
-4. Cliquez sur **Next**.
+4. Cliquez sur **Suivant**.
 
 ## <a name="configure-the-performance-settings"></a>Configurer les paramètres de performances
 Dans le cadre des configurations de performances, vous configurez un compte de stockage Azure utilisé pour le transit des données avant leur chargement dans SQL Data Warehouse efficacement à l’aide de [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). Une fois la copie terminée, les données temporaires du stockage seront nettoyées automatiquement.

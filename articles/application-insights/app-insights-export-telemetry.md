@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4ad60c18d451ee5f92eafaf5ca81176698496dd2
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a55bec84bebf9d86886fcd255b84a665b6d04638
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporter la télémétrie depuis Application Insights
@@ -42,7 +42,7 @@ Une fois que l’exportation continue a copié vos données vers l’espace de s
 
 2. Choisissez les types de données de télémétrie que vous souhaitez exporter.
 
-3. Créez ou sélectionnez le [compte de stockage Azure](../storage/storage-introduction.md) sur lequel vous voulez stocker les données.
+3. Créez ou sélectionnez le [compte de stockage Azure](../storage/common/storage-introduction.md) sur lequel vous voulez stocker les données.
 
     > [!Warning]
     > Par défaut, l’emplacement de stockage est défini dans la même région géographique que votre ressource Application Insights. Si vous utilisez une autre région de stockage, vous risquez de subir des frais de transfert.

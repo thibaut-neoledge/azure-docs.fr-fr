@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 99d18aa55ea7bd7abcb50ba32c8f6a5f130ec031
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Charger et créer une machine virtuelle Linux à partir d’une image de disque personnalisée à l’aide de la Azure CLI 1.0
@@ -139,7 +139,7 @@ azure group create myResourceGroup --location "WestUS"
 ```
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
-Les machines virtuelles sont stockées en tant qu’objets blob de pages au sein d’un compte de stockage. Découvrez plus d’informations sur [Azure Storage ici](../../storage/storage-introduction.md#blob-storage). Vous créez un compte de stockage pour votre image de disque personnalisée et vos machines virtuelles. Toutes les machines virtuelles que vous créez à partir de votre image de disque personnalisée doivent être placées dans le même compte de stockage que cette image.
+Les machines virtuelles sont stockées en tant qu’objets blob de pages au sein d’un compte de stockage. Découvrez plus d’informations sur [Azure Storage ici](../../storage/common/storage-introduction.md#blob-storage). Vous créez un compte de stockage pour votre image de disque personnalisée et vos machines virtuelles. Toutes les machines virtuelles que vous créez à partir de votre image de disque personnalisée doivent être placées dans le même compte de stockage que cette image.
 
 L’exemple suivant crée un compte de stockage nommé `mystorageaccount` dans le groupe de ressources que vous avez créé :
 
@@ -149,7 +149,7 @@ azure storage account create mystorageaccount --resource-group myResourceGroup \
 ```
 
 ## <a name="list-storage-account-keys"></a>Répertorier les clés de compte de stockage
-Azure génère deux clés d’accès de 512 bits pour chaque compte de stockage. Ces clés d’accès sont utilisées lors de l’authentification auprès du compte de stockage, par exemple pour effectuer des opérations d’écriture. Découvrez plus d’informations sur la [gestion de l’accès au stockage ici](../../storage/storage-create-storage-account.md#manage-your-storage-account). Utilisez la commande `azure storage account keys list` pour afficher les clés d’accès.
+Azure génère deux clés d’accès de 512 bits pour chaque compte de stockage. Ces clés d’accès sont utilisées lors de l’authentification auprès du compte de stockage, par exemple pour effectuer des opérations d’écriture. Découvrez plus d’informations sur la [gestion de l’accès au stockage ici](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Utilisez la commande `azure storage account keys list` pour afficher les clés d’accès.
 
 Affichez les clés d’accès au compte de stockage que vous avez créé :
 

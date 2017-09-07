@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: b43ea48b9b34f3ab6980f7bdc5c21a19d20fd5b6
+ROBOTS: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 600a70c74a16e2601a874f804ac2e8382c8bfa90
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Utilisez le coordinateur Oozie basé sur le temps avec Hadoop dans HDInsight pour définir des workflows et coordonner des tâches
@@ -63,7 +63,7 @@ Le workflow contient deux actions :
 >
 >
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un poste de travail sur lequel est installé Azure PowerShell**.
@@ -199,7 +199,7 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
     <table border = "1">
     <tr><th>Variable de workflow</th><th>Description</th></tr>
     <tr><td>${jobTracker}</td><td>Spécifie l'URL du suivi des tâches Hadoop. Utilisez <strong>jobtrackerhost:9010</strong> sur les versions 3.0 et 2.0 de HDInsight.</td></tr>
-    <tr><td>${nameNode}</td><td>Spécifie l'URL du nœud de nom Hadoop. Utilisez l’adresse wasbs:// du système de fichiers par défaut, par exemple, <i>wasbs://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
+    <tr><td>${nameNode}</td><td>Spécifie l'URL du nœud de nom Hadoop. Utilisez l’adresse wasb:// du système de fichiers par défaut, par exemple <i>wasb://&lt;nom_conteneur&gt;@&lt;nom_compte_de_stockage&gt;.blob.core.windows.net</i>.</td></tr>
     <tr><td>${queueName}</td><td>Spécifie le nom de la file d’attente auquel est envoyée la tâche. Utilisez <strong>Default</strong>.</td></tr>
     </table>
 
@@ -253,15 +253,15 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
 ## <a name="deploy-the-oozie-project-and-prepare-the-tutorial"></a>Déploiement du projet Oozie et préparation du didacticiel
 Exécutez un script Azure PowerShell pour effectuer les opérations suivantes :
 
-* Copie du script HiveQL (useoozie.hql) dans le stockage d'objets blob Azure, wasbs:///tutorials/useoozie/useoozie.hql.
-* Copie de workflow.xml dans wasbs:///tutorials/useoozie/workflow.xml.
-* Copie de coordinator.xml dans wasbs:///tutorials/useoozie/coordinator.xml.
-* Copie du fichier de données (/example/data/sample.log) dans wasbs:///tutorials/useoozie/data/sample.log.
+* Copie du script HiveQL (useoozie.hql) dans le stockage d’objets blob Azure, wasb:///tutorials/useoozie/useoozie.hql.
+* Copie de workflow.xml dans wasb:///tutorials/useoozie/workflow.xml.
+* Copie de coordinator.xml dans wasb:///tutorials/useoozie/coordinator.xml.
+* Copie du fichier de données (/example/data/sample.log) dans wasb:///tutorials/useoozie/data/sample.log.
 * Créer une table de base de données SQL Azure pour stocker les données d'exportation de Sqoop. Le nom de la table est *log4jLogCount*.
 
 **Présentation du stockage HDInsight**
 
-HDInsight utilise le stockage d’objets blob Azure pour stocker les données. wasbs:// est l’implémentation Microsoft du système de fichiers distribués Hadoop (HDFS) dans le stockage d’objets blob Azure. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
+HDInsight utilise le stockage d’objets blob Azure pour stocker les données. wasb:// est l’implémentation Microsoft du système de fichiers distribués Hadoop (HDFS) dans le stockage d’objets blob Azure. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
 
 Lors de l'approvisionnement d'un cluster HDInsight, un compte Azure Storage et un conteneur spécifique de ce compte sont désignés en tant que système de fichiers par défaut, comme dans HDFS. En plus de ce compte de stockage, pendant le processus d’approvisionnement, vous pouvez ajouter des comptes de stockage supplémentaires à partir du même abonnement Azure ou à partir d’autres abonnements Azure. Pour plus d'instructions sur l’ajout des comptes de stockage supplémentaires, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision]. Pour simplifier le script Azure PowerShell utilisé dans ce didacticiel, tous les fichiers sont stockés dans le conteneur de système de fichiers par défaut, à l'emplacement */tutorials/useoozie*. Par défaut, ce conteneur porte le même nom que le cluster HDInsight.
 La syntaxe est :
@@ -275,8 +275,8 @@ La syntaxe est :
 
 Vous pouvez accéder à un fichier stocké dans le conteneur du système de fichiers par défaut à partir de HDInsight en utilisant l'un des URI suivants (workflow.xml est utilisé comme exemple) :
 
-    wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/workflow.xml
-    wasbs:///tutorials/useoozie/workflow.xml
+    wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/workflow.xml
+    wasb:///tutorials/useoozie/workflow.xml
     /tutorials/useoozie/workflow.xml
 
 Pour accéder directement au fichier à partir du compte de stockage, le nom de l'objet blob du fichier est :
@@ -304,7 +304,7 @@ Pour plus d’informations, consultez la rubrique [HDInsight : introduction aux
     Add-AzureAccount
     ```
 
-    Vous êtes invité à entrer les informations d'identification de votre compte Azure. Cette méthode d'ajout de la connexion d'abonnement expire, et vous devez réexécuter le cmdlet au bout de 12 heures.
+    Vous êtes invité à entrer les informations d'identification de votre compte Azure. Cette méthode d'ajout de la connexion d'abonnement expire, et vous devez réexécuter l’applet de commande au bout de 12 heures.
 
    > [!NOTE]
    > Si vous disposez de plusieurs abonnements Azure et que vous ne souhaitez pas utiliser l’abonnement défini par défaut, utilisez l’applet de commande <strong>Select-AzureSubscription</strong> pour sélectionner un abonnement.
@@ -395,7 +395,7 @@ Pour plus d’informations, consultez la rubrique [HDInsight : introduction aux
     ![Sortie de la préparation du didacticiel][img-preparation-output]
 
 ## <a name="run-the-oozie-project"></a>Exécution du projet Oozie
-Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de tâches Oozie. Vous pouvez utiliser la cmdlet **Invoke-RestMethod** pour appeler les services web Oozie. L'API des services web Oozie est une API JSON REST HTTP. Pour plus d'informations sur l'API des services web Oozie, consultez la page [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 du cluster HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 du cluster HDInsight).
+Azure PowerShell ne fournit actuellement aucune applet de commande pour la définition de tâches Oozie. Vous pouvez utiliser l’applet de commande **Invoke-RestMethod** pour appeler les services web Oozie. L'API des services web Oozie est une API JSON REST HTTP. Pour plus d'informations sur l'API des services web Oozie, consultez la page [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 du cluster HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 du cluster HDInsight).
 
 **Envoi d'une tâche Oozie**
 
@@ -411,7 +411,7 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
     #Azure Blob storage (WASB) variables
     $storageAccountName = "<StorageAccountName>"
     $storageContainerName = "<BlobContainerName>"
-    $storageUri="wasbs://$storageContainerName@$storageAccountName.blob.core.windows.net"
+    $storageUri="wasb://$storageContainerName@$storageAccountName.blob.core.windows.net"
 
     #Azure SQL database variables
     $sqlDatabaseServer = "<SQLDatabaseServerName>"
@@ -745,7 +745,7 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordi
 [sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/

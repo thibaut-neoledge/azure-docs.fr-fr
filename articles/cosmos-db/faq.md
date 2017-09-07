@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: e9808af4aa875c5199279825325688afc69e6de6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3c7ab236d0a9efee6ac3fa97ed6de85cacbc9a89
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ Azure Cosmos DB
@@ -210,7 +210,7 @@ Vous pouvez utiliser le portail Azure pour parcourir les données. Vous pouvez �
 ### <a name="which-tools-work-with-the-table-api-preview"></a>Quels outils fonctionnent avec l’API Table (préversion) ? 
 Vous pouvez utiliser l’ancienne version de l’Explorateur Azure (0.8.9).
 
-Les outils offrant la flexibilité nécessaire pour prendre une chaîne de connexion au format spécifié précédemment peuvent prendre en charge la nouvelle API Table (préversion). Vous trouverez une liste des outils de table dans la page [Outils clients d’Azure Storage](../storage/storage-explorers.md). 
+Les outils offrant la flexibilité nécessaire pour prendre une chaîne de connexion au format spécifié précédemment peuvent prendre en charge la nouvelle API Table (préversion). Vous trouverez une liste des outils de table dans la page [Outils clients d’Azure Storage](../storage/common/storage-explorers.md). 
 
 ### <a name="do-powershell-or-azure-cli-work-with-the-new-table-api-preview"></a>PowerShell ou Azure CLI fonctionnent-ils avec la nouvelle API Table (préversion) ?
 Nous prévoyons d’ajouter à PowerShell et à Azure CLI la prise en charge de l’API Table (préversion). 

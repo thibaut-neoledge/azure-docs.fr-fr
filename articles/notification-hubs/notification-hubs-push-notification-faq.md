@@ -1,6 +1,6 @@
 ---
 title: "Azure Notification Hubs : Forum aux Questions (FAQ) | Microsoft Docs"
-description: "FAQ sur la conception et l&quot;implémentation de solutions sur Notification Hubs"
+description: "FAQ sur la conception et l'implémentation de solutions sur Notification Hubs"
 services: notification-hubs
 documentationcenter: mobile
 author: ysxu
@@ -15,12 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: c8592ea38d62213327549583a1e931ea682ee56e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/05/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifications Push avec Azure Notification Hubs : Forum aux Questions
@@ -143,7 +142,7 @@ Si vous disposez d’une application utilisée de manière globale, vous pouvez 
 Les inscriptions à partir du serveur principal d’applications sont utiles lorsque vous devez authentifier les clients avant de créer l’inscription. Elles sont également utiles lorsque vous avez des balises qui doivent être créées ou modifiées par serveur principal d’applications en se basant sur la logique de l’application. Pour plus d’informations, consultez les pages [Aide sur l’inscription auprès du serveur principal] et [Aide sur l’inscription auprès du serveur principal - 2].
 
 ### <a name="what-is-the-push-notification-delivery-security-model"></a>Quel est le modèle de sécurité de remise de notification Push ?
-Azure Notification Hubs utilise un modèle de sécurité basé sur une [signature d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md). Vous pouvez utiliser les jetons SAP au niveau de l’espace de noms racine ou au niveau granulaire du hub de notification. Les jetons SAP peuvent être définis pour respecter différentes règles d’autorisation, par exemple, pour envoyer des autorisations de messages ou pour écouter des autorisations de notification. Pour plus d’informations, consultez le document [Notification Hubs security model] (Modèle de sécurité de Notification Hubs).
+Azure Notification Hubs utilise un modèle de sécurité basé sur une [signature d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Vous pouvez utiliser les jetons SAP au niveau de l’espace de noms racine ou au niveau granulaire du hub de notification. Les jetons SAP peuvent être définis pour respecter différentes règles d’autorisation, par exemple, pour envoyer des autorisations de messages ou pour écouter des autorisations de notification. Pour plus d’informations, consultez le document [Notification Hubs security model] (Modèle de sécurité de Notification Hubs).
 
 ### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>Comment gérer une charge utile sensible dans des notifications Push ?
 Toutes les notifications sont remises à des appareils cibles par les services de notification Push des plateformes. Lorsqu’une notification est envoyée à Azure Notification Hubs, celle-ci est traitée et transmise au PNS respectif.

@@ -3,7 +3,7 @@ title: "Présentation d’Azure Network Watcher | Microsoft Docs"
 description: "Cette page fournit une vue d’ensemble du service Network Watcher pour la surveillance et la visualisation des ressources connectées au réseau dans Azure"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 31c1bbdd04423d98dba0f8da435930ad3fed52e2
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 18aa9837742082535a115efd47bdc4b8dfda8a6b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -54,8 +54,25 @@ Network Watcher propose actuellement les fonctionnalités suivantes :
 
 Network Watcher utilise le [modèle de contrôle d’accès basé sur les rôles](../active-directory/role-based-access-control-what-is.md). Les autorisations suivantes sont exigées par Network Watcher. Il est important de s’assurer que le rôle utilisé pour démarrer les API de Network Watcher ou utiliser Network Watcher depuis le portail dispose de l’accès requis.
 
-| Ressource | Autorisation | | |---|---| || Microsoft.
-| Microsoft.Storage/ | Lire | || Microsoft.Authorization/| Lire | || Microsoft.Resources/subscriptions/resourceGroups/| Lire | || Microsoft.Storage/storageAccounts/listServiceSas/ | Action | || Microsoft.Storage/storageAccounts/listAccountSas/ | Action | || Microsoft.Storage/storageAccounts/listKeys/ | Action | | |Microsoft.Compute/virtualMachines/ | Lire | | |Microsoft.Compute/virtualMachines/ | Écrire | | |Microsoft.Compute/virtualMachineScaleSets/ | Lire | | |Microsoft.Compute/virtualMachineScaleSets/ | Écrire | | |Microsoft.Network/networkWatchers/packetCaptures/| Lire | | |Microsoft.Network/networkWatchers/packetCaptures/| Écrire | | |Microsoft.Network/networkWatchers/packetCaptures/| Supprimer | | |Microsoft.Network/networkWatchers/ | Écrire | | |Microsoft.Network/networkWatchers/| Lire | || Microsoft.Insights/alertRules/ | * | || Microsoft.Support/| *| |
+|Ressource| Autorisation|
+|---|---| 
+|Microsoft.Storage/ |Lire|
+|Microsoft.Authorization/| Lire| 
+|Microsoft.Resources/subscriptions/resourceGroups/| Lire|
+|Microsoft.Storage/storageAccounts/listServiceSas/ | Action|
+|Microsoft.Storage/storageAccounts/listAccountSas/ |Action|
+|Microsoft.Storage/storageAccounts/listKeys/ | Action|
+|Microsoft.Compute/virtualMachines/ |Lire|
+|Microsoft.Compute/virtualMachines/ |Écrire|
+|Microsoft.Compute/virtualMachineScaleSets/ |Lire|
+|Microsoft.Compute/virtualMachineScaleSets/ |Écrire|
+|Microsoft.Network/networkWatchers/packetCaptures/ |Lire|
+|Microsoft.Network/networkWatchers/packetCaptures/| Écrire|
+|Microsoft.Network/networkWatchers/packetCaptures/| Supprimer|
+|Microsoft.Network/networkWatchers/ |Écrire |
+|Microsoft.Network/networkWatchers/| Lire |
+|Microsoft.Insights/alertRules/ |*|
+|Microsoft.Support/ | *|
 
 ### <a name="network-subscription-limits"></a>Limites d’abonnement réseau
 

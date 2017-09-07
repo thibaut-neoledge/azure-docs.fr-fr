@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 4b5c86314bde2acb7d5723909f89691bf7ed8b98
-ms.openlocfilehash: 6bb07bc1e3ab439352b444016167541eca54f788
-ms.lasthandoff: 03/01/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a4ce2d329d0e1399cffaf886adf2b95e34b9cd7b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Utilisation de StorSimple Device Manager pour gérer les informations d’identification du compte de stockage pour StorSimple Virtual Array
@@ -51,7 +52,7 @@ Les travaux les plus communes associées aux informations d’identification du 
 Il existe trois types d’informations d’identification de compte de stockage pouvant être utilisées avec votre appareil StorSimple.
 
 * **Informations d’identification de compte de stockage générées automatiquement** : comme son nom l’indique, de type de données de compte de stockage est automatiquement généré lors de la création du service. Pour plus d’informations sur la création de ce type d’informations d’identification de compte de stockage, consultez la section [Création d’un nouveau service](storsimple-virtual-array-manage-service.md#create-a-service).
-* **Informations d’identification de compte de stockage dans l’abonnement au service** : ces données sont celles qui sont associées à l’abonnement au service. Pour plus d’informations sur la création de ce type d’informations d’identification, consultez la section [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
+* **Informations d’identification de compte de stockage dans l’abonnement au service** : ces données sont celles qui sont associées à l’abonnement au service. Pour plus d’informations sur la création de ce type d’informations d’identification, consultez la section [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md).
 * **Informations d’identification de compte de stockage en dehors de l’abonnement au service** : il s’agit ici des données qui ne sont pas associées à votre service et existaient probablement avant sa création.
 
 ## <a name="add-a-storage-account-credential"></a>Ajout des informations d’identification de compte de stockage
@@ -109,7 +110,7 @@ Vous pouvez modifier des informations d’identification du compte de stockage u
 4. Dans le panneau **Propriétés** des informations d’identification du compte de stockage, procédez comme suit :
    
    1. Si nécessaire, vous pouvez modifier le réglage de l’option **Activer le mode SSL**.
-   2. Vous pouvez choisir de régénérer les clés d’accès de vos informations d’identification de compte de stockage. Pour plus d’informations, consultez [Régénération des clés de compte de stockage](../storage/storage-create-storage-account.md#manage-your-storage-access-keys). Fournissez la nouvelle clé des informations d’identification de compte de stockage. Pour un compte de stockage Azure, il s’agit de la clé d’accès primaire.
+   2. Vous pouvez choisir de régénérer les clés d’accès de vos informations d’identification de compte de stockage. Pour plus d’informations, consultez [Régénération des clés de compte de stockage](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys). Fournissez la nouvelle clé des informations d’identification de compte de stockage. Pour un compte de stockage Azure, il s’agit de la clé d’accès primaire.
    3. Pour enregistrer les paramètres, cliquez sur **Enregistrer** en haut du panneau **Propriétés**. Les paramètres sont mis à jour sur le panneau **Informations d’identification du compte de stockage**.
       
       ![Modification des informations d’identification de compte de stockage](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)

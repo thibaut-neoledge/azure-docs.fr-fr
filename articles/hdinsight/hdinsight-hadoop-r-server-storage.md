@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 02bf921222917a50af8e28e62514e167901743b8
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aef9c15636ccaecce07d4fa218a40ed26ebad9df
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Solutions de stockage Azure pour R Server sur HDInsight
@@ -37,9 +37,9 @@ Lors de la création d’un cluster Hadoop dans HDInsight, vous spécifiez un co
 - [Utiliser le stockage Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md)
 - [Utiliser Data Lake Store avec des clusters Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md) 
 
-Pour plus d’informations sur les solutions de stockage Azure, consultez la page [Introduction au Stockage Microsoft Azure](../storage/storage-introduction.md). 
+Pour plus d’informations sur les solutions de stockage Azure, consultez la page [Introduction au Stockage Microsoft Azure](../storage/common/storage-introduction.md). 
 
-Pour obtenir de l’aide sur la sélection de l’option de stockage la plus adaptée à votre scénario, consultez la page [Choisir quand utiliser des objets Blob Azure, des fichiers Azure ou des disques de données Azure](../storage/storage-decide-blobs-files-disks.md) 
+Pour obtenir de l’aide sur la sélection de l’option de stockage la plus adaptée à votre scénario, consultez la page [Choisir quand utiliser des objets Blob Azure, des fichiers Azure ou des disques de données Azure](../storage/common/storage-decide-blobs-files-disks.md) 
 
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>Utiliser des comptes de stockage Blob Azure avec R Server
@@ -188,8 +188,8 @@ Il existe également une option de stockage de données pratique qui peut s’ut
 
 Le principal avantage des fichiers Azure est que les partages de fichiers peuvent être montés et utilisés par tout système disposant d’un système d’exploitation pris en charge, tel que Windows ou Linux. Par exemple, ils peuvent être utilisés par un autre cluster HDInsight que vous ou un membre de votre équipe avez, par une machine virtuelle Azure ou même par un système local. Pour plus d'informations, consultez les pages suivantes :
 
-- [Guide pratique pour utiliser le Stockage Fichier Azure avec Linux](../storage/storage-how-to-use-files-linux.md)
-- [Guide pratique pour utiliser le Stockage Fichier Azure sous Windows](../storage/storage-dotnet-how-to-use-files.md)
+- [Guide pratique pour utiliser le Stockage Fichier Azure avec Linux](../storage/files/storage-how-to-use-files-linux.md)
+- [Guide pratique pour utiliser le Stockage Fichier Azure sous Windows](../storage/files/storage-dotnet-how-to-use-files.md)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

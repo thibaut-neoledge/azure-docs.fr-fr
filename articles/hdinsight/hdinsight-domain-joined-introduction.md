@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 9f6de5b516da110b93a1e0cddf835b2bcec77bb7
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 303be1d303df8074283cb1d37c74923cca80ae59
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Introduction aux fonctions de sécurité Hadoop sur la base de clusters HDInsight joints à un domaine (version préliminaire)
@@ -52,7 +51,7 @@ L’une des meilleures pratiques appliquées par la plupart des entreprises est 
 En plus de la protection des ressources du cluster HDInsight des utilisateurs non autorisés et de la sécurisation des données, l’audit d’accès aux ressources du cluster et aux données est nécessaire pour effectuer le suivi des accès non autorisés ou non intentionnels aux ressources. Avec cette version préliminaire, l’administrateur peut afficher et signaler tout accès aux données et aux ressources du cluster HDInsight. L’administrateur peut également afficher et signaler toutes les modifications des stratégies de contrôle d’accès effectuées dans les points de terminaison pris en charge par Apache Ranger. Un cluster HDInsight joint à un domaine utilise l’interface utilisateur familière d’Apache Ranger pour rechercher les journaux d’audit. Sur le serveur principal, Ranger utilise [Apache Solr](http://hortonworks.com/apache/solr/) pour le stockage et la recherche des journaux.
 
 ### <a name="encryption"></a>Chiffrement
-La protection des données est importante pour respecter les exigences de conformité et de sécurité de l’organisation et, en plus de restreindre l’accès aux données contre les employés non autorisés, elle doit également être sécurisée par chiffrement. Les magasins de données pour les clusters HDInsight, le Stockage Blob Azure et Azure Data Lake Storage prennent en charge le [chiffrement des données](../storage/storage-service-encryption.md) transparent côté serveur au repos. Les clusters HDInsight sécurisés fonctionnent en toute transparence avec cette fonctionnalité de chiffrement des données côté serveur au repos.
+La protection des données est importante pour respecter les exigences de conformité et de sécurité de l’organisation et, en plus de restreindre l’accès aux données contre les employés non autorisés, elle doit également être sécurisée par chiffrement. Les magasins de données pour les clusters HDInsight, le Stockage Blob Azure et Azure Data Lake Storage prennent en charge le [chiffrement des données](../storage/common/storage-service-encryption.md) transparent côté serveur au repos. Les clusters HDInsight sécurisés fonctionnent en toute transparence avec cette fonctionnalité de chiffrement des données côté serveur au repos.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour configurer un cluster HDInsight joint à un domaine, consultez [Configuration de clusters HDInsight joints à un domaine](hdinsight-domain-joined-configure.md).

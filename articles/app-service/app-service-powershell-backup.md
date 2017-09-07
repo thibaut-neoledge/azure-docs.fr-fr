@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0d1c323155aae90e8a92d7a3b92b5ca1482e1ef5
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 34a7e1d025c301ca056753d964bb3c5f4f1a62d8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-powershell-to-back-up-and-restore-app-service-apps"></a>Utilisation de PowerShell pour sauvegarder et restaurer des applications App Service
@@ -33,7 +33,7 @@ Apprenez à utiliser PowerShell pour sauvegarder et restaurer des [applications 
 ## <a name="prerequisites"></a>Composants requis
 Pour pouvoir utiliser PowerShell afin de gérer les sauvegardes de votre application, vous avez besoin des éléments suivants :
 
-* **Une URL SAP** autorisant un accès en lecture et en écriture à un conteneur de stockage Azure. Pour une explication sur les URL SAP, voir [Présentation du modèle SAP](../storage/storage-dotnet-shared-access-signature-part-1.md) . Consultez la page [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md) pour obtenir des exemples de gestion d'Azure Storage à l’aide de PowerShell.
+* **Une URL SAP** autorisant un accès en lecture et en écriture à un conteneur de stockage Azure. Pour une explication sur les URL SAP, voir [Présentation du modèle SAP](../storage/common/storage-dotnet-shared-access-signature-part-1.md) . Consultez la page [Utilisation d’Azure PowerShell avec Azure Storage](../storage/common/storage-powershell-guide-full.md) pour obtenir des exemples de gestion d'Azure Storage à l’aide de PowerShell.
 * **Une chaîne de connexion de base de données** si vous souhaitez sauvegarder une base de données avec votre application web.
 
 ### <a name="how-to-generate-a-sas-url-to-use-with-the-web-app-backup-cmdlets"></a>Comment générer une URL SAP à utiliser avec les applets de commande de sauvegarde d’application web

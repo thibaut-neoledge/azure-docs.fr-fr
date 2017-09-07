@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: a174ecd452047d11f6ad374ede76becabcfff899
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 75676eb0ab784e2adbfd27b170c1dee5599b74ac
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -49,7 +49,7 @@ Créez un nouveau groupe de ressources dans WestUS nommé « MyRG » : <br>
 `az group create -l westus -n MyRG` <br>
 
 ### <a name="create-a-linux-vm"></a>Créer une machine virtuelle Linux
-Créez une machine virtuelle Ubuntu dans votre nouveau groupe de ressources. Azure CLI 2.0 crée les clés ssh et configure la machine virtuelle avec elles. <br>
+Créez une machine virtuelle Ubuntu dans votre nouveau groupe de ressources. Azure CLI 2.0 crée les clés SSH et configure la machine virtuelle avec elles. <br>
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
@@ -73,4 +73,4 @@ Exécutez `az group delete -n MyRG`.
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur le stockage persistant sur Cloud Shell](persisting-shell-storage.md) <br>
 [En savoir plus sur Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
-[En savoir plus sur le stockage de fichiers Azure](../storage/storage-files-introduction.md) <br>
+[En savoir plus sur le stockage de fichiers Azure](../storage/files/storage-files-introduction.md) <br>

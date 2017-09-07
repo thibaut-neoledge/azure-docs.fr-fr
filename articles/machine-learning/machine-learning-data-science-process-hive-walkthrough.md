@@ -1,9 +1,6 @@
 ---
-
-
-
 title: "Explorer les données dans un cluster Hadoop et créer des modèles dans Azure Machine Learning | Microsoft Docs"
-description: "Utilisation du processus TDSP (Team Data Science Process) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l&quot;aide d&quot;un groupe de données disponible publiquement."
+description: "Utilisation du processus TDSP (Team Data Science Process) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l'aide d'un groupe de données disponible publiquement."
 services: machine-learning,hdinsight
 documentationcenter: 
 author: bradsev
@@ -17,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2b7f4b5743945738f801dc26a60d00892c33d809
-ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e48d59ca467e3e7fd772389e6e48a2d81726f859
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processus TDSP (Team Data Science Process) en action : utiliser des clusters Hadoop Azure HDInsight
@@ -83,7 +79,7 @@ Voici trois exemples de problèmes de prévisions que nous allons traiter dans 
 
 Vous pouvez configurer un environnement Azure pour une analyse avancée qui utilise un cluster HDInsight en trois étapes :
 
-1. [Création d’un compte de stockage](../storage/storage-create-storage-account.md): ce compte de stockage est utilisé pour stocker des données dans un stockage Azure Blob. Les données utilisées dans les clusters HDInsight résident également ici.
+1. [Création d’un compte de stockage](../storage/common/storage-create-storage-account.md): ce compte de stockage est utilisé pour stocker des données dans un stockage Azure Blob. Les données utilisées dans les clusters HDInsight résident également ici.
 2. [Personnaliser des clusters Hadoop Azure HDInsight pour le processus et la technologie d'analyse avancée](machine-learning-data-science-customize-hadoop-cluster.md). Cette étape crée un cluster Hadoop Azure HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Il existe deux étapes importantes à retenir lors de la personnalisation de votre cluster HDInsight.
    
    * Rappelez-vous de lier le compte de stockage créé à l'étape 1 à votre cluster HDInsight, lorsque vous le créez. Ce compte de stockage est utilisé pour accéder aux données qui peuvent être traitées au sein du cluster.
@@ -98,7 +94,7 @@ Vous pouvez configurer un environnement Azure pour une analyse avancée qui util
 
 Pour récupérer le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) depuis son emplacement public, vous pouvez utiliser l’une des méthodes décrites dans l’article [Déplacer des données vers et depuis le stockage d’objets blob Azure](machine-learning-data-science-move-azure-blob.md) afin de copier les données dans votre machine.
 
-Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers contenant des données. Pour télécharger et installer AzCopy, suivez les instructions dans [Prise en main de l'utilitaire de ligne de commande AzCopy](../storage/storage-use-azcopy.md).
+Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers contenant des données. Pour télécharger et installer AzCopy, suivez les instructions dans [Prise en main de l'utilitaire de ligne de commande AzCopy](../storage/common/storage-use-azcopy.md).
 
 1. Dans une fenêtre d’invite de commandes, exécutez les commandes AzCopy suivantes en remplaçant *<path_to_data_folder>* par la destination souhaitée :
 
@@ -782,7 +778,7 @@ Par conséquent, nous obtenons une intégration de 0,987 comme indiqué dans la 
 
 ![Valeur ASC](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
 
-**2. Classification multiclasse**: pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
+**2. Classification multiclasse** : pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
 
 **Apprenant utilisé :** régression logistique multiclasse
 

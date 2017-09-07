@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47db68afb8ea938a9861765f9e60c78436569110
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 13cfc788c14d714df7022ce003d34691cf73d121
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-use-azure-table-storage-with-the-webjobs-sdk"></a>Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs
@@ -139,7 +139,7 @@ L’exemple de code suivant utilise un objet `CloudTable` pour ajouter une entit
             tableBinding.Execute(insertOperation);
         }
 
-Pour en savoir plus sur l’utilisation de l’objet `CloudTable` , voir [Utilisation du stockage de tables à partir de .NET](../storage/storage-dotnet-how-to-use-tables.md). 
+Pour en savoir plus sur l’utilisation de l’objet `CloudTable` , voir [Utilisation du stockage de tables à partir de .NET](../cosmos-db/table-storage-how-to-use-dotnet.md). 
 
 ## <a id="queues"></a>Sujets connexes traités dans l’article de procédure relatif aux files d’attente
 Pour en savoir plus sur la gestion du traitement de tables déclenché par un message en file d’attente, ou pour consulter des scénarios relatifs au Kit de développement logiciel (SDK) WebJobs non spécifiques du traitement des tables, voir [Comment utiliser le stockage de la file d’attente Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
