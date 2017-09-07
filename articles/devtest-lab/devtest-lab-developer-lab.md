@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: c187819e9392908c8979556f80e8c94739eb14d5
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: b829ebd90034031721dfe2e97427e624306da1e9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Utiliser Azure DevTest Labs pour développeurs
@@ -99,7 +98,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    | Task | Contenu |
    | --- | --- |
    | [Définir des stratégies de laboratoire](devtest-lab-set-lab-policy.md) |Contrôlez les coûts en mettant en place des stratégies dans le laboratoire. |
-   | [Supprimer toutes les machines virtuelles de laboratoire à l’aide d’un script PowerShell](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Supprimez tous les laboratoires en une seule opération une fois le développement terminé.|
+   | [Supprimer toutes les machines virtuelles de laboratoire à l’aide d’un script PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Supprimez tous les laboratoires en une seule opération une fois le développement terminé.|
 
 1. **Ajouter un réseau virtuel à une machine virtuelle** 
    
@@ -133,7 +132,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    
    | Task | Contenu |
    | --- | --- |
-   | [Créer un laboratoire à l’aide d’un modèle Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Créez des laboratoires dans Azure DevTest Labs à l’aide de modèles Resource Manager. |
+   | [Créer un laboratoire à l’aide d’un modèle Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Créez des laboratoires dans Azure DevTest Labs à l’aide de modèles Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

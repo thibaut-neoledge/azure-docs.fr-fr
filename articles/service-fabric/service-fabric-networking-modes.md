@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 47f211237332dba3402339780c3c13fdf03c96bb
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 8ca04ac79665d5ecc639addd48939f71825f2024
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modes de mise en réseau du conteneur Service Fabric
@@ -337,7 +337,7 @@ Vous pouvez combiner différents modes de mise en réseau entre les services au 
 Dans cet article, vous avez obtenu des informations sur les modes de mise en réseau offerts par Service Fabric.  
 
 * [Modèle d'application Service Fabric](service-fabric-application-model.md)
-* [Ressources du manifeste de Service Fabric](service-fabric-application-model.md)
+* [Ressources du manifeste de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Déployer un conteneur Windows sur Service Fabric sous Windows Server 2016](service-fabric-get-started-containers.md)
 * [Déployer un conteneur Docker sur Service Fabric sous Linux](service-fabric-get-started-containers-linux.md)
 

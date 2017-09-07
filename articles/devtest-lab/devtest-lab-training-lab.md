@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2016
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: a85999b7963e9a07d3f91ec47f298f91439c0808
-ms.lasthandoff: 04/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 3bad7538121e1049af953e3937fc679b1d9184d9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Utiliser Azure DevTest Labs à des fins de formation
@@ -79,7 +79,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    | Task | Contenu |
    | --- | --- |
    | [Définir des stratégies de laboratoire](devtest-lab-set-lab-policy.md) |Contrôlez les coûts en mettant en place des stratégies dans le laboratoire. |
-   | [Supprimer toutes les machines virtuelles de laboratoire à l’aide d’un script PowerShell](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Supprimez tous les laboratoires en une seule opération une fois la formation terminée. |
+   | [Supprimer toutes les machines virtuelles de laboratoire à l’aide d’un script PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Supprimez tous les laboratoires en une seule opération une fois la formation terminée. |
 5. **Partager le laboratoire avec chaque participant**
    
     Les laboratoires sont directement accessibles à l’aide d’un lien que vous partagez avec les participants. Les participants n’ont même pas besoin d’avoir de compte Azure, à condition qu’ils aient un [compte Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account). Les participants ne voient pas les machines virtuelles créées par les autres participants.  
@@ -99,7 +99,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    
    | Task | Contenu |
    | --- | --- |
-   | [Créer un laboratoire à l’aide d’un modèle Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Créez des laboratoires dans Azure DevTest Labs à l’aide de modèles Resource Manager. |
+   | [Créer un laboratoire à l’aide d’un modèle Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Créez des laboratoires dans Azure DevTest Labs à l’aide de modèles Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

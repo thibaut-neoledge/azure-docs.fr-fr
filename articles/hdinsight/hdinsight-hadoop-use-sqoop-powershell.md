@@ -1,6 +1,6 @@
 ---
 title: "Exécuter des tâches Sqoop avec PowerShell et Azure HDInsight | Microsoft Docs"
-description: "Découvrez comment utiliser Azure PowerShell à partir d&quot;un poste de travail pour exécuter des commandes Sqoop import et export entre un cluster HDInsight et une base de données SQL Azure."
+description: "Découvrez comment utiliser Azure PowerShell à partir d'un poste de travail pour exécuter des commandes Sqoop import et export entre un cluster HDInsight et une base de données SQL Azure."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: 12bcff92f7d2f877fa90b35fddf88266488c5f78
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 87af5baeeb1b3132a17085db7cbf275ae86da53b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-sqoop-jobs-using-azure-powershell-for-hadoop-in-hdinsight"></a>Exécuter des tâches Sqoop à l’aide d’Azure PowerShell pour Hadoop dans HDInsight
@@ -30,7 +29,7 @@ ms.lasthandoff: 01/24/2017
 Découvrez comment utiliser Azure PowerShell pour exécuter des tâches Sqoop dans HDInsight afin d’effectuer des opérations d’importation et d’exportation entre un cluster HDInsight et une base de données SQL Azure ou SQL Server.
 
 > [!NOTE]
-> Les étapes décrites dans cet article peuvent être utilisées avec un cluster HDInsight Windows ou Linux. Toutefois, ces étapes fonctionnent uniquement à partir d’un client Windows. Pour accéder à d’autres méthodes d’envoi de tâches, cliquez sur le sélecteur d’onglet en haut de l’article.
+> Les étapes décrites dans cet article peuvent être utilisées avec un cluster HDInsight Windows ou Linux. Toutefois, elles fonctionnent uniquement à partir d’un client Windows. Pour accéder à d’autres méthodes d’envoi de tâches, cliquez sur le sélecteur d’onglet en haut de l’article.
 > 
 > 
 

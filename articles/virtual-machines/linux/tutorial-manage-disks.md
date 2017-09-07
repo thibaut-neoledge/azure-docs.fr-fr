@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d77dd2b44dca8cee6fa2e93e79cda76c80ccfe1a
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 9eb32e545bdefb8cc0a8ae05bd58d750afeb469e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -203,7 +203,7 @@ exit
 
 Une fois qu’une machine virtuelle a été déployée, vous pouvez augmenter la taille du disque de système d’exploitation ou des disques de données attachés. Augmenter la taille d’un disque peut être utile lorsque vous avez besoin de plus d’espace de stockage ou d’un niveau de performances plus élevé (P10, P20 et P30). Notez que vous ne pouvez pas réduire la taille des disques.
 
-Avant d’augmenter la taille du disque, l’ID ou le nom du disque est nécessaire. Utilisez la commande [az disk list](/cli/azure/vm/disk#list) pour renvoyer tous les disques d’un groupe de ressources. Notez le nom du disque que vous souhaitez redimensionner.
+Avant d’augmenter la taille du disque, l’ID ou le nom du disque est nécessaire. Utilisez la commande [az disk list](/cli/azure/disk#az_disk_list) pour renvoyer tous les disques d’un groupe de ressources. Notez le nom du disque que vous souhaitez redimensionner.
 
 ```azurecli-interactive 
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table

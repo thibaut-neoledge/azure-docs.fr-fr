@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 2934b64c693f6505ddb389766374e31a5e6f249b
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 1ab6a2b949101f60d6eef1ba7603d1c2cf81f90a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
@@ -146,9 +146,9 @@ Pour les autres plateformes Windows sur site AD et jointes à un domaine :
 
 **R :** Pour obtenir des informations de résolution des problèmes, consultez :
 
-- [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD – Windows 10 et Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+- [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD – Windows 10 et Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
 
-- [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD pour les clients de bas niveau Windows](active-directory-device-registration-troubleshoot-windows-legacy.md)
+- [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD pour les clients de bas niveau Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
 ---
 
