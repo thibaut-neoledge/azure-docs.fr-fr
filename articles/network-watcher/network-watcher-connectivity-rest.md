@@ -3,7 +3,7 @@ title: "Vérifier la connectivité avec Azure Network Watcher - portail Azure |
 description: "Cette page explique comment vérifier la connectivité avec Network Watcher dans le portail Azure"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: ca62bea581acb59d3c3c0b8a204cc9d42de2b27f

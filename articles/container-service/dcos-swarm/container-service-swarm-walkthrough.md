@@ -76,7 +76,7 @@ Pour suivre ce guide de démarrage rapide, vous avez besoin de l’adresse IP du
 
 
 ```bash
-az network public-ip list --resource-group myResourceGroup --query '[*].{Name:name,IPAddress:ipAddress}' -o table
+az network public-ip list --resource-group myResourceGroup --query "[*].{Name:name,IPAddress:ipAddress}" -o table
 ```
 
 Output:
