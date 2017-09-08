@@ -1,4 +1,3 @@
- 
 ---
 title: "Découvrir comment utiliser le connecteur MQ dans Azure Logic Apps | Microsoft Docs"
 description: "Connectez-vous à un serveur MQ local ou dans Azure à partir de votre flux de travail d’application logique pour parcourir, recevoir et envoyer des messages dans WebSphere MQ"

@@ -1183,7 +1183,7 @@ Traite toutes les valeurs d’un attribut à valeurs multiples (ou la sortie d�
 * condition : toute fonction pouvant traiter un élément de l’attribut
 
 **Exemples :**  
-`Select($item,[otherPhone],Replace($item,“-”,“”))`  
+`Select($item,[otherPhone],Replace($item,"-",""))`  
 Retourne toutes les valeurs de l’attribut à valeurs multiples otherPhone après suppression des traits d’union (-).
 
 - - -
