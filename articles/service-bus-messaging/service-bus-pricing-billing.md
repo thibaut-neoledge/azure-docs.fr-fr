@@ -12,36 +12,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 5161b555db96886f556a4fe96eab4415d8ccf047
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="service-bus-pricing-and-billing"></a>Tarification et facturation de Service Bus
-Service Bus est disponible en trois niveaux de service : De base, Standard, et [Premium](service-bus-premium-messaging.md). Vous pouvez choisir un niveau de service pour chaque espace de noms Service Bus que vous créez ; cette sélection s’applique à l’ensemble des entités créées dans cet espace de noms.
+Service Bus est disponible en deux niveaux de service : Standard et [Premium](service-bus-premium-messaging.md). Vous pouvez choisir un niveau de service pour chaque espace de noms Service Bus que vous créez ; cette sélection s’applique à l’ensemble des entités créées dans cet espace de noms.
 
 > [!NOTE]
 > Pour obtenir des informations détaillées sur la tarification actuelle de Service Bus, consultez la [page de tarification Azure Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) et la [FAQ de Service Bus](service-bus-faq.md#pricing).
 >
 >
 
-Service Bus utilise les deux mesures suivantes pour les files d’attente et les rubriques/abonnements :
+Service Bus utilise les 2 mesures suivantes pour les files d’attente et les rubriques/abonnements :
 
-1. **Opérations de messagerie**: définies en tant qu’appels API par rapport aux points de terminaison du service de file d’attente ou de rubrique/abonnement. Cette mesure remplacera les messages envoyés ou reçus en tant qu’unités principales de l’utilisation facturable des files d’attente et des rubriques/abonnements.
-2. **Connexions réparties**: définies comme le nombre maximal de connexions persistantes ouvertes par rapport aux files d’attente, rubriques ou abonnements pendant une période d’échantillonnage d’une heure donnée. Cette mesure s’appliquera uniquement au niveau standard, dans lequel vous pouvez ouvrir des connexions supplémentaires (auparavant, les connexions étaient limitées à 100 par file d’attente/rubrique/abonnement) pour des frais minimaux par connexion.
+1. **Opérations de messagerie**: définies en tant qu’appels API par rapport aux points de terminaison du service de file d’attente ou de rubrique/abonnement. Cette mesure remplace les messages envoyés ou reçus en tant qu’unité principale de l’utilisation facturable des files d’attente et des rubriques/abonnements.
+2. **Connexions réparties**: définies comme le nombre maximal de connexions persistantes ouvertes par rapport aux files d’attente, rubriques ou abonnements pendant une période d’échantillonnage d’une heure donnée. Cette mesure s’applique uniquement au niveau Standard, dans lequel vous pouvez ouvrir des connexions supplémentaires (auparavant, les connexions étaient limitées à 100 par file d’attente/rubrique/abonnement) pour des frais minimaux par connexion.
 
 Le niveau **standard** présente une tarification progressive pour les opérations exécutées avec les files d’attente et les rubriques/abonnements, ce qui entraîne des remises basées sur le volume de pouvant atteindre 80 %, pour les plus hauts niveaux d’utilisation. Il existe également des frais de base de niveau standard de 10 $ par mois, ce qui vous permet d'effectuer jusqu'à 12,5 millions d'opérations par mois sans frais supplémentaires.
 
 Le niveau **premium** isole les ressources au niveau des couches processeur et mémoire, ce qui permet d'exécuter chaque charge de travail client de manière isolée. Ce conteneur de ressources est appelé *unité de messagerie*. Au moins une unité de messagerie est allouée à chaque espace de noms premium. Vous pouvez acheter une, deux ou quatre unités de messagerie pour chaque espace de noms Service Bus Premium. Une entité ou une charge de travail unique peut couvrir plusieurs unités de messagerie et le nombre d’unités de messagerie peut être modifié à volonté. En revanche, les frais qui vous sont facturés sont établis par période de 24 heures. Au final, les performances de votre solution Service Bus sont non seulement prévisibles et répétables, Au final, les performances de votre solution Service Bus sont non seulement prévisibles et répétables, mais aussi supérieures.
 
-Les frais de base du niveau Standard sont facturés en une seule fois par mois et par abonnement Azure. Aussi, une fois que vous avez créé un premier espace de noms Service Bus de niveau Standard, vous pouvez en créer autant que vous le souhaitez sous le même abonnement Azure, et ce sans frais de base supplémentaires.
+Les frais de base du niveau Standard sont facturés en une seule fois par mois et par abonnement Azure. Ainsi, une fois que vous avez créé un premier espace de noms Service Bus de niveau Standard, vous pouvez en créer autant que vous le souhaitez sous le même abonnement Azure, et ce sans frais de base supplémentaires.
 
-Le tableau [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) résume les différences fonctionnelles entre les niveaux De base, Standard et Premium.
+Le tableau [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) résume les différences fonctionnelles entre les niveaux Standard et Premium.
 
 ## <a name="messaging-operations"></a>Opérations de messagerie
 Dans le cadre du nouveau modèle de tarification, la facturation des files d’attente et des rubriques/abonnements évolue. Ces entités passent d'un modèle de facturation au message à une facturation à l'opération. Une « opération » désigne un appel d’API adressé au point de terminaison d’un service de file d’attente ou d’une rubrique/un abonnement. Cela inclut les opérations de gestion, d'envoi/réception et d'état de session.
@@ -57,7 +56,7 @@ Pour plus d’informations sur les coûts, consultez les tarifs indiqués dans l
 ## <a name="brokered-connections"></a>Connexions réparties
 *Brokered connections* répondent aux modèles d’utilisation client qui impliquent un grand nombre d’expéditeurs/de destinataires « en permanence connectés » aux files d’attente, aux rubriques ou aux abonnements. Les expéditeurs/destinataires connectés de façon permanente sont ceux qui se connectent à l'aide d'AMQP ou de HTTP avec un délai d'expiration de réception non nul (par exemple, l'interrogation longue HTTP). Les expéditeurs et les destinataires HTTP qui utilisent un délai d'expiration immédiat ne génèrent pas de connexions réparties.
 
-Pour les quotas de connexion et les autres limites de service, consultez l’article [Quotas Service Bus](service-bus-quotas.md).
+Pour les quotas de connexion et les autres limites de service, consultez l’article [Quotas Service Bus](service-bus-quotas.md). Pour plus d’informations sur les connexions réparties, consultez la section [Questions fréquentes (FAQ)](#faq) plus loin dans cet article.
 
 Le niveau Standard supprime la limite de connexion répartie par espace de noms et compte l’utilisation de connexions réparties de façon globale au sein de tout l’abonnement Azure. Pour plus d’informations, consultez le tableau [Connexions réparties](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -73,11 +72,9 @@ Le niveau Standard supprime la limite de connexion répartie par espace de noms 
 >
 >
 
-| Niveau premium |
-| --- |
-| Les connexions réparties ne sont pas facturées au niveau premium. |
+### <a name="premium-tier"></a>Niveau premium
 
-Pour plus d’informations sur les connexions réparties, consultez la section [FAQ](#faq) plus loin dans cette rubrique.
+Les connexions réparties ne sont pas facturées au niveau premium.
 
 ## <a name="faq"></a>Forum Aux Questions
 
@@ -95,7 +92,7 @@ Par exemple :
 2. 10 000 appareils reçoivent des messages d'une file d'attente Service Bus via HTTP, en spécifiant un délai d'expiration différent de zéro. Si tous les appareils se connectent 12 heures par jour, les frais de connexion suivants s’appliquent (en plus des autres frais liés à Service Bus) : 10 000 connexions de réception HTTP * 12 heures par jour * 31 jours / 744 heures = 5 000 connexions réparties.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Des frais de connexion répartie s’appliquent-ils aux files d’attente et rubriques/abonnements ?
-Oui. Il n'y a aucun frais de connexion pour l'envoi d'événements à l'aide de HTTP, quel que soit le nombre de systèmes ou de périphériques d’envoi. La réception d'événements avec le protocole HTTP et à l'aide d'un délai d'expiration supérieur à zéro, parfois appelé « interrogation longue », génère des frais de connexion répartie. Les connexions AMQP génèrent des frais de connexion répartie peu importe si les connexions sont utilisées pour l'envoi ou pour la réception. Notez que 100 connexions réparties sont autorisées gratuitement dans un espace de noms de base. Il s’agit également du nombre maximal de connexions réparties autorisées pour l’abonnement Azure. Les 1 000 premières connexions réparties entre tous les espaces de noms standard d’un abonnement Azure sont incluses sans frais supplémentaires (hors frais de base). Étant donné que ces volumes couvrent de nombreux scénarios de messagerie de service à service, des frais de connexion répartie sont habituellement pertinents si vous prévoyez d'utiliser l'interrogation longue AMQP ou HTTP avec un grand nombre de clients. Par exemple, pour obtenir un flux d'événements plus efficace ou permettre une communication bidirectionnelle avec de nombreux appareils ou instances d'application.
+Oui. Il n'y a aucun frais de connexion pour l'envoi d'événements à l'aide de HTTP, quel que soit le nombre de systèmes ou d’appareils d’envoi. La réception d'événements avec le protocole HTTP et à l'aide d'un délai d'expiration supérieur à zéro, parfois appelé « interrogation longue », génère des frais de connexion répartie. Les connexions AMQP génèrent des frais de connexion répartie peu importe si les connexions sont utilisées pour l'envoi ou pour la réception. Les 1 000 premières connexions réparties entre tous les espaces de noms standard d’un abonnement Azure sont incluses sans frais supplémentaires (hors frais de base). Étant donné que ces volumes couvrent de nombreux scénarios de messagerie de service à service, des frais de connexion répartie sont habituellement pertinents si vous prévoyez d'utiliser l'interrogation longue AMQP ou HTTP avec un grand nombre de clients. Par exemple, pour obtenir un flux d'événements plus efficace ou permettre une communication bidirectionnelle avec de nombreux appareils ou instances d'application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur la tarification Service Bus, consultez la [page Tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).

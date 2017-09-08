@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 369389f7f8ce56435dcbb9d9264c2db48a294d55
+ms.sourcegitcommit: 79b215eed38959efd630e21633d235cbc857abd8
+ms.openlocfilehash: dde9d9b8be1faede7d2e9e45597070e6ce51ac02
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -124,7 +124,7 @@ Voici la disposition que nous obtenons et le nombre total de réplicas par domai
 
 Cette disposition est équilibrée en termes de nœuds par domaine d’erreur et domaine de mise à niveau. Elle est également équilibrée en termes de nombre de réplicas par domaine d’erreur et domaine de mise à niveau. Chaque domaine possède le même nombre de nœuds et le même nombre de réplicas.
 
-À présent, jetons un œil à ce qui se passerait si au lieu de N2, nous avions utilisé N6. Comment les réplicas auraient-ils été répartis ?
+À présent, jetons un œil à ce qui se passerait si au lieu de N2, nous avions utilisé N6. Comment les réplicas auraient-ils été réparties ?
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -378,9 +378,9 @@ L’une des principales tâches de n’importe quel orchestrateur consiste à vo
 
 Service Fabric représente les ressources en tant que `Metrics`. Les métriques correspondent à n’importe quelle ressource logique ou physique que vous souhaitez décrire pour Service Fabric. Par exemple, « WorkQueueDepth » et « MemoryInMb » sont des métriques. Pour plus d’informations sur les ressources physiques que Service Fabric peut régir sur les nœuds, consultez [gouvernance des ressources](service-fabric-resource-governance.md). Pour plus d’informations sur la configuration de métriques personnalisées et sur leur utilisation, consultez [cet article](service-fabric-cluster-resource-manager-metrics.md)
 
-Les métriques sont différentes des contraintes de placement et des propriétés de nœud. Les propriétés de nœud sont des descripteurs statiques des nœuds proprement dits. Les métriques décrivent les ressources à la disposition des nœuds et que les services consomment quand ils s’exécutent sur un nœud. La propriété d’un nœud pourrait être nommée « HasSSD » et définie sur true ou false. La quantité d’espace disponible sur ce disque SSD et la quantité consommée par les services pourrait correspondre à une métrique nommée « DriveSpaceInMb ». 
+Les mesures sont différentes des contraintes de placement et des propriétés de nœud. Les propriétés de nœud sont des descripteurs statiques des nœuds proprement dits. Les métriques décrivent les ressources à la disposition des nœuds et que les services consomment quand ils s’exécutent sur un nœud. La propriété d’un nœud peut être équivalente à « HasSSD » et définie sur true ou false. La quantité d’espace disponible sur ce disque SSD et la quantité consommée par les services pourrait correspondre à une métrique nommée « DriveSpaceInMb ». 
 
-Il est important de noter que, comme pour les contraintes de placement et les propriétés de nœud, Service Fabric Cluster Resource Manager ne comprend pas ce que signifient les noms des métriques. Les noms des métriques ne sont que des chaînes. Il est recommandé de déclarer les unités dans le cadre des noms des métriques que vous créez lorsque cela peut être ambigu.
+Il est important de noter que, comme pour les contraintes de placement et les propriétés de nœud, Service Fabric Cluster Resource Manager ne comprend pas ce que signifient les noms des mesures. Les noms des mesures ne sont que des chaînes. Il est recommandé de déclarer les unités dans le cadre des noms des mesures que vous créez lorsque cela peut être ambigu.
 
 ## <a name="capacity"></a>Capacité
 Si vous avez désactivé toutes les fonctions d’*équilibrage* des ressources, Cluster Resource Manager de Service Fabric est tout de même en mesure de garantir qu’aucun nœud ne dépasse sa capacité. Il est possible de gérer les dépassements de capacité, sauf si le cluster est saturé ou si la charge de travail dépasse la capacité d’un nœud. La capacité est une autre *contrainte* que Cluster Resource Manager utilise pour comprendre la quantité d’une ressource dont un nœud dispose. La capacité restante est également suivie pour le cluster dans son ensemble. La capacité et la consommation au niveau du service sont toutes deux exprimées en termes de métriques. Par exemple, pour une métrique appelée « ClientConnections », un nœud donné peut avoir une capacité de 32768. Les autres nœuds peuvent avoir d’autres limites. Un service s’exécutant sur ce nœud peut indiquer qu’il consomme actuellement 32256 de la métrique « ClientConnections ».
@@ -440,14 +440,14 @@ En règle générale, la charge d’un service évolue de manière dynamique. Su
 ## <a name="cluster-capacity"></a>Capacité de cluster
 Comment Service Fabric Cluster Resource Manager fait-il pour éviter la saturation du cluster dans son ensemble ? En fait, du fait du chargement dynamique, il ne peut pas faire grand chose. La charge des services peut augmenter indépendamment des actions entreprises par Cluster Resource Manager. Par conséquent, votre cluster qui dispose de suffisamment d’espace aujourd’hui pourrait ne pas être suffisamment puissant demain une fois que vous serez devenu célèbre. Ceci dit, des moyens existent pour éviter les problèmes. La première chose que nous pouvons faire est d’empêcher la création de nouvelles charges de travail qui risquent de saturer le cluster.
 
-Supposons que vous créez un service sans état et qu’il a une charge associée. Supposons que le service respecte la métrique « DiskSpaceInMb ». Supposons également qu’il va utiliser cinq unités de « DiskSpaceInMb » pour chaque instance du service. Vous souhaitez créer trois instances du service. Parfait ! Cela signifie que nous avons besoin de 15 unités « DiskSpaceInMb » dans le cluster pour être en mesure de créer ces instances de service. The Cluster Resource Manager calcule en permanence la capacité et la consommation de chaque métrique pour déterminer la capacité restante au niveau du cluster. Si l’espace est insuffisant, Cluster Resource Manager rejette l’appel de création du service.
+Supposons que vous créez un service sans état et qu’il a une charge associée. Supposons que le service respecte la mesure « DiskSpaceInMb ». Supposons également qu’il va utiliser cinq unités de « DiskSpaceInMb » pour chaque instance du service. Vous souhaitez créer trois instances du service. Parfait ! Cela signifie que nous avons besoin de 15 unités « DiskSpaceInMb » dans le cluster pour être en mesure de créer ces instances de service. The Cluster Resource Manager calcule en permanence la capacité et la consommation de chaque métrique pour déterminer la capacité restante au niveau du cluster. Si l’espace est insuffisant, Cluster Resource Manager rejette l’appel de création du service.
 
 Étant donné que l’exigence est seulement de 15 unités disponibles, cet espace peut être affecté de différentes façons. Par exemple, il peut y avoir une unité restante de capacité sur 15 nœuds différents ou trois unités restantes de capacité sur cinq nœuds différents. Si Cluster Resource Manager peut changer l’organisation de façon à avoir cinq unités disponibles sur trois nœuds, il place le service. Il est généralement possible de réorganiser le cluster, à moins que le cluster soit proche de la saturation ou que les services existants ne puissent pas être consolidés pour une raison quelconque.
 
-## <a name="buffered-capacity"></a>Capacité mise en mémoire tampon
-La capacité mise en mémoire tampon est une autre fonctionnalité de Cluster Resource Manager. Elle permet de réserver une partie de la capacité globale des nœuds. Cette mémoire tampon de capacité sert uniquement à placer les services pendant les mises à niveau et les défaillances de nœuds. La capacité mise en mémoire tampon est spécifiée de manière globale par métrique pour tous les nœuds. La valeur de capacité réservée que vous choisissez est fonction du nombre de domaines d’erreur et de mise à niveau dont vous disposez dans le cluster. Un nombre de domaines d’erreur et de mise à niveau plus important signifie que vous pouvez choisir un nombre inférieur pour la capacité mise en mémoire tampon. Si vous avez davantage de domaines, une portion moins importante de votre cluster sera indisponible lors de mises à niveau et en cas de défaillance. Spécifier la capacité mise en mémoire tampon n’a de sens que si vous avez aussi spécifié la capacité des nœuds pour une métrique.
+## <a name="buffered-capacity"></a>Capacité de mise en mémoire tampon
+La capacité mise en mémoire tampon est une autre fonctionnalité de Cluster Resource Manager. Elle permet de réserver une partie de la capacité globale des nœuds. Cette mémoire tampon de capacité sert uniquement à placer les services pendant les mises à niveau et les défaillances de nœuds. La capacité mise en mémoire tampon est spécifiée de manière globale par métrique pour tous les nœuds. La valeur de capacité réservée que vous choisissez est fonction du nombre de domaines d’erreur et de mise à niveau dont vous disposez dans le cluster. Un nombre de domaines d’erreur et de mise à niveau plus important signifie que vous pouvez choisir un nombre inférieur pour la capacité de mise en mémoire tampon. Si vous avez davantage de domaines, une portion moins importante de votre cluster sera indisponible lors de mises à niveau et en cas de défaillance. Spécifier la capacité mise en mémoire tampon n’a de sens que si vous avez aussi spécifié la capacité des nœuds pour une métrique.
 
-Voici un exemple montrant comment spécifier la capacité mise en mémoire tampon :
+Voici un exemple montrant comment spécifier la capacité de mise en mémoire tampon :
 
 ClusterManifest.xml
 
@@ -478,7 +478,7 @@ via ClusterConfig.json pour les déploiements autonomes ou Template.json pour le
 ]
 ```
 
-La création de nouveaux services échoue lorsque la capacité mise en mémoire tampon du cluster est épuisée pour une métrique. Empêcher la création de services pour préserver la mémoire tampon est l’assurance que les mises à niveau et les défaillances ne provoqueront pas un dépassement de la capacité des nœuds. La capacité mise en mémoire tampon est facultative mais recommandée dans tout cluster qui définit une capacité pour une métrique.
+La création de nouveaux services échoue lorsque la capacité de mise en mémoire tampon du cluster est épuisée pour une mesure. Empêcher la création de services pour préserver la mémoire tampon est l’assurance que les mises à niveau et les défaillances ne provoqueront pas un dépassement de la capacité des nœuds. La capacité de mise en mémoire tampon est facultative mais recommandée dans tout cluster qui définit une capacité pour une mesure.
 
 Cluster Resource Manager expose ces informations de charge. Pour chaque métrique, ces informations incluent : 
   - les paramètres de capacité mise en mémoire tampon ;
@@ -518,7 +518,7 @@ LoadMetricInformation     :
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur l’architecture et le flux d’informations dans Cluster Resource Manager, consultez [cet article ](service-fabric-cluster-resource-manager-architecture.md)
-* La définition des métriques de défragmentation est une façon de consolider la charge sur les nœuds au lieu de la répartir. Pour savoir comment configurer la défragmentation, reportez-vous à [cet article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+* La définition des mesures de défragmentation est une façon de consolider la charge sur les nœuds au lieu de la répartir. Pour savoir comment configurer la défragmentation, reportez-vous à [cet article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Commencez au début pour [obtenir une présentation de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 * Pour en savoir plus sur la façon dont Cluster Resource Manager gère et équilibre la charge du cluster, consultez l’article sur [l’équilibrage de la charge](service-fabric-cluster-resource-manager-balancing.md)
 

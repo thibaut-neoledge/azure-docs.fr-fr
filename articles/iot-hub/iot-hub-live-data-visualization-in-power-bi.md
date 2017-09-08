@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/24/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 404ab1682d9b77f22e60888340ffb70a101ed5d4
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualiser des données de capteur en temps réel depuis Azure IoT Hub, à l’aide de Power BI
@@ -136,7 +136,7 @@ Dans le travail Stream Analytics, cliquez sur **Démarrer** > **Maintenant** > 
    1. Faites glisser **EventEnqueuedUtcTime** vers **Axe** dans le volet **Visualisations**.
    1. Faites glisser **Température** vers **Valeurs**.
 
-      Le graphique en courbes est désormais créé. L’axe des abscisses du graphique affiche la date et l’heure, selon le format de fuseau horaire UTC. Quant à l’axe des ordonnées, il affiche la température fournie par le capteur.
+      Le graphique en courbes est désormais créé. L’axe des abscisses affiche la date et l’heure du fuseau horaire UTC. Quant à l’axe des ordonnées, il affiche la température fournie par le capteur.
 
       ![Ajouter un graphique en courbes sur la température dans un rapport Microsoft Power BI](media/iot-hub-live-data-visualization-in-power-bi/8_add-line-chart-for-temperature-to-power-bi-report-microsoft.png)
 

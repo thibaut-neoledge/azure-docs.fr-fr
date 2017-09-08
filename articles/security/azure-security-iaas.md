@@ -12,18 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/29/2017
 ms.author: barclayn
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 3123c8d780406c92f04592767e47c217c0a0ba73
-ms.lasthandoff: 03/28/2017
-
-
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: f93211d289553b7a8afbe8c17fa4847f3d4585a8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/30/2017
 
 ---
-
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 
 Depuis que vous avez commencé à réfléchir au déplacement des charges de travail vers Azure IaaS, vous vous êtes probablement rendu compte que certaines considérations vous sont familières. Vous disposez peut-être déjà d’une expérience de sécurisation d’environnements virtuels. Lorsque vous migrez vers Azure IaaS, vous pouvez appliquer votre expertise dans la sécurisation des environnements virtuels et utiliser de nouvelles options pour sécuriser vos ressources.
@@ -42,11 +39,11 @@ Nous aborderons certaines des options disponibles dans Azure qui peuvent vous ai
 
 Les entreprises sont souvent victimes de cyberattaques dues au fait que les administrateurs effectuent des actions en utilisant des comptes avec des droits élevés. Généralement, leur intention n’est pas de nuire mais, simplement, la configuration et les processus existants le permettent. La plupart de ces utilisateurs comprennent les risques de ces actions d’un point de vue conceptuel, mais choisissent quand même de les effectuer.
 
-Des actions telles que consulter ses e-mails et naviguer sur Internet semblent innocentes. Cependant, elles peuvent exposer les comptes disposant de privilèges élevés à des acteurs malveillants susceptibles d’utiliser les activités de navigation, les courriers électroniques spécialement conçus ou d’autres techniques pour accéder à votre entreprise. Nous recommandons chaudement l’utilisation de stations de gestion sécurisées pour effectuer toutes les tâches d’administration Azure est pour réduire le risque de compromission accidentelle.
+Des actions telles que consulter ses e-mails et naviguer sur Internet semblent innocentes. Mais ils peuvent exposer des comptes avec élévation de privilèges pour compromettre des acteurs malveillants. Une exploration des activités, des e-mails spécialement conçus ou d’autres techniques peuvent servir à accéder à votre entreprise. Nous recommandons chaudement l’utilisation de stations de travail de gestion sécurisées (SAW) pour effectuer toutes les tâches d’administration Azure. Les SAW constituent un moyen de réduction des risques de compromission accidentelle.
 
-Les stations de travail d’accès privilégié (PAW) fournissent un système d’exploitation dédié aux tâches sensibles, et protégé contre les attaques Internet et les vecteurs de menaces. La séparation de ces tâches et comptes sensibles et de ces stations de travail et appareils utilisés au quotidien fournit une protection élevée contre les attaques par hameçonnage, les vulnérabilités du système d’exploitation et des applications, différentes attaques par emprunt d’identité et les vols d’informations d’identification tels que les enregistreurs de frappe et les attaques de type « Pass the hash » et « Pass the ticket ».
+Les stations de travail d’accès privilégié (PAW) fournissent un système d’exploitation dédié aux tâches sensibles, et protégé contre les attaques Internet et les vecteurs de menaces. La séparation de ces tâches et comptes sensibles à partir de l’utilisation quotidienne des stations de travail et périphériques offre une protection renforcée. Cette séparation limite l’impact des attaques d’hameçonnage, les vulnérabilités des applications et des systèmes d’exploitation, les différentes attaques d’emprunt d’identité et les attaques pour le vol des informations d’identification. (journalisation des séquences de touches, Pass-the-Hash et Pass-the-Ticket)
 
-L’approche PAW est une extension bien établie et recommandée de la pratique consistant à utiliser un compte d’administration affecté de manière individuelle, différent d’un compte d’utilisateur standard. Une approche PAW fournit une station de travail digne de confiance pour ces comptes sensibles.
+L’approche PAW est une extension bien établie et recommandée de la pratique consistant à utiliser un compte d’administration affecté de manière individuelle. Le compte d’administration est distinct d’un compte d’utilisateur standard. Une approche PAW fournit une station de travail digne de confiance pour ces comptes sensibles.
 
 Pour obtenir plus d’informations et des instructions d’implémentation, consultez [Stations de travail d’accès privilégié](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations).
 
@@ -68,7 +65,7 @@ La capture d’écran suivante montre quelques-unes des options disponibles pour
 
 ## <a name="limit-and-constrain-administrative-access"></a>Limiter et contraindre l’accès administrateur
 
-Il est extrêmement important de sécuriser les comptes qui peuvent gérer votre abonnement Azure. La compromission de ces comptes réduit à néant toutes les autres mesures prises pour garantir la confidentialité et l’intégrité de vos données. Comme l’a récemment illustré la fuite d’informations confidentielles [d’Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden), les attaques internes représentent une menace énorme pour la sécurité globale d’une organisation.
+Il est extrêmement important de sécuriser les comptes qui peuvent gérer votre abonnement Azure. La compromission de ces comptes réduit à néant toutes les autres mesures prises pour garantir la confidentialité et l’intégrité de vos données. Comme l’a récemment illustré [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden), les attaques internes représentent une menace énorme pour la sécurité globale d’une organisation.
 
 Évaluez les personnes à qui octroyer des droits administratifs par les critères suivants :
 
@@ -146,7 +143,7 @@ Toute personne disposant d’un abonnement Azure peut créer et utiliser des cof
 
 Pour plus d’informations, voir [Azure Disk Encryption pour machines virtuelles Windows et Linux IaaS](azure-security-disk-encryption.md).
 
-Le [chiffrement des services de stockage Azure](../storage/storage-service-encryption.md) vous aide à protéger vos données au repos. Il est activé au niveau du compte de stockage. Il chiffre les données au fur et à mesure de leur écriture dans nos centres de données ; elles sont déchiffrées automatiquement lorsque vous y accédez. Cette méthode prend en charge les scénarios suivants :
+Le [chiffrement des services de stockage Azure](../storage/common/storage-service-encryption.md) vous aide à protéger vos données au repos. Il est activé au niveau du compte de stockage. Il chiffre les données au fur et à mesure de leur écriture dans nos centres de données ; elles sont déchiffrées automatiquement lorsque vous y accédez. Cette méthode prend en charge les scénarios suivants :
 
 - Chiffrement des objets blob de blocs, des objets blob d’ajout et des objets blob de pages
 - Chiffrement des modèles et des disques durs virtuels archivés dans Azure depuis un emplacement local
@@ -228,10 +225,7 @@ La capture d’écran suivante montre un exemple des informations que Operations
 
 ![Instructions de sécurité de base pour Operations Management Suite](./media/azure-security-iaas/oms-security-baseline.png)
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
-
 
 * [Blog de l’équipe de sécurité Azure](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/library/dn440717.aspx)

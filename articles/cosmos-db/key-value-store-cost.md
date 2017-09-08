@@ -14,27 +14,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 08/28/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: c7d01eee1ba10599ca24291bb71cd7fdc6455f0e
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 33eef1b51a5ee00b0fa67096030ed9ce92cf768e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB comme magasin de valeurs de clés – Synthèse des coûts
 
 Azure Cosmos DB est un service de base de données multi-modèles, distribué dans le monde entier, qui permet de créer facilement des applications à grande échelle et à haute disponibilité. Par défaut, Azure Cosmos DB indexe automatiquement et efficacement toutes les données qu’il reçoit. Vous pouvez ainsi créer des requêtes [SQL](documentdb-sql-query.md) (et [JavaScript](programming.md)) rapides et cohérentes sur n’importe quel type de données. 
-
-Cet article décrit le coût qu’implique l’utilisation d’Azure Cosmos DB pour de simples opérations de lecture et d’écriture lorsqu’il est utilisé comme magasin de valeurs de clés. Les opérations d’écriture incluent des insertions, des remplacements, des suppressions et des upserts de documents. Outre une disponibilité de 99,99 %, Azure Cosmos DB garantit une latence inférieure à 10 ms pour les opérations de lecture, et à 15 ms pour les opérations d’écriture (indexées), au 99e centile. 
-
-## <a name="why-we-use-request-units-rus"></a>Pourquoi utiliser des unités de requête (RU) ?
-
-Les performances d’Azure Cosmos DB sont basées sur la quantité d’[unités de requête](request-units.md) approvisionnées pour la partition. L’approvisionnement se fait avec une granularité d’une seconde et s’achète par unité de requête par seconde ([à ne pas confondre avec la tarification horaire](https://azure.microsoft.com/pricing/details/cosmos-db/)). Les unités de requête doivent être considérées comme une devise qui simplifie l’approvisionnement du débit dont a besoin l’application. Les utilisateurs n’ont donc plus à différencier les unités de capacité des opérations de lecture et d’écriture. Le modèle de devise unique des unités de requête permet de partager efficacement la capacité approvisionnée entre les opérations de lecture et d’écriture. Ce modèle de capacité approvisionnée permet au service de fournir un débit prévisible et constant, une faible latence garantie et une haute disponibilité. Enfin, les unités de requête sont utilisées pour modéliser le débit. Toutefois, chaque unité de requête approvisionnée a également une quantité définie de ressources (mémoire, cœurs). Les unités de requête par seconde ne correspondent pas uniquement à des opérations d’E/S par seconde.
-
-En tant que système de base de données distribué globalement, Azure Cosmos DB est le seul service Azure à fournir un contrat SLA sur la latence, le débit et la cohérence, en plus de la haute disponibilité. Le débit que vous approvisionnez est appliqué à chacune des régions associées à votre compte de base de données Azure Cosmos DB. Pour les opérations de lecture, Azure Cosmos DB propose plusieurs [niveaux de cohérence](consistency-levels.md) bien définis. Azure Cosmos DB est un service de base de données multi-modèles, qui permet de créer facilement des applications à grande échelle, à haute disponibilité et [distribuées globalement](distribute-data-globally.md). Par défaut, Azure Cosmos DB indexe automatiquement et efficacement toutes les données qu’il reçoit. Vous pouvez ainsi créer des requêtes [SQL](documentdb-sql-query.md) (et [JavaScript](programming.md)) rapides et cohérentes sur n’importe quel type de données. 
 
 Cet article décrit le coût qu’implique l’utilisation d’Azure Cosmos DB pour de simples opérations de lecture et d’écriture lorsqu’il est utilisé comme magasin de valeurs de clés. Les opérations d’écriture incluent des insertions, des remplacements, des suppressions et des upserts de documents. Outre une disponibilité de 99,99 %, Azure Cosmos DB garantit une latence inférieure à 10 ms pour les opérations de lecture, et à 15 ms pour les opérations d’écriture (indexées), au 99e centile. 
 

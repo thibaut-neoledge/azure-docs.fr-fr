@@ -1,6 +1,6 @@
 ---
 title: Raccourcis clavier du portail Azure | Microsoft Docs
-description: "Cet article, qui sera actualisé régulièrement, énumère les raccourcis clavier qui peuvent être utilisés sur le portail Azure. Les services individuels peuvent bénéficier de leurs propres raccourcis clavier spécialisés."
+description: En savoir plus sur les raccourcis clavier qui fonctionnent dans le portail Azure.
 services: azure-portal
 documentationcenter: 
 author: flanakin
@@ -12,43 +12,39 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/07/2016
+ms.date: 08/24/2017
 ms.author: micflan
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 764bcf22809a2d613b405f6fb75c7a148a1b3fb9
-
+ms.custom: accessibility
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: d5f837d0017ca885144b91d35f489a6fc0e5670e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="azure-portal-keyboard-shortcuts"></a>Raccourcis clavier du portail Azure
-## <a name="open-hubs"></a>Ouvrir les hubs
-| Raccourci | Action |
+# <a name="keyboard-shortcuts-in-the-azure-portal"></a>Raccourcis clavier du portail Azure
+Cet article indique les raccourcis clavier qui fonctionnent sur le portail Azure. Les services individuels peuvent bénéficier de leurs propres raccourcis clavier.
+
+## <a name="actions"></a>Actions
+|Action à réaliser |Appuyez sur |
 | --- | --- |
-| N |Notifications |
-| / |Parcourir les services |
-| A |Sessions actives |
-| B |Facturation |
-| C |Créer |
+|Créer une nouvelle ressource|G + N|
+|Ouvrir le volet « Plus de services »|G + B|
+|Rechercher des ressources|G+/| 
+|Rechercher les éléments de menu de ressource|CTRL + / |
+|Déplacer l’élément du volet de gauche sélectionné vers le haut |ALT+ Maj + Flèche haut|
+|Déplacer l’élément du volet de gauche sélectionné vers le bas |ALT + Maj + Flèche bas|
 
 ## <a name="navigation"></a>Navigation
-| Raccourci | Action |
+|Action à réaliser |Appuyez sur |
 | --- | --- |
-| H |Tableau de bord de début Azure |
-| F |Premier panneau ouvert |
-| J |Panneau ouvert précédemment |
-| K |Panneau suivant ouvert |
-| L |Dernier panneau ouvert |
-| - |Réduire le panneau ou annuler l'agrandissement |
-| + |Agrandir le panneau ou annuler la réduction |
-| # |Fermer le panneau actif |
-| ¦ |Fermer tous les panneaux |
-| . |Déplacer le focus vers la barre de commande |
-| . |Déplacer le focus vers la barre de navigation |
-| ? |Afficher les raccourcis clavier |
+|Déplacer le focus vers la barre de commande |G+, |
+|Basculer le focus entre la barre supérieure et la barre latérale | G+. |
 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+## <a name="go-to"></a>Accéder à
+|Action à réaliser |Appuyez sur |
+| --- | --- |
+|Accéder au tableau de bord |G + D |
+|Accéder à toutes les ressources|G + A |
+|Accéder aux groupes de ressources|G + R |
+|Ouvrir l’élément volet de gauche à cette position |G + numéro|

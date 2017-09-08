@@ -1,6 +1,6 @@
 ---
 title: "Installation de Tâches de bases de données élastiques | Microsoft Docs"
-description: "Passez en revue l&quot;installation de la fonctionnalité de tâche élastique."
+description: "Passez en revue l'installation de la fonctionnalité de tâche élastique."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9b8033a9dfc8063f96e168a154696e7fe6fef8ff
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 960e5e311571d1054a2ef5c15c33291de27b0878
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Vue d’ensemble de l’installation de Tâches de bases de données élastiques
@@ -28,7 +27,7 @@ Une [**tâche de base de données élastique**](sql-database-elastic-jobs-overvi
 
 Si vous avez déjà installé **Tâche de base de données élastique** via le portail à partir d’un **pool élastique** existant, la dernière version préliminaire de Powershell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l'API PowerShell.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 * Un abonnement Azure. Pour un essai gratuit, consultez [Version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Installez la dernière version via [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 * [utilitaire de ligne de commande NuGet](https://nuget.org/nuget.exe) est utilisé pour installer le package Tâches de bases de données élastiques. Pour plus d’informations, consultez http://docs.nuget.org/docs/start-here/installing-nuget.
@@ -95,7 +94,7 @@ Les paramètres fournis dans cet exemple d'appel peuvent être remplacés par le
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Fournit l'objectif de niveau de service d’une édition standard. Ce paramètre est défini par défaut sur la valeur S0. Les valeurs de paramètres S0/S1/S2/S3 sont acceptées, ce qui amène la base de données SQL&#160;Azure à utiliser l’objectif de niveau de service correspondant. Pour plus d’informations sur les objectifs de niveau de service SQL Database, consultez [Composants et tarification des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fournit l'objectif de niveau de service d’une édition standard. Ce paramètre est défini par défaut sur la valeur S0. Les valeurs de paramètre S0/S1/S2/S3/S4/S6/S9/S12 sont acceptées, ce qui amène la base de données Microsoft Azure SQL à utiliser l’objectif de niveau de service (SLO) correspondant. Pour plus d’informations sur les objectifs de niveau de service SQL Database, consultez [Composants et tarification des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 07/13/2017
+ms.date: 08/22/2017
 ms.author: sdanie
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c1de192c405f2e93483527569c65d368cac40a9b
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Configuration de Cache Redis Azure
@@ -224,29 +224,13 @@ Pour modifier la taille du cluster, utilisez le curseur ou entrez un nombre comp
 
 
 ### <a name="redis-data-persistence"></a>Persistance des données Redis
-Cliquez sur **Persistance des données Redis** pour activer, désactiver ou configurer la persistance des données de votre cache Premium.
+Cliquez sur **Persistance des données Redis** pour activer, désactiver ou configurer la persistance des données de votre cache Premium. Cache Redis Azure offre la persistance Redis grâce à la [persistance RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) et à la [persistance AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
-![Persistance des données Redis](./media/cache-configure/redis-cache-persistence-settings.png)
+Pour plus d’informations, consultez [Comment configurer la persistance pour un cache Redis Azure Premium](cache-how-to-premium-persistence.md).
 
-Pour activer la persistance des données Redis, cliquez sur **Activé** pour activer la sauvegarde RDB (base de données Redis). Pour désactiver la persistance des données Redis, cliquez sur **Désactivé**.
-
-Pour configurer l’intervalle de sauvegarde, sélectionnez une entrée **Fréquence de sauvegarde** dans la liste déroulante. 
-
-- **15 minutes**
-- **30 minutes**
-- **60 minutes**
-- **6 heures**
-- **12 heures**
-- **24 heures**
-
-Cet intervalle de sauvegarde débute au moment où l’opération de sauvegarde précédente se termine correctement. Une fois l’intervalle écoulé, une nouvelle sauvegarde est lancée.
-
-Cliquez sur **Compte de stockage** pour sélectionner le compte de stockage à utiliser, puis, dans la liste déroulante **Clé de stockage**, choisissez d’utiliser la **Clé primaire** ou la **Clé secondaire**. Vous devez choisir un compte de stockage situé dans la même région que le cache. Un compte **Stockage Premium** est recommandé, car ce type de stockage offre un débit plus élevé. Chaque fois que la clé de stockage pour votre compte de persistance est régénérée, vous devez choisir de nouveau la clé souhaitée dans la liste déroulante **Clé de stockage**.
-
-Cliquez sur **OK** pour enregistrer la configuration de persistance.
 
 > [!IMPORTANT]
-> La persistance des données Redis est disponible uniquement pour les caches de niveau Premium. Pour plus d’informations, consultez [Comment configurer la persistance pour un cache Redis Azure Premium](cache-how-to-premium-persistence.md).
+> La persistance des données Redis est disponible uniquement pour les caches de niveau Premium. 
 > 
 > 
 

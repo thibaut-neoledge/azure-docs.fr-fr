@@ -16,8 +16,8 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1ab2a8253684c62be650eed2ea5f69c62188a22
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
 ms.contentlocale: fr-fr
 ms.lasthandoff: 08/24/2017
 
@@ -152,7 +152,7 @@ Le même calcul s’applique aux classes de ressources statiques.
 ## <a name="concurrency-slot-consumption"></a>Consommation des emplacements de concurrence  
 SQL Data Warehouse accorde plus de mémoire aux requêtes qui s’exécutent dans des classes de ressources supérieures. La mémoire est une ressource fixe.  Par conséquent, plus la mémoire allouée par requête est importante, plus le nombre de requêtes s’exécutant en simultané est faible. Le tableau suivant reprend tous les concepts précédents dans une vue unique qui présente le nombre d’emplacements de concurrence disponibles par DWU, ainsi que les emplacements consommés par chaque classe de ressources.  
 
-### <a name="allocation-and-consumption-of-concurrency-slots"></a>Allocation et consommation des emplacements de concurrence  
+### <a name="allocation-and-consumption-of-concurrency-slots-for-dynamic-resource-classes"></a>Allocation et consommation des emplacements de concurrence pour les classes de ressources dynamiques  
 | DWU | Nombre maximal de requêtes concurrentes | Emplacements de concurrence alloués | Emplacements utilisés par smallrc | Emplacements utilisés par mediumrc | Emplacements utilisés par largerc | Emplacements utilisés par xlargerc |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |1 |2 |4 |
@@ -168,7 +168,7 @@ SQL Data Warehouse accorde plus de mémoire aux requêtes qui s’exécutent dan
 | DW3000 |32 |120 |1 |16 |32 |64 |
 | DW6000 |32 |240 |1 |32 |64 |128 |
 
-### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>Allocation et consommation des emplacements de concurrence pour les classes de ressources statiques
+### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>Allocation et consommation des emplacements de concurrence pour les classes de ressources statiques  
 | DWU | Nombre maximal de requêtes concurrentes | Emplacements de concurrence alloués |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |2 |4 |4 |4 |4 |4 |4 |

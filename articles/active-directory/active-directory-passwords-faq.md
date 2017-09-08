@@ -6,21 +6,21 @@ keywords: "Gestion des mots de passe Active Directory, gestion des mots de passe
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 00acd4090ed981ab2b05e955e93d1c689ea1a2e6
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: fed9008d41b43b2c118aba4939260e819c211d67
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
@@ -38,6 +38,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 * [**Questions relatives à l’écriture différée du mot de passe**](#password-writeback)
 
 ## <a name="password-reset-registration"></a>Inscription à la réinitialisation de mot de passe
+
 * **Q : Mes utilisateurs peuvent-ils inscrire leurs propres données de réinitialisation du mot de passe ?**
 
   > **R :** Oui, tant que la réinitialisation de mot de passe est activée et qu’ils disposent d’une licence, vos utilisateurs peuvent accéder au portail d’inscription à la réinitialisation de mot de passe à l’adresse http://aka.ms/ssprsetup pour inscrire leurs informations d’authentification. Les utilisateurs peuvent également s’inscrire via le volet d’accès à l’adresse http://myapps.microsoft.com, cliquer sur l’onglet du profil, puis sur l’option Réinitialiser mon mot de passe.
@@ -82,7 +83,9 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   > **R :** Un utilisateur est considéré comme inscrit pour la réinitialisation de mot de passe en libre-service lorsqu’il a enregistré au moins le **Nombre de méthodes requis pour la réinitialisation** défini dans le [portail Azure](https://portal.azure.com).
   >
   >
+
 ## <a name="password-reset"></a>Réinitialisation de mot de passe
+
 * **Q : Combien de temps dois-je attendre avant de recevoir un e-mail, un SMS ou un appel téléphonique de la réinitialisation du mot de passe ?**
 
   > **R :** Les messages électroniques, les SMS et les appels téléphoniques doivent arriver en moins d’une minute, la plupart du temps dans les 5 à 20 secondes suivant la réinitialisation.
@@ -105,7 +108,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q : Comment puis-je informer mes utilisateurs des liens sur lesquels ils peuvent cliquer pour réinitialiser leurs mots de passe ?**
 
-  > **R :** Vous pouvez diriger vos utilisateurs directement vers l’adresse https://passwordreset.microsoftonline.com ou leur demander de cliquer sur le lien **Vous ne parvenez pas à accéder à votre compte ?** qui figure sur n’importe quel écran de connexion à un compte professionnel ou scolaire. Vous pouvez également publier ces liens dans un endroit facilement accessible à vos utilisateurs.
+  > **R :** Essayez certaines des suggestions de notre [article sur le déploiement de la réinitialisation de mot de passe.](active-directory-passwords-best-practices.md#email-based-rollout)
   >
   >
 * **Q : Puis-je utiliser cette page à partir d’un appareil mobile ?**
@@ -158,6 +161,11 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   > **R :** Oui, vous pouvez définir une limite pour l’inscription et une autre pour la réinitialisation. Vous pouvez poser entre 3 et 5 questions de sécurité pour l’inscription et entre 3 et 5 questions pour la réinitialisation.
   >
   >
+* **Q : J’ai configuré ma stratégie de sorte qu’elle demande aux utilisateurs d’utiliser les questions de sécurité à des fins de réinitialisation, mais les administrateurs Azure semblent configurés différemment.**
+
+  > **R :** C’est le comportement normal. Microsoft applique par défaut une stratégie de réinitialisation de mot de passe fort à deux verrous pour tous les rôles d’administrateur Azure. Cela empêche les administrateurs d’utiliser les questions de sécurité. Vous trouverez plus d’informations sur cette stratégie dans l’article [Stratégies de mot de passe et restrictions dans Azure Active Directory](active-directory-passwords-policy.md#administrator-password-policy-differences).
+  >
+  >
 * **Q : Si un utilisateur a inscrit plus de questions que le nombre maximal requis pour la réinitialisation, comment les questions de sécurité sont-elles sélectionnées lors de la réinitialisation ?**
 
   > **R :** N questions de sécurité sont sélectionnées au hasard à partir du nombre total de questions qu’un utilisateur a inscrit, N étant le **nombre de questions requises pour la réinitialisation**. Par exemple, si un utilisateur a inscrit 5 questions de sécurité, alors que seules 3 sont requises pour la réinitialisation, 3 de ces 5 questions sont sélectionnées au hasard et présentées au moment de la réinitialisation. Si l’utilisateur ne répond pas correctement aux questions, le processus de sélection se répète pour éviter de poser toujours les mêmes questions.
@@ -175,6 +183,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 
 ## <a name="password-change"></a>Modification de mot de passe
+
 * **Q : Où mes utilisateurs doivent-ils aller pour modifier leurs mots de passe ?**
 
   > **R :** Les utilisateurs peuvent modifier leurs mots de passe partout où ils voient leur image ou leur icône de profil (par exemple, en haut à droite de leur interface [Office 365](https://portal.office.com) ou [Panneau d’accès](https://myapps.microsoft.com). Les utilisateurs peuvent modifier leurs mots de passe à partir de la [page du profil Panneau d’accès](https://account.activedirectory.windowsazure.com/r#/profile). Ils peuvent également être invités à modifier automatiquement leurs mots de passe sur l’écran de connexion Azure AD si leurs mots de passe ont expiré. Enfin, les utilisateurs peuvent accéder directement au [portail de changement de mot de passe Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) s’ils souhaitent modifier leur mot de passe.
@@ -187,6 +196,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 
 ## <a name="password-management-reports"></a>Rapports sur la gestion des mots de passe
+
 * **Q : Combien de temps faut-il pour que les données soient affichées dans les rapports de gestion des mots de passe ?**
 
   > **R :** Les données doivent apparaître dans les rapports de gestion des mots de passe dans les cinq à dix minutes. Dans certains cas, il faut attendre une heure avant qu’elles n’apparaissent.
@@ -219,6 +229,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 
 ## <a name="password-writeback"></a>Écriture différée du mot de passe
+
 * **Q : Comment l’écriture différée du mot de passe fonctionne-t-elle en arrière-plan ?**
 
   > **R :** Consultez la rubrique [Fonctionnement de l’écriture différée du mot de passe](active-directory-passwords-writeback.md) pour obtenir une explication de ce qui se passe lorsque vous activez l’écriture différée du mot de passe et pour comprendre la manière dont les données circulent entre le système et votre environnement local.
@@ -257,13 +268,13 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD
+Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
 
-* [**Démarrage rapide** ](active-directory-passwords-getting-started.md) - soyez rapidement opérationnel avec la gestion de mots de passe en libre-service d’Azure AD 
-* [**Licences** ](active-directory-passwords-licensing.md) - configurez vos licences Azure AD
-* [**Données** ](active-directory-passwords-data.md) : comprenez les données requises et comment elles sont utilisées pour la gestion des mots de passe
-* [**Déploiement** ](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation de mot de passe en libre-service sur vos utilisateurs grâce aux conseils figurant ici
-* [**Personnalisation** ](active-directory-passwords-customize.md) : personnalisez l’apparence de l’interface de réinitialisation de mot de passe en libre-service de votre société.
+* [**Démarrage rapide**](active-directory-passwords-getting-started.md) : soyez rapidement opérationnel avec la gestion des mots de passe en libre-service Azure AD. 
+* [**Licences**](active-directory-passwords-licensing.md) : configurez vos licences Azure AD.
+* [**Données**](active-directory-passwords-data.md) : comprenez mieux les données requises et leur utilisation dans la gestion des mots de passe.
+* [**Déploiement**](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation de mot de passe en libre-service pour vos utilisateurs grâce aux conseils figurant ici.
+* [**Personnalisation**](active-directory-passwords-customize.md) : personnalisez l’apparence de l’interface de réinitialisation de mot de passe en libre-service de votre société.
 * [**Rapports**](active-directory-passwords-reporting.md) : découvrez si, quand et où vos utilisateurs accèdent aux fonctionnalités de réinitialisation de mot de passe en libre-service
 * [**Stratégie** ](active-directory-passwords-policy.md) : comprenez et définissez les stratégies de mot de passe d’Azure AD
 * [**Écriture différée de mot de passe** ](active-directory-passwords-writeback.md) - fonctionnement de l’écriture différée de mot de passe avec votre annuaire local

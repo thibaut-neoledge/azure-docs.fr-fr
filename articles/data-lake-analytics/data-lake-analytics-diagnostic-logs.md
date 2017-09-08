@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f5fe6db423f1f2faeaf51e25be9b8f5b551e2a16
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accès aux journaux de diagnostic d’Azure Data Lake Analytics
@@ -78,9 +78,9 @@ Une fois que vous avez activé les paramètres de diagnostic, vous pouvez retour
 
 3. Cliquez sur le lien **Télécharger** d’une entrée de journal pour le télécharger.
 
-### <a name="use-the-azure-data-lake-storage-account-that-contains-log-data"></a>Utiliser le compte de stockage Azure Data Lake qui contient des données de journal
+### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Utiliser le compte de Stockage Azure qui contient les données du journal
 
-1. Ouvrez le panneau du compte de stockage Azure Data Lake associé à Data Lake Analytics pour la journalisation, puis cliquez sur __Objets blob__. Le panneau **Service Blob** répertorie deux conteneurs.
+1. Ouvrez le panneau du compte de Stockage Azure associé à Data Lake Analytics pour la journalisation, puis cliquez sur __Objets blob__. Le panneau **Service Blob** répertorie deux conteneurs.
 
     ![Afficher la journalisation des diagnostics](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Afficher les journaux de diagnostic")
 

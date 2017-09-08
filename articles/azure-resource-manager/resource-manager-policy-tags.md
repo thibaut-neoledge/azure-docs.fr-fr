@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 08/24/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 04338b62d942774368149b27e8b35713b77f8d7c
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 469bd8d637337e5900ea84c6bfaf88064695fb7e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="apply-resource-policies-for-tags"></a>Appliquer des stratégies de ressources pour les balises
 
 Cette rubrique fournit des règles de stratégie courantes que vous pouvez appliquer pour garantir une utilisation cohérente des balises sur les ressources.
 
-Le fait d’appliquer une stratégie de balise à un groupe de ressources ou à un abonnement contenant des ressources n’applique pas rétroactivement la stratégie à ces ressources. Pour appliquer les stratégies à ces ressources, déclenchez une mise à jour des ressources existantes, comme l’indique la page [Déclencher des mises à jour sur des ressources existantes](#trigger-updates-to-existing-resources).
+Le fait d’appliquer une stratégie de balise à un groupe de ressources ou à un abonnement contenant des ressources n’applique pas rétroactivement la stratégie à ces ressources. Pour appliquer les stratégies à ces ressources, déclenchez une mise à jour des ressources existantes. Cet article comprend un exemple PowerShell de déclenchement d’une mise à jour.
 
 ## <a name="ensure-all-resources-in-a-resource-group-have-a-tagvalue"></a>Vérifier que toutes les ressources d’un groupe de ressources ont une balise / valeur
 

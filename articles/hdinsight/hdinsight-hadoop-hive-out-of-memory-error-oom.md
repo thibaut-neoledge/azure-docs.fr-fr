@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/25/2017
+ms.date: 08/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: ab463eac7eba2b0abf2da7b2ae56b6e2c05baefb
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: da1247070ade11f78b505524f5e970e18eb16d10
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Corriger une erreur de mémoire insuffisante Hive dans Azure HDInsight
 
 Découvrez comment résoudre une erreur de mémoire insuffisante dans Hive lors du traitement de tables volumineuses en configurant les paramètres de mémoire Hive.
 
-## <a name="scenario-run-a-hive-query-against-large-tables"></a>Scénario : exécuter une requête Hive sur des tables de grande taille
+## <a name="run-hive-query-against-large-tables"></a>Exécuter une requête Hive sur des tables de grande taille
 
 Un client exécute une requête Hive :
 
@@ -124,10 +123,6 @@ Comme un ordinateur D12 a une mémoire de 28 Go, nous avons décidé d’utilis
 
 Avec les nouveaux paramètres, la requête s’est correctement exécutée en moins de 10 minutes.
 
-## <a name="conclusion-oom-errors-and-container-size"></a>Conclusion : erreurs de mémoire insuffisante et taille de conteneur
-
-L’obtention d’une erreur de mémoire insuffisante ne signifie pas nécessairement que la taille du conteneur est insuffisante. Vous devez plutôt configurer les paramètres de mémoire afin que la taille du tas soit augmentée et qu’elle représente au moins 80 % de la taille de la mémoire du conteneur.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour optimiser les requêtes Hive, consultez [Optimisation des requêtes Hive pour Hadoop dans HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+L’obtention d’une erreur de mémoire insuffisante ne signifie pas nécessairement que la taille du conteneur est insuffisante. Vous devez plutôt configurer les paramètres de mémoire afin que la taille du tas soit augmentée et qu’elle représente au moins 80 % de la taille de la mémoire du conteneur. Pour optimiser les requêtes Hive, consultez [Optimisation des requêtes Hive pour Hadoop dans HDInsight](hdinsight-hadoop-optimize-hive-query.md).

@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 86a4d6d3ab4d29fba8f554265958ffa079b69ec2
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 90a6172dbd887ecda5a9f5d9082a4e136092bc10
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personnaliser le mode d’affichage des données de vos serveurs OPC UA par la solution d’usine connectée
 
 ## <a name="introduction"></a>Introduction
 
-La solution d’usine connectée agrège et affiche les données des serveurs OPC UA qui y sont connectés. Vous pouvez parcourir les serveurs OPC UA et leur envoyer des commandes dans votre solution. Pour plus d’informations sur l’OPC UA, consultez le [FAQ][lnk-faq].
+La solution d’usine connectée agrège et affiche les données des serveurs OPC UA qui y sont connectés. Vous pouvez parcourir les serveurs OPC UA et leur envoyer des commandes dans votre solution. Pour plus d’informations sur OPC UA, consultez les [questions fréquentes (FAQ) sur l’usine connectée](iot-suite-faq-cf.md).
 
 Des exemples de données agrégées dans la solution incluent l’efficacité globale des équipements (OEE) et les indicateurs de performance clés (KPI), que vous pouvez afficher dans le tableau de bord au niveau d’une usine, d’une ligne de production et d’un poste. La capture d’écran suivante illustre les valeurs d’OEE et de KPI pour le poste d’assemblage **Assembly** de la ligne de production **Production line 1** dans l’usine de **Munich** :
 
@@ -36,7 +36,7 @@ La solution permet d’afficher des informations détaillées pour des élément
 
 ![Graphiques du nombre d’éléments fabriqués][img-manufactured-items]
 
-Si vous cliquez sur l’un des graphiques, vous pouvez explorer les données plus en détail à l’aide de Time Series Insights (TSI) :
+Si vous cliquez sur l’un des graphes, vous pouvez explorer les données plus en détail à l’aide de Time Series Insights (TSI) :
 
 ![Explorer les données à l’aide de Time Series Insights][img-tsi]
 
@@ -175,6 +175,7 @@ Pour en savoir plus sur la solution préconfigurée d’usine connectée, consul
 * [Procédure pas à pas de la solution préconfigurée d’usine connectée][lnk-rm-walkthrough]
 * [Déployer une passerelle pour une usine connectée][lnk-connect-cf]
 * [Autorisations sur le site azureiotsuite.com][lnk-permissions]
+* [FAQ sur la fabrique connectée](iot-suite-faq-cf.md)
 * [FAQ][lnk-faq]
 
 

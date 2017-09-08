@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4c0c7c185943eb292d816e2047de930245a3e1e1
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Choix d’une plateforme d’analyse de flux : comparaison d’Apache Storm et d’Azure Stream Analytics
@@ -231,29 +231,12 @@ Des journaux détaillés sont disponibles. Les utilisateurs peuvent accéder aux
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Prise en charge des fonctions définies par l’utilisateur (UDF)</strong>
-                </p>
-            </td>
-            <td width="204" valign="top">
-                <p>
-Les requêtes prennent en charge les fonctions UDF JavaScript. Pour plus d’informations, voir <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">Intégration d’UDF JavaScript</a>.
-                </p>
-            </td>
-            <td width="246" valign="top">
-                <p>
-Les fonctions UDF peuvent être écrites en C#, Java ou dans tout autre langage.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="174" valign="top">
-                <p>
                     <strong>Extensibilité à l’aide de code personnalisé ?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-Non. Aucune prise en charge de code extensible n’existe dans Stream Analytics.
+Prend partiellement en charge les fonctions JavaScript. Pour plus d’informations, voir <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">Intégration d’UDF JavaScript</a>.
                 </p>
             </td>
             <td width="246" valign="top">

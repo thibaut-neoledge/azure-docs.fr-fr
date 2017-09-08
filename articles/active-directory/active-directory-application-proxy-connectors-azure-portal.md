@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: a65216e79b7e89da1c9ccd6d002cb7ab6b18190f
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 1b08a0b376cbcae8522364c9b6ef22e9c0176438
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -78,11 +78,11 @@ Les groupes de connecteurs vous permettent d’installer des connecteurs dédié
 
 Pour les applications installées sur IaaS pour l’accès au cloud, les groupes de connecteurs fournissent un service commun pour sécuriser l’accès à toutes les applications. Les groupes de connecteurs ne créent pas de dépendances supplémentaires sur votre réseau d’entreprise, et ne fragmentent pas l’expérience de l’application. Les connecteurs peuvent être installés sur chaque centre de données du cloud et servir uniquement les applications qui se trouvent sur ce réseau. Vous pouvez installer plusieurs connecteurs pour atteindre une haute disponibilité.
 
-Dans ce cas, l’organisation dispose de plusieurs machines virtuelles connectées à son propre réseau virtuel IaaS hébergé. Pour permettre aux employés d’utiliser ces applications, ces réseaux privés sont connectés au réseau d’entreprise via un réseau VPN de site à site. Les employés qui se trouvent sur site bénéficient ainsi d’une bonne expérience. Toutefois, cela peut ne pas être idéal pour les employés à distance, car cela nécessite une infrastructure locale supplémentaire, comme vous pouvez le voir dans le schéma ci-dessous :
+Prenons par exemple une organisation qui a plusieurs machines virtuelles connectées à son propre réseau virtuel IaaS hébergé. Pour permettre aux employés d’utiliser ces applications, ces réseaux privés sont connectés au réseau d’entreprise via un réseau VPN de site à site. Les employés qui se trouvent sur site bénéficient ainsi d’une bonne expérience. Toutefois, cela peut ne pas être idéal pour les employés à distance, car cela nécessite une infrastructure locale supplémentaire pour acheminer l’accès, comme vous pouvez le voir dans le schéma ci-dessous :
 
 ![Réseau IaaS Azure AD](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   
-Cela peut devenir un problème lorsque de nombreuses organisations utilisent plusieurs fournisseurs cloud, car leurs applications résident dans plusieurs centres de données. Avec les groupes de connecteurs de proxy d’application Azure AD, vous pouvez activer un service commun pour sécuriser l’accès à toutes les applications sans créer de dépendance supplémentaire sur votre réseau d’entreprise :
+Avec les groupes de connecteurs de proxy d’application Azure AD, vous pouvez activer un service commun pour sécuriser l’accès à toutes les applications sans créer de dépendance supplémentaire sur votre réseau d’entreprise :
 
 ![Fournisseurs de cloud multiples IaaS Azure AD](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
 

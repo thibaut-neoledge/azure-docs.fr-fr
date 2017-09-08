@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser les liaisons Azure Notification Hubs d
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
@@ -14,14 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/27/2016
+ms.date: 08/26/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: fa3d37b963c1bb6b58127b9180cd657d7b1dabcc
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 02d01d0f6e945ed54dbe766aec2a0fd7c17c510f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-notification-hub-output-binding"></a>Liaison de sortie Notification Hubs Azure Functions
@@ -38,19 +37,16 @@ Les notifications que vous envoyez peuvent être des notifications natives ou de
 ## <a name="notification-hub-output-binding-properties"></a>Propriété de liaison de sortie du hub de notification
 Le fichier function.json spécifie les propriétés suivantes :
 
-* `name` : nom de variable utilisé dans le code de fonction pour le message du hub de notification.
-* `type` : doit être défini sur *"notificationHub"*.
-* `tagExpression` : expressions de balise vous permettant de demander que les notifications soient remises à un ensemble d’appareils qui se sont inscrits pour la réception de notifications correspondant à l’expression de balise.  Pour plus d’informations, voir [Routage et expressions de balise](../notification-hubs/notification-hubs-tags-segment-push-message.md).
-* `hubName` : nom de la ressource de hub de notification dans le portail Azure.
-* `connection` : cette chaîne de connexion doit correspondre à une chaîne de connexion **Paramètre d’application** définie sur la valeur *DefaultFullSharedAccessSignature* de votre hub de notification.
-* `direction` : doit être défini sur *out*. 
-* `platform` : la propriété de la plateforme indique la plateforme de notification ciblée par votre notification. Il doit s’agir de l’une des valeurs suivantes : 
-  * Par défaut, si la propriété de la plateforme est omise dans la liaison de sortie, les notifications de modèle peuvent être utilisées pour cibler n’importe quelle plateforme configurée sur Azure Notification Hub. Pour en savoir plus sur l’utilisation de modèles en général pour envoyer entre des notifications entre plusieurs plateformes avec un Azure Notification Hub, consultez la rubrique [Modèles](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
-  * `apns` : Apple Push Notification Service (APNS) Pour en savoir plus sur la configuration du hub de notification pour APNS et la réception de notifications dans une application cliente, consultez [Envoi de notifications Push vers iOS avec Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md) 
-  * `adm` : [Amazon Device Messaging](https://developer.amazon.com/device-messaging). Pour en savoir plus sur la configuration du hub de notification pour ADM et la réception de notifications dans une application Kindle, consultez [Prise en main de Notification Hubs pour les applications Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md) 
-  * `gcm` : [Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging, qui est la nouvelle version de GCM, est également pris en charge. Pour en savoir plus sur la configuration du hub de notification pour GCM/FCM et la réception de notifications dans une application cliente Android, consultez [Envoi de notifications Push vers Android avec Azure Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)
-  * `wns` : [services de notification push Windows](https://msdn.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) ciblant les plateformes Windows. Windows Phone 8.1 et les versions ultérieures sont est également prises en charge par WNS. Pour en savoir plus sur la configuration du hub de notification pour WNS et la réception de notifications dans une application Universal Windows Platform (UWP), consultez [Prise en main de Notification Hubs pour les applications de plateforme Windows universelle](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
-  * `mpns` : [service de notifications Push Microsoft](https://msdn.microsoft.com/en-us/library/windows/apps/ff402558.aspx). Cette plateforme prend en charge Windows Phone 8 et les plateformes antérieures de Windows Phone. Pour en savoir plus sur la configuration du hub de notification pour MPNS et la réception de notifications dans une application Windows Phone, consultez [Envoi de notifications Push avec Azure Notification Hubs sur Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)
+
+|Propriété  |Description  |
+|---------|---------|
+|**name** | Nom de variable utilisé dans le code de fonction pour le message du hub de notification. |
+|**type** | Cette propriété doit être définie sur `notificationHub`. |
+|**tagExpression** | Expressions de balise vous permettant de demander que les notifications soient remises à un ensemble d’appareils qui se sont inscrits pour la réception de notifications correspondant à l’expression de balise.  Pour plus d’informations, voir [Routage et expressions de balise](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
+|**hubName** | Nom de la ressource de hub de notification dans le portail Azure. |
+|**Connexion** | Cette chaîne de connexion doit correspondre à une chaîne de connexion **Paramètre d’application** définie sur la valeur *DefaultFullSharedAccessSignature* de votre hub de notification. |
+|**direction** | Cette propriété doit être définie sur `out`. | 
+|**platform** | La propriété de la plateforme indique la plateforme de notification ciblée par votre notification. Par défaut, si la propriété de la plateforme est omise dans la liaison de sortie, les notifications de modèle peuvent être utilisées pour cibler n’importe quelle plateforme configurée sur Azure Notification Hub. Pour en savoir plus sur l’utilisation de modèles en général pour envoyer entre des notifications entre plusieurs plateformes avec un Azure Notification Hub, consultez la rubrique [Modèles](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Une fois définie, _platform_ doit avoir l’une des valeurs suivantes : <ul><li><code>apns</code>&mdash;Apple Push Notification Service (APNS). Pour en savoir plus sur la configuration du hub de notification pour Apple Push Notification Service et la réception de notifications dans une application cliente, consultez [Envoi de notifications Push vers iOS avec Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging (ADM)](https://developer.amazon.com/device-messaging). Pour en savoir plus sur la configuration du hub de notification pour ADM et la réception de notifications dans une application Kindle, consultez [Prise en main de Notification Hubs pour les applications Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging, qui est la nouvelle version de GCM, est également pris en charge. Pour plus d’informations, consultez [Envoi de notifications Push vers Android avec Azure Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Services de notification Push Windows (WNS)](https://msdn.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) ciblant les plateformes Windows. Windows Phone 8.1 et les versions ultérieures sont est également prises en charge par WNS. Pour plus d’informations, consultez [Prise en main de Notification Hubs pour les applications de plateforme Windows universelle](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Services de notifications Push Microsoft (MPNS)](https://msdn.microsoft.com/en-us/library/windows/apps/ff402558.aspx). Cette plateforme prend en charge Windows Phone 8 et les plateformes antérieures de Windows Phone. Pour plus d’informations, consultez [Envoi de notifications Push avec Azure Notification Hubs sur Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 Exemple de fichier function.json :
 
@@ -72,14 +68,15 @@ Exemple de fichier function.json :
 ```
 
 ## <a name="notification-hub-connection-string-setup"></a>Configuration de la chaîne de connexion du hub de notification
-Pour utiliser une liaison de sortie de hub de notification, vous devez configurer la chaîne de connexion pour le hub. Vous pouvez effectuer cette opération dans l’onglet *Intégrer*. Pour cela, sélectionnez votre hub de notification ou d’en créer un. 
+Pour utiliser une liaison de sortie de hub de notification, vous devez configurer la chaîne de connexion pour le hub. Vous pouvez sélectionner un hub de notification existant ou en créer un nouveau sous l’onglet *Intégrer* de votre fonction. Vous pouvez également configurer la chaîne de connexion manuellement. 
 
-Vous pouvez également ajouter manuellement une chaîne de connexion pour un hub existant en ajoutant cette chaîne pour *DefaultFullSharedAccessSignature* à votre hub de notification. Cette chaîne de connexion fournit l’autorisation d’accès de votre fonction pour l’envoi des messages de notification. La valeur de la chaîne de connexion *DefaultFullSharedAccessSignature* est accessible à partir du bouton **clés** dans le panneau principal de votre ressource Notification Hub, dans le portail Azure. Pour ajouter manuellement une chaîne de connexion pour votre hub, procédez comme suit : 
+Pour configurer la chaîne de connexion sur un hub de notification existant :
 
-1. Dans le panneau **Function App** du portail Azure, cliquez sur **Paramètres Function App > Accéder aux paramètres App Service**.
-2. Dans le panneau **Paramètres**, cliquez sur **Paramètres de l’application**.
-3. Faites défiler les éléments vers le bas jusqu’à la section **Paramètres de l’application**, puis ajoutez une entrée nommée pour la valeur *DefaultFullSharedAccessSignature* pour votre hub de notification.
-4. Référencez votre nom de chaîne de paramètre de l’application dans les liaisons de sortie. Cette chaîne sera semblable à **MyHubConnectionString** utilisé dans l’exemple ci-dessus.
+1. Accédez à votre hub de notification dans le [portail Azure](https://portal.azure.com), choisissez **Stratégies d’accès**, puis sélectionnez le bouton Copier en regard de la stratégie **DefaultFullSharedAccessSignature**. Vous copiez ainsi la chaîne de connexion de la stratégie *DefaultFullSharedAccessSignature* dans votre hub de notification. Cette chaîne de connexion fournit l’autorisation d’accès de votre fonction pour l’envoi des messages de notification. 
+    ![Copier la chaîne de connexion du hub de notification](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
+1. Accédez à votre application de fonction dans le portail Azure, choisissez **Paramètres de l’application**, ajoutez une clé telle que `MyHubConnectionString`, collez la stratégie *DefaultFullSharedAccessSignature* copiée dans votre hub de notification en tant que valeur, puis cliquez sur **Enregistrer**.
+
+Vous pouvez désormais utiliser ce paramètre d’application nommé qui définit la connexion du hub de notification dans la liaison de sortie.
 
 ## <a name="apns-native-notifications-with-c-queue-triggers"></a>Notifications natives APNS avec déclencheurs de file d’attente C#
 Cet exemple indique comment utiliser les types définis dans la [bibliothèque Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) pour envoyer une notification APNS native. 

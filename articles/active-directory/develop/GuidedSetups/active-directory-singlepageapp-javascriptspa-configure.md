@@ -1,35 +1,61 @@
+---
+title: "Configuration guidée d’Azure AD v2 JS SPA - Configurer | Microsoft Docs"
+description: "Comment les applications JavaScript SPA peuvent appeler une API qui nécessite des jetons d’accès à partir d’un point de terminaison Azure Active Directory v2"
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 06/01/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: adff529bfdc40006666cc643d49a302d7f1d09ad
+ms.contentlocale: fr-fr
 
-### <a name="create-an-application-express"></a>Créer une application (Express)
-Maintenant, vous devez inscrire votre application dans le portail d’inscription des applications Microsoft :
+---
+## <a name="register-your-application"></a>Inscrivez votre application
+
+Il existe plusieurs manières de créer une application ; veuillez en sélectionnez une :
+
+### <a name="option-1-register-your-application-express-mode"></a>Option 1 : Inscrire votre application (mode Express)
+Maintenant, vous devez inscrire votre application dans le *portail d’inscription des applications de Microsoft* :
 
 1.  Inscrivez votre application via le [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=singlePageApp&appTech=javascriptSpa&step=configure).
 2.  Entrez un nom pour votre application, ainsi que votre adresse e-mail.
 3.  Vérifiez que l’option *Guided Setup* (Installation guidée) est bien cochée.
 4.  Suivez les instructions à l’écran pour obtenir l’ID de l’application et collez-le dans votre code.
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Ajouter les informations d’inscription de l’application à votre solution (Avancé)
+### <a name="option-2-register-your-application-advanced-mode"></a>Option 2 : Inscrire votre application (mode Avancé)
 
 1. Accédez au [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app) pour inscrire une application.
 2. Entrez un nom pour votre application, ainsi que votre adresse e-mail. 
 3. Vérifiez que l’option *Guided Setup* (Installation guidée) n’est pas cochée.
 4.  Cliquez sur `Add Platform`, puis sélectionnez `Web`.
-5. Ajoutez une URL de redirection à votre application. L’URL de redirection est l’URL de votre page `index.html` en fonction de votre serveur web.
+5. Ajouter la `Redirect URL` qui correspond à l’URL des applications en fonction de votre serveur web. Consultez les sections ci-dessous pour obtenir des instructions permettant de définir/obtenir l’URL de redirection dans Visual Studio et Python.
 6. Cliquez sur *Enregistrer*.
 
-> #### <a name="visual-studio-instructions-for-obtaining-redirect-url-using-ssl"></a>Instructions Visual Studio pour obtenir l’URL de redirection à l’aide de SSL
-> Si vous utilisez Visual Studio, configurez votre projet de manière à utiliser SSL, puis utilisez l’URL SSL pour configurer les informations d’inscription de votre application en suivant les instructions ci-dessous :
-> 1.    Dans l’Explorateur de solutions, sélectionnez le projet et examinez la fenêtre `Properties` (si vous ne voyez pas une fenêtre de propriétés, appuyez sur F4).
-> 2.    Remplacez `SSL Enabled` par `True` :
-> 3.    Copiez la valeur de `SSL URL` dans le Presse-papiers :<br/> ![Propriétés du projet](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 4.    Sélectionnez le menu `Project`, puis sélectionnez `{Project} Properties...` (où {Project} correspond au nom de votre projet)
-> 5.    Ouvrez l’onglet `Web`.
-> 6.    Collez la valeur de `SSL URL` dans le champ `Project Url`.
-> 7.    Basculez vers le portail d’inscription des applications, collez la valeur d’URL de redirection dans `Redirect URL`, puis cliquez sur *Enregistrer*.
+> #### <a name="visual-studio-instructions-for-obtaining-redirect-url"></a>Instructions Visual Studio pour obtenir l’URL de redirection
+> Suivez les instructions pour obtenir l’URL de redirection :
+> 1.    Dans *l’Explorateur de solutions*, sélectionnez le projet et examinez la fenêtre `Properties` (si vous ne voyez pas une fenêtre de propriétés, appuyez sur `F4`).
+> 2.    Copiez la valeur de `URL` dans le Presse-papiers :<br/> ![Propriétés du projet](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 3.    Revenez au *Portail d’inscription des applications*, collez la valeur dans `Redirect URL` et cliquez sur « Enregistrer ».
+
+<p/>
+
+> #### <a name="setting-redirect-url-for-python"></a>Configuration d’une URL de redirection pour Python
+> Pour Python, vous pouvez définir le port du serveur web via la ligne de commande. Cette configuration guidée utilise le port 8080 pour référence, vous pouvez utiliser tout autre port disponible. Dans tous les cas, suivez les instructions ci-dessous pour configurer une URL de redirection dans les informations d’inscription de l’application :<br/>
+> - Revenez au *Portail d’inscription des applications* et entrez `http://localhost:8080/` dans `Redirect URL`, ou optez pour `http://localhost:[port]/` si vous utilisez un port TCP personnalisé (*[port]* étant le numéro de port TCP) et cliquez sur « Enregistrer ».
 
 
-#### <a name="configure-your-javascript-spa-application"></a>Configurer votre application SPA JavaScript
+#### <a name="configure-your-javascript-spa"></a>Configurer une application SPA JavaScript
 
-1.  Créez un fichier nommé `msalconfig.js` contenant les informations d’inscription de l’application. Si vous utilisez Visual Studio, sélectionnez le projet (dossier racine du projet), cliquez avec le bouton droit, puis sélectionnez : `Add` > `New Item` > `JavaScript File`. Nommez-le `msalconfig.js`.
+1.  Créez un fichier nommé `msalconfig.js` contenant les informations d’inscription de l’application. Si vous utilisez Visual Studio, sélectionnez le projet (dossier racine du projet), cliquez avec le bouton droit, puis sélectionnez : `Add` > `New Item` > `JavaScript File`. Nommez-le `msalconfig.js`.
 2.  Ajoutez le code suivant à votre fichier `msalconfig.js` :
 
 ```javascript
@@ -43,3 +69,4 @@ var msalconfig = {
 Remplacez <code>Enter_the_Application_Id_here</code> par l’ID d’application que vous venez d’enregistrer
 </li>
 </ol>
+

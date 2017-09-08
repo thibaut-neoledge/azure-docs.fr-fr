@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 43bb5a1aa246004346765d1be4aea236ca17abd2
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Gérer Azure Data Lake Analytics à l’aide du portail Azure
@@ -145,7 +145,25 @@ Utilisez le rôle Développeur Data Lake Analytics pour permettre aux développe
 
 1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
 2. Cliquez sur **Afficher tous les travaux**. Une liste de tous les travaux actifs et récemment terminés dans le compte s’affiche.
-3. Si vous le souhaitez, cliquez sur **Filtrer** pour rechercher les travaux par **Intervalle de temps**, **Nom du travail** et **Auteur**. 
+3. Le cas échéant, cliquez sur **Filtrer** pour rechercher les travaux par **Intervalle de temps**, **Nom du travail** et **Auteur**. 
+
+### <a name="monitoring-pipeline-jobs"></a>Surveillance des tâches de pipeline
+Les tâches qui font partie d’un pipeline fonctionnent ensemble, généralement séquentiellement, pour réaliser un scénario spécifique. Par exemple, vous pouvez avoir un pipeline qui nettoie, extrait, transforme, regroupe l’utilisation des informations du client. Les tâches de pipeline sont identifiées à l’aide de la propriété « Pipeline » lorsque la tâche a été soumise. Les tâches planifiées à l’aide du fichier de définition d’application V2 auront automatiquement cette propriété remplie. 
+
+Pour afficher une liste des tâches U-SQL qui font partie de pipelines : 
+
+1. Dans le portail Azure, accédez à vos comptes Data Lake Analytics.
+2. Cliquez sur **Informations sur les tâches**. L’onglet « Toutes les tâches » s’affiche par défaut avec la liste des tâches en cours d’exécution, en file d’attente et terminées.
+3. Cliquez sur l’onglet **Tâches de pipeline**. Une liste des tâches de pipeline s’affiche, ainsi que des statistiques agrégées pour chaque pipeline.
+
+### <a name="monitoring-recurring-jobs"></a>Surveillance des tâches récurrentes
+Une tâche récurrente a la même logique métier, mais utilise les données d’entrée différente chaque fois qu’elle est exécutée. Dans l’idéal, les tâches récurrentes doivent toujours réussir et ont une exécution relativement stable ; La surveillance de ces comportements permet de garantir que la tâche est intègre. Les tâches récurrentes sont identifiées à l’aide de la propriété « Récurrence ». Les tâches planifiées à l’aide du fichier de définition d’application V2 auront automatiquement cette propriété remplie.
+
+Pour afficher une liste des tâches U-SQL récurrentes : 
+
+1. Dans le portail Azure, accédez à vos comptes Data Lake Analytics.
+2. Cliquez sur **Informations sur les tâches**. L’onglet « Toutes les tâches » s’affiche par défaut avec la liste des tâches en cours d’exécution, en file d’attente et terminées.
+3. Cliquez sur l’onglet **Tâches récurrentes**. Une liste des tâches récurrentes s’affiche, ainsi que des statistiques agrégées pour chaque tâche récurrente.
 
 ## <a name="manage-policies"></a>Gérer les stratégies
 

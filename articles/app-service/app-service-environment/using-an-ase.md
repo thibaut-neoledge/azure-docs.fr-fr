@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: fc20979575b204cdd8dda5291552af0adbde180f
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 279951d40b7780120d0b94e183f06e00ccece016
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="use-an-app-service-environment"></a>Utilisation d’un environnement App Service #
@@ -133,9 +133,15 @@ Les points de terminaison de publication pour les applications d’un environnem
 
 ## <a name="pricing"></a>Tarification ##
 
-Avec l’environnement ASEv2, une nouvelle référence SKU de tarification appelée **Isolé** est utilisée uniquement avec cet environnement. Tous les plans App Service qui sont hébergés dans un environnement ASEv2 se trouvent dans la référence SKU de tarification Isolé. En plus de vos plans App Service, il existe un tarif fixe pour l’environnement ASE en lui-même. Ce prix ne change pas avec la taille de votre environnement ASE. 
+La référence (SKU) de tarification **Isolé** a été créée pour une utilisation avec ASEv2 uniquement. Tous les plans App Service qui sont hébergés dans un environnement ASEv2 se trouvent dans la référence SKU de tarification Isolé. Les tarifs du plan App Service Isolé peuvent varier selon la région. 
 
-Les autres frais potentiels concernent l’ajustement du ratio de mise à l’échelle des serveurs frontaux ou la taille des serveurs frontaux. Vous pouvez ajuster le ratio de mise à l’échelle pour ajouter davantage de serveurs frontaux plus rapidement. Toutefois, vous payez pour les cœurs supplémentaires qui ne sont pas automatiquement ajoutés au système. De même, si vous sélectionnez une taille plus importante pour les serveurs frontaux, vous payez pour les cœurs qui ne sont pas alloués automatiquement. Par exemple, si vous ajustez le ratio de mise à l’échelle sur 10, un serveur frontal est ajouté toutes les 10 instances dans vos plans App Service. Le prix fixe couvre un taux de mise à l’échelle d’un serveur frontal toutes les 15 instances. Avec un ratio de mise à l’échelle de 10, vous payez pour le troisième serveur frontal qui est ajouté pour les 10 instances du plan App Service. Vous n’avez pas besoin de payer lorsque vous atteignez 15 instances, car il a été ajouté automatiquement.
+En plus de vos plans App Service, il existe un tarif fixe pour l’environnement ASE en lui-même. Le forfait ne change pas avec la taille de votre ASE et paie pour l’infrastructure ASE au taux de mise à l’échelle par défaut de 1 frontal pour 15 instances de plan App Service.  
+
+Si le taux de mise à l’échelle par défaut de 1 frontal pour 15 instances de plan App Service n’est pas assez rapide, vous pouvez ajuster le rapport auquel les frontaux sont ajoutés ou la taille des frontaux.  Lorsque vous ajustez le rapport ou la taille, vous payez pour les cœurs frontaux qui ne seraient pas ajoutés par défaut.  
+
+Par exemple, si vous ajustez le ratio de mise à l’échelle sur 10, un serveur frontal est ajouté toutes les 10 instances dans vos plans App Service. Le prix fixe couvre un taux de mise à l’échelle d’un serveur frontal toutes les 15 instances. Avec un ratio de mise à l’échelle de 10, vous payez pour le troisième serveur frontal qui est ajouté pour les 10 instances du plan App Service. Vous n’avez pas besoin de payer lorsque vous atteignez 15 instances, car il a été ajouté automatiquement.
+
+Si vous avez ajusté la taille des frontaux à 2 cœurs, mais n’avez pas modifié le rapport, vous payez pour les cœurs supplémentaires.  Un ASE est créé avec 2 serveurs frontaux, ainsi vous payeriez pour 2 cœurs supplémentaires même en dessous du seuil de mise à l’échelle automatique si vous augmentez la taille à des serveurs frontaux sur 2 cœurs.
 
 Pour en savoir plus, consultez [Tarification d’App Service][Pricing].
 

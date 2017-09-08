@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/04/2017
+ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 1cc36d1fd40121fed23ab6a84429a303690c2726
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 4f14dbf4b66f10290cd4f98d56a005f97cc6a207
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées
@@ -31,7 +31,8 @@ Une fois que vous avez effectué les étapes de cet article, votre stratégie pe
 
 Avant de continuer, vérifiez que vous disposez d’un locataire Azure AD B2C, qui est pour l’ensemble de vos utilisateurs, applications, stratégies, etc. Si vous n’en avez pas déjà un, vous devez en [créer un locataire Azure AD B2C](active-directory-b2c-get-started.md). Nous encourageons fortement tous les développeurs à suivre les procédures pas à pas relatives aux stratégies intégrées d’Azure AD B2C et à configurer leurs applications avec des stratégies intégrées avant de continuer. Vos applications fonctionneront avec les deux types de stratégies après une modification mineure du nom de la stratégie pour appeler la stratégie personnalisée.
 
-Pour accéder à la modification de la stratégie personnalisée, vous avez besoin d’un abonnement Azure valide lié à votre locataire.
+>[!NOTE]
+>Pour accéder à la modification de la stratégie personnalisée, vous avez besoin d’un abonnement Azure valide lié à votre locataire. Si vous n’avez pas [lié votre client Azure AD B2C à un abonnement Azure](active-directory-b2c-how-to-enable-billing.md) ou si votre abonnement Azure est désactivé, le bouton Infrastructure d’expérience d’identité n’est pas disponible.
 
 ## <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>Ajouter à votre locataire B2C des clés de signature et de chiffrement utilisables par les stratégies personnalisées
 
@@ -83,8 +84,8 @@ Azure AD B2C vous impose d’inscrire deux applications supplémentaires qui son
    * Pour **URL de connexion**, utilisez `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, où `yourtenant` est le nom de domaine de votre locataire Azure AD B2C.
 5. Sélectionnez **Créer**.
 6. Une fois qu’elle est créée, sélectionnez l’application nouvellement créée **IdentityExperienceFramework**.<br>
-   a. Sélectionner **Propriétés**.<br>
-   b. Copiez l’ID d’application et enregistrez-le pour une utilisation ultérieure.
+   * Sélectionner **Propriétés**.<br>
+   * Copiez l’ID d’application et enregistrez-le pour une utilisation ultérieure.
 
 ### <a name="create-the-proxyidentityexperienceframework-application"></a>Créer l’application ProxyIdentityExperienceFramework
 
@@ -95,8 +96,8 @@ Azure AD B2C vous impose d’inscrire deux applications supplémentaires qui son
    * Pour **URI de redirection**, utilisez `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, où `yourtenant` est votre locataire Azure AD B2C.
 1. Sélectionnez **Créer**.
 1. Une fois qu’elle a été créée, sélectionnez l’application **ProxyIdentityExperienceFramework**.<br>
-   a. Sélectionner **Propriétés**. <br>
-   b. Copiez l’ID d’application et enregistrez-le pour une utilisation ultérieure.
+   * Sélectionner **Propriétés**. <br>
+   * Copiez l’ID d’application et enregistrez-le pour une utilisation ultérieure.
 1. Sélectionnez **Autorisations requises**.
 1. Sélectionnez **Ajouter**.
 1. Sélectionnez **Sélectionner une API**.
@@ -110,17 +111,17 @@ Azure AD B2C vous impose d’inscrire deux applications supplémentaires qui son
 Les stratégies personnalisées sont un ensemble de fichiers XML qui doivent être chargés sur votre client Azure AD B2C. Nous proposons des packs de démarrage pour vous permettre d’être rapidement opérationnel. Chaque pack de démarrage de la liste suivante contient le plus petit nombre possible de profils techniques et de parcours utilisateur nécessaires pour réaliser les scénarios décrits :
  * LocalAccounts. Permet d’utiliser uniquement les comptes locaux.
  * SocialAccounts. Permet d’utiliser uniquement les comptes sociaux (ou fédérés).
- * **SocialAndLocalAccounts**. Nous allons utiliser ce fichier pour la procédure pas à pas.
+ * **SocialAndLocalAccounts**. Nous utilisons ce fichier pour la procédure pas à pas.
  * SocialAndLocalAccountsWithMFA. Les options d’authentification sociale, locale et multifacteur sont incluses ici.
 
 Chaque pack de démarrage contient :
 
 * Le [fichier de base](active-directory-b2c-overview-custom.md#policy-files) de la stratégie. Il n’y a que peu de modifications à apporter la base.
 * Le [fichier d’extension](active-directory-b2c-overview-custom.md#policy-files) de la stratégie.  C’est sur ce fichier que portent la plupart des modifications de la configuration.
-* [Fichiers de partie de confiance](active-directory-b2c-overview-custom.md#policy-files). Il s’agit de fichiers spécifiques de tâches appelés par votre application.
+* Les [fichiers de partie de confiance](active-directory-b2c-overview-custom.md#policy-files) sont des fichiers propres à chaque tâche, appelés par l’application.
 
 >[!NOTE]
->Si votre éditeur XML prend en charge la validation, vous pouvez valider la conformité des fichiers au fichier de schéma XML TrustFrameworkPolicy_0.3.0.0.xsd, qui se trouve dans le dossier racine du pack de démarrage. La validation du schéma XML identifie les erreurs avant le chargement.
+>Si votre éditeur XML prend en charge la validation, validez la conformité des fichiers au schéma XML TrustFrameworkPolicy_0.3.0.0.xsd, qui se trouve dans le dossier racine du pack de démarrage. La validation du schéma XML identifie les erreurs avant le chargement.
 
  C’est parti :
 
@@ -143,7 +144,7 @@ Chaque pack de démarrage contient :
     PublicPolicyUri="http://yourtenant.onmicrosoft.com">
     ```
    >[!NOTE]
-   >`PolicyId` est le nom de la stratégie qui s’affiche dans le portail et le nom par lequel ce fichier de stratégie est référencé par d’autres fichiers de stratégie.
+   >`PolicyId` est le nom de la stratégie qui s’affiche sur le portail et le nom par lequel les autres fichiers de stratégie font référence à celui-ci.
 
 5. Enregistrez le fichier .
 6. Ouvrez TrustFrameworkExtensions.xml. Faites les deux mêmes modifications en remplaçant `yourtenant.onmicrosoft.com` par votre locataire Azure AD B2C. Procédez au même remplacement dans l’élément `<TenantId>`, ce qui fait un total de trois modifications. Enregistrez le fichier .
@@ -166,7 +167,7 @@ Ajoutez les ID d’application au fichier d’extensions (`TrustFrameworkExtensi
 
 1. Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) et ouvrez le panneau **Azure AD B2C**.
 2. Sélectionnez **Infrastructure d’expérience d’identité**.
-3. Sélectionnez **Charger une stratégie** pour charger les fichiers de stratégie.
+3. Sélectionnez **Charger la stratégie**.
 
     >[!WARNING]
     >Les fichiers de stratégie personnalisée doivent être chargés dans l’ordre suivant :

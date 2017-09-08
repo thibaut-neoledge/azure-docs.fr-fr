@@ -14,14 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/15/2017
+ms.date: 08/25/2017
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 88ca437b84298d0c008076f78e0699d36c1a23c2
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 4963598837b71e812ad3750aad9d20c8460111d9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
@@ -92,7 +91,7 @@ Utilisez la géo-réplication active et les groupes de basculement automatique (
 Dans ce scénario, voici les options de récupération dont vous disposez.
 
 ### <a name="perform-a-point-in-time-restore"></a>Effectuer une limite de restauration dans le temps
-Vous pouvez utiliser les sauvegardes automatisées pour récupérer une copie de votre base de données à un point clairement identifié dans le temps, à condition que ce point figure dans la période de rétention de la base de données. Une fois la base de données restaurée, vous pouvez remplacer la base de données d’origine par la base de données restaurée ou copier les informations nécessaires des données restaurées vers la base de données d’origine. Si la base de données utilise la géo-réplication active, nous vous recommandons de copier les données requises de la copie restaurée vers la base de données d’origine. Si vous remplacez la base de données d’origine par la base de données restaurée, vous devez reconfigurer et resynchroniser la géo-réplication active (ce qui peut prendre un certain temps avec des bases de données volumineuses).
+Vous pouvez utiliser les sauvegardes automatisées pour récupérer une copie de votre base de données à un point clairement identifié dans le temps, à condition que ce point figure dans la période de rétention de la base de données. Une fois la base de données restaurée, vous pouvez remplacer la base de données d’origine par la base de données restaurée ou copier les informations nécessaires des données restaurées vers la base de données d’origine. Si la base de données utilise la géo-réplication active, nous vous recommandons de copier les données requises de la copie restaurée vers la base de données d’origine. Si vous remplacez la base de données d’origine par la base de données restaurée, vous devez reconfigurer et resynchroniser la géo-réplication active (ce qui peut prendre un certain temps avec des bases de données volumineuses). Bien que cette opération restaure une base de données à la dernière limite de restauration dans le temps disponible, la restauration de la base de données géo-secondaire à n’importe quelle limite de restauration dans le temps n’est pas actuellement prise en charge.
 
 Pour plus d’informations et obtenir la procédure détaillée de restauration d’une base de données à un point dans le temps à l’aide du portail Azure ou de PowerShell, voir [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore). Vous ne pouvez pas effectuer une récupération à l’aide de Transact-SQL.
 
@@ -138,7 +137,7 @@ Si vous utilisez la géo-réplication active et les groupes de basculement autom
 > 
 
 ### <a name="perform-a-geo-restore"></a>Effectuer une restauration géographique
-Si vous utilisez des sauvegardes automatisées avec une réplication de stockage géo-redondant comme mécanisme de récupération, [lancez une récupération de base de données à l’aide de la géo-restauration](sql-database-disaster-recovery.md#recover-using-geo-restore). La récupération intervient sous 12 heures dans la plupart des cas, avec une perte de données de 1 heure maximum, selon le moment où la dernière sauvegarde différentielle horaire a été effectuée et répliquée. Tant que la récupération n’est pas terminée, la base de données ne peut pas enregistrer de transactions ou répondre à des requêtes.
+Si vous utilisez des sauvegardes automatisées avec une réplication de stockage géo-redondant comme mécanisme de récupération, [lancez une récupération de base de données à l’aide de la géo-restauration](sql-database-disaster-recovery.md#recover-using-geo-restore). La récupération intervient sous 12 heures dans la plupart des cas, avec une perte de données de 1 heure maximum, selon le moment où la dernière sauvegarde différentielle horaire a été effectuée et répliquée. Tant que la récupération n’est pas terminée, la base de données ne peut pas enregistrer de transactions ou répondre à des requêtes. Bien que cette opération restaure une base de données à la dernière limite de restauration dans le temps disponible, la restauration de la base de données géo-secondaire à n’importe quelle limite de restauration dans le temps n’est pas actuellement prise en charge.
 
 > [!NOTE]
 > Si le centre de données redevient disponible avant que vous ne transfériez votre application vers la base de données récupérée, vous pouvez annuler la récupération.  

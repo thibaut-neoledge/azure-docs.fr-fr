@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 08/25/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 72c02eac9d627ad642d3e66492c314a2276e9c0a
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 736e1a52f55560dfded7a21eaeb1cbac7602f8d6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure
@@ -156,11 +156,14 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
 
     Vous pouvez ajouter ou supprimer des nœuds en continu dans votre cluster HBase lorsque celui-ci s’exécute. Les serveurs régionaux sont équilibrés automatiquement quelques minutes après la fin de l’opération de mise à l’échelle. Cependant, vous pouvez équilibrer manuellement des serveurs régionaux en vous connectant au nœud principal du cluster et en exécutant les commandes suivantes à partir d’une fenêtre d’invite de commandes :
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
 
-    Pour plus d’informations sur l’utilisation de l’interpréteur de commandes HBase, voir []
+    Pour plus d’informations sur l’utilisation de l’interpréteur de commandes HBase, consultez [Prise en main d’un exemple Apache HBase dans HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+
 * Storm
 
     Vous pouvez ajouter ou supprimer des nœuds de données en continu dans votre cluster Storm lorsque celui-ci s'exécute. Mais une fois l’opération de mise à l’échelle terminée avec succès, vous devrez rééquilibrer la topologie.
@@ -178,10 +181,12 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
 
     Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 **Pour mettre à l’échelle des clusters**
 
@@ -207,6 +212,14 @@ Il existe de nombreuses façons de programmer le processus :
 
 Pour les informations de tarification, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Pour supprimer un cluster du portail, consultez [Supprimer les clusters](#delete-clusters)
 
+## <a name="move-cluster"></a>Déplacer un cluster
+
+Vous pouvez déplacer un cluster HDInsight vers un autre groupe de ressources Azure ou un autre abonnement.  Voir [Énumération et affichage des clusters](#list-and-show-clusters).
+
+## <a name="upgrade-clusters"></a>Mettre à niveau des clusters
+
+Consultez [Mettre à niveau le cluster HDInsight](./hdinsight-upgrade-cluster.md).
+
 ## <a name="change-passwords"></a>Modifier les mots de passe
 Un cluster HDInsight peut disposer de deux comptes d'utilisateur. Le nom d’utilisateur du cluster HDInsight ( le compte d’utilisateur HTTP) et le compte d’utilisateur SSH sont créés durant le processus de création du cluster. Vous pouvez utiliser l’interface utilisateur web d’Ambari pour modifier le nom d’utilisateur et le mot de passe du compte d’utilisateur du cluster, et des actions de script pour modifier le compte d’utilisateur SSH
 
@@ -229,16 +242,16 @@ Ambari modifie ensuite le mot de passe sur tous les nœuds du cluster.
 ### <a name="change-the-ssh-user-password"></a>Modifier le mot de passe d’utilisateur SSH
 1. À l’aide d’un éditeur de texte, enregistrez le texte suivant dans un fichier nommé **changepassword.sh**.
 
-   > [!IMPORTANT]
-   > Vous devez utiliser un éditeur qui utilise LF comme caractère de fin de ligne. Si l’éditeur utilise CRLF, le script échoue.
-   >
-   >
+    > [!IMPORTANT]
+    > Vous devez utiliser un éditeur qui utilise LF comme caractère de fin de ligne. Si l’éditeur utilise CRLF, le script échoue.
 
-        #! /bin/bash
-        USER=$1
-        PASS=$2
+    ```bash
+    #! /bin/bash
+    USER=$1
+    PASS=$2
+    usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
+    ```
 
-        usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
 2. Chargez le fichier sur un emplacement de stockage accessible à partir de HDInsight à l’aide d’une adresse HTTP ou HTTPS. Par exemple, un magasin de fichiers public tel que le stockage d’objets blob Azure ou OneDrive. Enregistrez l’URI (adresse HTTP ou HTTPS) dans le fichier, car vous en aurez besoin à l’étape suivante.
 3. À partir du portail Azure, cliquez sur **Clusters HDInsight**.
 4. Cliquez sur votre cluster HDInsight.
@@ -282,8 +295,15 @@ En mode Azure Resource Manager, chaque cluster HDInsight est créé avec un grou
 
 Voir [Énumération et affichage des clusters](#list-and-show-clusters).
 
-## <a name="find-the-default-storage-account"></a>Trouvez le compte de stockage par défaut
-Chaque cluster HDInsight dispose d’un compte de stockage par défaut. Le compte de stockage par défaut et ses clés pour un cluster se trouvent sous **Comptes de stockage**. Voir [Énumération et affichage des clusters](#list-and-show-clusters).
+## <a name="find-the-storage-accounts"></a>Rechercher les comptes de stockage
+
+Les clusters HDInsight utilisent un compte Stockage Azure ou un magasin Azure Data Lake Store pour stocker les données. Chaque cluster HDInsight peut avoir un compte de stockage par défaut et une série de comptes de stockage liés. Pour répertorier les comptes de stockage, vous ouvrez le cluster à partir du portail, puis vous cliquez sur **Comptes de stockage** :
+
+![Comptes de stockage du cluster HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
+
+La capture d’écran précédente comporte une colonne __Default__ (Par défaut) qui indique si le compte est le compte de stockage par défaut.
+
+Pour répertorier les comptes Data Lake Store, cliquez sur **Data Lake Store access** (Accès à Data Lake Store) dans la capture d’écran précédente.
 
 ## <a name="run-hive-queries"></a>Exécuter des requêtes Hive
 Vous ne pouvez pas exécuter un travail Hive directement à partir du portail Azure. À la place, utilisez l’affichage Hive dans l’interface utilisateur web d’Ambari.
@@ -294,6 +314,7 @@ Vous ne pouvez pas exécuter un travail Hive directement à partir du portail Az
 2. Ouvrez l’affichage Hive comme illustré dans la capture d’écran suivante :  
 
     ![Affichage Hive dans HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
+
 3. Cliquez sur **Requête** dans le menu supérieur.
 4. Entrez une requête Hive dans l’**éditeur de requête**, puis cliquez sur **Exécuter**.
 
@@ -316,8 +337,6 @@ La section **Utilisation** du panneau du cluster HDInsight affiche des informati
 
 > [!IMPORTANT]
 > Pour surveiller les services fournis par le cluster HDInsight, vous devez utiliser l’interface Ambari Web ou l’API Ambari REST. Pour plus d’informations sur l’utilisation d’Ambari, voir [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md)
->
->
 
 ## <a name="connect-to-a-cluster"></a>Se connecter à un cluster
 

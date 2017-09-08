@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 58c5b984c677bf9119db52d5721d5687c00a83fa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e7f85aaf2d940f114248d5925a1e97fe0f6bda6c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Créer et utiliser un équilibreur de charge interne avec un environnement App Service #
@@ -182,12 +182,15 @@ Pour charger vos propres certificats et tester l’accès :
 
     ![Adresse IP de l’ILB][5]
 
-### <a name="functions-and-the-ilb-ase"></a>Fonctions et environnement ASE ILB
+## <a name="web-jobs-functions-and-the-ilb-ase"></a>Tâches Web, fonctions et l’environnement App Service ILB ##
 
-Si vous utilisez Azure Functions sur un ASE ILB, il se peut que vous rencontriez le message d’erreur : « Nous ne pouvons pas récupérer vos fonctions pour l’instant. Réessayez plus tard. » Cette erreur se produit parce que l’interface utilisateur d’Azure Functions utilise le site scm via le protocole HTTPS. Vous pouvez rencontrer cette situation si vous utilisez pour votre ASE un certificat HTTP dépourvu d’un certificat racine figurant dans le navigateur. En outre, les navigateurs Internet Explorer\Edge ne partagent pas le paramètre *accept-invalid-cert* dans les onglets. Par conséquent, vous pouvez effectuer l’une des deux opérations suivantes :
+Les fonctions et les tâches Web sont prises en charge sur un environnement App service ILB, mais pour que le portail interagisse avec eux, vous devez disposer d’un accès réseau vers le site SCM.  Cela signifie que votre navigateur doit être sur un ordinateur hôte qui se trouve dans ou connecté au réseau virtuel.  
 
-- ajouter le certificat à votre magasin de certificats approuvé ; 
-- utiliser Chrome. Toutefois, vous devez au préalable accéder au site scm et accepter le certificat non approuvé. Accédez ensuite au portail.
+Si vous utilisez Azure Functions sur un environnement App Service ILB, il se peut que vous rencontriez le message d’erreur suivant : « Nous ne pouvons pas récupérer vos fonctions pour l’instant. Veuillez réessayer plus tard. » Cette erreur se produit parce que l’interface utilisateur des fonctions exploite le site SCM via HTTPS et le certificat racine n’est pas dans la chaîne d’approbation du navigateur. Les tâches Web présente un problème similaire. Pour éviter ce problème, vous pouvez effectuer une des opérations suivantes :
+
+- ajouter le certificat à votre magasin de certificats approuvé ; cela débloque Edge et Internet Explorer.
+- Utiliser Chrome et accéder d’abord au site SCM, accepter le certificat non approuvé, puis accéder au portail.
+- Utiliser un certificat commercial qui figure dans la chaîne d’approbation de votre navigateur.  Il s’agit de la meilleure option.  
 
 ## <a name="dns-configuration"></a>Configuration DNS ##
 

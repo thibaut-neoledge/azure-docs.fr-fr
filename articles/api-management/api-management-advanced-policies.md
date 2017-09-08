@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 0c65ac74316421a0258f01143baa25ffecb5be3b
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
@@ -308,8 +308,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |---------------|-----------------|--------------|--------------|  
 |key|Une chaîne. Expression autorisée. Spécifie l’étendue de la simultanéité. Peut être partagée par plusieurs stratégies.|Oui|N/A|  
 |max-count|Nombre entier. Spécifie le nombre maximal de requêtes autorisées à entrer dans la stratégie.|Oui|N/A|  
-|timeout|Nombre entier. Expression autorisée. Spécifie le nombre de secondes pendant lesquelles une requête doit attendre avant d’échouer avec l’erreur « 403 Too Many Requests » (Trop de requêtes).|Non|Infini|  
-|max-queue-length|Nombre entier. Expression autorisée. Spécifie la longueur maximale de la file d’attente. Les requêtes entrantes essayant d’entrer dans cette stratégie échouent avec l’erreur « 403 Too Many Request » (Trop de requêtes) dès que la file est pleine.|Non|Infini|  
+|timeout|Nombre entier. Expression autorisée. Spécifie le nombre de secondes pendant lesquelles une requête doit attendre pour entrer dans une étendue avant d’échouer avec l’erreur « 429 Too Many Requests » (Trop de requêtes).|Non|Infini|  
+|max-queue-length|Nombre entier. Expression autorisée. Spécifie la longueur maximale de la file d’attente. Les requêtes entrantes qui essayent d’entrer dans cette stratégie échouent avec l’erreur « 429 Too Many Request » (Trop de requêtes) dès que la file est pleine.|Non|Infini|  
   
 ###  <a name="ChooseUsage"></a> Utilisation  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  

@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 381922a7e83a65a855dc906a22c354380914f31e
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 6e26b0af2a16a872c8e02b736e24019b47ed5780
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
-# <a name="microsoft-threat-modeling-tool"></a>Outil Microsoft de modélisation des menaces 
+# <a name="microsoft-threat-modeling-tool"></a>Outil Microsoft de modélisation des menaces
 
 L’outil de modélisation des menaces est un élément essentiel de Microsoft Security Development Lifecycle (SDL). Il permet aux architectes logiciels d’identifier et de corriger les problèmes de sécurité potentiels au plus tôt, lorsqu’ils sont relativement simples et peu coûteux à résoudre. Par conséquent, il réduit considérablement le coût total de développement. En outre, nous avons conçu cet outil en pensant aux personnes qui ne sont pas expertes en sécurité et nous avons facilité la modélisation des menaces pour tous les développeurs en fournissant des conseils éclairés sur la création et l’analyse des modèles de menace. 
 
@@ -43,10 +43,24 @@ Voici quelques-unes des fonctionnalités et innovations de l’outil :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+Le tableau ci-dessous contient des liens importants pour vous familiariser avec l’outil de modélisation des menaces :
+
+| Étape  | Description                                                                                   |
+| ----- | --------------------------------------------------------------------------------------------- |
+| **1** | [Télécharger l’outil de modélisation des menaces](https://aka.ms/tmtpreview)                                |
+| **2** | [Lire notre guide pour bien démarrer](./azure-security-threat-modeling-tool-getting-started.md)    |
+| **3** | [Se familiariser avec les fonctionnalités](./azure-security-threat-modeling-tool-feature-overview.md)   |
+| **4** | [En savoir plus sur les catégories de menaces générées](./azure-security-threat-modeling-tool-threats.md)   |
+| **5** | [Rechercher des préventions aux menaces générées](./azure-security-threat-modeling-tool-mitigations.md) |
+
+## <a name="resources"></a>Ressources
+
 Voici quelques articles plus anciens qui sont toujours applicables à la modélisation des menaces aujourd'hui :
+
 * [Article sur l’importance de la modélisation des menaces](https://msdn.microsoft.com/magazine/dd347831.aspx)
 * [Formation publiée par Trustworthy Computing](https://www.microsoft.com/download/details.aspx?id=16420)
 
 Découvrez le travail de quelques experts de l’outil de modélisation des menaces :
+
 * [Threats Manager (Gestionnaire de menaces)](https://simoneonsecurity.com/threatsmanagersetup-v1-5-10/)
 * [Blog sur la sécurité de Simone Curzi](https://simoneonsecurity.com/)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: df53e92b877b4790bb700f176a1988d265ec4678
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: a0cb529836b14df71e83616f4f625a002c535b7b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes des diagnostics Azure
@@ -56,6 +56,34 @@ Voici les chemins d’accès aux journaux et artefacts importants. Nous y faison
 | **Chemin d’accès à l’utilitaire de collecte des journaux** | C:\WindowsAzure\Packages |
 | **Fichier journal MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
+## <a name="metric-data-doesnt-show-in-azure-portal"></a>Les données métriques ne s’affichent pas dans le portail Azure
+Azure Diagnostics fournit un ensemble de données métriques, qui peuvent être affichées dans le portail Azure. Si vous avez des problèmes liés à l’affichage des données dans le portail, vérifiez le compte de stockage des diagnostics -> table WADMetrics\* pour voir si les enregistrements métriques correspondants sont présents. Ici, PartitionKey de la table est l’ID de ressource des machines virtuelles ou du groupes de machines virtuelles identiques et le RowKey est le nom métrique, autrement dit, le nom du compteur de performances.
+
+Si l’ID de ressource est incorrecte, vérifiez Configuration de Diagnostics -> Mesures -> ResourceId pour voir si l’ID de ressource est défini correctement.
+
+S’il n’existe aucune donnée pour la mesure spécifique, vérifiez Configuration de Diagnostics -> PerformanceCounter pour voir si la mesure (compteur de performances) est incluse. Les compteurs suivants sont activés par défaut.
+- \Processus(_Total)\% Temps processeur
+- \Memory\Octets disponibles
+- \ASP.NET Applications(__Total__)\Requests/Sec
+- \ASP.NET Applications(__Total__)\Errors Total/Sec
+- \ASP.NET\Demandes en file d’attente
+- \ASP.NET\Demandes rejetées
+- \Processor(w3wp)\% Temps processeur
+- \Processus(w3wp) \Octets privés
+- \Processus(WaIISHost)\% Temps processeur
+- \Processus(WaIISHost)\Octets privés
+- \Processus(WaWorkerHost)\% Temps processeur
+- \Processus(WaWorkerHost)\Octets privés
+- \Mémoire\Défauts de page/s
+- \.Mémoire NET CLR(_Global_)\% Temps en GC
+- \LogicalDisk(C:)\Disk Write Bytes/sec
+- \LogicalDisk(C:)\Disk Read Bytes/sec
+- \LogicalDisk(D:)\Disk Write Bytes/sec
+- \LogicalDisk(D:)\Disk Read Bytes/sec
+
+Si la configuration est correctement définie mais que vous ne pouvez toujours pas voir les données métriques, suivez les directives ci-dessous pour l’investigation future.
+
+
 ## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics ne démarre pas
 Regardez les fichiers **DiagnosticsPluginLauncher.log** et **DiagnosticsPlugin.log** à l’emplacement des fichiers journaux indiqués ci-dessous pour en savoir plus sur les raisons de l’échec du démarrage des diagnostics. 
 
@@ -72,14 +100,14 @@ Si le code de sortie est **négatif**, reportez-vous au [tableau des codes de so
 Déterminez si aucune donnée ne s’affiche ou si seules certaines d’entre elles ne s’affichent pas.
 
 ### <a name="diagnostics-infrastructure-logs"></a>Journaux d’infrastructure de diagnostics
-Les journaux d’infrastructure de diagnostics correspondent à l’emplacement de journalisation des erreurs par Azure Diagnostics. Vérifiez que vous avez activé ([procédure](#how-to-check-diagnostics-extension-configuration)) la capture des journaux d’infrastructure de diagnostics dans votre configuration, puis recherchez rapidement les erreurs correspondantes, affichées dans le tableau `DiagnosticInfrastructureLogsTable` de votre compte de stockage configuré.
+Les journaux d’infrastructure de diagnostics correspondent à l’emplacement de journalisation des erreurs par Azure Diagnostics. Vérifiez que vous avez activé ([Guide pratique](#how-to-check-diagnostics-extension-configuration)) la capture des journaux d’infrastructure de diagnostics dans votre configuration, puis recherchez rapidement les erreurs correspondantes, affichées dans le tableau `DiagnosticInfrastructureLogsTable` de votre compte de stockage configuré.
 
 ### <a name="no-data-is-showing-up"></a>Aucune donnée n’est affichée
 La principale cause de données d’événement totalement manquantes est une définition incorrecte des informations de compte de stockage.
 
 Solution : corrigez la configuration du plug-in Diagnostics et réinstallez-le.
 
-Si le compte de stockage est configuré correctement, activez le Bureau à distance sur la machine et assurez-vous de l’exécution de DiagnosticsPlugin.exe et de MonAgentCore.exe. En cas de non-exécution, suivez l’étape décrite à la section [Azure Diagnostics ne démarre pas](#azure-diagnostics-is-not-starting). Si les processus sont exécutés, passez à la section [Capture locale des données](#is-data-getting-captured-locally) et suivez ce guide à partir de là.
+Si le compte de stockage est configuré correctement, activez le Bureau à distance sur la machine et assurez-vous de l’exécution de DiagnosticsPlugin.exe et de MonAgentCore.exe. Si vous n’êtes pas en cours d’exécution, suivez [Azure Diagnostics ne démarre pas](#azure-diagnostics-is-not-starting). Si les processus sont exécutés, passez à la section [Capture locale des données](#is-data-getting-captured-locally) et suivez ce guide à partir de là.
 
 ### <a name="part-of-the-data-is-missing"></a>Une partie des données est manquante
 Si vous obtenez des données, mais pas d’autres, cela signifie que la collecte de données et/ou le pipeline de transfert sont définis correctement. Suivez les sous-sections ci-après pour déterminer si l’origine du problème est liée aux éléments suivants :
@@ -87,15 +115,15 @@ Si vous obtenez des données, mais pas d’autres, cela signifie que la collecte
 La configuration des diagnostics contient la partie qui demande la collecte d’un type particulier de données. [Vérifiez votre configuration](#how-to-check-diagnostics-extension-configuration) pour vous assurer que vous ne recherchez pas des données que vous n’avez pas configurées pour la collecte.
 #### <a name="is-the-host-generating-data"></a>Génération des données par l’hôte :
 - **Compteurs de performances** : ouvrez PerfMon et vérifiez le compteur.
-- **Journaux de suivi** : activez le Bureau à distance sur la machine virtuelle et ajoutez un élément TextWriterTraceListener dans le fichier de configuration de l’application.  Consultez la page web http://msdn.microsoft.com/fr-fr/library/sk36c28t.aspx pour configurer l’écouteur de texte.  Vérifiez que l’élément `<trace>` a la valeur `<trace autoflush="true">`.<br />
+- **Journaux de suivi** : activez le Bureau à distance sur la machine virtuelle et ajoutez un élément TextWriterTraceListener dans le fichier de configuration de l’application.  Consultez http://msdn.microsoft.com/library/sk36c28t.aspx pour configurer l’écouteur de texte.  Vérifiez que l’élément `<trace>` a la valeur `<trace autoflush="true">`.<br />
 Si vous ne voyez pas de journaux de suivi générés, suivez les étapes décrites dans la section [En savoir plus sur les journaux de suivi manquants](#more-about-trace-logs-missing).
-- **Traces ETW** : activez le Bureau à distance sur la machine virtuelle et installez PerfView.  Dans PerfView, exécutez File (Fichier) -> User Command (Commande utilisateur) -> Listen etwprovider1, etwprovider2, etc. (Écouter etwprovider1, etwprovider2, etc.).  Notez que la commande Listen (Écouter) respecte la casse et qu’il ne peut y avoir d’espaces entre les listes séparées par des virgules des fournisseurs ETW.  En cas d’échec de l’exécution de la commande, vous pouvez cliquer sur le bouton « Log » (Journal) dans l’angle inférieur droit de l’outil PerfView pour voir ce qui était attendu et le résultat final de l’exécution.  En supposant que l’entrée soit correcte, une nouvelle fenêtre s’affiche, et vous commencez à voir les traces ETW dans les quelques secondes qui suivent.
+- **Traces ETW** : activez le Bureau à distance sur la machine virtuelle et installez PerfView.  Dans PerfView, exécutez Fichier -> Commande utilisateur -> Écouter etwprovider1, etwprovider2, etc.  Notez que la commande Écouter respecte la casse et qu’il ne peut y avoir d’espace entre les listes séparées par des virgules des fournisseurs ETW.  En cas d’échec de l’exécution de la commande, vous pouvez cliquer sur le bouton « Journal » dans l’angle inférieur droit de l’outil PerfView pour voir ce qui était attendu et le résultat final de l’exécution.  En supposant que l’entrée soit correcte, une nouvelle fenêtre s’affiche, et vous commencez à voir les traces ETW dans les quelques secondes qui suivent.
 - **Journaux des événements** : activez le Bureau à distance sur la machine virtuelle. Ouvrez `Event Viewer` et assurez-vous que les événements existent.
 #### <a name="is-data-getting-captured-locally"></a>Capture locale des données :
 À présent, vérifiez que les données sont capturées localement.
 Les données sont stockées localement dans les fichiers `*.tsf` dans [le magasin local des données de diagnostic](#log-artifacts-path). Différents types de journaux sont collectés dans différents fichiers `.tsf`. Les noms sont semblables à ceux des tableaux du stockage Azure. Par exemple, `Performance Counters` est collecté dans le fichier `PerformanceCountersTable.tsf`, et les journaux des événements sont collectés dans le fichier `WindowsEventLogsTable.tsf`. Suivez les instructions indiquées dans la section [Extraction locale des journaux](#local-log-extraction) pour ouvrir les fichiers de la collection locale, et assurez-vous qu’ils sont collectés sur le disque.
 
-Si les journaux ne sont pas collectés localement et que vous avez déjà vérifié que l’hôte génère des données, il s’agit probablement d’un problème de configuration. Vérifiez attentivement la section appropriée de votre configuration. Passez également en revue la configuration générée pour MonitoringAgent [MaConfig.xml](#log-artifacts-path) et vérifiez qu’il existe une section décrivant la source de journal appropriée et qu’elle n’est pas perdue au cours de la conversion entre la configuration d’Azure Diagnostics et la configuration de l’agent de surveillance.
+Si les journaux collectés localement ne s’affichent pas et que vous avez déjà vérifié que l’hôte génère des données, il s’agit probablement d’un problème de configuration. Vérifiez attentivement la section appropriée de votre configuration. Passez également en revue la configuration générée pour MonitoringAgent [MaConfig.xml](#log-artifacts-path) et vérifiez qu’il existe une section décrivant la source de journal appropriée et qu’elle n’est pas perdue au cours de la conversion entre la configuration d’Azure Diagnostics et la configuration de l’agent de surveillance.
 #### <a name="is-data-getting-transferred"></a>Transfert des données :
 Si vous avez vérifié que les données sont capturées localement, mais qu’elles n’apparaissent toujours pas dans votre compte de stockage : 
 - Avant toute chose, vérifiez que vous avez fourni un compte de stockage correct et que vous n’avez pas renouvelé les clés, etc. correspondant au compte de stockage donné. Pour les services cloud, il arrive parfois que les utilisateurs ne mettent pas à jour le paramètre `useDevelopmentStorage=true`.
@@ -122,13 +150,13 @@ Les tables de stockage Azure qui contiennent les événements ETW sont nommées
 Voici un exemple :
 
 ```XML
-        <EtwEventSourceProviderConfiguration provider=”prov1”>
-          <Event id=”1” />
-          <Event id=”2” eventDestination=”dest1” />
+        <EtwEventSourceProviderConfiguration provider="prov1">
+          <Event id="1" />
+          <Event id="2" eventDestination="dest1" />
           <DefaultEvents />
         </EtwEventSourceProviderConfiguration>
-        <EtwEventSourceProviderConfiguration provider=”prov2”>
-          <DefaultEvents eventDestination=”dest2” />
+        <EtwEventSourceProviderConfiguration provider="prov2">
+          <DefaultEvents eventDestination="dest2" />
         </EtwEventSourceProviderConfiguration>
 ```
 ```JSON
@@ -240,7 +268,8 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 **2. Données des compteurs de performances disponibles dans le stockage, mais non affichées dans le portail**
 
 Par défaut, le portail des machines virtuelles affiche certains compteurs de performances. Si vous ne les voyez pas alors que vous savez qu’elles sont générées, car disponibles dans le stockage, vous devez procéder à des vérifications. Vérifiez les points suivants :
-- Si les données du stockage possèdent des noms de compteur en anglais. Si ces noms ne sont pas en anglais, le graphique des métriques du portail ne peut pas les reconnaître.
+- Si les données du stockage possèdent des noms de compteur en anglais. Si les noms de compteur ne sont pas en anglais, le graphique des mesures du portail ne peut pas les reconnaître.
 - Si vous utilisez des caractères génériques (\*) dans les noms de compteur de performances, le portail ne peut pas mettre en corrélation le compteur configuré et le compteur collecté.
 
 **Atténuation** : modifiez la langue de la machine pour la définir sur l’anglais pour les comptes système. Sélectionnez Panneau de configuration -> Région -> Administration -> Paramètres de copie ->, puis décochez la case « Écran d’accueil et comptes système » afin que la langue personnalisée ne soit pas appliquée au compte système. Veillez également à ne pas utiliser de caractères génériques si vous souhaitez que le portail soit votre expérience de consommation principale.
+

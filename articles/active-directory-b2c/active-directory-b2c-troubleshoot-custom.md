@@ -12,19 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/04/2017
-ms.author: saeedakhter-msft
+ms.date: 08/04/2017
+ms.author: saeda
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ad31e5f4ef3be78d8d2dd6b9c7d83e447d9ef776
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 8c79df33cd5f04f490e2cc6372f7e8ac1c4d9bbe
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C : collecte des journaux
 
 Cet article explique comment collecter les journaux à partir d’Azure AD B2C afin que vous puissiez diagnostiquer les problèmes liés à vos stratégies personnalisées.
+
+>[!NOTE]
+>Actuellement, les journaux d’activité détaillés décrits ici sont conçus **UNIQUEMENT** pour faciliter le développement de stratégies personnalisées. N’utilisez pas le mode de développement en production.  Les journaux recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement.  En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire.  Ces journaux détaillés ne sont collectés que si la stratégie est en **MODE DE DÉVELOPPEMENT**.
+
 
 ## <a name="use-application-insights"></a>Utiliser Application Insights
 
@@ -60,7 +64,7 @@ Azure AD B2C prend en charge une fonctionnalité d’envoi de données à Applic
   * `DeveloperMode="true"` indique à ApplicationInsights d’accélérer l’envoi de la télémétrie via le pipeline de traitement, valable pour le développement, mais limité à des volumes élevés.
   * `ClientEnabled="true"` envoie le script côté client ApplicationInsights pour l’affichage de la page de suivi et les erreurs côté client (pas nécessaire).
   * `ServerEnabled="true"` envoie le JSON UserJourneyRecorder existant en tant qu’événement personnalisé à Application Insights.
-  Le fichier XML final doit ressembler à ce qui suit :
+Exemple :
 
   ```XML
   <TrustFrameworkPolicy
@@ -85,7 +89,7 @@ Azure AD B2C prend en charge une fonctionnalité d’envoi de données à Applic
 ### <a name="see-the-logs-in-application-insights"></a>Afficher des journaux dans Application Insights
 
 >[!NOTE]
-> Il y a un court délai (moins de 5 minutes) avant de pouvoir afficher les nouveaux journaux dans Application Insights.
+> Il y a un court délai (moins de cinq minutes) avant que les nouveaux journaux s’affichent dans Application Insights.
 
 1. Ouvrez la ressource Application Insights que vous avez créée sur le [portail Azure](https://portal.azure.com).
 1. Dans le menu **Aperçu**, cliquez sur **Analytics**.
@@ -102,11 +106,16 @@ Les entrées peuvent être longues.  Exporter au format CSV pour une étude plus
 Pour plus d’informations sur l’outil Analytics, cliquez [ici](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
 >[!NOTE]
->La communauté a développé une visionneuse userjourney pour aider les développeurs d’identité.  Elle n’est pas prise en charge par Microsoft et est mise à disposition tel quel.  Elle effectue une lecture à partir de votre instance d’Application Insights et fournit une vue bien structurée des événements userjourney.  Vous obtenez le code source et le déployez dans votre propre solution.
+>La communauté a développé une visionneuse du parcours utilisateur pour aider les développeurs d’identité.  Elle n’est pas prise en charge par Microsoft et est mise à disposition tel quel.  Elle lit les données de votre instance d’Application Insights et présente les événements du parcours utilisateur d’une façon bien structurée.  Vous obtenez le code source et le déployez dans votre propre solution.
+
+>[!NOTE]
+>Actuellement, les journaux d’activité détaillés décrits ici sont conçus **UNIQUEMENT** pour faciliter le développement de stratégies personnalisées. N’utilisez pas le mode de développement en production.  Les journaux recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement.  En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire.  Ces journaux détaillés ne sont collectés que si la stratégie est en **MODE DE DÉVELOPPEMENT**.
 
 [Référentiel Github pour exemples de stratégies personnalisées non pris en charge et outils connexes](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
 
 
+## <a name="next-steps"></a>Étapes suivantes
 
+Explorez les données d’Application Insights pour mieux comprendre la façon dont l’infrastructure d’expérience d’identité B2C sous-jacente fournit vos propres expériences d’identité.
 

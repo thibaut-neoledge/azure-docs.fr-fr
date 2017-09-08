@@ -12,43 +12,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 08/29/2017
 ms.author: sethm;babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: b3af61ec0923a0d9d207cee790d59aa9254a578b
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: db8b119178de0e565b2064e9a52d5e9989d60d38
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
-La capacité *Event Hubs Dedicated* offre des déploiements à locataire unique pour les clients les plus exigeants. Lorsqu’ils sont complètement déployés, les Azure Event Hubs peuvent entrer plus de 2 millions d’événements par seconde ou jusqu’à 2 Go par seconde de télémétrie avec un stockage durable et une latence inférieure à une seconde. Cela permet également des solutions intégrées grâce au traitement en temps réel et par lot sur le même système. Avec la fonctionnalité Event Hubs Archive incluse dans l’offre, vous pouvez réduire la complexité de votre solution par le biais d’un seul flux prenant en charge des pipelines en temps réel et par lot.
+La capacité *Event Hubs Dedicated* offre des déploiements à locataire unique pour les clients les plus exigeants. Lorsqu’ils sont complètement déployés, les Azure Event Hubs peuvent entrer plus de 2 millions d’événements par seconde ou jusqu’à 2 Go par seconde de télémétrie avec un stockage durable et une latence inférieure à une seconde. Cela permet également des solutions intégrées grâce au traitement en temps réel et par lot sur le même système. Avec [Event Hubs Capture](event-hubs-capture-overview.md) inclus dans l’offre, vous pouvez réduire la complexité de votre solution par le biais d’un seul flux prenant en charge des pipelines en temps réel et par lot.
 
-Le tableau suivant compare les niveaux de service Event Hubs disponibles. L’offre Event Hubs Dedicated consiste en un tarif mensuel fixe par rapport à la tarification à l’utilisation pour la plupart des fonctionnalités De base et Standard. Le niveau Dedicated offre les fonctionnalités du plan Standard, mais avec la capacité de mise à l’échelle de classe entreprise pour les clients avec des charges de travail exigeantes. 
+Le tableau suivant compare les niveaux de service Event Hubs disponibles. L’offre Event Hubs Dedicated consiste en un tarif mensuel fixe par rapport à la tarification à l’utilisation pour la plupart des fonctionnalités de l’offre Standard. Le niveau Dedicated offre les fonctionnalités du plan Standard, mais avec la capacité de mise à l’échelle de classe entreprise pour les clients avec des charges de travail exigeantes. 
 
-| Fonctionnalité | De base | Standard | Dédié |
+| Fonctionnalité | Standard | Dédié |
 | --- |:---:|:---:|:---:|
-| Événements d’entrée | Paiement par million d’événements | Paiement par million d’événements | Inclus |
-| Unité de débit (1 Mo/s en entrée, 2 Mo/s en sortie) | Paiement par heure | Paiement par heure | Inclus |
-| Taille des messages | 256 KB | 256 KB | 1 Mo |
-| Stratégies d’éditeur | N/A | Oui | Oui |     
-| Groupes de consommateurs | 1 - par défaut | 20 | 20 |
-| Relecture des messages | Oui | Oui | Oui |
-| Unités de débit maximales | 20 | 20 (flexible jusqu’à 100)    | 1 unité de capacité≈200 |
-| Connexions réparties | 100 inclus | 1 000 inclus | 100 K inclus |
-| Connexions négociées supplémentaires | N/A | Oui | Oui |
-| Rétention des messages | 1 jour inclus | 1 jour inclus | Jusqu’à 7 jours inclus |
-| Archive (version préliminaire) | N/A    | Paiement par heure | Inclus |
+| Événements d’entrée | Paiement par million d’événements | Inclus |
+| Unité de débit (1 Mo/s en entrée, 2 Mo/s en sortie) | Paiement par heure | Inclus |
+| Taille des messages | 256 KB | 1 Mo |
+| Stratégies d’éditeur | Oui | Oui |   
+| Groupes de consommateurs | 20 | 20 |
+| Relecture des messages | Oui | Oui |
+| Unités de débit maximales | 20 (flexible jusqu’à 100)   | 1 unité de capacité≈200 |
+| Connexions réparties | 1 000 inclus | 100 K inclus |
+| Connexions négociées supplémentaires | Oui | Oui |
+| Rétention des messages | 1 jour inclus | Jusqu’à 7 jours inclus |
+| Capture | Paiement par heure | Inclus |
 
 ## <a name="benefits-of-event-hubs-dedicated-capacity"></a>Avantages de la capacité Event Hubs Dedicated
 
 Les avantages suivants sont disponibles lorsque vous utilisez Event Hubs Dedicated :
 
 * Hébergement à locataire unique ne subissant pas le bruit d’autres locataires.
-* Augmentation de la taille des messages jusqu’à 1 Mo contre 256 Ko pour les plans Standard et De base.
+* Augmentation de la taille des messages jusqu’à 1 Mo contre 256 Ko pour les plans Standard.
 * Performances reproductibles chaque fois.
 * Garantie de la capacité à répondre à vos besoins en rafale.
 * Évolutivité de 1 à 8 unités de capacité : assure jusqu’à 2 millions d’événements d’entrée par seconde.
@@ -56,7 +55,7 @@ Les avantages suivants sont disponibles lorsque vous utilisez Event Hubs Dedicat
 * Aucune maintenance : nous gérons l’équilibrage de la charge, les mises à jour du système d’exploitation, les correctifs de sécurité et le partitionnement.
 * Tarification mensuelle fixe.
 
-Les Event Hubs Dedicated suppriment également certaines des limites de débit de l’offre Standard. Les unités de débit des niveaux De base et Standard autorisent 1 000 événements par seconde ou 1 Mo par seconde en entrée par unité de débit, et deux fois cette quantité en sortie. L’offre de mise à l’échelle Dedicated n’impose aucune restriction sur le nombre d’événements d’entrée et de sortie. Ces limites sont uniquement régies par la capacité de traitement des concentrateurs d’événements achetés.
+Les Event Hubs Dedicated suppriment également certaines des limites de débit de l’offre Standard. Les unités de débit du niveau Standard autorisent 1 000 événements par seconde ou 1 Mo par seconde en entrée par unité de débit, et deux fois cette quantité en sortie. L’offre de mise à l’échelle Dedicated n’impose aucune restriction sur le nombre d’événements d’entrée et de sortie. Ces limites sont uniquement régies par la capacité de traitement des hubs d’événements achetés.
 
 Ce service est destiné aux grands utilisateurs de télémétrie et est disponible pour les clients disposant d’un contrat d’entreprise.
 

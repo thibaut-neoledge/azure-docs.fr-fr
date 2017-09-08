@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 08/21/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8c142c5e89c5e4eb45bddd0943a6a130cc876f5a
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 514b5404e8cbfa0baa657eb41736e20cad502638
 ms.contentlocale: fr-fr
 ms.lasthandoff: 08/24/2017
 
@@ -99,11 +99,11 @@ Vous pouvez forcer la passerelle à communiquer avec Azure Service Bus à l’ai
 
 ### <a name="general"></a>Généralités
 
-**Q**: Ai-je besoin d’une passerelle pour des sources de données dans le cloud telles que SQL Azure ? <br/>
+**Q**: Ai-je besoin d’une passerelle pour les sources de données dans le cloud, par exemple Azure SQL Database ? <br/>
 **R** : Non. Une passerelle se connecte uniquement aux sources de données locales.
 
 **Q** : La passerelle doit-elle être installée sur le même ordinateur que la source de données ? <br/>
-**R** : Non. La passerelle se connecte à la source de données en utilisant les informations de connexion fournies. En ce sens, considérez la passerelle comme une application cliente. La passerelle doit juste être en mesure de se connecter au nom du serveur qui a été fourni.
+**R** : Non. La passerelle se connecte à la source de données en utilisant les informations de connexion fournies. En ce sens, considérez la passerelle comme une application cliente. La passerelle doit juste être en mesure de se connecter au nom du serveur fourni, en général sur le même réseau.
 
 <a name="why-azure-work-school-account"></a>
 
@@ -130,7 +130,7 @@ Vous pouvez utiliser l’application tierce Azure Speed Test pour mesurer votre 
 **R** : Vérifiez les ports et les hôtes que la passerelle utilise.
 
 **Q** : Comment s’appelle le service Windows réel ?<br/>
-**R** : Dans Services, la passerelle est appelée Service Enterprise Gateway Power BI.
+**R** : Dans Services, la passerelle se nomme « service de passerelle de données sur site ».
 
 **Q** : Le service Windows de passerelle peut-il s’exécuter avec un compte Azure Active Directory ? <br/>
 **R** : Non. Le service Windows doit avoir un compte Windows valide. Par défaut, le service sera exécuté avec le SID du service, NT SERVICE\PBIEgwService.
@@ -151,7 +151,7 @@ Vous pouvez utiliser l’application tierce Azure Speed Test pour mesurer votre 
 Vous pouvez également utiliser les outils de suivi des requêtes proposés par votre source de données. Par exemple, vous pouvez utiliser Extended Events ou SQL Profiler for SQL Server et Analysis Services.
 
 **Q** : Où se situent les journaux de la passerelle ? <br/>
-**R**: Voir la section Outils plus loin dans cette rubrique.
+**R**: Voir la section Journaux plus loin dans cette rubrique.
 
 ### <a name="update"></a>Mise à jour avec la version la plus récente
 

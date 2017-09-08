@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: curtand
-ms.reviewer: rodejo
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: b9b5ddf42958a2b4e241d0252101d979009e7dc0
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: ae2a2e477137bc117111b147e1f088d528a55de5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -188,6 +189,7 @@ Opérateurs autorisés
 | Propriétés | Valeurs autorisées | Usage |
 | --- | --- | --- |
 | otherMails |Toute valeur de chaîne. |(user.otherMails -contains "alias@domain") |
+
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>Propriétés à valeurs multiples
@@ -196,7 +198,7 @@ Opérateurs autorisés
 * -any (respectée lorsqu’au moins un élément de la collection correspond à la condition)
 * -all (respectée lorsque tous les éléments de la collection correspondent à la condition)
 
-| Propriétés | Valeurs | Utilisation |
+| Propriétés | Valeurs | Usage |
 | --- | --- | --- |
 | assignedPlans |Chaque objet de la collection affiche les propriétés de chaînes suivantes : capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -et assignedPlan.capabilityStatus -eq "Enabled") |
 
@@ -237,14 +239,14 @@ Voici un exemple de règle utilisant un attribut personnalisé :
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-Vous pouvez accéder au nom de l’attribut personnalisé dans le répertoire en lançant une requête sur un attribut d’utilisateur, à l’aide de l’explorateur graphique, et en recherchant le nom d’attribut.
+Vous pouvez accéder au nom de l’attribut personnalisé dans le répertoire en lançant une requête sur un attribut d’utilisateur, à l’aide de l’explorateur graphique, et en recherchant le nom d’attribut. Actuellement, nous ne prenons pas en charge les attributs à valeurs multiples synchronisés à partir de l’annuaire Active Directory local. 
 
 ## <a name="direct-reports-rule"></a>Règle de « collaborateurs directs »
 Vous pouvez créer un groupe contenant tous les collaborateurs directs d’un responsable. À l’avenir, lorsque les collaborateurs directs d’un responsable changeront, l’appartenance du groupe sera ajustée automatiquement.
 
 > [!NOTE]
 > 1. Pour que la règle fonctionne, assurez-vous que la propriété **ID Responsable** est correctement définie sur les utilisateurs de votre client. Vous pouvez vérifier la valeur actuelle d’un utilisateur sur son **onglet Profil**.
-> 2. Cette règle prend uniquement en charge les collaborateurs **directs**. Il est actuellement impossible de créer un groupe pour une hiérarchie imbriquée ; un groupe qui inclut des collaborateurs directs et leurs rapports.
+> 2. Cette règle prend uniquement en charge les collaborateurs **directs**. Il est actuellement impossible de créer un groupe pour une hiérarchie imbriquée, par exemple un groupe qui inclut des collaborateurs directs et leurs rapports.
 
 **Pour configurer le groupe**
 
