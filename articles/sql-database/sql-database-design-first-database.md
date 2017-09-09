@@ -11,16 +11,16 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 08/03/2017
+ms.date: 08/25/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 69cfffdae5ce2db53acc6d668dbe468c3ef22dc2
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 63833db74eb5889611d4aeb45d00542217730910
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -39,7 +39,7 @@ Azure SQL Database est une solution DBaaS relationnelle gérée dans Microsoft 
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
 - La dernière version de [SSMS](https://msdn.microsoft.com/library/ms174173.aspx) (SQL Server Management Studio).
@@ -57,7 +57,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
 
-2. Sélectionnez **Bases de données** dans la page **Nouveau**, puis **Base de données SQL** dans la page **Bases de données**. 
+2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans cette même**** page.
 
    ![créer une base de données vide](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -67,35 +67,45 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nom de la base de données** | mySampleDatabase | Pour les noms de base de données valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). | 
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
-   | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
+   | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Conventions de nommage](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Sélectionner une source** | Base de données vide | Indique qu’une base de données vide doit être créée. |
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
    | Paramètre       | Valeur suggérée | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
+   | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Règles et restrictions de nommage](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
    | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
    | **Mot de passe** | Mot de passe valide | Votre mot de passe doit comporter au moins 8 caractères et contenir des caractères appartenant à trois des catégories suivantes : caractères en majuscules, caractères en minuscules, chiffres et caractères non alphanumériques. |
    | **Emplacement** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |
 
-   ![create database-server](./media//sql-database-design-first-database/create-database-server.png)
+   ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
 5. Cliquez sur **Sélectionner**.
 
-6. Cliquez sur **Niveau tarifaire** pour spécifier le niveau de service et le niveau de performances pour votre nouvelle base de données. Pour ce didacticiel, sélectionnez **20 DTU** et **250** Go de stockage.
+6. Cliquez sur **Niveau tarifaire** pour spécifier le niveau de service, le nombre de DTU et la quantité de stockage. Explorez les options concernant la quantité de DTU et de stockage disponible pour chaque niveau de service. 
+
+7. Pour ce tutoriel, sélectionnez le niveau de service **Standard** et utilisez le curseur pour sélectionner **100 DTU (S3)** et **400** Go de stockage.
 
    ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
-7. Cliquez sur **Apply**.  
+8. Acceptez les conditions d’utilisation de la préversion pour pouvoir utiliser l’option **Stockage de composants additionnels**. 
 
-8. Sélectionnez un **classement** pour la base de données vide (pour ce didacticiel, utilisez la valeur par défaut). Pour en savoir plus sur les classements, voir [Classements](https://docs.microsoft.com/sql/t-sql/statements/collations)
+   > [!IMPORTANT]
+   > \* Les tailles de stockage supérieures à la quantité de stockage incluse sont en préversion et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >
+   >\* Dans le niveau Premium, plus de 1 To de stockage sont actuellement disponibles dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie, Centre du Canada et Est du Canada. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > 
 
-9. Cliquez sur **Créer** pour approvisionner la base de données. L’approvisionnement prend environ une minute et demie. 
+9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  
 
-10. Dans la barre d’outils, cliquez sur **Notifications** pour surveiller le processus de déploiement.
+10. Sélectionnez un **classement** pour la base de données vide (pour ce didacticiel, utilisez la valeur par défaut). Pour en savoir plus sur les classements, voir [Classements](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
-   ![notification](./media/sql-database-get-started-portal/notification.png)
+11. Maintenant que vous avez rempli le formulaire SQL Database, cliquez sur **Créer** pour approvisionner la base de données. L’approvisionnement prend quelques minutes. 
+
+12. Dans la barre d’outils, cliquez sur **Notifications** pour surveiller le processus de déploiement.
+    
+     ![notification](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>créer une règle de pare-feu au niveau du serveur ;
 
@@ -105,26 +115,21 @@ Le service SQL Database crée un pare-feu au niveau du serveur qui empêche les 
 > SQL Database communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
 >
 
-1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Bases de données SQL**. La page de présentation de votre base de données s’ouvre, affiche le nom de serveur complet (tel que **mynewserver20170313.database.windows.net**) et fournit des options pour poursuivre la configuration. Copiez ce nom de serveur complet pour une utilisation ultérieure.
+1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Bases de données SQL**. La page de présentation de votre base de données s’ouvre, elle affiche le nom de serveur complet (tel que **mynewserver-20170824.database.windows.net**) et fournit des options pour poursuivre la configuration. 
 
-   > [!IMPORTANT]
-   > Vous avez besoin du nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les guides de démarrage rapide suivants.
-   > 
+2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les guides de démarrage rapide suivants. 
 
-   ![nom du serveur](./media/sql-database-connect-query-dotnet/server-name.png) 
+   ![nom du serveur](./media/sql-database-get-started-portal/server-name.png) 
 
-2. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils, comme illustré sur l’image précédente. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre. 
+3. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre. 
 
    ![règle de pare-feu de serveur](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
+4. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-3. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
+5. Cliquez sur **Save**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
 
-4. Cliquez sur **Save**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
-
-   ![définir la règle de pare-feu de serveur](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
-
-4. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
+6. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
 
 Vous pouvez maintenant vous connecter au serveur SQL Database et à ses bases de données à l’aide de SQL Server Management Studio ou de tout autre outil de votre choix à partir de cette adresse IP à l’aide du compte Administrateur de serveur créé au préalable.
 
@@ -139,7 +144,7 @@ Obtenez le nom de serveur complet de votre serveur Azure SQL Database dans le po
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
 3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**.
 
-   ![informations de connexion](./media/sql-database-connect-query-dotnet/server-name.png)
+   ![informations de connexion](./media/sql-database-get-started-portal/server-name.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>Connexion à la base de données avec SSMS
 
@@ -315,7 +320,7 @@ Imaginez que vous avez supprimé une table par inadvertance. Il s’agit de quel
     * Point de restauration : Sélectionnez une heure avant la modification de la base de données
     * Serveur cible : Vous ne pouvez pas modifier cette valeur lors de la restauration d’une base de données 
     * Pool de base de données élastique : sélectionnez **Aucun**  
-    * Niveau tarifaire : sélectionnez **20 DTU** et **250 Go** de stockage.
+    * Niveau tarifaire : sélectionnez **20 DTU** et **40 Go** de stockage.
 
    ![point de restauration](./media/sql-database-design-first-database/restore-point.png)
 

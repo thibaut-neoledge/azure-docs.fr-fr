@@ -39,8 +39,8 @@ Cet exemple de script PowerShell configure le groupe de basculement de géorépl
 Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
-Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname
+Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 ```
 
 ## <a name="script-explanation"></a>Explication du script

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
-
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 7546650e6096a880f4fb4d0c94dd4ecc00b70160
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Compression des fichiers dans Azure CDN pour améliorer les performances
@@ -45,16 +46,16 @@ Il existe deux façons d’activer la compression :
 > 
 > 
 
-1. Dans le panneau du profil CDN, cliquez sur le point de terminaison CDN que vous souhaitez gérer.
+1. Dans la page du profil CDN, cliquez sur le point de terminaison CDN que vous souhaitez gérer.
    
-    ![Points de terminaison du panneau de profil CDN](./media/cdn-file-compression/cdn-endpoints.png)
+    ![Points de terminaison de la page de profil CDN](./media/cdn-file-compression/cdn-endpoints.png)
    
-    Le panneau du point de terminaison CDN s’ouvre.
+    La page du point de terminaison CDN s’ouvre.
 2. Cliquez sur le bouton **Configurer** .
    
-    ![Bouton de gestion du panneau de profil CDN](./media/cdn-file-compression/cdn-config-btn.png)
+    ![Bouton de gestion de la page de profil CDN](./media/cdn-file-compression/cdn-config-btn.png)
    
-    Le panneau de configuration CDN s’ouvre.
+    La page de configuration CDN s’ouvre.
 3. Activez **Compression**.
    
     ![Options de compression CDN](./media/cdn-file-compression/cdn-compress-standard.png)
@@ -72,12 +73,14 @@ Il existe deux façons d’activer la compression :
 > 
 > 
 
-1. Dans le panneau de profil CDN, cliquez sur le bouton **Gérer** .
+1. Dans la page de profil CDN, cliquez sur le bouton **Gérer**.
    
-    ![Bouton de gestion du panneau de profil CDN](./media/cdn-file-compression/cdn-manage-btn.png)
+    ![Bouton de gestion de la page de profil CDN](./media/cdn-file-compression/cdn-manage-btn.png)
    
     Le portail de gestion CDN s'ouvre.
 2. Pointez sur l’onglet **HTTP volumineux**, puis pointez sur le menu volant **Paramètres de cache**.  Cliquez sur **Compression**.
+
+    ![Sélection de la compression de fichiers](./media/cdn-file-compression/cdn-compress-select.png)
    
     Les options de compression sont affichées.
    
@@ -103,11 +106,11 @@ Ces tableaux décrivent le comportement de compression du CDN Azure pour chaque 
 > 
 > Pour tous les produits Azure CDN, un fichier doit être de type MIME qui a été [configuré pour la compression](#enabling-compression).
 > 
-> Les profils **Azure CDN fourni par Verizon** (Standard et Premium) prennent en charge l’encodage **gzip**, **deflate** ou **bzip2**.  Les profils du **CDN Azure fourni par Akamai** prennent uniquement en charge l’encodage **gzip**.
+> Les profils **Azure CDN fourni par Verizon** (Standard et Premium) prennent en charge l’encodage **gzip** (zip GNU), **deflate**, **bzip2** ou **br** (Brotli). Pour l’encodage Brotli, la compression est effectuée uniquement en périphérie. Le client/navigateur doit envoyer la demande d’encodage Brotli et la ressource compressée doit d’abord avoir été compressée au niveau de l’origine. 
+>
+>Les profils du **CDN Azure fourni par Akamai** prennent uniquement en charge l’encodage **gzip**.
 > 
-> Les points de terminaison **Azure CDN fourni par Akamai** demandent toujours des fichiers encodés **gzip** en provenance de l’origine, quelle que soit la demande du client.
-> 
-> 
+> Les points de terminaison **Azure CDN fourni par Akamai** demandent toujours des fichiers encodés **gzip** en provenance de l’origine, quelle que soit la demande du client. 
 
 ### <a name="compression-disabled-or-file-is-ineligible-for-compression"></a>Compression désactivée ou le fichier n’est pas éligible pour la compression
 | Format demandé par le client (via l’en-tête Accept-Encoding) | Format de fichier mis en cache | Réponse du CDN au client | Remarques |
@@ -124,7 +127,7 @@ Ces tableaux décrivent le comportement de compression du CDN Azure pour chaque 
 | --- | --- | --- | --- |
 | Compressé |Compressé |Compressé |Transcode CDN entre les formats pris en charge |
 | Compressé |Non compressé |Compressé |CDN effectue la compression |
-| Compressé |Non mis en cache |Compressé |CDN effectue la compression si l’origine renvoie le format non compressé.  **Azure CDN de Verizon** transmet le fichier non compressé à la première demande, puis compresse et met en cache le fichier pour les demandes suivantes.  Les fichiers avec l’en-tête `Cache-Control: no-cache` ne seront jamais compressés. |
+| Compressé |Non mis en cache |Compressé |CDN effectue la compression si l’origine renvoie le format non compressé.  **Azure CDN fourni par Verizon** transmet le fichier non compressé à la première demande, puis compresse et met en cache le fichier pour les demandes suivantes.  Les fichiers avec l’en-tête `Cache-Control: no-cache` ne seront jamais compressés. |
 | Non compressé |Compressé |Non compressé |CDN effectue la décompression |
 | Non compressé |Non compressé |Non compressé | |
 | Non compressé |Non mis en cache |Non compressé | |
@@ -134,10 +137,5 @@ Pour les points de terminaison de diffusion en continu CDN de Media Services, l
 
 ## <a name="see-also"></a>Voir aussi
 * [Résolution des problèmes de compression des fichiers CDN](cdn-troubleshoot-compression.md)    
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

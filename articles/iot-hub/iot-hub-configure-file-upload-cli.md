@@ -175,4 +175,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-manage-storage]:../storage/common/storage-azure-cli.md#manage-storage-accounts
 [lnk-portal-storage]:../storage/common/storage-create-storage-account.md
-[lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#create
+[lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#az_iot_hub_create

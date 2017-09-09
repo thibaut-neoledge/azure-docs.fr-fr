@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 04/10/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 583c91376418d20d34db17d57d3fa14a1e71cd3b
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 71c7eaf2272245bd681387947812f7d5c0f58094
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Règles de pare-feu au niveau du serveur et de la base de données d’Azure SQL Database 
@@ -40,7 +39,7 @@ Les tentatives de connexion à partir d’Internet et d’Azure doivent franchir
    ![Diagramme décrivant la configuration de pare-feu.][1]
 
 * **Règles de pare-feu au niveau du serveur :** ces règles permettent aux clients d’accéder à l’ensemble de votre serveur Azure SQL, c’est-à-dire à toutes les bases de données dans le même serveur logique. Ces règles sont stockées dans la base de données **principale** . Les règles de pare-feu au niveau serveur peuvent être configurées en utilisant le portail ou avec des déclarations Transact-SQL. Pour créer des règles de pare-feu de niveau serveur à l’aide du portail Azure ou de PowerShell, vous devez être le propriétaire de l’abonnement ou un de ses collaborateurs. Pour créer une règle de pare-feu de niveau serveur à l’aide de Transact-SQL, vous devez vous connecter à l’instance de base de données SQL en utilisant la connexion principale de niveau serveur ou les identifiants de l’administrateur Azure Active Directory (cela signifie qu’un utilisateur doté des autorisations Azure doit au préalable créer la règle de pare-feu de niveau serveur).
-* **Règles de pare-feu au niveau de la base de données :** ces règles permettent aux clients d’accéder à certaines bases de données (sécurisées) au sein du même serveur logique. Vous pouvez créer ces règles pour chaque base de données (dont la base de données **MASTER**) et elles sont stockées dans les bases de données individuelles. Les règles de pare-feu au niveau de la base de données peuvent seulement être configurées en utilisant des instructions Transact-SQL et uniquement après avoir configuré le premier pare-feu au niveau du serveur. Si vous spécifiez dans la règle de pare-feu au niveau de la base de données une plage d’adresses IP qui se situe en dehors de la plage spécifiée dans la règle de pare-feu au niveau du serveur, seuls les clients dont les adresses IP appartiennent à la plage de niveau de base de données peuvent accéder à la base de données. Vous pouvez avoir un maximum de 128 règles de pare-feu au niveau de la base de données par base de données. Les règles de pare-feu au niveau de la base données pour les bases de données MASTER et utilisateur peuvent uniquement être créées et gérées via Transact-SQL. Pour plus d’informations sur la configuration des règles de pare-feu au niveau de la base de données, consultez l’exemple plus loin dans cet article et [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
+* **Règles de pare-feu au niveau de la base de données :** ces règles permettent aux clients d’accéder à certaines bases de données (sécurisées) au sein du même serveur logique. Vous pouvez créer ces règles pour chaque base de données (dont la base de données **MASTER**) et elles sont stockées dans les bases de données individuelles. Les règles de pare-feu pour les bases de données principale et utilisateur peuvent uniquement être créées et configurées en utilisant des instructions Transact-SQL et uniquement après avoir configuré la première règle de pare-feu au niveau du serveur. Si vous spécifiez dans la règle de pare-feu au niveau de la base de données une plage d’adresses IP qui se situe en dehors de la plage spécifiée dans la règle de pare-feu au niveau du serveur, seuls les clients dont les adresses IP appartiennent à la plage de niveau de base de données peuvent accéder à la base de données. Vous pouvez avoir un maximum de 128 règles de pare-feu au niveau de la base de données par base de données. Pour plus d’informations sur la configuration des règles de pare-feu au niveau de la base de données, consultez l’exemple plus loin dans cet article et [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 **Recommandation :** Microsoft recommande d’utiliser, dans la mesure du possible, des règles de pare-feu au niveau de la base de données pour améliorer la sécurité et renforcer la portabilité de la base de données. Utilisez des règles de pare-feu pour les administrateurs au niveau du serveur quand plusieurs bases de données ont les mêmes exigences d’accès et que vous ne souhaitez les configurer une à une.
 

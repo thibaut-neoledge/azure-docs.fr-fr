@@ -1,11 +1,10 @@
-
 ---
 title: "Créer votre première fonction dans Azure à l’aide de Visual Studio | Microsoft Docs"
 description: "Créez et publiez une fonction HTTP déclenchée simple vers Azure à l’aide d’Azure Functions Tools pour Visual Studio 2017."
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, functions, traitement des événements, calcul, architecture sans serveur"
@@ -19,10 +18,10 @@ ms.date: 07/05/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7e1fcecbf77da402b8c223caf6a2e81c704c3219
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 8291986b123ed98b9c2bd4ec915e1a18b6e0cbb7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Créer votre première fonction à l’aide de Visual Studio
@@ -60,6 +59,10 @@ Maintenant que vous avez créé le projet, vous pouvez créer votre première fo
 
     ![Créer une fonction Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
+    Un fichier de code est ajouté au projet qui contient une classe implémentant votre code de fonction. Ce code est basé sur un modèle, qui reçoit une valeur de nom, puis la renvoie. L’attribut **FunctionName** définit le nom de votre fonction. L’attribut **HttpTrigger** indique le message qui déclenche la fonction. 
+
+    ![Fichier du code de fonction](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
+
 Maintenant que vous avez créé une fonction HTTP déclenchée, vous pouvez la tester sur votre ordinateur local.
 
 ## <a name="test-the-function-locally"></a>Tester la fonction en local
@@ -72,7 +75,7 @@ Azure Functions Core Tools vous permet d’exécuter un projet Azure Functio
 
     ![Azure runtime local](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-3. Collez l’URL de la demande HTTP dans la barre d’adresses de votre navigateur. Ajoutez la chaîne de requête `&name=<yourname>` à cette URL et exécutez la demande. La capture d’écran suivante du navigateur montre la requête renvoyée par la fonction suite à la demande locale GET : 
+3. Collez l’URL de la demande HTTP dans la barre d’adresses de votre navigateur. Ajoutez la chaîne de requête `?name=<yourname>` à cette URL et exécutez la demande. La capture d’écran suivante du navigateur montre la requête renvoyée par la fonction suite à la demande locale GET : 
 
     ![Réponse de la fonction localhost dans le navigateur](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
 
@@ -88,7 +91,7 @@ Vous devez disposer d’une application de fonction dans votre abonnement Azure 
 
 ## <a name="test-your-function-in-azure"></a>Tester votre fonction dans Azure
 
-1. Copiez l’URL de base de l’application de fonction à partir de la page de profil de publication. Remplacez la partie `localhost:port` de l’URL que vous avez utilisée lors du test en local de la fonction par la nouvelle URL de base. Comme auparavant, assurez-vous d’ajouter la chaîne de requête `&name=<yourname>` à cette URL et exécutez la demande.
+1. Copiez l’URL de base de l’application de fonction à partir de la page de profil de publication. Remplacez la partie `localhost:port` de l’URL que vous avez utilisée lors du test en local de la fonction par la nouvelle URL de base. Comme auparavant, assurez-vous d’ajouter la chaîne de requête `?name=<yourname>` à cette URL et exécutez la demande.
 
     L’URL qui appelle votre fonction HTTP déclenchée ressemble à cela :
 

@@ -4,7 +4,7 @@ description: "Découvrez comment Azure Functions se met à l’échelle pour ré
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
@@ -15,14 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/12/2017
-ms.author: donnam, glenga
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 5131a432a5de26ed1fc82005446d101d3094ef8b
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 0e677fb35279d155241a95cd5f33b63e8294fad2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-functions-consumption-and-app-service-plans"></a>Plans Consommation et App Service d’Azure Functions 
@@ -61,9 +60,10 @@ Dans le plan App Service, vos applications de fonction sont exécutées sur des 
 
 Pensez à un plan App Service dans les cas suivants :
 - Vous disposez de machines virtuelles existantes, sous-utilisées qui exécutent déjà d’autres instances App Service.
-- Vous souhaitez que vos applications de fonction s’exécutent en continu ou presque.
+- Vous souhaitez que vos applications de fonction s’exécutent en continu ou presque. Dans ce cas, un plan App Service peut être plus économique.
 - Vous avez besoin de plus d’options de mémoire ou de processeur que celles qui sont proposées dans le plan Consommation.
 - Vous avez besoin d’une durée d’exécution supérieure à celle qui est autorisée dans le plan Consommation.
+- Vous avez besoin de fonctionnalités qui sont disponibles uniquement dans un plan App Service, telles que la prise en charge d’App Service Environment, la connectivité des réseaux virtuels/VPN et la configuration de machines virtuelles volumineuses. 
 
 L’utilisation d’une machine virtuelle dissocie le coût de l’exécution et de la taille de mémoire. Vous ne payez donc pas plus que le coût de l’instance de machine virtuelle que vous allouez. Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
@@ -81,7 +81,7 @@ Le paramètre Toujours actif est disponible uniquement dans un plan App Service.
 
 Dans un plan Consommation ou un plan App Service, une application de fonction nécessite un compte de stockage Azure qui prend en charge les stockages Azure Blob, File d’attente et Table. En interne, Azure Functions utilise le stockage Azure pour les opérations telles que la gestion des déclencheurs et la journalisation des exécutions de fonctions. Certains comptes de stockage ne prennent pas en charge les files d’attente et les tables, comme les comptes de stockage Blob uniquement (notamment le stockage Premium) et les comptes de stockage à usage général avec la réplication ZRS. Ces comptes sont filtrés à partir du panneau **Compte de stockage** quand vous créez une application de fonction.
 
-Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/storage-introduction.md#introducing-the-azure-storage-services).
+Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Fonctionnement du plan de consommation
 
@@ -92,7 +92,7 @@ Quand vous utilisez le plan d’hébergement Consommation, les fichiers de code 
 > [!NOTE]
 > Quand vous utilisez un déclencheur d’objet blob dans un plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob si une application de fonction est devenue inactive. Une fois l’application de fonction en cours d’exécution, les blobs sont traités immédiatement. Pour éviter ce délai initial, pensez à l’une des options suivantes :
 > - Utilisez un plan App Service avec le paramètre Toujours actif activé.
-> - Utilisez un autre mécanisme pour déclencher le traitement d’objet blob, par exemple un message de file d’attente qui contient le nom de l’objet blob. Pour en obtenir un exemple, consultez [Déclencheur de file d’attente avec liaison d’entrée d’objet blob](functions-bindings-storage-blob.md#input-sample).
+> - Utilisez un autre mécanisme pour déclencher le traitement de l’objet blob, comme un message de file d’attente qui contient le nom de l’objet blob. Pour en obtenir un exemple, consultez [Déclencheur de file d’attente avec liaison d’entrée d’objet blob](functions-bindings-storage-blob.md#input-sample).
 
 ### <a name="runtime-scaling"></a>Mise à l’échelle du runtime
 

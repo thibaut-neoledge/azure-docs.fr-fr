@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ef61aa610957024d85f4231d957869858fd545c5
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 8a44f10eda396aec72e05e87e406ff80834294d8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -31,8 +31,8 @@ Une base de données SQL Azure est une base de données gérée dans Microsoft�
 
 Une base de données SQL Azure peut être :
 
-- Une base de données unique avec son [propre ensemble de ressources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU)
-- Une partie d’un [pool élastique SQL](sql-database-elastic-pool.md) qui [partage un ensemble de ressources](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU)
+- Une base de données unique avec son [propre ensemble de ressources](sql-database-single-database-resources.md)
+- Une partie d’un [pool élastique](sql-database-elastic-pool.md) qui partage un ensemble de ressources
 - Une partie d’un [ensemble de bases de données partitionnées dont la taille des instances a été augmentée](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling). Il peut s’agir de bases de données uniques ou mises en pool
 - Une partie d’un ensemble de bases de données participant à un [modèle de conception SaaS partagé au sein d’une architecture mutualisée ](sql-database-design-patterns-multi-tenancy-saas-applications.md), et dont les bases de données peuvent être uniques ou mises en pool (ou les deux) 
 
@@ -46,7 +46,7 @@ Une base de données SQL Azure peut être :
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Qu’est-ce qu’un serveur logique SQL Azure ?
 
-Un serveur logique agit comme un point d’administration central pour plusieurs bases de données, y compris les [connexions](sql-database-elastic-pool.md)de [pools élastiques SQL](sql-database-manage-logins.md), les [règles de pare-feu](sql-database-firewall-configure.md), les [règles d’audit](sql-database-auditing.md), les [stratégies de détection des menaces](sql-database-threat-detection.md) et les [groupes de basculement](sql-database-geo-replication-overview.md). Un serveur logique peut se trouver dans une région différente de celle de son groupe de ressources. Avant de pouvoir créer la base de données SQL Azure, vous devez déjà posséder un serveur logique. Toutes les bases de données sur un serveur sont créées au sein de la même région que le serveur logique. 
+Un serveur logique agit comme un point d’administration central pour plusieurs bases de données, y compris les [connexions](sql-database-elastic-pool.md)de [pools élastiques](sql-database-manage-logins.md), les [règles de pare-feu](sql-database-firewall-configure.md), les [règles d’audit](sql-database-auditing.md), les [stratégies de détection des menaces](sql-database-threat-detection.md) et les [groupes de basculement](sql-database-geo-replication-overview.md). Un serveur logique peut se trouver dans une région différente de celle de son groupe de ressources. Avant de pouvoir créer la base de données SQL Azure, vous devez déjà posséder un serveur logique. Toutes les bases de données sur un serveur sont créées au sein de la même région que le serveur logique. 
 
 
 > [!IMPORTANT]
@@ -79,7 +79,7 @@ Un serveur logique de base de données Azure :
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Bases de données SQL Azure protégées par un pare-feu SQL Database
 
-Pour aider à protéger vos données, le [pare-feu SQL Database](sql-database-firewall-configure.md) empêche tout accès à votre serveur de base de données ou à l’une de ses bases de données en dehors de votre connexion au serveur, directement par le biais de votre connexion à un abonnement Azure. Pour activer la connectivité supplémentaire, vous devez [créer une ou plusieurs règles de pare-feu](sql-database-firewall-configure.md#creating-and-managing-firewall-rules). Pour créer et gérer les pools élastiques SQL, voir [Pools élastiques](sql-database-elastic-pool.md).
+Pour aider à protéger vos données, le [pare-feu SQL Database](sql-database-firewall-configure.md) empêche tout accès à votre serveur de base de données ou à l’une de ses bases de données en dehors de votre connexion au serveur, directement par le biais de votre connexion à un abonnement Azure. Pour activer la connectivité supplémentaire, vous devez [créer une ou plusieurs règles de pare-feu](sql-database-firewall-configure.md#creating-and-managing-firewall-rules). Pour créer et gérer des pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Gérer les serveurs, les bases de données et les pare-feu SQL Azure à l’aide du portail Azure
 
@@ -99,7 +99,8 @@ Pour créer une base de données SQL Azure à l’aide du [portail Azure](https
 
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
-> [IMPORTANT] Pour en savoir plus sur la sélection du niveau tarifaire de votre base de données, consultez la page [Niveaux de service](sql-database-service-tiers.md).
+> [!IMPORTANT]
+> Pour en savoir plus sur la sélection du niveau tarifaire de votre base de données, consultez la page [Niveaux de service](sql-database-service-tiers.md).
 >
 
 ### <a name="manage-an-existing-sql-server"></a>Gérer un serveur SQL existant
@@ -122,7 +123,7 @@ Pour gérer une base de données existante, accédez à la page **Bases de donn�
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Gérer les serveurs, les bases de données et les pare-feux SQL Azure à l’aide de PowerShell
 
-Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Azure avec Azure PowerShell, utilisez les applets de commande PowerShell suivants. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-azurerm-ps). Pour créer et gérer les pools élastiques SQL, voir [Pools élastiques](sql-database-elastic-pool.md).
+Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Azure avec Azure PowerShell, utilisez les applets de commande PowerShell suivants. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-azurerm-ps). Pour créer et gérer des pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).
 
 | Applet de commande | Description |
 | --- | --- |
@@ -146,7 +147,7 @@ Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Az
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Gérer les serveurs, les bases de données et les pare-feu SQL Azure à l’aide de l’interface de ligne de commande Azure
 
-Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Azure avec [Azure CLI](/cli/azure/overview), utilisez les commandes [Azure CLI SQL Database](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](/azure/cloud-shell/overview) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows. Pour créer et gérer les pools élastiques SQL, voir [Pools élastiques](sql-database-elastic-pool.md).
+Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Azure avec [Azure CLI](/cli/azure/overview), utilisez les commandes [Azure CLI SQL Database](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](/azure/cloud-shell/overview) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows. Pour créer et gérer des pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).
 
 | Applet de commande | Description |
 | --- | --- |
@@ -176,7 +177,7 @@ Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Az
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Gérer les serveurs, les bases de données et les pare-feux SQL Azure à l’aide de Transact-SQL
 
-Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Azure avec Transact-SQL, utilisez les commandes T-SQL suivantes. Vous pouvez entrer ces commandes à l’aide du portail Azure, de [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), de [Visual Studio Code](https://code.visualstudio.com/docs), ou de tout autre programme pouvant se connecter à un serveur Azure SQL Database et transmettre des commandes Transact-SQL. Pour gérer des pools élastiques SQL, consultez la page [Pools élastiques](sql-database-elastic-pool.md).
+Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Azure avec Transact-SQL, utilisez les commandes T-SQL suivantes. Vous pouvez entrer ces commandes à l’aide du portail Azure, de [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), de [Visual Studio Code](https://code.visualstudio.com/docs), ou de tout autre programme pouvant se connecter à un serveur Azure SQL Database et transmettre des commandes Transact-SQL. Pour gérer des pools élastiques, consultez la page [Pools élastiques](sql-database-elastic-pool.md).
 
 > [!IMPORTANT]
 > Vous ne pouvez pas créer ou supprimer un serveur à l’aide de Transact-SQL.
@@ -206,11 +207,33 @@ Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Az
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Gérer les serveurs, les bases de données et les pare-feux SQL Azure à l’aide de l’API REST
 
-Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Azure à l’aide de l’API REST, consultez la page [Azure SQL Database REST API](/rest/api/sql/) (API REST d’Azure SQL Database).
+Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Azure à l’aide des requêtes suivantes de l’API REST.
+
+| Commande | Description |
+| --- | --- |
+|[Serveurs - Create ou Update](/rest/api/sql/servers/createorupdate)|Crée ou met à jour un serveur.|
+|[Serveurs - Delete](/rest/api/sql/servers/delete)|Supprime un serveur SQL.|
+|[Serveurs - Get](/rest/api/sql/servers/get)|Obtient un serveur.|
+|[Serveurs - List](/rest/api/sql/servers/list)|Retourne une liste de serveurs.|
+|[Serveurs - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|Retourne une liste de serveurs dans un groupe de ressources.|
+|[Serveurs - Update](/rest/api/sql/servers/update)|Met à jour un serveur existant.|
+|[Serveurs - Sql](/rest/api/sql/servers%20-%20sql)|Détermine si une ressource peut être créée avec le nom spécifié.|
+|[Bases de données : Create ou Update](/rest/api/sql/databases/createorupdate)|Créez une nouvelle base de données ou met à jour une base de données existante.|
+|[Bases de données - Get](/rest/api/sql/databases/get)|Obtient une base de données.|
+|[Bases de données - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique.|
+|[Bases de données - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique recommandé.|
+|[Bases de données - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
+|[Bases de données - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourne une liste des bases de données à l’intérieur d’un pool élastique recommandé.|
+|[Bases de données - List By Server](/rest/api/sql/databases/listbyserver)|Renvoie une liste des bases de données sur un serveur.|
+|[Bases de données - Update](/api/sql/databases/update)|Met à jour une base de données existante.|
+|[Règles de pare-feu - Create ou Update](/rest/api/sql/firewallrules/createorupdate)|Crée ou met à jour une règle de pare-feu.|
+|[Règles de pare-feu - Delete](/rest/api/sql/firewallrules/delete)|Supprime une règle de pare-feu.|
+|[Règles de pare-feu - Get](/rest/api/sql/firewallrules/get)|Obtient une règle de pare-feu.|
+|[Règles de pare-feu - List By Server](/rest/api/sql/firewallrules/listbyserver)|Retourne une liste de règles de pare-feu.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur le regroupement de bases de données à l’aide de pools élastiques SQL, consultez la page [Pools élastiques](sql-database-elastic-pool.md).
+- Pour en savoir plus sur le regroupement de bases de données à l’aide de pools élastiques, consultez la page [Pools élastiques](sql-database-elastic-pool.md).
 - Pour en savoir plus sur le service Azure SQL Database, consultez [Qu’est-ce que le service Azure SQL Database ?](sql-database-technical-overview.md).
 - Pour en savoir plus sur la migration d’une base de données SQL Server, consultez la section [Migrer une base de données SQL](sql-database-cloud-migrate.md).
 - Pour plus d’informations sur les fonctionnalités prises en charge, consultez la page [Fonctionnalités](sql-database-features.md).

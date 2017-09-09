@@ -3,8 +3,8 @@ title: "Configuration des informations d’authentification nommées | Microsoft
 description: "Découvrez comment fournir des informations d’identification que Visual Studio pourra utiliser pour authentifier les demandes effectuées auprès d’Azure dans le cadre de la publication d’une application dans Azure à partir de Visual Studio, ou de l’analyse d’un service cloud existant. "
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 61570907-42a1-40e8-bcd6-952b21a55786
 ms.service: multiple
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 8/17/2017
-ms.author: tarcher
+ms.date: 8/22/2017
+ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 613f17081fcb70b126caaae7ade5739d336662a7
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: c486676a70e195ec85ad40540ea4b7caaa86bc48
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="setting-up-named-authentication-credentials"></a>Configuration des informations d’authentification nommées
@@ -47,31 +47,29 @@ Si vous souhaitez créer vous-même un certificat, vous pouvez consulter les ins
 >
 >
 
-## <a name="modify-or-export-authentication-credentials-in-visual-studio"></a>Modifier ou exporter des informations d’authentification dans Visual Studio
-Vous pouvez également configurer, modifier ou exporter vos informations d’authentification à partir de la boîte de dialogue **Nouvel abonnement** qui s’affiche quand vous effectuez l’une des actions suivantes :
+## <a name="import-set-up-or-edit-authentication-credentials-in-visual-studio"></a>Importer, configurer ou modifier des informations d’authentification dans Visual Studio
+Vous pouvez également importer, configurer ou modifier vos informations d’authentification à partir de la boîte de dialogue **Nouvel abonnement** qui s’affiche quand vous effectuez l’action suivante :
 
-* Dans l’**Explorateur de serveurs**, ouvrez le menu contextuel du nœud **Azure**, choisissez **Gérer et filtrer les abonnements...**, sélectionnez l’onglet **Certificats**, puis au choix **Importer**, **Nouveau** ou **Modifier**.
-* Quand vous publiez un service cloud Azure à partir de l’Assistant **Publication d’application Azure**, sélectionnez **Gérer** dans la liste **Choisir votre abonnement**. Ensuite, sélectionnez l’onglet Certificats, puis sélectionnez le bouton **Nouveau** ou **Modifier**.
+* Dans l’**Explorateur de serveurs**, ouvrez le menu contextuel du nœud **Azure**, choisissez **Gérer et filtrer les abonnements...**, sélectionnez l’onglet **Certificats**, puis effectuez une des actions suivantes :
+
+    * Choisissez **Importer** pour ouvrir la boîte de dialogue Importer les abonnements Microsoft Azure, où vous pouvez télécharger le fichier d’abonnements pour l’abonnement actuellement chargé. Accédez à son emplacement de téléchargement, puis importez-le pour l’utiliser pour l’authentification.
+    * Choisissez **Nouveau** pour ouvrir la boîte de dialogue Nouvel abonnement, dans laquelle vous pouvez configurer un nouvel abonnement à utiliser pour l’authentification.
+    * Choisissez **Modifier** (après le choix de votre abonnement) pour ouvrir la boîte de dialogue Modifier l’abonnement, où vous pouvez modifier un abonnement existant pour une utilisation pour l’authentification. 
 
 La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** est ouverte.
 
 ### <a name="to-set-up-authentication-credentials-in-visual-studio"></a>Pour modifier ou exporter des informations d’authentification dans Visual Studio
 1. Dans la liste **Sélectionnez un certificat existant pour l’authentification** , choisissez un certificat.
-2. Cliquez sur le bouton **Copier le chemin d’accès complet**. Le chemin d’accès du certificat (fichier .cer) est copié dans le Presse-papiers.
+2. Cliquez sur le lien **Copier le chemin d’accès complet**. Le chemin d’accès du certificat (fichier .cer) est copié dans le Presse-papiers.
 
    > [!IMPORTANT]
-   > Pour publier votre application Azure à partir de Visual Studio, vous devrez charger ce certificat vers le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
+   > Pour publier votre application Azure à partir de Visual Studio, vous devrez charger ce certificat vers le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
    >
    >
-3. Pour télécharger le certificat sur le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885):
+3. Pour télécharger le certificat sur le portail Azure :
 
-   1. Cliquez sur le lien du portail Azure.
-
-        Le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) s’ouvre.
-   2. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), puis cliquez sur le bouton **Cloud Services** .
-   3. Sélectionnez le service cloud qui vous intéresse.
-
-       La page du service s’ouvre.
-   4. Sous l’onglet **Certificats**, choisissez le bouton **Télécharger**.
-   5. Collez le chemin d’accès complet du fichier .cer que vous venez de créer, puis entrez le mot de passe que vous avez spécifié.
+   1. Ouvrez le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+   2. Si vous y êtes invité, connectez-vous au portail, puis accédez à **Paramètres**, **Certificats de gestion**.
+   3. Dans le volet Certificats de gestion, choisissez **Télécharger**.
+   4. Sélectionnez votre abonnement Azure, collez le chemin d’accès complet du fichier .cer que vous venez de créer, puis choisissez **Télécharger**.
 

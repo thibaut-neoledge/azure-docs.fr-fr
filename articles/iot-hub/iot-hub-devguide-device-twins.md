@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 9c1d1ba1ad70fee3db6dc6c2170b171e06f804d9
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: b316aa419d558547f90a914a22fb29935076de21
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux d’appareil IoT Hub
@@ -44,7 +43,7 @@ Vous pouvez utiliser des jumeaux d’appareil pour répondre aux besoins suivant
 * Interroger les métadonnées, la configuration ou l’état de vos appareils
 
 Pour des conseils sur l’utilisation des propriétés signalées, des messages appareil-à-cloud ou du chargement de fichier, voir [Instructions pour la communication appareil-à-cloud][lnk-d2c-guidance].
-Pour des conseils sur l’utilisation des propriétés souhaitées des méthodes directes ou des messages cloud-à-appareil, voir [Instructions pour la communication appareil-à-cloud][lnk-c2d-guidance].
+Pour des conseils sur l’utilisation des propriétés souhaitées des méthodes directes ou des messages cloud-à-appareil, voir [Instructions pour la communication cloud-à-appareil][lnk-c2d-guidance].
 
 ## <a name="device-twins"></a>Jumeaux d’appareil
 Les jumeaux d’appareil stockent des informations relatives aux appareils, dont l’utilité est la suivante :
@@ -174,7 +173,7 @@ Le back-end de solution opère sur le jumeau d’appareil en utilisant les opér
     $content-encoding | utf-8 |
     deviceId | ID de l’appareil |
     hubName | Nom de l’IoT Hub |
-    operationTimestamp | Horodatage ISO8601 de l’opération |
+    operationTimestamp | Horodatage [ISO8601] de l’opération |
     iothub-message-schema | deviceLifecycleNotification |
     opType | « replaceTwin » ou « updateTwin » |
 
