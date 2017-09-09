@@ -33,6 +33,8 @@
   items:
     - name: Sécuriser les conteneurs
       href: container-service-security.md
+    - name: Principal de service – Kubernetes
+      href: container-service-kubernetes-service-principal.md
 - name: Procédures
   items:
     - name: Kubernetes avec Windows
@@ -49,8 +51,12 @@
       href: container-service-connect.md
     - name: Mettre à l’échelle un cluster ACS
       href: container-service-scale.md
+    - name: "Équilibrer la charge d’un cluster\_ACS\_Kubernetes"
+      href: container-service-kubernetes-load-balancing.md
     - name: Surveiller
       items:
+        - name: Surveiller avec OMS
+          href: container-service-kubernetes-oms.md
         - name: Surveiller avec Datadog
           href: container-service-kubernetes-datadog.md
         - name: Surveiller avec Sysdig
@@ -68,7 +74,7 @@
     - name: Azure CLI 2.0
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/compute/containerservices
+      href: /rest/api/container-services
 - name: Ressources
   items:
     - name: Feuille de route Azure

@@ -120,6 +120,8 @@
           href: connect-logon.md
         - name: Utiliser le gestionnaire de licences AHUB
           href: hybrid-use-benefit-licensing.md
+        - name: "Utiliser les droits d’hébergement multilocataire de Windows\_10"
+          href: windows-desktop-multitenant-hosting-deployment.md
     - name: Sécuriser des machines virtuelles
       items:
         - name: Encrypt (Chiffrer)

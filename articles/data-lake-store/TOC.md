@@ -57,7 +57,7 @@
 
 ## Gérer
 ### [Accéder aux journaux de diagnostic](data-lake-store-diagnostic-logs.md)
-### [Planifier la haute disponibilité](data-lake-store-troubleshooting-guidance.md)
+### [Planifier la haute disponibilité](data-lake-store-disaster-recovery-guidance.md)
 
 # Référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)

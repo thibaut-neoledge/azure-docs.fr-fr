@@ -13,7 +13,7 @@
 ## [Voir une présentation](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Prise en main
-## [Réplication de machines virtuelles Azure (aperçu)](site-recovery-azure-to-azure.md)
+## [Réplication de machines virtuelles Azure sur Azure (préversion)](site-recovery-azure-to-azure.md)
 ## [Réplication de machines virtuelles VMware dans Azure](vmware-walkthrough-overview.md)
 ### [Étape 1 : examen de l’architecture](vmware-walkthrough-architecture.md)
 ### [Étape 2 :passer en revue les conditions préalables et les limitations](vmware-walkthrough-prerequisites.md)
