@@ -1,6 +1,6 @@
 ---
-title: "Configurer un pare-feu d’applications web : passerelle Application Gateway Azure | Microsoft Docs"
-description: "Cet article explique comment utiliser un pare-feu d’applications web sur une passerelle d’application nouvelle ou existante."
+title: "Configurer un pare-feu d’applications web : passerelle Azure Application Gateway | Microsoft Docs"
+description: "Cet article explique comment utiliser un pare-feu d’applications web sur une passerelle Application Gateway nouvelle ou existante."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -15,45 +15,53 @@ ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: ac6c629ceaf1a8036643f593ce3d7ef9ea096ef8
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 999d1ad3ee54d84e155254655dbb7a39ac60572c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/29/2017
 
 ---
-# <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Configurer un pare-feu d’application web sur une passerelle Application Gateway nouvelle ou existante avec Azure CLI
+# <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Configurer un pare-feu d’application web sur une passerelle Application Gateway nouvelle ou existante avec Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [Interface de ligne de commande Azure](application-gateway-web-application-firewall-cli.md)
 
-Découvrez comment créer une passerelle d’application avec un pare-feu d’applications web activé ou comment ajouter des pare-feu d’applications web à une passerelle d’application existante.
+Découvrez comment créer une passerelle d’application avec le pare-feu d’applications web (WAF) activé. Découvrez également comment ajouter un pare-feu WAF à une passerelle d’application existante.
 
-Le pare-feu d’applications web (WAF, Web Application Firewall) d’Azure Application Gateway protège les applications web des attaques basées sur le web courantes comme l’injection de code SQL, les attaques de script de site à site et les piratages de session.
+Le pare-feu WAF d’Azure Application Gateway protège les applications web des attaques basées sur le web courantes comme l’injection de code SQL, les attaques de script de site à site et les piratages de session.
 
-La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. La passerelle d’application offre de nombreuses fonctionnalités du contrôleur de livraison d’applications (ADC) : équilibrage de charge HTTP, affinité de session basée sur les cookies, déchargement de protocole SSL, sondes d’intégrité personnalisées, prise en charge multisite, etc. Pour obtenir une liste complète des fonctionnalités prises en charge, consultez : [Vue d’ensemble de la passerelle Application Gateway](application-gateway-introduction.md).
+ Application Gateway est un équilibrage de charge de couche 7. La solution assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. Application Gateway fournit de nombreuses fonctionnalités de contrôleur de livraison d'applications (ADC) :
 
-L’article suivant montre comment [ajouter un pare-feu d’applications web à une passerelle d’application existante](#add-web-application-firewall-to-an-existing-application-gateway) et [créer une passerelle d’application qui utilise le pare-feu d’applications web](#create-an-application-gateway-with-web-application-firewall).
+ * Équilibrage de charge HTTP 
+ * Affinité de session basée sur les cookies 
+ * Déchargement SSL (Secure Sockets Layer) 
+ * Sondes d’intégrité personnalisées 
+ * Prise en charge de la fonctionnalité multisite
+ 
+ Pour obtenir une liste complète des fonctionnalités prises en charge, consultez : [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
+
+Cet article explique comment [ajouter un pare-feu d’applications web à une passerelle Application Gateway existante](#add-web-application-firewall-to-an-existing-application-gateway). Il explique également comment [créer une passerelle Application Gateway utilisant un pare-feu d’applications web](#create-an-application-gateway-with-web-application-firewall).
 
 ![image du scénario][scenario]
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>Condition préalable : installer Azure CLI 2.0
 
-Pour exécuter la procédure indiquée dans cet article, vous devez [installer l’interface de ligne de commande Azure pour Mac, Linux et Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Pour exécuter la procédure indiquée dans cet article, vous devez [installer l’interface de ligne de commande Azure (Azure CLI) pour Mac, Linux et Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## <a name="waf-configuration-differences"></a>Différences de configuration WAF
 
-Si vous avez lu la rubrique [Create an Application Gateway with Azure CLI](application-gateway-create-gateway-cli.md) (Créer une passerelle Application Gateway avec Azure CLI), vous connaissez les paramètres de référence SKU à configurer lors de la création d’une passerelle d’application. WAF inclut des paramètres supplémentaires à définir lors de la configuration de la référence SKU sur une passerelle d’application. Aucune autre modification n’est nécessaire sur la passerelle d’application elle-même.
+Si vous avez lu la rubrique [Création d’une passerelle Application Gateway avec Azure CLI](application-gateway-create-gateway-cli.md), vous connaissez les paramètres de référence (SKU) à configurer lorsque vous créez une passerelle Application Gateway. Le pare-feu WAF inclut des paramètres supplémentaires à définir lorsque vous configurez la référence SKU sur une passerelle Application Gateway. Aucune autre modification n’est nécessaire sur la passerelle d’application elle-même.
 
 | **Paramètre** | **Détails**
 |---|---|
-|**Référence (SKU)** |Une passerelle d’application normale sans WAF prend en charge les tailles **Standard\_Small**, **Standard\_Medium** et **Standard\_Large**. Avec l’introduction de WAF, deux autres SKU sont disponibles : **WAF\_Medium** et **WAF\_Large**. WAF n’est pas pris en charge sur les petites passerelles d’application.|
-|**Mode** | Ce paramètre indique le mode de WAF. Les valeurs autorisées sont **Détection** et **Prévention**. Lorsque WAF est configuré en mode de détection, toutes les menaces sont stockées dans un fichier journal. En mode de prévention, les événements sont toujours consignés, mais l’attaquant reçoit une erreur d’autorisation de type 403 de la part de la passerelle d’application.|
+|**Référence (SKU)** |Une passerelle Application Gateway normale sans un pare-feu WAF prend en charge les tailles **Standard\_Small**, **Standard\_Medium** et **Standard\_Large**. Avec l’introduction d’un pare-feu WAF, deux autres SKU sont disponibles : **WAF\_Medium** et **WAF\_Large**. Les pare-feu WAF ne sont pas pris en charge sur les petites passerelles Application Gateway.|
+|**Mode** | Ce paramètre indique le mode du pare-feu WAF. Les valeurs autorisées sont **Détection** et **Prévention**. Lorsque le pare-feu WAF est configuré en mode **Détection**, toutes les menaces sont stockées dans un fichier journal. En mode **Prévention**, les événements sont toujours consignés, mais l’attaquant reçoit une erreur d’autorisation de type 403 de la part de la passerelle Application Gateway.|
 
-## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Ajout d’un pare-feu d’applications web à une passerelle d’application existante
+## <a name="add-a-web-application-firewall-to-an-existing-application-gateway"></a>Ajout d’un pare-feu d’applications web à une passerelle Application Gateway existante
 
-La commande suivante transforme une passerelle d’application standard en passerelle d’application avec WAF activé.
+La commande suivante transforme une passerelle d’application standard en passerelle d’application avec un pare-feu WAF activé :
 
 ```azurecli-interactive
 #!/bin/bash
@@ -65,11 +73,11 @@ az network application-gateway waf-config set \
   --resource-group "AdatumAppGatewayRG"
 ```
 
-Cette commande met à jour la passerelle d’application avec le pare-feu d’applications web. Consultez [Diagnostics Application Gateway](application-gateway-diagnostics.md) pour comprendre comment afficher les journaux de votre passerelle d’application. En raison des critères de sécurité inhérents à WAF, les journaux doivent être régulièrement examinés pour comprendre la politique de sécurité appliquée à vos applications web.
+Cette commande met à jour la passerelle Application Gateway avec un pare-feu WAF. Pour comprendre comment afficher les journaux de votre passerelle Application Gateway, consultez [Diagnostics Application Gateway](application-gateway-diagnostics.md). En raison des critères de sécurité inhérents à un pare-feu WAF, consultez régulièrement les journaux pour comprendre la politique de sécurité appliquée à vos applications web.
 
-## <a name="create-an-application-gateway-with-web-application-firewall"></a>Créer une passerelle Application Gateway avec le pare-feu d’applications web
+## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Créer une passerelle Application Gateway avec un pare-feu d’applications web
 
-La commande suivante permet de créer une passerelle Application Gateway avec le pare-feu d’applications web.
+La commande suivante permet de créer une passerelle Application Gateway avec un pare-feu WAF :
 
 ```azurecli-interactive
 #!/bin/bash
@@ -96,11 +104,13 @@ az network application-gateway create \
 ```
 
 > [!NOTE]
-> Les passerelles Application Gateway créées avec la configuration de pare-feu d’application web de base sont définies avec la solution CRS 3.0 dédiée aux protections.
+> Les passerelles Application Gateway créées avec la configuration WAF de base sont définies avec la solution CRS 3.0 dédiée aux protections.
 
-## <a name="get-application-gateway-dns-name"></a>Obtenir le nom DNS d’une passerelle Application Gateway
+## <a name="get-an-application-gateway-dns-name"></a>Obtenir le nom DNS d’une passerelle d’application
 
-Une fois la passerelle créée, l’étape suivante consiste à configurer le serveur frontal pour la communication. Lorsque vous utilisez une adresse IP publique, la passerelle Application Gateway requiert un nom DNS attribué dynamiquement, ce qui n’est pas convivial. Pour s’assurer que les utilisateurs finaux peuvent atteindre la passerelle d’application, un enregistrement CNAME peut être utilisé pour pointer vers le point de terminaison public de la passerelle d’application. [Configuration d’un nom de domaine personnalisé pour Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Pour configurer un enregistrement CNAME, récupérez les détails de la passerelle d’application et de son nom IP/DNS associé à l’aide de l’élément PublicIPAddress attaché à la passerelle d’application. Le nom DNS de la passerelle Application Gateway doit être utilisé pour créer un enregistrement CNAME qui pointe les deux applications web sur ce nom DNS. L’utilisation de A-records n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle Application Gateway.
+Une fois la passerelle créée, l’étape suivante consiste à configurer le serveur frontal pour la communication. Lorsque vous utilisez une adresse IP publique, la passerelle Application Gateway requiert un nom DNS attribué dynamiquement, ce qui n’est pas convivial. Pour s’assurer que les utilisateurs finaux peuvent atteindre la passerelle Application Gateway, utilisez un enregistrement CNAME pour pointer vers le point de terminaison public de la passerelle d’application. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé pour un service cloud Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+
+Pour configurer un enregistrement CNAME, récupérez les détails de la passerelle d’application et de son nom IP/DNS associé à l’aide de l’élément PublicIPAddress attaché à la passerelle d’application. Utilisez le nom DNS de la passerelle d’application pour créer un enregistrement CNAME qui pointe les deux applications web sur ce nom DNS. Il n’est pas recommandé d’utiliser des enregistrements A, car l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle Application Gateway.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -148,7 +158,7 @@ az network public-ip show \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment personnaliser les règles WAF en consultant [Personnaliser les règles de pare-feu d’applications web par le biais d’Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md).
+Pour savoir comment personnaliser les règles WAF, consultez [Personnaliser les règles de pare-feu d’applications web par le biais d’Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png
 

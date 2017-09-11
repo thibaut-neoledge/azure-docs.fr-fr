@@ -1,6 +1,6 @@
 ---
-title: "Ajout d&quot;un certificat au magasin d&quot;autorité de certification Java | Microsoft Docs"
-description: "Découvrez comment ajouter un certificat d&quot;autorité de certification au magasin de certificats (cacerts) de l&quot;autorité de certification Java pour le service Twilio ou le Azure Service Bus."
+title: "Ajout d'un certificat au magasin d'autorité de certification Java | Microsoft Docs"
+description: "Découvrez comment ajouter un certificat d'autorité de certification au magasin de certificats (cacerts) de l'autorité de certification Java pour le service Twilio ou le Azure Service Bus."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a967a522ebbdce57fa5b4f938369ddd88253701c
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4f3ec837588c6e959e82108ca25ab4289e40d3f5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="adding-a-certificate-to-the-java-ca-certificates-store"></a>Ajout d'un certificat au magasin de certificats d'autorité de certification Java
@@ -55,6 +55,6 @@ Si vous devez ajouter le certificat racine Baltimore CyberTrust, son numéro de 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur les certificats racines utilisés par Azure, consultez [Migration des certificats racines Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-Pour plus d’informations sur Java, consultez le [Centre pour développeurs Java](/develop/java/).
+Pour plus d’informations sur Java, consultez [Azure pour les développeurs Java](/java/azure).
 
 

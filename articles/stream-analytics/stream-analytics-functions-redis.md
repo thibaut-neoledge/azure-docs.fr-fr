@@ -3,7 +3,7 @@ title: "Traitement en temps réel Stream Analytics pour Azure Functions | Micros
 description: "Découvrez comment utiliser une fonction Azure connectée à une file d’attente Service Bus pour remplir un cache Redis Azure à partir de la sortie d’une tâche Stream Analytics."
 keywords: "flux de données, cache redis, file d’attente Service Bus"
 services: stream-analytics
-author: ryancrawcour
+author: samacha
 manager: jhubbard
 documentationcenter: 
 ms.assetid: d428bb33-4244-4001-b93d-c77bed816527
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
-ms.author: ryancraw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 3a915f782eddaa91bcfcc3f2b2c32eee752c319c
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 70471749ef2b0ccaa4662cbf8a1dfa7ef4b21cfa
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="how-to-store-data-from-azure-stream-analytics-in-an-azure-redis-cache-using-azure-functions"></a>Comment stocker des données Azure Stream Analytics dans un Cache Redis Azure à l’aide d’Azure Functions
@@ -189,7 +188,7 @@ Nous sommes heureux de ce que la combinaison d’Azure Functions et de Stream An
 
 Si vous ne connaissez pas encore Microsoft Azure, nous vous invitons à le découvrir en vous connectant à un [compte d’évaluation Azure gratuit](https://azure.microsoft.com/pricing/free-trial/). Si vous ne connaissez pas encore Stream Analytics, nous vous invitons à [créer votre première tâche Stream Analytics](stream-analytics-create-a-job.md).
 
-Si vous avez besoin d’aide ou avez des questions, postez-les sur les forums [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) ou [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
+Si vous avez besoin d’aide ou avez des questions, postez-les sur les forums [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) ou [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
 
 Vous pouvez également vous référer aux ressources suivantes :
 

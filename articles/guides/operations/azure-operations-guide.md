@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: a9dfb0af80ef018e5e655e6e5c78fb0b7e426794
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4475baf3632c9e6870ff90244b773993a66b768c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -374,7 +374,7 @@ Enfin, comme c’est le cas pour la gestion de tout système informatique, vous 
 
 ## <a name="azure-storage"></a>Stockage Azure
 
-Stockage Azure est un service géré par Microsoft qui fournit un stockage redondant, évolutif et durable. En tant que ressource, vous pouvez ajouter un compte de stockage Azure à n’importe quel groupe de ressources au moyen d’une méthode de déploiement de ressource. Azure comprend quatre types de stockage : le stockage Blob, le stockage Fichier, le stockage Table et le stockage File d’attente. Lors du déploiement d’un compte de stockage, deux types de comptes sont disponibles, l’un à usage général, l’autre de stockage blob. Un compte de stockage à usage général vous donne accès aux quatre types de stockage. Les comptes de stockage blob sont similaires aux comptes à usage général, mais contiennent des objets blob spécialisés qui incluent les niveaux d’accès à chaud et à froid. Pour plus d’informations sur le stockage d’objets blob, consultez [Stockage Blob Azure](../../storage/storage-blob-storage-tiers.md).
+Stockage Azure est un service géré par Microsoft qui fournit un stockage redondant, évolutif et durable. En tant que ressource, vous pouvez ajouter un compte de stockage Azure à n’importe quel groupe de ressources au moyen d’une méthode de déploiement de ressource. Azure comprend quatre types de stockage : le stockage Blob, le stockage Fichier, le stockage Table et le stockage File d’attente. Lors du déploiement d’un compte de stockage, deux types de comptes sont disponibles, l’un à usage général, l’autre de stockage blob. Un compte de stockage à usage général vous donne accès aux quatre types de stockage. Les comptes de stockage blob sont similaires aux comptes à usage général, mais contiennent des objets blob spécialisés qui incluent les niveaux d’accès à chaud et à froid. Pour plus d’informations sur le stockage d’objets blob, consultez [Stockage Blob Azure](../../storage/blobs/storage-blob-storage-tiers.md).
 
 Les comptes de stockage Azure peuvent être configurés selon différents niveaux de redondance :
 
@@ -400,7 +400,7 @@ Ce type de stockage Azure prend en charge trois types d’objets blob :
 
 -   **Objets blob d’ajout** Ces objets se composent de blocs, comme les objets blob de blocs, mais sont optimisés pour les opérations d’ajout. Leur utilisation est fréquente pour l’enregistrement d’informations à partir d’une ou de plusieurs sources dans le même objet blob. Vous pouvez, par exemple, écrire toute la journalisation du suivi dans le même objet blob d’ajout pour une application qui s’exécute sur plusieurs machines virtuelles. La taille d’un seul objet blob d’ajout peut atteindre 195 Go.
 
-Pour plus d’informations, consultez [Bien démarrer avec le Stockage Blob Azure à l’aide de .NET](../../storage/storage-dotnet-how-to-use-blobs.md).
+Pour plus d’informations, consultez [Bien démarrer avec le Stockage Blob Azure à l’aide de .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 **Stockage Fichier**
 
@@ -408,7 +408,7 @@ Le Stockage Fichier Azure est un service qui propose des partages de fichiers da
 
 Un partage Stockage Fichier étant un partage de fichiers SMB standard, les applications exécutées dans Azure peuvent accéder aux données du partage par le biais d’API d’E/S de système de fichiers. Les développeurs peuvent ainsi utiliser leur code et leurs compétences actuelles pour migrer les applications existantes. Les professionnels de l’informatique peuvent utiliser les applets de commande PowerShell pour créer, monter et gérer les partages Stockage Fichier dans le cadre de l’administration des applications Azure.
 
-Pour plus d’informations, consultez [Bien démarrer avec Stockage Fichier Azure sur Windows](../../storage/storage-file-how-to-use-files-windows.md) ou [Utilisation de Stockage Fichier Azure avec Linux](../../storage/storage-how-to-use-files-linux.md).
+Pour plus d’informations, consultez [Bien démarrer avec Stockage Fichier Azure sur Windows](../../storage/files/storage-how-to-use-files-windows.md) ou [Utilisation de Stockage Fichier Azure avec Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 **Stockage Table**
 
@@ -416,13 +416,13 @@ Le stockage de tables Azure est un service qui stocke des données NoSQL structu
 
 Vous pouvez utiliser le stockage de tables pour stocker des jeux de données flexibles, par exemple, des données utilisateur pour des applications Web, des carnets d'adresses, des informations sur les périphériques et tout autre type de métadonnées requis par votre service. Vous pouvez stocker le nombre d’entités que vous voulez dans une table. Un compte de stockage peut contenir n’importe quel nombre de tables, jusqu’à la limite de capacité du compte de stockage.
 
-Pour plus d’informations, consultez [Bien démarrer avec Stockage Table Azure](../../storage/storage-dotnet-how-to-use-tables.md).
+Pour plus d’informations, consultez [Bien démarrer avec Stockage Table Azure](../../cosmos-db/table-storage-how-to-use-dotnet.md).
 
 **Stockage File d’attente**
 
 Le Stockage File d’attente Azure fournit une messagerie cloud entre les composants d’application. Lors de la conception d’applications pour la mise à l’échelle, des composants d’application sont souvent découplés, de sorte qu’ils peuvent être mis à l’échelle indépendamment. Le Stockage File d’attente offre une messagerie asynchrone pour la communication entre les composants d’application, qu’ils soient exécutés dans le cloud, sur le bureau, sur un serveur local ou sur un appareil mobile. Le Stockage File d'attente prend également en charge la gestion des tâches asynchrones et la création des workflows de processus.
 
-Pour plus d’informations, consultez [Bien démarrer avec Stockage File d’attente Azure](../../storage/storage-dotnet-how-to-use-queues.md).
+Pour plus d’informations, consultez [Bien démarrer avec Stockage File d’attente Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md).
 
 ### <a name="deploying-a-storage-account"></a>Déploiement d’un compte de stockage
 
@@ -430,19 +430,19 @@ Il existe plusieurs options de déploiement pour un compte de stockage.
 
 **Portail**
 
-Le déploiement d’un compte de stockage par le portail Azure ne nécessite qu’un abonnement Azure actif et l’accès à un navigateur web. Vous pouvez déployer un nouveau compte de stockage dans un groupe de ressources existant ou nouveau. Dès que vous avez créé le compte de stockage, vous pouvez créer un conteneur d’objets blob ou un partage de fichiers à l’aide du portail. Vous pouvez créer des entités de Stockage Table et Stockage File d’attente par programmation. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](../../storage/storage-create-storage-account.md#create-a-storage-account) .
+Le déploiement d’un compte de stockage par le portail Azure ne nécessite qu’un abonnement Azure actif et l’accès à un navigateur web. Vous pouvez déployer un nouveau compte de stockage dans un groupe de ressources existant ou nouveau. Dès que vous avez créé le compte de stockage, vous pouvez créer un conteneur d’objets blob ou un partage de fichiers à l’aide du portail. Vous pouvez créer des entités de Stockage Table et Stockage File d’attente par programmation. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) .
 
 En plus du déploiement d’un compte de stockage à partir du portail Azure, vous pouvez déployer un modèle Azure Resource Manager à partir de ce même portail. Toutes les ressources sont alors déployées et configurées, comme défini dans le modèle, notamment les comptes de stockage. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-Le déploiement d’un compte de stockage Azure à l’aide de PowerShell permet l’automatisation du déploiement complet du compte de stockage. Pour plus d’informations, consultez [Utilisation d’Azure PowerShell avec Stockage Azure](../../storage/storage-powershell-guide-full.md).
+Le déploiement d’un compte de stockage Azure à l’aide de PowerShell permet l’automatisation du déploiement complet du compte de stockage. Pour plus d’informations, consultez [Utilisation d’Azure PowerShell avec Stockage Azure](../../storage/common/storage-powershell-guide-full.md).
 
 En plus de déployer des ressources Azure individuellement, vous pouvez utiliser le module Azure PowerShell pour déployer un modèle Azure Resource Manager. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **Interface de ligne de commande (CLI)**
 
-À l’instar du module PowerShell, l’interface de ligne de commande Azure assure l’automatisation du déploiement et s’utilise sur les systèmes Windows, OS X ou Linux. Vous pouvez utiliser la commande d’Azure CLI **storage account create** pour créer un compte de stockage. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure](../../storage/storage-azure-cli.md).
+À l’instar du module PowerShell, l’interface de ligne de commande Azure assure l’automatisation du déploiement et s’utilise sur les systèmes Windows, OS X ou Linux. Vous pouvez utiliser la commande d’Azure CLI **storage account create** pour créer un compte de stockage. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure](../../storage/common/storage-azure-cli.md).
 
 De même, vous pouvez utiliser l’interface de ligne de commande Azure pour déployer un modèle Azure Resource Manager. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../../resource-group-template-deploy-cli.md).
 
@@ -452,11 +452,11 @@ Il est possible d’accéder à Stockage Azure de différentes manières, y comp
 
 **Disques de machines virtuelles**
 
-Lorsque vous déployez une machine virtuelle, vous devez également créer un compte de stockage pour stocker le disque du système d’exploitation de la machine virtuelle et les disques de données supplémentaires. Vous pouvez sélectionner un compte de stockage existant ou en créer un. La taille maximale d’un objet blob étant de 1 024 Go, un seul disque de machine virtuelle peut afficher une taille de 1 023 Go. Pour configurer un disque de données plus volumineux, vous pouvez présenter plusieurs disques de données à la machine virtuelle et les rassembler en un disque logique unique. Pour plus d’informations, consultez « Conseils relatifs à l’infrastructure de stockage » pour [Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md) et [Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md).
+Lorsque vous déployez une machine virtuelle, vous devez également créer un compte de stockage pour stocker le disque du système d’exploitation de la machine virtuelle et les disques de données supplémentaires. Vous pouvez sélectionner un compte de stockage existant ou en créer un. La taille maximale d’un objet blob étant de 1 024 Go, un seul disque de machine virtuelle peut afficher une taille de 1 023 Go. Pour configurer un disque de données plus volumineux, vous pouvez présenter plusieurs disques de données à la machine virtuelle et les rassembler en un disque logique unique. Pour plus d’informations, consultez les pages « Gestion des disques Azure » pour [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) et [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
 
 **Outils de stockage**
 
-Les comptes de stockage Azure sont accessibles par le biais de nombreux explorateurs de stockage différents, tels que Visual Studio Cloud Explorer. Ces outils vous permettent de parcourir les données et les comptes de stockage. Pour obtenir plus d’informations et la liste des explorateurs de stockage disponibles, consultez [Outils clients Stockage Azure](../../storage/storage-explorers.md).
+Les comptes de stockage Azure sont accessibles par le biais de nombreux explorateurs de stockage différents, tels que Visual Studio Cloud Explorer. Ces outils vous permettent de parcourir les données et les comptes de stockage. Pour obtenir plus d’informations et la liste des explorateurs de stockage disponibles, consultez [Outils clients Stockage Azure](../../storage/common/storage-explorers.md).
 
 **API de stockage**
 
@@ -468,7 +468,7 @@ Chaque compte de stockage a deux clés d’authentification, une clé principale
 
 **Signatures d’accès partagé**
 
-Si vous devez autoriser un accès contrôlé à vos ressources de stockage pour des utilisateurs, vous pouvez créer une signature d’accès partagé. Une signature d’accès partagé est un jeton qu’il est possible d’ajouter à une URL qui permet alors un accès délégué à une ressource de stockage. Quiconque possède le jeton peut accéder à la ressource qu’il désigne avec les autorisations qu’il spécifie, pendant son délai de validité. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](../../storage/storage-dotnet-shared-access-signature-part-1.md).
+Si vous devez autoriser un accès contrôlé à vos ressources de stockage pour des utilisateurs, vous pouvez créer une signature d’accès partagé. Une signature d’accès partagé est un jeton qu’il est possible d’ajouter à une URL qui permet alors un accès délégué à une ressource de stockage. Quiconque possède le jeton peut accéder à la ressource qu’il désigne avec les autorisations qu’il spécifie, pendant son délai de validité. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ## <a name="azure-virtual-network"></a>Réseau virtuel Azure
 

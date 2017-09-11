@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: e089a7d772b51194d8300beb99797bf40a8611b1
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 58a37c0dd24d54996f517961f3a7f1ec36639cfe
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="using-service-bus-from-net-with-amqp-10"></a>Utilisation de Service Bus à partir de .NET avec AMQP 1.0
@@ -52,7 +51,7 @@ La valeur du paramètre `Microsoft.ServiceBus.ConnectionString` est la chaîne d
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
-Où les éléments `[namespace]` et `SharedAccessKey` sont obtenus à partir du [portail Azure][Azure portal] lorsque vous créez un espace de noms Service Bus. Pour plus d’informations, consultez la page [Création d’un espace de noms Service Bus à l’aide du portail Azure][Create a Service Bus namespace using the Azure portal].
+Où les éléments `namespace` et `SAS key` sont obtenus à partir du [portail Azure][Azure portal] lorsque vous créez un espace de noms Service Bus. Pour plus d’informations, consultez la page [Création d’un espace de noms Service Bus à l’aide du portail Azure][Create a Service Bus namespace using the Azure portal].
 
 Lorsque vous utilisez AMQP, ajoutez la chaîne de connexion avec `;TransportType=Amqp`. Cette notation informe la bibliothèque cliente qu’elle doit se connecter à Service Bus à l’aide d’AMQP 1.0.
 
@@ -125,7 +124,7 @@ Les [API .NET](/dotnet/api/) exposent plusieurs paramètres pour contrôler le c
 Prêt à en savoir plus ? Visitez les liens suivants :
 
 * [Vue d’ensemble d’AMQP de Service Bus]
-* [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]
+* [Guide du protocole AMQP 1.0]
 * [AMQP dans Service Bus pour Windows Server]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
@@ -136,6 +135,6 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
-[Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 

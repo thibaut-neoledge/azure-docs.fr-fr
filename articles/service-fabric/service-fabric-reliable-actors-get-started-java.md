@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 450c60abeaaf96c7d82152d425265a6b6714f689
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 288f1ed1016f50031065e66444d2562427194dc7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="getting-started-with-reliable-actors"></a>Prise en main de Reliable Actors
@@ -188,20 +187,16 @@ $ gradle
 
 Cela génère un package d’application Service Fabric qui peut être déployé à l’aide des outils de l’interface de ligne de commande (CLI) Service Fabric.
 
-### <a name="deploy-with-xplat-cli"></a>Déployer avec XPlat CLI
+### <a name="deploy-service-fabric-cli"></a>Déployer l’interface CLI Service Fabric
 
-Si vous utilisez la CLI XPlat, le script install.sh contient les commandes Azure CLI nécessaires pour déployer le package d’application. Exécutez le script install.sh pour déployer l’application.
+Le script install.sh contient les commandes de l’interface CLI Service Fabric (sfctl) nécessaires pour déployer le package d’application.
+Exécutez le script install.sh pour déployer l’application.
 
 ```bash
 $ ./install.sh
 ```
 
-### <a name="deploy-with-azure-cli-20"></a>Déployer avec Azure CLI 2.0
+## <a name="next-steps"></a>Étapes suivantes
 
-Si vous utilisez l’interface CLI Azure 2.0, consultez la documentation de référence sur la gestion du [cycle de vie des applications à l’aide de l’interface CLI Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
-
-## <a name="related-articles"></a>Articles connexes
-
-* [Prise en main de Service Fabric et d’Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Prise en main de l’interface de ligne de commande Service Fabric XPlat](service-fabric-azure-cli.md)
+* [Bien démarrer avec l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
 

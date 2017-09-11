@@ -143,6 +143,8 @@
 #### [Portail](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
+### [Lire les données TLS chiffrées AES dans Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
+### [Passer des jetons d’authentification](http://mingfeiy.com/how-client-pass-tokens-to-azure-media-services-key-delivery-services)
 
 ## [Analyser](media-services-analytics-overview.md)
 ### [Analyser les supports à l’aide du portail](media-services-portal-analyze.md)

@@ -3,8 +3,8 @@
 ## [Présentation de Machine Learning](machine-learning-what-is-machine-learning.md)
 
 ## TDSP (Team Data Science Process)
-### [Vue d'ensemble](http://aka.ms/datascienceprocess)
-### [Cycle de vie](data-science-process-overview.md)
+### [Vue d'ensemble](data-science-process-overview.md)
+### [Cycle de vie](data-science-process-lifecycle.md)
 ### [Procédures pas à pas](data-science-process-walkthroughs.md)
 ####[Spark avec PySpark et Scala](data-science-process-walkthroughs-spark.md)
 ##### [Explorer les données](machine-learning-data-science-spark-data-exploration-modeling.md)
@@ -14,6 +14,7 @@
 ####[U-SQL avec Azure Data Lake](data-science-process-walkthroughs-azure-data-lake.md)
 ####[R, Python et T-SQL avec SQL Server](data-science-process-walkthroughs-sql-server.md)
 ####[T-SQL et Python avec SQL DW](data-science-process-walkthroughs-sql-data-warehouse.md)
+### [Avec Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
 ### [Présentation de Studio](machine-learning-what-is-ml-studio.md)

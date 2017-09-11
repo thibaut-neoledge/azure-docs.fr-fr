@@ -4,7 +4,7 @@ description: "Familiarisez-vous avec les conditions préalables pour Media Servi
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/16/2017
+ms.date: 08/23/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: ca5e537bd4347e17190ff4f66cc4d42a36870936
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 15828bc74937a036871b26493498232ec7cf6f06
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="media-services-development-with-net"></a>Développement Media Services avec .NET
@@ -66,7 +66,7 @@ Vous pouvez également obtenir les dernières informations relatives au Kit de d
     Si vous utilisez [l’authentification utilisateur](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication), votre fichier de configuration contiendra probablement des valeurs relatives au domaine de votre client Azure AD et au point de terminaison de l’API REST AMS.
     
     >[!Important]
-    >Les exemples de la documentation d’Azure Media Services utilisent une authentification de type utilisateur (interactif) pour se connecter à l’API AMS. Cette méthode d’authentification fonctionne bien avec les applications natives de gestion ou de surveillance : applications mobiles, applications Windows et applications de console. Cette méthode d’authentification ne convient pas aux applications de type serveur, services web et API.  Pour plus d’informations, consultez l’article [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+    >La plupart des exemples de code de la documentation Azure Media Services utilisent une authentification de type utilisateur (interactif) pour se connecter à l’API AMS. Cette méthode d’authentification fonctionne bien avec les applications natives de gestion ou de surveillance : applications mobiles, applications Windows et applications de console. Cette méthode d’authentification ne convient pas aux applications de type serveur, services web et API.  Pour plus d’informations, consultez l’article [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
         <configuration>
         ...

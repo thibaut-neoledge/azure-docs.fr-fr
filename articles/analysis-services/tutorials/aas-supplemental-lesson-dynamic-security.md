@@ -3,7 +3,7 @@ title: "Leçon supplémentaire du didacticiel Azure Analysis Services : Sécuri
 description: "Explique comment utiliser la sécurité dynamique à l’aide de filtres de lignes dans le didacticiel Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

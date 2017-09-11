@@ -2,7 +2,7 @@
 title: "Documentation Stockage Azure - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser Azure Storage pour le stockage d’objets blob, de tables, de fichiers et de disques de machine virtuelle dans le cloud. Didacticiels, références d’API et autres documents."
 services: storage
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -21,6 +21,8 @@
           href: container-instances-tutorial-deploy-app.md
 - name: Concepts
   items:
+    - name: Régions et disponibilité
+      href: container-instances-region-availability.md
     - name: Relation aux utilisateurs d’Orchestrator
       href: container-instances-orchestrator-relationship.md
     - name: Groupes de conteneur
@@ -43,6 +45,8 @@
   items:
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Modèles - Container Instances
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilité des régions

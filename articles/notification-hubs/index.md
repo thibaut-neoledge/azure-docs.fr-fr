@@ -2,7 +2,7 @@
 title: "Documentation Azure Notification Hubs - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment envoyer des notifications push entre n’importe quelle infrastructure et n’importe quel appareil mobile avec Notification Hubs. Didacticiels, références d’API et autres documents."
 services: notification-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

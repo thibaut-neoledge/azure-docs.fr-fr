@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 8192fc3edc35578067c7478811793d3f4fa8734f
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3eb88478b43f8e3a36ae04bf3703f238e8cb1f3e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="download-a-linux-vhd-from-azure"></a>Télécharger un disque VHD Linux à partir d’Azure
 
-Dans cet article, vous allez découvrir comment télécharger un fichier de [disque dur virtuel (VHD) Linux](../../storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) à partir d’Azure à l’aide d’Azure CLI et du portail Azure. 
+Dans cet article, vous allez découvrir comment télécharger un fichier de [disque dur virtuel (VHD) Linux](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) à partir d’Azure à l’aide d’Azure CLI et du portail Azure. 
 
-Les machines virtuelles dans Azure utilisent des [disques](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) comme emplacement de stockage d’un système d’exploitation, des applications et des données. Toutes les machines virtuelles Azure possèdent au moins deux disques : un disque de système d’exploitation Windows et un disque temporaire. Le disque de système d’exploitation est initialement créé à partir d’une image. Tant le disque que l’image sont des disques VHD stockés dans un compte de stockage Azure. Les machines virtuelles peuvent également disposer d’un ou plusieurs disques de données, également stockés sur les VHD.
+Les machines virtuelles dans Azure utilisent des [disques](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) comme emplacement de stockage d’un système d’exploitation, des applications et des données. Toutes les machines virtuelles Azure possèdent au moins deux disques : un disque de système d’exploitation Windows et un disque temporaire. Le disque de système d’exploitation est initialement créé à partir d’une image. Tant le disque que l’image sont des disques VHD stockés dans un compte de stockage Azure. Les machines virtuelles peuvent également disposer d’un ou plusieurs disques de données, également stockés sur les VHD.
 
 Si ce n’est déjà fait, installez [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
@@ -69,7 +69,7 @@ Pour utiliser le disque VHD en tant que disque d’une nouvelle instance d’une
 
 ## <a name="generate-sas-url"></a>Générer une URL de SAP
 
-Pour télécharger le fichier VHD, vous devez générer une URL de [signature d’accès partagé (SAP)](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Un délai d’expiration est affecté à l’URL lors de sa génération.
+Pour télécharger le fichier VHD, vous devez générer une URL de [signature d’accès partagé (SAP)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Un délai d’expiration est affecté à l’URL lors de sa génération.
 
 1.  Dans le menu du panneau de la machine virtuelle, cliquez sur **Disques**.
 2.  Sélectionnez le disque de système d’exploitation de la machine virtuelle, puis cliquez sur **Exporter**.
@@ -81,11 +81,11 @@ Pour télécharger le fichier VHD, vous devez générer une URL de [signature d�
 
 1.  Sous l’URL générée, cliquez sur Télécharger le fichier de disque dur virtuel.
 
-    ![Télécharger un disque VHD](./media/download-vhd/export-download.png)
+    ![Télécharger un VHD](./media/download-vhd/export-download.png)
 
 2.  Vous devrez peut-être cliquer sur **Enregistrer** dans le navigateur pour commencer le téléchargement. Le nom par défaut du fichier VHD est *abcd*.
 
-    ![Cliquez sur Enregistrer dans le navigateur.](./media/download-vhd/export-save.png)
+    ![Cliquez sur Enregistrer dans le navigateur](./media/download-vhd/export-save.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

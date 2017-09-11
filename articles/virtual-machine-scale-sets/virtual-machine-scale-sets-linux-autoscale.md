@@ -1,6 +1,6 @@
 ---
-title: "Mettre à l’échelle automatiquement des groupes identiques de machines virtuelles Linux | Microsoft Docs"
-description: "Mettre à l’échelle automatiquement un jeu de mise à l’échelle de machine virtuelle Linux avec l’interface de ligne de commande Azure"
+title: "Mettre à l’échelle automatiquement des groupes de machines virtuelles identiques Linux | Microsoft Docs"
+description: "Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques Linux avec l’interface de ligne de commande Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 3a8a5d25123905e6c5cf91c4bc0c04258e442b5c
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: eff4add1cb16fe25022787668dc1d2277845dd95
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/19/2017
 
 ---
-# <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Mise à l’échelle automatique de machines Linux dans un jeu de mise à l’échelle de machine virtuelle
-Les jeux de mise à l’échelle de machines virtuelles facilitent le déploiement et la gestion de machines virtuelles identiques en tant qu’ensemble. Les groupes à échelle identique fournissent une couche de calcul hautement évolutive et personnalisable pour les applications « hyperscale », et prennent en charge les images de plateforme Windows, les images de plateforme Linux, des images personnalisées et les extensions. Pour en savoir plus, consultez la rubrique [Vue d’ensemble des jeux de mise à l’échelle de machines virtuelles](virtual-machine-scale-sets-overview.md).
+# <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Mise à l’échelle automatique de machines Linux dans un groupe de machines virtuelles identiques
+Les groupes de machines virtuelles identiques facilitent le déploiement et la gestion de machines virtuelles identiques en tant que groupe. Les groupes identiques fournissent une couche de calcul hautement évolutive et personnalisable pour les applications « hyperscale », et prennent en charge les images de plateforme Windows, les images de plateforme Linux, des images personnalisées et les extensions. Pour en savoir plus, consultez la rubrique [Vue d’ensemble des groupes de machines virtuelles identiques](virtual-machine-scale-sets-overview.md).
 
-Ce didacticiel vous montre comment créer un jeu de mise à l’échelle de machine virtuelle Linux à l’aide de la dernière version de Ubuntu Linux. Il vous montre également comment mettre automatiquement à l’échelle les machines dans le jeu. Pour créer le jeu de mise à l’échelle et configurer la mise à l’échelle, créez un modèle Azure Resource Manager et déployez-le à l’aide de l’interface de ligne de commande Azure. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Pour plus d'informations sur la mise à l'échelle automatique de jeux de mise à l'échelle, consultez la rubrique [Mise à l'échelle automatique et jeux de mise à l'échelle de machines virtuelles](virtual-machine-scale-sets-autoscale-overview.md).
+Ce didacticiel vous montre comment créer un groupe de machines virtuelles identiques Linux à l’aide de la dernière version de Ubuntu Linux. Il vous montre également comment mettre automatiquement à l’échelle les machines dans le groupe. Pour créer le groupe identique et configurer la mise à l’échelle, créez un modèle Azure Resource Manager et déployez-le à l’aide de l’interface de ligne de commande Azure. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Pour plus d'informations sur la mise à l'échelle automatique de groupes de machines virtuelles identiques, consultez la rubrique [Mise à l'échelle automatique et groupes de machines virtuelles identiques](virtual-machine-scale-sets-autoscale-overview.md).
 
 Dans ce didacticiel, vous allez déployer les ressources et les extensions suivantes :
 
@@ -104,7 +104,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
    * Nom du compte de stockage dans lequel le modèle est stocké.
    * Nombre d’instances de machines virtuelles à créer initialement dans le groupe à échelle identique.
    * Nom et mot de passe du compte d’administrateur sur les machines virtuelles.
-   * Préfixe de nom pour les ressources qui sont créées pour prendre en charge le jeu de mise à l’échelle.
+   * Préfixe de nom pour les ressources qui sont créées pour prendre en charge le groupe identique.
 
 3. Des variables peuvent être utilisées dans un modèle pour spécifier des valeurs qui changent fréquemment ou qui doivent être créées à partir d’une combinaison de valeurs de paramètres. Ajoutez ces variables sous l’élément parent des variables que vous avez ajouté au modèle.
 
@@ -168,7 +168,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
     },
     ```
 
-6. Ajoutez des ressources d’adresse IP publiques qui sont utilisées par l’équilibrage de charge et l’interface réseau.
+6. Ajoutez des ressources d’adresse IP publiques qui sont utilisées par l’équilibreur de charge et l’interface réseau.
 
     ```json
     {
@@ -197,7 +197,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
     },
     ```
 
-7. Ajoutez la ressource d’équilibrage de charge utilisée par le groupe à échelle identique. Pour plus d’informations, consultez [Prise en charge d’un équilibreur de charge par Azure Resource Manager](../load-balancer/load-balancer-arm.md)
+7. Ajoutez la ressource d’équilibreur de charge utilisée par le groupe identique. Pour plus d’informations, consultez [Prise en charge d’un équilibreur de charge par Azure Resource Manager](../load-balancer/load-balancer-arm.md)
 
     ```json   
     {
@@ -238,7 +238,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
     },
     ```
 
-8. Ajoutez la ressource d’interface réseau qui est utilisée par la machine virtuelle distincte. Étant donné que les machines virtuelles d’un jeu de mise à l’échelle ne sont pas accessibles via une adresse IP publique, une machine virtuelle distincte est créée dans le même réseau virtuel pour accéder à distance aux machines.
+8. Ajoutez la ressource d’interface réseau qui est utilisée par la machine virtuelle distincte. Étant donné que les machines virtuelles d’un groupe identique ne sont pas accessibles via une adresse IP publique, une machine virtuelle distincte est créée dans le même réseau virtuel pour accéder à distance aux machines.
 
     ```json
     {
@@ -269,7 +269,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
     },
     ```
 
-9. Ajoutez la machine virtuelle distincte dans le même réseau que le groupe à échelle identique.
+9. Ajoutez la machine virtuelle distincte dans le même réseau que le groupe identique.
 
     ```json
     {
@@ -315,7 +315,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
     },
     ```
 
-10. Ajoutez la ressource de jeu de mise à l’échelle de machines virtuelles et spécifiez l’extension Diagnostics installée sur toutes les machines virtuelles du jeu de mise à l’échelle. La plupart des paramètres de cette ressource sont similaires à la ressource de machine virtuelle. Les principales différences sont l’élément capacity qui spécifie le nombre de machines virtuelles du jeu de mise à l’échelle et le paramètre upgradePolicy qui spécifie la manière dont les mises à jour sont appliquées aux machines virtuelles. Le jeu de mise à l’échelle n’est pas créé tant que tous les comptes de stockage ne sont pas créés, comme spécifié par l’élément dependsOn.
+10. Ajoutez la ressource de groupe de machines virtuelles identiques et spécifiez l’extension Diagnostics installée sur toutes les machines virtuelles du groupe. La plupart des paramètres de cette ressource sont similaires à la ressource de machine virtuelle. Les principales différences sont l’élément capacity qui spécifie le nombre de machines virtuelles du groupe identique et le paramètre upgradePolicy qui spécifie la manière dont les mises à jour sont appliquées aux machines virtuelles. Le groupe identique n’est pas créé tant que tous les comptes de stockage ne sont pas créés, comme spécifié par l’élément dependsOn.
 
     ```json
     {
@@ -494,16 +494,16 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
     Cette valeur est l’opérateur utilisé pour comparer les données de mesure et le seuil. Les valeurs possibles sont : est égal à -Equals), différent de (NotEquals), supérieur à (GreaterThan), égal ou supérieur à (GreaterThanOrEqual), Inférieur à (LessThan), Inférieur ou égal à (LessThanOrEqual).
     
     * **threshold**  
-    Cette valeur déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au jeu de mise à l’échelle défini lorsque l’utilisation moyenne du processeur dans le jeu de machines des est supérieur à 50 %.
+    Cette valeur déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au groupe identique défini lorsque l’utilisation moyenne du processeur des machines du groupe est supérieure à 50 %.
     
     * **direction**  
-    Cette valeur détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le jeu de mise à l’échelle est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
+    Cette valeur détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le groupe identique est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
 
     * **type**  
     Cette valeur est le type d’action qui doit se produire. Elle doit être définie sur ChangeCount.
     
     * **value**  
-    Cette valeur est le nombre de machines virtuelles qui sont ajoutées ou supprimées dans le groupe identique. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le jeu de mise à l’échelle augmente de 1 lorsque le seuil est atteint.
+    Cette valeur est le nombre de machines virtuelles qui sont ajoutées ou supprimées dans le groupe identique. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le groupe identique augmente de 1 lorsque le seuil est atteint.
 
     * **cooldown**  
     Cette valeur est la durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action suivante se produise. Elle doit être comprise entre une minute et une semaine.
@@ -559,7 +559,7 @@ Environ 15 minutes sont nécessaires pour le déploiement correct de toutes les
 
 
 ## <a name="step-5-monitor-resources"></a>Étape 5 : analyser les ressources
-Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de machine virtuelle à l’aide des méthodes suivantes :
+Vous pouvez obtenir des informations sur les groupes de machines virtuelles identiques à l’aide des méthodes suivantes :
 
 * Le portail Azure : vous pouvez en obtenir une quantité limitée d’informations sur l’utilisation du portail.
 
@@ -578,7 +578,7 @@ Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de mac
 * Connectez-vous à la machine virtuelle jumpbox comme vous le feriez pour n’importe quel autre ordinateur et vous pouvez ensuite accéder à distance aux machines virtuelles du groupe à échelle identique pour surveiller les processus individuels.
 
 > [!NOTE]
-> Vous trouverez une API REST complète permettant d’obtenir des informations sur les groupes à échelle identique dans [Groupes de machines virtuelles à échelle identique](https://msdn.microsoft.com/library/mt589023.aspx)
+> Vous trouverez une API REST complète permettant d’obtenir des informations sur les groupes identiques dans [Groupes de machines virtuelles identiques](https://msdn.microsoft.com/library/mt589023.aspx)
 
 ## <a name="step-6-remove-the-resources"></a>Étape 6 : supprimer les ressources
 Étant donné que les ressources utilisées dans Microsoft Azure vous sont facturées, il est toujours conseillé de supprimer les ressources qui ne sont plus nécessaires. Vous n’avez pas besoin de supprimer séparément les ressources d’un groupe de ressources. Vous pouvez supprimer le groupe de ressources pour supprimer automatiquement toutes ses ressources.
@@ -591,6 +591,6 @@ azure group delete vmsstestrg1
 * Découvrez des exemples de fonctionnalités de surveillance Azure Monitor dans les [exemples de démarrage rapide de l’interface CLI multiplateforme d’Azure Monitor](../monitoring-and-diagnostics/insights-cli-samples.md)
 * Pour en savoir plus sur les fonctionnalités de notification, consultez [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 * Découvrez comment [utiliser les journaux d’audit pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
-* Découvrez le modèle [Mettre à l’échelle automatiquement un groupe identique de machine virtuelle exécutant une application Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) qui configure une pile LAMP pour tester la fonctionnalité de mise à l’échelle automatique des groupes identiques de machines virtuelles.
+* Découvrez le modèle [Mettre à l’échelle automatiquement l’application de démonstration sur Ubuntu 16.04](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) qui configure une application Python/bottle pour tester la fonctionnalité de mise à l’échelle automatique de Virtual Machine Scale Sets.
 
 

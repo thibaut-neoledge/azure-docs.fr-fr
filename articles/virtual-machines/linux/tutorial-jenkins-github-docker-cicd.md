@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: b606d2c3070f8020cdd9aad3f12f8f1e43125138
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d9849b5e061dd7f2ae0744a3522dc2eb1fb37035
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -43,7 +43,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 ## <a name="create-jenkins-instance"></a>Création d’une instance Jenkins
 Dans le didacticiel précédent [How to customize a Linux virtual machine on first boot (Personnalisation d’une machine virtuelle Linux au premier démarrage)](tutorial-automate-vm-deployment.md), vous avez appris à automatiser la personnalisation des machines virtuelles avec cloud-init. Ce didacticiel utilise un fichier cloud-init pour installer Jenkins et Docker sur une machine virtuelle. 
 
-Créez un fichier cloud-init nommé *cloud-init-jenkins.txt* et collez le contenu suivant :
+Dans l’interpréteur de commandes actuel, créez un fichier nommé *cloud-init.txt* et collez la configuration suivante. Par exemple, créez le fichier dans l’interpréteur de commandes Cloud et non sur votre ordinateur local. Entrez `sensible-editor cloud-init-jenkins.txt` pour créer le fichier et afficher la liste des éditeurs disponibles. Vérifiez que l’intégralité du fichier cloud-init est copiée, en particulier la première ligne :
 
 ```yaml
 #cloud-config
@@ -115,6 +115,8 @@ Affichez le `initialAdminPassword` pour votre installation Jenkins et copiez-le�
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
+Si le fichier n’est pas encore disponible, attendez quelques minutes le temps que cloud-init termine l’installation de Jenkins et Docker.
+
 Ouvrez un navigateur web et accédez à `http://<publicIps>:8080`. Terminez la configuration initiale de Jenkins comme suit :
 
 - Entrez le *initialAdminPassword* obtenu à partir de la machine virtuelle à l’étape précédente.
@@ -125,9 +127,9 @@ Ouvrez un navigateur web et accédez à `http://<publicIps>:8080`. Terminez la c
 
 
 ## <a name="create-github-webhook"></a>Créer un webhook GitHub
-Pour configurer l’intégration avec GitHub, ouvrez l’[exemple d’application Hello World basé sur Node.js](https://github.com/Azure-Samples/nodejs-docs-hello-world) à partir du référentiel d’exemples Azure. Pour répliquer le référentiel sur votre propre compte GitHub, cliquez sur le bouton **Bifurcation** dans le coin supérieur droit.
+Pour configurer l’intégration avec GitHub, ouvrez l’[exemple d’application Hello World basé sur Node.js](https://github.com/Azure-Samples/nodejs-docs-hello-world) à partir du dépôt d’exemples Azure. Pour dupliquer le dépôt sur votre propre compte GitHub, cliquez sur le bouton **Fork** en haut à droite.
 
-Créez un webhook à l’intérieur de la bifurcation que vous avez créée :
+Créez un webhook à l’intérieur de la duplication que vous avez créée :
 
 - Cliquez sur **Paramètres**, puis sélectionnez **Intégrations et services** sur le côté gauche.
 - Cliquez sur **Ajouter un service**, puis entrez *Jenkins* dans la zone de filtre.
@@ -135,7 +137,7 @@ Créez un webhook à l’intérieur de la bifurcation que vous avez créée :
 - Pour l’**URL du hook Jenkins**, entrez `http://<publicIps>:8080/github-webhook/`. Assurez-vous d'inclure la barre oblique (/) à la fin
 - Cliquez sur **Ajouter un service**
 
-![Ajouter un webhook GitHub à votre référentiel bifurqué](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
+![Ajouter un webhook GitHub à votre dépôt dupliqué](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
 
 ## <a name="create-jenkins-job"></a>Créer une tâche Jenkins
@@ -144,20 +146,20 @@ Pour que Jenkins réponde à un événement dans GitHub (un code de validation p
 Dans votre site web Jenkins, cliquez sur **Créer de nouvelles tâches** à partir de la page d’accueil :
 
 - Entrez *HelloWorld* comme nom de la tâche. Sélectionnez **Projet libre**, puis cliquez sur **OK**.
-- Dans la section **Général**, sélectionnez un projet **GitHub** et entrez l’URL de votre référentiel bifurqué (*https://github.com/iainfoulds/nodejs-docs-hello-world* par ex.)
-- Dans la section **Gestion du code source**, sélectionnez **Git** et entrez l’URL de votre référentiel bifurqué en *.git* (*https://github.com/iainfoulds/nodejs-docs-hello-world.git* par ex.)
+- Dans la section **Général**, sélectionnez un projet **GitHub** et entrez l’URL de votre dépôt dupliqué (*https://github.com/iainfoulds/nodejs-docs-hello-world* par ex.)
+- Dans la section **Gestion du code source**, sélectionnez **Git** et entrez l’URL de votre dépôt dupliqué en *.git* (*https://github.com/iainfoulds/nodejs-docs-hello-world.git* par ex.)
 - Dans la section **Déclencheurs de génération**, sélectionnez **Déclencher un hook GitHub pour l’interrogation GITScm**.
-- Dans la section **Génération** , cliquez sur **Ajouter une étape de génération**. Sélectionnez **Exécuter l’interpréteur de commandes**, puis entrez `echo "Testing"` dans la fenêtre de commande.
+- Dans la section **Build**, cliquez sur **Ajouter une étape de build**. Sélectionnez **Exécuter l’interpréteur de commandes**, puis entrez `echo "Testing"` dans la fenêtre de commande.
 - Cliquez sur **Enregistrer** en bas de la fenêtre des tâches.
 
 
 ## <a name="test-github-integration"></a>Test de l’intégration de GitHub
-Pour tester l’intégration de GitHub avec Jenkins, validez une modification dans votre bifurcation. 
+Pour tester l’intégration de GitHub avec Jenkins, validez une modification dans votre duplication. 
 
-Dans l’interface utilisateur web de GitHub, sélectionnez votre référentiel bifurqué, puis cliquez sur le fichier **index.js**. Cliquez sur l’icône de crayon pour modifier ce fichier de manière à ce que la ligne 6 affiche :
+Dans l’interface utilisateur web de GitHub, sélectionnez votre dépôt dupliqué, puis cliquez sur le fichier **index.js**. Cliquez sur l’icône de crayon pour modifier ce fichier de manière à ce que la ligne 6 affiche :
 
 ```nodejs
-response.end("Hello World!");`.
+response.end("Hello World!");
 ```
 
 Pour valider vos modifications, cliquez sur le bouton **Valider les modifications** en bas.
@@ -174,7 +176,7 @@ Pour que l’application Node.js soit exécutée en fonction de vos validations 
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Créez un fichier nommé `Dockerfile` dans ce répertoire d’espace de travail et collez le contenu suivant :
+Créez un fichier nommé `sudo sensible-editor Dockerfile` dans ce répertoire d’espace de travail et collez le contenu suivant : Vérifiez que l’intégralité du fichier Docker est copiée, en particulier la première ligne :
 
 ```yaml
 FROM node:alpine
@@ -197,7 +199,7 @@ Dans votre instance Jenkins, sélectionnez la tâche que vous avez créée à l�
 
 - Supprimez votre étape de génération `echo "Test"` existante. Cliquez sur la croix rouge en haut à droite de la zone de l’étape de génération existante.
 - Cliquez sur **Ajouter une étape de génération**, puis sélectionnez **Exécuter l’interpréteur de commandes**
-- Dans la zone **Commande**, entrez les commandes Docker suivantes :
+- Dans la zone **Commande**, entrez les commandes Docker suivantes, puis sélectionnez **Enregistrer** :
 
   ```bash
   docker build --tag helloworld:$BUILD_NUMBER .
@@ -209,7 +211,7 @@ Les étapes de génération Docker créent une image et l’identifient par le n
 
 
 ## <a name="test-your-pipeline"></a>Tester votre pipeline
-Pour voir l’intégralité du pipeline en action, modifiez à nouveau le fichier *index.js* dans votre référentiel GitHub bifurqué, puis cliquez sur **Valider la modification**. Une nouvelle tâche démarre dans Jenkins sur la base du webhook pour GitHub. Il faut quelques secondes pour créer l’image Docker et lancer votre application dans un nouveau conteneur.
+Pour voir l’intégralité du pipeline en action, modifiez à nouveau le fichier *index.js* dans votre dépôt GitHub dupliqué, puis cliquez sur **Valider la modification**. Une nouvelle tâche démarre dans Jenkins sur la base du webhook pour GitHub. Il faut quelques secondes pour créer l’image Docker et lancer votre application dans un nouveau conteneur.
 
 Si nécessaire, obtenez à nouveau l’adresse IP publique de votre machine virtuelle :
 
@@ -217,7 +219,7 @@ Si nécessaire, obtenez à nouveau l’adresse IP publique de votre machine virt
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
-Ouvrez un navigateur web et entrez `http://<publicIps>:1337`. Votre application Node.js s’affiche et reflète les dernières validations dans votre bifurcation GitHub comme suit :
+Ouvrez un navigateur web et entrez `http://<publicIps>:1337`. Votre application Node.js s’affiche et reflète les dernières validations dans votre duplication GitHub comme suit :
 
 ![Exécution de l’application Node.js](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
 
@@ -237,7 +239,7 @@ Dans ce didacticiel, vous avez configuré GitHub pour qu’il exécute une tâch
 > * Créer une image Docker pour votre application
 > * Vérifier les validations GitHub, générer une nouvelle image Docker et mettre à jour l’application en cours d’exécution
 
-Suivez ce lien pour consulter des exemples de scripts de machine virtuelle prédéfinis.
+Passez au didacticiel suivant pour en savoir plus sur l’intégration de Jenkins à Visual Studio Team Services.
 
 > [!div class="nextstepaction"]
-> [Exemples de scripts de machine virtuelle Linux](./cli-samples.md)
+> [Déployer des applications avec Jenkins et Team Services](tutorial-build-deploy-jenkins.md)

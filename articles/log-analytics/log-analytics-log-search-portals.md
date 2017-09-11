@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: b415141f152e88e13678c464eddc4f73df2da54e
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 29dfa31d38f85574f84ed351bc5c26224b1a7e16
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Portails servant à la création et la modification des requêtes de journal dans Azure Log Analytics
@@ -50,6 +50,6 @@ En raison de ses fonctionnalités avancées, vous utiliserez généralement le p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez un didacticiel sur l’utilisation du [portail de recherche dans les journaux](log-analytics-log-search-log-search-portal.md) ou du [portail Analytics avancé](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html) pour créer des requêtes.
-- Consultez un [didacticiel sur l’écriture de requêtes](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) à l’aide du nouveau langage de requête.
+- Consultez un didacticiel sur l’utilisation du [portail de recherche dans les journaux](log-analytics-log-search-log-search-portal.md) ou du [portail Analytics avancé](https://go.microsoft.com/fwlink/?linkid=856587) pour créer des requêtes.
+- Consultez un [didacticiel sur l’écriture de requêtes](https://go.microsoft.com/fwlink/?linkid=856078) à l’aide du nouveau langage de requête.
 

@@ -8,7 +8,7 @@ author: op-ravi
 manager: santoshb
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -23,15 +23,11 @@ ms.lasthandoff: 07/01/2017
 
 ---
 
-<a id="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
-
-# Créer une source d’événement pour votre environnement Time Series Insights à l’aide du portail Ibiza
+# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Créer une source d’événement pour votre environnement Time Series Insights à l’aide du portail Ibiza
 
 La source d’événement Time Series Insights est dérivée d’un service Broker pour les événements tel que les concentrateurs d’événements Azure. Time Series Insights se connecte directement aux sources d’événement, en recevant le flux de données sans demander aux utilisateurs d’écrire une seule ligne de code. Actuellement, Time Series Insights prend en charge les concentrateurs d’événements Azure et les IoT Hubs. À l’avenir, plusieurs sources d’événements seront ajoutées.
 
-<a id="steps-to-add-an-event-source-to-your-environment" class="xliff"></a>
-
-## Étapes pour ajouter une source d’événement à votre environnement
+## <a name="steps-to-add-an-event-source-to-your-environment"></a>Étapes pour ajouter une source d’événement à votre environnement
 
 1.  Connectez-vous au [portail Ibiza](https://portal.azure.com).
 2.  Cliquez sur « Toutes les ressources » dans le menu de gauche du portail Ibiza.
@@ -55,9 +51,7 @@ La source d’événement Time Series Insights est dérivée d’un service Brok
 
 Après la création de la source d’événement, Time Series Insights démarre automatiquement la diffusion de données dans votre environnement.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Envoyer des événements](time-series-insights-send-events.md) à la source d’événement
 * Afficher votre environnement dans le [Portail Time Series Insights](https://insights.timeseries.azure.com)

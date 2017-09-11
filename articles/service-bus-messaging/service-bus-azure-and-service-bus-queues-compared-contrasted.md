@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 08/07/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 45fe7584c8b769113da9d287fea56d68d3d6c55a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 555759073507219188b59af76a82be74b112c57c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
@@ -132,7 +132,7 @@ Cette section compare les files d’attente de stockage et les files d’attente
 
 | Critères de comparaison | Files d’attente de stockage | Files d'attente Service Bus |
 | --- | --- | --- |
-| Taille de file d'attente maximale |**500 To**<br/><br/>(limitée à une [capacité de compte de stockage unique](../storage/storage-introduction.md#queue-storage)) |**1 Go à 80 Go**<br/><br/>(définie lors de la création d’une file d’attente et d’une [activation du partitionnement](service-bus-partitioning.md) – consultez la section « Informations supplémentaires ») |
+| Taille de file d'attente maximale |**500 To**<br/><br/>(limitée à une [capacité de compte de stockage unique](../storage/common/storage-introduction.md#queue-storage)) |**1 Go à 80 Go**<br/><br/>(définie lors de la création d’une file d’attente et d’une [activation du partitionnement](service-bus-partitioning.md) – consultez la section « Informations supplémentaires ») |
 | Taille de message maximale |**64 Ko**<br/><br/>(48 Ko avec un codage en **Base64**)<br/><br/>Azure prend en charge les messages volumineux en combinant des files d’attente et des objets BLOB. Dans ce cas, vous pouvez placer jusqu’à 200 Go en file d’attente pour un seul élément. |**256 Ko** ou **1 Mo**<br/><br/>(y compris l’en-tête et le corps, taille maximale d’en-tête : 64 Ko).<br/><br/>Dépend du [niveau de service](service-bus-premium-messaging.md). |
 | Durée de vie maximale des messages |**7 jours** |**`TimeSpan.Max`** |
 | Nombre maximal de files d'attente |**Illimité** |**10,000**<br/><br/>(par espace de noms de service, peut être augmenté) |
@@ -192,7 +192,7 @@ En ayant une meilleure compréhension des deux technologies, vous serez en mesur
 Les articles suivants fournissent des conseils et des informations sur l’utilisation des files d’attente de stockage ou Service Bus.
 
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Utilisation du service de stockage de files d’attente](../storage/storage-dotnet-how-to-use-queues.md)
+* [Utilisation du service de stockage de files d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie répartie Service Bus](service-bus-performance-improvements.md)
 * [Présentation des files d’attente et des rubriques dans Azure Service Bus (blog)](http://www.code-magazine.com/article.aspx?quickid=1112041)
 * [Guide du développeur pour Service Bus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)

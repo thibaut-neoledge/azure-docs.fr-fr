@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/28/2017
+ms.date: 08/28/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: d37f0fcf4c91879c31b04dfd19cadee00e98ba91
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 239d2e1724f2759a52cccdac11fc781d57393125
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Authentification par certificat Azure Active Directory sur Android
@@ -31,7 +31,7 @@ L’authentification par certificat (CBA) vous permet d’être authentifié par
 
 La configuration de cette fonctionnalité élimine le besoin d’entrer un nom d’utilisateur et un mot de passe dans certaines applications de messagerie et Microsoft Office sur votre appareil mobile. 
 
-Cette rubrique vous indique la configuration requise et les scénarios pris en charge pour la configuration de l’authentification par certificat sur un appareil iOS (Android) pour les utilisateurs des locataires dans les plans Office 365 Enterprise, Business, Education, US Government, Chine et Allemagne.
+Cette rubrique vous indique la configuration requise et les scénarios pris en charge pour la configuration de l’authentification par certificat sur un appareil iOS (Android) pour les utilisateurs des locataires des plans Office 365 Enterprise, Business, Education, US Government, Chine et Allemagne.
 
 
 
@@ -41,15 +41,15 @@ Cette fonctionnalité est disponible en version préliminaire dans les plans Off
 ## <a name="office-mobile-applications-support"></a>Prise en charge des applications mobiles Office
 | Applications | Support |
 | --- | --- |
-| Word / Excel / PowerPoint |![Vérification][1] |
+| Application Azure Information Protection |![Vérification][1] |
+| Microsoft Teams |![Vérification][1] |
 | OneNote |![Vérification][1] |
 | OneDrive |![Vérification][1] |
 | Outlook |![Vérification][1] |
-| Yammer |![Vérification][1] |
+| Power BI |![Vérification][1] |
 | Skype Entreprise |![Vérification][1] |
-| Application Azure Information Protection |![Vérification][1] |
-| Microsoft Teams |![Vérification][1] |
-
+| Word / Excel / PowerPoint |![Vérification][1] |
+| Yammer |![Vérification][1] |
 
 
 ### <a name="implementation-requirements"></a>Conditions requises pour la mise en œuvre

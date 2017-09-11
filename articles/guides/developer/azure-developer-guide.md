@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: b53b044242f339d00dcc947c213dacb5dffdcce6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bfc69712a1ddcd4a225fd35cfcceb7fa0616887d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -123,7 +123,7 @@ La plupart des applications doivent stocker des données. Par conséquent, quell
 
     >**Quand l’utiliser** : lorsque votre application stocke des données non relationnelles, telles que des paires clé-valeur (tables), des objets blob, des partages de fichiers ou des messages (files d’attente).
 
-    >**Démarrer** : choisissez parmi les types de stockage suivants : [objets blob](../../storage/storage-dotnet-how-to-use-blobs.md), [tables](../../storage/storage-dotnet-how-to-use-tables.md), [files d’attente](../../storage/storage-dotnet-how-to-use-queues.md) et [fichiers](../../storage/storage-dotnet-how-to-use-files.md).
+    >**Démarrer** : choisissez parmi les types de stockage suivants : [objets blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tables](../../cosmos-db/table-storage-how-to-use-dotnet.md), [files d’attente](../../storage/queues/storage-dotnet-how-to-use-queues.md) et [fichiers](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -   **Azure DocumentDB** : service de base de données NoSQL scalable et entièrement managé, qui permet l’exécution de requêtes SQL sur les données d’objet. Vous pouvez accéder à DocumentDB en utilisant des pilotes MongoDB existants.
     >**Quand l’utiliser** : lorsque votre application doit être en mesure d’exécuter des requêtes SQL sur des documents JSON, ou si vous utilisez MongoDB.

@@ -4,7 +4,7 @@ description: "Microsoft Azure Media Services vous permet de transmettre du conte
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/25/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 4996df4623a706e51ab00538c17590ebf2d71fc4
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: ae1b36c26e688e74eb8fcc1a4cdbd3be0c014c08
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés
@@ -177,7 +177,11 @@ Si vous ouvrez l’un des fichiers de segment dans l’éditeur de texte (par ex
     Fragments(video=0,format=m3u8-aapl)
     #EXT-X-ENDLIST
 
+>[!NOTE] 
+>Si vous envisagez de lire un flux HLS chiffré par AES dans Safari, consultez [ce billet de blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+
 ### <a name="request-the-key-from-the-key-delivery-service"></a>Demander la clé au service de distribution des clés
+
 Le code suivant montre comment envoyer une requête au service de distribution des clés Media Services à l'aide d'un Uri (extrait du manifeste) de remise de clé et d'un jeton (cette rubrique ne traite pas de l'obtention de jetons Simple Web à partir d'un service de jeton sécurisé).
 
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
@@ -220,7 +224,9 @@ Le code suivant montre comment envoyer une requête au service de distribution d
         return key;
     }
 
-## <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
+## <a name="protect-your-content-with-aes-128-using-net"></a>Protéger votre contenu avec AES-128 en utilisant .NET
+
+### <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
 
 1. Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 2. Ajoutez les éléments suivants aux **appSettings** définis dans votre fichier app.config :
@@ -228,7 +234,7 @@ Le code suivant montre comment envoyer une requête au service de distribution d
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
 
-## <a id="example"></a>Exemple
+### <a id="example"></a>Exemple
 
 Remplacez le code dans votre fichier Program.cs par le code présenté dans cette section.
  

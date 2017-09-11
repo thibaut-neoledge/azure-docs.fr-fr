@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
-ms.author: dhanyahk;markvi
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
@@ -22,8 +22,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 04/06/2017
 
 ---
-# Stratégies de rétention des rapports Azure Active Directory
-<a id="azure-active-directory-report-retention-policies" class="xliff"></a>
+# <a name="azure-active-directory-report-retention-policies"></a>Stratégies de rétention des rapports Azure Active Directory
 
 
 Cette rubrique fournit des réponses aux questions plus courantes en rapport avec la conservation des données pour les différents rapports d’activité dans Azure Active Directory. 

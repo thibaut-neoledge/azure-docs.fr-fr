@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 8a9d7c7f3f8aefa5312e5e3313dbd581d6df900a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a23301ba88279af3f7bf4d353ae808e9eeb0900d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Bonnes pratiques relatives à la création de modèles Azure Resource Manager
@@ -394,7 +394,7 @@ Il est également judicieux de formater votre JSON pour une meilleure lisibilit�
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir des conseils sur la conception de votre solution pour des machines virtuelles, voir [Exécution d’une machine virtuelle Windows sur Azure](../guidance/guidance-compute-single-vm.md) et [Exécution d’une machine virtuelle Linux sur Azure](../guidance/guidance-compute-single-vm-linux.md).
-* Pour des conseils sur la configuration d’un compte de stockage, voir [Liste de contrôle des performances et de l’extensibilité d’Azure Storage](../storage/storage-performance-checklist.md).
+* Pour des conseils sur la configuration d’un compte de stockage, voir [Liste de contrôle des performances et de l’extensibilité d’Azure Storage](../storage/common/storage-performance-checklist.md).
 * Pour en savoir plus sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
 
 

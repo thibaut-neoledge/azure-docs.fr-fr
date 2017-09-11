@@ -2,7 +2,7 @@
 title: "Documentation Azure Redis Cache - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment utiliser le Cache Redis Azure, un cache de données sécurisé et un répartiteur de messagerie qui permet aux applications d’accéder rapidement aux données. Didacticiels, références d’API et autres."
 services: redis-cache
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ba5cba11b7b5ba142094e9d2c0b027386266e83a
 ms.openlocfilehash: 19756171a8831eef9ac25cfa619a815d17140257
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 #<a name="redis-cache-documentation"></a>Documentation Cache Redis
@@ -195,10 +197,5 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

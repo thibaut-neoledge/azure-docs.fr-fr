@@ -3,7 +3,7 @@ title: "Leçon 11 du didacticiel Azure Analysis Services : Créer des rôles 
 description: "Explique comment créer des rôles dans le projet du didacticiel Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

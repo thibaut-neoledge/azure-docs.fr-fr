@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 15a3f9f40bdb84b939b30e33e5f2033411adc3cc
-ms.openlocfilehash: dc179f6186d501bc7c8e4ca72b2bf23e89a9443e
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 8e2bd755d14319f8c66f7ae7ec64fbd10801b39d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Synchronisation des données hors connexion dans Azure Mobile Apps
@@ -68,8 +68,7 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 * **Envoi**: l’envoi est une opération sur le contexte de synchronisation et consiste à envoyer toutes les modifications CUD qui se sont produites depuis le dernier envoi. Notez qu’il n’est pas possible d’envoyer uniquement les modifications d’une table spécifique, car sinon les opérations pourraient être envoyées dans le désordre. L’envoi exécute une série d’appels REST à destination de votre application principale Azure Mobile App qui, à son tour, modifie votre base de données serveur.
 * **Extraction**: l’extraction est effectuée sur une table spécifique et peut être personnalisée avec une requête pour récupérer uniquement un sous-ensemble des données du serveur. Les Kits de développement logiciel (SDK) clients Azure Mobile insèrent ensuite les données résultantes dans le magasin local.
 * **Envois implicites**: si une extraction est exécutée sur une table en attente de mises à jour locales, cette extraction commence par exécuter un `push()` sur le contexte de synchronisation. Cela opération Push permet de réduire au minimum les conflits entre les modifications qui sont déjà en attente et les nouvelles données du serveur.
-* **Synchronisation incrémentielle**: le premier paramètre de l’opération d’extraction est un *nom de requête* qui est utilisé uniquement sur le client. Si vous utilisez un nom de requête non null, le Kit de développement logiciel (SDK) Azure Mobile effectue une *synchronisation incrémentielle*.
-  Chaque fois qu’une opération d’extraction retourne un jeu de résultats, le dernier horodatage `updatedAt` à partir de ce jeu de résultats est stocké dans les tables de système locales du Kit de développement logiciel (SDK). Les opérations d’extraction ultérieures n’extraient que les enregistrements postérieurs à cet horodatage.
+* **Synchronisation incrémentielle**: le premier paramètre de l’opération d’extraction est un *nom de requête* qui est utilisé uniquement sur le client. Si vous utilisez un nom de requête non null, le Kit de développement logiciel (SDK) Azure Mobile effectue une *synchronisation incrémentielle*. Chaque fois qu’une opération d’extraction retourne un jeu de résultats, le dernier horodatage `updatedAt` à partir de ce jeu de résultats est stocké dans les tables de système locales du Kit de développement logiciel (SDK). Les opérations d’extraction ultérieures n’extraient que les enregistrements postérieurs à cet horodatage.
 
   Pour utiliser la synchronisation incrémentielle, votre serveur doit retourner des valeurs `updatedAt` explicites et prendre en charge le tri par ce champ. Toutefois, étant donné que le Kit de développement logiciel (SDK) ajoute son propre tri sur le champ updatedAt, vous ne pouvez pas utiliser une requête d’extraction qui a sa propre clause `orderBy` .
 
@@ -101,6 +100,6 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 [Android : activer la synchronisation hors connexion]: app-service-mobile-android-get-started-offline-data.md
 [iOS : activer la synchronisation hors connexion]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS : activer la synchronisation hors connexion]: app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Xamarin Android : activer la synchronisation hors connexion]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android : activer la synchronisation hors connexion]: app-service-mobile-xamarin-android-get-started-offline-data.md
 [Plateforme Windows universelle : activer la synchronisation hors connexion]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 

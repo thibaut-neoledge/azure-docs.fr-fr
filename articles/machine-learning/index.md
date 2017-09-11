@@ -2,7 +2,7 @@
 title: "Documentation Azure Machine Learning - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Documents, vidéos et exemples de modèle pour Machine Learning, un service cloud destiné aux développeurs et aux scientifiques des données qui utilisent des analyses prédictives dans leurs applications."
 services: machine-learning
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f33e230cc32b9da3129a0be720a7be0bb463e096
 ms.openlocfilehash: 241cf0904f1c410575017f586c65f41ee3efc753
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Documentation Azure Machine Learning
@@ -140,10 +142,5 @@ Découvrez comment les scientifiques des données et les développeurs utilisent
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

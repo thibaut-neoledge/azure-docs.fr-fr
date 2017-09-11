@@ -383,7 +383,7 @@ Toutefois, si vous en avez terminé et n’avez pas besoin des ressources que vo
 
 ## <a name="get-support"></a>Obtenir de l'aide
 
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -30,9 +30,9 @@ Pour que la réinitialisation de mot de passe Azure AD fonctionne, vous **devez
 * **Utilisateurs du cloud uniquement** : n’importe quelle référence Office 365 (O365) payante ou Azure AD Basic
 * Utilisateurs **cloud** et/ou **locaux** : Azure AD Premium P1 ou P2, Enterprise Mobility + Security (EMS) ou Secure Productive Enterprise (SPE)
 
-## <a name="licenses-required-for-password-writeback"></a>Licences requises pour l’écriture différée du mot de passe
+## <a name="licenses-required-for-password-writeback"></a>Licences requises pour la réécriture du mot de passe
 
-Pour utiliser l’écriture différée du mot de passe, vous devez avoir attribué une des licences suivantes dans votre locataire.
+Pour utiliser la réécriture du mot de passe, vous devez avoir attribué une des licences suivantes dans votre locataire.
 
 * Azure AD Premium P1
 * Azure AD Premium P2
@@ -42,7 +42,7 @@ Pour utiliser l’écriture différée du mot de passe, vous devez avoir attribu
 * Secure Productive Enterprise E5
 
 > [!NOTE]
-> Les plans de licences Office 365 édition autonome **ne prennent pas en charge l’écriture différée de mot de passe** et nécessitent l’un des plans précédents pour que cette fonctionnalité soit opérationnelle.
+> Les plans de licences Office 365 édition autonome **ne prennent pas en charge la réécriture du mot de passe** et nécessitent l’un des plans précédents pour que cette fonctionnalité soit opérationnelle.
 
 Vous trouverez des informations de licence supplémentaires, y compris les coûts, sur les pages suivantes
 

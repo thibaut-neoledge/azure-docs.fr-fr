@@ -4,7 +4,7 @@ description: "Découvrez comment visualiser un pipeline de tâches Stream Analyt
 keywords: 
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 18c39a025f750cf5a17c535ab40923b7cafe413d
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 820b73a5dbf9bb108e189313cf6ee2b924ab04c7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>Visualisation et dépannage de travaux Stream Analytics
@@ -29,7 +28,7 @@ Dans Stream Analytics, comme dans d’autres technologies de cloud, la résoluti
 Dans le volet de visualisation, les entrées sont visibles, ainsi que la requête en cours d’exécution et toutes les sorties configurées. Les problèmes liés à la connectivité ou à la configuration peuvent alors être plus évidents, et il peut également être utile d’afficher une représentation visuelle de votre configuration.
 
 ## <a name="using-the-diagnosis-diagram-tool"></a>Utilisation de l’outil de diagramme de diagnostic
-Pour accéder à ce visualiseur, cliquez simplement sur le bouton « Diagramme de diagnostic » dans le panneau « Paramètres » de la de la tâche Stream Analytics.
+Pour accéder à ce visualiseur, cliquez simplement sur le bouton « Diagramme de diagnostic » dans le panneau « Paramètres » de la tâche Stream Analytics.
 
 ![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
 

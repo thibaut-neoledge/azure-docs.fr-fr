@@ -1,6 +1,6 @@
 ---
 title: "Partage de tableaux de bord de portail Azure à l’aide de RBAC | Microsoft Docs"
-description: "Cet article vous explique comment partager un tableau de bord dans le Portail Azure en utilisant le contrôle d'accès en fonction du rôle."
+description: "Cet article vous explique comment partager un tableau de bord dans le portail Azure en utilisant le contrôle d'accès en fonction du rôle."
 services: azure-portal
 documentationcenter: 
 author: tfitzmac
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 927ec9251b5231a5d9a0e8278f5dc46e9abdde0e
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
 ms.contentlocale: fr-fr
 ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partage de tableaux de bord Azure à l’aide du contrôle d’accès en fonction du rôle
+# <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partager des tableaux de bord Azure à l’aide du contrôle d’accès en fonction du rôle
 Après avoir configuré un tableau de bord, vous pouvez le publier et le partager avec d’autres utilisateurs de votre organisation. Vous permettez à d’autres utilisateurs de voir votre tableau de bord au moyen du [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-configure.md) Azure. Vous affectez un utilisateur ou un groupe d’utilisateurs à un rôle, qui définit si ces utilisateurs peuvent visualiser ou modifier le tableau de bord publié. 
 
 Tous les tableaux de bord publiés sont implémentés en tant que ressources Azure, ce qui signifie qu’ils constituent des éléments gérables dans votre abonnement et qu’ils sont contenus dans un groupe de ressources.  En termes de contrôle d’accès, les tableaux de bord sont traités de la même manière que les autres ressources, telles qu’une machine virtuelle ou un compte de stockage.
@@ -32,9 +32,9 @@ Tous les tableaux de bord publiés sont implémentés en tant que ressources Azu
 > 
 
 ## <a name="understanding-access-control-for-dashboards"></a>Présentation du contrôle d’accès relatif aux tableaux de bord
-Le contrôle d’accès en fonction du rôle vous permet d’affecter des utilisateurs à des rôles avec trois niveaux d’étendue distincts :
+Le contrôle d’accès en fonction du rôle (RBAC) vous permet d’attribuer des utilisateurs à des rôles avec trois niveaux d’étendue distincts :
 
-* subscription
+* abonnement
 * resource group
 * resource
 

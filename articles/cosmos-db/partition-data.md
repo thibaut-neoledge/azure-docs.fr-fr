@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/29/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: e2d2847276e553d7511241ff323c3e00aad8e5c9
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 9f341438fc0bf239f47ae87db70b067862652786
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -33,7 +33,7 @@ Le partitionnement et les clés de partition sont également abordés dans cette
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Partitionnement dans Azure Cosmos DB
-Dans Azure Cosmos DB, vous pouvez stocker et interroger des données sans schéma avec des délais de réponse de l’ordre des millisecondes à n’importe quelle échelle. Azure Cosmos DB fournit des conteneurs pour le stockage des données, appelés **collections (pour les documents), graphiques ou tables**. Les conteneurs sont des ressources logiques. Ils peuvent s’étendre sur plusieurs partitions physiques ou serveurs. Le nombre de partitions est déterminé par Azure Cosmos DB en fonction de la taille de stockage et du débit approvisionné du conteneur. Chaque partition dans Azure Cosmos DB dispose d’une quantité fixe de stockage SSD associé. Elle est également répliquée pour offrir une haute disponibilité. La gestion des partitions est entièrement exécutée par Azure Cosmos DB. Vous n’avez pas à écrire du code complexe, ni à gérer vos partitions. Les conteneurs Cosmos DB sont illimités en termes de débit et de stockage. 
+Dans Azure Cosmos DB, vous pouvez stocker et interroger des données sans schéma avec des délais de réponse de l’ordre des millisecondes à n’importe quelle échelle. Azure Cosmos DB fournit des conteneurs pour le stockage des données, appelés **collections (pour les documents), graphes ou tables**. Les conteneurs sont des ressources logiques. Ils peuvent s’étendre sur plusieurs partitions physiques ou serveurs. Le nombre de partitions est déterminé par Azure Cosmos DB en fonction de la taille de stockage et du débit approvisionné du conteneur. Chaque partition dans Azure Cosmos DB dispose d’une quantité fixe de stockage SSD associé. Elle est également répliquée pour offrir une haute disponibilité. La gestion des partitions est entièrement exécutée par Azure Cosmos DB. Vous n’avez pas à écrire du code complexe, ni à gérer vos partitions. Les conteneurs Cosmos DB sont illimités en termes de débit et de stockage. 
 
 ![horizontal](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -65,7 +65,7 @@ Cosmos DB utilise le partitionnement basé sur le hachage. Lorsque vous écrivez
 Les conteneurs Azure Cosmos DB peuvent être créés comme étant « fixes » ou « illimités ». Les conteneurs de taille fixe ont une limite maximale de 10 Go et de 10 000 RU/s de débit. Certaines API permettent d’omettre la clé de partition pour les conteneurs de taille fixe. Pour créer un conteneur comme étant illimité, vous devez spécifier un débit minimum de 2500 RU/s.
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Partitionnement et débit approvisionné
-Cosmos DB est conçu pour offrir des performances prévisibles. Lorsque vous créez un conteneur, vous réservez le débit en termes de **[d’unités de requête](request-units.md) (RU) par seconde avec un ajout potentiel pour les unités de requête par minute**. Un coût en unités de demande proportionnel à la quantité de ressources système, comme le processeur, la mémoire et les E/S consommés par l’opération, est affecté à chaque demande. La lecture d’un document de 1 ko avec une cohérence de session consomme une unité de demande. Une lecture correspond à 1 RU, quel que soit le nombre d’éléments stockés ou le nombre de demandes simultanées en cours d’exécution. Les éléments plus volumineux nécessitent plus d’unités de demande selon leur taille. Si vous connaissez la taille de vos entités et le nombre de lectures nécessaires à prendre en charge pour votre application, vous pouvez approvisionner la quantité exacte de débit requis pour les besoins en lecture de votre application. 
+Cosmos DB est conçu pour offrir des performances prévisibles. Quand vous créez un conteneur, vous réservez un débit en termes **[d’unités de requête](request-units.md) (RU) par seconde**. Un coût en unités de demande proportionnel à la quantité de ressources système, comme le processeur, la mémoire et les E/S consommés par l’opération, est affecté à chaque demande. La lecture d’un document de 1 ko avec une cohérence de session consomme une unité de demande. Une lecture correspond à 1 RU, quel que soit le nombre d’éléments stockés ou le nombre de demandes simultanées en cours d’exécution. Les éléments plus volumineux nécessitent plus d’unités de demande selon leur taille. Si vous connaissez la taille de vos entités et le nombre de lectures nécessaires à prendre en charge pour votre application, vous pouvez approvisionner la quantité exacte de débit requis pour les besoins en lecture de votre application. 
 
 > [!NOTE]
 > Afin d’optimiser le débit total du conteneur, vous devez choisir une clé de partition qui vous permet de répartir uniformément les demandes entre certaines valeurs de clé de partition distinctes.
@@ -156,9 +156,9 @@ Consultez la page [Développement avec l’API de table](tutorial-develop-table-
 
 ### <a name="graph-api"></a>API Graph
 
-Avec l’API Graph, vous devez utiliser le portail Azure ou l’interface CLI pour créer des conteneurs. Azure Cosmos DB étant multimodèle, vous pouvez également utiliser un des autres modèles pour créer et mettre à l’échelle votre conteneur graphique.
+Avec l’API Graph, vous devez utiliser le portail Azure ou l’interface CLI pour créer des conteneurs. Azure Cosmos DB étant multimodèle, vous pouvez également utiliser un des autres modèles pour créer et mettre à l’échelle votre conteneur de graphe.
 
-Vous pouvez lire n’importe quel vertex ou bord à l’aide de la clé de partition et l’id dans Gremlin. Par exemple, pour un graphique avec la région (« USA ») en tant que clé de partition et « Seattle » en tant que la clé de ligne, vous trouverez un vertex à l’aide de la syntaxe suivante :
+Vous pouvez lire n’importe quel vertex ou bord à l’aide de la clé de partition et l’id dans Gremlin. Par exemple, pour un graphe avec la région (« USA ») en tant que clé de partition et « Seattle » en tant que la clé de ligne, vous trouverez un vertex à l’aide de la syntaxe suivante :
 
 ```
 g.V(['USA', 'Seattle'])

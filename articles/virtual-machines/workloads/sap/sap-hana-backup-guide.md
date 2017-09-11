@@ -13,12 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e3952c6be537e28f7f2cde8f33750b1894fde8e4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9e5b124643b753f404ba6012d3df998f567be59a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -73,7 +72,7 @@ _Non, actuellement vous pouvez uniquement effectuer des sauvegardes de données 
 
 ### <a name="why-sap-hana-backup"></a>Pourquoi utiliser la sauvegarde SAP HANA ?
 
-Le stockage Azure offre dès le départ des performances élevées en termes de disponibilité et de fiabilité (voir [Présentation du stockage Microsoft Azure](../../../storage/storage-introduction.md) pour plus d’informations sur le stockage Azure).
+Le stockage Azure offre dès le départ des performances élevées en termes de disponibilité et de fiabilité (voir [Présentation du stockage Microsoft Azure](../../../storage/common/storage-introduction.md) pour plus d’informations sur le stockage Azure).
 
 Pour la &quot;sauvegarde&quot;, il convient au minimum de s’appuyer sur les SLA Azure en conservant les fichiers journaux et données SAP HANA sur des VHD Azure attachés à la machine virtuelle du serveur SAP HANA. Cette approche couvre les échecs de la machine virtuelle, mais pas les dommages potentiellement occasionnés aux fichiers journaux et données SAP HANA, ni les erreurs logiques comme la suppression accidentelle de données ou de fichiers. Les sauvegardes sont également requises pour des raisons juridiques ou de conformité. En bref, il est toujours nécessaire d’effectuer des sauvegardes SAP HANA.
 
@@ -171,7 +170,7 @@ Sur Microsoft Azure, un client peut utiliser la fonctionnalité de chiffrement d
 
 Le service Azure Backup peut gérer des machines virtuelles/disques chiffrés (voir [Guide pratique de sauvegarde et restauration des machines virtuelles chiffrées avec Azure Backup](../../../backup/backup-azure-vms-encryption.md)).
 
-Une autre option consiste à mettre à jour la machine virtuelle HANA SAP et ses disques sans chiffrement et à stocker les fichiers de sauvegarde SAP HANA dans un compte de stockage pour lequel le chiffrement a été activé (voir [Azure Storage Service Encryption pour les données au repos](../../../storage/storage-service-encryption.md)).
+Une autre option consiste à mettre à jour la machine virtuelle HANA SAP et ses disques sans chiffrement et à stocker les fichiers de sauvegarde SAP HANA dans un compte de stockage pour lequel le chiffrement a été activé (voir [Azure Storage Service Encryption pour les données au repos](../../../storage/common/storage-service-encryption.md)).
 
 ## <a name="test-setup"></a>Configuration des tests
 

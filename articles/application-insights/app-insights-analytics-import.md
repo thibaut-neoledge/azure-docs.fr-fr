@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 97db1c51a16fbf62abe8062938beefa16a4f7afd
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 50049b1c66bf93cbed52e30e66385c33a4d97c5b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="import-data-into-analytics"></a>Importer des données dans Analytics
@@ -134,7 +134,7 @@ Pour importer des données, chargez-les dans le stockage Azure, créez une clé 
 
 Vous pouvez effectuer l’opération suivante manuellement ou configurer un système automatisé pour qu’il le fasse à intervalles réguliers. Vous devez suivre ces étapes pour chaque bloc de données à importer.
 
-1. Chargez les données dans le [stockage Blob Azure](../storage/storage-dotnet-how-to-use-blobs.md). 
+1. Chargez les données dans le [stockage Blob Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
 
  * La taille maximum des blobs est de 1 Go (sans compression). Les blobs d’une centaine de Mo sont parfaits, du point de vue des performances.
  * Vous pouvez les compresser avec Gzip pour améliorer le temps de chargement et la latence de disponibilité des données pour interrogation. Utilisez l’extension de nom de fichier `.gz`.
@@ -142,7 +142,7 @@ Vous pouvez effectuer l’opération suivante manuellement ou configurer un syst
  * Lors de l’envoi de données à des fréquences élevées, toutes les quelques secondes, il est recommandé d’utiliser plusieurs comptes de stockage, pour des raisons de performances.
 
  
-2. [Créez une clé de signature d’accès partagé pour le blob](../storage/storage-dotnet-shared-access-signature-part-2.md). Le délai d’expiration de la clé doit être d’un jour et celle-ci doit fournir un accès en lecture.
+2. [Créez une clé de signature d’accès partagé pour le blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). Le délai d’expiration de la clé doit être d’un jour et celle-ci doit fournir un accès en lecture.
 3. Effectuez un appel REST pour indiquer à Application Insights que les données sont en attente.
 
  * Point de terminaison : `https://dc.services.visualstudio.com/v2/track`

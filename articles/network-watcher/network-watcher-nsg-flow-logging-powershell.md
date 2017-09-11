@@ -3,7 +3,7 @@ title: "Gérer les journaux des flux de groupe de sécurité réseau avec Azure 
 description: "Cette page explique comment gérer les journaux des flux de groupe de sécurité réseau dans Azure Network Watcher avec PowerShell"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 9fa2e2e1c09b119bd2a1e149fd2cc080957af296
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
-
 
 ---
 

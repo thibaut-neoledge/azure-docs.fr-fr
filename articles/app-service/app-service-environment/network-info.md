@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 891ed3f496ca394c9139ad9f94986a19d8cef769
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 3be0d7a202ff53f5532fd7169a50a04cfaf88832
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service #
@@ -62,11 +62,18 @@ Un ASE présente la dépendance d’accès entrant suivante :
 
 | Utilisation | À partir | À |
 |-----|------|----|
-| Gestion | Internet | Sous-réseau de l’ASE : 454, 455 |
+| Gestion | Adresses de gestion App Service | Sous-réseau de l’ASE : 454, 455 |
 |  Communications internes de l’ASE | Sous-réseau de l’ASE : tous les ports | Sous-réseau de l’ASE : tous les ports
-|  Autoriser le trafic entrant provenant d’Azure Load Balancer | Équilibrage de charge Azure | Quelconque
+|  Autoriser le trafic entrant provenant d’Azure Load Balancer | Équilibrage de charge Azure | Sous-réseau de l’ASE : tous les ports
+|  Adresses IP affectées par l’application | Adresses affectées par l’application | Sous-réseau de l’ASE : tous les ports
 
-Le trafic entrant fournit la commande et le contrôle de l’ASE en plus de la surveillance du système. Les adresses IP ne sont pas constantes pour ce trafic. Par conséquent, la configuration de la sécurité réseau doit autoriser l’accès sur les ports 454 et 455 à partir de toutes les adresses IP.
+Le trafic entrant fournit la commande et le contrôle de l’ASE en plus de la surveillance du système. Les adresses IP sources pour ce trafic sont répertoriées dans le document [Adresses de gestion App Service Environment][ASEManagement]. Par conséquent, la configuration de la sécurité réseau doit autoriser l’accès sur les ports 454 et 455 à partir de toutes les adresses IP.
+
+Le sous-réseau de l’ASE comprend divers ports utilisés pour la communication des composants internes ; ces ports peuvent changer.  Tous les ports du sous-réseau de l’ASE doivent être accessibles à partir du sous-réseau de l’ASE. 
+
+Pour permettre la communication entre l’équilibreur de charge Azure et le sous-réseau de l’ASE, les ports 454, 455 et 16001 (au minimum) doivent être ouverts. Le port 16001 sert à maintenir le trafic entre l’équilibreur de charge et le sous-réseau de l’ASE. Si vous utilisez un ASE ILB, vous pouvez limiter le trafic aux ports 454, 455 et 16001.  Si vous utilisez un ASE externe, vous devez prendre en compte les ports d’accès application normaux.  Si vous utilisez des adresses affectées par l’application, vous devez les ouvrir à tous les ports.  Quand une adresse est affectée à une application spécifique, l’équilibreur de charge utilise des ports qui ne sont pas connus à l’avance pour l’envoi du trafic HTTP et HTTPS à l’ASE.
+
+Si vous utilisez des adresses IP affectées par l’application, vous devez autoriser le trafic entre les adresses IP affectées à vos applications et le sous-réseau de l’ASE.
 
 Pour l’accès sortant, un ASE dépend de plusieurs systèmes externes. Ces dépendances système sont définies avec des noms DNS et ne sont pas mappées à un ensemble fixe d’adresses IP. Par conséquent, l’ASE requiert un accès sortant vers toutes les adresses IP sur divers ports à partir de son sous-réseau. Un ASE présente les dépendances d’accès sortant suivantes :
 
@@ -97,13 +104,13 @@ Outre les dépendances fonctionnelles que présente un ASE, il existe quelques �
 
 -   Tâches web
 -   Fonctions
--   Flux de journaux
+-   Diffusion de journaux
 -   Kudu
 -   Extensions
 -   Process Explorer
 -   Console
 
-Lorsque vous utilisez un ASE ILB, le site SCM n’est pas accessible depuis l’extérieur du réseau virtuel d’internet. Les fonctionnalités qui n’ont pas accès au site SCM sont grisées dans le portail Azure lorsque votre application est hébergée dans un ASE ILB.
+Lorsque vous utilisez un ASE ILB, le site SCM n’est pas accessible depuis l’extérieur du réseau virtuel d’internet. Quand votre application est hébergée sur un ASE ILB, certaines fonctionnalités ne sont pas opérationnelles à partir du portail.  
 
 La plupart des fonctionnalités qui dépendent du site SCM sont également disponibles dans la console Kudu. Vous pouvez vous y connecter directement au lieu d’utiliser le portail. Si votre application est hébergée dans un ASE ILB, vous devez vous connecter à l’aide de vos informations d’identification de publication. L’URL d’une application hébergée dans un ASE ILB permettant d’accéder au site SCM présente le format suivant : 
 
@@ -113,9 +120,13 @@ La plupart des fonctionnalités qui dépendent du site SCM sont également dispo
 
 Si votre ASE ILB est le nom de domaine *contoso.net* et le nom de votre application est *testapp*, l’application est atteinte sur *testapp.contoso.net*. Le site SCM qui le suit est atteinte sur *testapp.scm.contoso.net*.
 
+## <a name="functions-and-web-jobs"></a>Fonctions et tâches web ##
+
+Les fonctions et tâches web varient selon le site SCM mais elles sont prises en charge pour une utilisation dans le portail, même si vos applications sont dans un ASE ILB, tant que votre navigateur peut accéder au site SCM.  Si vous utilisez un certificat auto-signé avec votre ASE ILB, vous devez activer votre navigateur pour approuver ce certificat.  Pour Internet Explorer ou Edge, cela signifie que le certificat doit se trouver dans le magasin d’approbations de l’ordinateur.  Si vous utilisez Chrome, cela signifie que vous avez préalablement accepté le certificat dans le navigateur, vraisemblablement en appuyant directement sur le site SCM.  La meilleure solution consiste à utiliser un certificat commercial qui se trouve dans la chaîne d’approbation du navigateur.  
+
 ## <a name="ase-ip-addresses"></a>Adresses IP d’un ASE ##
 
-Un ASE présente plusieurs adresses IP qu’il est important de connaître. Les voici :
+Un ASE présente quelques adresses IP qu’il est important de connaître. Il s'agit de :
 
 - **Adresse IP entrante publique** : utilisée pour le trafic d’applications dans un ASE externe et pour le trafic de gestion aussi bien dans un ASE externe que dans un ASE ILB.
 - **Adresse IP publique sortante**  : utilisée en tant qu’adresse IP source pour les connexions sortantes de l’ASE quittant le réseau virtuel, qui ne sont pas acheminées via un VPN.
@@ -180,8 +191,7 @@ Si vous apportez ces deux modifications, le trafic à destination d’Internet p
 > [!IMPORTANT]
 > Les itinéraires définis dans un UDR doivent être suffisamment spécifiques pour avoir la priorité sur les itinéraires annoncés par la configuration ExpressRoute. L’exemple précédent utilise la plage d’adresses 0.0.0.0/0 large. Il peut potentiellement être remplacé accidentellement par des annonces de routage utilisant des plages d’adresses plus spécifiques.
 >
-
-Les ASE ne sont pas pris en charge avec les configurations ExpressRoute qui annoncent de façon croisée des itinéraires à partir du chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée. Les configurations ExpressRoute ayant une homologation publique configurée reçoivent les publications de routage de Microsoft. Les publications contiennent un grand ensemble de plages d’adresses IP de Microsoft Azure. Si ces plages d’adresses sont publiées de façon croisée sur le chemin d’accès d’homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l’environnement App Service sont tunnélisés de force vers l’infrastructure réseau local d’un client. Ce flux de réseau n’est actuellement pas pris en charge par les environnements App Service. L’une des solutions à ce problème consiste à arrêter les itinéraires croisés depuis le chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée.
+> Les ASE ne sont pas pris en charge avec les configurations ExpressRoute qui annoncent de façon croisée des itinéraires à partir du chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée. Les configurations ExpressRoute ayant une homologation publique configurée reçoivent les publications de routage de Microsoft. Les publications contiennent un grand ensemble de plages d’adresses IP de Microsoft Azure. Si ces plages d’adresses sont publiées de façon croisée sur le chemin d’accès d’homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l’environnement App Service sont tunnélisés de force vers l’infrastructure réseau local d’un client. Ce flux de réseau n’est actuellement pas pris en charge par les environnements App Service. L’une des solutions à ce problème consiste à arrêter les itinéraires croisés depuis le chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée.
 
 Pour créer un UDR, procédez comme suit :
 
@@ -245,4 +255,5 @@ Pour déployer votre ASE dans un réseau virtuel intégré à ExpressRoute, pré
 [AppDeploy]: ../../app-service-web/web-sites-deploy.md
 [ASEWAF]: ../../app-service-web/app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[ASEManagement]: ./management-addresses.md
 

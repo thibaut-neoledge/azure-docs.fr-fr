@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2017
+ms.date: 08/22/2017
 ms.author: vikdesai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 247782a86a0d20486513dff0dae0c1564b5ecb72
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Gérer l’accès aux informations de facturation pour Azure à l’aide du contrôle d’accès en fonction du rôle
@@ -34,7 +34,11 @@ L’administrateur de compte doit adhérer via le [portail Azure](https://portal
 
 1. Sélectionnez **Factures**, puis **Accéder aux factures**.
 
-1. **Activez** l’accès.
+    ![Capture d’écran montrant comment déléguer l’accès aux factures](./media/billing-manage-access/AA-optin.png)
+
+1. **Activez** l’accès, puis enregistrez les modifications pour permettre aux utilisateurs associés aux rôles étendus d’abonnement de télécharger la facture.
+
+    ![Capture d’écran montrant les options Activé-Désactivé pour déléguer l’accès aux factures](./media/billing-manage-access/AA-optinAllow.png)
 
 Le fait d’adhérer permet à l’Administrateur de service, Coadministrateur, Propriétaire, Collaborateur, Lecteur et Lecteur de facturation de l’abonnement de télécharger les factures au format PDF dans le portail Azure. Les factures antérieures à décembre 2016 ne sont toutefois accessibles qu’à l’administrateur de compte pour le moment.
 

@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser les liaisons Twilio dans Azure Functio
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/20/2016
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 9355aae6e3fbf70aae08cc829d7addd2decc44fd
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e8c5e8f2dfedae26486e1c8afbe0cec3f3228e86
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="send-sms-messages-from-azure-functions-using-the-twilio-output-binding"></a>Envoi de messages SMS depuis Azure Functions à l’aide de la liaison de sortie Twilio
@@ -36,14 +36,16 @@ Azure Functions prend en charge les liaisons de sortie Twilio, afin de permettr
 ## <a name="functionjson-for-the-twilio-output-binding"></a>function.json pour la liaison de sortie Twilio
 Le fichier function.json spécifie les propriétés suivantes :
 
-* `name` : nom de la variable utilisée dans le code de fonction pour le SMS Twilio.
-* `type` : doit être définie sur *"twilioSms"*.
-* `accountSid` : cette valeur doit être définie sur le nom d’un paramètre d’application hébergeant le SID de votre compte Twilio.
-* `authToken` : cette valeur doit être définie sur le nom d’un paramètre d’application hébergeant le jeton d’authentification Twilio.
-* `to` : cette valeur est définie sur le numéro de téléphone sur lequel est envoyé le SMS.
-* `from` : cette valeur est définie sur le numéro de téléphone à partir duquel est envoyé le SMS.
-* `direction` : doit être défini sur *out*.
-* `body` : cette valeur peut être utilisée pour coder en dur le SMS, si vous n’avez pas besoin de procéder à une définition dynamique dans le code associé à votre fonction. 
+|Propriété  |Description  |
+|---------|---------|
+|**name**| Nom de la variable utilisée dans le code de fonction pour le SMS Twilio. |
+|**type**| Cette propriété doit être définie sur `twilioSms`.|
+|**accountSid**| Cette valeur doit être définie sur le nom d’un paramètre d’application hébergeant le SID de votre compte Twilio.|
+|**authToken**| Cette valeur doit être définie sur le nom d’un paramètre d’application hébergeant le jeton d’authentification Twilio.|
+|**to**| Cette valeur est définie sur le numéro de téléphone sur lequel est envoyé le SMS.|
+|**from**| Cette valeur est définie sur le numéro de téléphone à partir duquel est envoyé le SMS.|
+|**direction**| Cette propriété doit être définie sur `out`.|
+|**body**| Cette valeur peut être utilisée pour coder en dur le SMS, si vous n’avez pas besoin de procéder à une définition dynamique dans le code associé à votre fonction. |
 
 Exemple de fichier function.json :
 

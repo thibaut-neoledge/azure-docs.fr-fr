@@ -1,141 +1,139 @@
-## <a name="meaning-of-migration-of-iaas-resources-from-the-classic-deployment-model-to-resource-manager"></a>Signification de la migration de ressources IaaS du modèle de déploiement classique vers Resource Manager
-Avant d’entrer dans les détails, examinons le différence entre les opérations du plan de données et celles du plan de gestion pour les ressources IaaS.
+## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrer des ressources IaaS depuis le modèle de déploiement classique vers Azure Resource Manager
+Tout d’abord, il est important de comprendre la différence entre les opérations de plan de données et les opérations de plan de gestion sur les ressources IaaS (infrastructure as a service).
 
-* *Plan de gestion/contrôle* décrit l’ensemble des appels destinés au plan de gestion/contrôle ou à l’API en vue de modifier les ressources. Par exemple, les opérations telles que la création d’une machine virtuelle, le redémarrage d’une machine virtuelle et la mise à jour d’un réseau virtuel avec un nouveau sous-réseau permettent de gérer les ressources en cours d’exécution. Elles n’affectent pas directement la connexion à des instances.
-* *Plan de données* (application) décrit le runtime de l’application proprement dite et implique une interaction avec les instances qui ne passent pas par l’API Azure. Par exemple, l’accès à votre site web ou l’extraction de données à partir d’une instance de serveur SQL ou d’un serveur MongoDB en cours d’exécution sont considérés comme des interactions d’application ou de plan de données. La copie d’un objet blob à partir d’un compte de stockage et l’accès à une adresse IP publique sur RDP ou SSH dans la machine virtuelle constituent également des opérations du plan de données. Ces opérations garantissent le fonctionnement continu de l’application dans l’ensemble des services de calcul, de mise en réseau et de stockage.
+* *Plan de gestion/contrôle* décrit l’ensemble des appels destinés au plan de gestion/contrôle ou à l’API en vue de modifier les ressources. Par exemple, les opérations telles que la création d’une machine virtuelle, le redémarrage d’une machine virtuelle et la mise à jour d’un réseau virtuel avec un nouveau sous-réseau permettent de gérer les ressources en cours d’exécution. Elles n’affectent pas directement la connexion aux machines virtuelles.
+* *Plan de données* (application) décrit le runtime de l’application proprement dite et implique une interaction avec les instances qui ne passent pas par l’API Azure. Par exemple, l’accès à votre site web ou l’extraction de données depuis une instance SQL Server ou depuis un serveur MongoDB en cours d’exécution sont considérés comme des interactions d’application ou de plan de données. La copie d’un objet blob depuis un compte de stockage et l’accès à une adresse IP publique pour utiliser le protocole RDP (Remote Desktop Protocol) ou Secure Shell (SSH) sur l’ordinateur virtuel constituent d’autres exemples. Ces opérations garantissent le fonctionnement continu de l’application dans l’ensemble des services de calcul, de mise en réseau et de stockage.
 
-En arrière-plan, les plans de données du modèle de déploiement classique et de la pile de Resource Manager sont similaires. Pendant le processus de migration, nous traduisons la représentation des ressources du modèle de déploiement classique à celle de la pile de Resource Manager. Par conséquent, vous devez utiliser des nouveaux outils, API et Kits de développement logiciel (SDK) pour gérer vos ressources dans la pile de Resource Manager.
+Le plan de données est le même entre le modèle de déploiement classique et les piles Resource Manager. La différence tient au fait que durant le processus de migration, Microsoft convertit la représentation des ressources depuis un modèle de déploiement classique vers celui de la pile Resource Manager. Par conséquent, vous devez utiliser de nouveaux outils, API et Kits de développement logiciel (SDK) pour gérer vos ressources dans la pile Resource Manager.
 
-![Capture d’écran qui illustre la différence entre un plan de gestion/contrôle et le plan de données](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Diagramme illustrant la différence entre un plan de contrôle/gestion et le plan de données](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
-> Dans certains scénarios de migration, la plateforme Azure arrête, désalloue, puis redémarre vos machines virtuelles. Cela entraîne un bref temps d’arrêt du forfait de données.
+> Dans certains scénarios de migration, la plateforme Azure arrête, désalloue, puis redémarre vos machines virtuelles. Cela provoque un bref temps d’arrêt du plan de données.
 >
 
 ## <a name="the-migration-experience"></a>Expérience de migration
-Avant de lancer la migration, nous vous recommandons de procéder comme suit :
+Avant de commencer la migration :
 
 * Assurez-vous que les ressources que vous souhaitez migrer n’utilisent pas de fonctionnalités ou de configurations non prises en charge. Généralement, la plateforme détecte ces problèmes et génère une erreur.
-* Si certaines de vos machines virtuelles n’appartiennent pas à un réseau virtuel, elles seront arrêtées et libérées dans le cadre de l’opération de préparation. Si vous ne voulez pas perdre l’adresse IP publique, envisagez de la réserver avant de déclencher l’opération de préparation. En revanche, si les machines virtuelles se trouvent dans un réseau virtuel, elles ne sont ni arrêtées, ni désallouées.
+* Si certaines de vos machines virtuelles n’appartiennent à aucun réseau virtuel, elles seront arrêtées et désallouées dans le cadre de l’opération de préparation. Si vous souhaitez conserver l’adresse IP publique, envisagez de réserver l’adresse IP avant de déclencher l’opération de préparation. Si les machines virtuelles se trouvent dans un réseau virtuel, elles ne sont ni arrêtées, ni désallouées.
 * Planifiez votre migration en dehors des heures d’ouverture afin de tenir compte des erreurs inattendues susceptibles de survenir au cours du processus.
 * Téléchargez la configuration actuelle de vos machines virtuelles à l’aide de PowerShell, de commandes de l’interface de ligne de commande ou d’API REST, afin d’en faciliter la vérification après l’étape de préparation.
 * Mettez à jour vos scripts d’automatisation/d’opérationnalisation pour gérer le modèle de déploiement Resource Manager avant de commencer la migration. Vous pouvez également effectuer des opérations GET lorsque les ressources se trouvent à l’état Préparé.
-* Évaluez les stratégies RBAC configurées dans les ressources IaaS Classic, et planifiez leur mise à jour une fois la migration terminée.
+* Évaluez les stratégies de Contrôle d’accès en fonction du rôle (RBAC) qui sont configurées sur les ressources IaaS dans le modèle de déploiement classique et planifiez la suite, pour après la fin de la migration.
 
-Procédez comme suit pour la migration
+Le workflow de migration se présente comme suit :
 
-![Capture d’écran illustrant le workflow de migration](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
+![Diagramme illustrant le workflow de migration](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
-> Toutes les opérations décrites dans les sections suivantes sont idempotentes. Si vous rencontrez un problème autre qu’une fonctionnalité non prise en charge ou qu’une erreur de configuration, nous vous recommandons de réexécuter la procédure de préparation, d’abandon ou de validation. La plateforme Azure réessaie d’exécuter l’action.
+> Toutes les opérations décrites dans les sections suivantes sont idempotentes. Si vous rencontrez un problème autre qu’une fonctionnalité non prise en charge ou qu’une erreur de configuration, ré-exécutez la procédure de préparation, d’abandon ou de validation. Azure tente à nouveau l’action.
 >
 >
 
 ### <a name="validate"></a>Valider
-L’opération de validation constitue la première étape du processus de migration. L’objectif de cette étape est d’analyser l’état des ressources que vous souhaitez faire migrer dans le modèle de déploiement classique et d’indiquer si ces ressources peuvent ou non faire l’objet d’une migration.
+L’opération de validation constitue la première étape du processus de migration. L’objectif de cette étape est d’analyser l’état des ressources que vous souhaitez migrer dans le modèle de déploiement classique. L’opération évalue si les ressources sont en mesure de migrer (succès ou échec).
 
-Vous sélectionnez le réseau virtuel ou un service cloud (s’il ne s’agit pas d’un réseau virtuel) que vous souhaitez valider pour la migration.
+Vous sélectionnez le réseau virtuel ou un service cloud (s’il ne s’agit pas d’un réseau virtuel) que vous souhaitez valider pour la migration. Si la ressource n’est pas en mesure de migrer, Azure en répertorie les raisons.
 
-* Si la migration d’une ressource est impossible, la plateforme Azure en indique les raisons.
+#### <a name="checks-not-done-in-the-validate-operation"></a>Vérifications non effectuées lors de l’opération de validation
 
-#### <a name="checks-not-done-in-validate"></a>Vérifications non effectuées dans l’étape « Valider »
-
-Valider les opérations permet uniquement d’analyser l’état des ressources dans le modèle de déploiement classique. Cette opération permet de vérifier tous les échecs et les scénarios non pris en charge en raison de diverses configurations dans le modèle de déploiement classique. Il est impossible de vérifier tous les problèmes que pourrait causer la pile d’Azure Resource Manager aux ressources pendant la migration. Ces problèmes ne sont vérifiés que lorsque les ressources ne subissent leur transformation dans l’étape suivante de la migration, à savoir « Préparer ». Le tableau ci-dessous répertorie tous les problèmes qui ne sont pas vérifiés dans l’étape « Valider ».
+L’opération de validation ne fait qu’analyser l’état des ressources dans le modèle de déploiement classique. Cette opération permet de vérifier tous les échecs et les scénarios non pris en charge en raison de diverses configurations dans le modèle de déploiement classique. Il est impossible de vérifier tous les problèmes que pourrait causer la pile d’Azure Resource Manager aux ressources pendant la migration. Ces problèmes ne sont vérifiés que lorsque les ressources subissent une transformation à l’étape suivante de la migration (l’opération de préparation). Le tableau suivant répertorie tous les problèmes non archivés dans l’opération de validation :
 
 
-|Vérifications réseau non effectuées dans l’étape « Valider »|
+|Vérifications réseau non effectuées dans l’opération de validation|
 |-|
-|Un réseau virtuel ayant des passerelles ER et VPN|
-|Connexion à la passerelle de réseau virtuel dans l’état déconnecté|
-|Tous les circuits ER sont migrés par avance vers la pile d’Azure Resource Manager|
-|Quota de vérifications Azure Resource Manager des ressources réseau, à savoir : adresse IP publique statique, adresses IP publiques dynamiques, équilibreur de charge, groupes de sécurité réseau, tables de routage, interfaces réseau |
-| Vérifier que toutes les règles d’équilibrage de charge sont valides sur le déploiement/réseau virtuel |
-| Chercher les adresses IP privées en conflit entre machines virtuelles arrêtées et désallouées dans le même réseau virtuel |
+|Un réseau virtuel ayant des passerelles ER et VPN.|
+|Une connexion de passerelle de réseau virtuel dans un état déconnecté.|
+|Tous les circuits ER sont pré-migrés vers la pile d’Azure Resource Manager.|
+|Vérifications de quotas Azure Resource Manager pour les ressources réseau. Exemple : adresse IP publique statique, adresses IP publiques dynamiques, équilibreur de charge, groupes de sécurité réseau, tables d’itinéraires et interfaces réseau. |
+| Toutes les règles d’équilibrage de charge sont valides sur le déploiement et le réseau virtuel. |
+| Adresses IP privées en conflit entre des machines virtuelles arrêtées-désallouées dans le même réseau virtuel. |
 
 ### <a name="prepare"></a>Préparation
-L’opération de préparation constitue la deuxième étape du processus de migration. Le rôle de cette étape est de simuler la transformation des ressources IaaS du modèle de déploiement classique en ressources Resource Manager et de vous les présenter côte à côte pour que vous puissiez les visualiser.
+L’opération de préparation constitue la deuxième étape du processus de migration. L’objectif de cette étape est de simuler la transformation des ressources IaaS depuis le modèle de déploiement classique vers les ressources Resource Manager. En outre, l’opération de préparation présente cette simulation côte à côte pour vous permettre de visualiser.
 
 > [!NOTE] 
-> Vos ressources classiques ne sont pas modifiées lors de cette étape. C’est donc une étape sûre à exécuter si vous essayez la migration. 
+> Vos ressources dans le modèle de déploiement classique ne sont pas modifiées au cours de cette étape. Il s’agit d’une étape sécurisée à exécuter si vous testez la migration. 
 
 Vous sélectionnez le réseau virtuel ou le service cloud (s’il ne s’agit pas d’un réseau virtuel) que vous souhaitez préparer pour la migration.
 
-* Si la ressource ne peut pas être migrée, la plateforme Azure arrête le processus de migration et indique la raison de l’échec de l’opération de préparation.
-* Si la migration de la ressource est possible, la plateforme Azure commence par verrouiller les opérations du plan de gestion pour les ressources concernées. Par exemple, vous ne pourrez pas ajouter de disque de données à une machine virtuelle en cours de migration.
+* Si la ressource n’est pas en mesure de migrer, Azure arrête le processus de migration et indique la raison de l’échec de l’opération de préparation.
+* Si la ressource est en mesure de migrer, Azure verrouille les opérations de plan de gestion pour les ressources en cours de migration. Par exemple, vous ne pourrez pas ajouter de disque de données à une machine virtuelle en cours de migration.
 
-La plateforme Azure démarre ensuite la migration des métadonnées du modèle de déploiement classique vers Resource Manager pour les ressources faisant l’objet de la migration.
+Azure démarre ensuite la migration des métadonnées depuis le modèle de déploiement classique vers Resource Manager pour les ressources faisant l’objet de la migration.
 
-Une fois l’opération de préparation terminée, vous avez la possibilité de visualiser les ressources tant dans le modèle de déploiement classique que dans le déploiement Resource Manager. Pour chaque service cloud du modèle de déploiement classique, nous créons un nom de groupe de ressources au format `cloud-service-name>-Migrated`.
-
-> [!NOTE]
-> Il n’est pas possible de sélectionner le nom du groupe de ressources créé pour les ressources migrées (par exemple, « -Migré »). Toutefois, une fois la migration terminée, vous pouvez utiliser la fonctionnalité de déplacement Azure Resource Manager pour déplacer des ressources vers n’importe quel groupe de ressources. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../articles/resource-group-move-resources.md)
-
-Voici deux captures d’écran qui illustrent le résultat après une opération de préparation réussie. La première capture montre un groupe de ressources qui contient le service cloud d’origine. La deuxième capture montre le nouveau groupe de ressources « -Migré » qui contient les ressources Azure Resource Manager équivalentes.
-
-![Capture d’écran illustrant le portail de service cloud classique](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
-
-![Capture d’écran qui affiche les ressources du portail Azure Resource Manager lors d’une opération de préparation](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
-
-Voici un aperçu des coulisses de vos ressources à la fin de l’étape « Préparer ». Notez que la ressource dans le plan de données est la même. Elle est représentée dans le plan de gestion (modèle de déploiement classique) et dans le plan de contrôle (Resource Manager).
-
-![Coulisses de l’étape « Préparer »](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+Une fois l’opération de préparation terminée, vous avez la possibilité de visualiser les ressources dans le modèle de déploiement classique et dans Resource Manager. Pour chaque service cloud du modèle de déploiement classique, nous créons un nom de groupe de ressources au format `cloud-service-name>-Migrated`.
 
 > [!NOTE]
-> Lors de cette phase de migration, les machines virtuelles qui ne font pas partie d’un réseau virtuel classique sont arrêtées et désallouées.
+> Il est impossible de sélectionner le nom d’un groupe de ressources créé pour les ressources migrées (autrement dit, à l’état « -Migré »). Toutefois, une fois la migration terminée, vous pouvez utiliser la fonctionnalité de déplacement d’Azure Resource Manager pour déplacer des ressources vers le groupe de ressources souhaité. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../articles/resource-group-move-resources.md).
+
+Les deux captures d’écran suivantes affichent le résultat après la réussite d’une opération de préparation. La première affiche un groupe de ressources contenant le service cloud d’origine. La deuxième affiche le nouveau groupe de ressources « -Migré » contenant les ressources Azure Resource Manager équivalentes.
+
+![Capture d’écran affichant le service cloud d’origine](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
+
+![Capture d’écran affichant les ressources Azure Resource Manager lors de l’opération de préparation](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
+
+Voici un aperçu des coulisses de vos ressources à l’issue de la phase de préparation. Notez que la ressource dans le plan de données est la même. Elle est représentée dans le plan de gestion (modèle de déploiement classique) et dans le plan de contrôle (Resource Manager).
+
+![Diagramme de la phase de préparation](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+
+> [!NOTE]
+> Les machines virtuelles ne faisant pas partie d’un réseau virtuel dans le modèle de déploiement classique sont arrêtées et désallouées dans cette phase de migration.
 >
 
 ### <a name="check-manual-or-scripted"></a>Vérification (manuelle ou sur la base d’un script)
-Dans le cadre de cette étape de vérification, vous pouvez éventuellement utiliser la configuration que vous avez téléchargée précédemment pour vérifier que la migration semble correcte. Une autre possibilité consiste à se connecter au portail et à procéder à une vérification ponctuelle des propriétés et des ressources pour vous assurer que la migration des métadonnées s’est déroulée de manière adéquate.
+Lors de l’étape de vérification, vous avez la possibilité d’utiliser la configuration que vous avez téléchargée précédemment pour valider le bon déroulement de la migration. Une autre possibilité consiste à se connecter au portail et à procéder à une vérification ponctuelle des propriétés et des ressources pour valider le déroulement adéquat de la migration des métadonnées.
 
-Si vous effectuez la migration d’un réseau virtuel, la majeure partie de la configuration des machines virtuelles n’est pas redémarrée. En ce qui concerne les applications installées sur ces machines virtuelles, vous pouvez vérifier que ces applications sont toujours opérationnelles.
+Si vous effectuez la migration d’un réseau virtuel, la majeure partie de la configuration des machines virtuelles n’est pas redémarrée. En ce qui concerne les applications installées sur ces machines virtuelles, vous pouvez valider le bon fonctionnement de ces applications.
 
-Vous pouvez tester vos scripts de surveillance/automatisation et vos scripts d’opérations pour vous assurer du bon fonctionnement des machines virtuelles et de vos scripts mis à jour. Seules les opérations GET sont prises en charge lorsque les ressources sont en état Préparé.
+Vous pouvez tester vos scripts opérationnels et de surveillance pour voir si les machines virtuelles fonctionnent comme prévu, et si vos scripts mis à jour fonctionnent correctement. Seules les opérations GET sont prises en charge lorsque les ressources sont en état Préparé.
 
-Aucun délai maximum ne vous est imposé pour la validation de la migration. Vous pouvez conserver les ressources en l’état pour la durée de votre choix. Toutefois, le plan de gestion est verrouillé pour ces ressources jusqu’à ce que vous choisissiez d’abandonner ou de valider la migration.
+Il n’existe pas de fenêtre de temps défini imposant un délai dans lequel vous devez valider la migration. Vous pouvez conserver les ressources en l’état pour la durée de votre choix. Toutefois, le plan de gestion est verrouillé pour ces ressources jusqu’à ce que vous choisissiez d’abandonner ou de valider la migration.
 
-Si vous constatez certains problèmes, vous pouvez toujours abandonner la migration et revenir au modèle de déploiement Classic. Après que vous êtes revenu en arrière, la plateforme Azure ouvre les opérations du plan de gestion sur les ressources pour vous permettre de reprendre les opérations normales sur ces machines virtuelles dans le modèle de déploiement classique.
+Si vous constatez certains problèmes, vous pouvez toujours abandonner la migration et revenir au modèle de déploiement Classic. Une fois que vous revenez en arrière, Azure ouvre les opérations de plan de gestion sur les ressources, de manière à ce que vous puissiez reprendre les opérations normales sur ces machines virtuelles dans le modèle de déploiement classique.
 
 ### <a name="abort"></a>Abandon
-L’abandon est une étape facultative qui vous permet d’abandonner la migration en annulant vos modifications et en revenant au modèle de déploiement Classic. Cette opération supprime les métadonnées de Resource Manager pour les ressources créées à l’étape « Préparer » précédente. 
+Il s’agit d’une étape facultative si vous souhaitez annuler vos modifications, rétablir le modèle de déploiement classique et arrêter la migration. Cette opération supprime les métadonnées de Resource Manager (créées à l’étape de préparation) pour vos ressources. 
 
-![Coulisses de l’étape « Abandonner »](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![Diagramme de l’étape d’abandon](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
-> Vous ne pouvez plus effectuer cette opération une fois que vous avez déclenché l’opération de validation.     
+> Vous ne pouvez pas effectuer cette opération après le déclenchement de l’opération de validation.     
 >
 
 ### <a name="commit"></a>Validation
-Après avoir terminé la validation, vous pouvez valider la migration. Les ressources n’apparaissent plus dans le modèle de déploiement classique et sont disponibles uniquement dans le modèle de déploiement Resource Manager. Les ressources migrées peuvent être gérées uniquement dans le nouveau portail.
+Après avoir terminé la validation, vous pouvez valider la migration. Les ressources n’apparaissent plus dans le modèle de déploiement classique et ne sont disponibles que dans le modèle de déploiement Resource Manager. Les ressources migrées peuvent être gérées uniquement dans le nouveau portail.
 
 > [!NOTE]
-> Il s’agit d’une opération idempotente. En cas d’échec, il est recommandé de retenter l’opération. Si le problème persiste, créez un ticket de support ou publiez un billet avec la balise ClassicIaaSMigration sur notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
+> Il s’agit d’une opération idempotente. En cas d’échec, recommencez l’opération. Si le problème persiste, créez un ticket de support ou publiez un billet avec la balise « ClassicIaaSMigration » sur notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
 >
 >
 
-![Coulisses de l’étape « Soumettre »](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![Diagramme de l’étape de validation](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
-## <a name="where-to-begin-migration"></a>Par quoi commencer la migration ?
+## <a name="migration-flowchart"></a>Organigramme de la migration
 
-Voici un organigramme qui montre comment procéder à la migration
+Cet organigramme montre comment procéder à la migration :
 
 ![Capture d’écran illustrant les étapes de la migration](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="translation-of-classic-deployment-model-to-azure-resource-manager-resources"></a>Traduction de ressources du modèle de déploiement classique en ressources Azure Resource Manager
+## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Traduction du modèle de déploiement classique vers les ressources Resource Manager
 Les représentations des ressources du modèle de déploiement classique et de Resource Manager sont décrites dans la table suivante. D’autres fonctionnalités et ressources ne sont pas prises en charge actuellement.
 
-| Représentation Classic | Représentation Resource Manager | Remarques détaillées |
+| Représentation Classic | Représentation Resource Manager | Remarques |
 | --- | --- | --- |
 | Nom du service cloud |Nom DNS |Pendant la migration, un groupe de ressources est créé pour chaque service cloud correspondant au modèle de dénomination `<cloudservicename>-migrated`. Ce groupe de ressources contient toutes vos ressources. Le nom du service cloud devient un nom DNS associé à l’adresse IP publique. |
-| Machine virtuelle |Machine virtuelle |Les propriétés spécifiques à la machine virtuelle sont inchangées après la migration. Certaines informations osProfile, notamment le nom de l’ordinateur, ne sont pas stockées dans le modèle de déploiement classique et restent vides après la migration. |
-| Ressources de disque attachées à une machine virtuelle |Disques implicites attachés à une machine virtuelle |Les disques ne sont pas modélisés comme ressources de niveau supérieur dans le modèle de déploiement Resource Manager. Ils font l’objet d’une migration sous forme de disques implicites sous la machine virtuelle. Seuls des disques attachés à une machine virtuelle sont actuellement pris en charge. Les machines virtuelles Resource Manager peuvent désormais utiliser des comptes de stockage classiques, ce qui permet une migration facile des disques sans aucune mise à jour. |
+| Machine virtuelle |Machine virtuelle |Les propriétés spécifiques à la machine virtuelle sont inchangées après la migration. Certaines informations osProfile, comme le nom de l’ordinateur, ne sont pas stockées dans le modèle de déploiement classique et restent vides après la migration. |
+| Ressources de disque attachées à une machine virtuelle |Disques implicites attachés à une machine virtuelle |Les disques ne sont pas modélisés comme ressources de niveau supérieur dans le modèle de déploiement Resource Manager. Ils font l’objet d’une migration sous forme de disques implicites sous la machine virtuelle. Seuls des disques attachés à une machine virtuelle sont actuellement pris en charge. Les machines virtuelles Resource Manager peuvent désormais utiliser des comptes de stockage dans le modèle de déploiement classique, ce qui permet une migration facile des disques sans aucune mise à jour. |
 | Extensions de machine virtuelle |Extensions de machine virtuelle |Toutes les extensions de ressource font l’objet d’une migration depuis le déploiement Classic, à l’exception des extensions XML. |
-| Certificats de machine virtuelle |Certificats dans Azure Key Vault |Si un service cloud contient des certificats de service, la plateforme crée un coffre de clés Azure pour chaque service cloud et y déplace les certificats. Les machines virtuelles sont mises à jour pour référencer les certificats du coffre de clés. <br><br> **REMARQUE :** ne supprimez pas le coffre de clés, car cela peut provoquer l’échec de la machine virtuelle. Nous travaillons à l’amélioration des opérations sur le serveur principal afin que les coffres de clés puissent être supprimés ou déplacés en toute sécurité avec la machine virtuelle vers un nouvel abonnement. |
+| Certificats de machine virtuelle |Certificats dans Azure Key Vault |Si un service cloud contient des certificats de service, la migration crée un nouveau coffre de clés Azure par service cloud et déplace les certificats dans le coffre de clés. Les machines virtuelles sont mises à jour pour référencer les certificats du coffre de clés. <br><br> Ne supprimez pas le coffre de clés. Cela peut provoquer un état d’échec de la machine virtuelle. |
 | Configuration WinRM |Configuration WinRM sous osProfile |La configuration de Windows Remote Management est déplacée sans être modifiée dans le cadre de la migration. |
-| Propriété de groupe à haute disponibilité |Ressource de groupe à haute disponibilité | La spécification des groupes à haute disponibilité était une propriété de la machine virtuelle dans le modèle de déploiement Classic. Les groupes à haute disponibilité deviennent une ressource de niveau supérieur dans le cadre de la migration. Les configurations suivantes ne sont pas prises en charge : plusieurs groupes à haute disponibilité par service cloud, ou un ou plusieurs groupes à haute disponibilité en même temps que des machines virtuelles ne figurant dans aucun groupe à haute disponibilité d’un service cloud. |
+| Propriété de groupe à haute disponibilité |Ressource de groupe à haute disponibilité | La spécification des groupes à haute disponibilité est une propriété de la machine virtuelle dans le modèle de déploiement classique. Les groupes à haute disponibilité deviennent une ressource de niveau supérieur dans le cadre de la migration. Les configurations suivantes ne sont pas prises en charge : plusieurs groupes à haute disponibilité par service cloud, ou un ou plusieurs groupes à haute disponibilité en même temps que des machines virtuelles ne figurant dans aucun groupe à haute disponibilité d’un service cloud. |
 | Configuration réseau sur une machine virtuelle |Interface réseau principale |La configuration réseau sur une machine virtuelle est représentée sous forme de ressource d’interface réseau principale après la migration. Dans le cas des machines virtuelles qui ne figurent pas dans un réseau virtuel, l’adresse IP interne change lors de la migration. |
-| Plusieurs interfaces réseau sur une machine virtuelle |Interfaces réseau |Si plusieurs interfaces réseau sont associées à une machine virtuelle, chaque interface réseau devient une ressource de niveau supérieur dans le cadre de la migration vers le modèle de déploiement Resource Manager, avec toutes les propriétés. |
+| Plusieurs interfaces réseau sur une machine virtuelle |Interfaces réseau |Si une machine virtuelle possède plusieurs interfaces réseau associées, chaque interface réseau devient une ressource de niveau supérieur dans le cadre de la migration, ainsi que toutes les propriétés. |
 | Jeux de points de terminaison soumis à l’équilibrage de charge |Équilibrage de charge |Dans le modèle de déploiement Classic, la plateforme a affecté un équilibreur de charge implicite à chaque service cloud. Pendant la migration, une ressource d’équilibreur de charge est créée, et le jeu de points de terminaison d’équilibrage de charge constitue les règles de l’équilibreur de charge. |
 | Règles NAT entrantes |Règles NAT entrantes |Les points de terminaison d’entrée définis sur la machine virtuelle sont convertis en règles de traduction NAT (Network Access Translation) du trafic entrant sous l’équilibreur de charge lors de la migration. |
 | Adresse IP virtuelle |Adresse IP publique avec nom DNS |L’adresse IP virtuelle devient une adresse IP publique et est associée à l’équilibreur de charge. Une adresse IP virtuelle ne peut faire l’objet d’une migration que si un point de terminaison d’entrée lui a été attribué. |
@@ -146,11 +144,11 @@ Les représentations des ressources du modèle de déploiement classique et de R
 | Serveurs DNS |Serveurs DNS |La migration des serveurs DNS associés à un réseau virtuel ou à la machine virtuelle est effectuée dans le cadre de la migration des ressources correspondantes avec toutes les propriétés. |
 | Itinéraires définis par l’utilisateur (UDR) |Itinéraires définis par l’utilisateur (UDR) |Les Itinéraires définis par l’utilisateur associés à un sous-réseau sont clonés dans le cadre de la migration vers le modèle de déploiement Resource Manager. L’itinéraire défini par l’utilisateur dans le modèle de déploiement classique n’est pas supprimé durant la migration. Les opérations du plan de gestion relatives pour l’itinéraire défini par l’utilisateur sont bloquées pendant le processus de migration. |
 | Propriété de transfert IP sur la configuration réseau d’une machine virtuelle |Propriété de transfert IP sur la carte d’interface réseau (NIC) |La propriété de transfert IP sur une machine virtuelle est convertie en propriété sur l’interface réseau pendant la migration. |
-| Équilibreur de charge avec plusieurs adresses IP |Équilibreur de charge avec plusieurs ressources d’adresses IP publiques |Chaque adresse IP publique associée à l’équilibreur de charge est convertie en ressource d’adresse IP publique et associée à l’équilibreur de charge après la migration. |
-| Noms DNS internes sur la machine virtuelle |Noms DNS internes sur la carte réseau |Pendant la migration, les suffixes DNS internes pour les machines virtuelles sont migrés vers une propriété en lecture seule nommée « InternalDomainNameSuffix » sur la carte réseau. Le suffixe reste inchangé après la migration, et la résolution des machines virtuelles doit continuer à fonctionner comme auparavant. |
+| Équilibreur de charge avec plusieurs adresses IP |Équilibreur de charge avec plusieurs ressources d’adresses IP publiques |Chaque adresse IP publique associée à l’équilibreur de charge est convertie en une ressource d’adresse IP publique et est associée à l’équilibreur de charge après la migration. |
+| Noms DNS internes sur la machine virtuelle |Noms DNS internes sur la carte réseau |Pendant la migration, les suffixes DNS internes pour les machines virtuelles sont migrés vers une propriété en lecture seule nommée « InternalDomainNameSuffix » sur la carte réseau. Le suffixe reste inchangé après la migration et la résolution de la machine virtuelle doit continuer à fonctionner comme auparavant. |
 | Passerelle de réseau virtuel |Passerelle de réseau virtuel |Les propriétés de la passerelle de réseau virtuel sont inchangées après la migration. L’adresse IP virtuelle associée à la passerelle reste inchangée également. |
 | Site de réseau local |Passerelle de réseau local |Les propriétés du site de réseau local sont migrées sans modification vers une nouvelle ressource appelée Passerelle de réseau local. Ceci représente les préfixes d’adresse locale et l’adresse IP de la passerelle distante. |
-| Références de connexions |Connexion |Les références de connectivité entre la passerelle et le site de réseau local dans la configuration réseau sont représentées par une ressource nouvellement créée appelée Connexion dans Resource Manager après la migration. Toutes les propriétés de référence de connectivité dans les fichiers de configuration réseau sont copiées sans modification dans la ressource de connexion nouvellement créée. La connectivité de réseau virtuel à réseau virtuel dans le déploiement Classic est obtenue en créant deux tunnels IPsec vers les sites de réseau local qui représentent les réseaux virtuels. Elle est transformée en type de connexion Vnet2Vnet dans le modèle Resource Manager sans qu’il soit nécessaire de faire appel à des passerelles de réseau local. |
+| Références de connexions |Connexion |Les références de connectivité entre la passerelle et le site réseau local dans la configuration du réseau sont représentées par une nouvelle ressource appelée Connexion. Toutes les propriétés de référence de connectivité dans les fichiers de configuration réseau sont copiées sans modification vers la ressource Connexion. La connectivité entre les réseaux virtuels dans le modèle de déploiement classique est obtenue en créant deux tunnels IPsec pour les sites de réseau local représentant les réseaux virtuels. Elle est transformée en type de connexion réseau virtuel à réseau virtuel dans le modèle Resource Manager sans qu’il soit nécessaire de faire appel à des passerelles de réseau local. |
 
 ## <a name="changes-to-your-automation-and-tooling-after-migration"></a>Modifications de vos services d’automatisation et de vos outils après la migration
-Dans le cadre de la migration de vos ressources à partir du modèle de déploiement classique vers le modèle de déploiement Resource Manager, vous devez mettre à jour votre automatisation ou vos outils pour vous assurer qu’ils continueront de fonctionner après la migration.
+Dans le cadre de la migration de vos ressources depuis le modèle de déploiement classique vers le modèle de déploiement Resource Manager, vous devez mettre à jour votre automatisation ou vos outils existants pour vous assurer qu’il continue de fonctionner après la migration.

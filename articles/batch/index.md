@@ -2,7 +2,7 @@
 title: "Documentation Azure Batch - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser Batch pour exécuter efficacement des applications de calcul haute performance en parallèle et à grande échelle. Didacticiels, références d’API et autres documents."
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

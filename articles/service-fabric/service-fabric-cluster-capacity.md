@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 270d79944465176d3df467f7145ff82594302c3d
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 36b96360fabdcc64ffd2356540c580594637d48e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
@@ -54,7 +54,6 @@ Pour un cluster avec plusieurs types de nœuds, vous devez définir l’un d’e
 * La **taille minimale des machines virtuelles** pour le type de nœud principal est déterminée par le **niveau de durabilité** que vous choisissez. La valeur par défaut du niveau de durabilité est Bronze. Faites défiler vers le bas pour plus d’informations sur le niveau de durabilité et sur les valeurs qu’il peut prendre.  
 * Le **nombre minimal de machines virtuelles** pour le type de nœud principal est déterminé par le **niveau de fiabilité** que vous choisissez. La valeur par défaut du niveau de fiabilité est Silver. Faites défiler vers le bas pour plus d’informations sur le niveau de fiabilité et sur les valeurs qu’il peut prendre. 
 
- 
 
 * Les services système de Service Fabric (par exemple, le service Gestionnaire de cluster ou le service Magasin d’images) sont placés sur le type de nœud principal et, par conséquent, la fiabilité et la durabilité du cluster sont déterminées par les valeurs de niveau correspondantes sélectionnées pour le type de nœud principal.
 
@@ -73,7 +72,11 @@ Ce privilège est exprimé dans les valeurs suivantes :
 
 * Gold : les travaux d’infrastructure peuvent être suspendus pendant deux heures UD. La durabilité Gold ne peut être activée que sur les références de machine virtuelle à nœud complet comme D15_V2, G5, etc.
 * Silver : les travaux d’infrastructure peuvent être suspendus pendant 10 minutes par UD, et ce privilège est disponible sur toutes les machines virtuelles standard à cœur unique et versions supérieures.
-* Bronze : Aucun privilège. Il s’agit de la valeur par défaut recommandée si vous exécutez uniquement des charges de travail sans état dans votre cluster.
+* Bronze : Aucun privilège. Il s’agit de la valeur par défaut. Réservez ce niveau de durabilité aux types de nœud qui peuvent exécuter _seulement_ des charges de travail sans état. 
+
+> [!WARNING]
+> Les types de nœud s’exécutant avec un niveau de durabilité Bronze n’obtiennent _aucun privilège_. Cela signifie que les travaux d’infrastructure qui affectent vos charges de travail sans état ne seront ni arrêtés ni différés. Il est possible que ces travaux continuent d’affecter vos charges de travail, entraînant ainsi des temps d’arrêt ou d’autres problèmes. Pour tout type de charge de travail de production, il est recommandé d’opter pour une exécution avec au moins le niveau Silver. 
+> 
 
 Vous devez choisir un niveau de durabilité pour chacun de vos types de nœuds. Vous pouvez choisir le niveau de durabilité Gold ou Silver pour un type de nœud, et le niveau Bronze pour l’autre type de nœud au sein du même cluster. **Vous devez conserver un minimum de 5 nœuds pour tout type de nœud avec une durabilité Gold ou Silver**. 
 
@@ -87,8 +90,6 @@ Vous devez choisir un niveau de durabilité pour chacun de vos types de nœuds. 
 1. Des déploiements vers vos groupes de machines virtuelles identiques et d’autres ressources Azure associées peuvent être retardés, dépasser le délai d’attente, ou être entièrement bloqués par des problèmes au sein de votre cluster ou au niveau de l’infrastructure. 
 2. Augmente le nombre d’[événements du cycle de vie d’un réplica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (par exemple, les permutations principales) en raison de l’automatisation des désactivations de nœud durant les opérations de l’infrastructure Azure.
 
-
-
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recommandations relatives au moment opportun pour utiliser les niveaux de durabilité Silver ou Gold
 
 Utilisez les niveaux de durabilité Silver ou Gold pour tous les types de nœuds qui hébergent des services avec état dont vous prévoyez une diminution fréquente de la taille des instances (réduction du nombre d’instances de machine virtuelle), si vous préférez que les opérations de déploiement soient retardées au profit d’une simplification de ces opérations de diminution de la taille des instances. Les scénarios d’augmentation de la taille des instances (ajout d’instances de machine virtuelle) n’ayant aucune incidence sur le choix du niveau de durabilité, seuls les scénarios de diminution de la taille des instances doivent être pris en considération.
@@ -99,6 +100,12 @@ Utilisez les niveaux de durabilité Silver ou Gold pour tous les types de nœuds
 2. Adoptez des méthodes plus sûres pour modifier les références SKU de machine virtuelle (montée/descente en puissance) : la modification de la référence SKU de machine virtuelle pour un groupe de machines virtuelles identiques est une opération risquée et doit donc être évitée si possible. Voici la procédure à suivre pour éviter les problèmes les plus courants.
     - **Pour les types de nœuds non principaux :** il est recommandé de créer un groupe de machines virtuelles identiques, de modifier la contrainte de positionnement de service pour inclure le nouveau groupe de machines virtuelles identiques/type de nœud, puis de réduire le nombre d’instances du groupe de machines virtuelles identiques à 0, un nœud à la fois pour être certain que la suppression des nœuds n’affecte pas la fiabilité du cluster.
     - **Pour le type de nœud principal :** notre recommandation est de ne pas modifier la référence SKU de machine virtuelle du type de nœud principal. Si la raison de la nouvelle référence (SKU) est la capacité, nous recommandons d’ajouter des instances ou, si possible, de créer un cluster. Si vous n’avez pas le choix, apportez les modifications à la définition du modèle de groupe de machines virtuelles identiques afin de refléter la nouvelle référence SKU. Si votre cluster n’a qu’un seul type de nœud, assurez-vous que toutes les applications avec état répondent à tous les [événements de cycle de vie de réplica de service](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (par exemple, le blocage de la création d’un réplica) en temps opportun, et que la durée de recréation du réplica de service est inférieure à cinq minutes (pour le niveau de durabilité Silver). 
+
+
+> [!WARNING]
+> Il est déconseillé de modifier la taille de référence (SKU) des machines virtuelles pour les VM Scale Sets qui n’exécutent pas au moins le niveau de durabilité Silver. Modifier la taille de référence (SKU) des machines virtuelles est une opération d’infrastructure sur place destructrice de données. Faute de pouvoir ne serait-ce que retarder ou surveiller cette modification, il est possible que l’opération occasionne une perte de données pour les services avec état ou provoque d’autres problèmes opérationnels imprévus, même pour les charges de travail sans état. 
+> 
+    
 3. Conservez au minimum cinq nœuds pour tout groupe de machines virtuelles identiques sur lequel MR est activé.
 4. Ne supprimez pas d’instances de machine virtuelle aléatoires. Opérez toujours une descente en puissance du groupe de machines virtuelles identiques. La suppression d’instances de machine virtuelle aléatoires risque de créer des déséquilibres au sein de l’instance de machine virtuelle répartie sur UD et FD. Ce déséquilibre peut nuire à la capacité du système à équilibrer correctement la charge entre les instances de service/réplicas de service.
 6. Si vous utilisez la fonctionnalité Mise à l’échelle automatique, définissez les règles de façon à ce que la diminution de la taille des instances (suppression d’instances de machine virtuelle) soit effectuée nœud après nœud. La descente en puissance de plusieurs instances en même temps présente des risques.

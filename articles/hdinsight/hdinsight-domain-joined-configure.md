@@ -139,7 +139,7 @@ Suivez la même procédure pour créer deux utilisateurs supplémentaires avec 
 
 1. Dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Active Directory** > **contosoaaddirectory**. 
 2. Cliquez sur **Groupes** dans le menu supérieur.
-3. Cliquez sur **Ajouter un groupe** ou ****.
+3. Cliquez sur **Ajouter un groupe** ou **Ajouter groupe**.
 4. Entrez ou sélectionnez les valeurs suivantes :
    
    * **Nom** : AAD DC Administrators.  Ne modifiez pas le nom du groupe.

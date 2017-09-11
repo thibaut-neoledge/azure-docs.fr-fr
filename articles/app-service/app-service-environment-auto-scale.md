@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/11/2017
+ms.date: 07/11/2017
 ms.author: ccompy
 ms.translationtype: HT
 ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc

@@ -13,17 +13,40 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 08/22/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 4d818112d8b6cc07a73d2521ef229c90e0d5884b
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 7ee836b4c0c87fc7d271f59dcb16f3293e68dc9a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Nouveautés d'Azure Data Catalog
 Des mises à jour **d’Azure Data Catalog** sont publiées régulièrement. Comme certaines versions portent sur les fonctionnalités du service principal, toutes les versions ne contiennent pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Cette page présente les nouvelles fonctionnalités orientées utilisateur ajoutées au service Azure Data Catalog.
+
+## <a name="whats-new-for-august-2017"></a>Nouveautés d’août 2017 
+Depuis août 2017, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :
+
+*   Un nouvel échantillon de développeur est disponible pour la création et la gestion de métadonnées de relation à l’aide de l’API REST de Data Catalog. L’échantillon d’*importation des informations de relation dans Data Catalog* est disponible sur la [page d’exemples de code Data Catalog](https://azure.microsoft.com/resources/samples/?service=data-catalog&sort=0). 
+* Prise en charge de l’extraction des métadonnées de relation jointes depuis des sources de données Teradata lors de l’inscription des tables associées à l’aide de l’outil d’inscription des sources de données.
+* Prise en charge des objets de fonction table SQL Server (TVF) lors de l’inscription des sources de données SQL Server à l’aide de l’outil d’inscription des sources de données.
+* Diverses mises à jour et améliorations permettant d’améliorer les performances et la convivialité du portail Data Catalog.
+
+## <a name="whats-new-for-july-2017"></a>Nouveautés de juillet 2017 
+Depuis juillet 2017, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :
+*   Prise en charge d’un contrôle plus précis des opérations de métadonnées autorisées, notamment :
+    - Les administrateurs du catalogue peuvent limiter la capacité des utilisateurs à insérer des balises et métadonnées associées dans ce dernier, en leur permettant uniquement d’y accéder en lecture seule.
+    - Les administrateurs du catalogue peuvent limiter la capacité des utilisateurs à inscrire des sources de données dans le catalogue.
+    - Les administrateurs du catalogue peuvent limiter la capacité des utilisateurs à prendre possession des métadonnées des ressources de données dans le catalogue.
+    - Les autorisations peuvent être accordées aux utilisateurs et groupes de sécurité Azure Active Directory dans le but de faciliter la gestion des autorisations.
+* Prise en charge des relations entre les ressources de données inscrites et la détection de ressources de données associées dans le portail Data Catalog, notamment :
+    - Extraction de métadonnées de relation depuis SQL Server (y compris Azure SQL Database), Oracle et les sources de données MySQL lors de l’utilisation de l’outil d’inscription des sources de données Data Catalog.
+    - Détection des ressources de données associées lors de l’affichage des métadonnées des ressources dans le portail Data Catalog.
+    - Opérations pour définir, détecter et gérer les relations entre les ressources de données à l’aide de l’API REST de Data Catalog.
+
+Pour plus d’informations sur la gestion des autorisations dans Data Catalog, consultez [Guide pratique pour sécuriser l’accès à un catalogue de données et des ressources de données](data-catalog-how-to-secure-catalog.md).
+Pour plus d’informations sur les relations dans Data Catalog, consultez [Comment afficher les ressources de données associées dans Azure Data Catalog](data-catalog-how-to-view-related-data-assets.md).
 
 ## <a name="whats-new-for-june-2017"></a>Nouveautés de juin 2017 
 Depuis juin 2017, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :

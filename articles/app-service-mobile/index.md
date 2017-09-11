@@ -1,12 +1,12 @@
 ---
 title: "Documentation Azure Mobile Apps - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment utiliser Mobile Apps dans Azure App Service pour développer et héberger des applications iOS, Android ou Windows natives ou des applications multiplateformes à l’aide de Xamarin ou de Cordova."
-services: app-service\mobile
-author: carolz
+services: app-service-mobile
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\mobile
+ms.service: app-service-mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page

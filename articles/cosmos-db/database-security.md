@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/18/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 80b58ac0a5a34a9ff573d161ca26dbfd2dba25c7
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 50bd4eb02be8f03baf186255429bec51c036aa43
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -29,7 +29,7 @@ Cet article décrit les meilleures pratiques en matière de sécurité de la bas
  
 ## <a name="whats-new-in-azure-cosmos-db-security"></a>Quelles sont les nouveautés en matière de sécurité dans Azure Cosmos DB ?
 
-Le chiffrement au repos est désormais disponible pour les documents stockés dans Azure Cosmos DB dans toutes les régions Azure, à l’exception des zones publiques, d’Azure en Chine et d’Azure en Allemagne. Les régions restantes seront activées la semaine prochaine, en même temps que le chiffrement au repos des sauvegardes. Un chiffrement au repos est automatiquement appliqué aux clients nouveaux et existants dans ces régions. Vous n’avez pas à configurer quoi que ce soit. Vous bénéficiez des mêmes performances remarquables en matière de temps de latence, de débit, de disponibilité et de fonctionnalité qu’auparavant, avec l’avantage de savoir que vos données sont en lieu sûr et sécurisée grâce à un chiffrement au repos.
+Le chiffrement au repos est désormais disponible pour les documents et les sauvegardes stockés dans Azure Cosmos DB dans toutes les régions Azure. Un chiffrement au repos est automatiquement appliqué aux clients nouveaux et existants dans ces régions. Vous n’avez pas à configurer quoi que ce soit. Vous bénéficiez des mêmes performances remarquables en matière de temps de latence, de débit, de disponibilité et de fonctionnalité qu’auparavant, avec l’avantage de savoir que vos données sont en lieu sûr et sécurisée grâce à un chiffrement au repos.
 
 ## <a name="how-do-i-secure-my-database"></a>Comment sécuriser ma base de données ? 
 
@@ -95,5 +95,5 @@ La capture d’écran suivante montre comment utiliser l’enregistrement d’au
 
 Pour plus d’informations sur les clés principales et les jetons de ressource, consultez [Sécurisation de l’accès aux données Azure Cosmos DB](secure-access-to-data.md).
 
-Pour plus d’informations sur les certifications Microsoft, consultez le [Centre de gestion de la confidentialité Azure](https://azure.microsoft.com/support/trust-center/).
+Pour plus d’informations sur les certifications Microsoft, consultez le [Centre de confidentialité Azure](https://azure.microsoft.com/support/trust-center/).
 

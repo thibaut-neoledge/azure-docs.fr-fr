@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2C : utilisation de l’API Graph | Microsoft Docs"
+title: "Utiliser l’API Graph - Azure AD B2C | Microsoft Docs"
 description: "Comment appeler l’API Graph pour un client B2C à l’aide d’une identité d’application pour automatiser le processus."
 services: active-directory-b2c
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c838fcad21875c4f813159ad78d4c87129a40a86
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 1e6748f40c7b825615b3f58243afd9d50348214d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C : utilisation de l’API Graph
@@ -38,7 +38,7 @@ Avant de pouvoir créer des applications ou des utilisateurs, ou interagir avec 
 Une fois que vous avez un locataire B2C, vous devez inscrire votre application par le biais du [portail Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Pour utiliser l’API Graph avec votre locataire B2C, vous allez devoir inscrire une application dédiée à l’aide du panneau générique *Inscriptions d’applications* sur le portail Azure, et **NON** à l’aide du panneau *Applications* d’Azure AD B2C. Vous ne pouvez pas réutiliser les applications B2C existantes que vous avez inscrites dans le panneau *Applications* d’Azure AD B2C .
+> Pour utiliser l’API Graph avec votre client B2C, vous allez devoir inscrire une application dédiée à l’aide du menu générique *Inscriptions d’applications* du Portail Azure, et **NON** à l’aide du menu *Applications* d’Azure AD B2C. Vous ne pouvez pas réutiliser les applications B2C existantes que vous avez inscrites dans le menu *Applications* d’Azure AD B2C.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Choisissez votre client Azure AD B2C en sélectionnant votre compte dans le coin supérieur droit de la page.
@@ -47,16 +47,16 @@ Une fois que vous avez un locataire B2C, vous devez inscrire votre application p
     1. Sélectionnez **Application web/API** en tant que Type d’application.    
     2. Fournissez **les URI de redirection** (par exemple, https://B2CGraphAPI) dans la mesure où cela n’est pas pertinent pour cet exemple.  
 5. L’application va maintenant s’afficher dans la liste des applications. Cliquez sur celle-ci pour obtenir l’**ID de l’application** (également appelé ID client). Copiez-le, car vous en aurez besoin dans une section ultérieure.
-6. Dans le panneau Paramètres, cliquez sur **Clés** et ajoutez une nouvelle clé (également appelée clé secrète client). Copiez-la également pour une utilisation dans une section ultérieure.
+6. Dans le menu Paramètres, cliquez sur **Clés** et ajoutez une nouvelle clé (également appelée clé secrète client). Copiez-la également pour une utilisation dans une section ultérieure.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Configurer les autorisations Créer, Lire et Mettre à jour pour votre application
 Vous devez maintenant configurer votre application pour obtenir toutes les autorisations requises pour créer, lire, mettre à jour et supprimer des utilisateurs.
 
-1. Toujours dans le panneau Inscriptions d’applications du portail Azure, sélectionnez votre application.
-2. Dans le panneau Paramètres d’application, cliquez sur **Autorisations requises**.
-3. Dans le panneau Autorisations requises, cliquez sur **Microsoft Azure Active Directory**.
-4. Dans le panneau Activer l’accès, sélectionnez l’autorisation **Accéder en lecture et en écriture aux données de l’annuaire** dans **Autorisations d’application** et cliquez sur **Enregistrer**.
-5. Enfin, dans le panneau Autorisations requises, cliquez sur le bouton **Accorder des autorisations**.
+1. Toujours dans le menu Inscriptions d’applications du Portail Azure, sélectionnez votre application.
+2. Dans le menu Paramètres, cliquez sur **Autorisations requises**.
+3. Dans le menu Autorisations requises, cliquez sur **Windows Azure Active Directory**.
+4. Dans le menu Activer l’accès, sélectionnez l’autorisation **Accéder en lecture et en écriture aux données de l’annuaire** dans **Autorisations des applications** et cliquez sur **Enregistrer**.
+5. Enfin, dans le menu Autorisations requises, cliquez sur le bouton **Accorder des autorisations**.
 
 Vous disposez maintenant d’une application autorisée à créer, lire et mettre à jour des utilisateurs de votre client B2C.
 

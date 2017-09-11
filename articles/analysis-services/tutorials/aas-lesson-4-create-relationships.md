@@ -3,7 +3,7 @@ title: "Leçon 4 du didacticiel Azure Analysis Services : Créer des relations |
 description: "Explique comment créer des relations dans le projet du didacticiel Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

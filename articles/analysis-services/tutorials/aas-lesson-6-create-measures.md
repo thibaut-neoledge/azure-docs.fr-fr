@@ -3,7 +3,7 @@ title: "Leçon 6 du didacticiel Azure Analysis Services : Créer des mesures | M
 description: "Explique comment créer des mesures dans le projet du didacticiel Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

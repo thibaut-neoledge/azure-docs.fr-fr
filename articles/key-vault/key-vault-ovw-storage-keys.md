@@ -10,10 +10,10 @@ ms.author: bruceper
 manager: mbaldwin
 ms.date: 07/25/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: c7b20c83b356dd698e66919483c9ff6f0e8a36ef
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3148088c88236c64e089fd25c98eb8ac7cdcbfea
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Clés de compte de stockage Azure Key Vault
@@ -28,13 +28,14 @@ Pour plus d’informations générales sur les comptes de stockage Azure, consul
 
 La fonctionnalité de clés de compte de stockage Azure est pour le moment disponible sur les interfaces REST, .NET/C# et PowerShell. Pour plus d’informations, consultez la page [Informations de référence Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
+
 ## <a name="storage-account-keys-behavior"></a>Comportement des clés de compte de stockage
 
 ### <a name="what-key-vault-manages"></a>Ce que gère Key Vault
 
 Key Vault exécute plusieurs fonctions de gestion interne à votre place lorsque vous utilisez des clés de compte de stockage.
 
-1. Azure Key Vault gère les clés d’un compte de stockage Azure (SAP). 
+1. Azure Key Vault gère les clés d’un compte de stockage Azure (ASA). 
     - En interne, Azure Key Vault peut lister (synchroniser) les clés avec un compte de stockage Azure.  
     - Azure Key Vault régénère (fait tourner) les clés régulièrement. 
     - Les valeurs de clés ne sont jamais retournées en réponse à l’appelant. 
@@ -65,6 +66,9 @@ var blobClient = storageAccount.CreateCloudBlobClient();
 ### <a name="after-azure-key-vault-storage-keys"></a>Après l’apparition des clés de stockage Azure Key Vault 
 
 ```
+//Please make sure to set storage permissions appropriately on your key vault
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -PermissionsToStorage all
+
 //Use PowerShell command to get Secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  

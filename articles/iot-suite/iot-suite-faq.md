@@ -1,6 +1,6 @@
 ---
 title: FAQ sur IoT Azure Suite | Microsoft Docs
-description: "Forum Aux Questions (FAQ) relatives à IoT Suite"
+description: "Questions fréquentes (FAQ) sur IoT Suite"
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,28 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: corywink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 9f850175be843b29432c4803a150ddb2ec79780d
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 85867fb8d18377637b3aa848555831a8d9b53512
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="frequently-asked-questions-for-iot-suite"></a>Forum Aux Questions (FAQ) relatives à IoT Suite
+# <a name="frequently-asked-questions-for-iot-suite"></a>Questions fréquentes (FAQ) sur IoT Suite
+
+Voir aussi les [questions fréquentes (FAQ)](iot-suite-faq-cf.md) spécifiques sur l’usine connectée.
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Où trouver le code source des solutions préconfigurées ?
 
-Le code source est stocké dans les référentiels GitHub suivants :
+Le code source est stocké dans les dépôts GitHub suivants :
 * [Solution préconfigurée de surveillance à distance][lnk-remote-monitoring-github]
 * [Solution préconfigurée de maintenance prédictive][lnk-predictive-maintenance-github]
+* [Solution préconfigurée d’usine connectée](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>Comment procéder à une mise à jour vers la dernière version de la solution préconfigurée de surveillance à distance qui utilise les fonctionnalités de gestion d’appareils IoT Hub ?
 
 * Si vous déployez une solution préconfigurée à partir du site https://www.azureiotsuite.com/, elle déploie toujours une nouvelle instance de la version la plus récente de la solution.
 * Si vous déployez une solution préconfigurée à l’aide de la ligne de commande, vous pouvez mettre à jour un déploiement existant avec le nouveau code. Consultez la page [Cloud deployment (Déploiement cloud)][lnk-cloud-deployment] dans le [référentiel][lnk-remote-monitoring-github] GitHub.
 
-### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Comment ajouter la prise en charge d’une nouvelle méthode de périphérique à la solution préconfigurée de surveillance à distance ?
+### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Comment ajouter la prise en charge d’une nouvelle méthode d’appareil à la solution préconfigurée de surveillance à distance ?
 
 Consultez la section [Add support for a new method to the simulator (Ajouter la prise en charge d’une nouvelle méthode au simulateur)][lnk-add-method] de l’article [Personnaliser une solution préconfigurée][lnk-customize].
 
@@ -95,22 +97,14 @@ Actuellement, vous ne pouvez pas créer de solution préconfigurée avec un abon
 
 Consultez le billet de blog d’Eric Golpe, [Procédure pas à pas pour la suppression d’un client Azure AD][lnk-delete-aad-tennant].
 
-### <a name="what-is-opc-ua"></a>Qu’est-ce que l’UA OPC ?
-
-L’architecture unifiée (UA) OPC, sortie en 2008, est une norme d’interopérabilité orientée service et ne dépendant pas d’une plateforme qui est utilisée par divers appareils et systèmes industriels tels que des capteurs, PLC et PC du secteur. L’UA OPC inclut toutes les fonctionnalités des spécifications OPC classiques dans une seule infrastructure extensible avec sécurité intégrée. La fondation OPC Foundation est à l’origine de cette norme. La fondation [OPC Foundation][lnk-opc-foundation] est une organisation à but non lucratif dont les plus de 440 membres partagent l’objectif de fournir l’infrastructure, les spécifications, la technologie et les processus nécessaires pour faciliter l’interopérabilité fiable et sécurisée entre plusieurs fournisseurs et plateformes à l’aide de spécifications OPC.
-
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Pourquoi le choix de Microsoft s’est-il porté sur l’UA OPC en matière de solution préconfigurée d’usine connectée ?
-
-Microsoft a choisi l’UA OPC, car il s’agit d’une norme ouverte, non propriétaire, ne dépendant pas d’une plateforme, reconnue par le secteur et éprouvée. Elle est exigée pour les solutions d’architecture de référence Industrie 4.0 (RAMI4.0) assurant l’interopérabilité entre un large ensemble de processus de fabrication et les équipements. Microsoft constate une demande de la part des clients pour créer des solutions Industrie 4.0. La prise en charge de l’UA OPC permet de supprimer la barrière empêchant les clients d’atteindre leurs objectifs et leur apporte une valeur commerciale instantanée.
-
 ### <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
 
 * [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive-overview]
+* [Présentation de la solution préconfigurée d’usine connectée](iot-suite-connected-factory-overview.md)
 * [Sécurisation de l’Internet des objets de bout en bout][lnk-security-groundup]
 
-[lnk-opc-foundation]: http://opcfoundation.org/
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 

@@ -12,20 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/28/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
+ms.reviewer: piotrci
+ms.custom: H1Hack27Feb2017;it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 0b861bea8948c7022d2ce95a2a7975a5ad7ad8a7
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 780f94f9863f73834ab72e9daf4362bea28242e9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Créer des règles basées sur les attributs pour l’appartenance à un groupe dynamique dans Azure Active Directory
 Dans Azure Active Directory (Azure AD), vous pouvez créer des règles avancées pour activer des appartenances dynamiques complexes basées sur les attributs pour les groupes. Cet article détaille les attributs et la syntaxe pour créer des règles d’appartenance dynamiques pour des utilisateurs ou des appareils.
 
-Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système évalue toutes les règles de groupe dynamique d’un annuaire pour voir si la modification déclenche des ajouts ou suppressions de groupe. Si un utilisateur ou un appareil respecte une règle d’un groupe, il est ajouté en tant que membre de ce groupe. S’ils ne respectent plus la règle, ils sont supprimés.
+Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système évalue toutes les règles de groupe dynamique d’un annuaire pour voir si la modification déclenche des ajouts ou suppressions de groupe. Si un utilisateur ou un appareil respecte une règle d’un groupe, il est ajouté en tant que membre de ce groupe. S’il ne respecte plus la règle, il est supprimé.
 
 > [!NOTE]
 > - Vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office 365.
@@ -37,14 +38,12 @@ Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système �
 > - Il est actuellement impossible de créer un groupe d’appareil basé sur les attributs d’un utilisateur propriétaire. Les règles d’appartenance d’un appareil ne peuvent définir que des attributs immédiats d’objets d’appareil dans le répertoire.
 
 ## <a name="to-create-an-advanced-rule"></a>Pour créer une règle avancée
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général ou en tant qu’administrateur de compte d’utilisateur.
-2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
-
-   ![Ouvrir la gestion des utilisateurs](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
-3. Dans le panneau **Utilisateurs et groupes**, sélectionnez **Tous les groupes**.
+1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte d’administrateur général ou en tant qu’administrateur de compte d’utilisateur.
+2. Sélectionnez **Utilisateurs et groupes**.
+3. Sélectionnez **Tous les groupes**.
 
    ![Ouvrir le panneau de groupes](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. Dans le panneau **Utilisateurs et groupes - Tous les groupes**, sélectionnez la commande **Ajouter**.
+4. Dans **Tous les groupes**, sélectionnez **Nouveau groupe**.
 
    ![Ajouter un nouveau groupe](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 5. Dans le panneau **Groupe** , saisissez un nom et une description pour le nouveau groupe. Sélectionnez un **Type d’appartenance** entre **Utilisateur dynamique** et **Appareil dynamique**, selon que vous souhaitiez créer une règle pour des utilisateurs ou des périphériques, puis sélectionnez **Ajouter une requête dynamique**. Pour les attributs utilisés pour les règles d’appareil, consultez la page [Utilisation d’attributs pour créer des règles pour les objets d’appareil](#using-attributes-to-create-rules-for-device-objects).
@@ -74,8 +73,6 @@ La longueur totale du corps de votre règle avancée ne peut pas dépasser 2 04
 > [!NOTE]
 > Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse. Vous pouvez également effectuer des vérifications de la valeur Null, en utilisant $null en tant que constante. Par exemple : user.department -eq $null.
 > Les chaînes contenant des guillemets doubles doivent être placées dans une séquence d’échappement à l’aide du caractère « ' ». Par exemple : `"\`Sales".
->
->
 
 ## <a name="supported-expression-rule-operators"></a>Opérateurs de règle d’expression pris en charge
 Le tableau suivant répertorie tous les opérateurs de règle d’expression pris en charge et leur syntaxe à utiliser dans le corps de la règle avancée :
@@ -95,11 +92,15 @@ Le tableau suivant répertorie tous les opérateurs de règle d’expression pri
 
 ## <a name="operator-precedence"></a>Précédence des opérateurs
 
-Tous les opérateurs sont répertoriés ci-dessous par précédence, de la plus basse à la plus élevée, les opérateurs dans la même ligne sont de même précédence -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
-
-Tous les opérateurs peuvent être utilisés avec ou sans le préfixe de trait d’union.
-
-Notez que les parenthèses ne sont pas toujours nécessaires, vous devez uniquement ajouter des parenthèses lorsque la précédence ne satisfait pas vos exigences.
+Tous les opérateurs sont répertoriés ci-dessous par priorité, de la plus faible à la plus élevée. Les opérateurs sur la même ligne ont la même priorité :
+````
+-any -all
+-or
+-and
+-not
+-eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
+````
+Tous les opérateurs peuvent être utilisés avec ou sans le préfixe de trait d’union. Des parenthèses ne sont nécessaires que lorsque la priorité ne répond pas à vos besoins.
 Par exemple :
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
@@ -258,7 +259,7 @@ Vous pouvez créer un groupe contenant tous les collaborateurs directs d’un re
 
 **Pour configurer le groupe**
 
-1. Suivez les étapes 1 à 5 de la section [Pour créer une règle avancée](#to-create-the-advanced-rule), puis sélectionnez le **Type d’appartenance** de l’**Utilisateur dynamique**.
+1. Suivez les étapes 1 à 5 de la section [Pour créer la règle avancée](#to-create-the-advanced-rule), puis sélectionnez le **type d’appartenance** de l’**utilisateur dynamique**.
 2. Dans le panneau **Règles d’appartenance dynamique** , saisissez la règle avec la syntaxe suivante :
 
     *Collaborateurs directs pour {ID objet_du_responsable}*
@@ -268,28 +269,28 @@ Vous pouvez créer un groupe contenant tous les collaborateurs directs d’un re
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 ```
     where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
-3. Après avoir enregistré la règle, tous les utilisateurs avec la valeur ID Responsable spécifiée seront ajoutés au groupe.
+3. Une fois la règle enregistrée, tous les utilisateurs avec la valeur ID Responsable spécifiée seront ajoutés au groupe.
 
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Utilisation d’attributs pour créer des règles pour les objets d’appareil
-Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Les attributs d’appareil suivants peuvent être utilisés :
+Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Les attributs d’appareil suivants peuvent être utilisés.
 
-| Propriétés              | Valeurs autorisées                  | Usage                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
-| displayName             | Toute valeur de chaîne.                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | Toute valeur de chaîne.                | (device.deviceOSType -eq "IOS")                             |
-| deviceOSVersion         | Toute valeur de chaîne.                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | Toute valeur de chaîne.                | (device.deviceCategory -eq "")                              |
-| deviceManufacturer      | Toute valeur de chaîne.                | (device.deviceManufacturer -eq "Microsoft")                 |
-| deviceModel             | Toute valeur de chaîne.                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | Toute valeur de chaîne.                | (device.deviceOwnership -eq "")                             |
-| domainName              | Toute valeur de chaîne.                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | Toute valeur de chaîne.                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
-| managementType          | Toute valeur de chaîne.                | (device.managementType -eq "")                              |
-| organizationalUnit      | Toute valeur de chaîne.                | (device.organizationalUnit -eq "")                          |
-| deviceId                | un deviceId valide                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId                | un objectId AAD valide            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+ Attribut d’appareil  | Valeurs | Exemple
+ ----- | ----- | ----------------
+ accountEnabled | true false | (device.accountEnabled -eq true)
+ displayName | Toute valeur de chaîne. |(device.displayName -eq "Rob Iphone”)
+ deviceOSType | Toute valeur de chaîne. | (device.deviceOSType -eq "IOS")
+ deviceOSVersion | Toute valeur de chaîne. | (device.OSVersion -eq "9.1")
+ deviceCategory | Un nom de catégorie d’appareil valide. | (device.deviceCategory -eq "BYOD")
+ deviceManufacturer | Toute valeur de chaîne. | (device.deviceManufacturer -eq "Samsung")
+ deviceModel | Toute valeur de chaîne. | (device.deviceModel -eq "iPad Air")
+ deviceOwnership | Personnel, Entreprise, Inconnu | (device.deviceOwnership -eq "Company")
+ domainName | Toute valeur de chaîne. | (device.domainName -eq "contoso.com")
+ enrollmentProfileName | Nom de profil de l’inscription d’appareil Apple. | (device.enrollmentProfileName -eq "DEP iPhones")
+ isRooted | true false | (device.isRooted -eq true)
+ managementType | Gestion des périphériques mobiles (pour les appareils mobiles).<br>PC (pour les ordinateurs gérés par l’agent PC Intune) | (device.managementType -eq "MDM")
+ organizationalUnit | Toute valeur de chaîne correspondant au nom de l’unité d’organisation définie par un Active Directory local. | (device.organizationalUnit -eq "US PCs")
+ deviceId | Un ID d’appareil Azure AD valide. | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ objectId | Un ID d’objet Azure AD valide. |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
 
 

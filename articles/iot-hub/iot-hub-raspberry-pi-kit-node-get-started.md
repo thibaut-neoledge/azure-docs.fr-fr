@@ -17,10 +17,10 @@ ms.date: 5/27/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: e7853892af550ec66fbc48b669a6c9b8ff18df8c
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: f48c4bd27b1df1d02090ed51172f943e50c76c3e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -120,8 +120,8 @@ Pour les broches du capteur, utilisez le câblage suivant :
 | -----------------------  | ---------------------- | ------------: |
 | VDD (broche 5G)             | ALIM 3,3 V (broche 1)       | Câble blanc   |
 | GND (broche 7G)             | GND (broche 6)            | Câble marron   |
-| SCK (broche 8G)             | I2C1 SDA (broche 3)       | Câble orange  |
-| SDI (broche 10G)            | I2C1 SCL (broche 5)       | Câble rouge     |
+| SDI (broche 10G)            | I2C1 SDA (broche 3)       | Câble rouge     |
+| SCK (broche 8G)             | I2C1 SCL (broche 5)       | Câble orange  |
 | LED VDD (broche 18F)        | GPIO 24 (broche 18)       | Câble blanc   |
 | LED GND (broche 17F)        | GND (broche 20)           | Câble noir   |
 
@@ -222,7 +222,7 @@ Vous devriez voir le résultat suivant, qui affiche les données de capteur et l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez exécuté un exemple d’application pour collecter des données de capteur et les envoyer à votre IoT Hub. Pour voir les messages envoyés par Raspberry Pi à votre IoT Hub ou pour envoyer des messages à votre Raspberry Pi depuis une interface de ligne de commande, consultez le [tutoriel Gérer une messagerie cloud vers appareil avec l’explorateur IoT Hub](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
+Vous avez exécuté un exemple d’application pour collecter des données de capteur et les envoyer à votre IoT Hub. Pour voir les messages envoyés par Raspberry Pi à votre IoT Hub ou pour envoyer des messages à votre Raspberry Pi depuis une interface de ligne de commande, consultez le [tutoriel Gérer une messagerie cloud vers appareil avec l’explorateur IoT hub](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

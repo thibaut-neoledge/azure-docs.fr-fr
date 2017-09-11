@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
+ms.date: 8/22/2017
 ms.author: trinadhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: 4bf4814c25f09c4c8637f13753316cd9f200fc42
-ms.openlocfilehash: f7e090916dbe6c6db84c1a110a6627feeb7e20ab
-ms.lasthandoff: 02/23/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: d0b6eb8eea8971eb8f80c6623f9a41a3692241b3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -46,7 +46,7 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 | Créer un coffre Recovery Services | Contributeur sur le groupe de ressources de coffre |
 | Activer la sauvegarde des machines virtuelles Azure | Opérateur de sauvegarde sur le coffre, contributeur de machine virtuelle sur des machines virtuelles |
 | Sauvegarde de machine virtuelle à la demande | Opérateur de sauvegarde |
-| Restaurer une machine virtuelle | Opérateur de sauvegarde, contributeur du groupe de ressources|dans lequel des machines virtuelles et des réseaux virtuels seront déployés |
+| Restaurer une machine virtuelle | Opérateur de sauvegarde, collaborateur de groupe de ressources dans lequel des réseaux virtuels et la machine virtuelle vont être déployés |
 | Restaurer des disques et des fichiers individuels à partir d’une sauvegarde de machine virtuelle | Opérateur de sauvegarde |
 | Créer une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde |
 | Modifier une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde |

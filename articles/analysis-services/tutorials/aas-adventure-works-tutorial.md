@@ -3,7 +3,7 @@ title: "Didacticiel Adventure Works d’Azure Analysis Services | Microsoft Doc
 description: "Présente le didacticiel Adventure Works d’Azure Analysis Services"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

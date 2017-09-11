@@ -4,7 +4,7 @@ description: "Testez vos fonctions Azure à l’aide de Postman, cURL et Node.js
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur, test"
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: a58bf41ec11b5826b60c1fc999240ea655be6d9d
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aca03ba4137893157fcbe6650336782ab88cd234
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Stratégies permettant de tester votre code dans Azure Functions
@@ -234,7 +234,7 @@ Dans la fenêtre **Journaux** du portail, une sortie similaire à la suivante es
 
 
 ### <a name="test-with-a-timer-trigger"></a>Test avec un déclencheur de minuteur
-Certaines fonctions ne peuvent pas être correctement testées avec les outils mentionnés précédemment. C’est le cas, par exemple, d’une fonction de déclenchement de file d’attente qui s’exécute lorsqu’un message est déposé dans [Stockage File d’attente Azure](../storage/storage-dotnet-how-to-use-queues.md). Vous pouvez toujours écrire du code pour déposer un message dans votre file d’attente. Vous trouverez ci-après un exemple appliqué à un projet de console. Toutefois, une autre approche vous permet de tester des fonctions directement.  
+Certaines fonctions ne peuvent pas être correctement testées avec les outils mentionnés précédemment. C’est le cas, par exemple, d’une fonction de déclenchement de file d’attente qui s’exécute lorsqu’un message est déposé dans [Stockage File d’attente Azure](../storage/queues/storage-dotnet-how-to-use-queues.md). Vous pouvez toujours écrire du code pour déposer un message dans votre file d’attente. Vous trouverez ci-après un exemple appliqué à un projet de console. Toutefois, une autre approche vous permet de tester des fonctions directement.  
 
 Vous pouvez utiliser un déclencheur de minuteur configuré avec une liaison de sortie de file d’attente. Ce code de déclenchement du minuteur peut ensuite écrire des messages test dans la file d’attente. Cette section présente un exemple.
 
@@ -377,12 +377,12 @@ Dans la fenêtre **Journaux** du portail, une sortie similaire à la suivante es
     2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
 
 
-### <a name="test-a-queue-trigger-function-with-code-c"></a>Test d’une fonction de déclenchement de file d’attente avec un code C# #
-Nous avons mentionné plus tôt que vous pouvez tester un déclencheur de file d’attente à l’aide d’un code pour déposer un message dans votre file d’attente. L’exemple de code suivant est basé sur le code C# présenté dans le didacticiel [Prise en main du Stockage File d'attente Azure](../storage/storage-dotnet-how-to-use-queues.md). Le code des autres langages est également disponible via ce lien.
+### <a name="test-a-queue-trigger-function-with-code-c"></a>Test d’une fonction de déclenchement de file d’attente avec un code : C# #
+Nous avons mentionné plus tôt que vous pouvez tester un déclencheur de file d’attente à l’aide d’un code pour déposer un message dans votre file d’attente. L’exemple de code suivant est basé sur le code C# présenté dans le didacticiel [Prise en main du Stockage File d'attente Azure](../storage/queues/storage-dotnet-how-to-use-queues.md). Le code des autres langages est également disponible via ce lien.
 
 Pour tester ce code dans une application de console, vous devez :
 
-* [Configurer votre chaîne de connexion du stockage dans le fichier app.config](../storage/storage-dotnet-how-to-use-queues.md).
+* [Configurer votre chaîne de connexion du stockage dans le fichier app.config](../storage/queues/storage-dotnet-how-to-use-queues.md).
 * Transmettez les paramètres `name` et `address` à l’application. Par exemple, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. (Ce code accepte le nom et l’adresse d’un nouvel utilisateur en tant qu’arguments de ligne de commande pendant l’exécution.)
 
 Exemple de code C# :

@@ -3,7 +3,7 @@ title: "Ressources du modèle Gestion des API Azure | Microsoft Docs"
 description: "Découvrez les types de ressources utilisables dans les modèles du portail des développeurs dans la Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94

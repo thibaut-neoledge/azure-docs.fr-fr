@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 3c7db401442c41bbe1343b1adc48f4f1b7d88b49
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bc6f293db0d537990d7fb1238fe4a19c704f57a1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Approvisionnement d’une machine virtuelle de science des données Linux
@@ -62,7 +62,7 @@ Une image [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) est égal
 Avant de pouvoir créer une machine virtuelle de science des données Linux, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**: pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/free/).
-* **Un compte de stockage Azure**: pour en créer un, consultez la page [Créer un compte de stockage Azure](../storage/storage-create-storage-account.md#create-a-storage-account). Le compte de stockage peut également être créé dans le cadre du processus de création de la machine virtuelle, si vous ne souhaitez pas utiliser de compte existant.
+* **Un compte de stockage Azure**: pour en créer un, consultez la page [Créer un compte de stockage Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account). Le compte de stockage peut également être créé dans le cadre du processus de création de la machine virtuelle, si vous ne souhaitez pas utiliser de compte existant.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Création d’une machine virtuelle de science des données Linux
 Voici les étapes de création d’une instance de la machine virtuelle de sciences des données Linux :

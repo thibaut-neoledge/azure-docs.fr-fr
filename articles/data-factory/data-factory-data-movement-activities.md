@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 0cefbe1303de1cfa46cc4b771c0cd3aa7819597c
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 26fb0914de571aa0e398f0e2a2f8e439d3d27680
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>Déplacer des données à l’aide de l’activité de copie
@@ -108,12 +108,14 @@ Lorsque les banques de données source et récepteur résident toutes les deux d
 | Asie-Pacifique | Asie du Sud-Est | Asie du Sud-Est |
 | &nbsp; | Est de l'Asie | Asie du Sud-Est |
 | Australie | Est de l’Australie | Est de l’Australie |
-| &nbsp; | Sud-est de l’Australie | Sud-Est de l’Australie |
-| Japon | Est du Japon | Est du Japon |
-| &nbsp; | Ouest du Japon | Est du Japon |
+| &nbsp; | Sud-est de l’Australie | Sud-est de l’Australie |
 | Inde | Inde centrale | Inde centrale |
 | &nbsp; | Inde occidentale | Inde centrale |
 | &nbsp; | Inde du Sud | Inde centrale |
+| Japon | Est du Japon | Est du Japon |
+| &nbsp; | Ouest du Japon | Est du Japon |
+| Corée du Sud | Centre de la Corée | Centre de la Corée |
+| &nbsp; | Corée du Sud | Centre de la Corée |
 
 Vous pouvez également indiquer explicitement la région du service Data Factory à utiliser pour effectuer la copie en spécifiant la propriété `executionLocation` sous l’activité de copie `typeProperties`. Les valeurs prises en charge pour cette propriété sont énumérées dans la colonne **Région utilisée pour le déplacement des données** ci-dessus. Notez que, dans cette région, vos données transitent par le câble pendant la copie. Par exemple, pour effectuer une copie entre des magasins Azure en Corée, vous pouvez spécifier pour `"executionLocation": "Japan East"` un routage via le Japon (voir [exemple JSON](#by-using-json-scripts) comme référence).
 

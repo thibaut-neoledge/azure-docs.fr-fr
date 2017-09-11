@@ -3,7 +3,7 @@ title: "Contrôles de page Gestion des API Azure | Microsoft Docs"
 description: "Découvrez les contrôles de page disponibles pour une utilisation dans les modèles du portail des développeurs dans Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 03e0ac8d-64ff-4e9a-b029-d7be14fb31e3
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 925aff209056f5a63b927dcb95ef6621967a0ffb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="azure-api-management-page-controls"></a>Contrôles de page Gestion des API Azure
@@ -50,7 +52,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
   
 -   [subscription-cancel](#subscription-cancel)  
   
-##  <a name="a-nameapp-actionsa-app-actions"></a><a name="app-actions"></a> app-actions  
+##  <a name="app-actions"></a> app-actions  
  Le contrôle `app-actions` fournit une interface utilisateur pour interagir avec les applications sur la page de profil utilisateur dans le portail des développeurs.  
   
  ![contrôle app-actions](./media/api-management-page-controls/APIM-app-actions-control.png "contrôle app-actions APIM")  
@@ -72,7 +74,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
   
 -   [Applications](api-management-user-profile-templates.md#Applications)  
   
-##  <a name="a-namebasic-signina-basic-signin"></a><a name="basic-signin"></a> basic-signin  
+##  <a name="basic-signin"></a> basic-signin  
  Le contrôle `basic-signin` fournit un contrôle pour la collecte des informations de connexion utilisateur dans la page de connexion du portail des développeurs.  
   
  ![contrôle basic-signin](./media/api-management-page-controls/APIM-basic-signin-control.png "contrôle basic-signin APIM")  
@@ -91,7 +93,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
   
 -   [Connexion](api-management-page-templates.md#SignIn)  
   
-##  <a name="a-namepaging-controla-paging-control"></a><a name="paging-control"></a> paging-control  
+##  <a name="paging-control"></a> paging-control  
  Le contrôle `paging-control` fournit des fonctionnalités de pagination sur les pages du portail des développeurs qui affichent une liste d’éléments.  
   
  ![paging-control](./media/api-management-page-controls/APIM-paging-control.png "paging-control APIM")  
@@ -114,7 +116,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
   
 -   [Liste de produits](api-management-product-templates.md#ProductList)  
   
-##  <a name="a-nameprovidersa-providers"></a><a name="providers"></a> providers  
+##  <a name="providers"></a> providers  
  Le contrôle `providers` fournit un contrôle pour la sélection des fournisseurs d’authentification sur la page de connexion du portail des développeurs.  
   
  ![contrôle providers](./media/api-management-page-controls/APIM-providers-control.png "contrôle providers APIM")  
@@ -133,7 +135,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
   
 -   [Connexion](api-management-page-templates.md#SignIn)  
   
-##  <a name="a-namesearch-controla-search-control"></a><a name="search-control"></a> search-control  
+##  <a name="search-control"></a> search-control  
  Le contrôle `search-control` fournit des fonctionnalités de recherche sur les pages du portail des développeurs affichant une liste d’éléments.  
   
  ![search-control](./media/api-management-page-controls/APIM-search-control.png "search-control APIM")  
@@ -154,7 +156,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
   
 -   [Liste de produits](api-management-product-templates.md#ProductList)  
   
-##  <a name="a-namesign-upa-sign-up"></a><a name="sign-up"></a> sign-up  
+##  <a name="sign-up"></a> sign-up  
  Le contrôle `sign-up` fournit un contrôle pour la collecte des informations de profil utilisateur sur la page d’inscription du portail des développeurs.  
   
  ![sign-up](./media/api-management-page-controls/APIM-sign-up-control.png "sign-up APIM")  
@@ -173,7 +175,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
   
 -   [Inscription](api-management-page-templates.md#SignUp)  
   
-##  <a name="a-namesubscribe-buttona-subscribe-button"></a><a name="subscribe-button"></a> subscribe-button  
+##  <a name="subscribe-button"></a> subscribe-button  
  `subscribe-button` fournit un contrôle pour abonner un utilisateur à un produit.  
   
  ![contrôle subscribe-button](./media/api-management-page-controls/APIM-subscribe-button-control.png "contrôle subscribe-button APIM")  
@@ -192,7 +194,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
   
 -   [Produit](api-management-product-templates.md#Product)  
   
-##  <a name="a-namesubscription-cancela-subscription-cancel"></a><a name="subscription-cancel"></a> subscription-cancel  
+##  <a name="subscription-cancel"></a> subscription-cancel  
  Le contrôle `subscription-cancel` fournit un contrôle pour annuler l’abonnement à un produit sur la page de profil utilisateur du portail des développeurs.  
   
  ![contrôle subscription-cancel](./media/api-management-page-controls/APIM-subscription-cancel-control.png "contrôle subscription-cancel APIM")  
@@ -219,8 +221,3 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

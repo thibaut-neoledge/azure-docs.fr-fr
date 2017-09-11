@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 6d4379248cff45b601e32e8554f86bb7a1846570
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-security-services-and-technologies"></a>Services et technologies de sécurité Azure
@@ -36,12 +36,12 @@ Ce document fournit une première version de cette liste. Au fil du temps, cette
 * [Dev/Test Labs Azure](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
 ## <a name="azure-storage-security"></a>Sécurité Azure Storage
-* [Storage Service Encryption Azure](../storage/storage-service-encryption.md)
+* [Storage Service Encryption Azure](../storage/common/storage-service-encryption.md)
 * [Stockage hybride chiffré StorSimple](https://azure.microsoft.com/documentation/services/storsimple/)
-* [Chiffrement côté client Azure](../storage/storage-client-side-encryption.md)
-* [Signatures d’accès partagé Azure Storage](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Clés de compte de stockage Azure](../storage/storage-create-storage-account.md)
-* [Partages de fichiers Azure avec chiffrement SMB 3.0](../storage/storage-dotnet-how-to-use-files.md)
+* [Chiffrement côté client Azure](../storage/common/storage-client-side-encryption.md)
+* [Signatures d’accès partagé Azure Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Clés de compte de stockage Azure](../storage/common/storage-create-storage-account.md)
+* [Partages de fichiers Azure avec chiffrement SMB 3.0](../storage/files/storage-dotnet-how-to-use-files.md)
 * [Azure Storage Analytics](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## <a name="azure-database-security"></a>Sécurité des bases de données Azure

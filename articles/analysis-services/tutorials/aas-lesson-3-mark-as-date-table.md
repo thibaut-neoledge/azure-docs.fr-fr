@@ -3,7 +3,7 @@ title: "Leçon 3 du didacticiel Azure Analysis Services : Marquer en tant que Ta
 description: Explique comment marquer une table de dates dans le projet du didacticiel Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -4,7 +4,7 @@ description: "Découvrez les options de sorties de données Stream Analytics, no
 keywords: "transformation de données, résultats d’analyse, options de stockage de données"
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: fdecfe8b63d56983846f1601971ed680d624118d
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 91ee74f01b2e84244245dbe43408589f04af6338
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Sorties Stream Analytics : options de stockage, d’analyse
@@ -32,7 +31,7 @@ Pour permettre un éventail de modèles d’application, Azure Stream Analytics 
 Stream Analytics prend en charge [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Ce type de stockage vous permet de stocker des données de toute taille, de tout type et de toute vitesse d’ingestion en vue d’une analyse opérationnelle et exploratoire. De plus, Stream Analytics doit être autorisé à accéder à Data Lake Store. Des informations détaillées sur les autorisations et l’inscription à Data Lake Store (si nécessaire) sont fournies l’article sur les [sorties Data Lake](stream-analytics-data-lake-output.md).
 
 ### <a name="authorize-an-azure-data-lake-store"></a>Autoriser un Azure Data Lake Store
-Lorsque Data Lake Storage est sélectionné en tant que sortie dans le portail de gestion Azure, vous êtes invité à autoriser une connexion à un Data Lake Store existant.  
+Lorsque Data Lake Storage est sélectionné en tant que sortie dans le portail Azure, vous êtes invité à autoriser une connexion à un Data Lake Store existant.  
 
 ![Autoriser Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
@@ -57,7 +56,7 @@ Le tableau ci-dessous répertorie les noms et les descriptions des propriétés 
 <td>Nom du compte de stockage Data Lake Storage où vous envoyez votre sortie. Vous voyez la liste déroulante des comptes Data Lake Store auxquels ont accès les utilisateurs connectés au portail.</td>
 </tr>
 <tr>
-<td>Séquence d’octets préfixe du chemin d’accès [<I>facultative</I>]</td>
+<td>Modèle de préfixe de chemin d’accès</td>
 <td>Chemin de fichier utilisé pour écrire vos fichiers dans le compte Data Lake Store spécifié. <BR>{date}, {time}<BR>Exemple 1 : dossier1/journaux/{date}/{heure}<BR>Exemple 2 : dossier1/journaux/{date}</td>
 </tr>
 <tr>
@@ -110,7 +109,7 @@ Vous devrez authentifier de nouveau votre compte Data Lake Store si son mot de p
 > 
 
 ## <a name="blob-storage"></a>Stockage d'objets blob
-Le stockage d’objets blob offre une solution peu coûteuse et évolutive pour stocker de grandes quantités de données non structurées dans le cloud.  Pour une présentation du stockage d’objets blob Azure et de son utilisation, consultez [Utilisation du stockage d’objets blob](../storage/storage-dotnet-how-to-use-blobs.md).
+Le stockage d’objets blob offre une solution peu coûteuse et évolutive pour stocker de grandes quantités de données non structurées dans le cloud.  Pour une présentation du stockage d’objets blob Azure et de son utilisation, consultez [Utilisation du stockage d’objets blob](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie d’objets blob.
 
@@ -162,12 +161,12 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 </tr>
 <tr>
 <td>Format</td>
-<td>Applicable uniquement pour la sérialisation JSON. « Séparé par une ligne » spécifie que la sortie sera mise en forme avec chaque objet JSON séparé par une nouvelle ligne. « Tableau » spécifie que la sortie sera mise en forme en tant que tableau d’objets JSON.</td>
+<td>Applicable uniquement pour la sérialisation JSON. « Séparé par une ligne » spécifie que la sortie sera mise en forme avec chaque objet JSON séparé par une nouvelle ligne. « Tableau » spécifie que la sortie sera mise en forme en tant que tableau d’objets JSON. Ce tableau se ferme uniquement lorsque la tâche s’arrête ou que Stream Analytics est passé à la fenêtre de temps suivante. En règle générale, il est préférable d’utiliser du code JSON séparé par des lignes, car il ne requiert aucun traitement spécial pendant que le fichier de sortie est écrit.</td>
 </tr>
 </tbody>
 </table>
 
-## <a name="event-hub"></a>Hub d’événements
+## <a name="event-hub"></a>Event Hub
 [Event Hubs](https://azure.microsoft.com/services/event-hubs/) est un service de réception d’événements de publication/d’abonnement hautement évolutif. Il peut collecter des millions d’événements par seconde.  Un hub d’événements peut être utilisé en tant que sortie quand la sortie d’une tâche Stream Analytics est l’entrée d’une autre tâche de diffusion.
 
 Quelques paramètres sont requis pour configurer les flux de données Event Hub en tant que sortie.
@@ -189,7 +188,7 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 [Power BI](https://powerbi.microsoft.com/) peut être utilisé comme sortie d’une tâche Stream Analytics pour fournir une expérience de visualisation riche des résultats d’analyse. Cette fonctionnalité peut être utilisée pour les tableaux de bord opérationnels, la génération de rapports et la création de rapports pilotés par des métriques.
 
 ### <a name="authorize-a-power-bi-account"></a>Autorisation d’un compte Power BI
-1. Lorsque Power BI est sélectionné en tant que sortie dans le portail de gestion Azure, vous êtes invité à autoriser un utilisateur de Power BI existant ou à créer un compte Power BI.  
+1. Lorsque Power BI est sélectionné en tant que sortie dans le portail Azure, vous êtes invité à autoriser un utilisateur de Power BI existant ou à créer un compte Power BI.  
    
    ![Autoriser un utilisateur de Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 2. Créez un compte si vous n’en avez pas déjà un, puis cliquez sur Autoriser maintenant.  Un écran semblable à celui-ci s’affiche.  
@@ -255,7 +254,7 @@ Pour résoudre ce problème, arrêtez votre tâche en cours d'exécution et acc�
   ![Renouvellement de l’autorisation Power BI](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>Stockage de tables
-[stockage de tables Azure](../storage/storage-introduction.md) offre un stockage hautement disponible et massivement évolutif, afin qu’une application puisse être mise à l’échelle automatiquement pour répondre à la demande des utilisateurs. Le stockage de tables est le magasin de clés/attributs NoSQL de Microsoft, qui peut être utilisé pour les données structurées avec moins de contraintes au niveau du schéma. Le stockage des données sur les tables Azure permet d’assurer leur persistance et une récupération efficace.
+[stockage de tables Azure](../storage/common/storage-introduction.md) offre un stockage hautement disponible et massivement évolutif, afin qu’une application puisse être mise à l’échelle automatiquement pour répondre à la demande des utilisateurs. Le stockage de tables est le magasin de clés/attributs NoSQL de Microsoft, qui peut être utilisé pour les données structurées avec moins de contraintes au niveau du schéma. Le stockage des données sur les tables Azure permet d’assurer leur persistance et une récupération efficace.
 
 Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de table.
 
@@ -319,7 +318,7 @@ La liste ci-dessous présente les noms et les descriptions des propriétés pour
 
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Stream Analytics, un service géré d’analyse de diffusion en continu des données à partir de l’Internet des objets vous a été présenté. Pour en savoir plus sur ce service, consultez les rubriques suivantes :

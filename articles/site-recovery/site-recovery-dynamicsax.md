@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 8/24/2017
 ms.author: asgang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: cf568d20f60709dbb64774bcbcc1b4aa6c43d8d3
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 03127c8f4841b67436c4819628319705af0b2cd5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="replicate-a-multi-tier-dynamics-ax-application-using-azure-site-recovery"></a>Répliquer une application Dynamics AX multiniveau à l’aide d’Azure Site Recovery
@@ -31,7 +30,7 @@ Microsoft Dynamics AX est une des solutions ERP les plus populaires parmi les en
 
 Aujourd'hui, Microsoft Dynamics AX ne fournit aucune capacité de récupération d’urgence prête à l’emploi. Microsoft Dynamics AX comprend de nombreux composants de serveur comme Application Object Server, Active Directory (AD), SQL Database Server, SharePoint Server, Reporting Server, etc. La gestion manuelle de la récupération d’urgence de chacun de ces composants est non seulement coûteuse, mais elle est également sujette aux erreurs.
 
-Cet article explique en détail comment créer une solution de récupération d’urgence pour votre application Dynamics AX à l’aide d’[Azure Site Recovery](site-recovery-overview.md). Sont également couverts les basculements planifiés/non planifiés/de test à l’aide d’un plan de récupération en un seul clic, les configurations prises en charge et les conditions requises préalables.
+Cet article explique en détail comment créer une solution de récupération d’urgence pour votre application Dynamics AX à l’aide d’[Azure Site Recovery](site-recovery-overview.md). Sont également couverts les basculements planifiés/non planifiés/de test à l’aide d’un plan de récupération en un seul clic, les configurations prises en charge et les prérequis.
 La solution de récupération d’urgence basée sur Azure Site Recovery est entièrement testée, certifiée et recommandée par Microsoft Dynamics AX.
 
 
@@ -49,7 +48,7 @@ L’implémentation de la récupération d’urgence pour l’application Dynami
 
 ## <a name="site-recovery-support"></a>Prise en charge de Site Recovery
 
-Pour les besoins de création de cet article, des machines virtuelles VMware avec Dynamics AX 2012 R3 sur Windows Server 2012 R2 Enterprise ont été utilisées. Comme la réplication Site Recovery est indépendante des applications, les recommandations indiquées ici sont censées également s’appliquer aux scénarios suivants.
+Pour les besoins de création de cet article, des machines virtuelles VMware avec Dynamics AX 2012 R3 sur Windows Server 2012 R2 Enterprise ont été utilisées. Comme la réplication Site Recovery est indépendante des applications, les recommandations indiquées ici sont censées également s’appliquer aux scénarios suivants.
 
 ### <a name="source-and-target"></a>Source et cible
 
@@ -59,7 +58,7 @@ Pour les besoins de création de cet article, des machines virtuelles VMware ave
 **VMware** | Oui | Oui
 **Serveur physique** | Oui | Oui
 
-## <a name="enable-dr-of-dynamics-ax-application-using-asr"></a>Activer la récupération d’urgence de l’application Dynamics AX à l’aide de la récupération automatique du système
+## <a name="enable-dr-of-dynamics-ax-application-using-azure-site-recovery"></a>Activer la récupération d’urgence de l’application Dynamics AX à l’aide d’Azure Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Protéger votre application Dynamics AX
 Chaque composant de Dynamics AX doit être protégé pour activer la réplication et la récupération de l’application complète. Cette section couvre les points suivants :
 
@@ -103,7 +102,7 @@ La capture instantanée ci-après montre l’état de la protection des machines
 ### <a name="4-configure-networking"></a>4. Configurer la mise en réseau
 Configurer les paramètres Calcul et réseau des machines virtuelles
 
-Pour le client AX et les machines virtuelles AOS, configurez les paramètres réseau dans l’ASR afin que les réseaux des machines virtuelles soient associés au bon serveur de récupération d’urgence après le basculement. Vérifiez que le réseau de récupération d’urgence pour ces niveaux est routable vers le niveau SQL.
+Pour le client AX et les machines virtuelles AOS, configurez les paramètres réseau dans Azure Site Recovery, afin que les réseaux des machines virtuelles soient associés au bon serveur de récupération d’urgence après le basculement. Vérifiez que le réseau de récupération d’urgence pour ces niveaux est routable vers le niveau SQL.
 
 Vous pouvez sélectionner la machine virtuelle dans les éléments répliqués afin de configurer les paramètres réseau comme indiqué dans la capture instantanée ci-dessous.
 
@@ -115,9 +114,9 @@ Vous pouvez sélectionner la machine virtuelle dans les éléments répliqués a
 
 ### <a name="5-creating-a-recovery-plan"></a>5. Création d’un plan de récupération
 
-Vous pouvez créer un plan de récupération dans ASR pour automatiser le processus de basculement. Ajoutez un niveau application et un niveau web dans le plan de récupération. Organisez-les en différents groupes afin que les frontales s’arrêtent avant celles de niveau application.
+Vous pouvez créer un plan de récupération dans Azure Site Recovery pour automatiser le processus de basculement. Ajoutez un niveau application et un niveau web dans le plan de récupération. Organisez-les en différents groupes afin que les frontales s’arrêtent avant celles de niveau application.
 
-1)  Sélectionnez le coffre ASR dans votre abonnement, puis cliquez sur la vignette « Plans de récupération ».
+1)  Sélectionnez le coffre Azure Site Recovery dans votre abonnement, puis cliquez sur la vignette Plans de récupération.
 
 2)  Cliquez sur « + Plan de récupération » et spécifiez un nom.
 
@@ -139,7 +138,7 @@ Vous pouvez personnaliser le plan de récupération pour l’application Dynamic
 
 Reportez-vous au guide d’accompagnement [« Solution de récupération d’urgence de SQL Server »](site-recovery-sql.md) pour plus d’informations sur les étapes de récupération spécifiques à SQL Server.
 
-*2. Groupe de basculement 1 : basculement des machines virtuelles AOS*
+*2. Groupe de basculement 1 : basculement des machines virtuelles AOS*
 
 Assurez-vous que le point de récupération sélectionné est aussi proche que possible du PIT de la base de données mais pas antérieur à lui.
 

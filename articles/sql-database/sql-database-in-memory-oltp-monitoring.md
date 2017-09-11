@@ -13,32 +13,31 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 07/25/2017
 ms.author: jodebrui
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
-ms.openlocfilehash: f53fa3763edb1d9164278d1e3c418e200d7ada89
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: e953b60493c5a7c7a7ad74533471bd321d42abef
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Surveiller le stockage OLTP In-Memory
-Lorsque vous utilisez [OLTP en mémoire](sql-database-in-memory.md), les données des tables à mémoire optimisée et les variables de table résident dans un stockage OLTP en mémoire. Chaque niveau de service Premium est doté d’une taille de stockage OLTP en mémoire maximale, qui est décrite dans l’article [Niveaux de service SQL Database](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). Une fois que cette limite est dépassée, des opérations d’insertion et de mise à jour peuvent commencer à échouer (en générant l’erreur 41823). À ce stade, vous devez soit supprimer des données pour libérer de la mémoire, soit mettre à niveau le niveau de performances de votre base de données.
+Lorsque vous utilisez [OLTP en mémoire](sql-database-in-memory.md), les données des tables à mémoire optimisée et les variables de table résident dans un stockage OLTP en mémoire. Chaque niveau de service Premium est doté d’une taille de stockage OLTP en mémoire maximale, qui est décrite dans [Limites de ressources d’une base de données unique](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) et [Limites de ressources d’un pool élastique](sql-database-resource-limits.md#elastic-pool-change-storage-size). Une fois que cette limite est dépassée, des opérations d’insertion et de mise à jour peuvent commencer à échouer (en générant l’erreur 41823). À ce stade, vous devez soit supprimer des données pour libérer de la mémoire, soit mettre à niveau le niveau de performances de votre base de données.
 
 ## <a name="determine-whether-data-will-fit-within-the-in-memory-storage-cap"></a>Déterminer si la taille des données est adaptée à la capacité de stockage en mémoire
-Déterminer la limite maximale de stockage : consultez l’article [Niveaux de service SQL Database](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) pour connaître les limites maximales de stockage des différents niveaux de service Premium.
+Déterminer les plafonds de stockage des différents niveaux de service Premium. Consultez [Limites de ressources d’une base de données unique](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) et [Limites de ressources d’un pool élastique](sql-database-resource-limits.md#elastic-pool-change-storage-size).
 
 L’estimation de la mémoire requise pour une table à mémoire optimisée s’effectue de la même façon pour SQL Server que dans Base de données SQL Azure. Prenez quelques minutes pour consulter cette rubrique sur [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
 Notez que la table et les lignes de variable de table, ainsi que les index, sont pris en compte pour le calcul de la taille maximale des données utilisateur. En outre, l’instruction ALTER TABLE a besoin de suffisamment d’espace pour créer une version de la table entière et de ses index.
 
 ## <a name="monitoring-and-alerting"></a>Surveillance et alerte
-Vous pouvez surveiller l’utilisation du stockage en mémoire sous forme de pourcentage de la [limite maximale de stockage de votre niveau de performances](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) dans le [portail Azure](https://portal.azure.com/) : 
+Vous pouvez surveiller l’utilisation du stockage en mémoire sous forme de pourcentage de la limite maximale de stockage de votre niveau de performances dans le [portail Azure](https://portal.azure.com/) : 
 
-* Sur le panneau Base de données, recherchez la zone Utilisation de ressources, puis cliquez sur Modifier.
-* Puis sélectionnez la métrique `In-Memory OLTP Storage percentage`.
-* Pour ajouter une alerte, cliquez sur la zone Taux d’utilisation de la ressource pour ouvrir le panneau Métriques, puis cliquez sur Ajouter une alerte.
+1. Sur le panneau Base de données, recherchez la zone Utilisation de ressources, puis cliquez sur Modifier.
+2. Sélectionnez la métrique `In-Memory OLTP Storage percentage`.
+3. Pour ajouter une alerte, cliquez sur la zone Taux d’utilisation de la ressource pour ouvrir le panneau Métriques, puis cliquez sur Ajouter une alerte.
 
 Vous pouvez également utiliser la requête suivante pour afficher l’utilisation du stockage en mémoire :
 

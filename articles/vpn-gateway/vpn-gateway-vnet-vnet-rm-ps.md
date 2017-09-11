@@ -463,7 +463,7 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
 
 ## <a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

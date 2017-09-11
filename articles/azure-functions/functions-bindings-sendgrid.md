@@ -4,20 +4,19 @@ description: "Informations de référence sur les liaisons SendGrid dans Azure F
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 08/26/2017
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 0cd7e7c55e77863c142800cdc11d6ea144c38293
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: bcdbb6aee49d230a4cb0ba08d836facacb64de7f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/18/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Liaisons SendGrid dans Azure Functions
@@ -35,14 +34,16 @@ Azure Functions fournit une liaison de sortie pour SendGrid. La liaison de sorti
 
 La liaison SendGrid prend en charge les propriétés suivantes :
 
-- `name` : obligatoire - nom de variable utilisé dans le code de la fonction pour la demande ou dans le corps de la demande. Cette valeur est ```$return``` lorsqu’il n’existe qu’une valeur de retour. 
-- `type` : obligatoire - doit être « SendGrid ».
-- `direction` : obligatoire - doit être « out ».
-- `apiKey` :obligatoire - doit correspondre au nom de votre clé API stockée dans les paramètres d’application de Function App.
-- `to` : adresse e-mail du destinataire.
-- `from` : adresse e-mail de l’expéditeur.
-- `subject` : objet de l’e-mail.
-- `text` : contenu de l’e-mail.
+|Propriété  |Description  |
+|---------|---------|
+|**name**| Obligatoire : nom de variable utilisé dans le code de la fonction pour la requête ou le corps de la requête. Cette valeur est ```$return``` lorsqu’il n’existe qu’une valeur de retour. |
+|**type**| Obligatoire : doit être défini sur `sendGrid`.|
+|**direction**| Obligatoire : doit être défini sur `out`.|
+|**apiKey**| Obligatoire : doit correspondre au nom de votre clé API stockée dans les paramètres d’application de l’application de fonction. |
+|**to**| Adresse e-mail du destinataire. |
+|**from**| Adresse e-mail de l’expéditeur. |
+|**subject**| Objet de l’e-mail. |
+|**text**| Contenu de l’e-mail. |
 
 Exemple de code **function.json** :
 

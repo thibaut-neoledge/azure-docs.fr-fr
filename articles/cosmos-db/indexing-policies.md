@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 08/17/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 0beae16534b8efa7a23be6d2b61f1f1257317bd7
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Comment Azure Cosmos DB indexe-t-il les données ?
@@ -60,6 +60,10 @@ L’extrait de code .NET suivant montre comment définir une stratégie d’inde
 > 
 > 
 
+### <a name="customizing-the-indexing-policy-using-the-portal"></a>Personnalisation de la stratégie d’indexation à l’aide du portail
+
+Vous pouvez modifier la stratégie d’indexation d’une collection à l’aide du portail Azure. Ouvrez votre compte Azure Cosmos DB dans le portail Azure, sélectionnez votre collection et dans le menu de navigation gauche, cliquez sur **Paramètres**, puis sur **stratégie d’indexation**. Dans le panneau **Stratégie d’indexation**, modifiez votre stratégie d’indexation, puis cliquez sur **OK** pour enregistrer vos modifications. 
+
 ### <a id="indexing-modes"></a>Modes d’indexation de base de données
 Azure Cosmos DB prend en charge trois modes d’indexation qui peuvent être configurés via la stratégie d’indexation sur une collection Azure Cosmos DB : Cohérent, Différé et Aucun.
 
@@ -73,8 +77,6 @@ Azure Cosmos DB prend en charge trois modes d’indexation qui peuvent être con
 > La configuration de la stratégie d’indexation en mode « Aucun » a pour effet secondaire de supprimer un index existant. Utilisez-la si vos modèles d'accès ne requièrent que l’attribut « id » et/ou « self-link » (lien réflexif).
 > 
 > 
-
-L’exemple suivant montre comment utiliser le Kit de développement logiciel (SDK) .NET d’Azure Cosmos DB pour créer une collection Azure Cosmos DB avec une indexation automatique cohérente de toutes les insertions de document.
 
 Le tableau suivant indique la cohérence des requêtes en fonction du mode d'indexation (Cohérent et Différé) qui a été configuré pour la collection et du niveau de cohérence spécifié pour la requête. Cela s'applique aux requêtes effectuées à l'aide de n'importe quelle interface : API REST, Kit de développement logiciel (SDK) ou à partir de déclencheurs et de procédures stockées. 
 
@@ -228,7 +230,7 @@ Vous pouvez choisir si vous souhaitez que la collection indexe automatiquement t
 
 Si l'indexation automatique est désactivée, vous ne pouvez continuer à ajouter des documents spécifiques à l'index que de façon sélective. À l'inverse, vous pouvez laisser l'indexation automatique activée et choisir ne d'exclure de façon sélective que des documents spécifiques. Les configurations d'indexation activée/désactivée sont utiles lorsque vous n'avez qu'un sous-ensemble de documents à interroger.
 
-Ainsi, l’exemple suivant montre comment inclure un document explicitement à l’aide du [Kit de développement logiciel (SDK) .NET de l’API DocumentDB](https://github.com/Azure/azure-documentdb-java) et de la propriété [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+Ainsi, l’exemple suivant montre comment inclure un document explicitement à l’aide du [Kit de développement logiciel (SDK) .NET de l’API DocumentDB](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) et de la propriété [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,

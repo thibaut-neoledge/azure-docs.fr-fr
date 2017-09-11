@@ -2,7 +2,7 @@
 title: "Documentation Azure Insights Gateway - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment utiliser Application Insights, un service de gestion extensible des performances des applications pour détecter, trier et diagnostiquer les problèmes des applications et des services web."
 services: application-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d22dec77ea0fde59a86799cf5f2d13c2c4d6dacd
 ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 # <a name="application-insights-documentation"></a>Documentation Application Insights
@@ -163,10 +165,5 @@ Découvrez comment utiliser Application Insights, un service de gestion extensi
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

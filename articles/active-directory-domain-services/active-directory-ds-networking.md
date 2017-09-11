@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/28/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 8306c1ff72d348f5f327b79617e1422a78e26bdb
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 08ea5f557498f64825da8fe03d146cace0c53526
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considérations relatives à la mise en réseau pour les services de domaine Azure AD
@@ -26,9 +26,9 @@ ms.lasthandoff: 08/05/2017
 Les instructions suivantes vous aident à sélectionner un réseau virtuel en vue de l’utiliser avec les services de domaine Azure AD.
 
 ### <a name="type-of-azure-virtual-network"></a>Type de réseau virtuel Azure
-* Vous pouvez activer les services de domaine Azure AD dans un réseau virtuel Azure Classic.
-* Les services de domaine Azure AD **ne peuvent pas être activés dans les réseaux virtuels créés à l’aide d’Azure Resource Manager**.
-* Vous pouvez connecter un réseau virtuel basé sur Resource Manager à un réseau virtuel Classic dans lequel les services de domaine Azure AD sont activés. Vous pouvez ensuite utiliser les services de domaine Azure AD dans le réseau virtuel basé sur Resource Manager. Pour plus d’informations, consultez la section [Connectivité réseau](active-directory-ds-networking.md#network-connectivity).
+* Vous pouvez activer les services de domaine Azure AD dans un réseau virtuel Azure Classic. Toutefois, la prise en charge des réseaux virtuels Classic sera bientôt déconseillée. Nous vous recommandons d’utiliser des réseaux virtuels Resource Manager pour les nouveaux domaines managés.
+* Il est possible d’activer Azure AD Domain Services dans les réseaux virtuels créés à l’aide d’Azure Resource Manager.
+* Vous pouvez connecter d’autres réseaux virtuels à celui dans lequel Azure AD Domain Services est activé. Pour plus d’informations, consultez la section [Connectivité réseau](active-directory-ds-networking.md#network-connectivity).
 * **Réseaux virtuels régionaux**: si vous prévoyez d’utiliser un réseau virtuel existant, assurez-vous qu’il s’agit d’un réseau virtuel régional.
 
   * Les réseaux virtuels qui recourent au mécanisme des groupes d’affinités hérité ne peuvent pas être utilisés avec les services de domaine Azure AD.
@@ -40,8 +40,8 @@ Les instructions suivantes vous aident à sélectionner un réseau virtuel en vu
 * Pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles, consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) .
 
 ### <a name="requirements-for-the-virtual-network"></a>Conditions préalables pour le réseau virtuel
-* **Proximité avec les charges de travail Azure**: sélectionnez le réseau virtuel qui héberge actuellement ou qui hébergera des machines virtuelles ayant besoin d’accéder aux services de domaine Azure AD.
-* **Serveurs DNS personnalisés/propres**: assurez-vous qu’aucun serveur DNS personnalisé n’est configuré pour le réseau virtuel.
+* **Proximité avec les charges de travail Azure**: sélectionnez le réseau virtuel qui héberge actuellement ou qui hébergera des machines virtuelles ayant besoin d’accéder aux services de domaine Azure AD. Vous pouvez également choisir de connecter des réseaux virtuels si vos charges de travail sont déployées dans un autre réseau virtuel que le domaine managé.
+* **Serveurs DNS personnalisés/propres**: assurez-vous qu’aucun serveur DNS personnalisé n’est configuré pour le réseau virtuel. Citons comme exemple de serveur DNS personnalisé une instance de DNS Windows Server en cours d’exécution sur une machine virtuelle Windows Server déployée sur le réseau virtuel. Azure AD Domain Services ne fait l’objet d’aucune intégration avec les serveurs DNS personnalisés déployés au sein du réseau virtuel.
 * **Domaines existants portant le même nom de domaine** : vérifiez qu’aucun domaine existant portant le même nom de domaine n’est disponible sur ce réseau virtuel. Supposons par exemple qu’un domaine appelé « contoso.com » soit déjà disponible sur le réseau virtuel sélectionné. Par la suite, vous essayez d’activer un domaine géré par les services de domaine Azure AD portant le même nom de domaine (soit « contoso.com ») sur ce réseau virtuel. Vous rencontrez un échec lorsque vous essayez d’activer les services de domaine Azure AD en raison des conflits de noms de domaine sur ce réseau virtuel. Dans ce cas, vous devez utiliser un autre nom pour configurer votre domaine géré par les services de domaine Azure AD. Vous pouvez également annuler l’approvisionnement du domaine existant, puis passer à l’activation des services de domaine Azure AD.
 
 > [!WARNING]
@@ -86,13 +86,13 @@ En outre, le groupe de sécurité réseau illustre comment verrouiller l’accè
 
 
 ## <a name="network-connectivity"></a>Connectivité réseau
-Un domaine géré par les services de domaine Azure AD peut être activé uniquement au sein d’un seul réseau virtuel Classic dans Azure. Les réseaux virtuels créés à l’aide d’Azure Resource Manager ne sont pas pris en charge.
+Un domaine managé Azure AD Domain Services ne peut être activé qu’au sein d’un même réseau virtuel dans Azure.
 
 ### <a name="scenarios-for-connecting-azure-networks"></a>Scénarios de connexion de réseaux Azure
 Connectez des réseaux virtuels Azure en vue d’utiliser le domaine géré dans n’importe lequel des scénarios de déploiement suivants :
 
-#### <a name="use-the-managed-domain-in-more-than-one-azure-classic-virtual-network"></a>Utiliser le domaine géré dans plusieurs réseaux virtuels Azure Classic
-Vous pouvez connecter d’autres réseaux virtuels Azure Classic au réseau virtuel Azure Classic dans lequel vous avez activé les services de domaine Azure AD. Cette connexion VPN vous permet d’utiliser le domaine géré avec vos charges de travail déployées dans d’autres réseaux virtuels.
+#### <a name="use-the-managed-domain-in-more-than-one-azure-virtual-network"></a>Utiliser le domaine managé dans plusieurs réseaux virtuels Azure
+Vous pouvez connecter d’autres réseaux virtuels Azure à celui dans lequel vous avez activé Azure AD Domain Services. Cette connexion VPN/VNET Peering vous permet d’utiliser le domaine managé avec vos charges de travail déployées sur d’autres réseaux virtuels.
 
 ![Connexion entre des réseaux virtuels Classic](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
 
@@ -102,16 +102,17 @@ Vous pouvez connecter un réseau virtuel basé sur Resource Manager au réseau v
 ![Connexion entre un réseau virtuel Resource Manager et un réseau virtuel Classic](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
 
 ### <a name="network-connection-options"></a>Options de connexion réseau
-* **Connexion entre deux réseaux virtuels à l’aide d’une connexion VPN de site à site**: la connexion entre deux réseaux virtuels est similaire à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE.
-
-    ![Connexion entre des réseaux virtuels à l’aide d’une passerelle VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
-
-    [Plus d’informations : connecter des réseaux virtuels à l’aide d’une passerelle VPN](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * **Connexion entre deux réseaux virtuels à l’aide d’une homologation de réseaux virtuels**: l’homologation de réseaux virtuels est un mécanisme permettant de connecter deux réseaux virtuels situés dans la même région via le réseau principal Azure. Une fois homologués, les deux réseaux virtuels apparaissent comme un seul réseau pour tous les besoins de connectivité. Ils sont toujours gérés comme des ressources distinctes, mais les machines virtuelles se trouvant dans ces réseaux virtuels peuvent communiquer directement entre elles à l’aide d’adresses IP privées.
 
     ![Connexion entre des réseaux virtuels à l’aide d’une homologation](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [Plus d’informations : homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md)
+    
+* **Connexion entre deux réseaux virtuels à l’aide d’une connexion VPN de site à site**: la connexion entre deux réseaux virtuels est similaire à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE.
+
+    ![Connexion entre des réseaux virtuels à l’aide d’une passerelle VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
+
+    [Plus d’informations : connecter des réseaux virtuels à l’aide d’une passerelle VPN](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 
 <br>
 

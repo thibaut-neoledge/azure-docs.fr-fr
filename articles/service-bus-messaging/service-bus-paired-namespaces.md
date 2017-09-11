@@ -1,6 +1,6 @@
 ---
 title: "Espaces de noms associés Azure Service Bus | Microsoft Docs"
-description: "Détails sur l&quot;implémentation de l&quot;espace de noms associé et coût"
+description: "Détails sur l'implémentation de l'espace de noms associé et coût"
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 08/30/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d987aa22379ede44da1b791f034d713a49ad486a
-ms.openlocfilehash: 84e125dffcac3f3a54250587c5238b50d3a6cb95
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Détails sur l'implémentation de l'espace de noms associé et implications en termes de coût
@@ -97,7 +96,7 @@ Au moins un programme exécutable de l'application doit exécuter activement le 
 4. Recevoir depuis la file d'attente principale.
 
 ## <a name="closefault-behavior"></a>Comportement de fermeture/erreur
-Dans une application qui héberge le siphon, si l’instance [MessagingFactory][MessagingFactory] principale ou secondaire connaît une défaillance ou est fermée sans que son partenaire connaisse une défaillance/soit fermé également et que le siphon détecte cet état, le siphon réagit. Si l’autre instance [MessagingFactory][MessagingFactory] n’est pas fermée dans les 5 secondes, le siphon place l’instance [MessagingFactory][MessagingFactory] toujours ouverte en état de défaillance.
+Dans une application qui héberge le siphon, si l’instance [MessagingFactory][MessagingFactory] principale ou secondaire connaît une défaillance ou est fermée sans que son partenaire connaisse une défaillance ou soit fermé également, et que le siphon détecte cet état, le siphon réagit. Si l’autre instance [MessagingFactory][MessagingFactory] n’est pas fermée dans les 5 secondes, le siphon place l’instance [MessagingFactory][MessagingFactory] toujours ouverte en état de défaillance.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez [Modèles de messagerie asynchrone et haute disponibilité][Asynchronous messaging patterns and high availability] pour une discussion détaillée sur la messagerie asynchrone de Service Bus. 

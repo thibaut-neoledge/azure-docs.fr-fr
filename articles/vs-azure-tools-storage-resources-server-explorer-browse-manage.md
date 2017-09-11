@@ -3,8 +3,8 @@ title: "Consultation et gestion des ressources de stockage avec l’Explorateur 
 description: "Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
 ms.service: storage
@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d35c9903fd68199f9decdf099a7e162fe664e4d5
-
+ms.date: 8/24/2017
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 43ab501c69c0c1e3271dbfcf08e5342a3507ab82
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="browsing-and-managing-storage-resources-with-server-explorer"></a>Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs
@@ -42,11 +43,12 @@ Pour afficher les ressources dans un compte de stockage, développez le nœud du
 * Tables
 
 ## <a name="work-with-blob-resources"></a>Utilisation des ressources d’objets blob
-Le nœud Objets blob affiche la liste des conteneurs associés au compte de stockage sélectionné. Les conteneurs d’objets blob contiennent des fichiers d’objets blob, que vous pouvez ranger dans des dossiers et des sous-dossiers. Pour plus d’informations, consultez la page [Utilisation du stockage d’objets blob à partir de .NET](storage/storage-dotnet-how-to-use-blobs.md) .
+Le nœud Objets blob affiche la liste des conteneurs associés au compte de stockage sélectionné. Les conteneurs d’objets blob contiennent des fichiers d’objets blob, que vous pouvez ranger dans des dossiers et des sous-dossiers. Pour plus d’informations, consultez la page [Utilisation du stockage d’objets blob à partir de .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md) .
 
 ### <a name="to-create-a-blob-container"></a>Pour créer un conteneur d’objets blob
 1. Ouvrez le menu contextuel du nœud **Objets blob**, puis choisissez **Créer un conteneur d’objets blob**.
-2. Entrez le nom du nouveau conteneur dans la boîte de dialogue **Créer un conteneur d’objets blob**, puis choisissez **OK**.
+2. Entrez le nom du nouveau conteneur dans la boîte de dialogue **Créer un conteneur d’objets blob**.  
+3. Appuyez sur **Entrée** sur votre clavier, ou cliquez/appuyez en dehors du champ de nom pour enregistrer le conteneur d’objets blob.
    
    > [!NOTE]
    > Le nom du conteneur d’objets blob doit commencer par un chiffre (0-9) ou une lettre minuscule (a-z).
@@ -57,7 +59,7 @@ Le nœud Objets blob affiche la liste des conteneurs associés au compte de stoc
 * Ouvrez le menu contextuel du conteneur d’objets blob que vous voulez supprimer, puis sélectionnez **Supprimer**.
 
 ### <a name="to-display-a-list-of-the-items-contained-in-a-blob-container"></a>Pour afficher la liste des éléments d’un conteneur d’objets blob
-* Ouvrez le menu contextuel d’un conteneur d’objets blob de la liste, puis choisissez **Afficher le conteneur d’objets blob**.
+* Ouvrez le menu contextuel d’un conteneur d’objets blob de la liste, puis choisissez **Ouvrir**.
   
     Le contenu d’un conteneur d’objets blob s’affiche dans un onglet que l’on appelle vue du conteneur d’objets blob.
   
@@ -78,12 +80,12 @@ Le nœud Objets blob affiche la liste des conteneurs associés au compte de stoc
   * Enregistrer un objet blob sur l’ordinateur local
 
 ### <a name="to-create-a-folder-or-subfolder-in-a-blob-container"></a>Pour créer un dossier ou un sous-dossier dans un conteneur d’objets blob
-1. Dans l’Explorateur de serveurs, choisissez le conteneur d’objets blob. Dans la fenêtre du conteneur, choisissez le bouton **Charger l’objet blob** .
+1. Dans Cloud Explorer, choisissez le conteneur d’objets blob. Dans la fenêtre du conteneur, choisissez le bouton **Charger l’objet blob** .
    
     ![Chargement d’un fichier dans un dossier d’objets blob](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
 2. Dans la boîte de dialogue **Télécharger un nouveau fichier**, choisissez le bouton **Parcourir** pour spécifier le fichier à charger, puis entrez un nom de dossier dans la zone **Dossier (facultatif)**.
    
-    Vous pouvez ajouter des sous-dossiers dans les dossiers du conteneur en suivant la même procédure. Si vous ne spécifiez pas de nom de dossier, le fichier sera chargé dans le niveau supérieur du conteneur d’objets blob et apparaîtra dans le dossier spécifié du conteneur.
+    Vous pouvez ajouter des sous-dossiers dans les dossiers du conteneur en suivant la même procédure. Si vous ne spécifiez pas de nom de dossier, le fichier sera chargé dans le niveau supérieur du conteneur d’objets blob. Le fichier apparaîtra dans le dossier spécifié du conteneur.
    
     ![Dossier ajouté à un conteneur d’objets blob](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766038.png)
 3. Double-cliquez sur le dossier ou appuyez sur Entrée pour afficher le contenu du dossier. Une fois le dossier ouvert, vous pouvez retourner à la racine du conteneur en choisissant le bouton **Ouvrir le répertoire parent** (flèche haut).
@@ -109,7 +111,7 @@ Par exemple, si vous entrez le préfixe `hello` dans la zone de texte de filtre,
 > 
 
 ### <a name="to-download-blob-data"></a>Pour télécharger les données des objets blob
-* Dans **l’Explorateur de serveurs**, ouvrez le menu contextuel d’un ou de plusieurs objets blob, puis choisissez **Ouvrir**. Vous pouvez aussi choisir le nom de l’objet blob, puis cliquer sur le bouton **Ouvrir** ou double-cliquer sur le nom de l’objet blob.
+* Dans **Cloud Explorer**, ouvrez le menu contextuel d’un ou de plusieurs objets blob, puis choisissez **Ouvrir**. Vous pouvez aussi choisir le nom de l’objet blob, puis cliquer sur le bouton **Ouvrir** ou double-cliquer sur le nom de l’objet blob.
   
     La progression du téléchargement d’un objet blob s’affiche dans la fenêtre **Journal des activités Azure** .
   
@@ -160,11 +162,11 @@ Pour plus d’informations sur les files d’attente des services de stockage, c
 Le service de stockage Table Azure stocke de grandes quantités de données structurées. Il s’agit d’une banque de données NoSQL qui accepte les appels authentifiés provenant de l’intérieur et de l’extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles.
 
 ### <a name="to-create-a-table"></a>Création d’une table
-1. Dans l’Explorateur de serveurs, sélectionnez le nœud **Tables** du compte de stockage, puis choisissez **Créer une table**.
+1. Dans Cloud Explorer, sélectionnez le nœud **Tables** du compte de stockage, puis choisissez **Créer une table**.
 2. Dans la boîte de dialogue **Créer une table** , entrez un nom pour la table.
 
 ### <a name="to-view-table-data"></a>Pour afficher des données de table
-1. Dans l’Explorateur de serveurs, ouvrez le nœud **Azure**, puis le nœud **Stockage**.
+1. Dans Cloud Explorer, ouvrez le nœud **Azure**, puis le nœud **Stockage**.
 2. Ouvrez le nœud du compte de stockage qui vous intéresse, puis ouvrez le nœud **Tables** pour afficher la liste des tables associées au compte de stockage.
 3. Ouvrez le menu contextuel d’une table, puis choisissez **Afficher la table**.
    
@@ -185,7 +187,7 @@ La table est organisée en entités (lignes) et propriétés (colonnes). Par exe
    * Si vous entrez une valeur DateTime, vous devez respecter un format approprié pour les paramètres régionaux et de langue de votre ordinateur (par exemple, MM/DD/YYYY HH:MM:SS [AM|PM] pour les États-Unis ).
 
 ### <a name="to-add-entities"></a>Pour ajouter des entités
-1. Dans le **Concepteur de tables**, choisissez le bouton **Ajouter une entité** situé dans l’angle supérieur droit de la vue de la table.
+1. Dans le **Concepteur de tables**, choisissez le bouton **Ajouter une entité**.
    
     ![Ajouter une entité](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655336.png)
 2. Dans la boîte de dialogue **Ajouter une entité**, entrez les valeurs des propriétés **PartitionKey** et **RowKey**.
@@ -198,7 +200,7 @@ La table est organisée en entités (lignes) et propriétés (colonnes). Par exe
 Vous pouvez personnaliser les entités qui s’affichent dans une table à l’aide du Générateur de requêtes.
 
 1. Pour ouvrir le Générateur de requêtes, ouvrez une table pour afficher son contenu.
-2. Cliquez sur le bouton situé tout à droite de la barre d’outils de la vue de la table.
+2. Cliquez sur le bouton Générateur de requêtes de la vue de la table.
    
     La boîte de dialogue **Générateur de requêtes** s’affiche. L’illustration suivante montre la génération d’une requête dans le Générateur de requêtes.
    
@@ -271,10 +273,5 @@ Il existe deux façons d’ajouter des comptes de stockage à l’aide de l’Ex
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’utilisation des services de stockage Azure, consultez la page [Accès aux services de stockage Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

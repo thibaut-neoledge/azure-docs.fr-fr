@@ -16,10 +16,10 @@ ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: c6670b97ebc0545dbcb01d2b0cb1e260f99cfed9
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # Autoriser l’accès aux applications web à l’aide d’OAuth 2.0 et Azure Active Directory
@@ -266,7 +266,7 @@ Le tableau suivant répertorie les codes d’état HTTP retournés par le point 
 | invalid_client |Échec d’authentification du client. |Les informations d’identification du client ne sont pas valides. Pour résoudre le problème, l’administrateur de l’application met à jour les informations d’identification. |
 | unsupported_grant_type |Le serveur d’autorisation ne prend pas en charge le type d’octroi d’autorisation. |Modifiez le type d’octroi dans la demande. Ce type d’erreur doit se produire uniquement lors du développement et doit être détecté lors du test initial. |
 | invalid_resource |La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement. |Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
-| interaction_required |La demande nécessite une interaction utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. |Relancez la demande avec la même ressource. |
+| interaction_required |La demande nécessite une interaction utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Au lieu d’une demande non interactive, réessayez avec une demande d’autorisation interactive pour la même ressource. |
 | temporarily_unavailable |Le serveur est temporairement trop occupé pour traiter la demande. |relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
 
 ## Utiliser le jeton d’accès pour accéder à la ressource
@@ -329,15 +329,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
-| Paramètre | Description |
-| --- | --- |
-| access_token |Le nouveau jeton d’accès qui a été demandé. |
-| expires_in |La durée de vie restante du jeton en secondes. 3600 (une heure) est une valeur courante. |
-| expires_on |La date et l’heure auxquelles le jeton expire. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. |
-| refresh_token |Un nouveau jeton d’actualisation OAuth 2.0 pouvant être utilisé pour demander de nouveaux jetons d’accès lorsque celui de cette réponse expire. |
-| resource |Identifie la ressource sécurisée accessible à l’aide du jeton d’accès. |
-| scope |Autorisations d’emprunt d’identité accordées à l’application cliente native. L’autorisation par défaut est **user_impersonation**. Le propriétaire de la ressource cible peut enregistrer des valeurs alternatives dans Azure AD. |
-| token_type |Le type de jeton. La seule valeur prise en charge est **bearer**. |
 
 ### Réponse correcte
 Une réponse de jeton réussie se présente ainsi :
@@ -352,6 +343,15 @@ Une réponse de jeton réussie se présente ainsi :
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
+| Paramètre | Description |
+| --- | --- |
+| token_type |Le type de jeton. La seule valeur prise en charge est **bearer**. |
+| expires_in |La durée de vie restante du jeton en secondes. 3600 (une heure) est une valeur courante. |
+| expires_on |La date et l’heure auxquelles le jeton expire. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. |
+| resource |Identifie la ressource sécurisée accessible à l’aide du jeton d’accès. |
+| scope |Autorisations d’emprunt d’identité accordées à l’application cliente native. L’autorisation par défaut est **user_impersonation**. Le propriétaire de la ressource cible peut enregistrer des valeurs alternatives dans Azure AD. |
+| access_token |Le nouveau jeton d’accès qui a été demandé. |
+| refresh_token |Un nouveau jeton d’actualisation OAuth 2.0 pouvant être utilisé pour demander de nouveaux jetons d’accès lorsque celui de cette réponse expire. |
 
 ### Réponse d’erreur
 Une réponse d’erreur se présenterait ainsi :

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/26/2017
 ms.author: helaw
 ms.translationtype: HT
-ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
-ms.openlocfilehash: 8bc79166cd75559fe6e04eeefbd998dcdd81bcdf
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: b3992b296d5a999601eb69b071559f9d37dacf8f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Provide applications access to Azure Stack
@@ -88,11 +88,12 @@ Set-ExecutionPolicy Unrestricted
 ```
 
 ### <a name="create-the-service-principal"></a>Create the service principal
-You can create a Service Principal by executing the following command:
+You can create a Service Principal by executing the following command, making sure to update the *DisplayName* parameter:
 ```powershell
 $servicePrincipal = New-AzSADGraphServicePrincipal `
  -DisplayName "<YourServicePrincipalName>" `
  -AdminCredential $(Get-Credential) `
+ -AdfsMachineName "AZS-ADFS01" `
  -Verbose
 ```
 ### <a name="assign-a-role"></a>Assign a role

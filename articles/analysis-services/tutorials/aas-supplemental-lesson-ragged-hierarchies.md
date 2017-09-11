@@ -3,7 +3,7 @@ title: "Leçon supplémentaire du didacticiel Azure Analysis Services : Hiérar
 description: "Décrit comment corriger les hiérarchies déséquilibrées dans le didacticiel Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

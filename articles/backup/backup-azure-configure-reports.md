@@ -16,10 +16,10 @@ ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 649823705c9680677b84e77676bf7a004e4ed779
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4629665e6fbe26c26eb45af7509de338367c4e18
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
@@ -32,7 +32,7 @@ Cet article détaille la procédure permettant de configurer les rapports pour l
 4. La fréquence d’actualisation planifiée des rapports est de 24 heures dans Power BI. Vous pouvez également effectuer une actualisation ad hoc des rapports dans Power BI, auquel cas les données les plus récentes du compte de stockage client sont utilisées pour le rendu des rapports. 
 
 ## <a name="prerequisites"></a>Composants requis
-1. Créez un [compte de stockage Azure](../storage/storage-create-storage-account.md#create-a-storage-account) afin de le configurer pour les rapports. Il est utilisé pour stocker les données associées aux rapports.
+1. Créez un [compte de stockage Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) afin de le configurer pour les rapports. Il est utilisé pour stocker les données associées aux rapports.
 2. [Créez un compte Power BI](https://powerbi.microsoft.com/landing/signin/) pour afficher, personnaliser et créer vos propres rapports à l’aide du portail Power BI.
 3. Si ce n’est pas déjà fait, inscrivez le fournisseur de ressources **Microsoft.insights** avec l’abonnement du compte de stockage ainsi que celui du coffre Recovery Services pour permettre aux données de rapports de circuler vers le compte de stockage. Pour cela, accédez au Portail Azure > Abonnement > Fournisseurs de ressources et cochez ce fournisseur pour l’inscrire. 
 
@@ -82,7 +82,7 @@ Une fois le compte de stockage configuré pour les rapports à l’aide du coffr
 4. Entrez le nom du compte de stockage configuré à l’étape 5 ci-dessus, puis cliquez sur le bouton **Suivant**.
 
     ![Entrer le nom du compte de stockage](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Entrez la clé de ce compte de stockage. Vous pouvez [afficher et copier les clés d’accès de stockage](../storage/storage-create-storage-account.md#manage-your-storage-account) en accédant à votre compte de stockage sur le Portail Azure. 
+5. Entrez la clé de ce compte de stockage. Vous pouvez [afficher et copier les clés d’accès de stockage](../storage/common/storage-create-storage-account.md#manage-your-storage-account) en accédant à votre compte de stockage sur le Portail Azure. 
 
      ![Entrer le compte de stockage](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      

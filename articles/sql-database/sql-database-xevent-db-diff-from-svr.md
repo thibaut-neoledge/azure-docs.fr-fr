@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
 ms.translationtype: HT
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 6953166f21194f3cbcef3f260b3e7a50d5bf5460
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7e5da1c32484b0b94d2ad32ead6bb7c28f9744aa
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="extended-events-in-sql-database"></a>Événement étendus dans la base de données SQL
@@ -54,7 +54,7 @@ Il est utile d’avoir une connaissance préalable des éléments suivants lorsq
 
 
 - PowerShell
-    - [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md) - Cette rubrique fournit des informations complètes sur PowerShell et le service Azure Storage.
+    - [Utilisation d’Azure PowerShell avec Azure Storage](../storage/common/storage-powershell-guide-full.md) - Cette rubrique fournit des informations complètes sur PowerShell et le service Azure Storage.
 
 ## <a name="code-samples"></a>Exemples de code
 
@@ -195,10 +195,10 @@ La cible **Fichier d’événement** peut rencontrer une latence ou des problèm
 
 ## <a name="related-links"></a>Liens connexes
 
-- [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md)
+- [Utilisation d’Azure PowerShell avec Azure Storage](../storage/common/storage-powershell-guide-full.md)
 - [Applets de commande Azure Storage](http://msdn.microsoft.com/library/dn806401.aspx)
-- [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md) - Cette rubrique fournit des informations complètes sur PowerShell et le service Azure Storage.
-- [Utilisation du stockage d’objets blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+- [Utilisation d’Azure PowerShell avec Azure Storage](../storage/common/storage-powershell-guide-full.md) - Cette rubrique fournit des informations complètes sur PowerShell et le service Azure Storage.
+- [Utilisation du stockage d’objets blob à partir de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 - [Billets de blog de Jonathan Kehayias sur les événements étendus dans Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)

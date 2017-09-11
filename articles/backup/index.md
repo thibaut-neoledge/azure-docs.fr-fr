@@ -2,7 +2,7 @@
 title: "Documentation Sauvegarde Azure - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Utilisez la documentation Sauvegarde pour apprendre à effectuer des sauvegardes dans le cloud. Consultez les didacticiels et vidéos sur la sauvegarde d’applications, de serveurs Windows et de machines virtuelles Azure."
 services: backup
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

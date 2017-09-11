@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2015
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
-ms.openlocfilehash: aab8f3233191c9b3f839e3358902f72499d93ee5
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c369b22cf068a473343b006eb1b06fdd350d31db
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-monitor-cloud-services"></a>Surveillance des services cloud
@@ -39,7 +41,7 @@ L’activation de la surveillance détaillée augmente les coûts de stockage li
 Les procédures suivantes permettent de configurer la surveillance minimale ou détaillée dans le portail Azure Classic. 
 
 ### <a name="before-you-begin"></a>Avant de commencer
-* Créez un compte de stockage *classique* pour stocker les données de surveillance. Vous pouvez utiliser différents comptes de stockage pour différents rôles. Pour plus d’informations, consultez [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account).
+* Créez un compte de stockage *classique* pour stocker les données de surveillance. Vous pouvez utiliser différents comptes de stockage pour différents rôles. Pour plus d’informations, consultez [Création d’un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * Activez le diagnostic Azure pour vos rôles de service cloud. Consultez [Configuration des diagnostics pour les services cloud](cloud-services-dotnet-diagnostics.md).
 
 Assurez-vous que la chaîne de connexion de diagnostic est présente dans la configuration du rôle. Vous ne pouvez pas activer la surveillance détaillée avant d'activer Azure Diagnostics d’inclure une chaîne de connexion de diagnostic dans la configuration du rôle.   
@@ -175,9 +177,4 @@ WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
 
 WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 ```
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

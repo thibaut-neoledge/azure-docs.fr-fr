@@ -1,6 +1,6 @@
 ---
-title: Stream Azure Diagnostic Logs to Event Hubs (Diffuser en continu les journaux de diagnostic vers Event Hubs) | Microsoft Docs
-description: "Découvrez comment diffuser en continu les journaux de diagnostic vers Event Hubs."
+title: Diffuser en continu les journaux de diagnostic Azure vers un espace de noms Event Hubs | Microsoft Docs
+description: "Découvrez comment diffuser en continu les journaux de diagnostic Azure vers un espace de noms Event Hubs."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 08/21/2017
 ms.author: johnkem
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: d974d64dbafe15707a6ce86144b98bad334f7f00
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 01ba8ddfcf90e1368ac147296fd180f99420d96f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="stream-azure-diagnostic-logs-to-event-hubs"></a>Diffuser en continu les journaux de diagnostic vers Event Hubs
-Les **[journaux de diagnostic Azure](monitoring-overview-of-diagnostic-logs.md)** peuvent être diffusés quasiment en temps réel sur n’importe quelle application à l’aide de l’option « Exporter vers Event Hubs » intégrée au portail, ou en activant l’identifiant de règle Service Bus dans un paramètre de diagnostic via les applets de commande PowerShell Azure ou l’interface de ligne de commande Azure.
+# <a name="stream-azure-diagnostic-logs-to-an-event-hubs-namespace"></a>Diffuser en continu les journaux de diagnostic Azure vers un espace de noms Event Hubs
+Les **[journaux de diagnostic Azure](monitoring-overview-of-diagnostic-logs.md)** peuvent être diffusés quasiment en temps réel sur n’importe quelle application à l’aide de l’option « Exporter vers Event Hubs » intégrée au portail, ou en activant l’identifiant de règle Service Bus dans un paramètre de diagnostic via les applets de commande Azure PowerShell ou l’interface de ligne de commande Azure.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Ce que vous pouvez faire avec les journaux de diagnostic et Event Hubs
 Voici quelques façons d’utiliser la fonctionnalité de diffusion en continu pour les journaux de diagnostic :
@@ -46,9 +46,7 @@ Voici quelques façons d’utiliser la fonctionnalité de diffusion en continu p
 * **Créer une plateforme de journalisation et de télémétrie personnalisée** : si vous disposez déjà d’une plateforme de télémétrie personnalisée, ou si vous envisagez d’en créer une, la nature hautement évolutive de publication et d’abonnement d’Event Hubs vous permet d’intégrer avec souplesse les journaux de diagnostic. [Consultez ici le guide de Dan Rosanova sur l’utilisation d’Event Hubs dans une plateforme de télémétrie à échelle mondiale.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Activer la diffusion en continu des journaux de diagnostic
-Vous pouvez activer la diffusion en continu des journaux de diagnostic par programme, via le portail ou à l’aide de [l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx). Dans les deux cas, vous choisissez un espace de noms Event Hubs : un hub d’événements est alors créé dans l’espace de noms pour chaque catégorie de journal que vous activez. Une **catégorie de journal** de diagnostic est un type de journal qu’une ressource peut collecter. Vous pouvez sélectionner les catégories de journaux que vous souhaitez collecter pour une ressource particulière dans le portail Azure sous le panneau Diagnostics.
-
-![Catégories de journaux disponibles dans le portail](./media/monitoring-stream-diagnostic-logs-to-event-hubs/log-categories.png)
+Vous pouvez activer la diffusion en continu des journaux de diagnostic par programme, via le portail ou à l’aide des [API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). Dans tous les cas, vous créez un paramètre de diagnostic dans lequel vous spécifiez un espace de noms Event Hubs et les catégories de journal et les indicateurs de performance que vous voulez envoyer dans l’espace de noms. Un hub d’événements est créé dans l’espace de noms pour chaque catégorie de journal que vous activez. Une **catégorie de journal** de diagnostic est un type de journal qu’une ressource peut collecter.
 
 > [!WARNING]
 > L’activation et la diffusion en continu de journaux de diagnostic à partir de ressources de calcul (par exemple, les machines virtuelles ou Service Fabric) [nécessitent des étapes de configuration différentes](../event-hubs/event-hubs-streaming-azure-diags-data.md).
@@ -57,11 +55,36 @@ Vous pouvez activer la diffusion en continu des journaux de diagnostic par progr
 
 Il n’est pas nécessaire que l’espace de noms Service Bus ou Event Hubs se trouve dans le même abonnement que la ressource générant des journaux, à condition que l’utilisateur configurant le paramètre ait un accès RBAC approprié aux deux abonnements.
 
+## <a name="stream-diagnostic-logs-using-the-portal"></a>Diffuser en continu les journaux de diagnostic à l’aide du portail
+1. Dans le portail, accédez à Azure Monitor, puis cliquez sur **Paramètres de diagnostic**
+
+    ![Section Surveillance d’Azure Monitor](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
+
+2. Vous pouvez également filtrer la liste par type de groupe de ressources ou de ressource, puis cliquer sur la ressource pour laquelle vous souhaitez définir un paramètre de diagnostic.
+
+3. S’il n’existe aucun paramètre sur la ressource que vous avez sélectionnée, vous êtes invité à créer un paramètre. Cliquez sur « Activer les diagnostics ».
+
+   ![Ajouter le paramètre de diagnostic - aucun paramètre existant](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-none.png)
+
+   S’il existe des paramètres existants sur la ressource, vous verrez une liste de paramètres déjà configurés sur cette ressource. Cliquez sur « Ajouter le paramètre de diagnostic ».
+
+   ![Ajouter le paramètre de diagnostic - paramètres existants](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
+
+3. Donnez un nom à votre définition et cochez la case **Diffuser en continu vers un hub d’événements**, puis sélectionnez un espace de noms Event Hubs.
+   
+   ![Ajouter le paramètre de diagnostic - paramètres existants](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
+    
+   L’espace de noms sélectionné sera l’espace où le hub d’événements sera créé (si c’est la première fois que vous diffusez en continu des journaux de diagnostic) ou vers lequel le hub d’événements diffusera les journaux (si des ressources diffusent déjà cette catégorie de journal vers cet espace de noms). La stratégie définit les autorisations dont dispose le mécanisme de diffusion en continu. À l’heure actuelle, la diffusion vers un hub d’événements requiert des autorisations de gestion, d’envoi et d’écoute. Vous pouvez créer ou modifier les stratégies d’accès partagé de l’espace de noms Event Hubs dans le portail sous l’onglet Configurer pour votre espace de noms. Pour mettre à jour l’un de ces paramètres de diagnostic, le client doit avoir l’autorisation ListKey sur la règle d’autorisation Event Hubs.
+
+4. Cliquez sur **Enregistrer**.
+
+Après quelques instants, le nouveau paramètre apparaît dans la liste des paramètres de cette ressource, et les journaux de diagnostic sont diffusés en continu dans ce compte de stockage dès que de nouvelles données d’événement sont générées.
+
 ### <a name="via-powershell-cmdlets"></a>Via les applets de commande PowerShell
 Pour activer la diffusion en continu via les [applets de commande Azure PowerShell](insights-powershell-samples.md), vous pouvez utiliser l’applet de commande `Set-AzureRmDiagnosticSetting` avec ces paramètres :
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
 ```
 
 L’ID de règle Service Bus est une chaîne au format `{Service Bus resource ID}/authorizationrules/{key name}`, par exemple, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`.
@@ -70,17 +93,10 @@ L’ID de règle Service Bus est une chaîne au format `{Service Bus resource ID
 Pour activer la diffusion en continu via [l’interface de ligne de commande Azure](insights-cli-samples.md), vous pouvez utiliser la commande `insights diagnostic set` comme suit :
 
 ```azurecli
-azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
 Utilisez le même format pour l’ID de règle Service Bus, comme expliqué pour l’applet de commande PowerShell.
-
-### <a name="via-azure-portal"></a>Via le portail Azure
-Pour activer la diffusion en continu par le biais du portail Azure, accédez aux paramètres de diagnostic d’une ressource et sélectionnez **Exporter vers Event Hub**.
-
-![Exporter vers Event Hubs dans le portail](./media/monitoring-stream-diagnostic-logs-to-event-hubs/portal-export.png)
-
-Sélectionnez un espace de noms Event Hubs pour le configurer. L’espace de noms sélectionné sera l’espace où le hub d’événements sera créé (si c’est la première fois que vous diffusez en continu des journaux de diagnostic) ou vers lequel le hub d’événements diffusera les journaux (si des ressources diffusent déjà cette catégorie de journal vers cet espace de noms). La stratégie définit les autorisations dont dispose le mécanisme de diffusion en continu. À l’heure actuelle, la diffusion vers un hub d’événements requiert des autorisations de gestion, d’envoi et d’écoute. Vous pouvez créer ou modifier les stratégies d’accès partagé de l’espace de noms Event Hubs dans le portail sous l’onglet **Configurer** pour votre espace de noms. Pour mettre à jour l’un de ces paramètres de diagnostic, le client doit avoir l’autorisation **ListKey** sur la règle d’autorisation Event Hubs.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Comment utiliser les données de journal d’Event Hubs ?
 Voici des exemples de données de sortie provenant d’Event Hubs :
@@ -159,7 +175,7 @@ Voici des exemples de données de sortie provenant d’Event Hubs :
 Une liste de tous les fournisseurs de ressources qui prennent en charge la diffusion en continu vers Event Hubs est disponible [ici](monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="stream-data-from-compute-resources"></a>Diffusion de données à partir des ressources de calcul
-Vous pouvez également transmettre en continu des journaux de diagnostic à partir des ressources de calcul à l’aide de l’agent Windows Azure Diagnostics. [Consultez cet article](../event-hubs/event-hubs-streaming-azure-diags-data.md) pour découvrir comment configurer cela.
+Vous pouvez également diffuser en continu des journaux de diagnostic à partir des ressources de calcul à l’aide de l’agent Windows Azure Diagnostics. [Consultez cet article](../event-hubs/event-hubs-streaming-azure-diags-data.md) pour découvrir comment configurer cela.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les journaux de diagnostic Azure](monitoring-overview-of-diagnostic-logs.md)

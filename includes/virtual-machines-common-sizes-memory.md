@@ -51,9 +51,9 @@ ACU : 160-180
 
 | Taille            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
+| Standard_M64s  | 64   | 1 024        | 2 048           | 32             | 80,000 / 800 (6348)       | 40 000 / 1 000                            | 8 / 16 000          |
 | Standard_M64ms  | 64   | 1792        | 2 048           | 32             | 80,000 / 800 (6348)       | 40 000 / 1 000                            | 8 / 16 000          |
 | Standard_M128s** | 128  | 2 048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80 000 / 2 000                            | 8 / 25 000          |
-
 
 
 *Machines virtuelles de série M dotées de la technologie Hyper-Threading d’Intel®

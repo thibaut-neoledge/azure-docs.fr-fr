@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 08/24/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 2e320339f60b593c1cff68ca047c95f9cb7b33e2
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -31,7 +31,9 @@ Il est important d’effectuer une surveillance au niveau de la plateforme pour 
 Service Fabric fournit cinq canaux de journaux différents prêts à l’emploi, qui génèrent les événements suivants :
 
 * Canal opérationnel : opérations de haut niveau effectuées par Service Fabric et le cluster. Cela comprend les événements pour un nœud mis en ligne, une nouvelle application déployée, l’annulation d’une mise à niveau de SF, etc.
-* Canal d’informations sur le client : rapports d’intégrité et décisions d’équilibrage de charge
+* Canal opérationnel - détaillé : rapports d’intégrité et décisions d’équilibrage de charge
+* Canal de données et de messagerie : événements et journaux critiques générés dans notre messagerie (pour le moment le proxy inverse uniquement) et chemin de données (modèles de services fiables)
+* Canal de données et de messagerie - détaillée : canal détaillé qui contient tous les journaux non critiques à partir de données et de messagerie dans le cluster (ce canal a un volume très élevé d’événements)   
 * [Événements Reliable Services](service-fabric-reliable-services-diagnostics.md) : événements spécifiques au modèle de programmation
 * [Événements Reliable Actors](service-fabric-reliable-actors-diagnostics.md) : compteurs de performances et événements spécifiques au modèle de programmation
 * Journaux de support : journaux générés par Service Fabric uniquement pour être utilisés de notre côté lorsque nous vous fournissons le support technique
@@ -79,9 +81,9 @@ Si vous devez contacter le support technique Microsoft pour obtenir de l’aide 
 
 ## <a name="enabling-diagnostics-for-a-cluster"></a>Activation des diagnostics pour un cluster
 
-Pour tirer parti de ces journaux, il est vivement recommandé d’activer « Diagnostics » lors de la création du cluster. Si vous activez les diagnostics lorsque le cluster est déployé, Windows Azure Diagnostics est en mesure de confirmer les canaux Operational, Reliable Services et Reliable Actors et de stocker les données, comme expliqué **ici**.
+Pour tirer parti de ces journaux, il est vivement recommandé d’activer « Diagnostics » lors de la création du cluster. Si vous activez les diagnostics lorsque le cluster est déployé, Windows Azure Diagnostics est en mesure de confirmer les canaux Operational, Reliable Services et Reliable Actors, et de stocker les données, comme expliqué dans [Agréger des événements avec Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).
 
-Comme indiqué ci-dessus, il existe également un champ facultatif pour ajouter une clé d’instrumentation Application Insights (AppInsights). Si vous choisissez d’utiliser AppInsights pour des analyses d’événement (en savoir plus **ici**), insérez la clé d’instrumentation de ressource AppInsights (GUID) ici.
+Comme indiqué ci-dessus, il existe également un champ facultatif pour ajouter une clé d’instrumentation Application Insights (AI). Si vous choisissez d’utiliser AI pour des analyses d’événement (en savoir plus dans [Événements d’analyse avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)), insérez la clé d’instrumentation de ressource AppInsights (GUID) ici.
 
 
 Si vous souhaitez déployer des conteneurs dans votre cluster, autorisez WAD à récupérer les statistiques de docker en ajoutant ce qui suit à votre « WadCfg > DiagnosticMonitorConfiguration » :

@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 08/9/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 2d45090b09d83a98cc0811dca8d6f2384d1b11ad
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 50df1e3db239a6aa34ac91bfbd582625c5b0041b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="examples-and-common-scenarios-for-azure-logic-apps"></a>Exemples et scénarios courants relatifs à Azure Logic Apps
@@ -31,7 +31,7 @@ Azure Logic Apps assure une orchestration et une intégration résilientes pour 
 
 ## <a name="respond-to-triggers-and-extend-actions"></a>Répondre aux déclencheurs et étendre des actions
 
-Chaque application logique commence avec un déclencheur. Par exemple, votre flux de travail peut être démarré par un événement de calendrier, un appel manuel ou un événement issu d’un système externe, tel que le déclencheur « when a file is added to an FTP server » (lorsqu’un fichier est ajouté à un serveur FTP). Actuellement, Azure Logic Apps prend en charge plus de 100 connecteurs prêts à l’emploi, des connecteurs SAP locaux à Azure Cognitive Services. Pour les systèmes et services pour lesquels aucun connecteur n’a été publié, vous pouvez également étendre les applications logiques.
+Chaque application logique commence avec un déclencheur. Par exemple, votre flux de travail peut être démarré par un événement de calendrier, un appel manuel ou un événement issu d’un système externe, tel que le déclencheur « when a file is added to an FTP server » (lorsqu’un fichier est ajouté à un serveur FTP). Actuellement, Azure Logic Apps prend en charge plus de 100 connecteurs prêts à l’emploi, des connecteurs SAP locaux à Microsoft Cognitive Services. Pour les systèmes et services pour lesquels aucun connecteur n’a été publié, vous pouvez également étendre les applications logiques.
 
 * [Créer des actions ou des déclencheurs personnalisés](../logic-apps/logic-apps-create-api-app.md)
 * [Configurer des actions de longue durée pour les exécutions de flux de travail](../logic-apps/logic-apps-create-api-app.md)
@@ -75,6 +75,10 @@ Les applications logiques offrent également une intégration avec de nombreux s
 * [Appeler Azure Functions à partir d’applications logiques](../logic-apps/logic-apps-azure-functions.md)
 * [Scénario : Déclencher des applications logiques avec Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Blog : Appeler des points de terminaison SOAP à partir d’applications logiques](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+
+## <a name="end-to-end-scenarios"></a>Scénarios de bout en bout
+
+* [Livre blanc : Gestion de cas de bout en bout d’intégration d’entreprise avec des services Azure, tels que des applications logiques](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

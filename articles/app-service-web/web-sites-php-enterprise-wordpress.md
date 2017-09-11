@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: b562e8cbc84fc3a1e7e6dab1845022dfcce692a3
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 21281955458a2632d96a91d884cab13803f4d296
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="enterprise-class-wordpress-on-azure"></a>WordPress en version entreprise sur Azure
@@ -164,7 +163,7 @@ Une fois que le site WordPress a été créé ou migré, utilisez les informatio
 | **Définition du mode de plan d’App Service, la taille et activation de la mise à l'échelle** |[Faire évoluer une application web dans Azure App Service][websitescale] |
 | **Activation des connexions permanentes de base de données** |Par défaut, WordPress n’utilise aucune connexion de base de données permanente, ce qui peut ralentir les connexions à votre base de données après plusieurs connexions. Pour permettre la mise en place de connexions persistantes, installez le [plug-in de l’adaptateur de connexions persistantes](https://wordpress.org/plugins/persistent-database-connection-updater/installation/). |
 | **Amélioration des performances** |<ul><li><p><a href="https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">Désactiver le cookie ARR</a> : peut améliorer les performances lorsque le système WordPress est exécuté sur plusieurs instances Web Apps.</p></li><li><p>Activation de la mise en cache. Vous pouvez utiliser le <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Cache Redis</a> (version préliminaire) avec le <a href="https://wordpress.org/plugins/redis-object-cache/">plug-in WordPress Redis Object Cache</a> ou l’une des offres de mise en cache proposées dans <a href="/gallery/store/">Microsoft Azure Store</a>.</p></li><li><p>[Accélération de WordPress avec Wincache](https://wordpress.org/plugins/w3-total-cache/). Wincache est activé par défaut pour les applications Web Apps. Quand vous utilisez conjointement WinCache et le cache dynamique, désactivez le cache de fichiers de WinCache, mais laissez le cache d’utilisateur et de session activé. Pour désactiver le cache de fichiers, dans un fichier .ini de niveau système, définissez la valeur suivante :<br/><code>wincache.fcenabled = 0</code></p></li><li><p>[Mise à l’échelle d’une application dans Azure App Service][websitescale] et <a href="http://www.cleardb.com/developers/cdbr/introduction">Routage haute disponibilité ClearDB</a> ou <a href="http://www.mysql.com/products/cluster/">Cluster CGE MySQL</a>.</p></li></ul> |
-| **Utilisation d’objets blob pour le stockage** |<ol><li><p>[Création d’un compte de stockage Azure](../storage/storage-create-storage-account.md).</p></li><li><p>Apprenez à [utiliser le réseau de distribution de contenu](../cdn/cdn-create-new-endpoint.md) pour géo-distribuer les données stockées dans les objets blob.</p></li><li><p>Installez et configurez le <a href="https://wordpress.org/plugins/windows-azure-storage/">Plug-in Azure Storage pour WordPress</a>.</p><p>Pour des informations détaillées sur l’installation et la configuration du plug-in, consultez le <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">guide d’utilisation</a>.</p> </li></ol> |
+| **Utilisation d’objets blob pour le stockage** |<ol><li><p>[Création d’un compte de stockage Azure](../storage/common/storage-create-storage-account.md).</p></li><li><p>Apprenez à [utiliser le réseau de distribution de contenu](../cdn/cdn-create-new-endpoint.md) pour géo-distribuer les données stockées dans les objets blob.</p></li><li><p>Installez et configurez le <a href="https://wordpress.org/plugins/windows-azure-storage/">Plug-in Azure Storage pour WordPress</a>.</p><p>Pour des informations détaillées sur l’installation et la configuration du plug-in, consultez le <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">guide d’utilisation</a>.</p> </li></ol> |
 | **Activation d’e-mail** |Activez <a href="https://azure.microsoft.com/en-us/marketplace/partners/sendgrid/sendgrid-azure/">SendGrid</a> via Microsoft Azure Store. Installez le <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified">plug-in SendGrid</a> pour WordPress. |
 | **Configurer un nom de domaine personnalisé** |[Configurer un nom de domaine personnalisé dans Azure App Service][customdomain] |
 | **Activation du protocole HTTPS pour un nom de domaine personnalisé** |[Activer le protocole HTTPS pour une application web dans Azure App Service][httpscustomdomain] |

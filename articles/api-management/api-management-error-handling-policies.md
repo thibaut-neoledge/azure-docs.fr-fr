@@ -3,7 +3,7 @@ title: "Gestion des erreurs dans les stratégies de la Gestion des API Azure | M
 description: "Découvrez comment répondre aux conditions d’erreur qui peuvent se produire lors du traitement des demandes dans la Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 672b36fc80d8826247b3104ca8c5ffb13e45fa59
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestion des erreurs dans les stratégies de la Gestion des API
@@ -128,8 +130,3 @@ La Gestion des API Azure permet aux éditeurs de répondre aux conditions d’er
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation des stratégies, consultez la page [Stratégies dans la Gestion des API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

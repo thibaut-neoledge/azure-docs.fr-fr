@@ -43,11 +43,7 @@
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - Sécuriser vos bases de données SQL
       href: sql-database-security-tutorial.md
-    - name: 4 – Améliorer les performances de la base de données SQL
-      href: sql-database-performance-tutorial.md
-    - name: 5 - Implémenter une application mutualisée
-      href: sql-database-multi-tenant-application.md
-    - name: "6\_- Mettre en œuvre une base de données réparties géographiquement"
+    - name: "4\_- Mettre en œuvre une base de données géo-distribuée"
       href: sql-database-implement-geo-distributed-database.md
 - name: Exemples
   items:

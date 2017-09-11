@@ -52,7 +52,13 @@
 
 ## Gérer
 ### [Bibliothèques de gestion de Service Bus](service-bus-management-libraries.md)
-### [Utilisation de modèles Azure Resource Manager](service-bus-resource-manager-overview.md)
+### [Utiliser les modèles Azure Resource Manager](service-bus-resource-manager-overview.md)
+#### [Créer un espace de noms](service-bus-resource-manager-namespace.md)
+#### [Créer un espace de noms et une file d’attente](service-bus-resource-manager-namespace-queue.md)
+#### [Créer des espaces de noms avec des rubriques et des abonnements](service-bus-resource-manager-namespace-topic.md)
+#### [Créer une règle d’autorisation pour les espaces de noms et les files d’attente](service-bus-resource-manager-namespace-auth-rule.md)
+#### [Créer des espaces de noms avec des rubriques, des abonnements et des règles](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [Utilisation de PowerShell pour approvisionner des entités](service-bus-manage-with-ps.md)
 
 # Référence
@@ -77,7 +83,7 @@
 ## [ServiceBus360](https://www.servicebus360.com/)
 ## [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=service-bus)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azureservicebus)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 

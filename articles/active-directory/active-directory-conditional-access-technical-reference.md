@@ -11,83 +11,158 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/22/2017
+ms.date: 08/28/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: db7d8b6b2cbe1604fc1b02cc36780ddd83a4d350
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: f96189735512090f993f61c0d64a249f650ea2a2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Référence technique d’Azure Active Directory Conditional Access
 
-## <a name="services-enabled-with-conditional-access"></a>Services activés avec accès conditionnel
+Avec l’[accès conditionnel Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), vous pouvez préciser les méthodes d’accès des utilisateurs autorisés aux ressources.  
+Cette rubrique fournit des informations de support sur les éléments suivants d’une stratégie d’accès conditionnel : 
 
-Les règles d’accès conditionnel sont prises en charge sur différents types d’application Azure AD. Cette liste comprend les éléments suivants :
+- Affectations des applications cloud
 
-
-* Applications inscrites auprès du proxy d’application Azure
-* Application distante Azure
-* Applications métiers et mutualisées développées inscrites auprès d’Azure AD
-* Dynamics CRM
-* Applications fédérées dans la galerie d’applications Azure AD
-* Microsoft Office 365 Yammer
-* Microsoft Office 365 Exchange Online
-* Microsoft Office 365 SharePoint Online (y compris OneDrive Entreprise)
-* Microsoft Power BI 
-* Application d’authentification unique par mot de passe dans la galerie d’applications Azure AD
-* Visual Studio Team Services
-* Microsoft Teams
+- Conditions des applications clientes
 
 
 
+## <a name="cloud-apps-assignments"></a>Affectations des applications cloud
+
+Lorsque vous configurez une stratégie d’accès conditionnel, vous devez [sélectionner les applications cloud auxquelles s’applique votre stratégie](active-directory-conditional-access-azure-portal.md#who). 
+
+![Contrôle](./media/active-directory-conditional-access-technical-reference/09.png)
+
+
+### <a name="microsoft-cloud-apps"></a>Applications cloud Microsoft
+
+Vous pouvez affecter une stratégie d’accès conditionnel aux applications cloud Microsoft  suivantes :
+
+- Application distante Azure
+
+- Dynamics CRM
+
+- Microsoft Office 365 Yammer
+
+- Microsoft Office 365 Exchange Online
+
+- Microsoft Office 365 SharePoint Online (y compris OneDrive Entreprise)
+
+- Microsoft Power BI 
+
+- Visual Studio Team Services
+
+- Microsoft Teams
+
+
+### <a name="other-apps"></a>Autres applications 
+
+Outre les applications cloud Microsoft, vous pouvez affecter une stratégie d’accès conditionnel aux types d’applications cloud suivants :
+
+- applications connectées à Azure Active Directory (Azure AD) ;
+
+- applications software as a service (SaaS) fédérées préintégrées ;
+
+- applications qui utilisent l’authentification unique (SSO) par mot de passe ;
+
+- applications métier ;
+
+- applications utilisant le proxy d’application Azure AD. 
+
+
+## <a name="client-apps-conditions"></a>Conditions des applications clientes 
+
+Lorsque vous configurez une stratégie d’accès conditionnel, vous pouvez définir une [condition d’applications clientes](active-directory-conditional-access-azure-portal.md#client-apps). La condition d’applications clientes permet d’accorder ou de bloquer l’accès en cas de tentative d’accès à partir de ces types d’applications clientes :
+
+- Browser
+- Applications mobiles et de bureau
+
+![Contrôle](./media/active-directory-conditional-access-technical-reference/03.png)
+
+
+### <a name="supported-browsers"></a>Navigateurs pris en charge 
+
+Si vous sélectionnez *Navigateurs* dans votre stratégie d’accès conditionnel pour accorder un accès aux ressources, celui-ci n’est accordé que si la tentative d’accès est effectuée à partir d’un navigateur pris en charge. Dans le cas contraire, la tentative est bloquée.
+
+![Navigateurs pris en charge](./media/active-directory-conditional-access-technical-reference/05.png)
+
+Dans une stratégie d’accès conditionnel, les navigateurs suivants sont pris en charge : 
+
+
+| SE                     | Navigateurs                 | Support     |
+| :--                    | :--                      | :-:         |
+| Win 10                 | IE, Edge                 | ![Vérification][1] |
+| Win 10                 | Chrome                   | VERSION PRÉLIMINAIRE     |
+| Win 8/8.1            | IE, Chrome               | ![Vérification][1] |
+| Win 7                  | IE, Chrome               | ![Vérification][1] |
+| iOS                    | Safari                   | ![Vérification][1] |
+| Android                | Chrome                   | ![Vérification][1] |
+| Windows Phone          | IE, Edge                 | ![Vérification][1] |
+| Windows Server 2016    | IE, Edge                 | ![Vérification][1] |
+| Windows Server 2016    | Chrome                   | Bientôt disponible |
+| Windows Server 2012 R2 | IE, Chrome               | ![Vérification][1] |
+| Windows Server 2008 R2 | IE, Chrome               | ![Vérification][1] |
+| Mac OS                 | Safari                   | ![Vérification][1] |
+| Mac OS                 | Chrome                   | Bientôt disponible |
+
+> [!NOTE]
+> Pour la prise en charge de Chrome, vous devez utiliser Windows 10 Creators Update et installer l’extension disponible [ici](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+
+### <a name="supported-mobile-apps-and-desktop-clients"></a>Applications mobiles et clients de bureau
+
+Si vous sélectionnez **Applications mobiles et clients de bureau** dans votre stratégie d’accès conditionnel pour accorder un accès aux ressources, celui-ci n’est accordé que si la tentative d’accès est effectuée à partir d’applications mobiles ou de clients de bureau pris en charge. Dans le cas contraire, la tentative est bloquée.
+
+![Contrôle](./media/active-directory-conditional-access-technical-reference/06.png)
+
+Les applications mobiles et clients de bureau suivants prennent en charge l’accès conditionnel à Office 365 et à d’autres applications de service connectées à Azure AD :
+
+
+| Applications clientes| Service cible| Plateforme |
+| :-- | --- | --- |
+| Stratégie MFA et d’emplacement pour les applications. Les stratégies basées sur les appareils ne sont pas prises en charge.| Tout service d’application Mes applications| Android et iOS|
+| Application distante Azure| Service Application distante Azure| Windows 10, Windows 8.1, Windows 7, iOS, Android et MAC OS X|
+| Application Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, Android|
+| Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, MAC OS X, iOS, Android, WP et client web| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android et MAC OS X|
+| Messagerie/Calendrier/Contacts, Outlook 2016, Outlook 2013 (avec authentification moderne), Skype Entreprise (avec authentification moderne)| Office 365 Exchange Online| Windows 10|
+| Outlook 2016, Outlook 2013 (avec authentification moderne), Skype Entreprise (avec authentification moderne)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Application Outlook Mobile| Office 365 Exchange Online| iOS|
+| Outlook 2016 (Office pour Mac OS)| Office 365 Exchange Online| Mac OS X|
+| Applications Office 2016, applications Universal Office, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), prise en charge à venir des groupes Office et de l’application SharePoint| Office 365 SharePoint Online| Windows 10|
+| Applications Office 2016, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Applications mobiles Office| Office 365 SharePoint Online| iOS, Android|
+| Office 2016 pour Mac OS (Word, Excel, PowerPoint, OneNote uniquement). Prise en charge de OneDrive Entreprise prévue| Office 365 SharePoint Online| Mac OS X|
+| Application Yammer Office| Office 365 Yammer| Windows 10, iOS, Android|
+| Application PowerBI. L’application Power BI pour Android ne prend pas en charge actuellement l’accès conditionnel en fonction de l’appareil.| Service PowerBI| Windows 10, Windows 8.1, Windows 7 et iOS|
+| Application Visual Studio Team Services| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS, Android|
 
 
 
 
 
 
-## <a name="enable-access-rules"></a>Activer les règles d’accès
-Chaque règle peut être activée ou désactivée sur la base de l’application. Lorsque les règles sont activées ( **ON** ), elles s’appliquent à tous les utilisateurs qui accèdent à l’application. Lorsqu’elles sont désactivées ( **OFF** ), elles ne sont pas utilisées et n’ont aucun impact sur l’expérience de connexion de l’utilisateur.
-
-## <a name="applying-rules-to-specific-users"></a>Application de règles à des utilisateurs spécifiques
-Des règles peuvent être appliquées à des ensembles spécifiques d’utilisateurs basés sur le groupe de sécurité en définissant l’option **Appliquer à**. L’option **Appliquer à** peut être définie sur **Tous les utilisateurs** ou **Groupes**. Lorsqu’elle est définie sur **Tous les utilisateurs** , les règles s’appliquent à n’importe quel utilisateur ayant accès à l’application. L’option **Groupes** permet de sélectionner des groupes de sécurité et de distribution spécifiques, et d’appliquer les règles à ces groupes uniquement.
-
-Lorsque vous déployez une règle, il est courant de commencer par l’appliquer à un ensemble limité d’utilisateurs, qui sont membres d’un groupe pilote. Une fois cette opération terminée, la règle peut être appliquée à **tous les utilisateurs**. Cela entraînera l’application de la règle à tous les utilisateurs de l'organisation.
-
-Des groupes sélectionnés peuvent également être exclus de la stratégie à l’aide de l’option **Sauf** . Tous les membres de ces groupes seront exclus et ce, même s’ils apparaissent dans un groupe inclus.
-
-## <a name="at-work-networks"></a>Réseaux Au bureau
-Les règles d’accès conditionnel qui utilisent un réseau Au bureau s’appuient sur des plages d’adresses IP approuvées qui ont été configurées dans Azure AD, ou utilisent la revendication Au sein du réseau d'entreprise d’AD FS. Ces règles incluent les éléments suivants :
-
-* Exiger l’authentification multifacteur à l’extérieur de l’entreprise
-* Bloquer l’accès quand l’utilisateur n’est pas au bureau
-
-Options pour la spécification des réseaux Au bureau
-
-1. Configurez les plages d’adresses IP approuvées sur la [page des paramètres de l’authentification multifacteur](../multi-factor-authentication/multi-factor-authentication-whats-next.md). La stratégie d’accès conditionnel utilisera les plages configurées sur chaque demande d’authentification et l’émission de jetons pour l’évaluation des règles. 
-2. Configurez l’utilisation de la revendication Au sein du réseau d’entreprise (cette option peut être utilisée avec des répertoires fédérés) à l’aide d’AD FS. Pour en savoir plus sur les revendications au sein d’un réseau d’entreprise, consultez [Adresses IP approuvées](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
 
 
-## <a name="rules-based-on-application-sensitivity"></a>Règles basées sur le critère de diffusion des applications
-Les règles sont configurées par application, permettant ainsi aux services à valeur élevée d’être sécurisé sans affecter l’accès à d’autres services. Les règles d’accès conditionnel peuvent être configurées dans l’onglet **Configurer** de l’application. 
 
-Règles actuellement proposées :
 
-* **Imposer l’authentification multifacteur**
-  
-  * Tous les utilisateurs auxquels cette stratégie est appliquée devront s’identifier au moins une fois via l’authentification multifacteur.
-* **Exiger l’authentification multifacteur à l’extérieur de l’entreprise**
-  
-  * Si cette stratégie est appliquée, tous les utilisateurs devront avoir effectué au moins une fois l’authentification multifacteur s’ils accèdent au service à partir d’un emplacement distant non professionnel. S’ils se déplacent du bureau vers un emplacement distant, ils devront effectuer l’authentification multifacteur lors de l’accès au service.
-* **Bloquer l’accès quand l’utilisateur n’est pas au bureau** 
-  
-  * Lorsque les utilisateurs se déplacent de leur travail vers un emplacement distant, ils seront bloqués si la stratégie "Bloquer l'accès quand l'utilisateur n'est pas au travail" leur est appliquée.  Ils seront de nouveau autorisés à y accéder lorsqu’ils se trouvent au bureau.
 
-## <a name="related-topics"></a>Rubriques connexes
-* [Sécurisation de l’accès à Office 365 et à d’autres applications connectées à Azure AD](active-directory-conditional-access.md)
-* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+
+
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Vous trouverez une vue d’ensemble de l’accès conditionnel sur la page [Accès conditionnel Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- Si vous êtes prêt à configurer des stratégies d’accès conditionnel dans votre environnement, consultez les [Meilleures pratiques d’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md).
+
+
+
+<!--Image references-->
+[1]: ./media/active-directory-conditional-access-technical-reference/01.png
+
 
 

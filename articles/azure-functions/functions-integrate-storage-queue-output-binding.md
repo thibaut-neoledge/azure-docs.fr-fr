@@ -4,23 +4,23 @@ description: "Utilisez Azure Functions pour créer une fonction sans serveur ap
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/17/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 57c59273a9da55f3e357764c522b444ae2d73cb5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
@@ -39,7 +39,7 @@ Dans Azure Functions, les liaisons d’entrée et de sortie fournissent une mé
  
 1. Développez à la fois votre application de fonction et votre fonction.
 
-2. Cliquez sur **Intégrer** et **+ Nouvelle sortie**, sélectionnez **Stockage File d’attente Azure**, puis enfin **Sélectionner**.
+2. Cliquez sur **Intégrer** et **+ Nouvelle sortie**, puis choisissez **Stockage File d’attente Azure** et **Sélectionner**.
     
     ![Ajoutez une liaison de sortie de stockage de files d’attente à une fonction dans le Portail Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -51,7 +51,7 @@ Dans Azure Functions, les liaisons d’entrée et de sortie fournissent une mé
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nom de la file d’attente**   | éléments myqueue    | Le nom de la file d’attente à connecter à votre compte de stockage. |
     | **Connexion au compte de stockage** | AzureWebJobStorage | Vous pouvez utiliser la connexion de compte de stockage qui est déjà utilisée par votre application de fonction, ou créez-en une.  |
-    | **Nom de message de paramètre** | outQueueItem | Le nom du paramètre de liaison de sortie. | 
+    | **Nom de message de paramètre** | outputQueueItem | Le nom du paramètre de liaison de sortie. | 
 
 4. Cliquez sur **Enregistrer** pour ajouter la liaison.
  
@@ -61,11 +61,11 @@ Maintenant que vous avez défini une liaison de sortie, vous devez mettre à jou
 
 1. Sélectionnez la fonction pour afficher le code de fonction dans l’éditeur. 
 
-2. Pour une fonction C#, mettez à jour la définition de fonction comme suit, afin d’ajouter le paramètre de liaison de stockage **outQueueItem**. Ignorez cette étape pour une fonction JavaScript.
+2. Pour une fonction C#, mettez à jour la définition de fonction comme suit, afin d’ajouter le paramètre de liaison de stockage **outputQueueItem**. Ignorez cette étape pour une fonction JavaScript.
 
     ```cs   
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-        ICollector<string> outQueueItem, TraceWriter log)
+        ICollector<string> outputQueueItem, TraceWriter log)
     {
         ....
     }
@@ -74,12 +74,12 @@ Maintenant que vous avez défini une liaison de sortie, vous devez mettre à jou
 3. Ajoutez le code suivant à la fonction, juste avant que la méthode ne revienne. Utilisez l’extrait de code approprié pour la langue de votre fonction.
 
     ```javascript
-    context.bindings.outQueueItem = "Name passed to the function: " + 
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
                 (req.query.name || req.body.name);
     ```
 
     ```cs
-    outQueueItem.Add("Name passed to the function: " + name);     
+    outputQueueItem.Add("Name passed to the function: " + name);     
     ```
 
 4. Sélectionnez **Enregistrer** pour enregistrer les modifications.
@@ -100,7 +100,7 @@ Par la suite, vous pouvez vous connecter à votre compte de stockage afin de vé
 
 Ignorez les trois premières étapes si vous avez déjà installé l’Explorateur de stockage et si vous l’avez connecté à votre compte de stockage.    
 
-1. Dans votre fonction, sélectionnez **Intégrer** et la nouvelle liaison de sortie **Stockage de files d’attente Azure**, puis développez **Documentation**. Copiez le **Nom de compte** et la **Clé de compte**. Vous utilisez ces informations d’identification pour vous connecter au compte de stockage.
+1. Dans votre fonction, sélectionnez **Intégrer**, et choisissez la nouvelle liaison de sortie **Stockage de files d’attente Azure**, puis développez **Documentation**. Copiez le **Nom de compte** et la **Clé de compte**. Vous utilisez ces informations d’identification pour vous connecter au compte de stockage.
  
     ![Obtenez les informations d’identification de connexion au compte de stockage.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
@@ -112,7 +112,7 @@ Ignorez les trois premières étapes si vous avez déjà installé l’Explorate
   
     ![Collez les informations d’identification de stockage et connectez-vous.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
-4. Développez le compte de stockage attaché, cliquez avec le bouton droit sur **Files d’attente** et vérifiez qu’une file d’attente nommée **éléments myqueue** existe. Vous devriez également déjà voir un message dans la file d’attente.  
+4. Développez le compte de stockage attaché, puis **Files d’attente**, et vérifiez qu’une file d’attente nommée **myqueue-items** existe. Vous devriez également déjà voir un message dans la file d’attente.  
  
     ![Créez une file d’attente de stockage.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  

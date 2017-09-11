@@ -1,27 +1,28 @@
 ---
-title: "Azure Active Directory B2C : configuration du jeton, de la session et de l’authentification unique | Microsoft Docs"
+title: "Configuration des jetons, des sessions et de l’authentification unique - Azure AD B2C | Microsoft Docs"
 description: "Configuration du jeton, de la session et de l’authentification unique dans Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: parakhj
+manager: krassk
+editor: parakhj
 ms.assetid: e78e6344-0089-49bf-8c7b-5f634326f58c
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2017
-ms.author: swkrish
+ms.date: 08/16/2017
+ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 4442174a857681adff33001e660809ec7d47ad7d
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 256c93e5c343cba022599f8e13c5b7616bfa8b58
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C : configuration du jeton, de la session et de l’authentification unique
+
 Cette fonctionnalité vous donne un contrôle précis, [par stratégie](active-directory-b2c-reference-policies.md), de ce qui suit :
 
 1. Durées de vie des jetons de sécurité émis par Azure Active Directory (Azure AD) B2C.
@@ -29,21 +30,22 @@ Cette fonctionnalité vous donne un contrôle précis, [par stratégie](active-d
 3. Formats des revendications importantes dans les jetons de sécurité émis par Azure AD B2C.
 4. Comportement de l’authentification unique (SSO) entre plusieurs applications et stratégies dans votre client B2C.
 
-Vous pouvez utiliser cette fonctionnalité dans votre client B2C comme suit :
+Pour les stratégies intégrées, vous pouvez utiliser cette fonctionnalité dans votre annuaire Azure AD B2C de la façon suivante :
 
-1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) sur le portail Azure.
-2. Cliquez sur **Stratégies d’authentification**. *Remarque : vous pouvez utiliser cette fonctionnalité avec n’importe quel type de stratégie, pas seulement les **stratégies de connexion***.
-3. Ouvrez une stratégie en cliquant dessus. Par exemple, cliquez sur **B2C_1_SiIn**.
-4. Cliquez sur **Modifier** dans la partie supérieure du panneau.
+1. Suivez ces étapes pour [accéder au menu des fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) sur le Portail Azure.
+2. Cliquez sur **Stratégies d’inscription ou de connexion**. *Remarque : vous pouvez utiliser cette fonctionnalité sur tous types de stratégies, pas seulement les **Stratégies d’inscription ou de connexion***.
+3. Ouvrez une stratégie en cliquant dessus. Par exemple, cliquez sur **B2C_1_SiUpIn**.
+4. Cliquez sur **Modifier** en haut du menu.
 5. Cliquez sur **Configuration du jeton, de la session et de l’authentification unique**.
 6. Apportez les modifications voulues. Apprenez-en plus sur les propriétés disponibles dans les sections suivantes.
 7. Cliquez sur **OK**.
-8. Cliquez sur **Enregistrer** dans la partie supérieure du panneau.
+8. Cliquez sur **Enregistrer** en haut du menu.
 
 ## <a name="token-lifetimes-configuration"></a>Configuration de la durée de vie des jetons
+
 Azure AD B2C prend en charge le [protocole d’autorisation OAuth 2.0](active-directory-b2c-reference-protocols.md) pour activer l’accès sécurisé aux ressources protégées. Pour implémenter cette prise en charge, Azure AD B2C émet divers [jetons de sécurité](active-directory-b2c-reference-tokens.md). Ce sont les propriétés que vous pouvez utiliser pour gérer les durées de vie des jetons de sécurité émis par Azure AD B2C :
 
-* **Durées de vie du jeton d’accès et d’ID (minutes)** : la durée de vie du jeton du porteur OAuth 2.0 utilisé pour accéder à une ressource protégée. À ce stade, Azure AD B2C émet uniquement des jetons d’ID. Cette valeur peut s’appliquer aux jetons d’accès également, une fois leur prise en charge ajoutée.
+* **Durées de vie du jeton d’accès et d’ID (minutes)** : la durée de vie du jeton du porteur OAuth 2.0 utilisé pour accéder à une ressource protégée.
   * Par défaut : 60 minutes.
   * Valeur minimale (inclusive) : 5 minutes.
   * Valeur maximale (inclusive) : 1 440 minutes.
@@ -66,7 +68,8 @@ Voici quelques cas d’usage que vous pouvez activer à l’aide de ces proprié
     > 
     > 
 
-## <a name="token-compatibility-settings"></a>Paramètres de conformité de jeton
+## <a name="token-compatibility-settings"></a>Paramètres de compatibilité de jeton
+
 Nous avons apporté des modifications de mise en forme aux revendications importantes dans les jetons de sécurité émis par Azure AD B2C. Cela a été fait pour améliorer la prise en charge du protocole standard et pour une meilleure interopérabilité avec les bibliothèques d’identité tierces. Toutefois, pour éviter d’interrompre les applications existantes, nous avons créé les propriétés suivantes pour permettre aux clients de participer en fonction de leurs besoins :
 
 * **Revendication de l’émetteur (iss)** : identifie le client Azure AD B2C qui a émis le jeton.
@@ -80,6 +83,7 @@ Nous avons apporté des modifications de mise en forme aux revendications import
   * **acr** : uniquement fourni pour la compatibilité descendante, nous vous recommandons de passer à `tfp` dès que vous le pouvez.
 
 ## <a name="session-behavior"></a>Comportement de la session
+
 Azure AD B2C prend en charge le [protocole d’authentification OpenID Connect](active-directory-b2c-reference-oidc.md) pour activer l’authentification sécurisée dans les applications web. Voici les propriétés que vous pouvez utiliser pour gérer les sessions d’application web :
 
 * **Durée de vie de session d’application web (minutes)**: la durée de vie du cookie de session Azure AD B2C stocké dans le navigateur de l’utilisateur après une authentification réussie.
@@ -104,7 +108,7 @@ Si vous avez plusieurs applications et stratégies dans votre client B2C, vous p
 * **Client**: il s’agit du paramètre par défaut. L’utilisation de ce paramètre permet à plusieurs applications et stratégies dans votre client B2C de partager la même session utilisateur. Par exemple, lorsqu’un utilisateur se connecte à une application, Contoso Shopping, il peut également se connecter de façon transparente à une autre application, Contoso Pharmacy, lorsqu’il y accède.
 * **Application**: ceci vous permet de maintenir une session utilisateur exclusivement pour une application, indépendamment des autres applications. Par exemple, si vous souhaitez que l’utilisateur se connecte à Contoso Pharmacy (avec les mêmes informations d’identification), même s’il est déjà connecté à Contoso Shopping, une autre application sur le même client B2C. 
 * **Stratégie**: ceci vous permet de maintenir une session utilisateur exclusivement pour une stratégie, indépendamment des applications qui l’utilisent. Par exemple, si l’utilisateur s’est déjà connecté et a effectué une étape d’authentification multifacteur, il peut obtenir l’accès à des parties plus sécurisées de plusieurs applications tant que la session liée à la stratégie n’expire pas.
-* **Désactivé**: ceci oblige l’utilisateur à réexécuter toute la procédure pour chaque exécution de la stratégie. Par exemple, cela permet à plusieurs utilisateurs de s’inscrire à votre application (dans un scénario de bureau partagé), même lorsqu’un seul utilisateur reste connecté pendant toute la durée.
+* **Désactivé**: ceci oblige l’utilisateur à réexécuter toute la procédure pour chaque exécution de la stratégie. Par exemple, cela permet à plusieurs utilisateurs de s’inscrire à votre application (dans un scénario de type bureau partagé), même si un seul utilisateur reste connecté pendant toute la durée.
 
     > [!NOTE]
     > Ces paramètres ne sont pas disponibles pour les stratégies de réinitialisation de mot de passe.

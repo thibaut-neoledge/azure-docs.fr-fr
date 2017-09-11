@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 26e2becf7810950fd5734fd70c1fed225149ec4d
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 72ec71814d3c56d1f1df947329eaf66b7dc8f1cf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/24/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Dois-je choisir Cloud Services ou un autre service ?
@@ -43,7 +42,7 @@ Déploie et héberge automatiquement votre application, via IIS.
 * **Rôle de travail**  
 Exécute votre application de façon autonome, sans utiliser IIS.
 
-Par exemple, une application simple peut utiliser un rôle web unique, servant un site web. À l’inverse, une application plus complexe peut utiliser un rôle web pour traiter les requêtes entrantes des utilisateurs, puis transmettre ces requêtes à un rôle de travail, à des fins de traitement. (Cette communication pourrait utiliser [Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) ou les [files d’attente Azure](../storage/storage-introduction.md).)
+Par exemple, une application simple peut utiliser un rôle web unique, servant un site web. À l’inverse, une application plus complexe peut utiliser un rôle web pour traiter les requêtes entrantes des utilisateurs, puis transmettre ces requêtes à un rôle de travail, à des fins de traitement. (Cette communication pourrait utiliser [Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) ou les [files d’attente Azure](../storage/common/storage-introduction.md).)
 
 Ainsi que le suggère la figure ci-dessus, toutes les machines virtuelles d’une même application s’exécutent dans le même service cloud. Les utilisateurs accèdent à l’application par le biais d’une seule adresse IP publique, avec un équilibrage automatique de la charge des requêtes entre les machines virtuelles de cette application. La plateforme [met à l’échelle et déploie](cloud-services-how-to-scale.md) les machines virtuelles dans une application Cloud Services, afin d’éviter un point unique de défaillance matérielle.
 

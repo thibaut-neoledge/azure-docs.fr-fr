@@ -12,19 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/18/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 508cf1ebaf4d7ee87c4d6b5e3dd3abd64366f8e8
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 8ddea06b1a90e9b1599466ad4d1c3af7a6dc8ba9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
 Ce FAQ Microsoft est une liste des questions fréquemment posées concernant Log Analytics dans Microsoft Operations Management Suite (OMS). Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
 
 ## <a name="general"></a>Généralités
+
+### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>Q : Log Analytics utilise-t-il le même agent qu’Azure Security Center ?
+
+R : Au début du mois de juin 2017, Azure Security Center a commencé à utiliser Microsoft Monitoring Agent pour collecter et stocker des données. Pour en savoir plus, consultez [Forum aux questions sur la migration de plateforme Azure Security Center](../security-center/security-center-platform-migration-faq.md).
+
 ### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>Q : Quels sont les contrôles effectués par les solutions AD et SQL Assessment ?
 
 R. La requête suivante comporte une description de tous les contrôles effectués actuellement :
@@ -80,8 +85,8 @@ Lorsque vous créez l’alerte d’arrêt de la collecte de données, définisse
 - **Requête de recherche** : `Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
 - **Fenêtre de temps** : *2 heures*
 - **Fréquence de l’alerte** : une heure, car les données d’utilisation ne sont mises à jour qu’une fois par heure.
-- **Générer l’alerte en fonction de** : *nombre de résultats*
-- **Nombre de résultats** : *Supérieur à 0*
+- **Générer l’alerte selon** sur *nombre de résultats*
+- **Nombre de résultats** sur *Greater than 0* (Supérieur à 0)
 
 Suivez les étapes décrites dans [ajouter des actions à des règles d’alerte](log-analytics-alerts-actions.md) afin de configurer une action de type courrier électronique, webhook ou runbook pour la règle d’alerte.
 

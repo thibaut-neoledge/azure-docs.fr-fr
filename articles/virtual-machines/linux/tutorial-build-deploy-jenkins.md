@@ -8,17 +8,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 967cd38f0961cd11871c538d753cab9951c2f1f5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a40e26a8681df31fad664e4d1df4c1513311900d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -51,7 +51,7 @@ Vous allez :
 
 ## <a name="get-the-sample-app"></a>Obtenir l’exemple d’application
 
-Vous devez déployer une application stockée dans un référentiel Git.
+Vous devez déployer une application stockée dans un dépôt Git.
 Pour ce didacticiel, nous vous recommandons d’utiliser [cet exemple d’application disponible sur GitHub](https://github.com/azooinmyluggage/fabrikam-node).
 
 1. Dupliquez cette application et notez son emplacement (URL) pour pouvoir l’utiliser ultérieurement dans ce didacticiel.
@@ -59,7 +59,7 @@ Pour ce didacticiel, nous vous recommandons d’utiliser [cet exemple d’applic
 1. La duplication de l’application doit être **publique** pour simplifier la connexion à GitHub plus tard.
 
 > [!NOTE]
-> Pour plus d’informations, consultez [Fork A Repo](https://help.github.com/articles/fork-a-repo/) (Dupliquer un référentiel)et [Making a private repository public](https://help.github.com/articles/making-a-private-repository-public/) (Rendre public un référentiel privé).
+> Pour plus d’informations, consultez [Fork A Repo](https://help.github.com/articles/fork-a-repo/) (Dupliquer un dépôt) et [Making a private repository public](https://help.github.com/articles/making-a-private-repository-public/) (Rendre public un dépôt privé).
 
 > [!NOTE]
 > L’application a été générée à l’aide de [Yeoman](http://yeoman.io/learning/index.html) ; elle utilise **Express**, **bower** et **grunt** et comprend certains packages **npm** en tant que dépendances.
@@ -88,14 +88,14 @@ Dans Jenkins, créez un projet de génération et configurez-le comme suit :
 
 1. Dans l’onglet **Général**, entrez un nom pour votre projet de génération.
 
-1. Dans l’onglet **Gestion du code source**, sélectionnez **Git** et entrez les détails du référentiel et la branche qui contient le code de votre application.
+1. Dans l’onglet **Gestion du code source**, sélectionnez **Git** et entrez les détails du dépôt et la branche qui contient le code de votre application.
 
-   ![Ajouter un référentiel à votre génération](media/tutorial-build-deploy-jenkins/jenkins-git.png)
+   ![Ajouter un dépôt à votre génération](media/tutorial-build-deploy-jenkins/jenkins-git.png)
 
    > [!NOTE]
-   > Si votre référentiel n’est pas public, choisissez **Ajouter** et fournissez des informations d’identification pour la connexion.
+   > Si votre dépôt n’est pas public, choisissez **Ajouter** et fournissez des informations d’identification pour la connexion.
 
-1. Dans l’onglet **Build Triggers** (Générer des déclencheurs), sélectionnez **Poll SCM** (Interroger SCM) et entrez la planification `H/03 * * * *` pour interroger le référentiel Git pour les modifications toutes les trois minutes. 
+1. Dans l’onglet **Build Triggers** (Générer des déclencheurs), sélectionnez **Poll SCM** (Interroger SCM) et entrez la planification `H/03 * * * *` pour interroger le dépôt Git pour les modifications toutes les trois minutes. 
 
 1. Dans l’onglet **Build Environment** (Générer un environnement), sélectionnez **Provide Node &amp; npm bin/ folder PATH** (Fournir le CHEMIN D’ACCÈS au dossier npm bin/ et à Node) et saisissez `NodeJS` pour la valeur d’installation de Node JS. Laissez **npmrc file** (fichier npmrc) défini sur « utiliser les valeurs par défaut du système ».
 
@@ -239,7 +239,7 @@ La tâche **Script Shell** est utilisée pour fournir la configuration d’un sc
 1. Dans la définition de mise en production, décochez la case **Activé** dans la section **Options de contrôle** des paramètres de la tâche Déploiement de groupe de ressources Azure.
    Pour les futurs déploiements sur le groupe de déploiement existant, vous n’avez pas besoin de réexécuter cette tâche.
 
-1. Accédez au référentiel Git source et modifiez le contenu du titre **h1** dans le fichier [app/views/index.jade](https://github.com/azooinmyluggage/fabrikam-node/blob/master/app/views/index.jade).
+1. Accédez au dépôt Git source et modifiez le contenu du titre **h1** dans le fichier [app/views/index.jade](https://github.com/azooinmyluggage/fabrikam-node/blob/master/app/views/index.jade).
 
 1. Validez votre modification.
 
@@ -255,7 +255,7 @@ Dans ce didacticiel, vous avez automatisé le déploiement d’une application A
 > * Créer un groupe de déploiement pour les machines virtuelles Azure
 > * Créer une définition de mise en production qui configure les machines virtuelles et déploie l’application
 
-Suivez ce lien pour consulter des exemples de scripts de machine virtuelle prédéfinis.
+Passez au didacticiel suivant pour en savoir plus sur le déploiement d’une pile LAMP (Linux, Apache, MySQL et PHP).
 
 > [!div class="nextstepaction"]
-> [Exemples de scripts de machine virtuelle Linux](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/virtual-machine)
+> [Déploiement d’une pile LAMP dans Azure](tutorial-lamp-stack.md)

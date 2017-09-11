@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/25/2017
+ms.date: 08/04/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 70922ec4813d32580acdd20bf43521fcc2d24081
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 4e2de9c4d1c0f92970911e132fffaacbd01d9ad0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/24/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Définir des infrastructures de confiance avec l’infrastructure d’expérience d’identité Azure AD B2C
 
-Les stratégies personnalisées Azure Active Directory B2C (Azure AD B2C) qui tirent parti de l’infrastructure d’expérience d’identité fournissent un service centralisé à votre organisation. Ce service permet de réduire la complexité de la fédération des identités dans une communauté d’intérêts étendue à une relation d’approbation unique et à un échange de métadonnées unique.
+Les stratégies personnalisées Azure Active Directory B2C (Azure AD B2C) qui utilisent l’infrastructure d’expérience d’identité fournissent un service centralisé à votre organisation. Ce service permet de réduire la complexité de la fédération des identités au sein d’une large communauté d’intérêts. La complexité est réduite à une seule relation d’approbation et à un seul échange de métadonnées.
 
-Les stratégies personnalisées Azure AD B2C qui tirent parti de l’infrastructure d’expérience d’identité vous permettent de répondre aux questions suivantes :
+Les stratégies personnalisées Azure AD B2C qui utilisent l’infrastructure d’expérience d’identité permettent de répondre aux questions suivantes :
 
 - Quelles stratégies de conformité, de sécurité, de confidentialité et de protection des données doivent être appliquées ?
 - Quels sont les contacts et les processus pour devenir un participant agréé ?
@@ -77,7 +76,7 @@ En d’autres termes, une spécification d’infrastructure de confiance défini
 
 Il existe actuellement un large consensus sur les avantages d’une telle approche. Il ne fait aucun doute que les spécifications d’infrastructure de confiance facilitent le développement d’écosystèmes d’identité numérique avec des caractéristiques de sécurité, de garantie et de confidentialité vérifiables, ce qui signifie qu’ils peuvent être réutilisés à travers plusieurs communautés d’intérêts.
 
-Pour cette raison, les stratégies personnalisées Azure AD B2C reposant sur l’infrastructure d’expérience d’identité utilisent la spécification comme base de sa représentation des données pour une infrastructure de confiance afin de faciliter l’interopérabilité.  
+C’est pourquoi les stratégies personnalisées Azure AD B2C reposant sur l’infrastructure d’expérience d’identité utilisent la spécification comme base de leur représentation des données, afin qu’une infrastructure de confiance puisse faciliter l’interopérabilité.  
 
 Les stratégies personnalisées Azure AD B2C qui tirent parti de l’infrastructure d’expérience d’identité représentent une spécification d’infrastructure de confiance comme un mélange de données lisibles par les humains et d’autres lisibles par un ordinateur. Certaines sections de ce modèle (en général, les sections qui sont les plus orientées vers la gouvernance) sont représentées en tant que références à une documentation publiée sur les politiques de sécurité et de confidentialité, ainsi que sur les procédures associées (le cas échéant). D’autres sections décrivent en détail les règles de métadonnées et d’exécution de configuration qui facilitent l’automatisation des opérations.
 
@@ -114,9 +113,9 @@ En termes d’implémentation, la spécification d’infrastructure de confiance
 > [!NOTE]
 > Nous faisons collectivement référence à tous les types possibles d’informations d’identité qui peuvent être échangées en tant que « revendications » : les revendications concernant les informations d’authentification d’un utilisateur, la vérification d’identité, le périphérique de communication, l’emplacement physique, les attributs d’identification personnelle, etc.  
 >
-> Nous utilisons le terme « revendications » au lieu de celui « d’attributs », car dans le cas des transactions en ligne, celles-ci ne sont pas des faits qui peuvent être vérifiés directement par la partie de confiance. Il s’agit plutôt d’assertions, ou de revendications, à propos de faits pour lesquels la partie de confiance doit développer une confiance suffisante pour accorder la transaction demandée de l’utilisateur final.  
+> Nous utilisons le terme « revendications » au lieu d’« d’attributs », car, dans les transactions en ligne, ces artefacts de données ne sont pas des faits directement vérifiables par la partie de confiance. Il s’agit plutôt d’assertions, ou de revendications, à propos de faits pour lesquels la partie de confiance doit développer une confiance suffisante pour accorder la transaction demandée de l’utilisateur final.  
 >
-> Nous utilisons aussi le terme « revendications » parce que les stratégies personnalisées Azure AD B2C reposant sur l’infrastructure d’expérience d’identité sont conçues pour simplifier l’échange de tous les types d’informations d’identité numériques de manière cohérente, que le protocole sous-jacent soit ou non défini pour l’authentification des utilisateurs ou la récupération des attributs.  De même, nous utilisons le terme « fournisseurs de revendications » pour désigner collectivement les fournisseurs d’identité, les fournisseurs d’attributs et les vérificateurs d’attributs quand nous ne voulons pas faire la distinction entre leurs fonctions respectives.   
+> Nous utilisons aussi le terme « revendications » parce que les stratégies personnalisées Azure AD B2C qui utilisent l’infrastructure d’expérience d’identité sont conçues pour simplifier l’échange de tous types d’informations d’identité numériques de manière cohérente, que le protocole sous-jacent soit ou non défini pour l’authentification des utilisateurs ou la récupération des attributs.  De même, nous utilisons le terme « fournisseurs de revendications » pour désigner collectivement les fournisseurs d’identité, les fournisseurs d’attributs et les vérificateurs d’attributs quand nous ne voulons pas faire la distinction entre leurs fonctions respectives.   
 
 Par conséquent, elles déterminent comment les informations d’identité sont échangées entre une partie de confiance, les fournisseurs d’identité et d’attributs, et les vérificateurs d’attributs. Elles spécifient les fournisseurs d’identité et d’attributs requis pour l’authentification d’une partie de confiance. Elles doivent être considérées comme un langage spécifique à un domaine, autrement dit un langage informatique spécialisé dans un domaine d’application spécifique avec de l’héritage, des instructions *if* et du polymorphisme.
 
@@ -126,7 +125,7 @@ Elles sont supposées être des *documents dynamiques*, car il est probable que 
 
 La configuration et la gestion de la fédération sont grandement simplifiées en épargnant aux parties de confiance la reconfiguration permanente de la connectivité et de l’approbation lors de l’arrivée ou du départ des différents fournisseurs/vérificateurs de revendications de la communauté représentée par l’ensemble de stratégies.
 
-L’interopérabilité est un autre défi important. Des fournisseurs/vérificateurs de revendications supplémentaires doivent être intégrés, car les parties de confiance sont peu susceptibles de prendre en charge tous les protocoles nécessaires. Les stratégies personnalisées Azure AD B2C résolvent ce problème en prenant en charge les protocoles standard et en appliquant des parcours utilisateur spécifiques pour transposer les demandes quand les parties de confiance et les fournisseurs d’attributs ne prennent pas en charge le même protocole.  
+L’interopérabilité est un autre défi important. D’autres fournisseurs/vérificateurs de revendications doivent être intégrés, car il est peu probable que les parties de confiance prennent en charge tous les protocoles nécessaires. Les stratégies personnalisées Azure AD B2C résolvent ce problème en prenant en charge les protocoles standard et en appliquant des parcours utilisateur spécifiques pour transposer les demandes quand les parties de confiance et les fournisseurs d’attributs ne prennent pas en charge le même protocole.  
 
 Les parcours utilisateur incluent les profils et les métadonnées des protocoles qui sont utilisés pour analyser l’interopérabilité réseau entre la partie de confiance et les autres participants. Il existe également des règles de runtime opérationnelles qui seront appliquées aux messages de demande/réponse des échanges d’informations d’identité afin de garantir la conformité avec les stratégies publiées dans le cadre de la spécification d’infrastructure de confiance. L’idée de parcours utilisateur est fondamentale pour la personnalisation de l’expérience utilisateur. Elle apporte également un éclairage sur la façon dont le système fonctionne au niveau du protocole.
 

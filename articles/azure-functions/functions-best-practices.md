@@ -4,7 +4,7 @@ description: "Découvrez les bonnes pratiques et les modèles pour Azure Functio
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, modèles, bonne pratique, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 06/13/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 5408bf986b67d420d4d1359961ec83510c97cd05
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 645a5dd16e72619e7c2470ab8f03098f0fa6c7f8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -88,9 +87,9 @@ N’utilisez pas de journalisation détaillée dans le code de production. Cela 
 
 
 
-## <a name="use-async-code-but-avoid-taskresult"></a>Utiliser du code asynchrone tout en évitant Task.Result
+## <a name="use-async-code-but-avoid-blocking-calls"></a>Utiliser du code asynchrone tout en évitant de bloquer les appels
 
-La programmation asynchrone est une pratique recommandée. Toutefois, évitez toujours de référencer la propriété `Task.Result`. Cette approche peut mener à un épuisement des threads.
+La programmation asynchrone est une pratique recommandée. Toutefois, évitez toujours de référencer la propriété `Result` ou d’appeler la méthode `Wait` sur une instance `Task`. Cette approche peut mener à un épuisement des threads.
 
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]

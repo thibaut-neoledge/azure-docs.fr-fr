@@ -13,12 +13,6 @@
 ### [Tâche 3 : Configurer le groupe d’administrateurs et activer Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
 ### [Tâche 4 : Mettre à jour les paramètres DNS du réseau virtuel](active-directory-ds-getting-started-dns.md)
 ### [Tâche 5 : Activer la synchronisation de mot de passe](active-directory-ds-getting-started-password-sync.md)
-## Portail Azure classique (déconseillé)
-### [Tâche 1 : Créer le groupe d’administrateurs](active-directory-ds-getting-started-create-group.md)
-### [Tâche 2 : Créer ou sélectionner un réseau virtuel](active-directory-ds-getting-started-vnet.md)
-### [Tâche 3 : Activer Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
-### [Tâche 4 : Mettre à jour les paramètres DNS du réseau virtuel](active-directory-ds-getting-started-update-dns.md)
-### [Tâche 5 : Activer la synchronisation de mot de passe](active-directory-ds-getting-started-password-sync.md)
 
 # Procédures
 ## Joindre un domaine géré

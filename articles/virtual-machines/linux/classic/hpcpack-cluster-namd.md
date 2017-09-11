@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 46d71ebd493004bc1ac1b7634722d2abe8b67343
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e31845f3d7aa08357b0e8a1b3b77d97302442ac3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Exécution de NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure
@@ -87,7 +87,7 @@ Générer une paire de clés RSA contenant une clé publique et une clé privée
 > 
 
 ## <a name="set-up-a-file-share-for-linux-nodes"></a>Configuration d’un partage de fichiers pour les nœuds Linux
-À présent, configurez un partage de fichiers SMB et montez le dossier partagé sur tous les nœuds Linux pour leur permettre d’accéder aux fichiers NAMD avec un chemin d’accès commun. Les étapes de montage d’un dossier partagé sur le nœud principal sont décrites ci-après. Un partage est recommandé pour les distributions comme CentOS 6.6 qui ne prennent pas en charge Azure File Service pour le moment. Si vos nœuds Linux prennent en charge un partage de fichiers Azure, consultez [Utilisation du stockage de fichiers Azure avec Linux](../../../storage/storage-how-to-use-files-linux.md). Pour des options supplémentaires de partage des fichiers avec HPC Pack, consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](hpcpack-cluster.md).
+À présent, configurez un partage de fichiers SMB et montez le dossier partagé sur tous les nœuds Linux pour leur permettre d’accéder aux fichiers NAMD avec un chemin d’accès commun. Les étapes de montage d’un dossier partagé sur le nœud principal sont décrites ci-après. Un partage est recommandé pour les distributions comme CentOS 6.6 qui ne prennent pas en charge Azure File Service pour le moment. Si vos nœuds Linux prennent en charge un partage de fichiers Azure, consultez [Utilisation du stockage de fichiers Azure avec Linux](../../../storage/files/storage-how-to-use-files-linux.md). Pour des options supplémentaires de partage des fichiers avec HPC Pack, consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](hpcpack-cluster.md).
 
 1. Créez un dossier sur le nœud principal et partagez-le avec Tout le monde en définissant des privilèges de lecture/écriture. Dans cet exemple, \\\\CentOS66HN\Namd est le nom du dossier (où CentOS66HN est le nom d’hôte du nœud principal).
 2. Créez un sous-dossier nommé namd2 dans le dossier partagé. Créez un autre sous-dossier nommé namdsample dans namd2.

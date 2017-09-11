@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/14/2017
 ms.author: markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: f41132d69dbbc9e5871851220e5f7de933c50efe
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 91451b2cdc42ed05ef7c1ba9c66ad5b4b45dd788
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Gérer les serveurs et les coffres Azure Backup à l’aide du modèle de déploiement classique
@@ -93,7 +93,7 @@ Dans l’onglet **Configurer** , vous pouvez sélectionner l’option de redonda
 
 ![Configuration](./media/backup-azure-manage-windows-server-classic/configure.png)
 
-Consultez cet article pour plus d’informations sur la [redondance du stockage](../storage/storage-redundancy.md).
+Consultez cet article pour plus d’informations sur la [redondance du stockage](../storage/common/storage-redundancy.md).
 
 ## <a name="microsoft-azure-backup-agent-tasks"></a>Tâches de l’agent Microsoft Azure Backup
 ### <a name="console"></a>Console

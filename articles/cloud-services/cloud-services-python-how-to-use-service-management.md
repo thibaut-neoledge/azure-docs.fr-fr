@@ -1,5 +1,5 @@
 ---
-title: "Utilisation de l&quot;API de gestion des services (Python) - Guide des fonctionnalités"
+title: "Utilisation de l'API de gestion des services (Python) - Guide des fonctionnalités"
 description: "Découvrez comment effectuer des tâches courantes de gestion des services par programme à partir de Python."
 services: cloud-services
 documentationcenter: python
@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: ee96a30d10f882da936f554152fab8a9c6897807
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-use-service-management-from-python"></a>Utilisation de la gestion des services à partir de Python
@@ -172,7 +171,7 @@ Pour supprimer un déploiement, utilisez la méthode **delete\_deployment**. L�
     sms.delete_deployment('myhostedservice', 'v1')
 
 ## <a name="CreateStorageService"> </a>Création d’un service de stockage
-Un [service de stockage](../storage/storage-create-storage-account.md) vous donne accès aux [objets blob](../storage/storage-python-how-to-use-blob-storage.md), [tables](../storage/storage-python-how-to-use-table-storage.md) et [files d’attente](../storage/storage-python-how-to-use-queue-storage.md) Azure. Pour créer un service de stockage, vous avez besoin d’un nom pour le service (comprenant entre 3 et 24 lettres minuscules et unique au sein d’Azure), une description, une étiquette (jusqu’à 100 caractères, automatiquement codés en base64) et un emplacement. L'exemple suivant indique comment créer un service de stockage en spécifiant un emplacement.
+Un [service de stockage](../storage/common/storage-create-storage-account.md) vous donne accès aux [objets blob](../storage/blobs/storage-python-how-to-use-blob-storage.md), [tables](../cosmos-db/table-storage-how-to-use-python.md) et [files d’attente](../storage/queues/storage-python-how-to-use-queue-storage.md) Azure. Pour créer un service de stockage, vous avez besoin d’un nom pour le service (comprenant entre 3 et 24 lettres minuscules et unique au sein d’Azure), une description, une étiquette (jusqu’à 100 caractères, automatiquement codés en base64) et un emplacement. L'exemple suivant indique comment créer un service de stockage en spécifiant un emplacement.
 
     from azure import *
     from azure.servicemanagement import *

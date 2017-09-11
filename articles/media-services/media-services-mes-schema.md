@@ -2,7 +2,7 @@
 title: "Schéma Media Encoder Standard | Microsoft Docs"
 description: "Cette rubrique fournit une vue d’ensemble du schéma Media Encoder Standard."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 13a3da67da28a1cdebd784e9e33021bb2c2668ce
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: c9333e745c75f134e045ee6d15c3552449d8edc3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="media-encoder-standard-schema"></a>Schéma Media Encoder Standard

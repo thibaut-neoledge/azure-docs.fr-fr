@@ -1,7 +1,7 @@
 ---
-title: "Mettre à niveau un coffre Site Recovery vers Recovery Services"
-description: "Découvrez comment mettre à niveau un coffre Azure Site Recovery vers Recovery Services"
-ddocumentationcenter: 
+title: "Mettre à niveau un coffre Site Recovery vers un coffre Recovery Services"
+description: "Découvrez comment mettre à niveau un coffre Azure Site Recovery vers un coffre Recovery Services"
+documentationcenter: 
 author: rajani-janaki-ram
 manager: rochakm
 editor: 
@@ -14,125 +14,127 @@ ms.workload: storage-backup-recovery
 ms.date: 07/31/2017
 ms.author: rajani-janaki-ram
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 523cab85b195d85007bd85c45dbe3645f7a00ab1
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: fdb33ea0d08353b491f2934fcf885fcb6910b9a2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="upgrade-site-recovery-vaults-to-azure-resource-manager-based-recovery-services-vaults"></a>Mettre à niveau des coffres Site Recovery vers Azure Resource Manager Recovery Services
+# <a name="upgrade-a-site-recovery-vault-to-an-azure-resource-manager-based-recovery-services-vault"></a>Mettre à niveau un coffre Site Recovery vers un coffre Recovery Services basé sur Azure Resource Manager
 
-Cet article explique comment mettre à niveau des « Coffres Site Recovery » vers des « Coffres Recovery Service » basés sur Azure Resource Manager sans aucun impact sur la réplication en cours. Pour en savoir plus sur les fonctionnalités et avantages d’Azure Resource Manager, consultez [cet article](../azure-resource-manager/resource-group-overview.md).
+Cet article explique comment mettre à niveau des coffres Azure Site Recovery vers des coffres Recovery Services s’appuyant sur Azure Resource Manager sans impact sur la réplication en cours. Pour plus d’informations sur les fonctionnalités et les avantages d’Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="introduction"></a>Introduction
-Coffre Recovery Services est une ressource Azure Resource Manager qui vous permet de gérer vos besoins en sauvegarde et en récupération d’urgence en mode natif dans le cloud. Il s’agit d’un coffre unifié qui peut être utilisé dans le nouveau portail Azure. Il remplace les coffres Sauvegarde et Site Recovery classiques.
+Un coffre Recovery Services est une ressource Azure Resource Manager permettant de gérer la sauvegarde et la récupération d’urgence en mode natif dans le cloud. Il s’agit d’un coffre unifié que vous pouvez utiliser dans le nouveau portail Azure et qui remplace les coffres Site Recovery et de sauvegarde classique.
 
-Les coffres Recovery Services donnent accès à un ensemble de fonctionnalités, notamment :
+Les coffres Recovery Services offrent tout un ensemble de fonctionnalités, notamment :
 
--   Prise en charge d’Azure Resource Manager : vous pouvez protéger et basculer vos machines virtuelles et ordinateurs physiques dans la pile Azure Resource Manager.
+* Prise en charge d’Azure Resource Manager : vous pouvez protéger et basculer vos machines virtuelles et ordinateurs physiques dans une pile Azure Resource Manager.
 
--   Exclusion de disque : si vous avez des fichiers temporaires ou des données avec un taux de variation élevé pour lesquels vous ne souhaitez pas utiliser la bande passante, vous pouvez exclure des volumes de la réplication. Cette fonctionnalité est activée actuellement pour « VMware vers Azure » et « Hyper-V vers Azure », et sera bientôt étendue à d’autres scénarios.
+* Exclusion de disque : si vous avez des fichiers temporaires ou des données avec un taux de variation élevé pour lesquels vous ne souhaitez pas utiliser toute la bande passante, vous pouvez exclure des volumes de la réplication. Cette fonctionnalité est actuellement activée dans *VMware vers Azure* et *Hyper-V vers Azure*, et elle est également étendue à d’autres scénarios.
 
-- Prise en charge du Stockage localement redondant et Premium : vous pouvez désormais protéger des serveurs dans des comptes de stockage Premium qui permettent aux clients de protéger les applications avec des E/S plus élevées. Cette fonctionnalité est activée actuellement dans « VMware vers Azure ».
+* Prise en charge du stockage localement redondant et Premium : vous pouvez désormais protéger des serveurs dans des comptes de stockage Premium qui permettent aux clients de protéger les applications avec des opérations d’entrée/sortie par seconde (IOPS) plus élevées. Cette fonctionnalité est activée actuellement dans *VMware vers Azure*.
 
--   Expérience de démarrage simplifiée : l’expérience avancée de démarrage a été adaptée afin que la configuration de la récupération d’urgence soit le plus simple possible.
+* Expérience de démarrage simplifiée : l’expérience avancée de démarrage a été conçue pour faciliter au maximum la configuration de la récupération d’urgence.
 
-- Gérer Sauvegarde et Site Recovery à partir du même coffre : vous pouvez désormais protéger les serveurs pour la récupération d’urgence ou effectuer une sauvegarde à partir du même coffre, ce qui réduit considérablement la surcharge de gestion.
+* Gestion de la sauvegarde et de Site Recovery à partir du même coffre : vous pouvez désormais protéger les serveurs avec la récupération d’urgence ou effectuer une sauvegarde à partir du même coffre, ce qui peut réduire considérablement la surcharge de gestion.
 
-Pour plus d’informations sur les fonctionnalités et sur l’expérience de mise à niveau, consultez ce [blog](https://azure.microsoft.com/blog/azure-site-recovery-now-available-in-a-new-experience-with-support-for-arm-and-csp/).
+Pour plus d’informations sur l’expérience et les fonctionnalités mises à niveau, consultez le [blog sur le stockage, la sauvegarde et la récupération](https://azure.microsoft.com/blog/azure-site-recovery-now-available-in-a-new-experience-with-support-for-arm-and-csp/).
 
 ## <a name="salient-features"></a>Principales fonctionnalités
 
-- **Aucun impact sur la réplication en cours**: les réplications en cours se poursuivent sans interruption pendant et après la mise à niveau.
+* Aucun impact sur la réplication en cours : les réplications en cours se poursuivent sans interruption pendant et après la mise à niveau.
 
-- **Aucun coût supplémentaire** : bénéficiez de tout un ensemble de nouvelles fonctionnalités sans coût supplémentaire.
+* Aucun coût supplémentaire : à disposition, un ensemble complet de fonctionnalités mises à jour sans coût supplémentaire.
 
-- **Aucune perte de données** : s’agissant d’une mise à niveau et non d’une migration, les informations de réplication existantes (points de récupération, paramètres de réplication etc.) restent intactes pendant et après la mise à niveau.
+* Aucune perte de données : s’agissant d’un processus de mise à niveau et non d’une migration, les paramètres ainsi que les points de récupération et de réplication existants restent intactes pendant et après la mise à niveau.
 
 
-## <a name="what-happens-during-the-upgrade"></a>Que se passe-t-il pendant la mise à niveau ?
+## <a name="what-happens-during-the-vault-upgrade"></a>Que se passe-t-il pendant la mise à niveau ?
 
-Les opérations, telles que l’inscription d’un nouveau serveur ou l’activation de la réplication d’une machine virtuelle, ne sont pas autorisées pendant la mise à niveau. Toute opération qui implique simplement la lecture ou l’écriture de données dans le coffre, comme la réplication en cours d’éléments protégés dans le coffre, se poursuit sans interruption.
+Lors de la mise à niveau, vous ne pouvez pas effectuer d’opérations, telles que l’inscription d’un nouveau serveur ou l’activation de la réplication pour une machine virtuelle. Toute opération qui implique la lecture ou l’écriture de données dans le coffre, comme la réplication en cours d’éléments protégés dans le coffre, se poursuit sans interruption.
 
-## <a name="changes-to-your-automation-and-tooling-after-vault-upgrade"></a>Changements de vos services d’automatisation et de vos outils après la mise à niveau du coffre
-Dans le cadre de la mise à niveau du coffre du modèle de déploiement classique vers le modèle de déploiement Resource Manager, vous devez mettre à jour votre automatisation ou vos outils pour vous assurer qu’ils continueront à fonctionner après la mise à niveau.
+### <a name="changes-to-automation-and-tooling-after-the-upgrade"></a>Changements dans les services d’automatisation et d’outils après la mise à niveau
+Lorsque vous mettez à niveau le type du coffre, en passant du modèle de déploiement classique au modèle de déploiement Resource Manager, mettez à jour l’automatisation ou les outils existants pour être sûr qu’ils continuent de fonctionner après la mise à niveau.
 
-## <a name="preparing-your-environment-for-vault-upgrade"></a>Préparation de votre environnement pour la mise à niveau du coffre
+### <a name="prepare-your-environment-for-the-upgrade"></a>Préparation de votre environnement en vue de la mise à niveau
 
-1.  Installez/mettez à niveau PowerShell avec la version 5 ou ultérieure via ce [lien](https://www.microsoft.com/download/details.aspx?id=50395).
+* [Installer PowerShell ou le mettre à niveau vers la version 5 ou une version ultérieure](https://www.microsoft.com/download/details.aspx?id=50395)
+* [Installer la dernière version d’Azure PowerShell MSI](https://github.com/Azure/azure-powershell/releases)
+* [Télécharger le script de mise à niveau du coffre Recovery Services](https://aka.ms/vaultupgradescript)
 
-2.  Installez la dernière version d’Azure PowerShell MSI à partir de ce [lien](https://github.com/Azure/azure-powershell/releases).
+### <a name="prerequisites"></a>Prérequis
+Afin de mettre à niveau les coffres Site Recovery vers des coffres Recovery Services s’appuyant sur Azure Resource Manager, vous devez respecter les conditions suivantes :
 
-3.  [Téléchargez](https://aka.ms/vaultupgradescript) le script de mise à niveau du coffre.
+* Version minimale de l’agent : la version du fournisseur Azure Site Recovery installée sur votre serveur doit être 5.1.1700.0 ou une version ultérieure.
 
-## <a name="prerequisites-for-upgrade"></a>Prérequis pour la mise à niveau
-Vous devez respecter les prérequis suivants pour pouvoir mettre à niveau vos coffres Site Recovery vers Azure Resource Manager Recovery Services.
+* Configuration prise en charge : vous ne pouvez pas configurer votre coffre avec le réseau de zone de stockage (SAN) ou des groupes de disponibilité AlwaysOn SQL Server. Toutes les autres configurations sont prises en charge.
 
-- Version minimale de l’agent : la mise à niveau exige que la version du fournisseur Azure Site Recovery installée sur votre serveur soit au moins 5.1.1700.0.
+    >[!NOTE]
+    >Après la mise à niveau, vous pouvez gérer le mappage de stockage uniquement via PowerShell.
 
-- Configuration prise en charge : votre coffre ne doit pas être configuré avec SAN ou des groupes de disponibilité SQL AlwaysOn. Toutes les autres configurations sont prises en charge.
+* Scénario de déploiement pris en charge : votre coffre ne doit pas être le modèle de déploiement hérité *VMware vers Azure*. Avant de continuer, commencez par passer au modèle de déploiement amélioré.
 
->[!NOTE]
-> Le mappage de stockage ne peut être géré par le biais de PowerShell qu’après la mise à niveau.
+* Aucun travail actif initié par l’utilisateur qui implique des opérations de plan de gestion : l’accès au plan de gestion étant limité pendant la mise à niveau, terminez toutes vos actions de plan de gestion avant de déclencher la mise à niveau. Ce processus n’inclut pas la réplication en cours.
 
-- Scénario de déploiement pris en charge : votre coffre ne doit pas être sur le modèle de déploiement hérité « VMware vers Azure ».  Avant de continuer, vous devez basculer vers le modèle de déploiement amélioré.
+## <a name="frequently-asked-questions"></a>Forum Aux Questions
 
-- Aucun travail actif initié par l’utilisateur qui implique des opérations de plan de gestion : l’accès au plan de gestion étant limité pendant la mise à niveau, vous devez terminer toutes vos actions de plan de gestion, puis déclencher la mise à niveau. Cela n’inclut pas la réplication en cours.
+**Cette mise à niveau affecte-t-elle la réplication en cours ?**
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+Non. La réplication en cours se poursuit sans interruption pendant et après la mise à niveau.
 
-- Cette mise à niveau affecte-t-elle la réplication en cours ?
+**Que passe-t-il avec les paramètres réseau, tels que les paramètres IP et VPN de site à site ?**
 
-  Non. La réplication en cours se poursuit sans interruption pendant et après la mise à niveau.
+La mise à niveau n’affecte pas les paramètres réseau. Toutes les connexions depuis Azure vers un emplacement local demeurent intactes.
 
-- Que passe-t-il avec les paramètres réseau (VPN de site à site, paramètres IP, et ainsi de suite) ?
+**Qu’advient-il de mes coffres si je n’envisage pas d’effectuer la mise à niveau dans un avenir proche ?**
 
-  La mise à niveau n’affecte pas les paramètres réseau. Toutes les connexions entre Azure et l’infrastructure locale restent inchangées.
-- Qu’advient-il de mes coffres si je n’envisage pas d’effectuer la mise à niveau dans un avenir proche ?
+Il est prévu de déprécier la prise en charge du coffre Site Recovery dans l’ancien portail Azure à compter du mois de septembre 2017. Nous préconisons l’utilisation de la fonctionnalité de mise à niveau pour passer au nouveau portail.
 
-  La prise en charge du coffre Site Recovery dans l’ancien portail Azure sera dépréciée à partir du mois de septembre. Par conséquent, nous recommandons vivement aux clients d’utiliser la fonctionnalité de mise à niveau pour passer au nouveau portail.
+**Quelles sont les implications de ce plan de migration pour mes outils existants ?**  
 
-- Quelles sont les implications de ce plan de migration pour mes outils existants ?  
+La mise à jour de vos outils vers le modèle de déploiement Resource Manager constitue l’un des plus importants changements à prendre en compte dans vos plans de mise à niveau. Les coffres Recovery Services s’appuient sur le modèle de déploiement Resource Manager. 
 
-  La mise à jour de vos outils avec le modèle de déploiement Resource Manager sur lequel les coffres Recovery Services sont basés est l’une des principales modifications que vous devez prendre en compte dans vos plans de mise à niveau.
+**Quelle est la durée de l’arrêt du plan de gestion ?**
 
-- Quelle sera la durée de l’arrêt du plan de gestion ?
+La mise à niveau prend généralement entre 15 et 30 minutes environ, et elle peut aller jusqu’à une heure.
 
-  La mise à niveau prend environ 15 à 30 minutes. Elle peut durer jusqu’à une heure.
+**Puis-je restaurer après la mise à niveau ?**
 
-- Puis-je restaurer après la mise à niveau ?
+Non. La restauration n’est pas prise en charge une fois la mise à niveau des ressources opérée avec succès.
 
-  Non. La restauration n’est pas prise en charge une fois la mise à niveau des ressources réussie.
+**Puis-je vérifier si mon abonnement ou mes ressources peuvent faire l’objet d’une mise à niveau ?**
 
-- Puis-je vérifier si mon abonnement ou mes ressources peuvent faire l’objet d’une mise à niveau ?
+Oui. Dans l’option de mise à niveau prise en charge par la plateforme, la première étape de la mise à niveau consiste à vérifier que les ressources peuvent être mises à niveau. Si la validation échoue, vous recevez des messages d’erreur ou des avertissements en conséquence.
 
-  Oui. Dans l’option de mise à niveau prise en charge par la plateforme, la première étape de la mise à niveau consiste à vérifier que les ressources peuvent faire l’objet d’une mise à niveau. En cas d’échec de la validation des prérequis, vous recevez un message d’erreur ou d’avertissement approprié.
+**Comment signaler un problème avec la mise à niveau ?**
 
-- Comment signaler un problème avec la mise à niveau ?
+Si vous rencontrez des échecs lors de la mise à niveau, notez l’ID d’opération qui est répertorié dans l’erreur. Le Support Microsoft travaille activement en amont à la résolution du problème. Vous pouvez aussi contacter l’équipe de support technique et lui communiquer votre ID d’abonnement, le nom du coffre et l’ID de l’opération. Le support technique s’efforce de résoudre le problème le plus rapidement possible. Ne retentez l’opération que si vous y êtes explicitement invité par Microsoft.
 
-  Si vous êtes confronté à des défaillances durant la mise à niveau, notez la valeur OperationId mentionnée dans le message d’erreur. Le Support Microsoft travaillera de façon proactive à la résolution du problème. Vous pouvez aussi contacter l’équipe de support technique et lui communiquer votre ID d’abonnement, le nom du coffre et l’ID de l’opération. Nous nous efforcerons de résoudre le problème au plus tôt. Ne retentez l’opération que sauf si vous y êtes explicitement invité par Microsoft.
+## <a name="run-the-script"></a>Exécuter le script
 
-## <a name="how-to-run-the-script"></a>Comment exécuter le script ?
-
-Exécutez la commande suivante à partir d’une invite de commandes PowerShell :
+Dans PowerShell, exécutez la commande suivante :
 
     PS > .\RecoveryServicesVaultUpgrade-1.0.0.ps1 -SubscriptionID <subscriptionID>  -VaultName <vaultname> -Location <location> -ResourceType HyperVRecoveryManagerVault -TargetResourceGroupName <rgname>
 
-- SubscriptionID : ID d’abonnement associé au coffre en cours de mise à niveau.
-- VaultName : nom du coffre en cours de mise à niveau.
-- Location : emplacement du coffre en cours de mise à niveau.
-- ResourceType : HyperVRecoveryManagerVault pour les coffres Site Recovery.
-- TargetResourceGroupName : groupe de ressources dans lequel vous souhaitez placer le coffre mise à niveau. TargetResourceGroupName peut être un groupe de ressources existant dans Azure Resource Manager ou un nouveau groupe. Si le TargetResourceGroupName fourni n’existe pas, il est créé dans le cadre de la mise à niveau au même emplacement que le coffre. Pour en savoir plus sur les groupes de ressources, cliquez [ici](../azure-resource-manager/resource-group-overview.md#resource-groups) :
+* SubscriptionID : ID d’abonnement associé au coffre qui est en cours de mise à niveau.
 
->[!NOTE]
->Les noms de groupes de ressources sont soumis à certaines contraintes. Ne pas respecter ces contraintes pourrait entraîner l’échec de la mise à niveau du coffre.
+* VaultName : le nom du coffre que vous mettez à niveau.
 
-Exemple :
+* Location : l’emplacement du coffre que vous mettez à niveau.
 
-    .\RecoveryServicesVaultUpgrade-1.0.0.ps1 -SubscriptionId 1234-54123-354354-56416-8645 -VaultName gen2dr -Location "north europe" -ResourceType hypervrecoverymanagervault -TargetResourceGroupName abc
+* ResourceType : HyperVRecoveryManagerVault pour les coffres Site Recovery.
 
+* TargetResourceGroupName : le groupe de ressources dans lequel vous souhaitez placer le coffre mis à niveau. TargetResourceGroupName peut être un groupe de ressources existant dans Azure Resource Manager ou un nouveau groupe. Si le TargetResourceGroupName qui est fourni n’existe pas, il est créé dans le cadre de la mise à niveau au même emplacement que le coffre. Pour plus d’informations, consultez la section « Groupes de ressources » de [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
-Autrement, vous pouvez exécuter le script ci-dessous qui vous invite à fournir des entrées pour tous les paramètres obligatoires.
+    >[!NOTE]
+    >L’attribution de noms de groupe de ressources est soumise à certaines contraintes. Pour éviter un échec de la mise à niveau du coffre, veillez à respecter attentivement la convention d’affectation de noms.
+    >
+    >Par exemple :
+    >
+    >.\RecoveryServicesVaultUpgrade-1.0.0.ps1 -SubscriptionId 1234-54123-354354-56416-8645 -VaultName gen2dr -Location "north europe" -ResourceType hypervrecoverymanagervault -TargetResourceGroupName abc
+
+Vous pouvez également exécuter le script suivant. Entrez les valeurs pour les paramètres obligatoires.
 
     PS > .\RecoveryServicesVaultUpgrade-1.0.0.ps1
     cmdlet RecoveryServicesVaultUpgrade-1.0.0.ps1 at command pipeline position 1
@@ -144,44 +146,44 @@ Autrement, vous pouvez exécuter le script ci-dessous qui vous invite à fournir
     ResourceType:
     TargetResourceGroupName:
 
-1.  Le script PowerShell vous invite à entrer vos informations d’identification. Vous devez entrer vos informations d’identification à deux reprises : une fois pour le compte ASM et une autre pour le compte Azure Resource Manager.
+1. Le script PowerShell vous invite à entrer vos informations d’identification. Entrez-les à deux reprises, une fois pour le compte du modèle de déploiement classique, et une autre pour le compte Azure Resource Manager.
 
-2.  Une fois vos informations d’identification entrées, le script exécute une vérification des prérequis pour déterminer que votre infrastructure respecte les prérequis mentionnés plus haut dans le document.
+2. Lorsque vous avez entré vos informations d’identification, le script exécute une vérification pour déterminer si la configuration de votre infrastructure répond aux exigences mentionnées précédemment.
 
-3.  Une fois les prérequis vérifiés, vous êtes invité à confirmer la poursuite de la mise à niveau du coffre. Après cela, le processus démarre la mise à niveau de votre coffre. La mise à niveau entière peut prendre entre 15 et 30 minutes.
+3. Une fois les prérequis vérifiés et confirmés, vous êtes invité à poursuivre la mise à niveau du coffre. Le processus démarre la mise à niveau de votre coffre. La mise à niveau entière peut prendre entre 15 et 30 minutes.
 
-4.  Une fois la mise à niveau terminée, vous pouvez accéder au coffre mis à niveau dans le nouveau portail Azure.
+4. Dès que la mise à niveau est terminée, vous pouvez accéder au coffre mis à niveau dans le nouveau portail Azure.
 
-## <a name="management-experience-post-upgrade"></a>Expérience de gestion après la mise à niveau
+## <a name="post-upgrade-vault-management"></a>Gestion du coffre après la mise à niveau
 
-### <a name="how-to-replicate-using-azure-site-recovery-in-the-recovery-services-vault"></a>Réplication à l’aide d’Azure Site Recovery dans le coffre Recovery Services
+### <a name="replicate-by-using-azure-site-recovery-in-the-recovery-services-vault"></a>Répliquer à l’aide d’Azure Site Recovery dans le coffre Recovery Services
 
-- Vous pouvez maintenant protéger vos machines virtuelles Azure d’une région à une autre. Pour en savoir plus, consultez [cette documentation](site-recovery-azure-to-azure.md).
+* Vous pouvez maintenant protéger vos machines virtuelles Azure d’une région à une autre. Pour plus d’informations, consultez [Répliquer des machines virtuelles Azure entre des régions avec Azure Site Recovery](site-recovery-azure-to-azure.md).
 
-- Pour en savoir plus sur la réplication des machines virtuelles VMware vers Azure, consultez [cette documentation](vmware-walkthrough-overview.md).
+* Pour plus d’informations sur la réplication des machines virtuelles VMware vers Azure, consultez [Répliquer des machines virtuelles VMware vers Azure Site Recovery](vmware-walkthrough-overview.md).
 
-- Pour en savoir plus sur la réplication des machines virtuelles Hyper-V (sans VMM) vers Azure, consultez [cette documentation](hyper-v-site-walkthrough-overview.md).
+* Pour plus d’informations sur la réplication des machines virtuelles Hyper-V (sans VMM) vers Azure, consultez [Répliquer des machines virtuelles Hyper-V (sans VMM) vers Azure](hyper-v-site-walkthrough-overview.md).
 
-- Pour en savoir plus sur la réplication des machines virtuelles Hyper-V (avec VMM) vers Azure, consultez [cette documentation](vmm-to-azure-walkthrough-overview.md).
+* Pour plus d’informations sur la réplication des machines virtuelles Hyper-V (avec VMM) vers Azure, consultez [Répliquer vers Azure des machines virtuelles Hyper-V hébergées dans des clouds VMM à l’aide de Site Recovery sur le portail Azure](vmm-to-azure-walkthrough-overview.md).
 
-- Pour en savoir plus sur la réplication des machines virtuelles Hyper-V (avec VMM) vers un site secondaire, consultez [cette documentation](site-recovery-vmm-to-vmm.md).
+* Pour plus d’informations sur la réplication des machines virtuelles Hyper-V (avec VMM) vers un site secondaire, consultez [Répliquer des machines virtuelles Hyper-V dans des clouds VMM sur un site VMM secondaire avec le portail Azure](site-recovery-vmm-to-vmm.md).
 
-- Pour en savoir plus sur la réplication des machines virtuelles VMware vers un site secondaire, consultez [cette documentation](site-recovery-vmware-to-vmware.md).
+* Pour plus d’informations sur la réplication des machines virtuelles VMware vers un site secondaire, consultez [Répliquer des machines virtuelles ou serveurs physiques VMware locaux sur un site secondaire dans le portail Azure Classic](site-recovery-vmware-to-vmware.md).
 
-### <a name="how-to-view-your-replicated-items"></a>Affichage de vos éléments répliqués
+### <a name="view-your-replicated-items"></a>Afficher vos éléments répliqués
 
-Voici la page du tableau de bord de coffre Recovery Services qui montre les entités de clés pour le coffre. Cliquez sur **Site Recovery** -> **Éléments répliqués** pour afficher la liste des entités protégées dans le coffre.
+L’illustration suivante montre la page du tableau de bord de coffre Recovery Services qui affiche les entités de clés pour le coffre. Pour afficher la liste des entités protégées dans le coffre, sélectionnez **Site Recovery** > **Éléments répliqués**.
 
 
 ![Éléments répliqués](./media/upgrade-site-recovery-vaults/replicateditems.png)
 
-L’écran ci-dessous montre le flux de travail pour l’affichage de vos éléments répliqués, et comment lancer un basculement.
+L’illustration suivante montre le flux de travail pour l’affichage de vos éléments répliqués, et la commande **Basculement** pour l’initialisation d’un basculement.
 
 ![Éléments répliqués](./media/upgrade-site-recovery-vaults/failover.png)
 
-### <a name="how-to-view-your-replication-settings"></a>Affichage de vos paramètres de réplication
+### <a name="view-your-replication-settings"></a>Afficher vos paramètres de réplication
 
-Dans le coffre Site Recovery, chaque groupe de protection est configuré avec des paramètres de réplication (fréquence de copie, rétention des points de récupération, fréquence des instantanés de cohérence de l’application, et ainsi de suite). Dans le coffre Recovery Services, ces paramètres sont configurés en tant que stratégie de réplication. Le nom de la stratégie est celui du groupe de protection ou « primarycloud_Policy ».
+Dans le coffre Site Recovery, chaque groupe de protection est configuré à l’aide de la fréquence de copie, la rétention des points de récupération, la fréquence des instantanés de cohérence de l’application ainsi que d’autres paramètres de réplication. Dans le coffre Recovery Services, ces paramètres sont configurés en tant que stratégie de réplication. Le nom de la stratégie est celui du groupe de protection ou de *primarycloud_Policy*.
 
-Pour en savoir plus sur la stratégie de réplication, consultez [cet article](site-recovery-setup-replication-settings-vmware.md).
+Pour plus d’informations sur la stratégie de réplication, consultez [Gérer la stratégie de réplication pour VMware vers Azure](site-recovery-setup-replication-settings-vmware.md).
 

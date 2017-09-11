@@ -108,6 +108,10 @@
           href: csharp.md
         - name: 'Utiliser un modèle avec C#'
           href: csharp-template.md
+        - name: Créer une machine virtuelle avec Chef
+          href: chef-automation.md
+        - name: Utiliser Java
+          href: java.md
         - name: Utiliser Python
           href: python.md
         - name: Utiliser un modèle
@@ -116,6 +120,8 @@
           href: connect-logon.md
         - name: Utiliser le gestionnaire de licences AHUB
           href: hybrid-use-benefit-licensing.md
+        - name: "Utiliser les droits d’hébergement multilocataire de Windows\_10"
+          href: windows-desktop-multitenant-hosting-deployment.md
     - name: Sécuriser des machines virtuelles
       items:
         - name: Encrypt (Chiffrer)

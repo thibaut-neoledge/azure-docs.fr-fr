@@ -53,7 +53,7 @@ Vous pouvez créer une stratégie IPsec/IKE et l’appliquer à une connexion no
 
 ## <a name="ipsecike-policy-faq"></a>Questions fréquentes (FAQ) relatives à la stratégie IPsec/IKE
 
-[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
 ## <a name="next-steps"></a>Étapes suivantes

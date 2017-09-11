@@ -2,7 +2,7 @@
 title: "Documentation Azure ExpressRoute - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à configurer et gérer une connexion ExpressRoute privée aux services cloud Microsoft depuis votre infrastructure locale ou une installation de colocalisation."
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

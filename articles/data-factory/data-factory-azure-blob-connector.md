@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: 7be5e5095b8aa6f2ae3d8c0b636883c4ff7ced63
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2cf955b52010869a4e753c441e17bdd32fd2e63d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Échanger des données avec le Stockage Blob Azure à l’aide d’Azure Data Factory
@@ -168,7 +167,7 @@ Cette section décrit le comportement résultant de l’opération de copie pour
 Examinons comment copier rapidement des données vers/depuis un stockage Blob Azure. Dans cette procédure pas à pas, les banques de données source et de destination sont du type stockage Blob Azure. Le pipeline de cette procédure pas à pas copie des données entre les dossiers d’un même conteneur d’objets blob. Cette procédure pas à pas est volontairement simple pour vous montrer les paramètres ou les propriétés lorsque vous utilisez le Stockage Blob en tant que source ou récepteur. 
 
 ### <a name="prerequisites"></a>Composants requis
-1. Créez un **compte de stockage Azure** à usage général si vous n’en avez pas encore un. Vous utilisez le stockage d’objets blob comme banque de données **source** et de **destination** dans cette procédure pas à pas. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un.
+1. Créez un **compte de stockage Azure** à usage général si vous n’en avez pas encore un. Vous utilisez le stockage d’objets blob comme banque de données **source** et de **destination** dans cette procédure pas à pas. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un.
 2. Créez un conteneur d’objets blob nommé **adfblobconnector** dans le compte de stockage. 
 4. Créez un dossier nommé **input** dans le conteneur **adfblobconnector**.
 5. Créez un fichier nommé **emp.txt** avec le contenu suivant et chargez-le dans le dossier **input** à l’aide d’outils tels [qu’Azure Storage Explorer (Explorateur du Stockage Azure)](https://azurestorageexplorer.codeplex.com/).
@@ -263,8 +262,7 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
 ### <a name="monitor-the-pipeline-copy-task"></a>Surveiller le pipeline (tâche de copie)
 
 1. Cliquez sur le lien `Click here to monitor copy pipeline` dans la page **Déploiement**. 
-2. **L’application Surveiller et Gérer** doit apparaître dans un onglet distinct. 
-    ![Application Surveiller et gérer](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+2. **L’application Surveiller et Gérer** doit apparaître dans un onglet distinct.  ![Application Surveiller et gérer](media/data-factory-azure-blob-connector/monitor-manage-app.png)
 3. Modifiez l’heure de **début** indiquée en haut sur `04/19/2017` et l’heure de **fin** sur `04/27/2017`, puis cliquez sur **Appliquer**. 
 4. La liste **FENÊTRES D’ACTIVITÉ** doit contenir cinq fenêtres d’activité. Les heures **WindowStart** doivent couvrir tous les jours, de l’heure de début du pipeline à son heure de fin. 
 5. Cliquez plusieurs fois sur le bouton **Actualiser** correspondant à la liste **FENÊTRES D’ACTIVITÉ** jusqu’à ce que le statut de toutes les fenêtres d’activité soit défini sur Prêt. 

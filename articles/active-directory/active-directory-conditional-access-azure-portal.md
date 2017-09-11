@@ -13,21 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 0f7e00d1fe6e47e4a04eb2853f09e195a03405ce
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: c97f05caec4c302c847e2297d136c6614e82fd93
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accès conditionnel dans Azure Active Directory
-
-> [!div class="op_single_selector"]
-> * [Portail Azure](active-directory-conditional-access-azure-portal.md)
-> * [portail Azure Classic](active-directory-conditional-access.md)
 
 Tout d’abord, dans un appareil où mobilité et cloud occupent le premier plan, Azure Active Directory autorise une authentification unique sur les appareils, applications et services depuis n’importe où. Avec la prolifération des appareils (y compris des appareils BYOD), des réseaux d’entreprise externes et des applications SaaS tierces, les professionnels de l’informatique sont confrontés à deux objectifs contradictoires :
 
@@ -73,22 +69,22 @@ L’implémentation actuelle d’Azure Active Directory vous permet de configure
 
 - **Multi-factor Authentication** - Grâce à l’authentification multifacteur, vous pouvez appliquer une authentification renforcée. En tant que fournisseur, vous pouvez combiner Azure Multi-Factor Authentication ou une authentification multifacteur locale, avec AD FS (Active Directory Federation Services). L’authentification multifacteur contribue à empêcher tout accès à vos ressources par un utilisateur non autorisé qui peut avoir obtenu l’accès aux informations d’identification d’un utilisateur valide.
 
-- **Appareil conforme** - Vous pouvez définir des stratégies d’accès conditionnel au niveau de l’appareil. Vous pouvez configurer une stratégie permettant seulement aux ordinateurs conformes ou aux appareils mobiles inscrits dans une application de gestion des appareils mobiles d’accéder aux ressources de votre organisation. Par exemple, vous pouvez utiliser Intune pour vérifier la conformité de l’appareil, puis la signaler à Azure AD pour application lorsque l’utilisateur tente d’accéder à une application. Pour obtenir des informations détaillées sur l’utilisation d’Intune afin de protéger les applications et les données, consultez Protéger les données et les applications avec Microsoft Intune. Vous pouvez également utiliser Intune pour appliquer la protection des données pour les appareils perdus ou volés. Pour plus d’informations, consultez Protection de vos données avec effacement complet ou sélectif à l’aide de Microsoft Intune.
+- **Appareil conforme** - Vous pouvez configurer des stratégies d’accès conditionnel au niveau de l’appareil. L’objectif d’une stratégie d’accès conditionnel appareil par appareil est de n’accorder l’accès aux ressources configurées qu’aux appareils de confiance. Vous pouvez par exemple exiger un appareil conforme, ce qui implique de définir ce qu’est un appareil de confiance. Pour plus d’informations, consultez la page [Configurer les stratégies d’accès conditionnel au niveau de l’appareil](active-directory-conditional-access-policy-connected-applications.md).
 
-- **Appareil joint à un domaine** – vous pouvez exiger que l’appareil utilisé pour vous connecter à Azure Active Directory soit joint à un domaine. Cette stratégie s’applique aux tablettes de l’entreprise, ordinateurs portables et ordinateurs de bureau Windows. Pour plus d’informations sur la configuration de l’inscription automatique des appareils joints à un domaine dans Azure AD, consultez [Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration.md).
+- **Appareil joint à un domaine** - Pour configurer des stratégies d’accès conditionnel au niveau de l’appareil, vous pouvez également exiger un appareil joint à un domaine. Cette exigence fait référence aux tablettes professionnelles, ordinateurs portables et ordinateurs de bureau Windows joints à une instance sur site d’Active Directory. Pour plus d’informations, consultez la page [Configurer les stratégies d’accès conditionnel au niveau de l’appareil](active-directory-conditional-access-policy-connected-applications.md).
 
-Si vous avez sélectionné plusieurs exigences dans une stratégie d’accès conditionnel, vous pouvez également les configurer en vue de les appliquer. Vous pouvez rendre un ou l’ensemble des contrôles sélectionnés obligatoires.
+Si vous avez sélectionné plusieurs contrôles, vous pouvez également indiquer si tous ces contrôles sont requis lors du traitement de votre stratégie.
 
 ![Contrôle](./media/active-directory-conditional-access-azure-portal/06.png)
 
 ### <a name="session-controls"></a>Contrôles de session
 Les contrôles de session permettent de limiter l’expérience dans une application cloud. Les contrôles de session sont appliqués par les applications cloud et s’appuient sur des informations supplémentaires fournies par Azure AD à l’application concernant la session.
 
-![Contrôle](./media/active-directory-conditional-access-azure-portal/session-control-pic.png)
+![Contrôle](./media/active-directory-conditional-access-azure-portal/31.png)
 
 #### <a name="use-app-enforced-restrictions"></a>Utiliser les restrictions appliquées par l’application
 Vous pouvez utiliser ce contrôle pour exiger qu’Azure AD transmette les informations d’appareil à l’application cloud. Cela permet à l’application cloud de savoir si l’utilisateur utilise un appareil conforme ou un appareil joint à un domaine. Ce contrôle est actuellement pris en charge uniquement avec SharePoint en comme application cloud. SharePoint utilise les informations d’appareil pour fournir aux utilisateurs une expérience limitée ou complète en fonction de l’état de l’appareil.
-Pour en savoir plus sur la façon d’exiger un accès limité avec SharePoint, cliquez [ici](https://aka.ms/spolimitedaccessdocs).
+Pour savoir plus en détails comment exiger un accès limité avec SharePoint, consultez la page [Contrôler l’accès à partir d’appareils non gérés](https://aka.ms/spolimitedaccessdocs).
 
 ## <a name="condition-statement"></a>Instruction de condition
 
@@ -99,22 +95,29 @@ Vous pouvez inclure les assignations suivantes dans votre instruction de conditi
 ![Contrôle](./media/active-directory-conditional-access-azure-portal/07.png)
 
 
-- **Qui** - Souvent, vous voudrez appliquer vos contrôles à un ensemble donné d’utilisateurs. Dans une instruction de condition, vous pouvez définir cet ensemble en sélectionnant les utilisateurs et groupes concernés par votre stratégie. Au besoin, vous pouvez également exclure explicitement un ensemble d’utilisateurs de votre stratégie en les exemptant.  
-En sélectionnant des utilisateurs et des groupes, vous définissez les utilisateurs auxquels s’applique votre stratégie.    
+### <a name="who"></a>Qui ?
 
-    ![Contrôle](./media/active-directory-conditional-access-azure-portal/08.png)
+Lorsque vous configurez une stratégie d’accès conditionnel, vous devez sélectionner les utilisateurs ou les groupes auxquels s’applique votre stratégie. Souvent, les contrôles s’appliquent à un ensemble donné d’utilisateurs. Dans une instruction conditionnelle, vous pouvez définir cet ensemble en sélectionnant les utilisateurs et les groupes concernés par votre stratégie. Au besoin, vous pouvez également exclure explicitement un ensemble d’utilisateurs de votre stratégie en les exemptant.  
+
+![Contrôle](./media/active-directory-conditional-access-azure-portal/08.png)
 
 
 
-- **Quoi** - En général, certaines applications qui s’exécutent dans votre environnement requièrent une protection supérieure à d’autres. Cela concerne notamment les applications qui ont accès à des données sensibles.
+### <a name="what"></a>Quoi ?
+
+Lorsque vous configurez une stratégie d’accès conditionnel, vous devez sélectionner les applications cloud auxquelles s’applique votre stratégie.
+En général, certaines applications d’un environnement requièrent plus de protection que d’autres. Cela concerne notamment les applications qui ont accès à des données sensibles.
 En sélectionnant des applications cloud, vous définissez celles auxquelles s’applique votre stratégie. Au besoin, vous pouvez également exclure explicitement un ensemble d’applications de votre stratégie.
 
-    ![Contrôle](./media/active-directory-conditional-access-azure-portal/09.png)
+![Contrôle](./media/active-directory-conditional-access-azure-portal/09.png)
 
+Pour obtenir la liste complète des applications cloud utilisables dans une stratégie d’accès conditionnel, consultez la [référence technique sur l’accès conditionnel Azure Active Directory](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments).
 
-- **Comment** - Tant que l’accès à vos applications s’effectue dans des conditions que vous pouvez contrôler, il est inutile d’imposer des contrôles supplémentaires sur les modalités d’accès de vos utilisateurs à vos applications cloud. Toutefois, les choses peuvent être différentes si l’accès à vos applications cloud s’effectue notamment à partir de réseaux non approuvés ou d’appareils non conformes. Dans une instruction de condition, vous pouvez définir certaines conditions d’accès qui précisent des exigences supplémentaires concernant le mode d’accès à vos applications.
+### <a name="how"></a>Comment ?
 
-    ![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
+Tant que l’accès à vos applications s’effectue dans des conditions que vous pouvez contrôler, il est potentiellement inutile d’imposer des contrôles supplémentaires sur les modalités d’accès de vos utilisateurs à vos applications cloud. Toutefois, les choses peuvent être différentes si l’accès à vos applications cloud s’effectue notamment à partir de réseaux non approuvés ou d’appareils non conformes. Dans une instruction de condition, vous pouvez définir certaines conditions d’accès qui précisent des exigences supplémentaires concernant le mode d’accès à vos applications.
+
+![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
 
 
 ## <a name="conditions"></a>Conditions
@@ -137,10 +140,19 @@ Vous pouvez utiliser le niveau de risque de connexion calculé en tant que condi
 
 ### <a name="device-platforms"></a>Plateformes d’appareils
 
-La plateforme d’appareils se caractérise par le système d’exploitation qui s’exécute sur votre appareil (Android, iOS, Windows Phone ou Windows). Vous pouvez définir les plateformes d’appareils incluses et celles qui sont exclues d’une stratégie.  
-Pour utiliser des plateformes d’appareils dans la stratégie, commencez par régler les options de configuration sur **Oui**, puis sélectionnez une, plusieurs ou l’ensemble des plateformes d’appareils auxquelles s’applique la stratégie. Si vous sélectionnez certaines plateformes d’appareils, la stratégie ne s’applique qu’à celles-ci. Dans ce cas, la stratégie est sans effet sur les connexions aux autres plateformes prises en charge.
+La plateforme d’appareils se caractérise par le système d’exploitation qui s’exécute sur votre appareil :
+
+- Android
+- iOS
+- Windows Phone
+- Windows
+- Mac OS (préversion). 
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/02.png)
+
+Vous pouvez définir les plateformes d’appareils incluses et celles qui sont exclues d’une stratégie.  
+Pour utiliser des plateformes d’appareils dans la stratégie, commencez par régler les options de configuration sur **Oui**, puis sélectionnez une, plusieurs ou l’ensemble des plateformes d’appareils auxquelles s’applique la stratégie. Si vous sélectionnez certaines plateformes d’appareils, la stratégie ne s’applique qu’à celles-ci. Dans ce cas, la stratégie est sans effet sur les connexions aux autres plateformes prises en charge.
+
 
 ### <a name="locations"></a>Emplacements
 
@@ -163,12 +175,16 @@ Vous pouvez soit inclure tous les emplacements ou toutes les adresses IP approuv
 ![Conditions](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
-### <a name="client-app"></a>Application cliente
+### <a name="client-apps"></a>Applications clientes
 
 L’application cliente peut être l’application (navigateur web, application mobile, client de bureau) que vous avez utilisée pour vous connecter à Azure Active Directory ou vous pouvez sélectionner Exchange Active Sync.  
 L’authentification héritée concerne les clients qui utilisent l’authentification de base, comme les anciens clients Office qui n’exploitent pas l’authentification moderne. Pour l’instant, l’accès conditionnel ne fonctionne pas avec l’authentification héritée.
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/04.png)
+
+
+Pour obtenir la liste complète des applications clientes utilisables dans une stratégie d’accès conditionnel, consultez la [référence technique sur l’accès conditionnel Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-conditions).
+
 
 
 ## <a name="common-scenarios"></a>Scénarios courants
@@ -196,6 +212,6 @@ De nombreux clients Intune utilisent l’accès conditionnel pour vérifier que 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
-Pour plus d’informations sur les éléments à connaître ce que vous devez évite lors de la configuration des stratégies d’accès conditionnel, consultez 
+- Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md). 

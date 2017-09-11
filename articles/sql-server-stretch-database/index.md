@@ -2,7 +2,7 @@
 title: "Documentation Azure SQL Server Stretch Database - Didacticiels | Microsoft Docs"
 description: "Découvrez comment utiliser SQL Server Stretch Database pour migrer des données brutes en toute sécurité vers Azure sans modifier les requêtes ou les applications. Didacticiels et autres documents."
 services: sql-server-stretch-database
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 91c1cb9713d087982dc68f2511b72ef86a050616
 ms.openlocfilehash: bb5e0fa9981133a77c235a42be369b3bbacb4ac0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Documentation SQL Server Stretch Database
@@ -99,10 +101,5 @@ Découvrez comment utiliser SQL Server Stretch Database pour migrer vos donnée
 
 ---
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

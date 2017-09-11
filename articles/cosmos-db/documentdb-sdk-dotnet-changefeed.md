@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 08/29/2017
 ms.author: maquaran
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 40c796bc5af1220c46950a6fac062ffdd243e59f
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 239b590a1e3a83fe0205dd8169697db745d7f75e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>Kit SDK du processeur de flux de modification .NET DocumentDB : téléchargement et notes de publication
@@ -48,6 +48,10 @@ ms.lasthandoff: 08/15/2017
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Résout un problème relatif au calcul de l’estimation du travail restant lorsque le flux de modification était vide ou qu’aucun travail n’était en attente.
+* Compatible avec les versions 1.13.2 et supérieures du [Kit de développement logiciel (SDK) Document DB .NET](documentdb-sdk-dotnet.md).
+
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Ajout d’une méthode pour obtenir une estimation du travail restant à traiter dans le flux de modification.
 * Compatible avec les versions 1.13.2 et supérieures du [Kit de développement logiciel (SDK) Document DB .NET](documentdb-sdk-dotnet.md).
@@ -67,6 +71,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.1.1](#1.1.1) |29 août 2017 |--- |
 | [1.1.0](#1.1.0) |13 août 2017 |--- |
 | [1.0.0](#1.0.0) |7 juillet 2017 |--- |
 

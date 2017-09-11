@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 0e08557b126620a6c7dbbdb5dece423e7a0c2535
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5631484bd2106ab5abff79dd3cbbf539c62bb164
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
@@ -56,7 +56,7 @@ Le [portail Microsoft Azure](https://portal.azure.com) permet de configurer et d
 [Service Bus](../service-bus/index.md) offre une communication cloud avec une messagerie d’entreprise et une communication relayée qui vous aide à connecter des solutions locales au cloud. Certains didacticiels concernant IoT Hub utilisent des [files d’attente](../service-bus-messaging/service-bus-messaging-overview.md) Service Bus.
 
 ## <a name="azure-storage"></a>Stockage Azure
-Le service [Stockage Azure](../storage/storage-introduction.md) est une solution de stockage cloud. Il inclut le service Stockage Blob qui permet de stocker des données d’objet non structurées. Certains didacticiels concernant IoT Hub utilisent le service Stockage Blob.
+Le service [Stockage Azure](../storage/common/storage-introduction.md) est une solution de stockage cloud. Il inclut le service Stockage Blob qui permet de stocker des données d’objet non structurées. Certains didacticiels concernant IoT Hub utilisent le service Stockage Blob.
 
 ## <a name="back-end-app"></a>Application principale
 Dans le contexte de [IoT Hub](#iot-hub), une application principale est une application qui se connecte à l’un des points de terminaison visible par le service sur un hub IoT. Par exemple, une application principale peut récupérer des messages [appareil-à-cloud](#device-to-cloud) ou gérer le [registre des identités](#identity-registry). En règle générale, une application principale s’exécute dans le cloud mais, dans de nombreux didacticiels, les applications principales sont des applications console qui s’exécutent sur votre ordinateur de développement local.

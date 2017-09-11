@@ -32,7 +32,9 @@
 ### [Portail Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configurer la coexistence de connexions de site à site et ExpressRoute](expressroute-howto-coexist-resource-manager.md)
-## [Configurer des filtres de routage pour l’homologation Microsoft](how-to-routefilter-powershell.md)
+## Configurer des filtres de routage pour l’homologation Microsoft
+### [Portail Azure](how-to-routefilter-portal.md)
+### [PowerShell](how-to-routefilter-powershell.md)
 ## [Migrer un circuit d’un déploiement classique vers Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrer les réseaux virtuels associés du déploiement classique vers Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configurer un routeur pour ExpressRoute

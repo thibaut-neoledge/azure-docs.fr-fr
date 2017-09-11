@@ -1,6 +1,6 @@
 ---
-title: Cycle de vie du processus TDSP (Team Data Science Process) | Microsoft Docs
-description: "Étapes nécessaires pour exécuter vos projets de science des données."
+title: "Vue d’ensemble du processus Azure TDSP (Team Data Science Process) | Microsoft Docs"
+description: "Propose une méthodologie de science des données permettant de fournir des solutions d’analyse prédictive et des applications intelligentes."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,26 +12,40 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
-ms.author: bradsev;gokuma
+ms.date: 08/17/2017
+ms.author: bradsev;
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e2519631ddfabfa5cad57a6811489f3b213313d7
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 006a1465a7cdced1878111beee709c8da4bc310f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
-# <a name="team-data-science-process-lifecycle"></a>Cycle de vie du processus TDSP (Team Data Science Process)
+# <a name="team-data-science-process-overview"></a>Vue d’ensemble du processus TDSP (Team Data Science Process)
 
-Le processus de sciences des données (TDSP) fournit un cycle de vie recommandé que vous pouvez utiliser pour structurer le développement de vos projets de sciences des données. Le cycle de vie présente les étapes, du début à la fin, que les projets suivent généralement quand ils sont exécutés. Si vous utilisez un autre cycle de vie de sciences des données, tel que [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) ou le processus personnalisé de votre organisation, vous pouvez toujours utiliser le processus TDSP basé sur les tâches dans le contexte de ces cycles de vie de développement. 
+Le processus TDSP (Team Data Science Process) est une méthodologie de science des données agile et itérative permettant de fournir des solutions d’analyse prédictive et des applications intelligentes avec efficacité. Le processus TDSP permet d’améliorer la collaboration et l’apprentissage au sein des équipes. Il distille les meilleures pratiques et structures de Microsoft et d’autres acteurs du secteur qui facilitent l’implémentation d’initiatives de science des données. L’objectif est d’aider les entreprises à exploiter pleinement les avantages de leur programme d’analytique.
 
-Ce cycle de vie a été conçu pour les projets de sciences des données destinés à faire partie d’applications intelligentes. Ces applications déploient des modèles d’apprentissage automatique ou d’intelligence artificielle pour l’analytique prédictive. Les projets de sciences des données exploratoires et les projets d’analytique ad hoc ou on-off peuvent également tirer parti de ce processus, mais dans ces cas certaines étapes décrites peuvent s’avérer superflues.    
+Cet article fournit une vue d’ensemble du processus TDSP et de ses principaux éléments. Nous proposons ici une description générique du processus, qui peut être implémentée avec un large éventail d’outils. Une description plus détaillée des tâches du projet et des rôles impliqués dans le cycle de vie du processus est accessible dans les liens vers des rubriques complémentaires. Cet article fournit également une aide à l’implémentation du processus TDSP grâce à un ensemble spécifique d’outils et d’infrastructure Microsoft, que nous utilisons dans nos équipes.
 
-Voici une représentation visuelle du **cycle de vie du processus TDSP (Team Data Science Process)**. 
+## <a name="key-components-of-the-tdsp"></a>Composants clés du processus TDSP
 
-![Cycle de vie du processus TDSP](./media/data-science-process-overview/tdsp-lifecycle.png) 
+Le processus TDSP est constitué des composants clés suivants :
 
-Le cycle de vie du processus TDSP se compose de cinq phases majeures qui sont exécutées de manière itérative. Ces raisons peuvent être les suivantes :
+- une définition du **cycle de vie de la science des données** ;
+- une **structure de projet normalisée** ;
+- une **Infrastructure et des ressources** pour les projets de science des données ;
+- des **outils et utilitaires** pour mener à bien le projet.
+
+
+## <a name="data-science-lifecycle"></a>Cycle de vie de la science des données
+
+Le processus TDSP (Team Data Science Process) fournit un cycle de vie qui structure le développement des projets de sciences des données. Le cycle de vie présente les étapes, du début à la fin, que les projets suivent généralement quand ils sont exécutés.
+
+Si vous utilisez un autre cycle de vie de sciences des données, tel que [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) ou le processus personnalisé de votre organisation, vous pouvez toujours utiliser le processus TDSP basé sur les tâches dans le contexte de ces cycles de vie de développement. À haut niveau, ces méthodologies ont beaucoup en commun. 
+
+Ce cycle de vie a été conçu pour les projets de sciences des données intégrés à des applications intelligentes. Ces applications déploient des modèles d’apprentissage automatique ou d’intelligence artificielle pour l’analytique prédictive. Les projets de sciences des données exploratoires et les projets d’analytique ad hoc peuvent également tirer parti de ce processus. Mais, dans ce cas, certaines des étapes décrites peuvent s’avérer superflues.    
+
+Le cycle de vie du processus TDSP se compose de cinq phases majeures qui se déroulent de manière itérative :
 
 * **Présentation de l’entreprise**
 * **Acquisition de données et compréhension**
@@ -39,182 +53,59 @@ Le cycle de vie du processus TDSP se compose de cinq phases majeures qui sont ex
 * **Déploiement**
 * **Acceptation du client**
 
-Pour chaque phase, nous fournissons les informations suivantes :
+Voici une représentation visuelle du **cycle de vie du processus TDSP (Team Data Science Process)**. 
 
-* **Objectifs** : objectifs spécifiques détaillés.
-* **Marche à suivre** : tâches spécifiques décrites et conseils fournis pour les effectuer.
-* **Artefacts** : livrables et prise en charge de leur production.
+![Cycle de vie du processus TDSP](./media/data-science-process-overview/tdsp-lifecycle.png) 
 
+Les objectifs, tâches et artefacts de documentation de chaque phase du cycle de vie TDSP sont décrits dans la rubrique [Cycle de vie du processus TDSP (Team Data Science Process)](data-science-process-lifecycle.md). Ces tâches et artefacts sont associés à des rôles de projet :
 
-## <a name="1-business-understanding"></a>1. Présentation de l’entreprise
+- Architecte de solution
+- Chef de projet
+- Scientifique des données
+- Coordinateur de projet 
 
-### <a name="goals"></a>Objectifs
-* Sont spécifiées les **variables clés** devant servir de **cibles du modèle** et dont les mesures associées permettent de déterminer la réussite du projet.
-* Les **sources de données** pertinentes auxquelles l’entreprise a ou doit avoir accès sont identifiées.
+Le diagramme suivant présente la grille des tâches (en bleu) et des artefacts (en vert) associés à chaque étape du cycle de vie (sur l’axe horizontal) pour ces rôles (sur l’axe vertical). 
 
-### <a name="how-to-do-it"></a>Marche à suivre
-Deux tâches principales sont traitées dans cette phase : 
+![rôles-et-tâches-du-processus-TDSP](./media/data-science-process-overview/tdsp-tasks-by-roles.png)
 
-* **Définir les objectifs** : collaborez avec votre client et autres parties prenantes pour comprendre et identifier les problèmes métier. Formulez des questions qui définissent les objectifs commerciaux et que les techniques de sciences des données peuvent cibler.
-* **Identifier les sources de données** : recherchez les données pertinentes qui vous aident à répondre aux questions qui définissent les objectifs du projet.
+## <a name="standardized-project-structure"></a>Structure de projet normalisée
 
-#### <a name="11-define-objectives"></a>1.1 Définir les objectifs
+Lorsque tous les projets partagent une structure de répertoire et utilisent des modèles de documents de projet, il est plus facile pour les collaborateurs de l’équipe de rechercher des informations sur les projets. Tout le code et tous les documents sont stockés dans un système de contrôle de version (CVS) comme Git, TFS ou Subversion pour permettre la collaboration au sein de l’équipe. Le suivi des tâches et des fonctionnalités dans un système de suivi de projet agile tel que Jira, Rally ou Visual Studio Team Services permet de suivre de plus près chacun des composants du code. Il permet également aux équipes d’obtenir de meilleurs devis estimatifs. Le processus TDSP recommande la création d’un référentiel distinct pour chaque projet sur le système CVS à des fins de gestion de versions, de sécurité des informations et de collaboration. La structure standardisée de tous les projets permet de centraliser des connaissances institutionnelles à travers l’organisation.
 
-1. Un objectif central de cette étape consiste à identifier les **variables d’activité** clés que l’analyse doit prédire. Ces variables sont appelées **cibles du modèle** et les mesures qui leur sont associées sont utilisées pour déterminer la réussite du projet. Deux exemples de telles cibles sont les prévisions de ventes ou la probabilité qu’une commande soit frauduleuse.
+Nous fournissons des modèles de structure de dossiers et des documents requis dans les emplacements standards. Cette structure de dossiers organise les fichiers qui contiennent du code à des fins d’exploration des données et d’extraction de fonctionnalités, et qui enregistrent les itérations du modèle. Ces modèles permettent aux membres de l’équipe de comprendre plus facilement le travail effectué par d’autres et d’ajouter de nouveaux membres aux équipes. Il est aisé d’afficher et de mettre à jour les modèles de documents au format Markdown. Utilisez les modèles pour fournir des listes de vérification contenant des questions clés pour chaque projet et ainsi vous assurer que le problème est bien défini et que les livrables répondent aux attentes de qualité. Voici quelques exemples :
 
-2. Définissez les **objectifs du projet** en posant et affinant des questions « précises » qui sont à la fois pertinentes, spécifiques et non équivoques. La science des données est le processus consistant à utiliser des noms et des nombres pour répondre à ces questions. Pour plus de conseils sur la manière de poser des questions précises, voir le blog [Comment pratiquer la science des données](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/). La science des données et l’apprentissage automatique sont généralement utilisés pour répondre à cinq types de questions :
- 
-   * Quelle quantité (ou combien) ? (régression)
-   * Quelle catégorie ? (classification)
-   * Quel groupe ? (clustering)
-   * Est-ce étrange ? (détection des anomalies)
-   * Quelle est l’option appropriée ? (recommandation)
-
-    Déterminez laquelle de ces questions vous posez et comment le fait d’y répondre vous permet d’atteindre vos objectifs professionnels.
-
-3. Définissez **l’équipe de projet** en spécifiant les rôles et responsabilités de ses membres. Développez un plan à étapes général auquel vous vous référez au fil de la découverte de nouvelles informations.  
-
-4. **Définissez des mesures de réussite**. Par exemple : atteindre la précision de prédiction de la désinscription des clients de X % à la fin de ce projet de 3 mois, afin de pouvoir proposer des promotions pour réduire la désinscription. Les mesures doivent satisfaire à l’acronyme **SMART** : 
-   * **S**pécifiques 
-   * **M**esurables
-   * **A**tteignables 
-   * **R**elevant (pertinentes) 
-   * **T**ime-bound (associées à un délai) 
-
-#### <a name="12-identify-data-sources"></a>1.2 Identifier les sources de données
-Identifiez les sources de données qui contiennent des exemples connus de réponses à vos questions précises. Recherchez les données suivantes :
-
-* Données **pertinentes** pour la question. Disposons-nous de mesures de la cible et de caractéristiques qui sont associées à la cible ?
-* Données qui constituent une **mesure exacte** de notre cible de modèle et des caractéristiques dignes d’intérêt.
-
-Il n’est pas rare, par exemple, de constater que les systèmes existants doivent collecter et consigner d’autres types de données pour résoudre le problème et atteindre les objectifs du projet. Dans ce cas, vous pouvez rechercher des sources de données externes ou mettre à jour vos systèmes pour collecter des données récentes.
-
-### <a name="artifacts"></a>Artefacts
-Voici les livrables de cette phase :
-
-* [**Charte**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md) : un modèle standard est fourni dans la définition de la structure de projet TDSP. Il s’agit d’un document actif qui est mis à jour tout au long du projet en fonction des nouvelles découvertes et de l’évolution des exigences pour l’entreprise. Il est important que vous vous référiez à ce document, en ajoutant des détails, à mesure que vous progressez dans le processus de découverte. Veillez à ce que les clients et autres parties prenantes demeurent impliqués dans la réalisation des modifications et communiquez-leur clairement les raisons des modifications.  
-* [**Sources de données**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources) : il s’agit de la section **Raw Data Sources (Sources de données brutes)** du rapport **Data Definitions (Définitions des données)** qui figure dans le dossier **Data Report (Rapport de données)** du projet TDSP. Elle spécifie les emplacements d’origine et de destination des données brutes. Au cours de phases ultérieures, vous renseignez des détails supplémentaires, tels que des scripts permettant de déplacer les données vers votre environnement d’analyse.  
-* [**Dictionnaires de données**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/DataDictionaries) : ce document fournit des descriptions des données fournies par le client. Ces descriptions incluent des informations sur le schéma (types de données, informations sur les règles de validation, le cas échéant) et les diagrammes entité-relation s’ils sont disponibles.
+- une charte de projet pour documenter le problème de l’entreprise et le périmètre du projet ;
+- des rapports de données pour documenter la structure et les statistiques des données brutes ;
+- des modèles de rapports pour documenter les fonctionnalités dérivées ;
+- des modèles de métriques de performances, par exemple les courbes ROC ou MSE.
 
 
-## <a name="2-data-acquisition-and-understanding"></a>2. Acquisition de données et compréhension
+![Répertoires TDSP](./media/data-science-process-overview/tdsp-dir-structure.png)
 
-### <a name="goals"></a>Objectifs
-* Jeu de données propre, de grande qualité et prêt pour modélisation, dont les relations avec les variables cibles qui se trouvent dans l’environnement d’analytique approprié sont comprises.
-* Développement d’une architecture de solution du pipeline de données pour actualiser et évaluer les données régulièrement.
+La structure de répertoires peut être clonée à partir de [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
-### <a name="how-to-do-it"></a>Marche à suivre
-Trois tâches principales sont traitées dans cette phase :
+## <a name="infrastructure-and-resources-for-data-science-projects"></a>Infrastructure et ressources pour les projets de science des données
 
-* **Ingérer les données** dans l’environnement d’analyse cible.
-* **Explorer les données** pour déterminer si la qualité des données est suffisante pour répondre à la question. 
-* **Configurer un pipeline de données** pour évaluer les données nouvelles ou régulièrement actualisées.
+Le processus TDSP fournit des recommandations sur la gestion de l’infrastructure partagée d’analytique et de stockage, notamment :
 
-#### <a name="21-ingest-the-data"></a>2.1 Ingérer les données
-Configurez le processus permettant de déplacer les données des emplacements sources vers les emplacements cibles où doivent être exécutées les opérations d’analytique telles que l’apprentissage et les prédictions. Pour connaître les détails techniques et les options disponibles pour effectuer cette opération avec plusieurs services de données Azure, consultez [Charger des données dans des environnements de stockage à des fins d’analyse](machine-learning-data-science-ingest-data.md). 
+- systèmes de fichiers cloud pour le stockage des jeux de données ; 
+- bases de données
+- clusters Big Data (Hadoop ou Spark) ; 
+- services de Machine Learning. 
 
-#### <a name="22-explore-the-data"></a>2.2 Explorer les données
-Avant de former vos modèles, vous devez développer une parfaite compréhension des données. Les jeux de données réels sont souvent parasités, ne contiennent pas certaines valeurs ou comportent une multitude d’autres anomalies. La visualisation et la synthèse des données permettent d’auditer la qualité de vos données et de fournir les informations nécessaires pour traiter les données en vue de leur modélisation. Ce processus est souvent itératif.
+L’infrastructure de stockage et d’analytique peut se trouver sur le cloud ou sur site. C’est à cet endroit que sont stockés les jeux de données bruts et traités. Cette infrastructure permet de reproduire les analyses. Elle évite également la duplication, susceptible de provoquer des incohérences et d’entraîner des coûts d’infrastructure inutiles. Des outils sont fournis pour configurer les ressources partagées, les suivre et permettre à chacun des membres de l’équipe de se connecter à ces ressources en toute sécurité. Il est également recommandé que les participants au projet créent un environnement de calcul homogène. Différents membres de l’équipe pourront alors répliquer et valider les expériences.
 
-Le processus TDSP fournit un utilitaire automatisé appelé [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils), qui aide à visualiser les données et à préparer des rapports de synthèse de données. Nous vous recommandons de commencer avec IDEAR pour explorer les données afin de développer une compréhension initiale des données de manière interactive sans codage, puis d’écrire du code personnalisé pour l’exploration et la visualisation des données. Pour obtenir de l’aide sur le nettoyage des données, consultez [Tâches de préparation des données pour l’apprentissage automatique amélioré](machine-learning-data-science-prepare-data.md).  
+Voici l’exemple d’une équipe qui travaille sur plusieurs projets et partage différents composants de l’infrastructure d’analytique cloud.
 
-Une fois que vous êtes satisfait de la qualité des données nettoyées, l’étape suivante consiste à mieux comprendre les modèles inhérents aux données grâce auxquels vous pouvez choisir et développer un modèle de prédiction approprié pour votre cible. Recherchez des éléments de preuve sur la qualité de la connexion des données à la cible et indiquant s’il existe suffisamment de données pour passer aux étapes de modélisation suivantes. Là encore, ce processus est souvent itératif. Vous devrez peut-être rechercher de nouvelles sources de données avec des données plus précises ou plus appropriées pour compléter le jeu de données identifié au cours de la phase précédente.  
-
-#### <a name="23-set-up-a-data-pipeline"></a>2.3 Configurer un pipeline de données
-Outre l’ingestion et le nettoyage initiaux des données, vous devez généralement définir un processus pour noter les nouvelles données ou actualiser les données régulièrement dans le cadre d’un processus de formation continue. Cette opération est possible grâce à la configuration d’un pipeline de données ou d’un flux de travail. Voici un [exemple](machine-learning-data-science-move-sql-azure-adf.md) de configuration d’un pipeline avec [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
-
-Une architecture de solution du pipeline de données est développée dans cette phase. Le pipeline est également développé parallèlement aux phases suivantes du projet de science des données. Le pipeline peut être traité par lot ou en streaming/temps réel, ou encore de façon hybride, suivant les besoins de votre entreprise et les contraintes de vos systèmes existants auxquels cette solution est en cours d’intégration. 
-
-### <a name="artifacts"></a>Artefacts
-Voici les livrables de cette phase.
-
-* [**Rapport de qualité des données**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md) : ce rapport contient des résumés de données, les relations entre chaque attribut et cible, le classement des variables, etc. L’outil [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) fourni dans le cadre du processus TDSP permet de générer rapidement ce rapport sur n’importe quel jeu de données tabulaire tel qu’un fichier CSV ou une table relationnelle. 
-* **Architecture de la solution** : il peut s’agir d’un diagramme ou d’une description de votre pipeline de données utilisé pour exécuter une évaluation ou des prédictions sur de nouvelles données une fois que vous avez créé un modèle. Elle contient également le pipeline avec lequel former le modèle en fonction des nouvelles données. Le document est stocké dans le répertoire [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quand vous utilisez le modèle de structure de répertoire TDSP.
-* **Décision de point de contrôle** : avant de procéder à l’ingénierie et à la modélisation complètes, vous pouvez réévaluer le projet afin de déterminer si cela vaut la peine de le poursuivre. Vous pouvez, par exemple, être en mesure de continuer, avoir besoin de collecter des données supplémentaires ou abandonner le projet s’il n’existe pas de données permettant de répondre à la question.
+![Infrastructure TDSP](./media/data-science-process-overview/tdsp-analytics-infra.png)
 
 
-## <a name="3-modeling"></a>3. Modélisation
+## <a name="tools-and-utilities-for-project-execution"></a>Outils et utilitaires pour mener à bien le projet
 
-### <a name="goals"></a>Objectifs
-* Caractéristiques de données optimales pour le modèle d’apprentissage automatique.
-* Modèle d’apprentissage automatique informatif qui prédit la cible avec le plus de précision.
-* Modèle d’apprentissage automatique qui convient pour la production.
+Dans la plupart des organisations, il est difficile d’introduire des processus. Les outils fournis pour implémenter le processus et le cycle de vie de science des données aident à réduire les obstacles pour améliorer l’uniformité de leur adoption. Le processus TDSP offre un ensemble initial d’outils et de scripts permettant d’accélérer son adoption au sein d’une équipe. Il automatise également certaines tâches courantes du cycle de vie de science des données, notamment l’exploration de données et la modélisation de la ligne de base. Une structure bien définie est fournie pour que chacun puisse ajouter des outils et des utilitaires partagés dans le référentiel de code partagé de leur équipe. Ces ressources peuvent être utilisées par d’autres projets de l’équipe ou de l’organisation. Il est également prévu que le processus TDSP permette de les proposer à l’ensemble de la communauté. Les utilitaires TDSP peuvent être clonés sur [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
 
-### <a name="how-to-do-it"></a>Marche à suivre
-Trois tâches principales sont traitées dans cette phase :
-
-* **Ingénierie des caractéristiques** : créez des caractéristiques de données à partir des données brutes pour faciliter l’apprentissage du modèle.
-* **Apprentissage du modèle** : recherchez le modèle qui répond le plus précisément à la question en comparant leurs mesures de réussite.
-* Déterminez si votre modèle est **approprié pour la production**.
-
-#### <a name="31-feature-engineering"></a>3.1 Ingénierie des caractéristiques
-L’ingénierie des caractéristiques implique l’inclusion, l’agrégation et la transformation de variables brutes pour créer les caractéristiques utilisées dans l’analyse. Pour savoir ce qui influence un modèle, vous devez comprendre comment les caractéristiques sont liées entre elles et comment les algorithmes d’apprentissage automatique sont susceptibles d’utiliser ces caractéristiques. Cette étape nécessite une combinaison inédite d’expertise dans le secteur et d’informations obtenues à partir de l’étape d’exploration de données. Elle consiste à trouver un équilibre entre, d’une part, rechercher et inclure des variables informatives et, d’autre part, éviter un nombre trop élevé de variables non liées. Les variables informatives améliorent nos résultats, alors que les variables non liées introduisent des bruits superflus dans le modèle. Vous devez également générer ces caractéristiques pour toutes les nouvelles données obtenues au cours de l’évaluation. Ainsi, la génération de ces caractéristiques ne peut dépendre que des données qui sont disponibles au moment de l’évaluation. Pour obtenir des conseils techniques sur l’ingénierie des caractéristiques durant l’utilisation de diverses technologies de données Azure, consultez [Feature engineering in the Data Science Process](machine-learning-data-science-create-features.md) (Ingénierie des caractéristiques dans le processus de sciences des données). 
-
-#### <a name="32-model-training"></a>3.2 Apprentissage du modèle
-Selon le type de question auquel vous essayez de réponse, il existe de nombreux algorithmes de modélisation. Pour plus d’informations sur le choix des algorithmes, consultez [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md). Bien que cet article ait été écrit pour Azure Machine Learning, l’aide qu’il fournit est utile pour tout projet d’apprentissage automatique. 
-
-Le processus d’apprentissage du modèle comprend les étapes suivantes : 
-
-* **Fractionner les données d’entrée** de manière aléatoire en vue d’une modélisation dans un jeu de données d’apprentissage et un jeu de données de test.
-* **Créer les modèles** à l’aide du jeu de données d’apprentissage.
-* **Évaluer** une série d’algorithmes d’apprentissage automatique concurrents (apprentissage et jeu de données de test), ainsi que les divers paramètres associés (balayage de paramètres), destinés à répondre à la question digne d’intérêt avec les données actuelles.
-* **Déterminer la solution « optimale »** pour répondre à la question en comparant les mesures de réussite à celles d’autres méthodes.
-
-> [!NOTE]
-> **Éviter la fuite**: une fuite de données peut résulter de l’inclusion de données extérieures au jeu de données d’apprentissage, permettant à un modèle ou un algorithme d’apprentissage automatique d’effectuer des prédictions anormalement correctes. La nervosité qui gagne les scientifiques de données quand ils obtiennent des résultats prédictifs semblant trop beaux pour être vrais est souvent liée à une fuite. Ces dépendances peuvent être difficiles à détecter. Pour éviter ce problème, il est souvent nécessaire de jongler entre la création d’un jeu de données d’analyse, la création d’un modèle et l’évaluation de la précision. 
-> 
-> 
-
-Nous fournissons avec le processus TDSP un [outil de modélisation et de création de rapports automatisé](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) capable d’exécuter plusieurs algorithmes et balayages de paramètres pour produire un modèle de référence. Il génère également un rapport de modélisation de base qui résume les performances de chaque combinaison de modèle et de paramètre, y compris l’importance des variables. Ce processus est également itératif, car il peut influer sur l’ingénierie des caractéristiques. 
-
-### <a name="artifacts"></a>Artefacts
-Les artefacts générés au cours de cette phase sont les suivants :
-
-* [**Jeux de caractéristiques**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets) : les caractéristiques développées pour la modélisation sont décrites dans la section **Feature Sets (Jeux de caractéristiques)** du rapport **Data Definition (Définition des données)**. Elle contient des pointeurs vers le code permettant de générer les caractéristiques et indique comment la caractéristique a été générée.
-* [**Modèle de rapport**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): pour chaque modèle tenté, un rapport standard basé sur le modèle fournissant des détails sur chaque expérience est produit.
-* **Décision de point de contrôle** : déterminez si le modèle est suffisamment performant pour être déployé sur un système de production. Voici certaines questions clés que vous devez vous poser :
-  * Le modèle répond-il à la question avec une fiabilité suffisante compte tenu des données de test ? 
-  * Est-il nécessaire d’essayer d’autres approches : collecter des données supplémentaires, poursuivre l’ingénierie des caractéristiques ou faire des essais avec d’autres algorithmes ?
-
-
-## <a name="4-deployment"></a>4. Déploiement
-
-### <a name="goal"></a>Objectif
-* Des modèles comportant un pipeline de données sont déployés dans un environnement de production ou similaire en vue de leur acceptation par l’utilisateur final. 
-
-### <a name="how-to-do-it"></a>Marche à suivre
-Une tâche principale est traitée dans cette phase :
-
-* **Faire fonctionner le modèle** : déployez le modèle et le pipeline sur un environnement de production ou similaire en vue de l’utilisation de l’application.
-
-#### <a name="41-operationalize-a-model"></a>4.1 Faire fonctionner un modèle
-Une fois que votre ensemble de modèles fonctionne correctement, il peut être mis en œuvre et utilisé par d’autres applications. En fonction des exigences pour l’entreprise, les prédictions sont faites en temps réel ou par lot. Pour être mis en œuvre, les modèles doivent être exposés avec une interface d’API ouverte, facilement utilisable à partir de diverses applications telles que des sites web en ligne, des feuilles de calcul, des tableaux de bord ou des applications métier et principales. Pour obtenir des exemples de mise en œuvre de modèle avec un service web Azure Machine Learning, consultez [Déploiement d’un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md). Il est également recommandé de générer des données de télémétrie et de surveillance dans le modèle de production et le pipeline de données déployés pour faciliter la création de rapports sur l’état subséquent du système et le dépannage de ce dernier.  
-
-### <a name="artifacts"></a>Artefacts
-* Tableau de bord d’état de mesures clés et d’intégrité du système.
-* Rapport de modélisation final avec les détails du déploiement.
-* Document final de l’architecture de la solution.
-
-## <a name="5-customer-acceptance"></a>5. Acceptation du client
-
-### <a name="goal"></a>Objectif
-* **Finaliser les livrables du projet** : vérifiez que le pipeline, le modèle et leur déploiement dans un environnement de production sont conformes aux objectifs des clients.
-
-### <a name="how-to-do-it"></a>Marche à suivre
-Deux tâches principales sont traitées dans cette phase :
-
-* **Validation du système** : vérifiez que le modèle et le pipeline déployés répondent aux besoins des clients.
-* **Remise du projet** : à l’entité chargée d’exécuter le système en environnement de production.
-
-Le client doit confirmer que le système répond à ses besoins professionnels et que les réponses apportées aux questions sont suffisamment précises pour permettre le déploiement du système en production en vue de son utilisation par son application cliente. Toute la documentation est finalisée et révisée. Le projet est remis à l’entité responsable des opérations. Il peut s’agir d’une équipe de science des données au sein du service informatique ou chez le client ou d’un agent du client chargé d’exécuter le système dans l’environnement de production. 
-
-### <a name="artifacts"></a>Artefacts
-L’artefact principal produit dans cette étape finale est le **Rapport de clôture du projet pour le client**. Il s’agit du rapport technique contenant tous les détails du projet qui facilitent l’apprentissage et l’utilisation du système. Un modèle de [Rapport de clôture](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) est fourni par le processus TDSP, qui peut être utilisé en l’état ou personnalisé en fonction des besoins du client. 
-
-## <a name="summary"></a>Résumé
-Le [cycle de vie du processus TDSP](http://aka.ms/datascienceprocess) est construit comme une suite d’étapes itérées qui fournissent des conseils sur les tâches indispensables à l’utilisation de modèles prédictifs. Ces modèles peuvent être déployés dans un environnement de production afin d’être exploités pour créer des applications intelligentes. Ce cycle de vie a pour objectif de faire progresser un projet de science des données vers un point final d’engagement clair. S’il est vrai que la science des données est un exercice de recherche et de découverte, pouvoir en faire prendre conscience votre équipe et vos clients à l’aide d’un ensemble bien défini d’artefacts qui utilise des modèles standardisés peut aider à éviter les malentendus et à augmenter les chances de réussite d’un projet de science des données complexe.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. La rubrique [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) (Procédures pas à pas du processus TDSP (Team Data Science Process)) les répertorie et les décrit brièvement, en les accompagnant de liens.
 
+La rubrique [Processus TDSP (Team Data Science Process) : rôles et tâches](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) présente les rôles clés du personnel et les tâches associées pour une équipe de science des données qui se standardise sur ce processus. 
 

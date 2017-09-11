@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2C : Demande de jetons d’accès | Microsoft Docs"
+title: "Demande de jetons d’accès - Azure AD B2C | Microsoft Docs"
 description: "Cet article vous montre comment configurer une application cliente et acquérir un jeton d’accès."
 services: active-directory-b2c
 documentationcenter: android
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 4b361a8e69f885d5b89ac9b2086e2731ee4d8b48
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 7202be4e0e9b8b28b5ec1443d6d248c1738da6fb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C : Demande de jetons d’accès
@@ -40,8 +40,8 @@ Avant de demander un jeton d’accès, vous devez inscrire une API web et publie
 
 ### <a name="register-a-web-api"></a>Inscrire une API web
 
-1. Dans le panneau de fonctionnalités B2C du Portail Azure, cliquez sur **Applications**.
-1. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
+1. Dans le panneau de fonctionnalités Azure AD B2C du Portail Azure, cliquez sur **Applications**.
+1. Cliquez sur **+Ajouter** dans la partie supérieure du menu.
 1. Entrez un **nom** pour l’application qui décrira votre application aux consommateurs. Par exemple, vous pouvez entrer « API Contoso ».
 1. Activez/désactivez le commutateur **Include web app / web API** (Inclure l’application web/l’API web) pour le définir sur **Oui**.
 1. Entrez une valeur arbitraire pour **URL de réponse**. Par exemple, entrez : `https://localhost:44316/`. La valeur n’a pas d’importance, car une API ne doit pas recevoir le jeton directement d’Azure AD B2C.
@@ -53,7 +53,7 @@ Avant de demander un jeton d’accès, vous devez inscrire une API web et publie
 
 Les étendues, qui sont similaires aux autorisations, sont nécessaires lorsque votre application appelle une API. « Lecture » ou « écriture » sont des exemples d’étendues. Supposons que vous souhaitez que votre application web ou native « lise » à partir d’une API. Votre application appellerait Azure AD B2C et demanderait un jeton d’accès qui donne accès à l’étendue « lecture ». Pour qu’Azure AD B2C émette ce jeton d’accès, l’application doit disposer de l’autorisation de « lecture » à partir de l’API spécifique. Pour ce faire, votre API doit d’abord publier l’étendue « lecture ».
 
-1. Dans le panneau **Applications** Azure AD B2C, ouvrez l’application d’API web (« API Contoso »).
+1. Dans le panneau **Applications** d’Azure AD B2C, ouvrez l’application d’API web (« API Contoso »).
 1. Cliquez sur **Étendues publiées**. C’est ici que vous définissez les autorisations (étendues) qui peuvent être accordées à d’autres applications.
 1. Ajoutez les **valeurs d’étendue** si nécessaire (par exemple, « lecture »). Par défaut, l’étendue « user_impersonation » est définie. Vous pouvez l’ignorer si vous le souhaitez. Entrez une description de l’étendue dans la colonne **Nom de l’étendue**.
 1. Cliquez sur **Enregistrer**.
@@ -65,7 +65,7 @@ Les étendues, qui sont similaires aux autorisations, sont nécessaires lorsque 
 
 Une fois qu’une API est configurée pour publier des étendues, ces étendues doivent être attribuées à l’application cliente via le portail Azure.
 
-1. Accédez au menu **Applications** dans le panneau des fonctionnalités B2C.
+1. Accédez au menu **Applications** dans le panneau des fonctionnalités Azure AD B2C.
 1. Inscrivez une application cliente ([application web](active-directory-b2c-app-registration.md#register-a-web-app) ou [cliente native](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app)) si vous ne l’avez pas déjà fait. Si vous suivez ce guide comme point de départ, vous devrez inscrire une application cliente.
 1. Cliquez sur **Accès d’API**.
 1. Cliquez sur **Ajouter**.

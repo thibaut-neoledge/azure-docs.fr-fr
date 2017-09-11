@@ -2,7 +2,7 @@
 title: "Documentation Azure Media Services - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à diffuser en continu des vidéos à la demande ou de qualité télévisuelle avec la plateforme cloud extensible Media Services. Didacticiels, références d’API et autres."
 services: media-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ac58c5e8f43a1e6bab1023826818cc3641cad54a
 ms.openlocfilehash: f0da57cc74e190e6684036c8a793dface3c6dd74
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -210,10 +212,5 @@ Apprenez à diffuser en continu des vidéos de qualité télévisuelle avec la p
         </div>
     </li>
 </ul>
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

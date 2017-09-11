@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/31/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 08c4df6a4d7fd3d80f047192125afc9f5831999a
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 1b1a9dc960846cbc15ce09d0fd106e1492937439
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -108,7 +108,7 @@ Pour activer SSH et I2C, vous trouverez d’autres documents de référence sur 
 
 Utilisez la platine d’expérimentation et les câbles de liaison pour connecter une LED et un BME280 à Pi comme suit. Si vous ne disposez pas de ce capteur, [ignorez cette section](#connect-pi-to-the-network).
 
-![La connexion entre Raspberry Pi et le capteur](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
+![La connexion entre Raspberry Pi et le capteur](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
 Le capteur BME280 peut collecter des données sur la température et l’humidité. Et la DEL clignote s’il existe une communication entre l’appareil et le cloud. 
 
@@ -116,27 +116,27 @@ Pour les broches du capteur, utilisez le câblage suivant :
 
 | Début (capteur et LED)     | Fin (carte)            | Couleur du câble   |
 | -----------------------  | ---------------------- | ------------: |
-| LED VDD (broche 5G)         | GPIO 4 (broche 7)         | Câble blanc   |
-| LED GND (broche 6G)         | GND (broche 6)            | Câble noir   |
-| VDD (broche 18F)            | ALIM 3,3V (broche 17)      | Câble blanc   |
-| GND (broche 20F)            | GND (broche 20)           | Câble noir   |
-| SCK (broche 21F)            | SPI0 SCLK (broche 23)     | Câble orange  |
-| SDO (broche 22F)            | SPI0 MISO (broche 21)     | Câble jaune  |
-| SDI (broche 23F)            | SPI0 MOSI (broche 19)     | Câble vert   |
-| CS (broche 24F)             | SPI0 CS (broche 24)       | Câble bleu    |
+| VDD (broche 5G)             | ALIM 3,3 V (broche 1)       | Câble blanc   |
+| GND (broche 7G)             | GND (broche 6)            | Câble marron   |
+| SDI (broche 10G)            | I2C1 SDA (broche 3)       | Câble rouge     |
+| SCK (broche 8G)             | I2C1 SCL (broche 5)       | Câble orange  |
+| LED VDD (broche 18F)        | GPIO 24 (broche 18)       | Câble blanc   |
+| LED GND (broche 17F)        | GND (broche 20)           | Câble noir   |
 
 Cliquez pour afficher les [mappages de broches de Raspberry Pi 2 et 3](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) à titre de référence.
 
 Une fois le BME280 connecté à votre Raspberry Pi, il doit se présenter comme sur l’image ci-dessous.
 
-![Pi et BME280 connectés](media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
+![Pi et BME280 connectés](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
 ### <a name="connect-pi-to-the-network"></a>Connexion de Pi au réseau
 
 Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. Utilisez le câble Ethernet pour connecter Pi à votre réseau câblé ou suivez les [instructions fournies par la Fondation Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/wifi/) pour connecter Pi à votre réseau sans fil. Une fois que votre Pi est correctement connecté au réseau, vous devez relever son [adresse IP](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Connecté au réseau câblé](media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
+![Connecté au réseau câblé](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
+> [!NOTE]
+> Assurez-vous que Pi est connecté au même réseau que votre ordinateur. Par exemple, si votre ordinateur est connecté à un réseau sans fil alors que Pi est connecté à un réseau câblé, il se peut que vous ne voyiez pas l’adresse IP dans la sortie devdisco.
 
 ## <a name="run-a-sample-application-on-pi"></a>Exécuter un exemple d’application sur Pi
 
@@ -151,7 +151,7 @@ Utilisez l’un des clients SSH suivants à partir de votre ordinateur hôte pou
    
    **Utilisateurs Mac et Ubuntu**
    
-   Utilisez le client SSH intégré sur Ubuntu ou macOS. Vous devrez peut-être exécuter `ssh pi@<ip address of pi>` pour connecter le Pi via le protocole SSH.
+   Utilisez le client SSH intégré sur Ubuntu ou macOS. Vous devrez peut-être exécuter `ssh pi@<ip address of pi>` pour connecter le Pi via le protocole SSH.
    > [!NOTE] 
    Le nom d’utilisateur par défaut est `pi` et le mot de passe est `raspberry`.
 

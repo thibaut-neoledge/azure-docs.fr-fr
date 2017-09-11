@@ -15,17 +15,16 @@ ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: db6e654de074fc6651fd0d7479ee52038f944745
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 2c5842822e347113e388d570f6ae603a313944d6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
-L’application d’orchestration des correctifs est une application Service Fabric qui automatise les mises à jour correctives du système d’exploitation sur un cluster Service Fabric dans Azure sans temps d’arrêt.
+L’application d’orchestration des correctifs est une application Azure Service Fabric qui automatise les mises à jour correctives du système d’exploitation sur un cluster Service Fabric dans Azure sans temps d’arrêt.
 
 L’application d’orchestration des correctifs offre les avantages suivants :
 
@@ -71,9 +70,14 @@ Pour que l’application d’orchestration des correctifs puisse fonctionner, le
 
 Le service de gestion des réparations est activé par défaut pour les clusters Azure au niveau de durabilité Silver. Le service de gestion des réparations peut être activé ou non pour les clusters Azure au niveau de durabilité Gold, en fonction du moment de leur création. Le service de gestion des réparations est déactivé par défaut pour les clusters Azure au niveau de durabilité Bronze. Si le service est déjà activé, vous pouvez le voir s’exécuter dans la section des services système de Service Fabric Explorer.
 
-Vous pouvez utiliser le [modèle Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) pour activer le service de gestion des réparations sur les clusters Service Fabric nouveaux et existants. Récupérez le modèle approprié pour le cluster que vous souhaitez déployer. Vous pouvez soit utiliser les exemples de modèles, soit créer un modèle Resource Manager personnalisé. 
+##### <a name="azure-portal"></a>Portail Azure
+Vous pouvez activer le gestionnaire des réparations à partir du portail Azure au moment de la configuration du cluster. Sélectionnez l’option `Include Repair Manager` située sous `Add on features` au moment de la configuration du cluster.
+![Image représentant l’activation du gestionnaire des réparations à partir du portail Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-Pour activer le service de gestion des réparations :
+##### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
+Vous pouvez également utiliser le [modèle Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) pour activer le service de gestion des réparations sur les clusters Service Fabric nouveaux et existants. Récupérez le modèle approprié pour le cluster que vous souhaitez déployer. Vous pouvez soit utiliser les exemples de modèles, soit créer un modèle Resource Manager personnalisé. 
+
+Pour activer le service de gestion des réparations à l’aide du [modèle Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm), procédez comme suit :
 
 1. Tout d’abord, vérifiez que `apiversion` est défini sur `2017-07-01-preview` pour la ressource `Microsoft.ServiceFabric/clusters`, comme dans l’extrait de code suivant. Si ce n’est pas le cas, vous devez mettre à jour `apiVersion` en définissant la valeur `2017-07-01-preview` :
 
@@ -136,9 +140,11 @@ Les mises à jour automatiques Windows peuvent entraîner une perte de disponibi
 
 ### <a name="optional-enable-azure-diagnostics"></a>Facultatif : Activer Azure Diagnostics
 
-Les journaux de l’application d’orchestration des correctifs collectent localement sur chacun des nœuds de cluster. Par ailleurs, pour les clusters exécutant la version du runtime Service Fabric `5.6.220.9494` ou un version supérieure, les journaux sont collectés en même temps que les journaux Service Fabric.
+Pour les clusters exécutant la version du runtime Service Fabric `5.6.220.9494` ou une version supérieure, les journaux de l’application d’orchestration des correctifs sont collectés en même temps que les journaux Service Fabric.
+Vous pouvez ignorer cette étape si votre cluster exécute le runtime Service Fabric version `5.6.220.9494` et plus.
 
-Pour les clusters exécutant une version du runtime Service Fabric `5.6.220.9494` inférieure, nous recommandons de configurer Diagnostics Azure de façon à charger les journaux de tous les nœuds dans un emplacement central.
+Pour les clusters exécutant une version inférieure à `5.6.220.9494`, les journaux de l’application d’orchestration des correctifs sont collectés en local, sur chaque nœud du cluster.
+Nous recommandons de configurer Azure Diagnostics de façon à charger les journaux de l’ensemble des nœuds à un emplacement central.
 
 Pour plus d’informations sur l’activation d’Azure Diagnostics, voir [Collecte des journaux avec Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
 
@@ -295,7 +301,7 @@ Pour les clusters exécutant une version du runtime Service Fabric inférieure �
 
 #### <a name="locally-on-each-node"></a>Localement sur chaque nœud
 
-Les journaux sont collectés localement sur chaque nœud du cluster Service Fabric. L’emplacement à partir duquel vous pouvez accéder aux journaux est \[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs.
+Si la version du runtime Service Fabric est inférieure à `5.6.220.9494`, les journaux sont collectés en local sur chaque nœud du cluster Service Fabric. L’emplacement à partir duquel vous pouvez accéder aux journaux est \[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs.
 
 Par exemple, si Service Fabric est installé sur le lecteur D, le chemin d’accès est D:\\PatchOrchestrationApplication\\logs.
 
@@ -355,6 +361,10 @@ R. Le temps dont l’application d’orchestration des correctifs a besoin dépe
 - La durée moyenne nécessaire pour télécharger et installer une mise à jour, qui ne devrait pas dépasser quelques heures.
 - Les performances de la machine virtuelle et la bande passante réseau.
 
+Q : **Pourquoi certaines mises à jour sont-elles affichées dans les résultats Windows Update obtenus via les API REST, et non dans l’historique Windows Update de l’ordinateur ?**
+
+R : Certaines mises à jour de produits doivent être archivées dans l’historique de correctifs/mises à jour correspondant. Ainsi, les mises à jour de Windows Defender ne s’affichent pas dans l’historique Windows Update de Windows Server 2016.
+
 ## <a name="disclaimers"></a>Clauses d’exclusion de responsabilité
 
 - L’application d’orchestration des correctifs accepte le contrat de licence utilisateur final de Windows Update à la place de l’utilisateur. Il est possible de désactiver ce paramètre dans la configuration de l’application.
@@ -392,4 +402,18 @@ Dans ce cas, un rapport d’intégrité de niveau avertissement est généré co
 Une mise à jour Windows Update défectueuse peut dégrader l’intégrité d’une application ou d’un cluster sur un nœud ou un domaine de mise à niveau particuliers. L’application d’orchestration des correctifs interrompt toute autre opération de Windows Update jusqu’à ce que le cluster retrouve son intégrité.
 
 Un administrateur doit intervenir et déterminer la raison pour laquelle l’application ou le cluster sont devenus défectueux en raison d’une opération de Windows Update.
+
+## <a name="release-notes-"></a>Notes de publication :
+
+### <a name="version-110"></a>Version 1.1.0
+- Version publique
+
+### <a name="version-111"></a>Version 1.1.1
+- Correction d’un bogue dans le paramètre SetupEntryPoint de NodeAgentService, qui empêchait l’installation de NodeAgentNTService.
+
+### <a name="version-120-latest"></a>Version 1.2.0 (dernière version)
+
+- Résolution de bogues liés au flux de travail de redémarrage du système.
+- Résolution d’un bogue lié à la création de tâches RM, suite auquel le contrôle d’intégrité survenant lors de la préparation des tâches de réparation ne s’exécutait pas comme convenu.
+- Transition du mode de démarrage du service Windows POANodeSvc, depuis le démarrage automatique vers le démarrage automatique différé.
 

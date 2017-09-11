@@ -8,7 +8,7 @@ author: op-ravi
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -33,8 +33,8 @@ Les environnements Time Series Insights comprennent deux types indépendants des
 Ces deux stratégies accordent aux principaux Azure Active Directory (utilisateurs et applications) diverses autorisations sur un environnement spécifique. Les principaux (utilisateurs et applications) doivent appartenir à l’Active Directory (ou « locataire Azure ») associé à l’abonnement contenant l’environnement.
 
 Les stratégies d’accès de gestion accordent des autorisations liées à la configuration de l’environnement, telles que la
-*    création et la suppression de l’environnement, des sources d’événements, des ensembles de données de référence et la
-*    gestion des stratégies d’accès aux données.
+*   création et la suppression de l’environnement, des sources d’événements, des ensembles de données de référence et la
+*   gestion des stratégies d’accès aux données.
 
 Les stratégies d’accès aux données accordent des autorisations pour générer des requêtes de données, manipuler des données de référence dans l’environnement, et des requêtes partagées enregistrées et des perspectives associées à l’environnement.
 
@@ -43,30 +43,30 @@ Les deux types de stratégies permettent de distinguer clairement l’accès à 
 ## <a name="grant-data-access"></a>Accorder l’accès aux données
 Les étapes suivantes montrent comment accorder l’accès aux données pour un utilisateur principal :
 
-1.    Connectez-vous au [portail Azure](https://portal.azure.com).
-2.    Cliquez sur « Toutes les ressources » dans le menu de gauche du portail Azure.
-3.    Sélectionnez votre environnement Time Series Insights.
+1.  Connectez-vous au [portail Azure](https://portal.azure.com).
+2.  Cliquez sur « Toutes les ressources » dans le menu de gauche du portail Azure.
+3.  Sélectionnez votre environnement Time Series Insights.
 
   ![Gérer la source Time Series Insights - Environnement](media/data-access/getstarted-grant-data-access1.png)
 
-4.    Sélectionnez « Accès au plan de données », puis cliquez sur « Ajouter »
+4.  Sélectionnez « Accès au plan de données », puis cliquez sur « Ajouter »
 
   ![Gérer la source Time Series Insights - Ajouter](media/data-access/getstarted-grant-data-access2.png)
 
-5.    Cliquez sur « Sélectionner un utilisateur ».
-6.    Recherchez et sélectionnez l’utilisateur par adresse électronique.
-7.    Cliquez sur « Sélectionner » dans le panneau « Sélectionner un utilisateur ».
+5.  Cliquez sur « Sélectionner un utilisateur ».
+6.  Recherchez et sélectionnez l’utilisateur par adresse électronique.
+7.  Cliquez sur « Sélectionner » dans le panneau « Sélectionner un utilisateur ».
 
   ![Gérer la source Time Series Insights - Sélectionner un utilisateur](media/data-access/getstarted-grant-data-access3.png)
 
-8.    Cliquez sur « Sélectionner un rôle ».
-9.    Sélectionnez « Contributeur » si vous souhaitez autoriser l’utilisateur à modifier des données de référence et à partager des requêtes enregistrées et des perspectives avec d’autres utilisateurs de l’environnement. Sinon, sélectionnez « Lecteur » pour autoriser l’utilisateur à rechercher des données dans l’environnement et à enregistrer des requêtes personnelles (non partagés) dans l’environnement.
-10.    Cliquez sur « OK » dans le panneau « Sélectionner un rôle ».
+8.  Cliquez sur « Sélectionner un rôle ».
+9.  Sélectionnez « Contributeur » si vous souhaitez autoriser l’utilisateur à modifier des données de référence et à partager des requêtes enregistrées et des perspectives avec d’autres utilisateurs de l’environnement. Sinon, sélectionnez « Lecteur » pour autoriser l’utilisateur à rechercher des données dans l’environnement et à enregistrer des requêtes personnelles (non partagés) dans l’environnement.
+10. Cliquez sur « OK » dans le panneau « Sélectionner un rôle ».
 
   ![Gérer la source Time Series Insights - Sélectionner un rôle](media/data-access/getstarted-grant-data-access4.png)
 
-11.    Cliquez sur « OK » dans le panneau « Sélectionner un rôle utilisateur ».
-12.    Ce qui suit doit s’afficher :
+11. Cliquez sur « OK » dans le panneau « Sélectionner un rôle utilisateur ».
+12. Ce qui suit doit s’afficher :
 
   ![Gérer la source Time Series Insights - Résultats](media/data-access/getstarted-grant-data-access5.png)
 

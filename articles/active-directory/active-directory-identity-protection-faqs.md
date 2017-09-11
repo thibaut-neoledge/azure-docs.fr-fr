@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 781f868c87cea3cd790d89c61e26eecf352babea
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 4835610eed8df46f3ba9302cf87163b37a6fa124
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>FAQ Azure Active Directory Identity Protection
@@ -40,9 +40,4 @@ ms.lasthandoff: 07/19/2017
 
 ---
 
-## <a name="what-happens-when-your-azure-active-directory-premium-2-trial-expires"></a>Que se passe-t-il lorsque votre période d’essai Azure Active Directory Premium 2 arrive à expiration ?
-
-**R :** Si votre période d’essai Azure Active Directory Premium 2 est arrivée à expiration sur votre édition Azure Active Directory Gratuite, De base ou Premium 1, alors que la solution Identity Protection était activée, vous conservez l’accès à celle-ci même si vous n’êtes pas en conformité avec la gestion de licences.
-
----
 

@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 048854b440f939077a7a95fa1db9ba42daf55ede
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure
@@ -186,7 +186,7 @@ Vous avez plusieurs possibilités pour déplacer des données entre des nœuds d
 ### <a name="azure-file-storage"></a>Présentation du stockage de fichiers
 Le service [Azure File](https://azure.microsoft.com/services/storage/files/) expose les partages de fichiers en utilisant le protocole SMB 2.1 standard. Les machines virtuelles et les services cloud Azure peuvent partager les données des fichiers entre plusieurs composants d’application grâce à des partages montés. Les applications locales peuvent accéder aux données des fichiers d’un partage via l’API de stockage de fichiers. 
 
-Pour obtenir des instructions détaillées sur la création d’un partage de fichiers Azure et sur son montage sur le nœud principal, consultez [Prise en main du stockage de fichiers Azure sur Windows](../../../storage/storage-file-how-to-use-files-windows.md). Pour monter le partage de fichiers Azure sur les nœuds Linux, consultez [Utilisation du stockage de fichiers Azure avec Linux](../../../storage/storage-how-to-use-files-linux.md). Pour configurer des connexions persistantes, consultez [Connexions persistantes à Microsoft Azure File](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Pour obtenir des instructions détaillées sur la création d’un partage de fichiers Azure et sur son montage sur le nœud principal, consultez [Prise en main du stockage de fichiers Azure sur Windows](../../../storage/files/storage-how-to-use-files-windows.md). Pour monter le partage de fichiers Azure sur les nœuds Linux, consultez [Utilisation du stockage de fichiers Azure avec Linux](../../../storage/files/storage-how-to-use-files-linux.md). Pour configurer des connexions persistantes, consultez [Connexions persistantes à Microsoft Azure File](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 Dans l’exemple suivant, créez un partage de fichiers Azure sur un compte de stockage. Pour monter le partage sur le nœud principal, ouvrez une invite de commandes et entrez les commandes suivantes :
 

@@ -12,12 +12,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: b3a4e8f9c8580ad4c7899964dbfe99ad74e0c744
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2530b7c20347b9fb58aee4dfe693847cf3911741
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -54,7 +53,7 @@ await conainer.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>Obtenir une signature d’accès partagé pour le conteneur
 
-Après avoir créé le conteneur, obtenez une signature d’accès partagé avec un accès en écriture au conteneur. Une signature d’accès partagé fournit un accès délégué au conteneur. La signature d’accès partagé accorde l’accès avec un jeu spécifié d’autorisations et sur un intervalle de temps spécifié. Le service Batch a besoin d’une signature d’accès partagé avec des autorisations d’écriture pour pouvoir écrire le résultat de la tâche dans le conteneur. Pour plus d’informations sur les signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé \(SAP\) dans le stockage Azure](../storage/storage-dotnet-shared-access-signature-part-1.md).
+Après avoir créé le conteneur, obtenez une signature d’accès partagé avec un accès en écriture au conteneur. Une signature d’accès partagé fournit un accès délégué au conteneur. La signature d’accès partagé accorde l’accès avec un jeu spécifié d’autorisations et sur un intervalle de temps spécifié. Le service Batch a besoin d’une signature d’accès partagé avec des autorisations d’écriture pour pouvoir écrire le résultat de la tâche dans le conteneur. Pour plus d’informations sur les signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé \(SAP\) dans le stockage Azure](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 Quand vous obtenez une signature d’accès partagé à l’aide des API de stockage Azure, l’API retourne une chaîne de jeton de signature d’accès partagé. Cette chaîne de jeton inclut tous les paramètres de la signature d’accès partagé, notamment les autorisations et l’intervalle pendant lequel la signature d’accès partagé est valide. Pour utiliser la signature d’accès partagé pour accéder à un conteneur dans le stockage Azure, vous devez ajouter la chaîne de jeton de signature d’accès partagé à l’URI de ressource. L’URI de ressource, avec le jeton de signature d’accès partagé ajouté, fournit un accès authentifié au stockage Azure.
 
@@ -146,7 +145,7 @@ https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-Pour plus d’informations sur les répertoires virtuels dans le stockage Azure, consultez [Création d’une liste d’objets blob dans un conteneur](../storage/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+Pour plus d’informations sur les répertoires virtuels dans le stockage Azure, consultez [Création d’une liste d’objets blob dans un conteneur](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
 
 
 ## <a name="diagnose-file-upload-errors"></a>Diagnostiquer les erreurs de chargement de fichier

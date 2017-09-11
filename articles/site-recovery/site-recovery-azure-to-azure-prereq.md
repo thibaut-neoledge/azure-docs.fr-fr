@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 2796a77984fb811b2ea563a45652bb6312b3dd26
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fb5b8c9ac96ac44d0112919664a177f33ef392da
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -46,7 +46,7 @@ Envoyez vos commentaires au bas de cet article ou posez vos questions techniques
 **Compte Azure** | Un compte [Microsoft Azure](http://azure.microsoft.com/) .<br/><br/> Vous pouvez commencer par une version d’ [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 **Service Site Recovery** | Pour plus d’informations sur la tarification de Site Recovery, voir [Tarification Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/). Nous vous recommandons de créer un coffre Recovery Services dans la région Azure cible que vous souhaitez utiliser comme emplacement de récupération d’urgence. Par exemple, si vos machines virtuelles sources sont activez dans l’Est des États-Unis, et que vous souhaitez répliquer vers le Centre des États-Unis, nous recommandons de créer le coffre dans la région Centre des États-Unis.|
 **Capacité Azure** | Dans la région Azure cible que vous souhaitez utiliser comme emplacement de récupération d’urgence, vous devez disposer d’un abonnement avec une capacité suffisante pour les machines virtuelles, les comptes de stockage et les composants réseau. Pour augmenter la capacité, vous pouvez contacter le support technique.
-**Conseils de stockage** | Veillez à suivre les [conseils de stockage](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) pour vos machines virtuelles Azure sources afin d’éviter tout problème de performances. Si vous conservez les paramètres par défaut, Site Recovery crée les comptes de stockage requis en fonction de la configuration de la source. Si vous personnalisez et sélectionnez vos propres paramètres, gardez à l’esprit les [Objectifs d’évolutivité pour les disques de machines virtuelles](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
+**Conseils de stockage** | Veillez à suivre les [conseils de stockage](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) pour vos machines virtuelles Azure sources afin d’éviter tout problème de performances. Si vous conservez les paramètres par défaut, Site Recovery crée les comptes de stockage requis en fonction de la configuration de la source. Si vous personnalisez et sélectionnez vos propres paramètres, gardez à l’esprit les [Objectifs d’évolutivité pour les disques de machines virtuelles](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
 **Conseils de mise en réseau** | Vous devez valider la connectivité sortante à partir de votre machine virtuelle Azure pour des URL ou des plages d’adresses IP spécifiques. Pour plus d’informations, voir [Aide à la mise en réseau pour la réplication des machines virtuelles Azure](site-recovery-azure-to-azure-networking-guidance.md).
 **Microsoft Azure** | Assurez-vous que tous les certificats racines les plus récents sont présents sur la machine virtuelle Windows ou Linux. Si les certificats racines les plus récents ne sont pas présents, la machine virtuelle ne peut pas s’inscrire auprès du service Site Recovery en raison de contraintes de sécurité.
 

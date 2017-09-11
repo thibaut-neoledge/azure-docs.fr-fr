@@ -2,7 +2,7 @@
 title: "Documentation Azure Automation - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser Automation pour automatiser les processus et la gestion de la configuration afin de gagner du temps, tout en renforçant la fiabilité de vos tâches d’administration récurrentes."
 services: automation
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: 00c4fe633a7ef76b20d2a9d1c704bb09da6b19a0
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
 ---

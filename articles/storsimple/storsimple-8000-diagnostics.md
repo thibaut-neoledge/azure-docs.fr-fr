@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: d3488b1e7857799d8ed7de796610e8d52034bd8f
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/18/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utiliser l’outil de diagnostic StorSimple pour résoudre les problèmes des appareils de la gamme 8000
@@ -389,7 +388,7 @@ Pour utiliser cet outil, procédez comme suit :
 
     Si les latences de lecture-écriture signalées par l’outil de diagnostic sont élevées :
 
-    1. Configurez Storage Analytics pour les services BLOB et analysez la sortie pour déterminer les latences du compte de stockage Azure. Pour obtenir des instructions détaillées sur l’activation et la configuration de Storage Analytics, consultez [cet article](../storage/storage-enable-and-view-metrics-classic-portal.md). Si ces latences sont également élevées et comparables aux valeurs fournies par l’outil de diagnostic StorSimple, vous devez enregistrer une demande de service auprès de Stockage Azure.
+    1. Configurez Storage Analytics pour les services BLOB et analysez la sortie pour déterminer les latences du compte de stockage Azure. Pour obtenir des instructions détaillées sur l’activation et la configuration de Storage Analytics, consultez [cet article](../storage/common/storage-enable-and-view-metrics.md). Si ces latences sont également élevées et comparables aux valeurs fournies par l’outil de diagnostic StorSimple, vous devez enregistrer une demande de service auprès de Stockage Azure.
 
     2. Si les latences du compte de stockage sont faibles, contactez votre administrateur réseau pour qu’il recherche les éventuels problèmes de latence du réseau.
 

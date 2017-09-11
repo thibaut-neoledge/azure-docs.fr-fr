@@ -1,6 +1,6 @@
 ---
 title: "Création et téléchargement d’une image de machine virtuelle FreeBSD | Microsoft Docs"
-description: "Découvrez comment créer et télécharger un disque dur virtuel (VHD) contenant le système d&quot;exploitation FreeBSD pour créer une machine virtuelle Azure."
+description: "Découvrez comment créer et télécharger un disque dur virtuel (VHD) contenant le système d'exploitation FreeBSD pour créer une machine virtuelle Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: KylieLiang
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kyliel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 7a92105f9d7be88311f2ecd89b22e35f3ad3bbac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 918f454784a9676297077c2e94c3e49ab2872d2f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Création et téléchargement d’un disque dur virtuel FreeBSD dans Azure
@@ -128,7 +127,7 @@ Vous avez besoin d’un compte de stockage dans Azure pour télécharger un fich
 
    * Dans le champ **URL** , tapez un nom de sous-domaine à utiliser dans l'URL du compte de stockage. L’entrée peut être composée de 3 à 24 lettres minuscules et chiffres. Ce nom devient le nom d'hôte figurant dans l'URL utilisée pour adresser les ressources de stockage d'objets blob Azure, de stockage de files d'attente Azure et de stockage de tables Azure pour l'abonnement.
    * Dans le menu déroulant **Groupe d'emplacements ou d'affinités**, choisissez le **groupe d'emplacements ou d'affinités** pour le compte de stockage. Un groupe d’affinités vous permet de mettre votre stockage et vos services cloud dans le même centre de données.
-   * Dans le champ **Réplication**, indiquez si vous souhaitez utiliser la réplication **géoredondante** pour le compte de stockage. La géo-réplication est activée par défaut. Cette option permet une réplication gratuite de vos données vers un emplacement secondaire, pour que votre stockage puisse basculer vers cet emplacement en cas de panne sur l’emplacement principal. L'emplacement secondaire est affecté automatiquement. Vous ne pouvez pas le modifier. Si vous avez besoin de disposer d’un contrôle accru sur l’emplacement de votre stockage reposant sur le cloud du fait d’exigences juridiques ou de la stratégie de l’organisation, vous pouvez désactiver la géo-réplication. Cependant, sachez que si vous réactivez la géo-localisation ultérieurement, la réplication de vos données vers un emplacement secondaire sera facturée au tarif d'un transfert unique. Vous pouvez bénéficier d’une réduction pour les services de stockage sans géo-réplication. Vous trouverez plus d'informations sur la gestion de la géoréplication des comptes de stockage ici : [Réplication Azure Storage](../../../storage/storage-redundancy.md).
+   * Dans le champ **Réplication**, indiquez si vous souhaitez utiliser la réplication **géoredondante** pour le compte de stockage. La géo-réplication est activée par défaut. Cette option permet une réplication gratuite de vos données vers un emplacement secondaire, pour que votre stockage puisse basculer vers cet emplacement en cas de panne sur l’emplacement principal. L'emplacement secondaire est affecté automatiquement. Vous ne pouvez pas le modifier. Si vous avez besoin de disposer d’un contrôle accru sur l’emplacement de votre stockage reposant sur le cloud du fait d’exigences juridiques ou de la stratégie de l’organisation, vous pouvez désactiver la géo-réplication. Cependant, sachez que si vous réactivez la géo-localisation ultérieurement, la réplication de vos données vers un emplacement secondaire sera facturée au tarif d'un transfert unique. Vous pouvez bénéficier d’une réduction pour les services de stockage sans géo-réplication. Vous trouverez plus d'informations sur la gestion de la géoréplication des comptes de stockage ici : [Réplication Azure Storage](../../../storage/common/storage-redundancy.md).
 
      ![Entrer les détails du compte de stockage](./media/freebsd-create-upload-vhd/Storage-create-account.png)
 5. Sélectionnez **Créer un compte de stockage**. Le compte apparaît à présent sous **stockage**.
@@ -164,12 +163,12 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
 ### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Utilisez la méthode par certificat pour télécharger un fichier .vhd
 1. Ouvrez la console Azure PowerShell.
-2. Entrez :  `Get-AzurePublishSettingsFile`.
+2. Saisissez : `Get-AzurePublishSettingsFile`.
 3. Une fenêtre de navigateur apparaît et vous invite à télécharger le fichier .publishsettings. Ce fichier contient des informations et un certificat pour votre abonnement Azure.
 
     ![Page de téléchargement du navigateur](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. Enregistrez le fichier .publishsettings.
-5. Tapez :  `Import-AzurePublishSettingsFile <PathToFile>`, où `<PathToFile>` est le chemin d'accès complet au fichier .publishsettings.
+5. Saisissez : `Import-AzurePublishSettingsFile <PathToFile>`, où `<PathToFile>` est le chemin d’accès complet au fichier .publishsettings.
 
    Pour plus d'informations, consultez la page [Prise en main des applets de commande Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 

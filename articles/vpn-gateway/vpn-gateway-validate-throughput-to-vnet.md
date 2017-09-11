@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2017
 ms.author: radwiv;chadmat;genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 7dfc5160a0ede19b4317a39187f0f864b037141b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2e0347854b5d30c955a50a01d6f7ba08e24f94b6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Comment valider un débit VPN sur un réseau virtuel
@@ -38,7 +37,7 @@ Cet article montre comment valider le débit du réseau des ressources locales v
 
 La connexion à la passerelle VPN implique les composants suivants :
 
-- Périphérique VPN sur site (afficher la liste des [périphériques VPN validés)](vpn-gateway-about-vpn-devices.md#devicetable).
+- Appareils VPN sur site (afficher la liste des [appareils VPN validés)](vpn-gateway-about-vpn-devices.md#devicetable).
 - Internet public
 - Passerelle VPN Azure
 - Machine virtuelle Azure
@@ -49,11 +48,11 @@ Le diagramme suivant illustre la connectivité logique d’un réseau local vers
 
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>Calcul des valeurs maximales attendues en entrée/sortie
 
-1.    Déterminez les exigences de débit de base de votre application.
-2.    Déterminez les limites de débit de votre passerelle VPN Azure. Pour de l’aide, consultez la section « Débit agrégé par référence SKU et type de VPN » de [Planification et conception de la passerelle VPN](vpn-gateway-plan-design.md).
-3.    Déterminez les [instructions de débit de machine virtuelle Azure](../virtual-machines/virtual-machines-windows-sizes.md) pour la taille de votre machine virtuelle.
-4.    Déterminez la bande passante de votre fournisseur d’accès à Internet (FAI).
-5.    Calculez le débit prévu - Bande passante la plus basse entre machine virtuelle et passerelle FAI * 0,8.
+1.  Déterminez les exigences de débit de base de votre application.
+2.  Déterminez les limites de débit de votre passerelle VPN Azure. Pour de l’aide, consultez la section « Débit agrégé par référence SKU et type de VPN » de [Planification et conception de la passerelle VPN](vpn-gateway-plan-design.md).
+3.  Déterminez les [instructions de débit de machine virtuelle Azure](../virtual-machines/virtual-machines-windows-sizes.md) pour la taille de votre machine virtuelle.
+4.  Déterminez la bande passante de votre fournisseur d’accès à Internet (FAI).
+5.  Calculez le débit prévu - Bande passante la plus basse entre machine virtuelle et passerelle FAI * 0,8.
 
 Si le débit calculé ne répond pas aux exigences de débit de base de votre application, vous devez augmenter la bande passante de la ressource que vous avez identifiée comme goulot d’étranglement. Pour redimensionner une passerelle VPN Azure, consultez [Modification d’une référence SKU de passerelle](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Pour redimensionner une machine virtuelle, consultez [Redimensionner une machine virtuelle](../virtual-machines/virtual-machines-windows-resize-vm.md). Si bande passante Internet n’est pas celle attendue, vous souhaiterez également contacter votre fournisseur d’accès à Internet.
 
@@ -90,7 +89,7 @@ Téléchargez [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip)
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
     </br>
-    **Linux Azure :** les images Linux Azure ont des pare-feu permissifs. Si une application écoute sur un port, le trafic est autorisé. Les images personnalisées qui sont sécurisées peuvent nécessiter l’ouverture explicite des ports. Les pare-feu de couche système courants pour Linux comprennent `iptables`, `ufw` et `firewalld`.
+    **Linux Azure :** les images Linux Azure sont dotées de pare-feu permissifs. Si une application écoute sur un port, le trafic est autorisé. Les images personnalisées qui sont sécurisées peuvent nécessiter l’ouverture explicite des ports. Les pare-feu de couche système courants pour Linux comprennent `iptables`, `ufw` et `firewalld`.
 
 3. Sur le nœud serveur, accédez au répertoire dans lequel iperf3.exe est extrait. Exécutez ensuite iPerf en mode serveur et configurez-le pour écouter sur le port 5001 avec les commandes suivantes :
 
@@ -125,10 +124,10 @@ Vous pouvez rencontrer des problèmes de copie trop lente de fichiers lorsque vo
 
 - Les applications de copie de fichiers, comme l’Explorateur Windows et le protocole RDP, n’utilisent pas plusieurs threads lors de la copie des fichiers. Pour de meilleures performances, utilisez une application de copie de fichiers multi-thread, comme [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx), pour copier des fichiers à l’aide de 16 ou 32 threads. Pour modifier le nombre de threads pour la copie de fichiers dans Richcopy, cliquez sur **Action** > **Options de copie** > **Copie de fichiers**.<br><br>
 ![Problèmes de copie lente de fichiers](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
-- La vitesse en lecture/écriture du disque de la machine virtuelle est insuffisante. Pour plus d'informations, consultez [Dépannage Azure Storage](../storage/storage-e2e-troubleshooting.md).
+- La vitesse en lecture/écriture du disque de la machine virtuelle est insuffisante. Pour plus d'informations, consultez [Dépannage Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interface externe avec appareil local
-Si l’adresse Internet du périphérique VPN est incluse dans la définition du [réseau local](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) dans Azure, vous pourriez avoir du mal à utiliser le VPN ou subir des déconnexions occasionnelles ou des problèmes de performances.
+Si l’adresse Internet de l’appareil VPN est incluse dans la définition du [réseau local](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) dans Azure, vous pourriez avoir du mal à utiliser le VPN ou subir des déconnexions occasionnelles ou des problèmes de performances.
 
 ## <a name="checking-latency"></a>Vérification de la latence
 Utilisez tracert pour le suivi jusqu’à l’appareil Microsoft Azure Edge pour déterminer s’il existe des retards supérieurs à 100 ms entre les tronçons.

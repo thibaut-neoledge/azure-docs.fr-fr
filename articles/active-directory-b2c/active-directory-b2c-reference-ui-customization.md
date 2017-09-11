@@ -1,86 +1,86 @@
 ---
-title: "Azure Active Directory B2C : outil d’assistance de personnalisation d’interface utilisateur | Microsoft Docs"
+title: "Personnalisation de l’interface utilisateur (IU) - Azure AD B2C | Documents Microsoft"
 description: "Une rubrique sur les fonctionnalités de personnalisation de l’interface utilisateur (UI) dans Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: saeedakhter-msft
+manager: krassk
+editor: parakhj
 ms.assetid: 99f5a391-5328-471d-a15c-a2fafafe233d
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2017
-ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 8e71a7462a0cbdbd177b088e6757c70eeef31fc7
+ms.date: 08/16/2017
+ms.author: saeedakhter-msft
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 122fa997ea11b369aae3c59edf0043ab19d21aea
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C : personnalisation de l’interface utilisateur Azure AD B2C
-L’expérience utilisateur est primordiale dans une application utilisée par les consommateurs. Elle fait la différence entre une bonne application et une excellente, et entre les consommateurs simplement actifs et ceux qui sont réellement engagés. Azure Active Directory (Azure AD) B2C vous permet de personnaliser les pages d’inscription, de connexion (*voir la remarque ci-dessous*), d’édition de profil de l’utilisateur et de réinitialisation de mot de passe avec le contrôle pixel-perfect.
+
+L’expérience utilisateur est primordiale dans une application orientée client.  Développez votre base clients en créant des expériences utilisateur avec l’apparence de votre marque. Azure Active Directory B2C (Azure AD B2C) vous permet de personnaliser les pages d’inscription, de connexion, de modification du profil et de réinitialisation du mot de passe avec le contrôle pixel-perfect.
 
 > [!NOTE]
-> Actuellement, les pages d’inscription au compte local, les pages de réinitialisation de mot de passe associées ainsi que les courriers électroniques de vérification ne sont personnalisables qu’avec la [fonction de personnalisation de la société](../active-directory/active-directory-add-company-branding.md) et non par le biais des mécanismes décrits dans cet article.
-> 
-> 
+> La fonctionnalité de personnalisation de l’interface utilisateur de page décrite dans cet article ne s’applique pas à la stratégie d’authentification uniquement, à sa page de réinitialisation du mot de passe qui l’accompagne ni aux e-mails de vérification.  Ces fonctionnalités utilisent la [fonctionnalité de marque de société](../active-directory/active-directory-add-company-branding.md) à la place.
+>
 
-Cet article portera sur les éléments suivants :
+Cet article aborde les thèmes suivants :
 
-* La fonctionnalité de personnalisation de l’interface utilisateur de page.
-* Un outil qui vous permettra de tester la fonctionnalité de personnalisation d’interface utilisateur de page à l’aide de notre exemple de contenu.
-* Les éléments d’interface utilisateur de base dans chaque type de page.
+* la fonctionnalité de personnalisation de l’interface utilisateur de page.
+* Un outil de téléchargement du contenu HTML pour Azure Blob Storage pour une utilisation avec la fonctionnalité de personnalisation de l’interface utilisateur de page.
+* Les éléments de l’interface utilisateur utilisés par Azure AD B2C que vous pouvez personnaliser à l’aide des feuilles de Style en cascade (CSS).
 * Meilleures pratiques lors de l’exercice de cette fonctionnalité.
 
 ## <a name="the-page-ui-customization-feature"></a>La fonctionnalité de personnalisation de l’interface utilisateur de page
-Avec la fonctionnalité de personnalisation de l’interface utilisateur de page, vous pouvez personnaliser l’apparence des pages d’inscription, de connexion, de réinitialisation du mot de passe et de modification de profil du consommateur (en configurant des [stratégies](active-directory-b2c-reference-policies.md)). Vos clients bénéficieront d’une expérience transparente lors de la navigation entre votre application et les pages fournies par Azure AD B2C.
 
-Contrairement aux autres services où les options de l’interface sont limitées ou ne sont disponibles que via les API, Azure AD B2C utilise une approche moderne (et plus simple) de la personnalisation de l’interface utilisateur de page.
+Vous pouvez personnaliser l’apparence des pages d’inscription, de connexion, de réinitialisation du mot de passe et de modification du profil (en configurant des [stratégies](active-directory-b2c-reference-policies.md)). Vos clients bénéficieront d’une expérience transparente lors de la navigation entre votre application et les pages fournies par Azure AD B2C.
 
-Voici comment cela fonctionne : Azure AD B2C exécute le code dans l’explorateur client et utilise une approche moderne appelée [partage de ressources cross-origin (CORS)](http://www.w3.org/TR/cors/) pour charger le contenu depuis une URL spécifiée au préalable dans une stratégie. Vous pouvez spécifier des URL différentes pour différentes pages. Le code fusionne des éléments de l’interface utilisateur d’Azure AD B2C et le contenu chargé depuis votre URL, et affiche la page pour le consommateur. Procédure à suivre :
+Contrairement à d’autres services avec des options de l’interface utilisateur, Azure AD B2C utilise une approche simple et moderne à la personnalisation de l’interface utilisateur.
 
-1. Créer un contenu HTML5 correct avec un élément `<div id="api"></div>` (obligatoirement vide) situé dans `<body>`. Cet élément marque l’endroit où le contenu Azure AD B2C est inséré.
-2. Héberger votre contenu sur un point de terminaison HTTPS (avec CORS activé). Notez que vous devez activer à la fois les méthodes de demande GET et OPTIONS lors de la configuration de CORS.
-3. Modifier le style des éléments d’interface utilisateur dans lesquels sera incorporé Azure AD B2C.
+Voici comment cela fonctionne : Azure AD B2C exécute le code dans le navigateur client et utilise une approche moderne appelée [partage des ressources cross-origin (CORS)](http://www.w3.org/TR/cors/).  Au moment de l’exécution, le contenu est chargé depuis une URL que vous spécifiez dans une stratégie. Vous pouvez spécifier des URL différentes pour différentes pages. Une fois le contenu chargé à partir de votre URL est fusionné à un fragment HTML inséré depuis Azure AD B2C, la page s’affiche pour votre client. Procédure à suivre :
 
-## <a name="test-out-the-ui-customization-feature"></a>Tester la fonctionnalité de personnalisation de l’interface
-Si vous souhaitez tester la fonctionnalité de personnalisation de l’interface utilisateur à l’aide de notre exemple de contenu HTML et CSS, nous vous proposons [un outil d’assistance simple](active-directory-b2c-reference-ui-customization-helper-tool.md) permettant de télécharger et configurer votre exemple de contenu sur votre instance Azure Blob Storage.
+1. Créez un contenu HTML5 correct avec un élément `<div id="api"></div>` vide situé quelque part dans le `<body>`. Cet élément marque l’endroit où le contenu Azure AD B2C est inséré.
+1. Héberger votre contenu sur un point de terminaison HTTPS (avec CORS activé). Notez que vous devez activer à la fois les méthodes de demande GET et OPTIONS lors de la configuration de CORS.
+1. Utilisez les feuilles de style en cascade pour donner du style aux éléments d’interface utilisateur dans lesquels est inséré Azure AD B2C.
 
-> [!NOTE]
-> Vous pouvez héberger le contenu de votre interface utilisateur sur tous types d’emplacements : serveurs web, CDN, AWS S3, systèmes de partage de fichiers, etc. Tout est possible à condition que le contenu soit hébergé sur un point de terminaison HTTPS disponible publiquement (avec CORS activé). Nous utilisons Azure Blob Storage à titre indicatif uniquement.
-> 
-> 
+### <a name="a-basic-example-of-customized-html"></a>Un exemple de base de code HTML personnalisé
 
-### <a name="the-most-basic-html-content-for-testing"></a>Contenu HTML de base à des fins de test
-Vous trouverez ci-dessous un contenu HTML élémentaire que vous pouvez utiliser pour tester cette fonctionnalité. Utilisez le même outil d’assistance que celui fourni précédemment pour télécharger et configurer ce contenu sur votre instance Azure Blob Storage. Vous pouvez ensuite vérifier l’affichage et le fonctionnement des boutons et champs de formulaire de base (non stylisés) sur chaque page.
+L’exemple suivant présente le contenu HTML élémentaire que vous pouvez utiliser pour tester cette fonctionnalité. Utilisez [l’outil d’assistance](active-directory-b2c-reference-ui-customization-helper-tool.md) pour télécharger et configurer ce contenu sur votre stockage Azure Blob. Vous pouvez ensuite vérifier l’affichage et le fonctionnement des boutons et champs de formulaire de base (non stylisés) sur chaque page.
 
 ```HTML
-
 <!DOCTYPE html>
 <html>
     <head>
         <title>!Add your title here!</title>
     </head>
     <body>
-        <div id="api"></div>    <!-- IMP: This element is intentionally empty; don't enter anything here -->
+        <div id="api"></div>   <!-- Leave this element empty because Azure AD B2C will insert content here. -->
     </body>
 </html>
-
 ```
 
-## <a name="the-core-ui-elements-in-each-type-of-page"></a>Éléments d’interface utilisateur de base dans chaque type de page
-Les sections suivantes présentent des exemples de fragments HTML5 qu’Azure AD B2C fusionne dans l’élément `<div id="api"></div>` situé dans votre contenu. **N’insérez pas ces fragments dans votre contenu HTML5.** Le service Azure AD B2C les insère au moment de l’exécution. Utilisez ces exemples pour concevoir vos propres feuilles de style.
+## <a name="test-out-the-ui-customization-feature"></a>Tester la fonctionnalité de personnalisation de l’interface
 
-### <a name="azure-ad-b2c-content-inserted-into-the-identity-provider-selection-page"></a>Contenu Azure AD B2C inséré dans la « page de sélection du fournisseur d’identité »
-Cette page contient une liste de fournisseurs d’identité parmi lesquels l’utilisateur peut faire son choix à l’inscription ou à la connexion. Il s’agit de fournisseurs d’identité sociale tels que Facebook et Google + ou de comptes locaux (basés sur une adresse de messagerie ou un nom d’utilisateur).
+Vous souhaitez tester la fonctionnalité de personnalisation de l’interface utilisateur à l’aide de notre exemple de code HTML et de contenu CSS ?  Nous vous avons fourni [un outil d’assistance](active-directory-b2c-reference-ui-customization-helper-tool.md) qui télécharge et configure notre exemple de contenu sur votre stockage Azure Blob.
+
+> [!NOTE]
+> Vous pouvez héberger le contenu de votre interface utilisateur sur tous types d’emplacements : serveurs web, CDN, AWS S3, systèmes de partage de fichiers, etc. Tout est possible à condition que le contenu soit hébergé sur un point de terminaison HTTPS disponible publiquement, avec CORS activé. Nous utilisons Azure Blob Storage à titre indicatif uniquement.
+>
+
+## <a name="the-ui-fragments-embedded-by-azure-ad-b2c"></a>Les fragments de l’interface utilisateur incorporés par Azure AD B2C
+
+Les sections suivantes répertorient les fragments HTML5 qu’Azure AD B2C fusionne dans l’élément `<div id="api"></div>` situé dans votre contenu. **N’insérez pas ces fragments dans votre contenu HTML5.** Le service Azure AD B2C les insère au moment de l’exécution. Utilisez ces fragments en tant que référence lors de la conception de vos propres feuilles de Style en cascade (CSS).
+
+### <a name="fragment-inserted-into-the-identity-provider-selection-page"></a>Fragment inséré dans la « page Sélection du fournisseur d’identité »
+
+Cette page contient une liste de fournisseurs d’identité parmi lesquels l’utilisateur peut faire son choix à l’inscription ou à la connexion. Ces boutons incluent des fournisseurs d’identité sociale tels que Facebook et Google+ ou de comptes locaux (basés sur une adresse e-mail ou un nom d’utilisateur).
 
 ```HTML
-
 <div id="api" data-name="IdpSelections">
     <div class="intro">
          <p>Sign up</p>
@@ -100,14 +100,13 @@ Cette page contient une liste de fournisseurs d’identité parmi lesquels l’u
         </ul>
     </div>
 </div>
-
 ```
 
-### <a name="azure-ad-b2c-content-inserted-into-the-local-account-sign-up-page"></a>Contenu Azure AD B2C inséré dans la « page d’inscription à un compte local »
-Cette page contient un formulaire d’inscription que l’utilisateur doit renseigner lors de l’inscription pour un compte local basé sur une adresse électronique ou un nom d’utilisateur. Le formulaire peut contenir différentes commandes de saisie telles que la zone de saisie de texte, celle du mot de passe, le bouton radio, les cases du menu déroulant à sélection unique et la sélection de plusieurs cases à cocher.
+### <a name="fragment-inserted-into-the-local-account-sign-up-page"></a>Fragment inséré dans la « page Inscription à un compte local »
+
+Cette page contient un formulaire d’inscription du compte local basée sur une adresse e-mail ou un nom d’utilisateur. Le formulaire peut contenir différentes commandes de saisie telles que la zone de saisie de texte, celle du mot de passe, le bouton radio, les cases du menu déroulant à sélection unique et la sélection de plusieurs cases à cocher.
 
 ```HTML
-
 <div id="api" data-name="SelfAsserted">
     <div class="intro">
         <p>Create your account by providing the following details</p>
@@ -216,17 +215,17 @@ Cette page contient un formulaire d’inscription que l’utilisateur doit rense
         <div id="verifying_blurb"></div>
     </div>
 </div>
-
 ```
 
-### <a name="azure-ad-b2c-content-inserted-into-the-social-account-sign-up-page"></a>Contenu Azure AD B2C inséré dans la « page d’inscription à un compte social »
-Cette page contient un formulaire d’inscription que le consommateur doit remplir lors de l’inscription à l’aide d’un compte existant à partir d’un fournisseur d’identité sociale tel que Facebook ou Google +. Cette page est similaire à la page d’inscription à un compte local (affiché dans la section précédente) à l’exception des champs de saisie de mot de passe.
+### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Fragment inséré dans la « page Inscription à un compte social »
 
-### <a name="azure-ad-b2c-content-inserted-into-the-unified-sign-up-or-sign-in-page"></a>Contenu Azure AD B2C inséré dans la « page d’inscription ou de connexion unifiée »
-Cette page gère l’inscription et la connexion des consommateurs, qui peuvent utiliser les fournisseurs d’identité des réseaux sociaux, tels que Facebook ou Google+, ou des comptes locaux.
+Cette page peut s’afficher lors de l’inscription à l’aide d’un compte existant depuis un fournisseur d’identité sociale tel que Facebook ou Google+.  Cette page est utilisée lorsque des informations supplémentaires doivent être collectées depuis un utilisateur final à l’aide du formulaire d’inscription. Cette page est similaire à la page d’inscription à un compte local (affiché dans la section précédente) à l’exception des champs de saisie de mot de passe.
+
+### <a name="fragment-inserted-into-the-unified-sign-up-or-sign-in-page"></a>Fragment inséré dans la « page Inscription ou connexion unifiées »
+
+Cette page gère l’inscription et la connexion des utilisateurs, qui peuvent utiliser les fournisseurs d’identité des réseaux sociaux, tels que Facebook ou Google+, ou des comptes locaux.
 
 ```HTML
-
 <div id="api" data-name="Unified">
         <div class="social" role="form">
                <div class="intro">
@@ -273,14 +272,13 @@ Cette page gère l’inscription et la connexion des consommateurs, qui peuvent 
                </div>
         </div>
 </div>
-
 ```
 
-### <a name="azure-ad-b2c-content-inserted-into-the-multi-factor-authentication-page"></a>Contenu Azure AD B2C inséré dans la « page d’authentification multifacteur »
+### <a name="fragment-inserted-into-the-multi-factor-authentication-page"></a>Fragment inséré dans la « page Authentification multifacteur »
+
 Cette page permet aux utilisateurs de vérifier leurs numéros de téléphone (par voie textuelle ou vocale) au cours de l’inscription ou de la connexion.
 
 ```HTML
-
 <div id="api" data-name="Phonefactor">
     <div id="phonefactor_initial">
         <div class="intro">
@@ -318,12 +316,11 @@ Cette page permet aux utilisateurs de vérifier leurs numéros de téléphone (p
         <div id="dialing_blurb"></div><div id="dialing_number"></div>
     </div>
 </div>
-
 ```
 
-### <a name="azure-ad-b2c-content-inserted-into-the-error-page"></a>Contenu Azure AD B2C inséré dans la « page d’erreur »
-```HTML
+### <a name="fragment-inserted-into-the-error-page"></a>Fragment inséré dans la « page Erreur »
 
+```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">
     <h2>Sorry, but we're having trouble signing you in.</h2>
     <div class="error-page-help">We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, please try again.</div>
@@ -334,17 +331,17 @@ Cette page permet aux utilisateurs de vérifier leurs numéros de téléphone (p
         <div class="error-page-detail">AADB2C90065: A B2C client-side error 'Access is denied.' has occurred requesting the remote resource.</div>
     </div>
 </div>
-
 ```
 
 ## <a name="localizing-your-html-content"></a>Localisation de votre contenu HTML
-Vous pouvez localiser votre contenu HTML en activant [« Personnalisation de la langue »](active-directory-b2c-reference-language-customization.md).  Cela permettra à Azure AD B2C de transmettre le paramètre OIDC, `ui-locales`, à votre point de terminaison.  Vous pouvez utiliser cette fonctionnalité pour fournir des pages d’interface utilisateur personnalisées dans différentes langues.  
+
+Vous pouvez localiser votre contenu HTML en activant [« Personnalisation de la langue »](active-directory-b2c-reference-language-customization.md).  L’activation de cette fonctionnalité permet à Azure AD B2C de transmettre le paramètre Open ID Connect, `ui-locales`, à votre point de terminaison.  Votre serveur de contenu peut utiliser ce paramètre pour fournir des pages HTML personnalisées qui sont spécifiques à la langue.
 
 ## <a name="things-to-remember-when-building-your-own-content"></a>Points à retenir lors de la création de votre propre contenu
+
 Si vous envisagez d’utiliser la fonctionnalité de personnalisation d’interface utilisateur de page, veuillez consulter les meilleures pratiques suivantes :
 
 * Ne copiez pas le contenu par défaut Azure AD B2C et n’essayez pas de le modifier. Il est préférable de créer votre contenu HTML5 à partir de zéro et d’utiliser le contenu par défaut comme référence.
-* Dans toutes les pages (à l’exception des pages d’erreur) prises en charge par les stratégies d’inscription, de connexion et de modification de profil, les feuilles de style que vous fournissez devront remplacer les feuilles de style par défaut que nous ajoutons à ces pages dans les fragments <head> . Dans toutes les pages prises en charge par les stratégies d’inscription, de connexion ou de réinitialisation du mot de passe, ainsi que dans les pages d’erreur de toutes les stratégies, vous devrez définir vous-même les éléments de style.
 * Pour des raisons de sécurité, nous ne vous permettons pas d’inclure du langage JavaScript dans votre contenu. La plupart des éléments dont vous avez besoin sont disponibles et prêts à l’emploi. Dans le cas contraire, utilisez [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) pour demander de nouvelles fonctionnalités.
 * Versions de navigateur prises en charge :
   * Internet Explorer 11, 10, Edge

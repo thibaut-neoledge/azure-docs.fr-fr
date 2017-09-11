@@ -2,7 +2,7 @@
 title: "Documentation sur les groupes de machines virtuelles identiques Azure - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser Virtual Machine Scale Sets pour créer des machines virtuelles Windows ou Linux prenant en charge la mise à l’échelle automatique dans le cadre de solutions de calculs volumineux, de solutions Big Data et de solutions en conteneur."
 services: virtual-machine-scale-sets
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/12/2017
 
 ---

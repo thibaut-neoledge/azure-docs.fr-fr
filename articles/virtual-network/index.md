@@ -2,7 +2,7 @@
 title: "Documentation Réseau virtuel Azure - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser un réseau virtuel dans le cloud. La documentation vous montre comment déployer un réseau virtuel, l’utiliser pour lancer des ressources et l’intégrer à un réseau local."
 services: virtual-network
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: d65301d1ca71f62b52c97f1de772a61c33933b8a
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/18/2017
 
 ---
