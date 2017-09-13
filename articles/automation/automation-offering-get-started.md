@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/18/2017
+ms.date: 08/31/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -170,8 +170,7 @@ La méthode recommandée pour intégrer Automation est de sélectionner l’offr
    - Spécifiez un nom pour le nouvel **espace de travail OMS**.
    - Dans la liste déroulante **Abonnement**, sélectionnez un abonnement à lier si la valeur par défaut sélectionnée n’est pas appropriée.
    - Pour **Groupe de ressources**, vous pouvez créer un groupe de ressources ou sélectionner un groupe de ressources existant.  
-   - Sélectionnez un **emplacement**.  Actuellement, les seuls emplacements disponibles sont **Sud-Est de l’Australie**, **États-Unis de l’Ouest**, **Sud-Est asiatique**, **Centre-Ouest des États-Unis** et **Europe de l’Ouest**.
-   - Sélectionner un **niveau de tarification**.  Deux niveaux sont proposés pour la solution : gratuit et Par nœud (OMS).  La quantité de données collectées quotidiennement, la période de rétention et la durée d’exécution (en minutes) des tâches de runbook sont limitées pour le niveau gratuit.  Le niveau Par nœud (OMS) permet de collecter une quantité illimitée de données quotidiennement.  
+   - Sélectionnez un **emplacement**.  Pour en savoir plus, consultez les [régions dans lesquelles Azure Automation est disponible](https://azure.microsoft.com/regions/services/).  Des solutions sont proposées dans deux niveaux : niveau libre et par nœud (OMS).  La quantité de données collectées quotidiennement, la période de rétention et la durée d’exécution (en minutes) des tâches de runbook sont limitées pour le niveau gratuit.  Le niveau Par nœud (OMS) permet de collecter une quantité illimitée de données quotidiennement.  
    - Sélectionnez **Compte Automation**.  Si vous créez un espace de travail OMS, vous devez également créer un compte Automation associé au nouvel espace de travail OMS spécifié précédemment, y compris votre abonnement, votre groupe de ressources et votre région Azure.  Vous pouvez sélectionner **Créer un compte Automation** et dans le panneau **Compte Automation**, fournir les informations suivantes : 
   - Dans le champ **Nom**, saisissez le nom du compte Automation.
 

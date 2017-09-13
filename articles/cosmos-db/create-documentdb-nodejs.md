@@ -34,7 +34,8 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du Portail Az
     * [Node.js](https://nodejs.org/en/) version v0.10.29 ou ultérieure
     * [Git](http://git-scm.com/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Création d'un compte de base de données
 

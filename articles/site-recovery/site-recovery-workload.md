@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
@@ -31,7 +31,7 @@ Les organisations ont besoin d’une stratégie de continuité des activités et
 
 Site Recovery est un service Azure qui participe à votre stratégie de continuité des activités et de récupération d’urgence. À l’aide de Site Recovery, vous pouvez déployer une réplication compatible avec les applications vers le cloud ou un site secondaire. Qu’il s’agisse d’applications Windows ou Linux s’exécutant sur des serveurs physiques ou des machines virtuelles VMware ou Hyper-V, vous pouvez utiliser Site Recovery pour orchestrer la réplication, effectuer un test de récupération d’urgence et exécuter des opérations de basculement et de restauration automatique.
 
-Site Recovery s’intègre avec les applications Microsoft, y compris SharePoint, Exchange, Dynamics, SQL Server et Active Directory. Par ailleurs, Microsoft travaille en étroite collaboration avec les principaux fournisseurs, notamment Oracle, SAP, IBM et Red Hat. Vous pouvez personnaliser les solutions de réplication application par application.
+Site Recovery s’intègre avec les applications Microsoft, y compris SharePoint, Exchange, Dynamics, SQL Server et Active Directory. Par ailleurs, Microsoft travaille en étroite collaboration avec les principaux fournisseurs, notamment Oracle, SAP et Red Hat. Vous pouvez personnaliser les solutions de réplication application par application.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Pourquoi utiliser Site Recovery pour la réplication des applications ?
 Site Recovery contribue à la protection des applications et à la récupération comme suit :

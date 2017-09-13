@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3ab1d432a2f90db57b99f0e7d419d85e2958c308
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Groupes de machines virtuelles identiques Azure et disques gérés
@@ -30,7 +30,7 @@ Les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-set
 
 * Vous pouvez attacher des disques de données gérés au groupe identique.
 
-* Avec un disque géré, un groupe identique peut atteindre une capacité de 1 000 machines virtuelles à partir d’une image de plateforme ou de 100 machines virtuelles à partir d’une image personnalisée.
+* Avec un disque géré, un groupe identique peut atteindre une capacité de 1 000 machines virtuelles s’il est basé sur une image de plateforme, ou de 300 machines virtuelles s’il est basé sur une image personnalisée.
 
 ## <a name="get-started"></a>Prise en main
 

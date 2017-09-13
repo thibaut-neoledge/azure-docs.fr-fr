@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/27/2017
+ms.date: 09/03/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Créer et déployer votre premier modèle Azure Resource Manager
 Cette rubrique vous guide tout au long des étapes de création de votre premier modèle Azure Resource Manager. Les modèles Azure Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires au déploiement de votre solution. Pour comprendre les concepts associés au déploiement et à la gestion de vos solutions Azure, voir [Présentation d’Azure Resource Manager](resource-group-overview.md). Si vous disposez de ressources existantes et que vous souhaitez créer un modèle pour ces ressources, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
 
-Pour créer et réviser des modèles, vous avez besoin d’un éditeur JSON. [Visual Studio Code](https://code.visualstudio.com/) est un éditeur de code multiplateforme, open source et léger. Nous vous recommandons vivement d’utiliser Visual Studio Code pour créer des modèles Resource Manager. Cette rubrique suppose que vous utilisez VS Code ; toutefois, si vous disposez d’un autre éditeur JSON (tel que Visual Studio), vous pouvez utiliser cet éditeur.
+Pour créer et réviser des modèles, vous avez besoin d’un éditeur JSON. [Visual Studio Code](https://code.visualstudio.com/) est un éditeur de code multiplateforme, open source et léger. Nous vous recommandons vivement d’utiliser Visual Studio Code pour créer des modèles Resource Manager. Cet article suppose que vous utilisez Visual Studio Code. Si vous disposez d’un autre éditeur JSON (tel que Visual Studio), vous pouvez l’utiliser.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -99,7 +99,7 @@ Une fois le déploiement terminé, votre compte de stockage existe dans le group
 
 ## <a name="deploy-template-from-cloud-shell"></a>Déployer le modèle à partir de Cloud Shell
 
-Vous pouvez utiliser [Cloud Shell](../cloud-shell/overview.md) pour exécuter les commandes Azure CLI afin de déployer votre modèle. Toutefois, vous devez d’abord charger votre modèle dans le partage de fichiers de votre Cloud Shell. Si vous n’avez pas utilisé Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell (version préliminaire)](../cloud-shell/overview.md) pour plus d’informations sur sa configuration.
+Vous pouvez utiliser [Cloud Shell](../cloud-shell/overview.md) pour exécuter les commandes Azure CLI pour le déploiement de votre modèle. Toutefois, vous devez d’abord charger votre modèle dans le partage de fichiers de votre Cloud Shell. Si vous n’avez pas utilisé Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../cloud-shell/overview.md) pour obtenir plus d’informations sur sa configuration.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).   
 
@@ -123,7 +123,7 @@ Vous pouvez utiliser [Cloud Shell](../cloud-shell/overview.md) pour exécuter le
 
    ![Ajouter un répertoire](./media/resource-manager-create-first-template/select-add-directory.png)
 
-7. Nommez-le **modèles**, puis sélectionnez **OK**.
+7. Nommez-le **modèles** puis sélectionnez **Ok**.
 
    ![Nommer le répertoire](./media/resource-manager-create-first-template/name-templates.png)
 
@@ -216,7 +216,7 @@ Notez que le nom du compte de stockage est maintenant défini sur la variable qu
 
 Enregistrez votre fichier. 
 
-Après avoir effectué les étapes de cet article, votre modèle doit maintenant ressembler à ceci :
+Votre modèle doit maintenant ressembler à ceci :
 
 ```json
 {
@@ -289,6 +289,141 @@ Pour Cloud Shell, chargez votre modèle modifié vers le partage de fichiers. Re
 az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
+## <a name="use-autocomplete"></a>Utiliser la saisie semi-automatique
+
+Jusqu’à présent, votre travail sur le modèle n’a consisté qu’à copier et coller le code JSON à partir de cet article. Toutefois, lorsque vous développez vos propres modèles, vous souhaitez rechercher et spécifier des propriétés et des valeurs qui sont disponibles pour le type de ressource. VS Code lit le schéma du type de ressource et suggère des propriétés et des valeurs. Pour afficher la fonctionnalité de saisie semi-automatique, accédez à l’élément des propriétés de votre modèle et ajoutez une nouvelle ligne. Tapez un guillemet. Vous constaterez que VS Code suggère immédiatement des noms disponibles au sein de l’élément des propriétés.
+
+![Afficher les propriétés disponibles](./media/resource-manager-create-first-template/show-properties.png)
+
+Sélectionnez **chiffrement**. Tapez un signe deux-points (:). VS Code suggère d’ajouter un nouvel objet.
+
+![Ajouter un objet](./media/resource-manager-create-first-template/add-object.png)
+
+Appuyez sur la touche de tabulation ou la touche Entrée pour ajouter l’objet.
+
+Tapez un guillemet une nouvelle fois. Vous constaterez que VS Code suggère désormais des propriétés qui sont disponibles pour le chiffrement.
+
+![Afficher les propriétés de chiffrement](./media/resource-manager-create-first-template/show-encryption-properties.png)
+
+Sélectionnez **services** et poursuivez en ajoutant des valeurs basées sur les extensions de VS Code jusqu’à ce que vous obteniez ce qui suit :
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        }
+    }
+}
+```
+
+Vous avez activé le chiffrement blob pour le compte de stockage. Toutefois, VS Code a identifié un problème. Notez que le chiffrement contient un avertissement.
+
+![Avertissement de chiffrement](./media/resource-manager-create-first-template/encryption-warning.png)
+
+Pour afficher l’avertissement, pointez sur la ligne verte.
+
+![Propriété manquante](./media/resource-manager-create-first-template/missing-property.png)
+
+Vous constatez que l’élément de chiffrement nécessite une propriété keySource. Ajoutez une virgule après l’objet des services, puis ajoutez la propriété keySource. VS Code suggère **« Microsoft.Storage »** en tant que valeur valide. Lorsque vous avez terminé, l’élément des propriétés est :
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        },
+        "keySource":"Microsoft.Storage"
+    }
+}
+```
+
+Le modèle final est :
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageSKU": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ],
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "description": "The type of replication to use for the storage account."
+      }
+    },   
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      }
+    }
+  },
+  "variables": {
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "[variables('storageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "Storage",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "encryption":{
+          "services":{
+            "blob":{
+              "enabled":true
+            }
+          },
+          "keySource":"Microsoft.Storage"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+## <a name="deploy-encrypted-storage"></a>Déployer le stockage chiffré
+
+Déployez de nouveau le modèle et indiquez un nouveau nom de compte de stockage.
+
+Pour PowerShell, utilisez la commande suivante :
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix storesecure
+```
+
+Pour l’interface de ligne de commande Azure, consultez :
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
+Pour Cloud Shell, chargez votre modèle modifié vers le partage de fichiers. Remplacez le fichier existant. Utilisez ensuite la commande suivante :
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, nettoyez les ressources que vous avez déployées en supprimant le groupe de ressources.
@@ -306,6 +441,7 @@ az group delete --name examplegroup
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+* Pour obtenir une aide accrue au niveau du développement de modèles, vous pouvez installer une extension VS Code. Pour en savoir plus, consultez la section relative à [l’utilisation d’une extension Visual Studio Code pour créer un modèle Azure Resource Manager.](resource-manager-vscode-extension.md)
 * Pour plus d’informations sur la structure du modèle, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour en savoir plus sur les propriétés d’un compte de stockage, consultez la [référence sur le modèle des comptes de stockage](/azure/templates/microsoft.storage/storageaccounts).
 * Pour afficher des modèles complets pour de nombreux types de solutions, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
