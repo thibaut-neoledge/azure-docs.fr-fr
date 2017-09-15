@@ -16,10 +16,10 @@ ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 45c611e1c429e8c17c0fb1537577a4cbd037c23a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
@@ -67,8 +67,8 @@ Pour utiliser Azure CLI avec Batch, vous devez vous connecter et vous authentifi
 
 Il existe différentes façons de se connecter à Azure, décrites en détail dans la rubrique [Se connecter avec Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) :
 
-1. [Connexion interactive](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in). Connectez-vous de manière interactive lorsque vous exécutez des commandes Azure CLI vous-même à partir de la ligne de commande.
-2. [Connexion avec un principal de service](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal). Connectez-vous avec un principal de service lorsque vous exécutez des commandes Azure CLI à partir d’un script ou d’une application.
+1. [Connexion interactive](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Connectez-vous de manière interactive lorsque vous exécutez des commandes Azure CLI vous-même à partir de la ligne de commande.
+2. [Connexion avec un principal de service](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Connectez-vous avec un principal de service lorsque vous exécutez des commandes Azure CLI à partir d’un script ou d’une application.
 
 Dans le cadre de cet article, nous montrons comment se connecter à Azure de manière interactive. Entrez [az login](https://docs.microsoft.com/cli/azure/#login) dans la ligne de commande :
 
@@ -85,7 +85,7 @@ Les exemples répertoriés dans la section [Exemples de scripts de l’interpré
 
 ### <a name="log-in-to-your-batch-account"></a>Connexion à votre compte Batch
 
-Pour utiliser Azure CLI pour gérer les ressources Batch, telles que les pools, les travaux et les tâches, vous devez vous connecter à votre compte Batch et vous authentifier. Pour vous connecter au service Batch, utilisez la commande [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login). 
+Pour utiliser Azure CLI pour gérer les ressources Batch, telles que les pools, les travaux et les tâches, vous devez vous connecter à votre compte Batch et vous authentifier. Pour vous connecter au service Batch, utilisez la commande [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login). 
 
 Deux options s’offrent à vous pour l’authentification sur votre compte Batch :
 
@@ -99,7 +99,7 @@ Deux options s’offrent à vous pour l’authentification sur votre compte Batc
 
     L’authentification avec Azure AD est requise si vous avez créé votre compte Azure Batch avec le mode d’allocation de pool défini sur « Abonnement utilisateur ». 
 
-    Pour vous connecter à votre compte Batch à l’aide d’Azure AD, appelez la commande [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) : 
+    Pour vous connecter à votre compte Batch à l’aide d’Azure AD, appelez la commande [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) : 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount

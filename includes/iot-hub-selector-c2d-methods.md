@@ -12,9 +12,6 @@ Ce didacticiel vous explique les procédures suivantes :
 * Créer une application de périphérique simulé disposant d’une méthode directe qui peut être appelée par le cloud.
 * Créer une application console qui appelle une méthode directe sur l’application de périphérique simulé via votre IoT Hub.
 
-> [!NOTE]
-> Actuellement, les méthodes directes sont prises en charge uniquement sur des appareils qui se connectent à l’IoT Hub en utilisant le protocole MQTT. Pour obtenir des instructions sur la conversion d’une application de périphérique existante pour utiliser MQTT, voir [Support MQTT][lnk-devguide-mqtt].
-
 
 [lnk-devguide-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md

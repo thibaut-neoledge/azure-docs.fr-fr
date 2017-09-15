@@ -6,7 +6,7 @@ Pour récupérer le nom d’hôte, les ports et les clés d’accès à l’aide
 ![Paramètres du cache Redis](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
 
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Récupération du nom d’hôte, des ports et des clés d’accès à l’aide de l’interface de ligne de commande Azure
-Pour récupérer le nom d’hôte et les ports à l’aide d’Azure CLI 2.0, vous pouvez appeler [az redis show](https://docs.microsoft.com/cli/azure/redis#show), et pour récupérer les clés, vous pouvez appeler [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys). Le script suivant appelle ces deux commandes et renvoie le nom d’hôte, les ports et les clés à la console.
+Pour récupérer le nom d’hôte et les ports à l’aide d’Azure CLI 2.0, vous pouvez appeler [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show), et pour récupérer les clés, vous pouvez appeler [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). Le script suivant appelle ces deux commandes et renvoie le nom d’hôte, les ports et les clés à la console.
 
 ```azurecli
 #/bin/bash

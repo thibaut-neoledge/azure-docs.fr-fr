@@ -79,7 +79,7 @@ Pour le moment, les [captures instantanées incrémentielles](../articles/virtua
 Pour en savoir plus sur la création de captures instantanées avec Managed Disks, consultez ces ressources :
 
 * [Créer une copie d’un disque dur virtuel stocké en tant que disque managé à l’aide de la fonction Instantanés dans Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Créer une copie d’un disque dur virtuel stocké en tant que disque géré à l’aide de la fonction Instantanés dans Linux](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Créer une copie d’un disque dur virtuel stocké en tant que disque géré à l’aide de la fonction Instantanés dans Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 ## <a name="images"></a>Images

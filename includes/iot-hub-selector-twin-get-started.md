@@ -27,8 +27,6 @@ Les représentations d’appareil sont stockées dans un IoT Hub et contiennent 
 En outre, le serveur principal de solution peut interroger les représentations d’appareil concernant toutes les données ci-dessus.
 Pour plus d’informations sur les représentations d’appareils, consultez l’article [Comprendre les représentations d’appareils][lnk-twins] ; pour plus d’informations sur l’interrogation, consultez l’article de référence [Langage de requête IoT Hub][lnk-query].
 
-> [!NOTE]
-> Actuellement, des représentations d’appareil sont accessibles uniquement à partir d’appareils qui se connectent à IoT Hub à l’aide du protocole MQTT. Pour obtenir des instructions sur la conversion d’une application de périphérique existante pour utiliser MQTT, voir [Support MQTT][lnk-devguide-mqtt].
 
 Ce didacticiel vous explique les procédures suivantes :
 
