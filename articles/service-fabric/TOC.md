@@ -4,6 +4,8 @@
 
 # Démarrages rapides
 ## [Créer une application .NET](service-fabric-quickstart-dotnet.md)
+## [Déployer une application de conteneur Windows](service-fabric-quickstart-containers.md)
+## [Déployer une application de conteneur Linux](service-fabric-quickstart-containers-linux.md)
 
 # Didacticiels
 ## Déployer une application .NET

@@ -13,6 +13,7 @@
 # Procédure
 ## Planifier et concevoir
 ### [Authentification et sécurité](relay-authentication-and-authorization.md)
+#### [Migrer à partir des services ACS vers SAP](relay-migrate-acs-sas.md)
 ### [Protocole Connexions hybrides](relay-hybrid-connections-protocol.md)
 ## Développement
 ### [API disponibles](relay-api-overview.md)

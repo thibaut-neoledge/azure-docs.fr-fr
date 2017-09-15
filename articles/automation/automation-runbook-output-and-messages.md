@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 505834d7354fb920e7ebd931e3bb31d837a79077
 ms.openlocfilehash: 6f01f97e38aa271034741c8a5e2f8057ab61fcd7
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Sortie et messages de Runbook dans Azure Automation
@@ -187,6 +188,11 @@ Dans l’exemple suivant, un exemple de Runbook est démarré et exécuté. À l
 
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+    
+    # For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
+    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+    
 
 ### <a name="graphical-authoring"></a>Création graphique
 Pour les runbooks graphiques, une journalisation supplémentaire est disponible sous la forme de suivi au niveau de l’activité.  Il existe deux niveaux de suivi : de base et détaillé.  Dans le suivi de base, vous pouvez voir l’heure de début et de fin de chaque activité dans le runbook, ainsi que des informations relatives à toute nouvelle tentative de l’activité, comme le nombre de tentatives et l’heure de début de l’activité.  Dans le suivi détaillé, vous obtenez le suivi de base, ainsi que des données d’entrée et de sortie pour chaque activité.  Notez qu’actuellement les enregistrements de suivi sont écrits à l’aide du flux de commentaires détaillé. Vous devez activer la journalisation détaillée lorsque vous activez le suivi.  Pour les runbooks graphiques avec le suivi activé, il est inutile de journaliser les informations de progression, étant donné que le suivi de base joue le même rôle et contient des informations plus détaillées.
@@ -220,10 +226,5 @@ Pour plus d’informations sur la configuration de l’intégration à Log Anal
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et d’autres détails techniques, consultez [Suivre une tâche de runbook](automation-runbook-execution.md)
 * Pour comprendre comment créer et utiliser des Runbooks enfants, consultez [Runbooks enfants dans Azure Automation](automation-child-runbooks.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
