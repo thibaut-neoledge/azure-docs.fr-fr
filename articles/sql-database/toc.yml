@@ -261,10 +261,6 @@
           href: sql-database-long-term-backup-retention-configure.md
         - name: Géoréplication - Portail
           href: sql-database-geo-replication-portal.md
-        - name: Géoréplication -T-SQL - Configuration
-          href: sql-database-geo-replication-transact-sql.md
-        - name: Géoréplication -T-SQL - Basculement
-          href: sql-database-geo-replication-failover-transact-sql.md
         - name: Récupérer une table unique
           href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
     - name: Chargement et transfert de données
@@ -299,8 +295,6 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
-        - name: Azure RemoteApp
-          href: sql-database-ssms-remoteapp.md
     - name: Montée en charge
       items:
         - name: Créer une application partitionnée
