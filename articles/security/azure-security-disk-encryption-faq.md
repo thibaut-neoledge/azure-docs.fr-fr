@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: c28604e3b7058f830c69eedc5d7f25d65e2448a8
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: f66eabcbb386d5e7b31268a7b04063ff2cefbaf2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-disk-encryption-faq"></a>Forum aux questions (FAQ) Azure Disk Encryption
@@ -111,6 +111,16 @@ Cet article offre des réponses au forum aux questions (FAQ) sur Azure Disk Encr
 **Q :** puis-je appliquer des mises à jour sur une machine virtuelle Red Hat Linux à partir d’une mise à jour Yum ?
 
 **R :** oui, vous pouvez effectuer un correctif d’une machine virtuelle de Red Hat Linux. Pour plus d’informations, consultez [Application de mises à jour à une machine virtuelle IaaS Red Hat Azure chiffrée à l’aide de la mise à jour Yum](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/).
+
+**Q :** Quel est le workflow de chiffrement de disque Azure recommandé pour Linux ?
+
+**R :** Le workflow suivant est recommandé pour obtenir les meilleurs résultats sur Linux :
+* Démarrer à partir de l’image de la galerie de stock non modifié correspondant à la distribution et à la version du système d’exploitation souhaitées.
+* Sauvegarder tous les lecteurs montés qui seront chiffrés.  Cette sauvegarde permet la récupération en cas d’échec, par exemple, si la machine virtuelle redémarre avant la fin du chiffrement.
+* Chiffrer (opération qui peut prendre plusieurs heures voire même plusieurs jours selon les caractéristiques de machine virtuelle et la taille de tous les disques de données attachés).
+* Personnaliser et ajouter des logiciels à l’image selon les besoins.
+
+Si ce workflow n’est pas possible, s’appuyer sur le [chiffrement du service de stockage](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) au niveau de la couche du compte de stockage de la plateforme peut être une alternative au chiffrement de disque complet à l’aide dm-crypt.
 
 **Q :** où puis-je poser des questions ou envoyer des commentaires ?
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 08/30/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 3ed13c819f8e32cab44013cdcbf1b3a921ba98b8
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 5445a479fd6893048eb8ff356fa829a3dcd5f7d3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Conditions de licence pour la réinitialisation du mot de passe en libre-service Azure AD
@@ -32,14 +32,14 @@ Pour que la réinitialisation de mot de passe Azure AD fonctionne, vous **devez
 
 ## <a name="licenses-required-for-password-writeback"></a>Licences requises pour la réécriture du mot de passe
 
-Pour utiliser la réécriture du mot de passe, vous devez avoir attribué une des licences suivantes dans votre locataire.
+Pour utiliser l’écriture différée du mot de passe, vous devez avoir attribué une des licences suivantes dans votre locataire.
 
 * Azure AD Premium P1
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Secure Productive Enterprise E3
-* Secure Productive Enterprise E5
+* Microsoft 365 E3
+* Microsoft 365 E5
 
 > [!NOTE]
 > Les plans de licences Office 365 édition autonome **ne prennent pas en charge la réécriture du mot de passe** et nécessitent l’un des plans précédents pour que cette fonctionnalité soit opérationnelle.
@@ -47,8 +47,9 @@ Pour utiliser la réécriture du mot de passe, vous devez avoir attribué une de
 Vous trouverez des informations de licence supplémentaires, y compris les coûts, sur les pages suivantes
 
 * [Site de tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Fonctionnalités Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
-* [Secure Productive Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx)
+* [Microsoft 365](https://www.microsoft.com/microsoft-365/enterprise)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Activer les licences utilisateur ou groupe
 
@@ -68,5 +69,4 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [**Présentation technique approfondie**](active-directory-passwords-how-it-works.md) : découvrez ce qui se passe sous le capot pour mieux comprendre le fonctionnement.
 * [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) : Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours.
 * [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec la réinitialisation de mot de passe en libre-service.
-
 

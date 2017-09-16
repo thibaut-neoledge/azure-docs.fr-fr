@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 08/30/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c415fada30aa0b0bd9b9d1e416bc37ef30653f68
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 51fe2ab891e86ae4bd7402622231af47f35aa01d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Annuler votre abonnement Azure
@@ -37,31 +36,11 @@ Si vous annulez un [plan de support Azure](https://azure.microsoft.com/support/p
 
 ## <a name="cancel-subscription-using-the-azure-portal"></a>Annuler l’abonnement à l’aide du portail Azure
 
-1. Sélectionnez votre abonnement sur la [page Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-
+1. Sélectionnez votre abonnement dans la [page Abonnements du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Sélectionnez l’abonnement à annuler, puis cliquez sur **Annuler l’abonnement**.
 
     ![Capture d’écran qui montre le bouton Annuler](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-
 1. Suivez les invites et terminez l’annulation.
-
-## <a name="cancel-subscription-using-the-azure-account-center"></a>Annuler l’abonnement à l’aide du Centre des comptes Azure
-
-1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/subscriptions) en tant qu’administrateur de compte.
-
-1. Sous **Cliquez sur un abonnement pour consulter les détails et l’utilisation**, sélectionnez l’abonnement que vous souhaitez annuler.
-
-    ![Capture d’écran montrant un exemple d’abonnement sélectionné](./media/billing-how-to-cancel-azure-subscription/Selectsub.png)
-
-1. Dans la partie droite de la page, cliquez sur **Annuler l’abonnement**.
-
-    ![Capture d’écran montrant le bouton Annuler l’abonnement](./media/billing-how-to-cancel-azure-subscription/cancelsub.png)
-
-1. Sélectionnez **Oui, annulez mon abonnement**.
-
-    ![Capture d’écran qui montre la boîte de dialogue Annuler](./media/billing-how-to-cancel-azure-subscription/cancelbox.png)
-
-1. Cliquez sur  ![Bouton de symbole de coche](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) pour fermer la boîte de dialogue et revenir à votre page d’abonnement.
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Que se passe-t-il après l’annulation de mon abonnement ?
 
@@ -69,9 +48,9 @@ Une fois que vous l’annulez, la facturation s’arrête immédiatement. Toutef
 
 Une fois ce délai passé, vos services sont désactivés. Cela signifie que vos machines virtuelles et les adresses IP temporaires sont libérées et que le stockage est en lecture seule.
 
-À moins que vous n’utilisiez un essai gratuit ou que vous disposiez de crédits, vous êtes facturé pour tous les frais d’utilisation en suspens générés entre votre dernier cycle de facturation et la date d’annulation. Vous obtenez votre dernière facture à la fin du cycle de facturation.
+Si vous annulez en milieu de période de facturation, nous envoyons la facture finale à la date de facture par défaut à la fin de la période. 
 
-Une fois votre abonnement annulé, nous attendons 90 jours avant de supprimer définitivement vos données au cas où vous deviez y accéder ou changiez d’avis. Nous ne vous facturons pas la conservation des données. Pour en savoir plus, consultez [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Centre de gestion de la confidentialité de Microsoft - Comment nous gérons vos données).
+Nous attendons 90 jours avant de supprimer définitivement vos données au cas où vous devriez y accéder ou changeriez d’avis. Nous ne vous facturons pas la conservation des données. Pour en savoir plus, consultez [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Centre de gestion de la confidentialité de Microsoft - Comment nous gérons vos données).
 
 ## <a name="reactivate-subscription"></a>Réactivation de l’abonnement
 

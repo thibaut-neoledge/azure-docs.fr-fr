@@ -1,5 +1,5 @@
 ---
-title: Utiliser MapReduce et PowerShell avec Hadoop - Azure | Documents Microsoft
+title: Utiliser MapReduce et PowerShell avec Hadoop - Azure | Microsoft Docs
 description: "Apprenez à utiliser PowerShell pour exécuter des tâches MapReduce à distance avec Hadoop sur HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: c3801573808709f29cb1e563ac803f225a28cafc
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: bc4e1b04e8f90e5713468ce38f6f05174affb261
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Exécution à distance des travaux MapReduce avec Hadoop sur HDInsight à l’aide de PowerShell
@@ -30,7 +29,7 @@ ms.lasthandoff: 07/08/2017
 
 Ce document fournit un exemple d’utilisation d’Azure PowerShell pour exécuter une tâche MapReduce sur un Hadoop sur un cluster HDInsight.
 
-## <a id="prereq"></a>Configuration requise
+## <a id="prereq"></a>Prérequis
 
 * **Un cluster Azure HDInsight (Hadoop sur HDInsight)**
 
@@ -41,7 +40,7 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell pour exécut
 
 ## <a id="powershell"></a>Exécution d’une tâche MapReduce avec Azure PowerShell
 
-Azure PowerShell propose des *applets de commande* qui vous permettent d'exécuter à distance des tâches MapReduce sur HDInsight. En interne, cela est accompli en effectuant des appels REST à [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anciennement nommé Templeton) exécuté sur le cluster HDInsight.
+Azure PowerShell propose des *applets de commande* qui vous permettent d'exécuter à distance des tâches MapReduce sur HDInsight. En interne, PowerShell effectue des appels REST à [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anciennement nommé Templeton) exécuté sur le cluster HDInsight.
 
 Les applets de commande suivantes sont utilisées lors de l’exécution des tâches MapReduce sur un cluster HDInsight à distance.
 
@@ -49,7 +48,7 @@ Les applets de commande suivantes sont utilisées lors de l’exécution des tâ
 
 * **New-AzureRmHDInsightMapReduceJobDefinition** : crée une *définition de tâche* avec les informations MapReduce spécifiées.
 
-* **Start-AzureRmHDInsightJob** : envoie la définition de la tâche à HDInsight, lance la tâche et retourne un objet de *tâche* pouvant être utilisé pour vérifier l’état de la tâche.
+* **Start-AzureRmHDInsightJob** : envoie la définition du travail à HDInsight et démarre la tâche. Un objet *job* est retourné.
 
 * **Wait-AzureRmHDInsightJob**: utilise l’objet de la tâche pour vérifier le statut de la tâche. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
 
@@ -65,7 +64,7 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
 
         .\mapreducejob.ps1
 
-    Lorsque vous exécutez le script, vous êtes invité à entrer le nom du cluster HDInsight et le nom du compte HTTPS/Admin, ainsi que le mot de passe pour le cluster. Vous pouvez également être invité à vous authentifier sur votre abonnement Azure.
+    Lorsque vous exécutez le script, vous êtes invité à entrer le nom du cluster HDInsight et le nom de connexion du cluster. Vous pouvez également être invité à vous authentifier sur votre abonnement Azure.
 
 3. Une fois la tâche terminée, vous obtenez un résultat similaire au texte suivant :
 
@@ -88,14 +87,14 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
 
 ### <a name="view-output"></a>Affichage de la sortie
 
-Ouvrez le fichier **output.txt** dans un éditeur de texte pour afficher les mots et les décomptes générés par la tâche.
+Pour afficher les mots et les décomptes générés par la tâche, ouvrez le fichier **output.txt** dans un éditeur de texte.
 
 > [!NOTE]
 > Les fichiers de résultat d’une tâche MapReduce sont immuables. Donc, si vous réexécutez cet exemple, vous devez modifier le nom du fichier de sortie.
 
 ## <a id="troubleshooting"></a>Résolution des problèmes
 
-Si aucune information n'est retournée lorsque la tâche est terminée, il se peut qu'une erreur soit survenue au cours du traitement. Pour afficher les informations d’erreur pour ce projet, ajoutez la commande suivante à la fin du fichier **mapreducejob.ps1** , enregistrez-le et exécutez-le à nouveau.
+Si aucune information n’est retournée lorsque la tâche est terminée, affichez les erreurs liées à cette tâche. Pour afficher les informations d’erreur pour ce projet, ajoutez la commande suivante à la fin du fichier **mapreducejob.ps1** , enregistrez-le et exécutez-le à nouveau.
 
 ```powershell
 # Print the output of the WordCount job.
@@ -107,7 +106,7 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-Cette applet de commande renvoie les informations écrites dans STDERR sur le serveur lors de l’exécution de la tâche et peut vous aider à déterminer pourquoi la tâche échoue.
+Cette applet de commande retourne les informations écrites sur STDERR lors de l’exécution de la tâche.
 
 ## <a id="summary"></a>Résumé
 

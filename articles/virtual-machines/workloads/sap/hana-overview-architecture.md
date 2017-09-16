@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: bcdcbd9e781dc9686f4be18e16bf046de6981a9d
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 0fa1ac4f9e9711332c568e84f86d132508eb185f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure
@@ -32,7 +32,7 @@ L’isolation du client dans le tampon de l’infrastructure s’effectue dans l
 - Mise en réseau : isolation des clients au sein de la pile d’infrastructure au travers de réseaux virtuels par locataire assigné à un client. Un locataire est assigné à un seul client. Un client peut avoir plusieurs locataires. L’isolement réseau des locataires interdit la communication réseau entre les locataires au niveau du tampon d’infrastructure. Et ce, même si les locataires appartiennent au même client.
 - Composants de stockage : isolation par le biais de machines virtuelles auxquelles des volumes de stockage sont assignés. Les volumes de stockage ne peuvent être assignés qu’à une seule machine virtuelle de stockage. Une machine virtuelle de stockage est assignée exclusivement à un seul locataire dans la pile d’infrastructure certifiée SAP HANA TDI. Par conséquent, les volumes de stockage assignés à une machine virtuelle de stockage sont accessibles dans un seul locataire associé. Et ils ne sont pas visibles entre les différents locataires déployés.
 - Serveur ou hôte : unité de serveur ou hôte qui n’est pas partagée entre les clients ou les locataires. Un serveur ou un hôte déployé pour un client constitue une unité de calcul nue atomique qui est assignée à un seul locataire. **Aucun** partitionnement matériel ou logiciel utilisé ne peut vous conduire, en tant que client, à partager un hôte ou un serveur avec un autre client. Les volumes de stockage qui sont assignés à la machine virtuelle de stockage du locataire spécifique sont montés sur ce type de serveur. Une ou plusieurs unités de serveur de différentes références SKU peuvent être exclusivement assignées à un seul locataire.
-- Au sein d’une solution SAP HANA sur le tampon d’infrastructure Azure (grandes instances), plusieurs locataires sont déployés et isolés les uns par rapport aux autres au travers des concepts de locataire sur le niveau de mise en réseau, de stockage et de calcul. 
+- Au sein d’une solution SAP HANA sur le tampon d’infrastructure Azure (grandes instances), plusieurs locataires sont déployés et isolés les uns par rapport aux autres, au travers des concepts de locataire sur les niveaux de mise en réseau, de stockage et de calcul. 
 
 
 Ces unités de serveur nues exécutent uniquement SAP HANA. La couche Application SAP ou la couche intermédiaire de la charge de travail est en cours d’exécution dans les Machines virtuelles Microsoft Azure. Les tampons d’infrastructure exécutant SAP HANA sur des unités Azure (grandes instances) sont connectés aux dorsales principales de réseau Azure : une connectivité de faible latence entre SAP HANA sur des unités Azure (grandes instances) et les machines virtuelles Azure est donc fournie.
@@ -148,7 +148,7 @@ Tout comme vous avez le choix entre différents types de machines virtuelles ave
 
 Les différentes configurations ci-dessus, qui sont « Disponible » ou « Plus proposé », sont référencées dans la [Note de prise en charge SAP #2316233 – SAP HANA on Microsoft Azure (Large Instances)](https://launchpad.support.sap.com/#/notes/2316233/E) (SAP HANA sur Microsoft Azure (grandes instances)). Les configurations qui sont marquées comme « Prêt pour la commande » seront bientôt intégrées à la Note SAP. Cependant, ces références (SKU) d’instance peuvent déjà être commandées pour les six régions Azure dans lesquelles le service de grande instance HANA est disponible.
 
-Les configurations spécifiques choisies dépendent de la charge de travail, des ressources d’UC et de la mémoire souhaitée. La charge de travail OLTP est en mesure de tirer profit des références optimisées pour les charges de travail OLAP. 
+Les configurations spécifiques choisies dépendent de la charge de travail, des ressources d’UC et de la mémoire souhaitée. La charge de travail OLTP est en mesure d’utiliser des références optimisées pour les charges de travail OLAP. 
 
 La base matérielle pour toutes les offres est certifiée SAP HANA TDI. Toutefois, nous faisons la distinction entre deux classes de matériel, qui séparent les références SKU comme suit :
 
@@ -189,6 +189,18 @@ Voici quelques exemples de ce à quoi pourrait ressembler l’exécution de plus
 
 
 Vous avez compris l’idée. Il existe certainement d’autres variantes. 
+
+### <a name="using-sap-hana-data-tiering-and-extension-nodes"></a>Utilisation des nœuds d’extension et de la hiérarchisation des données SAP HANA
+SAP prend en charge un modèle de hiérarchisation des données pour SAP BW de différentes versions SAP NetWeaver et pour SAP BW/4HANA. Des informations détaillées concernant ce modèle de hiérarchisation des données sont à votre disposition dans ce document, ainsi que dans le blog référencé dans ce document par SAP : [SAP BW/4HANA AND SAP BW ON HANA WITH SAP HANA EXTENSION NODES](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#).
+Avec les grandes instances HANA, vous pouvez utiliser la configuration de l’option 1 des nœuds d’extension SAP HANA, comme détaillé dans ces Questions fréquentes (FAQ) et documents de blog SAP. Les configurations de l’option 2 peuvent être définies avec les références SKU de grandes instances HANA suivantes : S72m, S192, S192m, S384 et S384m.  
+L’avantage de telles configurations n’est pas forcément visible immédiatement lorsque l’on parcourt la documentation. Par contre, en examinant les instructions de dimensionnement de SAP, vous pouvez trouver un avantage à utiliser les nœuds d’extension SAP HANA avec l’option 1 et l’option 2. Voici un exemple :
+
+- Les instructions de dimensionnement de SAP HANA exigent généralement de doubler la quantité du volume de données en mémoire. Ainsi, lorsque vous exécutez votre instance SAP HANA avec les données à chaud, vous n’avez que 50 % de la mémoire maximum qui sont remplis par les données. Ce qui reste de la mémoire est en principe conservé pour permettre à SAP HANA de faire son travail.
+- Autrement dit, dans une unité S192 de grande instance HANA, dotée de 2 To de mémoire et exécutant une base de données SAP BW, vous ne disposez que de 1 To en volume de données.
+- Si vous utilisez un nœud d’extension supplémentaire SAP HANA de l’option 1, ainsi qu’une référence SKU S192 de grande instance HANA, vous obtenez une capacité supplémentaire de 2 To pour le volume de données. Dans la configuration de l’option 2, comptez même sur 4 To supplémentaires pour le volume de données tièdes. Par rapport au nœud chaud, la capacité de mémoire totale du nœud d’extension « tiède » peut servir pour le stockage de données de l’option 1 tandis que le double de mémoire est utilisable pour le volume de données dans la configuration du nœud d’extension SAP HANA de l’option 2.
+- En conséquence, vous vous retrouvez avec une capacité de 3 To pour vos données et un rapport chaud à tiède de 1:2 pour l’option 1, et avec une capacité de 5 To de données et un rapport de 1:4 dans la configuration du nœud d’extension pour l’option 2.
+
+Cela dit, plus le volume de données est important par rapport à la mémoire, plus la probabilité est forte que les données tièdes que vous demandez soient stockées dans le stockage sur disque.
 
 
 ## <a name="operations-model-and-responsibilities"></a>Responsabilités et modèle opérationnel

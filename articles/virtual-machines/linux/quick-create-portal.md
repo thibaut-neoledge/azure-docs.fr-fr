@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 15d4f81f8a7a835ea61a9056d83d8337d529c7cc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -58,18 +58,18 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
     ![Capture d’écran montrant les tailles de machine virtuelle](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. Conservez les valeurs par défaut dans le panneau des paramètres et cliquez sur **OK**.
+5. Sous **Paramètres**, conservez les valeurs par défaut et cliquez sur **OK**.
 
 6. Sur la page Résumé, cliquez sur **OK** pour lancer le déploiement de machine virtuelle.
 
-7. La machine virtuelle sera épinglée au tableau de bord du portail Azure. Une fois le déploiement terminé, le volet de résumé de la machine virtuelle s’ouvre automatiquement.
+7. La machine virtuelle sera épinglée au tableau de bord du portail Azure. Une fois le déploiement terminé, le récapitulatif de la machine virtuelle s’ouvre automatiquement.
 
 
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
 
 Créez une connexion SSH avec la machine virtuelle.
 
-1. Cliquez sur le bouton **Connexion** dans le volet de la machine virtuelle. Le bouton de connexion affiche une chaîne de connexion SSH qui peut être utilisée pour se connecter à la machine virtuelle.
+1. Cliquez sur le bouton **Connexion** dans les propriétés de la machine virtuelle. Le bouton de connexion affiche une chaîne de connexion SSH qui peut être utilisée pour se connecter à la machine virtuelle.
 
     ![Portail 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
@@ -110,13 +110,13 @@ Un groupe de sécurité réseau (NSG) sécurise les trafics entrant et sortant. 
 
 ## <a name="view-the-nginx-welcome-page"></a>Afficher la page d’accueil NGINX
 
-Avec NGINX installé et le port 80 ouvert pour votre machine virtuelle, le serveur web est désormais accessible à partir d’internet. Ouvrez un navigateur web et saisissez l’adresse IP publique de la machine virtuelle. L’adresse IP publique se trouve dans le panneau de la machine virtuelle sur le portail Azure.
+Avec NGINX installé et le port 80 ouvert pour votre machine virtuelle, le serveur web est désormais accessible à partir d’internet. Ouvrez un navigateur web et saisissez l’adresse IP publique de la machine virtuelle. Cette adresse IP publique se trouve dans les propriétés de la machine virtuelle sur le portail Azure.
 
 ![Site par défaut NGINX](./media/quick-create-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources à partir du panneau de la machine virtuelle, puis cliquez sur **supprimer**.
+Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

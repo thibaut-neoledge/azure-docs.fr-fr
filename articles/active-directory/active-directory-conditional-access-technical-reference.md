@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2017
+ms.date: 09/01/2017
 ms.author: markvi
-ms.reviewer: calebb
+ms.reviewer: spunukol
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: f96189735512090f993f61c0d64a249f650ea2a2
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: f3d8bdbfc29ca1008006837512c0e6ae8cb8f6fe
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Référence technique d’Azure Active Directory Conditional Access
@@ -28,7 +28,11 @@ Cette rubrique fournit des informations de support sur les éléments suivants d
 
 - Affectations des applications cloud
 
-- Conditions des applications clientes
+- Condition de plateforme d’appareil 
+
+- Condition d’applications clientes
+
+- Spécification d’application cliente approuvée 
 
 
 
@@ -75,7 +79,27 @@ Outre les applications cloud Microsoft, vous pouvez affecter une stratégie d’
 - applications utilisant le proxy d’application Azure AD. 
 
 
-## <a name="client-apps-conditions"></a>Conditions des applications clientes 
+## <a name="device-platforms-condition"></a>Condition de plateforme d’appareil
+
+Dans une stratégie d’accès conditionnel, vous pouvez configurer la condition de plateforme d’appareil pour lier la stratégie au système d’exploitation qui s’exécute sur un client.
+
+![Contrôle](./media/active-directory-conditional-access-technical-reference/41.png)
+
+L’accès conditionnel Azure AD prend en charge les plateformes suivantes :
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+- Windows
+
+- Mac OS (préversion)
+
+
+
+## <a name="client-apps-condition"></a>Condition d’applications clientes 
 
 Lorsque vous configurez une stratégie d’accès conditionnel, vous pouvez définir une [condition d’applications clientes](active-directory-conditional-access-azure-portal.md#client-apps). La condition d’applications clientes permet d’accorder ou de bloquer l’accès en cas de tentative d’accès à partir de ces types d’applications clientes :
 
@@ -83,7 +107,6 @@ Lorsque vous configurez une stratégie d’accès conditionnel, vous pouvez déf
 - Applications mobiles et de bureau
 
 ![Contrôle](./media/active-directory-conditional-access-technical-reference/03.png)
-
 
 ### <a name="supported-browsers"></a>Navigateurs pris en charge 
 
@@ -124,11 +147,11 @@ Les applications mobiles et clients de bureau suivants prennent en charge l’ac
 
 
 | Applications clientes| Service cible| Plateforme |
-| :-- | --- | --- |
+| --- | --- | --- |
 | Stratégie MFA et d’emplacement pour les applications. Les stratégies basées sur les appareils ne sont pas prises en charge.| Tout service d’application Mes applications| Android et iOS|
 | Application distante Azure| Service Application distante Azure| Windows 10, Windows 8.1, Windows 7, iOS, Android et MAC OS X|
 | Application Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, Android|
-| Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, MAC OS X, iOS, Android, WP et client web| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android et MAC OS X|
+| Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, iOS, Android, WP et client web| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS et Android|
 | Messagerie/Calendrier/Contacts, Outlook 2016, Outlook 2013 (avec authentification moderne), Skype Entreprise (avec authentification moderne)| Office 365 Exchange Online| Windows 10|
 | Outlook 2016, Outlook 2013 (avec authentification moderne), Skype Entreprise (avec authentification moderne)| Office 365 Exchange Online| Windows 8.1, Windows 7|
 | Application Outlook Mobile| Office 365 Exchange Online| iOS|
@@ -143,15 +166,46 @@ Les applications mobiles et clients de bureau suivants prennent en charge l’ac
 
 
 
+## <a name="approved-client-app-requirement"></a>Spécification d’application cliente approuvée 
+
+Quand vous configurez une stratégie d’accès conditionnel, vous pouvez faire en sorte que l’accès soit accordé uniquement si une tentative de connexion a été effectuée par une application cliente approuvée. 
+
+![Contrôle](./media/active-directory-conditional-access-technical-reference/21.png)
+
+Les applications clientes approuvées pour ce paramètre sont les suivantes :
+
+- Microsoft Excel 2013
+
+- Microsoft OneDrive
+
+- Microsoft Outlook
+
+- Microsoft OneNote
+
+- Microsoft PowerPoint
+
+- Microsoft SharePoint
+
+- Microsoft Skype Entreprise
+
+- Microsoft Teams
+
+- Microsoft Visio
+
+- Microsoft Word
 
 
+**Remarques :**
 
+- Ces applications prennent en charge la gestion des applications mobiles (GAM) Microsoft Intune.
 
+- Cette exigence :
 
+    - Prend uniquement en charge IOS et Android comme [condition de plateformes d’appareil](#device-platforms-condition) sélectionnée 
 
-
-
-
+    - Ne prend pas en charge **Navigateur** comme [condition d’application cliente](#supported-browsers) sélectionnée 
+    
+    - Remplace la [condition d’application cliente](#supported-mobile-apps-and-desktop-clients) **Applications mobiles et clients de bureau** si elle est activée  
 
 
 ## <a name="next-steps"></a>Étapes suivantes

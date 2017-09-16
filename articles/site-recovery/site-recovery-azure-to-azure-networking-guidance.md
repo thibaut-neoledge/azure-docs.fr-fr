@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/13/2017
+ms.date: 08/31/2017
 ms.author: sujayt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: eb7b6d606d1a7455710be5e1cf0298c368fc8b1e
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 99c08a1efbc610959fb4ba824dcb0601efac5877
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="networking-guidance-for-replicating-azure-virtual-machines"></a>Aide à la mise en réseau pour la réplication des machines virtuelles Azure
@@ -46,7 +45,7 @@ Si vous utilisez Azure ExpressRoute ou une connexion VPN d’un réseau local ve
 En règle générale, les clients protègent leurs réseaux à l’aide de pare-feu et/ou de groupes de sécurité réseau. Les pare-feu peuvent utiliser des listes vertes basées sur les URL ou sur les adresses IP pour contrôler la connectivité réseau. Les groupes de sécurité réseau permettent d’appliquer des règles d’utilisation de plages d’adresses IP pour contrôler la connectivité réseau.
 
 >[!IMPORTANT]
-> Si vous utilisez un proxy authentifié pour contrôler la connectivité réseau, il n’est pas pris en charge et la réplication Site Recovery ne peut pas être activé. 
+> Si vous utilisez un proxy authentifié pour contrôler la connectivité réseau, il n’est pas pris en charge et la réplication Site Recovery ne peut pas être activé.
 
 Les sections suivantes décrivent les modifications de connectivité réseau sortante qui sont nécessaires sur les machines virtuelles pour que la réplication Site Recovery fonctionne.
 
@@ -79,34 +78,38 @@ Si vous utilisez un proxy de pare-feu quelconque basé sur l’adresse IP ou des
 
     >[!NOTE]
     > Si de nouvelles adresses IP sont ajoutées ultérieurement aux plages d’adresses IP Office 365, vous devez créer des règles de groupe de sécurité réseau.
-    
-- Adresses IP des points de terminaison du service Site Recovery ([disponibles dans un fichier XML](https://aka.ms/site-recovery-public-ips)), qui dépendent de votre emplacement cible : 
+
+- Adresses IP des points de terminaison du service Site Recovery ([disponibles dans un fichier XML](https://aka.ms/site-recovery-public-ips)), qui dépendent de votre emplacement cible :
 
    **Emplacement cible** | **Adresses IP du service Site Recovery** |  **Adresse IP de surveillance Site Recovery**
    --- | --- | ---
-   Est de l'Asie | 52.175.17.132</br>40.83.121.61 | 13.94.47.61
-   Asie du Sud-Est | 52.187.58.193</br>52.187.169.104 | 13.76.179.223
-   Inde centrale | 52.172.187.37</br>52.172.157.193 | 104.211.98.185
-   Inde du Sud | 52.172.46.220</br>52.172.13.124 | 104.211.224.190
-   États-Unis - partie centrale septentrionale | 23.96.195.247</br>23.96.217.22 | 168.62.249.226
-   Europe du Nord | 40.69.212.238</br>13.74.36.46 | 52.169.18.8
-   Europe de l’Ouest | 52.166.13.64</br>52.166.6.245 | 40.68.93.145
-   Est des États-Unis | 13.82.88.226</br>40.71.38.173 | 104.45.147.24
-   Ouest des États-Unis | 40.83.179.48</br>13.91.45.163 | 104.40.26.199
-   États-Unis - partie centrale méridionale | 13.84.148.14</br>13.84.172.239 | 104.210.146.250
-   Centre des États-Unis | 40.69.144.231</br>40.69.167.116 | 52.165.34.144
-   Est des États-Unis 2 | 52.184.158.163</br>52.225.216.31 | 40.79.44.59
-   Est du Japon | 52.185.150.140</br>13.78.87.185 | 138.91.1.105
-   Ouest du Japon | 52.175.146.69</br>52.175.145.200 | 138.91.17.38
-   Sud du Brésil | 191.234.185.172</br>104.41.62.15 | 23.97.97.36
-   Est de l’Australie | 104.210.113.114</br>40.126.226.199 | 191.239.64.144
-   Sud-est de l’Australie | 13.70.159.158</br>13.73.114.68 | 191.239.160.45
-   Centre du Canada | 52.228.36.192</br>52.228.39.52 | 40.85.226.62
-   Est du Canada | 52.229.125.98</br>52.229.126.170 | 40.86.225.142
-   Centre-Ouest des États-Unis | 52.161.20.168</br>13.78.230.131 | 13.78.149.209
-   Ouest des États-Unis 2 | 52.183.45.166</br>52.175.207.234 | 13.66.228.204
-   Ouest du Royaume-Uni | 51.141.3.203</br>51.140.226.176 | 51.141.14.113
-   Sud du Royaume-Uni | 51.140.43.158</br>51.140.29.146 | 51.140.189.52
+   Est de l'Asie | 52.175.17.132 | 13.94.47.61
+   Asie du Sud-Est | 52.187.58.193 | 13.76.179.223
+   Inde centrale | 52.172.187.37 | 104.211.98.185
+   Inde du Sud | 52.172.46.220 | 104.211.224.190
+   États-Unis - partie centrale septentrionale | 23.96.195.247 | 168.62.249.226
+   Europe du Nord | 40.69.212.238 | 52.169.18.8
+   Europe de l’Ouest | 52.166.13.64 | 40.68.93.145
+   Est des États-Unis | 13.82.88.226 | 104.45.147.24
+   Ouest des États-Unis | 40.83.179.48 | 104.40.26.199
+   États-Unis - partie centrale méridionale | 13.84.148.14 | 104.210.146.250
+   Centre des États-Unis | 40.69.144.231 | 52.165.34.144
+   Est des États-Unis 2 | 52.184.158.163 | 40.79.44.59
+   Est du Japon | 52.185.150.140 | 138.91.1.105
+   Ouest du Japon | 52.175.146.69 | 138.91.17.38
+   Sud du Brésil | 191.234.185.172 | 23.97.97.36
+   Est de l’Australie | 104.210.113.114 | 191.239.64.144
+   Sud-est de l’Australie | 13.70.159.158 | 191.239.160.45
+   Centre du Canada | 52.228.36.192 | 40.85.226.62
+   Est du Canada | 52.229.125.98 | 40.86.225.142
+   Centre-Ouest des États-Unis | 52.161.20.168 | 13.78.149.209
+   Ouest des États-Unis 2 | 52.183.45.166 | 13.66.228.204
+   Ouest du Royaume-Uni | 51.141.3.203 | 51.141.14.113
+   Sud du Royaume-Uni | 51.140.43.158 | 51.140.189.52
+   Sud du Royaume-Uni 2 | 13.87.37.4| 13.87.34.139
+   Nord du Royaume-Uni | 51.142.209.167 | 13.87.102.68
+   Centre de la Corée | 52.231.28.253 | 52.231.32.85
+   Corée du Sud | 52.231.298.185 | 52.231.200.144
 
 ## <a name="sample-nsg-configuration"></a>Exemple de configuration de groupe de sécurité réseau
 Cette section décrit les étapes nécessaires pour configurer des règles de groupe de sécurité réseau afin que la réplication Site Recovery puisse fonctionner sur une machine virtuelle. Si vous utilisez des règles de groupe de sécurité réseau pour contrôler la connectivité sortante, utilisez des règles « Autoriser le trafic HTTPS sortant » pour toutes les plages d’adresses IP requises.
@@ -118,7 +121,7 @@ Par exemple, si l’emplacement source de votre machine virtuelle est « Est de
 
 >[!IMPORTANT]
 > * Nous vous recommandons de créer les règles de groupe de sécurité réseau requises sur un groupe de sécurité réseau de test, et de vérifier qu’il n’y a aucun problème avant de créer les règles sur un groupe de sécurité réseau de production.
-> * Pour créer le nombre nécessaire de règles de groupe de sécurité réseau, vérifiez que votre abonnement figure dans la liste verte. Contactez le support pour augmenter la limite du nombre de règles de groupe de sécurité réseau dans votre abonnement. 
+> * Pour créer le nombre nécessaire de règles de groupe de sécurité réseau, vérifiez que votre abonnement figure dans la liste verte. Contactez le support pour augmenter la limite du nombre de règles de groupe de sécurité réseau dans votre abonnement.
 
 ### <a name="nsg-rules-on-the-east-us-network-security-group"></a>Règles de groupe de sécurité réseau sur le groupe de sécurité réseau Est des États-Unis
 
@@ -130,7 +133,7 @@ Par exemple, si l’emplacement source de votre machine virtuelle est « Est de
 
    **Emplacement** | **Adresses IP du service Site Recovery** |  **Adresse IP de surveillance Site Recovery**
     --- | --- | ---
-   Centre des États-Unis | 40.69.144.231</br>40.69.167.116 | 52.165.34.144
+   Centre des États-Unis | 40.69.144.231 | 52.165.34.144
 
 ### <a name="nsg-rules-on-the-central-us-network-security-group"></a>Règles de groupe de sécurité réseau sur le groupe de sécurité réseau Centre des États-Unis
 
@@ -144,7 +147,7 @@ Ces règles sont nécessaires pour que la réplication puisse être activée de 
 
    **Emplacement** | **Adresses IP du service Site Recovery** |  **Adresse IP de surveillance Site Recovery**
     --- | --- | ---
-   Est des États-Unis | 13.82.88.226</br>40.71.38.173 | 104.45.147.24
+   Est des États-Unis | 13.82.88.226 | 104.45.147.24
 
 
 ## <a name="guidelines-for-existing-azure-to-on-premises-expressroutevpn-configuration"></a>Instructions pour une configuration ExpressRoute/VPN Azure vers Local

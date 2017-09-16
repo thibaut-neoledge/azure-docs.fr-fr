@@ -16,14 +16,17 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 2bf75dc55d190522597eb8958d378aa1469027b7
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprendre votre facture Microsoft Azure
 Pour comprendre votre facture Azure, comparez-la avec le fichier détaillé sur l’utilisation quotidienne et les rapports de gestion des coûts dans le portail Azure.
+
+>[!NOTE]
+>Cet article ne s’applique pas aux clients Contrat Entreprise (EA). Si vous êtes client EA, [la documentation de facturation est disponible sur le portail d’entreprise.](https://ea.azure.com/helpdocs/understandingYourInvoice)  
 
 Pour obtenir un fichier PDF de votre facture et une copie du fichier CSV détaillant votre utilisation quotidienne, consultez [Obtenir votre facture Azure et vos données sur l’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md). 
 

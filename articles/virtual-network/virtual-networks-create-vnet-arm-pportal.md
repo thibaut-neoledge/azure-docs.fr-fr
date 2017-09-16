@@ -17,15 +17,15 @@ ms.date: 07/26/2017
 ms.author: jdial
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: a31f0524a6fa1de45498f340a27b863a3c627e04
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: f82a95ec9543b2d53ef28bf7f15315e23cf4893a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets"></a>Créer un réseau virtuel comprenant plusieurs sous-réseaux
 
-Ce didacticiel explique comment créer un réseau virtuel Azure de base comprenant des sous-réseaux publics et privés distincts. Vous pouvez créer des ressources Azure, telles que des machines virtuelles, des environnements App Service Environment, des groupes de machines virtuelles identiques, Azure HDInsight et des services cloud dans un sous-réseau. Les ressources présentes dans les réseaux virtuels peuvent communiquer entre elles et avec les ressources d’autres réseaux connectés à un réseau virtuel.
+Ce didacticiel explique comment créer un réseau virtuel Azure de base comprenant des sous-réseaux publics et privés distincts. Les ressources présentes dans les réseaux virtuels peuvent communiquer entre elles et avec les ressources d’autres réseaux connectés à un réseau virtuel. Vous pouvez créer des ressources Azure, telles que des machines virtuelles, des environnements App Service Environment, des groupes de machines virtuelles identiques, Azure HDInsight et des services cloud dans des sous-réseaux identiques ou différents au sein d’un réseau virtuel. Créer des ressources dans des sous-réseaux différents vous permet de filtrer le trafic entrant et sortant des sous-réseaux indépendamment avec des [groupes de sécurité réseau](virtual-networks-create-nsg-arm-pportal.md) et [d’acheminer le trafic entre les sous-réseaux](virtual-network-create-udr-arm-ps.md) via des appliances virtuelles réseau, telles qu’un pare-feu, si vous le souhaitez. 
 
 Les sections suivantes incluent des mesures que vous pouvez prendre pour créer un réseau virtuel à l’aide du [portail Azure](#portal), de l’interface de ligne de commande Azure ([Azure CLI](#azure-cli)), d’[Azure PowerShell](#powershell) et d’un [modèle Azure Resource Manager](#resource-manager-template). Le résultat est le même, quel que soit l’outil choisi pour créer le réseau virtuel. Cliquez sur un lien d’outil pour accéder à la section correspondante du didacticiel. En savoir plus sur tous les paramètres des [réseaux virtuels](virtual-network-manage-network.md) et des [sous-réseaux](virtual-network-manage-subnet.md).
 
@@ -52,13 +52,14 @@ Cet article explique comment créer un réseau virtuel par le biais du modèle d
 6. Dans le panneau **myVnet - Sous-réseaux**, cliquez sur **+Sous-réseau**.
 7. Dans le panneau **Ajouter un sous-réseau**, pour **Nom**, entrez **Privé**. Pour **Plage d’adresses**, entrez **10.0.1.0/24**.  Cliquez sur **OK**.
 8. Dans le panneau **myVnet - Sous-réseaux**, passez en revue les sous-réseaux. Vous voyez les sous-réseaux **Publics** et **Privés** que vous avez créés.
-9. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete-portal) de cet article.
+9. **Facultatif :** effectuez les autres didacticiels répertoriés dans la section [Étapes suivantes](#next-steps) pour filtrer le trafic entrant et sortant de chaque sous-réseau avec des groupes de sécurité réseau, pour acheminer le trafic entre les sous-réseaux via une appliance virtuelle réseau ou pour connecter le réseau virtuel à d’autres réseaux virtuels ou à des réseaux locaux.
+10. **Facultatif :** supprimez les ressources que vous avez créées dans ce didacticiel en suivant les étapes indiquées dans la section [Supprimer des ressources](#delete-portal).
 
 ## <a name="azure-cli"></a>Interface de ligne de commande Azure
 
 Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir de Windows, de Linux ou de macOS. Toutefois, il existe des différences de script entre les interpréteurs de commandes du système d’exploitation. Le script présenté dans les étapes suivantes s’exécute dans un interpréteur de commandes Bash. 
 
-1. [Installez et configurez Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Assurez-vous que la version la plus récente d’Azure CLI est installée. Pour obtenir de l’aide sur les commandes CLI, entrez `az <command> --help`. Au lieu d’installer l’interface CLI et ses prérequis, vous pouvez utiliser Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée sur Cloud Shell pour être utilisée avec votre compte. Pour utiliser Cloud Shell, cliquez sur le bouton Cloud Shell (**>_**) en haut du [portail](https://portal.azure.com) ou cliquez simplement sur le bouton *Essayer* dans les étapes qui suivent. 
+1. [Installez et configurez Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Assurez-vous que la version la plus récente d’Azure CLI est installée. Pour obtenir de l’aide sur les commandes CLI, entrez `az <command> --help`. Au lieu d’installer CLI et ses prérequis, vous pouvez utiliser Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée sur Cloud Shell pour être utilisée avec votre compte. Pour utiliser Cloud Shell, cliquez sur le bouton Cloud Shell (**>_**) en haut du [portail](https://portal.azure.com) ou cliquez simplement sur le bouton *Essayer* dans les étapes qui suivent. 
 2. Si l’interface CLI s’exécute localement, connectez-vous à Azure avec la commande `az login`. Si vous utilisez Cloud Shell, cela signifie que vous êtes déjà connecté.
 3. Passez en revue le script suivant et ses commentaires. Dans votre navigateur, copiez le script et collez-le dans votre session CLI :
 
@@ -90,7 +91,8 @@ Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir d
     az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
     ```
 
-5. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete-cli) de cet article.
+5. **Facultatif :** effectuez les autres didacticiels répertoriés dans la section [Étapes suivantes](#next-steps) pour filtrer le trafic entrant et sortant de chaque sous-réseau avec des groupes de sécurité réseau, pour acheminer le trafic entre les sous-réseaux via une appliance virtuelle réseau ou pour connecter le réseau virtuel à d’autres réseaux virtuels ou à des réseaux locaux.
+6. **Facultatif :** supprimez les ressources que vous avez créées dans ce didacticiel en suivant les étapes indiquées dans la section [Supprimer des ressources](#delete-cli).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -128,13 +130,17 @@ Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir d
     $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
 
-5. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete-powershell) de cet article.
+5. **Facultatif :** effectuez les autres didacticiels répertoriés dans la section [Étapes suivantes](#next-steps) pour filtrer le trafic entrant et sortant de chaque sous-réseau avec des groupes de sécurité réseau, pour acheminer le trafic entre les sous-réseaux via une appliance virtuelle réseau ou pour connecter le réseau virtuel à d’autres réseaux virtuels ou à des réseaux locaux.
+6. **Facultatif :** supprimez les ressources que vous avez créées dans ce didacticiel en suivant les étapes indiquées dans la section [Supprimer des ressources](#delete-powershell).
 
 ## <a name="resource-manager-template"></a>Modèle Resource Manager
 
 Vous pouvez déployer un groupe de machines virtuelles à l’aide d’un modèle Azure Resource Manager. Pour en savoir plus sur les modèles, voir [Qu’est-ce que Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment). Pour accéder au modèle et découvrir ses paramètres, voir le modèle [Créer un réseau virtuel avec deux sous-réseaux](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/). Vous pouvez déployer le modèle à l’aide du [portail](#template-portal), d’[Azure CLI](#template-cli) ou de [PowerShell](#template-powershell).
 
-**Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans toute sous-section de la section [Supprimer des ressources](#delete) de cet article.
+Étapes facultatives après avoir déployé le modèle :
+
+1. Effectuez les autres didacticiels répertoriés dans la section [Étapes suivantes](#next-steps) pour filtrer le trafic entrant et sortant de chaque sous-réseau avec des groupes de sécurité réseau, pour acheminer le trafic entre les sous-réseaux via une appliance virtuelle réseau ou pour connecter le réseau virtuel à d’autres réseaux virtuels ou à des réseaux locaux.
+2. Supprimez les ressources que vous avez créées dans ce didacticiel en suivant les étapes indiquées dans la section [Supprimer des ressources](#delete).
 
 ### <a name="template-portal"></a>Portail Azure
 
@@ -159,7 +165,7 @@ Vous pouvez déployer un groupe de machines virtuelles à l’aide d’un modèl
 
 ### <a name="template-cli"></a>Interface CLI Azure
 
-1. [Installez et configurez Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Assurez-vous que la version la plus récente d’Azure CLI est installée. Pour obtenir de l’aide sur les commandes CLI, entrez `az <command> --help`. Au lieu d’installer l’interface CLI et ses prérequis, vous pouvez utiliser Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée sur Cloud Shell pour être utilisée avec votre compte. Pour utiliser Cloud Shell, cliquez sur le bouton Cloud Shell **>_** en haut du [portail](https://portal.azure.com) ou cliquez simplement sur le bouton **Essayer** dans les étapes qui suivent. 
+1. [Installez et configurez Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Assurez-vous que la version la plus récente d’Azure CLI est installée. Pour obtenir de l’aide sur les commandes CLI, entrez `az <command> --help`. Au lieu d’installer CLI et ses prérequis, vous pouvez utiliser Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée sur Cloud Shell pour être utilisée avec votre compte. Pour utiliser Cloud Shell, cliquez sur le bouton Cloud Shell **>_** en haut du [portail](https://portal.azure.com) ou cliquez simplement sur le bouton **Essayer** dans les étapes qui suivent. 
 2. Si l’interface CLI s’exécute localement, connectez-vous à Azure avec la commande `az login`. Si vous utilisez Cloud Shell, cela signifie que vous êtes déjà connecté.
 3. Pour créer un groupe de ressources destiné au réseau virtuel, copiez la commande suivante et collez-la dans votre session CLI :
 
@@ -227,8 +233,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour découvrir tous les paramètres de réseau virtuel et de sous-réseau, consultez [Gérer des réseaux virtuels](virtual-network-manage-network.md#view-vnet) et [Gérer les sous-réseaux virtuels](virtual-network-manage-subnet.md#create-subnet). Vous disposez de différentes options pour l’utilisation de réseaux virtuels et de sous-réseaux dans un environnement de production afin de répondre à différentes exigences.
-- Pour filtrer le trafic de sous-réseau entrant et sortant, créez des [groupes de sécurité réseau](virtual-networks-nsg.md) et appliquez-les à des sous-réseaux.
-- Créez une machine virtuelle [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou une machine virtuelle [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), puis connectez-la à un réseau virtuel existant.
-- Pour connecter deux réseaux virtuels situés dans un même emplacement Azure, créez une [homologation de réseaux virtuels](virtual-network-peering-overview.md) entre les réseaux virtuels.
-- Connectez le réseau virtuel à un réseau local en utilisant une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou un circuit [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Filtrez le trafic de sous-réseau entrant et sortant en créant et en appliquant des [groupes de sécurité réseau](virtual-networks-nsg.md) aux sous-réseaux.
+- Acheminez le trafic entre les sous-réseaux via une appliance virtuelle réseau, en créant des [itinéraires définis par l’utilisateur](virtual-network-create-udr-arm-ps.md), et appliquez les itinéraires à chaque sous-réseau.
+- Créez une machine virtuelle [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dans un réseau virtuel existant.
+- Connectez deux réseaux virtuels en créant un [appairage de réseau virtuel](virtual-network-peering-overview.md) entre les réseaux virtuels.
+- Connectez le réseau virtuel à un réseau local en utilisant un circuit [Passerelle VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

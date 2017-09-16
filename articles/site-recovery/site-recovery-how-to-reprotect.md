@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 181ed544ae4697753490642fea8eef636322a114
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3365bc81b17e0225652504a71d3aff42a399ce67
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Reprotection d’Azure vers un site local
@@ -40,7 +40,7 @@ Pour une vue d’ensemble, regardez la vidéo suivante sur la procédure de basc
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 Lorsque vous vous préparez pour reprotéger les machines virtuelles, prenez ou envisagez les actions préalables suivantes :
 
 * Si un serveur vCenter gère les machines virtuelles vers lesquelles vous voulez effectuer une restauration automatique, vous devez vous assurer de disposer des [autorisations requises](site-recovery-vmware-to-azure-classic.md) pour la détection des machines virtuelles sur les serveurs vCenter.
@@ -70,7 +70,7 @@ Lorsque vous vous préparez pour reprotéger les machines virtuelles, prenez ou 
 * Vous devez ajouter un disque sur le serveur cible maître : un lecteur de rétention. Ajoutez un disque et formatez le lecteur.
 
 
-### <a name="frequently-asked-questions"></a>Forum Aux Questions
+### <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 #### <a name="why-do-i-need-a-s2s-vpn-or-an-expressroute-connection-to-replicate-data-back-to-the-on-premises-site"></a>Pourquoi ai-je besoin d’un VPN S2S ou d’une connexion ExpressRoute pour répliquer les données sur le site local ?
 Alors que la réplication à partir d’un site local vers Azure peut s’effectuer via Internet ou une connexion ExpressRoute avec une homologation publique, la reprotection et la restauration automatique nécessitent un VPN site-à-site (S2S) configuré pour répliquer les données. Spécifiez le réseau de sorte que les machines virtuelles basculées dans Azure puissent atteindre (avec une requête ping) le serveur de configuration local. Vous pouvez également déployer un serveur de processus dans le réseau Azure de la machine virtuelle basculée. Ce serveur de processus doit également être en mesure de communiquer avec le serveur de configuration local.
@@ -226,4 +226,36 @@ La restauration automatique arrêtera la machine virtuelle dans Azure et démarr
 * Si vous tentez d’effectuer une restauration automatique vers un autre serveur vCenter, vérifiez que le nouveau serveur vCenter et le serveur cible maître sont détectés. Un symptôme courant est que les banques de données ne sont pas accessibles/visibles dans la boîte de dialogue **Reprotéger**.
 
 * Un serveur Windows Server 2008 R2 SP1 protégé comme serveur physique sur site ne peut pas être restauré localement à partir d’Azure.
+
+### <a name="common-error-codes"></a>Codes d’erreur courants
+
+#### <a name="error-code-95226"></a>Code d'erreur 95226
+
+*Échec de la reprotection, car la machine virtuelle Azure n’a pas pu contacter le serveur de configuration local.*
+
+Cela se produit dans les situations suivantes 
+1. Comme la machine virtuelle Azure n’a pas pu contacter le serveur de configuration local, elle ne peut pas être découverte et inscrite sur le serveur de configuration. 
+2. Le service InMage Scout Application sur la machine virtuelle Azure qui doit être en cours d’exécution pour communiquer avec le serveur de configuration local n’est peut-être plus exécuté après le basculement.
+
+Pour résoudre ce problème
+1. Vous devez vérifier que le réseau de la machine virtuelle Azure est configuré pour que la machine virtuelle puisse communiquer avec le serveur de configuration local. Pour ce faire, configurez un VPN de site à site dans votre centre de données local ou une connexion ExpressRoute avec un appairage privé sur le réseau virtuel de la machine virtuelle Azure. 
+2. Si vous avez déjà configuré un réseau pour que la machine virtuelle Azure puisse communiquer avec le serveur de configuration local, connectez-vous à la machine virtuelle et vérifiez le « service InMage Scout Application ». Si le service InMage Scout Application n’est pas en cours d’exécution, démarrez le service manuellement et vérifiez que le type de démarrage du service est défini sur Automatique.
+
+### <a name="error-code-78052"></a>Code d'erreur 78052
+Échec de la reprotection avec le message d’erreur : *Impossible d’appliquer la protection à la machine virtuelle.*
+
+Cela peut se produire pour deux raisons
+1. La machine virtuelle que vous reprotégez est un serveur Windows Server 2016. Actuellement, ce système d’exploitation n’est pas pris en charge pour la restauration automatique, mais le sera très bientôt.
+2. Une machine virtuelle de même nom existe déjà sur le serveur cible maître sur lequel vous effectuez la restauration automatique.
+
+Pour résoudre ce problème, vous pouvez sélectionner un autre serveur cible maître sur un hôte différent. La reprotection crée alors la machine sur l’autre hôte où les noms ne sont pas en conflit. Vous pouvez également déplacer via vMotion le serveur cible maître sur un autre hôte où le conflit de noms ne se produira pas.
+
+### <a name="error-code-78093"></a>Code d'erreur 78093
+
+*La machine virtuelle n’est pas en cours d’exécution, est dans un état suspendu ou n’est pas accessible.*
+
+Pour reprotéger une machine virtuelle basculée sur un emplacement local, la machine virtuelle Azure doit être en cours d’exécution. De cette façon, le service Mobilité s’inscrit auprès du serveur de configuration local et peut commencer la réplication en communiquant avec le serveur de processus. Si la machine ne se trouve pas sur le bon réseau ou n’est pas en cours d’exécution (état suspendu ou arrêté), le serveur de configuration ne peut pas contacter le service Mobilité sur la machine virtuelle pour commencer la reprotection. Vous pouvez redémarrer la machine virtuelle pour qu’elle puisse recommencer à communiquer localement. Redémarrer le travail de reprotection après le démarrage de la machine virtuelle Azure
+
+
+
 
