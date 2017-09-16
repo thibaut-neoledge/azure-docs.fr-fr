@@ -42,8 +42,8 @@ Vous pouvez utiliser des jumeaux d’appareil pour répondre aux besoins suivant
 * Synchroniser l’état des flux de travail de longue durée entre une application pour appareil et un back-end, par exemple, lorsque le back-end de solution spécifie une nouvelle version de microprogramme à installer et que l’application pour appareil rapporte les différentes étapes du processus de mise à jour.
 * Interroger les métadonnées, la configuration ou l’état de vos appareils
 
-Pour des conseils sur l’utilisation des propriétés signalées, des messages appareil-à-cloud ou du chargement de fichier, voir [Instructions pour la communication appareil-à-cloud][lnk-d2c-guidance].
-Pour des conseils sur l’utilisation des propriétés souhaitées des méthodes directes ou des messages cloud-à-appareil, voir [Instructions pour la communication cloud-à-appareil][lnk-c2d-guidance].
+Pour des conseils sur l’utilisation des propriétés signalées, des messages appareil-à-cloud ou du chargement de fichier, voir [Instructions pour la communication cloud-à-appareil][lnk-d2c-guidance].
+Pour des conseils sur l’utilisation des propriétés souhaitées des méthodes directes ou des messages cloud-à-appareil, voir [Instructions pour la communication cloud-à-appareil.][lnk-c2d-guidance]
 
 ## <a name="device-twins"></a>Jumeaux d’appareil
 Les jumeaux d’appareil stockent des informations relatives aux appareils, dont l’utilité est la suivante :
