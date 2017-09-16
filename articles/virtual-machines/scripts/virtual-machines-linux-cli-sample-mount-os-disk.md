@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: fca1844657821a8ce20deefe0056321c365ce689
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: c32ea5e6cade34a9c8dac0eab523ebcaa10ef039
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -42,11 +42,11 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 | Commande | Remarques |
 |---|---|
-| [az vm show](https://docs.microsoft.com/cli/azure/vm#show) | Renvoie la liste des machines virtuelles. Dans ce cas, l’option de requête permet de renvoyer le disque de système d’exploitation de la machine virtuelle. Cette valeur est ensuite ajoutée à un nom de variable « uri ». |
-| [az vm delete](https://docs.microsoft.com/cli/azure/vm#delete) | Supprime une machine virtuelle. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Crée une machine virtuelle.  |
-| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) | Attache un disque à une machine virtuelle. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#list-ip-addresses) | Renvoie les adresses IP d’une machine virtuelle. |
+| [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) | Renvoie la liste des machines virtuelles. Dans ce cas, l’option de requête permet de renvoyer le disque de système d’exploitation de la machine virtuelle. Cette valeur est ensuite ajoutée à un nom de variable « uri ». |
+| [az vm delete](https://docs.microsoft.com/cli/azure/vm#az_vm_delete) | Supprime une machine virtuelle. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Crée une machine virtuelle.  |
+| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) | Attache un disque à une machine virtuelle. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list_ip_addresses) | Renvoie les adresses IP d’une machine virtuelle. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

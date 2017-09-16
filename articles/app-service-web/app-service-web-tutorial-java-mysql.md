@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 5a6e4431ef25c66e1863a679f0db1363a83f4769
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 96f7bda79fd83bffa4ca1d64275a784004547c6d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -322,7 +322,7 @@ az webapp config appsettings set \
 ### <a name="get-ftp-deployment-credentials"></a>Obtention des informations d’identification de déploiement FTP 
 Vous pouvez déployer votre application dans Azure App Service de plusieurs façons, notamment FTP, Git local ainsi que GitHub, Visual Studio Team Services et BitBucket. Pour cet exemple, FTP pour déployer le fichier .WAR basé précédemment sur votre ordinateur local dans Azure App Service.
 
-Pour déterminer les informations d’identification à transmettre dans une commande FTP à l’application web, utilisez la commande [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles) : 
+Pour déterminer les informations d’identification à transmettre dans une commande FTP à l’application web, utilisez la commande [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) : 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles \ 

@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 86a2cd8ae9f97c606a378452e44eec8941700531
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
@@ -47,7 +46,7 @@ Pour configurer les informations d’identification au niveau de l’utilisateur
 1. Dans le [portail Azure](https://portal.azure.com), cliquez sur App Service > **&lt;une application>** > **Informations d’identification de déploiement**.
 
     > [!NOTE]
-    > Dans le portail, vous devez disposer d’au moins une application avant de pouvoir accéder au panneau Informations d’identification de déploiement. Toutefois, avec l’[interface de ligne de commande Azure](app-service-web-app-azure-resource-manager-xplat-cli.md), vous pouvez configurer les informations d’identification au niveau de l’utilisateur sans application existante.
+    > Dans le portail, vous devez disposer d’au moins une application avant de pouvoir accéder au panneau Informations d’identification de déploiement. Toutefois, avec l’[interface de ligne de commande Azure](/cli/azure/webapp/deployment/user#set), vous pouvez configurer les informations d’identification au niveau de l’utilisateur sans application existante.
 
 2. Configurez le nom d’utilisateur et le mot de passe, puis cliquez sur **Enregistrer**.
 

@@ -17,10 +17,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: dcf92babf84872ffbbba81127952f8422104c723
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 9447e7c78849bb7a25d141c454550ce708b781b6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,8 +44,8 @@ Ce script utilise les commandes suivantes pour créer un disque géré dans l’
 
 | Commande | Remarques |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#show) | Obtient toutes les propriétés d’un disque managé en utilisant les propriétés de nom et de groupe de ressources du disque managé. La propriété de l’identifiant est utilisée pour copier le disque managé vers un autre abonnement.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Copie un disque managé en créant un disque managé dans un autre abonnement à l’aide de l’identifiant et du nom du disque managé parent.  |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Obtient toutes les propriétés d’un disque managé en utilisant les propriétés de nom et de groupe de ressources du disque managé. La propriété de l’identifiant est utilisée pour copier le disque managé vers un autre abonnement.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Copie un disque managé en créant un disque managé dans un autre abonnement à l’aide de l’identifiant et du nom du disque managé parent.  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

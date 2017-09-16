@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: b697c8508a6c3422b6b0d0ca36843a9c884b505f
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: c1277a04e3a63c09b2ed7f9304bfc482ab9189a8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -46,12 +46,12 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 | Commande | Remarques |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Crée un plan App Service. Cela équivaut à une batterie de serveurs pour votre application web Azure. |
-| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | Crée une application web Azure. |
-| [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#create) | Crée une nouvelle instance de Cache Redis. Il s’agit de l’emplacement où les données seront stockées. |
-| [az redis list-keys](https://docs.microsoft.com/en-us/cli/azure/redis#list-keys) | Répertorie les touches d’accès rapide pour l’instance de cache redis. |
-| [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#set) | Crée ou met à jour un paramètre d’application pour une application web Azure. Les paramètres d’application sont exposés en tant que variables d’environnement pour votre application. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Crée un plan App Service. Cela équivaut à une batterie de serveurs pour votre application web Azure. |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Crée une application web Azure. |
+| [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) | Crée une nouvelle instance de Cache Redis. Il s’agit de l’emplacement où les données seront stockées. |
+| [az redis list-keys](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_list_keys) | Répertorie les touches d’accès rapide pour l’instance de cache redis. |
+| [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Crée ou met à jour un paramètre d’application pour une application web Azure. Les paramètres d’application sont exposés en tant que variables d’environnement pour votre application. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

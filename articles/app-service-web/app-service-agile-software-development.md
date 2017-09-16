@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 5ed888cbb422766cf2094f5980dfd1c599bd431c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: ff71194d701fd5de6ffe616c03f7214275f3bc62
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="agile-software-development-with-azure-app-service"></a>Développement logiciel agile avec Azure App Service
@@ -264,7 +264,9 @@ Comme vous avez volontairement conçu vos environnements de développement et de
     Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
 
 ## <a name="summary"></a>Résumé
-Le développement logiciel agile est indispensable pour de nombreuses entreprises qui souhaitent adopter Azure comme plateforme d’application. Dans ce didacticiel, vous avez appris à créer et à détruire aisément des réplicas exacts ou proches de l’environnement de production, même pour les applications complexes. Vous avez également appris à exploiter la possibilité de créer un processus de développement capable de créer et de tester chaque validation dans Azure. Ce didacticiel vous a montré comment mieux utiliser conjointement Azure App Service et Azure Resource Manager pour créer une solution d’opérations de développement recourant aux méthodologies agiles. À présent, vous pouvez tirer parti de ce scénario en recourant à des techniques DevOps avancées telles que le [test dans les environnements de production](app-service-web-test-in-production-get-start.md). Pour découvrir un scénario courant de test dans les environnements de production, consultez [Déploiement avec distribution d’une version d’évaluation (test bêta) dans Azure App Service](app-service-web-test-in-production-controlled-test-flight.md).
+Le développement logiciel agile est indispensable pour de nombreuses entreprises qui souhaitent adopter Azure comme plateforme d’application. Dans ce didacticiel, vous avez appris à créer et à détruire aisément des réplicas exacts ou proches de l’environnement de production, même pour les applications complexes. Vous avez également appris à exploiter la possibilité de créer un processus de développement capable de créer et de tester chaque validation dans Azure. Ce didacticiel vous a montré comment mieux utiliser conjointement Azure App Service et Azure Resource Manager pour créer une solution d’opérations de développement recourant aux méthodologies agiles. 
+
+<!-- Next, you can build on this scenario by performing advanced DevOps techniques such as testing in production. For a common testing-in-production scenario, see [Flighting deployment (beta testing) in Azure App Service](app-service-web-test-in-production-controlled-test-flight.md). -->
 
 ## <a name="more-resources"></a>Autres ressources
 * [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md)

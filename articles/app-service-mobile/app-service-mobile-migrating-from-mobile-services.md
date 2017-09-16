@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: cd6c75fb12182c1c38c9717f7fe51c6e36922540
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="article-top"></a>Migration de votre service mobile Azure existant vers Azure App Service
@@ -33,7 +33,6 @@ La migration de votre service mobile Azure transforme votre service mobile en ap
 Microsoft vous recommande de migrer votre service mobile Azure pour tirer parti des fonctionnalités d’Azure App Service, notamment :
 
 * nouvelles fonctionnalités d’hôte, dont [Tâches web] et [noms de domaine personnalisés] ;
-* connectivité à vos ressources locales à l’aide de [VNet] en plus des [connexions hybrides] ;
 * surveillance et dépannage à l’aide de New Relic ou d’ [Application Insights];
 * outils DevOps intégrés, dont [emplacements intermédiaires], restauration et tests en production ;
 * [mise à l’échelle automatique], équilibrage de charge et [analyse des performances].
@@ -389,7 +388,7 @@ Maintenant que votre application a été migrée vers App Service, vous pouvez u
 [noms de domaine personnalisés]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
 [mise à la disposition générale d’Azure App Service]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
-[connexions hybrides]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
 [Journalisation]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Kit de développement logiciel (SDK) Mobile Apps Node.js]: https://github.com/azure/azure-mobile-apps-node
 [Services mobiles et App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md

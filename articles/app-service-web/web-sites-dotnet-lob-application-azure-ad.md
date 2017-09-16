@@ -15,11 +15,10 @@ ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6eadf0a521a32c5bc580908e4e4b7f4305e2bf7e
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 209766e4ebc902d78cf0c83fa8fe0f57c4da73e4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>Créer une application Azure cœur de métier avec authentification Azure Active Directory
@@ -337,7 +336,8 @@ Félicitations, vous exécutez à présent une application cœur de métier dans
 ## <a name="next-step"></a>étape suivante
 Si vous avez besoin d’un contrôle d’accès en fonction du rôle (RBAC) pour votre application cœur de métier dans Azure, consultez [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) pour obtenir un exemple de l’équipe Azure Active Directory. Ce dernier montre comment activer des rôles pour votre application Azure Active Directory et autoriser des utilisateurs disposant de la décoration `[Authorize]` .
 
-Si votre application cœur de métier doit accéder à des données locales, consultez la page [Accéder à des ressources locales à l’aide de connexions hybrides dans Azure App Service](web-sites-hybrid-connection-get-started.md).
+<!-- If your line-of-business app needs access to on-premises data, see 
+[Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md). -->
 
 <a name="bkmk_resources"></a>
 

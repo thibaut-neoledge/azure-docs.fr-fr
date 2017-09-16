@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: c163c715eb1438a0d6b0ab53cbb43816ca8dbbb4
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -42,7 +42,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group#create). 
+Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
 
 Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant les machines virtuelles. Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *eastus*. 
 
@@ -54,7 +54,7 @@ Le groupe de ressources est spécifié lors de la création ou de la modificatio
 
 ## <a name="create-virtual-machine"></a>Create virtual machine
 
-Créez une machine virtuelle avec la commande [az vm create](https://docs.microsoft.com/cli/azure/vm#create). 
+Créez une machine virtuelle avec la commande [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
 
 Lorsque vous créez une machine virtuelle, plusieurs options sont disponibles, comme l’image de système d’exploitation, les informations d’identification d’administration ou le dimensionnement des disques. Dans cet exemple, une machine virtuelle nommée *myVM* est créée et exécute Ubuntu Server. 
 
@@ -62,7 +62,7 @@ Lorsque vous créez une machine virtuelle, plusieurs options sont disponibles, c
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Une fois la machine virtuelle créée, l’interface Azure CLI fournit des informations concernant cette machine virtuelle. Notez la valeur de `publicIpAddress`, car cette adresse peut être utilisée pour accéder à la machine virtuelle. 
+La création de la machine virtuelle peut prendre plusieurs minutes. Une fois la machine virtuelle créée, l’interface Azure CLI fournit des informations concernant cette machine virtuelle. Notez la valeur de `publicIpAddress`, car cette adresse peut être utilisée pour accéder à la machine virtuelle. 
 
 ```azurecli-interactive 
 {
@@ -79,13 +79,13 @@ Une fois la machine virtuelle créée, l’interface Azure CLI fournit des infor
 
 ## <a name="connect-to-vm"></a>Se connecter à une machine virtuelle
 
-Vous pouvez maintenant vous connecter à la machine virtuelle à l’aide de SSH. Remplacez l’exemple d’adresse IP par la valeur de `publicIpAddress` notée à l’étape précédente.
+Vous pouvez maintenant vous connecter à la machine virtuelle avec SSH dans Azure Cloud Shell ou à partir de votre ordinateur local. Remplacez l’exemple d’adresse IP par la valeur de `publicIpAddress` notée à l’étape précédente.
 
 ```bash
 ssh 52.174.34.95
 ```
 
-Une fois que vous avez terminé avec la machine virtuelle, fermez la session SSH. 
+Une fois connecté à la machine virtuelle, vous pouvez installer et configurer des applications. Quand vous avez terminé, vous fermez la session SSH normalement :
 
 ```bash
 exit
@@ -208,7 +208,11 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>Redimensionner une machine virtuelle
 
-Après avoir déployé une machine virtuelle, vous pouvez la redimensionner pour augmenter ou diminuer l’allocation des ressources.
+Après avoir déployé une machine virtuelle, vous pouvez la redimensionner pour augmenter ou diminuer l’allocation des ressources. Vous pouvez afficher la taille actuelle d’une machine virtuelle avec la commande [az vm show](/cli/azure/vm#show) :
+
+```azurecli-interactive
+az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
+```
 
 Avant de redimensionner une machine virtuelle, vérifiez si la taille souhaitée est disponible dans le cluster Azure actuel. La commande [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) commande renvoie la liste des tailles disponibles. 
 
@@ -300,7 +304,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="delete-resource-group"></a>Supprimer un groupe de ressources
 
-La suppression d’un groupe de ressources supprime également toutes les ressources qu’il contient.
+La suppression d’un groupe de ressources supprime également toutes les ressources qu’il contient, telles que la machine virtuelle, le réseau virtuel et le disque. Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes

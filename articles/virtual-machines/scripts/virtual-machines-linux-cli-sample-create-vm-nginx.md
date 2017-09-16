@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 12b4fda8a8805d49ad1318af3367a53e97ddf48b
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 0a6c33d84f1fab85e6ed2933c47c041ca2e59520
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -64,11 +64,11 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 | Commande | Remarques |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Crée la machine virtuelle. Cette commande spécifie également l’image de machine virtuelle à utiliser ainsi que les informations d’identification d’administration.  |
-| [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) | Crée une règle de groupe de sécurité réseau visant à autoriser le trafic entrant. Dans cet exemple, le port 80 est ouvert pour le trafic HTTP. |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#set) | Ajoute et exécute une extension de machine virtuelle sur une machine virtuelle. Dans cet exemple, l’extension de script personnalisé sert à installer NGINX.|
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Crée la machine virtuelle. Cette commande spécifie également l’image de machine virtuelle à utiliser ainsi que les informations d’identification d’administration.  |
+| [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Crée une règle de groupe de sécurité réseau visant à autoriser le trafic entrant. Dans cet exemple, le port 80 est ouvert pour le trafic HTTP. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Ajoute et exécute une extension de machine virtuelle sur une machine virtuelle. Dans cet exemple, l’extension de script personnalisé sert à installer NGINX.|
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -16,11 +16,11 @@ ms.topic: sample
 ms.date: 06/19/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: d4fab3fb2c297bf5f498b63bee46692febb9180b
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: ab4e211bc2c3f7e99ab0246e7abba57795318245
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -50,12 +50,12 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Remarques |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Crée un plan App Service. |
-| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | Crée une application web Azure. |
-| [az webapp config hostname add](https://docs.microsoft.com/cli/azure/webapp/config/hostname#add) | Mappe un domaine personnalisé à une application web. |
-| [az webapp config ssl upload](https://docs.microsoft.com/cli/azure/webapp/config/ssl#upload) | Charge un certificat SSL personnalisé sur une application web. |
-| [az webapp config ssl bind](https://docs.microsoft.com/cli/azure/webapp/config/ssl#bind) | Lie un certificat SSL chargé à une application web. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Crée un plan App Service. |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Crée une application web Azure. |
+| [az webapp config hostname add](https://docs.microsoft.com/cli/azure/webapp/config/hostname#az_webapp_config_hostname_add) | Mappe un domaine personnalisé à une application web. |
+| [az webapp config ssl upload](https://docs.microsoft.com/cli/azure/webapp/config/ssl#az_webapp_config_ssl_upload) | Charge un certificat SSL personnalisé sur une application web. |
+| [az webapp config ssl bind](https://docs.microsoft.com/cli/azure/webapp/config/ssl#az_webapp_config_ssl_bind) | Lie un certificat SSL chargé à une application web. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

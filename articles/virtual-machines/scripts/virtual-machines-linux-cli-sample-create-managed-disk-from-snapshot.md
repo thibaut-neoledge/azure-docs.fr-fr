@@ -17,10 +17,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 68e17ae9e5d82da7f9be9d36e3e2324a2aeadbc4
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 26bddc69c7ff4854c84832ec924ab46ea342f1f4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,8 +44,8 @@ Ce script a recours aux commandes suivantes pour créer un disque managé à par
 
 | Commande | Remarques |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#show) | Obtient toutes les propriétés d’une capture instantanée en utilisant les propriétés de nom et de groupe de ressources de la capture instantanée. La propriété de l’identifiant est utilisée pour créer le disque managé.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Crée un disque managé à l’aide de l’identifiant d’une capture instantanée managée. |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Obtient toutes les propriétés d’une capture instantanée en utilisant les propriétés de nom et de groupe de ressources de la capture instantanée. La propriété de l’identifiant est utilisée pour créer le disque managé.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Crée un disque managé à l’aide de l’identifiant d’une capture instantanée managée. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
