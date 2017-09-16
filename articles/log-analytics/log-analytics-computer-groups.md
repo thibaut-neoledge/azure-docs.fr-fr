@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 09/15/2017
 ms.author: bwren
 ms.translationtype: HT
 ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
@@ -57,7 +57,7 @@ Voici des exemples de recherches que vous pouvez enregistrer en tant que groupe 
 >[!NOTE]
 > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les modifications suivantes sont apportées à la procédure de création d’un groupe d’ordinateurs.
 >  
-> - La requête pour la création d’un groupe d’ordinateurs doit inclure `distinct Computer`.  Voici un exemple de requête pour la création d’un groupe d’ordinateurs.<br>`Heartbeat | where Computer contains "srv" `
+> - La requête pour la création d’un groupe d’ordinateurs doit inclure `distinct Computer`.  Voici un exemple de requête pour la création d’un groupe d’ordinateurs.<br>`Heartbeat | where Computer contains "srv" | distinct Computer `
 > - Lorsque vous créez un groupe d’ordinateurs, vous devez spécifier un alias en plus du nom.  Utilisez l’alias lorsque vous utilisez le groupe d’ordinateurs dans une requête, comme décrit ci-dessous.  
 
 ### <a name="log-search-api"></a>API Recherche de journal
@@ -104,7 +104,7 @@ Les groupes d’ordinateurs sont généralement utilisés avec la clause **IN**d
 >[!NOTE]
 > Si votre espace de travail a été mis à niveau vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), utilisez un groupe d’ordinateurs dans une requête en traitant son alias comme une fonction tel qu’indiqué dans l’exemple suivant :
 > 
->  `UpdateSummary | where Computer IN (MyComputerGroup)`
+>  `UpdateSummary | where Computer in (mycomputergroup)`
 
 ## <a name="computer-group-records"></a>Enregistrements de groupe d’ordinateurs
 Un enregistrement est créé dans le référentiel OMS pour chaque appartenance à un groupe d’ordinateur créée à partir d’Active Directory ou de WSUS.  Ces enregistrements sont de type **ComputerGroup** et ont les propriétés décrites dans le tableau suivant.  Des enregistrements ne sont pas créés pour des groupes d’ordinateurs basés sur des recherches de journal.
