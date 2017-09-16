@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 3b82f352f89a7857bfb42be6cee136f245fbd5fa
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonage de l’application Azure App Service à l’aide de PowerShell
@@ -27,8 +27,6 @@ Avec la publication de Microsoft Azure PowerShell version 1.1.0, une nouvelle o
 Le clonage d’application n’est actuellement pris en charge que pour les plans de service d’application de niveau Premium. Cette nouvelle fonctionnalité utilise les mêmes limitations que la fonctionnalité de sauvegarde des applications web. Pour plus d’informations, consultez l’article [Sauvegarder une application web dans Azure App Service](web-sites-backup.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-Pour savoir comment utiliser les applets de commande Azure PowerShell basées sur Azure Resource Manager pour gérer vos applications web, consultez [Commandes PowerShell basées sur Azure Resource Manager pour Application web Azure](app-service-web-app-azure-resource-manager-powershell.md)
 
 ## <a name="cloning-an-existing-app"></a>Clonage d’une application existante
 Scénario : un utilisateur souhaite cloner le contenu d’une application web du Sud du centre des États-Unis vers une nouvelle application web de la région Nord du centre des États-Unis. Ce peut être effectué à l’aide de la version Azure Resource Manager de l’applet de commande PowerShell pour créer une application web avec l’option -SourceWebApp.
@@ -107,11 +105,10 @@ Cette fonctionnalité en est actuellement à sa version préliminaire. Nous nous
 * Les contenus de la base de données ne sont pas clonés.
 
 ### <a name="references"></a>Références
-* [Commandes PowerShell basées sur Azure Resource Manager pour Application web Azure](app-service-web-app-azure-resource-manager-powershell.md)
 * [Clonage d’application web à l’aide du portail Azure](app-service-web-app-cloning-portal.md)
 * [Sauvegarde d’une application web dans Azure App Service](web-sites-backup.md)
 * [Prise en charge d’Azure Resource Manager pour la version préliminaire d’Azure Traffic Manager](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Présentation de l'environnement App Service](app-service-app-service-environment-intro.md)
-* [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
+* [Utilisation d’Azure PowerShell avec Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 
 

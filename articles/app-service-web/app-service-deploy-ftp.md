@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: cephalin;dariac
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9078abbc4ed7eff6975201443992f7bbb84bf57c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2ca0ff85b6f2b34f923b1042c9b3fcf010443919
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -76,6 +76,5 @@ Pour des scénarios de déploiement plus avancés, consultez [Déploiement Git l
 
 ## <a name="more-resources"></a>Autres ressources
 
-* [Créer une application Web PHP-MySQL dans Azure App Service et la déployer à l’aide de FTP](web-sites-php-mysql-deploy-use-ftp.md).
 * [Informations d’identification du déploiement d’Azure App Service](app-service-deploy-ftp.md)
 

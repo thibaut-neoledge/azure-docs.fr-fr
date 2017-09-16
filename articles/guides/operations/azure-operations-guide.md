@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4475baf3632c9e6870ff90244b773993a66b768c
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 1180001c9fe74aab6b51c5b5969b80a8c7e1302f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -89,8 +89,6 @@ Services d’hébergement et d’exécution de la charge de travail des applicat
 -   App Services (Web Apps, Mobile Apps, Logic Apps, API Apps et Function Apps)
 
 -   Azure Batch (pour les tâches de calcul en lot et en parallèle à grande échelle)
-
--   Azure RemoteApp
 
 -   Azure Service Fabric
 

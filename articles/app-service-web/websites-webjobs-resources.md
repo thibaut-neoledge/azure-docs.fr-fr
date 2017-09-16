@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 05062d7396bdbb3e589d2ab5f0443d1dca54342a
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 5050b442540632086eda80bd7fecaf2beb8ddb50
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-webjobs-documentation-resources"></a>Ressources de documentation relatives à Azure WebJobs
@@ -69,7 +69,7 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 
 ## <a name="schedule"></a>Planification de WebJobs
 * [Boîte de dialogue Ajouter une tâche web Azure](websites-dotnet-deploy-webjobs.md#configure)
-* [Créer une tâche WebJob planifiée dans le portail Azure](web-sites-create-web-jobs.md#CreateScheduled)
+* [Créer une tâche WebJob planifiée dans le portail Azure](web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [Liaison d’une tâche du planificateur à une tâche web](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Planification de tâches web Azure avec des expressions cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Planification de fonctions WebJobs individuelles à l'aide du Kit de développement logiciel (SDK) TimerTrigger WebJobs](websites-dotnet-webjobs-sdk.md#schedule)

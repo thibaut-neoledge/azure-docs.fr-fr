@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: bc6c77deb02b145cd412e18ba31d724f2b71e4d1
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2d74331ec1625a53d1af5ab5058b733651271f37
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
@@ -283,7 +283,7 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Application web Azure App Service : bloquer l’accès web aux emplacements de déploiement hors production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[Introduction à App Service sur Linux](./app-service-linux-intro.md)
+[Introduction à App Service sur Linux](../app-service/containers/app-service-linux-intro.md)
 [Essai gratuit de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->

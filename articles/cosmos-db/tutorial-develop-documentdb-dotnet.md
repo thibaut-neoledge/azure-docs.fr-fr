@@ -17,10 +17,10 @@ ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 2eed74ae9bd173b0944ec190dfe5d9a4bdc54c37
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 871731adc849c575d97ed6735b87457811668ed5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -46,10 +46,12 @@ Ce didacticiel décrit les tâches suivantes à l’aide de [l’API .NET de Doc
 Vérifiez que vous disposez des éléments suivants :
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/free/). 
-    * Si vous préférez utiliser un environnement local qui émule le service Azure DocumentDB à des fins de développement, vous pouvez utiliser [l’émulateur Azure Cosmos DB](local-emulator.md) dans le cadre de ce didacticiel.
-* [Visual Studio](http://www.visualstudio.com/).
 
-## <a name="create-an-azure-cosmos-db-account"></a>Créer un compte Azure Cosmos DB
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio.
+
+## <a name="create-an-azure-cosmos-db-account"></a>Création d’un compte Azure Cosmos DB
 
 Commençons par créer un compte Azure Cosmos DB dans le portail Azure.
 

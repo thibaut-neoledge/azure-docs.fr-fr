@@ -17,10 +17,10 @@ ms.date: 08/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 892d3481b4ec70fb8434cb25013c5cfd8ab85051
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 1d74ead08dfb63276afb08bdcb7f4e3e3db5bfd3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -43,7 +43,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ## <a name="create-a-linux-vm"></a>Créer une machine virtuelle Linux
 
-Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group#create), puis créez une machine virtuelle Linux avec la commande [az vm create](https://docs.microsoft.com/cli/azure/vm#create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
+Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create), puis créez une machine virtuelle Linux avec la commande [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
 L’exemple suivant utilise Azure CLI pour créer un groupe de ressources nommé *myResourceGroupMEAN* à l’emplacement *eastus*. Une machine virtuelle nommée *myVM* est créée à l’aide de clés SSH si elles n’existent pas déjà à un emplacement de clé par défaut. Pour utiliser un ensemble spécifique de clés, utilisez l’option --ssh-key-value.
 

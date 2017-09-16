@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e0302c4e4e63383a2b19bd6f02f3be8d83f5ff98
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: e57e4b55555b04f6109e16322aa05ff0e41bb16c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-app-service-ssl-certificate-binding-using-powershell"></a>Liaison de certificat SSL d’Azure App Service à l’aide de PowerShell
 Avec la publication de Microsoft Azure PowerShell version 1.1.0, une nouvelle applet de commande a été ajoutée. Elle permet à l’utilisateur de lier des certificats SSL nouveaux ou existants à une application web existante.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-Pour savoir comment utiliser les applets de commande Azure PowerShell basées sur Azure Resource Manager pour gérer vos applications web, consultez [Commandes PowerShell basées sur Azure Resource Manager pour Application web Azure](app-service-web-app-azure-resource-manager-powershell.md)
 
 ## <a name="uploading-and-binding-a-new-ssl-certificate"></a>Chargement et liaison d’un nouveau certificat SSL
 Scénario : l’utilisateur souhaite lier un certificat SSL à l’une de ses applications web.
@@ -68,13 +67,7 @@ Notez que si la liaison SSL supprimée était la dernière liaison utilisant ce
     Remove-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -Name www.contoso.com -DeleteCertificate $false
 
 ### <a name="references"></a>Références
-* [Commandes PowerShell basées sur Azure Resource Manager pour Application web Azure](app-service-web-app-azure-resource-manager-powershell.md)
 * [Présentation de l'environnement App Service](app-service-app-service-environment-intro.md)
-* [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [Utilisation d’Azure PowerShell avec Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 
 
