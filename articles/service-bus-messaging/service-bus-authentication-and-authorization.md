@@ -15,18 +15,20 @@ ms.workload: na
 ms.date: 08/09/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 28fb41499c919e5006f1be7daa97610c2a0583af
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: b4b9d5d272bdb172f1d40db379a519a4f617550a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Authentification et de autorisation Service Bus
 
-Les applications peuvent s’authentifier auprès d’Azure Service Bus à l’aide de l’authentification par signature d’accès partagé. L’authentification par Signature d’accès partagé permet aux applications de s’authentifier auprès de Service Bus à l’aide d’une clé d’accès sur l’espace de noms, ou sur l’entité de messagerie (file d’attente ou rubrique) avec des droits spécifiques associés. Vous pouvez ensuite utiliser cette clé pour générer un jeton de signature d’accès partagé que les clients peuvent ensuite utiliser pour s’authentifier auprès de Service Bus.
+Les applications peuvent accéder aux fonctions Azure Service Bus à l’aide de l’authentification par jeton de signature d’accès partagé. Avec la signature d’accès partagé (SAS), les applications présentent à Service Bus un jeton qui a été signé avec une clé symétrique connue de l’émetteur du jeton et de Service Bus (« partagé »). Cette clé est directement associée à une règle qui accorde des droits d’accès, tels que l’autorisation de recevoir, d’écouter ou d’envoyer des messages. Les règles de signature d’accès partagé sont soit configurées dans l’espace de noms, soit directement dans les entités telles qu’une file d’attente ou un sujet, ce qui permet un contrôle d’accès affiné.
+
+Les jetons SAS peuvent être générés directement par un client Service Bus, ou par un point de terminaison intermédiaire émetteur de jetons, avec lequel le client peut interagir. Par exemple, un système peut nécessiter que le client appelle un point de terminaison de service web Active Directory protégé par autorisation afin de prouver son identité et ses droits d’accès système. Dans ce cas, le service web retourne le jeton Service Bus approprié. Ce jeton SAS peut être généré facilement à l’aide du fournisseur de jetons Service Bus inclus dans le SDK. 
 
 > [!IMPORTANT]
-> Vous devez utiliser SAS au lieu d’Azure Active Directory Access Control (également appelé Access Control Service ou ACS), car ACS est aujourd’hui déprécié. SAS offre un schéma d’authentification simple, flexible et facile à utiliser pour Service Bus. Les applications peuvent utiliser des SAP dans les scénarios dans lesquels elles n’ont pas à tenir compte de la notion d’« utilisateur » autorisé. Pour plus d’informations, consultez [ce billet de blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)
+> Si vous utilisez Azure Active Directory Access Control (également appelé Access Control Service ou ACS) conjointement à Service Bus, notez que la prise en charge de cette méthode est désormais limitée et que vous devez migrer votre application en vue d’utiliser la signature d’accès partagé. Pour plus d’informations, consultez [ce billet de blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)
 
 ## <a name="shared-access-signature-authentication"></a>Authentification avec une signature d’accès partagé
 

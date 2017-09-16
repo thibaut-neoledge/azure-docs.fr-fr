@@ -11,23 +11,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 04ac46498c912b0503036f70b7f3d0e28e5a82b8
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 706c9650a8deef941f9b39956021456053369e5e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Envoyer des messages cloud-à-appareil à partir d’IoT Hub
 
-Pour envoyer des notifications unidirectionnelles à l’application pour appareil à partir du back-end de votre solution, envoyez des messages cloud-à-appareil depuis votre hub IoT vers votre appareil. Pour une description des autres options cloud-à-appareil prises en charge par IoT Hub, consultez [Conseils pour les communications cloud-à-appareil][lnk-c2d-guidance].
+Pour envoyer des notifications unidirectionnelles à l’application pour appareil à partir du backend de votre solution, envoyez des messages cloud-à-appareil depuis votre hub IoT vers votre appareil. Pour une description des autres options cloud-à-appareil prises en charge par IoT Hub, consultez [Conseils pour les communications cloud-à-appareil][lnk-c2d-guidance].
 
 Vous envoyez les messages cloud-à-appareil via un point de terminaison côté service (**/messages/devicebound**). Un appareil reçoit ensuite les messages via un point de terminaison spécifique de l’appareil (**/devices/{IdAppareil}/messages/devicebound**).
 
-Chaque message cloud-à-appareil cible un seul appareil en définissant la propriété **to** sur **/devices/{deviceId}/messages/devicebound**.
+Pour cibler chaque message cloud-à-appareil sur un seul appareil, IoT Hub définit la propriété **to** sur **/devices/{deviceId}/messages/devicebound**.
 
 Chaque file d’attente d’appareil peut contenir jusqu’à 50 messages cloud-à-appareil. Les tentatives d’envoi d’un nombre supérieur de messages au même appareil entraînent une erreur.
 
@@ -48,17 +47,28 @@ Un appareil peut également choisir de :
 
 Il est possible qu’un thread ne parvienne pas à traiter un message sans en avertir IoT Hub. Dans ce cas, les messages passent automatiquement de l’état **Invisible** à l’état **Enqueued** (En file d’attente) après un *délai d’attente de visibilité (ou de verrouillage)*. La valeur par défaut de ce délai est d’une minute.
 
-Un message peut passer de l’état **Enqueued** (En file d’attente) à l’état **Invisible** et inversement, au maximum le nombre de fois spécifié dans la propriété **Nombre maximal de remises** sur IoT Hub. Une fois ce nombre de transitions atteint, IoT Hub attribue au message l’état **Deadlettered**(Lettre morte). De même, IoT Hub attribue à un message l’état **Deadlettered** (Lettre morte) à l’issue de son délai d’expiration (consultez [Durée de vie][lnk-ttl]).
+La propriété **nombre maximal de remises** sur IoT Hub détermine le nombre maximal de fois qu’un message peut passer de l’état **En file d’attente** à l’état **Invisible**, et inversement. Une fois ce nombre de transitions atteint, IoT Hub attribue au message l’état **Deadlettered**(Lettre morte). De même, IoT Hub attribue à un message l’état **Deadlettered** (Lettre morte) à l’issue de son délai d’expiration (consultez [Durée de vie][lnk-ttl]).
 
-La page [How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial] (Guide pratique pour envoyer des messages cloud-à-appareil avec IoT Hub) explique comment envoyer des messages cloud-à-appareil depuis le cloud et comment les recevoir sur un appareil.
+Le [Guide pratique pour envoyer des messages cloud-à-appareil avec IoT Hub][lnk-c2d-tutorial] explique comment envoyer des messages cloud-à-appareil depuis le cloud et comment les recevoir sur un appareil.
 
-Généralement, un appareil achève un message cloud-à-appareil quand la perte du message n’affecte pas la logique d’application. C’est par exemple le cas quand l’appareil a rendu persistant le contenu du message localement ou qu’il a exécuté une opération correctement. Le message peut également transporter des informations temporaires, dont la perte n’aurait aucun impact sur les fonctionnalités de l’application. Parfois, pour les tâches longues, vous pouvez terminer le message cloud-à-appareil après la conservation de la description de la tâche dans le stockage local. Vous pouvez ensuite notifier le serveur principal de la solution à l’aide d’un ou de plusieurs messages appareil-à-cloud à différents stades de la progression de la tâche.
+Généralement, un appareil achève un message cloud-à-appareil quand la perte du message n’affecte pas la logique d’application. C’est par exemple le cas quand l’appareil a rendu persistant le contenu du message localement ou qu’il a exécuté une opération correctement. Le message peut également transporter des informations temporaires, dont la perte n’aurait aucun impact sur les fonctionnalités de l’application. Quelquefois, pour les tâches longues, vous pouvez :
+
+* Terminer le message cloud-à-appareil après la conservation de la description de la tâche dans le stockage local.
+* Notifier le backend de la solution à l’aide d’un ou de plusieurs messages appareil-à-cloud à différents stades de la progression de la tâche.
 
 ## <a name="message-expiration-time-to-live"></a>Expiration du message (durée de vie)
 
-Chaque message cloud-à-appareil est doté d’un délai d’expiration. Cette durée est définie soit par le service (dans la propriété **ExpiryTimeUtc** ), soit par IoT Hub avec la *durée de vie* par défaut spécifiée en tant que propriété IoT Hub. Consultez [Options de configuration cloud-à-appareil][lnk-c2d-configuration].
+Chaque message cloud-à-appareil est doté d’un délai d’expiration. Cette durée est définie par un des éléments suivants :
 
-Un moyen courant de tirer parti de l’expiration du message et d’éviter l’envoi de messages à des appareils déconnectés consiste à définir des valeurs de durée de vie courtes. Cette approche produit le même résultat que la gestion de l’état de connexion de l’appareil, tout en étant plus efficace. Lorsque vous demandez des accusés de réception des messages, IoT Hub vous informe sur les appareils en mesure de recevoir des messages et ceux qui ne sont pas en ligne ou qui sont en état d’échec.
+* La propriété **ExpiryTimeUtc** dans le service.
+* IoT Hub utilisant la valeur *durée de vie* par défaut spécifiée comme propriété IoT Hub.
+
+Consultez [Options de configuration cloud-à-appareil][lnk-c2d-configuration].
+
+Un moyen courant de tirer parti de l’expiration du message et d’éviter l’envoi de messages à des appareils déconnectés consiste à définir des valeurs de durée de vie courtes. Cette approche produit le même résultat que la gestion de l’état de connexion de l’appareil, tout en étant plus efficace. Lorsque vous demandez des accusés de réception de messages, IoT Hub vous notifie quels sont les appareils :
+
+* En mesure de recevoir des messages.
+* Qui ne sont pas en ligne ou qui ont échoué.
 
 ## <a name="message-feedback"></a>Commentaires de messages
 
@@ -66,11 +76,11 @@ Lorsque vous envoyez un message cloud-à-appareil, le service peut demander la r
 
 | Propriété Ack | Comportement |
 | ------------ | -------- |
-| **positive** | IoT Hub génère un message de commentaire si et seulement si le message cloud-à-appareil est à l’état **Completed** (Terminé). |
-| **negative** | IoT Hub génère un message de commentaire si et seulement si le message cloud-à-appareil est à l’état **Deadlettered** (Lettre morte). |
+| **positive** | Si le message cloud-à-appareil prend l’état **Completed** (Terminé), IoT Hub génère un message de commentaire. |
+| **negative** | Si le message cloud-à-appareil prend l’état **Deadlettered** (Lettre morte), IoT Hub génère un message de commentaire. |
 | **full**     | IoT Hub génère un message de commentaires dans les deux cas. |
 
-Si la propriété **Ack** est définie sur **full** et que vous ne recevez pas de message de commentaire, cela signifie que le message de commentaire a expiré. Le service ne peut pas savoir ce qui est arrivé au message d’origine. Dans la pratique, un service doit s'assurer qu'il peut traiter les commentaires avant leur expiration. Le délai d'expiration maximal est de deux jours, ce qui vous laisse suffisamment de temps pour rendre le service opérationnel en cas de défaillance.
+Si la propriété **Ack** est définie sur **full** et que vous ne recevez pas de message de commentaire, cela signifie que le message de commentaire a expiré. Le service ne peut pas savoir ce qui est arrivé au message d’origine. Dans la pratique, un service doit s'assurer qu'il peut traiter les commentaires avant leur expiration. Le délai d’expiration maximal est de deux jours, ce qui vous laisse le temps de faire refonctionner le service en cas de défaillance.
 
 Comme l’explique la section [Points de terminaison][lnk-endpoints], IoT Hub fournit des commentaires sous la forme de messages par le biais d’un point de terminaison accessible au service (**/messages/servicebound/feedback**). La sémantique de réception des commentaires est identique à celle des messages cloud-à-appareil, et présente le même [cycle de vie des messages][lnk-lifecycle]. Chaque fois que c’est possible, des commentaires de messages sont mis en lot dans un seul message, au format suivant :
 
@@ -123,13 +133,13 @@ Chaque hub IoT expose les options de configuration suivantes pour la messagerie 
 | feedback.ttlAsIso8601     | Rétention des messages de commentaires liés au service. | Intervalle ISO_8601 jusqu’à 2D (minimum 1 minute). Par défaut : 1 heure. |
 | feedback.maxDeliveryCount |Nombre de remises maximal pour la file d’attente de commentaires. | 1 à 100. Par défaut : 100. |
 
-Pour plus d’informations sur la définition de ces options de configuration, consultez [Create IoT hubs][lnk-portal] (Créer des hubs IoT).
+Pour plus d’informations sur la définition de ces options de configuration, consultez [Créer des hubs IoT][lnk-portal].
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les SDK que vous pouvez utiliser pour recevoir des messages cloud-à-appareil, consultez [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks].
+Pour plus d’informations sur les SDK que vous pouvez utiliser pour recevoir des messages cloud-à-appareil, consultez [Kits Azure IoT SDK][lnk-sdks].
 
-Pour essayer de recevoir des messages cloud-à-appareil, consultez le didacticiel [Send cloud-to-device][lnk-c2d-tutorial] (Envoyer des messages cloud-à-appareil).
+Pour essayer de recevoir des messages cloud-à-appareil, consultez le didacticiel [Envoyer des messages cloud-à-appareil][lnk-c2d-tutorial].
 
 [img-lifecycle]: ./media/iot-hub-devguide-messages-c2d/lifecycle.png
 

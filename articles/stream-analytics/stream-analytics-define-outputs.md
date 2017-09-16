@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 91ee74f01b2e84244245dbe43408589f04af6338
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 52d131384c61b57d31873530304c644d6e9c11f1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Sorties Stream Analytics : options de stockage, d’analyse
@@ -302,7 +302,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 | Délimiteur |Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) est un service de base de données de documents NoSQL entièrement géré qui permet d'utiliser des données de requêtes et de transactions sans schéma, offre des performances prévisibles et fiables, et permet un développement rapide.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) est un service de base de données multimodèle distribué à l’échelle mondiale, qui offre une mise à l’échelle élastique et sans limite dans le monde entier, des requêtes enrichies et une indexation automatique sur les modèles de données indépendants des schémas, la garantie d’une latence faible et des contrats de niveau de service complets de haut niveau.
 
 La liste ci-dessous présente les noms et les descriptions des propriétés pour la création d’une sortie Azure Cosmos DB.
 

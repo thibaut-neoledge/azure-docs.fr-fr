@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 01/25/2017
+ms.date: 09/06/2017
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 6f8d220a64e04b7dfa021aacf68dadf0d55393bf
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: c58aec1ea9bc79b335a115007500d77f8e752850
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Chargement de données Azure Data Lake Store dans SQL Data Warehouse
 Ce document vous indique toutes les étapes nécessaires pour charger vos propres données d’Azure Data Lake Store (ADLS) dans SQL Data Warehouse à l’aide de PolyBase.
 Même s’il est possible d’exécuter des requêtes ad hoc sur les données stockées dans ADLS à l’aide de tables externes, nous vous recommandons d’importer les données dans SQL Data Warehouse.
-Durée estimée : 10 minutes, si vous remplissez les conditions préalables.
+
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 1. Créer les objets de base de données externe à charger à partir d’Azure Data Lake Store.
@@ -89,8 +89,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>Créer la source de données externe
-Utilisez la commande [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] pour stocker l’emplacement des données et le type de données.
-Vous trouverez l’URI ADL dans le portail Azure et sur le site www.portal.azure.com.
+Utilisez la commande [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] pour stocker l’emplacement des données et le type de données. Pour rechercher l’URI ADL dans le portail Azure, accédez à votre Azure Data Lake Store, puis examinez le panneau Éléments principaux.
 
 ```sql
 -- C: Create an external data source
@@ -214,7 +213,7 @@ L’exemple suivant est un bon point de départ pour la création de statistique
 ## <a name="achievement-unlocked"></a>Et voilà !
 Vous avez correctement chargé les données dans Azure SQL Data Warehouse. Bon travail !
 
-##<a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Le chargement des données est la première étape du développement d’une solution d’entreposage des données à l’aide de SQL Data Warehouse. Découvrez nos ressources de développement dans les sections [Tables](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) et [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
 
 

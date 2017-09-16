@@ -1,4 +1,4 @@
-Cu--- titre : Azure Protéger les données personnelles au repos avec un chiffrement | Microsoft Docs description : Cet article fait partie d’une série visant à vous aider à utiliser Azure pour protéger des données personnelles services : sécurité centre de documentation : N/A auteur : Barclayn responsable : MBaldwin éditeur : TomSh
+Titre : Azure Protéger les données personnelles au repos avec un chiffrement | Microsoft Docs description : Cet article fait partie d’une série visant à vous aider à utiliser Azure pour protéger des données personnelles services : sécurité centre de documentation : N/A auteur : Barclayn responsable : MBaldwin éditeur : TomSh
 
 ms.assetid: ms.service: security ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 08/22/2017 ms.author: barclayn ms.custom: 
 

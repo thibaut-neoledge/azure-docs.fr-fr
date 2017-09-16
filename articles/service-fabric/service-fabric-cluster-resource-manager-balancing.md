@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: dfe0de1bc4cdfcbc0d175f1a3268601bde4da21a
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 06d65878d84fb845cf0c4c333a1e2d12b0aaec2f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Équilibrage de votre cluster Service Fabric
@@ -175,6 +175,10 @@ via ClusterConfig.json pour les déploiements autonomes ou Template.json pour le
 ```
 
 Les seuils d’équilibrage et d’activité sont tous deux liés à une mesure spécifique : l’équilibrage n’est déclenché que si le seuil d’équilibrage et le seuil d’activité sont dépassés pour la même mesure.
+
+> [!NOTE]
+> Lorsqu’elle n’est pas spécifiée, la valeur du seuil d’équilibrage d’une métrique est de 1, et la valeur du seuil d’activité est de 0. Cela signifie que le gestionnaire de ressources du cluster va tenter de maintenir le parfait équilibre de cette métrique pour toutes les charges. Si vous utilisez des métriques personnalisées, nous vous recommandons de définir explicitement vos propres seuils d’équilibrage et d’activité. 
+>
 
 ## <a name="balancing-services-together"></a>Équilibrage de plusieurs services en même temps
 La détermination de l’état de déséquilibre du cluster est une décision qui porte sur l’ensemble du cluster. Cependant, la procédure suivie pour corriger un déséquilibre consiste à déplacer des instances et des réplicas de service individuels. Logique, n’est-ce pas ? Si la mémoire est empilée sur un nœud, plusieurs réplicas ou instances peuvent être impliqués. Pour corriger le déséquilibre, il peut donc être nécessaire de déplacer les réplicas avec état ou les instances sans état qui utilisent la mesure déséquilibrée.

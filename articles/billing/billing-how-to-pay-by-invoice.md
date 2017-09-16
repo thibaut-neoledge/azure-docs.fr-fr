@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 08/30/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: edbeba95898a41e645b61aeaaec1fd897afadd61
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 9742187d2739b2d2d3b2073646dd6d7002898009
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Soumettre une demande de paiement d’abonnement Azure par facture
@@ -35,8 +35,11 @@ Vous pouvez obtenir un mode de paiement par facture pour votre abonnement Azure 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/). Sélectionnez **Aide + support** > **Nouvelle demande de support**.
 
     ![bouton Aide et support](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
+
 1. Sélectionnez **Facturation** comme type de problème, sélectionnez l’abonnement que vous souhaitez payer par facture, choisissez un plan de support, puis cliquez sur **Suivant**.
-1. Dans le panneau **Problème**, sélectionnez **Payer by invoice** (Payer par facture) dans la zone **Type de problème**.
+
+1. Sélectionnez **Payer par facture** dans la zone **Type de problème**.
+
 1. Entrez les informations suivantes dans la zone **Détails** puis sélectionnez **Suivant**.
 
     * Nom de la société

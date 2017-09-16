@@ -5,36 +5,35 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2017
+ms.date: 09/06/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: a66081596f2e8234f6169faa58c571420e706c45
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: fa8f63c8da5019ed42ea8ec067d3d3d174976dd8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publier le Bureau à distance avec le proxy d’application Azure AD
 
-Cet article explique comment déployer les Services Bureau à distance (RDS) avec le proxy d’application de manière à ce que les utilisateurs distants puissent toujours être productifs.
+Les Services Bureau à distance et le proxy d’application Azure AD fonctionnent ensemble pour améliorer la productivité des employés qui sont à l’extérieur du réseau d’entreprise. 
 
 Le public concerné par cet article est le suivant :
-- Clients actuels du proxy d’application Azure AD qui souhaitent proposer plus d’applications à leurs utilisateurs finaux en publiant des applications locales via les Services Bureau à distance.
+- Clients actuels du proxy d’application qui souhaitent proposer plus d’applications à leurs utilisateurs finaux en publiant des applications locales via les Services Bureau à distance.
 - Clients actuels des Services Bureau à distance qui souhaitent réduire la surface d’attaque de leur déploiement à l’aide du proxy d’application Azure AD. Ce scénario propose un ensemble limité de contrôles de vérification en deux étapes et d’accès conditionnel à RDS.
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Comment le proxy d’application s’intègre dans le déploiement RDS standard
 
-Un déploiement RDS standard inclut divers services du rôle Bureau à distance s’exécutant sur Windows Server. [L’architecture des Services Bureau à distance](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) offre plusieurs options de déploiement. La principale différence entre le [déploiement RDS avec le proxy d’application Azure AD](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (illustré dans le diagramme suivant) et les autres options de déploiement est que le scénario du proxy d’application comporte une connexion sortante permanente sur le serveur exécutant le service de connecteur. Les autres déploiements comportent des connexions entrantes ouvertes via un équilibreur de charge.
+Un déploiement RDS standard inclut divers services du rôle Bureau à distance s’exécutant sur Windows Server. [L’architecture des Services Bureau à distance](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) offre plusieurs options de déploiement. Contrairement à d’autres options de déploiement des Services Bureau à distance, le [déploiement des services Bureau à distance avec le proxy d’application Azure AD](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (illustré dans le diagramme ci-dessous) dispose d’une connexion sortante permanente depuis le serveur exécutant le service du connecteur. Les autres déploiements comportent des connexions entrantes ouvertes via un équilibreur de charge.
 
 ![Le proxy d’application se situe entre la VM RDS et l’Internet public](./media/application-proxy-publish-remote-desktop/rds-with-app-proxy.png)
 
@@ -47,7 +46,7 @@ Dans un déploiement RDS, le rôle Site Web Bureau à distance et le rôle Passe
 
 ## <a name="requirements"></a>Configuration requise
 
-- Les points de terminaison du rôle Site Web Bureau à distance et du rôle Passerelle Bureau à distance doivent se trouver sur le même ordinateur et avoir une racine commune. Le rôle Site Web Bureau à distance et le rôle Passerelle Bureau à distance sont publiés sous la forme d’une seule application afin de vous proposer une expérience d’authentification unique pour les deux applications.
+- Les points de terminaison du rôle Site Web Bureau à distance et du rôle Passerelle Bureau à distance doivent se trouver sur le même ordinateur et avoir une racine commune. Le rôle Site web Bureau à distance et le rôle Passerelle Bureau à distance sont publiés sous la forme d’une seule application avec le proxy d’application afin de vous proposer une expérience d’authentification unique pour les deux applications.
 
 - Vous devez déjà avoir [déployé RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) et [activé le proxy d’application](active-directory-application-proxy-enable.md).
 
@@ -76,7 +75,7 @@ Après avoir configuré RDS et le proxy d’application Azure AD pour votre env
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Trafic RDS direct vers le proxy d’application
 
-Connectez-vous au déploiement RDS en tant qu’administrateur et modifiez le nom du serveur Passerelle Bureau à distance pour le déploiement. Ainsi vous garantissez que les connexions traversent le proxy d’application Azure AD.
+Connectez-vous au déploiement RDS en tant qu’administrateur et modifiez le nom du serveur Passerelle Bureau à distance pour le déploiement. Cette configuration garantit que les connexions traversent le service du proxy d’application Azure AD.
 
 1. Connectez-vous au serveur RDS exécutant le rôle Service Broker pour les connexions Bureau à distance.
 2. Lancez le **Gestionnaire de serveur**.
@@ -88,7 +87,7 @@ Connectez-vous au déploiement RDS en tant qu’administrateur et modifiez le no
 
   ![Écran Propriétés de déploiement sur RDS](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-8. Pour chaque collection, exécutez la commande suivante. Remplacez *\<yourcollectionname\>* et *\<proxyfrontendurl\>* par vos propres informations. Cette commande active l’authentification unique entre Site Web Bureau à distance et Passerelle Bureau à distance, et optimise les performances :
+8. Exécutez cette commande pour chaque collection. Remplacez *\<yourcollectionname\>* et *\<proxyfrontendurl\>* par vos propres informations. Cette commande active l’authentification unique entre Site Web Bureau à distance et Passerelle Bureau à distance, et optimise les performances :
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
@@ -124,7 +123,7 @@ La configuration décrite dans cet article est destinée aux utilisateurs Window
 | Pré-authentification    | Windows 7/10 avec Internet Explorer + module complémentaire ActiveX Service de données distant |
 | PassThrough | Tout autre système d’exploitation prenant en charge l’application Bureau à distance Microsoft |
 
-Le flux de pré-authentification offre plus d’avantages en matière de sécurité que le flux PassThrough. Avec la pré-authentification, vous pouvez exploiter les fonctionnalités d’authentification Azure AD, telles que l’authentification unique, l’accès conditionnel et la vérification en deux étapes pour vos ressources locales. Vous garantissez également que seul le trafic authentifié atteint votre réseau.
+Le flux de pré-authentification offre plus d’avantages en matière de sécurité que le flux PassThrough. Avec la pré-authentification, vous pouvez utiliser les fonctionnalités d’authentification Azure AD, telles que l’authentification unique, l’accès conditionnel et la vérification en deux étapes pour vos ressources locales. Vous garantissez également que seul le trafic authentifié atteint votre réseau.
 
 Pour utiliser l’authentification PassThrough, seulement deux modifications doivent être apportées aux étapes répertoriées dans cet article :
 1. Dans [Publication du point de terminaison hôte Bureau à distance](#publish-the-rd-host-endpoint), à l’étape 1, définissez la méthode de pré-authentification **PassThrough**.

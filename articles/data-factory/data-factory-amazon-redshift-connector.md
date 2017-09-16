@@ -12,19 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/06/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: e3079b55036a514b31249e5930f40ab4346f437a
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 2e7b6a7c33e1f86133383f116df2fc2256133012
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Déplacer des données depuis Amazon Redshift à l’aide d’Azure Data Factory
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données à partir de Amazon Redshift. L’article s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie. 
 
 Vous pouvez copier les données de Amazon Redshift dans tout magasin de données récepteur pris en charge. Consultez les [magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir la liste des magasins de données pris en charge en tant que récepteurs par l’activité de copie. Actuellement, Data Factory prend en charge le déplacement de données d’Amazon Redshift vers d’autres magasins de données, mais pas l’inverse.
+
+> [!TIP]
+> Pour obtenir de meilleures performances lors de la copie de grandes quantités de données à partir de Redshift, utilisez le mécanisme Redshift intégré UNLOAD via Amazon S3. Consultez la section [Utiliser UNLOAD pour copier des données à partir d’Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) pour plus d’informations.
 
 ## <a name="prerequisites"></a>Composants requis
 * Si vous déplacez des données vers un magasin de données local, vous devez installer la [passerelle de gestion des données](data-factory-data-management-gateway.md) sur une machine locale. Donnez ensuite à la passerelle de gestion des données l’accès au cluster d’Amazon Redshift (en utilisant l’adresse IP de la machine). Pour davantage d’instructions, consultez la rubrique [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autoriser l’accès au cluster).
@@ -48,6 +51,7 @@ Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data
 Les sections suivantes fournissent des informations sur les propriétés JSON utilisées pour définir les entités Data Factory spécifiques à Amazon Redshift : 
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
+
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Amazon Redshift.
 
 | Propriété | Description | Requis |
@@ -60,6 +64,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | password |Mot de passe du compte d’utilisateur. |Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
+
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
 La section **typeProperties** est différente pour chaque type de jeu de données. Elle fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **RelationalTable** (qui inclut le jeu de données Amazon Redshift) a les propriétés suivantes
@@ -69,15 +74,63 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | TableName |Nom de la table dans l’instance de base de données Amazon Redshift à laquelle le service lié fait référence. |Non (si la **requête** de **RelationalSource** est spécifiée) |
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
+
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d'entrée et de sortie et les différentes stratégies sont disponibles pour tous les types d'activités.
 
 En revanche, les propriétés disponibles dans la section **typeProperties** de l’activité varient pour chaque type d’activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
 
-Lorsque la source d’une activité de copie est de type **RelationalSource** (qui inclut Amazon Redshift), les propriétés suivantes sont disponibles dans la section typeProperties :
+Quand une source dans une activité de copie est de type **AmazonRedshiftSource**, les propriétés suivantes sont disponibles dans la section typeProperties :
 
-| Propriété | Description | Valeurs autorisées | Requis |
-| --- | --- | --- | --- |
-| query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. |Non (si **tableName** de **dataset** est spécifiée) |
+| Propriété | Description | Requis |
+| --- | --- | --- |
+| query | Utilise la requête personnalisée pour lire des données. |Non (si **tableName** de **dataset** est spécifiée) |
+| redshiftUnloadSettings | Groupe de propriétés lors de l’utilisation du mécanisme UNLOAD d’Amazon Redshift. | Non |
+| s3LinkedServiceName | Fait référence à un service Amazon S3 à utiliser comme magasin temporaire en spécifiant un nom de service lié ADF de type AwsAccessKey. | Obligatoire sous « redshiftUnloadSettings » |
+| bucketName | Indiquez le compartiment S3 pour stocker les données intermédiaires. S’il n’est pas fourni, l’activité de copie génère automatiquement un compartiment. | Obligatoire sous « redshiftUnloadSettings » |
+
+Vous pouvez aussi utiliser le type **RelationalSource** (qui inclut Amazon Redshift) avec la propriété suivante dans la section typeProperties. Notez que ce type de source ne prend pas en charge le mécanisme UNLOAD de Redshift.
+
+| Propriété | Description | Requis |
+| --- | --- | --- |
+| query |Utilise la requête personnalisée pour lire des données. | Non (si **tableName** de **dataset** est spécifiée) |
+
+## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Utiliser UNLOAD pour copier des données à partir d’Amazon Redshift
+
+[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) est un mécanisme fourni par Amazon Redshift qui peut décharger les résultats d’une requête dans un ou plusieurs fichiers sur Amazon Simple Storage Service (Amazon S3). C’est le moyen recommandé par Amazon pour copier un jeu de données volumineux à partir de Redshift.
+
+**Exemple : Copier des données d’Amazon Redshift vers Azure SQL Data Warehouse à l’aide de UNLOAD, une copie intermédiaire et PolyBase**
+
+Dans cet exemple de cas d’utilisation, l’activité de copie décharge d’abord les données d’Amazon Redshift sur Amazon S3, comme configuré dans « redshiftUnloadSettings », puis copie les données d’Amazon S3 dans un objet blob Azure, comme spécifié dans « stagingSettings », et enfin utilise PolyBase pour charger des données dans SQL Data Warehouse. Tous les formats intermédiaires sont gérés correctement par l’activité de copie.
+
+![Flux de travail de copie de Redshift vers SQL DW](media\data-factory-amazon-redshift-connector\redshift-to-sql-dw-copy-workflow.png)
+
+```json
+{
+    "name": "CopyFromRedshiftToSQLDW",
+    "type": "Copy",
+    "typeProperties": {
+        "source": {
+            "type": "AmazonRedshiftSource",
+            "query": "select * from MyTable",
+            "redshiftUnloadSettings": {
+                "s3LinkedServiceName":"MyAmazonS3StorageLinkedService",
+                "bucketName": "bucketForUnload"
+            }
+        },
+        "sink": {
+            "type": "SqlDWSink",
+            "allowPolyBase": true
+        },
+        "enableStaging": true,
+        "stagingSettings": {
+            "linkedServiceName": "MyAzureStorageLinkedService",
+            "path": "adfstagingcopydata"
+        },
+        "cloudDataMovementUnits": 32
+        .....
+    }
+}
+```
 
 ## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob"></a>Exemple JSON : copie de données à partir d’Amazon Redshift vers le stockage d’objets blob Azure
 Cet exemple indique comment copier des données à partir d’une base de données Amazon Redshift locale vers un système de stockage Blob Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie d’Azure Data Factory.  
@@ -221,14 +274,19 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
                 "type": "Copy",
                 "typeProperties": {
                     "source": {
-                        "type": "RelationalSource",
-                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
+                        "type": "AmazonRedshiftSource",
+                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)",
+                        "redshiftUnloadSettings": {
+                            "s3LinkedServiceName":"myS3Storage",
+                            "bucketName": "bucketForUnload"
+                        }
                     },
                     "sink": {
                         "type": "BlobSink",
                         "writeBatchSize": 0,
                         "writeBatchTimeout": "00:00:00"
-                    }
+                    },
+                    "cloudDataMovementUnits": 32
                 },
                 "inputs": [
                     {

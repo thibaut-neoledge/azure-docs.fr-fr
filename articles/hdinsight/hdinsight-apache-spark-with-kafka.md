@@ -14,13 +14,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/13/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 81fa319f6fb94bdabacd8f68d14b9a1063a9749a
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 788ba828d1380b17913cabf18827c1abcc83c725
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>Exemple Apache Spark Streaming (DStream) avec Kafka (aperçu) sur HDInsight
@@ -53,7 +53,7 @@ Même si vous pouvez créer un réseau virtuel Azure, et des clusters Kafka et S
 
     Ce modèle crée un cluster HDInsight 3.6 pour Kafka et Spark.
 
-2. Utilisez les informations suivantes pour remplir les entrées sur le panneau **déploiement personnalisé** :
+2. Utilisez les informations suivantes pour remplir les entrées dans la section **Déploiement personnalisé** :
    
     ![Déploiement HDInsight personnalisé](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
@@ -75,9 +75,9 @@ Même si vous pouvez créer un réseau virtuel Azure, et des clusters Kafka et S
 
 4. Pour finir, cochez **Épingler au tableau de bord**, puis sélectionnez **Acheter**. La création des clusters prend environ 20 minutes.
 
-Une fois les ressources créées, vous êtes redirigé vers un panneau pour le groupe de ressources contenant les clusters et le tableau de bord Web.
+Dès que les ressources sont créées, une page de résumé s’affiche.
 
-![Volet du groupe de ressources pour les clusters et le réseau virtuel](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![Résumé du groupe de ressources pour le réseau virtuel et les clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > Les noms des clusters HDInsight sont **spark-BASENAME** et **kafka-BASENAME**, où BASENAME est le nom que vous avez fourni pour le modèle. Vous utilisez ces noms dans les étapes ultérieures, lors de la connexion aux clusters.
@@ -86,7 +86,7 @@ Une fois les ressources créées, vous êtes redirigé vers un panneau pour le g
 
 Le code de l’exemple décrit dans ce document est disponible à l’adresse [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
 
-Suivez les étapes du fichier `README.md` pour terminer cet exemple.
+Pour terminer cet exemple, suivez les étapes du fichier `README.md`.
 
 ## <a name="delete-the-cluster"></a>Suppression du cluster
 

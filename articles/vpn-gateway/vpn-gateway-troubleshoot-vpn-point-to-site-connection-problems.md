@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/23/2017
+ms.date: 08/23/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: de37c8ffd47a2b8e201d18e3a20b5325d528ad59
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: f6e068e60e8c7b3b095e10cb7e109eb68a483de4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes de connexion de point à site Azure
@@ -39,9 +39,17 @@ Ce problème se produit si le certificat client est absent de **Certificats - Ut
 
 ### <a name="solution"></a>Solution
 
-Vérifiez que le certificat client est bien installé dans le magasin de certificats (Certmgr.msc), à l’emplacement suivant :
- 
-**Certificats - Utilisateur actuel\Personnel\Certificats**
+Pour résoudre ce problème, effectuez les opérations suivantes :
+
+1. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
+
+    | Certificat | Emplacement |
+    | ------------- | ------------- |
+    | AzureClient.pfx  | Utilisateur actuel\Personnel\Certificats |
+    | Azuregateway-*GUID*.cloudapp.net  | Utilisateur actuel\Autorités de certification racines de confiance|
+    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Ordinateur local\Autorités de certification racines de confiance|
+
+2. Accédez à Users\<nom_utilisateur>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, et installez manuellement le certificat (fichier *.cer) dans le magasin de l’utilisateur et de l’ordinateur.
 
 Pour en savoir plus sur la façon d’installer le certificat client, consultez la page [Générer et exporter des certificats pour les connexions de point à site](vpn-gateway-certificates-point-to-site.md).
 

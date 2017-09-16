@@ -16,15 +16,26 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 647509ea36e487aca5db661adb3268e845988f78
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: af8a7bbc4bf007dfa5bef7ceb9cf940ad752239a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Résoudre les problèmes d’inscription pour Azure
 Si vous ne pouvez pas vous inscrire à Azure, utilisez les conseils de cet article pour résoudre les problèmes courants. Si vous rencontrez un problème avec votre carte de crédit lors de l’inscription, consultez la page [Votre carte bancaire est refusée lors de l’inscription à Azure](billing-credit-card-fails-during-azure-sign-up.md). Si vous disposez d’un compte Azure, mais ne parvenez pas à vous connecter, consultez la page [Impossible de me connecter pour gérer mon abonnement Azure](billing-cannot-login-subscription.md).
+
+## <a name="error-we-cannot-proceed-with-signup-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Erreur « En raison d’un problème lié à votre compte, nous ne pouvons pas procéder à l’inscription. Veuillez contacter le support de facturation. » 
+
+Pour résoudre ce problème, effectuez les étapes suivantes :
+
+1. Connectez-vous au [Centre des comptes Azure](https://account.azure.com) en utilisant des informations d’identification d’administrateur de compte. 
+2. Cliquez sur **Profil**, puis sur **Modifier les détails**.
+3. Assurez-vous que tous les champs d’adresse sont renseignés et valides. 
+4. Quand vous souscrivez l’abonnement Azure, vérifiez que l’adresse de facturation entrée pendant l’enregistrement de la carte de crédit correspond à celle que possède votre banque.
+
+Si l’erreur persiste, réessayez de vous inscrire à l’aide d’un navigateur différent.
 
 ## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>La barre de progression se bloque dans la section « Vérification d’identité par carte »
 

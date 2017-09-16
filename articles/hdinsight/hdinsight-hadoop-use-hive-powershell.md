@@ -1,5 +1,5 @@
 ---
-title: "Utiliser Hadoop Hive avec PowerShell dans HDInsight - Azure | Documents Microsoft"
+title: "Utiliser Hadoop Hive avec PowerShell dans HDInsight - Azure | Microsoft Docs"
 description: "Utilisez PowerShell pour exécuter des requêtes Hive dans Hadoop sur HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/06/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: e1cb2e4a1fc82fb43082e79a5feba71b81b3eaa8
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 74571fc6e1a0b2d6a903cdd992a247f4d5dfa700
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-hive-queries-using-powershell"></a>Exécution de requêtes Hive avec PowerShell
@@ -31,7 +31,7 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell dans le mod
 > [!NOTE]
 > Ce document ne fournit pas de description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d’informations sur le langage HiveQL utilisé dans cet exemple, consultez la page [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md).
 
-**Configuration requise**
+**Prérequis**
 
 * **Un cluster Azure HDInsight** : peu importe si le cluster est basé sur Windows ou Linux.
 
@@ -44,19 +44,19 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell dans le mod
 
 ## <a name="run-hive-queries-using-azure-powershell"></a>Exécution de requêtes Hive avec Azure PowerShell
 
-Azure PowerShell fournit des *cmdlets* qui vous permettent d'exécuter à distance des requêtes Hive sur HDInsight. En interne, les applets de commande effectuent des appels REST à [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) sur le cluster HDInsight.
+Azure PowerShell fournit des *applets de commande* qui vous permettent d'exécuter à distance des requêtes Hive sur HDInsight. En interne, les applets de commande effectuent des appels REST à [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) sur le cluster HDInsight.
 
 Les applets de commande suivants sont utilisés lors de l'exécution de requêtes Hive sur un cluster à distance HDInsight :
 
-* **Add-AzureRmAccount**: authentifie Azure PowerShell dans votre abonnement Azure.
-* **New-AzureRmHDInsightHiveJobDefinition** : crée une *définition de travail* à l’aide des instructions HiveQL spécifiées.
-* **Start-AzureRmHDInsightJob**: envoie la définition de la tâche à HDInsight, démarre la tâche et retourne un objet de *tâche* pouvant être utilisé pour vérifier le statut de la tâche.
+* **Add-AzureRmAccount** : authentifie Azure PowerShell sur votre abonnement Azure.
+* **New-AzureRmHDInsightHiveJobDefinition** : crée une *définition de tâche* à l’aide des instructions HiveQL spécifiées.
+* **Start-AzureRmHDInsightJob** : envoie la définition du travail à HDInsight et démarre la tâche. Un objet *job* est retourné.
 * **Wait-AzureRmHDInsightJob**: utilise l’objet de la tâche pour vérifier le statut de la tâche. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
-* **Get-AzureRmHDInsightJobOutput**: utilisé pour récupérer la sortie de la tâche.
+* **Get-AzureRmHDInsightJobOutput** : permet de récupérer la sortie de la tâche.
 * **Invoke-AzureRmHDInsightHiveJob**: utilisé pour exécuter des instructions HiveQL. Cette applet de commande bloque la fin de la requête, puis retourne les résultats.
-* **Use-AzureRmHDInsightCluster** : configure le cluster actuel à utiliser pour la commande **Invoke-AzureRmHDInsightHiveJob**
+* **Use-AzureRmHDInsightCluster** : configure le cluster actuel à utiliser pour la commande **Invoke-AzureRmHDInsightHiveJob**.
 
-Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une tâche sur votre cluster HDInsight :
+Les étapes suivantes montrent comment utiliser ces applets de commande pour exécuter une tâche sur votre cluster HDInsight :
 
 1. À l'aide d'un éditeur, enregistrez le code suivant en tant que **hivejob.ps1**.
 
@@ -68,7 +68,7 @@ Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une t
 
     Quand le script s’exécute, vous devez entrer le nom du cluster et les informations d’identification du compte HTTPS/Admin pour votre cluster. Vous pouvez également être invité à vous connecter à votre abonnement Azure.
 
-3. Une fois la tâche terminée, des informations similaires à celles présentées ci-dessous s’affichent :
+3. Lorsque la tâche est terminée, des informations similaires au texte suivant s’affichent :
 
         Display the standard output...
         2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
@@ -86,7 +86,7 @@ Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une t
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
    > [!NOTE]
-   > Pour les requêtes HiveQL plus longues, vous pouvez utiliser les fichiers de script HiveQL de PowerShell ou la cmdlet **Here-Strings** Azure PowerShell. L'extrait suivant montre comment utiliser la cmdlet **Invoke-Hive** pour exécuter un fichier de script HiveQL. Ce dernier doit être chargé dans wasb://.
+   > Pour les requêtes HiveQL plus longues, vous pouvez utiliser les fichiers de script HiveQL de PowerShell ou l’applet de commande **Here-Strings** Azure PowerShell. L'extrait suivant montre comment utiliser l’applet de commande **Invoke-Hive** pour exécuter un fichier de script HiveQL. Ce dernier doit être chargé dans wasb://.
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
@@ -94,7 +94,7 @@ Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une t
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 
-Si aucune information n'est retournée lorsque la tâche est terminée, il se peut qu'une erreur soit survenue au cours du traitement. Pour afficher les informations d'erreur relatives à cette tâche, ajoutez les commandes suivantes à la fin du fichier **hivejob.ps1** , enregistrez-le, puis exécutez-le à nouveau.
+Si aucune information n’est retournée lorsque la tâche est terminée, affichez les journaux d’erreurs. Pour afficher les informations d'erreur relatives à cette tâche, ajoutez les commandes suivantes à la fin du fichier **hivejob.ps1** , enregistrez-le, puis exécutez-le à nouveau.
 
 ```powershell
 # Print the output of the Hive job.
@@ -105,7 +105,7 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-Cette applet de commande retourne les informations écrites dans STDERR sur le serveur lors de l’exécution du travail.
+Cette applet de commande retourne les informations écrites sur STDERR lors de l’exécution de la tâche.
 
 ## <a name="summary"></a>Résumé
 

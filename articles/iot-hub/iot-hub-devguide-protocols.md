@@ -1,5 +1,5 @@
 ---
-title: Ports et protocoles de communication IoT Hub | Microsoft Docs
+title: Ports et protocoles de communication Azure IoT Hub | Microsoft Docs
 description: "Guide du développeur : décrit les protocoles de communication pris en charge pour les communications appareil-à-cloud et cloud-à-appareil et les numéros de port qui doivent être ouverts."
 services: iot-hub
 documentationcenter: .net
@@ -12,21 +12,28 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 08/31/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 98004a48734e33f85eebf8f6213d9f0751dea843
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 2c30d20c4b36148319a068eba2e22382c75cdfa8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
-# <a name="reference---choose-a-communication-protocol"></a>Référence - Choisir un protocole de communication
+# Référence - Choisir un protocole de communication
 
-IoT Hub permet aux appareils d’utiliser les protocoles [MQTT][lnk-mqtt], MQTT sur WebSockets, [AMQP][lnk-amqp], AMQP via WebSockets et HTTP utilisés pour les communications côté appareil. Pour plus d’informations sur la façon dont ces protocoles prennent en charge les fonctionnalités spécifiques d’IoT Hub, consultez [Recommandations sur les communications appareil-à-cloud][lnk-d2c-guidance] et [Conseils pour les communications cloud-à-appareil][lnk-c2d-guidance].
+IoT Hub permet aux appareils d’utiliser les protocoles suivants pour les communications côté appareil :
 
-Le tableau suivant fournit des recommandations de haut niveau pour votre choix de protocole :
+* [MQTT][lnk-mqtt]
+* MQTT sur WebSockets
+* [AMQP][lnk-amqp]
+* AMQP sur WebSockets
+* HTTP
+
+Pour plus d’informations sur la façon dont ces protocoles prennent en charge les fonctionnalités spécifiques d’IoT Hub, consultez [Recommandations sur les communications appareil-à-cloud][lnk-d2c-guidance] et [Conseils pour les communications cloud-à-appareil][lnk-c2d-guidance].
+
+Le tableau suivant fournit des recommandations générales pour choisir votre protocole :
 
 | Protocole | Quand choisir ce protocole |
 | --- | --- |
@@ -36,16 +43,16 @@ Le tableau suivant fournit des recommandations de haut niveau pour votre choix d
 
 Prenez en compte les points suivants lorsque vous choisissez votre protocole pour les communications côté appareil :
 
-* **Modèle cloud-à-appareil**. HTTP ne dispose pas d’un moyen efficace de mettre en œuvre la transmission des messages par le serveur. Par conséquent, lorsque vous utilisez HTTP, les appareils interrogent IoT Hub pour rechercher les messages cloud-à-appareil. Cette approche est inefficace pour l’appareil et pour IoT Hub. Conformément aux recommandations actuelles concernant HTTP, chaque appareil doit interroger la présence de messages toutes les 25 minutes ou plus. En revanche, AMQP et MQTT prennent en charge les notifications Push sur le serveur lors de la réception de messages cloud-à-appareil. Ils permettent d’obtenir des notifications Push immédiates pour les messages IoT Hub-à-appareil. Si la latence de remise pose problème, MQTT ou AMQP sont les meilleurs protocoles à utiliser. Pour les appareils rarement connectés, HTTP fonctionne aussi bien.
-* **Passerelles de champ**. Lorsque vous utilisez MQTT et HTTP, il est impossible de connecter plusieurs appareils (chacun avec ses propres informations d’identification par appareil) à l’aide de la même connexion TLS. Ces protocoles ne représentent donc pas la solution optimale pour les [scénarios de passerelle de champ][lnk-azure-gateway-guidance], car ils nécessitent une connexion TLS entre la passerelle de champ et IoT Hub pour chaque appareil connecté à la passerelle de champ.
+* **Modèle cloud-à-appareil**. HTTP ne dispose pas d’un moyen efficace de mettre en œuvre la transmission des messages par le serveur. Par conséquent, lorsque vous utilisez HTTP, les appareils interrogent IoT Hub pour rechercher les messages cloud-à-appareil. Cette approche est inefficace pour l’appareil et pour IoT Hub. Conformément aux recommandations actuelles concernant HTTP, chaque appareil doit interroger la présence de messages toutes les 25 minutes ou plus. AMQP et MQTT prennent en charge les notifications Push sur le serveur lors de la réception de messages cloud-à-appareil. Ils permettent d’obtenir des notifications Push immédiates pour les messages IoT Hub-à-appareil. Si la latence de remise pose problème, MQTT ou AMQP sont les meilleurs protocoles à utiliser. Pour les appareils rarement connectés, HTTP fonctionne aussi bien.
+* **Passerelles de champ**. Lorsque vous utilisez MQTT et HTTP, il est impossible de connecter plusieurs appareils (chacun avec ses propres informations d’identification par appareil) à l’aide de la même connexion TLS. Pour les [scénarios de passerelle de champ][lnk-azure-gateway-guidance] qui nécessitent une connexion TLS entre la passerelle de champ et IoT Hub pour chaque appareil connecté, ces protocoles ne représentent pas la solution optimale.
 * **Appareils faibles en ressources**. Les bibliothèques MQTT et HTTP sont moins encombrantes que les bibliothèques AMQP. Donc, si l’appareil dispose de ressources limitées (par exemple, moins de 1 Mo de mémoire RAM), ces protocoles sont peut-être les seuls protocoles d’implémentation disponibles.
-* **Traversée réseau**. Le protocole standard AMQP utilise le port 5671, alors que MQTT écoute sur le port 8883, ce qui peut entraîner des problèmes dans les réseaux fermés aux protocoles autres que HTTP. MQTT sur WebSockets, AMQP sur WebSockets et HTTP sont disponibles pour être utilisés dans ce scénario.
+* **Traversée réseau**. Le protocole AMQP standard utilise le port 5671 tandis que MQTT écoute sur le port 8883. L’utilisation de ces ports peut entraîner des problèmes dans les réseaux fermés aux protocoles autres que HTTP. Utilisez MQTT sur WebSockets, AMQP sur WebSockets ou HTTP dans ce scénario.
 * **Taille de charge utile**. MQTT et AMQP sont des protocoles binaires qui génèrent des charges utiles plus compactes que HTTP.
 
 > [!WARNING]
 > Lorsque vous utilisez HTTP, chaque appareil doit envoyer des interrogations pour les messages cloud-à-appareil toutes les 25 minutes, voire plus. Toutefois, au cours du développement, il est clairement acceptable d’avoir des fréquences d’interrogation plus régulières que toutes les 25 minutes.
 
-## <a name="port-numbers"></a>Numéros de ports
+## Numéros de ports
 
 Les appareils peuvent communiquer avec IoT Hub dans Azure à l’aide de divers protocoles. En règle générale, le choix du protocole dépend des exigences spécifiques de la solution. Le tableau suivant répertorie les ports de sortie qui doivent être ouverts pour qu’un appareil puisse utiliser un protocole spécifique :
 
@@ -57,10 +64,10 @@ Les appareils peuvent communiquer avec IoT Hub dans Azure à l’aide de divers 
 | AMQP sur WebSockets |443 |
 | HTTP |443 |
 
-Lorsque vous avez créé un hub IoT dans une région Azure, ce hub conserve la même adresse IP pendant sa durée de vie. Toutefois, pour maintenir la qualité du service, si Microsoft le fait passer à une autre unité d’échelle, il reçoit une nouvelle adresse IP.
+Lorsque vous avez créé un hub IoT dans une région Azure, ce hub conserve la même adresse IP pendant sa durée de vie. Toutefois, si Microsoft le fait passer à une autre unité d’échelle pour maintenir la qualité du service, il reçoit une nouvelle adresse IP.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
 
 Pour plus d’informations sur la façon dont IoT Hub implémente le protocole MQTT, consultez [Communication avec votre hub IoT à l’aide du protocole MQTT][lnk-mqtt-support].
 

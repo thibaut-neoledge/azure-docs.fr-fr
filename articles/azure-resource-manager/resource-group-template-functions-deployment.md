@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: d7e6bcd669d40cb19de44b646505856ecd8f51a0
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 17fe2bc467acc5542d021961a066940dbecf6120
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Fonctions de déploiement pour les modèles Azure Resource Manager 
@@ -98,7 +98,7 @@ Vous pouvez utiliser deployment() pour établir une liaison à un autre modèle 
 
 ### <a name="example"></a>Exemple
 
-L’exemple suivant retourne l’objet de déploiement :
+[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) suivant retourne l’objet de déploiement :
 
 ```json
 {
@@ -136,6 +136,18 @@ L’exemple précédent retourne l’objet suivant :
     "provisioningState": "Accepted"
   }
 }
+```
+
+Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+```
+
+Pour déployer cet exemple de modèle avec PowerShell, utilisez :
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
 <a id="parameters" />
@@ -177,7 +189,7 @@ En général, vous utilisez les paramètres pour définir les valeurs de la ress
 
 ### <a name="example"></a>Exemple
 
-L'exemple suivant montre une utilisation simplifiée de la fonction parameters.
+[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) suivant montre une utilisation simplifiée de la fonction parameters.
 
 ```json
 {
@@ -242,6 +254,18 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | arrayOutput | Tableau | [1, 2, 3] |
 | crossOutput | String | option 1 |
 
+Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+```
+
+Pour déployer cet exemple de modèle avec PowerShell, utilisez :
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+```
+
 <a id="variables" />
 
 ## <a name="variables"></a>variables
@@ -285,7 +309,7 @@ En général, vous utilisez les variables pour simplifier votre modèle en créa
 
 ### <a name="example"></a>Exemple
 
-L’exemple de modèle retourne différentes valeurs de variables.
+[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) suivant retourne différentes valeurs de variables.
 
 ```json
 {
@@ -331,6 +355,18 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | exampleOutput2 | Tableau | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
+
+Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+```
+
+Pour déployer cet exemple de modèle avec PowerShell, utilisez :
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).

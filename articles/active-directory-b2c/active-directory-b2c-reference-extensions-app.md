@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 9/06/2017
 ms.author: parja
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 17500b572a0e92c1c233c6967840a5b6d96e21cb
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: a2b883ad010b93ec83c273988493412c06597641
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C : application Extensions
@@ -41,8 +41,8 @@ Pour vérifier que l’application b2c-extensions-app est présente :
 Si vous avez supprimé accidentellement b2c-extensions-app, vous avez 30 jours pour la récupérer. Vous pouvez restaurer l’application à l’aide de l’API Graph :
 
 1. Accédez à [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/).
-1. Ouvrez une session en tant qu’administrateur général pour l’annuaire Azure AD B2C dans lequel restaurer l’application supprimée.
-1. Exécutez une requête HTTP GET sur l’URL `https://graph.windows.net/{tenantName}.onmicrosoft.com/deletedApplications` avec les paramètres suivants : api-version=1.6. Remplacez `{tenantName}` par le nom de votre locataire. Cette opération liste toutes les applications qui ont été supprimées au cours des 30 derniers jours.
+1. Ouvrez une session en tant qu’administrateur général pour l’annuaire Azure AD B2C dans lequel restaurer l’application supprimée. Cet administrateur général doit avoir une adresse e-mail semblable à la suivante : `username@{yourTenant}.onmicrosoft.com`.
+1. Exécutez une requête HTTP GET sur l’URL `https://graph.windows.net/myorganization/deletedApplications` avec les paramètres suivants : api-version=1.6. Cette opération liste toutes les applications qui ont été supprimées au cours des 30 derniers jours.
 1. Dans la liste, recherchez l’application dont le nom commence par « b2c-extension-app », puis copiez sa valeur de propriété `objectid`.
 1. Exécutez une requête HTTP POST sur l’URL `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`. Remplacez la partie `{OBJECTID}` de l’URL par le `objectid` de l’étape précédente. 
 

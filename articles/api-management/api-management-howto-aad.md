@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: dc279718cbb360e611d7e4cfb6961a087159fb01
-ms.openlocfilehash: 7637e6419d17a2d75904fbe63df5f27d4be4bbe3
-ms.lasthandoff: 02/24/2017
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 2fa5c021d9f493004a5beab02529c70b600b9a0d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/02/2017
 
 ---
+
+> [!WARNING]
+> L’intégration d’Azure Active Directory est disponible uniquement avec les niveaux [Développeur et Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
+
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory dans Gestion des API Azure
 ## <a name="overview"></a>Vue d'ensemble
 Ce guide vous explique comment activer l’accès au portail des développeurs pour les utilisateurs d’Azure Active Directory. Il vous montre également comment gérer des groupes d’utilisateurs Azure Active Directory en ajoutant des groupes externes qui contiennent les utilisateurs d’un annuaire Azure Active Directory.
 
 > Pour effectuer les étapes de ce guide, vous devez disposer d’un annuaire Azure Active Directory dans lequel vous souhaitez créer une application.
-> 
 > 
 
 ## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory

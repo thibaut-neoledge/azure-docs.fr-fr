@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 08/21/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 05e23ad6bc07293f53e081b905c3a9ce1c91e6f9
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 9bed14975ea54c44876fd604f1fc04ca2c2a264f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/07/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="i-cant-sign-in-to-manage-my-azure-subscription"></a>Impossible de me connecter pour gérer mon abonnement Azure
@@ -31,44 +30,26 @@ Si la page de votre navigateur Internet se bloque, essayez chacune des étapes s
 
 * Actualisez la page.
 * Utilisez un autre navigateur Internet.
-* Si vous utilisez Microsoft Internet Explorer, accédez au portail Azure en utilisant le mode de navigation InPrivate. 
-  
-  A. Cliquez sur **Outils** ![bouton Outils](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sécurité** > **Navigation InPrivate**.
-  
+* Utilisez le mode de navigation privée de votre navigateur. Pour Internet Explorer : A. Cliquez sur **Outils** ![bouton Outils](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sécurité** > **Navigation InPrivate**.
   B. Accédez au [Portail Azure](https://portal.azure.com), puis connectez-vous.
 
-## <a name="error-message-no-subscriptions-found"></a>Message d’erreur « Aucun abonnement trouvé »
-Si votre compte ne dispose pas des autorisations suffisantes, un message d’erreur **Aucun abonnement trouvé** peut s’afficher. Assurez-vous de vous connecter avec le bon identifiant administrateur. L’administrateur de compte peut uniquement accéder au [centre des comptes](https://account.windowsazure.com/Subscriptions). Les administrateurs de Service (SA) et coadministrateurs (CA) ont uniquement accès au [portail Azure](https://portal.azure.com) ou au portail Azure Classic.
-
-**Scénario 1 : Le message d’erreur s’affiche sur le [portail Azure](https://portal.azure.com)**
-
-Pour résoudre ce problème :
-
-* Vérifiez que l’annuaire Azure correct est sélectionné en cliquant sur votre compte en haut à droite.
-
-![Sélectionnez l’annuaire en haut à droite du portail Azure.](./media/billing-cannot-login-subscription/directory-switch.png)
-
-* Si l’annuaire Azure correct est sélectionné, mais que vous recevez néanmoins l’erreur, [faites ajouter votre compte en tant que Propriétaire](billing-add-change-azure-subscription-administrator.md).
-
-**Scénario 2 : Le message d’erreur s’affiche dans le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions)**
-
-Vérifiez si le compte utilisé correspond à l’administrateur du compte. Pour vérifier qui est l’administrateur du compte, procédez comme suit :
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu Hub, sélectionnez **Abonnement**.
-3. Sélectionnez l’abonnement que vous souhaitez vérifier, puis choisissez **Paramètres**.
-4. Sélectionner **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .
-
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>Vous êtes automatiquement connecté comme un autre utilisateur
-Ce problème peut se produire si vous utilisez plusieurs comptes utilisateur dans un navigateur Internet.
+
+Ce problème peut se produire si vous utilisez plusieurs comptes d’utilisateur dans un navigateur Internet.
 
 Pour résoudre le problème, essayez l’une des méthodes suivantes :
 
 * Effacez la mémoire cache et supprimez les cookies Internet. Dans Internet Explorer, cliquez sur **Outils** ![bouton Outils](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Options Internet** > **Supprimer**. Vérifiez que les cases à cocher pour les fichiers temporaires, les cookies, les mots de passe et l’historique de navigation sont sélectionnées, puis cliquez sur Supprimer.
 * Réinitialisez les paramètres Internet Explorer pour rétablir les paramètres personnels que vous avez définis. Cliquez sur **Outils** ![bouton Outils](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Options Internet** > **Avancé** > cochez la case **Supprimer les paramètres personnels** > **Réinitialiser**.
-* Accédez au portail Azure en mode de navigation InPrivate. Cliquez sur **Outils** ![bouton Outils](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sécurité** > **Navigation InPrivate**.
+* Utilisez le mode de navigation privée de votre navigateur. Pour Internet Explorer : A. Cliquez sur **Outils** ![bouton Outils](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sécurité** > **Navigation InPrivate**.
+  B. Accédez au [Portail Azure](https://portal.azure.com), puis connectez-vous.
+
+## <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>Je peux me connecter mais le message « Aucun abonnement trouvé » s’affiche
+
+Pour résoudre le problème, consultez [Erreur Aucun abonnement trouvé dans le portail Azure ou le Centre des comptes Azure](billing-no-subscriptions-found.md).
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
+
 Si vous avez besoin d’aide, [contactez le support technique](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir une prise en charge rapide de votre problème. 
 
 

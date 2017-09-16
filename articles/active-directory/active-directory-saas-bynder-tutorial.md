@@ -2,214 +2,218 @@
 title: "Didacticiel : Intégration d’Azure Active Directory à Bynder | Microsoft Docs"
 description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Bynder."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
-ms.assetid: 4fb0ab26-b3b9-420a-8072-a0be80ea021e
+ms.reviewer: joflore
+ms.assetid: 250dbdf2-faf5-48dd-be7c-d54502ef7528
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 08/30/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: fc84c9d6c7648cb230db0d3cc10f31148a0a69a0
-ms.openlocfilehash: 6786d7eb6a11405278ef7267f25279f9e39b3bde
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 9062aea7813d62e9ef67e82d86ff4f63791f3355
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bynder"></a>Didacticiel : Intégration d’Azure Active Directory avec Bynder
-L’objectif de ce didacticiel est de vous montrer comment intégrer Bynder avec Azure AD (Azure Active Directory).
+
+Dans ce didacticiel, vous allez apprendre à intégrer Bynder à Azure Active Directory (Azure AD).
 
 L’intégration de Bynder à Azure AD vous offre les avantages suivants :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Bynder.
-* Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Bynder via l’authentification unique avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+- Dans Azure AD, vous pouvez contrôler qui a accès à Bynder.
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Bynder (via l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Composants requis
+
 Pour configurer l’intégration d’Azure AD avec Bynder, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD
-* Un abonnement Bynder pour lequel l’authentification unique est activée
+- Un abonnement Azure AD
+- Un abonnement Bynder pour lequel l’authentification unique est activée
 
->[!NOTE]
->Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. 
-> 
+> [!NOTE]
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
-* Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir [un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Microsoft Azure AD dans un environnement de test.
-
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Bynder depuis la galerie
-2. Configuration et test de l’authentification unique Microsoft Azure AD
+2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="add-bynder-from-the-gallery"></a>Ajouter Bynder à partir de la galerie
+## <a name="adding-bynder-from-the-gallery"></a>Ajout de Bynder depuis la galerie
 Pour configurer l’intégration de Bynder avec Azure AD, vous devez ajouter Bynder, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Bynder à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
-   
-    ![Active Directory][1]
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
-   
-    ![Applications][2]
-4. Cliquez sur **Ajouter** en bas de la page.
-   
-    ![Applications][3]
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
-   
-    ![Applications][4]
-6. Dans la zone de recherche, tapez **Bynder**.
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_01.png)
-7. Dans le volet des résultats, sélectionnez **Bynder**, puis cliquez sur **Terminer** pour ajouter l’application.
-   
-    ![Sélection de l’application dans la galerie](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_001.png)
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
-## <a name="configure-and-test-microsoft-azure-ad-sso"></a>Configurer et tester l’authentification unique Microsoft Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Microsoft Azure AD avec Bynder au moyen d’un utilisateur de test appelé « Britta Simon ».
+    ![Bouton Azure Active Directory][1]
+
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+
+    ![Panneau Applications d’entreprise][2]
+    
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+
+    ![Bouton Nouvelle application][3]
+
+4. Dans la zone de recherche, tapez **Bynder**, sélectionnez **Bynder** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+
+    ![Bynder dans la liste des résultats](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Bynder avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Bynder équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Bynder associé doit être établie.
 
-Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Bynder.
+Dans Bynder, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** pour établir la relation.
 
-Pour configurer et tester l’authentification unique Microsoft Azure AD avec Bynder, vous devez suivre les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec Bynder, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Microsoft Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Bynder](#creating-a-bynder-test-user)** pour avoir un équivalent de Britta Simon dans Bynder, lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Microsoft Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Créer un utilisateur de test Bynder](#create-a-bynder-test-user)** pour avoir un équivalent de Britta Simon dans Bynder, lié à la représentation Azure AD associée.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-microsoft-azure-ad-sso"></a>Configuration de l’authentification unique Microsoft Azure AD
-Dans cette section, vous allez activer l’authentification unique Microsoft Azure AD dans le portail Azure Classic et la configurer dans votre application Bynder.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-**Pour configurer l’authentification unique Microsoft Azure AD avec Bynder, procédez comme suit :**
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Bynder.
 
-1. Dans le portail Azure Classic, dans la page d’intégration d’applications **Bynder**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
-   
-    ![Configurer l’authentification unique][6] 
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Bynder**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_03.png)
-3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, si vous souhaitez configurer l’application en **mode lancé par le fournisseur d’identité**, procédez comme suit et cliquez sur **Suivant** :
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_04.png)
-  1. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<company name>.getbynder.com/sso/SAML/authenticate/`
-  2. Cliquez sur **Suivant**.
-4. Si vous souhaitez configurer l’application en **mode lancé par le fournisseur de service** dans la page de boîte de dialogue **Configurer les paramètres d’application**, cliquez sur **Affichez les paramètres avancés (facultatif)**, saisissez **l’URL de connexion** et cliquez sur **Suivant**.
+**Pour configurer l’authentification unique Azure AD avec Bynder, effectuez les étapes suivantes :**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_10.png)
-  1. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.getbynder.com/login/`
-  2. Cliquez sur **Suivant**.
-  
-   >[!NOTE]
-   >Dans ce didacticiel, la valeur de l’URL de connexion est un espace réservé. Pour obtenir la valeur réelle pour votre environnement, contactez Bynder.
-   >
+1. Dans le portail Azure, dans la page d’intégration de l’application **Bynder**, cliquez sur **Authentification unique**.
 
-5. Dans la page **Configurer l’authentification unique sur Bynder**, procédez comme suit et cliquez sur **Suivant** :
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_05.png)  
-  1. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
-  2. Cliquez sur **Suivant**.
-6. Pour que l’authentification unique soit configurée pour votre application, contactez votre équipe du support technique Bynder. Joignez le fichier de métadonnées téléchargé et partagez-le avec l’équipe Bynder pour qu’elle configure l’authentification unique de son côté.
-7. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
-   
-    ![Authentification unique Azure AD][10]
-8. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
-   
-    ![Authentification unique Azure AD][11]
+    ![Lien Configurer l’authentification unique][4]
+
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Boîte de dialogue Authentification unique](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_samlbase.png)
+
+3. Dans la section **Domaines et URL Bynder**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP**:
+
+    ![Informations d’authentification unique dans Domaine et URL Bynder](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_url.png)
+
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company name>.getbynder.com`
+    
+    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<company name>.getbynder.com/sso/SAML/authenticate/`
+
+4. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
+
+    ![Informations d’authentification unique dans Domaine et URL Bynder](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_url1.png)
+
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.getbynder.com/login/`
+
+    > [!NOTE] 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Bynder](https://www.bynder.com/en/support/). 
+
+5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_certificate.png) 
+
+6. Cliquez sur le bouton **Enregistrer** .
+
+    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-bynder-tutorial/tutorial_general_400.png)
+
+7. Pour configurer l’authentification unique côté **Bynder**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique de Bynder](https://www.bynder.com/en/support/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail classique.
 
-![Créer un utilisateur Azure AD][20]
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+
+   ![Créer un utilisateur de test Azure AD][100]
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_09.png)
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_03.png)
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_04.png)
-5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_05.png)
-  1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-  2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-  3. Cliquez sur **Suivant**.
-6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
-   
-   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_06.png)
-  1. Dans la zone de texte **First Name**, tapez **Britta**.  
-  2. Dans la zone de texte **Last Name**, tapez **Simon**. 
-  3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-  4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-  5. Cliquez sur **Next**.
-7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_07.png)
-8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
-   
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_08.png)
-   1. Notez la valeur du **Nouveau mot de passe**.
-   2. Cliquez sur **Terminé**.   
+1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
 
+    ![Bouton Azure Active Directory](./media/active-directory-saas-bynder-tutorial/create_aaduser_01.png)
+
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/active-directory-saas-bynder-tutorial/create_aaduser_02.png)
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+
+    ![Bouton Ajouter](./media/active-directory-saas-bynder-tutorial/create_aaduser_03.png)
+
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+
+    ![Boîte de dialogue Utilisateur](./media/active-directory-saas-bynder-tutorial/create_aaduser_04.png)
+
+    a. Dans la zone **Nom**, tapez **BrittaSimon**.
+
+    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
+
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+
+    d. Cliquez sur **Create**.
+ 
 ### <a name="create-a-bynder-test-user"></a>Créer un utilisateur de test Bynder
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Bynder. Bynder prend en charge l’approvisionnement juste-à-temps, option activée par défaut.
 
-Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Bynder s’il n’existe pas déjà.
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Bynder. Bynder prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Bynder s’il n’existe pas déjà.
 
->[!NOTE]
->Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique Bynder. 
-> 
+> [!NOTE]
+> Si vous devez créer un utilisateur manuellement, contactez l’[équipe du support technique de Bynder](https://www.bynder.com/en/support/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Bynder.
 
-   ![Affecter des utilisateurs][200]
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Bynder.
+
+![Attribuer le rôle utilisateur][200] 
 
 **Pour affecter Britta Simon à Bynder, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue d’annuaire, cliquez sur l’option **Applications** figurant dans le menu supérieur.
-   
-    ![Affecter des utilisateurs][201]
-2. Dans la liste des applications, sélectionnez **Bynder**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_50.png)
-3. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
-   
-    ![Affecter des utilisateurs][203]
-4. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
-5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
-   
-    ![Affecter des utilisateurs][205]
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
+    ![Affecter des utilisateurs][201] 
+
+2. Dans la liste des applications, sélectionnez **Bynder**.
+
+    ![Lien Bynder dans la liste des applications](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_app.png)  
+
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+
+    ![Lien « Utilisateurs et groupes »][202]
+
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+
+    ![Volet Ajouter une attribution][203]
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+    
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
-L’objectif de cette section est de tester la configuration de l’authentification unique Microsoft Azure AD à l’aide du volet d’accès.
+
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Bynder dans le volet d’accès, vous devez être connecté automatiquement à votre application Bynder.
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
+
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
@@ -220,14 +224,11 @@ Lorsque vous cliquez sur la vignette Bynder dans le volet d’accès, vous devez
 [3]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_205.png
+
 

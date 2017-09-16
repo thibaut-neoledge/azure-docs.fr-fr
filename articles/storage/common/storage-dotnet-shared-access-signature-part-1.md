@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: marsma
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: a753fd481c9f91d94b6a2bd3633142e2dddedaec
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: 1c80229e2e5ec0c4ddf1f66099fa00ef145ec2ce
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilisation des signatures d’accès partagé (SAP)
@@ -78,7 +78,7 @@ Le jeton de la SAP est une chaîne que vous générez côté *client* (consultez
 Lorsqu’un client fournit un URI de SAP au stockage Azure dans le cadre d’une demande, le service vérifie les paramètres et la signature de la SAP pour s’assurer que celle-ci est valide pour authentifier la demande. Si le service vérifie que la signature est valide, la demande est authentifiée. Dans le cas contraire, la demande est refusée avec le code d’erreur 403 (Interdit).
 
 ## <a name="shared-access-signature-parameters"></a>Paramètres de la signature d’accès partagé (SAP)
-Les jetons de SAP de compte et de SAP de service incluent des paramètres communs et également quelques paramètres différents.
+Les jetons SAP de compte et de service incluent des paramètres communs ainsi que quelques paramètres différents.
 
 ### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Paramètres communs aux jetons de SAP de compte et de SAP de service
 * **Version de l’API.** Paramètre facultatif qui spécifie la version du service de stockage à utiliser pour exécuter la demande.

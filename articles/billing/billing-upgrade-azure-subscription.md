@@ -14,27 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
+ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 18fd43d0b1d6276ebc41a0ad33d861a27a472551
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: e3975d65fca54f9c1b58175f5f48f91a7cb67987
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Mise à niveau de votre abonnement d’essai gratuit ou Microsoft Imagine pour le paiement à l’utilisation
-Mettez à niveau votre abonnement [d’Évaluation gratuite](https://azure.microsoft.com/free/) de [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) vers le [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) à partir du portail de compte Azure. La mise à niveau en soi ne coûte rien. Vous êtes facturé uniquement pour les services que vous utilisez.
 
-1. Connectez-vous au [Portail de compte Azure](https://account.windowsazure.com/subscriptions) et accédez à l’onglet **Abonnements**.
-2. Dans la section État de l’abonnement, sélectionnez la bannière **Mettre à niveau maintenant**.
+Mettez à niveau votre abonnement [Essai gratuit](https://azure.microsoft.com/free/) ou [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) vers l’abonnement [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) dans le Centre des comptes Azure.
+
+1. Connectez-vous au [portail des comptes Azure](https://account.windowsazure.com/subscriptions).
+1. Dans la section État de l’abonnement, sélectionnez la bannière **Mettre à niveau maintenant**.
    
     ![Capture d’écran présentant où cliquer pour mettre à niveau de la version d’essai gratuite vers le paiement à l’utilisation](./media/billing-upgrade-azure-subscription/billpage.png)
-3. Confirmez votre mise à niveau.
+1. Confirmez votre mise à niveau.
    
     ![Capture d’écran présentant les éléments à sélectionner pour confirmer que vous souhaitez mettre à niveau votre abonnement](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-Utilisez les avantages restants de votre version d’essai gratuite, comme la limite de 30 jours ou le crédit. Une fois que vous utilisez tous les avantages, votre abonnement est mis à niveau.
-
-
+La mise à niveau en soi ne coûte rien. Vous êtes facturé uniquement pour les services que vous utilisez. Après avoir confirmé la mise à niveau, vous conservez toujours vos crédits d’essai gratuit jusqu’à la fin de la période d’essai.

@@ -1,5 +1,5 @@
 ---
-title: "Utiliser Hadoop Pig avec PowerShell dans HDInsight - Azure | Documents Microsoft"
+title: "Utiliser Hadoop Pig avec PowerShell dans HDInsight - Azure | Microsoft Docs"
 description: "Découvrez comment soumettre des tâches Pig vers un cluster Hadoop sur HDInsight à l’aide d’Azure Powershell."
 services: hdinsight
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 28904b07609ffb40a8195278fd1afd3957896733
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: ce088b22ca45bc40252c909697153ce9e847592e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Utilisation d’Azure PowerShell pour exécuter des tâches Pig avec HDInsight
@@ -32,7 +32,7 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell pour soumett
 > [!NOTE]
 > Ce document ne fournit pas une description détaillée de ce que font les instructions Pig Latin utilisées dans les exemples. Pour plus d’informations sur le langage Pig Latin utilisé dans cet exemple, consultez la rubrique [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md).
 
-## <a id="prereq"></a>Configuration requise
+## <a id="prereq"></a>Prérequis
 
 * **Un cluster Azure HDInsight**
 
@@ -49,13 +49,13 @@ Azure PowerShell propose des *applets de commande* qui vous permettent d'exécut
 
 Les applets de commande suivantes sont utilisées lors de l’exécution des tâches Pig sur un cluster HDInsight à distance :
 
-* **Login-AzureRmAccount**: authentifie Azure PowerShell sur votre abonnement Azure.
-* **New-AzureRmHDInsightPigJobDefinition**: crée une *définition d’une tâche* à l’aide des instructions Pig Latin spécifiées
-* **Start-AzureRmHDInsightJob**: envoie la définition de la tâche à HDInsight, démarre la tâche et retourne un objet de *tâche* pouvant être utilisé pour vérifier le statut de la tâche.
+* **Login-AzureRmAccount** : authentifie Azure PowerShell sur votre abonnement Azure.
+* **New-AzureRmHDInsightPigJobDefinition** : crée une *définition de tâche* à l’aide des instructions Pig Latin spécifiées.
+* **Start-AzureRmHDInsightJob** : envoie la définition du travail à HDInsight et démarre la tâche. Un objet *job* est retourné.
 * **Wait-AzureRmHDInsightJob**: utilise l’objet de la tâche pour vérifier le statut de la tâche. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
-* **Get-AzureRmHDInsightJobOutput**: utilisé pour récupérer la sortie de la tâche.
+* **Get-AzureRmHDInsightJobOutput** : permet de récupérer la sortie de la tâche.
 
-Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une tâche sur votre cluster HDInsight.
+Les étapes suivantes montrent comment utiliser ces applets de commande pour exécuter une tâche sur votre cluster HDInsight.
 
 1. À l’aide d’un éditeur, enregistrez le code suivant sous **pigjob.ps1**.
 
@@ -81,7 +81,7 @@ Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une t
 
 ## <a id="troubleshooting"></a>Résolution des problèmes
 
-Si aucune information n'est retournée lorsque la tâche est terminée, il se peut qu'une erreur soit survenue au cours du traitement. Pour afficher les informations d’erreur pour cette tâche, ajoutez la commande suivante à la fin du fichier **pigjob.ps1** , enregistrez-le et exécutez-le à nouveau.
+Si aucune information n’est retournée lorsque la tâche est terminée, affichez les journaux d’erreurs. Pour afficher les informations d’erreur pour cette tâche, ajoutez la commande suivante à la fin du fichier **pigjob.ps1** , enregistrez-le et exécutez-le à nouveau.
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green
@@ -91,7 +91,7 @@ Si aucune information n'est retournée lorsque la tâche est terminée, il se pe
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
-Cela renvoie les informations écrites dans STDERR sur le serveur lors de l’exécution de la tâche et peut vous aider à déterminer pourquoi la tâche échoue.
+Cette applet de commande retourne les informations écrites sur STDERR lors de l’exécution de la tâche.
 
 ## <a id="summary"></a>Résumé
 Comme vous pouvez le voir, Azure PowerShell offre un moyen facile d’exécuter des tâches Pig sur un cluster HDInsight, de surveiller l’état de la tâche et de récupérer la sortie.
