@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: ad9174c47e1af8d5dba080ec82f2a56fbbf78782
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: cc8655e0bc65007cacf223ce6d7709291c609327
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Profilage des applications web dynamiques Azure avec Application Insights
@@ -25,7 +25,7 @@ ms.lasthandoff: 06/29/2017
 
 Découvrez combien de temps vous consacrez à chaque méthode dans votre application web dynamique à l’aide de l’outil de profilage [d’Azure Application Insights](app-insights-overview.md). Cet outil vous montre les profils détaillés des requêtes dynamiques qui ont été traitées par votre application et met en évidence le « chemin réactif » qui est le plus souvent utilisé. Il sélectionne automatiquement des exemples associés à des temps de réponse différents. Le profileur utilise diverses techniques pour réduire la charge.
 
-Le profileur fonctionne actuellement pour les applications web ASP.NET s’exécutant sur Azure App Services, au moins au niveau tarifaire de base. 
+Le profileur fonctionne actuellement pour les applications web ASP.NET s’exécutant sur Azure App Services, au moins au niveau tarifaire de base.
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>Activer le profileur
@@ -60,7 +60,7 @@ Si vous utilisez WebDeploy pour déployer des modifications sur votre applicatio
 
 ### <a name="using-profiler-with-azure-vms-and-compute-resources-preview"></a>En utilisant le profileur avec les machines virtuelles Azure et les ressources de calcul (version préliminaire)
 
-Lorsque vous [activez Application Insights pour les services d’application Azure en cours d’exécution](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), le profileur est automatiquement disponible. (Si vous avez déjà activé Application Insights pour la ressource, vous devrez peut-être mettre à jour vers la dernière version disponible via l’Assistant **Configuration**).
+Lorsque vous [activez Application Insights pour les services d’application Azure en cours d’exécution](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), le profileur est automatiquement disponible. (Si vous avez déjà activé Application Insights pour la ressource, vous devrez peut-être effectuer une mise à jour vers la dernière version disponible par le biais de l’Assistant **Configuration**.)
 
 Il existe une [version préliminaire du profileur pour les ressources de calcul Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 

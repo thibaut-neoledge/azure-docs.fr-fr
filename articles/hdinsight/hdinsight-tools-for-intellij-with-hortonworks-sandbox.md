@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c49f185db5a035f70a711bf309b973182d94a2b0
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 5c42b3e519781fa25fe92b286fa65898a7aac173
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Utiliser HDInsight Tools pour IntelliJ avec Hortonworks Sandbox
@@ -30,19 +30,19 @@ Découvrez comment utiliser HDInsight Tools pour IntelliJ pour développer des a
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) est un environnement de développement Java intégré (IDE) pour développer des logiciels. Après avoir développé et testé vos applications sur Hortonworks Sandbox, vous pouvez les déplacer vers [Azure HDInsight](hdinsight-hadoop-introduction.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - Hortonworks Data Platform (HDP) 2.4 on Hortonworks Sandbox s’exécutant sur votre environnement local. Pour configurer HDP, consultez [Prise en main de l’écosystème Hadoop avec un bac à sable (sandbox) Hadoop sur une machine virtuelle](hdinsight-hadoop-emulator-get-started.md). 
     >[!NOTE]
-    >HDInsight Tools pour IntelliJ a seulement été testé avec HDP 2.4. Pour obtenir HDP 2.4, développez **Hortonworks Sandbox Archive** sur le [site de téléchargement Hortonworks Sandbox](http://hortonworks.com/downloads/#sandbox).
+    >Les outils HDInsight pour IntelliJ ont seulement été testés avec HDP 2.4. Pour obtenir HDP 2.4, développez **Hortonworks Sandbox Archive** sur le [site de téléchargement Hortonworks Sandbox](http://hortonworks.com/downloads/#sandbox).
 
 - [Kit de développeur Java (JDK) version 1.8 ou ultérieure](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). JDK est requis par le Kit de ressources Azure pour IntelliJ.
 
-- [Édition communautaire d’IntelliJ IDEA](https://www.jetbrains.com/idea/download) avec les plug-ins [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) et [Kit de ressources Azure pour IntelliJ](../azure-toolkit-for-intellij.md). HDInsight Tools pour IntelliJ est disponible dans le kit de ressources Azure pour IntelliJ. 
+- [Édition communautaire d’IntelliJ IDEA](https://www.jetbrains.com/idea/download) avec les plug-ins [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) et [Kit de ressources Azure pour IntelliJ](../azure-toolkit-for-intellij.md). HDInsight Tools pour IntelliJ est disponible dans le cadre du Kit de ressources Azure pour IntelliJ. 
 
-  Pour installer les plug-ins, procédez comme suit :
+  Pour installer les plug-ins, effectuez les actions suivantes :
 
   1. Ouvrez IntelliJ IDEA.
   2. Sur l’écran d’**accueil**, sélectionnez **Configurer**, puis **Plug-ins**.
@@ -53,9 +53,9 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 ## <a name="create-a-spark-scala-application"></a>Créer une application Spark Scala
 
-Dans cette section, vous créez un exemple de projet Scala à l’aide d’IntelliJ IDEA. Dans la section suivante, vous lizr IntelliJ IDEA à Hortonworks Sandbox (émulateur) avant d’envoyer le projet.
+Dans cette section, vous créez un exemple de projet Scala à l’aide d’IntelliJ IDEA. Dans la section suivante, vous liez IntelliJ IDEA à Hortonworks Sandbox (émulateur) avant d’envoyer le projet.
 
-1. Ouvrez IntelliJ IDEA à partir de votre station de travail. Dans la boîte de dialogue **Nouveau projet** , procédez comme suit :
+1. Ouvrez IntelliJ IDEA à partir de votre station de travail. Dans la boîte de dialogue **New Project** (Nouveau projet), suivez ces étapes :
 
    a. Sélectionnez **HDInsight** > **Spark sur HDInsight (Scala)**.
 
@@ -68,7 +68,7 @@ Dans cette section, vous créez un exemple de projet Scala à l’aide d’Intel
 
 2. Sélectionnez **Suivant**.
 
-3. Dans la boîte de dialogue **Nouveau projet** suivante, procédez comme suit :
+3. Dans la boîte de dialogue suivante **New Project** (Nouveau projet), effectuez ces étapes :
 
     ![Créer les propriétés du projet IntelliJ Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
@@ -135,7 +135,7 @@ Dans cette section, vous créez un exemple de projet Scala à l’aide d’Intel
 
 Vous devez disposer d’une application IntelliJ existante avant de pouvoir établir un lien vers un Hortonworks Sandbox (émulateur).
 
-Pour établir un lien vers un émulateur, procédez comme suit :
+Pour établir un lien vers un émulateur, effectuez les étapes suivantes :
 
 1. Ouvrez le projet dans IntelliJ.
 

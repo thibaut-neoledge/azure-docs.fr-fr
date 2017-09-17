@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: dd4e4282d774c2c336889b1df887806bfe512c10
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: bfde83e1142bf57e02ee458d477a0a70e78c4ad6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
@@ -140,21 +140,21 @@ Les déclencheurs HTTP interrogent un point de terminaison spécifique et vérif
   
 |Nom de l'élément|Requis|Description|Type|  
 |----------------|------------|---------------|--------|  
-|statique|yes|Peut être l’une des méthodes HTTP suivantes : GET, POST, PUT, DELETE, PATCH ou HEAD.|String|  
+|method|yes|Peut être l’une des méthodes HTTP suivantes : GET, POST, PUT, DELETE, PATCH ou HEAD.|String|  
 |URI|yes|Point de terminaison HTTP ou HTTPS qui est appelé. La longueur maximale est de 2 Ko.|String|  
-|requêtes|Non|Objet représentant les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|Object|  
+|queries|Non|Objet représentant les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|Object|  
 |headers|Non|Objet représentant chacun des en-têtes envoyés à la requête. Par exemple, pour définir la langue et le type sur une requête :`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|Object|  
 |body|Non|Objet représentant la charge utile envoyée au point de terminaison.|Object|  
 |retryPolicy|Non|Objet permettant de personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx.|Object|  
 |authentication|Non|Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations sur cet objet, consultez [Authentification sortante de Scheduler](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). En plus de Scheduler, une autre propriété est prise en charge : `authority`. Par défaut, cette propriété est définie sur `https://login.windows.net` lorsqu’aucune valeur n’est spécifiée, mais vous pouvez utiliser une autre audience comme `https://login.windows\-ppe.net`.|Object|  
   
-Le déclencheur HTTP nécessite que l’API HTTP se conforme à un modèle spécifique pour fonctionner correctement avec votre application logique. Il requiert les champs suivants :  
+Le déclencheur HTTP nécessite que l’API HTTP se conforme à un modèle spécifique pour fonctionner correctement avec votre application logique. Il reconnaît les propriétés suivantes :  
   
-|Response|Description|  
-|------------|---------------|  
-|Code d’état|Code d’état 200 \(OK\) pour déclencher une exécution. Les autres codes d’état ne déclenchent pas d’exécution.|  
-|En-tête Retry\-After|Nombre de secondes au bout duquel l’application logique interroge à nouveau le point de terminaison.|  
-|En-tête Location|URL à appeler lors du prochain intervalle d’interrogation. Si aucune valeur n’est spécifiée, l’URL d’origine est utilisée.|  
+|Réponse|Requis|Description|  
+|------------|------------|---------------|  
+|Code d’état|Oui|Code d’état 200 \(OK\) pour déclencher une exécution. Les autres codes d’état ne déclenchent pas d’exécution.|  
+|En-tête Retry\-After|Non|Nombre de secondes au bout duquel l’application logique interroge à nouveau le point de terminaison.|  
+|En-tête Location|Non|URL à appeler lors du prochain intervalle d’interrogation. Si aucune valeur n’est spécifiée, l’URL d’origine est utilisée.|  
   
 Voici quelques exemples de comportements différents pour les différents types de requêtes :  
   
@@ -200,8 +200,8 @@ Le déclencheur ApiConnection présente des fonctionnalités de base similaires 
 |Nom de l'élément|Requis|Type|Description|  
 |----------------|------------|--------|---------------|  
 |host|Oui||Passerelle et ID d’hôte de l’application d’API.|  
-|statique|Oui|String|Peut être l’une des méthodes HTTP suivantes : **GET**, **POST**, **PUT**, **DELETE**, **PATCH** ou **HEAD**.|  
-|requêtes|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
+|method|Oui|String|Peut être l’une des méthodes HTTP suivantes : **GET**, **POST**, **PUT**, **DELETE**, **PATCH** ou **HEAD**.|  
+|queries|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
 |headers|Non|Object|Représente chacun des en-têtes envoyés à la requête. Par exemple, pour définir la langue et le type sur une requête :`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
 |body|Non|Object|Représente la charge utile envoyée au point de terminaison.|  
 |retryPolicy|Non|Object|Permet de personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx.|  
@@ -428,9 +428,9 @@ Les actions HTTP appellent un point de terminaison spécifique et vérifient la 
   
 |Nom de l'élément|Requis|Type|Description|  
 |----------------|------------|--------|---------------|  
-|statique|Oui|String|Peut être l’une des méthodes HTTP suivantes : **GET**, **POST**, **PUT**, **DELETE**, **PATCH** ou **HEAD**.|  
+|method|Oui|String|Peut être l’une des méthodes HTTP suivantes : **GET**, **POST**, **PUT**, **DELETE**, **PATCH** ou **HEAD**.|  
 |URI|Oui|String|Point de terminaison HTTP ou HTTPS qui est appelé. La longueur maximale est de 2 Ko.|  
-|requêtes|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
+|queries|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
 |headers|Non|Object|Représente chacun des en-têtes envoyés à la requête. Par exemple, pour définir la langue et le type sur une requête :`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
 |body|Non|Object|Représente la charge utile envoyée au point de terminaison.|  
 |retryPolicy|Non|Object|Permet de personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx.|  
@@ -504,9 +504,9 @@ Cette action requiert une référence à une connexion valide, ainsi que des inf
 |Nom de l'élément|Requis|Type|Description|  
 |----------------|------------|--------|---------------|  
 |host|Oui|Object|Représente les informations sur le connecteur, telles que la propriété runtimeUrl et la référence à l’objet de connexion.|
-|statique|Oui|String|Peut être l’une des méthodes HTTP suivantes : **GET**, **POST**, **PUT**, **DELETE**, **PATCH** ou **HEAD**.|  
+|method|Oui|String|Peut être l’une des méthodes HTTP suivantes : **GET**, **POST**, **PUT**, **DELETE**, **PATCH** ou **HEAD**.|  
 |path|Oui|String|Chemin de l’opération d’API.|  
-|requêtes|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
+|queries|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
 |headers|Non|Object|Représente chacun des en-têtes envoyés à la requête. Par exemple, pour définir la langue et le type sur une requête :`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
 |body|Non|Object|Représente la charge utile envoyée au point de terminaison.|  
 |retryPolicy|Non|Object|Permet de personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx.|  
@@ -659,7 +659,7 @@ La sortie de l’action `query` est un tableau qui contient les éléments du ta
 |Nom|Requis|Type|Description|
 |--------|------------|--------|---------------|
 |from|Oui|Tableau|Tableau source.|
-|où|Oui|String|Condition à appliquer à chaque élément du tableau source.|
+|where|Oui|String|Condition à appliquer à chaque élément du tableau source.|
 
 ## <a name="select-action"></a>Action select
 
@@ -800,7 +800,7 @@ Si la valeur de propriété `from` est un tableau vide, la sortie est un tableau
 |--------|------------|--------|---------------|  
 |host id|Oui|String|ID de ressource du workflow que vous souhaitez appeler.|  
 |host triggerName|Oui|String|Nom du déclencheur que vous souhaitez appeler.|  
-|requêtes|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
+|queries|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
 |headers|Non|Object|Représente chacun des en-têtes envoyés à la requête. Par exemple, pour définir la langue et le type sur une requête :`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
 |body|Non|Object|Représente la charge utile envoyée au point de terminaison.|  
   
@@ -837,8 +837,8 @@ Les sorties de l’action `workflow` sont basées sur ce que vous avez défini p
 |Nom|Requis|Type|Description|  
 |--------|------------|--------|---------------|  
 |function id|Oui|String|ID de ressource de la fonction que vous souhaitez appeler.|  
-|statique|Non|String|Méthode HTTP utilisée pour appeler la fonction. Par défaut, a la valeur `POST` lorsqu’elle n’est pas spécifiée.|  
-|requêtes|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
+|method|Non|String|Méthode HTTP utilisée pour appeler la fonction. Par défaut, a la valeur `POST` lorsqu’elle n’est pas spécifiée.|  
+|queries|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
 |headers|Non|Object|Représente chacun des en-têtes envoyés à la requête. Par exemple, pour définir la langue et le type sur une requête : `"headers" : { "Accept-Language": "en-us" }`.|  
 |body|Non|Object|Représente la charge utile envoyée au point de terminaison.|  
 

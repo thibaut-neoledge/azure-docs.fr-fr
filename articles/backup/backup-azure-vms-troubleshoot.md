@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: dbd70bdbb17d99c5025018e76ea756b1b1528a3e
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 2f74637fe9887a9a1afbb32647d3fa98b9f88761
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Dépannage de la sauvegarde de machine virtuelle Azure
@@ -33,6 +33,7 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure
 ## <a name="backup"></a>Sauvegarde
 | Détails de l’erreur | Solution de contournement |
 | --- | --- |
+| La configuration de disque spécifiée n’est pas prise en charge - Veuillez suivre http://go.microsoft.com/fwlink/?LinkId=808978 pour résoudre les alertes ou contactez le support Microsoft pour obtenir de l’aide.| Actuellement, Sauvegarde Azure ne prend en charge des tailles de disque supérieures à 1 023 Go. Veillez à ce que les tailles de disque soient inférieures à la limite en fractionnant les disques. Pour fractionner des disques, vous devez copier les données des disques supérieurs à 1 023 Go sur de nouveaux disques de taille inférieure à 1 023 Go. |
 | Impossible d’effectuer l’opération, car la machine virtuelle n’existe plus. - Arrêtez la protection de la machine virtuelle sans supprimer les données de sauvegarde. Plus de détails à l’adresse http://go.microsoft.com/fwlink/?LinkId=808124 |Cela se produit lorsque la machine virtuelle principale est supprimée. Cependant, la stratégie de sauvegarde continue de rechercher une machine virtuelle à sauvegarder. Pour résoudre ce problème : <ol><li> Recréez la machine virtuelle avec le même nom et le même nom de groupe de ressources [nom du service cloud]<br>(OU)</li><li> Arrêtez la protection de la machine virtuelle en supprimant ou non les données de sauvegarde. [En savoir plus](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | L’opération de capture instantanée a échoué, car la machine virtuelle ne présente aucune connectivité réseau : vérifiez que la machine virtuelle a un accès réseau. Pour que la capture instantanée réussisse, ajoutez les plages d’IP du centre de données Azure à la liste verte ou configurez un serveur proxy pour l’accès réseau. Pour plus d’informations, reportez-vous à http://go.microsoft.com/fwlink/?LinkId=800034. Si vous utilisez déjà un serveur proxy, assurez-vous que les paramètres du serveur proxy sont configurés correctement | Cette erreur est levée lorsque vous refusez la connectivité internet sortante sur la machine virtuelle. La connectivité Internet est requise pour que l’extension de la capture instantanée de machine virtuelle prenne une capture instantanée de disques sous-jacents de la machine virtuelle. [En savoir plus](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine) sur la résolution des échecs de captures instantanées en raison d’un accès réseau bloqué. |
 | L’agent de machine virtuelle ne peut pas communiquer avec Azure Backup Service. - Assurez-vous que la machine virtuelle possède une connectivité réseau et que l’agent de machine virtuelle est plus récente et en cours d’exécution. Pour plus d’informations, reportez-vous à http://go.microsoft.com/fwlink/?LinkId=800034 |Cette erreur est générée si un problème existe avec l’agent de machine virtuelle ou si l’accès réseau à l’infrastructure Azure est bloqué. [En savoir plus](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sur le débogage des problèmes d’instantanés de machines virtuelles.<br> Si l’agent de machine virtuelle n’est pas à l’origine des problèmes, redémarrez la machine virtuelle. Il arrive que l’état incorrect d’une machine virtuelle provoque des problèmes et le redémarrage de la machine virtuelle réinitialise cet « état incorrect ». |

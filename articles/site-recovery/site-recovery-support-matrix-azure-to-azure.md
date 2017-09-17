@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/10/2017
+ms.date: 08/31/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 5a81dbf6a088e824277275ef13067bdba006d3a9
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 144078bbee8e9633fac12231daa07da6c295f46e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication Azure vers Azure
@@ -49,12 +49,20 @@ Cet article récapitule les composants et les configurations pris en charge pour
 **Déplacer le calcul, le stockage et le réseau entre plusieurs groupes de ressources** | Non pris en charge |Si vous déplacez une machine virtuelle (ou ses composants associés, tels que le réseau et le stockage) après avoir activé la réplication, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
 
 
+
 ## <a name="support-for-deployment-models"></a>Prise en charge des modèles de déploiement
 
 **Modèle de déploiement** | **Pris en charge / Non pris en charge** | **Notes**  
 --- | --- | ---
 **Classique** | Pris en charge | Vous pouvez uniquement répliquer une machine virtuelle classique et la récupérer en tant que machine virtuelle classique. Vous ne pouvez pas la récupérer en tant que machine virtuelle Resource Manager. Si vous déployez une machine virtuelle classique sans réseau virtuel directement vers une région Azure, elle n’est pas prise en charge.
 **Resource Manager** | Pris en charge |
+
+>[!NOTE]
+>
+> 1. La réplication de machines virtuelles Azure d’un abonnement sur l’autre pour les scénarios de récupération d’urgence n’est pas prise en charge.
+> 2. La migration de machines virtuelles Azure entre abonnements n’est pas prise en charge.
+> 3. La migration de machines virtuelles Azure dans la même région n’est pas prise en charge.
+> 4. La migration de machines virtuelles Azure du modèle de déploiement Classic au modèle de déploiement Resource Manager n’est pas prise en charge.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Prise en charge des versions de système d’exploitation de machine répliquée
 

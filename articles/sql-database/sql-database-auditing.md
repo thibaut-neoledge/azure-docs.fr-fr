@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: f4324a59b5fa4c2e1ab5b1d7fc7e5fe986ea80f8
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: ea45fe72a499daa363dc9e43f82c94af38bf6e85
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
@@ -68,8 +67,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Accédez au panneau **Paramètres** de la base de données/du serveur SQL que vous voulez auditer. Dans le panneau **Paramètres**, sélectionnez **Audit et détection des menaces**.
 
-    <a id="auditing-screenshot"></a>
-    ![Volet de navigation][1]
+    <a id="auditing-screenshot"></a> ![Volet de navigation][1]
 3. Si vous préférez configurer une stratégie d’audit de serveur (qui s’appliquera aux bases de données existantes et nouvellement créées sur ce serveur), vous pouvez sélectionner le lien **Afficher les paramètres du serveur** dans le panneau d’audit de la base de données. Vous pouvez alors afficher ou modifier les paramètres d’audit du serveur.
 
     ![Volet de navigation][2]
@@ -82,8 +80,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
    >[!TIP] 
    >Pour tirer le meilleur parti des modèles des rapports d’audit, utilisez le même compte de stockage pour toutes les bases de données auditées. 
 
-    <a id="storage-screenshot"></a>
-    ![Volet de navigation][4]
+    <a id="storage-screenshot"></a> ![Volet de navigation][4]
 6. Si vous souhaitez personnaliser les événements audités, vous pouvez le faire avec PowerShell ou l’API REST. Pour plus d’informations, consultez la section [Automation (PowerShell / API REST)](#subheading-7).
 7. Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité de détection des menaces et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Pour plus d’informations, consultez [Bien démarrer avec la détection des menaces](sql-database-threat-detection-get-started.md).
 8. Cliquez sur **Enregistrer**.
@@ -148,17 +145,16 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
 <!--The description in this section refers to preceding screen captures.-->
 
 ### <a id="subheading-6">Audit des bases de données géorépliquées</a>
-Quand vous utilisez des bases de données géorépliquées, il est possible de configurer l’audit sur la base de données primaire, sur la base de données secondaire ou sur les deux, selon le type d’audit.
+Quand vous utilisez des bases de données géorépliquées, vous pouvez configurer l’audit sur la base de données secondaire en activant ce dernier sur le **serveur secondaire** ou sur la base de données primaire (dans ce cas, la base de données secondaire a une stratégie d’audit identique à celle de la base de données primaire).
 
-Suivez ces instructions (gardez à l’esprit que l’audit d’objets blob peut être activé ou désactivé uniquement à partir des paramètres d’audit de la base de données primaire) :
+* Au niveau du serveur (**recommandé**) : Activez l’audit sur le **serveur principal** et le **serveur secondaire**. Les bases de données primaire et secondaire sont auditées indépendamment l’une de l’autre en fonction de leur stratégie de niveau serveur respective.
 
-* **Base de données primaire**. Activez l’audit d’objets blob sur le serveur ou sur la base de données elle-même, comme décrit dans la section [Configuration de l’audit pour votre base de données](#subheading-2).
-* **Base de données secondaire**. Activez l’audit d’objets blob sur la base de données primaire, comme décrit dans la section [Configuration de l’audit pour votre base de données](#subheading-2). 
+* Au niveau de la base de données : L’audit pour les bases de données secondaires peut uniquement être configuré à partir des paramètres d’audit de la base de données primaire.
    * L’audit Objet blob doit être activé sur la *base de données primaire elle-même*, et non pas sur le serveur.
    * Une fois que l’audit d’objets blob est activé sur la base de données primaire, il est également activé sur la base de données secondaire.
 
      >[!IMPORTANT]
-     >Par défaut, les paramètres de stockage pour la base de données secondaire sont identiques à ceux de la base de données primaire, ce qui provoque un trafic entre régions. Vous pouvez éviter cela en activant l’audit d’objets blob sur le serveur secondaire et en configurant le stockage local dans les paramètres de stockage du serveur secondaire. Cela remplace l’emplacement de stockage pour la base de données secondaire et, par conséquent, chaque base de données enregistre ses journaux d’audit dans le stockage local.  
+     >Avec l’audit au niveau de la base de données, les paramètres de stockage de la base de données secondaire sont identiques à ceux de la base de données primaire, ce qui entraîne un trafic entre régions. À moins que l’audit au niveau de la base de données soit nécessaire, nous vous recommandons d’activer uniquement l’audit au niveau du serveur sur les serveurs principal et secondaire, et de laisser désactivé l’audit au niveau de la base de données pour toutes les bases de données.
 <br>
 
 ### <a id="subheading-6">Régénération des clés de stockage</a>
@@ -184,7 +180,6 @@ Vous pouvez également configurer l’audit dans Azure SQL Database en utilisant
    * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
    * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Use-AzureRMSqlServerAuditingPolicy][107]
 
    Pour obtenir un exemple de script, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -218,11 +213,10 @@ Vous pouvez également configurer l’audit dans Azure SQL Database en utilisant
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
 
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
+[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
 [103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
 [104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
+[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
+[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing
 
