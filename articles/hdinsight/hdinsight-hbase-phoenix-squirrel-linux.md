@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/26/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 13d17083bbe26fa9745ce4c5fef9f56859243c2e
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 342e29b009f51f7d1e9c3134a69cab6e30726bcd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Utilisation d’Apache Phoenix avec les clusters HBase basés sur Linux dans HDinsight
@@ -34,7 +33,7 @@ Découvrez comment utiliser [Apache Phoenix](http://phoenix.apache.org/) dans HD
 ## <a name="use-sqlline"></a>Utiliser SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) est un utilitaire de ligne de commande pour exécuter SQL.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
 Avant de pouvoir utiliser SQLLine, vous devez disposer des éléments suivants :
 
 * **Un cluster HBase dans HDInsight**. Pour plus d’informations sur l’approvisionnement d’un cluster HBase, consultez [Prise en main d’Apache HBase dans HDInsight][hdinsight-hbase-get-started].
@@ -45,7 +44,7 @@ Quand vous vous connectez à un cluster HBase, vous devez vous connecter à l’
 **Pour connaître le nom d’hôte du Zookeeper**
 
 1. Ouvrez Ambari en accédant à **https://<ClusterName>.azurehdinsight.net**.
-2. Entrez le nom d’utilisateur HTTP (cluster) et le mot de passe de connexion.
+2. Entrez le nom d’utilisateur (cluster) HTTP et le mot de passe pour vous connecter.
 3. Dans le menu de gauche, cliquez sur **ZooKeeper** . Trois **serveurs Zookeeper** sont répertoriés.
 4. Cliquez sur l’un des **ZooKeeper Server** répertoriés. Dans le volet Résumé, recherchez le **nom d’hôte**. Il ressemble à *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 

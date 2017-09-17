@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 95379ed04c47a1e62822ae44b9a1f13b234c6282
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 096f54b23a8223da89785b2e7f00c9b8a10c2906
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Développement de fonctions Azure Functions avec Media Services
 
-Cette rubrique vous montre comment vous familiariser avec la création de fonctions Azure Functions qui utilisent Media Services. La fonction Azure Function définie dans cette rubrique surveille un conteneur de compte de stockage nommé **input** pour les nouveaux fichiers MP4. Une fois qu’un fichier est déplacé dans le conteneur de stockage, le déclencheur d’objet blob exécute la fonction.
+Cette rubrique vous montre comment vous familiariser avec la création de fonctions Azure Functions qui utilisent Media Services. La fonction Azure Function définie dans cette rubrique surveille un conteneur de compte de stockage nommé **input** pour les nouveaux fichiers MP4. Une fois qu’un fichier est déplacé dans le conteneur de stockage, le déclencheur d’objet blob exécute la fonction. Pour connaître les fonctions Azure, consultez la [Vue d’ensemble](../azure-functions/functions-overview.md) et les autres rubriques de la section **Fonctions Azure**.
 
 Si vous souhaitez explorer et déployer des fonctions Azure existantes qui utilisent Azure Media Services, consultez [Fonctions Azure Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Ce référentiel contient des exemples qui utilisent Media Services pour afficher les flux de travail liés à l’ingestion de contenu directement à partir du Stockage Blob, à l’encodage et à l’écriture de contenu dans le Stockage Blob. Il inclut également des exemples décrivant la manière de contrôler les notifications de travail via les WebHooks et les files d’attente Azure. Vous pouvez également développer vos fonctions en fonction des exemples dans le référentiel [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Pour déployer les fonctions, appuyez sur le bouton **Déployer dans Azure**.
 
@@ -31,25 +31,22 @@ Si vous souhaitez explorer et déployer des fonctions Azure existantes qui utili
 
 - Pour créer votre première fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/).
 - Si vous souhaitez créer des fonctions Azure Functions qui effectuent des actions sur votre compte Azure Media Services (AMS) ou qui écoutent des événements envoyés par Media Services, vous devez créer un compte AMS, comme décrit [ici](media-services-portal-create-account.md).
-- Comprendre [l’utilisation des fonctions Azure](../azure-functions/functions-overview.md). Consultez également :
-    - [Liaisons HTTP et webhook Azure Functions](../azure-functions/functions-triggers-bindings.md)
-    - [Guide pratique pour configurer les paramètres d’application Azure Functions](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
     
 ## <a name="considerations"></a>Considérations
 
 -  Azure Functions s’exécutant sur le plan Consommation a une limite de délai d’expiration de 5 minutes.
 
-## <a name="create-a-function-app"></a>Créer une application de fonction
+## <a name="create-a-function-app"></a>Créer une Function App
 
 1. Accédez au [Portail Azure](http://portal.azure.com) et connectez-vous avec votre compte Azure.
-2. Suivez [cette procédure](../azure-functions/functions-create-function-app-portal.md) pour créer une application de fonction.
+2. Suivez [cette procédure](../azure-functions/functions-create-function-app-portal.md) pour créer une Function App.
 
 >[!NOTE]
 > Un compte de stockage que vous spécifiez dans la variable d’environnement **StorageConnection** (voir l’étape suivante) doit être dans la même région que votre application.
 
-## <a name="configure-function-app-settings"></a>Configuration des paramètres de l’application de fonction
+## <a name="configure-function-app-settings"></a>Configuration des paramètres Function App
 
-Lorsque vous développez des fonctions Media Services, il est utile d’ajouter des variables d’environnement qui seront utilisées dans toutes vos fonctions. Pour configurer les paramètres d’application, cliquez sur le lien Configurer les paramètres de l’application. Pour en savoir plus, consultez [Guide pratique pour configurer des paramètres d’application de fonction](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
+Lorsque vous développez des fonctions Media Services, il est utile d’ajouter des variables d’environnement qui seront utilisées dans toutes vos fonctions. Pour configurer les paramètres d’application, cliquez sur le lien Configurer les paramètres de l’application. Pour en savoir plus, consultez [Configuration des paramètres d’application Azure Function](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
 
 Par exemple :
 
@@ -69,9 +66,9 @@ La fonction, définie dans cet article, suppose que les variables d’environnem
 
 ## <a name="create-a-function"></a>Créer une fonction
 
-Une fois votre application de fonction déployée, vous pouvez la retrouver parmi les fonctions Azure Functions **App Services**.
+Une fois votre Function App déployée, vous pouvez la retrouver parmi les fonctions Azure Functions **App Services**.
 
-1. Sélectionnez votre application de fonction et cliquez sur **Nouvelle fonction**.
+1. Sélectionnez votre Function App et cliquez sur **Nouvelle fonction**.
 2. Choisissez le langage **C#** et le scénario **Traitement des données**.
 3. Choisissez le modèle **BlobTrigger**. Cette fonction sera déclenchée à chaque fois qu’un objet blob est chargé dans le conteneur **input**. Le nom **input** est spécifié dans le **chemin d’accès**, à l’étape suivante.
 
@@ -81,12 +78,11 @@ Une fois votre application de fonction déployée, vous pouvez la retrouver parm
 
     ![fichiers d'entrée](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Cliquez sur **Créer**. 
-
+4. Cliquez sur **Create**. 
 
 ## <a name="files"></a>Fichiers
 
-Votre fonction Azure est associée à des fichiers de code et à d’autres fichiers décrits dans cette section. Par défaut, une fonction est associée à des fichiers **function.json** et **run.csx** (C#). Vous devez ajouter un fichier **project.json**. Le reste de cette section présente les définitions de ces fichiers.
+Votre fonction Azure est associée à des fichiers de code et à d’autres fichiers décrits dans cette section. Lorsque vous utilisez le portail Azure pour créer une fonction, **function.json** et **run.csx** sont créés automatiquement. Vous devez ajouter ou charger un fichier **project.json**. Le reste de cette section donne une brève explication de chaque fichier et montre leur définition.
 
 ![fichiers d'entrée](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
@@ -97,7 +93,7 @@ Le fichier function.json définit les liaisons de fonction et d’autres paramè
 >[!NOTE]
 >Définissez la propriété **disabled** sur **true** pour empêcher l’exécution de la fonction. 
 
-Voici un exemple de fichier **function.json**.
+Remplacez le contenu du fichier function.json existant par le code suivant :
 
 ```
 {
@@ -117,6 +113,8 @@ Voici un exemple de fichier **function.json**.
 ### <a name="projectjson"></a>project.json
 
 Le fichier project.json contient des dépendances. Voici un exemple de fichier **project.json** qui inclut les packages .NET Azure Media Services requis à partir de Nuget. Notez que les numéros de version changeront avec les dernières mises à jour pour les packages, donc vous devez vérifier les versions les plus récentes. 
+
+Ajoutez la définition suivante au fichier project.json. 
 
 ```
 {
@@ -145,7 +143,7 @@ L’exemple défini dans cette section montre
 
 Dans le scénario réel, vous voulez probablement effectuer le suivi de la progression du travail, puis publier votre ressource encodée. Pour plus d’informations, consultez [Utiliser Azure WebHooks pour surveiller les notifications de travaux Media Services](media-services-dotnet-check-job-progress-with-webhooks.md). Pour plus d’exemples, consultez [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
-Une fois que vous avez fini de définir votre fonction, cliquez sur **Enregistrer et exécuter**.
+Remplacez le contenu du fichier run.csx existant par le code suivant : Une fois que vous avez fini de définir votre fonction, cliquez sur **Enregistrer et exécuter**.
 
 ```
 #r "Microsoft.WindowsAzure.Storage"
@@ -342,16 +340,18 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 
 Pour tester votre fonction, vous devez charger un fichier MP4 dans le conteneur **input** du compte de stockage que vous avez spécifié dans la chaîne de connexion.  
 
+1. Sélectionnez le compte de stockage que vous avez spécifié dans la variable d’environnement **StorageConnection**.
+2. Cliquez sur **Objets blob**.
+3. Cliquez sur **+ conteneur**. Nommez le conteneur **input**.
+4. Appuyez sur **Charger**, puis accédez au fichier .mp4 que vous souhaitez charger.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 À ce stade, vous êtes prêt à commencer le développement d’une application Media Services. 
  
-Pour plus d’informations, ainsi que des exemples et des solutions de l’utilisation d’Azure Functions et de Logic Apps avec Azure Media Services pour créer des flux de travail de création de contenu personnalisé, consultez [l’exemple Media Services .NET Functions Integration sur GitHub](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Pour avoir plus d’informations, ainsi que des exemples et des solutions concernant l’utilisation d’Azure Functions et de Logic Apps avec Azure Media Services pour créer des flux de travail de création de contenu personnalisé, consultez [l’exemple Media Services .NET Functions Integration sur GitHub](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 Consultez également [Utiliser Azure WebHooks pour surveiller les notifications de travaux Media Services avec .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
-
-## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

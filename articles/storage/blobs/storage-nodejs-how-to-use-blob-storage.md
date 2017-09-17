@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e83ad647f6b7c70f34ef0c69b5bf322da5b6d60d
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 1a706b8c17cc493532ac3f63e9f0e897bed90fdb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Utilisation du stockage d'objets blob à partir de Node.js
@@ -415,15 +415,19 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations, consultez les ressources suivantes.
 
-* [Kit de développement logiciel (SDK) Stockage Azure pour la référence de l’API Node][Kit de développement logiciel (SDK) Stockage Azure pour la référence de l'API Node]
-* [Blog de l’équipe Stockage Azure] [Blog de l’équipe Stockage Azure]
-* Référentiel [Kit de développement logiciel (SDK) Stockage Azure pour Node][Azure Storage SDK for Node] sur GitHub
-* [Centre de développement Node.js](https://azure.microsoft.com/develop/nodejs/)
-* [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Kit de développement logiciel (SDK) Stockage Azure pour la référence de l’API Node][Kit de développement logiciel (SDK) Stockage Azure pour la référence de l'API Node]  
+* [Blog de l’équipe Stockage Azure] [Blog de l’équipe Stockage Azure]  
+* Référentiel [Kit de développement logiciel (SDK) Stockage Azure pour Node][Azure Storage SDK for Node] sur GitHub  
+* [Centre de développement Node.js](https://azure.microsoft.com/develop/nodejs/)  
+* [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)  
 
-[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node  
 
 [Application web Node.js avec le service de Table Azure](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)    
 [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix] : https://www.microsoft.com/web/webmatrix/  
-[Utilisation de l’API REST] : http://msdn.microsoft.com/library/azure/hh264518.aspx [Portail Azure] : https://portal.azure.com [Création et déploiement d’une application Node.js dans Azure Cloud Services](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) [Blog de l’équipe Stockage Azure] : http://blogs.msdn.com/b/windowsazurestorage/ [Kit de développement logiciel (SDK) Stockage Azure pour la référence de l’API Node] : http://dl.windowsazure.com/nodestoragedocs/index.html
+[Utilisation de l’API REST] : http://msdn.microsoft.com/library/azure/hh264518.aspx  
+[Portail Azure] : https://portal.azure.com  
+[Création et déploiement d’une application Node.js dans un service cloud Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
+[Blog de l’équipe Stockage Azure] : http://blogs.msdn.com/b/windowsazurestorage/  
+[SDK Stockage Azure pour les références de l’API de nœud] : http://dl.windowsazure.com/nodestoragedocs/index.html  
 

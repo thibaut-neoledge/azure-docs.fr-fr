@@ -1,6 +1,6 @@
 ---
 title: "Exécuter des travaux Sqoop avec .NET et HDInsight - Azure | Microsoft Docs"
-description: "Découvrez comment utiliser le Kit de développement logiciel (SDK) .NET HDInsight pour exécuter l’exportation et l’importation Sqoop entre un cluster Hadoop et une base de données SQL Azure."
+description: "Découvrez comment utiliser le kit .NET SDK HDInsight pour exécuter l’exportation et l’importation Sqoop entre un cluster Hadoop et une base de données SQL Azure."
 keywords: travail sqoop
 editor: cgronlun
 manager: jhubbard
@@ -15,38 +15,37 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: c95641fc6d20e2911e007d1974b9e2c2398b3133
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 737cfd5d1bbd3d55968d7fc0e67d94aff6ada5ea
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
-# <a name="run-sqoop-jobs-using-net-sdk-for-hadoop-in-hdinsight"></a>Exécuter des tâches Sqoop à l’aide du Kit de développement logiciel (SDK) .NET pour Hadoop dans HDInsight
+# <a name="run-sqoop-jobs-using-net-sdk-for-hadoop-in-hdinsight"></a>Exécuter des tâches Sqoop à l’aide du kit .NET SDK pour Hadoop dans HDInsight
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Découvrez comment utiliser le Kit de développement logiciel (SDK) .NET HDInsight pour exécuter des tâches Sqoop dans HDInsight afin d’effectuer des opérations d’importation et d’exportation entre un cluster HDInsight et une base de données SQL Azure ou SQL Server.
+Découvrez comment utiliser le kit .NET SDK HDInsight pour exécuter des tâches Sqoop dans HDInsight afin d’effectuer des opérations d’importation et d’exportation entre un cluster HDInsight et une base de données SQL Azure ou SQL Server.
 
 > [!NOTE]
 > Les étapes décrites dans cet article peuvent être utilisées avec un cluster HDInsight Windows ou Linux. Toutefois, elles fonctionnent uniquement à partir d’un client Windows. Utilisez le sélecteur d’onglet en haut de cet article pour choisir d’autres méthodes.
 > 
 > 
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Cluster Hadoop dans HDInsight**. Consultez [Création du cluster et de la base de données SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
-## <a name="use-sqoop-on-hdinsight-clusters-using-net-sdk"></a>Utiliser Sqoop sur des clusters HDInsight à l’aide du Kit de développement logiciel (SDK) .NET
-Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET. Dans cette section, vous allez créer une application console C# pour exporter la table hivesampletable vers la table de base de données SQL créée précédemment dans ce didacticiel.
+## <a name="use-sqoop-on-hdinsight-clusters-using-net-sdk"></a>Utiliser Sqoop sur des clusters HDInsight à l’aide du kit .NET SDK
+Le kit .NET SDK HDInsight fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET. Dans cette section, vous allez créer une application console C# pour exporter la table hivesampletable vers la table de base de données SQL créée précédemment dans ce didacticiel.
 
 ## <a name="submit-a-sqoop-job"></a>Envoyer un travail Sqoop
 
 1. Créez une application console C# dans Visual Studio.
-2. Dans la console du gestionnaire de package Visual Studio, exécutez la commande Nuget suivante pour importer le package.
+2. Dans la console du gestionnaire de package Visual Studio, exécutez la commande NuGet suivante pour importer le package.
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Utilisez le code suivant dans le fichier Program.cs :
@@ -115,7 +114,7 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
 4. Appuyez sur **F5** pour exécuter le programme. 
 
 ## <a name="limitations"></a>Limitations
-* Exportation en bloc : avec HDInsight sous Linux, le connecteur Sqoop utilisé pour exporter des données vers Microsoft SQL Server ou la base de données SQL Azure ne prend pas en charge les insertions en bloc.
+* Exportation en bloc : avec HDInsight sous Linux, le connecteur Sqoop utilisé pour exporter des données vers Microsoft SQL Server ou Azure SQL Database ne prend pas en charge les insertions en bloc.
 * Traitement par lots : avec HDInsight sous Linux, lorsque vous utilisez le commutateur `-batch` pour effectuer des insertions, Sqoop effectue plusieurs insertions plutôt qu’un traitement par lots des opérations d’insertion.
 
 ## <a name="next-steps"></a>Étapes suivantes

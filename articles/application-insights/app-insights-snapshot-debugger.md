@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: bb6c93557ea26bed721315dc82da917e4727b5f9
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: cb0c74e7a3e3a2044262f94275110d0a55ccc19b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
@@ -175,7 +175,7 @@ La capture instantanée téléchargée contient tous les fichiers de symboles qu
 
 ## <a name="how-snapshots-work"></a>Fonctionnement des captures instantanées
 
-Au démarrage de votre application, un processus distinct de chargeur de captures instantanées qui surveille les demandes de captures instantanées de votre application est créé. Lorsqu’une capture instantanée est demandée, un cliché instantané du processus en cours d’exécution est effectué dans les 10 à 20 minutes environ. Le processus de cliché instantané est ensuite analysé et une capture instantanée est créée sans interrompre l’exécution du processus principal ni le trafic aux utilisateurs. La capture instantanée est ensuite chargée sur Application Insights, ainsi que les fichiers de symboles (.pdb) nécessaires à son affichage.
+Au démarrage de votre application, un processus distinct de chargeur de captures instantanées qui surveille les demandes de captures instantanées de votre application est créé. Quand une capture instantanée est demandée, un cliché instantané du processus en cours d’exécution est effectué en 10 à 20 millisecondes environ. Le processus de cliché instantané est ensuite analysé et une capture instantanée est créée sans interrompre l’exécution du processus principal ni le trafic aux utilisateurs. La capture instantanée est ensuite chargée sur Application Insights, ainsi que les fichiers de symboles (.pdb) nécessaires à son affichage.
 
 ## <a name="current-limitations"></a>Limitations actuelles
 

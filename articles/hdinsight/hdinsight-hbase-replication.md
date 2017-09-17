@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 7a6a473b6db745563b3667da1013a8e78db8593c
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: c885dae8a13c789ccb3c22532e6a2cea2c920752
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-hbase-cluster-replication-within-virtual-networks"></a>Configurer la réplication de cluster HBase dans les réseaux virtuels
@@ -28,7 +27,7 @@ Apprenez à configurer la réplication HBase dans un réseau virtuel ou entre de
 
 La réplication en cluster utilise une méthodologie par émission de données source. Un cluster HBase peut être une source, une destination ou jouer les deux rôles à la fois. La réplication est asynchrone et l'objectif de la réplication est une cohérence éventuelle. Quand la source reçoit une modification apportée à une famille de colonnes dont la réplication est activée, cette modification est propagée à tous les clusters de destination. Quand les données sont répliquées d’un cluster à un autre, le cluster source et tous les clusters qui ont déjà utilisé les données font l’objet d’un suivi afin d’empêcher les boucles de réplication.
 
-Dans ce didacticiel, vous allez configurer une réplication source-destination. Pour d'autres topologies de cluster, consultez le [Guide de référence d'Apache HBase](http://hbase.apache.org/book.html#_cluster_replication).
+Dans ce didacticiel, vous configurez une réplication source-destination. Pour d'autres topologies de cluster, consultez le [Guide de référence d'Apache HBase](http://hbase.apache.org/book.html#_cluster_replication).
 
 Cas d’utilisation de la réplication HBase pour un seul réseau virtuel :
 
@@ -45,7 +44,7 @@ Cas d’utilisation de la réplication HBase pour deux réseaux virtuels :
 
 Vous répliquez des clusters à l’aide de scripts [d’action de script](hdinsight-hadoop-customize-cluster-linux.md) disponibles dans [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="configure-the-environments"></a>Configurer les environnements
@@ -110,7 +109,7 @@ Pour le scénario de réseaux virtuels croisés (cross-VNet), vous devez utilise
 
 ## <a name="load-test-data"></a>Charger les données de test
 
-Lorsque vous répliquez un cluster, vous devez spécifier les tables à répliquer. Dans cette section, vous allez charger des données dans le cluster source. Dans la section suivante, vous allez activer la réplication entre les deux clusters.
+Lorsque vous répliquez un cluster, vous devez spécifier les tables à répliquer. Dans cette section, vous chargez des données dans le cluster source. Dans la section suivante, vous allez activer la réplication entre les deux clusters.
 
 Suivez les instructions de [Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight Linux](hdinsight-hbase-tutorial-get-started-linux.md) pour créer une table **Contacts** et insérer des données dans la table.
 
