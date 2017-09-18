@@ -1,4 +1,4 @@
----
+﻿---
 title: "Azure AD Connect sync : tâches et examen opérationnels | Microsoft Docs"
 description: "Cette rubrique décrit les tâches opérationnelles de la synchronisation d’Azure AD Connect et explique comment se préparer pour utiliser ce composant."
 services: active-directory
