@@ -1,76 +1,76 @@
-- name: Content Moderator Documentation
+- name: Documentation de Content Moderator
   href: ../index.md
-- name: Overview
+- name: Vue d'ensemble
   items:
-    - name: About Content Moderator
+    - name: À propos de Content Moderator
       href: overview.md
-    - name: Image moderation
+    - name: Modération d’image
       href: image-moderation-api.md
-    - name: Text moderation
+    - name: Modération de texte
       href: text-moderation-api.md
-    - name: Text moderation - languages
+    - name: Modération de texte - langues
       href: Text-Moderation-API-Languages.md
-    - name: Video moderation
+    - name: Modération de vidéo
       href: video-moderation-api.md
-    - name: Review APIs
+    - name: Consultation des API
       href: review-api.md
-- name: Get started
+- name: Prise en main
   items:
-    - name: The review tool
+    - name: L’outil de vérification
       href: quick-start.md
-- name: How to
-  items:
-    - name: Test drive moderation APIs
+    - name: Essayer les API de modération
       items:
-        - name: Image API
+        - name: Images
           href: try-image-api.md
-        - name: Image list API
+        - name: Listes d’images
           href: try-image-list-api.md
-        - name: Text API
+        - name: Texte
           href: try-text-api.md
-        - name: Term list API
+        - name: Listes de termes
           href: try-terms-list-api.md
-    - name: Use the review tool
+    - name: Essayer les API de révision
       items:
-        - name: Human in the loop
-          href: Review-Tool-User-Guide/human-in-the-loop.md
-        - name: Use settings
-          href: Review-Tool-User-Guide/Configure.md
-        - name: Manage team
-          href: Review-Tool-User-Guide/SubTeams.md
-        - name: Use tags
-          href: Review-Tool-User-Guide/Tags.md
-        - name: Review images
-          href: Review-Tool-User-Guide/Review-Moderated-Images.md
-        - name: Review text
-          href: Review-Tool-User-Guide/Text-Reviews.md
-        - name: Verify credentials
-          href: Review-Tool-User-Guide/Credentials.md
-        - name: Use Connectors
-          href: Review-Tool-User-Guide/Connectors.md
-        - name: Use workflows
-          href: Review-Tool-User-Guide/Workflows.md
-        - name: View dashboard
-          href: Review-Tool-User-Guide/View-Dashboard.md
-    - name: Test drive review APIs
-      items:
-        - name: Jobs
+        - name: Tâches
           href: try-review-api-job.md
-        - name: Reviews
+        - name: Révisions
           href: try-review-api-review.md
-        - name: Workflows
+        - name: Flux de travail
           href: try-review-api-workflow.md
-- name: API References
+- name: Procédures
   items:
-    - name: All APIs
+    - name: Essayer l’outil de révision
+      items:
+        - name: Opérateur humain dans la boucle
+          href: Review-Tool-User-Guide/human-in-the-loop.md
+        - name: Utiliser les paramètres
+          href: Review-Tool-User-Guide/Configure.md
+        - name: Gérer l’équipe
+          href: Review-Tool-User-Guide/SubTeams.md
+        - name: Utiliser des balises
+          href: Review-Tool-User-Guide/Tags.md
+        - name: Réviser les images
+          href: Review-Tool-User-Guide/Review-Moderated-Images.md
+        - name: Réviser le texte
+          href: Review-Tool-User-Guide/Text-Reviews.md
+        - name: Vérification des informations d’identification
+          href: Review-Tool-User-Guide/Credentials.md
+        - name: Utiliser des connecteurs
+          href: Review-Tool-User-Guide/Connectors.md
+        - name: Utiliser des flux de travail
+          href: Review-Tool-User-Guide/Workflows.md
+        - name: Afficher le tableau de bord
+          href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Informations de référence des API
+  items:
+    - name: Toutes les API
       href: api-reference.md
-- name: Resources
+- name: Ressources
   items:
-    - name: Azure Roadmap
+    - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Windows SDK
+    - name: Kit de développement logiciel (SDK) Windows
       href: 'https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/'
-    - name: Samples
+    - name: Exemples
       href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services'
-    - name: FAQ
+    - name: Forum Aux Questions
       href: FAQs.md

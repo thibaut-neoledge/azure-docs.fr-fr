@@ -61,10 +61,12 @@
 ## Utiliser Spark pour le traitement en mémoire
 ### Prise en main : Développeur Spark
 #### [Créer une application autonome](hdinsight-apache-spark-create-standalone-application.md)
-#### [Travaux à distance avec Livy](hdinsight-apache-spark-livy-rest-interface.md) 
+#### [Utiliser un interpréteur de commandes Spark interactif](hdinsight-spark-shell.md)
+#### [Travaux à distance avec Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Avec Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Créer des applications à l’aide d’Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Créer des applications à l’aide d’IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
+### [Qu’est-ce que la diffusion en continu de Spark ?](hdinsight-spark-streaming-overview.md)
 ### [Traiter les événements de diffusion en continu](hdinsight-apache-spark-eventhub-streaming.md)
 ### [Prévoir les performances HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Prévoir les résultats d’inspections alimentaires](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
@@ -109,6 +111,7 @@
 ### [Répliquer les données Kafka](hdinsight-apache-kafka-mirroring.md)
 ### [Configurer le stockage et l’extensibilité de Kafka](hdinsight-apache-kafka-scalability.md)
 ### [Configurer la haute disponibilité des données](hdinsight-apache-kafka-high-availability.md)
+### [Analyser les journaux Kafka](apache-kafka-log-analytics-operations-management.md)
 ### [Utiliser avec les réseaux virtuels](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Utiliser avec Spark (Structured Streaming)](hdinsight-apache-kafka-spark-structured-streaming.md)
 ### [Utiliser avec Spark (DStream)](hdinsight-apache-spark-with-kafka.md)

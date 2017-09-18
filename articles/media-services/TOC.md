@@ -183,9 +183,9 @@
 ### [Distribuer par téléchargement](media-services-deliver-asset-download.md)
 ### [Scénario de basculement de diffusion en continu](media-services-implement-failover.md)
 
-## Utiliser
-### [Lecture de contenu multimédia avec des lecteurs existants](media-services-playback-content-with-existing-players.md)
-### [Lecture de contenu multimédia avec le lecteur multimédia](media-services-develop-video-players.md)
+## Lecture
+### [Lire du contenu multimédia avec des lecteurs existants](media-services-playback-content-with-existing-players.md)
+### [Lire du contenu multimédia avec le lecteur multimédia](media-services-develop-video-players.md)
 ### Autres options de lecture
 #### [Application Windows Store de diffusion en continu lisse](media-services-build-smooth-streaming-apps.md)
 #### [Application HTML5 avec DASH.js](media-services-embed-mpeg-dash-in-html5.md)
