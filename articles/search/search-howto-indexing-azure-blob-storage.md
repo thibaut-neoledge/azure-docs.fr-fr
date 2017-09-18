@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/22/2017
 ms.author: eugenesh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 023c343122f872943fb3ab3eed7b4caedfae9ac4
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -28,21 +28,7 @@ Cet article explique comment utiliser Azure Search pour indexer des documents (t
 ## <a name="supported-document-formats"></a>Formats de document pris en charge
 L’indexeur d’objets blob peut extraire du texte à partir des formats de document suivants :
 
-* PDF
-* Formats Microsoft Office : DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (e-mails Outlook)  
-* HTML
-* XML
-* ZIP
-* EML
-* RTF
-* Fichiers de texte brut (voir aussi [l’indexation de texte brut](#IndexingPlainText))
-* JSON (consultez [l’indexation d’objets JSON blobs](search-howto-index-json-blobs.md))
-* CSV (voir la fonctionnalité de version préliminaire[Indexation d’objets blob CSV](search-howto-index-csv-blobs.md))
-
-> [!IMPORTANT]
-> La prise en charge des tableaux CSV et JSON est actuellement en version préliminaire. Ces formats sont disponibles uniquement avec la version **2016-09-01-Preview** de l’API REST ou la version 2.x-preview du Kit de développement logiciel (SDK) .NET. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
->
->
+[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## <a name="setting-up-blob-indexing"></a>Configuration de l’indexation d’objets blob
 Vous pouvez configurer un indexeur de Stockage Blob Azure avec les outils suivants :

@@ -5,7 +5,7 @@ keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 78d76efb88bf11fa18a416b59e6f881539141232
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 461da2528d515072bf04a82bb8ba64a853443f98
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="manage-schema-for-multiple-tenants-in-the-wingtip-saas-application"></a>Gérer un schéma pour plusieurs clients dans l’application SaaS Wingtip
+# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Gérer un schéma pour plusieurs locataires dans une application mutualisée qui utilise Azure SQL Database
 
 Le [premier didacticiel SaaS Wingtip](sql-database-saas-tutorial.md) montre comment l’application peut approvisionner une base de données client et l’enregistrer dans le catalogue. Comme n’importe quelle application, l’application SaaS Wingtip évolue au fil du temps et nécessite parfois l’apport de modifications à la base de données. Ces modifications peuvent inclure un schéma nouveau ou modifié, des données de référence nouvelles ou modifiées et des tâches de maintenance de routine de la base de données pour garantir des performances optimales de l’application. Avec une application SaaS, ces modifications doivent être déployées de façon coordonnée dans un parc potentiellement immense de bases de données de locataire. Ces modifications doivent être incorporées au processus d’approvisionnement pour apparaître dans les futures bases de données client.
 

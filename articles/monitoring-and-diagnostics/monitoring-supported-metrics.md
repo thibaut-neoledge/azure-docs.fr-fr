@@ -2,7 +2,7 @@
 title: "Mesures Azure Monitor : mesures prises en charge par type de ressource | Microsoft Docs"
 description: Liste des mesures disponibles pour chaque type de ressource avec Azure Monitor.
 author: anirudhcavale
-manager: orenr
+manager: ashwink
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/31/2017
+ms.date: 9/6/2017
 ms.author: ancav
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 83a32dba7b74a303b7fd2167b5fc41212087f8ca
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6f40f0cdb998bda9d936ecf87089e85713ed9e1b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mesures prises en charge avec Azure Monitor
@@ -295,18 +295,6 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |percentProcessorTime9|UC (Shard 9)|Pourcentage|Maximale||
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
-
-|Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
-|---|---|---|---|---|
-|Pourcentage UC|Pourcentage UC|Pourcentage|Moyenne|Pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles.|
-|Entrée réseau|Entrée réseau|Octets|Total|Nombre d’octets reçus sur toutes les interfaces réseau par les machines virtuelles (trafic entrant).|
-|Sortie réseau|Sortie réseau|Octets|Total|Nombre d’octets envoyés sur toutes les interfaces réseau par les machines virtuelles (trafic sortant).|
-|Lectures disque, octets/s|Lecture du disque|Octets par seconde|Moyenne|Moyenne d’octets lus à partir du disque pendant la période d’analyse.|
-|Écritures disque, octets/s|Écriture sur le disque|Octets par seconde|Moyenne|Moyenne d’octets écrits sur le disque pendant la période d’analyse.|
-|Opérations de lecture disque/s|Opérations de lecture disque/s|Nombre par seconde|Moyenne|E/S de lecture disque par seconde.|
-|Opérations d’écriture disque/s|Opérations d’écriture disque/s|Nombre par seconde|Moyenne|E/S d’écriture sur disque par seconde.|
-
-## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|

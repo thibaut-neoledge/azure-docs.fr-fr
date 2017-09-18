@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 003a548ef2da2921a699df1aa9f7aee366d341ab
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 9009afc83b40064c6dbf10100f514c681af9b96b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Planifier et diffuser des travaux (Java)
@@ -30,28 +30,28 @@ Utilisez Azure IoT Hub pour planifier et suivre des travaux qui mettent à jou
 * Mettre à jour les balises
 * Appeler des méthodes directes
 
-Un travail encapsule l’une de ces actions et suit l’exécution sur un ensemble d’appareils. Une requête de jumeau d’appareil définit l’ensemble d’appareils sur lesquels le travail s’exécute. Par exemple, une application backend peut utiliser un travail pour appeler une méthode directe sur 10 000 appareils et les redémarrer. Vous spécifiez l’ensemble des appareils avec une requête de jumeau d’appareil et planifiez le travail à exécuter ultérieurement. Le travail suit la progression à mesure que chacun de ces appareils reçoit et exécute la méthode directe de redémarrage.
+Un travail encapsule l’une de ces actions et suit l’exécution sur un ensemble d’appareils. Une requête de jumeau d’appareil définit l’ensemble d’appareils sur lesquels le travail s’exécute. Par exemple, une application principale peut utiliser un travail pour appeler une méthode directe sur 10 000 appareils et les redémarrer. Vous spécifiez l’ensemble des appareils avec une requête de jumeau d’appareil et planifiez le travail à exécuter ultérieurement. Le travail suit la progression à mesure que chacun de ces appareils reçoit et exécute la méthode directe de redémarrage.
 
 Pour plus d’informations sur chacune de ces fonctionnalités, consultez les pages :
 
-* Jumeau d’appareil et propriétés : [Bien démarrer avec les jumeaux d’appareil (Node)](iot-hub-java-java-twin-getstarted.md)
+* Jumeau d’appareil et propriétés : [Prise en main des représentations d’appareils (Node)](iot-hub-java-java-twin-getstarted.md)
 * Méthodes directes : [Guide du développeur IoT Hub - Méthodes directes](iot-hub-devguide-direct-methods.md) et [Didacticiel : utilisation des méthodes directes](iot-hub-java-java-direct-methods.md)
 
 Ce didacticiel vous explique les procédures suivantes :
 
-* Créer une application d’appareil implémentant une méthode directe nommée **lockDoor**. L’application d’appareil reçoit également les modifications de propriétés souhaitées envoyées par l’application backend.
-* Créer une application backend qui crée un travail pour appeler la méthode directe **lockDoor** sur plusieurs appareils. Un autre travail envoie les mises à jour de propriétés souhaitées à plusieurs appareils.
+* Créer une application pour périphérique implémentant une méthode directe nommée **lockDoor**. L’application pour périphérique reçoit également les modifications de propriétés souhaitées envoyées par l’application principale.
+* Créer une application principale qui crée un travail pour appeler la méthode directe **lockDoor** sur plusieurs appareils. Un autre travail envoie les mises à jour de propriétés souhaitées à plusieurs appareils.
 
-À la fin de ce didacticiel, vous disposerez d’une application d’appareil de console Java et d’une application backend de console Java :
+À la fin de ce didacticiel, vous disposerez d’une application pour périphérique de console Java et d’une application principale de console Java :
 
 **simulated-device** se connecte à IoT Hub et implémente la méthode directe **lockDoor** et gère les modifications de propriétés souhaitées.
 
 **schedule-jobs** utilise des travaux pour appeler la méthode directe **lockDoor** et mettre à jour les propriétés souhaitées du jumeau de plusieurs appareils.
 
 > [!NOTE]
-> L’article sur les [kits SDK Azure IoT](iot-hub-devguide-sdks.md) fournit des informations sur les kits SDK Azure que vous pouvez utiliser pour générer des applications d’appareil et des applications backend.
+> L’article relatif aux [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md) fournit des informations sur les Kits de développement logiciel (SDK) Azure que l’on peut utiliser pour générer des applications pour périphérique et des applications principales.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -349,7 +349,7 @@ Dans cette section, vous créez une application de console Java qui gère les pr
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    Cet exemple d’application utilise la variable **protocol** lorsqu’il instancie un objet **DeviceClient**. Actuellement, pour utiliser les fonctionnalités des jumeaux d’appareils, vous devez utiliser le protocole MQTT.
+    Cet exemple d’application utilise la variable **protocol** lorsqu’il instancie un objet **DeviceClient**.
 
 1. Pour imprimer des informations du jumeau d’appareil dans la console, ajoutez la classe imbriquée suivante à la classe **App** :
 
@@ -466,7 +466,7 @@ Vous êtes maintenant prêt à exécuter les applications de console.
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![Le client d’appareil démarre](media/iot-hub-java-java-schedule-jobs/device-app-1.png)
+    ![Le client de périphérique démarre](media/iot-hub-java-java-schedule-jobs/device-app-1.png)
 
 1. À l’invite de commande du dossier `schedule-jobs`, exécutez la commande suivante pour faire fonctionner l’application de service **schedule-jobs** lors de l’exécution de deux travaux. Le premier définit les valeurs de propriété de votre choix et le second appelle la méthode directe :
 
@@ -474,13 +474,13 @@ Vous êtes maintenant prêt à exécuter les applications de console.
 
     ![L’application de service Java IoT Hub crée deux travaux](media/iot-hub-java-java-schedule-jobs/service-app-1.png)
 
-1. L’application d’appareil gère la modification de propriété souhaitée et l’appel de méthode directe :
+1. L’application pour périphérique gère la modification de propriété souhaitée et l’appel de méthode directe :
 
     ![Le client d’appareil répond aux modifications](media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez configuré un nouveau hub IoT dans le portail Azure, puis créé une identité d’appareil dans le registre des identités du hub IoT. Vous avez créé une application backend pour exécuter deux travaux. Le premier travail a défini des valeurs de propriété de votre choix, et le deuxième a appelé une méthode directe.
+Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail Azure, puis créé une identité d’appareil dans le registre des identités de l’IoT Hub. Vous avez créé une application principale pour exécuter deux travaux. Le premier travail a défini des valeurs de propriété de votre choix, et le deuxième a appelé une méthode directe.
 
 Utilisez les ressources suivantes :
 

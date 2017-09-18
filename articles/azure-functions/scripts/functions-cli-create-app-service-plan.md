@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 04/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 40c3fa6fa6c07d59e4bf55531e116ba50aa92b91
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: c7868dda1e00882a944ac61d838c8b8987d5e740
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>Créer une Function App dans un plan App Service
@@ -47,10 +47,10 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 
 | Commande | Remarques |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Crée un compte de stockage Azure. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#create) | Crée un plan App Service. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#delete) | Crée une Function App Azure. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage Azure. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#az_appserviceplan_create) | Crée un plan App Service. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_delete) | Crée une Function App Azure. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

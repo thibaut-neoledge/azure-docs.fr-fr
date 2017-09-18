@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 70c0cc37a1d362c937ab86bd630c5ab051e63870
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Intégration de Cluster Resource Manager à la gestion de cluster Service Fabric
@@ -106,7 +106,7 @@ Le placement dans une liste de blocage se manifeste souvent en phase de dévelop
 
 La mise en liste de blocage n’est pas une condition permanente. Après quelques minutes, le nœud est retiré de la liste de blocage et Service Fabric réactive les services sur ce nœud. En revanche, si le service continue d’échouer, le nœud est remis en liste de blocage pour ce type de service. 
 
-### <a name="constraint-priorities"></a>Priorités des contraintes
+### <a name="constraint-priorities"></a>Priorités de contrainte
 
 > [!WARNING]
 > Il n’est pas recommandé de modifier les priorités des contraintes. De plus, cela peut avoir des répercutions défavorables sur votre cluster. Vous trouverez ci-dessous des informations fournies à titre indicatif sur les priorités des contraintes par défaut et leur comportement. 
@@ -114,7 +114,7 @@ La mise en liste de blocage n’est pas une condition permanente. Après quelque
 
 Face à toutes ces contraintes, vous vous dites peut-être : « Ce qui compte avant tout dans mon système, ce sont les contraintes de domaine d’erreur. Pour être certain que la contrainte de domaine d’erreur va bien être respectée, je vais enfreindre les autres contraintes ».
 
-Les contraintes peuvent être configurées avec différents niveaux de priorité, à savoir :
+Les contraintes peuvent être configurées avec différents niveaux de priorité, Ces composants sont les suivants :
 
    - « stricte » (0)
    - « souple » (1)

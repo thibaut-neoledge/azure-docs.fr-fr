@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 5fe1e3595d9459e60b2fd54d6f17f6822731f453
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 73d93622d418359be421e043d0af4e4befc6f4b4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -51,13 +51,13 @@ Ce script a recours aux commandes suivantes pour créer un travail et des tâche
 
 | Commande | Remarques |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Permet de s’authentifier avec un compte Batch.  |
-| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#create) | Crée un travail Batch.  |
-| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#set) | Met à jour les propriétés d’un travail Batch.  |
-| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#show) | Récupère les détails relatifs au travail Batch spécifié.  |
-| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#create) | Ajoute une tâche au travail Batch spécifié.  |
-| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#show) | Récupère les détails relatifs à une tâche du travail Batch spécifié.  |
-| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#list) | Répertorie les tâches associées au travail spécifié.  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Permet de s’authentifier avec un compte Batch.  |
+| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_create) | Crée un travail Batch.  |
+| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_set) | Met à jour les propriétés d’un travail Batch.  |
+| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_show) | Récupère les détails relatifs au travail Batch spécifié.  |
+| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_create) | Ajoute une tâche au travail Batch spécifié.  |
+| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_show) | Récupère les détails relatifs à une tâche du travail Batch spécifié.  |
+| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_list) | Répertorie les tâches associées au travail spécifié.  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

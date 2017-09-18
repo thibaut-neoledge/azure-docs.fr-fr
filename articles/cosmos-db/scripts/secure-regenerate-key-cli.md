@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 1a0ff3f8b8fb3eaf398d9fa925ef027b2481d47a
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: b667aed1ecdf403654ab86b2b7601d5cbddaa725
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -51,9 +51,9 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | Commande | Remarques |
 |---|---|
 | [az group create](/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | Met à jour un compte Azure Cosmos DB. |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Met à jour un compte Azure Cosmos DB. |
 | [az cosmosdb regenerate-key](/cli/azure/cosmosdb/regenerate-key) | Regénère les clés de compte Azure Cosmos DB. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

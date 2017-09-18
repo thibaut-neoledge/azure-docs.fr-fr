@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 07/19/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 8a44f10eda396aec72e05e87e406ff80834294d8
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 4585be186554d5d7aa9bc79029b6f8506b278701
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -87,11 +87,7 @@ Vous pouvez créer le groupe de ressources de la base de données SQL Azure en 
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>Créer un serveur SQL vide (serveur logique)
 
-Pour créer un serveur Azure SQL Database (sans base de données) à l’aide du [portail Azure](https://portal.azure.com), accédez à un formulaire de serveur SQL vide (serveur logique). La capture d’écran suivante montre une méthode qui permet d’ouvrir un formulaire pour créer un serveur logique SQL vide. 
-
-   ![formulaire de création de serveur logique rempli](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
-
-Si vous accédez à ce formulaire à l’aide d’une autre méthode, les informations sur le formulaire sont identiques.
+Pour créer un serveur Azure SQL Database (sans base de données) à l’aide du [portail Azure](https://portal.azure.com), accédez à un formulaire de serveur SQL vide (serveur logique).  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>Créer un exemple de base de données SQL ou une base de données SQL vide
 
@@ -105,9 +101,7 @@ Pour créer une base de données SQL Azure à l’aide du [portail Azure](https
 
 ### <a name="manage-an-existing-sql-server"></a>Gérer un serveur SQL existant
 
-Pour gérer un serveur existant, accédez au serveur à l’aide de plusieurs méthodes, à partir d’une page de base de données SQL spécifique, de la page **Serveurs SQL** ou de la page **Toutes les ressources**, par exemple. La capture d’écran suivante montre comment commencer à définir un pare-feu au niveau du serveur à partir de la page **Vue d’ensemble** d’un serveur. 
-
-   ![présentation du serveur logique](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
+Pour gérer un serveur existant, accédez au serveur à l’aide de plusieurs méthodes, à partir d’une page de base de données SQL spécifique, de la page **Serveurs SQL** ou de la page **Toutes les ressources**, par exemple. 
 
 Pour gérer une base de données existante, accédez à la page **Bases de données SQL** page, puis cliquez sur la base de données que vous souhaitez gérer. La capture d’écran suivante montre comment commencer à définir un pare-feu au niveau du serveur pour une base de données, à partir de la page **Vue d’ensemble** d’une base de données. 
 
@@ -218,14 +212,14 @@ Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Az
 |[Serveurs - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|Retourne une liste de serveurs dans un groupe de ressources.|
 |[Serveurs - Update](/rest/api/sql/servers/update)|Met à jour un serveur existant.|
 |[Serveurs - Sql](/rest/api/sql/servers%20-%20sql)|Détermine si une ressource peut être créée avec le nom spécifié.|
-|[Bases de données : Create ou Update](/rest/api/sql/databases/createorupdate)|Créez une nouvelle base de données ou met à jour une base de données existante.|
-|[Bases de données - Get](/rest/api/sql/databases/get)|Obtient une base de données.|
-|[Bases de données - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique.|
-|[Bases de données - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique recommandé.|
-|[Bases de données - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
-|[Bases de données - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourne une liste des bases de données à l’intérieur d’un pool élastique recommandé.|
-|[Bases de données - List By Server](/rest/api/sql/databases/listbyserver)|Renvoie une liste des bases de données sur un serveur.|
-|[Bases de données - Update](/api/sql/databases/update)|Met à jour une base de données existante.|
+|[Bases de données : Create ou Update](/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
+|[Bases de données - Obtenir](/rest/api/sql/databases/get)|Obtient une base de données.|
+|[Bases de données - Obtenir par pool élastique](/rest/api/sql/databases/getbyelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique.|
+|[Bases de données - Obtenir par pool élastique recommandé](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique recommandé.|
+|[Bases de données - Lister par pool élastique](/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
+|[Bases de données - Lister par pool élastique recommandé](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourne une liste de bases de données à l’intérieur d’un pool élastique recommandé.|
+|[Bases de données - Lister par serveur](/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
+|[Bases de données - Mettre à jour](/api/sql/databases/update)|Met à jour une base de données existante.|
 |[Règles de pare-feu - Create ou Update](/rest/api/sql/firewallrules/createorupdate)|Crée ou met à jour une règle de pare-feu.|
 |[Règles de pare-feu - Delete](/rest/api/sql/firewallrules/delete)|Supprime une règle de pare-feu.|
 |[Règles de pare-feu - Get](/rest/api/sql/firewallrules/get)|Obtient une règle de pare-feu.|
