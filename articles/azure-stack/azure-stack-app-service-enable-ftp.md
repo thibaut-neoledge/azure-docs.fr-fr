@@ -1,6 +1,6 @@
 ---
-title: Enable FTP in App Service on Azure Stack | Microsoft Docs
-description: Steps to complete to enable FTP in App Service on Azure Stack
+title: Activer FTP dans App Service sur Azure Stack | Microsoft Docs
+description: "Étapes à effectuer pour activer FTP dans App Service sur Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: apwestgarth
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/6/2017
 ms.author: anwestg
-translationtype: Human Translation
-ms.sourcegitcommit: de37e12b47d566395717104de87a5dabc00fd5f4
-ms.openlocfilehash: 689e970cf0beb4ac05e1434f4f9a3b887d00005b
-ms.lasthandoff: 02/08/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: bab69a9ff7e101f22713ba7f1ac2cbd0add7fdbd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="enable-ftp-in-app-service-on-azure-stack"></a>Enable FTP in App Service on Azure Stack
+# <a name="enable-ftp-in-app-service-on-azure-stack"></a>Activer FTP dans App Service sur Azure Stack
 
-Once you have successfully deployed App Service on Azure Stack if you wish to enable FTP publishing, so that your tenants can upload their application files and content, there are some additional steps that need to be completed.  In future releases these steps will be automated.
+Une fois que vous avez correctement déployé App Service sur Azure Stack, si vous souhaitez activer la publication FTP afin que vos clients puissent télécharger leurs fichiers d’application et leur contenu, vous devez effectuer quelques étapes supplémentaires.  Ces étapes seront automatisées dans les prochaines versions.
 
 > [!NOTE]
-> These steps are for Service or Enterprise Administrators configuring an App Service on Azure Stack Resource Provider.
+> Ces étapes sont destinées aux administrateurs Service ou Entreprise qui souhaitent configurer un fournisseur de ressources App Service ou Azure Stack.
 
-## <a name="enable-ftp"></a>Enable FTP
+## <a name="enable-ftp"></a>Activer FTP
 
-1.  Log in to the Azure Stack portal as the service administrator.
-2.  Browse to **Network interfaces** and select the **FTP-NIC** under **Resource Group** - **AppService-LOCAL**. ![Azure Stack Network Interfaces][1]
-3.  Note the **Public IP Address** of the **FTP-NIC**. 
-![Azure Stack Network Interface Details][2]
-4.  Next Browse to **Virtual Machines** and select the **FTP0-VM**. ![Azure Stack Virtual Machines][3]
-5.  Open a remote desktop session to the VM using the **Connect** button and login to the session using the Administrator credentials you set during App Service deployment.  
-![Azure Stack Virtual Machine Details][4]
-6.  Open **Internet Information Service (IIS) Manager** on the FTP VM (FTP0-VM).
-7.  Under **Sites** select **Hosting FTP Site**.
-8.  Open **FTP Firewall Support**. ![IIS Manager on App Service FTP0-VM][5]
-9.  Enter the Public IP Address of the FTP-NIC and click **Apply** ![IIS Manager FTP Firewall Support][6]
+1.  Connectez-vous au portail Azure Stack en tant qu’administrateur du service.
+2.  Accédez à **Interfaces réseau** et sélectionnez **FTP-NIC** dans le **Groupe de ressources** - **AppService-LOCAL**. ![Interfaces réseau Azure Stack][1]
+3.  Notez **l’adresse IP publique** de **FTP-NIC**. 
+![Détails de l’interface réseau Azure Stack][2]
+4.  Accédez ensuite à **Machines virtuelles** et sélectionnez **FTP0-VM**. ![Machines virtuelles Azure Stack][3]
+5.  Ouvrez une session Bureau à distance sur la machine virtuelle à l’aide du bouton **Se connecter** et connectez-vous à la session en utilisant les informations d’identification de l’administrateur définies lors du déploiement d’App Service.  
+![Détails des machines virtuelles Azure Stack][4]
+6.  Ouvrez le **Gestionnaire des services IIS** sur la machine virtuelle FTP (FTP0-VM).
+7.  Sous **Sites**, sélectionnez **Hosting FTP Site** (Site d’hébergement FTP).
+8.  Ouvrez **Prise en charge du pare-feu FTP**. ![Gestionnaire des services IIS sur App Service FTP0-VM][5]
+9.  Entrez l’adresse IP publique de FTP-NIC et cliquez sur **Appliquer**. ![Prise en charge du pare-feu FTP dans le gestionnaire des services IIS][6].
 
-## <a name="validate-the-enabling-of-ftp"></a>Validate the enabling of FTP
+## <a name="validate-the-enabling-of-ftp"></a>Valider l’activation de FTP
 
-1.  Log in to the Azure Stack portal as either the service administrator or as a tenant.
-2.  Browse to **App Services** and select a Web, Mobile, or API App you have created. ![App Services][7]
-3.  In the application details note the **FTP Hostname** and **FTP/deployment username**. ![App Service App Details][8]
+1.  Connectez-vous au portail Azure Stack en tant qu’administrateur du service ou en tant que client.
+2.  Accédez à **App Services** et sélectionnez un application Web, mobile ou API que vous avez créée. ![Services d’application][7]
+3.  Dans les détails de l’application, notez le **Nom d’hôte FTP** et le **Nom d’utilisateur FTP/Déploiement**. ![Détails de l’application App Service][8]
 > [!NOTE]
-> If you do not see an entry under **FTP/deployment username**, you need to set the Deployment credentials first using the **Deployment Credentials** Blade.
+> Si vous ne voyez pas d’entrée sous **Nom d’utilisateur FTP/Déploiement**, vous devez d’abord définir les informations d’identification de déploiement à l’aide du panneau **Informations d’identification du déploiement**.
 
-4.  Open Windows Explorer, enter the FTP hostname into the file address bar for example, ftp://ftp.appservice.azurestack.local
-5.  When prompted enter the **Deployment credentials** you noted in step 3, if the feature has been enabled you will see a directory listing of the app service application's contents. ![FTP File Listing][9]
+4.  Ouvrez l’Explorateur Windows, entrez le nom d’hôte FTP dans la barre d’adresse du fichier, par exemple, ftp://ftp.appservice.azurestack.local.
+5.  Lorsque vous y êtes invité, entrez les **Informations d’identification du déploiement** notées à l’étape 3. Si la fonctionnalité a été activée, vous verrez une liste de répertoires comportant les contenus de l’application App Service. ![Liste de fichiers FTP][9]
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-network-interfaces.png
 [2]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-network-interface-details.png
