@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/03/2017
 ms.author: juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 74f38ae61d4a360cabe8a9fbd33d30a6b0751654
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 0d071129944fb9298e8f0a7b8f3bb1dd2fcc4bd4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Éditer les visages avec Azure Media Analytique
@@ -26,8 +26,6 @@ ms.lasthandoff: 08/09/2017
 **Azure Media Redactor** est un processeur multimédia [Azure Media Analytics](media-services-analytics-overview.md) qui offre la rédaction de face évolutive dans le cloud. La rédaction de face vous permet de modifier votre vidéo afin de flouter les visages des individus sélectionnés. Vous souhaitez peut-être utiliser le service de rédaction de face dans des scénarios de média et de sécurité publics. Quelques minutes de séquences vidéo contenant plusieurs visages peuvent nécessiter des heures de traitement manuel, mais avec ce service, le processus de rédaction de face ne nécessitera que quelques étapes simples. Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog/azure-media-redactor/).
 
 Cette rubrique donne des informations détaillées sur **Azure Media Redactor** et illustre son utilisation avec le Kit de développement logiciel (SDK) Media Services pour .NET.
-
-Le processeur multimédia **Azure Media Redactor** est uniquement disponible en version préliminaire. Il est disponible dans toutes les régions Azure publiques, ainsi que dans les centres de données de Chine et du Gouvernement des États-Unis. Cette version préliminaire est actuellement disponible gratuitement. 
 
 ## <a name="face-redaction-modes"></a>Modes de rédaction de face
 La rédaction de face fonctionne en détectant les visages dans chaque image de la vidéo et en suivant l’objet de visage à la fois vers l’avant et l’arrière dans le temps, afin que la même personne puisse être floutée à partir d’autres angles également. Le processus de rédaction automatisé est très complexe et ne produit pas toujours 100 % de la sortie souhaitée et c’est pourquoi Media Analytics vous fournit deux méthodes pour modifier la sortie finale.

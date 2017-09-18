@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 93ada731fe70cf7d294537241f8104c0b89940ed
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: a5753df2ff6874d9574e268953792cac9765cc54
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
@@ -50,8 +50,6 @@ La liste ci-dessous décrit les points de terminaison :
   * *Recevoir des requêtes de méthodes directes*. Un appareil utilise ce point de terminaison pour écouter les requêtes de [méthodes directes][lnk-methods].
 
     Ces points de terminaison sont exposés à l’aide des protocoles [MQTT v3.1.1][lnk-mqtt], HTTP 1.1 et [AMQP 1.0][lnk-amqp]. Le protocole AMQP est également disponible sur [WebSockets][lnk-websockets], sur le port 443.
-
-    Les jumeaux d’appareil et points de terminaison des méthodes sont disponibles uniquement lorsque vous utilisez le protocole [MQTT v3.1.1][lnk-mqtt].
 
 * **Points de terminaison de service**. Chaque IoT Hub expose un ensemble de points de terminaison pour que votre système principal de solution puisse communiquer avec vos appareils. À une exception près, ces points de terminaison sont uniquement exposés à l’aide du protocole [AMQP][lnk-amqp]. Le point de terminaison d’appel de méthode est exposé via le protocole HTTP.
   

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 09/13/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: da2cb358d196e41656bd7f6a06ff77e77c7315c1
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: a293ab42591fad2b913971465bc85743bcf05dad
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Comment distribuer des données mondialement avec Azure Cosmos DB
@@ -65,9 +65,6 @@ Pour contrôler l’ordre exact des basculements régionaux lors d’une panne d
 **Un locataire d’Azure Cosmos DB peut configurer l’ordre de priorité de basculement (volet droit) pour les régions associées à un compte de base de données**
 
 ![Configuration des priorités de basculement avec Azure Cosmos DB](./media/distribute-data-globally/failover-priorities.png)
-
-### <a id="OfflineRegions"></a>Déconnecter une région dynamiquement
-Azure Cosmos DB vous permet de mettre votre compte de base de données hors connexion dans une région spécifique, puis de le remettre en ligne ultérieurement. Les régions marquées comme étant déconnectées ne participent pas activement à la réplication et ne font pas partie de la séquence de basculement. Cela vous permet de geler la dernière image correcte connue de la base de données dans l’une des régions en lecture avant de déployer des mises à niveau potentiellement dangereuses pour votre application.
 
 ### <a id="ConsistencyLevels"></a>Plusieurs modèles de cohérence bien définis pour les bases de données mondialement répliquées
 Azure Cosmos DB expose [plusieurs niveaux de cohérence bien définis](consistency-levels.md) pris en charge par des contrats SLA. Vous pouvez choisir un modèle de cohérence spécifique (à partir de la liste des options disponibles) en fonction des charges de travail/scénarios. 

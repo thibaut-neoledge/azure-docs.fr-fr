@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 1683afd842294b3b45ae4d0e53bbecdccadc1ed5
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: ab6b783c0454aaa424c17ead4e588d962693cb1a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application console API MongoDB avec Java et le Portail Azure
@@ -34,7 +34,8 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du Portail Az
    * JDK 1.7 + (exécutez `apt-get install default-jdk` si vous ne possédez pas JDK)
    * Maven (exécutez `apt-get install maven` si vous ne possédez pas Maven)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="create-a-database-account"></a>Création d'un compte de base de données
 
@@ -44,7 +45,7 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du Portail Az
 
 Nommez votre nouvelle base de données, **db**, et votre nouvelle collection, **coll**.
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 

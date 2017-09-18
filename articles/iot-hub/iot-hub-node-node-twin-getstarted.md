@@ -1,6 +1,6 @@
 ---
-title: "Bien démarrer avec les jumeaux d’appareil Azure IoT Hub (Node) | Microsoft Docs"
-description: "Guide d’utilisation des jumeaux d’appareil Azure IoT Hub pour ajouter des balises, puis utiliser une requête IoT Hub. Vous utilisez les SDK Azure IoT pour Node.js afin d’implémenter l’application d’appareil simulé et une application de service qui ajoute les balises et exécute la requête IoT Hub."
+title: "Prise en main des représentations physiques Azure IoT Hub (Node) | Microsoft Docs"
+description: "Guide d’utilisation des représentations d’appareils Azure IoT Hub pour ajouter des balises, puis utiliser une requête IoT Hub. Vous utilisez les SDK Azure IoT pour Node.js afin d’implémenter l’application d’appareil simulé et une application de service qui ajoute les balises et exécute la requête IoT Hub."
 services: iot-hub
 documentationcenter: node
 author: fsautomata
@@ -15,22 +15,22 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: elioda
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 633c9fd4f8a1d017d93148f8c2e860ccba14238c
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: d7c257553d25694005bced745f793951cc9f8951
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
-# <a name="get-started-with-device-twins-node"></a>Bien démarrer avec les jumeaux d’appareil (Node)
+# <a name="get-started-with-device-twins-node"></a>Prise en main des représentations d’appareils (Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
 
-* **AddTagsAndQuery.js**, application Node.js qui ajoute des balises et interroge des jumeaux d’appareil.
+* **AddTagsAndQuery.js**, application Node.js qui ajoute des balises et interroge des représentations d’appareil.
 * **TwinSimulatedDevice.js**, application Node.js qui simule un appareil se connectant à votre IoT Hub avec l’identité d’appareil créée précédemment, et signale son état de connectivité.
 
 > [!NOTE]
-> L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks] fournit des informations sur les kits SDK IoT que vous pouvez utiliser pour générer des applications d’appareil et des applications backend.
+> L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks] fournit des informations sur les Kits de développement logiciel (SDK) IoT que vous pouvez utiliser pour générer des applications pour appareil et des applications principales.
 > 
 > 
 
@@ -44,7 +44,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-the-service-app"></a>Créer l’application de service
-Dans cette section, vous créez une application console Node.js qui ajoute des métadonnées d’emplacement au jumeau d’appareil associé à **myDeviceId**. Elle interroge ensuite les jumeaux d’appareil stockés dans le hub IoT en sélectionnant les appareils situés aux États-Unis, puis ceux qui signalent une connexion mobile.
+Dans cette section, vous créez une application console Node.js qui ajoute des métadonnées d’emplacement à la représentation d’appareil associée à **myDeviceId**. Elle interroge ensuite les jumeaux d’appareil stockés dans le hub IoT en sélectionnant les appareils situés aux États-Unis, puis ceux qui signalent une connexion mobile.
 
 1. Créez un dossier vide nommé **addtagsandqueryapp**. Dans le dossier **addtagsandqueryapp**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes. Acceptez toutes les valeurs par défaut :
    
@@ -88,7 +88,7 @@ Dans cette section, vous créez une application console Node.js qui ajoute des m
             }
         });
    
-    L’objet **Registry** expose toutes les méthodes requises pour interagir avec des jumeaux d’appareil à partir du service. Le code précédent initialise l’objet **Registry**, récupère le jumeau d’appareil de **myDeviceId**, puis met à jour ses balises avec les informations d’emplacement souhaitées.
+    L’objet **Registry** expose toutes les méthodes requises pour interagir avec des représentations d’appareil à partir du service. Le code précédent initialise l’objet **Registry**, récupère la représentation d’appareil de **myDeviceId**, puis met à jour ses balises avec les informations d’emplacement souhaitées.
    
     Une fois les balises mises à jour, il appelle la fonction **queryTwins**.
 5. Ajoutez le code suivant à la fin de  **AddTagsAndQuery.js** pour implémenter la fonction **queryTwins**:
@@ -113,26 +113,22 @@ Dans cette section, vous créez une application console Node.js qui ajoute des m
             });
         };
    
-    Le code précédent exécute deux requêtes : la première sélectionne uniquement les jumeaux d’appareil situés dans l’usine **Redmond43**et la seconde affine la requête pour sélectionner uniquement les appareils qui sont également connectés via un réseau mobile.
+    Le code précédent exécute deux requêtes : la première sélectionne uniquement les représentations des appareils situés dans l’usine **Redmond43**et la seconde affine la requête pour sélectionner uniquement les appareils qui sont également connectés via un réseau cellulaire.
    
-    Notez que le code précédent, quand il crée l’objet **query**, spécifie un nombre maximal de documents retournés. L’objet **query** contient une propriété booléenne **hasMoreResults** permettant d’appeler les méthodes **nextAsTwin** plusieurs fois afin de récupérer tous les résultats. Une méthode appelée **next** est disponible pour les résultats qui ne sont pas des jumeaux d’appareil, par exemple, les résultats de requêtes d’agrégation.
+    Notez que le code précédent, quand il crée l’objet **query**, spécifie un nombre maximal de documents retournés. L’objet **query** contient une propriété booléenne **hasMoreResults** permettant d’appeler les méthodes **nextAsTwin** plusieurs fois afin de récupérer tous les résultats. Une méthode appelée **next** est disponible pour les résultats qui ne sont pas des représentations d’appareil, par exemple, les résultats de requêtes d’agrégation.
 6. Exécutez l’application avec :
    
         node AddTagsAndQuery.js
    
-    Vous devriez voir un appareil dans les résultats de la requête demandant tous les appareils situés à **Redmond43**, et aucun pour la requête limitant les résultats aux appareils utilisant un réseau mobile.
+    Vous devriez voir un appareil dans les résultats de la requête demandant tous les appareils situés à **Redmond43**, et aucun pour la requête limitant les résultats aux appareils utilisant un réseau cellulaire.
    
     ![][1]
 
 Dans la section suivante, vous allez créer une application d’appareil qui signale les informations de connectivité et modifie le résultat de la requête de la section précédente.
 
 ## <a name="create-the-device-app"></a>Créer l’application d’appareil
-Dans cette section, vous allez créer une application console Node.js qui se connecte à votre hub en tant que **myDeviceId**, puis met à jour les propriétés signalées de son jumeau d’appareil afin qu’elles contiennent les informations indiquant qu’elle est connectée par le biais d’un réseau mobile.
+Dans cette section, vous allez créer une application console Node.js qui se connecte à votre hub en tant que **myDeviceId**, puis met à jour les propriétés signalées de sa représentation d’appareil afin qu’elles contiennent les informations indiquant qu’elle est connectée par le biais d’un réseau cellulaire.
 
-> [!NOTE]
-> Actuellement, les jumeaux d’appareil sont accessibles uniquement à partir d’appareils qui se connectent à IoT Hub à l’aide du protocole MQTT. Pour obtenir des instructions sur la conversion d’une application d’appareil existante pour utiliser MQTT, voir [Support MQTT][lnk-devguide-mqtt].
-> 
-> 
 
 1. Créez un dossier vide nommé **reportconnectivity**. Dans le dossier **reportconnectivity**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes. Acceptez toutes les valeurs par défaut :
    
@@ -183,7 +179,7 @@ Dans cette section, vous allez créer une application console Node.js qui se con
         }
         });
    
-    L’objet **Client** expose toutes les méthodes requises pour interagir avec des jumeaux d’appareil à partir de l’appareil. Le code précédent, après avoir initialisé l’objet **Client**, récupère le jumeau d’appareil de **myDeviceId**, puis met à jour sa propriété signalée avec les informations de connectivité.
+    L’objet **Client** expose toutes les méthodes requises pour interagir avec des représentations d’appareil à partir de l’appareil. Le code précédent, après avoir initialisé l’objet **Client**, récupère la représentation d’appareil de **myDeviceId**, puis met à jour sa propriété signalée avec les informations de connectivité.
 5. Exécuter l’application d’appareil
    
         node ReportConnectivity.js
@@ -198,12 +194,12 @@ Dans cette section, vous allez créer une application console Node.js qui se con
     ![][3]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez configuré un nouveau hub IoT dans le portail Azure, puis créé une identité d’appareil dans le registre des identités du hub IoT. Vous avez ajouté des métadonnées d’appareil en tant que balises à partir d’une application backend et écrit une application d’appareil simulée pour signaler des informations de connectivité d’appareil dans le jumeau d’appareil. Vous avez également appris à interroger ces informations à l’aide du langage de requête IoT Hub de type SQL.
+Dans ce didacticiel, vous avez configuré un nouveau hub IoT dans le portail Azure, puis créé une identité d’appareil dans le registre des identités du hub IoT. Vous avez ajouté des métadonnées d’appareil en tant que balises à partir d’une application principale et écrit une application pour appareil simulée pour signaler des informations de connectivité d’appareil dans le jumeau d’appareil. Vous avez également appris à interroger ces informations à l’aide du langage de requête IoT Hub de type SQL.
 
 Utilisez les ressources suivantes :
 
 * Pour savoir comment envoyer les données de télémétrie à partir d’appareils, consultez le didacticiel [Prise en main d’IoT Hub][lnk-iothub-getstarted].
-* Pour savoir comment configurer des appareils à l’aide des propriétés de jumeau d’appareil souhaitées, consultez le didacticiel [Utiliser des propriétés souhaitées pour configurer des appareils][lnk-twin-how-to-configure].
+* Pour savoir comment configurer des appareils à l’aide des propriétés de représentation d’appareil souhaitées, consultez le didacticiel [Utiliser des propriétés souhaitées pour configurer des appareils][lnk-twin-how-to-configure].
 * Pour savoir comment contrôler des appareils de façon interactive (par exemple en mettant en marche un ventilateur à partir d’une application contrôlée par l’utilisateur), consultez le didacticiel [Utiliser des méthodes directes][lnk-methods-tutorial].
 
 <!-- images -->

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ec1c54c8520170cd19095bf8d752c79c2fd812d8
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/15/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Passer en revue les onglets Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexion hybride
@@ -332,8 +331,6 @@ Définit l'état de la sauvegarde sur Aucun ou Automatique. Lorsqu'il est défin
 
 ## <a name="HybridConnections"></a>Connexions hybrides
 Les connexions hybrides connectent une application Azure, telle que Web Apps ou Mobile Services dans Azure App Service, à une ressource locale utilisant un port TCP statique, tel que SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Les connexions hybrides sont gérées dans BizTalk Services au sein du portail Azure Classic.
-
-Pour créer des connexions hybrides dans Azure App Service, voir [Accéder à des ressources locales à l’aide de connexions hybrides dans Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consultez [Connexions hybrides](integration-hybrid-connection-overview.md).
 

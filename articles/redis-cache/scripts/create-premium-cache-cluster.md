@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 87d0fe4c3eaa8f7b75343a36a069ecdac8241d74
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 45b2a500751830f6ca19fe8450a7781cb0fcb618
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -41,12 +41,12 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources et
 
 | Commande | Remarques |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az redis create](https://docs.microsoft.com/cli/azure/redis#create) | Créez une instance de Cache Redis. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az redis create](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Créez une instance de Cache Redis. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Pour des exemples supplémentaires de scripts CLI de Cache Redis Azure, voir la [documentation du Cache Redis Azure](../cli-samples.md).
+Vous pouvez trouver des exemples supplémentaires de scripts CLI de cache Redis Azure dans la [documentation du cache Redis Azure](../cli-samples.md).

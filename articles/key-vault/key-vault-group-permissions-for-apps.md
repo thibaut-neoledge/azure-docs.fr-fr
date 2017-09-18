@@ -1,6 +1,6 @@
 ---
-title: "Accorder à plusieurs applications l&quot;autorisation d&quot;accéder à un coffre de clés Azure | Microsoft Docs"
-description: "Découvrez comment accorder à plusieurs applications l&quot;autorisation d&quot;accéder à un coffre de clés"
+title: "Accorder à plusieurs applications l'autorisation d'accéder à un coffre de clés Azure | Microsoft Docs"
+description: "Découvrez comment accorder à plusieurs applications l'autorisation d'accéder à un coffre de clés"
 services: key-vault
 documentationcenter: 
 author: amitbapat
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1549eb40b0ca79522cc5475057c3af7ff4c7fd1c
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 52c04b234d460a62daf4b067a5d322af144f15f6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Accorder à plusieurs applications l'autorisation d'accéder à un coffre de clés
@@ -29,7 +28,7 @@ ms.lasthandoff: 04/27/2017
 La stratégie de contrôle d’accès Key Vault prend uniquement en charge 16 entrées. Mais vous pouvez créer un groupe de sécurité Azure Active Directory. Ajoutez tous les principaux du service associés à ce groupe de sécurité et accordez à ce groupe de sécurité l'accès à Key Vault.
 
 Voici les conditions préalables requises :
-* [Installez le module Azure Active Directory V2 PowerShell](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
+* [Installez le module Azure Active Directory V2 PowerShell](https://www.powershellgallery.com/packages/AzureAD).
 * [Installez Azure PowerShell](/powershell/azure/overview).
 * Pour exécuter les commandes suivantes, vous avez besoin d’autorisations pour créer/modifier des groupes dans le locataire Azure Active Directory. Si vous ne disposez pas des autorisations, vous devrez peut-être contacter votre administrateur Active Directory Azure.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 698978fd717091c49a1375e222f46f4325431223
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -57,16 +57,16 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 | Commande | Remarques |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#create) | Crée le compte Batch.  |
-| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#set) | Met à jour les propriétés du compte Batch.  |
-| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#show) | Récupère les détails relatifs au compte Batch spécifié.  |
-| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#list) | Récupère les clés d’accès du compte Batch spécifié.  |
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Effectue l’authentification par rapport au compte Batch spécifié pour renforcer les interactions avec la CLI.  |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Crée un compte de stockage. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) | Crée un coffre de clés. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#set-policy) | Met à jour la stratégie de sécurité du coffre de clés spécifié. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_create) | Crée le compte Batch.  |
+| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_set) | Met à jour les propriétés du compte Batch.  |
+| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_show) | Récupère les détails relatifs au compte Batch spécifié.  |
+| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#az_batch_account_keys_list) | Récupère les clés d’accès du compte Batch spécifié.  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Effectue l’authentification par rapport au compte Batch spécifié pour renforcer les interactions avec la CLI.  |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage. |
+| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | Crée un coffre de clés. |
+| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | Met à jour la stratégie de sécurité du coffre de clés spécifié. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

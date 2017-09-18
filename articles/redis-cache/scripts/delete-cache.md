@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: f959823b3a7c5b0262f693ecad1e6efc4eec4f35
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 11d228cc633fee8c6a2984e2eb23690a43d4c0fc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -41,11 +41,11 @@ Ce script utilise les commandes suivantes pour supprimer une instance du Cache R
 
 | Commande | Remarques |
 |---|---|
-| [az redis delete](https://docs.microsoft.com/cli/azure/redis#delete) | Supprimez une instance de Cache Redis. |
+| [az redis delete](https://docs.microsoft.com/cli/azure/redis#az_redis_delete) | Supprimez une instance de Cache Redis. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Pour des exemples supplémentaires de scripts CLI de Cache Redis Azure, voir la [documentation du Cache Redis Azure](../cli-samples.md).
+Vous pouvez trouver des exemples supplémentaires de scripts CLI de cache Redis Azure dans la [documentation du cache Redis Azure](../cli-samples.md).

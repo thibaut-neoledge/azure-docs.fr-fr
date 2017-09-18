@@ -16,10 +16,10 @@ ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: dfb1abd4eefdb2baea8cdbd497bc8fcc95d200e6
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: b2035d6bc0d323f2497a1db9b88d3ed015235b16
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -142,7 +142,7 @@ L’application web sur Linux prend également en charge les méthodes tradition
 
 Avant de configurer la tâche dans Jenkins, vous avez besoin d’un service d’application Azure sur Linux. Un registre de conteneurs est également nécessaire pour stocker et gérer vos images conteneurs Docker privées. Vous pouvez utiliser DockerHub ; nous utilisons Azure Container Registry pour cet exemple.
 
-* Vous pouvez suivre les étapes indiquées [ici](/azure/app-service-web/app-service-linux-how-to-create-web-app) pour créer une application web sur Linux. 
+* Vous pouvez suivre les étapes indiquées [ici](../app-service/containers/quickstart-nodejs.md) pour créer une application web sur Linux. 
 * Azure Container Registry est un service [de registre Docker] géré (https://docs.docker.com/registry/) basé sur le registre open source Docker 2.0. Suivez les étapes indiquées [ici] (/azure/container-registry/container-registry-get-started-azure-cli) pour plus d’informations sur la marche à suivre. Vous pouvez également utiliser DockerHub.
 
 ### <a name="to-deploy-using-docker"></a>Pour déployer à l’aide de Docker :

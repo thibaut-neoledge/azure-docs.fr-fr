@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: ff90aee308a993ae0d36288191d1496affacce2a
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 7766cdb8576e12bd011dc7e01cf3311720eb4162
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -58,8 +58,8 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 
 | Commande | Remarques |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az acs create](https://docs.microsoft.com/cli/azure/acs#create) | Crée un cluster ACS. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az acs create](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | Crée un cluster ACS. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

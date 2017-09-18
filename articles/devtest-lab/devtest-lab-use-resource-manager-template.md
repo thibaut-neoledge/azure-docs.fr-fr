@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 12cdb61667f77215c894800d5c439235e767a26b
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 0807ab367b91be5acd261f2b58ca2112b2c9e380
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -66,7 +65,7 @@ Après avoir enregistré le modèle Resource Manager, vous devez mettre à jour 
 Après avoir enregistré un modèle Resource Manager et l’avoir personnalisé selon vos besoins, vous pouvez l’utiliser pour automatiser la création de machines virtuelles. La rubrique [Déployer des ressources avec des modèles Resource Manager et Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) explique comment utiliser Azure PowerShell avec des modèles Resource Manager pour déployer vos ressources sur Azure. La rubrique [Déployer des ressources avec des modèles Resource Manager et Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) explique comment utiliser Azure CLI avec des modèles Resource Manager pour déployer vos ressources sur Azure.
 
 > [!NOTE]
-> Seul un utilisateur disposant des autorisations de propriétaire de laboratoire peut créer des machines virtuelles à partir d’un modèle Resource Manager avec Azure PowerShell. Si vous souhaitez automatiser la création de machines virtuelles à l’aide d’un modèle Resource Manager et que vous disposez uniquement d’autorisations utilisateur, vous pouvez utiliser la commande [ **az lab vm create** dans l’interface CLI](https://docs.microsoft.com/cli/azure/lab/vm#create).
+> Seul un utilisateur disposant des autorisations de propriétaire de laboratoire peut créer des machines virtuelles à partir d’un modèle Resource Manager avec Azure PowerShell. Si vous souhaitez automatiser la création de machines virtuelles à l’aide d’un modèle Resource Manager et que vous disposez uniquement d’autorisations utilisateur, vous pouvez utiliser la commande [ **az lab vm create** dans l’interface CLI](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
 
 ### <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [Créer des environnements à plusieurs machines virtuelles avec les modèles Resource Manager](devtest-lab-create-environment-from-arm.md).

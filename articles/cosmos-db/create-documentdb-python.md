@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/13/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 26694432663feb0f9cd21573e9114007b2357528
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: a2059aeb0ac147c896a7306f9530a410974a8e9a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application API DocumentDB grâce à Python et au Portail Azure
@@ -30,12 +30,13 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du Portail Az
 
 ## <a name="prerequisites"></a>Composants requis
 
-* Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivant :
-    * Version [Visual Studio 2015](http://www.visualstudio.com/) ou ultérieure.
+* Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivants :
+    * Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio.
     * Outils Python pour Visual Studio disponibles dans [GitHub](http://microsoft.github.io/PTVS/). Ce didacticiel utilise Python Tools for Visual Studio 2015.
     * Python 2.7 disponible auprès de [python.org](https://www.python.org/downloads/release/python-2712/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Création d'un compte de base de données
 

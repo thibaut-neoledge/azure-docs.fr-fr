@@ -18,10 +18,10 @@ ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 1e1b93c29dc28569e897c57d9b68622c1edbd636
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 65556049d33c84848f015a095acf9c1f69348c6d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -40,9 +40,9 @@ Dans ce didacticiel (le dernier d’une série de sept), les tâches suivantes s
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Dans les didacticiels précédents, une application a été empaquetée dans des images conteneur, ces images chargées sur Azure Container Registry et un cluster Kubernetes créé. Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Didacticiel 1 – Créer des images conteneur](./container-service-tutorial-kubernetes-prepare-app.md). 
+Dans les didacticiels précédents, une application a été empaquetée dans des images conteneur, ces images chargées sur Azure Container Registry et un cluster Kubernetes créé. 
 
-Ce didacticiel nécessite au minimum un cluster Kubernetes avec des nœuds d’agent Linux, et un compte Operations Management Suite (OMS). Au besoin, inscrivez-vous à un [essai OMS gratuit](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial).
+Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Didacticiel 1 – Créer des images conteneur](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## <a name="get-workspace-settings"></a>Obtenir les paramètres de l’espace de travail
 

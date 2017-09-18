@@ -17,8 +17,8 @@ ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: a8037dfbd799209e453b84374f28b881864d3799
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 7326dce288996f0690be3b66882b8b4c21a35348
 ms.contentlocale: fr-fr
 ms.lasthandoff: 09/07/2017
 
@@ -97,7 +97,7 @@ Les ressources (telles que les comptes de base de données, les bases de donnée
         </tr>
         <tr>
             <td valign="top"><p>id</p></td>
-            <td valign="top"><p>Générée par le système</p></td>
+            <td valign="top"><p>Vous pouvez soit utiliser</p></td>
             <td valign="top"><p>Nom unique défini par l'utilisateur de la ressource (avec la même valeur de clé partition). Si l'utilisateur ne spécifie pas d'ID, un ID sera généré par le système</p></td>
         </tr>
     </tbody>
@@ -199,7 +199,7 @@ Les documents d'une collection peuvent suivre des schémas arbitraires et vous p
 2. Un sous-ensemble d'opérations relationnelles incluant la composition, le filtrage, les projections, les agrégations et les jointures réflexives. 
 3. Des fonctions définies par l'utilisateur JavaScript pures, qui fonctionnent avec (1) et (2).  
 
-Le modèle de requête Azure Cosmos DB tente de garantir un équilibre entre les fonctionnalités, l’efficacité et la simplicité. Le moteur de base de données d’Azure Cosmos DB compile et exécute de façon native les instructions de requête SQL. Vous pouvez interroger une collection en utilisant les [API REST](/rest/api/documentdb/) ou l’un des [kits SDK clients](documentdb-sdk-dotnet.md). Le kit .NET SDK comprend un fournisseur LINQ.
+Le modèle de requête Azure Cosmos DB tente de garantir un équilibre entre les fonctionnalités, l’efficacité et la simplicité. Le moteur de base de données d’Azure Cosmos DB compile et exécute de façon native les instructions de requête SQL. Vous pouvez interroger une collection en utilisant les [API REST](/rest/api/documentdb/) ou l’un des [kits SDK clients](documentdb-sdk-dotnet.md). Le Kit de développement logiciel (SDK) .NET comprend un fournisseur LINQ.
 
 > [!TIP]
 > Vous pouvez essayer l’API DocumentDB et exécuter des requêtes SQL sur notre jeu de données dans [Query Playground](https://www.documentdb.com/sql/demo).
@@ -209,8 +209,8 @@ Le modèle de requête Azure Cosmos DB tente de garantir un équilibre entre les
 ## <a name="multi-document-transactions"></a>Transactions multi-documents
 Les transactions de bases de données offrent un modèle de programmation prédictif et sécurisé pour la gestion des modifications simultanées des données. Dans SGBDR, la méthode classique d’écriture de logique métier consiste à écrire des **procédures stockées** et/ou des **déclencheurs**, puis à les expédier vers le serveur de base de données pour exécuter la transaction. Dans SGBDR, le programmateur de l'application doit gérer deux langages de programmation différents : 
 
-* Le langage de programmation d'application (non transactionnel) (par exemple, JavaScript, Python, C#, Java, etc.)
-* T-SQL, le langage de programmation transactionnel exécuté de manière native par la base de données
+* le langage de programmation d'application (non transactionnel) (par exemple, JavaScript, Python, C#, Java, etc.) ;
+* T-SQL, le langage de programmation transactionnel exécuté de manière native par la base de données.
 
 En vertu de son engagement ferme vis-à-vis de JavaScript et JSON directement dans le moteur de base de données, Azure Cosmos DB fournit un modèle de programmation intuitif pour l’exécution de logiques d’application JavaScript, directement sur les collections en termes de procédures stockées et de déclencheurs. Cela permet les deux opérations suivantes :
 

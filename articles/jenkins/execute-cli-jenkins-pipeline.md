@@ -16,10 +16,10 @@ ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 5ca8338d4bf343f08fe70081cff755fa76a126a9
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a1f5329e4e33ae20541e2fdaa09f4609296bddd5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -184,7 +184,7 @@ Maintenant que vous savez comment utiliser l’interface CLI Azure dans votre pi
 
 L’application web sous Linux prend en charge une méthode différente pour le déploiement, à savoir l’utilisation de Docker. Pour déployer, vous devez fournir un fichier Docker qui intègre votre application web et le runtime du service dans une image Docker. Le plug-in crée ensuite l’image, l’insère dans un registre Docker et déploie l’image dans votre application web.
 
-* Suivez les étapes décrites [ici](/azure/app-service-web/app-service-linux-how-to-create-web-app) pour créer une application web Azure qui s’exécute sous Linux.
+* Suivez les étapes décrites [ici](../app-service/containers/quickstart-nodejs.md) pour créer une application web Azure qui s’exécute sous Linux.
 * Installez Docker sur votre instance Jenkins en suivant les instructions dans cet [article](https://docs.docker.com/engine/installation/linux/ubuntu/).
 * Créez un registre de conteneur dans le portail Azure à l’aide des étapes décrites [ici](/azure/container-registry/container-registry-get-started-azure-cli).
 * Dans le même dépôt dupliqué [Application web Java simple pour Azure](https://github.com/azure-devops/javawebappsample), modifiez le fichier **Jenkinsfile2** :

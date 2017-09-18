@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: d8c2056734bc1fdea71543157debd089a9ca743d
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 08/08/2017
 Il s’agit de la dernière partie d’un didacticiel en trois parties. Dans les sections précédentes, [nous avons créé une image conteneur](container-instances-tutorial-prepare-app.md) et [nous l’avons transmise vers un Azure Container Registry](container-instances-tutorial-prepare-acr.md). Cette section termine le didacticiel en déployant le conteneur sur Azure Container Instances. Les étapes terminées sont les suivantes :
 
 > [!div class="checklist"]
-> * Définition d’un groupe de conteneurs à l’aide d’un modèle Azure Resource Manager
-> * Déploiement du groupe de conteneurs à l’aide de l’interface CLI Azure
+> * Déploiement du conteneur à partir d’Azure Container Registry à l’aide de l’interface CLI Azure
+> * Affichage de l’application dans le navigateur
 > * Affichage des journaux de conteneurs
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Déployer le conteneur à l’aide de l’interface CLI Azure

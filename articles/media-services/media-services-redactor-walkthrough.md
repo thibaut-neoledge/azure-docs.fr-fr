@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: b34502aa75d94da1abcda880bb1a251a8455f3f8
+ms.translationtype: HT
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 0bd385ba78028a722c52cdf1508f3348ff90f05f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Procédure d’édition des visages avec Azure Media Analytics
@@ -30,8 +30,6 @@ ms.lasthandoff: 04/03/2017
 Pour plus d’informations sur **Azure Media Redactor**, consultez la rubrique [Vue d’ensemble de la rédaction de face](media-services-face-redaction.md).
 
 Cette rubrique explique étape par étape comment exécuter un workflow de rédaction complet à l’aide d’Azure Media Services Explorer (AMSE) et d’Azure Media Redactor Visualizer (outil open source).
-
-Le processeur multimédia **Azure Media Redactor** est uniquement disponible en version préliminaire. Il est disponible dans toutes les régions Azure publiques, ainsi que dans les centres de données de Chine et du Gouvernement des États-Unis. Cette version préliminaire est actuellement disponible gratuitement. Dans la version actuelle, la longueur de vidéo traitée est limitée à 10 minutes.
 
 Pour plus d’informations, consultez [ce](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blog.
 
