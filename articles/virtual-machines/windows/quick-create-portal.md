@@ -17,10 +17,10 @@ ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -48,7 +48,7 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
     ![Capture d’écran montrant les tailles de machine virtuelle](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. Conservez les valeurs par défaut dans le panneau des paramètres et cliquez sur **OK**.
+5. Sous **Paramètres**, conservez les valeurs par défaut et cliquez sur **OK**. 
 
 6. Sur la page Résumé, cliquez sur **OK** pour lancer le déploiement de machine virtuelle.
 
@@ -94,13 +94,13 @@ Un groupe de sécurité réseau (NSG) sécurise les trafics entrant et sortant. 
 
 ## <a name="view-the-iis-welcome-page"></a>Afficher la page d’accueil IIS
 
-Avec IIS installé et le port 80 ouvert pour votre machine virtuelle, le serveur web est désormais accessible à partir d’internet. Ouvrez un navigateur web et saisissez l’adresse IP publique de la machine virtuelle. Cette adresse IP publique se trouve dans le panneau de la machine virtuelle sur le portail Azure.
+Avec IIS installé et le port 80 ouvert pour votre machine virtuelle, le serveur web est désormais accessible à partir d’internet. Ouvrez un navigateur web et saisissez l’adresse IP publique de la machine virtuelle. L’adresse IP publique peut être trouvée sous *Machines virtuelles* dans le portail Azure.
 
 ![Site IIS par défaut](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources à partir du panneau de la machine virtuelle, puis cliquez sur **supprimer**.
+Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle et cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

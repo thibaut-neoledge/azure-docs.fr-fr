@@ -16,10 +16,10 @@ ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: b316aa419d558547f90a914a22fb29935076de21
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 257f661dbc5ff23db53591a1b2db59a8dbeac2dc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux d’appareil IoT Hub
@@ -29,10 +29,6 @@ Les *jumeaux d’appareil* sont des documents JSON qui stockent des informations
 * La structure du jumeau d’appareil : *tags* (balises), propriétés *desired* (souhaitées) et *reported* (signalées) et
 * Les opérations que les applications d’appareil et back-ends peuvent effectuer sur des jumeaux d’appareil.
 
-> [!NOTE]
-> Actuellement, des jumeaux d’appareil sont accessibles uniquement à partir d’appareils qui se connectent à IoT Hub à l’aide du protocole MQTT. Pour obtenir des instructions sur la conversion d’une application pour appareil existante pour utiliser MQTT, consultez [Prise en charge de MQTT][lnk-devguide-mqtt].
-> 
-> 
 
 ### <a name="when-to-use"></a>Quand utiliser
 Vous pouvez utiliser des jumeaux d’appareil pour répondre aux besoins suivants :
@@ -219,12 +215,8 @@ Toutes les opérations précédentes requièrent l’autorisation **DeviceConnec
 
 Les kits [Azure IoT device SDK][lnk-sdks] facilitent le recours aux opérations précédentes à partir d’un grand nombre de langages et de plateformes. Pour plus d’informations sur les détails des primitives d’IoT Hub pour la synchronisation des propriétés souhaitées, voir [Flux de reconnexion d’appareil][lnk-reconnection].
 
-> [!NOTE]
-> Actuellement, des jumeaux d’appareil sont accessibles uniquement à partir d’appareils qui se connectent à IoT Hub à l’aide du protocole MQTT.
-> 
-> 
 
-## <a name="reference-topics"></a>Rubriques de référence :
+## <a name="reference-topics"></a>Rubriques de référence :
 Les rubriques de référence suivantes vous fournissent des informations supplémentaires sur le contrôle de l’accès à votre hub IoT.
 
 ## <a name="tags-and-properties-format"></a>Format des Tags et propriétés

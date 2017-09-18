@@ -13,20 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 8b2fbc230faf01797109114d6ebdffe5ec50e48b
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: bdd0fd0d1919f61fe586f495adadaf4eabde2dae
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
-<a id="what-are-virtual-machine-scale-sets-in-azure" class="xliff"></a>
-
-# À quoi correspondent les groupes de machines virtuelles identiques dans Azure ?
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>À quoi correspondent les groupes de machines virtuelles identiques dans Azure ?
 Les groupes de machines virtuelles identiques sont des ressources Azure Compute que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques. Toutes les machines virtuelles étant configurées de la même façon, les groupes identiques sont conçus pour prendre en charge une véritable mise à l’échelle automatique (aucun pré-approvisionnement de machine virtuelle n’est nécessaire). Ainsi, il est plus facile de créer des services à grande échelle pour le Big Compute, le Big Data et les charges de travail en conteneurs.
 
 Pour les applications nécessitant une mise à l’échelle des ressources de calcul internes et externes, les opérations de mise à l’échelle sont équilibrées de façon implicite sur plusieurs domaines d’erreur et de mise à jour. Pour accéder à une présentation plus poussée des groupes identiques, reportez-vous à [l’Annonce du blog Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -36,9 +33,7 @@ Regardez ces vidéos pour en savoir plus sur les groupes identiques :
 * [Mark Russinovich parle des groupes identiques Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
 * [Jeux de mise à l’échelle de machine virtuelle, avec Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-<a id="creating-and-managing-scale-sets" class="xliff"></a>
-
-## Création et gestion des groupes identiques
+## <a name="creating-and-managing-scale-sets"></a>Création et gestion des groupes identiques
 Vous pouvez créer un groupe identique sur le [Portail Azure](https://portal.azure.com) en sélectionnant **Nouveau** et en tapant **identique** dans la barre de recherche. **Groupe de machines virtuelles identiques** apparaîtra dans les résultats. À partir de là, vous pourrez renseigner les champs obligatoires pour personnaliser et déployer votre groupe identique. Vous pouvez également configurer les règles de mise à l’échelle automatique de base en fonction de l’utilisation du processeur.
 
 Vous pouvez définir et déployer des groupes identiques à l’aide de modèles JSON et d’[API REST](https://msdn.microsoft.com/library/mt589023.aspx), tout comme des machines virtuelles Azure Resource Manager individuelles. Par conséquent, vous pouvez utiliser toute méthode de déploiement standard d’Azure Resource Manager. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
@@ -47,9 +42,7 @@ Vous trouverez des modèles d’exemple de groupes de machines virtuelles identi
 
 Pour les exemples de modèles de démarrage rapide, un bouton « Déployer sur Azure » du fichier readme de chaque modèle est lié à la fonctionnalité de déploiement du portail. Pour déployer le groupe identique, cliquez sur le bouton et renseignez ensuite tous les paramètres requis dans le portail. 
 
-<a id="scaling-a-scale-set-out-and-in" class="xliff"></a>
-
-## Mise à l’échelle d’un groupe identique (augmentation et diminution)
+## <a name="scaling-a-scale-set-out-and-in"></a>Mise à l’échelle d’un groupe identique (augmentation et diminution)
 Vous pouvez modifier la capacité d’un groupe identique dans le portail Azure en cliquant sur la section **Mise à l’échelle** sous **Paramètres**. 
 
 Pour modifier la capacité de groupe identique sur la ligne de commande, utilisez la commande **scale** dans [l’interface de ligne de commande Azure](https://github.com/Azure/azure-cli). Par exemple, vous pouvez l’utiliser pour définir un groupe identique sur une capacité de 10 machines virtuelles :
@@ -70,9 +63,7 @@ Pour augmenter ou diminuer le nombre de machines virtuelles dans un groupe ident
 
 Si vous redéployez un modèle Azure Resource Manager pour modifier la capacité, vous pouvez définir un modèle beaucoup plus petit qui inclut uniquement le paquet de propriété **SKU** et la capacité mise à jour. [Voici un exemple](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-<a id="autoscale" class="xliff"></a>
-
-## Autoscale
+## <a name="autoscale"></a>Autoscale
 
 Un groupe identique peut être configuré avec des paramètres de mise à l’échelle lorsqu’il est créé dans le portail Azure. Le nombre de machines virtuelles peut ensuite être augmenté ou réduit selon le niveau d’utilisation moyen du processeur. 
 
@@ -93,18 +84,14 @@ Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGr
 
 Vous trouverez la liste des mesures valides pour une mise à l’échelle ici : [Mesures prises en charge avec Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) sous le titre « Microsoft.Compute/virtualMachineScaleSets ». Des options de mise à l’échelle automatique plus avancées sont également disponibles, y compris des mises à l’échelle automatiques basées sur la planification, ainsi que l’utilisation de webhooks pour s’intégrer aux systèmes d’alerte.
 
-<a id="monitoring-your-scale-set" class="xliff"></a>
-
-## Surveillance de votre groupe identique
+## <a name="monitoring-your-scale-set"></a>Surveillance de votre groupe identique
 Le [portail Azure](https://portal.azure.com) répertorie les groupes identiques et affiche leurs propriétés. Le portail prend également en charge les opérations de gestion. Vous pouvez effectuer des opérations de gestion à la fois sur des groupes identiques, et sur des machines virtuelles individuelles faisant partie d’un groupe identique. Le portail fournit également un graphique d’utilisation des ressources personnalisable. 
 
 Si vous souhaitez afficher ou modifier la définition JSON sous-jacente d’une ressource Azure, vous pouvez également utiliser l’[Explorateur de ressources Azure](https://resources.azure.com). Les groupes identiques sont pourvus par le fournisseur de ressources Azure Microsoft.Compute. À partir de ce site, vous pouvez les voir en développant les liens suivants :
 
 **Abonnements** > **votre abonnement** > **resourceGroups** > **fournisseurs** > **Microsoft.Compute** > **virtualMachineScaleSets** > **votre groupe identique** > etc.
 
-<a id="scale-set-scenarios" class="xliff"></a>
-
-## Scénarios de groupe identique
+## <a name="scale-set-scenarios"></a>Scénarios de groupe identique
 Cette section répertorie quelques scénarios de groupe identique classiques. Certains services Azure de niveau supérieur (comme Batch, Service Fabric, Container Service) utilisent également ces scénarios.
 
 * **Utiliser RDP ou SSH pour se connecter à des instances de groupe identique** : un groupe identique est créé dans un réseau virtuel et les machines virtuelles individuelles du groupe ne reçoivent pas d’adresses IP publiques par défaut. Cette stratégie évite la surcharge de gestion et de coût liée à l’attribution d’adresses IP publiques distinctes sur tous les nœuds dans la grille de calcul. Si vous avez besoin de connexions externes directes vers les machines virtuelles d’un groupe identique, vous pouvez configurer un groupe de sorte qu’il affecte automatiquement des adresses IP publiques aux nouvelles machines virtuelles. Vous pouvez également vous connecter à ces machines virtuelles à partir d’autres ressources dans votre réseau virtuel, par exemple les équilibreurs de charge et les machines virtuelles autonomes, auxquels vous pouvez allouer des adresses IP publiques. 
@@ -134,20 +121,16 @@ Cette section répertorie quelques scénarios de groupe identique classiques. Ce
   
    Dans [cet exemple](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) de cette approche, [Azure Container Service](https://azure.microsoft.com/services/container-service/) déploie un cluster basé sur les groupes identiques avec un orchestrateur de conteneur.
 
-<a id="scale-set-performance-and-scale-guidance" class="xliff"></a>
-
-## Performance de groupe identique et guide de mise à l’échelle
-* Un groupe identique prend en charge jusqu'à 1 000 machines virtuelles. Si vous créez et téléchargez vos propres images de machine virtuelle personnalisées, la limite est de 100. Pour connaître les aspects à prendre en compte en matière d’utilisation de grands groupes identiques, voir [Utilisation de grands groupes de machines virtuelles identiques](virtual-machine-scale-sets-placement-groups.md).
+## <a name="scale-set-performance-and-scale-guidance"></a>Performance de groupe identique et guide de mise à l’échelle
+* Un groupe identique prend en charge jusqu'à 1 000 machines virtuelles. Si vous créez et chargez vos propres images de machine virtuelle personnalisées, la limite est de 300. Pour connaître les aspects à prendre en compte en matière d’utilisation de grands groupes identiques, voir [Utilisation de grands groupes de machines virtuelles identiques](virtual-machine-scale-sets-placement-groups.md).
 * Vous n’êtes pas obligé de créer au préalable des comptes Azure Storage pour utiliser les groupes identiques. Les groupes identiques prennent en charge Azure Managed Disks, qui élimine les problèmes de performances liés au nombre de disques par compte de stockage. Pour plus d’informations, voir [Groupes de machines virtuelles identiques et disques gérés Azure](virtual-machine-scale-sets-managed-disks.md).
 * Envisagez d’utiliser Azure Premium Storage plutôt que le stockage Azure afin d’optimiser les temps d’approvisionnement des machines virtuelles et les performances d’E/S.
 * Le quota de base dans la région dans laquelle vous déployez limite le nombre de machines virtuelles que vous pouvez créer. Vous devrez peut-être contacter le support technique pour augmenter votre limite de quota de calcul, même si vous avez une limite de cœurs haute à utiliser avec vos services cloud Azure dès aujourd’hui. Pour interroger votre quota, exécutez cette commande de l’interface de ligne de commande Azure : `azure vm list-usage`. Ou bien, exécutez cette commande PowerShell : `Get-AzureRmVMUsage`.
 
-<a id="frequently-asked-questions-for-scale-sets" class="xliff"></a>
-
-## Forum Aux Questions (FAQ) pour les groupes identiques
+## <a name="frequently-asked-questions-for-scale-sets"></a>Forum Aux Questions (FAQ) pour les groupes identiques
 **Q.** Combien de machines virtuelles peut-il y avoir dans un groupe identique ?
 
-**A.** Un groupe identique peut contenir de 0 à 1 000 machines virtuelles basées sur des images de plateforme, ou de 0 à 100 machines virtuelles basées sur des images personnalisées. 
+**A.** Un groupe identique peut contenir de 0 à 1 000 machines virtuelles basées sur des images de plateforme, ou de 0 à 300 machines virtuelles basées sur des images personnalisées. 
 
 **Q.** Les disques de données sont-ils pris en charge dans les groupes identiques ?
 

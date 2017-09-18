@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/04/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 3269cb65cfb59258d761f4c60278c598bc251325
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6d306d4742a53789d8e69c80d7fbdfc4e1ade4bf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="get-started-with-device-twins-java"></a>Bien démarrer avec les jumeaux d’appareils (Java)
@@ -56,7 +56,7 @@ Dans cette section, vous créez une application Java qui ajoute des métadonnée
 
 1. Dans votre invite de commandes, accédez au dossier `add-tags-query`.
 
-1. Dans un éditeur de texte, ouvrez le fichier `pom.xml` dans le dossier `add-tags-query` et ajoutez la dépendance suivante au nœud **dependencies**. Cette dépendance vous permet d’utiliser le package **iot-service-client** dans votre application pour communiquer avec votre hub IoT :
+1. Dans un éditeur de texte, ouvrez le fichier `pom.xml` dans le dossier `add-tags-query` et ajoutez la dépendance suivante au nœud **dependencies**. Cette dépendance vous permet d’utiliser le package **iot-service-client** dans votre application pour communiquer avec votre IoT Hub :
 
     ```xml
     <dependency>
@@ -213,7 +213,7 @@ Dans cette section, vous allez créer une application console Java qui définit 
 
 1. Dans votre invite de commandes, accédez au dossier `simulated-device`.
 
-1. Dans un éditeur de texte, ouvrez le fichier `pom.xml` dans le dossier `simulated-device` et ajoutez les dépendances suivantes au nœud **dependencies**. Cette dépendance vous permet d’utiliser le package **iot-device-client** dans votre application pour communiquer avec votre hub IoT :
+1. Dans un éditeur de texte, ouvrez le fichier `pom.xml` dans le dossier `simulated-device` et ajoutez les dépendances suivantes au nœud **dependencies**. Cette dépendance vous permet d’utiliser le package **iot-device-client** dans votre application pour communiquer avec votre IoT Hub :
 
     ```xml
     <dependency>
@@ -259,7 +259,7 @@ Dans cette section, vous allez créer une application console Java qui définit 
     import java.util.Scanner;
     ```
 
-1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{youriothubname}` par le nom de votre hub IoT, et `{yourdevicekey}` par la valeur de clé de l’appareil que vous avez générée dans la section *Créer une identité d’appareil* :
+1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{youriothubname}` par le nom de votre IoT Hub, et `{yourdevicekey}` par la valeur de clé de l’appareil que vous avez générée dans la section *Créer une identité d’appareil* :
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -267,9 +267,9 @@ Dans cette section, vous allez créer une application console Java qui définit 
     private static String deviceId = "myDeviceId";
     ```
 
-    Cet exemple d’application utilise la variable **protocol** lorsqu’il instancie un objet **DeviceClient**. Actuellement, pour utiliser les fonctionnalités des jumeaux d’appareils, vous devez utiliser le protocole MQTT.
+    Cet exemple d’application utilise la variable **protocol** lorsqu’il instancie un objet **DeviceClient**. 
 
-1. Ajoutez le code suivant à la méthode **main** pour :
+1. Ajoutez le code suivant à la méthode **main** pour :
     * créer un client d’appareil afin de communiquer avec IoT Hub.
     * créer un objet **Device** afin de stocker les propriétés du jumeau d’appareil.
 
@@ -320,7 +320,7 @@ Dans cette section, vous allez créer une application console Java qui définit 
 
 1. Enregistrez et fermez le fichier `simulated-device\src\main\java\com\mycompany\app\App.java`.
 
-1. Générez l’application **simulated-device** et corrigez les erreurs. Dans votre invite de commandes, accédez au dossier `simulated-device` et exécutez la commande suivante :
+1. Générez l’application **simulated-device** et corrigez les erreurs. Dans votre invite de commandes, accédez au dossier `simulated-device` et exécutez la commande suivante :
 
     `mvn clean package -DskipTests`
 

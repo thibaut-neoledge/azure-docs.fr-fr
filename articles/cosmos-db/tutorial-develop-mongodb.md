@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 47ec9998c68455a90b505c917156d9b6b0fe0f24
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: a5f34e487a6b2a99f5fcd5c4639ceb6da36806d4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB : se connecter à une application MongoDB à l’aide de .NET
@@ -40,6 +40,9 @@ Ce didacticiel décrit les tâches suivantes :
 ## <a name="create-a-database-account"></a>Création d'un compte de base de données
 
 Commençons par créer un compte Azure Cosmos DB dans le portail Azure.  
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 > [!TIP]
 > * Possédez-vous un compte Azure Cosmos DB ? Si tel est le cas, passez directement à l’étape [Configurer votre solution Visual Studio](#SetupVS).

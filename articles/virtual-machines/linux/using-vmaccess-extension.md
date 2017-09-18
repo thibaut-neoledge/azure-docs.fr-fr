@@ -1,6 +1,6 @@
 ---
 title: "Réinitialiser l’accès à une machine virtuelle Linux Azure | Microsoft Docs"
-description: "Guide pratique de gestion des utilisateurs et de réinitialisation de l’accès sur des machines virtuelles Linux à l’aide de l’extension VMAccess et Azure CLI 2.0"
+description: "Guide pratique pour gérer les utilisateurs administratifs et réinitialiser l’accès sur des machines virtuelles Linux à l’aide de l’extension VMAccess et Azure CLI 2.0"
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 587c73278a9a92776276a811c5c4c8d3db773de3
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3596b50b68cabf212218825566c0f8313f054f65
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/02/2017
 
 ---
-# <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Gérer les utilisateurs, SSH et vérifier ou réparer les disques de machines virtuelles Linux à l’aide de l’extension VMAccess avec Azure CLI 2.0
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Gérer les utilisateurs administratifs, SSH et vérifier ou réparer les disques de machines virtuelles Linux à l’aide de l’extension VMAccess avec Azure CLI 2.0
 Le disque de votre machine virtuelle Linux affiche des erreurs. Vous avez d'une certaine manière réinitialisé le mot de passe racine de votre machine virtuelle Linux ou supprimé accidentellement votre clé privée SSH. Dans les anciens centres de données, vous deviez aller sur place et ouvrir le KVM pour accéder à la console du serveur. Considérez l’extension Azure VMAccess comme ce commutateur KVM qui vous permet d’accéder à la console pour réinitialiser l’accès à Linux ou effectuer la maintenance au niveau du disque.
 
-Cet article vous explique comment utiliser l’extension Azure VMAccess pour vérifier ou réparer un disque, réinitialiser l’accès des utilisateurs, gérer les comptes d’utilisateur ou réinitialiser la configuration SSH sous Linux. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Cet article vous explique comment utiliser l’extension Azure VMAccess pour vérifier ou réparer un disque, réinitialiser l’accès des utilisateurs administratifs, gérer les comptes d’utilisateur ou réinitialiser la configuration SSH sous Linux. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Méthodes d’utilisation de l’extension VMAccess
@@ -67,8 +67,8 @@ az vm user reset-ssh \
   --name myVM
 ```
 
-## <a name="create-a-user"></a>Créer un utilisateur
-L’exemple suivant crée un utilisateur nommé `myNewUser` à l’aide de la clé SSH pour authentification sur la machine virtuelle nommée `myVM` :
+## <a name="create-an-administrativesudo-user"></a>Créer un utilisateur administratif/sudo
+L’exemple suivant crée un utilisateur nommé `myNewUser` avec des autorisations **sudo**. Le compte utilise une clé SSH pour l’authentification sur la machine virtuelle nommée `myVM`. Cette méthode est conçue pour vous aider à réaccéder à une machine virtuelle en cas de perte ou d’oubli des informations d’identification actuelles. En guise de bonne pratique, vous devez limiter les comptes avec des autorisations **sudo**.
 
 ```azurecli
 az vm user update \
@@ -77,6 +77,8 @@ az vm user update \
   --username myNewUser \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
+
+
 
 ## <a name="delete-a-user"></a>Supprimer un utilisateur
 L’exemple suivant supprime un utilisateur nommé `myNewUser` sur la machine virtuelle `myVM` :
@@ -158,9 +160,9 @@ az vm extension set \
   --protected-settings reset_sshd.json
 ```
 
-### <a name="manage-users"></a>Gestion des utilisateurs
+### <a name="manage-administrative-users"></a>Gérer les utilisateurs administratifs
 
-Pour créer un utilisateur qui utilise une clé SSH lors de l’authentification, créez un fichier nommé `create_new_user.json` et ajoutez des paramètres au format suivant. Remplacez par vos propres valeurs les paramètres `username` et `ssh_key` :
+Pour créer un utilisateur avec des autorisations **sudo** qui utilise une clé SSH au moment de l’authentification, créez un fichier nommé `create_new_user.json` et ajoutez des paramètres au format suivant. Remplacez par vos propres valeurs les paramètres `username` et `ssh_key`. Cette méthode est conçue pour vous aider à réaccéder à une machine virtuelle en cas de perte ou d’oubli des informations d’identification actuelles. En guise de bonne pratique, vous devez limiter les comptes avec des autorisations **sudo**.
 
 ```json
 {

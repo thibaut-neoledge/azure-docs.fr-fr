@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0528d660f590e106f61729f10f8f68da3fe58cb7
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -269,10 +269,6 @@ De nombreux connecteurs gérés d’applications logiques fournissent une connec
 #### <a name="azure-api-management"></a>Gestion des API Azure
 
 [Gestion des API Azure](https://azure.microsoft.com/services/api-management/) inclut des options de connectivité locale, notamment l’intégration VPN de site à site et ExpressRoute pour un proxy et une communication sécurisés vers les systèmes locaux. Dans le concepteur d’application logique, vous pouvez sélectionner rapidement une API exposée à partir de la Gestion des API Azure dans un flux de travail, offrant ainsi un accès rapide aux systèmes locaux.
-
-#### <a name="hybrid-connections-from-azure-app-service"></a>Connexions hybrides à partir des services d’application Azure
-
-Vous pouvez utiliser la fonctionnalité de connexion hybride locale pour que l’API Azure et les applications web communiquent en local.  Des détails sur les connexions hybrides et leur configuration sont fournis [dans cet article](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créer un modèle de déploiement](logic-apps-create-deploy-template.md)  

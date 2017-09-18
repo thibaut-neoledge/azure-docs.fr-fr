@@ -152,7 +152,7 @@ Cliquez sur **Manage** pour ouvrir le portail de gestion Access Control. Dans le
 L'identité de service Access Control est un ensemble d'informations d'identification qui permet aux applications ou aux clients de s'authentifier directement auprès du contrôle d'accès et de recevoir un jeton.
 
 > [!IMPORTANT]
-> Le service BizTalk utilise **Propriétaire** comme identité de service par défaut et la valeur **Mot de passe**. Si vous utilisez la valeur de clé symétrique plutôt que la valeur de mot de passe, l’erreur ci-après peut survenir.<br/><br/>*Impossible de se connecter au compte de service de gestion de contrôle d’accès avec les informations d’identification spécifiées.*
+> Le service BizTalk utilise **Propriétaire** comme identité de service par défaut et la valeur **Mot de passe**. Si vous utilisez la valeur de clé symétrique plutôt que la valeur de mot de passe, l’erreur ci-après peut survenir.<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
 > 
 > 
 

@@ -16,21 +16,23 @@ ms.workload: na
 ms.date: 08/10/2017
 ms.author: tonguyen
 experimental_id: a2b2579c-cd2e-41
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: b172fc1726d2a01ee68aebf8ec03cc1567012ca6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
 # <a name="prevent-unexpected-costs-with-azure-billing-and-cost-management"></a>Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure
 
-Lorsque vous vous inscrivez à Azure, il y a plusieurs choses que vous pouvez faire pour avoir une meilleure idée de vos dépenses. Dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), lorsque vous sélectionnez l’abonnement, vous pouvez voir la répartition des coûts et le taux d’avancement actuels. Vous pouvez également [télécharger vos anciennes factures et vos anciens fichiers d’utilisation détaillée](billing-download-azure-invoice-daily-usage-date.md). Si vous souhaitez regrouper les coûts associés à des ressources utilisées pour différents projets ou équipes, tournez-vous vers le [balisage des ressources](../azure-resource-manager/resource-group-using-tags.md). Si votre organisation dispose d’un système de création de rapports que vous préférez utiliser, regardez du côté des [API de facturation](billing-usage-rate-card-overview.md). 
+Lorsque vous vous inscrivez à Azure, il y a plusieurs choses que vous pouvez faire pour avoir une meilleure idée de vos dépenses. Dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), lorsque vous sélectionnez l’abonnement, vous pouvez voir la répartition des coûts et le taux d’avancement actuels. Vous pouvez également [télécharger vos anciennes factures et vos anciens fichiers d’utilisation détaillée](billing-download-azure-invoice-daily-usage-date.md) pour la plupart des types d’offres. Si vous souhaitez regrouper les coûts associés à des ressources utilisées pour différents projets ou équipes, tournez-vous vers le [balisage des ressources](../azure-resource-manager/resource-group-using-tags.md). Si votre organisation dispose d’un système de création de rapports que vous préférez utiliser, regardez du côté des [API de facturation](billing-usage-rate-card-overview.md). 
 
 Pour plus d’informations sur votre utilisation quotidienne, consultez la page [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md).
 
-Si votre abonnement fait l’objet d’un Contrat Entreprise (EA), Fournisseur de solutions cloud (CSP) ou Azure Sponsorship, un grand nombre des fonctionnalités présentées dans cet article ne vous concernent pas. Au lieu de cela, nous avons un autre ensemble d’outils que vous pouvez utiliser pour la gestion des coûts. Consultez [Ressources supplémentaires pour les offres EA, CSP et Sponsorship](#other-offers).
+Si votre abonnement s’effectue par l’intermédiaire d’un fournisseur de solutions cloud (CSP) ou Azure Sponsorship, un grand nombre des fonctionnalités présentées dans cet article ne vous concernent pas. Au lieu de cela, nous avons un autre ensemble d’outils que vous pouvez utiliser pour la gestion des coûts. Consultez [Ressources supplémentaires pour les offres EA, CSP et Sponsorship](#other-offers).
+
+Si votre abonnement est un Contrat Entreprise (EA), la préversion publique pour l’affichage de vos coûts dans le portail Azure est maintenant publiée. Vous devez [avoir connaissance de certains éléments](#EA) puisque certaines des fonctionnalités listées dans cet article ne vous concernent pas.   
 
 Si votre abonnement est un essai gratuit, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure dans Open (AIO) ou BizSpark, apprenez-en davantage sur les [limites de dépense](#spending-limit) pour éviter que votre abonnement soit désactivé de façon inattendue. 
 
@@ -48,7 +50,7 @@ Pour plus d’informations, consultez le [FAQ sur la tarification](https://azure
 
 L’affichage des coûts nécessite un [accès de niveau abonnement aux informations de facturation](billing-manage-access.md), mais seul l’administrateur de compte peut accéder au [Centre des comptes](https://account.windowsazure.com/Home/Index), modifier les informations de facturation et gérer les abonnements. L’administrateur de compte est la personne qui a effectué le processus d’inscription. Pour plus d’informations, consultez [Ajout ou modification de rôles d’administrateur Azure gérant l’abonnement ou les services](billing-add-change-azure-subscription-administrator.md).
 
-Pour savoir si vous êtes l’administrateur de compte, accédez à l’[onglet Abonnements du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et examinez la liste des abonnements auxquels vous avez accès. Regardez sous **Mon rôle**. S’il est indiqué *Administrateur de compte*, vous disposez bien de tous les droits associés. S’il est indiqué autre chose, par exemple *Propriétaire*, vous ne disposez pas de privilèges complets.
+Pour savoir si vous êtes administrateur de compte, accédez à la [page Abonnements du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et examinez la liste des abonnements auxquels vous avez accès. Regardez sous **Mon rôle**. S’il est indiqué *Administrateur de compte*, vous disposez bien de tous les droits associés. S’il est indiqué autre chose, par exemple *Propriétaire*, vous ne disposez pas de privilèges complets.
 
 ![Capture d’écran de votre rôle dans la vue Abonnements du portail Azure](./media/billing-getting-started/sub-blade-view.PNG)
 
@@ -91,7 +93,7 @@ En général, lorsque vous ajoutez un service dans le portail Azure, une vue pr�
 
 ![Exemple : le coût d’une machine virtuelle A1 Windows est estimé à 66,96 USD par mois](./media/billing-getting-started/vm-size-cost.PNG)
 
-### <a name="tags"></a> Ajoutez des balises à vos ressources pour regrouper vos données de facturation
+### <a name="tags"></a> Regrouper vos données de facturation en ajoutant des balises 
 
 Vous pouvez utiliser des balises pour regrouper les données de facturation associées aux services pris en charge. Par exemple, si vous exécutez plusieurs machines virtuelles pour différentes équipes, vous pouvez utiliser des balises pour classer les coûts par centre de coût (RH, marketing, service financier) ou par environnement (production, préproduction, test). 
 
@@ -117,11 +119,11 @@ Pour bénéficier d’autres fonctionnalités de réduction des coûts pour vos 
 
 Une fois que vos services sont actifs, vérifiez régulièrement combien ils vous coûtent. Vous pouvez consulter les dépenses et le taux d’avancement actuels dans le portail. 
 
-1. Accédez au [panneau Abonnements du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Accédez à la [page Abonnements du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 2. Sélectionnez l’abonnement à afficher. Il se peut qu’il n’y en ait qu’un seul.
 
-3. Vous devriez voir la répartition des coûts et le taux d’avancement dans le panneau contextuel qui s’affiche. Il se peut que votre offre ne donne pas accès à ces données (un avertissement est alors affiché en haut). Après avoir ajouté un service, comptez un délai de 24 heures pour que les données soient remplies.
+3. Vous devriez voir la répartition des coûts et le taux d’avancement dans la page contextuelle qui s’affiche. Il se peut que votre offre ne donne pas accès à ces données (un avertissement est alors affiché en haut). Après avoir ajouté un service, comptez un délai de 24 heures pour que les données soient remplies.  
     
     ![Capture d’écran du taux d’avancement et de la répartition des coûts dans le portail Azure](./media/billing-getting-started/burn-rate.PNG)
 
@@ -141,9 +143,21 @@ Une fois que vos services sont actifs, vérifiez régulièrement combien ils vou
 
 Nous vous recommandons de comparer les coûts affichés avec les estimations qui vous ont été données lors de la sélection des services. Si vous constatez une différence importante, vérifiez le plan de tarification (machine virtuelle A1 ou A0, par exemple) que vous avez sélectionné pour vos ressources. 
 
-#### <a name="view-costs-for-all-your-subscriptions-in-the-billing-blade"></a>Affichez les coûts de tous vos abonnements dans le panneau Facturation
+#### <a name="EA"></a> Prévisualiser les vues des coûts du Contrat Enterprise dans le portail Azure 
 
-Si vous gérez plusieurs abonnements en qualité d’administrateur de compte, vous pouvez consulter le montant global facturé et la répartition des coûts pour tous vos abonnements dans le [panneau Facturation](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
+Les vues des coûts d’entreprise sont actuellement en préversion publique. Éléments à noter :
+- Les coûts d’abonnement sont basés sur l’utilisation et ne tiennent pas compte des montants prépayés, dépassements, quantités incluses, ajustements et taxes. Les frais réels sont calculés au niveau de l’inscription. 
+- Les montants affichés dans le portail Azure peuvent être différés par rapport aux valeurs indiquées dans le portail d’entreprise.  
+- Si vous ne voyez pas les coûts, l’une des raisons suivantes peut expliquer cette situation :
+    - Vous êtes propriétaire de compte et votre administrateur en charge de l’inscription a désactivé le paramètre « d’affichage des frais pour l’administrateur de compte ».  Contactez l’administrateur en charge de votre inscription pour obtenir l’accès aux coûts. 
+    - Vous êtes administrateur de service et l’administrateur de votre inscription a désactivé le paramètre « d’affichage des frais pour l’administrateur de service ».  Contactez l’administrateur en charge de votre inscription pour obtenir l’accès. 
+    - Vous avez acheté Azure par le biais d’un partenaire et ce dernier n’a pas publié d’informations tarifaires.  
+- Quand des paramètres liés à l’accès aux coûts sont mis à jour dans le portail d’entreprise, il existe un délai d’attente de quelques minutes avant que les modifications ne soient répercutées dans le portail Azure.
+- La limite de dépense, les alertes de facturation et les conseils de facturation ne concernent pas les abonnements EA.
+
+#### <a name="view-costs-for-all-your-subscriptions-in-the-billing-page"></a>Afficher les coûts de tous vos abonnements dans la page Facturation
+
+Si vous gérez plusieurs abonnements en qualité d’administrateur de compte, vous pouvez consulter le montant global facturé et la répartition des coûts pour tous vos abonnements dans la [page Facturation](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). Les vues globales EA ne figurent pas dans la page Facturation du portail Azure.  
 
 <!-- Add screenshots of multiple subs each with billed usage -->
 
@@ -161,7 +175,7 @@ Pour plus d’informations, consultez [Recommandations du conseiller en matière
 
 ### <a name="invoice-and-usage"></a> Obtenez votre facture et l’utilisation détaillée après votre première période de facturation
 
-Après votre première période de facturation, vous pouvez télécharger votre facture au format PDF et votre utilisation détaillée au format CSV. Vous pouvez aussi choisir de recevoir votre facture par e-mail. Ces fichiers vous permettent de comprendre ce qui vous est finalement facturé après application des taxes, des remises et des crédits. Si vous n’avez défini aucun mode de paiement pour votre abonnement, il se peut que ces fichiers ne soient pas disponibles. Pour plus d’informations, consultez [Comment obtenir votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md) et [Comprendre votre facture pour Microsoft Azure](billing-understand-your-bill.md).
+Après votre première période de facturation, vous pouvez télécharger votre facture au format PDF et votre utilisation détaillée au format CSV. Vous pouvez aussi choisir de recevoir votre facture par e-mail. Ces fichiers vous permettent de comprendre ce qui vous est finalement facturé après application des taxes, des remises et des crédits. Si vous n’avez défini aucun mode de paiement pour votre abonnement, il se peut que ces fichiers ne soient pas disponibles. Si vous avez un abonnement EA, l’administrateur en charge de l’inscription reçoit la facture par e-mail car elle n’est pas disponible dans le portail Azure. Pour plus d’informations, consultez [Comment obtenir votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md) et [Comprendre votre facture pour Microsoft Azure](billing-understand-your-bill.md).
 
 ![Capture d’écran d’une facture .pdf](./media/billing-getting-started/invoice.png)
 

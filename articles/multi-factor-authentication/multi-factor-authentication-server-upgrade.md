@@ -3,7 +3,7 @@ title: "Mise à niveau des serveurs Azure MFA | Microsoft Docs"
 description: "Étapes et aide pour la mise à niveau du serveur Azure Multi-Factor Authentication vers une version plus récente."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: Human Translation

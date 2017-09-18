@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 521e5ed06c138bcd374913588f06a2e6c1e99963
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 3291d545bc7a66ffa9b4845acd890a714cf84ef8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Fonctions de comparaison pour les modèles Azure Resource Manager
@@ -68,7 +68,7 @@ La fonction equals est souvent utilisée avec l’élément `condition` pour tes
 
 ### <a name="example"></a>Exemple
 
-L’exemple de modèle vérifie que les différents types de valeurs sont égaux. Toutes les valeurs par défaut retournent la valeur True.
+[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) suivant vérifie que les différents types de valeurs sont égaux. Toutes les valeurs par défaut retournent la valeur True.
 
 ```json
 {
@@ -140,8 +140,19 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | checkArrays | Bool | True |
 | checkObjects | Bool | true |
 
+Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
-L’exemple suivant utilise [non](resource-group-template-functions-logical.md#not) avec**égal à**.
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
+```
+
+Pour déployer cet exemple de modèle avec PowerShell, utilisez :
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json 
+```
+
+[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) suivant utilise [not](resource-group-template-functions-logical.md#not) avec **equals**.
 
 ```json
 {
@@ -155,6 +166,7 @@ L’exemple suivant utilise [non](resource-group-template-functions-logical.md#n
             "value": "[not(equals(1, 2))]"
         }
     }
+}
 ```
 
 La sortie de l’exemple précédent est :
@@ -163,6 +175,17 @@ La sortie de l’exemple précédent est :
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | true |
 
+Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+```
+
+Pour déployer cet exemple de modèle avec PowerShell, utilisez :
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json 
+```
 
 ## <a name="greater"></a>greater
 `greater(arg1, arg2)`
@@ -182,7 +205,7 @@ Retourne **True** si la première valeur est supérieure à la seconde ; sinon,
 
 ### <a name="example"></a>Exemple
 
-L’exemple de modèle vérifie si une valeur est supérieure à l’autre.
+[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) suivant vérifie si une valeur est supérieure à l’autre.
 
 ```json
 {
@@ -226,8 +249,19 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
-| checkStrings | Bool | True |
+| checkStrings | Bool | true |
 
+Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
+```
+
+Pour déployer cet exemple de modèle avec PowerShell, utilisez :
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json 
+```
 
 ## <a name="greaterorequals"></a>greaterOrEquals
 `greaterOrEquals(arg1, arg2)`
@@ -247,7 +281,7 @@ Retourne **True** si la première valeur est supérieure ou égale à la seconde
 
 ### <a name="example"></a>Exemple
 
-L’exemple de modèle vérifie si une valeur est supérieure ou égale à l’autre.
+[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) suivant vérifie si une valeur est supérieure ou égale à l’autre.
 
 ```json
 {
@@ -291,9 +325,19 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
-| checkStrings | Bool | True |
+| checkStrings | Bool | true |
 
+Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
+```
+
+Pour déployer cet exemple de modèle avec PowerShell, utilisez :
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
+```
 
 ## <a name="less"></a>less
 `less(arg1, arg2)`
@@ -313,7 +357,7 @@ Retourne **True** si la première valeur est inférieure à la seconde ; sinon,
 
 ### <a name="example"></a>Exemple
 
-L’exemple de modèle vérifie si une valeur est inférieure à l’autre.
+[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) suivant vérifie si une valeur est inférieure à l’autre.
 
 ```json
 {
@@ -359,6 +403,17 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
 
+Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
+```
+
+Pour déployer cet exemple de modèle avec PowerShell, utilisez :
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json 
+```
 
 ## <a name="lessorequals"></a>lessOrEquals
 `lessOrEquals(arg1, arg2)`
@@ -378,7 +433,7 @@ Retourne **True** si la première valeur est inférieure ou égale à la seconde
 
 ### <a name="example"></a>Exemple
 
-L’exemple de modèle vérifie si une valeur est inférieure ou égale à l’autre.
+[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) suivant vérifie si une valeur est inférieure ou égale à l’autre.
 
 ```json
 {
@@ -424,7 +479,17 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
 
+Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
+```
+
+Pour déployer cet exemple de modèle avec PowerShell, utilisez :
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).

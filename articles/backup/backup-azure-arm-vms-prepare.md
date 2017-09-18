@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 8d701f4a459da2e08510e8001adca0847b08e924
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 3fa6f4f850fc67d41f619d46bd61a19fe890b0fb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
@@ -38,7 +38,7 @@ Le service Azure Backup comprend deux types de coffres (coffres de sauvegarde et
 >
 >
 
-Avant de pouvoir protéger ou sauvegarder une machine virtuelle déployée à l’aide du modèle Resource Manager, vérifiez que ces les conditions préalables suivantes sont remplies :
+Avant de pouvoir protéger ou sauvegarder une machine virtuelle déployée à l’aide du modèle Resource Manager, vérifiez que ces prérequis sont respectés :
 
 * Créez un coffre Recovery Services (ou identifiez un coffre Recovery Services existant) *dans le même emplacement que votre machine virtuelle*.
 * Sélectionnez un scénario, définissez la stratégie de sauvegarde et définissez les éléments à protéger.
@@ -59,7 +59,7 @@ Avant de préparer votre environnement, notez les limitations.
 * La sauvegarde de machines virtuelles avec des tailles de disque de données supérieures à 1 023 Go n’est pas prise en charge.
 * La sauvegarde de machines virtuelles avec une adresse IP réservée et sans point de terminaison n’est pas prise en charge.
 * La sauvegarde des machines virtuelles chiffrées BEK seulement n’est pas prise en charge. La sauvegarde des machines virtuelles Linux chiffrées LUKS n’est pas prise en charge.
-* La sauvegarde de machines virtuelles sur une configuration Serveur de fichiers avec montée en puissance parallèle n’est pas recommandée.
+* La sauvegarde des machines virtuelles contenant une configuration de volumes partagés de cluster (CSV) ou de serveur de fichiers avec montée en puissance parallèle n’est pas recommandée car elle exige d’impliquer toutes les machines virtuelles incluses dans la configuration du cluster pendant la tâche de capture instantanée. Sauvegarde Azure ne prend pas en charge la cohérence multimachine virtuelle. 
 * Les données de sauvegarde n’incluent pas les lecteurs réseau montés attachés à la machine virtuelle.
 * Le remplacement d’une machine virtuelle existante pendant la restauration n’est pas pris en charge. Si vous tentez de restaurer la machine virtuelle alors que celle-ci existe, l’opération de restauration échoue.
 * La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.

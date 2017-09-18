@@ -135,9 +135,9 @@
 ### [Planifier l’exécution d’Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQ](device-management-faq.md)
 ### Tâches
-#### [Configurer les appareils Windows 10 inscrits dans Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Configurer les appareils Windows 10 inscrits dans Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Configurer les appareils joints Azure AD](device-management-azuread-joined-devices-setup.md)
-#### [Configurer des appareils joints Azure AD hybrides](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Configurer les appareils joints Azure AD hybrides](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Déployer en local](active-directory-device-registration-on-premises-setup.md)
 #### [Enregistrement dans Azure AD lors de la première exécution de Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Résolution des problèmes
@@ -196,6 +196,7 @@
 #### [Supprimer des utilisateurs](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [Afficher toutes mes applications](active-directory-coreapps-view-azure-portal.md)
 #### [Gérer l’approvisionnement de comptes d’utilisateurs](active-directory-enterprise-apps-manage-provisioning.md)
+#### [Gérer l’authentification unique pour les applications d’entreprise](active-directory-enterprise-apps-manage-sso.md)
 
 ### [Gérer l’accès aux applications](active-directory-managing-access-to-apps.md)
 #### [Accès libre-service](active-directory-self-service-application-access.md)
@@ -265,38 +266,27 @@
 
 ### [Intégrer des identités locales à l’aide d’Azure AD Connect](./connect/active-directory-aadconnect.md)
 
+## [Gérer l’accès à Azure](toc.yml)
+
 ## Déléguer l’accès aux ressources
 ### [Rôles d’administrateur](active-directory-assign-admin-roles.md)
 #### [Affecter des rôles d’administrateur](active-directory-users-assign-role-azure-portal.md)
 ### [Unités administratives](active-directory-administrative-units-management.md)
-### [Accès aux ressources dans Azure](active-directory-understanding-resource-access.md)
-### [Contrôle d’accès en fonction du rôle](role-based-access-control-what-is.md)
-#### Gérer les affectations d’accès
-##### [Par utilisateur](role-based-access-control-manage-assignments.md)
-##### [Par ressource](role-based-access-control-configure.md)
-#### [Rôles intégrés](role-based-access-built-in-roles.md)
-#### [Rôles personnalisés](role-based-access-control-custom-roles.md)
-#### [Attribuer des rôles personnalisés aux utilisateurs internes et externes](role-based-access-control-create-custom-roles-for-internal-external-users.md)
-#### [Reporting](role-based-access-control-access-change-history-report.md)
-#### Plus de méthodes pour gérer les rôles
-##### [Interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md)
-##### [PowerShell](role-based-access-control-manage-access-powershell.md)
-##### [REST](role-based-access-control-manage-access-rest.md)
-#### [Élever un accès administrateur client](role-based-access-control-tenant-admin-access.md)
-#### [Résolution des problèmes](role-based-access-control-troubleshooting.md)
-#### [Opérations de fournisseur de ressources](role-based-access-control-resource-provider-operations.md)
 ### [Durées de vie des jetons](active-directory-configurable-token-lifetimes.md)
 
 ## Sécuriser vos identités
 ### [Accès conditionnel](active-directory-conditional-access-azure-portal.md)
+#### [Contrôles](active-directory-conditional-access-controls.md)
 #### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
 #### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
-#### [Connectivité des VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)
-#### [Gestion des applications mobiles](active-directory-conditional-access-mam.md)
+#### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
+#### Tâches
+##### [Configurer l’accès conditionnel basé sur les appareils](active-directory-conditional-access-policy-connected-applications.md)
+##### [Configurer l’accès conditionnel basé sur les applications](active-directory-conditional-access-mam.md)
+##### [Configurer la connectivité VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)
+##### [Configurer SharePoint et Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
+##### [Correction](active-directory-conditional-access-device-remediation.md)
 #### [Référence technique](active-directory-conditional-access-technical-reference.md)
-#### [Comprendre les stratégies d’appareils](active-directory-conditional-access-device-policies.md)
-#### [Configurer l’accès aux applications connectées](active-directory-conditional-access-policy-connected-applications.md)
-#### [Correction](active-directory-conditional-access-device-remediation.md)
 #### [FAQ](active-directory-conditional-faqs.md)
 #### [Portail classique](active-directory-conditional-access.md)
 ##### [Bien démarrer](active-directory-conditional-access-azuread-connected-apps.md)

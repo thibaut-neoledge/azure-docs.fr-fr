@@ -13,92 +13,90 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 08/30/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: da5995535d42ed52772cb09e0f4da51bbf878748
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: db5966c920eb29742b2ee0fbd9386319eaaf1c77
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Ajout ou modification de rôles d’administrateur Azure gérant l’abonnement ou les services
+
 Vous pouvez modifier l’administrateur Azure qui gère votre abonnement Azure ou les services Azure utilisés dans votre abonnement. Pour afficher les informations de facturation Azure et gérer les abonnements, vous devez vous connecter au [Centre des comptes](https://account.windowsazure.com/Home/Index) en tant qu’administrateur de compte. 
 
-## <a name="add-an-admin-for-a-subscription"></a>Ajout d’un administrateur à un abonnement
-Vous pouvez ajouter un administrateur Azure dans le portail Azure ou dans le portail Azure Classic.
+<a name="add-an-admin-for-a-subscription"></a>
 
-**portail Azure**
+## <a name="add-an-rbac-owner-admin-for-a-subscription-in-azure-portal"></a>Ajouter un administrateur RBAC propriétaire pour un abonnement dans le portail Azure 
 
-Pour ajouter une personne en tant qu’administrateur d’un abonnement dans le Portail Azure, vous lui donnez le rôle de propriétaire. Le rôle de propriétaire peut uniquement gérer les ressources de l’abonnement que vous avez affecté. Il n’a pas de privilèges d’accès à d’autres abonnements. Les propriétaires ajoutés au moyen du [Portail Azure](https://portal.azure.com) ne peuvent pas gérer les ressources dans le [Portail Azure Classic](https://manage.windowsazure.com).
+Pour ajouter un utilisateur en tant qu’administrateur d’un abonnement dans le portail Azure, nous vous recommandons de lui donner un rôle [RBAC](../active-directory/role-based-access-control-configure.md) Propriétaire. Le rôle Propriétaire a la possibilité de gérer les ressources de l’abonnement que vous avez affecté sans avoir de privilèges d’accès à d’autres abonnements. Les propriétaires ajoutés au moyen du [portail Azure](https://portal.azure.com) ne peuvent pas gérer les ressources dans le [portail Azure Classic](https://manage.windowsazure.com).
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu Hub, sélectionnez **Abonnement** > *l’abonnement auquel l’administrateur doit accéder*.
-
-    ![Capture d’écran montrant l’abonnement sélectionné](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
-
-3. Dans le panneau de l’abonnement, sélectionnez **Contrôle d’accès (IAM)**.
-4. Sélectionnez **Ajouter** > **Rôle** > **Propriétaire**. Entrez l’adresse e-mail de l’utilisateur que vous souhaitez ajouter en tant que propriétaire, sélectionnez l’utilisateur, puis choisissez **Enregistrer**.
+1. Connectez-vous à la [vue Abonnements dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Sélectionnez l’abonnement auquel vous voulez que l’administrateur accède.
+1. Sélectionnez **Contrôle d’accès (IAM)** dans le menu.
+1. Sélectionnez **Ajouter** > **Rôle** > **Propriétaire**. Entrez l’adresse e-mail de l’utilisateur à ajouter en tant que propriétaire, sélectionnez l’utilisateur, puis choisissez **Enregistrer**.
 
     ![Capture d’écran montrant le rôle Propriétaire sélectionné](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-5. Si vous souhaitez ajouter le compte du propriétaire en tant que coadministrateur, dans la page **Contrôle d’accès (IAM)**, cliquez avec le bouton sur l’utilisateur, puis sélectionnez **Ajouter comme coadministrateur**. Cette fonctionnalité est désormais disponible sur le [portail Azure en version préliminaire](https://preview.portal.azure.com/). 
+### <a name="add-or-change-co-administrator"></a>Ajouter ou modifier un coadministrateur
+
+Seul un propriétaire peut être ajouté en tant que coadministrateur. Les autres utilisateurs dont les rôles sont Contributeur et Lecteur ne peuvent pas être ajoutés en tant que coadministrateurs.
+
+1. Si vous ne l’avez pas déjà fait, ajoutez un utilisateur en tant que propriétaire en suivant les instructions ci-dessus.
+1. **Cliquez avec le bouton droit** sur l’utilisateur Propriétaire que vous venez d’ajouter, puis sélectionnez **Ajouter comme coadministrateur**. 
 
      ![Capture d’écran d’ajout d’un coadministrateur](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
     >[!TIP]
-    >Vous devez ajouter l’utilisateur « Propriétaire » en tant que coadministrateur si l’utilisateur a besoin de gérer les services Azure via le [portail Azure Classic](https://manage.windowsazure.com/).
+    >Vous devez ajouter le compte « Propriétaire » en tant que coadministrateur si l’utilisateur a besoin de gérer les services Azure via le [portail Azure Classic](https://manage.windowsazure.com/).
 
-    Pour supprimer l’autorisation de coadministrateur, cliquez avec le bouton droit sur l’utilisateur « coadministrateur », puis sélectionnez **Supprimer le coadministrateur**.
+    Pour supprimer l’autorisation de coadministrateur, **cliquez avec le bouton droit** sur l’utilisateur « coadministrateur », puis sélectionnez **Supprimer le coadministrateur**.
 
     ![Capture d’écran de suppression de coadministrateur](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
 
+<a name="change-service-administrator-for-a-subscription"></a>
 
-**portail Azure Classic**
+## <a name="change-the-service-administrator-for-an-azure-subscription"></a>Modifier l’administrateur de services fédérés d’un abonnement Azure
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).
-2. Dans le panneau de navigation, sélectionnez **Paramètres**> **Administrateurs**> **Ajouter**. </br>
+Seul l’administrateur de compte peut modifier l’administrateur de services fédérés d’un abonnement. Par défaut, au moment de l’inscription, l’administrateur de services est le même que l’administrateur de compte.
 
-    ![Capture d’écran montrant comment obtenir le bouton Ajouter](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)
-3. Entrez l’adresse de messagerie de la personne que vous souhaitez ajouter en tant que coadministrateur, puis sélectionnez l’abonnement auquel le coadministrateur doit avoir accès.</br>
+1. Vérifiez que votre scénario est pris en charge en vérifiant les [limites de modification des administrateurs de services fédérés](#limits).
+1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/subscriptions) en tant qu’administrateur de compte.
+1. Sélectionnez un abonnement.
+1. Sur le côté droit, sélectionnez **Modifier les détails de l’abonnement**.
 
-    ![Capture d’écran montrant un abonnement sélectionné ](./media/billing-add-change-azure-subscription-administrator/addcoadmin2.png)</br>
+    ![Capture d’écran montrant le bouton Modifier l’abonnement dans le Centre des comptes](./media/billing-add-change-azure-subscription-administrator/editsub.png)
+1. Dans la zone **ADMINISTRATEUR DE SERVICES** , entrez l’adresse e-mail du nouvel administrateur de services fédérés.
 
-L’adresse de messagerie suivante peut être ajoutée en tant que coadministrateur :
+    ![Capture d’écran montrant la zone de modification de l’adresse e-mail de l’administrateur de services fédérés](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-* **compte Microsoft** (anciennement Windows Live ID) </br>
-  Vous pouvez utiliser un compte Microsoft pour vous connecter à tous les produits et services cloud Microsoft orientés utilisateur, notamment Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone et Xbox LIVE.
-* **Organizational account**</br>
-  Un compte professionnel est un compte créé sous Azure Active Directory. L’adresse du compte professionnel a ce format :
+<a name="limits"></a>
 
-    utilisateur@&lt;votre domaine&gt;.onmicrosoft.com
+### <a name="limitations-for-changing-service-administrators"></a>Limites de modification des administrateurs de services fédérés
 
-## <a name="change-service-administrator-for-a-subscription"></a>Modification de l’administrateur de services fédérés d’un abonnement
-Seul l’administrateur de compte peut modifier l’administrateur de services fédérés d’un abonnement.
+* Chaque abonnement est associé à un annuaire Azure AD. Pour identifier l’annuaire auquel est associé l’abonnement, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/), sélectionnez **Paramètres** > **Abonnements**. Vérifiez l’ID d’abonnement pour trouver l’annuaire.
+* Si vous êtes connecté avec un compte professionnel ou scolaire, vous pouvez ajouter d’autres comptes à votre organisation en tant qu’administrateur de services fédérés. Par exemple, abby@contoso.com peut ajouter bob@contoso.com en tant qu’administrateur de services fédérés, mais ne peut pas ajouter john@notcontoso.com, sauf si john@notcontoso.com est présent dans l’annuaire de contoso.com. Les utilisateurs connectés avec des comptes professionnels ou scolaires peuvent continuer à ajouter des utilisateurs de comptes Microsoft en tant qu’administrateur de services fédérés.
 
-1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/subscriptions) en utilisant l’administrateur de compte.
-2. Sélectionnez l’abonnement que vous souhaitez modifier.
-3. Sur le côté droit, sélectionnez **Modifier les détails de l’abonnement**. </br>
+  | Méthode de connexion | Ajouter l’utilisateur de compte Microsoft comme administrateur de services fédérés ? | Ajouter le compte professionnel ou scolaire de la même organisation comme administrateur de services fédérés ? | Ajouter le compte professionnel ou scolaire d’une autre organisation comme administrateur de services fédérés ? |
+  | --- | --- | --- | --- |
+  |  Compte Microsoft |Oui |Non |Non |
+  |  Compte professionnel ou scolaire |Oui |Oui |Non |
 
-    ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
-4. Dans la zone **ADMINISTRATEUR DE SERVICES** , entrez l’adresse de messagerie du nouvel administrateur de services fédérés. </br>
+## <a name="change-the-account-administrator-for-an-azure-subscription"></a>Modifier l’administrateur de compte d’un abonnement Azure
 
-    ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
+Pour modifier l’administrateur de compte d’un abonnement, consultez [Transférer la propriété d’un abonnement Azure à un autre compte](billing-subscription-transfer.md).
 
-## <a name="change-the-account-administrator"></a>Modification de l’administrateur de compte
-Pour transférer la propriété du compte Azure vers un autre compte, consultez [Transfert de propriété d’un abonnement Azure](billing-subscription-transfer.md).
+<a name="check-the-account-administrator-of-the-subscription"></a>
 
-Nous vous recommandons fortement de ne pas supprimer ou renommer l’adresse de messagerie de l’administrateur de compte. Vous pourriez constater un comportement inattendu et indésirable avec le compte Azure. Vous pourriez ne plus être en mesure de vous connecter à Azure avec ce compte, apporter des modifications au compte ou gérer des ressources avec ce compte. 
+**Besoin d’identifier l’administrateur de compte ?** Procédez comme suit :
 
-## <a name="check-the-account-administrator-of-the-subscription"></a>Vérification de l’administrateur de compte de l’abonnement
-Si vous ne savez pas qui est l’administrateur de compte de votre abonnement, procédez comme suit pour le découvrir.
-
-  1. Connectez-vous au [portail Azure](https://portal.azure.com).
-  2. Dans le menu Hub, sélectionnez **Abonnement**.
-  3. Sélectionnez l’abonnement que vous souhaitez vérifier, puis regardez sous **Paramètres**.
-  4. Sélectionner **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .  
+1. Connectez-vous à la [vue Abonnements dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Sélectionnez l’abonnement que vous souhaitez vérifier, puis regardez sous **Paramètres**.
+1. Sélectionner **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .  
 
 ## <a name="types-of-azure-admin-accounts"></a>Types de comptes d’administrateur Azure
+
  Les trois types de rôles Administrateur dans Microsoft Azure sont Administrateur de compte, Administrateur de services fédérés et Coadministrateur. Le tableau suivant décrit la différence entre ces trois rôles Administrateur.
 
 | Rôle administratif | Limite | Description |
@@ -109,21 +107,13 @@ Si vous ne savez pas qui est l’administrateur de compte de votre abonnement, p
 
 Le contrôle d’accès en fonction du rôle (RBAC) Azure Active Directory permet d’ajouter les utilisateurs à plusieurs rôles. Pour plus d’informations, consultez la rubrique [Contrôle d’accès en fonction du rôle Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
-## <a name="limitations-and-restrictions-for-admin-accounts"></a>Limitations et restrictions des comptes Administrateur
-* Chaque abonnement est associé à un répertoire Azure AD (également appelé « répertoire par défaut »). Pour identifier le répertoire par défaut associé à l’abonnement, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/), sélectionnez **Paramètres** > **Abonnements**. Vérifiez l’ID d’abonnement pour trouver le répertoire par défaut.
-* Si vous êtes connecté avec un compte Microsoft, vous ne pouvez ajouter d’autres comptes ou utilisateurs Microsoft dans l’annuaire par défaut qu’en tant que coadministrateur.
-* Si vous êtes connecté avec un compte professionnel, vous pouvez ajouter d’autres comptes professionnels de votre organisation en tant que coadministrateur. Par exemple, abby@contoso.com peut ajouter bob@contoso.com en tant qu’administrateur de services fédérés ou coadministrateur, mais ne peut pas ajouter john@notcontoso.com, sauf si john@notcontoso.com est l’annuaire par défaut. Les utilisateurs connectés avec des comptes professionnels peuvent continuer à ajouter des utilisateurs de compte Microsoft en tant qu’administrateur de services fédérés ou coadministrateur.
-* Il est désormais possible de se connecter à Azure avec un compte professionnel. Voici les modifications apportées aux exigences liées aux comptes Administrateur de services fédérés et Coadministrateur :
-
-  | Méthode de connexion | Ajouter un compte ou des utilisateurs Microsoft dans l’annuaire par défaut en tant que coadministrateur ou administrateur de services fédérés ? | Ajouter un compte de société dans la même organisation que le coadministrateur ou administrateur de services fédérés ? | Ajouter un compte de société dans une autre organisation que le coadministrateur ou administrateur de services fédérés ? |
-  | --- | --- | --- | --- |
-  |  Compte Microsoft |Oui |Non |Non |
-  |  Compte de société |Oui |Oui |Non |
 
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>En savoir plus sur le contrôle d’accès aux ressources et Active Directory
+
 * Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, consultez la page[Présentation de l’accès aux ressources dans Azure](../active-directory/active-directory-understanding-resource-access.md).
 * Pour plus d’informations sur Azure Active Directory, consultez les pages [Association des abonnements Azure avec Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) et [Affecter des rôles Administrateur dans Azure Active Directory](../active-directory/active-directory-assign-admin-roles.md).
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
+
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 

@@ -1,6 +1,6 @@
 ---
-title: "Exemple de script Azure CLI - Mapper un domaine personnalisé à une application de fonction | Microsoft Docs"
-description: "Exemple de script Azure CLI - Mapper un domaine personnalisé à une application de fonction dans Azure."
+title: "Exemple de script Azure CLI - Mapper un domaine personnalisé à une Function App | Microsoft Docs"
+description: "Exemple de script Azure CLI - Mapper un domaine personnalisé à une Function App dans Azure."
 services: functions
 documentationcenter: 
 author: ggailey777
@@ -17,15 +17,15 @@ ms.date: 06/01/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 5a17830ad3b879382b7e82d435f1286c7ecdf7c5
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 87b79d6222f40e3dc1306ecace51bae50b06e484
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/09/2017
 
 ---
-# <a name="map-a-custom-domain-to-a-function-app"></a>Mapper un domaine personnalisé à une application de fonction
+# <a name="map-a-custom-domain-to-a-function-app"></a>Mapper un domaine personnalisé à une Function App
 
-Cet exemple de script crée une application de fonction avec les ressources associées, puis la mappe à `www.<yourdomain>`. Pour mapper un domaine personnalisé, votre application de fonction doit être créée dans un plan App Service et non dans un plan de consommation. Azure Functions ne prend en charge le mappage d’un domaine personnalisé qu’avec un enregistrement A.
+Cet exemple de script crée une Function App avec les ressources associées, puis la mappe à `www.<yourdomain>`. Pour mapper un domaine personnalisé, votre Function App doit être créée dans un plan App Service et non dans un plan de consommation. Azure Functions ne prend en charge le mappage d’un domaine personnalisé qu’avec un enregistrement A.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +36,7 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, v
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Mapper un domaine personnalisé à une application de fonction")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Mapper un domaine personnalisé à une Function App")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -46,11 +46,11 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Remarques |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Crée un compte de stockage requis par l’application de fonction. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Crée un plan App Service requis pour mapper un domaine personnalisé. |
-| [az functionapp create]() | Crée une application de fonction. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Mappe un domaine personnalisé à une application de fonction. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage requis par la Function App. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Crée un plan App Service requis pour mapper un domaine personnalisé. |
+| [az functionapp create]() | Crée une Function App. |
+| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Mappe un domaine personnalisé à une Function App. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

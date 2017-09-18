@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: c940f490908a3b934c108b214b5ef2af44698059
-ms.lasthandoff: 01/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4aaa4d2b739ef39754d7286bef3721a1b814d2a3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="connect-to-on-premises-sql-server-from-a-web-app-in-azure-app-service-using-hybrid-connections"></a>Connexion à un serveur SQL Server local à partir d’une application web dans Azure App Service au moyen de connexions hybrides
@@ -94,7 +94,7 @@ Pour activer TCP/IP, vous allez utiliser le Gestionnaire de configuration SQL S
 ### <a name="create-a-sql-server-database-on-premises"></a>Création d'une base de données SQL Server en local
 Votre application Visual Studio nécessite une base de données d'appartenance à laquelle Azure puisse accéder. Il doit s'agir d'une base de données SQL Server ou SQL Server Express (et non de la base de données LocalDB utilisée par défaut par le modèle MVC). Vous allez donc créer ensuite la base de données d'appartenance.
 
-1. Dans SQL Server Management Studio, connectez-vous à l'instance SQL Server que vous venez d'installer. (Si la boîte de dialogue **Se connecter au serveur** ne s’affiche pas automatiquement, accédez à **l’Explorateur d’objets** dans le volet gauche, cliquez sur **Se connecter**, puis sur **Moteur de base de données**.)   ![Se connecter au serveur][SSMSConnectToServer]
+1. Dans SQL Server Management Studio, connectez-vous à l'instance SQL Server que vous venez d'installer. (Si la boîte de dialogue **Se connecter au serveur** ne s’affiche pas automatiquement, accédez à **l’Explorateur d’objets** dans le volet gauche, cliquez sur **Se connecter**, puis sur **Moteur de base de données**.)  ![Se connecter au serveur][SSMSConnectToServer]
    
     Dans la zone **Type de serveur**, choisissez **Moteur de base de données**. Dans la zone **Nom du serveur**, vous pouvez utiliser **localhost** ou le nom de l'ordinateur dont vous servez. Choisissez **Authentification SQL Server**, puis ouvrez une session avec le nom d'utilisateur sa et le mot de passe que vous avez créé précédemment.
 2. Pour créer une base de données avec SQL Server Management Studio, cliquez avec le bouton droit sur **Bases de données** dans l'Explorateur d'objets, puis cliquez sur **Nouvelle base de données**.
@@ -276,7 +276,7 @@ Vous venez de créer et déployer une application web ASP.NET qui utilise une co
 
 [Création d’un cloud hybride réel avec la portabilité transparente des applications (vidéo Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Accéder aux ressources locales à l’aide de connexions hybrides dans Azure App Service](web-sites-hybrid-connection-get-started.md)
+<!-- [Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md) -->
 
 [Vue d’ensemble d’ASP.NET Identity](http://www.asp.net/identity)
 

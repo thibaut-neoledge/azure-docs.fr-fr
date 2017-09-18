@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 49ca4ed2452d71dec17cedebaf48bbd5ab9e615f
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: c8f54c81481ebced16ed259f07736b0a4bc80567
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Vue d’ensemble de la passerelle Application Gateway
@@ -88,7 +88,7 @@ Azure Application Gateway surveille automatiquement l’intégrité des instance
 
 ## <a name="configuring-and-managing"></a>Configuration et gestion
 
-Le point de terminaison de la passerelle Application Gateway peut être une adresse IP publique, une adresse IP privée ou les deux. La passerelle Application Gateway est configurée à l’intérieur d’un réseau virtuel dans son propre sous-réseau. Le sous-réseau créé ou utilisé pour la passerelle Application Gateway ne peut pas contenir d’autres types de ressources. Les seules ressources autorisées dans le sous-réseau sont d’autres passerelles Application Gateway. Pour sécuriser vos ressources principales, les serveurs principaux peuvent figurer dans un sous-réseau différent sur le même réseau virtuel que la passerelle d’application. Ce sous-réseau n’est pas nécessaire pour les applications de serveur principal. Tant qu’Application Gateway peut atteindre l’adresse IP, elle peut fournir des fonctionnalités ADC pour les serveurs principaux. 
+Le point de terminaison de la passerelle Application Gateway peut être une adresse IP publique, une adresse IP privée ou les deux. La passerelle Application Gateway est configurée à l’intérieur d’un réseau virtuel dans son propre sous-réseau. Le sous-réseau créé ou utilisé pour la passerelle Application Gateway ne peut pas contenir d’autres types de ressources. Les seules ressources autorisées dans le sous-réseau sont d’autres passerelles Application Gateway. Pour sécuriser vos ressources principales, les serveurs principaux peuvent figurer dans un sous-réseau différent sur le même réseau virtuel que la passerelle d’application. Ce sous-réseau n’est pas nécessaire pour les applications principales. Tant qu’Application Gateway peut atteindre l’adresse IP, elle peut fournir des fonctionnalités ADC pour les serveurs principaux. 
 
 Vous pouvez créer et gérer une passerelle Application Gateway à l’aide des API REST, des applets de commande PowerShell, de la ligne de commande Azure ou du [portail Azure](https://portal.azure.com/). Pour toute question supplémentaire sur Application Gateway, consultez [FAQ sur Application Gateway](application-gateway-faq.md) pour afficher une liste des questions les plus fréquemment posées.
 

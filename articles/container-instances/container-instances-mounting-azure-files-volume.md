@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 4248a3769ba8a0fb067b3904d55d487fe67e5778
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: c68f0239bcb95aa5e9d8194f7b358f30588ea600
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -31,7 +31,7 @@ Par défaut, les conteneurs Azure Container Instances sont sans état. Si le con
 
 ## <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 
-Avant d’utiliser un partage de fichiers Azure avec Azure Container Instances, vous devez le créer. Exécutez le script suivant pour créer un compte de stockage afin d’héberger le partage de fichiers et le partage proprement dit. Notez que, le nom du compte de stockage devant être global unique, le script ajoute une valeur aléatoire à la chaîne de base.
+Avant d’utiliser un partage de fichiers Azure avec Azure Container Instances, vous devez le créer. Exécutez le script suivant pour créer un compte de stockage afin d’héberger le partage de fichiers et le partage proprement dit. Comme le nom du compte de stockage doit être globalement unique, le script ajoute une valeur aléatoire à la chaîne de base.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -52,7 +52,7 @@ az storage share create -n $ACI_PERS_SHARE_NAME
 
 ## <a name="acquire-storage-account-access-details"></a>Obtenir les détails d’accès au compte de stockage
 
-Pour monter un partage de fichiers Azure en tant que volume dans Azure Container Instances, vous avez besoin de trois valeurs : le nom du compte de stockage, le nom du partage et la clé d’accès de stockage. 
+Pour monter un partage de fichiers Azure en tant que volume dans Azure Container Instances, vous avez besoin de trois valeurs : le nom du compte de stockage, le nom du partage et la clé d’accès de stockage.
 
 Si vous avez utilisé le script ci-dessus, le nom du compte de stockage a été créé avec une valeur aléatoire à la fin. Pour interroger la chaîne finale (y compris la partie aléatoire), utilisez les commandes suivantes :
 
@@ -64,13 +64,13 @@ echo $STORAGE_ACCOUNT
 Le nom du partage étant déjà connu (il s’agit de *acishare* dans le script ci-dessus), il ne reste que la clé du compte de stockage accessible à l’aide de la commande suivante :
 
 ```azurecli-interactive
-$STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
 ## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Stocker les détails de l’accès au compte de stockage avec un coffre de clés Azure
 
-Les clés de compte de stockage protégeant l’accès à vos données, nous vous recommandons de les stocker dans un coffre de clés Azure. 
+Les clés de compte de stockage protégeant l’accès à vos données, nous vous recommandons de les stocker dans un coffre de clés Azure.
 
 Créez un coffre de clés avec Azure CLI :
 
@@ -129,7 +129,7 @@ Pour définir les volumes que vous souhaitez rendre disponibles pour le montage,
             "name": "myvolume",
             "mountPath": "/aci/logs/"
           }]
-        }  
+        }
       }],
       "osType": "Linux",
       "ipAddress": {
@@ -152,7 +152,7 @@ Pour définir les volumes que vous souhaitez rendre disponibles pour le montage,
 }
 ```
 
-Le modèle inclut le nom et la clé du compte de stockage en tant que paramètres qui peuvent être fournis dans un fichier de paramètres séparé. Pour remplir le fichier de paramètres, vous avez besoin de trois valeurs : le nom du compte de stockage, l’ID de ressource de votre coffre de clés Azure, et le nom de clé secrète du coffre de clés que vous avez utilisé pour stocker la clé de stockage. Si vous avez suivi les étapes précédentes, vous pouvez obtenir ces valeurs avec le script suivant :
+Le modèle inclut le nom et la clé du compte de stockage en tant que paramètres qui peuvent être fournis dans un fichier de paramètres séparé. Pour remplir le fichier de paramètres, vous avez besoin de trois valeurs : le nom du compte de stockage, l’ID de ressource de votre coffre de clés Azure et le nom de secret du coffre de clés que vous avez utilisé pour stocker la clé de stockage. Si vous avez suivi les étapes précédentes, vous pouvez obtenir ces valeurs avec le script suivant :
 
 ```azurecli-interactive
 echo $STORAGE_ACCOUNT
@@ -169,7 +169,7 @@ Insérer les valeurs dans le fichier de paramètres :
   "parameters": {
     "storageaccountname": {
       "value": "<my_storage_account_name>"
-    },    
+    },
    "storageaccountkey": {
       "reference": {
         "keyVault": {
@@ -190,13 +190,13 @@ Le modèle étant défini, vous pouvez créer le conteneur et monter son volume 
 az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
 ```
 
-Après le démarrage du conteneur, vous pouvez utiliser la simple application web déployée via l’image **aci/seanmckenna-hellofiles** pour gérer les fichiers contenus dans le partage de fichiers Azure sur le chemin de montage que vous avez spécifié. Procédez comme suit pour obtenir l’adresse IP de l’application web :
+Après le démarrage du conteneur, vous pouvez utiliser l’application web simple déployée via l’image **aci/seanmckenna-hellofiles** pour gérer les fichiers du partage de fichiers Azure sur le chemin de montage que vous avez spécifié. Procédez comme suit pour obtenir l’adresse IP de l’application web :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name hellofiles -o table
 ```
 
-Vous pouvez utiliser un outil tel que [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com) pour récupérer et inspecter le fichier écrit sur le partage de fichiers.
+Vous pouvez utiliser un outil comme l’[Explorateur de stockage Microsoft Azure](http://storageexplorer.com) pour récupérer et inspecter le fichier écrit sur le partage de fichiers.
 
 >[!NOTE]
 > Pour en savoir plus sur l’utilisation de modèles Azure Resource Manager, les fichiers de paramètres et le déploiement avec Azure CLI, voir [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).

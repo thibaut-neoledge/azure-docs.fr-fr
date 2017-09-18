@@ -10,7 +10,7 @@
 * [Déploiement d’Azure WebJobs à l’aide de Visual Studio](../articles/app-service-web/websites-dotnet-deploy-webjobs.md)
 * [Déploiement de WebJobs à l’aide du portail de gestion Azure](../articles/app-service-web/web-sites-create-web-jobs.md)
 * [Boîte de dialogue Ajouter une tâche web Azure](../articles/app-service-web/websites-dotnet-deploy-webjobs.md#configure)
-* [Créer une tâche web planifiée dans le portail de gestion Azure](../articles/app-service-web/web-sites-create-web-jobs.md#CreateScheduled)
+* [Créer une tâche web planifiée dans le portail de gestion Azure](../articles/app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [Planification de tâches web Azure avec des expressions cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Afficher le tableau de bord WebJobs](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
 * [Écriture de journaux à l’aide du Kit de développement logiciel (SDK) WebJobs et affichage de ces derniers dans le tableau de bord](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)

@@ -4,6 +4,8 @@
 
 # Démarrages rapides
 ## [Créer une application .NET](service-fabric-quickstart-dotnet.md)
+## [Déployer une application de conteneur Windows](service-fabric-quickstart-containers.md)
+## [Déployer une application de conteneur Linux](service-fabric-quickstart-containers-linux.md)
 
 # Didacticiels
 ## Déployer une application .NET
@@ -278,7 +280,7 @@
 ### [Visualiser un cluster](service-fabric-visualizing-your-cluster.md)
 ### [Se connecter à un cluster sécurisé](service-fabric-connect-to-secure-cluster.md)
 
-### [Gérer un cluster à l’aide de l’interface de ligne de commande de Service Fabric](service-fabric-cli.md)
+### [Bien démarrer avec l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
 ### [Corriger des nœuds de cluster](service-fabric-patch-orchestration-application.md)
 
 ### Gérer et orchestrer les ressources de cluster

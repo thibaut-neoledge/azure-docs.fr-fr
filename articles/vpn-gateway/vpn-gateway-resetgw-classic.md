@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 7c5ba9310568571991708ab54a5275df6ea84a39
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 604af54d034b6b51a96ff098827e2352a163be18
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="reset-a-vpn-gateway"></a>Réinitialiser une passerelle VPN
@@ -94,7 +94,7 @@ StatusCode     : OK
 
 ## <a name="cli"></a>Interface CLI Azure
 
-Pour réinitialiser la passerelle, utilisez la commande [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway#reset). L’exemple suivant réinitialise une passerelle de réseau virtuel nommée VNet5GW dans le groupe de ressources TestRG5 :
+Pour réinitialiser la passerelle, utilisez la commande [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway#az_network_vnet_gateway_reset). L’exemple suivant réinitialise une passerelle de réseau virtuel nommée VNet5GW dans le groupe de ressources TestRG5 :
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5

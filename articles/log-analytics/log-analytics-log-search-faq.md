@@ -1,5 +1,5 @@
 ---
-title: "Questions fréquentes (FAQ) sur la nouvelle recherche dans les journaux Log Analytics | Documents Microsoft"
+title: Forum aux questions pour la nouvelle recherche dans les journaux Log Analytics | Documents Microsoft
 description: "Cet article fournit le forum aux questions relatives à la mise à niveau de Log Analytics au nouveau langage de requête."
 services: log-analytics
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: d7bd0d780c265cc15ad09a73ede8c5a886005e37
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -28,8 +28,8 @@ Cet article regroupe les questions fréquentes et les problèmes connus relatifs
 
 ## <a name="alerts"></a>Alertes
 
-### <a name="question-i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>Question : J’ai un grand nombre de règles d’alerte. Dois-je les recréer dans le nouveau langage après la mise à niveau ?  
-Non, vos règles d’alerte sont automatiquement converties dans le nouveau langage de recherche pendant la mise à niveau.  
+### <a name="question-i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>Question : J’ai un grand nombre de règles d’alerte. Dois-je les recréer dans la nouvelle langue après la mise à niveau ?  
+Non, vos règles d’alerte sont automatiquement converties en nouveau langage de recherche pendant la mise à niveau.  
 
 
 ## <a name="computer-groups"></a>Groupes d’ordinateurs
@@ -53,8 +53,8 @@ Vous pouvez continuer d’utiliser les vignettes que vous avez ajoutées à **Mo
 
 ## <a name="log-searches"></a>Recherches dans les journaux
 
-### <a name="question-i-have-saved-searches-outside-of-my-upgraded-workspace-can-i-convert-them-to-the-new-search-language-automatically"></a>Question : J’ai enregistré des recherches en dehors de mon espace de travail mis à niveau. Puis-je les convertir automatiquement dans le nouveau langage de recherche ?
-Vous pouvez utiliser l’outil de conversion de langage dans la page de recherche dans les journaux pour convertir chacune d’elles.  Il n’existe aucune méthode pour la conversion automatique de plusieurs recherches sans mise à niveau de l’espace de travail.
+### <a name="question-i-have-saved-searches-outside-of-my-upgraded-workspace-can-i-convert-them-to-the-new-search-language-automatically"></a>Question : J’ai enregistré des recherches en dehors de mon espace de travail mis à niveau. Puis-je les convertir automatiquement en nouveau langage de recherche ?
+Vous pouvez utiliser l’outil de conversion de langage dans la page de recherche de journal pour convertir chacune d’elles.  Il n’existe aucune méthode pour la conversion automatique de plusieurs recherches sans mise à niveau de l’espace de travail.
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>Question : Pourquoi mes résultats de requête ne sont pas triés ?
 Par défaut, les résultats ne sont pas triés dans le nouveau langage de requête.  Utilisez l’[opérateur de tri](https://go.microsoft.com/fwlink/?linkid=856079) pour trier vos résultats selon une ou plusieurs propriétés.
@@ -65,10 +65,10 @@ Les résultats des recherches dans les journaux figurant dans une liste peuvent 
 ### <a name="known-issue-selecting-a-value-in-a-chart-doesnt-display-detailed-results"></a>Problème connu : Le fait de sélectionner une valeur dans un graphique n’a pas pour effet d’afficher des résultats détaillés
 Avant la mise à niveau, quand vous sélectionniez une valeur dans un graphique, vous obteniez en retour une liste détaillée d’enregistrements correspondant à la valeur sélectionnée.  Après la mise à niveau, seule la ligne résumée est retournée.  Ce problème est actuellement examiné.
 
-## <a name="log-search-api"></a>API Recherche dans les journaux
+## <a name="log-search-api"></a>API Recherche de journal
 
 ### <a name="question-does-the-log-search-api-get-updated-after-i-upgrade"></a>Question : L’API Recherche dans les journaux est-elle mise à jour après la mise à niveau ?
-L’[API Recherche dans les journaux](log-analytics-log-search-api.md) n’a pas encore été mise à niveau avec le nouveau langage de recherche.  Continuez d’utiliser le langage de requête existant avec cette API, même après avoir mis à niveau votre espace de travail.  Une documentation mise à jour de l’API Recherche dans les journaux sera mise à disposition quand celle-ci sera mise à jour.
+[L’API Recherche dans les journaux](log-analytics-log-search-api.md) héritée ne fonctionnera plus après la mise à niveau de votre espace de travail.  Pour plus d’informations sur la nouvelle API, consultez [API REST Azure Log Analytics](https://dev.loganalytics.io/).
 
 
 ## <a name="portals"></a>Portails
@@ -134,22 +134,22 @@ Dans la [solution Application Insights Connector](log-analytics-app-insights-con
 ## <a name="upgrade-process"></a>Mise à niveau
 
 ### <a name="question-i-have-several-workspaces-can-i-upgrade-all-workspaces-at-the-same-time"></a>Question : Je dispose de plusieurs espaces de travail. Puis-je mettre à niveau tous mes espaces de travail simultanément ?  
-Non.  La mise à niveau s’applique à un seul espace de travail à la fois. Actuellement, il n’existe aucun moyen de mettre à niveau plusieurs espaces de travail à la fois. Notez que les autres utilisateurs de l’espace de travail mis à niveau seront également affectés.  
+Non.  La mise à niveau s’applique à un seul espace de travail à la fois. Actuellement, il n’existe aucun moyen de la mise à niveau de nombreux espaces de travail à la fois. Notez que les autres utilisateurs de l’espace de travail mis à niveau seront également affectés.  
 
 ### <a name="question-will-existing-log-data-collected-in-my-workspace-be-modified-if-i-upgrade"></a>Question : Les données de journal collectées dans mon espace de travail seront-elles modifiées en cas de mise à niveau ?  
 Non. Les données de journal disponibles pour vos recherches d’espace de travail ne sont pas affectées par la mise à niveau. Les recherches enregistrées, les alertes et les vues seront converties vers le nouveau langage de recherche automatiquement.  
 
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>Question : Que se passe-t-il si je ne mets pas à niveau mon espace de travail ?  
-La recherche dans les journaux héritée sera dépréciée dans les prochains mois. Les espaces de travail qui ne sont pas mis à niveau à ce moment-là seront automatiquement mis à niveau.
+La recherche de journal héritée sera déconseillée dans les prochains mois. Les espaces de travail qui ne sont pas mis à niveau à ce moment-là seront automatiquement mis à niveau.
 
 ### <a name="question-i-didnt-choose-to-upgrade-but-my-workspace-has-been-upgraded-anyway-what-happened"></a>Question : Je n’ai pas opté pour la mise à niveau, mais mon espace de travail a quand même été mis à niveau. Que s’est-il passé ?  
-Un autre administrateur de cet espace de travail peut l’avoir mis à niveau. Veuillez noter que tous les espaces de travail seront mis à niveau automatiquement lorsque le nouveau langage sera rendu public.  
+Un autre administrateur de cet espace de travail peut l’avoir mis à niveau. Veuillez noter que tous les espaces de travail sont mis à niveau automatiquement lorsque la nouvelle langue est rendue publique.  
 
 ### <a name="question-i-have-upgraded-by-mistake-and-now-need-to-cancel-it-and-restore-everything-back-what-should-i-do"></a>Question : J’ai effectué par erreur la mise à niveau et dois à présent l’annuler et tout restaurer. Que dois-je faire ?  
 Pas de problème.  Nous créons une capture instantanée de votre espace de travail avant la mise à niveau, afin de pouvoir le restaurer. Toutefois, gardez à l’esprit que les recherches, alertes ou images que vous avez enregistrées après la mise à niveau seront perdues.  Pour restaurer l’environnement de votre espace de travail, suivez la procédure décrite dans la section [Puis-je revenir en arrière après la mise à niveau ?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade).
 
 
-## <a name="views"></a>Vues
+## <a name="views"></a>Views
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Question : Comment créer une vue avec le Concepteur de vues ?
 Avant la mise à niveau, il était possible de créer une vue avec le Concepteur de vues à partir d’une vignette du tableau de bord principal.  Quand l’espace de travail est mis à niveau, cette vignette est supprimée.  Vous pouvez créer une vue à l’aide du Concepteur de vues dans le portail OMS en cliquant sur le bouton + vert dans le menu de gauche.
@@ -160,5 +160,5 @@ Quand vous cliquez sur l’option *Afficher tout* au bas d’un graphique en cou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez plus en détail la [mise à niveau de votre espace de travail avec le nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md).
+- Plus d’informations sur la [mise à niveau de votre espace de travail vers le nouveau langage de requête de Log Analytics](log-analytics-log-search-upgrade.md).
 

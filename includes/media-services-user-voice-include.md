@@ -1,4 +1,4 @@
-Utilisez le forum [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) pour fournir des commentaires et des suggestions sur la façon d’améliorer Azure Media Services. Vous pouvez également accéder directement à l’une des catégories suivantes :
+Utilisez le forum [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) pour fournir des commentaires et des suggestions sur la façon d’améliorer Azure Media Services. Vous pouvez également accéder directement à l’une des catégories suivantes :
 
 * [Azure Media Player](https://feedback.azure.com/forums/169396-media-services/category/109320-azure-media-player/)
 * [Bibliothèques de kit de développement logiciel (SDK) clientes](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)
@@ -7,4 +7,4 @@ Utilisez le forum [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clc
 * [Analytique multimédia](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
 * [Portail Azure](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 * [Plateforme et API REST](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
-* [Diffusion de VOD en continu](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
+* [Vidéo en streaming à la demande](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)

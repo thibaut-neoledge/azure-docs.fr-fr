@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 07/25/2017
+ms.date: 09/06/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 7a9d994e10ec79437d6ccf60531cb12b86f34151
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 81713fae3f856cad6251e43eecfd7b1e82858aed
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Étapes de dépannage détaillées pour les problèmes de connexion du Bureau à distance aux machines virtuelles Windows dans Azure
@@ -50,6 +50,8 @@ Avant de passer à la procédure de dépannage détaillé :
 
 * Vérifiez l’état de la machine virtuelle sur le Portail Azure pour identifier d’éventuels problèmes flagrants.
 * Suivez les [étapes du guide de résolution des problèmes de base pour corriger rapidement les erreurs de Bureau à distance courantes](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
+* Pour les images personnalisées, assurez-vous que votre VHD est préparé correctement avant de le charger. Pour plus d’informations, consultez [Préparer un VHD ou VHDX Windows à charger sur Azure](prepare-for-upload-vhd-image.md).
+
 
 Essayez de vous reconnecter à la machine virtuelle via le Bureau à distance après ces étapes.
 

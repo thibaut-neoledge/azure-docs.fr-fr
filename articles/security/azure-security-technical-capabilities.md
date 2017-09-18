@@ -1,5 +1,4 @@
 ---
-
 title: "Fonctionnalités techniques de la sécurité Azure | Microsoft Docs"
 description: "Découvrez les services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise."
 services: security
@@ -16,11 +15,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 2983ce5c068e5188fb70ffc9443ce58d6c188c50
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 268299d82ce79b10eb8061467f4bad61194457f8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
@@ -346,7 +344,7 @@ Azure dispose de plusieurs fonctionnalités simples d’utilisation pour aider �
 
 - [Connexion sécurisée de votre application aux ressources d'un réseau privé à l'aide d'un VPN de point à site](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
 
-- [Connexion sécurisée de votre application aux ressources d'un réseau privé à l'aide de connexions hybrides](https://docs.microsoft.com/azure/app-service-web/web-sites-hybrid-connection-get-started)
+- [Connexion sécurisée de votre application aux ressources d'un réseau privé à l'aide de connexions hybrides](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
 Azure App Service utilise la même solution anti-programme malveillant qu’Azure Cloud Services et que les ordinateurs virtuels. Pour en savoir plus à ce sujet, consultez notre [documentation sur les logiciels anti-programme malveillant](https://docs.microsoft.com/azure/security/azure-security-antimalware).
 

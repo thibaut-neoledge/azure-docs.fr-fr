@@ -1,6 +1,6 @@
 ---
-title: " Téléchargement de fichiers dans un compte Media Services à l’aide du portail Azure | Microsoft Docs"
-description: "Ce didacticiel vous guide à travers les étapes de téléchargement de fichiers dans un compte Media Services à l’aide du portail Azure."
+title: "Charger des fichiers vers un compte Media Services dans le portail Azure | Microsoft Docs"
+description: "Ce didacticiel vous indique les étapes à suivre pour charger des fichiers vers un compte Media Services dans le portail Azure."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -15,59 +15,55 @@ ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 8b9a7a266259077d49a38d51d7f801f420cc6315
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 7ddfe44918b358a1749640d1c93dba490855cc5a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/01/2017
 
 ---
-# <a name="upload-files-into-a-media-services-account-using-the-azure-portal"></a>Téléchargement de fichiers dans un compte Media Services à l’aide du portail Azure
+# <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Charger des fichiers vers un compte Media Services dans le portail Azure
 > [!div class="op_single_selector"]
 > * [Portail](media-services-portal-upload-files.md)
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
 > 
 > [!NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 
+Dans Azure Media Services, vous chargez vos fichiers numériques vers une ressource. Cette ressource peut contenir des fichiers vidéo, des fichiers audio, des images, des collections de miniatures, des pistes textuelles et des fichiers de sous-titres (ainsi que les métadonnées concernant ces fichiers). Une fois les fichiers chargés, votre contenu est stocké en toute sécurité dans le cloud, à des fins de traitement approfondi et de diffusion en continu.
 
-Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L’élément multimédia peut contenir des fichiers vidéo, des fichiers audio, des images, des collections de miniatures, des pistes textuelles et des légendes (ainsi que les métadonnées concernant ces fichiers). Une fois les fichiers téléchargés, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu.
-
-
-## <a name="upload-files"></a>Charger des fichiers
-
->[!NOTE]
->Une limite est appliquée à la taille maximale des fichiers pris en charge pour le traitement dans Media Services. Consultez [cette rubrique](media-services-quotas-and-limitations.md) pour en savoir plus sur les limites de taille des fichiers.
+> [!NOTE]
+> Media Services définit une taille de fichier maximale pour le traitement des fichiers. Pour obtenir des informations détaillées sur les limites de taille de fichier, voir [Quotas et limitations](media-services-quotas-and-limitations.md).
 >
 
+## <a name="upload-files"></a>Charger des fichiers
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Azure Media Services.
-2. Dans le panneau **Paramètres**, cliquez sur **Éléments multimédias**.
+2. Sélectionnez **Paramètres** > **Éléments multimédias**. Ensuite, cliquez sur le bouton **Charger**.
    
     ![Charger des fichiers](./media/media-services-portal-vod-get-started/media-services-upload.png)
-3. Cliquez sur le bouton **Télécharger** .
    
     La fenêtre **Upload a video asset** (Charger un élément multimédia vidéo) s’affiche.
    
    > [!NOTE]
-   > Il n’existe aucune limite de taille de fichier.
-   > 
-   > 
-4. Accédez à la vidéo de votre choix sur votre ordinateur, sélectionnez-la, puis cliquez sur OK.  
+   > Media Services ne limite pas la taille de fichier des vidéos chargées.
+ 
+3. Sur votre ordinateur, accédez à la vidéo que vous souhaitez charger. Sélectionnez la vidéo, puis cliquez sur **OK**.  
    
-    Le chargement démarre ; vous pouvez en voir la progression sous le nom du fichier.  
+    Le chargement démarre. La progression s’affiche sous le nom du fichier.  
 
-Une fois le téléchargement terminé, le nouvel élément multimédia s’affiche dans la fenêtre **Éléments multimédias** . 
-
-## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez désormais encoder vos éléments multimédias téléchargés. Pour plus d'informations, consultez [Encode an asset using Media Encoder Standard with the Azure portal (Encoder un élément multimédia à l’aide de Media Encoder Standard avec le portail Azure)](media-services-portal-encode.md).
-
-Vous pouvez également utiliser les fonctions Azure pour déclencher une tâche de codage à partir d’un fichier entrant dans le conteneur configuré. Pour plus d’informations, consultez [cet exemple](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
+Une fois le chargement terminé, la nouvelle ressource est répertoriée dans le volet **Ressources**. 
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+## <a name="next-steps"></a>Étapes suivantes
+* Vous pouvez désormais [encoder vos ressources chargées](media-services-portal-encode.md).
+
+* Vous pouvez également utiliser Azure Functions pour déclencher une tâche de codage lorsqu’un fichier arrive dans le conteneur configuré. Pour en savoir plus, consultez l’exemple décrit dans la section relative à [l’intégration d’Azure Media Services avec Azure Functions et Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/).
+
 
 

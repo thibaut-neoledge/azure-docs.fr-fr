@@ -12,11 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 9b7adf78271407963ed1d4b34a7760d707b5fc3a
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 510f8abd839c3c025e955aecfdd787ce85540caf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 
@@ -91,7 +91,7 @@ L’analyseur de requêtes distingue les opérateurs (tels que `*` et `+` dans l
 + *requête d’expression* pour les termes entre guillemets (comme vue mer)
 + *requête de préfixe* pour les termes suivis d’un opérateur de préfixe `*` (comme air condition)
 
-Pour obtenir la liste complète des types de requêtes pris en charge, voir [Syntaxe de requête Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+Pour obtenir la liste complète des types de requêtes pris en charge, consultez [Syntaxe de requête Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 
 Les opérateurs associés à une sous-requête déterminent si la requête « doit être » ou « peut être » satisfaite pour qu’un document soit considéré comme correspondant. Par exemple, `+"Ocean view"` indique que la requête « doit être » satisfaite en raison de l’opérateur `+`. 
 
@@ -387,15 +387,15 @@ Cet article a présenté la recherche en texte intégral dans le contexte de la 
 
 + [Configurez des analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) pour un traitement minimal ou pour un traitement spécialisé sur des champs spécifiques.
 
-+ [Comparez les analyseurs standards et les analyseurs anglais](http://alice.unearth.ai/) côte à côte sur ce site web de démonstration. 
++ [Comparez les analyseurs standard et les analyseurs anglais](http://alice.unearth.ai/) côte à côte sur ce site web de démonstration. 
 
 ## <a name="see-also"></a>Voir aussi
 
-[API REST de recherche de documents](https://docs.microsoft.com/rest/api/searchservice/search-documents)
+[API REST de recherche de documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
-[Syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+[Syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Syntaxe de requête complète Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+[Syntaxe de requête complète Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
 [Traiter les résultats de recherche](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
 

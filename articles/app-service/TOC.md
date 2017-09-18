@@ -130,6 +130,7 @@
 ## Integrate
 ### [Envoi de courriers électroniques à l’aide de SendGrid avec Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Exporter vers PowerApps et Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
+### [Utiliser l’identité du service administré](app-service-managed-service-identity.md)
 
 ## Résolution des problèmes
 ### [Activer la journalisation des diagnostics](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)

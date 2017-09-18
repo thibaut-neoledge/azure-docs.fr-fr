@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: d92fa4efd69736565e8dc1abc44ec3b1bd8bc508
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 7643050c4ba8929abcf77476970a2f99e992579d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec la diffusion en continu Hive et Pig dans HDInsight
@@ -46,7 +46,7 @@ Hive et Pig permettent de transmettre des données vers des applications externe
 
     * [Utilisation d’Apache Pig avec HDInsight](hdinsight-use-pig.md)
 
-* Un cluster Hadoop sur HDInsight. Pour plus d’informations sur la création d’un cluster, consultez [Créer un cluster HDInsight](hdinsight-provision-clusters.md).
+* Un cluster Hadoop sur HDInsight. Pour plus d’informations sur la création d’un cluster, consultez [Créer un cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="net-on-hdinsight"></a>.NET sur HDInsight
 

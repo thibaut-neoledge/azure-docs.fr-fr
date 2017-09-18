@@ -13,13 +13,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/26/2017
+ms.date: 08/31/2017
 ms.author: magoedte;sngun
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4b32011b72acc647d4af44bb5ccbcaab408fb4d6
-ms.lasthandoff: 03/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: cd8ea6e5a85d00f8ee5a011330d5b93863fd735e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="my-first-powershell-runbook"></a>Mon premier Runbook PowerShell
@@ -37,7 +37,7 @@ Ce didacticiel vous guide dans la création d’un [Runbook PowerShell](automati
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-account/" target="_blank">[créer un compte gratuit](https://azure.microsoft.com/free/).
-* [compte Automation](automation-sec-configure-azure-runas-account.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure.  Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
+* [compte Automation](automation-offering-get-started.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure.  Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
 * Une machine virtuelle Azure. Nous arrêtons et démarrons cette machine afin qu’elle ne soit pas une machine virtuelle de production.
 
 ## <a name="step-1---create-new-runbook"></a>Étape 1 - Création d’un Runbook
@@ -54,7 +54,7 @@ Nous allons commencer par créer un Runbook simple qui renvoie le texte *Hello W
 ## <a name="step-2---add-code-to-the-runbook"></a>Étape 2 - Ajouter du code au Runbook
 Vous pouvez soit taper du code directement dans le Runbook, soit sélectionner des applets de commande, des Runbooks et des ressources à partir du contrôle Bibliothèque et les ajouter au Runbook avec tous les paramètres associés. Pour cette procédure pas à pas, nous tapons directement le code dans le runbook.
 
-1. Notre Runbook est actuellement vide, saisissez *Write-Output « Hello World »*.<br><br> ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
+1. Notre runbook est actuellement vide. Saisissez *Write-Output « Hello World ».* dans le corps du script.<br><br> ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
 2. Enregistrez le Runbook en cliquant sur **Enregistrer**.<br><br> ![Bouton Enregistrer](media/automation-first-runbook-textual-powershell/automation-runbook-edit-controls-save.png)  
 
 ## <a name="step-3---test-the-runbook"></a>Étape 3 : Test du Runbook

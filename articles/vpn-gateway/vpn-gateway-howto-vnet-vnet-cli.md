@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide d’Azure CLI
@@ -124,7 +124,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. Créez un espace d’adressage supplémentaire pour le sous-réseau principal. Notez que dans cette étape, nous spécifions l’espace d’adressage créé précédemment et l’espace d’adressage supplémentaires que nous souhaitons ajouter. Cela vient du fait que la [mise à jour du réseau virtuel du réseau az](https://docs.microsoft.com/cli/azure/network/vnet#update) écrase les paramètres précédents. Veillez à spécifier tous les préfixes d’adresse lors de l’utilisation de cette commande.
+3. Créez un espace d’adressage supplémentaire pour le sous-réseau principal. Notez que dans cette étape, nous spécifions l’espace d’adressage créé précédemment et l’espace d’adressage supplémentaires que nous souhaitons ajouter. Cela vient du fait que la [mise à jour du réseau virtuel du réseau az](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_update) écrase les paramètres précédents. Veillez à spécifier tous les préfixes d’adresse lors de l’utilisation de cette commande.
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1

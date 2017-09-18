@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 2611698d70a1a5963abaa55c8e9510469c7aa097
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 2141ea4fd25dfc69ada02c54c4f6b6b717b8e7db
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -53,8 +53,8 @@ Ce script utilise les commandes suivantes pour obtenir des propriétés de disqu
 
 | Commande | Remarques |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#show) | Obtient des propriétés de disque géré à l’aide d’un nom de disque et d’un nom de groupe de ressources. La propriété Id est utilisée pour attacher un disque géré à une nouvelle machine virtuelle |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Crée une machine virtuelle à l’aide d’un disque de système d’exploitation géré |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Obtient des propriétés de disque géré à l’aide d’un nom de disque et d’un nom de groupe de ressources. La propriété Id est utilisée pour attacher un disque géré à une nouvelle machine virtuelle |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Crée une machine virtuelle à l’aide d’un disque de système d’exploitation géré |
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).

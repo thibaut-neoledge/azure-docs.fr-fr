@@ -17,10 +17,10 @@ ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 9eb32e545bdefb8cc0a8ae05bd58d750afeb469e
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 882446ba32252490e27056c7c5c9a8f755e26ee6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -104,7 +104,7 @@ Des disques de données peuvent être créés et attachés lors de la création 
 
 ### <a name="attach-disk-at-vm-creation"></a>Attacher le disque lors de la création d’une machine virtuelle
 
-Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group#create). 
+Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
 
 ```azurecli-interactive 
 az group create --name myResourceGroupDisk --location eastus
@@ -235,7 +235,7 @@ La capture instantanée du disque crée une copie en lecture seule à un moment 
 
 ### <a name="create-snapshot"></a>Création d’un instantané
 
-Avant de créer une capture instantanée de disque de machine virtuelle, l’ID ou le nom du disque est nécessaire. Utilisez la commande [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show) pour renvoyer l’ID du disque. Dans cet exemple, l’ID du disque est stocké dans une variable pour qu’il puisse être utilisé dans une étape ultérieure.
+Avant de créer une capture instantanée de disque de machine virtuelle, l’ID ou le nom du disque est nécessaire. Utilisez la commande [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) pour renvoyer l’ID du disque. Dans cet exemple, l’ID du disque est stocké dans une variable pour qu’il puisse être utilisé dans une étape ultérieure.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -273,13 +273,13 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 Tous les disques de données doivent être rattachés à la machine virtuelle.
 
-Trouvez d’abord le nom du disque de données à l’aide de la commande [az disk list](https://docs.microsoft.com/cli/azure/disk#list). Cet exemple place le nom du disque dans une variable nommée *datadisk*, qui est utilisée à l’étape suivante.
+Trouvez d’abord le nom du disque de données à l’aide de la commande [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list). Cet exemple place le nom du disque dans une variable nommée *datadisk*, qui est utilisée à l’étape suivante.
 
 ```azurecli-interactive 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-Utilisez la commande [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) pour attacher le disque.
+Utilisez la commande [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) pour attacher le disque.
 
 ```azurecli-interactive 
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk

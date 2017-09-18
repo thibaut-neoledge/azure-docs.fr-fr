@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/05/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 193e59c610d5c5b553469cf2ea2ecc150236ac27
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: e8c2a8a7c3b5d61b2524eecceeaa4638fada78b8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Services de domaine Azure Active Directory : Forum aux questions (FAQ)
@@ -80,6 +80,9 @@ Oui. Pour plus d’informations, consultez la [page relative aux prix appliqués
 
 #### <a name="is-there-a-free-trial-for-the-service"></a>Le service peut-il être essayé gratuitement ?
 Ce service est inclus dans l’essai gratuit d’Azure. Vous pouvez vous inscrire pour bénéficier d’un [essai gratuit d’un mois d’Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+#### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>Puis-je suspendre un domaine géré par Azure AD Domain Services ? 
+Non. Une fois que vous avez activé un domaine géré par Azure AD Domain Services, le service est disponible dans votre réseau virtuel sélectionné jusqu’à ce que vous désactiviez/supprimiez le domaine géré. Il n’existe aucun moyen de suspendre le service. La facturation horaire se poursuivra jusqu’à ce que vous supprimiez le domaine géré.
 
 #### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Puis-je obtenir les services de domaine Azure AD dans le cadre d’Enterprise Mobility Suite (EMS) ? Ai-je besoin d’Azure AD Premium pour utiliser les services de domaine Azure AD ?
 Non. Les services de domaine Azure AD constituent un service Azure avec paiement à l’utilisation et ne font pas partie d’EMS. Azure Active Directory Domain Services peut être utilisé avec toutes les éditions d’Azure AD (Gratuit, De base et Premium). La facturation se fait à l’utilisation, sur une base horaire.

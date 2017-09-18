@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 08/30/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: d55cecf20abdf1637f0537e63a3dba5992a68741
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 6e2a7c5eafee78d342f735b543624d041b9b3fe5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
@@ -34,6 +34,53 @@ Rubrique |  Détails
 Étapes de mise à niveau à partir d’Azure AD Connect | Différentes méthodes pour [effectuer une mise à niveau à partir d’une version précédente vers la dernière](active-directory-aadconnect-upgrade-previous-version.md) version Azure AD Connect.
 Autorisations requises | Pour plus d’informations sur les autorisations requises afin d’appliquer une mise à jour, consultez [Comptes et autorisations](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Télécharger| [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="116140"></a>1.1.614.0
+Statut : 5 septembre 2017
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+
+#### <a name="known-issues"></a>Problèmes connus
+* Il existe un problème connu avec la mise à niveau d’Azure AD Connect qui affecte les clients ayant activé l’[authentification unique transparente](active-directory-aadconnect-sso.md). Après la mise à niveau d’Azure AD Connect, la fonctionnalité apparaît comme étant désactivée dans l’Assistant, même si elle reste activée. Un correctif pour ce problème sera fourni dans une version ultérieure. Vous pouvez résoudre ce problème d’affichage manuellement en activant l’authentification unique transparente dans l’Assistant.
+
+#### <a name="fixed-issues"></a>Problèmes résolus
+* Correction d’un problème qui provoque l’échec de l’installation d’Azure AD Connect si l’authentification NTLM est désactivée dans la forêt AD locale. Ce problème est dû au fait que l’Assistant Azure AD Connect ne fournit pas les informations d’identification complètes lors de la création des contextes de sécurité nécessaires pour l’authentification Kerberos. Cela provoque l’échec de l’authentification Kerberos et l’utilisation de l’authentification NTLM par l’Assistant Azure AD Connect.
+
+### <a name="azure-ad-connect-sync"></a>Synchronisation d’Azure AD Connect
+#### <a name="fixed-issues"></a>Problèmes résolus
+* Correction d’un problème qui empêche la création d’une règle de synchronisation si l’attribut Tag n’est pas renseigné.
+* Correction d’un problème qui contraint Azure AD Connect à se connecter à AD local pour la synchronisation du mot de passe à l’aide de NTLM même si Kerberos est disponible. Ce problème se produit si la topologie AD locale contient un ou plusieurs contrôleurs de domaine qui ont été restaurés à partir d’une sauvegarde.
+* Correction d’un problème qui provoque l’exécution inutile d’étapes de synchronisation complète après la mise à niveau. En général, l’exécution d’étapes de synchronisation complète est nécessaire après la mise à niveau en cas de modifications des règles de synchronisation par défaut. Ce problème est dû à une erreur dans la logique de détection des modifications, qui détecte incorrectement une modification quand elle rencontre une expression de règle de synchronisation avec des caractères de saut de ligne. Les caractères de saut de ligne sont insérés dans une expression de règle de synchronisation pour améliorer la lisibilité.
+* Correction d’un problème qui peut entraîner le fonctionnement incorrect du serveur Azure AD Connect après la mise à niveau automatique. Ce problème affecte les serveurs Azure AD Connect avec la version 1.1.443.0 (ou antérieure). Pour plus d’informations sur ce problème, consultez l’article [Azure AD Connect is not working correctly after an automatic upgrade (Azure AD Connect ne fonctionne pas correctement après une mise à niveau automatique)](https://support.microsoft.com/help/4038479/azure-ad-connect-is-not-working-correctly-after-an-automatic-upgrade).
+* Correction d’un problème qui peut entraîner une nouvelle tentative de mise à niveau automatique toutes les cinq minutes quand des erreurs sont rencontrées. Avec le correctif, la mise à niveau automatique effectue une nouvelle tentative avec interruption exponentielle quand des erreurs sont rencontrées.
+* Correction d’un problème où l’événement de synchronisation du mot de passe 611 est affiché de manière incorrecte dans les journaux des événements d’application Windows avec la mention **Informationnel** au lieu de **Erreur**. L’événement 611 est généré chaque fois que la synchronisation du mot de passe rencontre un problème. 
+* Correction d’un problème dans l’Assistant Azure AD Connect qui autorise l’activation de la fonctionnalité d’écriture différée de groupe sans sélectionner d’unité d’organisation requise pour l’écriture différée de groupe.
+
+#### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
+* Ajout d’une tâche de résolution des problèmes à l’Assistant Azure AD Connect sous Tâches supplémentaires. Les clients peuvent utiliser cette tâche pour résoudre les problèmes liés à la synchronisation du mot de passe et pour recueillir des diagnostics généraux. À l’avenir, la tâche de résolution des problèmes sera étendue pour inclure d’autres problèmes liés à la synchronisation d’annuaires.
+* Azure AD Connect prend désormais en charge un nouveau mode d’installation nommé **Utiliser une base de données existante**. Ce mode d’installation permet aux clients d’installer Azure AD Connect en spécifiant une base de données ADSync existante. Pour plus d’informations sur cette fonctionnalité, consultez l’article [Utiliser une base de données existante](active-directory-aadconnect-existing-database.md).
+* Pour améliorer la sécurité, Azure AD Connect utilise désormais par défaut TLS 1.2 pour se connecter à Azure AD pour la synchronisation d’annuaires. Auparavant, la valeur par défaut était TLS 1.0.
+* Quand l’agent de synchronisation des mots de passe Azure AD Connect démarre, il tente de se connecter au point de terminaison connu Azure AD pour effectuer la synchronisation du mot de passe. Une fois la connexion établie, il est redirigé vers un point de terminaison propre à la région. Auparavant, l’agent de synchronisation des mots de passe mettait en cache le point de terminaison propre à la région jusqu’à ce qu’il soit redémarré. Désormais, l’agent efface le cache et effectue une nouvelle tentative avec le point de terminaison connu s’il rencontre un problème de connexion avec le point de terminaison propre à la région. Ce changement garantit que la synchronisation du mot de passe peut basculer vers un autre point de terminaison propre à la région quand le point de terminaison propre à la région mis en cache n’est plus disponible.
+* Pour synchroniser les modifications à partir d’une forêt AD locale, un compte de domaine AD DS est nécessaire. Vous pouvez (i) créer vous-même le compte AD DS et fournir ses informations d’identification à Azure AD Connect, ou (ii) entrer les informations d’identification d’un administrateur d’entreprise et laisser Azure AD Connect créer le compte AD DS pour vous. Auparavant, l’option (i) était l’option par défaut dans l’Assistant Azure AD Connect. Désormais, il s’agit de l’option (ii).
+
+### <a name="azure-ad-connect-health"></a>Azure AD Connect Health
+
+#### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
+* Ajout de la prise en charge de Microsoft Azure Government Cloud et Microsoft Cloud Germany.
+
+### <a name="ad-fs-management"></a>Gestion AD FS
+#### <a name="fixed-issues"></a>Problèmes résolus
+* L’applet de commande Initialize-ADSyncNGCKeysWriteBack dans le module Powershell de préparation AD plaçait incorrectement le conteneur d’inscription d’appareil dans la liste de contrôle d’accès, et héritait par conséquent uniquement des autorisations existantes.  Une mise à jour a été appliquée afin que le compte de service de synchronisation dispose des autorisations appropriées.
+
+#### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
+* La tâche AAD Connect Vérifier la connexion AD FS a été mise à jour afin de vérifier les connexions par rapport à Microsoft Online, et pas simplement la récupération de jeton à partir des services de fédération Active Directory (AD FS).
+* Quand vous configurez une nouvelle batterie AD FS à l’aide d’AAD connect, la page invitant à fournir des informations d’identification AD FS a été déplacée et apparaît maintenant avant que l’utilisateur soit invité à spécifier les serveurs AD FS et WAP.  Cela permet à AAD Connect de vérifier que le compte spécifié dispose des autorisations appropriées.
+* La mise à niveau d’AAD Connect n’échoue plus si la mise à jour de l’approbation AAD AD FS échoue.  Si cela se produit, un message d’avertissement approprié est affiché, et l’utilisateur doit réinitialiser l’approbation par le biais de la tâche supplémentaire AAD Connect.
+
+### <a name="seamless-single-sign-on"></a>Authentification unique transparente
+#### <a name="fixed-issues"></a>Problèmes résolus
+* Correction d’un problème qui fait en sorte que l’Assistant Azure AD Connect retourne une erreur si vous essayez d’activer l’[authentification unique transparente](active-directory-aadconnect-sso.md). Le message d’erreur est *« Échec de la configuration de l’agent d’authentification Microsoft Azure AD Connect. »* Ce problème affecte les clients existants qui avaient manuellement mis à niveau la préversion des agents d’authentification pour l’[authentification directe](active-directory-aadconnect-sso.md) d’après les étapes décrites dans cet [article](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
+
 
 ## <a name="115610"></a>1.1.561.0
 État : 23 juillet 2017
@@ -460,9 +507,9 @@ Publication : août 2016
 * L’Assistant Azure AD Connect ne parvient pas à authentifier le compte Azure AD fourni si le mot de passe du compte contient un trop grand nombre de caractères spéciaux. Un message d’erreur du type « Impossible de valider les informations d’identification. Une erreur inattendue s’est produite. » est renvoyé.
 * La désinstallation du serveur intermédiaire désactive la synchronisation de mot de passe dans le client Azure AD et provoque l’échec de la synchronisation de mot de passe avec le serveur actif.
 * La synchronisation du mot de passe échoue dans de rares cas lorsqu’aucun hachage de mot de passe n’est stocké sur l’utilisateur.
-* Lorsque le serveur Azure AD Connect est activé pour le mode intermédiaire, la réécriture du mot de passe n’est pas temporairement désactivée.
-* L’assistant Azure AD Connect n’affiche pas la configuration réelle de synchronisation de mot de passe et de réécriture du mot de passe lorsque le serveur est en mode intermédiaire. Il les affiche toujours comme étant désactivées.
-* Les modifications apportées à la synchronisation de mot de passe et à la réécriture du mot de passe ne sont pas conservées par l’Assistant Azure AD lorsque le serveur est en mode intermédiaire.
+* Lorsque le serveur Azure AD Connect est activé pour le mode intermédiaire, l’écriture différée de mot de passe n’est pas temporairement désactivée.
+* L’assistant Azure AD Connect n’affiche pas la configuration réelle de synchronisation de mot de passe et d’écriture différée de mot de passe lorsque le serveur est en mode intermédiaire. Il les affiche toujours comme étant désactivées.
+* Les modifications apportées à la synchronisation de mot de passe et à l’écriture différée de mot de passe ne sont pas conservées par l’Assistant Azure AD lorsque le serveur est en mode intermédiaire.
 
 **Améliorations :**
 
@@ -590,7 +637,7 @@ Publication : novembre 2015
   * La file d'attente des nouvelles tentatives de mot de passe est infinie et la limite de 5 000 objets supprimés a été supprimée.
 * Impossible de se connecter à Active Directory avec le niveau fonctionnel de forêt Windows Server 2016.
 * Impossible de modifier le groupe utilisé pour le filtrage de groupes après l’installation initiale.
-* Aucun profil utilisateur n’est plus créé sur le serveur Azure AD Connect pour chaque utilisateur effectuant une modification de mot de passe avec la réécriture du mot de passe activée.
+* Aucun profil utilisateur n’est plus créé sur le serveur Azure AD Connect pour chaque utilisateur effectuant une modification de mot de passe avec l’écriture différée du mot de passe activée.
 * Impossible d’utiliser des entiers longs dans des règles de synchronisation.
 * La case à cocher « Écriture différée des appareils » reste désactivée s’il existe des contrôleurs de domaine inaccessibles.
 
@@ -611,7 +658,7 @@ Publication : août 2015
 * Si le compte utilisé sur le connecteur Active Directory est modifié en dehors de l’Assistant, l’Assistant échoue lors des exécutions suivantes.
 * L’installation d’Azure AD Connect sur un contrôleur de domaine échoue parfois.
 * Impossible d’activer et de désactiver le « Mode de préproduction » si des attributs d’extension ont été ajoutés.
-* La réécriture du mot de passe échoue dans certaines configurations en raison d’un mot de passe incorrect sur le connecteur Active Directory.
+* L’écriture différée de mot de passe échoue dans certaines configurations en raison d’un mot de passe incorrect sur le connecteur Active Directory.
 * Impossible de mettre à niveau DirSync si un nom unique (DN) est utilisé lors du filtrage des attributs.
 * Utilisation du processeur excessive lors de la réinitialisation du mot de passe.
 
@@ -650,7 +697,7 @@ Publication : mai 2015
 
 **Problèmes résolus :**
 
-* La réécriture du mot de passe à partir d’Azure AD échoue en raison d’une erreur de connectivité Azure Service Bus.
+* L’écriture différée de mot de passe à partir d’Azure AD échoue en raison d’une erreur de connectivité Azure Service Bus.
 
 ## <a name="104910413"></a>1.0.491.0413
 Publication : avril 2015

@@ -1,6 +1,6 @@
 ---
 title: "Créer des artefacts personnalisés pour votre machine virtuelle DevTest Labs | Microsoft Docs"
-description: "Découvrez comment créer vos propres artefacts pour les utiliser avec DevTest Labs"
+description: "Découvrez comment créer vos propres artefacts pour les utiliser avec Azure DevTest Labs."
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -15,19 +15,22 @@ ms.topic: article
 ms.date: 03/16/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 2412033daa1d97860dd9f380178622b1ddc590c0
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 679819618452d65847c6163569e04945ba8a414d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/01/2017
 
 ---
-# <a name="create-custom-artifacts-for-your-devtest-labs-vm"></a>Créer des artefacts personnalisés pour vos machines virtuelles DevTest Labs
+# <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Créer des artefacts personnalisés pour votre machine virtuelle DevTest Labs
+
+Regardez la vidéo suivante pour avoir une vue d’ensemble de la procédure décrite dans cet article :
+
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/how-to-author-custom-artifacts/player]
 > 
 > 
 
 ## <a name="overview"></a>Vue d'ensemble
-**artefacts** sont utilisés pour déployer et configurer votre application après l’approvisionnement d’une machine virtuelle. Un artefact se compose d'un fichier de définition d'artefact et autres fichiers de script qui sont stockés dans un dossier de dépôt git. Les fichiers de définition d'artefact se composent de JSON et d'expressions que vous pouvez utiliser pour spécifier ce que vous voulez installer sur une machine virtuelle. Par exemple, vous pouvez définir le nom d’un artefact, une commande à exécuter et des paramètres disponibles lorsque la commande est exécutée. Vous pouvez faire référence à d'autres fichiers de script dans le fichier de définition d'artefact par nom.
+Vous pouvez utiliser des *artefacts* pour déployer et configurer votre application après avoir approvisionné une machine virtuelle. Un artefact se compose d’un fichier de définition d’artefact et autres fichiers de script qui sont stockés dans un dossier de dépôt Git. Les fichiers de définition d'artefact se composent de JSON et d'expressions que vous pouvez utiliser pour spécifier ce que vous voulez installer sur une machine virtuelle. Par exemple, vous pouvez définir le nom d’un artefact, une commande à exécuter et des paramètres disponibles quand la commande est exécutée. Vous pouvez faire référence à d'autres fichiers de script dans le fichier de définition d'artefact par nom.
 
 ## <a name="artifact-definition-file-format"></a>Format de fichier de définition d'artefact
 L'exemple suivant indique les sections qui composent la structure de base d'un fichier de définition :
@@ -52,18 +55,18 @@ L'exemple suivant indique les sections qui composent la structure de base d'un f
 
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
-| $schema |Non |Emplacement du fichier de schéma JSON qui permet de tester la validité du fichier de définition. |
+| $schema |Non |Emplacement du fichier de schéma JSON. Le fichier de schéma JSON peut vous aider à tester la validité du fichier de définition. |
 | title |Oui |Nom de l'artefact affiché dans le laboratoire. |
 | Description |Oui |Description de l'artefact affiché dans le laboratoire. |
-| iconUri |Non |URI de l'icône affichée dans le laboratoire. |
-| targetOsType |Oui |Système d'exploitation de la machine virtuelle où l'artefact sera installé. Les options prises en charge sont : Windows et Linux. |
-| parameters |Non |Les valeurs fournies lorsque la commande d'installation d'artefact est exécutée sur une machine. Cela permet de personnaliser votre artefact. |
+| iconUri |Non |URI de l’icône affichée dans le laboratoire. |
+| targetOsType |Oui |Système d’exploitation de la machine virtuelle où l’artefact est installé. Les options prises en charge sont Windows et Linux. |
+| parameters |Non |Valeurs fournies quand la commande d’installation d’artefact est exécutée sur une machine. Cela vous permet de personnaliser votre artefact. |
 | runCommand |Oui |Commande d'installation d'artefact qui est exécutée sur une machine virtuelle. |
 
 ### <a name="artifact-parameters"></a>Paramètres d'artefact
-Dans la section des paramètres du fichier de définition, vous spécifiez les valeurs qu'un utilisateur peut entrer lors de l'installation d'un artefact. Vous pouvez faire référence à ces valeurs dans la commande d'installation d'artefact.
+Dans la section des paramètres du fichier de définition, spécifiez les valeurs qu’un utilisateur peut entrer quand il installe un artefact. Vous pouvez faire référence à ces valeurs dans la commande d'installation d'artefact.
 
-Vous définissez des paramètres avec la structure suivante :
+Pour définir des paramètres, utilisez la structure suivante :
 
     "parameters": {
         "<parameterName>": {
@@ -75,28 +78,28 @@ Vous définissez des paramètres avec la structure suivante :
 
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
-| type |Oui |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés : |
+| type |Oui |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
 | displayName |Oui |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. | |
 | Description |Oui |Description du paramètre qui est affiché dans le laboratoire. |
 
-Les types autorisés sont :
+Les types autorisés sont :
 
-* string : n'importe quelle chaîne JSON valide
-* int : n'importe quel entier JSON valide
-* bool : n'importe quel booléen JSON valide 
-* array : n'importe quel tableau JSON valide
+* string (n’importe quelle chaîne JSON valide)
+* int (n’importe quel entier JSON valide)
+* bool (n’importe quel booléen JSON valide)
+* array (n’importe quel tableau JSON valide)
 
 ## <a name="artifact-expressions-and-functions"></a>Expressions et fonctions d'artefact
-Vous pouvez utiliser une expression et des fonctions pour construire la commande d'installation d'artefact.
-Les expressions sont placées entre crochets ([ et ]) et sont évaluées au moment où l'artefact est installé. Les expressions peuvent apparaître n'importe où dans une valeur de chaîne JSON et retournent toujours une autre valeur JSON. Si vous avez besoin d'utiliser une chaîne littérale qui commence par un crochet [, vous devez utiliser deux crochets [[.
-En général, vous utilisez des expressions avec des fonctions pour construire une valeur. Exactement comme dans JavaScript, les appels de fonctions sont mis en forme selon functionName(arg1,arg2,arg3).
+Vous pouvez utiliser des expressions et des fonctions pour construire la commande d’installation d’artefact.
+Les expressions sont placées entre crochets ([ et ]) et sont évaluées au moment où l'artefact est installé. Les expressions peuvent apparaître n’importe où dans une valeur de chaîne JSON. Les expressions retournent toujours une autre valeur JSON. Si vous avez besoin d’utiliser une chaîne littérale qui commence par un crochet ([), vous devez utiliser deux crochets ([[).
+En général, vous utilisez des expressions avec des fonctions pour construire une valeur. Comme en JavaScript, les appels de fonctions sont formatés ainsi : **functionName(arg1,arg2,arg3)**.
 
 La liste suivante indique les fonctions courantes :
 
-* parameters(parameterName) : renvoie une valeur de paramètre fournie lors de l'exécution de la commande de l'artefact.
-* concat(arg1,arg2,arg3,...) : combine plusieurs valeurs de chaîne. Cette fonction peut prendre n'importe quel nombre d'arguments.
+* **parameters(parameterName)** : retourne une valeur de paramètre qui est fournie à l’exécution de la commande de l’artefact.
+* **concat(arg1,arg2,arg3, …..)** : combine plusieurs valeurs de chaîne. Cette fonction peut prendre de nombreux arguments.
 
-L'exemple suivant indique comment utiliser les fonctions et l'expression pour construire une valeur :
+L’exemple suivant indique comment utiliser les fonctions et les expressions pour construire une valeur :
 
     runCommand": {
          "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
@@ -106,27 +109,26 @@ L'exemple suivant indique comment utiliser les fonctions et l'expression pour co
     }
 
 ## <a name="create-a-custom-artifact"></a>Création d'un artefact personnalisé
-Créez votre artefact personnalisé en suivant les étapes ci-dessous :
 
-1. Installer un éditeur JSON : vous avez besoin d'un éditeur JSON pour utiliser les fichiers de définition d'artefact. Nous vous recommandons d'utiliser [Visual Studio Code](https://code.visualstudio.com/), qui est disponible pour Windows, Linux et OS X.
-2. Obtenir un exemple d'artifactfile.json : découvrez les artefacts créés par l'équipe Azure DevTest Labs dans notre [référentiel GitHub](https://github.com/Azure/azure-devtestlab) où nous avons créé une bibliothèque d'artefacts riche qui vous permet de créer vos propres artefacts. Téléchargez un fichier de définition d'artefact et modifiez-le pour créer vos propres artefacts.
-3. Utiliser IntelliSense : utilisez IntelliSense pour voir des éléments valides qui peuvent être utilisés pour construire un fichier de définition d'artefact. Vous pouvez également voir les différentes options pour les valeurs d'un élément. Par exemple, IntelliSense vous montre les deux options de Windows ou Linux lorsque vous modifiez l'élément **targetOsType** .
-4. Stockez l'artefact dans un [référentiel git](devtest-lab-add-artifact-repo.md).
+1. Installer un éditeur JSON. Vous avez besoin d’un éditeur JSON pour utiliser les fichiers de définition d’artefact. Nous vous recommandons d’utiliser [Visual Studio Code](https://code.visualstudio.com/), qui est disponible pour Windows, Linux et OS X.
+2. Obtenir un exemple de fichier de définition artifactfile.json. Découvrez les artefacts créés par l’équipe DevTest Labs dans notre [dépôt GitHub](https://github.com/Azure/azure-devtestlab). Nous avons créé une bibliothèque d’artefacts riche qui vous permet de créer vos propres artefacts. Téléchargez un fichier de définition d'artefact et modifiez-le pour créer vos propres artefacts.
+3. Utiliser IntelliSense. Utilisez IntelliSense pour voir des éléments valides que vous pouvez utiliser pour construire un fichier de définition d’artefact. Vous pouvez également voir les différentes options pour les valeurs d’un élément. Par exemple, quand vous modifiez l’élément **targetOsType**, IntelliSense vous montre deux options, pour Windows ou Linux.
+4. Stocker l’artefact dans un [dépôt Git](devtest-lab-add-artifact-repo.md).
    
-   1. Créez un répertoire distinct pour chaque artefact où le nom du répertoire est le même que le nom de l'artefact.
-   2. Stockez le fichier de définition d'artefact (artifactfile.json) dans le répertoire que vous avez créé.
+   1. Créez un répertoire distinct pour chaque artefact. Le nom du répertoire doit être le même que le nom de l’artefact.
+   2. Stockez le fichier de définition d’artefact (artifactfile.json) dans le répertoire que vous avez créé.
    3. Stockez les scripts qui sont référencés à partir de la commande d'installation d'artefact.
       
       Voici un exemple de dossier d'artefact :
       
-      ![Exemple de dépôt git d'artefacts](./media/devtest-lab-artifact-author/git-repo.png)
-5. Ajoutez le référentiel d’artefacts au laboratoire : reportez-vous à l’article [Ajouter un référentiel Git d’artefacts et de modèles](devtest-lab-add-artifact-repo.md).
+      ![Exemple de dossier d’artefact](./media/devtest-lab-artifact-author/git-repo.png)
+5. Ajouter le dépôt d’artefacts au laboratoire. Consultez [Ajouter un dépôt Git des artefacts et des modèles](devtest-lab-add-artifact-repo.md).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-articles"></a>Articles connexes
 * [Guide pratique pour diagnostiquer les échecs d’artefact dans DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Joindre une machine virtuelle à un domaine AD existant à l’aide d’un modèle Resource Manager dans Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Joindre une machine virtuelle à un domaine Active Directory existant à l’aide d’un modèle Resource Manager dans DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [ajouter un dépôt d’artefacts Git à un laboratoire](devtest-lab-add-artifact-repo.md).

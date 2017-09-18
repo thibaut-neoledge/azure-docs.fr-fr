@@ -1,13 +1,13 @@
 ---
-title: "Plans Consommation et App Service d’Azure Functions | Microsoft Docs"
-description: "Découvrez comment Azure Functions se met à l’échelle pour répondre aux besoins de vos charges de travail liées aux événements."
+title: "Comparaison des plans d’hébergement Azure Functions | Microsoft Docs"
+description: "Découvrez comment choisir entre le plan Consommation et le plan App Service d’Azure Functions."
 services: functions
 documentationcenter: na
 author: lindydonna
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
+keywords: "azure functions, fonctions, plan consommation, plan app service, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
 ms.devlang: multiple
@@ -18,13 +18,13 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 0e677fb35279d155241a95cd5f33b63e8294fad2
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 8778dcfdb5859d212a2a3eb28a5ed297b5f07460
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/02/2017
 
 ---
-# <a name="azure-functions-consumption-and-app-service-plans"></a>Plans Consommation et App Service d’Azure Functions 
+# <a name="azure-functions-hosting-plans-comparison"></a>Comparaison des plans d’hébergement Azure Functions
 
 ## <a name="introduction"></a>Introduction
 

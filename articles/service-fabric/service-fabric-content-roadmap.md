@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/14/2017
+ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4a5ccfa671e6780a3d4305d4e3238c55de8e577c
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 1db13c30e2ec1de62d5103f85b4181a5750403c5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Vous voulez en savoir plus sur Service Fabric ?
@@ -58,7 +57,7 @@ Après avoir créé une application nommée, vous pouvez créer une instance de 
 
 Il existe deux types de services : sans état et avec état. Les services sans état sont stockés à l’état persistant dans un service de stockage externe tel que Stockage Azure, Azure SQL Database ou Azure Cosmos DB. Utilisez un service sans état si le service est totalement dépourvu de stockage persistant. Un service avec état utilise Service Fabric pour gérer l’état de votre service via ses modèles de programmation Reliable Collections ou Reliable Actors. 
 
-Lors de la création d’un service nommé, vous indiquez un schéma de partition. Les services comportant de grandes quantités d’état fractionnent les données entre les partitions. Chaque partition est responsable d’une partie de l’état complet du service, répartie entre les nœuds du cluster. Dans une partition, les services nommés sans état ont des instances tandis que les services nommés avec état ont des réplicas. En règle générale, les services nommés sans état ne possèdent qu’une partition, car ils sont dépourvus d’état interne. Les services nommés avec état conservent leur état dans les réplicas, et chaque partition possède son propre jeu de réplicas. Les opérations de lecture et d’écriture sont effectuées sur un seul réplica (appelé réplica principal). Les modifications de l’état en raison des opérations d’écriture sont répliquées sur plusieurs autres réplicas (appelés réplicas secondaires actifs). 
+Lors de la création d’un service nommé, vous indiquez un schéma de partition. Les services comportant de grandes quantités d’état fractionnent les données entre les partitions. Chaque partition est responsable d’une partie de l’état complet du service, répartie entre les nœuds du cluster.  
 
 Le diagramme suivant montre la relation entre les applications et les instances de service, les partitions et les réplicas.
 
@@ -94,7 +93,10 @@ Par défaut, Service Fabric déploie et active les services en tant que processu
 Reposant sur Reliable Services, l’infrastructure [Reliable Actor](service-fabric-reliable-actors-introduction.md) est une infrastructure d’application qui implémente le modèle Virtual Actor, selon le modèle de conception des acteurs. L'infrastructure Reliable Actor utilise des unités indépendantes d'état et de calcul avec exécution monothread, nommées acteurs. L'infrastructure Reliable Actor fournit une communication intégrée aux acteurs, ainsi que des configurations prédéfinies de persistance d’état et de montée en charge.
 
 ### <a name="aspnet-core"></a>ASP.NET Core
-Service Fabric s’intègre dans [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) en tant que modèle de programmation de premier ordre pour la création d’applications web et API
+Service Fabric s’intègre à [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) comme un modèle de programmation de premier ordre pour la création d’applications web et API.  L’infrastructure ASP.NET Core peut être utilisée de deux manières dans Service Fabric :
+
+- Hébergée en tant qu’exécutable invité. Cette méthode est principalement utilisée pour exécuter des applications ASP.NET Core existantes sur Service Fabric sans modification de code.
+- Exécutée dans un service fiable. Cette méthode permet des services ASP.NET Core avec état ainsi qu’une meilleure intégration au runtime Service Fabric.
 
 ### <a name="guest-executables"></a>Exécutables invités
 Un [exécutable d’invité](service-fabric-deploy-existing-app.md) est un exécutable existant quelconque (écrit dans n’importe quel langage) qui est hébergé sur un cluster Service Fabric avec d’autres services. Les exécutables invités ne s’intègrent pas directement dans les API Service Fabric. Cependant, ils bénéficient toujours des fonctionnalités offertes par la plateforme, comme la création de rapports d’intégrité et de chargement personnalisés et la détectabilité des services par le biais d’un appel aux API REST. Ils prennent également en charge le cycle de vie complet des applications. 

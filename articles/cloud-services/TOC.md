@@ -60,6 +60,7 @@
 ### Configurer la mise à l’échelle automatique
 #### [Portail](cloud-services-how-to-scale-portal.md)
 #### [Portail classique](cloud-services-how-to-scale.md)
+#### [PowerShell](cloud-services-how-to-scale-powershell.md)
 ### [Gérer les ressources Azure avec Python](cloud-services-python-how-to-use-service-management.md)
 
 ### [Correctifs du SE invité](cloud-services-guestos-msrc-releases.md)

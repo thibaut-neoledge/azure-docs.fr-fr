@@ -24,6 +24,10 @@ Non. Les réseaux virtuels peuvent être situés dans des régions (emplacements
 
 Non.
 
+### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>Puis-je utiliser la connexion de réseau virtuel à réseau virtuel pour connecter des réseaux virtuels dans des instances Azure séparées ? 
+
+Non. La connexion de réseau virtuel à réseau virtuel prend en charge la connexion de réseaux virtuels au sein de la même instance Azure. Par exemple, vous ne pouvez pas créer une connexion entre une instance Azure publique et les instances Azure du gouvernement chinois, allemand ou américain. Pour ces scénarios, envisagez l’utilisation d’une connexion VPN de site à site.
+
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Puis-je utiliser une connexion de réseau virtuel à réseau virtuel en plus de connexions multisites ?
 
 Oui. Une connectivité réseau virtuelle peut être utilisée en même temps que des VPN multisites.

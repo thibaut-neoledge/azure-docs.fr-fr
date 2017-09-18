@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 3f2950fe25feb8f3ee81cc0a79bf624f0ee33bd5
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 985962c4f2db21526291981ad5180fc0a16e2ab8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="_Toc395809351"></a>Didacticiel ASP.NET MVC : développement d’applications web avec Azure Cosmos DB
@@ -45,12 +45,11 @@ Cette procédure pas à pas montre comment utiliser le service Azure Cosmos DB p
 ## <a name="_Toc395637760"></a>Conditions préalables à l’exécution de ce didacticiel de base de données
 Avant de suivre les instructions de cet article, vérifiez que les éléments suivants sont installés :
 
-* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Un compte Azure actif.  Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
-    OU
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-    Une installation locale de [l’émulateur Azure Cosmos DB](local-emulator.md).
-* [Visual Studio 2017](http://www.visualstudio.com/).  
+* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
 * Kit de développement logiciel Microsoft Azure SDK pour .NET de Visual Studio 2017, disponible via Visual Studio Installer.
 
 Toutes les captures d’écran dans cet article ont été effectuées à l’aide de Microsoft Visual Studio Community 2017. Si votre système est configuré avec une version différente, il est possible que vos écrans et options ne correspondent pas totalement. Toutefois, si vous respectez les conditions préalables ci-dessus, cette solution devrait fonctionner.

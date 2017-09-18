@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 83456d775c5ff2a2476ba46e9c78a8dc1bb482e8
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: b810618b485b631e1d72b24c2a9587017d635cc4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="service-bus-architecture"></a>Architecture de Service Bus
@@ -35,7 +35,7 @@ Un espace de noms Service Bus est mappé à une unité d'échelle. L’unité d�
 * **Plusieurs banques de messagerie.** Les banques de messagerie conservent les messages de l’ensemble des files d’attente, rubriques et abonnements qui sont définis dans cette unité d’échelle. Elles contiennent également toutes les données d’abonnement. Une file d’attente ou une rubrique est mappée à une banque de messagerie, sauf si l’option [Partitionnement des entités de messagerie](service-bus-partitioning.md) est activée. Les abonnements sont stockés dans la même banque de messagerie que leur rubrique parent. Sauf pour Service Bus [Premium Messaging](service-bus-premium-messaging.md), les banques de messagerie sont implémentées sur des bases de données SQL Azure.
 
 ## <a name="containers"></a>Conteneurs
-Un conteneur spécifique est assigné à chaque entité de messagerie. Un conteneur est une construction logique qui utilise exactement une banque de messagerie pour stocker toutes les données pertinentes pour ce conteneur. Chaque conteneur est affecté à un nœud de broker de messagerie. En règle générale, il existe plus de conteneurs que de nœuds de broker de messagerie. Par conséquent, chaque nœud de broker de messagerie charge plusieurs conteneurs. La distribution de conteneurs sur un nœud de broker de messagerie est organisée de façon à ce que tous les nœuds de broker de messagerie soient chargés de façon égale. Si le modèle de charge change (par exemple, un des conteneurs devient très occupé) ou si un nœud de broker de messagerie devient temporairement indisponible, les conteneurs sont redistribués entre les nœuds de broker de messagerie.
+Un conteneur spécifique est assigné à chaque entité de messagerie. Un conteneur est une construction logique qui utilise un magasin de messagerie pour stocker toutes les données pertinentes pour ce conteneur. Chaque conteneur est affecté à un nœud de broker de messagerie. En règle générale, il existe plus de conteneurs que de nœuds de broker de messagerie. Par conséquent, chaque nœud de broker de messagerie charge plusieurs conteneurs. La distribution de conteneurs sur un nœud de broker de messagerie est organisée de façon à ce que tous les nœuds de broker de messagerie soient chargés de façon égale. Si le modèle de charge change (par exemple, un des conteneurs devient très occupé) ou si un nœud de broker de messagerie devient temporairement indisponible, les conteneurs sont redistribués entre les nœuds de broker de messagerie.
 
 ## <a name="processing-of-incoming-messaging-requests"></a>Traitement des requêtes de messagerie entrantes
 Lorsqu'un client envoie une requête à Service Bus, l'équilibrage de charge Azure la transmet à l'un des nœuds de passerelle. Le nœud de passerelle autorise la requête. Si la requête concerne une entité de messagerie (file d’attente, rubrique, abonnement), le nœud de passerelle recherche l’entité dans le magasin de passerelle et détermine dans quelle banque de messagerie se trouve l’entité. Il recherche ensuite quel nœud de broker de messagerie traite actuellement ce conteneur et envoie la requête à ce nœud de broker de messagerie. Le nœud de broker de messagerie traite la requête et met à jour l'état de l'entité dans le magasin de conteneur. Le nœud de broker de messagerie envoie ensuite la réponse au nœud de passerelle, qui envoie une réponse appropriée au client qui a émis la requête d'origine.

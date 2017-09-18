@@ -13,17 +13,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/22/2017
+ms.date: 09/06/2017
 ms.author: maroche
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 7ee836b4c0c87fc7d271f59dcb16f3293e68dc9a
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Nouveautés d'Azure Data Catalog
 Des mises à jour **d’Azure Data Catalog** sont publiées régulièrement. Comme certaines versions portent sur les fonctionnalités du service principal, toutes les versions ne contiennent pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Cette page présente les nouvelles fonctionnalités orientées utilisateur ajoutées au service Azure Data Catalog.
+
+## <a name="whats-new-for-september-2017"></a>Nouveautés de septembre 2017 
+À compter de septembre 2017, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :
+
+* Prise en charge de l’extraction de métadonnées de relation de jointure à partir de sources de données DB2 durant l’inscription des tables associées à l’aide de l’outil d’inscription des sources de données.
+* Prise en charge de l’inscription des sources de données MongoDB version 3.4 à l’aide de l’outil d’inscription des source de données.
+* Prise en charge de la suppression de toutes les métadonnées pour les objets contenus dans une seule opération durant la suppression d’une base de données ou d’un autre conteneur de Data Catalog.
+* Prise en charge de l’affichage de 1 000 balises au maximum, des termes de glossaire métier, ou d’autres facettes de recherche, quand vous affinez une recherche dans le portail Data Catalog.
+
 
 ## <a name="whats-new-for-august-2017"></a>Nouveautés d’août 2017 
 Depuis août 2017, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :

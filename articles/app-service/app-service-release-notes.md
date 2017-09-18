@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1
@@ -28,7 +29,7 @@ Les nouvelles fonctionnalités et mises à jour intégrées dans le Kit de déve
 
 * Nouvelles fonctionnalités\nouveaux scénarios associés aux **Web Tools Extensions**. 
   
-  * Azure Web Sites a été renommé Azure App Service. Pour plus d’informations, consultez [Azure App Service et services Azure existants](../app-service-web/app-service-changes-existing-services.md).
+  * Azure Web Sites a été renommé Azure App Service. 
   * La prise en charge des applications API Azure (version préliminaire) a été ajoutée afin que les clients puissent publier des projets ASP.NET en tant qu'applications API, puis utiliser le mouvement Ajouter > Azure API App Client dans les projets C# pour générer du code basé sur la structure de l'application API déployée. 
   * Le nœud Websites dans l'Explorateur de serveurs a été déconseillé en lieu et place du nœud Azure App Service, qui prend en charge le regroupement basé sur le groupe de ressources des applications API, mobiles et web d'Azure.
   * La prise en charge des applications mobiles Azure (version préliminaire) a été ajoutée afin que les clients puissent créer des projets Mobile Apps, ajouter des contrôleurs Mobile Apps, publier les projets et déboguer à distance des applications.
@@ -46,7 +47,7 @@ Les nouvelles fonctionnalités et mises à jour intégrées dans le Kit de déve
     
     Pour plus d’informations, consultez la page [Prise en main de HDInsight Hadoop Tools pour Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-## <a name="a-idknownissues251aazure-sdk-for-net-251-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Limitations et problèmes connus du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1
+## <a id="known_issues_2_5_1"></a>Limitations et problèmes connus du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1
 * Azure API Apps apparaît sous la forme d'une cible de déploiement pour Mobile Apps. Web Apps devrait être la seule destination pour Mobile Apps jusqu'à une version suivante. 
 * La mise en service d'Azure API App peut se terminer avec succès mais échouer de façon intermittente lors de la mise à jour de la progression dans la fenêtre d'activité d'Azure App Service. Une solution de contournement consiste à vérifier l'état de la nouvelle application API Azure dans le portail Azure. 
 * La séquence Fichier > Nouveau projet > Application API > F5 provoque une erreur HTTP, car il n'existe aucun fichier default/index.html. Une solution de contournement consiste à accéder manuellement à l'URL /api/values. 
@@ -62,10 +63,5 @@ Les nouvelles fonctionnalités et mises à jour intégrées dans le Kit de déve
 * Les projets d'application API ne peuvent pas être utilisés conjointement avec des projets de service cloud.
 * Les modèles de projet d'application API sont disponibles uniquement en C#.
 * L'utilisation de l'application API via le menu contextuel « Ajouter Azure API App Client » est prise en charge uniquement en C#.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

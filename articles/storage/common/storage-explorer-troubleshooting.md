@@ -12,19 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 09/08/2017
 ms.author: delhan
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 9b3a8b964ec2f75c53c03b5099dc1e1eb7d77c65
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
-
-## <a name="introduction"></a>Introduction
 
 L’Explorateur de stockage Microsoft Azure (préversion) est une application autonome qui vous permet d’utiliser facilement les données Stockage Azure sur Windows, macOS et Linux. L’application peut se connecter aux comptes de stockage hébergés sur Azure, les clouds souverains et Azure Stack.
 
@@ -32,7 +30,7 @@ Ce guide résume les solutions aux problèmes couramment rencontrés dans l’Ex
 
 ## <a name="sign-in-issues"></a>Problèmes de connexion
 
-Seuls les comptes Azure Active Directory (AAD) sont pris en charge. Si vous utilisez un compte ADFS, la connexion à l’Explorateur de stockage ne devrait pas fonctionner. Avant de continuer, essayez de redémarrer votre application et de voir si les problèmes peuvent être résolus.
+Avant de continuer, essayez de redémarrer votre application et de voir si les problèmes peuvent être résolus.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>Erreur : certificat auto-signé dans la chaîne d’approbation
 

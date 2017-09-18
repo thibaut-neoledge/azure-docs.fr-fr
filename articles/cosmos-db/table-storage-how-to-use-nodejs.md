@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 539212c6abe7738c022d67245f8992516f0899ff
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 8cc23d5c284123c7c04dda4b71fdb6275d32bf8d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Utilisation du stockage de tables Azure à partir de Node.js
@@ -66,8 +66,6 @@ var azure = require('azure-storage');
 
 ## <a name="set-up-an-azure-storage-connection"></a>Configurer une connexion Azure Storage
 Le module Azure lit les variables d’environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations nécessaires à la connexion à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **TableService**.
-
-Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour un site web Azure, consultez [Application web Node.js avec le service de Table Azure](../app-service-web/storage-nodejs-use-table-storage-web-site.md).
 
 ## <a name="create-a-table"></a>Création d’une table
 Le code suivant crée un objet **TableService** et l'utilise pour créer une table. Ajoutez le code suivant vers le début du fichier **server.js**:

@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 888d2b7b7c118fede82d39881570a3b3d7b09961
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 5efdabf7258fc678811a0d0f19bc1d5e797ed807
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -52,12 +52,12 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 | Commande | Remarques |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | Crée un serveur logique qui héberge l’instance SQL Database. |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#create) | Crée un pool de bases de données élastique au sein du serveur logique. |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | Crée une instance SQL Database au sein du serveur logique. |
-| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#update) | Met à jour un pool de base de données élastique : dans cet exemple, modifie l’eDTU attribué. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | Crée un serveur logique qui héberge l’instance SQL Database. |
+| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create) | Crée un pool de bases de données élastique au sein du serveur logique. |
+| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_create) | Crée une instance SQL Database au sein du serveur logique. |
+| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) | Met à jour un pool de base de données élastique : dans cet exemple, modifie l’eDTU attribué. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 67b8e2e0039c8bc63f50f177e3c0d18b07df45e6
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -27,16 +27,19 @@ Le [Stockage Fichier Azure](../storage-dotnet-how-to-use-files.md) est le systè
 
 Pour monter un partage de fichiers Azure en dehors de la région Azure sur laquelle il est hébergé, par exemple localement ou dans une région Azure différente, le système d’exploitation doit prendre en charge SMB 3.0. 
 
-Le partage de fichier Azure peut être monté sur une machine Azure. Le montage est réalisé en local ou sur une machine virtuelle Azure en fonction de la version du système d’exploitation. Le tableau ci-dessous illustre la : 
+Vous pouvez monter des partages de fichiers Azure sur une installation Windows en cours d’exécution dans une machine virtuelle Azure ou localement. Le tableau ci-dessous illustre les versions du système d’exploitation qui prennent en charge le montage des partages de fichiers dans un environnement donné :
 
-| Version de Windows        | Version SMB |Version montable sur une machine virtuelle Azure|Version montable en local|
-|------------------------|-------------|---------------------|---------------------|
-| Windows 7              | SMB 2.1     | Oui                 | Non                  |
-| Windows Server 2008 R2 | SMB 2.1     | Oui                 | Non                  |
-| Windows 8              | SMB 3.0     | Oui                 | Oui                 |
-| Windows Server 2012    | SMB 3.0     | Oui                 | Oui                 |
-| Windows Server 2012 R2 | SMB 3.0     | Oui                 | Oui                 |
-| Windows 10             | SMB 3.0     | Oui                 | Oui                 |
+| Version de Windows        | Version SMB | Version montable dans une machine virtuelle Azure | Montable en local |
+|------------------------|-------------|-----------------------|----------------------|
+| Windows 10<sup>1</sup>  | SMB 3.0 | Oui | Oui |
+| Windows Server 2016    | SMB 3.0     | Oui                   | Oui                  |
+| Windows 8.1            | SMB 3.0     | Oui                   | Oui                  |
+| Windows Server 2012 R2 | SMB 3.0     | Oui                   | Oui                  |
+| Windows Server 2012    | SMB 3.0     | Oui                   | Oui                  |
+| Windows 7              | SMB 2.1     | Oui                   | Non                   |
+| Windows Server 2008 R2 | SMB 2.1     | Oui                   | Non                   |
+
+<sup>1</sup>Les versions 1507, 1511, 1607 et 1703 de Windows 10
 
 > [!Note]  
 > Nous vous conseillons de prendre la base de connaissances la plus récente pour votre version de Windows.

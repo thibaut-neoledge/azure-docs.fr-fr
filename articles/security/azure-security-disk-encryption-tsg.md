@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 83821ed2f7db1c7dea88a1b4424d405959a206db
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: f2b9aad02a1ae3d5117ffd59b448eabe65a936fc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guide de rési=olution des problèmes Azure Disk Encryption
@@ -41,7 +41,7 @@ Cette erreur se produit souvent lors d’une tentative de chiffrement de disque 
 
 ## <a name="unable-to-encrypt"></a>Chiffrement impossible
 
-Dans certains cas, le chiffrement de disque Linux semble être bloqué à l’étape « OS disk encryption started » (le chiffrement du disque du système d’exploitation a démarré) et SSH est désactivé. Ce processus de chiffrement peut prendre entre 3 et 16 heures pour se terminer sur une image de galerie de stock. Si des disques de données de plusieurs To sont ajoutés, le processus peut prendre des jours. 
+Dans certains cas, le chiffrement de disque Linux semble être bloqué à l’étape « OS disk encryption started » (le chiffrement du disque du système d’exploitation a démarré) et SSH est désactivé. Ce processus de chiffrement peut prendre entre 3 et 16 heures pour se terminer sur une image de galerie de stock. Si des disques de données de plusieurs To sont ajoutés, le processus peut prendre des jours.
 
 La séquence de chiffrement de disque du système d’exploitation Linux démonte le lecteur du système d’exploitation temporairement. Il effectue ensuite un chiffrement bloc par bloc de la totalité du disque du système d’exploitation avant de le remonter dans son état chiffré. Contrairement à Azure Disk Encryption sous Windows, le chiffrement de disque Linux n’autorise pas l’utilisation simultanée de la machine virtuelle pendant le chiffrement. Les caractéristiques de performances de la machine virtuelle peuvent faire la différence de façon significative dans le temps nécessaire pour exécuter le chiffrement. Ces caractéristiques incluent la taille du disque et si le compte de stockage est standard ou premium (SSD).
 
@@ -85,15 +85,15 @@ Au moment de l’exécution, Azure Disk Encryption pour Linux s’appuie sur le 
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Résolution des problèmes Windows Server 2016 Server Core
 
-Sur Windows Server 2016 Server Core, le composant **bdehdcfg** n’est pas disponible par défaut. Ce composant est requis par Azure Disk Encryption. Ajoutez le composant **bdehdcfg** en suivant ces étapes :
+Sur Windows Server 2016 Server Core, le composant bdehdcfg n’est pas disponible par défaut. Ce composant est requis par Azure Disk Encryption. Il est utilisé pour séparer le volume système du volume du système d’exploitation, ce qui est effectué une seule fois pendant toute la durée de vie de la machine virtuelle. Ces fichiers binaires ne sont pas requis pendant les opérations de chiffrement ultérieures.
 
-   1. Copiez les quatre fichiers suivants à partir d’une machine virtuelle du centre de données Windows Server 2016 dans le dossier **c:\windows\system32** de l’image Server Core :
+Pour contourner ce problème, copiez les 4 fichiers suivants à partir d’une machine virtuelle Windows Server 2016 Data Center vers le même emplacement sur Server Core :
 
    ```
-   bdehdcfg.exe
-   bdehdcfglib.dll
-   bdehdcfglib.dll.mui
-   bdehdcfg.exe.mui
+   \windows\system32\bdehdcfg.exe
+   \windows\system32\bdehdcfglib.dll
+   \windows\system32\en-US\bdehdcfglib.dll.mui
+   \windows\system32\en-US\bdehdcfg.exe.mui
    ```
 
    2. Entrez la commande suivante :
@@ -102,8 +102,8 @@ Sur Windows Server 2016 Server Core, le composant **bdehdcfg** n’est pas dispo
    bdehdcfg.exe -target default
    ```
 
-   3. Cette commande crée une partition de système de 550 Mo. Redémarrez le système. 
-   
+   3. Cette commande crée une partition de système de 550 Mo. Redémarrez le système.
+
    4. Utilisez DiskPart pour vérifier les volumes, avant de continuer.  
 
 Par exemple :

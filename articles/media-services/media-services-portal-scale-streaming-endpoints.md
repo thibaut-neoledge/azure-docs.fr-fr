@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 09/10/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 76de1d40e8c24abda33e99a137f4a6c263f60a8b
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 156c5d0b007e33a9181d2847fc7b517c6f816494
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Mettre à l’échelle des points de terminaison de streaming avec le Portail Azure
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/06/2017
 > 
 > 
 
-Les points de terminaison de streaming **Premium** sont conçus pour les charges de travail avancées et fournissent une capacité de bande passante dédiée et évolutive. Les clients disposant d’un point de terminaison de streaming **Premium** ont par défaut une unité de streaming. Le point de terminaison de streaming peut être adapté avec l’ajout d’unités de streaming. Chaque unité de streaming fournit une capacité de bande passante supplémentaire à l’application. Pour plus d’informations sur les types de point de terminaison de streaming et la configuration du CDN, consultez la rubrique [Vue d’ensemble des points de terminaison de streaming](media-services-portal-manage-streaming-endpoints.md).
+Les points de terminaison de streaming **Premium** sont conçus pour les charges de travail avancées et fournissent une capacité de bande passante dédiée et évolutive. Les clients disposant d’un point de terminaison de streaming **Premium** ont par défaut une unité de streaming. Le point de terminaison de streaming peut être adapté avec l’ajout d’unités de streaming. Chaque unité de streaming fournit une capacité de bande passante supplémentaire à l’application. Pour plus d’informations sur les types de point de terminaison de streaming et la configuration du CDN, consultez la rubrique [Vue d’ensemble des points de terminaison de streaming](media-services-streaming-endpoints-overview.md).
  
 Cette rubrique montre comment mettre à l’échelle un point de terminaison de streaming.
 
@@ -43,7 +43,8 @@ Pour modifier le nombre d’unités de streaming, procédez comme suit :
 2. Dans la fenêtre **Paramètres**, sélectionnez **Points de terminaison de diffusion en continu**.
 3. Cliquez sur le point de terminaison de streaming que vous souhaitez mettre à l’échelle. 
 
-    [!NOTE] Vous pouvez uniquement mettre à l’échelle les points de terminaison de streaming **Premium**.
+    > [!NOTE] 
+    > Vous pouvez uniquement mettre à l’échelle les points de terminaison de streaming **Premium**.
 
 4. Déplacez le curseur pour spécifier le nombre d’unités de diffusion en continu.
 

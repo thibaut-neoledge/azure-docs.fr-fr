@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/06/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1e0568bc58e8879cabe409cf8e9b5866f922e7c9
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: b69bbd00b85fdf093ac1ccf021515d9b44ea7f55
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools pour Visual Studio  
@@ -34,11 +34,14 @@ Azure Functions Tools propose les avantages suivants :
 
 Cette rubrique vous montre comment utiliser Azure Functions Tools pour Visual Studio 2017 afin de développer vos fonctions en C#. Vous apprenez également à publier votre projet sur Azure en tant qu’assembly .NET.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Azure Functions Tools est inclus dans la charge de travail de développement Azure dans [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/) ou ultérieure. Veillez à inclure la charge de travail de **développement Azure** lorsque vous installez Visual Studio 2017 version 15.3 :
 
 ![Installer Visual Studio 2017 avec la charge de travail de développement Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+>[!NOTE]  
+>Après avoir installé ou mis à niveau vers Visual Studio 2017 version 15.3, vous devez mettre à jour manuellement les outils Visual Studio 2017 pour Azure Functions. Vous pouvez mettre à jour les outils à partir du menu **Outils** sous **Extensions et mises à jour...**  > **Mises à jour** > **Visual Studio Marketplace** > **Azure Functions et Web Jobs Tools** > **Mettre à jour**. 
 
 Pour créer et déployer des fonctions, vous avez également besoin des éléments suivants :
 

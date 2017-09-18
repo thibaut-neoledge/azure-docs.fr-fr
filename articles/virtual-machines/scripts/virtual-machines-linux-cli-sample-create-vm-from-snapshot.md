@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 960a44e0df2c46cea464d9277f22f449b62e7d06
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: be282f79445c505ece7c6115df7a29c20a6a5f02
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -50,9 +50,9 @@ Ce script utilise les commandes suivantes pour créer un disque géré, une mach
 
 | Commande | Remarques |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#show) | Obtient une capture instantanée à l’aide d’un nom de capture instantanée et d’un nom de groupe de ressources. La propriété Id de l’objet retourné est utilisée pour créer un disque géré.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Crée des disques gérés à partir d’une capture instantanée en utilisant un ID de capture instantanée, un nom de disque, un type de stockage et une taille  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Crée une machine virtuelle à l’aide d’un disque de système d’exploitation géré |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Obtient une capture instantanée à l’aide d’un nom de capture instantanée et d’un nom de groupe de ressources. La propriété Id de l’objet retourné est utilisée pour créer un disque géré.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Crée des disques gérés à partir d’une capture instantanée en utilisant un ID de capture instantanée, un nom de disque, un type de stockage et une taille  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Crée une machine virtuelle à l’aide d’un disque de système d’exploitation géré |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

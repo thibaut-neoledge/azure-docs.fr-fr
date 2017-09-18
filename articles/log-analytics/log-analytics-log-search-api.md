@@ -1,5 +1,5 @@
 ---
-title: API REST de la recherche dans les journaux Log Analytics | Microsoft Docs
+title: API REST de recherche de journal Log Analytics | Microsoft Docs
 description: "Ce guide fournit un didacticiel de base qui décrit comment utiliser l’API REST de recherche Log Analytics dans Operations Management Suite (OMS). Il propose aussi des exemples qui vous permettent de découvrir comment utiliser les commandes."
 services: log-analytics
 documentationcenter: 
@@ -12,28 +12,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 78afb2f065dde4a3e7a3ab787c939b3c52b72cc6
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/07/2017
 
 ---
-# <a name="log-analytics-log-search-rest-api"></a>API REST de la recherche dans les journaux Log Analytics
-Ce guide fournit un didacticiel de base, y compris des exemples, sur la façon dont vous pouvez utiliser l’API REST de la recherche dans les journaux Log Analytics. Log Analytics fait partie d'Operations Management Suite (OMS).
+# <a name="log-analytics-log-search-rest-api"></a>API REST de recherche de journal Log Analytics
+Ce guide fournit un didacticiel de base, y compris des exemples, sur la façon dont vous pouvez utiliser l’API REST de recherche de journal Log Analytics. Log Analytics fait partie d'Operations Management Suite (OMS).
 
 > [!NOTE]
-> Si votre espace de travail a été mis à niveau avec le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), vous devez continuer à utiliser le langage de requête existant avec l’API de recherche dans les journaux, comme indiqué dans cet article.  Une nouvelle API sera publiée pour les espaces de travail mis à niveau, et la documentation sera mise à jour à ce moment-là. 
+> Si vous avez mis a niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), consultez la [documentation relative à la nouvelle version de l’API Recherche dans les journaux](https://dev.loganalytics.io/).
 
 > [!NOTE]
 > Avant, Log Analytics s’appelait Operational Insights, ce qui explique pourquoi ce nom est présent dans le fournisseur de ressources.
 >
 >
 
-## <a name="overview-of-the-log-search-rest-api"></a>Vue d’ensemble de l’API REST de la recherche dans les journaux
-L’API REST de recherche Log Analytics est un service RESTful qui est accessible par le biais de l’API Azure Resource Manager. Cet article fournit des exemples qui vous indiqueront comment accéder à l'API via [ARMClient](https://github.com/projectkudu/ARMClient), un outil de ligne de commande open source qui simplifie l'appel de l'API du Gestionnaire de ressources Azure. L'utilisation d’ARMClient est une des nombreuses options vous permettant d’accéder à l'API de la recherche dans les journaux Log Analytics. Une autre option consiste à utiliser le module Azure PowerShell pour OperationalInsights qui inclut des applets de commande pour accéder à la recherche. Grâce à ces outils, vous pouvez utiliser l'API Azure Resource Manager pour effectuer des appels vers les espaces de travail OMS et exécuter en leur sein des commandes de recherche. L'API produit des résultats de recherche au format JSON, qui vous permet d'utiliser ces résultats par programmation de différentes manières.
+## <a name="overview-of-the-log-search-rest-api"></a>Vue d’ensemble de l’API REST de recherche de journal
+L’API REST de recherche Log Analytics est un service RESTful qui est accessible par le biais de l’API Azure Resource Manager. Cet article fournit des exemples qui vous indiqueront comment accéder à l'API via [ARMClient](https://github.com/projectkudu/ARMClient), un outil de ligne de commande open source qui simplifie l'appel de l'API du Gestionnaire de ressources Azure. L'utilisation d’ARMClient est une des nombreuses options vous permettant d’accéder à l'API de recherche de journal de Log Analytics. Une autre option consiste à utiliser le module Azure PowerShell pour OperationalInsights qui inclut des applets de commande pour accéder à la recherche. Grâce à ces outils, vous pouvez utiliser l'API Azure Resource Manager pour effectuer des appels vers les espaces de travail OMS et exécuter en leur sein des commandes de recherche. L'API produit des résultats de recherche au format JSON, qui vous permet d'utiliser ces résultats, par programme, de différentes manières.
 
 Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque pour .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) et l'[API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Pour en savoir plus, consultez les pages web connexes.
 
@@ -42,7 +42,7 @@ Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque p
 >
 >
 
-## <a name="basic-log-analytics-search-rest-api-tutorial"></a>Didacticiel de base sur l’API REST de la recherche dans les journaux Log Analytics
+## <a name="basic-log-analytics-search-rest-api-tutorial"></a>Didacticiel de base sur l’API de recherche de journal de Log Analytics
 ### <a name="to-use-armclient"></a>Pour utiliser ARMClient
 1. Installez [Chocolatey](https://chocolatey.org/)(gestionnaire de packages open source pour Windows). Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur, puis exécutez la commande suivante :
 
@@ -418,5 +418,5 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur les [recherches dans les journaux](log-analytics-log-searches.md) pour générer des requêtes utilisant des champs personnalisés comme critères.
+* En savoir plus sur les [recherches de journaux](log-analytics-log-searches.md) pour générer des requêtes utilisant des champs personnalisés comme critères.
 

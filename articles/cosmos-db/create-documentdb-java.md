@@ -38,7 +38,8 @@ Ce guide de démarrage rapide crée une base de données de documents à l’aid
 * [Git](https://www.git-scm.com/)
     * Sur Ubuntu, vous pouvez exécuter `sudo apt-get install git` pour installer Git.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Création d'un compte de base de données
 

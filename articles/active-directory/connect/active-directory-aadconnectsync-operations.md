@@ -47,7 +47,7 @@ Pour appliquer cette méthode, procédez comme suit :
 1. [Préparation](#prepare)
 2. [Configuration](#configuration)
 3. [Importer et synchroniser](#import-and-synchronize)
-4. [Verify](#verify)
+4. [Vérifier](#verify)
 5. [Changer de serveur actif](#switch-active-server)
 
 #### <a name="prepare"></a>Préparation
@@ -66,7 +66,7 @@ Si vous avez apporté des modifications personnalisées au serveur principal et 
 
 Vous avez maintenant effectué une exportation intermédiaire vers Azure AD et Active Directory local (si vous utilisez un déploiement Exchange hybride). Les prochaines étapes vous permettront d’inspecter les changements avant de commencer effectivement l’exportation vers les répertoires.
 
-#### <a name="verify"></a>Verify
+#### <a name="verify"></a>Vérifier
 1. Démarrez une invite de commande et accédez à `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Exécution : `csexport "Name of Connector" %temp%\export.xml /f:x` le nom du connecteur se trouve dans le service de synchronisation. Le nom est similaire à « contoso.com – AAD » pour Azure AD.
 3. Copiez le script PowerShell à partir de la section [CSAnalyzer](#appendix-csanalyzer) dans un fichier nommé `csanalyzer.ps1`.

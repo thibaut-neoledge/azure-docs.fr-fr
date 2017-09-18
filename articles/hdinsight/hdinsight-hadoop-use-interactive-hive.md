@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: e7874b55fc72f14d8e2c801872359e823cb2ba34
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: fa8b4126865788549217d89f19627f20739f8540
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-interactive-hive-in-hdinsight-preview"></a>Utilisation de Hive interactif dans HDInsight (version préliminaire)
@@ -31,7 +30,7 @@ Hive interactif (également appelé [Live Long and Process](https://cwiki.apache
 Le cluster Hive interactif est différent du cluster Hadoop. Il contient uniquement le service Hive. 
 
 > [!NOTE]
-> MapReduce, Pig, Sqoop, Oozie et d’autres services seront prochainement supprimés de ce type de cluster.
+> La suppression de MapReduce, Pig, Sqoop, Oozie et d’autres services est prévue prochainement dans ce type de cluster.
 > Le service Hive du cluster Hive interactif est uniquement accessible via la vue Ambari Hive, Beeline et ODBC Hive. Il n’est pas accessible via la console Hive, Templeton, l’interface de ligne de commande Azure et Azure PowerShell. 
 > 
 > 
@@ -49,7 +48,7 @@ Il existe différentes options vous permettant d’exécuter des requêtes Hive�
   
     Pour des informations sur l’utilisation de Beeline sur HDInsight, consultez [Utiliser Hive avec Hadoop dans HDInsight avec Beeline](hdinsight-hadoop-use-hive-beeline.md).
   
-    Vous utilisez Beeline à partir du nœud principal ou d’un nœud de périmètre vide.  L’utilisation de Beeline à partir d’un nœud de périmètre vide est recommandée.  Pour des informations sur la création d’un cluster HDInsight avec un nœud de périmètre vide, consultez [Utiliser des nœuds de périmètre vides dans HDInsight](hdinsight-apps-use-edge-node.md).
+    Vous utilisez Beeline à partir du nœud principal ou d’un nœud de périmètre vide.  L’utilisation de Beeline à partir d’un nœud de périmètre vide est recommandée.  Pour obtenir des informations sur la création d’un cluster HDInsight avec un nœud de périmètre vide, consultez [Utiliser des nœuds de périmètre vides dans HDInsight](hdinsight-apps-use-edge-node.md).
 * Exécution de Hive à l’aide d’ODBC Hive
   
     Pour des informations sur l’utilisation de Hive ODBC, consultez la page [Connexion d’Excel à Hadoop avec le pilote ODBC Hive de Microsoft](hdinsight-connect-excel-hive-odbc-driver.md).
