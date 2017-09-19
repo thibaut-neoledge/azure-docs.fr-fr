@@ -47,7 +47,7 @@ Dans cet exemple, la capacité de deux files d’attente existantes (**default**
 2. Sélectionnez la file d’attente **default** (par défaut).
 
     ![Sélectionner la file d’attente default](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
-3. Modifiez la valeur **Capacity** (Capacité) de 50 % à 25 % pour la file d’attente **default** (par défaut) et faites de même pour la file d’attente **thriftsvr******.
+3. Modifiez la valeur **Capacity** (Capacité) de 50 % à 25 % pour la file d’attente **default** (par défaut) et faites de **même** pour la file d’attente **thriftsvr** .
 
     ![Définir la capacité sur 25 % pour les files d’attente default et thriftsvr](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
 4. Cliquez sur **Add Queue** (Ajouter une file d’attente) pour créer une file d’attente.
