@@ -3,7 +3,7 @@ title: "Personnaliser les règles de pare-feu d’applications web dans Azure Ap
 description: "Cet article fournit des informations sur la personnalisation des règles de pare-feu d’applications web dans Application Gateway avec PowerShell."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.custom: 
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 681625e40035b05c593c6161236cb80b7db576b9

@@ -3,7 +3,7 @@ title: "Intégration d’Application Gateway à Azure Security Center | Microsof
 description: "Cette page fournit des informations sur l’intégration d’Application Gateway à Azure Security Center."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.custom: 
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 737cdff3140be68cf9d6d396b470dd09c65c52f2
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/07/2017
-
 
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: "Utiliser la passerelle Azure Application Gateway avec équilibreur de charge interne | Microsoft Docs"
-description: "Cette page fournit des instructions pour configurer une passerelle Application Gateway Azure avec un point de terminaison d&quot;équilibrage de charge interne"
+description: "Cette page fournit des instructions pour configurer une passerelle Application Gateway Azure avec un point de terminaison d'équilibrage de charge interne"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 7403d28e-909f-46a2-b282-43a8e942f53c
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: davidmu
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: d6f3af61934c8c645be1f2c6b4c056fc7ee2e3aa
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Création d'une passerelle Application Gateway avec un équilibrage de charge interne (ILB)
@@ -222,10 +223,5 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 
 * [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
