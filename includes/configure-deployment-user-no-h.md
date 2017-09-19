@@ -1,4 +1,4 @@
-Créez des informations d’identification de déploiement au moyen de la commande [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
+Dans Cloud Shell, créez des informations d’identification de déploiement au moyen de la commande [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
 
 Un utilisateur de déploiement est requis pour les déploiements FTP et Git en local sur une application web. Le nom d’utilisateur et le mot de passe par défaut sont tous les deux au niveau du compte. _Ils sont différents des informations d’identification de votre abonnement Azure._
 

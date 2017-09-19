@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: d4eeb7a77d6336e241c196e4ad48af52d57af1d4
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: d8d8ff77f0099185707a0207c4ba6aed190a102e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -44,7 +44,7 @@ Veillez à compléter les étapes décrites dans la section relative à la [conf
 5. Créez un dossier dans votre copie locale de ce référentiel GitHub pour le processus de génération de CMake. 
 
     ```cmd/sh
-    cd azure-iot-device-auth
+    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
@@ -58,7 +58,7 @@ Veillez à compléter les étapes décrites dans la section relative à la [conf
 7. Dans une invite de commandes distincte, accédez au dossier racine GitHub et exécutez le simulateur [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) . Il écoute un socket sur les ports 2321 et 2322. Ne fermez pas cette fenêtre de commande ; vous devez laisser ce simulateur s’exécuter jusqu’à la fin de ce guide de démarrage rapide. 
 
     ```cmd/sh
-    .\azure-iot-device-auth\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
+    .\azure-iot-sdk-c\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
 ## <a name="create-a-device-enrollment-entry-in-the-device-provisioning-service"></a>Créer une entrée d’inscription d’appareil dans le service d’approvisionnement d’appareil
@@ -69,11 +69,20 @@ Veillez à compléter les étapes décrites dans la section relative à la [conf
 
 3. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre service d’approvisionnement d’appareil.
 
-4. Dans le panneau de résumé du service d’approvisionnement d’appareil, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **TPM** en tant que *Mécanisme*de l’attestation d’identité et entrez *l’ID d’inscription* et la *paire de clés de type EK (Endorsement Key)* comme exigé par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
+4. Dans le panneau de résumé du service d’approvisionnement d’appareil, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. 
+
+5. Sous l’**entrée Ajouter la liste d’inscription**, entrez les informations suivantes :
+    - Sélectionnez **TPM** comme *mécanisme* d’attestation d’identité.
+    - Entrez l’*ID d’inscription* et la *paire de clés de type EK (Endorsement Key)* pour votre appareil de module de plateforme sécurisée. 
+    - Sélectionnez un hub IoT lié à votre service d’approvisionnement.
+    - Entrez un ID d’appareil unique. Veillez à éviter les données sensibles lorsque vous affectez un nom à votre appareil.
+    - Mettez à jour l’**état du jumeau d’appareil initial** à l’aide de la configuration initiale de votre choix pour l’appareil.
+    - Cela fait, cliquez sur le bouton **Enregistrer**. 
 
     ![Saisir les informations d’inscription d’appareil dans le panneau du portail](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
    Lorsque l’inscription aboutit, *l’ID d’inscription* de votre appareil s’affiche dans la liste sous l’onglet *Inscriptions individuelles*. 
+
 
 <a id="firstbootsequence"></a>
 ## <a name="simulate-first-boot-sequence-for-the-device"></a>Simuler la première séquence de démarrage de l’appareil
@@ -94,6 +103,8 @@ Veillez à compléter les étapes décrites dans la section relative à la [conf
 4. Cliquez avec le bouton droit sur le projet **dps_client_sample** et sélectionnez **Définir comme projet de démarrage**. Exécutez l’exemple. Notez les messages qui simulent le démarrage et la connexion de l’appareil au service d’approvisionnement d’appareil pour obtenir des informations concernant votre IoT Hub. En cas de réussite de l’approvisionnement de votre appareil simulé au IoT Hub lié à votre service d’approvisionnement, l’ID d’appareil s’affiche sur le panneau **Explorateur d’appareils** du concentrateur. 
 
     ![L’appareil est inscrit avec le hub IoT](./media/quick-create-simulated-device/hub-registration.png) 
+
+    Si vous avez modifié la valeur par défaut de l’*état du jumeau d’appareil initial* dans l’entrée d’inscription de votre appareil, l’état du jumeau souhaité peut être extrait du hub et agir en conséquence. Pour en savoir plus, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources

@@ -11,4 +11,4 @@ Le tableau suivant liste les quotas et les limites propres à Azure Event Hubs. 
 | Nombre de récepteurs non epoch par groupe de consommateurs |Entité |Statique |- |5 |
 | Période de rétention maximale des données d’événement |Entité |Statique |- |1 à 7 jours |
 | Unités de débit maximales |Espace de noms |Statique |Le dépassement de la limite d’unités de débit entraîne la limitation de vos données et la génération d’une exception **[ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)**. Vous pouvez demander une plus grande quantité d’unités de débit pour le niveau Standard en remplissant une [demande de support](/azure/azure-supportability/how-to-create-azure-support-request). Les [unités de débit supplémentaires](../articles/event-hubs/event-hubs-auto-inflate.md) sont disponibles par blocs de 20 sur la base d’un engagement d’achat ferme. |20 |
-
+| Nombre de règles d’autorisation par espace de noms |Espace de noms|statique |Les demandes suivantes pour la création de règle d’autorisation seront rejetées.|12 |

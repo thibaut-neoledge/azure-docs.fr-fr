@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/14/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 880a186a3d9a23b013294b0121e8265270d160cc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 41d96958ee999e4d0b304dfd9296f51d53eb3277
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -36,12 +36,12 @@ Le diagramme ci-après compare l’utilisation de Kafka sur HDInsight avant les 
 
 1. Pour comprendre la procédure courante de création d’un cluster à l’aide du portail, suivez les instructions de l’article [Création d’un cluster HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md). N’exécutez pas la procédure de création du portail.
 
-2. Dans le panneau __Taille du cluster__, utilisez le champ __Disks per worker node (Disques par nœud Worker)__ pour configurer le nombre de disques.
+2. Dans la section __Taille du cluster__, utilisez le champ __Disques par nœud Worker__ pour configurer le nombre de disques.
 
     > [!NOTE]
     > Le type de disque géré peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Les disques Premium sont utilisés avec les machines virtuelles séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard.
 
-    ![Image du panneau Taille du cluster avec mise en surbrillance des disques par nœud Worker](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
+    ![Image de la section Taille du cluster avec mise en surbrillance des disques par nœud Worker](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>Configurer les disques gérés : modèle Resource Manager
 

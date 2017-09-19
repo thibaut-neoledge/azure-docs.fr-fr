@@ -1,0 +1,4 @@
+|  |
+|--|
+|L’identité du service administré est actuellement une fonctionnalité d’Azure Active Directory disponible en préversion et à des fins d’évaluation uniquement. L’identité du service administré est déployée de façon globale dans les régions, et peut tarder à apparaître dans votre région. Pensez à consulter les [problèmes connus](/azure/active-directory/msi-known-issues) avant de commencer. Pour plus d’informations sur les préversions, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|  |

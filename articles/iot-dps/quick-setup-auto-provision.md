@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 519ea43bfaa9d61de6ff962d838c197eb9e4edc0
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -63,7 +63,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. Dans le panneau de résumé du service d’approvisionnement d’appareil, sélectionnez **Hubs IoT liés**. Cliquez sur le bouton **+ Ajouter** qui s’affiche dans la partie supérieure. 
 
-3. Dans le panneau du portail **Ajouter un lien à un IoT Hub ou à un pool**, sélectionnez l’abonnement actuel, ou entrez la chaîne de nom et la chaîne de connexion pour un autre abonnement. Sélectionnez *IoT Hub* en tant que **Type de ressource** et sélectionnez le nom du concentrateur dans la liste déroulante. Lorsque vous avez terminé, cliquez sur **Enregistrer**. 
+3. Dans le panneau du portail **Ajouter un lien à un IoT Hub**, sélectionnez l’abonnement actuel, ou entrez la chaîne de nom et la chaîne de connexion pour un autre abonnement. Dans la liste déroulante, sélectionnez le nom du hub. Lorsque vous avez terminé, cliquez sur **Enregistrer**. 
 
     ![Lier le nom du concentrateur à lier à l’instance DPS dans le panneau du portail](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 

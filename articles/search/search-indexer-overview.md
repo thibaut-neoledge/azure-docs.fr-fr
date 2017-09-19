@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 1ea9dfcaec188bac2e92909f4811568b589357d4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -59,8 +59,8 @@ Un indexeur extrait les données d’une **source de données** qui contient des
 
 * [Base de données SQL Azure ou SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Stockage d’objets blob azure](search-howto-indexing-azure-blob-storage.md), utilisé pour extraire du texte de fichiers PDF, HTML, XML ou de documents Office
-* [Stockage de tables Azure](search-howto-indexing-azure-tables.md)
+* [Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md) pour les types de contenu sélectionnés
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
 Les sources de données sont configurées et gérées indépendamment des indexeurs qui les utilisent. Autrement dit, une source de données peut être utilisée par plusieurs indexeurs pour charger plusieurs index à la fois.
 
@@ -72,8 +72,8 @@ Maintenant que vous avez la structure de base, l’étape suivante consiste à p
 
 * [Base de données SQL Azure ou SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Stockage d’objets blob azure](search-howto-indexing-azure-blob-storage.md), utilisé pour extraire du texte de fichiers PDF, HTML, XML ou de documents Office
-* [Stockage de tables Azure](search-howto-indexing-azure-tables.md)
+* [Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexation d’objets blob CSV avec l’indexeur d’objets blob Recherche Azure](search-howto-index-csv-blobs.md)
 * [Indexation d’objets blob JSON avec l’indexeur d’objets blob Recherche Azure](search-howto-index-json-blobs.md)
 

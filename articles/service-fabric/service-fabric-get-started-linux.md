@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/23/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 4f51030446d2d2a5a11018b1fce7d7e9193f3dfc
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 8d902ba9e2077b4b70762c76cfb3ebf12752fb11
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
@@ -116,11 +116,9 @@ sudo apt-get install servicefabricsdkcommon
 
 ## <a name="set-up-the-service-fabric-cli"></a>Configurer l’interface de ligne de commande Service Fabric
 
-L’[interface de ligne de commande Service Fabric](service-fabric-cli.md) inclut des commandes permettant d’interagir avec des entités Service Fabric, y compris des clusters et des applications. Étant donné qu’elle est basée sur python, assurez-vous d’avoir installé python et pip avant de continuer avec la commande suivante :
+L’[interface de ligne de commande Service Fabric](service-fabric-cli.md) inclut des commandes permettant d’interagir avec des entités Service Fabric, y compris des clusters et des applications.
+Suivez les instructions de l’[interface de ligne de commande Service Fabric](service-fabric-cli.md) pour installer l’interface de ligne de commande.
 
-```bash
-pip install sfctl
-```
 
 ## <a name="install-and-set-up-the-generators-for-containers-and-guest-executables"></a>Installer et configurer les générateurs pour des conteneurs et des exécutables invités
 Service Fabric fournit des outils de génération de modèles automatique qui vous aideront à créer une application Service Fabric depuis le terminal à l’aide du générateur de modèle Yeoman. Suivez les étapes ci-dessous pour vous assurer que le générateur de modèle yeoman de Service Fabric est en état de fonctionnement sur votre machine.
@@ -205,7 +203,7 @@ Pour mettre à jour les fichiers binaires du kit de développement logiciel (SDK
 * [Prepare your development environment on OSX (Préparer votre environnement de développement sur OSX)](service-fabric-get-started-mac.md)
 * [Utilisez l’interface de ligne de commande Service Fabric pour gérer vos applications](service-fabric-application-lifecycle-sfctl.md)
 * [Différences entre Service Fabric Windows/Linux](service-fabric-linux-windows-differences.md)
-* [Prise en main de l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
+* [Bien démarrer avec l’interface CLI Service Fabric](service-fabric-cli.md)
 
 <!-- Links -->
 

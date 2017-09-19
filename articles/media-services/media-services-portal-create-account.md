@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b190ad54147a4d548806047b2257069cac4475cd
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 4e811dee81bfbd01b3cbe7f78a57b2ce92d1c0f9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Création d’un compte Azure Media Services à l’aide du portail Azure
@@ -36,6 +36,9 @@ Le portail Azure permet de créer rapidement un compte Azure Media Services (AMS
 
 Cet article explique certains concepts courants et indique comment créer un compte Media Services avec le portail Azure.
 
+> [!NOTE]
+> Pour plus d’informations sur la disponibilité des fonctionnalités Azure Media Services dans des régions différentes, consultez la [disponibilité des fonctionnalités AMS entre les centres de données](scenarios-and-availability.md#availability).
+
 ## <a name="concepts"></a>Concepts
 L'accès à Media Services requiert deux comptes associés :
 
@@ -43,8 +46,8 @@ L'accès à Media Services requiert deux comptes associés :
   
 * Un compte de stockage Azure. Les comptes de stockage doivent se trouver dans la même zone géographique que le compte Media Services. Lorsque vous créez un compte Media Services, vous pouvez choisir un compte de stockage existant dans la même région ou en créer un. Si vous supprimez un compte Media Services, les objets blob de votre compte de stockage associé ne seront pas supprimés.
 
-> [!NOTE]
-> Pour plus d’informations sur la disponibilité des fonctionnalités Azure Media Services dans des régions différentes, consultez la [disponibilité des fonctionnalités AMS entre les centres de données](scenarios-and-availability.md#availability).
+  > [!NOTE]
+  > Media Services restreint le compte de stockage principal de façon qu’il soit un compte de **stockage à usage général** avec des tables et des files d’attente. Pour plus d’informations sur les types de stockage, consultez [À propos des comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 ## <a name="create-an-ams-account"></a>Création d’un compte AMS
 Cette section montre comment créer un compte AMS.

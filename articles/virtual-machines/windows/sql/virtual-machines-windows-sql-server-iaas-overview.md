@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: 
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
@@ -13,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/07/2017
+ms.date: 09/12/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f0100423550046d18642180ce98e93ce3609749b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b9d42e393e696187d2299e033402db8ee565593a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Présentation de SQL Server sur les machines virtuelles Azure
@@ -27,37 +26,11 @@ Cette rubrique décrit les options d’exécution de SQL Server sur des machines
 
 > [!NOTE]
 > Si vous connaissez déjà SQL Server et que vous souhaitez simplement savoir comment déployer une machine virtuelle SQL Server, consultez [Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md).
-> 
-> 
 
-## <a name="overview"></a>Vue d’ensemble
-Si vous êtes administrateur de base de données ou développeur, les machines virtuelles Azure vous offrent un moyen de déplacer vers le cloud vos applications et charges de travail SQL Server locales. La vidéo suivante fournit une présentation technique des machines virtuelles SQL Server Azure.
-
-> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
-> 
-> 
-
-La vidéo décrit les points suivants :
-
-| Time | Domaine |
-| --- | --- |
-| 00:21 |Que sont les machines virtuelles Azure ? |
-| 01:45 |Sécurité |
-| 02:50 |Connectivité |
-| 03:30 |Performances et fiabilité de stockage |
-| 05:20 |Tailles de machine virtuelle |
-| 05:54 |Haute disponibilité et SLA |
-| 07:30 |Prise en charge de la configuration |
-| 08:00 |Surveillance |
-| 08:32 |Démo : Création d’une machine virtuelle SQL Server 2016 |
-
-> [!NOTE]
-> Cette vidéo est consacrée à SQL Server 2016, mais Azure fournit des images de machine virtuelle pour plusieurs versions de SQL Server, notamment 2012, 2014 et 2016. 
-> 
-> 
+Si vous êtes administrateur de base de données ou développeur, les machines virtuelles Azure vous offrent un moyen de déplacer vers le cloud vos applications et charges de travail SQL Server locales.
 
 ## <a name="scenarios"></a>Scénarios
-Vous pouvez choisir d’héberger vos données dans Azure pour de nombreuses raisons. Si votre application est déplacée dans Azure, cela améliore également les performances de migration des données. Mais il existe d’autres avantages. Vous avez automatiquement accès à plusieurs centres de données pour assurer les récupérations d’urgence et votre présence mondiale. Les données sont également parfaitement sécurisés et fiables.
+Vous pouvez choisir d’héberger vos données dans Azure pour de nombreuses raisons. Si votre application est déplacée dans Azure, cela améliore également les performances de migration des données. Mais il existe d’autres avantages. Vous avez automatiquement accès à plusieurs centres de données pour assurer les récupérations d’urgence et votre présence mondiale. Les données sont également parfaitement sécurisées et fiables.
 
 L’exécution de SQL Server sur des machines virtuelles Azure vous permet de stocker des données relationnelles dans Azure. C’est un bon choix pour plusieurs scénarios. Par exemple, vous pouvez avoir intérêt à affecter à la machine virtuelle Azure une configuration aussi proche que possible de celle d’un ordinateur local SQL Server. Vous pouvez aussi souhaiter exécuter des applications et des services supplémentaires sur le même serveur de base de données. Deux ressources principales peuvent vous aider à réfléchir à d’autres scénarios et considérations :
 
@@ -126,7 +99,7 @@ Les machines virtuelles Azure peuvent utiliser la fonctionnalité [Mise à jour 
 ### <a name="customer-experience-improvement-program-ceip"></a>Programme d’amélioration du produit (CEIP)
 Le Programme d’amélioration du produit est activé par défaut. Il transmet régulièrement des rapports à Microsoft afin de contribuer à améliorer SQL Server. Aucune tâche de gestion n’est requise dans le cadre de ce programme, sauf si vous souhaitez le désactiver après sa mise en service. Vous pouvez personnaliser ou désactiver le CEIP en vous connectant à la machine virtuelle avec le Bureau à distance. Exécutez ensuite l’utilitaire **Rapports d’erreurs et d’utilisation SQL Server** . Suivez les instructions pour désactiver la création de rapports. 
 
-Pour plus d’informations, consultez la section CEIP de la rubrique [Accepter les termes du contrat de licence](https://msdn.microsoft.com/library/ms143343.aspx). 
+Pour plus d’informations sur la collecte de données, consultez la [Déclaration de confidentialité de SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

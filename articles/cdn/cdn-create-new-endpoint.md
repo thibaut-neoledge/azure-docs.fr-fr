@@ -1,6 +1,6 @@
 ---
 title: "Prise en main d’Azure CDN | Microsoft Docs"
-description: "Cette rubrique montre comment activer le réseau de distribution de contenu (CDN) Azure. Ce didacticiel décrit la création d&quot;un profil CDN et d’un point de terminaison."
+description: "Cette rubrique montre comment activer le réseau de distribution de contenu (CDN) Azure. Ce didacticiel décrit la création d'un profil CDN et d’un point de terminaison."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
-ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
-
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="getting-started-with-azure-cdn"></a>Prise en main d’Azure CDN
@@ -32,8 +33,13 @@ Cette rubrique décrit l’activation d’Azure CDN en créant un nouveau profil
 Un profil CDN est une collection de points de terminaison CDN.  Chaque profil contient un ou plusieurs points de terminaison CDN.  Vous pouvez utiliser plusieurs profils pour organiser vos points de terminaison CDN par domaine Internet, application web ou d'autres critères.
 
 > [!NOTE]
-> Par défaut, un abonnement Azure unique est limité à huit profils CDN. Chaque profil CDN est limité à dix points de terminaison CDN.
-> 
+> Un abonnement Azure comprend des limites par défaut pour les ressources suivantes :
+> - Le nombre de profils CDN qui peuvent être créés.
+> - Le nombre de points de terminaison qui peuvent être créés dans un profil CDN. 
+> - Le nombre de domaines personnalisés qui peuvent être mappés à un point de terminaison.
+>
+> Pour plus d’informations sur les limites d’abonnement CDN, consultez [Limites de CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
+>
 > La tarification CDN est appliquée au niveau du profil CDN. Si vous souhaitez utiliser une combinaison de niveaux de tarification Azure CDN, vous aurez besoin de plusieurs profils CDN.
 > 
 > 
@@ -55,11 +61,11 @@ Un profil CDN est une collection de points de terminaison CDN.  Chaque profil co
     Le panneau **Ajouter un point de terminaison** s’affiche.
    
     ![Panneau Ajouter un point de terminaison][cdn-add-endpoint]
-3. Entrez un **nom** pour ce point de terminaison CDN.  Ce nom servira à accéder à vos ressources en cache au niveau du domaine `<endpointname>.azureedge.net`.
+3. Entrez un **nom** pour ce point de terminaison CDN.  Ce nom sert à accéder à vos ressources en cache au niveau du domaine `<endpointname>.azureedge.net`.
 4. Dans la liste déroulante **Type d’origine** , sélectionnez votre type d’origine.  Sélectionnez **Stockage** pour un compte de stockage Azure, **Service cloud** pour un service cloud Azure, **Application web** pour une application web Azure ou **Origine personnalisée** pour toute autre origine de serveur web accessible publiquement (hébergé dans Azure ou ailleurs).
    
     ![Type d'origine CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-5. Dans la liste déroulante **Nom d’hôte d’origine** , sélectionnez ou tapez votre domaine d’origine.  La liste déroulante répertorie toutes les origines disponibles du type spécifié à l'étape 4.  Si vous avez sélectionné *Origine personnalisée* comme **type d’origine**, tapez le domaine de votre origine personnalisée.
+5. Dans la liste déroulante **Nom d’hôte d’origine** , sélectionnez ou tapez votre domaine d’origine.  La liste déroulante répertorie toutes les origines disponibles du type spécifié à l’étape 4.  Si vous avez sélectionné *Origine personnalisée* comme **type d’origine**, tapez le domaine de votre origine personnalisée.
 6. Dans la zone de texte **Chemin d’accès d’origine** , entrez le chemin d’accès aux ressources que vous souhaitez mettre en cache ou laissez cette zone vide pour autoriser la mise en cache de n’importe quelle ressource au niveau du domaine spécifié à l’étape 5.
 7. Dans **En-tête de l’hôte d’origine**, entrez l’en-tête de l’hôte que le CDN doit envoyer avec chaque requête ou conservez la valeur par défaut.
    
@@ -70,14 +76,16 @@ Un profil CDN est une collection de points de terminaison CDN.  Chaque profil co
 8. Pour **Protocole** et **Port d’origine**, spécifiez les protocoles et les ports utilisés pour accéder à vos ressources à l’origine.  Vous devez sélectionner au moins un protocole (HTTP ou HTTPS).
    
    > [!NOTE]
-   > Le **port d’origine** ne concerne que le port utilisé par le point de terminaison pour récupérer des informations à partir de l’origine.  Le point de terminaison ne sera disponible pour les clients que sur les ports HTTP et HTTPS par défaut (80 et 443), quel que soit le **port d’origine**.  
+   > Le **port d’origine** ne concerne que le port utilisé par le point de terminaison pour récupérer des informations à partir de l’origine.  Le point de terminaison est uniquement disponible pour les clients sur les ports HTTP et HTTPS par défaut (80 et 443), quel que soit le **port d’origine**.  
    > 
    > **Azure CDN fourni par Akamai** n’autorisent pas la plage de ports TCP complète pour les origines.  Pour obtenir la liste des ports d’origine non autorisés, consultez l’article [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx)(Ports d’origine autorisés du CDN Azure fourni par Akamai).  
    > 
    > L'accès à du contenu CDN à l'aide du protocole HTTPS présente les contraintes suivantes :
    > 
    > * Vous devez utiliser le certificat SSL fourni par le CDN. Les certificats tiers ne sont pas pris en charge.
-   > * Vous devez utiliser le domaine fourni par le CDN (`<endpointname>.azureedge.net`) pour accéder au contenu HTTPS. La prise en charge du protocole HTTPS n'est pas disponible pour les noms de domaines personnalisés (enregistrements CNAME), car le CDN ne prend pas en charge les certificats personnalisés pour l'instant.
+   > * La prise en charge HTTPS pour les domaines personnalisés Azure CDN est disponible uniquement avec les produits **Azure CDN fournis par Verizon** (Standard ou Premium). Elle n’est pas prise en charge dans **Azure CDN d’Akamai**. Pour plus d’informations, consultez [Activer HTTPS sur un domaine personnalisé Azure CDN](cdn-custom-ssl.md).
+
+Utilisez le domaine fourni par le CDN (`<endpointname>.azureedge.net`) pour accéder au contenu HTTPS. La prise en charge du protocole HTTPS n'est pas disponible pour les noms de domaines personnalisés (enregistrements CNAME), car le CDN ne prend pas en charge les certificats personnalisés pour l'instant.
    > 
    > 
 9. Cliquez sur le bouton **Ajouter** pour créer le point de terminaison.
@@ -103,9 +111,4 @@ Un profil CDN est une collection de points de terminaison CDN.  Chaque profil co
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

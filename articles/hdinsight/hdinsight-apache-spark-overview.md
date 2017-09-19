@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: b8955acc83b0fbb0612e7042d62170ae8078b9ad
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6da4f2527e480b621f4d3a2d74ed3107c970d1b9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Présentation de Spark sur HDInsight
@@ -30,8 +30,17 @@ Cet article vous fournit une présentation de Spark sur HDInsight. <a href="http
 
 Lorsque vous créez un cluster Spark sur HDInsight, vous créez des ressources de calcul Azure dans lesquelles Spark est installé et configuré. La création d’un cluster Spark dans HDInsight ne prend que 10 minutes environ. Les données à traiter sont stockées dans Azure Storage ou Azure Data Lake Store. Consultez [Utiliser Azure Storage avec HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-**Pour créer un cluster Spark sur HDInsight**, consultez [Démarrage rapide : créer un cluster Spark sur HDInsight et exécuter une requête interactive Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
+![Spark : une infrastructure unifiée](./media/hdinsight-apache-spark-overview/hdinsight-spark-overview.png)
 
+## <a name="spark-vs-traditional-mapreduce"></a>Spark et MapReduce traditionnel
+
+Qu’est-ce qui rend Spark rapide ? Quelles sont les différences entre l’architecture d’Apache Spark par rapport à MapReduce traditionnel, lui permettant d’offrir de meilleures performances pour le partage des données ?
+
+![MapReduce traditionnel et Spark](./media/hdinsight-apache-spark-overview/mapreduce-vs-spark.png)
+
+Spark fournit des primitives pour le calcul de cluster en mémoire. Un travail Spark peut charger et mettre en cache des données en mémoire et les interroger à plusieurs reprises, beaucoup plus rapidement que les systèmes basés sur un disque. Spark s’intègre également dans le langage de programmation Scala pour vous permettre de manipuler des ensembles de données distribuées tels que des collections locales. Il n’est pas nécessaire de tout structurer comme des opérations de réduction et de mappage.
+
+Dans Spark, le partage de données entre les opérations est plus rapide étant donné que les données sont en mémoire. En revanche, Hadoop partage des données via HDFS, rendant leur traitement plus long.
 
 ## <a name="what-is-apache-spark-on-azure-hdinsight"></a>Qu’est-ce qu’Apache Spark sur Azure HDInsight ?
 Les clusters Spark sur HDInsight proposent un service Spark entièrement géré. Les avantages de la création d’un cluster Spark sur HDInsight sont répertoriés ici.
@@ -52,8 +61,22 @@ Les clusters Spark sur HDInsight proposent un service Spark entièrement géré.
 | Extensibilité |Bien que vous puissiez spécifier le nombre de nœuds dans votre cluster lors de sa création, vous pourriez souhaiter augmenter ou réduire la taille du cluster pour l’adapter à votre charge de travail. Tous les clusters HDInsight vous permettent de modifier le nombre de nœuds du cluster. En outre, les clusters Spark peuvent être supprimés sans perte de données puisque toutes les données sont stockées dans Azure Storage ou Data Lake Store. |
 | Support technique 24 heures sur 24, 7 jours sur 7 |Les clusters Spark sur HDInsight sont fournis avec un support technique à l’échelle de l’entreprise assuré 24 heures sur 24, 7 jours sur 7 et un contrat de niveau de service de 99,9 % de disponibilité. |
 
+## <a name="spark-cluster-architecture"></a>Architecture d’un cluster Spark
+
+Voici l’architecture d’un cluster Spark et son mode de fonctionnement :
+
+![Architecture d’un cluster Spark](./media/hdinsight-apache-spark-overview/spark-architecture.png)
+
+Le nœud principal est le maître Spark qui gère le nombre d’applications, les applications sont mappées au pilote Spark. Chaque application est gérée de différentes manières par le maître Spark. Spark peut être déployé sur Mesos, YARN ou le gestionnaire de cluster Spark, qui alloue des ressources de nœud Worker à une application. Dans HDInsight, Spark s’exécute à l’aide du gestionnaire de cluster YARN. Les ressources dans le cluster sont gérées par le maître Spark dans HDInsight. Cela signifie que le maître Spark a connaissance de l’état d’occupation ou de disponibilité des ressources, comme la mémoire, sur le nœud Worker.
+
+Le pilote exécute la fonction principale de l’utilisateur et exécute les différentes opérations parallèles sur les nœuds Worker. Ensuite, le pilote collecte les résultats des opérations. Les nœuds Worker lisent et écrivent des données depuis/sur le système de fichiers distribués Hadoop (HDFS). Les nœuds Worker mettent également en cache les données transformées en mémoire comme les jeux de données résilients distribués (RDD).
+
+Une fois l’application créée dans le maître Spark, les ressources sont allouées aux applications par le maître Spark, créant une exécution nommée pilote Spark. Le pilote Spark crée également le SparkContext et démarre également la création des RDD. Les métadonnées des RDD sont stockées sur le pilote Spark.
+
+Le pilote Spark se connecte au maître Spark et est responsable de la conversion d’une application à un graphe orienté (DAG) des tâches individuelles qui sont exécutées dans un processus d’exécution sur les nœuds Worker. Chaque application obtient ses propres processus d’exécution qui restent pour la durée de toute l’application et exécutent des tâches sur plusieurs threads.
+
 ## <a name="what-are-the-use-cases-for-spark-on-hdinsight"></a>Quels sont les cas d’utilisation de Spark sur HDInsight ?
-Les clusters Spark sur HDInsight autorisent les principaux scénarios suivants.
+Les clusters Spark sur HDInsight autorisent les principaux scénarios suivants :
 
 ### <a name="interactive-data-analysis-and-bi"></a>Analyse des données interactive et Power BI
 [Consulter un didacticiel](hdinsight-apache-spark-use-bi-tools.md)
@@ -61,7 +84,7 @@ Les clusters Spark sur HDInsight autorisent les principaux scénarios suivants.
 Apache Spark sur HDInsight stocke les données dans Azure Storage ou Azure Data Lake Store. Des experts et des décideurs clés peuvent analyser les données, générer les rapports correspondants et utiliser Microsoft Power BI pour créer des rapports interactifs à partir des données analysées. Les analystes peuvent démarrer à partir des données non structurées/semi-structurées dans le stockage du cluster, définir un schéma pour les données à l’aide des blocs-notes, puis générer des modèles de données à l’aide de Microsoft Power BI. Les clusters Spark sur HDInsight prennent également en charge plusieurs outils décisionnels tiers comme Tableau, grâce auxquels ils constituent une plateforme idéale pour les analystes de données, les experts et les décideurs clés.
 
 ### <a name="spark-machine-learning"></a>Spark Machine Learning
-[Consulter un didacticiel : prédiction des températures d’un bâtiment en utilisant des données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+[Consulter un didacticiel : prédiction des températures d’un bâtiment en utilisant des données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 [Consulter un didacticiel : prédiction des résultats d’inspections alimentaires](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -99,9 +122,9 @@ Commencez par créer un cluster Spark sur HDInsight. Consultez [Démarrage rapid
 * [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Outils et extensions
-* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Utilisation du plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utiliser des blocs-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
+* [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

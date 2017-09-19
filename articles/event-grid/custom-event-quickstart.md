@@ -9,10 +9,10 @@ ms.date: 08/15/2017
 ms.topic: hero-article
 ms.service: event-grid
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 0290836bebadb20085a3ce84dddc088c3af385da
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: cd285471196f75f6a8c8ead0e2895fd71414f223
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -119,5 +119,7 @@ az group delete --name gridResourceGroup
 Maintenant que vous savez créer des rubriques et des abonnements d’événements, vous pouvez en apprendre davantage sur Event Grid et ce qu’il peut vous offrir :
 
 - [Event Grid](overview.md)
+- [Acheminer des événements de stockage Blob vers un point de terminaison Web personnalisé (version préliminaire)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
+- [Diffuser en continu des Big Data dans un entrepôt de données](event-grid-event-hubs-integration.md)
 

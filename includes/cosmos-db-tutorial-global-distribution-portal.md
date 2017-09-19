@@ -3,7 +3,7 @@ Vous pouvez découvrir la diffusion mondiale de Azure Cosmos DB dans cette vidé
 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
-Pour plus d’informations sur le fonctionnement de la réplication de base de données à l’échelle mondiale dans Cosmos DB, voir [Diffuser des données à l’échelle mondiale avec Cosmos DB](../articles/documentdb/documentdb-distribute-data-globally.md).
+Pour plus d’informations sur le fonctionnement de la réplication de base de données à l’échelle mondiale dans Azure Cosmos DB, voir [Diffuser des données à l’échelle mondiale avec Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
 
 ## <a id="addregion"></a>Ajouter des régions de bases de donnée mondiales à l’aide du portail Azure
 Azure Cosmos DB est disponible dans toutes les [régions Azure][azureregions] à travers le monde. Après avoir sélectionné le niveau de cohérence par défaut pour votre compte de base de données, vous pouvez associer une ou plusieurs régions (en fonction de votre choix de niveau de cohérence par défaut et de vos besoins de distribution mondiale).
@@ -11,7 +11,7 @@ Azure Cosmos DB est disponible dans toutes les [régions Azure][azureregions] à
 1. Dans la barre à gauche du [portail Azure](https://portal.azure.com/), cliquez sur **Azure Cosmos DB**.
 2. Dans le panneau **Azure Cosmos DB**, sélectionnez le compte de base de données à modifier.
 3. Dans le panneau du compte, cliquez sur **Répliquer les données globalement** à partir du menu.
-4. Dans le panneau **Répliquer les données globalement**, sélectionnez les régions à ajouter ou à supprimer en cliquant sur des régions sur la carte, puis cliquez sur **Enregistrer**. L’ajout de régions est payant. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/) ou l’article [Distribution mondiale des données avec DocumentDB](../articles/documentdb/documentdb-distribute-data-globally.md).
+4. Dans le panneau **Répliquer les données globalement**, sélectionnez les régions à ajouter ou à supprimer en cliquant sur des régions sur la carte, puis cliquez sur **Enregistrer**. L’ajout de régions est payant. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) ou l’article [Distribution mondiale des données avec Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
    
     ![Cliquez sur les régions dans la carte pour les ajouter ou les supprimer.][1]
     

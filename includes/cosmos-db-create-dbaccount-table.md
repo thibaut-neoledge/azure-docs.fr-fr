@@ -28,4 +28,4 @@
 
 6.  Lorsque le déploiement est terminé, ouvrez le nouveau compte à partir de la mosaïque Toutes les ressources. 
 
-    ![Compte DocumentDB sur la mosaïque Toutes les ressources](./media/cosmos-db-create-dbaccount-table/all-resources.png)
+    ![Compte Azure Cosmos DB sur la vignette Toutes les ressources](./media/cosmos-db-create-dbaccount-table/all-resources.png)

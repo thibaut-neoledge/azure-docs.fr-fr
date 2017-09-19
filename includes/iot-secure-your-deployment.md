@@ -29,7 +29,7 @@ Chaque IoT Hub dispose d’un [registre d’identité][lnk-identity-registry] s
 
 [IoT Hub prend en charge les protocoles tels que MQTT, AMQP, and HTTP][lnk-protocols]. Chacun de ces protocoles utilise des jetons de sécurité à partir de l’appareil IoT vers IoT Hub différemment :
 
-* AMQP : sécurité basée sur des revendications AMQP et SASL PLAIN ({policyName}@sas.root.{iothubName} dans le cas de jetons au niveau d’IoT Hub ; {deviceId} dans le cas de jetons à l’échelle de l’appareil.
+* AMQP : sécurité basée sur des revendications AMQP et SASL PLAIN ({policyName}@sas.root.{iothubName} dans le cas de jetons de niveau IoT hub ; {deviceId} dans le cas de jetons à l’échelle de l’appareil).
 * MQTT : le paquet CONNECT utilise {deviceId} en tant que {ClientId}, {IoThubhostname}/{deviceId} dans le champ **Nom d’utilisateur** et un jeton SAS dans le champ **Mot de passe**.
 * HTTP : le jeton valide se trouve dans l’en-tête de la requête d’autorisation.
 
@@ -82,7 +82,7 @@ Azure IoT Hub et d’autres services pouvant faire partie de la solution autoris
 
 Les données reçues par Azure IoT Hub peuvent être utilisées par une variété de services comme Azure Stream Analytics et le stockage d’objets blob. Ces services permettent un accès en gestion. En savoir plus sur ces services et les options disponibles ci-dessous :
 
-* [Azure DocumentDB][lnk-docdb] : service de base de données évolutif et entièrement indexé pour données semi-structurées, qui gère les métadonnées des appareils que vous approvisionnez, comme les attributs, la configuration et les propriétés de sécurité. DocumentDB assure un traitement hautes performances et à débit élevé, ainsi qu’une indexation des données indépendante du schéma. Ce service offre également une interface de requête SQL enrichie.
+* [Azure Cosmos DB][lnk-cosmosdb] : service de base de données évolutif et entièrement indexé pour données semi-structurées, qui gère les métadonnées (attributs, configuration, propriétés de sécurité, etc.) des appareils que vous approvisionnez. Azure Cosmos DB assure un traitement hautes performances et à débit élevé, ainsi qu’une indexation des données indépendante du schéma. Ce service offre également une interface de requête SQL enrichie.
 * [Azure Stream Analytics][lnk-asa] : traitement des flux en temps réel dans le cloud, permettant de développer et de déployer rapidement une solution d’analyse à faible coût pour obtenir des informations en temps réel de la part des appareils, capteurs, infrastructures et applications. Les données de ce service entièrement géré peuvent être mises à l’échelle selon n’importe quel volume. Vous continuez à bénéficier d’un débit élevé, d’une faible latence et de la résilience.
 * [Azure App Services][lnk-appservices] : plateforme cloud permettant de créer de puissantes applications web et mobiles qui se connectent aux données n’importe où, que ce soit localement ou dans le cloud. Créez des applications mobiles attrayantes pour iOS, Android et Windows. Assurez l’intégration avec vos applications SaaS (Software as a Service) et d’entreprise grâce à une connectivité prête à l’emploi à des dizaines d’applications et services basés sur le cloud. Encodez dans votre environnement de développement intégré et votre langage favoris (.NET, Node.js, PHP, Python ou Java) pour créer rapidement des applications web et des API.
 * [Logic Apps][lnk-logicapps] : fonctionnalité Azure App Service qui vous aide à intégrer votre solution IoT dans vos systèmes métier existants et à automatiser les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
@@ -102,7 +102,7 @@ Cet article fournit une vue d’ensemble des détails au niveau de l’implémen
 [lnk-use-x509]: ../articles/iot-hub/iot-hub-devguide-security.md
 [lnk-tls12]: https://tools.ietf.org/html/rfc5246
 [lnk-service-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components
-[lnk-docdb]: https://azure.microsoft.com/services/documentdb/
+[lnk-cosmosdb]: https://azure.microsoft.com/services/cosmos-db/
 [lnk-asa]: https://azure.microsoft.com/services/stream-analytics/
 [lnk-appservices]: https://azure.microsoft.com/services/app-service/
 [lnk-logicapps]: https://azure.microsoft.com/services/app-service/logic/

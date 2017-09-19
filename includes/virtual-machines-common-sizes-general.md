@@ -1,5 +1,4 @@
 
-<!-- A-series, Av2-series, D-series, Dv2-series, DS-series*, DSv2-series* -->
 
 - Les machines virtuelles des séries A et Av2 peuvent être déployées sur différents types de matériels et processeurs. La taille est limitée, en fonction du matériel, pour offrir des performances de processeur cohérentes pour l’instance en cours d’exécution, quel que soit le matériel sur lequel elle est déployée. Pour déterminer le matériel physique sur lequel cette taille est déployée, interrogez le matériel virtuel à partir de la machine virtuelle.
 
@@ -8,6 +7,29 @@
 - La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,1 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 
 - Les tailles du niveau De base sont principalement destinées aux charges de travail de développement et aux autres applications qui ne requièrent pas d’équilibrage de charge ou de mise à l’échelle automatique, ou aux machines virtuelles utilisant beaucoup de mémoire. Pour savoir quelles sont les tailles de machines virtuelles les plus appropriées pour les applications de production, consultez (Tailles des machines virtuelles)[virtual-machines-size-specs.md] et pour des informations sur la tarification des machines virtuelles, consultez [Tarification des machines virtuelles Linux](https://azure.microsoft.com/pricing/details/virtual-machines/).
+
+## <a name="b-series-preview"></a>Série B (préversion)
+
+> [!NOTE] 
+> Les préversions sont à votre disposition, à condition que vous acceptiez les conditions d’utilisation. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion est limitée aux régions suivantes :
+> - Ouest des États-Unis 2
+> - Est des États-Unis
+> - Europe occidentale
+> - Sud-est de l’Asie-Pacifique
+
+Les machines virtuelles extensibles de la série B sont idéales pour les charges de travail ne nécessitant pas en permanence les performances complètes du processeur, comme les serveurs web, les petites bases de données et les environnements de test et de développement. Ces charges de travail ont généralement des exigences modulables en termes de performances. La série B permet à ces clients d’acheter une taille de machine virtuelle aux performances de base qui permet à l’instance de machine virtuelle de générer des crédits lorsque la machine virtuelle n’utilise pas la totalité de ses performances de base. Dès que la machine virtuelle a cumulé des crédits, celle-ci peut étendre ses performances en utilisant jusqu’à 100 % du processeur virtuel lorsque l’application requiert des performances de processeur plus élevées.
+
+
+| Taille             | Processeurs virtuels  | Mémoire : Gio | SSD local = Gio | Perf. de base d’un cœur | Crédits cumulés/heure | Crédits cumulés max. | Disques de données max. | Perf. du disque local max : IOPS/Mbits/s | Perf. du disque non mis en cache max : IOPS/Mbits/s | Nombre max de cartes réseau |          
+|---------------|-------------|----------------|----------------------------|-----------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
+| Standard_B1s  | 1           | 1              | 4                          | 10%                   | 6                  | 144            | 2                                      | 400 / 10                                  | 320 / 10                                  | 2  |
+| Standard_B1ms | 1           | 2              | 4                          | 20%                   | 12                 | 288            | 2                                      | 800 / 10                                  | 640 / 10                                  | 2  |
+| Standard_B2s  | 2           | 4              | 8                          | 40%                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
+| Standard_B2ms | 2           | 8              | 16                         | 60 %                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
+| Standard_B4ms | 4           | 16             | 32                         | 90%                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
+| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
+
 
 ## <a name="dsv3-series"></a>Dsv3-series
 
@@ -22,6 +44,8 @@ Les tailles des machines virtuelles de la série Dsv3 sont basées sur le proce
 | Standard_D4s_v3  | 4      | 16          | 32             | 8              | 8 000 / 64 (100)                                                      | 6 400 / 96                                | 2 / Modérée                                   |
 | Standard_D8s_v3  | 8      | 32          | 64             | 16             | 16 000 / 128 (200)                                                    | 12 800 / 192                              | 4 / Élevée                                       |
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / Élevée                                       |
+| Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8/Extrêmement élevée                                       |
+| Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80 000 / 1 200                              | 8/Extrêmement élevée                                       |
 
 
 ## <a name="dv3-series"></a>Série Dv3
@@ -39,6 +63,8 @@ Le stockage sur disque de données est facturé séparément des machines virtue
 | Standard_D4_v3  | 4         | 16          | 100            | 8              | 6000/93/46                                               | 2 / Modérée                 |
 | Standard_D8_v3  | 8         | 32          | 200            | 16             | 12000/187/93                                             | 4 / Élevée                     |
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / Élevée                     |
+| Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8/Extrêmement élevée                     |
+| Standard_D64_v3 | 64        | 256          | 1 600            | 32             | 96000/1000/500                                            | 8/Extrêmement élevée                     |
 
 
 ## <a name="dsv2-series"></a>Séries DSv2

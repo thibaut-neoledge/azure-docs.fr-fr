@@ -99,7 +99,7 @@ S’il est possible d’utiliser une autre adresse IP virtuelle, supprimez les m
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Scénario d’allocation : déploiements en environnement intermédiaire ou de production (PaaS uniquement)
 **Error**
 
-New_General *ou New_VMSizeNotSupported*
+New_General* ou New_VMSizeNotSupported*
 
 **Cause de l’épinglage au cluster**
 
@@ -112,7 +112,7 @@ Supprimez le premier déploiement et le service cloud d’origine, puis redéplo
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Scénario d’allocation : groupe d’affinités (proximité entre la machine virtuelle et le service)
 **Error**
 
-New_General *ou New_VMSizeNotSupported*
+New_General* ou New_VMSizeNotSupported*
 
 **Cause de l’épinglage au cluster**
 
@@ -125,7 +125,7 @@ Si un groupe d’affinités n’est pas nécessaire, n’utilisez pas de groupe 
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Scénario d’allocation : réseau virtuel par groupe d’affinités
 **Error**
 
-New_General *ou New_VMSizeNotSupported*
+New_General* ou New_VMSizeNotSupported*
 
 **Cause de l’épinglage au cluster**
 
@@ -151,7 +151,7 @@ En règle générale, tant que l’erreur n’indique pas que la taille de machi
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Scénario d’allocation : redimensionner une machine virtuelle ou ajouter des machines virtuelles à un groupe à haute disponibilité existant
 **Error**
 
-Upgrade_VMSizeNotSupported *ou GeneralError*
+Upgrade_VMSizeNotSupported* ou GeneralError*
 
 **Cause de l’épinglage au cluster**
 
@@ -188,6 +188,8 @@ Une désallocation complète signifie que vous avez arrêté (désalloué) toute
 **Solution de contournement**
 
 Sélectionnez une nouvelle taille de machine virtuelle à allouer. Si cette opération ne fonctionne pas, réessayez ultérieurement.
+
+<a name="Error string lookup"></a>
 
 ## <a name="error-string-lookup"></a>Recherche de chaîne d’erreur
 **New_VMSizeNotSupported***
