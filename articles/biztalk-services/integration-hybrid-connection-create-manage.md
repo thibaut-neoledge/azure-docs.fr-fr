@@ -145,8 +145,6 @@ Pour gérer vos connexions hybrides, vous pouvez :
 Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de groupe pour modifier la stratégie.
 
 ## <a name="next"></a>Suivant
-<!-- [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md)  
-[Connect to on-premises SQL Server from Azure Web Apps](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)    -->
 [Aperçu des connexions hybrides](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>Voir aussi

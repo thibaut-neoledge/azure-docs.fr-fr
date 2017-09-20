@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
 ms.translationtype: HT
 ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
@@ -71,7 +71,7 @@ Le contenu qui s’affiche au moment où vous ouvrez Solutions de sécurité peu
 
 La section **Solutions connectées** affiche toutes les solutions de sécurité qui sont actuellement connectées avec le centre de sécurité. 
 
-![Solutions connectées](./media/security-center-partner-integration/security-center-partner-integration-fig10.png)
+![Solutions connectées](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 Les informations affichées sur chaque vignette peuvent varier en fonction de la solution. Certaines informations disponibles sur chaque vignette peuvent inclure :
 
@@ -106,7 +106,7 @@ Les alertes d’Azure AD Identity Protection passent par le canal de détection 
 
 Vous pouvez ajouter des ordinateurs Azure et non Azure pour les intégrer au centre de sécurité.  Ajouter des ordinateurs non Azure signifie que vous pouvez ajouter un ordinateur local ou une appliance qui prend en charge le format CEF. 
 
-![Sources de données](./media/security-center-partner-integration/security-center-partner-integration-fig11.png)
+![Sources de données](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 
 ## <a name="see-also"></a>Voir aussi

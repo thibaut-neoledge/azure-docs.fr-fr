@@ -30,12 +30,12 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du Portail Az
 
 ## <a name="prerequisites"></a>Composants requis
 
-* Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivants :
-   * JDK 1.7 + (exécutez `apt-get install default-jdk` si vous ne possédez pas JDK)
-   * Maven (exécutez `apt-get install maven` si vous ne possédez pas Maven)
+Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivants :
+* JDK 1.7 + (exécutez `apt-get install default-jdk` si vous ne possédez pas JDK)
+* Maven (exécutez `apt-get install maven` si vous ne possédez pas Maven)
 
-* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-* [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="create-a-database-account"></a>Création d'un compte de base de données
 

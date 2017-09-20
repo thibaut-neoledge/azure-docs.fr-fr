@@ -33,8 +33,6 @@
   items:
     - name: Gérer les inscriptions d’appareils
       href: how-to-manage-enrollments.md
-    - name: Utiliser un HSM avec le Kit de développement logiciel (SDK)
-      href: use-hsm-with-sdk.md
 - name: Référence
   items:
     - name: REST
