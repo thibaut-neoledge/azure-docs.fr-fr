@@ -1,6 +1,6 @@
 ---
-title: "Configurer la réplication de cluster HBase dans les réseaux virtuels - Azure | Microsoft Docs"
-description: "Apprenez à configurer la réplication HBase pour l’équilibrage de charge, la haute disponibilité, la mise à jour/migration sans interruption de service d’une version HDInsight à une autre, ainsi que la récupération d’urgence."
+title: "Configurer la réplication de cluster HBase dans les réseaux virtuels Azure | Microsoft Docs"
+description: "Découvrez comment configurer la réplication HBase d’une version HDInsight à une autre pour l’équilibrage de charge, la haute disponibilité, la mise à jour et migration sans interruption de service , ainsi que la récupération d’urgence."
 services: hdinsight,virtual-network
 documentationcenter: 
 author: mumian
@@ -15,207 +15,207 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: c885dae8a13c789ccb3c22532e6a2cea2c920752
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 87f4d219a678cab78980af2ff8b98ae55739f04c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/09/2017
 
 ---
-# <a name="configure-hbase-cluster-replication-within-virtual-networks"></a>Configurer la réplication de cluster HBase dans les réseaux virtuels
+# <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster HBase dans les réseaux virtuels Azure
 
-Apprenez à configurer la réplication HBase dans un réseau virtuel ou entre deux réseaux virtuels.
+Découvrez comment configurer la réplication HBase dans un réseau virtuel ou entre deux réseaux virtuels dans Azure.
 
-La réplication en cluster utilise une méthodologie par émission de données source. Un cluster HBase peut être une source, une destination ou jouer les deux rôles à la fois. La réplication est asynchrone et l'objectif de la réplication est une cohérence éventuelle. Quand la source reçoit une modification apportée à une famille de colonnes dont la réplication est activée, cette modification est propagée à tous les clusters de destination. Quand les données sont répliquées d’un cluster à un autre, le cluster source et tous les clusters qui ont déjà utilisé les données font l’objet d’un suivi afin d’empêcher les boucles de réplication.
+La réplication en cluster utilise une méthodologie par émission de données source. Un cluster HBase peut être une source, une destination ou jouer les deux rôles à la fois. La réplication est asynchrone. L'objectif de la réplication est une cohérence éventuelle. Quand la source reçoit une modification apportée à une famille de colonnes lorsque la réplication activée, cette modification est propagée à tous les clusters de destination. Quand les données sont répliquées d’un cluster à un autre, le cluster source et tous les clusters qui ont déjà utilisé les données font l’objet d’un suivi afin d’empêcher les boucles de réplication.
 
 Dans ce didacticiel, vous configurez une réplication source-destination. Pour d'autres topologies de cluster, consultez le [Guide de référence d'Apache HBase](http://hbase.apache.org/book.html#_cluster_replication).
 
-Cas d’utilisation de la réplication HBase pour un seul réseau virtuel :
+Cas d’utilisation de la réplication HBase pour un seul réseau virtuel :
 
-* Équilibrage de charge, par exemple, l’exécution d’analyses ou de travaux MapReduce sur le cluster de destination et l’ingestion de données sur le cluster source
-* Haute disponibilité
-* Migration des données à partir d’un cluster HBase vers un autre
-* Mise à niveau d’un cluster Azure HDInsight à partir d’une version vers une autre
+* Équilibrage de charge : vous pouvez par exemple exécuter des analyses ou des travaux MapReduce sur le cluster de destination et ingérer des données sur le cluster source
+* Ajout de haute disponibilité
+* Migration de données d’un cluster HBase vers un autre
+* Mise à niveau d’un cluster Azure HDInsight d’une version vers une autre
 
-Cas d’utilisation de la réplication HBase pour deux réseaux virtuels :
+Cas d’utilisation de la réplication HBase pour deux réseaux virtuels :
 
-* Récupération d'urgence
+* Configuration d’une récupération d'urgence
 * Équilibrage de charge et partitionnement de l’application
-* Haute disponibilité
+* Ajout de haute disponibilité
 
-Vous répliquez des clusters à l’aide de scripts [d’action de script](hdinsight-hadoop-customize-cluster-linux.md) disponibles dans [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
+Vous pouvez répliquer des clusters à l’aide de scripts [d’action de script](hdinsight-hadoop-customize-cluster-linux.md) disponibles dans [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Prérequis
-Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+## <a name="prerequisites"></a>Composants requis
+Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## <a name="configure-the-environments"></a>Configurer les environnements
+## <a name="set-up-the-environments"></a>Configurer les environnements
 
-Il existe trois options de configuration :
+Il existe trois options de configuration :
 
 - Deux clusters HBase dans un réseau virtuel Azure
 - Deux clusters HBase dans deux réseaux virtuels différents dans la même région
 - Deux clusters HBase dans deux réseaux virtuels différents dans deux régions distinctes (géoréplication)
 
-Pour simplifier la configuration des environnements, nous avons créé quelques [modèles Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Si vous préférez configurer les environnements en utilisant d’autres méthodes, consultez :
+Pour vous aider à configurer les environnements, nous avons créé des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Si vous préférez configurer les environnements en utilisant d’autres méthodes, consultez :
 
 - [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Création de clusters HBase dans un réseau virtuel Azure](hdinsight-hbase-provision-vnet.md)
 
-### <a name="configure-one-virtual-network"></a>Configurer un réseau virtuel
+### <a name="set-up-one-virtual-network"></a>Configurer un seul réseau virtuel
 
-Cliquez sur l’image suivante pour créer deux clusters HBase dans le même réseau virtuel. Ce modèle est stocké dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
+Pour créer deux clusters HBase dans le même réseau virtuel, sélectionnez l’image suivante. Ce modèle est stocké dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-### <a name="configure-two-virtual-networks-in-the-same-region"></a>Configurer deux réseaux virtuels dans la même région
+### <a name="set-up-two-virtual-networks-in-the-same-region"></a>Configurer deux réseaux virtuels dans la même région
 
-Cliquez sur l’image suivante pour créer deux réseaux virtuels avec homologation de réseaux virtuels et deux clusters HBase dans la même région. Ce modèle est stocké dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
+Pour créer deux réseaux virtuels avec homologation de réseaux virtuels et deux clusters HBase dans la même région, sélectionnez l’image suivante. Ce modèle est stocké dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 
 
-Ce scénario nécessite [l’homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md). Le modèle permet l’homologation de réseaux virtuels.   
+Ce scénario nécessite l’[homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md). Le modèle permet l’homologation de réseaux virtuels.   
 
 La réplication HBase utilise des adresses IP des machines virtuelles ZooKeeper. Vous devez configurer des adresses IP statiques pour les nœuds ZooKeeper HBase de destination.
 
 **Pour configurer des adresses IP statiques**
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu de gauche, cliquez sur **Groupes de ressources**.
-3. Cliquez sur votre groupe de ressources qui contient le cluster HBase de destination. Il s’agit du groupe de ressources que vous avez spécifié lorsque vous avez utilisé le modèle Resource Manager pour créer l’environnement. Vous pouvez utiliser le filtre pour restreindre la liste. Vous pouvez voir une liste de ressources qui contient les deux réseaux virtuels.
-4. Cliquez sur le réseau virtuel qui contient le cluster HBase de destination. Par exemple, cliquez sur **xxxx-vnet2**. Vous pouvez voir trois appareils avec des noms qui commencent par **nic-zookeepermode-**. Ces appareils sont les trois machines virtuelles ZooKeeper.
-5. Cliquez sur l’une des machines virtuelles ZooKeeper.
-6. Cliquez sur **Configurations IP**.
-7. Dans la liste, cliquez sur **ipConfig1**.
-8. Cliquez sur **Statique**et notez l’adresse IP réelle. Lorsque vous exécutez l’action de script pour activer la réplication, vous avez besoin de l’adresse IP.
+2. Dans le menu de gauche, sélectionnez **Groupes de ressources**.
+3. Sélectionnez le groupe de ressources ayant le cluster HBase de destination. Il s’agit du groupe de ressources que vous avez spécifié lorsque vous avez utilisé le modèle Resource Manager pour créer l’environnement. Vous pouvez utiliser le filtre pour restreindre la liste. Vous pouvez voir une liste de ressources contenant les deux réseaux virtuels.
+4. Sélectionnez le réseau virtuel qui contient le cluster HBase de destination. Par exemple, sélectionnez **xxxx-vnet2**. Trois appareils avec des noms qui commencent par **nic-zookeepermode-** apparaissent. Ces appareils sont les trois machines virtuelles ZooKeeper.
+5. Sélectionnez l’une des machines virtuelles ZooKeeper.
+6. Sélectionnez **Configurations IP**.
+7. Dans la liste, sélectionnez **ipConfig1**.
+8. Sélectionnez **Statique**et copiez ou notez l’adresse IP réelle. Lorsque vous exécutez l’action de script pour activer la réplication, vous avez besoin de l’adresse IP.
 
   ![Adresse IP statique ZooKeeper de réplication HDInsight HBase](./media/hdinsight-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
 
 9. Répétez l’étape 6 pour définir l’adresse IP statique des deux autres nœuds ZooKeeper.
 
-Pour le scénario de réseaux virtuels croisés (cross-VNet), vous devez utiliser le commutateur **-ip** lors de l’appel de l’action de script **hdi_enable_replication.sh**.
+Pour le scénario de réseaux virtuels croisés, vous devez utiliser le commutateur **-ip** lors de l’appel de l’action de script `hdi_enable_replication.sh`.
 
-### <a name="configure-two-virtual-networks-in-two-different-regions"></a>Configurer deux réseaux virtuels dans deux régions différentes
+### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Configurer deux réseaux virtuels dans deux régions différentes
 
-Cliquez sur l’image suivante pour créer deux réseaux virtuels dans deux régions différentes. Le modèle est stocké dans un conteneur de blobs Azure public.
+Pour créer deux réseaux virtuels dans deux régions différentes, sélectionnez l’image suivante. Le modèle est stocké dans un conteneur de blobs Azure global.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-geo-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-Créez une passerelle VPN entre les deux réseaux virtuels. Pour savoir comment faire, consultez [Création d’un réseau virtuel avec une connexion de site à site à l’aide du portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Créez une passerelle VPN entre les deux réseaux virtuels. Pour des instructions précises, consultez [Création d’un réseau virtuel avec une connexion de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-La réplication HBase utilise des adresses IP des machines virtuelles ZooKeeper. Vous devez configurer des adresses IP statiques pour les nœuds ZooKeeper HBase de destination. Pour configurer une adresse IP statique, consultez la section « Configurer deux réseaux virtuels dans la même région » de cet article.
+La réplication HBase utilise des adresses IP des machines virtuelles ZooKeeper. Vous devez configurer des adresses IP statiques pour les nœuds ZooKeeper HBase de destination. Pour configurer une adresse IP statique, consultez la section [Configurer deux réseaux virtuels dans la même région](#set-up-two-virtual-networks-in-the-same-region) de cet article.
 
-Pour le scénario de réseaux virtuels croisés (cross-VNet), vous devez utiliser le commutateur **-ip** lors de l’appel de l’action de script **hdi_enable_replication.sh**.
+Pour le scénario de réseaux virtuels croisés, vous devez utiliser le commutateur **-ip** lors de l’appel de l’action de script `hdi_enable_replication.sh`.
 
 ## <a name="load-test-data"></a>Charger les données de test
 
 Lorsque vous répliquez un cluster, vous devez spécifier les tables à répliquer. Dans cette section, vous chargez des données dans le cluster source. Dans la section suivante, vous allez activer la réplication entre les deux clusters.
 
-Suivez les instructions de [Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight Linux](hdinsight-hbase-tutorial-get-started-linux.md) pour créer une table **Contacts** et insérer des données dans la table.
+Pour créer une table **Contacts** et insérer des données dans la table, suivez les instructions du [Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight Linux](hdinsight-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Activer la réplication
 
-Les étapes suivantes montrent comment appeler le script d’action de script à partir du portail Azure. Pour exécuter une action de script à l’aide d’Azure PowerShell et de l’interface de ligne de commande Azure, consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
+Les étapes suivantes décrivent comment appeler le script d’action de script à partir du portail Azure. Pour savoir comment exécuter une action de script à l’aide d’Azure PowerShell et de l’outil en ligne de commande Azure (Azure CLI), consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Pour activer la réplication HBase à partir du portail Azure**
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Ouvrez le cluster HBase source.
-3. Dans le menu de cluster, cliquez sur **Actions de script**.
-4. En haut du panneau, cliquez sur **Envoyer**.
+3. Dans le menu de cluster, sélectionnez **Actions de script**.
+4. En haut de la page, sélectionnez **Soumettre nouveau**.
 5. Sélectionnez ou saisissez les informations suivantes :
 
-  - **Nom** : saisissez **Activer la réplication**.
-  - **Bash Script URL (URL de script bash)** : saisissez **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
-  - **Principal** : Sélectionné. Supprimez les autres types de nœuds.
-  - **Paramètres** : les paramètres d’exemple suivants activent la réplication pour toutes les tables existantes et copient toutes les données du cluster source vers le cluster de destination :
+  1. **Nom** : saisissez **Activer la réplication**.
+  2. **Bash Script URL (URL de script bash)** : saisissez **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+  3.  **Principal** : assurez-vous que cette option est sélectionnée. Supprimez les autres types de nœuds.
+  4. **Paramètres** : les paramètres d’exemple suivants activent la réplication pour toutes les tables existantes, puis copient toutes les données du cluster source vers le cluster de destination :
 
             -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
 
-6. Cliquez sur **Create**. L’exécution du script peut prendre un certain temps, en particulier lorsque l’argument -copydata est utilisé.
+6. Sélectionnez **Créer**. L’exécution du script peut prendre un certain temps, en particulier lorsque vous utilisez l’argument **-copydata**.
 
 Arguments requis :
 
 |Nom|Description|
 |----|-----------|
-|-s, --src-cluster | Spécifiez le nom DNS du cluster HBase source. Par exemple : -s hbsrccluster, --src-cluster=hbsrccluster |
-|-d, --dst-cluster | Spécifiez le nom DNS du cluster HBase de destination (réplica). Par exemple : -s dsthbcluster, --src-cluster=dsthbcluster |
-|-sp, --src-ambari-password | Spécifiez le mot de passe d’administrateur pour Ambari sur le cluster HBase source. |
-|-dp, --dst-ambari-password | Spécifiez le mot de passe d’administrateur pour Ambari sur le cluster HBase de destination.|
+|-s, --src-cluster | Spécifie le nom DNS du cluster HBase source. Par exemple : -s hbsrccluster, --src-cluster=hbsrccluster |
+|-d, --dst-cluster | Spécifie le nom DNS du cluster HBase de destination (réplica). Par exemple : -s dsthbcluster, --src-cluster=dsthbcluster |
+|-sp, --src-ambari-password | Spécifie le mot de passe d’administrateur pour Ambari sur le cluster HBase source. |
+|-dp, --dst-ambari-password | Spécifie le mot de passe d’administrateur pour Ambari sur le cluster HBase de destination.|
 
 Arguments facultatifs :
 
 |Nom|Description|
 |----|-----------|
-|-su, --src-ambari-user | Spécifiez le nom d’utilisateur administrateur pour Ambari sur le cluster HBase source. La valeur par défaut est **admin**. |
-|-du, --dst-ambari-user | Spécifiez le nom d’utilisateur administrateur pour Ambari sur le cluster HBase de destination. La valeur par défaut est **admin**. |
-|-t, --table-list | Spécifiez les tables à répliquer. Par exemple : --table-list="table1;table2;table3". Si vous ne spécifiez pas de tables, toutes les tables HBase existantes sont répliquées.|
-|-m, --machine | Spécifiez le nœud principal sur lequel l’action de script s’exécute. La valeur peut être hn1 ou hn0. La valeur hn0 étant généralement plus utilisée, nous vous recommandons de choisir hn1. Vous utilisez cette option lorsque vous exécutez le script $0 comme une action de script à partir du portail HDInsight ou d’Azure PowerShell.|
-|-ip | Cet argument est obligatoire lorsque vous activez la réplication entre deux réseaux virtuels. Cet argument agit comme un commutateur pour utiliser les adresses IP statiques des nœuds ZooKeeper à partir de clusters de réplica au lieu des noms de domaine complets. Les adresses IP statiques doivent être préconfigurées avant d’activer la réplication. |
-|-cp, -copydata | Activez la migration des données existantes sur les tables pour lesquelles la réplication est activée. |
-|-rpm, -replicate-phoenix-meta | Activez la réplication sur les tables système Phoenix. <br><br>*Utilisez cette option avec précaution.* Nous vous recommandons de recréer des tables Phoenix sur les clusters de réplica avant d’utiliser ce script. |
-|-h, --help | Affichez des informations sur l’utilisation. |
+|-su, --src-ambari-user | Spécifie le nom d’utilisateur administrateur pour Ambari sur le cluster HBase source. La valeur par défaut est **admin**. |
+|-du, --dst-ambari-user | Spécifie le nom d’utilisateur administrateur pour Ambari sur le cluster HBase de destination. La valeur par défaut est **admin**. |
+|-t, --table-list | Spécifie les tables à répliquer. Par exemple : --table-list="table1;table2;table3". Si vous ne spécifiez pas de tables, toutes les tables HBase existantes sont répliquées.|
+|-m, --machine | Spécifie le nœud principal sur lequel l’action de script s’exécute. La valeur peut être **hn1** ou **hn0**. La valeur **hn0** étant généralement plus utilisée, nous vous recommandons de choisir **hn1**. Utilisez cette option lorsque vous exécutez le script $0 comme une action de script à partir du portail HDInsight ou d’Azure PowerShell.|
+|-ip | Obligatoire lorsque vous activez la réplication entre deux réseaux virtuels. Cet argument agit comme un commutateur pour utiliser les adresses IP statiques des nœuds ZooKeeper à partir de clusters de réplica au lieu des noms de domaine complets. Vous devez préconfigurer les adresses IP statiques avant d’activer la réplication. |
+|-cp, -copydata | Active la migration des données existantes sur les tables pour lesquelles la réplication est activée. |
+|-rpm, -replicate-phoenix-meta | Active la réplication sur les tables système Phoenix. <br><br>*Utilisez cette option avec précaution.* Nous vous recommandons de recréer des tables Phoenix sur les clusters de réplica avant d’utiliser ce script. |
+|-h, --help | Affiche des informations sur l’utilisation. |
 
-La section print_usage() du [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) fournit une explication détaillée des paramètres.
+La section `print_usage()` du [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) offre une explication détaillée des paramètres.
 
-Une fois le déploiement de l’action de script terminé, vous pouvez utiliser SSH pour vous connecter au cluster HBase de destination et vérifier que les données ont été répliquées.
+Une fois le déploiement de l’action de script terminé, vous pouvez utiliser SSH pour vous connecter au cluster HBase de destination, puis vérifier que les données ont été répliquées.
 
 ### <a name="replication-scenarios"></a>Scénarios de réplication
 
 La liste suivante présente certains cas d’utilisation générale et la définition de leurs paramètres :
 
-- **Activer la réplication sur toutes les tables entre les deux clusters**. Ce scénario ne nécessite pas la copie/migration des données existantes sur les tables, et n’utilise pas de tables Phoenix. Utilisez les paramètres suivants :
+- **Activer la réplication sur toutes les tables entre les deux clusters**. Ce scénario ne nécessite pas la copie ou migration des données existantes dans les tables et n’utilise pas de tables Phoenix. Utilisez les paramètres suivants :
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
 
-- **Activer la réplication sur des tables spécifiques**. Pour activer la réplication sur table1, table2 et table3, utilisez les paramètres suivants :
+- **Activer la réplication sur des tables spécifiques**. Pour activer la réplication sur table1, table2 et table3, utilisez les paramètres suivants :
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
 
-- **Activer la réplication sur des tables spécifiques et copier les données existantes**. Pour activer la réplication sur table1, table2 et table3, utilisez les paramètres suivants :
+- **Activer la réplication sur des tables spécifiques et copier les données existantes**. Pour activer la réplication sur table1, table2 et table3, utilisez les paramètres suivants :
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
 
-- **Activer la réplication sur toutes les tables avec la réplication des métadonnées Phoenix à partir de la source vers la destination**. La réplication des métadonnées Phoenix n’est pas parfaite et doit être utilisée avec précaution.
+- **Activer la réplication sur toutes les tables et répliquer les métadonnées Phoenix de la source vers la destination**. La réplication des métadonnées Phoenix n’est pas parfaite. Utilisez-la avec précaution. Utilisez les paramètres suivants :
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
 
 ## <a name="copy-and-migrate-data"></a>Copier et migrer des données
 
-Il existe deux scripts d’action de script distincts pour copier/migrer des données une fois la réplication activée :
+Il existe deux scripts d’action de script distincts disponibles pour copier ou migrer des données une fois la réplication activée :
 
-- [Script pour les petites tables](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_copy_table.sh) (taille de quelques gigaoctest et copie globale censée se terminer en moins d’une heure)
+- [Script pour les petites tables](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_copy_table.sh) (tables dont la taille est de quelques gigaoctets et dont la copie globale est censée durer moins d’une heure)
 
-- [Script pour les tables volumineuses](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/nohup_hdi_copy_table.sh) (copie censée prendre plus d’une heure)
+- [Script pour les tables volumineuses](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/nohup_hdi_copy_table.sh) (tables dont la copie est censée durer plus d’une heure)
 
-Vous pouvez suivre la même procédure que celle utilisée dans la section [Activer la réplication](#enable-replication) pour appeler l’action de script avec les paramètres suivants :
+Vous pouvez suivre la même procédure que celle décrite dans la section [Activer la réplication](#enable-replication) pour appeler l’action de script. Utilisez les paramètres suivants :
 
     -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]
 
-La section print_usage() du [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) fournit une description détaillée des paramètres.
+La section `print_usage()` du [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) offre une description détaillée des paramètres.
 
 ### <a name="scenarios"></a>Scénarios
 
 - **Copier des tables spécifiques (test1, test2 et test3) pour toutes les lignes modifiées jusqu’à présent (horodatage actuel)** :
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
-  ou
+  Ou :
 
         -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
 
 
-- **Copier des tables spécifiques avec une plage horaire spécifiée** :
+- **Copier des tables spécifiques avec une plage horaire spécifiée** :
 
         -m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"
 
 
 ## <a name="disable-replication"></a>Désactiver la réplication
 
-Pour désactiver la réplication, vous utilisez un autre script d’action de script disponible dans [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). Vous pouvez suivre la même procédure que celle utilisée dans la section [Activer la réplication](#enable-replication) pour appeler l’action de script avec les paramètres suivants :
+Pour désactiver la réplication, utilisez un autre script d’action de script disponible dans [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). Vous pouvez suivre la même procédure que celle décrite dans la section [Activer la réplication](#enable-replication) pour appeler l’action de script. Utilisez les paramètres suivants :
 
-    -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari Password> <-all|-t "table1;table2;...">  
+    -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
 
-La section print_usage() du [script](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) fournit une explication détaillée des paramètres.
+La section `print_usage()` du [script](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) offre une explication détaillée des paramètres.
 
 ### <a name="scenarios"></a>Scénarios
 
@@ -224,7 +224,7 @@ La section print_usage() du [script](https://raw.githubusercontent.com/Azure/hba
         -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
   ou
 
-        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari username> --src-ambari-password=<source cluster Ambari password>
+        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
 - **Désactiver la réplication sur les tables spécifiées (table1, table2 et table3)** :
 
@@ -232,7 +232,7 @@ La section print_usage() du [script](https://raw.githubusercontent.com/Azure/hba
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à configurer la réplication de HBase entre deux centres de données. Pour en savoir plus sur HDInsight et HBase, voir :
+Ce didacticiel a décrit la configuration de la réplication HBase dans un réseau virtuel ou entre deux réseaux virtuels dans Azure. Pour en savoir plus sur HDInsight et HBase, consultez les articles suivants :
 
 * [Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight Linux][hdinsight-hbase-get-started]
 * [Présentation de HBase dans HDInsight : une base de données NoSQL fournissant des fonctionnalités similaires à BigTable pour Hadoop][hdinsight-hbase-overview]

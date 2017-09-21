@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 24793b83ca284fe9510fe21bc2d13b0589209d36
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 4744405b2c294be564dedee308b4cba95cfcc3c6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>Accéder à des sources de données locales à partir d’applications logiques avec la passerelle de données locale
@@ -141,7 +141,7 @@ Après avoir créé une connexion de passerelle pour votre application logique, 
 
      ![Accédez à votre application logique, puis sélectionnez « Connexions d’API ».](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * Ou bien, dans le menu principal d’Azure à gauche, accédez à **Autres services** > **Services web et mobiles** > **Connexions d’API** pour toutes les connexions d’API, dont les connexions de passerelle, associées à votre abonnement Azure. 
+   * Ou bien, dans le menu principal d’Azure à gauche, accédez à **Autres services** > **Web + mobile** > **Connexions d’API** pour toutes les connexions d’API, dont les connexions de passerelle, associées à votre abonnement Azure. 
 
    * Ou encore, dans le menu principal d’Azure à gauche, accédez à **Toutes les ressources** pour toutes les connexions d’API, dont les connexions de passerelle, associées à votre abonnement Azure.
 

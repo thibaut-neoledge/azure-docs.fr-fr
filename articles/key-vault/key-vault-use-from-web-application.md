@@ -1,6 +1,6 @@
 ---
 title: "Utilisation d’Azure Key Vault à partir d’une application web | Microsoft Docs"
-description: "Utilisez ce didacticiel pour vous aider à apprendre comment utiliser Azure Key Vault à partir d&quot;une application web."
+description: "Utilisez ce didacticiel pour vous aider à apprendre comment utiliser Azure Key Vault à partir d'une application web."
 services: key-vault
 documentationcenter: 
 author: adhurwit
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: adhurwit
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: d095bcfe37baefa90cf79bb48bff3f703ce1dad7
+ms.translationtype: HT
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: f306784adcb807b399fbfbedf08bffdd2998ed02
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Utilisation d'Azure Key Vault à partir d'une application web
@@ -38,7 +37,8 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 * une application web. Nous afficherons les étapes d'une application ASP.NET MVC déployée dans Azure en tant qu'application web.
 
 > [!NOTE]
-> Il est essentiel que vous ayez effectué les étapes répertoriées dans [Prise en main d'Azure Key Vault](key-vault-get-started.md) pour ce didacticiel afin que vous ayez l'URI pour une clé secrète et un ID client ainsi qu'une clé secrète client pour une application web.
+>* Cet exemple est basé sur une ancienne méthode d’approvisionnement manuel des identités AAD. Il existe à ce jour une nouvelle fonctionnalité en préversion, appelée identité du service administré (MSI), qui peut approvisionner automatiquement les identités AAD. Reportez-vous au [lien](https://docs.microsoft.com/azure/active-directory/msi-overview) suivant pour plus d’informations. 
+>* Il est essentiel que vous ayez effectué les étapes répertoriées dans [Prise en main d'Azure Key Vault](key-vault-get-started.md) pour ce didacticiel afin que vous ayez l'URI pour une clé secrète et un ID client ainsi qu'une clé secrète client pour une application web.
 > 
 > 
 

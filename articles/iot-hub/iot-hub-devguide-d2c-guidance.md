@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a36283053939ccd53856a394cd9efb66285271ae
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 146a2e16399a3eeed6b178d72234584c76cc8f51
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Recommandations sur les communications appareil-à-cloud
@@ -37,7 +36,7 @@ Voici une comparaison détaillée des différentes options de communication appa
 | Stockage et récupération | Stockage temporaire par IoT Hub, jusqu’à 7 jours. Lecture uniquement séquentielle. | Stockage par IoT Hub dans le jumeau d’appareil. Récupérables à l’aide du [langage de requête IoT Hub][lnk-query]. | Stockées dans le compte de stockage Azure fourni par l’utilisateur. |
 | Taille | Messages d’une taille maximale de 256 Ko. | La taille maximale des propriétés signalées est de 8 Ko. | Taille maximale de fichier prise en charge par le stockage Blob Azure. |
 | Fréquence | Élevée. Pour plus d’informations, consultez les [limites d’IoT Hub][lnk-quotas]. | Moyenne. Pour plus d’informations, consultez les [limites d’IoT Hub][lnk-quotas]. | Faible. Pour plus d’informations, consultez les [limites d’IoT Hub][lnk-quotas]. |
-| Protocole | Disponible sur tous les protocoles. | Disponible actuellement uniquement lorsque vous utilisez MQTT. | Disponible sur tous les protocoles, mais nécessite HTTP sur l’appareil. |
+| Protocole | Disponible sur tous les protocoles. | Disponible à l’aide du protocole MQTT ou AMQP. | Disponible sur tous les protocoles, mais nécessite HTTP sur l’appareil. |
 
 Il est possible qu’une application nécessite l’envoi d’informations en tant que série chronologique de télémétrie ou alerte, et sa mise à disposition sur le jumeau d’appareil. Dans ce scénario, vous pouvez choisir l’une des options suivantes :
 

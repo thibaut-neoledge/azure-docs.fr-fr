@@ -1,5 +1,5 @@
 ---
-title: Tarification de Security Center | Microsoft Docs
+title: "Tarification d’Azure Security Center | Microsoft Docs"
 description: "Cet article fournit des informations sur la tarification d’Azure Security Center."
 services: security-center
 documentationcenter: na
@@ -12,83 +12,60 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 367b8f38cb9fcf3dc36db83641cb1696710608ef
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: cd4001a3280c83875f30b04d5d38caec26f4f0b1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-security-center-pricing"></a>Tarification d’Azure Security Center
-Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
+Azure Security Center fournit une gestion unifiée de la sécurité et une protection avancée contre les menaces pour les charges de travail s’exécutant dans Azure, en local et dans d’autres clouds. Il fournit une visibilité et un contrôle sur les charges de travail cloud hybrides, des défenses actives qui réduisent votre exposition aux menaces et une détection intelligente pour vous aider à suivre le rythme des cyberattaques en constante évolution.
 
 ## <a name="pricing-tiers"></a>Niveaux de tarification
 Security Center est proposé en deux niveaux :
 
-* Le **niveau Gratuit** est automatiquement activé dans tous les abonnements Azure. Le niveau Gratuit vous permet de voir l’état de sécurité de vos ressources Azure, vos stratégies de sécurité de base, vos recommandations de sécurité, ainsi que l’intégration des produits et services de partenaires.
-* Le **niveau Standard** fournit des fonctionnalités de détection avancée des menaces, notamment des informations sur les menaces, une analyse comportementale, une détection des anomalies, des informations sur les incidents de sécurité et des rapports d’évaluation des menaces. Le niveau Standard est gratuit les 60 premiers jours.
+- Le niveau **Gratuit** est automatiquement activé dans tous les abonnements Azure et fournit une stratégie de sécurité, une évaluation de la sécurité en continu et des recommandations de sécurité exploitables pour vous aider à protéger vos ressources Azure.
+- Le niveau **Standard** étend les fonctionnalités du niveau Gratuit aux charges de travail s’exécutant en privé et sur d’autres clouds publics, fournissant une gestion unifiée de la sécurité et une protection contre les menaces dans l’ensemble de vos charges de travail cloud hybrides. Le niveau Standard ajoute également des fonctionnalités de détection avancée des menaces, qui utilisent des analytiques comportementales intégrées et l’apprentissage machine pour identifier les attaques et les vulnérabilités zero-day, des contrôles d’accès et d’application pour réduire l’exposition aux attaques réseau et aux programmes malveillants, et bien plus encore. Le niveau Standard est gratuit les 60 premiers jours.
 
 Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
 
 ## <a name="try-standard-free-for-60-days"></a>Essayer gratuitement le niveau Standard pendant 60 jours
 Le niveau Standard est gratuit les 60 premiers jours. Une fois ces 60 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
 
+Vous pouvez mettre à niveau un abonnement Azure vers le niveau Standard, qui est hérité par toutes les ressources dans l’abonnement, ou vous pouvez définir une stratégie unique pour mettre à niveau un groupe de ressources spécifique uniquement.
+
 Pour obtenir le niveau Standard :
 
-1. Dans le panneau **Centre de sécurité**, cliquez sur la vignette **Stratégie**.
+1. Sélectionnez **Stratégie de sécurité** dans le menu principal de **Security Center**.
 2. Sélectionnez l’abonnement que vous souhaitez mettre à niveau vers la version Standard.
 3. Dans le panneau **Stratégie de sécurité**, sélectionnez **Niveau tarifaire**.
-4. Dans le panneau **Choisir votre niveau tarifaire**, sélectionnez **Standard**.
-5. Cliquez sur **Sélectionner**.
+4. Sélectionnez **Standard** pour effectuer la mise à niveau.
+5. Cliquez sur **Enregistrer**.
 
-
-## <a name="why-upgrade-to-standard"></a>Pourquoi passer au niveau Standard ?
-Le niveau Standard de Security Center fournit toutes les fonctionnalités du niveau Gratuit, ainsi qu’une détection avancée des menaces. La détection avancée des menaces vous aide à identifier les menaces actives qui ciblent vos ressources Azure, et vous donne les informations nécessaires pour corriger rapidement le problème.
-
-Azure Security Center emploie des analyses de sécurité avancées allant bien au-delà des approches simplement basées sur la signature. Les innovations en matière de Big Data et de technologies Machine Learning sont mises à profit pour évaluer des événements dans toute la structure du cloud, et permettent ainsi de détecter des menaces qui seraient impossibles à identifier à l’aide de méthodes manuelles et de prédire l’évolution des attaques.
-
-Les fonctionnalités d’analyse de la sécurité fournies avec le niveau Standard sont les suivantes :
-
-* **Informations sur les menaces** : recherche les éléments malveillants en exploitant des informations globales concernant les menaces provenant de produits et services Microsoft, de Microsoft Digital Crimes Unit, de Microsoft Security Response Center et de sources externes.
-* **Analyse comportementale** : applique des modèles connus pour détecter les comportements malveillants.
-* **Détection des anomalies** : utilise le profilage statistique pour créer une ligne de base historique. Il avertit sur les écarts par rapport aux lignes de base établies qui se conforment à un vecteur d’attaque potentielle.
-
-Dans le panneau **Alertes de sécurité** ci-dessous, Security Center a détecté un **incident** de sécurité. Un incident de sécurité est un regroupement de toutes les alertes d’une ressource correspondant à des modèles de chaîne de destruction. Quand vous sélectionnez un incident de sécurité, vous affichez des informations détaillées sur l’incident, ainsi que la liste des alertes associées. Quand vous sélectionnez une alerte, vous affichez des informations supplémentaires sur celle-ci.
-
-![Incident de sécurité][2]
-
-L’alerte **Communication réseau** ci-dessous fournit des informations détaillées sur l’alerte. Ces informations incluent la description complète de l’alerte, son niveau de gravité, son état actuel (dans ce cas, l’alerte a été ignorée, ce qui implique que l’utilisateur a exécuté une action pour l’ignorer), la ressource attaquée, ainsi que les étapes de résolution. Elles comprennent également une liste de liens vers des rapports d’informations sur les menaces fournis par Microsoft. Ces rapports peuvent être utilisés à des fins de protection et de résolution des problèmes de sécurité.
-
-![Détails des alertes de sécurité][3]
-
-## <a name="enable-data-collection"></a>Activer la collecte des données
-Pour activer l’analyse comportementale des machines virtuelles, vous devez activer la collecte des données.
-
-Pour vérifier que la collecte des données est activée :
-
-1. Sélectionnez la vignette **Stratégie**. Le panneau **Stratégie de sécurité** s’ouvre et affiche la liste de vos abonnements Azure.
-2. Sélectionnez un abonnement.
-3. Si la **Collecte des données** est désactivée, activez-la, puis enregistrez la modification.
+![Incident de sécurité][1]
 
 > [!NOTE]
-> Si vous utilisez le niveau Gratuit d’Azure Security Center, vous pouvez désactiver la collecte de données à partir des machines virtuelles dans la stratégie de sécurité. La collecte de données est obligatoire pour les abonnements du niveau Standard.
+> Pour activer toutes les fonctionnalités de Security Center, vous devez appliquer le niveau de tarification Standard à l’abonnement ou au groupe de ressources contenant les machines virtuelles concernées. La configuration de la tarification d’un espace de travail n’active pas l’accès juste à temps à la machine virtuelle, les contrôles d’application adaptatifs, ni les détections réseau pour les ressources Azure.
 >
 >
 
-Pour plus d’informations, consultez [Activer la collecte des données dans Azure Security Center](security-center-enable-data-collection.md).
+## <a name="why-upgrade-to-standard"></a>Pourquoi passer au niveau Standard ?
+Security Center offre une sécurité renforcée et une meilleure protection contre les menaces à vos charges de travail cloud hybrides, y compris :
+
+- **Sécurité hybride** : obtenez une vue unifiée de la sécurité sur l’ensemble de vos charges de travail cloud et locales. Appliquez des stratégies de sécurité et évaluez en continu la sécurité de vos charges de travail cloud hybrides pour garantir la conformité aux normes de sécurité. Collectez, recherchez et analysez les données de sécurité à partir d’un large éventail de sources, dont les pare-feu et d’autres solutions partenaires.
+- **Détection avancée des menaces** : utilisez l’analytique avancée et Microsoft Intelligent Security Graph pour avoir un avantage sur les cyberattaques en constante évolution.  Tirez parti des analytiques comportementales intégrées et de l’apprentissage machine pour identifier les attaques et les vulnérabilités zero-day. Surveillez les réseaux, machines et services cloud pour prévenir les attaques entrantes et les activités consécutives à une violation. Simplifiez l’investigation avec des outils interactifs et des informations sur les menaces contextuelles.
+- **Contrôles d’accès et d’application** : bloquez les programmes malveillants et les autres applications indésirables en appliquant des recommandations de mise en liste verte adaptées à vos charges de travail spécifiques et alimentées par l’apprentissage machine. Réduisez la surface exposée aux attaques du réseau avec l’accès contrôlé juste à temps aux ports de gestion sur les machines virtuelles Azure, ce qui diminue de façon significative l’exposition aux attaques par force brute et autres attaques réseau.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Ce document vous a présenté la tarification de Security Center. Pour plus d’informations sur la tarification, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
-* Pour plus d’informations sur les fonctionnalités de détection avancée de Security Center, consultez [Fonctionnalités de détection d’Azure Security Center](security-center-detection-capabilities.md).
-* Pour en savoir plus sur la gestion et la protection des données dans Security Center, consultez [Sécurité des données Azure Security Center](security-center-data-security.md).
-* Si vous avez des questions sur l’utilisation d’Azure Security Center, consultez le [FAQ d’Azure Security Center](security-center-faq.md).
-* Si vous avez des questions sur l’utilisation de Security Center ou d’Azure, consultez les [forums Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
+Cet article vous a présenté la tarification de Security Center. Pour en savoir plus sur la sécurité renforcée et la protection avancée contre les menaces du niveau Standard, consultez :
+
+- [Détection avancée des menaces](security-center-threat-report.md)
+- [Gérer l’accès Juste à temps à la machine virtuelle](security-center-just-in-time.md)
 
 <!--Image references-->
-[1]: ./media/security-center-pricing/standard.png
-[2]: ./media/security-center-pricing/incident.png
-[3]: ./media/security-center-pricing/network-alert.png
+[1]: ./media/security-center-pricing/get-standard.png
 

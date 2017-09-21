@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a7dbe54ffb4daa941c19b51ba263dd3d23b7a98b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -38,7 +38,7 @@ Avec cette intégration entre Service Map et System Center Operations Manager, v
 * Un principal de service disposant d’un accès à l’abonnement Azure associé à l’espace de travail Operations Management Suite. Pour plus d’informations, consultez l’article [Créer un principal du service](#creating-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Installation du pack d’administration de Service Map
-Vous activez l’intégration entre Operations Manager et Service Map en important le groupement de packs d’administration Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). Le groupe contient les packs d’administration suivants :
+Vous activez l’intégration entre Operations Manager et Service Map en important le groupement de packs d’administration Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). Vous pouvez télécharger l’offre groupée de packs d’administration à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). Le groupe contient les packs d’administration suivants :
 * Microsoft Service Map - Vues de l’application
 * Microsoft System Center Service Map - Interne
 * Microsoft System Center Service Map - Valeurs de remplacement

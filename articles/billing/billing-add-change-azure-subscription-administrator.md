@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/12/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: db5966c920eb29742b2ee0fbd9386319eaaf1c77
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 29fee079bd8b2775d7b45fa37cadb73635a2eb60
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Ajout ou modification de rôles d’administrateur Azure gérant l’abonnement ou les services
@@ -44,7 +44,7 @@ Pour ajouter un utilisateur en tant qu’administrateur d’un abonnement dans l
 Seul un propriétaire peut être ajouté en tant que coadministrateur. Les autres utilisateurs dont les rôles sont Contributeur et Lecteur ne peuvent pas être ajoutés en tant que coadministrateurs.
 
 1. Si vous ne l’avez pas déjà fait, ajoutez un utilisateur en tant que propriétaire en suivant les instructions ci-dessus.
-1. **Cliquez avec le bouton droit** sur l’utilisateur Propriétaire que vous venez d’ajouter, puis sélectionnez **Ajouter comme coadministrateur**. 
+2. **Cliquez avec le bouton droit** sur l’utilisateur Propriétaire que vous venez d’ajouter, puis sélectionnez **Ajouter comme coadministrateur**. Si vous ne voyez pas l’option **Ajouter comme coadministrateur**, actualisez la page ou essayez avec un autre navigateur Internet. 
 
      ![Capture d’écran d’ajout d’un coadministrateur](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
@@ -67,7 +67,7 @@ Seul l’administrateur de compte peut modifier l’administrateur de services f
 1. Sur le côté droit, sélectionnez **Modifier les détails de l’abonnement**.
 
     ![Capture d’écran montrant le bouton Modifier l’abonnement dans le Centre des comptes](./media/billing-add-change-azure-subscription-administrator/editsub.png)
-1. Dans la zone **ADMINISTRATEUR DE SERVICES** , entrez l’adresse e-mail du nouvel administrateur de services fédérés.
+1. Dans la zone **ADMINISTRATEUR DE SERVICES** , entrez l’adresse de messagerie du nouvel administrateur de services fédérés.
 
     ![Capture d’écran montrant la zone de modification de l’adresse e-mail de l’administrateur de services fédérés](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 

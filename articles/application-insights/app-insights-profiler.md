@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: cc8655e0bc65007cacf223ce6d7709291c609327
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 252e1fb070bcdc11494f6f37a9a1ee03fa50509e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Profilage des applications web dynamiques Azure avec Application Insights
@@ -65,11 +65,17 @@ Lorsque vous [activez Application Insights pour les services d’application Azu
 Il existe une [version préliminaire du profileur pour les ressources de calcul Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 
 
-## <a name="limits"></a>Limites
+## <a name="limitations"></a>Limites
 
 Par défaut, la durée de rétention des données est de 5 jours. 10 Go maximum reçus par jour.
 
 Aucuns frais ne s’appliquent pour le service de profileur. Votre application web doit être hébergée au moins au niveau de base de App Services.
+
+## <a name="overhead-and-sampling-algorithm"></a>Surcharge et algorithme d’échantillonnage
+
+Le profileur s’exécute aléatoirement pendant 2 minutes toutes les heures sur chaque machine virtuelle qui héberge l’application sur laquelle le profileur est activé pour capturer des traces. L’exécution d’Application Insights Profiler ajoute une surcharge d’UC de 5 à 15 % au serveur.
+Plus le nombre de serveurs disponibles pour héberger l’application est important, moins le profileur a d’impact sur les performances globales de l’application. Cela vient du fait que l’algorithme d’échantillonnage entraîne l’exécution du profileur sur seulement 5 % des serveurs à un moment donné, et la disponibilité d’un plus grand nombre de serveurs pour traiter les demandes web afin de décaler les serveurs soumis à une surcharge provenant du profileur.
+
 
 ## <a name="viewing-profiler-data"></a>Affichage des données du profileur
 
@@ -191,6 +197,21 @@ Lorsque vous voyez des threads parallèles dans vos traces, vous devez identifie
 ### <a name="error-report-in-the-profiling-viewer"></a>Rapport d’erreurs dans la visionneuse de profilage
 
 Émettez un ticket de support à partir du portail. Pensez à indiquer l’ID de corrélation du message d’erreur.
+
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Erreur de déploiement Répertoire non vide 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+
+Si vous redéployez votre application web sur une ressource App Services sur laquelle Application Insights Profiler est activé, vous rencontrez peut-être une erreur semblable à la suivante : Répertoire non vide 'D:\\home\\site\\wwwroot\\App_Data\\jobs' Cette erreur survient si vous exécutez Web Deploy à partir de scripts ou sur VSTS Deployment Pipeline.
+La solution à ce problème consiste à ajouter les paramètres de déploiement supplémentaires suivants à la tâche Web Deploy :
+
+```
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+```
+
+Cela supprimera le dossier utilisé par Application Insights Profiler et débloquera le processus de redéploiement. Cela n’affectera pas l’instance d’Application Insights Profiler en cours d’exécution.
+
 
 ## <a name="manual-installation"></a>Installation manuelle
 

@@ -16,10 +16,10 @@ ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 77e788a32097edbcb1cd4faaa45f35812eabd94a
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: fda1111877e5eb35fe246891fa7ff71ce6b5c20d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendre et appeler des méthodes directes à partir d’IoT Hub
@@ -45,7 +45,7 @@ Les méthodes directes sont implémentées sur l’appareil et peuvent nécessit
 
 Les méthodes directes sont synchrones et réussissent ou échouent à l’issue du délai d’expiration (par défaut, 30 secondes, extensible à 3 600 secondes). Les méthodes directes sont utiles dans des scénarios interactifs où vous souhaitez qu’un appareil agisse si et seulement s’il est en ligne et reçoit des commandes, telles que l’allumage d’une lumière, en provenance d’un téléphone. Dans ces scénarios, vous souhaitez constater immédiatement la réussite ou l’échec de la commande, de façon à ce que le service cloud puisse agir sur le résultat dès que possible. L’appareil peut renvoyer un corps de message résultant de la méthode, mais il n’est pas obligatoire que la méthode procède de la sorte. Il existe ni garantie de classement, ni sémantique de concurrence sur les appels de méthode.
 
-Les méthodes directes sont exclusivement HTTP côté cloud, et exclusivement MQTT côté appareil.
+Les méthodes directes sont exclusivement HTTP côté cloud, et MQTT ou AMQP côté appareil.
 
 La charge utile pour les requêtes et les réponses de méthode correspond à un document JSON d’une taille pouvant aller jusqu’à 8 Ko.
 

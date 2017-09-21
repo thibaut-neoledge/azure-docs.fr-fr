@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 09/07/2017
 ms.author: juanpere
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
-ms.openlocfilehash: 30a707ec15d592c8a10905e13a75ea2f6e52cccc
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6879f51527802591d45ee56aa47ab304623a4323
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/06/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Utilisation de la gestion des appareils pour lancer une mise à jour du microprogramme d’un appareil (Node/Node)
@@ -41,7 +40,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Node.js version 0.12.x ou version ultérieure. <br/>  L’article [Préparer votre environnement de développement][lnk-dev-setup] décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
+* Node.js version 4.0.x ou version ultérieure. <br/>  L’article [Préparer votre environnement de développement][lnk-dev-setup] décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
 
 Pour créer votre IoT Hub et obtenir votre chaîne de connexion, procédez de la manière décrite dans [Prise en main de la gestion d’appareils](iot-hub-node-node-device-management-get-started.md).
@@ -58,7 +57,7 @@ Dans cette section, vous créez une application console Node.js qui lance une mi
     ```
     npm init
     ```
-2. À l’invite de commandes, dans le dossier **triggerfwupdateondevice**, exécutez la commande suivante pour installer les packages de kit de développement logiciel (SDK) pour appareils **azure-iothub** et **azure-iot-device-mqtt** :
+2. À l’invite de commandes, dans le dossier **triggerfwupdateondevice**, exécutez la commande suivante pour installer le package **azure-iot-hub** :
    
     ```
     npm install azure-iothub --save

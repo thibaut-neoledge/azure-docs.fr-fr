@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: c733c61132a79381d5e025819ff944507fc3fb9b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f152682f4d584f5a94d1f757009892047c19c69d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
@@ -108,7 +108,7 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 | * / 11000 - 11999 |Règle de trafic sortant |TCP |Dépendance Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |Externe et interne |
 | * / 14000 - 14999 |Règle de trafic sortant |TCP |Dépendance Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |Externe et interne |
 | * / 5671 |Règle de trafic sortant |AMQP |Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance |VIRTUAL_NETWORK / INTERNET |Externe et interne |
-| 6381 - 6383 / 6381 - 6383 |Trafic entrant et sortant |TCP |Dépendance sur Cache Redis |VIRTUAL_NETWORK / VIRTUAL_NETWORK |Externe et interne |-
+| * / 6381 - 6383 |Trafic entrant et sortant |TCP |Dépendance sur Cache Redis |VIRTUAL_NETWORK / VIRTUAL_NETWORK |Externe et interne |
 | * / 445 |Règle de trafic sortant |TCP |Dépendance sur le partage de fichiers Azure pour GIT |VIRTUAL_NETWORK / INTERNET |Externe et interne |
 | * / * | Trafic entrant |TCP |Équilibrage de charge de l’infrastructure Azure | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |Externe et interne |
 

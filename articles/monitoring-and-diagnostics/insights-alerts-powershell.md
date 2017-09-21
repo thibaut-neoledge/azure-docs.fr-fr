@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 50127242cdf156771d0610e58cf2fc41281adae7
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Création d’alertes de métrique dans Azure Monitor pour les services Azure - PowerShell
@@ -97,7 +97,7 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
      Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 
      ```
-     La liste complète des options disponibles pour Get-AzureRmMetricDefinition s’obtient en exécutant la commande Get-MetricDefinitions.
+     La liste complète des options disponibles pour Get-AzureRmMetricDefinition s’obtient en exécutant `Get-Help Get-AzureRmMetricDefinition -Detailed`.
 5. L’exemple suivant configure une alerte sur une ressource de site web. L’alerte se déclenche chaque fois qu’il reçoit constamment du trafic pendant cinq minutes, et à nouveau lorsqu’il ne reçoit aucun trafic pendant cinq minutes.
 
     ```PowerShell
@@ -132,7 +132,7 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
 * [Consultez une vue d’ensemble de la surveillance Azure](monitoring-overview.md) , notamment les types d’informations que vous pouvez collecter et surveiller.
 * Découvrez plus en détail la [configuration des webhooks dans les alertes](insights-webhooks-alerts.md).
 * Découvrez plus d’informations sur la [configuration des alertes sur les événements de journal d’activité](monitoring-activity-log-alerts.md).
-* Découvrez plus en détails les [runbooks Azure Automation](../automation/automation-starting-a-runbook.md).
+* Découvrez plus en détail les [runbooks Azure Automation](../automation/automation-starting-a-runbook.md).
 * Consultez une [vue d’ensemble de la collecte des journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md) pour collecter des métriques détaillées à fréquence élevée sur votre service.
 * Consultez une [vue d’ensemble de la collecte des métriques](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 

@@ -18,17 +18,17 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 5c352fd29c32b381d754b491ec46b3b250bd66ae
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 5c862dbf46a30dd6811faeea447d559dca493991
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Téléchargement de données pour les tâches Hadoop dans HDInsight
 
 Azure HDInsight fournit un système HDFS (Hadoo Distributed File System) complet pour le Stockage Azure et Azure Data Lake Store. Le Stockage Azure et Data lake Store sont conçus en tant qu’extension HDFS pour fournir une expérience fluide aux clients. Ils permettent à l’ensemble des composants de l’écosystème Hadoop de fonctionner directement sur les données qu’il gère. Le Stockage Azure et Data Lake Store sont des systèmes de fichiers distincts qui sont optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages que constitue l’utilisation du Stockage Azure, consultez [Utiliser le Stockage Azure avec HDInsight][hdinsight-storage] et [Utiliser Data Lake Store avec HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-##<a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Notez les prérequis suivants avant de démarrer :
 
@@ -159,7 +159,7 @@ La ligne de commande Hadoop est utile uniquement pour stocker les données dans 
 Pour utiliser la commande Hadoop, vous devez d'abord vous connecter au nœud principal à l'aide de l'une des méthodes suivantes :
 
 * **HDInsight Windows**: [connexion à l'aide du Bureau à distance](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight Linux** : connexion à l’aide de SSH ([commande SSH](hdinsight-hadoop-linux-use-ssh-unix.md) ou [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
+* **HDInsight Linux** : connexion à l’aide de [SSH ou PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 Une fois connecté, vous pouvez utiliser la syntaxe suivante pour télécharger un fichier dans le stockage.
 

@@ -14,19 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0f8308b73a70fc3758a53063bc69d16480df8f02
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 6486f3963b18edee8490446cad1f6f2697db699b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="runbook-input-parameters"></a>Paramètres d’entrée de Runbook
+
 Les paramètres d’entrée de Runbook augmentent la flexibilité des Runbooks en vous permettant de lui transmettre des données lors de son démarrage. Les paramètres permettent que les actions du Runbook soient ciblées pour des scénarios et environnements spécifiques. Cet article vous guide dans différents scénarios où des paramètres d’entrée sont utilisés dans des Runbooks.
 
 ## <a name="configure-input-parameters"></a>Configurer les paramètres d’entrée
-Des paramètres d’entrée peuvent être configurés dans des Runbooks PowerShell, PowerShell Workflow et graphiques. Un Runbook peut avoir plusieurs paramètres avec différents types de données, ou aucun paramètre. Des paramètres d’entrée peuvent être obligatoires ou facultatifs, et vous pouvez affecter une valeur par défaut à des paramètres facultatifs. Vous pouvez affecter des valeurs aux paramètres d'entrée d'un Runbook lorsque vous le démarrez via l’une des méthodes disponibles. Ces méthodes incluent le démarrage d’un Runbook à partir du portail ou d’un service web. Vous pouvez également démarrer un Runbook en tant que Runbook enfant appelé en ligne dans un autre Runbook.
+
+Des paramètres d’entrée peuvent être configurés dans des Runbooks PowerShell, PowerShell Workflow, Python et graphiques. Un Runbook peut avoir plusieurs paramètres avec différents types de données, ou aucun paramètre. Des paramètres d’entrée peuvent être obligatoires ou facultatifs, et vous pouvez affecter une valeur par défaut à des paramètres facultatifs. Vous pouvez affecter des valeurs aux paramètres d'entrée d'un Runbook lorsque vous le démarrez via l’une des méthodes disponibles. Ces méthodes incluent le démarrage d’un Runbook à partir du portail ou d’un service web. Vous pouvez également démarrer un Runbook en tant que Runbook enfant appelé en ligne dans un autre Runbook.
 
 ## <a name="configure-input-parameters-in-powershell-and-powershell-workflow-runbooks"></a>Configurer les paramètres d’entrée dans des Runbooks PowerShell et PowerShell Workflow
+
 Les Runbooks PowerShell et les [Runbooks PowerShell Workflow](automation-first-runbook-textual.md) dans Azure Automation prennent en charge les paramètres d’entrée définis à l’aide des attributs suivants :  
 
 | **Propriété** | **Description** |
@@ -40,7 +44,7 @@ Windows PowerShell prend en charge d’autres attributs de paramètres d’entr�
 
 Une définition de paramètre dans des Runbooks PowerShell Workflow a la forme générale suivante, où plusieurs paramètres sont séparés par des virgules.
 
-   ```
+   ```powershell
      Param
      (
          [Parameter (Mandatory= $true/$false)]
@@ -73,6 +77,7 @@ Vous pouvez transmettre la valeur suivante au paramètre :
 
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Configurer des paramètres d’entrée dans des Runbooks graphiques
+
 Pour configurer un Runbook graphique avec des paramètres d’entrée, nous allons créer un [Runbook graphique](automation-first-runbook-graphical.md) qui renvoie des détails sur des machines virtuelles, soit une machine virtuelle unique, soit toutes les machines virtuelles au sein d’un groupe de ressources. La configuration d'un Runbook implique deux activités principales, comme décrit ci-dessous.
 
 [**Authentifier des Runbooks avec un compte d’identification Azure**](automation-sec-configure-azure-runas-account.md) pour s’authentifier avec Azure.
@@ -112,14 +117,26 @@ Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.
      * Valeur par défaut personnalisée : \<Nom du groupe de ressources qui contient les machines virtuelles>
 5. Une fois les paramètres ajoutés, cliquez sur **OK**.  Vous pouvez maintenant les voir dans le panneau **Entrée et sortie**. Cliquez de nouveau sur **OK**, puis sur **Enregistrer** et **Publier** pour publier votre Runbook.
 
+## <a name="configure-input-parameters-in-python-runbooks"></a>Configurer des paramètres d’entrée dans des Runbooks Python
+
+Contrairement aux runbooks PowerShell, PowerShell Workflow et graphiques, les runbooks Python ne prennent pas de paramètres nommés.
+Tous les paramètres d’entrée sont analysés en tant que tableau de valeurs d’argument.
+Vous accédez au tableau en important le module `sys` dans votre script Python, puis en utilisant le tableau `sys.argv`.
+Il est important de noter que le premier élément du tableau, `sys.argv[0]`, est le nom du script, par conséquent, le premier paramètre d’entrée réel est `sys.argv[1]`.
+
+Pour obtenir un exemple montrant comment utiliser les paramètres d’entrée dans un runbook Python, consultez [My first Python runbook in Azure Automation](automation-first-runbook-textual-python2.md) (Mon premier runbook Python dans Azure Automation).
+
 ## <a name="assign-values-to-input-parameters-in-runbooks"></a>Affecter des valeurs aux paramètres d’entrée dans des Runbooks
+
 Vous pouvez transmettre des valeurs aux paramètres d’entrée dans des Runbooks dans les cas suivants.
 
 ### <a name="start-a-runbook-and-assign-parameters"></a>Démarrer un Runbook et affecter des paramètres
+
 Un Runbook peut être démarré de plusieurs façons : via le portail Azure, avec un WebHook, avec des applets de commande PowerShell, avec l’API REST ou avec le Kit de développement logiciel (SDK). Nous abordons ci-dessous différentes méthodes pour démarrer un Runbook et affecter des paramètres.
 
 #### <a name="start-a-published-runbook-by-using-the-azure-portal-and-assign-parameters"></a>Démarrer un Runbook publié à l’aide du portail Azure et affecter des paramètres
-Lorsque vous [démarrez le Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), le panneau **Démarrer le Runbook** s’ouvre. Vous pouvez y configurer des valeurs pour les paramètres que vous venez de créer.
+
+Lorsque vous [démarrez le runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), le panneau **Démarrer le runbook** s’ouvre. Vous pouvez y entrer des valeurs pour les paramètres que vous venez de créer.
 
 ![Démarrer à l’aide du portail](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
@@ -133,6 +150,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
 > 
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>Démarrer un Runbook publié à l’aide d’applets de commande PowerShell et affecter des paramètres
+
 * **Applets de commande d’Azure Resource Manager :** vous pouvez démarrer un Runbook Automation créé dans un groupe de ressources à l’aide de l’applet de commande [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
   
   **Exemple :**
@@ -158,6 +176,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
 > 
 
 #### <a name="start-a-runbook-by-using-an-sdk-and-assign-parameters"></a>Démarrer un Runbook à l’aide d’un Kit de développement logiciel (SDK) et affecter des paramètres
+
 * **Méthode d’Azure Resource Manager :** vous pouvez démarrer un Runbook à l’aide du Kit de développement logiciel (SDK) d’un langage de programmation. Voici un extrait de code C# permettant de démarrer un Runbook dans votre compte Automation. Vous pouvez voir le code complet dans notre [dépôt GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
   
   ```
@@ -267,10 +286,5 @@ Lorsque vous exécutez un Runbook à l’aide d’un WebHook, un paramètre d’
 * Pour plus d’informations sur les différentes façons de démarrer un Runbook, voir [Démarrage d’un Runbook](automation-starting-a-runbook.md).
 * Pour modifier un Runbook textuel, voir [Modification des Runbooks textuels](automation-edit-textual-runbook.md).
 * Pour modifier un Runbook graphique, voir [Création graphique dans Azure Automation](automation-graphical-authoring-intro.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

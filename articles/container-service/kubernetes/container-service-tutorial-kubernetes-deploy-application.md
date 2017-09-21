@@ -14,14 +14,14 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 81a6a3d5364642b2da75faf875d64d2f4a1939d4
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: b8f747b15bf491b7221a71b5beaa595aa7f1b49b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/25/2017
 Dans ce didacticiel (le quatrième d’une série de sept), un exemple d’application est déployé dans un cluster Kubernetes. Les étapes terminées sont les suivantes :
 
 > [!div class="checklist"]
-> * Télécharger les fichiers manifeste Kubernetes
+> * Mise à jour des fichiers manifeste Kubernetes
 > * Exécuter une application dans Kubernetes
 > * Test de l'application
 
@@ -40,29 +40,15 @@ Ce didacticiel suppose une compréhension élémentaire des concepts de Kubernet
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Dans les didacticiels précédents, une application a été empaquetée dans une image conteneur, l’image a été chargée dans Azure Container Registry et un cluster Kubernetes a été créé. Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Didacticiel 1 – Créer des images conteneur](./container-service-tutorial-kubernetes-prepare-app.md). 
+Dans les didacticiels précédents, une application a été empaquetée dans une image conteneur, l’image a été chargée dans Azure Container Registry et un cluster Kubernetes a été créé. 
 
-Au minimum, ce didacticiel nécessite un cluster Kubernetes.
+Pour effectuer ce didacticiel, vous avez besoin du fichier manifeste Kubernetes `azure-vote-all-in-one-redis.yml`. Ce fichier a été téléchargé avec le code source de l’application dans un didacticiel précédent. Vérifiez que vous avez cloné le référentiel et que vous avez modifié des répertoires dans le référentiel cloné.
 
-## <a name="get-manifest-file"></a>Obtenir un fichier manifeste
-
-Pour ce didacticiel, les [objets Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) sont déployés à l’aide d’un manifeste Kubernetes. Un manifeste Kubernetes est un fichier YAML ou JSON contenant des instructions de configuration et de déploiement pour l’objet Kubernetes.
-
-Le fichier manifeste d’application de ce didacticiel est disponible dans le référentiel d’application Azure Vote, qui a été cloné dans un didacticiel précédent. Si vous ne l’avez pas déjà fait, clonez le référentiel à l’aide de la commande suivante : 
-
-```bash
-git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
-```
-
-Le fichier manifeste se trouve dans le répertoire suivant du référentiel cloné.
-
-```bash
-/azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
-```
+Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Didacticiel 1 – Créer des images conteneur](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## <a name="update-manifest-file"></a>Mettre à jour le fichier manifeste
 
-Si vous utilisez Azure Container Registry pour stocker les images conteneur, le fichier manifeste doit être mis à jour avec le nom du serveur de connexion ACR.
+Dans ce didacticiel, Azure Container Registry (ACR) a été utilisé pour stocker une image conteneur. Avant d’exécuter l’application, le nom de serveur de connexion ACR doit être mis à jour dans le fichier manifeste Kubernetes.
 
 Obtenez le nom du serveur de connexion ACR à l’aide de la commande [az acr list](/cli/azure/acr#list).
 
@@ -70,7 +56,13 @@ Obtenez le nom du serveur de connexion ACR à l’aide de la commande [az acr li
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-L’exemple de fichier manifeste a été précréé avec le nom de référentiel *microsoft*. Ouvrez le fichier avec un éditeur de texte, puis remplacez la valeur *microsoft* par le nom du serveur de connexion de votre instance ACR.
+Le fichier manifeste a été précréé avec le nom de serveur de connexion `microsoft`. Ouvrez le fichier avec un éditeur de texte. Dans cet exemple, le fichier est ouvert avec `vi`.
+
+```bash
+vi azure-vote-all-in-one-redis.yml
+```
+
+Remplacez `microsoft` par le nom de serveur de connexion ACR. Cette valeur se trouve sur la ligne **47** du fichier manifeste.
 
 ```yaml
 containers:
@@ -78,12 +70,14 @@ containers:
   image: microsoft/azure-vote-front:redis-v1
 ```
 
+Enregistrez et fermez le fichier.
+
 ## <a name="deploy-application"></a>Déployer l’application
 
 Utilisez la commande [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) pour exécuter l’application. Cette commande analyse le fichier manifeste et crée les objets Kubernetes définis.
 
 ```azurecli-interactive
-kubectl create -f ./azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
+kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
 Output:
@@ -105,7 +99,7 @@ Pour surveiller la progression, utilisez la commande [kubectl get service](https
 kubectl get service azure-vote-front --watch
 ```
 
-Au début, **EXTERNAL-IP** apparaît comme étant *en attente* pour le service *azure-vote-front*. Une fois que l’adresse IP externe est passée du statut *En attente* à *Adresse IP*, utilisez `CTRL-C` pour arrêter le processus de surveillance kubectl.
+Au début, l’**adresse IP externe** pour le service `azure-vote-front` apparaît comme `pending`. Une fois que l’adresse IP externe est passée du statut `pending` à `IP address`, utilisez `CTRL-C` pour arrêter le processus de surveillance kubectl.
 
 ```bash
 NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE

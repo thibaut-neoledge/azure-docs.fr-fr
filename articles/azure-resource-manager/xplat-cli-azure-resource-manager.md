@@ -6,152 +6,216 @@ manager: timlt
 documentationcenter: 
 author: tfitzmac
 services: azure-resource-manager
-ms.assetid: bb0af466-4f65-4559-ac3a-43985fa096ff
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 09/14/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 3ad4e68b90979fd7f9d3ddf5278e65e19cb07152
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 2e3fdf06316bbf68abefe06024f63668bdf07b05
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Utiliser l’interface de ligne de commande Azure pour gérer les ressources et les groupes de ressources Azure
-> [!div class="op_single_selector"]
-> * [Portail](resource-group-portal.md) 
-> * [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [API REST](resource-manager-rest-api.md)
-> 
-> 
 
-L’interface de ligne de commande Azure (CLI Azure) est l’un des nombreux outils que vous pouvez utiliser pour déployer et gérer des ressources avec Azure Resource Manager. Cet article présente des méthodes courantes pour gérer des ressources et groupes de ressources Azure en utilisant l’interface de ligne de commande Azure en mode Azure Resource Manager. Pour plus d’informations sur l’utilisation de l’interface de ligne de commande afin de déployer des ressources, voir [Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure](resource-group-template-deploy-cli.md). Pour plus d’informations sur les ressources Azure et Resource Manager, voir [Présentation d’Azure Resource Manager](resource-group-overview.md).
+Dans cet article, vous allez apprendre à gérer vos solutions avec Azure CLI et Azure Resource Manager. Si vous n’êtes pas familiarisé avec Resource Manager, consultez la page [Vue d’ensemble de Resource Manager](resource-group-overview.md). Cette rubrique se concentre sur les tâches de gestion. Vous allez :
 
-> [!NOTE]
-> Pour gérer les ressources Azure avec l’interface de ligne de commande Azure, vous devez [installer l’interface de ligne de commande Azure](../cli-install-nodejs.md) et vous [connecter à Azure](../xplat-cli-connect.md) en utilisant la commande `azure login`. Assurez-vous que l’interface de ligne de commande est en mode Resource Manager (exécutez `azure config mode arm`). Si ces opérations ont déjà été effectuées, vous pouvez dès à présent créer et gérer ces ressources.
-> 
-> 
+1. Créer un groupe de ressources
+2. Ajouter une ressource au groupe de ressources
+3. Ajouter une balise à la ressource
+4. Interroger les ressources selon des noms ou des valeurs de balise
+5. Appliquer et supprimer un verrou sur la ressource
+6. Supprimer un groupe de ressources
 
-## <a name="get-resource-groups-and-resources"></a>Obtenir des ressources et des groupes de ressources
-### <a name="resource-groups"></a>Groupes de ressources
-Pour obtenir une liste de tous les groupes de ressources dans votre abonnement et leurs emplacements, exécutez cette commande.
+Cet article n’indique pas comment déployer un modèle Resource Manager sur votre abonnement. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](resource-group-template-deploy-cli.md).
 
-    azure group list
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+Pour installer et utiliser l’interface CLI localement, consultez [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Installer Azure CLI 2.0).
 
-### <a name="resources"></a>Ressources
- Pour répertorier toutes les ressources d’un groupe, par exemple une ressource ayant pour nom *testRG*, utilisez la commande suivante :
+## <a name="set-subscription"></a>Définir l’abonnement
 
-    azure resource list testRG
+Si vous avez plusieurs abonnements, vous pouvez en choisir un autre. Tout d’abord, nous allons voir tous les abonnements de votre compte.
 
-Pour afficher une ressource individuelle dans le groupe, par exemple une machine virtuelle nommée *MyUbuntuVM*, utilisez une commande du type de celle qui suit :
+```azurecli-interactive
+az account list
+```
 
-    azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
+Une liste des abonnements activés et désactivés est retournée.
 
-Notez le paramètre **Microsoft.Compute/virtualMachines**. Il indique le type de la ressource sur laquelle vous demandez des informations.
-
-> [!NOTE]
-> Quand vous utilisez des commandes **azure resource** autres que la commande **list**, vous devez spécifier la version de l’API de la ressource avec laquelle vous travaillez au moyen du paramètre **-o**. Si vous ne connaissez pas la version de l’API à utiliser, consultez le fichier de modèle et recherchez le champ apiVersion de la ressource. Pour plus d’informations sur les versions d’API dans Gestionnaire des ressources, consultez [Fournisseurs et types de ressources](resource-manager-supported-services.md).
-> 
-> 
-
-Lorsque vous affichez des détails sur une ressource, il est souvent utile d'utiliser le paramètre `--json`. Il rend la sortie plus lisible, car certaines valeurs sont des structures imbriquées ou des ensembles de valeurs collectées. L’exemple suivant montre les résultats renvoyés par la commande **show** dans un document JSON.
-
-    azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json
-
-> [!NOTE]
-> Si vous le voulez, vous pouvez enregistrer les données JSON dans un fichier au moyen du caractère&gt; pour diriger la sortie vers un fichier. Par exemple :
-> 
-> `azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
-> 
-> 
-
-### <a name="tags"></a>Balises
-[!INCLUDE [resource-manager-tag-resources-cli](../../includes/resource-manager-tag-resources-cli.md)]
-
-## <a name="manage-resources"></a>Gestion des ressources
-Pour ajouter une ressource telle qu’un compte de stockage à un groupe de ressources, exécutez une commande du type :
-
-    azure resource create testRG MyStorageAccount "Microsoft.Storage/storageAccounts" "westus" -o "2015-06-15" -p "{\"accountType\": \"Standard_LRS\"}"
-
-En plus de spécifier la version de l’API de la ressource avec le paramètre **-o**, utilisez le paramètre **-p** pour transmettre une chaîne au format JSON contenant toutes les propriétés requises ou supplémentaires.
-
-Pour supprimer une ressource existante, par exemple une ressource de machine virtuelle, utilisez une commande du type suivant :
-
-    azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
-
-Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, exécutez la commande **azure resource move** . L’exemple suivant montre comment déplacer un cache Redis vers un nouveau groupe de ressources. Dans le paramètre **-i** , spécifiez une liste séparée par des virgules des ID des ressources à déplacer.
-
-    azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
-
-## <a name="control-access-to-resources"></a>Contrôler l’accès aux ressources
-Vous pouvez utiliser l’interface de ligne de commande Azure pour créer et gérer des stratégies et ainsi contrôler l’accès aux ressources Azure. Pour plus d’informations sur les définitions de stratégie et l’affectation de stratégies aux ressources, voir [Utiliser la stratégie pour gérer les ressources et contrôler l’accès](resource-manager-policy.md).
-
-Par exemple, définissez la stratégie suivante pour refuser toutes les demandes dans lesquelles l’emplacement n’est pas Ouest des États-Unis ou Amérique du Nord, puis enregistrez-la dans le fichier de définition de stratégie policy.json :
-
-    {
-    "if" : {
-        "not" : {
-        "field" : "location",
-        "in" : ["westus" ,  "northcentralus"]
-        }
-    },
-    "then" : {
-        "effect" : "deny"
+```json
+[
+  {
+    "cloudName": "AzureCloud",
+    "id": "<guid>",
+    "isDefault": true,
+    "name": "Example Subscription One",
+    "registeredProviders": [],
+    "state": "Enabled",
+    "tenantId": "<guid>",
+    "user": {
+      "name": "example@contoso.org",
+      "type": "user"
     }
-    }
+  },
+  ...
+]
+```
 
-Exécutez ensuite la commande **policy definition create** :
+Notez qu’un abonnement est marqué comme abonnement par défaut. Cet abonnement correspond au contexte actuel des opérations. Pour choisir un autre abonnement, indiquez son nom avec la commande **az account set**.
 
-    azure policy definition create MyPolicy -p c:\temp\policy.json
+```azurecli-interactive
+az account set -s "Example Subscription Two"
+```
 
-Cette commande propose une sortie du type suivant :
+Pour afficher le contexte de l’abonnement actuel, utilisez **az account show** sans paramètre :
 
-    + Creating policy definition MyPolicy data:    PolicyName:             MyPolicy data:    PolicyDefinitionId:     /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy
+```azurecli-interactive
+az account show
+```
 
-    data:    PolicyType:             Custom data:    DisplayName:            undefined data:    Description:            undefined data:    PolicyRule:             field=location, in=[westus, northcentralus], effect=deny
+## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+Avant de déployer des ressources dans votre abonnement, vous devez créer un groupe de ressources qui contiendra ces ressources.
 
- Pour attribuer une stratégie correspondant à l’étendue souhaitée, utilisez la valeur **PolicyDefinitionId** renvoyée par la commande précédente. Dans l’exemple suivant, cette étendue est l’abonnement, mais il peut s’agir de ressources individuelles ou de groupes de ressources :
+Pour créer un groupe de ressources, utilisez la commande **az group create**. La commande utilise le paramètre **name** pour attribuer un nom au groupe de ressources et le paramètre **location** pour indiquer son emplacement.
 
-    azure policy assignment create MyPolicyAssignment -p /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy -s /subscriptions/########-####-####-####-############/
+```azurecli-interactive
+az group create --name TestRG1 --location "South Central US"
+```
 
-Vous pouvez obtenir, modifier ou supprimer des définitions de stratégie à l’aide des commandes **policy definition show**, **policy definition set** et **policy definition delete**.
+La sortie est au format suivant :
 
-De même, vous pouvez obtenir, modifier ou supprimer des affectations de stratégie à l’aide des commandes **policy assignment show**, **policy assignment set** et **policy assignment delete**.
+```json
+{
+  "id": "/subscriptions/<subscription-id>/resourceGroups/TestRG1",
+  "location": "southcentralus",
+  "managedBy": null,
+  "name": "TestRG1",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+```
 
-## <a name="export-a-resource-group-as-a-template"></a>Exporter un groupe de ressources en tant que modèle
-Vous pouvez afficher le modèle Resource Manager pour un groupe de ressources existant. L’exportation du modèle offre deux avantages :
+Si vous avez besoin de récupérer le groupe de ressources ultérieurement, utilisez la commande suivante :
 
-1. Vous pouvez facilement automatiser les prochains déploiements de la solution, car l’ensemble de l’infrastructure est défini dans le modèle.
-2. Vous pouvez vous familiariser avec la syntaxe de modèle en regardant dans la JSON qui représente votre solution.
+```azurecli-interactive
+az group show --name TestRG1
+```
 
-À l’aide de l’interface de ligne de commande Azure, vous pouvez exporter un modèle qui représente l’état actuel de votre groupe de ressources ou télécharger le modèle qui a été utilisé pour un déploiement spécifique.
+Pour récupérer les groupes de ressources de votre abonnement, utilisez ce qui suit :
 
-* **L’exportation du modèle pour un groupe de ressources** est utile lorsque vous avez apporté des modifications à un groupe de ressources et que vous devez récupérer la représentation JSON de son état actuel. Toutefois, le modèle généré contient uniquement un nombre minimal de paramètres et aucune variable. La plupart des valeurs dans le modèle sont codées en dur. Avant de déployer le modèle généré, vous pouvez convertir plusieurs valeurs en paramètres afin de personnaliser le déploiement pour différents environnements.
-  
-    Pour exporter le modèle pour un groupe de ressources dans un répertoire local, exécutez la commande `azure group export` comme indiqué dans l’exemple suivant. (Indiquez un répertoire local adapté à l’environnement de votre système d’exploitation.)
-  
-        azure group export testRG ~/azure/templates/
-* **Le téléchargement du modèle pour un déploiement spécifique** est utile lorsque vous avez besoin d’afficher le modèle réel qui a été utilisé pour déployer des ressources. Ce modèle comprend tous les paramètres et toutes les variables définis pour le déploiement d’origine. Toutefois, si un membre de votre organisation a apporté des modifications au groupe de ressources et que celles-ci ne sont pas définies dans le modèle, ce dernier ne représente pas l’état actuel du groupe de ressources.
-  
-    Pour télécharger le modèle utilisé pour un déploiement spécifique dans un répertoire local, exécutez la commande `azure group deployment template download`. Par exemple :
-  
-        azure group deployment template download TestRG testRGDeploy ~/azure/templates/downloads/
+```azurecli-interactive
+az group list
+```
 
-> [!NOTE]
-> L’exportation de modèle est en version préliminaire. Elle n’est pas encore prise en charge par tous les types de ressources. Lorsque vous tentez d’exporter un modèle, une erreur indiquant que certaines ressources n’ont pas été exportées peut s’afficher. Le cas échéant, définissez ces ressources manuellement dans votre modèle après l’avoir téléchargé.
-> 
-> 
+## <a name="add-resources-to-a-resource-group"></a>Ajouter des ressources à un groupe de ressources
+Pour ajouter une ressource au groupe de ressources, vous pouvez utiliser la commande **az resource create** ou une commande spécifique au type de ressource que vous créez (comme **az storage account create**). Il est peut-être plus facile d’utiliser une commande spécifique à un type de ressource, car elle inclut les paramètres relatifs aux propriétés requises pour la nouvelle ressource. Pour utiliser **az resource create**, vous devez connaître toutes les propriétés à définir, même si vous n’êtes pas invité à les entrer.
+
+Cependant, l’ajout d’une ressource à l’aide de scripts risque de créer une confusion par la suite, car la nouvelle ressource n’existe pas dans un modèle Resource Manager. Les modèles vous permettent de déployer votre solution plusieurs fois de manière fiable.
+
+La commande suivante génère un compte de stockage. Au lieu d’utiliser le nom indiqué dans l’exemple, entrez un nom unique pour le compte de stockage. Le nom doit comprendre entre 3 et 24 caractères et comporter uniquement des lettres en minuscules et des nombres. Si vous utilisez le nom indiqué dans l’exemple, vous recevez une erreur, car ce nom est déjà en cours d’utilisation.
+
+```azurecli-interactive
+az storage account create -n myuniquestorage -g TestRG1 -l westus --sku Standard_LRS
+```
+
+Si vous avez besoin de récupérer cette ressource ultérieurement, utilisez la commande suivante :
+
+```azurecli-interactive
+az storage account show --name myuniquestorage --resource-group TestRG1
+```
+
+## <a name="add-a-tag"></a>Ajouter une balise
+
+Les balises vous permettent d’organiser vos ressources en fonction de différentes propriétés. Par exemple, vous pouvez disposer de plusieurs ressources incluses dans différents groupes de ressources appartenant au même service. Vous pouvez appliquer une valeur et une balise de service à ces ressources pour les marquer comme appartenant à la même catégorie. Vous pouvez également indiquer si une ressource est utilisée dans un environnement de production ou de test. Dans le cadre de cette rubrique, vous appliquez des balises à une seule ressource, mais il conviendra probablement d’appliquer des balises à toutes vos ressources dans votre environnement.
+
+La commande suivante applique deux balises à votre compte de stockage :
+
+```azurecli-interactive
+az resource tag --tags Dept=IT Environment=Test -g TestRG1 -n myuniquestorage --resource-type "Microsoft.Storage/storageAccounts"
+```
+
+Les balises sont mises à jour en tant qu’objet unique. Pour ajouter une balise à une ressource qui inclut déjà des balises, commencez par récupérer les balises existantes. Ajoutez la nouvelle balise à l’objet qui contient les balises existantes et appliquez de nouveau toutes les balises à la ressource.
+
+```azurecli-interactive
+jsonrtag=$(az resource show -g TestRG1 -n myuniquestorage --resource-type "Microsoft.Storage/storageAccounts" --query tags)
+rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
+az resource tag --tags $rt Project=Redesign -g TestRG1 -n myuniquestorage --resource-type "Microsoft.Storage/storageAccounts"
+```
+
+## <a name="search-for-resources"></a>Rechercher des ressources
+
+Utilisez la commande **az resource list** pour récupérer les ressources selon différentes conditions de recherche.
+
+* Pour obtenir une ressource par son nom, indiquez le paramètre **name** :
+
+  ```azurecli-interactive
+  az resource list -n myuniquestorage
+  ```
+
+* Pour obtenir toutes les ressources d’un groupe de ressources, indiquez le paramètre **resource-group** :
+
+  ```azurecli-interactive
+  az resource list --resource-group TestRG1
+  ```
+
+* Pour obtenir toutes les ressources ayant une valeur et un nom de balise, indiquez le paramètre **tag** :
+
+  ```azurecli-interactive
+  az resource list --tag Dept=IT
+  ```
+
+* Pour obtenir toutes les ressources d’un type particulier, indiquez le paramètre **resource-type** :
+
+  ```azurecli-interactive
+  az resource list --resource-type "Microsoft.Storage/storageAccounts"
+  ```
+
+## <a name="lock-a-resource"></a>Verrouiller une ressource
+
+Pour vous assurer qu’une ressource critique ne sera pas accidentellement supprimée ou modifiée, appliquez un verrou à la ressource. Vous pouvez spécifier le niveau **CanNotDelete** ou **ReadOnly**.
+
+Pour créer ou supprimer des verrous de gestion, vous devez avoir accès à des actions `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*`. Parmi les rôles prédéfinis, seuls les rôles Propriétaire et Administrateur de l'accès utilisateur peuvent effectuer ces actions.
+
+Pour appliquer un verrou utilisez la commande suivante :
+
+```azurecli-interactive
+az lock create --lock-type CanNotDelete --resource-name myuniquestorage --resource-group TestRG1 --resource-type Microsoft.Storage/storageAccounts --name storagelock
+```
+
+La ressource verrouillée de l’exemple précédent ne peut pas être effacée tant que le verrou n’est pas supprimé. Pour supprimer un verrou, utilisez :
+
+```azurecli-interactive
+az lock delete --name storagelock --resource-group TestRG1 --resource-type Microsoft.Storage/storageAccounts --resource-name myuniquestorage
+```
+
+Pour plus d’informations sur la définition des verrous, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
+
+## <a name="remove-resources-or-resource-group"></a>Supprimer des ressources ou un groupe de ressources
+Vous pouvez supprimer une ressource ou un groupe de ressources. Lorsque vous supprimez un groupe de ressources, vous supprimez également toutes les ressources qu’il contient.
+
+* Pour supprimer une ressource du groupe de ressources, utilisez la commande de suppression pour le type de ressource que vous supprimez. La commande supprime la ressource, mais pas le groupe de ressources.
+
+  ```azurecli-interactive
+  az storage account delete -n myuniquestorage -g TestRG1
+  ```
+
+* Pour supprimer un groupe de ressources et toutes ses ressources, utilisez la commande **az group delete**.
+
+  ```azurecli-interactive
+  az group delete -n TestRG1
+  ```
+
+Pour les deux commandes, vous êtes invité à confirmer que vous souhaitez supprimer la ressource ou le groupe de ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour obtenir des informations détaillées sur les opérations de déploiement et résoudre les erreurs de déploiement avec l’interface de ligne de commande Azure, voir [Afficher les opérations de déploiement](resource-manager-deployment-operations.md).
-* Si vous souhaitez utiliser l’interface de ligne de commande pour configurer une application ou un script afin d’accéder aux ressources, voir [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](resource-group-authenticate-service-principal-cli.md).
+* Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
+* Pour savoir comment déployer des modèles, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy-cli.md).
+* Vous pouvez déplacer des ressources existantes vers un nouveau groupe de ressources. Pour obtenir des exemples, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](resource-group-move-resources.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
-
-

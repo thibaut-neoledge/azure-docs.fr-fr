@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 09/14/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 2ffbaca614d667db565197f3c13b1658fffc2a7c
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 4b88b5015fcf44e8979b8b1a3aa1eb26f0fbb704
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="security-center-platform-migration-faq"></a>FAQ sur la migration de plateforme Security Center
@@ -70,25 +70,59 @@ Pour plus d’informations sur la tarification, consultez la page de [tarificati
 
 Pour effectuer une récupération, supprimez Microsoft Monitoring Agent sur les machines virtuelles connectées à l’espace de travail supprimé. Security Center réinstalle l’agent et crée des nouveaux espaces de travail par défaut.
 
+### <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>Comment puis-je utiliser mon espace de travail Log Analytics existant ?
+
+Vous pouvez sélectionner un espace de travail Log Analytics existant pour stocker les données collectées par Security Center. Pour utiliser votre espace de travail Log Analytics existant :
+
+- L’espace de travail doit être associé à votre abonnement Azure sélectionné.
+- Au minimum, vous devez avoir des autorisations de lecture pour accéder à l’espace de travail.
+
+Pour sélectionner un espace de travail Log Analytics existant :
+
+1. Dans **Stratégie de sécurité : collecte de données**, sélectionnez **Use another workspace** (Utiliser un autre espace de travail).
+
+   ![Utiliser un autre espace de travail][5]
+
+2. Dans le menu déroulant, sélectionnez un espace de travail pour stocker les données collectées.
+
+   > [!NOTE]
+   > Dans le menu déroulant, seuls les espaces de travail auxquels vous avez accès et se trouvant dans votre abonnement Azure sont affichés.
+   >
+   >
+
+3. Sélectionnez **Enregistrer**.
+4. Après avoir sélectionné **Enregistrer**, vous serez invité à reconfigurer les machines virtuelles surveillées.
+
+   - Sélectionnez **Non** si vous souhaitez que les nouveaux paramètres de l’espace de travail **s’appliquent uniquement aux nouvelles machines virtuelles**. Les nouveaux paramètres de l’espace de travail s’appliquent uniquement aux nouvelles installations d’agent ; machines virtuelles nouvellement détectées qui n’ont pas Microsoft Monitoring Agent installé.
+   - Sélectionnez **Oui** si vous souhaitez que les nouveaux paramètres de l’espace de travail **s’appliquent à toutes les machines virtuelles**. En outre, chaque machine virtuelle connectée à un espace de travail créé par Security Center est reconnectée au nouvel espace de travail cible.
+
+   > [!NOTE]
+   > Si vous sélectionnez Oui, vous ne devez pas supprimer les espaces de travail créés par Security Center tant que toutes les machines virtuelles n’ont pas été reconnectées au nouvel espace de travail cible. Cette opération échoue si un espace de travail est supprimé trop tôt.
+   >
+   >
+
+   - Sélectionnez **Annuler** pour annuler l’opération.
+
+      ![Reconfigurer les machines virtuelles surveillées][6]
+
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Que se passe-t-il si l’agent Microsoft Monitoring Agent est déjà installé en tant qu’extension sur la machine virtuelle ?
 Security Center n’écrase pas les connexions existantes des espaces de travail utilisateur. Security Center stocke les données de sécurité de la machine virtuelle dans l’espace de travail déjà connecté.
 
 ### <a name="what-if-i-had-a-microsoft-monitoring-agent-installed-on-the-machine-but-not-as-an-extension"></a>Que se passe-t-il si Microsoft Monitoring Agent est installé sur la machine, mais pas en tant qu’extension ?
-Si l’agent Microsoft Monitoring Agent est installé directement sur la machine virtuelle (pas en tant qu’extension Azure), Security Center n’installe pas l’agent Microsoft Monitoring Agent et la surveillance de la sécurité est limitée.
+Si Microsoft Monitoring Agent est installé directement sur la machine virtuelle (pas en tant qu’extension Azure), Security Center n’installe pas Microsoft Monitoring Agent et la surveillance de la sécurité est limitée.
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>Quel est l’impact de la suppression de ces extensions ?
 Si vous supprimez l’extension Microsoft Monitoring, Security Center n’est pas en mesure de collecter des données de sécurité sur la machine virtuelle et certaines recommandations de sécurité et les alertes ne sont pas disponibles. Sous 24 heures, Security Center détermine que l’extension est absente de la machine virtuelle et la réinstalle.
 
 ### <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Comment empêcher l’installation automatique de l’agent et la création de l’espace de travail ?
-Vous pouvez désactiver la collecte de données pour vos abonnements dans la stratégie de sécurité, mais ce n’est pas recommandé. La désactivation de la collecte de données a pour effet de limiter les recommandations Security Center et les alertes. La collecte de données est requise pour les abonnements au niveau tarifaire Standard. Pour désactiver la collecte de données :
+Vous pouvez désactiver l’approvisionnement automatique pour vos abonnements dans la stratégie de sécurité, mais ce n’est pas recommandé. La désactivation de l’approvisionnement automatique a pour effet de limiter les alertes et recommandations de Security Center. L’approvisionnement automatique est requis pour les abonnements appartenant au niveau tarifaire Standard. Pour désactiver l’approvisionnement automatique :
 
 1. Si votre abonnement est configuré pour le niveau Standard, ouvrez la stratégie de sécurité de cet abonnement, puis sélectionnez le niveau **Gratuit**.
 
    ![Niveau tarifaire ][1]
 
-2. Ensuite, désactivez la collecte de données en sélectionnant **Non** sur le panneau **Stratégie de sécurité : collecte de données**.
-
-   ![Collecte des données][2]
+2. Ensuite, désactivez l’approvisionnement automatique en sélectionnant **Non** sur le panneau **Stratégie de sécurité : collecte de données**.
+   ![Collecte de données][2]
 
 ### <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>Comment supprimer des extensions OMS installées par Security Center ?
 Vous pouvez supprimer manuellement l’agent Microsoft Monitoring Agent. Ce n’est pas recommandé car cela limite les recommandations de Security Center et les alertes.
@@ -118,7 +152,7 @@ Si l’agent Microsoft Monitoring Agent est déjà installé sur une machine vir
 
 Une solution Security Center est installée sur l’espace de travail si elle ne l’était pas déjà. Celle-ci est appliquée uniquement aux machines virtuelles appropriées. Lorsque vous ajoutez une solution, elle est déployée automatiquement par défaut sur tous les agents Windows et Linux connectés à votre espace de travail Log Analytics. Le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) est une fonctionnalité OMS qui permet d’appliquer une étendue à vos solutions.
 
-Si l’agent Microsoft Monitoring Agent est installé directement sur la machine virtuelle (pas en tant qu’extension Azure), Security Center n’installera pas l’agent Microsoft Monitoring Agent et la surveillance de la sécurité est limitée.
+Si Microsoft Monitoring Agent est installé directement sur la machine virtuelle (pas en tant qu’extension Azure), Security Center n’installe pas Microsoft Monitoring Agent et la surveillance de la sécurité est limitée.
 
 ### <a name="what-should-i-do-if-i-suspect-that-the-data-platform-migration-broke-the-connection-between-one-of-my-vms-and-my-workspace"></a>Que dois-je faire si je soupçonne la migration de la plateforme de données d’interférer avec la connexion entre une de mes machines virtuelles et mon espace de travail ?
 Cela ne devrait pas se produire. Mais le cas échéant, vous devez [Créer une demande de support Azure](../azure-supportability/how-to-create-azure-support-request.md) et fournir les informations suivantes :
@@ -159,4 +193,6 @@ Pour plus d’informations sur la migration de plateforme Security Center, consu
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
+[5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
+[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png
 

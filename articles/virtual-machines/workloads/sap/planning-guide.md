@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 718bb3f890a246fb1688481efdaa9109b49ccad3
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: eabe7f667aab866b8513661110fa416a61988824
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
@@ -980,7 +980,7 @@ Dans ce scénario, nous souhaitons charger un disque dur virtuel, avec ou sans s
 * Connectez-vous à votre abonnement avec *az login*
 * Sélectionnez votre abonnement en entrant *az account set --subscription `<subscription name or id`>*
 * Chargez le VHD en entrant *az storage blob upload*. Consultez [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure][storage-azure-cli]
-* (Facultatif) Créez un disque managé à partir du VHD avec *az disk create*. Consultez https://docs.microsoft.com/cli/azure/disk#create
+* (Facultatif) Créez un disque managé à partir du VHD avec *az disk create*. Consultez https://docs.microsoft.com/cli/azure/disk#az_disk_create
 * Créez une machine virtuelle et spécifiez le disque managé ou le VHD chargé en tant que disque du système d’exploitation en entrant *az vm create* et le paramètre *--attach-os-disk*
 * Ajoutez un disque de données à une nouvelle machine virtuelle en entrant *az vm disk attach* et le paramètre *--new*
 
@@ -1009,7 +1009,7 @@ Pour charger une machine virtuelle ou un VHD existants à partir du réseau loca
 * Connectez-vous à votre abonnement avec *az login*
 * Sélectionnez votre abonnement en entrant *az account set --subscription `<subscription name or id`>*
 * Chargez le VHD en entrant *az storage blob upload*. Consultez [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure][storage-azure-cli]
-* (Facultatif) Créez une image de disque managé à partir du VHD avec *az image create*. Consultez https://docs.microsoft.com/cli/azure/image#create
+* (Facultatif) Créez une image de disque managé à partir du VHD avec *az image create*. Consultez https://docs.microsoft.com/cli/azure/image#az_image_create
 * Créez une machine virtuelle et spécifiez l’image de disque managé ou le VHD chargé en tant que disque du système d’exploitation en entrant *az vm create* et le paramètre *--image*
 
 **Modèle**

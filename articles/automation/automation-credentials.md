@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6a62f7f70982a07646248188da8293c88fbe1b52
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 540362e27e0552780d61038cf8285d934795129c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ressources d’informations d’identification dans Azure Automation
@@ -47,8 +46,16 @@ Les activités dans le tableau suivant sont utilisées pour accéder aux informa
 
 > [!NOTE]
 > Évitez d’utiliser des variables dans le paramètre –Name de Get-AutomationPSCredential, car cela complique la découverte des dépendances entre les Runbooks ou configurations DSC et les ressources d’informations d’identification au moment de la conception.
-> 
-> 
+
+## <a name="python2-functions"></a>Fonctions Python2
+La fonction dans le tableau suivant est utilisée pour accéder aux informations d’identification dans un runbook Python2.
+
+| Fonction | Description |
+|:---|:---|
+| automationassets.get_automation_credential | Récupère des informations sur une ressource d’informations d’identification. |
+
+> [!NOTE]
+> Vous devez importer le module « automationassets » en haut de votre runbook Python afin d’accéder aux fonctions des ressources.
 
 ## <a name="creating-a-new-credential-asset"></a>Création d’une ressource d’informations d’identification
 
@@ -97,10 +104,22 @@ L’image suivante montre un exemple d’utilisation d’informations d’identi
 ## <a name="using-a-powershell-credential-in-dsc"></a>Utilisation des informations d’identification PowerShell dans une configuration DSC
 Bien que les configurations DSC dans Azure Automation puissent se rapporter à des ressources d’informations d’identification utilisant **Get-AutomationPSCredential**, les ressources d’information d’identification peuvent également transmises via des paramètres, si vous le souhaitez. Pour plus d’informations, consultez [Compilation de configurations dans Azure Automation DSC](automation-dsc-compile.md#credential-assets).
 
+## <a name="using-credentials-in-python2"></a>Utilisation des informations d’identification dans Python2
+L’exemple suivant montre un exemple d’accès aux informations d’identification dans les runbooks Python2.
+
+    import automationassets
+    from automationassets import AutomationAssetNotFound
+
+    # get a credential
+    cred = automationassets.get_automation_credential("credtest")
+    print cred["username"]
+    print cred["password"]
+
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur les liens lors de la création graphique, consultez [Liens lors de la création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
 * Pour comprendre les différentes méthodes d’authentification avec Automation, consultez [Sécurité dans Azure Automation](automation-security-overview.md)
 * Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 * Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md) 
+* Pour commencer avec les runbooks Python2, consultez [My first Python2 runbook](automation-first-runbook-textual-python2.md) (Mon premier Runbook Python2). 
 
 

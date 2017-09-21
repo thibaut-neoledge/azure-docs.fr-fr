@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 80142d9f27abed181bca6f5f536b950198e66e20
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 12876bff2de5738068f033ecc4ef14b81a68f0f6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,7 +44,7 @@ La meilleure expérience est obtenue en installant Application Insights à la fo
 ## <a name="include-user-and-session-id-in-your-telemetry"></a>Inclure l’ID d’utilisateur et l’ID de session dans votre télémétrie
 Pour effectuer le suivi des utilisateurs au fil du temps, Application Insights nécessite un moyen de les identifier. L’outil Événements est le seul outil d’utilisation qui ne nécessite pas d’ID d’utilisateur ni d’ID de session.
 
-Commencez à envoyer ces ID [ici](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
+Démarrer l’envoi des ID d’utilisateur et de session à l’aide de [ce processus](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Explorer des données démographiques et des statistiques de l’utilisation
 Découvrez quand des personnes utilisent votre application, les pages qui les intéressent le plus, où vos utilisateurs se trouvent, les navigateurs et les systèmes d’exploitation qu’ils utilisent. 
@@ -74,7 +74,7 @@ L'exemple ci-dessus vient d’un site web de jeux. Dans les graphiques, nous pou
 * La plupart des utilisateurs visitent le site au cours de la semaine de travail aux États-Unis, et pendant les heures de travail. Il serait peut-être envisageable de fournir un bouton de masquage rapide sur la page web.
 * Les [annotations](app-insights-annotations.md) sur le graphique montrent à quel moment les nouvelles versions du site web ont été déployées. Aucun des déploiements récents n’a eu d’effet notable sur l’utilisation.
 
-Qu’en est-il si vous souhaitez examiner plus en détails le trafic vers votre site, comme le fractionnement par une propriété personnalisée que votre site envoie dans sa télémétrie d’affichage de page ?
+Qu’en est-il si vous souhaitez examiner plus en détail le trafic vers votre site, comme le fractionnement par une propriété personnalisée que votre site envoie dans sa télémétrie d’affichage de page ?
 
 1. Ouvrez l’outil **Événements** dans le menu de la ressource Application Insights. Cet outil vous permet d’analyser combien de pages consultées et d’événements personnalisés ont été envoyés à partir de votre application, sur la base des différentes options de filtrage, cohorte et segmentation.
 2. Dans la liste déroulante « Qui a utilisé », sélectionnez « N’importe quelle page consultée ».
@@ -90,7 +90,7 @@ La rétention vous permet de comprendre la fréquence à laquelle vos utilisateu
 
 ![Rétention](./media/app-insights-usage-overview/retention.png) 
 
-Les commandes de rétention en haut vous permettent de définir des événements spécifiques et un intervalle de temps pour calculer la rétention. Le graphique au centre fournit une représentation visuelle du pourcentage de rétention globale sur l’intervalle de temps spécifié. Le graphique en bas représente la rétention sur une période de temps donnée. Ce niveau de détail vous permet de comprendre de manière plus approfondie ce que font vos utilisateurs et ce qui les peut amener à revenir.  
+Les commandes de rétention en haut vous permettent de définir des événements spécifiques et un intervalle de temps pour calculer la rétention. Le graphique au centre fournit une représentation visuelle du pourcentage de rétention globale sur l’intervalle de temps spécifié. Le graphique en bas représente la rétention sur une période de temps donnée. Ce niveau de détail vous permet de comprendre de manière plus approfondie ce que font vos utilisateurs et ce qui peut les amener à revenir.  
 
 [En savoir plus sur l’outil de rétention](app-insights-usage-retention.md)
 

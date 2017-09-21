@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: cc96ba9f5abd45a7503ba3327b30e1f809391384
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 7ac85bffb9593923808c77f2240e6f0e841e74cd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -40,7 +40,7 @@ Dans les didacticiels suivants vous déploierez le conteneur de votre Registre p
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.12 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="deploy-azure-container-registry"></a>Déployer Azure Container Registry
 
@@ -62,7 +62,7 @@ Dans le reste de ce didacticiel, nous utilisons `<acrname>`. Ce nom correspond a
 
 ## <a name="container-registry-login"></a>Connexion au registre de conteneurs
 
-Vous devez vous connecter à votre instance ACR avant de lui envoyer des images. Utilisez la commande [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) pour terminer l’opération. Vous devez fournir le nom unique qui a été donné au Registre de conteneurs au moment de sa création.
+Vous devez vous connecter à votre instance ACR avant de lui envoyer des images. Utilisez la commande [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) pour terminer l’opération. Vous devez fournir le nom unique qui a été donné au Registre de conteneurs au moment de sa création.
 
 ```azurecli
 az acr login --name <acrName>

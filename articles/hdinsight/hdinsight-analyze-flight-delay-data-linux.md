@@ -17,10 +17,10 @@ ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: d0bd690edcf7dba85cbc316e254d4617bf0ebcb4
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f333354311b16c00a0d43a691f139f5f80383d1a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analyse des données sur les retards de vol avec Hive dans HDInsight basé sur Linux
@@ -30,7 +30,7 @@ Découvrez comment analyser les données sur les retards de vol avec Hive sur HD
 > [!IMPORTANT]
 > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur Azure HDInsight version 3.4 ou ultérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 * **Un cluster HDInsight**. Consultez la rubrique [Bien démarrer avec Hadoop dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) pour savoir comment créer un cluster HDInsight basé sur Linux.
 
@@ -267,7 +267,7 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
 
     Cette commande retourne une liste de bases de données, dont la base de données dans laquelle vous avez créé précédemment la table des retards.
 
-2. Utilisez la commande suivante pour exporter des données à partir de hivesampletable dans la table mobiledata :
+2. Utilisez la commande suivante pour exporter des données depuis hivesampletable dans la table des retards :
 
     ```
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
@@ -275,13 +275,13 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
 
     Sqoop se connecte à la base de données qui contient la table des retards et exporte les données du répertoire `/tutorials/flightdelays/output` vers la table des retards.
 
-3. Après l’exécution de la commande, utilisez les éléments suivants pour vous connecter à la base de données par l’intermédiaire de l’utilitaire tsql :
+3. Après l’exécution de la commande sqoop, connectez-vous à la base de données à l’aide de l’utilitaire tsql :
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    Utilisez les instructions suivantes pour vérifier que les données ont été exportées vers la table mobiledata :
+    Utilisez les instructions suivantes pour vérifier que les données ont été exportées dans la table des retards :
 
     ```
     SELECT * FROM delays
@@ -290,7 +290,7 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
 
     Vous devez voir une liste des données dans la table. Tapez `exit` pour quitter l’utilitaire tsql.
 
-## <a id="nextsteps"></a> Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour découvrir d’autres façons d’utiliser les données dans HDInsight, consultez les articles suivants :
 

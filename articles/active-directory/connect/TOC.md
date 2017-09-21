@@ -27,6 +27,7 @@
 ### [Si vous disposez déjà d’Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Gestion d’Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Renouveler les certificats pour O365 et Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Mettre à jour le certificat SSL pour une batterie de serveurs Active Directory Federation Services (AD FS)](active-directory-aadconnectfed-ssl-update.md)
 ### [Activer l’écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md)
 ### [Options d’authentification unique de l’utilisateur](active-directory-aadconnect-user-signin.md)
 #### [Authentification unique transparente](active-directory-aadconnect-sso.md)

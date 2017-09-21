@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 1e6748f40c7b825615b3f58243afd9d50348214d
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 430063bbc9fab8195e12cd1d3e3966a29bafd404
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C : utilisation de l’API Graph
@@ -59,6 +59,11 @@ Vous devez maintenant configurer votre application pour obtenir toutes les autor
 5. Enfin, dans le menu Autorisations requises, cliquez sur le bouton **Accorder des autorisations**.
 
 Vous disposez maintenant d’une application autorisée à créer, lire et mettre à jour des utilisateurs de votre client B2C.
+
+> [!NOTE]
+> Le processus complet d’octroi d’autorisations peut prendre quelques minutes.
+> 
+> 
 
 ## <a name="configure-delete-permissions-for-your-application"></a>Configurer les autorisations de suppression pour votre application
 Actuellement, l’autorisation *Accéder en lecture et en écriture aux données de l’annuaire* n’inclut **PAS** la possibilité d’effectuer des suppressions telles que la suppression des utilisateurs. Si vous souhaitez donner à votre application la possibilité de supprimer des utilisateurs, vous devez effectuer ces étapes supplémentaires impliquant PowerShell. Dans le cas contraire, vous pouvez passer à la section suivante.

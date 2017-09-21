@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: ccef224ef1c2919a3e5469c1bbe0980c6963705b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 9bc82e628df5e380db84e22e1f5fd25f75929fdc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -28,7 +28,7 @@ Azure Event Grid dispose de trois types d’authentification :
 
 Webhook constitue l’un des nombreux moyens de réception d’événements en temps réel depuis Azure Event Grid.
 
-Chaque fois qu’un nouvel événement est prêt à être remis, Event Grid envoie une requête HTTP à votre WebHook en mentionnant l’événement dans le corps.
+Chaque fois qu’un nouvel événement est prêt à être remis, Event Grid envoie une requête HTTP à votre Webhook avec l’événement dans le corps.
 
 Lorsque vous inscrivez votre point de terminaison WebHook avec Event Grid, le WebHook vous envoie une requête POST avec un code de validation simple pour prouver que vous êtes le propriétaire du point de terminaison. Votre application doit répondre en renvoyant le code de validation. Event Grid ne remet aucun événement aux points de terminaison WebHook qui n’ont pas été validés.
  

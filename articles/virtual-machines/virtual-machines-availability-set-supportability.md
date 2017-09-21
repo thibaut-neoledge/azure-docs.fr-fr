@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 7/15/2017
 ms.author: delhan
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: f07108f5d7a792dcc9aae8a4fe889878db168bc6
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 786c5fa4a72abac4dfcbce2c0b987ff622e96ed3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Possibilité de prise en charge de l’ajout de machines virtuelles Azure à un groupe à haute disponibilité
@@ -37,3 +37,6 @@ Série et groupe à haute disponibilité|Deuxième machine virtuelle|A|Av2|D|Dv2
 |Dv3||OK|OK|OK|OK|OK|
 
 Les autres séries ne pourraient pas être dans le même groupe à haute disponibilité, car elles nécessitent un matériel spécifique.
+
+Vous ne pouvez pas combiner des machines virtuelles de taille A8/A9 en raison des exigences du réseau principal RDMA dédié.
+

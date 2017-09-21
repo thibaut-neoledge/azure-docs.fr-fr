@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c9df4e1f7677b2ed10684f6f3c981f2abf64f171
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 523ee51c79fe09d71fa3cd3e202cf155b511956f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="installing-python-and-the-sdk"></a>Installation de Python et du kit SDK
@@ -98,7 +98,7 @@ ou directement
 
 Nous vous recommandons d’utiliser PTVS même s’il est facultatif, car il vous apporte pour les projets/solutions Python et web les fonctionnalités suivantes : support technique, débogage, profilage, fenêtre interactive, modification des modèles et Intellisense.
 
-PTVS simplifie également le déploiement sur Microsoft Azure, avec une prise en charge du déploiement sur [Cloud Services](cloud-services/cloud-services-python-ptvs.md) et [Sites Web](app-service-web/web-sites-python-ptvs-django-mysql.md).
+PTVS simplifie également le déploiement sur Microsoft Azure, avec une prise en charge du déploiement sur [Cloud Services](cloud-services/cloud-services-python-ptvs.md) et [Sites Web](app-service-web/app-service-web-overview.md).
 
 PTVS fonctionne avec votre installation existante de Visual Studio 2013, 2015 ou 2017.  Pour accéder à la documentation, aux téléchargements et aux discussions, consultez le site [Python Tools pour Visual Studio].  
 
@@ -117,7 +117,7 @@ Pour plus d’informations sur la configuration d’une machine virtuelle Linux,
 
 À l'aide du déploiement Git, vous pouvez développer une application web Python et la publier sur un site web Azure à partir de n'importe quel système d'exploitation.  Quand vous placez votre référentiel sur Azure, il crée automatiquement un environnement virtuel et utilise pip pour installer vos packages requis.
 
-Pour plus d’informations sur le développement et la publication de sites web Azure, consultez les didacticiels [Création de sites web avec Django](app-service-web/web-sites-python-create-deploy-django-app.md), [Création de sites web avec Bottle](app-service-web/web-sites-python-create-deploy-bottle-app.md) et [Création de sites web avec Flask](app-service-web/web-sites-python-create-deploy-flask-app.md). Pour des informations plus générales sur l’utilisation de n’importe quelle infrastructure compatible WSGI, consultez [Configuration de Python avec des Sites Web Azure](app-service-web/web-sites-python-configure.md).
+Pour plus d’informations sur l’utilisation de n’importe quelle infrastructure compatible WSGI, consultez [Configuration de Python avec des sites Web Azure](app-service-web/web-sites-python-configure.md).
 
 ## <a name="additional-software-and-resources"></a>Logiciels et ressources supplémentaires :
 * [Kit de développement logiciel (SDK) Azure pour Python Read The Docs](http://azure-sdk-for-python.readthedocs.io/en/latest/)
@@ -145,22 +145,10 @@ Pour plus d’informations sur le développement et la publication de sites web 
 [Django Project - A mature web framework/CMS]: http://www.djangoproject.com
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 [IPython]: http://ipython.org
-[IPython Notebook on Azure]: virtual-machines-linux-jupyter-notebook.md
-[Cloud Services]: cloud-services-python-ptvs.md
-[Websites]: web-sites-python-ptvs-django-mysql.md
 [Python Tools pour Visual Studio]: http://aka.ms/ptvs
 [Python Tools for Visual Studio on GitHub]: https://github.com/microsoft/ptvs
 [Python Package Index]: http://pypi.python.org/pypi
 [Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
 [Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
-[Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
-[How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
-[Create a Virtual Machine Running Linux]: virtual-machines-linux-quick-create-cli.md
-[Creating Websites with Django]: web-sites-python-create-deploy-django-app.md
-[Creating Websites with Bottle]: web-sites-python-create-deploy-bottle-app.md
-[Creating Websites with Flask]: web-sites-python-create-deploy-flask-app.md
-[Configuring Python with Azure Websites]: web-sites-python-configure.md
-[table storage]: storage-python-how-to-use-table-storage.md
-[queue storage]: storage-python-how-to-use-queue-storage.md
 [blob storage]:storage/blobs/storage-python-how-to-use-blob-storage.md
 

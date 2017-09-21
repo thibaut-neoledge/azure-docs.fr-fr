@@ -1,6 +1,6 @@
 ---
 title: "Traitement de l’ordre et du retard des événements avec Azure Stream Analytics | Microsoft Docs"
-description: "Découvrez le fonctionnement de Stream Analytics avec des événements en retard ou en désordre dans les flux de données."
+description: "Découvrez le fonctionnement d’Azure Stream Analytics avec des événements en retard ou en désordre dans les flux de données."
 keywords: "Événements en désordre, en retard"
 documentationcenter: 
 services: stream-analytics
@@ -16,59 +16,75 @@ ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 5089dda48ea829902663ef9d09fe83177df6f220
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: cf9a43fbb82a32c92d66f25809916d3ccde1a20d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-stream-analytics-event-order-handling"></a>Traitement de l’ordre des événements Azure Stream Analytics
 
-Dans un flux de données temporelles d’événements, chaque événement est enregistré avec l’heure de réception associée. En raison de certaines conditions, il se peut parfois que des flux d’événements reçoivent certains événements dans un ordre différent que celui dans lequel ils ont été envoyés. Une simple retransmission TCP, ou même une différence d’heure entre l’appareil d’envoi et le Event Hub de réception, peut entraîner ce problème. Les événements de type « Ponctuation » sont également ajoutés dans des flux d’événement reçus, pour avancer l’heure en l’absence d’arrivée de l’événement. Ils sont nécessaires dans des scénarios tels que « M’informer lorsque aucune connexion ne se produit pendant 3 minutes ».
+Dans un flux de données temporelles d’événements, chaque événement est horodaté. Azure Stream Analytics affecte des horodatages à chaque événement à l’aide de l’heure d’arrivée ou de l’heure de l’application. 
 
-Les flux d’entrée qui ne sont pas dans l’ordre sont :
-* Triés (et par conséquent **retardés**).
-* Ajustés par le système, en fonction d’une stratégie spécifiée par l’utilisateur.
+La colonne **System.Timestamp** indique l’horodatage affecté à l’événement. L’heure d’arrivée est affectée à la source d’entrée lorsque l’événement atteint la source. L’heure d’arrivée est **EventEnqueuedTime** pour l’entrée du concentrateur d’événements et l’[heure de dernière modification de l’objet BLOB](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) pour l’entrée de l’objet BLOB. L’heure de l’application est affectée lorsque l’événement est généré et qu’il fait partie de la charge utile. 
 
+Pour traiter les événements par heure de l’application, utilisez la clause TIMESTAMP BY dans la requête select. En l’absence de la clause TIMESTAMP BY, les événements sont traités par heure d’arrivée. Vous pouvez accéder à l’heure d’arrivée à l’aide de la propriété **EventEnqueuedTime** pour le concentrateur d’événements et à l’aide de la propriété **BlobLastModified** de l’entrée d’objet blob. 
 
-## <a name="lateness-tolerance"></a>Tolérance de retard
-Stream Analytics tolère les types de scénarios suivants. Le service Stream Analytics dispose d’une gestion des événements « en désordre » et « en retard ». Il traite ces événements de la façon suivante :
-
-* Les événements qui arrivent dans le désordre, mais dans la tolérance définie, sont **réorganisés par horodatage**.
-* Les événements qui arrivent plus tard que la tolérance sont **supprimés ou ajustés**.
-    * **Ajustés** : les événements sont ajustés de façon à ce qu’ils semblent arrivés à l’heure la plus récente acceptable.
-    * **Supprimés** : ignorés.
+Azure Stream Analytics génère un résultat par ordre d’horodatage et fournit quelques paramètres pour traiter les données en désordre.
 
 ![Traitement des événements Stream Analytics](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
 
-## <a name="reduce-the-number-of-out-of-order-events"></a>Réduire le nombre d’événements non ordonnés
+Les flux d’entrée qui ne sont pas dans l’ordre sont :
+* Triés (et par conséquent *retardés*).
+* Ajustés par le système, en fonction de la stratégie spécifiée par l’utilisateur.
 
-Comme Stream Analytics applique une transformation temporelle lorsqu’il traite les événements entrants (par exemple, pour les agrégats fenêtrés ou les jointures temporelles), Stream Analytics trie les événements entrants par ordre d’horodatage.
+Stream Analytics tolère les événements tardifs et en désordre lors du traitement par heure de l’application.
 
-Lorsque le mot clé « timestamp » n’est **pas** utilisé, l’heure de mise en file d’attente d’événement Azure Event Hubs est utilisée par défaut. Event Hubs garantit l’unitonicité de l’horodatage sur chaque partition du Event Hub. Il garantit également que les événements de toutes les partitions sont fusionnés dans l’ordre d’horodatage. Ces garanties Event Hubs permettent d’éviter les événement en désordre.
+**Tolérance d’arrivée tardive**
 
-Parfois, il est important d’utiliser l’horodatage de l’expéditeur. Dans ce cas, l’horodatage de la charge utile de l’événement est choisi à l’aide de « timestamp by ». Dans ces scénarios, une ou plusieurs sources du désordre des événements peuvent être introduites :
+* Le paramètre de tolérance d’arrivée tardive est applicable uniquement lors d’un traitement par heure de l’application. Sinon, il est ignoré.
+* La tolérance d’arrivée tardive est la différence maximale entre l’heure d’arrivée et l’heure de l’application. Si l’heure de l’application est antérieure à *(Heure d’arrivée - Plage d’arrivée tardive)*, elle est définie sur *(Heure d’arrivée - Plage d’arrivée tardive)*.
+* Lorsque plusieurs partitions du même flux d’entrée ou de plusieurs flux d’entrée sont combinées, la tolérance d’arrivée tardive correspond au délai d’attente maximal des nouvelles données pour chaque partition. 
 
-* Les producteurs d’événements ont des décalages d’horloge. Cela est courant lorsque les producteurs proviennent de différents ordinateurs et qu’ils ont donc des horloges différentes.
-* Il existe un délai réseau à partir de la source des événements pour le Event Hub de destination.
-* Les décalages d’horloge existent entre les partitions du Event Hub. Stream Analytics trie tout d’abord les événements de toutes les partitions du Event Hub par heure de mise en file d’attente des événements. Ensuite, il examine dans le flux de données les événements qui sont dans un ordre incorrect.
+En bref, la plage d’arrivée tardive correspond au délai maximal entre la génération des événements et la réception de l’événement au niveau de la source d’entrée.
+Un ajustement en fonction de la tolérance d’arrivée tardive est effectué en premier, puis un ajustement en fonction des événements en désordre. La colonne **System.Timestamp** indique l’horodatage final affecté à l’événement.
 
-Sous l’onglet Configuration, les valeurs par défaut suivantes s’affichent :
+**Tolérance pour les événements en désordre**
 
-![Traitement des événements désordonnés dans Stream Analytics](media/stream-analytics-event-handling/stream-analytics-out-of-order-handling.png)
+* Les événements qui arrivent dans le désordre, mais dans la « plage de tolérance des événements en désordre » sont *réorganisés par horodatage*. 
+* Les événements arrivant en dehors de la plage de tolérance sont *supprimés* ou *ajustés*.
+    * **Ajustés** : les événements sont ajustés de façon à ce qu’ils semblent arrivés à l’heure la plus récente acceptable. 
+    * **Supprimés** : ignorés.
 
-Si vous utilisez 0 seconde comme tolérance de désordre, cela veut dire que tous les événements sont dans l’ordre tout le temps. Il est peu probable que cela soit le cas si vous tenez compte des trois sources pouvant entraîner des événements dans le désordre. 
+Pour réorganiser les événements reçus dans la « plage de tolérance des événements en désordre », la sortie de la requête est *retardée par la plage de tolérance des événements en désordre*.
 
-Pour autoriser Stream Analytics à corriger des événements en désordre, vous pouvez spécifier une fenêtre de tolérance non nulle. Stream Analytics met les événements en mémoire tampon dans cette fenêtre, puis les réorganise à l’aide de l’horodatage que vous avez choisi. Il applique ensuite la transformation temporelle. Vous pouvez démarrer avec une fenêtre de 3 secondes et régler la valeur pour réduire le nombre d’événements dont l’heure est ajustée. 
+**Exemple**
 
-Un effet secondaire de la mise en mémoire tampon est que la sortie est **retardée du même intervalle de temps**. Vous pouvez régler la valeur afin de réduire le nombre d’événements non ordonnés et limiter la latence du travail.
+Tolérance d’arrivée tardive = 10 minutes<br/>
+Tolérance pour les événements en désordre = 3 minutes<br/>
+Traitement selon l’heure de l’application<br/>
 
-## <a name="get-help"></a>Obtenir de l'aide
+Événements :
+
+Événement 1 _Heure de l’application_ = 00:00:00, _Heure d’arrivée_ = 00:10:01, _System.Timestamp_ = 00:00:01, ajusté car (_Heure d’arrivée_ - _Heure de l’application_) est supérieur à la tolérance d’arrivée tardive.
+
+Événement 2 _Heure de l’application_ = 00:00:01, _Heure d’arrivée_ = 00:10:01, _System.Timestamp_ = 00:00:01, non ajusté car l’heure de l’application est comprise dans la plage d’arrivée tardive.
+
+Événement 3 _Heure de l’application_ = 00:10:00, _Heure d’arrivée_ = 00:10:02, _System.Timestamp_ = 00:10:00, non ajusté car l’heure de l’application est comprise dans la plage d’arrivée tardive.
+
+Événement 4 _Heure de l’application_ = 00:09:00, _Heure d’arrivée_ = 00:10:03, _System.Timestamp_ = 00:09:00, accepté avec l’horodatage d’origine car l’heure de l’application est comprise dans la tolérance des événements en désordre.
+
+Événement 5 _Heure de l’application_ = 00:06:00, _Heure d’arrivée_ = 00:10:04, _System.Timestamp_ = 00:07:00, ajusté car l’heure de l’application est ultérieure à la tolérance des événements en désordre.
+
+
+
+## <a name="get-help"></a>Obtenir de l’aide
 Pour une assistance supplémentaire, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Présentation de Stream Analytics](stream-analytics-introduction.md)
-* [Prise en main de Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Mise à l’échelle des travaux Stream Analytics](stream-analytics-scale-jobs.md)
-* [Informations de référence sur le langage de requête Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Références sur l’API REST de gestion de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
+* [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Références sur le langage des requêtes Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+

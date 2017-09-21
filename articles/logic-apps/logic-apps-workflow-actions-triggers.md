@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: bfde83e1142bf57e02ee458d477a0a70e78c4ad6
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: cc41bdb12cf11e60489e104af2df4dd0720dd91b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -160,11 +160,11 @@ Voici quelques exemples de comportements différents pour les différents types 
   
 |Response code|Retry\-After|Comportement|  
 |-----------------|----------------|------------|  
-|200|\(Aucune\)|Déclencheur non valide, Retry\-After est requis, sinon le moteur n’interrogera jamais la requête suivante.|  
-|202|60|Ne pas déclencher le workflow. La tentative suivante aura lieu une minute après.|  
+|200|\(Aucune\)|Exécutez le flux de travail et vérifiez de nouveau pour obtenir plus de contenus suivant la récurrence définie.|  
 |200|10|Exécuter le workflow, et vérifier si du contenu supplémentaire est disponible 10 secondes après.|  
-|400|\(Aucune\)|Requête incorrecte, ne pas exécuter le workflow. Si aucune **stratégie de nouvelle tentative** n’est définie, la stratégie par défaut est utilisée. Une fois que le nombre de nouvelles tentatives a été atteint, le déclencheur n’est plus valide.|  
-|500|\(Aucune\)|Erreur de serveur, ne pas exécuter le workflow.  Si aucune **stratégie de nouvelle tentative** n’est définie, la stratégie par défaut est utilisée. Une fois que le nombre de nouvelles tentatives a été atteint, le déclencheur n’est plus valide.|  
+|202|60|Ne pas déclencher le workflow. La prochaine tentative se produit en une minute conformément à la récurrence définie. Si la récurrence définie est inférieure à une minute, l’en-tête retry-after est prioritaire. Dans le cas contraire, la récurrence définie est suivie.|  
+|400|\(Aucune\)|Requête incorrecte, ne pas exécuter le workflow. Si aucune **stratégie de nouvelle tentative** n’est définie, la stratégie par défaut est utilisée. Une fois que le nombre de tentatives a été atteint, le déclencheur vérifie de nouveau les contenus suivant la récurrence définie.|  
+|500|\(Aucune\)|Erreur de serveur, ne pas exécuter le workflow.  Si aucune **stratégie de nouvelle tentative** n’est définie, la stratégie par défaut est utilisée. Une fois que le nombre de tentatives a été atteint, le déclencheur vérifie de nouveau les contenus suivant la récurrence définie.|  
   
 Les sorties d’un déclencheur HTTP se présentent comme dans cet exemple :  
   

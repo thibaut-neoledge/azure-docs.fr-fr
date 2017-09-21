@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/13/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: e418cb01e1a9168e3662e8d6242903e052b6047b
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 7628f0120deb3cc5b179c00ec50d967f7b1c1dbf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>MirrorMaker permet de répliquer des rubriques Apache Kafka avec Kafka sur HDInsight (version préliminaire)
@@ -97,10 +97,6 @@ Même si vous pouvez créer un réseau virtuel Azure et des clusters Kafka manue
 
 4. Pour finir, cochez **Épingler au tableau de bord**, puis sélectionnez **Acheter**. La création des clusters prend environ 20 minutes.
 
-Une fois les ressources créées, vous êtes redirigé vers un panneau pour le groupe de ressources contenant les clusters et le tableau de bord Web.
-
-![Volet du groupe de ressources pour les clusters et le réseau virtuel](./media/hdinsight-apache-kafka-mirroring/groupblade.png)
-
 > [!IMPORTANT]
 > Les noms des clusters HDInsight sont **source-BASENAME** et **dest-BASENAME**, où BASENAME est le nom que vous avez fourni pour le modèle. Vous utilisez ces noms dans les étapes ultérieures, lors de la connexion aux clusters.
 
@@ -122,13 +118,12 @@ Une fois les ressources créées, vous êtes redirigé vers un panneau pour le g
     # Install jq if it is not installed
     sudo apt -y install jq
     # get the zookeeper hosts for the source cluster
-    export SOURCE_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    
-    Replace `$PASSWORD` with the password for the cluster.
+    export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
 
-    Replace `$CLUSTERNAME` with the name of the source cluster.
+    Remplacez `$CLUSTERNAME` par le nom du cluster source. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion (admin) au cluster.
 
-3. To create a topic named `testtopic`, use the following command:
+3. Pour créer une rubrique nommée `testtopic`, utilisez la commande suivante :
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
@@ -166,7 +161,7 @@ Une fois les ressources créées, vous êtes redirigé vers un panneau pour le g
 
     Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Utilisez la commande suivante pour créer un fichier `consumer.properties` décrivant comment communiquer avec le cluster **source** :
+2. Un fichier `consumer.properties` est utilisé pour configurer la communication avec le cluster **source**. Pour créer le fichier, utilisez la commande suivante :
 
     ```bash
     nano consumer.properties
@@ -189,19 +184,17 @@ Une fois les ressources créées, vous êtes redirigé vers un panneau pour le g
 
     ```bash
     sudo apt -y install jq
-    DEST_BROKERHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    DEST_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     echo $DEST_BROKERHOSTS
     ```
 
-    Remplacez `$PASSWORD` par le mot de passe (administrateur) du compte de connexion du cluster.
+    Remplacez `$CLUSTERNAME` par le nom du cluster de destination. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion (admin) au cluster.
 
-    Remplacez `$CLUSTERNAME` par le nom du cluster de destination.
-
-    Ces commandes renvoient des informations semblables aux informations suivantes :
+    La commande `echo` renvoie des informations semblables au texte suivant :
 
         wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092
 
-4. Utilisez la commande suivante pour créer un fichier `producer.properties` décrivant comment communiquer avec le cluster **de destination** :
+4. Un fichier `producer.properties` est utilisé pour communiquer avec le cluster __de destination__. Pour créer le fichier, utilisez la commande suivante :
 
     ```bash
     nano producer.properties
@@ -247,27 +240,23 @@ Une fois les ressources créées, vous êtes redirigé vers un panneau pour le g
 2. À partir de la connexion SSH au cluster **source**, utilisez la commande suivante pour démarrer un producteur et envoyer des messages sur la rubrique :
 
     ```bash
-    SOURCE_BROKERHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    SOURCE_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    Remplacez `$PASSWORD` par le mot de passe (administrateur) de connexion du cluster source.
+    Remplacez `$CLUSTERNAME` par le nom du cluster source. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion (admin) au cluster.
 
-    Remplacez `$CLUSTERNAME` par le nom du cluster source.
+     Lorsque vous arrivez sur une ligne vide avec un curseur, tapez quelques messages texte. Les messages sont envoyés à la rubrique sur le cluster **source**. Lorsque vous avez terminé, utilisez **Ctrl + C** pour terminer le processus de production.
 
-     Lorsque vous arrivez sur une ligne vide avec un curseur, tapez quelques messages texte. Ceux-ci sont envoyés à la rubrique sur le cluster **source**. Lorsque vous avez terminé, utilisez **Ctrl + C** pour terminer le processus de production.
-
-3. Dans la connexion SSH au cluster **de destination**, utilisez **Ctrl + C** pour mettre fin au processus MirrorMaker. Puis, utilisez les commandes suivantes pour vérifier que la rubrique `testtopic` a été créée et que les données de la rubrique ont été répliquées vers ce miroir :
+3. Dans la connexion SSH au cluster **de destination**, utilisez **Ctrl + C** pour mettre fin au processus MirrorMaker. Pour vérifier que la rubrique et les messages ont été répliqués vers la destination, utilisez les commandes suivantes :
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Remplacez `$PASSWORD` par le mot de passe (administrateur) de connexion du cluster de destination.
-
-    Remplacez `$CLUSTERNAME` par le nom du cluster de destination.
+    Remplacez `$CLUSTERNAME` par le nom du cluster de destination. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion (admin) au cluster.
 
     La liste des rubriques inclut désormais `testtopic`, qui est créé lorsque MirrorMaster reflète la rubrique du cluster source vers la destination. Les messages récupérés de la rubrique sont les mêmes que ceux entrés dans le cluster source.
 

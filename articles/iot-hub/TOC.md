@@ -32,6 +32,7 @@
 ##### [Configurer Intel NUC comme une passerelle](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Connecter la passerelle à IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Utiliser la passerelle pour la conversion de données](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Dépannage](iot-hub-gateway-kit-c-troubleshooting.md)
 
 ## Scénarios IoT étendus
 ### [Gérer la messagerie de périphérique cloud avec iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -82,7 +83,9 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.JS](iot-hub-node-node-c2d.md)
-### [Charger des fichiers à partir d’appareils](iot-hub-csharp-csharp-file-upload.md)
+### [Charger des fichiers à partir d’appareils]
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
 ### Prise en main des représentations d’appareils
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -96,11 +99,13 @@
 ### Prise en main de la gestion d’appareils
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-device-management-get-started.md)
+#### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Serveur principal Java/appareil Java](iot-hub-java-java-device-management-getstarted.md)
 ### Utilisation des propriétés des représentations
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Serveur principal Java/appareil Java](iot-hub-java-java-twin-how-to-configure.md)
 ### Utiliser des travaux d’appareils pour mettre à jour le microprogramme des appareils
 #### [Serveur principal Node/appareil Node](iot-hub-node-node-firmware-update.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-firmware-update.md)

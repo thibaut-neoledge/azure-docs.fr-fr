@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 175a2ad70b1f554d05846eb62fb685d4f259af7e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 14d969ecaf1f24a0bb34da4abe78d83f08627796
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Diffusion en continu Apache Spark : traitement de données d’Azure Event Hubs avec un cluster Spark sur HDInsight
@@ -367,17 +367,7 @@ Les paramètres du fichier **inputHive.txt** sont définis comme suit :
 
 Les paramètres sont similaires à ce que vous avez spécifié pour la sortie de texte aux étapes précédentes. Une fois encore, il est inutile de créer les dossiers de sortie(EventCheckpoint, EventCount/EventCount10) ou la table Hive de sortie (EventHiveTable10) utilisés comme paramètres. L’application de diffusion en continu les crée pour vous. Notez que l’option **jars** et **files** inclut des chemins d’accès aux fichiers .jar et au fichier hive-site.xml que vous avez copiés vers le compte de stockage.
 
-Pour vérifier que la table Hive a été correctement créée, vous pouvez exécuter SSH dans le cluster et exécuter des requêtes Hive. Pour obtenir des instructions, consultez [Utilisation de Hive avec Hadoop dans HDInsight avec SSH](hdinsight-hadoop-use-hive-ssh.md). Après vous être connecté à l’aide de SSH, vous pouvez exécuter la commande suivante pour vérifier que la table Hive, **EventHiveTable10**, est créée.
-
-    show tables;
-
-Le résultat doit ressembler à ce qui suit :
-
-    OK
-    eventhivetable10
-    hivesampletable
-
-Vous pouvez également exécuter une requête SELECT pour afficher le contenu de la table.
+Pour vérifier que la table hive a été créée, utilisez l’[affichage Ambari Hive](hdinsight-hadoop-use-hive-ambari-view.md). Vous pouvez exécuter une requête SELECT pour afficher le contenu de la table.
 
     SELECT * FROM eventhivetable10 LIMIT 10;
 

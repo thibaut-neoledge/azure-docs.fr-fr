@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 67c9f6eca18e2dd77e00b8bc8c7bcc546ea3936e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f3e4eb6fedf850dbb827fd2a10593249d2f17ef1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C : création et utilisation d’attributs personnalisés dans une stratégie personnalisée de modification de profil
@@ -62,7 +62,7 @@ Les propriétés d’extension n’existent que dans le contexte d’une applica
 1. Sélectionnez **Créer. Un message confirmant la création de l’application s’affiche dans les **notifications**.
 1. Sélectionnez l’application web que vous venez de créer : **WebApp-GraphAPI-DirectoryExtensions**
 1. Dans Paramètres, sélectionnez **Autorisations requises**.
-1. Dans API, sélectionnez **Windows Active Directory**.
+1. Sélectionnez l’API **Windows Azure Active Directory**.
 1. Dans Autorisations d’application, cochez l’option **Lire et écrire les données de l’annuaire**, puis cliquez sur **Enregistrer**.
 1. Sélectionnez **Accorder des autorisations**, puis confirmez en cliquant sur **Oui**.
 1. Copiez dans le presse-papiers et enregistrez les identificateurs suivants à partir de WebApp-GraphAPI-DirectoryExtensions > Paramètres > Propriétés >
@@ -235,7 +235,7 @@ Les propriétés d’extension n’existent que dans le contexte d’une applica
 
 Le jeton d’ID renvoyé à votre application inclura la nouvelle propriété d’extension sous la forme d’une revendication personnalisée, précédée de « extension_loyaltyId ». Consultez les exemples.
 
-```
+```json
 {
   "exp": 1493585187,
   "nbf": 1493581587,
@@ -254,8 +254,8 @@ Le jeton d’ID renvoyé à votre application inclura la nouvelle propriété d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ajoutez la nouvelle revendication aux flux des connexions aux comptes sociaux en modifiant les éléments TechnicalProfiles répertoriés. Ces deux éléments TechnicalProfiles sont utilisés par les connexions aux comptes sociaux/fédérés pour écrire et lire les données utilisateur à l’aide d’alternativeSecurityId en tant que localisateur de l’objet utilisateur.
-```
+### <a name="add-the-new-claim-to-the-flows-for-social-account-logins-by-changing-the-technicalprofiles-listed-below-these-two-technicalprofiles-are-used-by-socialfederated-account-logins-to-write-and-read-the-user-data-using-the-alternativesecurityid-as-the-locator-of-the-user-object"></a>Ajoutez la nouvelle revendication aux flux des connexions aux comptes sociaux en modifiant les éléments TechnicalProfiles répertoriés ci-dessous. Ces deux éléments TechnicalProfiles sont utilisés par les connexions aux comptes sociaux/fédérés pour écrire et lire les données utilisateur à l’aide d’alternativeSecurityId en tant que localisateur de l’objet utilisateur.
+```xml
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

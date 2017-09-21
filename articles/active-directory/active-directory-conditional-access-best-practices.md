@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 3e524c116479c1af6eb6a601c9b57d27a697c5a2
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: fedc72f8fe1ada9a991d417cc77b8ca659589f55
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques l’accès conditionnel dans Azure Active Directory
@@ -96,6 +96,99 @@ Dans votre environnement, vous devez éviter les configurations suivantes :
 **Pour tous les utilisateurs, toutes les applications cloud, toutes les plates-formes d’appareils :**
 
 - **Bloquer l’accès** : cette configuration bloque toute votre organisation, ce qui n’est pas une bonne idée.
+
+
+
+## <a name="policy-migration"></a>Migration des stratégies
+
+Si des stratégies sont configurées dans le portail Azure Classic, vous devez les migrer vers le portail Azure, car :
+
+
+- Un utilisateur qui figure dans une stratégie du portail Azure Classic et une stratégie du portail Azure doit remplir les conditions requises dans les deux stratégies 
+
+- Si vous ne migrez vos stratégies existantes, vous ne pourrez pas implémenter de stratégies qui accordent l’accès
+
+
+### <a name="migration-from-the-azure-classic-portal"></a>Migration à partir du portail Azure Classic
+
+Dans ce scénario : 
+
+- Dans votre [portail Azure Classic](https://manage.windowsazure.com), vous avez configuré :
+
+    - SharePoint Online
+
+    ![Accès conditionnel](./media/active-directory-conditional-access-best-practices/14.png)
+
+    - Une stratégie d’accès conditionnel basé sur l’appareil
+
+    ![Accès conditionnel](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Vous souhaitez configurer une stratégie d’accès conditionnel de gestion des applications mobiles dans le portail Azure 
+ 
+
+#### <a name="configuration"></a>Configuration 
+
+- Passez en revue vos stratégies d’accès conditionnel basé sur l’appareil
+
+- Migrez-les vers le portail Azure 
+
+- Ajoutez des stratégies d’accès conditionnel de gestion des applications mobiles
+
+
+### <a name="migrating-from-intune"></a>Migration à partir d’Intune 
+
+Dans ce scénario :
+
+- Dans [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), vous avez configuré une stratégie d’accès conditionnel de gestion des applications mobiles pour Exchange Online ou SharePoint Online.
+
+    ![Accès conditionnel](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Vous souhaitez migrer afin d’utiliser l’accès conditionnel de gestion des applications mobiles dans le portail Azure
+
+
+#### <a name="configuration"></a>Configuration 
+ 
+- Passez en revue vos stratégies d’accès conditionnel basé sur l’appareil
+
+- Migrez-les vers le portail Azure 
+
+- Passez en revue vos stratégies d’accès conditionnel de gestion des applications mobiles configurées pour Exchange Online ou SharePoint Online dans Intune
+
+- Ajoutez le contrôle pour **Exiger des applications approuvées** en plus du contrôle basé sur l’appareil 
+ 
+
+### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migration à partir du portail Azure Classic et Intune
+
+Dans ce scénario :
+
+- Vous avez configuré ce qui suit :
+
+    - **Portail Azure Classic** : accès conditionnel basé sur l’appareil 
+
+    - **Intune** : stratégies d’accès conditionnel de gestion des applications mobiles 
+    
+- Vous souhaitez migrer les deux stratégies afin d’utiliser des stratégies d’accès conditionnel de gestion des applications mobiles dans le portail Azure
+
+
+#### <a name="configuration"></a>Configuration
+
+- Passez en revue vos stratégies d’accès conditionnel basé sur l’appareil
+
+- Migrez-les vers le portail Azure 
+
+- Passez en revue votre stratégie d’accès conditionnel de gestion des applications mobiles configurée pour Exchange Online ou SharePoint Online dans Intune
+
+- Ajoutez le contrôle pour **Exiger des applications approuvées** en plus du contrôle basé sur l’appareil 
+
+
+
+
+
+
+
+
+
+
 
 
 ## <a name="common-scenarios"></a>Scénarios courants

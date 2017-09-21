@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/18/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 3a8a661f65923476c89763580a98ea240642db99
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 5d905d410e70c5b635a3f6221e7e0c0bda7ad140
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="logic-app-limits-and-configuration"></a>Limites et configuration des applications logiques
@@ -113,7 +113,7 @@ Voici les limites pour la définition d’une application logique.
 
 ### <a name="integration-account-limits"></a>Limites du compte d’intégration
 
-Voici les limites concernant les artefacts ajoutés au compte d’intégration.
+Voici les limites des artefacts que vous pouvez ajouter à un compte d’intégration.
 
 |Nom|Limite|Remarques|
 |----|----|----|
@@ -123,6 +123,21 @@ Voici les limites concernant les artefacts ajoutés au compte d’intégration.
 |Appels d’appel de point de terminaison de runtime toutes les 5 minutes |45,000|Possibilité de distribution au besoin des charges de travail entre plusieurs comptes|
 |Appels de suivi de point de terminaison runtime par 5 minutes |45,000|Possibilité de distribution au besoin des charges de travail entre plusieurs comptes|
 |Appels simultanés de blocage de point de terminaison de runtime |~1,000|Diminuer le nombre de demandes simultanées ou réduire la durée en fonction des besoins|
+
+Voici le nombre maximum d’artefacts que vous pouvez ajouter à un compte d’intégration.
+
+Niveau de tarification gratuit
+
+|Nom|Limite|Remarques|
+|----|----|----|
+|Accords|10||
+|Autres types d’artefacts|25|Les types incluent partenaires, schémas, certificats et cartes. Chaque type peut disposer du nombre maximum d’artefacts.|
+
+Niveau de tarification Standard
+
+|Nom|Limite|Remarques|
+|----|----|----|
+|N’importe quel type d’artefact|500|Les types incluent accords, partenaires, schémas, certificats et cartes. Chaque type peut disposer du nombre maximum d’artefacts.|
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Taille des messages des protocoles B2B (AS2, X12, EDIFACT)
 

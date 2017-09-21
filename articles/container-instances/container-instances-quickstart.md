@@ -1,5 +1,5 @@
 ---
-title: "Créer son premier conteneur Azure Container Instances | Azure Docs"
+title: "Guide de démarrage rapide : créer son premier conteneur Azure Container Instances"
 description: "Déploiement et prise en main d’Azure Container Instances"
 services: container-instances
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/12/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ad053391e6b3927ab11faaf4d9e70b610e86f3c3
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 012a48410bb08cb54f42a4f87e952f67ad18c112
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
 # <a name="create-your-first-container-in-azure-container-instances"></a>Créer son premier conteneur dans Azure Container Instances
 
-Azure Container Instances simplifie la création et la gestion des conteneurs dans Azure. Dans ce guide de démarrage rapide, vous allez voir comment créer un conteneur dans Azure et comment l’exposer sur internet avec une adresse IP publique. Cette opération s’effectue en une seule commande. En l’espace de quelques secondes, ceci s’affiche dans votre navigateur :
+Azure Container Instances facilite la création et la gestion de conteneurs Docker dans Azure, sans avoir à approvisionner les machines virtuelles ou à adopter un service de niveau supérieur. Dans ce guide de démarrage rapide, vous créez un conteneur dans Azure et l’exposez sur internet avec une adresse IP publique. Cette opération s’effectue en une seule commande. En l’espace de quelques secondes, ceci s’affiche dans votre navigateur :
 
 ![L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur][aci-app-browser]
 
@@ -35,17 +35,17 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.12 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.12 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 Les instances Azure Container Instances sont des ressources Azure et doivent être placées dans un groupe de ressources Azure, un ensemble logique dans lequel des ressources Azure sont déployées et gérées.
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). 
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create).
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -54,7 +54,7 @@ az group create --name myResourceGroup --location eastus
 Vous pouvez créer un conteneur en attribuant un nom, une image Docker ainsi qu’un groupe de ressources Azure. Si vous le souhaitez, vous pouvez exposer le conteneur sur internet avec une adresse IP publique. Dans ce cas, nous utilisons un conteneur qui héberge une application web basique écrite dans [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
-az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 
+az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public
 ```
 
 Après quelques secondes, vous obtenez une réponse à votre requête. Au début, le conteneur aura le statut **En cours de création**, mais démarrera après quelques secondes. Vous pouvez vérifier le statut à l’aide de la commande `show` :
@@ -81,7 +81,7 @@ En bas de la sortie, vous verrez le statut de la configuration et l’adresse IP
 ...
 ```
 
-Une fois que le statut du conteneur passe à **Réussi**, vous pouvez l’atteindre dans le navigateur en utilisant l’adresse IP obtenue. 
+Une fois que le statut du conteneur passe à **Réussi**, vous pouvez l’atteindre dans le navigateur en utilisant l’adresse IP obtenue.
 
 ![L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur][aci-app-browser]
 

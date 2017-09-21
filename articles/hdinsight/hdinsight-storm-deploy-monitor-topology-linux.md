@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: b9e82463030807d2674594e73f762fe93515d423
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 218e818f48adee0b4e7ecb0b184098a9e3273afd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Déploiement et gestion des topologies Apache Storm sur HDInsight
@@ -54,7 +53,7 @@ Ce document présente les principes fondamentaux de la gestion et de la surveill
 
 ## <a name="submit-a-topology-visual-studio"></a>Soumettre une topologie : Visual Studio
 
-Les outils HDInsight permettent de soumettre des topologies C# ou hybrides à votre cluster Storm. La procédure suivante utilise un exemple d’application. Pour plus d’informations sur la création de vos propres topologies à l’aide des outils HDInsight, consultez [Développement de topologies C# à l’aide des outils HDInsight pour Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+Les outils HDInsight permettent de soumettre des topologies C# ou hybrides à votre cluster Storm. La procédure suivante utilise un exemple d’application. Pour plus d’informations sur la création à l’aide des outils HDInsight, consultez [Développement de topologies C# à l’aide des outils HDInsight pour Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 1. Si vous n’avez pas encore installé la dernière version de Data Lake Tools pour Visual Studio, consultez [Get started using Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) (Prise en main de Data Lake Tools pour Visual Studio).
 
@@ -88,7 +87,7 @@ Les outils HDInsight permettent de soumettre des topologies C# ou hybrides à vo
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
-    Cette commande démarre l’exemple de topologie WordCount sur le cluster. Cette topologie va générer des phrases de manière aléatoire et compter les occurrences de chaque mot dans ces phrases.
+    Cette commande démarre l’exemple de topologie WordCount sur le cluster. Cette topologie va générer des phrases de manière aléatoire, puis compter les occurrences de chaque mot dans ces phrases.
 
    > [!NOTE]
    > Pendant l’envoi de la topologie au cluster, vous devez d’abord copier le fichier jar contenant le cluster avant d’utiliser la commande `storm`. Vous pouvez utiliser la commande `scp` pour copier le fichier sur le cluster. Par exemple, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -97,11 +96,11 @@ Les outils HDInsight permettent de soumettre des topologies C# ou hybrides à vo
 
 ## <a name="submit-a-topology-programmatically"></a>Soumettre une topologie : par programme
 
-Vous pouvez, par programmation, déployer une topologie vers Storm sur HDInsight en communiquant avec le service Nimbus hébergé dans votre cluster. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fournit un exemple d’application Java qui montre comment déployer et démarrer une topologie via le service Nimbus.
+Vous pouvez déployer par programme une topologie à l’aide du service Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fournit un exemple d’application Java qui montre comment déployer et démarrer une topologie via le service Nimbus.
 
 ## <a name="monitor-and-manage-visual-studio"></a>Surveiller et gérer : Visual Studio
 
-Lorsqu’une topologie a été envoyée avec succès à l’aide de Visual Studio, la vue **Topologies Storm** des clusters s’affiche. Sélectionnez la topologie à partir de la liste pour afficher des informations sur la topologie en cours d’exécution.
+Lorsqu’une topologie est envoyée à l’aide de Visual Studio, la vue **Topologies Storm** s’affiche. Sélectionnez la topologie à partir de la liste pour afficher des informations sur la topologie en cours d’exécution.
 
 ![Visual Studio Monitor](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
@@ -207,9 +206,9 @@ La sélection d’un spout à partir de la section **Spouts** ou **Bolts** affic
 * **Résumé du composant**: des informations de base sur le spout ou le bolt.
 * **Statistiques du spout/bolt**: des statistiques relatives au spout ou au bolt. Utilisez les liens de la colonne **Fenêtre** pour définir l’intervalle de temps des entrées restantes sur la page.
 * **Statistiques d’entrée** (bolt uniquement) : des informations sur les flux d’entrée consommés par le bolt.
-* **Statistiques de sortie**: des informations sur les flux de données émis par ce spout ou ce bolt.
+* **Statistiques de sortie** : des informations sur les flux de données émis par le spout ou le bolt.
 * **Exécuteurs**: informations sur les instances du spout ou du bolt. Sélectionnez l’entrée **Port** d’un exécuteur spécifique afin d’afficher le journal des informations de diagnostic généré pour cette instance.
-* **Erreurs**: les informations d’erreur pour ce spout ou ce bolt.
+* **Erreurs** : les informations d’erreur pour le spout ou le bolt.
 
 ## <a name="monitor-and-manage-rest-api"></a>Surveiller et gérer : API REST
 
@@ -227,7 +226,7 @@ L’URI de base pour l’API REST sur des clusters HDInsight sous Linux est disp
 Vous trouverez le nom de domaine complet (FQDN) du nœud principal du cluster de plusieurs façons différentes :
 
 * **À partir d’une session SSH** : utilisez la commande `headnode -f` à partir d’une session SSH vers le cluster.
-* **À partir d’Ambari Web** : sélectionnez **Services** en haut de la page, puis sélectionnez **Storm**. Sous l’onglet **Résumé**, sélectionnez **Serveur de l’interface utilisateur de Storm**. Le nom de domaine complet du nœud que l’interface utilisateur de Storm et l’API REST exécutent figure en haut de la page.
+* **À partir d’Ambari Web** : sélectionnez **Services** en haut de la page, puis sélectionnez **Storm**. Sous l’onglet **Résumé**, sélectionnez **Serveur de l’interface utilisateur de Storm**. Le nom de domaine complet du nœud qui héberge l’interface utilisateur de Storm et l’API REST figure en haut de la page.
 * **À partir de l’API REST d’Ambari** : utilisez la commande `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` pour extraire des informations sur le nœud sur lequel l’interface utilisateur de Storm et l’API REST s’exécutent. Remplacez **PASSWORD** par le mot de passe de l’administrateur du cluster. Remplacez **CLUSTERNAME** par le nom du cluster. Dans la réponse, l’entrée « host_name » contient le nom de domaine complet du nœud.
 
 ### <a name="authentication"></a>Authentification
@@ -239,11 +238,11 @@ Les requêtes à l’API REST doivent utiliser l’ **authentification de base**
 
 ### <a name="return-values"></a>Valeurs de retour
 
-Les informations renvoyées par l’API REST sont uniquement utilisables au sein du cluster ou des machines virtuelles sur le même réseau virtuel Azure que le cluster. Par exemple, le nom de domaine complet (FQDN) retourné pour les serveurs Zookeeper n’est pas accessible à partir d’Internet.
+Les informations renvoyées depuis l’API REST peuvent être uniquement utilisables depuis le cluster. Par exemple, le nom de domaine complet (FQDN) retourné pour les serveurs Zookeeper n’est pas accessible à partir d’Internet.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à déployer et surveiller des topologies à l’aide du tableau de bord Storm, découvrez comment [développer des topologies Java à l’aide de Maven](hdinsight-storm-develop-java-topology.md).
+Découvrez comment [développer des topologies basées sur Java à l’aide de Maven](hdinsight-storm-develop-java-topology.md).
 
 Pour accéder à une liste d’exemples supplémentaires de topologies, consultez la rubrique [Exemples de topologies Storm sur HDInsight](hdinsight-storm-example-topology.md).
 

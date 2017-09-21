@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/08/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 0c9825f11733127a547e06e159172a08cef736eb
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 311a1af35b7fecb5f0d4fac7f38af705c945d714
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprendre la limite de dépense d’Azure et comment la désactiver
@@ -69,7 +69,11 @@ La limite de dépense peut vous empêcher de déployer ou d’utiliser certains 
 
 ### <a name="how-do-i-turn-on-the-spending-limit-after-removing-it"></a>Comment faire pour activer la limite de dépense après l’avoir supprimée ?
 
-La limite de dépense ne s’active qu’automatiquement. Malheureusement, il n’existe aucune option permettant de l’activer vous-même après sa suppression. Veillez à sélectionner l’option **Supprimer la limite de dépense pour la période de facturation en cours** si vous craignez que la limite ne puisse pas se réactiver.
+Cette fonctionnalité est disponible uniquement lorsque la limite de dépense a été supprimée indéfiniment. Modifiez cette option pour l’activer automatiquement au début de la prochaine période de facturation.
+
+1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/Subscriptions).
+1. Cliquez sur la bannière jaune pour modifier l’option de limite de dépense.
+1. Choisissez **Activer la limite de dépense de la prochaine période de facturation \<date de début de la période de facturation\>**
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>Comment faire pour définir une limite de dépense personnalisée ?
 

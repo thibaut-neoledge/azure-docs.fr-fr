@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5b73fec119a88cd86e68537199e7567afa3fdba8
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 6b5febd051d0b956c90cb14c260dda1881adac3f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -40,7 +40,7 @@ Si vous **préparez des disques** pour un travail d’importation, vous devez re
 * Vous devez avoir un ordinateur (« ordinateur de copie ») avec Windows 7, Windows Server 2008 R2 ou un système d’exploitation Windows plus récent installé.
 * .NET Framework 4 doit être installé sur l’ordinateur de copie.
 * BitLocker doit être activé sur l’ordinateur de copie.
-* Vous devez avoir un ou plusieurs disques durs SATA de 3,5 pouces, vides et connectés à l’ordinateur de copie.
+* Vous avez besoin d’un ou plusieurs disques durs SATA II ou III, ou SSD, 2,5 ou 3,5 pouces, vides et connectés à l’ordinateur de copie.
 * Les fichiers que vous projetez d’importer doivent être accessibles à l’ordinateur de copie, qu’ils soient sur un partage réseau ou un disque dur local.
 
 Si vous essayez de **réparer une importation** qui a partiellement échoué, vous devez disposer des éléments suivants :

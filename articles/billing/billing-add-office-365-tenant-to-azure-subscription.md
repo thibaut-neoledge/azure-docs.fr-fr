@@ -13,19 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 09/13/2017
 ms.author: cjiang
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: ff1cc44c01061aa924917e082d582bdebfb40c21
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b7b3e4539110f68e1e6ef4a75110924a27b40c49
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="associate-an-office-365-tenant-to-an-azure-subscription"></a>Association d’un client Office 365 à un abonnement Azure
-Liez vos abonnements Azure et Office 365 distincts afin que le client Office 365 soit accessible depuis votre abonnement Azure. Pour lier vos abonnements, connectez-vous à Azure avec le compte d’administrateur de service Azure, ajoutez un annuaire et ajoutez les comptes professionnels Office 365 au client Azure Active Directory.
+# <a name="link-an-office-365-tenant-to-an-azure-subscription"></a>Liaison d’un client Office 365 à un abonnement Azure
+Liez vos abonnements Azure et Office 365 distincts afin que le client Office 365 soit accessible depuis votre abonnement Azure. Pour lier vos abonnements, connectez-vous à Azure avec le compte d’administrateur de service Azure, ajoutez un annuaire et ajoutez les comptes professionnels ou scolaires Office 365 au client Azure Active Directory.
 
-Si vous souhaitez un abonnement Office 365 pour les utilisateurs de votre instance d’Azure Active Directory ou que vous possédez un compte Office 365, mais pas un compte Azure, consultez [Inscription à Azure avec un compte Office 365](billing-use-existing-office-365-account-azure-subscription.md). 
+**Souhaitez-vous déplacer votre abonnement Azure existant vers votre compte Office 365 professionnel ou scolaire ?** Si vous vous êtes inscrit à Azure à l’aide d’un compte Microsoft personnel et que vous souhaitez l’utiliser ou vous connecter avec votre compte Office 365, nous vous recommandons vivement de transférer l’abonnement. Voir [Transfert de la propriété de l’abonnement Azure à un autre compte](billing-subscription-transfer.md). 
+
+**Souhaitez-vous vous inscrire à Azure à l’aide d’Office 365 ?** Voir [S’inscrire à Azure avec un compte Office 365](billing-use-existing-office-365-account-azure-subscription.md). 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 * Vous devez disposer des informations d’identification de l’administrateur de service de l’abonnement Azure. Les comptes de coadministrateurs ne peuvent pas effectuer certaines des étapes de cet article. Pour changer votre administrateur de service, consultez [Ajout ou modification de rôles d’administrateur Azure](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription).
@@ -92,6 +94,5 @@ Pour ajouter un administrateur à votre abonnement Azure, consultez [Ajouter ou 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-
 
 
