@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: c211c59b00d445a62ebe3ae9334101c983e05c57
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-ad-token-reference"></a>Référence de jeton Azure AD
@@ -30,7 +30,7 @@ Azure AD prend en charge le [protocole d’autorisation OAuth 2.0](active-direc
 
 Un jeton porteur est un jeton de sécurité léger qui octroie l’accès à une ressource protégée au « porteur ». En ce sens, le « porteur » désigne toute partie qui peut présenter le jeton. Bien que l’authentification avec Azure AD soit nécessaire afin de recevoir un jeton du porteur, certaines mesures sont nécessaires pour sécuriser le jeton afin d’empêcher l’interception par un tiers indésirable. Les jetons du porteur n’intégrant pas de mécanisme de protection contre l’utilisation par des tiers non autorisés, ils doivent être acheminés par un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS). Si un jeton du porteur est transmis en clair, un tiers malveillant peut utiliser une attaque d’intercepteur afin de s’approprier le jeton et de l’utiliser pour accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons porteurs pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée. Pour en savoir plus sur les aspects de sécurité des jetons porteurs, consultez [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
-La plupart des jetons émis par Azure AD sont implémentés en tant que jetons Web JSON (JWT).  Un jeton JWT constitue un moyen compact et sécurisé pour les URL de transférer des informations entre deux parties.  Les informations contenues dans les jetons JWT sont appelées « revendications », c’est-à-dire des assertions d’informations sur le porteur et le sujet du jeton.  Les revendications dans les jetons JWT sont des objets JSON codés et sérialisés pour la transmission.  Étant donné que les jetons JWT émis par Azure AD sont signés, mais pas chiffrés, vous pouvez facilement inspecter le contenu d’un jeton JWT à des fins de débogage.  Il existe plusieurs outils disponibles pour y parvenir, tels que [jwt.calebb.net](http://jwt.calebb.net). Pour plus d’informations sur les jetons JWT, consultez la [spécification JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+La plupart des jetons émis par Azure AD sont implémentés en tant que jetons Web JSON (JWT).  Un jeton JWT constitue un moyen compact et sécurisé pour les URL de transférer des informations entre deux parties.  Les informations contenues dans les jetons JWT sont appelées « revendications », c’est-à-dire des assertions d’informations sur le porteur et le sujet du jeton.  Les revendications dans les jetons JWT sont des objets JSON codés et sérialisés pour la transmission.  Étant donné que les jetons JWT émis par Azure AD sont signés, mais pas chiffrés, vous pouvez facilement inspecter le contenu d’un jeton JWT à des fins de débogage.  Il existe plusieurs outils disponibles pour y parvenir, tels que [jwt.ms](https://jwt.ms/). Pour plus d’informations sur les jetons JWT, consultez la [spécification JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## <a name="idtokens"></a>Jetons id_token
 Les jetons id_token constituent une forme de jeton de sécurité de connexion. Votre application les reçoit quand elle procède à l’authentification à l’aide [d’OpenID Connect](active-directory-protocols-openid-connect-code.md).  Ils sont représentés en tant que [jetons JWT](#types-of-tokens) et contiennent des revendications que vous pouvez utiliser pour connecter l’utilisateur à votre application.  Vous pouvez utiliser les revendications dans un jeton id_token comme bon vous semble. En général, elles permettent d’afficher des informations de compte ou de prendre des décisions de contrôle d’accès dans une application.
@@ -45,7 +45,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 ```
 
 > [!TIP]
-> Pour vous entraîner, essayez d’inspecter les revendications dans l’exemple de jeton d’ID en le collant dans [calebb.net](http://jwt.calebb.net).
+> Pour vous entraîner, essayez d’inspecter les revendications de l’exemple de jeton id_token en le collant dans [jwt.ms](https://jwt.ms/).
 > 
 > 
 

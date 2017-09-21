@@ -18,10 +18,10 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 8778dcfdb5859d212a2a3eb28a5ed297b5f07460
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: b2f506a90c6b55624c8fe0392511b8098f058812
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Comparaison des plans d’hébergement Azure Functions
@@ -48,7 +48,7 @@ Quand vous utilisez un plan Consommation, les instances de l’hôte Azure Funct
 > [!NOTE]
 > Le délai d’expiration par défaut pour les fonctions dans un plan Consommation est de 5 minutes. Vous pouvez augmenter la valeur à 10 minutes pour l’application de fonction en modifiant la propriété `functionTimeout` dans [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 
-La facturation est basée sur la durée d’exécution et la mémoire utilisée. Elle est agrégée dans toutes les fonctions d’une application de fonction. Pour plus d’informations, consultez la page [Tarification d’Azure Functions].
+La facturation est basée sur la durée d’exécution et la mémoire utilisée. Elle est agrégée dans toutes les fonctions d’une application de fonction. Pour plus d’informations, consultez la page [Tarification d’Azure Functions].
 
 Le plan par défaut, le plan Consommation, présente les avantages suivants :
 - Paiement uniquement à l’exécution de vos fonctions
@@ -56,7 +56,7 @@ Le plan par défaut, le plan Consommation, présente les avantages suivants :
 
 ## <a name="app-service-plan"></a>Plan App Service
 
-Dans le plan App Service, vos applications de fonction sont exécutées sur des machines virtuelles dédiées sur des références de base, Standard et Premium, à l’instar de Web Apps. Les machines virtuelles dédiées sont allouées à vos applications App Service, ce qui signifie que l’hôte des fonctions est toujours en cours d’exécution.
+Dans le plan App Service, vos applications de fonction sont exécutées sur des machines virtuelles dédiées sur des références de base, Standard, Premium et Isolé, à l’instar de Web Apps. Les machines virtuelles dédiées sont allouées à vos applications App Service, ce qui signifie que l’hôte des fonctions est toujours en cours d’exécution.
 
 Pensez à un plan App Service dans les cas suivants :
 - Vous disposez de machines virtuelles existantes, sous-utilisées qui exécutent déjà d’autres instances App Service.
@@ -96,7 +96,7 @@ Quand vous utilisez le plan d’hébergement Consommation, les fichiers de code 
 
 ### <a name="runtime-scaling"></a>Mise à l’échelle du runtime
 
-Azure Functions utilise un composant appelé *contrôleur de mise à l’échelle* pour surveiller la fréquence des événements et déterminer s’il convient de monter ou de descendre en puissance. Le contrôleur de mise à l’échelle utilise une méthode heuristique pour chaque type de déclencheur. Par exemple, si vous utilisez un déclencheur de stockage File d’attente Azure, il est mis à l’échelle en fonction de la longueur de la file d’attente et de l’âge du plus ancien message en file d’attente.
+Azure Functions utilise un composant appelé *contrôleur de mise à l’échelle* pour surveiller la fréquence des événements et déterminer s’il convient de monter en puissance ou de diminuer la taille des instances. Le contrôleur de mise à l’échelle utilise une méthode heuristique pour chaque type de déclencheur. Par exemple, si vous utilisez un déclencheur de stockage File d’attente Azure, il est mis à l’échelle en fonction de la longueur de la file d’attente et de l’âge du plus ancien message en file d’attente.
 
 L’unité de mise à l’échelle est l’application de fonction. Quand les instances de l’application de fonction font l’objet d’une augmentation de taille, d’autres ressources sont allouées pour exécuter plusieurs instances de l’hôte Azure Functions. À l’inverse, quand la demande de calcul est réduite, le contrôleur de mise à l’échelle supprime des instances de l’hôte de fonction. Le nombre d’instances est finalement réduit à zéro si aucune fonction n’est exécutée dans une application de fonction.
 
@@ -108,5 +108,5 @@ La facturation du plan de consommation est décrite en détail dans la page [Tar
 * **Consommation des ressources en gigaoctet/seconde (Go/s)**. Calcul effectué d’après une combinaison de la taille de la mémoire et de la durée d’exécution pour toutes les fonctions d’une application de fonction. 
 * **Exécutions**. Comptées chaque fois qu’une fonction est exécutée en réponse à un événement déclenché par une liaison.
 
-[Tarification d’Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+[Tarification d’Azure Functions]: https://azure.microsoft.com/pricing/details/functions
 

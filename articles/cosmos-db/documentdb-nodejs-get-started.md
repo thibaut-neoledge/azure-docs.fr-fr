@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 6510e0270bb2efa252a2b2ad40014c5d26b74a81
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 02e98aadc6a001c7275266d89a196a57bb366b3c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="nodejs-tutorial-use-the-documentdb-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Didacticiel Node.js : utilisez l’API DocumentDB dans Azure Cosmos DB pour créer une application de console Node.js
@@ -56,8 +56,10 @@ Commençons dès maintenant !
 ## <a name="prerequisites-for-the-nodejs-tutorial"></a>Configuration requise pour le didacticiel Node.js
 Vérifiez que vous disposez des éléments suivants :
 
-* Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit des services Azure](https://azure.microsoft.com/pricing/free-trial/)dès aujourd’hui.
-    * Vous pouvez également utiliser [l’émulateur Azure Cosmos DB](local-emulator.md) pour ce didacticiel.
+* Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit des services Azure](https://azure.microsoft.com/pricing/free-trial/)dès aujourd’hui. 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
 * [Node.js](https://nodejs.org/) version v0.10.29 ou supérieure.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Étape 1 : créer un compte Azure Cosmos DB
@@ -93,7 +95,7 @@ Puis, copiez et collez l’extrait de code ci-dessous et attribuez aux propriét
     config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
-Copiez et collez ```database id```, ```collection id``` et ```JSON documents``` dans votre objet ```config``` ci-dessous, où vous avez défini vos propriétés ```config.endpoint``` et ```config.authKey```. Si vous disposez déjà de données que vous souhaitez stocker dans votre base de données, vous pouvez utiliser [l’outil de migration de données](import-data.md) d’Azure Cosmos DB au lieu d’ajouter les définitions de document.
+Copiez et collez ```database id```, ```collection id``` et ```JSON documents``` dans votre objet ```config``` ci-dessous, où vous avez défini vos propriétés ```config.endpoint``` et ```config.primaryKey```. Si vous disposez déjà de données que vous souhaitez stocker dans votre base de données, vous pouvez utiliser [l’outil de migration de données](import-data.md) d’Azure Cosmos DB au lieu d’ajouter les définitions de document.
 
     config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
@@ -263,7 +265,7 @@ Félicitations ! Vous avez créé une base de données Azure Cosmos DB.
 
 ## <a id="CreateColl"></a>Étape 6 : Création d’une collection
 > [!WARNING]
-> **CreateDocumentCollectionAsync** crée une collection, ce qui a des conséquences tarifaires. Pour plus d'informations, visitez notre [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
+> **CreateCollection** crée une collection, ce qui a des conséquences tarifaires. Pour plus d'informations, visitez notre [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 
@@ -615,7 +617,7 @@ Installez le module **documentdb** via npm. Utilisez la commande suivante :
 
 * ```npm install documentdb --save```
 
-Ensuite, dans le fichier ```config.js```, mettez à jour les valeurs de config.endpoint et de config.authKey, comme indiqué à l’[étape 3 : Définition des configurations de votre application](#Config). 
+Ensuite, dans le fichier ```config.js```, mettez à jour les valeurs de config.endpoint et de config.primaryKey, comme indiqué à l’[étape 3 : Définition des configurations de votre application](#Config). 
 
 Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la commande suivante : ```node app.js```.
 

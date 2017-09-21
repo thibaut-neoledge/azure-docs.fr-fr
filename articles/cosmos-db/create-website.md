@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 633b88761de4d2c99cfd196cfac8e664fc83c546
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 42146cdc20bcff84d54110c8fba6d00951558bd0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Déployer Azure Cosmos DB et Azure App Service Web Apps avec un modèle Azure Resource Manager
@@ -62,8 +61,7 @@ Maintenant, nous allons déployer notre premier modèle.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), cliquez sur Nouveau et recherchez « Déploiement de modèle ».
     ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/create-website/TemplateDeployment1.png)
-2. Sélectionnez l’élément Déploiement de modèle et cliquez sur **Créer**
-    ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/create-website/TemplateDeployment2.png)
+2. Sélectionnez l’élément Template deployment et cliquez sur **Créer**. ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/create-website/TemplateDeployment2.png)
 3. Cliquez sur **Modifier le modèle**, collez le contenu du fichier de modèle DocDBWebsiteTodo.json, puis cliquez sur **Enregistrer**.
    ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/create-website/TemplateDeployment3.png)
 4. Cliquez sur **Modifier les paramètres**, entrez des valeurs pour chacun des paramètres obligatoires, puis cliquez sur **OK**.  Les paramètres sont les suivants :
@@ -103,8 +101,7 @@ Maintenant nous allons déployer notre deuxième modèle.  Ce modèle vous montr
 
 1. Dans le [portail Azure](https://portal.azure.com), cliquez sur Nouveau et recherchez « Déploiement de modèle ».
     ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/create-website/TemplateDeployment1.png)
-2. Sélectionnez l’élément Déploiement de modèle et cliquez sur **Créer**
-    ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/create-website/TemplateDeployment2.png)
+2. Sélectionnez l’élément Template deployment et cliquez sur **Créer**. ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/create-website/TemplateDeployment2.png)
 3. Cliquez sur **Modifier le modèle**, collez le contenu du fichier de modèle DocDBWebSite.json, puis cliquez sur **Enregistrer**.
    ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/create-website/TemplateDeployment3.png)
 4. Cliquez sur **Modifier les paramètres**, entrez des valeurs pour chacun des paramètres obligatoires, puis cliquez sur **OK**.  Les paramètres sont les suivants :
@@ -122,8 +119,7 @@ Maintenant nous allons déployer notre deuxième modèle.  Ce modèle vous montr
    ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/create-website/TemplateDeployment6.png)
 7. Une fois le déploiement terminé, le panneau du groupe de ressources s’ouvre.
    ![Capture d’écran du panneau Groupe de ressources](./media/create-website/TemplateDeployment7.png)  
-8. Cliquez sur la ressource d’application web dans la liste des ressources, puis sur **Paramètres de l’application**
-    ![Capture d’écran du groupe de ressources](./media/create-website/TemplateDeployment9.png)  
+8. Cliquez sur la ressource Web App dans la liste des ressources, puis sur **Paramètres de l’application**. ![Capture d’écran du groupe de ressources](./media/create-website/TemplateDeployment9.png)  
 9. Remarquez l’existence de paramètres d’application pour le point de terminaison Azure Cosmos DB et chacune des clés principales Azure Cosmos DB.
 
     ![Capture d’écran des paramètres de l’application](./media/create-website/TemplateDeployment10.png)  
@@ -134,13 +130,9 @@ Maintenant nous allons déployer notre deuxième modèle.  Ce modèle vous montr
 ## <a name="next-steps"></a>Étapes suivantes
 Félicitations ! Vous avez déployé Azure Cosmos DB, une application web App Service et un exemple d’application web avec les modèles Azure Resource Manager.
 
-* Pour en savoir plus sur Azure Cosmos DB, cliquez [ici](http://azure.com/docdb).
-* Pour en savoir plus sur les applications web Azure App Service, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=325362).
-* Pour en savoir plus sur les modèles Azure Resource Manager, cliquez [ici](https://msdn.microsoft.com/library/azure/dn790549.aspx).
-
-## <a name="whats-changed"></a>Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure Classic](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Pour en savoir plus sur Azure Cosmos DB, consultez la [page du service Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+* Pour en savoir plus sur les applications web d’Azure App Service, consultez la [documentation de Web Apps](http://go.microsoft.com/fwlink/?LinkId=325362).
+* Pour en savoir plus sur les modèles Azure Resource Manager, consultez [API REST de Resource Manager : Déploiements](https://docs.microsoft.com/rest/api/resources/deployments).
 
 > [!NOTE]
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.

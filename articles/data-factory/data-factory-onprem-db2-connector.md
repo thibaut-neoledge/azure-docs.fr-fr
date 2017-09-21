@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 6a89cc44724dbb5b46a9e89d6da24d9b35ddbbef
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: fed1c8790c5d6d1c688e04a49d5cecd09fbc0dda
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Déplacer des données depuis DB2 à l’aide de l’activité de copie dans Azure Data Factory
@@ -93,7 +93,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | **tableName** |Nom de la table dans l'instance de base de données DB2 à laquelle le service lié fait référence. Cette propriété est sensible à la casse. |Non (si la propriété **query** d’une activité de copie de type **RelationalSource** est spécifiée) |
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
-Pour obtenir la liste des sections et des propriétés disponibles pour la définition des activités de copie, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés d’activité de copie comme le **nom**, la **description**, la table d’**entrée**, la table de **sortie** et la **stratégie** sont disponibles pour tous les types d’activités. Les propriétés disponibles dans la section **typeProperties** de l’activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
+Pour obtenir la liste des sections et des propriétés disponibles pour la définition des activités de copie, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés d’activité de copie comme le **nom**, la **description**, la table d’**entrée**, la table de **sortie** et la **stratégie** sont disponibles pour tous les types d’activités. Les propriétés disponibles dans la section **typeProperties** de l’activité varient pour chaque type d’activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
 
 Pour l’activité de copie, lorsque la source est de type **RelationalSource** (qui inclut DB2), les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
@@ -354,3 +354,4 @@ Lorsque vous copiez des données à partir d’un magasin de données relationne
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Pour en savoir plus sur les facteurs clés affectant les performances de l’activité de copie et les différentes manières de les optimiser, consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md).
+

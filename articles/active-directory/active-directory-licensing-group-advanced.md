@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 55e2e095138842f8e2d31a4f79ffb22b81d18dba
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 87cc66752dae1f4bd0903607d8a8ae9bd9125b11
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -213,6 +213,8 @@ Si vous utilisez la gestion des licences par groupe, il est conseillé de vous f
 - Quand un utilisateur est supprimé d’un groupe et perd la licence, les plans de services de cette licence (par exemple, SharePoint Online) sont définis sur un état **Suspendu**. Les plans de service ne sont pas définis sur un état final « désactivé ». Cette précaution permet d’éviter une suppression accidentelle de données utilisateur si un administrateur commet une erreur dans la gestion de l’appartenance au groupe.
 
 - Lorsque des licences sont attribuées ou modifiées pour un groupe de grande taille (par exemple, 100 000 utilisateurs), cela peut affecter les performances. Plus précisément, le volume de modifications générées par Azure AD Automation peut affecter les performances de synchronisation de votre annuaire entre Azure AD et les systèmes locaux.
+
+- Dans certaines situations où la charge est élevée, le traitement des licences peut être différé et les modifications apportées, telles que l’ajout/la suppression d’un groupe de licences ou l’ajout/la suppression d’utilisateurs dans un groupe, peuvent mettre longtemps à être traitées. Si vous constatez que le traitement de vos modifications prend plus de 24 heures, [ouvrez un ticket de support](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) pour nous permettre de faire des recherches. Nous allons améliorer les caractéristiques de performance de cette fonctionnalité avant qu’elle n’entre en *disponibilité générale*.
 
 - L’automatisation de la gestion des licences ne réagit pas automatiquement à tous les types de modifications dans l’environnement. Par exemple, il se peut que vous manquiez de licences et que certains utilisateurs se retrouvent dans un état d’erreur. Pour libérer le nombre de sièges disponibles, vous pouvez supprimer des licences affectées directement d’autres utilisateurs. Le système ne réagit toutefois pas automatiquement à cette modification et ne corrige pas les utilisateurs dans cet état d’erreur.
 

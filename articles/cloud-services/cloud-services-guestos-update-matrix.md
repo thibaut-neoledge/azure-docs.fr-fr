@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/24/2017
+ms.date: 9/14/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: be0092e62033da249015b211db148da57bb82765
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: dbbf529dc7a7c30daa78d92f210385d20e139d41
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
@@ -38,6 +38,8 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas exactement ce qu’est un SE invité ou en quoi consistent les publications du SE invité ? Lisez [cette](#how-it-works) section.
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+###### <a name="september-14-2017"></a>**14 septembre 2017**
+Le déploiement du système d’exploitation invité du mois de septembre commence le 14 septembre, et sa publication est prévue le 9 octobre.
 
 ###### <a name="august-24-2017"></a>**24 août 2017**
 Publication du SE invité août.
@@ -65,12 +67,6 @@ Début du déploiement du SE invité de mai le 12 mai et publication projetée 
 
 ###### <a name="april-18-2017"></a>**18 avril 2017**
 Début du déploiement du SE invité d’avril le 18 avril et publication projetée le 9 mai.
-
-###### <a name="april-10-2017"></a>**10 avril 2017**
-Le déploiement du SE invité de mars a commencé le 14 mars 2017 et s’est achevé le 10 avril 2017.
-
-###### <a name="january-10-2017"></a>**10 janvier 2017**
-Le SE invité de janvier contient des correctifs qui affectent uniquement la famille de SE 2 (Windows Server 2008 R2). Nous n’avons donc publié que l’image de la famille de SE 2 (WA-GUEST-OS-2.59_201701-01) pour ce mois. Pour toutes les autres familles de SE, le SE de décembre (201612-01) reste la version la plus à jour.
 
 
 ## <a name="releases"></a>Publications
@@ -181,9 +177,9 @@ Prend en charge .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 La liste des correctifs inclus dans chaque publication mensuelle du SE invité est disponible [ici][patches].
 
 ## <a name="sdk-support"></a>Prise en charge des Kits de développement logiciel (SDK)
-La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Azure][retire policy sdk] indique que seules les versions postérieures à la version 2.2 sont prises en charge. Cependant, certaines familles de SE invités permettent l’utilisation de versions antérieures. Vous devez toujours utiliser le Kit de développement logiciel (SDK) pris en charge le plus récent.
+La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Azure][retire policy sdk] indique que seules les versions postérieures à la version 2.2 sont prises en charge. Cependant, certaines familles de SE invités permettent l’utilisation de versions antérieures. Vous devez toujours utiliser le kit SDK pris en charge le plus récent.
 
-| Famille de SE invité | Versions du Kit de développement logiciel (SDK) compatibles |
+| Famille de SE invité | Versions du kit SDK compatibles |
 | --- | --- |
 | 5 |Versions 2.9.5.1 et ultérieures |
 | 4 |Versions 2.1 et ultérieures |

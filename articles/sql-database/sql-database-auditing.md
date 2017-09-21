@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: ea45fe72a499daa363dc9e43f82c94af38bf6e85
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 04c402709560775592e5500362b0d9a4ccbf5a6f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
@@ -49,15 +49,15 @@ Une stratégie d’audit peut être définie pour une base de données spécifiq
 
 * Une stratégie de serveur s’applique aux bases de données existantes et à celles qui sont nouvellement créées sur le serveur.
 
-* Si *l’audit d’objets blob du serveur est activé*, il *s’applique toujours à la base de données* (autrement dit, la base de données sera auditée), indépendamment des paramètres d’audit de la base de données.
+* Si *l’audit d’objets blob serveur est activé*, il *s’applique toujours à la base de données*. La base de données est auditée, quels que soient les paramètres d’audit de la base de données.
 
-* L’activation de l’audit d’objets blob sur la base de données, en plus de son activation sur le serveur, *ne* remplace ni ne modifie aucun des paramètres de l’audit d’objets blob du serveur. Les deux audits coexistent. En d’autres termes, la base de données est auditée deux fois en parallèle (une fois par la stratégie du serveur et une autre fois par la stratégie de la base de données).
+* L’activation de l’audit d’objets blob dans la base de données, en plus de son activation sur le serveur, ne remplace *pas* et ne modifie pas non plus les paramètres de l’audit d’objets blob serveur. Les deux audits coexistent. En d’autres termes, la base de données est auditée deux fois en parallèle (une fois par la stratégie du serveur et une autre fois par la stratégie de la base de données).
 
    > [!NOTE]
    > Vous devez éviter d’activer à la fois l’audit d’objets blob du serveur et l’audit d’objets blob de la base de données, sauf si :
     > * Vous voulez utiliser un autre *compte de stockage* ou une autre *période de rétention* pour une base de données spécifique.
-    > * Vous souhaitez auditer des types ou catégories d’événements pour une base de données spécifique différents des types ou catégories d’événements qui sont audités pour les autres bases de données sur le serveur. Par exemple, il est possible que des insertions de table doivent être auditées uniquement pour une base de données spécifique.
-   > 
+    > * Vous souhaitez auditer des types ou des catégories d’événements pour une base de données qui sont différents de ceux qui sont audités pour les autres bases de données du serveur. Par exemple, il est possible que des insertions de table doivent être auditées uniquement pour une base de données spécifique.
+   >
    > Sinon, nous vous recommandons d’activer uniquement l’audit d’objets blob au niveau du serveur et de laisser l’audit au niveau de la base de données désactivé pour toutes les bases de données.
 
 
@@ -68,20 +68,20 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 2. Accédez au panneau **Paramètres** de la base de données/du serveur SQL que vous voulez auditer. Dans le panneau **Paramètres**, sélectionnez **Audit et détection des menaces**.
 
     <a id="auditing-screenshot"></a> ![Volet de navigation][1]
-3. Si vous préférez configurer une stratégie d’audit de serveur (qui s’appliquera aux bases de données existantes et nouvellement créées sur ce serveur), vous pouvez sélectionner le lien **Afficher les paramètres du serveur** dans le panneau d’audit de la base de données. Vous pouvez alors afficher ou modifier les paramètres d’audit du serveur.
+3. Si vous préférez définir une stratégie d’audit de serveur, vous pouvez sélectionner le lien **Afficher les paramètres du serveur** dans le panneau d’audit de la base de données. Vous pouvez alors afficher ou modifier les paramètres d’audit du serveur. Les stratégies d’audit de serveur s’appliquent aux bases de données existantes et à celles qui sont nouvellement créées sur le serveur.
 
     ![Volet de navigation][2]
-4. Si vous préférez activer l’audit d’objets blob au niveau de la base de données (en plus ou à la place de l’audit au niveau du serveur) : pour **Audit**, sélectionnez **ACTIVÉ** et pour **Type d’audit**, sélectionnez **Objet blob**.
+4. Si vous préférez activer l’audit d’objets blob au niveau de la base de données : pour **Audit**, sélectionnez **ACTIVÉ** et pour **Type d’audit**, sélectionnez **Objet blob**.
 
-    Si l’audit d’objets blob du serveur est activé, l’audit configuré pour la base de données coexiste avec celui-ci.  
+    Si l’audit d’objets blob du serveur est activé, l’audit configuré pour la base de données coexiste avec celui-ci.
 
     ![Volet de navigation][3]
-5. Pour ouvrir le panneau **Stockage des journaux d’audit**, sélectionnez **Détails du stockage**. Sélectionnez le compte de stockage Azure où les journaux sont enregistrés, puis la période de rétention après laquelle les anciens journaux sont supprimés. Cliquez ensuite sur **OK**. 
-   >[!TIP] 
-   >Pour tirer le meilleur parti des modèles des rapports d’audit, utilisez le même compte de stockage pour toutes les bases de données auditées. 
+5. Pour ouvrir le panneau **Stockage des journaux d’audit**, sélectionnez **Détails du stockage**. Sélectionnez le compte de stockage Azure dans lequel les journaux seront enregistrés, puis sélectionnez la période de rétention. Les anciens journaux seront supprimés. Cliquez ensuite sur **OK**.
+   >[!TIP]
+   >Pour tirer le meilleur parti des modèles des rapports d’audit, utilisez le même compte de stockage pour toutes les bases de données auditées.
 
     <a id="storage-screenshot"></a> ![Volet de navigation][4]
-6. Si vous souhaitez personnaliser les événements audités, vous pouvez le faire avec PowerShell ou l’API REST. Pour plus d’informations, consultez la section [Automation (PowerShell / API REST)](#subheading-7).
+6. Si vous souhaitez personnaliser les événements audités, vous pouvez le faire avec PowerShell ou l’API REST. 
 7. Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité de détection des menaces et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Pour plus d’informations, consultez [Bien démarrer avec la détection des menaces](sql-database-threat-detection-get-started.md).
 8. Cliquez sur **Enregistrer**.
 
@@ -94,7 +94,7 @@ Les journaux d’audit sont agrégés dans le compte de stockage Azure choisi lo
 
 Les journaux d’audit d’objets blob sont enregistrés sous la forme d’une collection de fichiers d’objets blob dans un conteneur nommé **sqldbauditlogs**.
 
-Pour plus d’informations sur la hiérarchie des dossiers de stockage des journaux d’audit d’objets blob, sur les conventions de noms des objets blob et sur le format des journaux, consultez les [informations de référence sur le format des journaux d’audit d’objets blob (téléchargement de fichier .docx)](https://go.microsoft.com/fwlink/?linkid=829599).
+Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions de nommage et sur le format des journaux, consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
 Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’objets blob :
 
@@ -112,26 +112,26 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
 * Utilisez la fonction système **sys.fn_get_audit_file** (T-SQL) pour retourner les données du journal d’audit sous un format tabulaire. Pour plus d’informations sur l’utilisation de cette fonction, consultez la [documentation sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 
-* Utilisez **Fusionner les fichiers d’audit** dans SQL Server Management Studio (à partir de SSMS 17) :  
+* Utilisez **Fusionner les fichiers d’audit** dans SQL Server Management Studio (à partir de SSMS 17) :
     1. Dans le menu SSMS, sélectionnez **Fichier** > **Ouvrir** > **Fusionner les fichiers d’audit**.
 
         ![Volet de navigation][9]
-    2. La boîte de dialogue **Ajouter des fichiers d’audit** s’ouvre. Sélectionnez l’une des options **Ajouter** pour choisir de fusionner les fichiers d’audit à partir d’un disque local ou de les importer à partir du stockage Azure (vous devrez fournir vos informations de stockage Azure et la clé de compte).
+    2. La boîte de dialogue **Ajouter des fichiers d’audit** s’ouvre. Sélectionnez l’une des options **Ajouter** pour choisir de fusionner les fichiers d’audit à partir d’un disque local ou de les importer à partir du stockage Azure. Vous devrez fournir vos informations de stockage Azure et la clé de compte.
 
     3. Une fois que tous les fichiers à fusionner ont été ajoutés, cliquez sur **OK** pour terminer l’opération de fusion.
 
     4. Le fichier fusionné s’ouvre dans SSMS, où vous pouvez l’afficher et l’analyser, ainsi que l’exporter vers un fichier XEL ou CSV, ou une table.
 
-* Utilisez l’[application de synchronisation](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que nous avons créée. Elle s’exécute dans Azure et utilise les API publiques OMS (Operations Management Suite) Log Analytics pour effectuer un push des journaux d’audit SQL vers OMS. L’application de synchronisation effectue un push des journaux d’audit SQL vers OMS Log Analytics pour les utiliser dans le tableau de bord OMS Log Analytics. 
+* Utilisez l’[application de synchronisation](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que nous avons créée. Elle s’exécute dans Azure et utilise les API publiques OMS (Operations Management Suite) Log Analytics pour effectuer un push des journaux d’audit SQL vers OMS. L’application de synchronisation effectue un push des journaux d’audit SQL vers OMS Log Analytics pour les utiliser dans le tableau de bord OMS Log Analytics.
 
 * Utilisez Power BI. Vous pouvez afficher et analyser les données du journal d’audit dans Power BI. Explorez [Power BI et accédez à un modèle téléchargeable](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
 * Téléchargez les fichiers journaux à partir de votre conteneur Azure Storage Blob via le portail ou avec un outil comme [l’Explorateur de stockage Azure](http://storageexplorer.com/).
     * Une fois que vous avez téléchargé localement un fichier journal, vous pouvez double-cliquer sur le fichier pour ouvrir, afficher et analyser les journaux dans SSMS.
-    * Vous pouvez également télécharger plusieurs fichiers simultanément avec l’Explorateur de stockage Azure. Cliquez avec le bouton droit sur un sous-dossier spécifique (par exemple, un sous-dossier qui inclut tous les fichiers journaux pour une date spécifique) et sélectionnez **Enregistrer sous** pour l’enregistrer dans un dossier local.
+    * Vous pouvez également télécharger plusieurs fichiers simultanément avec l’Explorateur de stockage Azure. Cliquez avec le bouton droit sur un sous-dossier, puis sélectionnez **Enregistrer en tant que** pour enregistrer dans un dossier local.
 
 * Autres méthodes :
-   * Après avoir téléchargé plusieurs fichiers (ou un sous-dossier qui comprend les fichiers journaux pour une journée entière, comme indiqué dans l’élément précédent de cette liste), vous pouvez les fusionner localement comme illustré dans les instructions relatives à l’option Fusionner les fichiers d’audit dans SSMS décrites précédemment.
+   * Après avoir téléchargé plusieurs fichiers (ou un sous-dossier contenant des fichiers journaux), vous pouvez les fusionner localement en suivant les instructions relatives à l’option Fusionner les fichiers d’audit dans SSMS décrites précédemment.
 
    * Affichez des journaux d’audit d’objets blob par programmation :
 
@@ -145,16 +145,16 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
 <!--The description in this section refers to preceding screen captures.-->
 
 ### <a id="subheading-6">Audit des bases de données géorépliquées</a>
-Quand vous utilisez des bases de données géorépliquées, vous pouvez configurer l’audit sur la base de données secondaire en activant ce dernier sur le **serveur secondaire** ou sur la base de données primaire (dans ce cas, la base de données secondaire a une stratégie d’audit identique à celle de la base de données primaire).
+Avec les bases de données géorépliquées, lorsque vous activez l’audit dans la base de données primaire, la même stratégie d’audit est appliquée à la base de données secondaire. Il est également possible de configurer l’audit dans la base de données secondaire en activant l’audit dans le **serveur secondaire**, indépendamment de la base de données primaire.
 
-* Au niveau du serveur (**recommandé**) : Activez l’audit sur le **serveur principal** et le **serveur secondaire**. Les bases de données primaire et secondaire sont auditées indépendamment l’une de l’autre en fonction de leur stratégie de niveau serveur respective.
+* Au niveau du serveur (**recommandé**) : Activez l’audit dans le **serveur principal** et le **serveur secondaire**. Les bases de données primaire et secondaire sont auditées, indépendamment l’une de l’autre, en fonction de leur stratégie de niveau serveur respective.
 
 * Au niveau de la base de données : L’audit pour les bases de données secondaires peut uniquement être configuré à partir des paramètres d’audit de la base de données primaire.
    * L’audit Objet blob doit être activé sur la *base de données primaire elle-même*, et non pas sur le serveur.
    * Une fois que l’audit d’objets blob est activé sur la base de données primaire, il est également activé sur la base de données secondaire.
 
      >[!IMPORTANT]
-     >Avec l’audit au niveau de la base de données, les paramètres de stockage de la base de données secondaire sont identiques à ceux de la base de données primaire, ce qui entraîne un trafic entre régions. À moins que l’audit au niveau de la base de données soit nécessaire, nous vous recommandons d’activer uniquement l’audit au niveau du serveur sur les serveurs principal et secondaire, et de laisser désactivé l’audit au niveau de la base de données pour toutes les bases de données.
+     >Avec l’audit au niveau de la base de données, les paramètres de stockage de la base de données secondaire sont identiques à ceux de la base de données primaire, ce qui entraîne un trafic entre régions. Il est conseillé d’activer uniquement l’audit d’objets blob au niveau du serveur et de laisser l’audit au niveau de la base de données désactivé pour toutes les bases de données.
 <br>
 
 ### <a id="subheading-6">Régénération des clés de stockage</a>
@@ -169,19 +169,21 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 3. Revenez au panneau de configuration de l’audit, remplacez la clé d’accès de stockage secondaire par la clé primaire, puis cliquez sur **OK**. Cliquez ensuite sur **Enregistrer** en haut du panneau de configuration de l’audit.
 4. Revenez au panneau de configuration du stockage, puis régénérez la clé d’accès secondaire (en préparation du cycle suivant d’actualisation des clés).
 
-## <a id="subheading-7"></a>Automation (PowerShell / API REST)
-Vous pouvez également configurer l’audit dans Azure SQL Database en utilisant les outils d’automation suivants :
+## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Gérer l’audit de base de données SQL avec Azure PowerShell
+
 
 * **Applets de commande PowerShell**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
-   * [Get-AzureRMSqlServerAuditingPolicy][102]
+   * [Get-AzureRMSqlDatabaseAuditing][101]
+   * [Get-AzureRMSqlServerAuditing][102]
    * [Remove-AzureRMSqlDatabaseAuditing][103]
    * [Remove-AzureRMSqlServerAuditing][104]
-   * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
-   * [Set-AzureRMSqlServerAuditingPolicy][106]
+   * [Set-AzureRMSqlDatabaseAuditing][105]
+   * [Set-AzureRMSqlServerAuditing][106]
 
    Pour obtenir un exemple de script, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+
+## <a name="manage-sql-database-auditing-using-rest-api"></a>Gérer l’audit de base de données SQL à l’aide de l’API REST
 
 * **API REST - Audit d’objets blob** :
 
@@ -199,7 +201,7 @@ Vous pouvez également configurer l’audit dans Azure SQL Database en utilisant
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation (PowerShell / REST API)]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)  
+[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

@@ -16,10 +16,10 @@ ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 5b6f016ce634fd244f1ea3b54361b9a5da9d5483
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 08/11/2017
 Azure Cosmos DB est un service de base de données multimodèle mondialement distribué de Microsoft. En un clic, le service Azure Cosmos DB vous permet de faire évoluer en toute flexibilité et de façon indépendante le débit et le stockage sur n’importe quel nombre de régions géographiques Azure. Il offre des garanties en termes de débit, de latence, de disponibilité et de cohérence avec des [contrats SLA complets](https://aka.ms/acdbsla), ce qu’aucun autre service de base de données ne peut offrir.
 
 ![Azure Cosmos DB est le service de base de données distribué mondialement de Microsoft qui propose une augmentation de la taille des instances, une faible latence, cinq modèles de cohérence et des contrats SLA offrant des garanties complètes](./media/introduction/azure-cosmos-db.png)
+
+Vous pouvez [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, libre de tout frais et engagement.
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Les solutions qui profitent des avantages de Azure Cosmos DB
 
@@ -41,12 +43,12 @@ En tant que service de base de données distribué mondialement, Azure Cosmos DB
     * À l’aide des API multihébergement d’Azure Cosmos DB, l’application sait où se trouve la région la plus proche et envoie les requêtes au centre de données le plus proche. Tout ceci est possible sans aucune modification de configuration. Vous définissez votre région d’écriture et autant de régions de lecture que vous souhaitez, le reste est géré pour vous.
 
 * **Plusieurs modèles de données et API populaires pour la consultation et l’interrogation des données**
-    * Le modèle de données basé sur le atome-enregistrement-séquence (ARS) sur lequel repose Azure Cosmos DB prend en charge en mode natif plusieurs modèles de données, incluant notamment les documents, les graphiques, les clés-valeurs, les tables et les modèles de données en colonnes.
+    * Le modèle de données basé sur ARS (atome-record-sequence) sur lequel repose Azure Cosmos DB prend en charge en mode natif plusieurs modèles de données, notamment les documents, les graphes, les clés-valeurs, les tables et les modèles de données en colonnes.
     * Les API pour les modèles suivants sont pris en charge avec les SDK et sont disponibles dans plusieurs langages :
         * [API DocumentDB](documentdb-introduction.md)
         * [API MongoDB](mongodb-introduction.md)
-        * [API de table](table-introduction.md)
-        * [API de graphique (Gremlin)](graph-introduction.md)
+        * [API Table](table-introduction.md)
+        * [API Graph (Gremlin)](graph-introduction.md)
         * Des modèles de données supplémentaires seront bientôt disponibles 
 
 * **Mettre à l’échelle le débit et le stockage de façon élastique et à la demande, dans le monde entier**

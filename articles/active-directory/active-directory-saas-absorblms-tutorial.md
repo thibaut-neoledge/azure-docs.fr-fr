@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/15/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 3c68c3ac7d6be593476d419f8c015931b206eead
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f5f20fee648cf26b4db49b9a8f5f5e5bcecd453e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Didacticiel : Intégration d’Azure Active Directory avec Absorb LMS
@@ -124,7 +124,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
     
-7. Dans la section **Configuration de Absorb LMS** , cliquez sur **Configurer Absorb LMS** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
+7. Dans la section **Configuration de Absorb LMS** , cliquez sur **Configurer Absorb LMS** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**URL de déconnexion** à partir de la **section Référence rapide.**
 
     ![Configuration d’Absorb LMS](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_configure.png) 
 
@@ -146,15 +146,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-absorblms-tutorial/4.png)
 
-    a. Sélectionnez le **Mode** approprié.
+    a. Sélectionnez **Identity Provider Initiated** (Initiée par le fournisseur d’identité).
 
-    b. Ouvrez le certificat que vous avez téléchargé à partir du portail Azure dans le bloc-notes, supprimez les balises **---BEGIN CERTIFICATE---** et **---END CERTIFICATE---**, puis collez le contenu restant dans la zone de texte **Key** (Clé).
+    b. Ouvrez le certificat que vous avez téléchargé à partir du portail Azure dans le Bloc-notes, supprimez les balises **---BEGIN CERTIFICATE---** et **---END CERTIFICATE---**, puis collez le contenu restant dans la zone de texte **Key** (Clé).
     
     c. Dans **Id Property** (Propriété d’ID), sélectionnez l’attribut approprié configuré comme identificateur d’utilisateur dans Azure AD (par exemple, si userprinciplename est sélectionné dans Azure AD, ici vous devez sélectionner Username.)
 
-    d. Dans **Login URL** (URL de connexion), collez la valeur **« URL du service d’authentification unique »** que vous avez copiée dans la fenêtre **Configurer l’authentification** du portail Azure.
+    d. Dans **Login URL** (URL de connexion), collez l’**URL d’accès utilisateur** indiquée dans la page **Propriétés** du portail Azure.
 
-    e. Dans **Logout URL** (URL de connexion), collez la valeur **« URL de déconnexion »** que vous avez copiée dans la fenêtre **Configurer l’authentification** du portail Azure.
+    e. Dans **Logout URL** (URL de déconnexion), collez la valeur de l’**URL de déconnexion** que vous avez copiée depuis la fenêtre **Configurer l’authentification** du portail Azure.
 
 13. Activez **« Autoriser uniquement la connexion SSO »**.
 
@@ -276,6 +276,7 @@ Lorsque vous cliquez sur la vignette Absorb LMS dans le volet d’accès, vous 
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+
 
 
 <!--Image references-->

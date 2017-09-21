@@ -16,12 +16,11 @@ ms.tgt_pltfrm: sqldb-performance
 ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: bonova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 46d33a7b2dbaeb447452d8c94e897e59ec915dcc
-ms.openlocfilehash: 104a2d91ee9ca657fcc431d947d6a4be5d57a056
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: c76934d96530889f529eb887469e05d5a6a45e1e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Utilisation du magasin de requêtes dans la base de données SQL Azure
@@ -39,7 +38,7 @@ Cette section décrit les paramètres optimaux de configuration par défaut, con
 
 | Configuration | Description | Default | Commentaire |
 | --- | --- | --- | --- |
-| MAX_STORAGE_SIZE_MB |Spécifie la limite d’espace de données que le magasin de requêtes peut inclure dans une base de données client |100 |Appliqué aux nouvelles bases de données |
+| MAX_STORAGE_SIZE_MB |Spécifie la limite d’espace de données que le magasin de requêtes peut inclure dans la base de données client |100 |Appliqué aux nouvelles bases de données |
 | INTERVAL_LENGTH_MINUTES |Définit la durée pendant laquelle les statistiques d’exécution collectées pour les plans de requête sont agrégées et rendues persistantes. Chaque plan de requête actif dispose au maximum d’une ligne pour une période définie avec cette configuration |60 |Appliqué aux nouvelles bases de données |
 | STALE_QUERY_THRESHOLD_DAYS |Stratégie de nettoyage basée sur la durée, et qui contrôle la période de rétention des statistiques d’exécution persistantes et des requêtes inactives |30 |Appliqué aux nouvelles bases de données et aux bases de données ayant la valeur par défaut précédente (367) |
 | SIZE_BASED_CLEANUP_MODE |Indique si un nettoyage automatique des données a lieu lorsque la taille des données du magasin de requêtes approche de la limite |AUTO |Appliqué à toutes les bases de données |

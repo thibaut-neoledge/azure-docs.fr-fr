@@ -14,124 +14,84 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 04/21/2017
+ms.date: 09/08/2017
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 40fe0ae04eb94322356ed19773512e3bc383639c
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 5a8b7711d6576edcc470886f27aa61ac04944002
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Conception de services hautement disponibles à l’aide d’Azure SQL Database
 
-Pour créer et déployer des services hautement disponibles sur Azure SQL Database, vous utilisez des [groupes de basculement et un géoréplication active](sql-database-geo-replication-overview.md) pour assurer une tolérance aux défaillances régionales et aux pannes catastrophiques, ainsi que permettre une récupération rapide des bases de données secondaires. Cet article se concentre sur des modèles d’application courants et présente les avantages et inconvénients de chaque option en fonction des exigences liées au déploiement d’application, du contrat de niveau de service ciblé, de la latence du trafic et des coûts. Pour plus d’informations sur la géoréplication active avec des pools élastiques, voir [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Pour créer et déployer des services hautement disponibles sur Azure SQL Database, vous devez utiliser des [groupes de basculement et une géoréplication active](sql-database-geo-replication-overview.md) en vue de fournir une tolérance aux défaillances régionales et aux défaillances graves. Les groupes de basculement et la géoréplication active permettent également une récupération rapide des bases de données secondaires. Cet article aborde les modèles d’application courants et présente les avantages et inconvénients de chacun d’eux. Pour plus d’informations sur la géoréplication active avec des pools élastiques, consultez [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-## <a name="design-pattern-1-active-passive-deployment-for-cloud-disaster-recovery-with-a-co-located-database"></a>Modèle de conception 1 : Déploiement actif/passif pour la récupération d’urgence cloud avec une base de données colocalisée
-Cette option est idéale pour les applications dotées des caractéristiques suivantes :
+## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scénario 1 : Utilisation de deux régions Azure pour la continuité d’activité avec temps d’arrêt minimal
+Dans ce scénario, les applications ont les caractéristiques suivantes : 
+*   Chaque application est active dans une région Azure
+*   Toutes les sessions de base de données nécessitent un accès aux données en lecture et écriture
+*   La couche Web et la couche Données doivent être colocalisées pour réduire la latence et les coûts liés au trafic 
+*   Les temps d’arrêt représentent un plus grand risque pour ces applications que la perte de données
 
-* Instance active dans une seule région Azure
-* Forte dépendance à l’accès aux données en lecture-écriture (RW)
-* Connectivité dans plusieurs régions entre l’application web et la base de données non acceptable en raison de la latence et du coût du trafic    
-
-Dans ce cas, la topologie de déploiement d’applications est optimisée pour la gestion des sinistres régionaux lorsque tous les composants d’application sont concernés et doivent être basculés en tant qu’unité. Pour la redondance géographique, la logique d’application et la base de données sont répliquées vers une autre région, mais elles ne sont pas utilisées pour la charge de travail de l’application dans des conditions normales. L’application dans la région secondaire doit être configurée pour utiliser une chaîne de connexion SQL sur la base de données secondaire. Traffic Manager est configuré pour utiliser la [méthode de routage du trafic par basculement](../traffic-manager/traffic-manager-configure-failover-routing-method.md).  
-
-> [!NOTE]
-> [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) est utilisé dans cet article aux fins d’illustration uniquement. Vous pouvez utiliser toute solution d’équilibrage de charge qui prend en charge la méthode de routage du trafic par basculement.    
->
-
-Le diagramme suivant illustre cette configuration avant une panne.
-
-![Configuration de la géoréplication de SQL Database. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
-
-Après une panne dans la région primaire, le service SQL Database détecte que la base de données primaire n’est pas accessible et déclenche un basculement vers la base de données secondaire conformément aux paramètres de la stratégie de basculement automatique. Selon le contrat de niveau de service (SLA) de votre application, vous pouvez choisir de configurer une période de grâce entre la détection de la panne et le basculement proprement dit. La configuration d’une période de grâce permet de réduire le risque de perte de données dans les cas où la défaillance est grave et la disponibilité dans la région ne peut pas être restaurée rapidement. Si le basculement de point de terminaison est initié par Traffic Manager avant que le groupe de basculement déclenche le basculement de la base de données, l’application web ne peut plus de se reconnecter à la base de données. La tentative de reconnexion de l’application réussit automatiquement dès que le basculement de la base de données est terminé. 
+Dans ce cas, la topologie de déploiement d’applications est optimisée pour la gestion des sinistres régionaux lorsque tous les composants d’application doivent être basculés en même temps. Le diagramme ci-dessous illustre cette topologie. Pour assurer la géoredondance, les ressources de l’application sont déployées dans la région A et la région B. Toutefois, les ressources de la région B sont utilisées seulement en cas de défaillance de la région A. Un groupe de basculement est configuré entre les deux régions pour gérer le basculement, la réplication et la connectivité à la base de données. Le service web des deux régions est configuré pour accéder à la base de données via l’écouteur en lecture-écriture **&lt;nom-groupe-basculement&gt;.database.windows.net** (1). Traffic Manager est configuré pour utiliser la [méthode de routage prioritaire](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
-> Pour bénéficier d’un basculement entièrement coordonné de l’application et des bases de données, vous devez concevoir votre propre méthode d’analyse et utiliser le basculement manuel des points de terminaison de l’application web et des bases de données.
+> [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) est utilisé dans cet article aux fins d’illustration uniquement. Vous pouvez utiliser toute solution d’équilibrage de charge qui prend en charge la méthode de routage prioritaire.    
 >
 
-Une fois le basculement des points de terminaison de l’application et de la base de données terminé, l’application reprend le traitement des requêtes utilisateur dans la région B et reste colocalisée avec la base de données, car la base de données primaire se trouve à présent dans la région B. Ce scénario est illustré dans le diagramme suivant. Dans tous les diagrammes, des lignes pleines indiquent les connexions actives, des lignes en pointillé indiquent les connexions suspendues et les symboles « stop » indiquent les déclencheurs d’action.
+Le diagramme suivant illustre cette configuration avant une panne :
 
-![Géoréplication : basculement vers la base de données secondaire. Sauvegarde de données d’application.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)
+![Scénario 1 Configuration avant la panne.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-a.png)
 
-Si une panne se produit dans la région secondaire, le lien de réplication entre les bases de données primaire et secondaire est interrompu, mais le basculement n’est pas déclenché, car la base de données primaire n’est pas affectée. L’application reste alors disponible, mais elle est exposée et court donc un risque plus élevé en cas de défaillances successives dans les deux régions.
+Après une panne dans la région primaire, le service SQL Database détecte que la base de données primaire n’est pas accessible et déclenche un basculement vers la région secondaire conformément aux paramètres de la stratégie de basculement automatique (1). Selon le contrat de niveau de service (SLA) de votre application, vous pouvez choisir de configurer une période de grâce entre la détection de la panne et le basculement proprement dit. Il est possible que Traffic Manager démarre le basculement de point de terminaison avant que le groupe de basculement ne déclenche le basculement de la base de données. Dans ce cas, l’application web ne peut pas se reconnecter immédiatement à la base de données. Toutefois, une reconnexion automatique est effectuée dès que le basculement de la base de données est terminé. Lorsque la région défaillante est restaurée et de nouveau en ligne, l’ancienne région primaire se reconnecte automatiquement en tant que nouvelle région secondaire. Le diagramme ci-dessous illustre la configuration après le basculement.
+ 
+> [!NOTE]
+> Toutes les transactions validées après le basculement sont perdues lors de la reconnexion. Une fois le basculement terminé, l’application de la région B est en mesure de se reconnecter et de redémarrer le traitement des demandes utilisateur. L’application web et la base de données primaire se trouvent maintenant dans la région B et restent colocalisées. 
+n>
+
+![Scénario 1 Configuration après le basculement](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
+
+Si une panne se produit dans la région B, le processus de réplication entre la base de données primaire et la base de données secondaire est suspendu, mais le lien entre les deux reste intact (1). Le trafic géré détecte que la connectivité à la région B est interrompue et marque l’application web de point de terminaison 2 comme étant Détériorée (2). Les performances de l’application ne sont pas impactées dans ce cas, mais la base de données devient exposée, et par conséquent, est soumise à un risque plus élevé de perte de données en cas de défaillance de la région A.
 
 > [!NOTE]
-> Pour une récupération d’urgence, nous recommandons la configuration dans laquelle le déploiement de l’application est limité à deux régions. En effet, la plupart des zones géographiques Azure comptent seulement deux régions. Cette configuration ne protège pas votre application d’une défaillance irrémédiable simultanée des deux régions.  Dans le cas peu probable d’une telle défaillance, vous pouvez restaurer vos bases de données dans une région tierce à l’aide de [l’opération de géo-restauration](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> Pour une récupération d’urgence, nous recommandons la configuration dans laquelle le déploiement de l’application est limité à deux régions. En effet, la plupart des zones géographiques Azure comptent seulement deux régions. Cette configuration ne protège pas votre application d’une défaillance grave simultanée des deux régions. Dans le cas peu probable d’une telle défaillance, vous pouvez restaurer vos bases de données dans une région tierce à l’aide de [l’opération de géorestauration](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
-Une fois la panne résolue, la base de données secondaire se resynchronise automatiquement avec la base de données primaire. Lors de la synchronisation, les performances de la base de données primaire peuvent être légèrement affectées selon la quantité de données à synchroniser. Le diagramme suivant illustre une panne dans la région secondaire.
+ Une fois la panne atténuée, la base de données secondaire est automatiquement resynchronisée avec la base de données primaire. Pendant la synchronisation, les performances de la base de données principale peuvent être impactées. L’impact dépend de la quantité de données que la nouvelle base de données primaire a acquises depuis le basculement. Le diagramme suivant illustre une panne dans la région secondaire :
 
-![Synchronisation de la base de données secondaire avec la base de données primaire. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-3.png)
+![Scénario 1 Configuration après une panne dans la région secondaire.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 
 Les **avantages** clés de ce modèle de conception sont les suivants :
 
-* La même application web est déployée dans les deux régions sans configuration régionale spécifique et aucune logique supplémentaire pour réagir au basculement. 
-* Les performances de l’application ne sont pas affectées par le basculement, car l’application web et la base de données sont toujours colocalisées.
+* La même application web est déployée dans les deux régions sans configuration régionale, ni logique supplémentaire pour gérer le basculement. 
+* Les performances de l’application ne sont pas impactées par le basculement, car l’application web et la base de données sont toujours colocalisées.
 
-Le principal **inconvénient** est que l’instance d’application redondante dans la région secondaire est uniquement utilisée pour la récupération d’urgence.
+Le principal **inconvénient** à cela est que les ressources de l’application dans la région B sont, la plupart du temps, sous-utilisées.
 
-## <a name="design-pattern-2-active-active-deployment-for-application-load-balancing"></a>Modèle de conception 2 : Déploiement actif / actif pour l’équilibrage de charge d’applications
-Cette option de récupération d’urgence cloud est idéale pour les applications dotées des caractéristiques suivantes :
-
-* Ratio élevé de lectures de base de données par rapport aux écritures.
-* La latence de lecture de la base de données est plus importante pour l’expérience de l’utilisateur final que la latence d’écriture. 
-* La logique de lecture seule peut être séparée de la logique de lecture-écriture à l’aide d’une chaîne de connexion différente.
-* La logique de lecture seule ne dépend pas de la synchronisation intégrale des données avec les dernières mises à jour.  
-
-Si vos applications possèdent ces caractéristiques, l’équilibrage de charge des connexions de l’utilisateur final entre plusieurs instances d’application dans différentes régions peut améliorer considérablement l’expérience globale de l’utilisateur final. Deux des régions doivent être sélectionnées en tant que paire de récupération d’urgence et le groupe de basculement doit inclure les bases de données de ces régions. Pour implémenter l’équilibrage de charge, chaque région doit disposer d’une instance active de l’application avec la logique de lecture-écriture (RW) connectée au point de terminaison de l’écouteur de lecture-écriture du groupe de basculement. Le basculement sera ainsi lancé automatiquement si la base de données primaire est affectée par une panne. La logique de lecture seule (RO) dans l’application web doit se connecter directement à la base de données de cette région. Traffic Manager doit être configuré pour utiliser le [routage de performances](../traffic-manager/traffic-manager-configure-performance-routing-method.md) avec la [surveillance de point de terminaison](../traffic-manager/traffic-manager-monitoring.md) activée pour chaque instance d’application.
-
-Comme dans le modèle 1, vous devez envisager le déploiement d’une application de surveillance similaire. Mais, contrairement au modèle 1, l’application de surveillance ne sera pas chargée de déclencher le basculement du point de terminaison.
-
-> [!NOTE]
-> Bien que ce modèle utilise plusieurs bases de données secondaires, seule la base de données secondaire de la région B sera utilisée pour le basculement et doit faire partie du groupe de basculement.
->
-
-Traffic Manager doit être configuré pour que le routage de performances dirige les connexions utilisateur vers l’instance d’application la plus proche de l’emplacement géographique de l’utilisateur. Le diagramme suivant illustre cette configuration avant une panne.
-
-![Aucune panne : routage des performances vers l’application la plus proche. Géoréplication.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
-
-Si une panne de base de données est détectée dans la région A, le groupe de basculement lance automatiquement le basculement de la base de données primaire de la région A vers la base de données secondaire de la région B. Il met aussi automatiquement à jour le point de terminaison de l’écouteur de lecture-écriture vers la région B afin d’empêcher toute incidence sur les connexions de lecture-écriture dans l’application web. Traffic Manager exclut le point de terminaison hors connexion de la table de routage, mais continue le routage du trafic de l’utilisateur final vers les instances en ligne restantes. Les chaînes de connexion SQL en lecture seule ne sont pas affectées, car elles pointent toujours vers la base de données de la même région. 
-
-Le diagramme suivant illustre la nouvelle configuration après le basculement.
-
-![Configuration après le basculement. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-2.png)
-
-En cas de panne dans l’une des régions secondaires, Traffic Manager supprime automatiquement le point de terminaison hors connexion de cette région de la table de routage. Le canal de réplication vers la base de données secondaire de cette région est interrompu. Étant donné que les régions restantes récupèrent du trafic utilisateur supplémentaire dans ce scénario, les performances de l’application sont affectées pendant la panne. Une fois la panne résolue, la base de données secondaire de la région impactée est immédiatement synchronisée avec la base de données primaire. Lors de la synchronisation, les performances de la base de données primaire peuvent être légèrement affectées selon la quantité de données à synchroniser. Le diagramme suivant illustre une panne dans la région B.
-
-![Panne dans une région secondaire. Récupération d’urgence cloud - géoréplication.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-3.png)
-
-**L’avantage** clé de ce modèle de conception est que vous pouvez mettre à l’échelle la charge de travail de l’application sur plusieurs régions secondaires pour assurer des performances optimales à l’utilisateur final. Les **inconvénients** de cette option sont les suivants :
-
-* Les connexions de lecture-écriture entre les instances de l’application et la base de données présentent des latences et des coûts variables.
-* Les performances de l’application sont affectées pendant une panne.
-
-> [!NOTE]
-> Une approche similaire peut être utilisée pour décharger les charges de travail spécialisées telles que les travaux de création de rapports, les outils d’analyse décisionnelle ou les sauvegardes. En général, ces charges de travail consomment une quantité importante de ressources de base de données. Il est donc recommandé de désigner l’une des bases de données secondaires pour celles-ci, en mettant en correspondance le niveau de performances avec la charge de travail attendue.
->
-
-## <a name="design-pattern-3-active-passive-deployment-for-data-preservation"></a>Modèle de conception 3 : Déploiement actif / passif pour la conservation des données
+## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Scénario 2 : Régions Azure pour la continuité d’activité avec conservation maximale des données
 Cette option est idéale pour les applications dotées des caractéristiques suivantes :
 
-* Toute perte de données constitue un risque élevé pour l’entreprise. Le basculement de la base de données ne peut être utilisé qu’en dernier recours si la panne est grave.
+* Toute perte de données constitue un risque élevé pour l’entreprise. Le basculement de la base de données ne peut être utilisé qu’en dernier recours, si la panne est due à une défaillance grave.
 * L’application prend en charge les opérations en modes lecture seule et lecture-écriture et peut fonctionner en mode lecture seule pendant une période donnée.
 
-Dans ce modèle, l’application bascule vers le mode lecture seule lorsque les connexions de lecture-écriture commencent à recevoir des erreurs d’expiration du délai d’attente. L’application web est déployée dans les deux régions et inclut une connexion au point de terminaison de l’écouteur de lecture-écriture et une autre connexion au point de terminaison de l’écouteur de lecture seule. Traffic Manager doit être configuré pour utiliser le [routage de basculement](../traffic-manager/traffic-manager-configure-failover-routing-method.md) avec la [surveillance de point de terminaison](../traffic-manager/traffic-manager-monitoring.md) activée pour le point de terminaison de l’application dans chaque région.
+Dans ce modèle, l’application bascule vers le mode lecture seule lorsque les connexions de lecture-écriture commencent à recevoir des erreurs d’expiration du délai d’attente. L’application web est déployée dans les deux régions et inclut une connexion au point de terminaison de l’écouteur en lecture-écriture, et une autre connexion au point de terminaison de l’écouteur en lecture seule (1). Le profil Traffic Manager doit utiliser le [routage prioritaire](../traffic-manager/traffic-manager-configure-priority-routing-method.md). La [surveillance des points de terminaison](../traffic-manager/traffic-manager-monitoring.md) doit être activée pour le point de terminaison de l’application dans chaque région (2).
 
-Le diagramme suivant illustre cette configuration avant une panne.
+Le diagramme suivant illustre cette configuration avant une panne :
 
-![Déploiement actif/passif avant le basculement. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-1.png)
+![Scénario 2 Configuration avant la panne.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-a.png)
 
-Si Traffic Manager détecte une défaillance de connectivité pour la région A, il bascule automatiquement le trafic utilisateur vers l’instance de l’application dans la région B. Avec ce modèle, il est important de définir la période de grâce en cas de risque de perte de données sur une valeur suffisamment élevée, par exemple 24 heures. Vous empêcherez ainsi toute perte de données si la panne est résolue durant ce laps de temps. Lorsque l’application web de la région B est activée, les opérations en lecture-écriture se mettent à échouer. À ce stade, elle doit basculer vers le mode lecture seule. Dans ce mode, les requêtes sont automatiquement acheminées vers la base de données secondaire. En cas de défaillance grave, la panne ne sera pas résolue avant la fin de la période de grâce et le groupe de basculement déclenchera le basculement. Après cela, l’écouteur de lecture-écriture sera disponible et les appels vers celui-ci cesseront d’échouer. C’est ce qu’indique le diagramme suivant.
+Si Traffic Manager détecte une défaillance de connectivité pour la région A, il bascule automatiquement le trafic utilisateur vers l’instance de l’application dans la région B. Avec ce modèle, il est important de définir la période de grâce en cas de risque de perte de données sur une valeur suffisamment élevée, par exemple 24 heures. Vous empêcherez ainsi toute perte de données si la panne est résolue durant ce laps de temps. Lorsque l’application web de la région B est activée, les opérations en lecture-écriture se mettent à échouer. À ce stade, elle doit basculer vers le mode lecture seule (1). Avec ce mode, les requêtes sont automatiquement acheminées vers la base de données secondaire. Si la panne est due à une défaillance grave, elle ne pourra très probablement pas être résolue pendant la période de grâce. Lorsque cette période expire, le groupe de basculement déclenche le basculement. Ensuite, l’écouteur en lecture-écriture redevient disponible et les connexions à l’écouteur cessent d’échouer (2). Le diagramme suivant illustre les deux étapes du processus de récupération.
 
-![Panne : l’application en mode lecture seule. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-2.png)
+> [!NOTE]
+> Si la panne qui affecte la région primaire est résolue avant la fin de la période de grâce, Traffic Manager détecte la restauration de la connectivité dans la région primaire et rebascule le trafic utilisateur vers l’instance de l’application dans la région A. Cette instance de l’application reprend et fonctionne en mode lecture-écriture en s’appuyant sur la base de données primaire de la région A, comme illustré dans le diagramme précédent.
+>
 
-Si la panne qui affecte la région primaire est résolue avant la fin de la période de grâce, Traffic Manager détecte la restauration de la connectivité dans la région primaire et rebascule le trafic utilisateur vers l’instance de l’application dans la région A. Cette instance de l’application reprend et fonctionne en mode lecture-écriture en s’appuyant sur la base de données primaire de la région A.
+![Scénario 2 Étapes de la récupération d’urgence.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-b.png)
 
-En cas de panne dans la région B, Traffic Manager détecte la défaillance du point de terminaison de l’application dans la région B et le groupe de basculement bascule l’écouteur de lecture seule vers la région A. Cette panne n’affecte pas l’expérience de l’utilisateur final, mais la base de données primaire est exposée pendant toute sa durée. C’est ce qu’indique le diagramme suivant.
+Si une panne se produit dans la région B, Traffic Manager détecte la défaillance de l’application du point de terminaison 2 dans la région B et la marque comme étant Détériorée (1). Entre-temps, le groupe de basculement bascule l’écouteur en lecture seule vers la région A (2). Cette panne n’impacte pas l’expérience utilisateur, toutefois, la base de données primaire est exposée lors de la panne. Le diagramme suivant illustre une panne dans la région secondaire :
 
-![Panne : base de données secondaire. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)
+![Scénario 2 Panne dans la région secondaire.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-c.png)
 
 Une fois la panne résolue, la base de données secondaire est immédiatement synchronisée avec la base de données primaire l’écouteur de lecture seule est rebasculé vers la base de données secondaire de la région B. Lors de la synchronisation, les performances de la base de données primaire peuvent être légèrement affectées selon la quantité de données à synchroniser.
 
@@ -140,16 +100,57 @@ Ce modèle de conception offre plusieurs **avantages**:
 * Il évite la perte de données pendant les pannes temporaires.
 * Le temps d’arrêt dépend uniquement de la vitesse selon laquelle Traffic Manager détecte le problème de connectivité, paramètre configurable.
 
-Le **compromis** est le suivant :
+**L’inconvénient** est que l’application doit être en mesure de fonctionner en lecture seule.
 
-* L’application doit être en mesure de fonctionner en mode lecture seule.
+## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Scénario 3 : Déplacement de l’application vers une autre zone géographique sans perte de données et sans temps d’arrêt 
+Dans ce scénario, l’application a les caractéristiques suivantes : 
+* Les utilisateurs finaux accèdent à l’application à partir de différentes zones géographiques
+* L’application inclut des charges de travail en lecture seule qui ne dépendent pas d’une synchronisation complète avec les dernières mises à jour
+* L’accès en écriture aux données doit être pris en charge dans la même zone géographique pour la majorité des utilisateurs 
+* La latence de lecture est essentielle pour l’expérience utilisateur 
+
+
+Afin de remplir ces conditions, vous devez faire en sorte que l’appareil de l’utilisateur se connecte **toujours** à l’application déployée dans la même zone géographique pour les opérations en lecture seule, telles que l’exploration de données, l’analytique etc. Quant aux opérations OLTP, elles sont traitées dans la même zone géographique **la plupart du temps**. Par exemple, durant la journée, les opérations OLTP sont traitées dans la même zone géographique, mais pendant les heures creuses, elles peuvent être traitées dans une zone géographique différente. Si l’activité de l’utilisateur final a lieu principalement pendant les heures de travail, vous pouvez garantir des performances optimales pour la majorité des utilisateurs presque tout le temps. Le diagramme qui suit montre cette topologie : 
+ 
+Les ressources de l’application doivent être déployées dans chaque zone géographique pour laquelle vous avez une demande importante. Par exemple, si votre application est activement utilisée en Amérique du Nord, en Europe et en Asie du Sud-Est, l’application doit être déployée sur l’ensemble de ces zones géographiques. La base de données primaire doit être basculée dynamiquement d’une zone géographique à la suivante à la fin des heures de travail. Cette méthode est appelée « follow the sun » (suivre le soleil). La charge de travail OLTP se connecte toujours à la base de données via l’écouteur en lecture-écriture **&lt;nom-groupe-basculement&gt;.database.windows.net** (1). La charge de travail en lecture seule se connecte directement à la base de données locale à l’aide du point de terminaison de serveur de bases de données **&lt;nom-serveur&gt;.database.windows.net** (2). Traffic Manager est configuré avec la [méthode de routage de performances](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Ainsi, l’utilisateur final est connecté au service web de la région la plus proche. La surveillance des points de terminaison doit être activée dans Traffic Manager pour chaque point de terminaison de service web (3).
 
 > [!NOTE]
-> Dans le cas d’une panne de service permanente dans la région, vous devez activer manuellement le basculement de la base de données et accepter la perte de données. L’application sera fonctionnelle dans la région secondaire avec un accès en lecture-écriture à la base de données.
+> La configuration du groupe de basculement définit la région qui est utilisée pour le basculement. Étant donné que la nouvelle base de données primaire se trouve dans une zone géographique différente, le basculement entraîne une latence plus longue pour les charges de travail OLTP et les charges en lecture seule, jusqu’à ce que la région impactée soit de nouveau en ligne.
 >
 
+![Scénario 3 Configuration de la base de données primaire pour la région Est des États-Unis.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
+
+À la fin de la journée (par exemple à 23 h 00, heure locale), les bases de données actives doivent être basculées vers la région suivante (Europe du Nord). Cette tâche peut être entièrement automatisée à l’aide du [service de planification Azure](../scheduler/scheduler-intro.md).  Cette tâche implique les étapes suivantes :
+* Basculer le serveur principal du groupe de basculement vers la région Europe du Nord à l’aide d’un basculement convivial (1)
+* Supprimer le groupe de basculement situé entre la région Est des États-Unis et la région Europe du Nord
+* Créer un nouveau groupe de basculement portant le même nom, mais entre la région Europe du Nord et la région Asie de l’Est (2) 
+* Ajouter la base de données primaire de la région Europe du Nord et la base de données secondaire de la région Asie de l’Est à ce groupe de basculement (3)
+
+
+Le diagramme suivant illustre la nouvelle configuration après le basculement planifié :
+
+![Scénario 3 Transition de la base de données primaire vers la région Europe du Nord.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
+
+Si une panne se produit en Europe du Nord, par exemple, le basculement automatique de la base de données est démarré par le groupe de basculement, ce qui entraîne le déplacement de l’application vers la région suivante en avance (1).  Dans ce cas, la région Est des États-Unis est la seule région secondaire restante jusqu’à ce que l’Europe du Nord soit de nouveau en ligne. Les deux zones restantes servent les clients des trois régions géographiques en échangeant leur rôle. Azure Scheduler doit être réglé en conséquence. Étant donné que les zones restantes reçoivent du trafic utilisateur supplémentaire provenant de la région Europe, les performances de l’application sont impactées non seulement par une latence supplémentaire, mais également par un plus grand nombre de connexions utilisateur. Une fois la panne résolue dans la région Europe du Nord, la base de données secondaire est immédiatement synchronisée avec l’actuelle base de données primaire. Le diagramme suivant illustre une panne dans la région Europe du Nord :
+
+![Scénario 3 Panne dans la région Europe du Nord.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
+
+> [!NOTE]
+> Vous pouvez réduire le temps pendant lequel l’expérience des utilisateurs de la région en Europe est détériorée par la longue latence. Pour ce faire, vous devez déployer proactivement une copie de l’application et créer la ou les bases de données secondaires dans une autre région locale (Europe de l’Ouest) en remplacement de l’instance d’application hors connexion de la région Europe du Nord. Lorsque celle-ci est de nouveau en ligne, vous pouvez décider si vous souhaitez continuer à utiliser la région Europe de l’Ouest, ou supprimer la copie de l’application qui s’y trouve et recommencer à utiliser la région Europe du Nord.
+>
+
+Cette conception présente plusieurs **avantages** :
+* La charge de travail de l’application en lecture seule accède aux données de la région la plus proche à tout moment. 
+* La charge de travail de l’application en lecture-écriture accède aux données de la région la plus proche pendant la période d’activité la plus élevée dans chaque zone géographique.
+* Étant donné que l’application est déployée dans plusieurs régions, elle peut survivre à une perte de l’une des régions sans temps d’arrêt significatif. 
+
+Cela présente toutefois quelques **inconvénients** :
+* En cas de panne régionale, la zone géographique est impactée par une plus longue latence. Les charges de travail en lecture-écriture et en lecture seule sont prises en charge par l’application dans une zone géographique différente. 
+* Les charges de travail en lecture seule doivent se connecter à un autre point de terminaison dans chaque région. 
+
+
 ## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planification de la continuité des activités : choisir une conception d’application pour la récupération d’urgence cloud
-Votre stratégie de récupération d’urgence cloud spécifique peut combiner ou étendre ces modèles de conception afin de mieux répondre aux besoins de votre application.  Comme mentionné précédemment, la stratégie que vous choisissez est basée sur le contrat de niveau de service que vous souhaitez proposer à vos clients et sur la topologie de déploiement d’applications. Pour vous aider à prendre votre décision, le tableau suivant compare les choix en fonction de la perte de données estimée ou de l’objectif de point de récupération (RPO) et du temps de récupération estimé (ERT).
+Votre stratégie de récupération d’urgence cloud spécifique peut combiner ou étendre ces modèles de conception afin de mieux répondre aux besoins de votre application.  Comme mentionné précédemment, la stratégie que vous choisissez est basée sur le contrat de niveau de service que vous souhaitez proposer à vos clients et sur la topologie de déploiement d’applications. Pour vous aider à prendre votre décision, le tableau suivant compare les choix en fonction de l’objectif de point de récupération (RPO) et du temps de récupération estimé (ERT).
 
 | Modèle | RPO | ERT |
 |:--- |:--- |:--- |
@@ -160,10 +161,6 @@ Votre stratégie de récupération d’urgence cloud spécifique peut combiner o
 |||
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
-* Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
-* Pour découvrir des options de récupération plus rapides, voir [Géoréplication active](sql-database-geo-replication-overview.md).  
-* Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
-* Pour plus d’informations sur la géoréplication active avec des pools élastiques, voir [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-
+* Pour plus d’informations sur la géoréplication et les groupes de basculement, consultez [Géoréplication active](sql-database-geo-replication-overview.md).  
+* Pour plus d’informations sur la géoréplication active avec des pools élastiques, consultez [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

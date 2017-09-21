@@ -1,10 +1,10 @@
 ---
-title: "Présentation de l’application SaaS Wingtip - Application mutualisée d’Azure SQL Database | Microsoft Docs"
-description: "Apprendre à l’aide d’un exemple d’application mutualisée utilisant Azure SQL Database, l’application SaaS Wingtip"
+title: "Exemple d’application mutualisée Azure SQL Database - SaaS Wingtip | Microsoft Docs"
+description: "Apprendre à l’aide d’un exemple d’application mutualisée utilisant l’exemple Azure SQL Database - SaaS Wingtip"
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 6d4a5df599137e95ca5458fae74b8daa565b0338
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 68a9d97a881f3a7628a08b66091c3feb4c4dbbfe
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="introduction-to-the-wingtip-saas-application"></a>Présentation de l’application SaaS Wingtip
+# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Présentation d’un exemple d’application SaaS mutualisée SQL Database
 
 L’application *SaaS Wingtip* est un exemple d’application mutualisée qui présente les avantages uniques de SQL Database. L’application utilise une base de donnée par locataire, un modèle d’application SaaS, pour traiter plusieurs locataires. L’application est conçue pour présenter les fonctionnalités d’Azure SQL Database qui activent des scénarios Saas, dont quelques modèles de gestion et de conception SaaS. Pour que vous soyez rapidement opérationnel, l’application SaaS Wingtip se déploie en moins de cinq minutes.
 

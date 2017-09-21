@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 43025adeaf954fedfbcee32e636fb30935f2126b
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a761249e7345991bd570cde6170515fafd692d61
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Réseaux sociaux avec Azure Cosmos DB
@@ -240,7 +240,7 @@ Mais vous constatez rapidement que leur expérience avec votre plate-forme n’e
 
 Cosmos DB vous permet de [répliquer vos données globalement](../cosmos-db/tutorial-global-distribution-documentdb.md) et de manière transparente en quelques clics, mais aussi de choisir automatiquement parmi les régions disponibles à partir de votre [code client](../cosmos-db/tutorial-global-distribution-documentdb.md). Cela signifie également que vous pouvez avoir [plusieurs régions de basculement](regional-failover.md). 
 
-Lorsque vous répliquez vos données globalement, vous devez vous assurer que vos clients peuvent en tirer parti. Si vous utilisez un serveur web frontal ou accédez aux API à partir de clients mobiles, vous pouvez déployer [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) et cloner votre Azure App Service sur toutes les régions de votre choix en utilisant une [configuration des performances](../app-service-web/web-sites-traffic-manager.md) pour prendre en charge votre couverture étendue globale. Quand vos clients accèdent à votre serveur frontal ou API, ils sont redirigés vers l’instance App Service la plus proche qui, à son tour, se connecte au réplica Cosmos DB local.
+Lorsque vous répliquez vos données globalement, vous devez vous assurer que vos clients peuvent en tirer parti. Si vous utilisez un front-end web ou accédez aux API à partir de clients mobiles, vous pouvez déployer [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) et cloner votre Azure App Service dans toutes les régions de votre choix en utilisant une configuration des performances pour prendre en charge votre couverture étendue globale. Quand vos clients accèdent à votre serveur frontal ou API, ils sont redirigés vers l’instance App Service la plus proche qui, à son tour, se connecte au réplica Cosmos DB local.
 
 ![Ajout d’une couverture globale à votre plate-forme sociale](./media/social-media-apps/social-media-apps-global-replicate.png)
 

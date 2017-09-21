@@ -11,17 +11,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 1ab6a2b949101f60d6eef1ba7603d1c2cf81f90a
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 8b8ab2883234850fe243c4d7473d737c497204b4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
+
+
+
+**Q : Comment puis-je inscrire un appareil macOS ?**
+
+**R :** Pour inscrire un appareil macOS :
+
+1.  [Créez une stratégie de conformité](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [Définissez une stratégie d’accès conditionnel pour les appareils macOS](active-directory-conditional-access-azure-portal.md) 
+
+**Remarques :**
+
+- Les utilisateurs qui sont inclus dans votre stratégie d’accès conditionnel ont besoin d’une [version d’Office pour macOS prise en charge](active-directory-conditional-access-technical-reference.md#supported-mobile-apps-and-desktop-clients) pour accéder aux ressources. 
+
+- Lors de la première tentative d’accès, vos utilisateurs sont invités à inscrire l’appareil par l’intermédiaire du portail d’entreprise.
+
+---
 
 **Q : J’ai enregistré récemment l’appareil. Pourquoi ne puis-je pas voir l’appareil sous mes informations d’utilisateur dans le portail Azure ?**
 
@@ -136,20 +153,10 @@ Pour les autres plateformes Windows sur site AD et jointes à un domaine :
 
 ---
 
-**Q : Où puis-je trouver des instructions pour la configuration de l’inscription automatique  d’appareils ?**
+**Q : Où puis-je trouver des instructions pour la configuration d’appareils hybrides joints à Azure AD ?**
 
-**R :** Pour plus d’instructions, consultez [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md)
+**R :** Pour obtenir des instructions détaillées, consultez [Configurer des appareils hybrides joints à Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md).
 
----
-
-**Q : Où puis-je trouver des informations de résolution des problèmes concernant l’inscription d’appareils automatique ?**
-
-**R :** Pour obtenir des informations de résolution des problèmes, consultez :
-
-- [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD – Windows 10 et Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
-
-- [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD pour les clients de bas niveau Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
- 
 ---
 
 

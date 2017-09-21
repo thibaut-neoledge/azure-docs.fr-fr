@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
+ms.date: 09/10/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 681e91e3581f80c0cda64f95fed5cc01aaac2367
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 19bc7abbbf7e133018b234399d91604dfdbfe73f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accès conditionnel dans Azure Active Directory
@@ -60,31 +60,22 @@ Une stratégie d’accès conditionnel combine une instruction de condition à d
 
 Dans une stratégie d’accès conditionnel, les contrôles définissent l’action à effectuer lorsqu’une instruction de condition est remplie.  
 Grâce aux contrôles, vous pouvez bloquer ou autoriser l’accès avec des exigences supplémentaires.
-Lorsque vous configurez une stratégie qui autorise l’accès, vous devez sélectionner au moins une exigence.   
+Lorsque vous configurez une stratégie qui autorise l’accès, vous devez sélectionner au moins une exigence.  
 
-### <a name="grant-controls"></a>Contrôles d’octroi
+Il existe deux types de contrôles : 
+
+- **Contrôle d’octroi** : Les contrôles d’octroi déterminent si un utilisateur peut effectuer l’authentification et atteindre la ressource à laquelle il essaie de se connecter. Si vous avez sélectionné plusieurs contrôles, vous pouvez indiquer si tous ces contrôles sont requis lors du traitement de votre stratégie.
 L’implémentation actuelle d’Azure Active Directory vous permet de configurer les exigences de contrôle d’octroi suivantes :
 
-![Contrôle](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![Contrôle](./media/active-directory-conditional-access-azure-portal/05.png)
 
-- **Multi-factor Authentication** - Grâce à l’authentification multifacteur, vous pouvez appliquer une authentification renforcée. En tant que fournisseur, vous pouvez combiner Azure Multi-Factor Authentication ou une authentification multifacteur locale, avec AD FS (Active Directory Federation Services). L’authentification multifacteur contribue à empêcher tout accès à vos ressources par un utilisateur non autorisé qui peut avoir obtenu l’accès aux informations d’identification d’un utilisateur valide.
+- **Contrôles de session** : Les contrôles de session permettent de limiter l’expérience dans une application cloud. Les contrôles de session sont appliqués par les applications cloud et s’appuient sur des informations supplémentaires fournies par Azure AD à l’application concernant la session.
 
-- **Appareil conforme** - Vous pouvez configurer des stratégies d’accès conditionnel au niveau de l’appareil. L’objectif d’une stratégie d’accès conditionnel appareil par appareil est de n’accorder l’accès aux ressources configurées qu’aux appareils de confiance. Vous pouvez par exemple exiger un appareil conforme, ce qui implique de définir ce qu’est un appareil de confiance. Pour plus d’informations, consultez la page [Configurer les stratégies d’accès conditionnel au niveau de l’appareil](active-directory-conditional-access-policy-connected-applications.md).
+    ![Contrôle](./media/active-directory-conditional-access-azure-portal/31.png)
 
-- **Appareil joint à un domaine** - Pour configurer des stratégies d’accès conditionnel au niveau de l’appareil, vous pouvez également exiger un appareil joint à un domaine. Cette exigence fait référence aux tablettes professionnelles, ordinateurs portables et ordinateurs de bureau Windows joints à une instance sur site d’Active Directory. Pour plus d’informations, consultez la page [Configurer les stratégies d’accès conditionnel au niveau de l’appareil](active-directory-conditional-access-policy-connected-applications.md).
 
-Si vous avez sélectionné plusieurs contrôles, vous pouvez également indiquer si tous ces contrôles sont requis lors du traitement de votre stratégie.
+Pour plus d’informations, consultez [Contrôles dans l’accès conditionnel Azure Active Directory](active-directory-conditional-access-controls.md).
 
-![Contrôle](./media/active-directory-conditional-access-azure-portal/06.png)
-
-### <a name="session-controls"></a>Contrôles de session
-Les contrôles de session permettent de limiter l’expérience dans une application cloud. Les contrôles de session sont appliqués par les applications cloud et s’appuient sur des informations supplémentaires fournies par Azure AD à l’application concernant la session.
-
-![Contrôle](./media/active-directory-conditional-access-azure-portal/31.png)
-
-#### <a name="use-app-enforced-restrictions"></a>Utiliser les restrictions appliquées par l’application
-Vous pouvez utiliser ce contrôle pour exiger qu’Azure AD transmette les informations d’appareil à l’application cloud. Cela permet à l’application cloud de savoir si l’utilisateur utilise un appareil conforme ou un appareil joint à un domaine. Ce contrôle est actuellement pris en charge uniquement avec SharePoint en comme application cloud. SharePoint utilise les informations d’appareil pour fournir aux utilisateurs une expérience limitée ou complète en fonction de l’état de l’appareil.
-Pour savoir plus en détails comment exiger un accès limité avec SharePoint, consultez la page [Contrôler l’accès à partir d’appareils non gérés](https://aka.ms/spolimitedaccessdocs).
 
 ## <a name="condition-statement"></a>Instruction de condition
 

@@ -1,6 +1,6 @@
 ---
-title: "Étapes suivantes de la gestion des accès à l’aide de groupes | Microsoft Docs"
-description: "Procédures avancées concernant la gestion des groupes de sécurité et l’utilisation de ces groupes pour gérer l’accès à une ressource."
+title: "Gestion des propriétaires de groupe dans Azure Active Directory | Microsoft Docs"
+description: "Gestion des propriétaires de groupe et utilisation de ces groupes pour gérer l’accès à une ressource."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,43 +12,39 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/13/2017
 ms.author: curtand
-ms.custom: oldportal;it-pro;
+ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 82fbeb379e90add09f7c569111053f6e9b1bc9c5
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 70be82fdd673c4f245e306b1e1cfdcd94d4dac53
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="managing-owners-for-a-group"></a>Gestion des propriétaires d’un groupe
-Une fois que le propriétaire d'une ressource a attribué l'accès à une ressource à un groupe Azure AD, l'appartenance au groupe est gérée par le propriétaire du groupe. Le propriétaire de la ressource délègue effectivement au propriétaire du groupe l’autorisation d’affecter des utilisateurs aux ressources.
+Une fois que le propriétaire d’une ressource a attribué l’accès à une ressource à un groupe Azure AD, l’appartenance au groupe est gérée par le propriétaire du groupe. Le propriétaire de la ressource délègue effectivement au propriétaire du groupe l’autorisation d’affecter des utilisateurs aux ressources.
 
-> [!IMPORTANT]
-> Microsoft recommande de gérer Azure AD à l’aide du [Centre d’administration Azure AD](https://aad.portal.azure.com) dans le portail Azure au lieu d’utiliser le portail Azure classique référencé dans cet article. 
+## <a name="add-an-owner-to-a-group"></a>Ajouter un propriétaire à un groupe
 
-## <a name="assigning-group-ownership"></a>Affectation de l'appartenance de groupe
-**Pour ajouter un propriétaire à un groupe**
+1. Dans le [centre d’administration Azure AD](https://aad.portal.azure.com), sélectionnez **Utilisateurs et groupes**.
+2. Sélectionnez **Tous les groupes**, puis ouvrez le groupe auquel vous voulez ajouter des propriétaires.
+3. Sélectionnez **Propriétaires**, puis sélectionnez **Ajouter des propriétaires**.
+4. Dans la page **Ajouter des propriétaires**, sélectionnez l’utilisateur à ajouter en tant que propriétaire de ce groupe, puis cliquez ou appuyez sur **Sélectionner**. 
 
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Active Directory**, puis ouvrez le répertoire de votre organisation.
-2. Sélectionnez l’onglet **Groupes** , puis ouvrez le groupe auquel vous souhaitez ajouter des propriétaires.
-3. Sélectionnez **Ajouter des propriétaires**.
-4. Sur la page **Ajouter des propriétaires**, sélectionnez l’utilisateur à ajouter en tant que propriétaire de ce groupe, puis vérifiez que son nom a été ajouté au volet **Sélectionné**.
+## <a name="remove-an-owner-from-a-group"></a>Supprimer un propriétaire d’un groupe
 
-**Pour supprimer un propriétaire d'un groupe**
-
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Active Directory**, puis ouvrez le répertoire de votre organisation.
-2. Sélectionnez l’onglet **Groupes** , puis ouvrez le groupe duquel vous souhaitez supprimer un propriétaire.
-3. Sélectionnez l’onglet **Propriétaires** .
-4. Sélectionnez le propriétaire que vous souhaitez supprimer de ce groupe, puis choisissez **Supprimer**.
+1. Dans le [centre d’administration Azure AD](https://aad.portal.azure.com), sélectionnez **Utilisateurs et groupes**.
+2. Sélectionnez **Tous les groupes**, puis ouvrez le groupe duquel vous voulez supprimer des propriétaires.
+3. Sélectionnez **Propriétaires**, sélectionnez le propriétaire à supprimer de ce groupe, puis cliquez ou appuyez sur **Sélectionner**.
+4. Dans le volet ouvert du propriétaire sélectionné, sélectionnez **Supprimer**.
 
 ## <a name="additional-information"></a>Informations supplémentaires
-Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
+Ces articles fournissent des informations supplémentaires sur les groupes Azure Active Directory.
 
-* [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
-* [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md)
-* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-* [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
-* [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
+* [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)
+* [Création d’un nouveau groupe et ajout de membres](active-directory-groups-create-azure-portal.md)
+* [Gérer les paramètres d’un groupe](active-directory-groups-settings-azure-portal.md)
+* [Gérer l’appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
+* [Gérer les règles dynamiques pour les utilisateurs dans un groupe](active-directory-groups-dynamic-membership-azure-portal.md)
 

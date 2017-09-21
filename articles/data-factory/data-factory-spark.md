@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 57894bbdd9208f8c32eb65e29f04e2ae723780ca
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 859035598831c1019304973a435de8f9276c9002
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
@@ -230,9 +230,9 @@ Dans cette étape, vous allez créer un pipeline avec une activité **HDInsightS
 
     ![Résultats de la requête Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-Consultez la section relative à [l’exécution d’une requête SQL Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-hive-query-using-spark-sql) pour obtenir des instructions détaillées. 
+Consultez [Exécuter une requête Spark SQL](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) pour obtenir des instructions détaillées. 
 
-### <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="troubleshooting"></a>Résolution des problèmes
 Comme vous définissez **getDebugInfo** sur **Toujours**, un sous-dossier **log** apparaît dans le dossier **pyFiles** de votre conteneur d’objets Blob Azure. Le fichier journal figurant dans ce dossier fournit des détails supplémentaires. Ce fichier journal est particulièrement utile en cas d’erreur. Dans un environnement de production, vous souhaiterez peut-être définir cette propriété sur **Échec**.
 
 Pour résoudre des problèmes, procédez comme suit :

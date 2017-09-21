@@ -1,6 +1,6 @@
 ---
-title: Exemple PowerShell - Importer un fichier Bacpac - Azure SQL Database | Microsoft Docs
-description: "Exemple de script Azure PowerShell qui importe une vignette Bacpac dans une base de données SQL"
+title: "Exemple PowerShell d’importation d’un fichier BACPAC dans une base de données SQL Azure | Microsoft Docs"
+description: "Exemple de script Azure PowerShell qui importe un fichier BACPAC dans une base de données SQL"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,17 +16,17 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: ba477c19a7c7bd6809aa3b78c0ef23e9cc7d5497
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 815ba6e1eb775399e747514843dbd0f201156a3e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
-# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Utiliser PowerShell pour importer un Bacpac dans une base de données SQL Azure
+# <a name="use-powershell-to-import-a-pacpac-file-into-an-azure-sql-database"></a>Utiliser PowerShell pour importer un fichier BACPAC dans une base de données SQL Azure
 
-Cet exemple de script PowerShell importe dans une base de données SQL Azure, la base de données contenue dans un fichier **Bacpac**.  
+Cet exemple de script PowerShell importe dans une base de données SQL Azure une base de données contenue dans un fichier BACPAC.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -39,7 +39,7 @@ Cet exemple de script PowerShell importe dans une base de données SQL Azure, la
 Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>Explication du script

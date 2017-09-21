@@ -12,16 +12,16 @@ ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f5d0bb05d0e9caebfc6c13d983518d65f7409527
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 1b4ef5dc0af6bea8af02ad63843acc91713666ad
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
 # <a name="create-a-serverless-api-using-azure-functions"></a>Créer une API sans serveur à l’aide d’Azure Functions
 
-Dans ce didacticiel, vous découvrirez comment Azure Functions vous permet de générer des API très évolutives. Azure Functions est fourni avec une collection de liaisons et de déclencheurs HTTP intégrés qui permettent de créer un point de terminaison dans différents langages, notamment Node.js ou C#. Dans ce didacticiel, vous allez personnaliser un déclencheur HTTP pour gérer des actions spécifiques dans votre conception d’API. Vous allez également préparer le développement de votre API, l’intégration avec Proxys Azure Functions et la configuration d’API factices. Tout cela s’effectue sur l’environnement de calcul sans serveur de Functions. Vous n’avez donc pas à vous soucier de la mise à l’échelle des ressources et vous pouvez vous concentrer uniquement sur votre logique d’API.
+Dans ce didacticiel, vous allez découvrir en quoi Azure Functions vous permet de générer des API hautement scalables. Azure Functions est fourni avec une collection de liaisons et de déclencheurs HTTP intégrés qui permettent de créer facilement un point de terminaison dans différents langages, dont Node.JS et C#. Dans ce didacticiel, vous allez personnaliser un déclencheur HTTP pour gérer des actions spécifiques dans votre conception d’API. Vous allez également préparer le développement de votre API, l’intégration avec Proxys Azure Functions et la configuration d’API factices. Tout cela s’effectue sur l’environnement de calcul sans serveur de Functions. Vous n’avez donc pas à vous soucier de la mise à l’échelle des ressources et vous pouvez vous concentrer uniquement sur votre logique d’API.
 
 ## <a name="prerequisites"></a>Prérequis 
 
@@ -37,37 +37,34 @@ Ouvrez le portail Azure. Pour ce faire, connectez-vous au portail : [https://po
 
 Par défaut, votre fonction déclenchée par HTTP est configurée pour accepter n’importe quelle méthode HTTP. Il existe également une URL par défaut de la forme `http://<yourapp>.azurewebsites.net/api/<funcname>?code=<functionkey>`. Si vous avez suivi le démarrage rapide, `<funcname>` ressemble probablement à « HttpTriggerJS1 ». Dans cette section, vous allez modifier la fonction de façon à répondre uniquement aux demandes GET auprès de l’itinéraire `/api/hello`. 
 
-Accédez à votre fonction sur le Portail Azure. Sélectionnez **Intégrer** dans la barre de navigation gauche.
+1. Accédez à votre fonction sur le Portail Azure. Sélectionnez **Intégrer** dans la barre de navigation gauche.
 
-![Personnalisation d’une fonction HTTP](./media/functions-create-serverless-api/customizing-http.png)
+    ![Personnalisation d’une fonction HTTP](./media/functions-create-serverless-api/customizing-http.png)
 
-Utilisez les paramètres de déclencheur HTTP spécifiés dans le tableau.
+1. Utilisez les paramètres de déclencheur HTTP spécifiés dans le tableau.
 
-| Champ | Exemple de valeur | Description |
-|---|---|---|
-| Méthodes HTTP autorisées | Méthodes sélectionnées | Détermine quelles méthodes HTTP peuvent être utilisées pour appeler cette fonction. |
-| Méthodes HTTP sélectionnées | GET | Autorise uniquement l’utilisation des méthodes HTTP sélectionnés pour appeler cette fonction. |
-| Modèle d’itinéraire | /hello | Détermine l’itinéraire utilisé pour appeler cette fonction. |
+    | Champ | Exemple de valeur | Description |
+    |---|---|---|
+    | Méthodes HTTP autorisées | Méthodes sélectionnées | Détermine quelles méthodes HTTP peuvent être utilisées pour appeler cette fonction. |
+    | Méthodes HTTP sélectionnées | GET | Autorise uniquement l’utilisation des méthodes HTTP sélectionnés pour appeler cette fonction. |
+    | Modèle d’itinéraire | /hello | Détermine l’itinéraire utilisé pour appeler cette fonction. |
+    | Niveau d’autorisation | Anonyme | Facultatif : rend votre fonction accessible sans clé d’API |
 
-Remarque : vous n’avez pas inclus le préfixe du chemin d’accès de base `/api` dans le modèle d’itinéraire, car il est géré par un paramètre global.
+    > [!NOTE] 
+    > Remarque : vous n’avez pas inclus le préfixe du chemin d’accès de base `/api` dans le modèle d’itinéraire, car il est géré par un paramètre global.
 
-Cliquez sur **Enregistrer**.
+1. Cliquez sur **Enregistrer**.
 
 Pour plus d’informations sur la personnalisation des fonctions HTTP, consultez la page [Liaisons HTTP et de webhooks d’Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
 
 ### <a name="test-your-api"></a>Tester l’API
 
 Ensuite, testez votre fonction pour observer son fonctionnement avec la nouvelle surface d’API.
-
-Revenez à la page de développement en cliquant sur le nom de la fonction dans la barre de navigation gauche.
-
-Cliquez sur **Récupérer l’URL de la fonction** et copiez l’URL. Normalement, elle utilise maintenant l’itinéraire `/api/hello`.
-
-Copiez l’URL dans un nouvel onglet du navigateur ou dans le client REST de votre choix. Les navigateurs utilisent GET par défaut.
-
-Exécutez la fonction et vérifiez qu’elle fonctionne. Vous devrez peut-être fournir le paramètre « name » comme chaîne de requête par conformité au code de démarrage rapide.
-
-Vous pouvez également essayer d’appeler le point de terminaison avec une autre méthode HTTP pour vérifier que la fonction n’est pas exécutée. Pour cela, vous devrez utiliser un client REST, par exemple cURL, Postman ou Fiddler.
+1. Revenez à la page de développement en cliquant sur le nom de la fonction dans la barre de navigation gauche.
+1. Cliquez sur **Récupérer l’URL de la fonction** et copiez l’URL. Normalement, elle utilise maintenant l’itinéraire `/api/hello`.
+1. Copiez l’URL dans un nouvel onglet du navigateur ou dans le client REST de votre choix. Les navigateurs utilisent GET par défaut.
+1. Exécutez la fonction et vérifiez qu’elle fonctionne. Vous devrez peut-être fournir le paramètre « name » comme chaîne de requête par conformité au code de démarrage rapide.
+1. Vous pouvez également essayer d’appeler le point de terminaison avec une autre méthode HTTP pour vérifier que la fonction n’est pas exécutée. Pour cela, vous devrez utiliser un client REST, par exemple cURL, Postman ou Fiddler.
 
 ## <a name="proxies-overview"></a>Vue d’ensemble des proxys
 
@@ -76,7 +73,7 @@ Dans la section suivante, vous ferez apparaître votre API par le biais d’un p
 Un proxy peut pointer vers n’importe quelle ressource HTTP, notamment :
 - Azure Functions 
 - Applications API dans [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
-- Conteneurs Docker dans [App Service sur Linux](https://docs.microsoft.com/azure/app-service/app-service-linux-readme)
+- Conteneurs Docker dans [App Service sur Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Toute autre API hébergée
 
 Pour en savoir plus sur les proxys, consultez la page [Utilisation de proxys Azure Functions (préversion)].
@@ -87,44 +84,39 @@ Dans cette section, vous allez créer un proxy qui sert de frontend à votre API
 
 ### <a name="setting-up-the-frontend-environment"></a>Configuration de l’environnement frontend
 
-Répétez les étapes de la page [Créer une application de fonction](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) pour créer une application de fonction dans laquelle vous allez créer votre proxy. Cette nouvelle application servira de frontend à notre API ; l’application de fonction que vous avez modifiée précédemment servira de backend.
+Répétez les étapes de la page [Créer une application de fonction](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) pour créer une application de fonction dans laquelle vous allez créer votre proxy. L’URL de cette nouvelle application servira de frontend à notre API et l’application de fonction que vous avez modifiée précédemment servira de backend.
 
-Accédez à votre nouvelle application de fonction frontend sur le portail.
+1. Accédez à votre nouvelle application de fonction frontend sur le portail.
+1. Sélectionnez **Paramètres**. Définissez **Activer les proxys Azure Functions (préversion)** sur « Activé ».
+1. Sélectionnez **Paramètres de la plateforme** et choisissez **Paramètres de l’application**.
+1. Faites défiler jusqu’à **Paramètres de l’application** et créez un nouveau paramètre avec la clé « HELLO_HOST ». Donnez-lui comme valeur l’hôte de votre application de fonction backend, par exemple `<YourBackendApp>.azurewebsites.net`. Il s’agit d’une partie de l’URL que vous avez copiée au moment de tester votre fonction HTTP. Vous ferez référence à ce paramètre plus tard dans la configuration.
 
-Sélectionnez **Paramètres**. Définissez **Activer les proxys Azure Functions (préversion)** sur « Activé ».
+    > [!NOTE] 
+    > Les paramètres de l’application sont recommandés pour la configuration d’hôte afin d’éviter une dépendance à l’environnement codé en dur pour le proxy. Grâce à eux, vous pouvez déplacer la configuration du proxy d’un environnement à l’autre, et les paramètres de l’application propres à l’environnement s’appliqueront.
 
-Sélectionnez **Paramètres de la plateforme** et choisissez **Paramètres de l’application**.
-
-Faites défiler jusqu’à **Paramètres de l’application** et créez un nouveau paramètre avec la clé « HELLO_HOST ». Donnez-lui comme valeur l’hôte de votre application de fonction backend, par exemple `<YourApp>.azurewebsites.net`. Il s’agit d’une partie de l’URL que vous avez copiée au moment de tester votre fonction HTTP. Vous ferez référence à ce paramètre plus tard dans la configuration.
-
-> [!NOTE] 
-> Les paramètres de l’application sont recommandés pour la configuration d’hôte afin d’éviter une dépendance à l’environnement codé en dur pour le proxy. Grâce à eux, vous pouvez déplacer la configuration du proxy d’un environnement à l’autre, et les paramètres de l’application propres à l’environnement s’appliqueront.
-
-Cliquez sur **Enregistrer**.
+1. Cliquez sur **Enregistrer**.
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>Créer un proxy sur le serveur frontal
 
-Revenez à votre application de fonction frontend sur le portail.
+1. Revenez à votre application de fonction frontend sur le portail.
+1. Dans la barre de navigation gauche, cliquez sur le signe « + » à côté de « Proxys (préversion) ».
+    ![Création d’un proxy](./media/functions-create-serverless-api/creating-proxy.png)
+1. Utilisez les paramètres de proxy spécifiés dans le tableau. 
 
-Dans la barre de navigation gauche, cliquez sur le signe « + » à côté de « Proxys (préversion) ».
-
-![Création d’un proxy](./media/functions-create-serverless-api/creating-proxy.png)
-
-Utilisez les paramètres de proxy spécifiés dans le tableau.
-
-| Champ | Exemple de valeur | Description |
-|---|---|---|
-| Nom | HelloProxy | Nom convivial utilisé uniquement à des fins de gestion. |
-| Modèle d’itinéraire | /api/hello | Détermine l’itinéraire utilisé pour appeler ce proxy. |
-| URL principale | https://%HELLO_HOST%/api/hello | Spécifie le point de terminaison vers lequel la demande doit être redirigée via proxy. |
-
-Remarque : Les proxys ne fournissent pas de préfixe du chemin de base `/api` ; celui-ci doit être inclus dans le modèle d’itinéraire.
-
-La syntaxe `%HELLO_HOST%` fera référence au paramètre d’application que vous avez créé précédemment. L’URL résolue pointera vers votre fonction d’origine.
-
-Cliquez sur **Créer**.
-
-Vous pouvez essayer votre nouveau proxy en copiant l’URL du proxy et en le testant dans le navigateur ou avec le client HTTP de votre choix.
+    | Champ | Exemple de valeur | Description |
+    |---|---|---|
+    | Nom | HelloProxy | Nom convivial utilisé uniquement à des fins de gestion. |
+    | Modèle d’itinéraire | /api/hello | Détermine l’itinéraire utilisé pour appeler ce proxy. |
+    | URL principale | https://%HELLO_HOST%/api/hello | Spécifie le point de terminaison vers lequel la demande doit être redirigée via proxy. |
+    
+1. Remarque : Les proxys ne fournissent pas de préfixe du chemin de base `/api` ; celui-ci doit être inclus dans le modèle d’itinéraire.
+1. La syntaxe `%HELLO_HOST%` fera référence au paramètre d’application que vous avez créé précédemment. L’URL résolue pointera vers votre fonction d’origine.
+1. Cliquez sur **Créer**.
+1. Vous pouvez essayer votre nouveau proxy en copiant l’URL du proxy et en le testant dans le navigateur ou avec le client HTTP de votre choix.
+    1. Pour une fonction anonyme, utilisez :
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+    1. Pour une fonction utilisant l’autorisation :
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
 
 ## <a name="create-a-mock-api"></a>Créer une API factice
 

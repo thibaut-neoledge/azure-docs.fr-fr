@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/22/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 8496bd61d0133a428ce8e522faef5b538f19d4fc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d152444f38e7a09b97ce7cb9778d8c67a0a5a421
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -34,9 +34,9 @@ Le fichier de configuration de votre application Service Fabric **ServiceManifes
 
 ## <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 
-Une règle d’équilibreur de charge ouvre un port connecté à internet et transfère le trafic vers le port du nœud interne utilisé par votre application. Si vous ne disposez pas d’un équilibrage de charge, consultez [Configurer un équilibreur de charge connecté à Internet](..\load-balancer\load-balancer-get-started-internet-portal.md).
+Une règle Load Balancer ouvre un port connecté à internet et transfère le trafic vers le port du nœud interne utilisé par votre application. Si vous ne disposez pas d’un équilibrage de charge, consultez [Configurer un équilibreur de charge connecté à Internet](..\load-balancer\load-balancer-get-started-internet-portal.md).
 
-Pour créer une règle d’équilibreur de charge, vous devez collecter les informations suivantes :
+Pour créer une règle Load Balancer, vous devez collecter les informations suivantes :
 
 - Nom de l’équilibreur de charge.
 - Groupe de ressources de l’équilibreur de charge et du cluster Service Fabric.
@@ -44,13 +44,14 @@ Pour créer une règle d’équilibreur de charge, vous devez collecter les info
 - Port interne.
 
 ## <a name="azure-cli"></a>Interface de ligne de commande Azure
+Il suffit d’une seule commande pour créer une règle d’équilibreur de charge avec l’interface **Azure CLI**. Vous devez simplement connaître le nom de l’équilibreur de charge et du groupe de ressources pour créer une nouvelle règle.
+
 >[!NOTE]
 >Si vous avez besoin déterminer le nom de l’équilibreur de charge, utilisez cette commande pour obtenir rapidement une liste de tous les équilibreurs de charge et des groupes de ressources associés.
 >
 >`az network lb list --query "[].{ResourceGroup: resourceGroup, Name: name}"`
 >
 
-Il suffit d’une seule commande pour créer une règle d’équilibreur de charge avec l’interface **Azure CLI**. Vous devez simplement connaître le nom de l’équilibreur de charge et du groupe de ressources pour créer une nouvelle règle.
 
 ```azurecli
 az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol Tcp --lb-name LB-svcfab3 -g svcfab_cli -n my-app-rule
@@ -64,7 +65,7 @@ La commande Azure CLI dispose de quelques paramètres décrits dans le tableau s
 | `--frontend-port` | Le port que l’équilibreur de charge expose aux connexions externes. |
 | `-lb-name` | Le nom de l’équilibreur de charge à modifier. |
 | `-g`       | Le groupe de ressources qui dispose de l’équilibreur de charge et du cluster Service Fabric. |
-| `-n`       | Le nom de la règle choisi. |
+| `-n`       | Le nom voulu pour la règle. |
 
 
 >[!NOTE]
@@ -72,17 +73,17 @@ La commande Azure CLI dispose de quelques paramètres décrits dans le tableau s
 
 ## <a name="powershell"></a>PowerShell
 
->[!NOTE]
->Si vous devez déterminer le nom de l’équilibreur de charge, utilisez cette commande pour obtenir rapidement une liste de tous les équilibreurs de charge et des groupes de ressources associés.
->
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
-
-PowerShell est un peu plus compliqué que l’interface Azure CLI. Sur le plan conceptuel, procédez comme suit pour créer une règle.
+PowerShell est un peu plus compliqué que l’interface Azure CLI. Suivez ces étapes conceptuels pour créer une règle :
 
 1. Récupérez l’équilibreur de charge d’Azure.
 2. Créez une règle.
 3. Ajoutez la règle pour l'équilibreur de charge.
 4. Mettez à jour l’équilibreur de charge.
+
+>[!NOTE]
+>Si vous devez déterminer le nom de l’équilibreur de charge, utilisez cette commande pour obtenir rapidement une liste de tous les équilibreurs de charge et des groupes de ressources associés.
+>
+>`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
@@ -106,4 +107,6 @@ En ce qui concerne la commande `New-AzureRmLoadBalancerRuleConfig`, le `-Fronten
 >[!NOTE]
 >Pour plus d’informations sur la création d’un équilibreur de charge avec l’interface PowerShellI, consultez [Créer un équilibreur de charge avec PowerShell](..\load-balancer\load-balancer-get-started-internet-arm-ps.md).
 
+## <a name="next-steps"></a>Étapes suivantes
 
+En savoir plus sur la [mise en réseau dans Service Fabric](service-fabric-patterns-networking.md).

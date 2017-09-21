@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.date: 07/21/2017
 ms.author: liamca
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: bfd044f333087d8e3e9526820196be6eaec2f18f
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
-# <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exemples de syntaxe de requête Lucene pour créer des requêtes dans Azure Search
+# <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exemples de syntaxe de requête Lucene pour créer des requêtes dans la Recherche Azure
 Lors de la construction de requêtes pour la Recherche Azure, vous pouvez utiliser la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) par défaut ou bien [l’analyseur de requêtes Lucene de la Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). L’analyseur de requêtes Lucene prend en charge des constructions de requêtes plus complexes, telles que des requêtes portant sur des champs, la recherche partielle, la recherche de proximité, la promotion de termes et la recherche d’expression régulière.
 
 Dans cet article, vous pouvez parcourir des exemples décrivant les opérations de requête disponibles lors de l’utilisation de la syntaxe complète.
@@ -35,13 +35,13 @@ Tous les exemples de cet article sont des requêtes exécutables qui s’exécut
 Pour les exécuter, cliquez avec le bouton droit sur les URL des exemples de requêtes afin d’ouvrir JSFiddle dans une nouvelle fenêtre de navigateur.
 
 > [!NOTE]
-> Les exemples suivants utilisent un index de recherche composé de postes à pourvoir sur la base d’un jeu de données fourni par l’initiative [City of New York OpenData](https://nycopendata.socrata.com/) . Ces données ne doivent pas être considérées comme étant à jour ou complètes. L’index est sur un service de bac à sable (sandbox) fourni par Microsoft. Vous n’avez pas besoin d’abonnement Azure ou d’Azure Search pour essayer ces requêtes.
+> Les exemples suivants utilisent un index de recherche composé de postes à pourvoir sur la base d’un jeu de données fourni par l’initiative [City of New York OpenData](https://nycopendata.socrata.com/) . Ces données ne doivent pas être considérées comme étant à jour ou complètes. L’index est sur un service de bac à sable (sandbox) fourni par Microsoft. Vous n’avez pas besoin d’abonnement Azure ni de Recherche Azure pour essayer ces requêtes.
 >
 
 
 ## <a name="how-to-invoke-full-lucene-parsing"></a>Appel de l’analyse Lucene complète
 
-Tous les exemples de cet article spécifient le paramètre de requête **queryType=full**, ce qui indique la syntaxe complète, traitée par l’analyseur de requêtes Lucene. 
+Tous les exemples de cet article spécifient le paramètre de requête **queryType=full**, ce qui indique la syntaxe complète est traitée par l’analyseur de requêtes Lucene. 
 
 **Exemple 1** -- Cliquez avec le bouton droit sur l’extrait de requête suivant pour l’ouvrir sur une nouvelle page de navigateur qui charge JSFiddle et exécute la requête :
 
@@ -133,8 +133,8 @@ Vous ne pouvez pas utiliser un signe * ou ? comme premier caractère d’une rec
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez de spécifier l’Analyseur de requêtes Lucene dans votre code. Les liens suivants expliquent comment configurer des requêtes de recherche pour .NET et l’API REST. Ces liens utilisent la syntaxe simple par défaut. Vous devrez donc appliquer ce que vous avez appris dans cet article pour spécifier le **queryType**.
 
-* [Interroger un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-query-dotnet.md)
-* [Interroger votre index Azure Search à l’aide de l’API REST](search-query-rest-api.md)
+* [Interroger un index Recherche Azure à l’aide du kit .NET SDK](search-query-dotnet.md)
+* [Interroger votre index Recherche Azure à l’aide de l’API REST](search-query-rest-api.md)
 
 ## <a name="see-also"></a>Voir aussi
 

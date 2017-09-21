@@ -14,10 +14,10 @@ ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: dff0bb9b4040ea712519a94bf2bc04de634209c2
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 531d645bab8c80caba96bc5292354b5490a53804
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services
@@ -42,7 +42,7 @@ Consultez les références d’applets de commande PowerShell pour le [modèle d
 
 Avant de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services, vérifiez les points suivants.
 
-- **Version minimale de l’agent** : pour mettre à niveau votre coffre, assurez-vous que la version de l’agent Microsoft Azure Recovery Services (MARS) est au minimum la version 2.0.9070.0. Si la version de l’agent MARS est antérieure à la version 2.0.9070.0, mettez à jour l’agent avant de commencer le processus de mise à niveau.
+- **Version minimale de l’agent** : pour mettre à niveau votre coffre, vérifiez que la version de l’agent Microsoft Azure Recovery Services (MARS) est au minimum la version 2.0.9083.0. Si la version de l’agent MARS est antérieure à la version 2.0.9083.0, mettez à jour l’agent avant de commencer le processus de mise à niveau.
 - **Modèle de facturation basé sur l’instance** : les coffres Recovery Services prennent uniquement en charge le modèle de facturation basée sur l’instance. Si vous avez un coffre de sauvegarde qui utilise l’ancien modèle de facturation basée sur le stockage, convertissez le modèle de facturation durant la mise à niveau.
 - **Aucune opération de configuration de la sauvegarde en cours** : durant la mise à niveau, l’accès au plan de gestion est limité. Effectuez toutes les actions du plan de gestion, puis démarrez la mise à niveau.
 
@@ -84,7 +84,7 @@ Le script PowerShell vous invite à entrer vos informations d’identification. 
 ### <a name="pre-requisites-checking"></a>Vérification des conditions préalables
 Une fois que vous avez entré vos informations d’identification Azure, Azure vérifie que votre environnement remplit les conditions préalables suivantes :
 
-- **Version minimale de l’agent** : la mise à niveau des coffres de sauvegarde vers des coffres Recovery Services exige que la version de l’agent MARS soit au moins la version 2.0.9070. Si vous avez des éléments inscrits auprès d’un coffre de sauvegarde avec un agent dont la version est antérieure à la version 2.0.9070, la vérification des conditions préalables échoue. Si la vérification des conditions préalables échoue, mettez à jour l’agent et réessayez de mettre à niveau le coffre. Vous pouvez télécharger la dernière version de l’agent à partir de l’URL [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Version minimale de l’agent** : la mise à niveau des coffres de sauvegarde vers des coffres Recovery Services exige que la version de l’agent MARS soit au moins la version 2.0.9083.0. Si vous avez des éléments inscrits auprès d’un coffre de sauvegarde avec un agent dont la version est antérieure à la version 2.0.9083.0, la vérification des prérequis échoue. Si la vérification des conditions préalables échoue, mettez à jour l’agent et réessayez de mettre à niveau le coffre. Vous pouvez télécharger la dernière version de l’agent à partir de l’URL [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Tâches de configuration en cours** : si quelqu’un est en train de configurer un travail pour un coffre de sauvegarde défini pour être mis à niveau, ou d’inscrire un élément, la vérification des conditions préalables échoue. Achevez la configuration ou l’inscription de l’élément, puis démarrez le processus de mise à niveau du coffre.
 - **Modèle de facturation basée sur le stockage** : les coffres Recovery Services prennent en charge le modèle de facturation basée sur l’instance. Si vous exécutez la mise à niveau du coffre sur un coffre de sauvegarde utilisant le modèle de facturation basée sur le stockage, vous être invité à mettre à niveau votre modèle de facturation en même temps que le coffre. Autrement, vous pouvez commencer par mettre à jour votre modèle de facturation, avant d’exécuter la mise à niveau du coffre.
 - Identifiez un groupe de ressources pour le coffre Recovery Services. Pour tirer parti des fonctionnalités de déploiement de Resource Manager, vous devez placer un coffre Recovery Services dans un groupe de ressources. Si vous ignorez le groupe de ressources à utiliser, entrez un nom. Le processus de mise à niveau crée alors le groupe de ressources pour vous. Le processus de mise à niveau associe également le coffre au nouveau groupe de ressources.
@@ -147,8 +147,8 @@ Non. Vous ne pouvez pas afficher ou gérer votre coffre classique après mise à
 Si vous devez stocker les sauvegardes de cet ordinateur pour une rétention à long terme, vous ne pourrez pas mettre à niveau le coffre. Dans les versions ultérieures, nous ajouterons la prise en charge de la mise à niveau d’un coffre de ce type.
 Si vous n’avez plus besoin de stocker les sauvegardes de cet ordinateur, désinscrivez-le du coffre et réessayez la mise à niveau.
 
-**Pourquoi ne puis-je pas voir les informations relatives aux travaux de mes ressources locales après la mise à niveau ?**</br>
-La surveillance des sauvegardes locales (agent MARS, DPM et Serveur de sauvegarde Azure) est une nouvelle fonctionnalité dont vous disposez quand vous mettez à niveau votre coffre de sauvegarde vers un coffre Recovery Services. La synchronisation des informations de surveillance avec le service prend jusqu’à 12 heures.
+**Pourquoi ne puis-je pas voir les informations relatives aux travaux de mes ressources après la mise à niveau ?**</br>
+La surveillance des sauvegardes (agent MARS et IaaS) est une nouvelle fonctionnalité que vous obtenez quand vous mettez à niveau votre coffre de sauvegarde vers un coffre Recovery Services. La synchronisation des informations de surveillance avec le service prend jusqu’à 12 heures.
 
 **Comment signaler un problème ?**</br>
 Si une partie de la mise à niveau du coffre échoue, notez l’OperationId mentionné dans l’erreur. Le Support technique de Microsoft travaillera de manière proactive pour résoudre le problème. Vous pouvez contacter le Support ou nous envoyer un e-mail à l’adresse rsvaultupgrade@service.microsoft.com avec votre ID d’abonnement, le nom du coffre et l’OperationId. Nous tenterons de résoudre le problème le plus rapidement possible. Ne retentez l’opération que sauf si vous y êtes explicitement invité par Microsoft.

@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 510f8abd839c3c025e955aecfdd787ce85540caf
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -187,7 +187,7 @@ L’analyseur standard fractionne le texte d’entrée en deux jetons, les annot
 
 ### <a name="exceptions-to-lexical-analysis"></a>Exceptions à l’analyse lexicale 
 
-L’analyse lexicale s’applique uniquement aux types de requêtes qui nécessitent des termes complets (requête de terme ou requête d’expression). Elle ne s’applique pas aux types de requête avec des termes incomplets : requête de préfixe, requête de caractère générique, requête d’expression régulière ou requête partielle. Ces types de requête, y compris la requête de préfixe avec le terme *air condition\**  dans notre exemple, sont ajoutés directement à l’arborescence de requête, en ignorant la phase d’analyse. La seule transformation effectuée sur les termes de requête de ce type est l’utilisation de minuscules.
+L’analyse lexicale s’applique uniquement aux types de requêtes qui nécessitent des termes complets (requête de terme ou requête d’expression). Elle ne s’applique pas aux types de requête avec des termes incomplets : requête de préfixe, requête de caractère générique, requête d’expression régulière ou requête partielle. Ces types de requête, y compris la requête de préfixe avec le terme *air condition\* * dans notre exemple, sont ajoutés directement à l’arborescence de requête, en ignorant la phase d’analyse. La seule transformation effectuée sur les termes de requête de ce type est l’utilisation de minuscules.
 
 <a name="stage3"></a>
 ## <a name="stage-3-document-retrieval"></a>Étape 3 : Extraction de documents 
@@ -238,7 +238,13 @@ Supposons également que cet index contient les quatre documents suivants :
 
 Pour comprendre l’extraction, il est utile de connaître quelques notions de base sur l’indexation. L’unité de stockage est un index inversé, un pour chaque champ pouvant faire l’objet d’une recherche. Un index inversé comprend la liste triée de tous les termes issus de tous les documents. Chaque terme correspond à la liste des documents dans laquelle il se trouve, comme le montre l’exemple ci-dessous.
 
-Pour produire les termes d’un index inversé, le moteur de recherche effectue une analyse lexicale du contenu des documents, semblable à ce qui se produit lors du traitement des requêtes. Les entrées de texte sont transmises à un analyseur, en minuscules, débarrassées des signes de ponctuation et ainsi de suite, selon la configuration de l’analyseur. Il est commun, mais pas obligatoire, d’utiliser les mêmes analyseurs pour les opérations de recherche et d’indexation afin que les termes de requête ressemblent davantage aux termes de l’index.
+Pour produire les termes d’un index inversé, le moteur de recherche effectue une analyse lexicale sur le contenu des documents, de façon similaire à ce qui se produit pendant le traitement des requêtes :
+
+1. Les *entrées de texte* sont transmises à un analyseur, en minuscules, débarrassées des signes de ponctuation et ainsi de suite, en fonction de la configuration de l’analyseur. 
+2. Les *jetons* sont le résultat de l’analyse de texte.
+3. Les *termes* sont ajoutés à l’index.
+
+Il est commun, mais pas obligatoire, d’utiliser les mêmes analyseurs pour les opérations de recherche et d’indexation afin que les termes de requête ressemblent davantage aux termes de l’index.
 
 > [!Note]
 > La recherche Azure vous permet de spécifier différents analyseurs pour l’indexation et la recherche via les paramètres de champ supplémentaires `indexAnalyzer` et `searchAnalyzer`. Par défaut, l’analyseur défini avec la propriété `analyzer` est utilisé pour l’indexation et la recherche.  

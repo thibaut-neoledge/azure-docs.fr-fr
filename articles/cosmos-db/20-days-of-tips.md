@@ -1,6 +1,6 @@
 ---
 title: "20 jours de conseils sur Azure Cosmos DB | Microsoft Docs"
-description: "Retrouvez tous les conseils de la série Twitter « 20 jours de conseils sur Azure Cosmos DB » au même endroit."
+description: "Retrouvez tous les conseils donnés par Simona Cotin dans la série 20 jours de conseils sur Azure Cosmos DB à un seul endroit."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/13/2017
 ms.author: mimig
 ms.custom: cda
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 95fe39d8124df9b259967ac361c7df6550091ba2
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 992249949c6bd80e698a0bc21710039c6aa1f67e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -44,6 +44,46 @@ Voir c’est croire. Utilisez l’interface visuelle de #cosmosDB dans le portai
 > [!VIDEO https://www.youtube.com/embed/4aWL5p_SJDE]
 
 [![Retweeter sur twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905449095648731136)[![Partager sur LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311218673575088128)
+
+## <a name="tip-3-replicate-data-globally"></a>Conseil 3 : Répliquer les données dans le monde entier
+
+Conseil 3 : Vous avez besoin que votre application resplendisse rapidement n’importe où dans le monde ? Répliquer vos données avec #cosmosDB est très facile ! [https://aka.ms/nimw2g](https://aka.ms/nimw2g)  
+
+> [!VIDEO https://www.youtube.com/embed/i22R7I_Rgdg]
+
+[![Retweeter sur twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905783001937833984)[![Partager sur LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311547372904214528)
+
+## <a name="tip-4-gremlin-graph-support"></a>Conseil 4 : Prise en charge des graphes Gremlin
+
+Conseil 4 : Vous coincez sur les graphes Gremlin ? #cosmosdb adore aussi les Gremlin ! Affichez, interrogez et modifiez votre base de données de graphe à l’aide du portail Azure [https://aka.ms/tfmi37](https://aka.ms/tfmi37)  
+
+> [!VIDEO https://www.youtube.com/embed/oPUTZbiXffk]
+
+[![Retweeter sur twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/906199438737203201)[![Partager sur LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311965366943834112)
+
+## <a name="tip-5-try-azure-cosmos-db-free"></a>Conseil 5 : Essayer gratuitement Azure Cosmos DB
+
+Conseil 5 : Vous voulez essayer Azure #CosmosDB gratuitement ? Aucune inscription ni carte de crédit demandée, accédez tout simplement à [https://aka.ms/d81vxr](https://aka.ms/d81vxr) et commencez à coder !  
+
+> [!VIDEO https://www.youtube.com/embed/Vf8iZCmoG2E]
+
+[![Retweeter sur twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907258302576431107)[![Partager sur LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313024454544932864)
+
+## <a name="tip-6-migrate-your-mean-app"></a>Conseil 6 : Migrer votre application MEAN
+
+Conseil 6 : MEAN, c’est votre truc ? Découvrez comment facilement migrer votre application vers Azure #cosmosDB ! [https://aka.ms/gfh6i5](https://aka.ms/gfh6i5) Vidéo complète : [https://aka.ms/aoojih](https://aka.ms/aoojih)
+
+> [!VIDEO https://www.youtube.com/embed/1DzwI5HmU5w]
+
+[![Retweeter sur twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)[![Partager sur LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
+
+## <a name="tip-7-build-a-nodejs-app-by-using-graph-api"></a>Conseil 7 : Créer une application Node.js à l’aide de l’API Graph
+
+Conseil 7 : Créez une application Node.js à l’aide de l’API Graph et d’Azure #CosmosDB. Plus d’informations dans la page de documentation [https://aka.ms/X79feg](https://aka.ms/X79feg)
+
+> [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
+
+[![Retweeter sur twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907982218353451009)[![Partager sur LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313762492686352384)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -16,40 +16,40 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 11f2f72073fd23c0a7c61dedb270f64d42b98025
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test des performances et de la mise à l’échelle avec Azure Cosmos DB
-Le test des performances et de la mise à l’échelle est une étape essentielle du développement d’applications. Pour de nombreuses applications, la couche de base de données a un impact significatif sur les performances et l’évolutivité globales et est, par conséquent, un composant critique du test de performances. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) a été spécialement conçu pour une mise à l’échelle élastique et des performances prévisibles et, par conséquent, convient parfaitement aux applications nécessitant un niveau de base de données hautes performances. 
+Le test des performances et de la mise à l’échelle est une étape essentielle du développement d’applications. Pour de nombreuses applications, la couche Base de données a un impact significatif sur les performances globales et la scalabilité. Il s’agit donc d’une composante essentielle des tests de performances. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) a été spécialement conçu pour offrir une mise à l’échelle élastique et des performances prévisibles. Ces capacités en font une solution de choix pour les applications qui ont besoin d’une couche Base de données hautement performante. 
 
-Cet article est une référence pour les développeurs implémentant des suites de tests de performances pour leurs charges de travail Cosmos DB ou évaluant Cosmos DB pour des scénarios d’applications hautes performances. Il se concentre principalement sur les tests de performances isolés de la base de données, mais inclut également les meilleures pratiques relatives aux applications de production.
+Cet article fournit des informations de référence pour les développeurs qui implémentent des suites de test de performances pour leurs charges de travail Azure Cosmos DB. Il permet aussi d’évaluer Azure Cosmos DB pour des scénarios d’applications à hautes performances. Il se concentre principalement sur les tests de performances isolés de la base de données, mais inclut également les meilleures pratiques relatives aux applications de production.
 
-Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :   
+Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes : 
 
-* Où puis-je trouver un exemple d’application cliente .NET pour le test des performances de Cosmos DB ? 
-* Comment atteindre des niveaux de débit élevés avec Cosmos DB à partir de mon application cliente ?
+* Où trouver un exemple d’application cliente .NET pour tester les performances d’Azure Cosmos DB ? 
+* Comment faire pour atteindre de hauts niveaux de débit avec Azure Cosmos DB à partir de mon application cliente ?
 
-Pour commencer avec le code, téléchargez le projet à partir de [l’exemple de test des performances Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
+Pour commencer avec le code, téléchargez le projet à partir de l’[exemple de test des performances Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
 
 > [!NOTE]
 > L’objectif de cette application est de montrer comment obtenir les meilleures performances d’Azure Cosmos DB avec un petit nombre d’ordinateurs clients. L’objectif de l’exemple n’est pas d’atteindre la capacité de débit de pointe d’Azure Cosmos DB (qui peut évoluer sans aucune limite).
 > 
 > 
 
-Si vous recherchez des options de configuration côté client pour améliorer les performances de Cosmos DB, consultez la page [Azure Cosmos DB performance tips](performance-tips.md)(Conseils relatifs aux performances d’Azure Cosmos DB).
+Si vous recherchez des options de configuration côté client pour améliorer les performances d’Azure Cosmos DB, consultez page [Conseils sur les performances d’Azure Cosmos DB](performance-tips.md).
 
 ## <a name="run-the-performance-testing-application"></a>Exécution de l’application de test des performances
-Le moyen le plus rapide de commencer consiste à compiler et exécuter l’exemple .NET, comme décrit dans les étapes suivantes : vous pouvez également examiner le code source et implémenter des configurations similaires dans vos propres applications clientes.
+Le moyen le plus rapide de commencer est de compiler et exécuter l’exemple .NET, comme décrit dans la procédure ci-dessous. Vous pouvez aussi examiner le code source et implémenter des configurations similaires dans vos propres applications clientes.
 
-**Étape 1 :** téléchargez le projet à partir de [l’exemple de test des performances Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) ou répliquez le référentiel GitHub.
+**Étape 1 :** téléchargez le projet à partir de l’[exemple de test de performances Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) ou dupliquez (fork) le dépôt GitHub.
 
 **Étape 2 :** modifiez les paramètres pour EndpointUrl, AuthorizationKey, CollectionThroughput et DocumentTemplate (facultatif) dans App.config.
 
 > [!NOTE]
-> Avant l’approvisionnement des collections à débit élevé, reportez-vous à la [Page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) pour estimer les coûts par collection. Azure Cosmos DB facture indépendamment le stockage et le débit à l’heure pour vous permettre de réduire les coûts en supprimant ou en diminuant le débit de vos collections Azure Cosmos DB après le test.
+> Avant d’approvisionner des collections avec un débit élevé, reportez-vous à la [page des tarifs](https://azure.microsoft.com/pricing/details/cosmos-db/) pour estimer les coûts par collection. Azure Cosmos DB facture le stockage et le débit de façon indépendante sur une base horaire. Vous pouvez faire des économies en soustrayant ou diminuant le débit de vos collections Azure Cosmos DB après les tests.
 > 
 > 
 
@@ -98,10 +98,10 @@ Le moyen le plus rapide de commencer consiste à compiler et exécuter l’exemp
 
 **Étape 4 (si nécessaire) :** le débit signalé (RU/s) à partir de l’outil doit être identique ou supérieur au débit approvisionné de la collection. Dans le cas contraire, le fait d’augmenter la valeur de DegreeOfParallelism par petits incréments peut vous aider à atteindre la limite. Si le débit de votre application cliente se stabilise, démarrez plusieurs instances de l’application sur d’autres ordinateurs clients. Si vous avez besoin d’aide pour cette étape, envoyez un e-mail à askcosmosdb@microsoft.com ou remplissez un ticket de support à partir du [portail Azure](https://portal.azure.com).
 
-Une fois l’application en cours d’exécution, vous pouvez essayer différentes [stratégies d’indexation](indexing-policies.md) et [niveaux de cohérence](consistency-levels.md) pour comprendre leur impact sur le débit et la latence. Vous pouvez également examiner le code source et implémenter des configurations similaires dans vos propres suites de test ou applications de production.
+Une fois l’application exécutée, vous pouvez tester des [stratégies d’indexation](indexing-policies.md) et des [niveaux de cohérence](consistency-levels.md) différents pour comprendre leur impact sur le débit et la latence. Vous pouvez également examiner le code source et implémenter des configurations similaires dans vos propres suites de test ou applications de production.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, nous avons vu comment effectuer des tests de performances et d’évolutivité avec Cosmos DB à l’aide d’une application console .NET. Pour plus d'informations, consultez les articles suivants.
+Dans cet article, nous avons vu comment effectuer des tests de performances et de mise à l’échelle avec Azure Cosmos DB en utilisant une application console .NET. Pour plus d’informations, consultez les articles suivants :
 
 * [Exemple de test des performances Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Options de configuration côté client permettant d’améliorer les performances d’Azure Cosmos DB](performance-tips.md)
