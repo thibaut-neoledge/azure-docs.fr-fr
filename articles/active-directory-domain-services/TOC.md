@@ -7,16 +7,15 @@
 ## [Logiciels tiers compatibles](active-directory-ds-compatible-software.md)
 
 # Prise en main
-## Portail Azure (préversion)
-### [Tâche 1 : Configurer les paramètres de base](active-directory-ds-getting-started.md)
-### [Tâche 2 : Configurer les paramètres réseau](active-directory-ds-getting-started-network.md)
-### [Tâche 3 : Configurer le groupe d’administrateurs et activer Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
-### [Tâche 4 : Mettre à jour les paramètres DNS du réseau virtuel](active-directory-ds-getting-started-dns.md)
-### [Tâche 5 : Activer la synchronisation de mot de passe](active-directory-ds-getting-started-password-sync.md)
+## [Tâche 1 : Configurer les paramètres de base](active-directory-ds-getting-started.md)
+## [Tâche 2 : Configurer les paramètres réseau](active-directory-ds-getting-started-network.md)
+## [Tâche 3 : Configurer le groupe d’administrateurs et activer Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
+## [Tâche 4 : Mettre à jour les paramètres DNS du réseau virtuel](active-directory-ds-getting-started-dns.md)
+## [Tâche 5 : Activer la synchronisation de mot de passe](active-directory-ds-getting-started-password-sync.md)
 
 # Procédures
 ## Joindre un domaine géré
-### [Joindre une ordinateur Virtuel de Windows Server](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Joindre une ordinateur Virtuel de Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Créer une machine virtuelle Windows à l’aide de PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Une machine virtuelle Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Administrer un domaine géré

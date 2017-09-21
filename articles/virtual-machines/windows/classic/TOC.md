@@ -3,7 +3,7 @@
 ## [Disques et disques durs virtuels](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Réseaux virtuels](../../../virtual-network/virtual-networks-overview.md)
 ## [FAQ](faq.md)
-## [Comparaison des machines virtuelles, des sites web et des services cloud](../../../app-service-web/choose-web-site-cloud-service-vm.md)
+## [Comparaison des machines virtuelles, des sites web et des services cloud](../../../app-service/choose-web-site-cloud-service-vm.md)
 ## [Conteneurs](../../virtual-machines-windows-containers.md)
 
 # Prise en main

@@ -4,10 +4,10 @@ hide_bc: true
 title: "Documentation Microsoft Azure"
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 81def90a2a17c91db16b2c114e5ead3c59ed2f96
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: f1b498499f02b3dd6d83debee6eaaf846ec01839
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 <div id="main" class="v2">
@@ -67,10 +67,10 @@ ms.lasthandoff: 09/14/2017
                     </div>
                 </a>
             </li>
-        </ul>
+        </ul>             
     </div>
     <div class="container">
-        <h1 class="screenReader">Documentation Microsoft Azure</h1>
+        <h1 class="screenReader">Documentation Microsoft Azure</h1>   
         <ul class="pivots">
             <li>
                 <a href="#get-started">Prise en main</a>
@@ -105,36 +105,38 @@ ms.lasthandoff: 09/14/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Développement d'applications</h3>
-                                                <ul class="noBullet">
-                                                    <li>
+                                                <div class="cols cols2">
+                                                    <div>
                                                         <a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
                                                             <img src="media/index/logo_NET.svg" alt="">.NET</a>
-                                                    </li>
-                                                    <li>
+                                                    </div>
+                                                    <div>
                                                         <a class="barLink" href="/python/azure/">
                                                             <img src="media/index/logo_python.svg" alt=""> Python</a>
-                                                    </li>
-                                                    <li>
+                                                    </div>
+                                                    <div>
                                                         <a class="barLink" href="/java/azure/">
                                                             <img src="media/index/logo_java.svg" alt=""> Java</a>
-                                                    </li>
-                                                    <li>
+                                                    </div>
+                                                    <div>
                                                         <a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
-                                                    </li>
-                                                    <li>
+                                                    </div>
+                                                    <div>
                                                         <a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.JS</a>
-                                                    </li>
-                                                </ul>
-                                                <h4>Modèles CSP</h4>
-                                                <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/app-service-web/">Applications Web</a></li>
-                                                    <li><a class="barLink" href="/azure/azure-functions/">Fonctions sans serveur</a></li>
-                                                    <li><a class="barLink" href="/azure/container-instances/">Instances de conteneur</a></li>
-                                                    <li><a class="barLink" href="/azure/container-service/kubernetes/">Conteneurs avec Kubernetes</a></li>
-                                                    <li><a class="barLink" href="/azure/service-fabric/">Microservices avec Service Fabric</a></li>
-                                                </ul>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h4>Modèles CSP</h4>
+                                                    <ul class="noBullet">
+                                                        <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
+                                                        <li><a class="barLink" href="/azure/azure-functions/">Fonctions sans serveur</a></li>
+                                                        <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Conteneurs avec Kubernetes</a></li>
+                                                        <li><a class="barLink" href="/azure/service-fabric/">Microservices avec Service Fabric</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -148,9 +150,9 @@ ms.lasthandoff: 09/14/2017
                                                 <h3>Gérer les données et Intelligence artificielle</h3>
                                                 <h4>Bases de données relationnelles</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/sql-database/">Base de données SQL en tant que service</a></li>
-                                                    <li><a class="barLink" href="/azure/postgresql/">Base de données PostgreSQL en tant que service</a></li>
-                                                    <li><a class="barLink" href="/azure/mysql/">Base de données MySQL en tant que service</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database/">SQL Database en tant que service</a></li>
+                                                    <li><a class="barLink" href="/azure/postgresql/">PostgreSQL Database en tant que service</a></li>
+                                                    <li><a class="barLink" href="/azure/mysql/">MySQL Database en tant que service</a></li>
                                                 </ul>
                                                 <h4>Nosql</h4>
                                                 <ul class="noBullet">
@@ -172,16 +174,16 @@ ms.lasthandoff: 09/14/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Outils de ligne de commande</h3>
-                                                <ul class="noBullet">
-                                                    <li>
+                                                <div class="cols">
+                                                    <div>
                                                         <a class="barLink" href="/cli/azure/overview">
                                                             <img src="media/index/azure_dev-7.svg" alt="">Interface de ligne de commande Azure</a>
-                                                    </li>
-                                                    <li>
+                                                    </div>
+                                                    <div>
                                                         <a class="barLink" href="/powershell/azure/overview">
                                                             <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell</a>
-                                                    </li>
-                                                </ul>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -193,16 +195,16 @@ ms.lasthandoff: 09/14/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>DevOps</h3>
-                                                <ul class="noBullet">
-                                                    <li>
+                                                <div class="cols">
+                                                    <div>
                                                         <a class="barLink" href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
                                                             <img src="https://docs.microsoft.com/en-us/media/logos/logo_visual-studio.svg" alt=""> Visual Studio Team Services</a>
-                                                    </li>
-                                                    <li>
+                                                    </div>
+                                                    <div>
                                                         <a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
                                                             <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt="">Jenkins sur les machines virtuelles Azure</a>
-                                                    </li>
-                                                </ul>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

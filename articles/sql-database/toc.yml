@@ -257,14 +257,6 @@
           href: sql-database-ssms-mfa-authentication-configure.md
     - name: Continuité de l’activité
       items:
-        - name: Configuration du coffre - sauvegardes
-          href: sql-database-long-term-backup-retention-configure.md
-        - name: Géoréplication - Portail
-          href: sql-database-geo-replication-portal.md
-        - name: Récupérer une table unique
-          href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-    - name: Chargement et transfert de données
-      items:
         - name: Chargement des données avec BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Chargement des données avec ADF
