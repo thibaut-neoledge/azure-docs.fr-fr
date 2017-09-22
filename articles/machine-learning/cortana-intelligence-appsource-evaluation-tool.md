@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: e79ca131bddc9e65dd24da109b9e8a08606f7bc6
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 264bd9ecb413d2685dca351d7f4090efcadf4988
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/20/2017
 
 --- 
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Outil d’évaluation de la solution Cortana Intelligence
@@ -99,7 +99,7 @@ Toutes les ressources Azure SQL ou Azure SQL DW de la solution doivent être act
 | AAD avec SQL Database et SQL Data Warehouse | [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database ou de SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) |
 | Configuration et gestion d’AAD | [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) |
 | Authentification des applications web Azure | [Authentification et autorisation dans Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview) |
-| Configuration des applications web avec AAD | [Configurer votre application App Service pour utiliser la connexion Azure Active Directory](https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication)|
+| Configuration des applications web avec AAD | [Configurer votre application App Service pour utiliser la connexion Azure Active Directory](https://docs.microsoft.com/en-us/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
 
 ### <a name="datasets-accessible-to-end-users-should-support-role-based-access-control"></a>Les jeux de données accessibles aux utilisateurs finaux doivent prendre en charge le contrôle d’accès en fonction du rôle
 Lorsque vous exécutez l’outil d’évaluation, vous êtes invité à spécifier toutes les ressources de création de rapports ou de publication. Il est supposé que ces ressources sont destinées à un accès par les utilisateurs finaux et non par les développeurs. Un contrôle d’accès en fonction du rôle (RBAC) doit être assigné à ces ressources pour garantir que les utilisateurs finaux peuvent accéder uniquement aux données autorisées.

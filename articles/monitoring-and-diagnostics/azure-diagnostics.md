@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e2d3a6725ee53dc6d6986b185fac143901ba6955
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="what-is-azure-diagnostics"></a>Que sont les diagnostics Azure ?
@@ -48,7 +48,7 @@ Voir [Historique de contrôle de version des diagnostics Azure](azure-diagnostic
 Choisissez le service sur lequel vous voulez collecter des diagnostics et utilisez les articles suivants pour commencer. Utilisez les liens des diagnostics Azure généraux comme référence pour des tâches spécifiques.
 
 ## <a name="web-apps"></a>Web Apps
-Notez que Web Apps n'utilise pas les diagnostics Azure. Trouver les informations équivalentes sur [Web Apps](../app-service-web/web-sites-enable-diagnostic-log.md)
+Notez que Web Apps n'utilise pas les diagnostics Azure. Trouver les informations équivalentes sur [Web Apps](../app-service/web-sites-enable-diagnostic-log.md)
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Cloud Services avec les diagnostics Azure
 * Si vous utilisez Visual Studio, consultez [Utilisation de Visual Studio pour suivre une application Cloud Services](../vs-azure-tools-debug-cloud-services-virtual-machines.md) pour commencer. Sinon, voir

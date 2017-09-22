@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 6586cad908e6527b874dc3f0ee256c6b2cea8c49
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: c7075c2e1a2500eca1d0aa9b3a797e8a0e903ede
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consommer des données d’analyse à partir d’Azure
@@ -33,11 +33,11 @@ Sur la plateforme Azure, nous rassemblons les données d’analyse dans un empla
 | Mesures de SE invité Compute (ex. compteurs de performances) | Mesures | Machines virtuelles [Windows](../virtual-machines-dotnet-diagnostics.md) et Linux (v2), [Services cloud](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Table ou blob de stockage :** [diagnostics Azure Windows ou Linux](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Concentrateur d’événements :** [Diagnostics Windows Azure](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | Mesures personnalisées ou d’application | Mesures | Toute application instrumentée avec Application Insights | <ul><li>**API REST :** [API REST d’Application Insights](https://dev.applicationinsights.io/reference)</li></ul> |
 | Métriques de stockage | Mesures | Azure Storage | <ul><li>**Table de stockage :** [Analyse du stockage](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
-| Données de facturation | Mesures | Tous les services Azure | <ul><li>**API REST**  [API Azure Resource Usage et RateCard](../billing/billing-usage-rate-card-overview.md)</li></ul> |
+| Données de facturation | Mesures | Tous les services Azure | <ul><li>**API REST ** [API Azure Resource Usage et RateCard](../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | Journal d’activité | Événements | Tous les services Azure | <ul><li>**API REST :** [API Événements Azure Monitor](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**Stockage d’objets blob ou concentrateur d’événements :** [profil du journal](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Journaux de diagnostics Azure Monitor | Événements | [Consulter la liste ici](monitoring-diagnostic-logs-schema.md) | <ul><li>**Stockage d’objets blob ou concentrateur d’événements :** [Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
 | Journaux de SE invité Compute (ex. IIS, ETW, syslogs) | Événements | Machines virtuelles [Windows](../virtual-machines-dotnet-diagnostics.md) et Linux (v2), [Services cloud](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Table ou blob de stockage :** [diagnostics Azure Windows ou Linux](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Concentrateur d’événements :** [Diagnostics Windows Azure](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
-| Journaux App Service | Événements | App Services | <ul><li>**Stockage d’objets blob, table ou fichier :** [Diagnostics Web App](../app-service-web/web-sites-enable-diagnostic-log.md)</li></ul> |
+| Journaux App Service | Événements | App Services | <ul><li>**Stockage d’objets blob, table ou fichier :** [Diagnostics Web App](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
 | Journaux de stockage | Événements | Azure Storage | <ul><li>**Table de stockage :** [Analyse du stockage](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Alertes Security Center | Événements | Azure Security Center | <ul><li>**API REST :** [Alertes de sécurité](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
 | Création de rapports Active Directory | Événements | Azure Active Directory | <ul><li>**API REST :** [API Graph Azure Active Directory](../active-directory/active-directory-reporting-api-getting-started.md)</li></ul> |

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 09/18/2017
 ms.author: milanga;juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: dfff2900aedd3fa2cb0b38d18e71f001c44ababa
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: a55a0c2ef8c1c065b39fce9dc6ef2f806b60dfdc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Détection des visages et des émotions avec Azure Media Analytics
@@ -154,7 +154,7 @@ Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vou
 #### <a name="aggregate-defaults"></a>Valeurs d'agrégation par défaut
 Les valeurs ci-dessous sont des valeurs recommandées pour les paramètres de fenêtre et d’intervalle d’agrégation. La valeur AggregateEmotionWindowMs doit être supérieure à AggregateEmotionIntervalMs.
 
-|| Valeur(s) par défaut | Valeur(s) min | Valeur(s) max |
+|| Valeur(s) par défaut | Valeur(s) max | Valeur(s) min |
 |--- | --- | --- | --- |
 | AggregateEmotionWindowMs |0.5 |2 |0,25|
 | AggregateEmotionIntervalMs |0.5 |1 |0,25|

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 2a5ac8d7bfbed4969cb9baf46e0fc35e5c84b4a3
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2b83dfe2f3e2645713ff7e1acfb4d7f26fe0d0cd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Utilisation du client géré pour Azure Mobile Apps
@@ -628,7 +628,7 @@ Deux flux d’authentification sont pris en charge : le flux *géré par le clie
 > [!NOTE]
 > Nous vous recommandons d’utiliser un flux géré par le client dans vos applications de production.
 
-Pour configurer l’authentification, vous devez inscrire votre application avec un ou plusieurs fournisseurs d’identité.  Le fournisseur d’identité génère un ID client et une clé secrète client pour votre application.  Ces valeurs sont ensuite définies dans votre backend pour activer l’authentification/autorisation d’Azure App Service.  Pour plus d’informations, suivez les instructions détaillées dans le didacticiel [Ajout de l'authentification à votre application].
+Pour configurer l’authentification, vous devez inscrire votre application avec un ou plusieurs fournisseurs d’identité.  Le fournisseur d’identité génère un ID client et une clé secrète client pour votre application.  Ces valeurs sont ensuite définies dans votre backend pour activer l’authentification/autorisation d’Azure App Service.  Pour plus d’informations, suivez les instructions détaillées dans le didacticiel [Ajout d’une fonction d’authentification à votre application].
 
 Les rubriques traitées dans cette section sont les suivantes :
 
@@ -851,7 +851,7 @@ private async System.Threading.Tasks.Task AuthenticateAsync()
 Pour plus d’informations, consultez la documentation du [Kit de développement logiciel (SDK) Windows Live] .
 
 ### <a name="serverflow"></a>Authentification gérée par le serveur
-Une fois que vous avez inscrit votre fournisseur d’identité, appelez la méthode [méthode LoginAsync] sur le [MobileServiceClient] avec la valeur [MobileServiceAuthenticationProvider] de votre fournisseur. Par exemple, le code suivant initie une connexion de flux serveur via Facebook.
+Une fois que vous avez inscrit votre fournisseur d’identité, appelez la méthode [LoginAsync] sur le [MobileServiceClient] avec la valeur [MobileServiceAuthenticationProvider] de votre fournisseur. Par exemple, le code suivant initie une connexion de flux serveur via Facebook.
 
 ```
 private MobileServiceUser user;
@@ -1093,11 +1093,11 @@ public class MyHandler : DelegatingHandler
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[Ajout de l'authentification à votre application]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Ajout de l’authentification à votre application]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Synchronisation des données hors connexion dans Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Ajout de notifications push à votre application]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Inscrire votre application pour utiliser un compte Microsoft pour l’authentification]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Configurer votre application App Service pour utiliser la connexion Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Inscrire votre application pour utiliser un compte Microsoft pour l’authentification]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Configuration d’App Service la connexion Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
@@ -1111,7 +1111,7 @@ public class MyHandler : DelegatingHandler
 [IncludeTotalCount]: https://msdn.microsoft.com/en-us/library/azure/dn250560(v=azure.10).aspx
 [InsertAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296400(v=azure.10).aspx
 [InvokeApiAsync]: https://msdn.microsoft.com/en-us/library/azure/dn268343(v=azure.10).aspx
-[méthode LoginAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296411(v=azure.10).aspx
+[LoginAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296411(v=azure.10).aspx
 [LookupAsync]: https://msdn.microsoft.com/en-us/library/azure/jj871654(v=azure.10).aspx
 [OrderBy]: https://msdn.microsoft.com/en-us/library/azure/dn250572(v=azure.10).aspx
 [OrderByDescending]: https://msdn.microsoft.com/en-us/library/azure/dn250568(v=azure.10).aspx
@@ -1123,7 +1123,7 @@ public class MyHandler : DelegatingHandler
 [l'UserId]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
 [portail Azure]: https://portal.azure.com/
-[portail Azure Classic]: https://manage.windowsazure.com/
+[[portail Azure Classic]]: https://manage.windowsazure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/en-us/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx

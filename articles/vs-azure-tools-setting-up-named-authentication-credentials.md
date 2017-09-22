@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: b75d190724da284324b0337e95a50a64902e19d8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 953b1aa459ddf5b7be00b9d32432e6dda97143e1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-named-authentication-credentials"></a>Configurer les informations d’authentification nommées
@@ -63,10 +63,10 @@ La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** e
 2. Sélectionnez le lien **Copier le chemin complet**. Le chemin du certificat (fichier .cer) est copié dans le Presse-papiers.
 
    > [!IMPORTANT]
-   > Pour publier votre application Azure à partir de Visual Studio, vous devrez charger ce certificat sur le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+   > Pour publier votre application Azure à partir de Visual Studio, vous devrez charger ce certificat vers le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
    >
    >
-3. Pour charger le certificat sur le portail Azure :
+3. Pour télécharger le certificat sur le portail Azure :
 
    a. Ouvrez le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
    
@@ -77,7 +77,7 @@ La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** e
    d. Sélectionnez votre abonnement Azure, collez le chemin complet du fichier .cer que vous venez de créer, puis sélectionnez **Charger**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Vue d’ensemble de Web Apps](https://docs.microsoft.com/azure/app-service-web/)
-* [Déploiement de votre application dans Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy?toc=%2fazure%2fapp-service-api%2ftoc.json) 
-* [Déployer des tâches web à l’aide de Visual Studio](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-deploy-webjobs)
+* [Vue d’ensemble de Web Apps](https://docs.microsoft.com/azure/app-service/)
+* [Déploiement de votre application dans Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
+* [Déployer des tâches web à l’aide de Visual Studio](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
 * [Création et déploiement d’un service cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

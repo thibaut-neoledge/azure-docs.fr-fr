@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 1032c4e7d378016e36c92efa9478be72e9a557c4
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 9520e4c2680e1dd0158a35b4ee65496a42a02563
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
@@ -179,9 +179,9 @@ Oui. Toutes les machines virtuelles et instances de rôle de services cloud dép
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Puis-je utiliser Azure App Service Web Apps avec un réseau virtuel ?
 Oui. Vous pouvez déployer des applications web à l’intérieur d’un réseau virtuel à l’aide d’ASE (App Service Environment). Toutes les applications web peuvent se connecter en toute sécurité et accéder aux ressources de votre réseau virtuel Azure si vous avez configuré une connexion de point à site pour votre réseau virtuel. Pour plus d’informations, consultez les articles suivants :
 
-* [Création d'applications web dans un environnement App Service](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [Intégrer une application à un réseau virtuel Azure](../app-service-web/web-sites-integrate-with-vnet.md)
-* [Utilisation de l’intégration au réseau virtuel et des connexions hybrides avec les applications web](../app-service-web/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
+* [Création d'applications web dans un environnement App Service](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md)
+* [Utilisation de l’intégration au réseau virtuel et des connexions hybrides avec les applications web](../app-service/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>Puis-je déployer des services cloud avec les rôles web et de travail (PaaS) dans un réseau virtuel ?
 Oui. Vous pouvez déployer (facultatif) des instances de rôle de services cloud dans des réseaux virtuels. Pour cela, vous spécifiez le nom de réseau virtuel et les mappages rôle/sous-réseau dans la section de configuration réseau de votre configuration de service. Il est inutile de mettre à jour vos fichiers binaires.

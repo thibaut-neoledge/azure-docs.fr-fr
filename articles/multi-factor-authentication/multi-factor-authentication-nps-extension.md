@@ -3,7 +3,7 @@ title: "Utiliser les serveurs NPS existants pour exploiter les fonctionnalités 
 description: "L’extension de serveur NPS (Network Policy Server) pour Azure Multi-Factor Authentication est une solution simple permettant d’ajouter des fonctionnalités de vérification en deux étapes basées sur le cloud à votre infrastructure d’authentification existante."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: b9061283952ae6b14431f5e88295eefac173ae01
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 42b0bda033b1721ba5c0f575ea2ce6b0933f0f45
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
@@ -62,16 +62,19 @@ Windows Server 2008 R2 SP1 ou version ultérieure.
 ### <a name="libraries"></a>Bibliothèques
 
 Ces bibliothèques sont installées automatiquement avec l’extension.
+
 -   [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
 -   [Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+
+Le module Microsoft Azure Active Directory pour Windows PowerShell est installé, s’il n’est pas déjà présent, via un script de configuration que vous exécutez en tant que partie du processus de configuration. Il est inutile d’installer ce module en avance s’il n’est pas déjà installé.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
 Tous les utilisateurs de l’extension NPS doivent être synchronisés avec Azure Active Directory à l’aide d’Azure AD Connect et doivent être inscrits pour l’authentification MFA.
 
-Lorsque vous installez l’extension, vous devez disposer de l’ID d’annuaire et des informations d’identification de l’administrateur pour votre client Azure AD. Vous trouverez votre ID d’annuaire dans le [portail Azure](https://portal.azure.com). Connectez-vous en tant qu’administrateur, sélectionnez l’icône **Azure Active Directory** sur la gauche, puis cliquez sur **Propriétés**. Copiez le GUID dans la zone **ID répertoire** et enregistrez. Vous utilisez ce GUID comme ID client lors de l’installation de l’extension NPS.
+Lorsque vous installez l’extension, vous devez disposer de l’ID de répertoire et des informations d’identification de l’administrateur pour votre client Azure AD. Vous trouverez votre ID de répertoire dans le [portail Azure](https://portal.azure.com). Connectez-vous en tant qu’administrateur, sélectionnez l’icône **Azure Active Directory** sur la gauche, puis cliquez sur **Propriétés**. Copiez le GUID dans la zone **ID répertoire** et enregistrez. Vous utilisez ce GUID comme ID client lors de l’installation de l’extension NPS.
 
-![Identification de votre ID d’annuaire dans les propriétés Azure Active Directory](./media/multi-factor-authentication-nps-extension/find-directory-id.png)
+![Identification de votre ID de répertoire dans les propriétés Azure Active Directory](./media/multi-factor-authentication-nps-extension/find-directory-id.png)
 
 ## <a name="prepare-your-environment"></a>Préparation de votre environnement
 
@@ -158,8 +161,8 @@ Le programme d’installation crée un script PowerShell à cet emplacement : `
 
    `.\AzureMfaNpsExtnConfigSetup.ps1`
 
-4. PowerShell vous invite à entrer votre ID client. Utilisez l’ID de répertoire GUID que vous avez copié à partir du portail Azure dans la section Configuration requise.
-5. Connectez-vous à Azure AD en tant qu’administrateur.
+4. Connectez-vous à Azure AD en tant qu’administrateur.
+5. PowerShell vous invite à entrer votre ID client. Utilisez l’ID de répertoire GUID que vous avez copié à partir du portail Azure dans la section Configuration requise.
 6. PowerShell affiche un message de réussite une fois le script terminé.  
 
 Répétez ces étapes sur les serveurs NPS supplémentaires que vous souhaitez configurer pour l’équilibrage de charge.

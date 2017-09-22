@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: a6bd0686842282ccd7ce0c31bb0152beb30bea66
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: be21a891121df1d645b430d87b572cde6c945d61
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -33,7 +33,7 @@ Ce script exporte une capture instantanée gérée vers un compte de stockage da
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-snapshot-to-storage-account/copy-snapshot-to-storage-account.ps1 "Copier une capture instantanée")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-snapshot-to-storage-account/copy-snapshot-to-storage-account.ps1 "Copy snapshot")]
 
 
 ## <a name="script-explanation"></a>Explication du script
@@ -54,4 +54,4 @@ Ce script utilise les commandes suivantes afin de générer un URI SAS pour une 
 
 Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
 
-Vous trouverez des exemples supplémentaires de scripts PowerShell de machine virtuelle dans la [documentation relative aux machines virtuelles Windows Azure](../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Vous trouverez des exemples supplémentaires de scripts PowerShell de machine virtuelle dans la [documentation relative aux machines virtuelles Windows Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

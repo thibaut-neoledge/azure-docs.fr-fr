@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: e5c8c3b098772c0586712305a577b24a6f0d924c
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7b0e76f86ec6443fcb394f7be1e6b417de99d4b7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configuration de SSL pour une application dans Azure
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/31/2017
 Le chiffrement SSL (Secure Socket Layer) est la méthode de sécurisation la plus couramment utilisée pour envoyer des données sécurisées sur Internet. Cette tâche présente la spécification d'un point de terminaison HTTPS pour un rôle Web et le téléchargement d'un certificat SSL pour sécuriser votre application.
 
 > [!NOTE]
-> Les procédures décrites dans cette tâche s’appliquent à Azure Cloud Services ; pour App Services, consultez [cette page](../app-service-web/web-sites-configure-ssl-certificate.md).
+> Les procédures décrites dans cette tâche s’appliquent à Azure Cloud Services ; pour App Services, consultez [cette page](../app-service/app-service-web-tutorial-custom-ssl.md).
 >
 
 Cette tâche utilise un déploiement de production. Vous trouverez des informations sur l’utilisation d’un déploiement intermédiaire à la fin de cette rubrique.

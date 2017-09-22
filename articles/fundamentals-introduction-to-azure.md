@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 298679883416a871016563aa789522413ff4c019
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="introducing-microsoft-azure"></a>Présentation de Microsoft Azure
@@ -102,7 +103,7 @@ Vous pouvez choisir entre deux rôles, tous deux basés sur Windows Server, lors
 Azure Cloud Services est idéal pour gérer une montée en charge conséquente et bénéficier d’un meilleur contrôle sur la plateforme qu’avec Azure Web Apps, sans toutefois contrôler le système d’exploitation sous-jacent.
 
 #### <a name="choosing-a-compute-model"></a>Choix d'un modèle de calcul
-La page [Comparaison entre Azure Web Apps, Azure Cloud Services et Azure Virtual Machines](app-service-web/choose-web-site-cloud-service-vm.md) contient des informations détaillées qui vous aideront à choisir un modèle de calcul.
+La page [Comparaison entre Azure Web Apps, Azure Cloud Services et Azure Virtual Machines](app-service/choose-web-site-cloud-service-vm.md) contient des informations détaillées qui vous aideront à choisir un modèle de calcul.
 
 ## <a name="data-management"></a>Gestion des données
 Les applications ont besoin de données, et chaque type d’application a besoin de données différentes. C’est pour cela qu’Azure propose différentes façons de stocker et de gérer les données. Azure propose de nombreuses options de stockage, toutes conçues pour un stockage de très longue durée.  Chacune de ces options vous permet de conserver trois copies synchronisées de vos données dans un centre de données Azure (six si vous autorisez Azure à utiliser la géo-redondance pour la sauvegarde dans un autre centre de données éloigné d'au moins 500 kilomètres).     
@@ -537,9 +538,4 @@ SendGrid est une application de l'Azure Store qui vous permet d'envoyer des cour
 Maintenant que vous connaissez les grandes lignes, la prochaine étape est de créer votre première application Azure. Choisissez votre langage, [téléchargez le Kit de développement logiciel (SDK) approprié](/downloads/) et vous n’avez plus qu’à vous lancer. Le cloud computing est la nouvelle norme. Adoptez-le dès maintenant.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

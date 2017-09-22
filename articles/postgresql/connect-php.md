@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 06/29/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 009cc7941dc5d60153f1ab27adb9b86866b9a3f2
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 9beb92895056b51f40988fc6c47dfa6f80ca3294
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -23,12 +23,12 @@ ms.lasthandoff: 06/30/2017
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant une application [PHP](http://php.net/manual/intro-whatis.php). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement à l’aide de PHP, mais que vous ne connaissez pas la base de données Azure pour PostgreSQL.
 
 ## <a name="prerequisites"></a>Composants requis
-Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
+Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
 - [Créer une base de données - Portail](quickstart-create-server-database-portal.md)
 - [Créer une base de données - Interface de ligne de commande Azure](quickstart-create-server-database-azure-cli.md)
 
 ## <a name="install-php"></a>Installer PHP
-Installez PHP sur votre serveur, ou créez une [application web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) Azure incluant PHP.
+Installez PHP sur votre serveur, ou créez une [application web](../app-service/app-service-web-overview.md) Azure incluant PHP.
 
 ### <a name="windows"></a>Windows
 - Téléchargez [la version non thread-safe de PHP 7.1.4 (x64)](http://windows.php.net/download#php-7.1)
@@ -47,13 +47,13 @@ Installez PHP sur votre serveur, ou créez une [application web](https://docs.m
 - Installez PHP et consultez le [manuel sur PHP](http://php.net/manual/install.macosx.php) pour poursuivre la configuration
 
 ## <a name="get-connection-information"></a>Obtenir des informations de connexion
-Obtenez les informations de connexion requises pour vous connecter à la base de données Azure pour PostgreSQL. Vous devez disposer du nom de serveur complet et des informations d’identification.
+Obtenez les informations de connexion requises pour vous connecter à la base de données Azure pour PostgreSQL. Vous devez disposer du nom de serveur complet et des informations d’identification.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez le serveur que vous venez de créer, par exemple **mypgserver-20170401**.
 3. Cliquez sur le nom du serveur **mypgserver-20170401**.
 4. Sélectionnez la page **Présentation** du serveur. Prenez note du **nom du serveur** et du **nom de connexion d’administrateur du serveur**.
- ![Base de données Azure pour PostgreSQL - Connexion d’administrateur du serveur](./media/connect-php/1-connection-string.png)
+ ![Base de données Azure pour PostgreSQL - Connexion d’administrateur du serveur](./media/connect-php/1-connection-string.png)
 5. Si vous avez oublié vos informations de connexion au serveur, accédez à la page **Vue d’ensemble** pour afficher le nom de connexion de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
 
 ## <a name="connect-and-create-a-table"></a>Se connecter et créer une table

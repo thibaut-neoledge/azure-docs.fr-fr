@@ -16,17 +16,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: chrande
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1cb2ec7aa927eceafdf91c35c1184fceecddc49a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-functions-developers-guide"></a>Guide de développement Azure Functions
 Dans Azure Functions, des fonctions spécifiques partagent quelques concepts techniques et composants de base, quels que soient le langage et la liaison que vous utilisez. Avant de passer à l'apprentissage des détails propres à un langage ou une liaison donnés, veillez à lire cette présentation qui s'applique à l’ensemble d’entre eux.
 
-Cet article suppose que vous avez déjà lu la [vue d'ensemble d'Azure Functions](functions-overview.md) et que vous connaissez les [concepts du Kit de développement logiciel (SDK) WebJobs, notamment les déclencheurs, les liaisons et le runtime JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md). Azure Functions est fondé sur le SDK WebJobs. 
+Cet article suppose que vous avez déjà lu la [vue d'ensemble d'Azure Functions](functions-overview.md) et que vous connaissez les [concepts du Kit de développement logiciel (SDK) WebJobs, notamment les déclencheurs, les liaisons et le runtime JobHost](https://github.com/Azure/azure-webjobs-sdk/wiki). Azure Functions est fondé sur le SDK WebJobs. 
 
 ## <a name="function-code"></a>Code de fonction
 La *fonction* est le principal concept d'Azure Functions. Vous écrivez du code pour une fonction dans le langage de votre choix et enregistrez le code et les fichiers de configuration dans le même dossier. La configuration est nommée `function.json`, et contient les données de configuration JSON. Plusieurs langages sont pris en charge, et chacun d’entre eux offre une expérience légèrement différente, optimisée pour fonctionner idéalement pour ce langage. 
@@ -79,7 +79,7 @@ Lorsque vous configurez un projet pour déployer des fonctions dans un conteneur
 ## <a id="fileupdate"></a> Comment mettre à jour les fichiers du conteneur de fonctions
 L’éditeur de fonctions intégré au portail Azure vous permet de mettre à jour le fichier *function.json* et le fichier de code pour une fonction. Pour télécharger ou mettre à jour d’autres fichiers comme *package.json* ou *project.json* ou les dépendances, vous devez utiliser d’autres méthodes de déploiement.
 
-Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes les [options de déploiement disponibles sur les applications web standard](../app-service-web/web-sites-deploy.md) le sont également sur les conteneurs de fonctions. Voici des méthodes que vous pouvez utiliser pour télécharger ou mettre à jour les fichiers du conteneur de fonctions. 
+Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes les [options de déploiement disponibles sur les applications web standard](../app-service/app-service-deploy-local-git.md) le sont également sur les conteneurs de fonctions. Voici des méthodes que vous pouvez utiliser pour télécharger ou mettre à jour les fichiers du conteneur de fonctions. 
 
 #### <a name="to-use-app-service-editor"></a>Pour utiliser l’Éditeur App Service
 1. Dans le portail Azure Functions, cliquez sur **Paramètres du conteneur de fonctions**.

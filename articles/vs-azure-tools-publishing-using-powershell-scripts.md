@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d5e9a300dcea137bf0d3db2da2dfb5c2e6a152af
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ba36ad0f46ce681b61acc576448fd36441b43f72
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Utilisation de scripts Windows PowerShell pour publier des environnements de développement et de test
@@ -38,7 +38,7 @@ Vous n’avez pas besoin du kit de développement logiciel (SDK) Azure pour gén
 Des outils et ressources supplémentaires sont disponibles pour l’utilisation de PowerShell dans Visual Studio pour le développement Azure. Consultez [Outils PowerShell pour Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012).
 
 ## <a name="generating-the-publish-scripts"></a>Génération de scripts de publication
-Vous pouvez générer des scripts de publication pour une machine virtuelle qui héberge votre site web lorsque vous créez un projet en suivant [ces instructions](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Vous pouvez également [Générer des scripts de publication pour les applications web dans Azure App Service](app-service-web/app-service-web-get-started-dotnet.md).
+Vous pouvez générer des scripts de publication pour une machine virtuelle qui héberge votre site web lorsque vous créez un projet en suivant [ces instructions](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Vous pouvez également [Générer des scripts de publication pour les applications web dans Azure App Service](app-service/app-service-web-get-started-dotnet.md).
 
 ## <a name="scripts-that-visual-studio-generates"></a>Scripts générés par Visual Studio
 Visual Studio génère un dossier au niveau solution appelé **PublishScripts** qui contient deux fichiers Windows PowerShell, un script de publication pour votre machine virtuelle ou votre site web et un module qui contient des fonctions que vous pouvez utiliser dans les scripts. Visual Studio génère également un fichier au format JSON qui spécifie les détails du projet que vous déployez.
@@ -141,7 +141,7 @@ Lorsque vous créez une machine virtuelle, le fichier de configuration JSON ress
 
 Vous pouvez modifier la configuration JSON pour changer ce qui se passe lorsque vous exécutez les scripts de publication. Les sections `cloudService` et `virtualMachine` sont obligatoires, mais vous pouvez supprimer la section `databases` si vous n’en avez pas besoin. Les propriétés qui sont vides dans le fichier de configuration par défaut généré par Visual Studio sont facultatives ; celles qui ont des valeurs dans le fichier de configuration par défaut sont obligatoires.
 
-Si vous possédez un site web qui compte plusieurs environnements de déploiement (appelés emplacements) au lieu d’un site de production unique dans Azure, vous pouvez inclure le nom de l’emplacement dans le nom du site web dans le fichier de configuration JSON. Par exemple, si votre site web est nommé **monsite** et que son emplacement est nommé **test**, l’URI est monsite-test.cloudapp.net, mais le nom correct à utiliser dans le fichier de configuration est monsite(test). Vous pouvez uniquement effectuer cette opération si le site web et les emplacements existent déjà dans votre abonnement. S’ils n’existent pas, créez le site web en exécutant le script sans spécifier l’emplacement, puis créez l’emplacement dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Ensuite, exécutez le script avec le nom de site web modifié. Pour plus d’informations sur les emplacements de déploiement pour les applications web, consultez [Configurer des environnements intermédiaires pour les applications web dans Azure App Service](app-service-web/web-sites-staged-publishing.md).
+Si vous possédez un site web qui compte plusieurs environnements de déploiement (appelés emplacements) au lieu d’un site de production unique dans Azure, vous pouvez inclure le nom de l’emplacement dans le nom du site web dans le fichier de configuration JSON. Par exemple, si votre site web est nommé **monsite** et que son emplacement est nommé **test**, l’URI est monsite-test.cloudapp.net, mais le nom correct à utiliser dans le fichier de configuration est monsite(test). Vous pouvez uniquement effectuer cette opération si le site web et les emplacements existent déjà dans votre abonnement. S’ils n’existent pas, créez le site web en exécutant le script sans spécifier l’emplacement, puis créez l’emplacement dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Ensuite, exécutez le script avec le nom de site web modifié. Pour plus d’informations sur les emplacements de déploiement pour les applications web, consultez [Configurer des environnements intermédiaires pour les applications web dans Azure App Service](app-service/web-sites-staged-publishing.md).
 
 ## <a name="how-to-run-the-publish-scripts"></a>Exécution de scripts de publication
 Si vous n’avez jamais exécuté de script Windows PowerShell auparavant, vous devez d’abord définir la stratégie d’exécution pour permettre l’exécution de scripts. Il s’agit d’une fonctionnalité de sécurité visant à empêcher les utilisateurs d’exécuter des scripts Windows PowerShell s’ils sont vulnérables aux programmes malveillants ou aux virus impliquant l’exécution de scripts.

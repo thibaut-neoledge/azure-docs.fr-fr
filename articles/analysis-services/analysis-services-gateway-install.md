@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 09/20/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 6ef296fb98478be9240f0231c8ad39cd2a0af995
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: d614352a62dc7aca012e9b144473604ae9829af9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
@@ -57,11 +57,7 @@ Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs 
 
    ![Emplacement d’installation et termes du contrat de licence](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. Sélectionnez **Passerelle de données locale (recommandé)**. Azure Analysis Services ne prend pas en charge le mode personnel.
-
-   ![Choisir le type de passerelle](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
-
-4. Entrez un compte pour vous connecter à Azure. Le compte doit se trouver dans l’Azure Active Directory de votre locataire. Ce compte est utilisé pour l’administrateur de passerelle. 
+3. Entrez un compte pour vous connecter à Azure. Le compte doit se trouver dans l’Azure Active Directory de votre locataire. Ce compte est utilisé pour l’administrateur de passerelle. 
 
    ![Entrer un compte pour vous connecter à Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 

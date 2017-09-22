@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 3ab6123b6acfdec57f1ca71b404c9e1123d1ff6d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 278fd4a811afac240b6ad3c2eb7f0a23cb686382
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -36,7 +36,7 @@ L’onglet **Surveiller** pour chaque fonction vous permet de vérifier chaque e
 Cliquer sur une exécution vous permet de consulter la durée, les données d’entrée, les erreurs et les fichiers journaux associés. Cela est utile pour le débogage et l’optimisation de vos fonctions.
 
 > [!IMPORTANT]
-> Lorsque vous utilisez le [plan de consommation d’hébergement](functions-overview.md#pricing) pour Azure Functions, la vignette **Surveillance** de l’application de fonction n’affiche pas toutes les données. Cela est dû au fait que la plateforme s’adapte dynamiquement et gère les instances de calcul pour vous. Ces métriques n’ont pas d’intérêt pour le plan de consommation. Pour surveiller l’utilisation de vos applications de fonction, utilisez plutôt les instructions de cet article.
+> Lorsque vous utilisez le [plan de consommation d’hébergement](functions-overview.md#pricing) pour Azure Functions, la vignette **Surveillance** de l’application de fonction n’affiche pas toutes les données. Cela est dû au fait que la plateforme s’adapte dynamiquement et gère les instances de calcul pour vous. Ces métriques n’ont pas d’intérêt pour le plan de consommation. Pour surveiller l’utilisation de vos Function Apps, utilisez plutôt les instructions de cet article.
 > 
 > La capture d’écran suivante présente un exemple :
 > 
@@ -57,14 +57,14 @@ Le flux d’événements en direct s’affiche sous forme d’un graphe dans un 
 > [!NOTE]
 > Il existe un problème connu qui peut provoquer l’échec du remplissage de vos données. Si c’est le cas, vous devrez peut-être fermer l’onglet du navigateur contenant le flux d’événements en direct, puis cliquer à nouveau sur **flux d’événements en direct** pour lui permettre de remplir correctement vos données de flux de données d’événement. 
 
-Le flux d’événements en direct représentera sous forme de graphe les statistiques suivantes de votre fonction :
+Le flux d’événements en direct représentera graphiquement les statistiques suivantes de votre fonction :
 
 * Exécutions démarrées par seconde
 * Exécutions réussies par seconde
 * Exécutions ayant échoué par seconde
 * Temps d’exécution moyen en millisecondes.
 
-Ces statistiques sont en temps réel, mais les graphes réels des données d’exécution peuvent avoir une latence d’environ 10 secondes.
+Ces statistiques sont en temps réel, mais les graphiques réels des données d’exécution peuvent avoir une latence d’environ 10 secondes.
 
 
 ## <a name="monitoring-log-files-from-a-command-line"></a>Analyse des fichiers journaux à partir d’une ligne de commande
@@ -83,7 +83,7 @@ Utilisez la commande suivante pour activer le mode Gestion des services classiqu
 
     azure config mode asm
 
-Si vous avez plusieurs abonnements, utilisez les commandes suivantes pour les répertorier et définir l’abonnement qui contient votre application de fonction comme abonnement actif.
+Si vous avez plusieurs abonnements, utilisez les commandes suivantes pour les répertorier et définir l’abonnement qui contient votre Function App comme abonnement actif.
 
     azure account list
     azure account set <subscriptionNameOrId>
@@ -92,7 +92,7 @@ La commande suivante diffuse les fichiers journaux d’application de fonction v
 
     azure site log tail -v <function app name>
 
-### <a name="monitoring-function-app-log-files-with-powershell"></a>Analyse des fichiers journaux d’application de fonction avec PowerShell
+### <a name="monitoring-function-app-log-files-with-powershell"></a>Analyse des fichiers journaux Function App avec PowerShell
 
 Pour commencer, [installez et configurez Azure PowerShell](/powershell/azure/overview).
 
@@ -104,7 +104,7 @@ Si vous avez plusieurs abonnements, vous pouvez les répertorier par nom avec la
 
     PS C:\> Get-AzureSubscription
 
-Si vous avez besoin de définir l’abonnement actif sur celui qui contient votre application de fonction, utilisez la commande suivante :
+Si vous avez besoin de définir l’abonnement actif sur celui qui contient votre Function App, utilisez la commande suivante :
 
     PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
 
@@ -112,7 +112,7 @@ Diffusez les journaux vers votre session PowerShell avec la commande suivante :
 
     PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
 
-Pour plus d’informations, consultez [Diffusion en continu des journaux](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs). 
+Pour plus d’informations, consultez [Diffusion en continu des journaux](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :

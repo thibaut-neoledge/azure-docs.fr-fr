@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: e4f2e0a23aa52a0e02e7047916b77fb15107defa
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: cf9963be162df3bd886b6fd44535c3d09e06284b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Connecter des produits/services ITSM à IT Service Management Connector (préversion)
@@ -66,7 +66,7 @@ Utilisez la procédure suivante pour connecter votre instance System Center Serv
 | **ID client**   | Tapez l’ID client que vous avez généré (en utilisant le script automatique) pour authentifier l’application web. Pour plus d’informations sur le script automatisé, cliquez [ici](log-analytics-itsmc-service-manager-script.md).|
 | **Clé secrète client**   | Tapez la clé secrète client, générée pour cet ID.   |
 | **Étendue de la synchronisation des données**   | Sélectionnez les éléments de travail de Service Manager que vous souhaitez synchroniser via IT Service Management Connector.  Ces éléments de travail sont importés dans Log Analytics. **Options :** incidents, demandes de modification.|
-| **Synchroniser les données** | Tapez le nombre de jours passés dont vous souhaitez les données. **Limite maximale** : 120 jours. |
+| **Synchroniser les données** | Tapez le nombre de jours passés dont vous souhaitez les données. **Limite maximale **: 120 jours. |
 | **Create new configuration item in ITSM solution (Créer un élément de configuration dans la solution ITSM)** | Sélectionnez cette option si vous souhaitez créer les éléments de configuration dans le produit ITSM. Lorsque cette option est sélectionnée, OMS crée les éléments de configuration affectés en tant qu’éléments de configuration (dans le cas d’éléments de configuration non existants) dans le système ITSM pris en charge. **Par défaut** : désactivée. |
 
 En cas de connexion et de synchronisation réussies :
@@ -209,7 +209,7 @@ Exécutez la procédure suivante pour créer une connexion ServiceNow :
 | **ID client**   | Tapez l’ID client généré précédemment que vous souhaitez utiliser pour l’authentification OAuth2.  Plus d’informations sur la génération de l’ID client et de la clé secrète : [Installation d’OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Clé secrète client**   | Tapez la clé secrète client, générée pour cet ID.   |
 | **Étendue de la synchronisation des données**   | Sélectionnez les éléments de travail de ServiceNow que vous souhaitez synchroniser avec OMS via IT Service Management Connector.  Les valeurs sélectionnées sont importées dans Log Analytics.   **Options :** incidents et demandes de modification.|
-| **Synchroniser les données** | Tapez le nombre de jours passés dont vous souhaitez les données. **Limite maximale** : 120 jours. |
+| **Synchroniser les données** | Tapez le nombre de jours passés dont vous souhaitez les données. **Limite maximale **: 120 jours. |
 | **Create new configuration item in ITSM solution (Créer un élément de configuration dans la solution ITSM)** | Sélectionnez cette option si vous souhaitez créer les éléments de configuration dans le produit ITSM. Lorsque cette option est sélectionnée, OMS crée les éléments de configuration affectés en tant qu’éléments de configuration (dans le cas d’éléments de configuration non existants) dans le système ITSM pris en charge. **Par défaut** : désactivée. |
 
 
@@ -270,7 +270,7 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 Vérifiez que les conditions préalables suivantes sont remplies :
 
 - IT Service Management Connector installé. Plus d’informations : [Configuration](log-analytics-itsmc-overview.md#configuration).
-- L’application Provance doit être inscrite auprès d’Azure AD, et l’ID client est mis à disposition. Pour plus d’informations, consultez [Comment configurer votre application pour utiliser la connexion Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- L’application Provance doit être inscrite auprès d’Azure AD, et l’ID client est mis à disposition. Pour plus d’informations, consultez [Comment configurer votre application pour utiliser la connexion Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 - Rôle utilisateur : administrateur.
 
 ### <a name="connection-procedure"></a>Procédure de connexion
@@ -293,9 +293,9 @@ Exécutez la procédure suivante pour créer une connexion Provance :
 | **Nom d’utilisateur**   | Tapez le nom d’utilisateur qui peut se connecter à IT Service Management Connector.    |
 | **Mot de passe**   | Tapez le mot de passe associé à ce nom d’utilisateur. **Remarque** : le nom d’utilisateur et le mot de passe sont utilisés uniquement pour générer des jetons d’authentification. Ils ne sont pas stockés dans le service OMS.|
 | **URL du serveur**   | Tapez l’URL de l’instance Provance que vous souhaitez connecter à IT Service Management Connector. |
-| **ID client**   | Tapez l’ID client que vous avez généré dans votre instance Provance pour authentifier cette connexion.  Pour plus d’informations sur l’ID client, consultez [Comment configurer votre application pour utiliser la connexion Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). |
+| **ID client**   | Tapez l’ID client que vous avez généré dans votre instance Provance pour authentifier cette connexion.  Pour plus d’informations sur l’ID client, consultez [Comment configurer votre application pour utiliser la connexion Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
 | **Étendue de la synchronisation des données**   | Sélectionnez les éléments de travail de Provance que vous souhaitez synchroniser à OMS via IT Service Management Connector.  Ces éléments de travail sont importés dans Log Analytics.   **Options :** incidents, demandes de modification.|
-| **Synchroniser les données** | Tapez le nombre de jours passés dont vous souhaitez les données. **Limite maximale** : 120 jours. |
+| **Synchroniser les données** | Tapez le nombre de jours passés dont vous souhaitez les données. **Limite maximale **: 120 jours. |
 | **Create new configuration item in ITSM solution (Créer un élément de configuration dans la solution ITSM)** | Sélectionnez cette option si vous souhaitez créer les éléments de configuration dans le produit ITSM. Lorsque cette option est sélectionnée, OMS crée les éléments de configuration affectés en tant qu’éléments de configuration (dans le cas d’éléments de configuration non existants) dans le système ITSM pris en charge. **Par défaut** : désactivée.|
 
 En cas de connexion et de synchronisation réussies :
@@ -340,7 +340,7 @@ Exécutez la procédure suivante pour créer une connexion Cherwell :
 | **URL du serveur**   | Tapez l’URL de l’instance Cherwell que vous souhaitez connecter à IT Service Management Connector. |
 | **ID client**   | Tapez l’ID client que vous avez généré dans votre instance Cherwell pour authentifier cette connexion.   |
 | **Étendue de la synchronisation des données**   | Sélectionnez les éléments de travail de Cherwell que vous souhaitez synchroniser via IT Service Management Connector.  Ces éléments de travail sont importés dans Log Analytics.   **Options :** incidents, demandes de modification. |
-| **Synchroniser les données** | Tapez le nombre de jours passés dont vous souhaitez les données. **Limite maximale** : 120 jours. |
+| **Synchroniser les données** | Tapez le nombre de jours passés dont vous souhaitez les données. **Limite maximale **: 120 jours. |
 | **Create new configuration item in ITSM solution (Créer un élément de configuration dans la solution ITSM)** | Sélectionnez cette option si vous souhaitez créer les éléments de configuration dans le produit ITSM. Lorsque cette option est sélectionnée, OMS crée les éléments de configuration affectés en tant qu’éléments de configuration (dans le cas d’éléments de configuration non existants) dans le système ITSM pris en charge. **Par défaut** : désactivée. |
 
 En cas de connexion et de synchronisation réussies :

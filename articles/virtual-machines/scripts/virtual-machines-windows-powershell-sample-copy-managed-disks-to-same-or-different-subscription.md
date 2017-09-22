@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 75beb35dc19fa530d9b2c19aed6040f74afafbc0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a14b25236fc233ef7b98b29e62a1270c5e4d8f53
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -33,7 +33,7 @@ Ce script crée la copie d’un disque géré existant dans le même abonnement 
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.ps1 "Copier un disque managé")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.ps1 "Copy managed disk")]
 
 
 ## <a name="script-explanation"></a>Explication du script
@@ -52,4 +52,4 @@ Ce script utilise les commandes suivantes pour créer un disque géré dans l’
 
 Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
 
-Vous trouverez des exemples supplémentaires de scripts PowerShell de machine virtuelle dans la [documentation relative aux machines virtuelles Windows Azure](../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Vous trouverez des exemples supplémentaires de scripts PowerShell de machine virtuelle dans la [documentation relative aux machines virtuelles Windows Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

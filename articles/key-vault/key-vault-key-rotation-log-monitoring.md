@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 38c342802ed687985ac6f84f5a590a1a0dcc6c6a
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit de bout en bout
@@ -407,7 +406,7 @@ Et ajoutez un fichier appelé project.json avec le contenu suivant :
 ```
 Lorsque vous cliquez sur **Enregistrer**, Azure Functions télécharge les fichiers binaires nécessaires.
 
-Basculez vers l’onglet **Intégration** et donnez un nom explicite au paramètre du minuteur à utiliser dans la fonction. Dans le code précédent, le minuteur est appelé *myTimer*. Spécifiez une [expression CRON](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON) comme suit : 0 \* \* \* \* \* pour le minuteur qui activera l’exécution de la fonction une fois par minute.
+Basculez vers l’onglet **Intégration** et donnez un nom explicite au paramètre du minuteur à utiliser dans la fonction. Dans le code précédent, le minuteur est appelé *myTimer*. Spécifiez une [expression CRON](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) comme suit : 0 \* \* \* \* \* pour le minuteur qui activera l’exécution de la fonction une fois par minute.
 
 Dans ce même onglet **Intégration**, ajoutez une entrée de type **Stockage Blob Azure**. Elle pointera vers le fichier sync.txt contenant l’horodatage du dernier événement examiné par la fonction. Elle sera disponible dans la fonction en tant que nom de paramètre. Dans le code précédent, l’entrée Azure Blob Storage attend le nom de paramètre *inputBlob*. Choisissez le compte de stockage dans lequel se trouvera le fichier sync.txt (il peut s’agir du même compte de stockage ou d’un autre). Dans le champ Chemin d’accès, indiquez le chemin d’accès au fichier au le format {container-name}/path/to/sync.txt.
 

@@ -16,11 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: e54c3bc484b0b3b81cc495e54c17e8ef448abe91
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: c4f7c829e6fe3890342bd973185e679dd3ea2df5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Utilisation de ReportViewer sur un site web hébergé dans Azure
@@ -79,7 +78,7 @@ En mode de traitement à distance, le contrôle ReportViewer utilise les assembl
 ReportViewer doit utiliser les informations d’identification appropriées pour s’authentifier auprès du serveur de rapports, et ces informations d’identification doivent être autorisées par le serveur de rapports pour accéder aux rapports souhaités. Pour plus d’informations sur l’authentification, lisez le livre blanc [Contrôle de visionneuse de rapports Reporting Services et serveurs de rapports basés sur une machine virtuelle Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>Publier l’application web ASP.NET sur Azure
-Pour obtenir des instructions sur la publication d’une application web ASP.NET sur Azure, consultez les articles [Procédure : Migration et publication d’une application web vers Azure depuis Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) et [Prise en main de Web Apps et ASP.NET](../../../app-service-web/app-service-web-get-started-dotnet.md).
+Pour obtenir des instructions sur la publication d’une application web ASP.NET sur Azure, consultez les articles [Procédure : Migration et publication d’une application web vers Azure depuis Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) et [Prise en main de Web Apps et ASP.NET](../../../app-service/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
 > Si la commande permettant d’ajouter un projet de déploiement Azure ou d’ajouter un projet de service cloud Azure n’apparaît pas dans le menu contextuel, vous devez remplacer la version cible de .NET Framework du projet par .NET Framework 4.

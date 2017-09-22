@@ -17,10 +17,10 @@ ms.date: 09/07/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: d8edabe1198f37513fc292e0bffc5c83e7e566e7
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1c39b2d9943532c8ccf0a11d3cf4bc8896669cfb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Choisir entre Flow, Logic Apps, Functions et WebJobs
@@ -60,7 +60,7 @@ Le tableau suivant vous aide à déterminer si Flow ou Logic Apps convient le mi
 ## <a name="functions-vs-webjobs"></a>Functions vs WebJobs
 Azure Functions et Azure App Service WebJobs peuvent être traités ensemble, car il s’agit dans les deux cas de services d’intégration *orientés code* et conçus pour les développeurs. Ils vous permettent d’exécuter un script ou un bloc de code en réponse à divers événements, tels que [de nouveaux objets blob de stockage](functions-bindings-storage.md) ou [une requête WebHook](functions-bindings-http-webhook.md). Voici leurs points communs : 
 
-* Ils sont tous deux basés sur [Azure App Service](../app-service/app-service-value-prop-what-is.md) et proposent des fonctionnalités telles que [le contrôle de code source](../app-service-web/app-service-continuous-deployment.md), [l’authentification](../app-service/app-service-authentication-overview.md) et [la surveillance](../app-service-web/web-sites-monitor.md).
+* Ils sont tous deux basés sur [Azure App Service](../app-service/app-service-web-overview.md) et proposent des fonctionnalités telles que [le contrôle de code source](../app-service/app-service-continuous-deployment.md), [l’authentification](../app-service/app-service-authentication-overview.md) et [la surveillance](../app-service/web-sites-monitor.md).
 * Il s’agit dans les deux cas de services destinés aux développeurs.
 * Ils prennent en charge les langages standard de script et de programmation.
 * Ils prennent en charge NuGet et NPM.
@@ -81,7 +81,7 @@ Le tableau suivant récapitule les différences entre Functions et WebJobs :
 | Mise à l'échelle |Mise à l’échelle sans configuration |Mise à l’échelle avec un plan App Service |
 | Tarifs |Paiement à l’utilisation ou dans le cadre d’un plan App Service |Dans le cadre d’un plan App Service |
 | Type d’exécution |Déclenchée, planifiée (par un déclencheur de minuteur) |Déclenchée, continue, planifiée |
-| Événements déclencheurs |[Minuteur](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Stockage Azure](functions-bindings-storage.md) |[Stockage Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
+| Événements déclencheurs |[Minuteur](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Stockage Azure](functions-bindings-storage-blob.md) |[Stockage Azure](functions-bindings-storage-blob.md), [Azure Service Bus](functions-bindings-service-bus.md) |
 | Développement dans le navigateur |pris en charge | non pris en charge |
 | Écriture de scripts Windows (.cmd, .bat) |Expérimental |pris en charge |
 | PowerShell |Expérimental |pris en charge |
@@ -115,7 +115,7 @@ Prenez en main chacun de ces services en créant votre premier flux, application
 * [Prise en main de Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Créer votre première fonction Azure](functions-create-first-azure-function.md)
-* [Déployer des tâches web à l’aide de Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md)
+* [Déployer des tâches web à l’aide de Visual Studio](../app-service/websites-dotnet-deploy-webjobs.md)
 
 Vous pouvez également obtenir des informations supplémentaires sur ces services d’intégration en cliquant sur les liens suivants :
 
@@ -123,6 +123,5 @@ Vous pouvez également obtenir des informations supplémentaires sur ces service
 * [Integrations Made Simple (Les intégrations simplifiées), par Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Diffusion web sur Logic Apps](http://aka.ms/logicappslive)
 * [Forum Aux Questions sur Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
-* [Ressources de documentation relatives à Azure WebJobs](../app-service-web/websites-webjobs-resources.md)
 
 

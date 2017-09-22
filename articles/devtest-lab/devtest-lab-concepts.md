@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: 1caea59e71126e934e2e52a1ad7f533ffa7d4b03
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7028cdacf7d597c238bf29bd26bbd44705d66224
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="devtest-labs-concepts"></a>Concepts de DevTest Labs
@@ -29,7 +29,7 @@ La liste suivante présente les définitions et concepts principaux de DevTest L
 Un laboratoire est l’infrastructure qui comprend un groupe de ressources, telles que des machines virtuelles, qui vous permet de mieux gérer ces ressources en spécifiant des limites et des quotas.
 
 ## <a name="virtual-machine"></a>Machine virtuelle
-Une machine virtuelle Azure est l’un des différents types de [ressources informatiques évolutives et à la demande](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm) proposés par Azure. Les machines virtuelles Azure vous apportent la souplesse de la virtualisation sans vous obliger à acheter le matériel qui exécute la machine virtuelle, ni à en assurer la maintenance. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle en effectuant des tâches comme la configuration, la mise à jour corrective et l’installation des logiciels qui s’exécutent dessus.
+Une machine virtuelle Azure est l’un des différents types de [ressources informatiques évolutives et à la demande](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm) proposés par Azure. Les machines virtuelles Azure vous apportent la souplesse de la virtualisation sans vous obliger à acheter le matériel qui exécute la machine virtuelle, ni à en assurer la maintenance. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle en effectuant des tâches comme la configuration, la mise à jour corrective et l’installation des logiciels qui s’exécutent dessus.
 
 L’article [Vue d’ensemble des machines virtuelles Windows dans Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) vous informe sur les points à prendre en compte avant de créer une machine virtuelle, sur sa création et sur sa gestion.
 

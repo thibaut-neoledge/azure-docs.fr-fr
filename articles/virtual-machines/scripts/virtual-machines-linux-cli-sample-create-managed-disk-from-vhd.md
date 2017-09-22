@@ -17,10 +17,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 36d34261325ba3ab120fd6bcf0f3816f84e15182
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ede9457f5843d0a8a04503779970a553c5ed4f96
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -35,7 +35,7 @@ Ce script crée un disque managé à partir d’un fichier de VHD dans un compte
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-managed-data-disks-from-vhd/create-managed-data-disks-from-vhd.sh "Créer un disque managé à partir d’un VHD")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-managed-data-disks-from-vhd/create-managed-data-disks-from-vhd.sh "Create managed disk from VHD")]
 
 
 ## <a name="script-explanation"></a>Explication du script
@@ -52,5 +52,5 @@ Ce script a recours aux commandes suivantes pour créer un disque managé à par
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Vous trouverez des exemples supplémentaires de scripts CLI de machine virtuelle et de disques managés dans la [documentation relative aux machines virtuelles Linux Azure](../../app-service-web/app-service-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Vous trouverez des exemples supplémentaires de scripts CLI de machine virtuelle et de disques managés dans la [documentation relative aux machines virtuelles Linux Azure](../../app-service/app-service-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

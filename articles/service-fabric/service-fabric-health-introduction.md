@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: oanapl
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 598a4d35faebb592f840b1bec7e77c7a091ea2de
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 330ef58d89ebabaa2af7fa8e98e693ddd64dcc4e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Présentation du contrôle d’intégrité de Service Fabric
@@ -26,7 +26,7 @@ Azure Service Fabric introduit un modèle d’intégrité qui fournit une évalu
 
 Les composants Service Fabric utilisent ce modèle d’intégrité enrichi pour signaler leur état actuel. Vous pouvez utiliser le même mécanisme pour établir des rapports sur l’intégrité de vos applications. Si vous investissez dans une fonction de création de rapports sur l’intégrité de qualité élevée, qui capture vos conditions personnalisées, vous pouvez plus facilement détecter et corriger les problèmes liés aux applications en cours d’exécution.
 
-La vidéo suivante de la Microsoft Virtual Academy décrit également le modèle de contrôle d’intégrité Service Fabric et son utilisation :<center><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+La vidéo suivante de la Microsoft Virtual Academy décrit également le modèle de contrôle d’intégrité Service Fabric et son utilisation :<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 

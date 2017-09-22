@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 7129137e6deca6ae4cbb5096058b58b32056d415
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a20179c72b227deb14df442bea7b80cf31728aa7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="specifying-a-nodejs-version-in-an-azure-application"></a>Spécification d'une version Node.js dans une application Azure
@@ -90,12 +90,12 @@ Bien qu'Azure fournisse plusieurs versions par défaut de Node.js, vous pouvez u
     Une fois l'application publiée, ouvrez le site web dans un navigateur. Le message suivant doit apparaître : « Hello from Azure running node version: v0.8.1 ».
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous savez comment spécifier la version de Node.js utilisée par votre application, découvrez comment [utiliser des modules], [créer et déployer un site Web Node.js](app-service-web/app-service-web-get-started-nodejs.md) et [utiliser des outils en ligne de commande Azure pour Mac et Linux].
+Maintenant que vous savez comment spécifier la version de Node.js utilisée par votre application, découvrez comment [utiliser des modules], [créer et déployer un site Web Node.js](app-service/app-service-web-get-started-nodejs.md) et [utiliser des outils en ligne de commande Azure pour Mac et Linux].
 
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js](https://azure.microsoft.com/develop/nodejs/).
 
 [utiliser des outils en ligne de commande Azure pour Mac et Linux]:cli-install-nodejs.md
 [outils en ligne de commande Azure]:cli-install-nodejs.md
-[utiliser des modules]: nodejs-use-node-modules-azure-apps.md
-[build and deploy a Node.js Web Site]: app-service-web/app-service-web-get-started-nodejs.md
+[work with modules]: nodejs-use-node-modules-azure-apps.md
+[build and deploy a Node.js Web Site]: app-service/app-service-web-get-started-nodejs.md
 

@@ -18,10 +18,10 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: b2f506a90c6b55624c8fe0392511b8098f058812
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 41ebbe944213373c028b7410baa86e6c55db0d8c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Comparaison des plans d’hébergement Azure Functions
@@ -67,7 +67,7 @@ Pensez à un plan App Service dans les cas suivants :
 
 L’utilisation d’une machine virtuelle dissocie le coût de l’exécution et de la taille de mémoire. Vous ne payez donc pas plus que le coût de l’instance de machine virtuelle que vous allouez. Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Avec un plan App Service, vous pouvez augmenter manuellement la taille des instances en ajoutant des instances de machine virtuelle, ou vous pouvez activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Vous pouvez également effectuer une montée en puissance en choisissant un autre plan App Service. Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](../app-service-web/web-sites-scale.md). Si vous prévoyez d’exécuter des fonctions JavaScript dans un plan App Service, vous devez choisir un plan qui comporte moins de cœurs. Pour plus d’informations, consultez les [informations de référence sur JavaScript pour Functions](functions-reference-node.md#choose-single-core-app-service-plans).  
+Avec un plan App Service, vous pouvez augmenter manuellement la taille des instances en ajoutant des instances de machine virtuelle, ou vous pouvez activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Vous pouvez également effectuer une montée en puissance en choisissant un autre plan App Service. Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](../app-service/web-sites-scale.md). Si vous prévoyez d’exécuter des fonctions JavaScript dans un plan App Service, vous devez choisir un plan qui comporte moins de cœurs. Pour plus d’informations, consultez les [informations de référence sur JavaScript pour Functions](functions-reference-node.md#choose-single-core-app-service-plans).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>

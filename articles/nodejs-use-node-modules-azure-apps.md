@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 94ddae4473b2d9d212e05d3df089eb6b2b87cbd8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 13feb95a24add7823feae9fe0abd89e59934255c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Utilisation de modules Node.js avec des applications Azure
@@ -84,11 +84,11 @@ Lorsque votre application est prête pour la production, vous pouvez verrouiller
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous savez comment utiliser les modules Node.js avec Azure, découvrez comment [spécifier la version de Node.js], [créer et déployer une application web Node.js](app-service-web/app-service-web-get-started-nodejs.md) et [utiliser l'interface de ligne de commande Azure pour Mac et Linux].
+Maintenant que vous savez comment utiliser les modules Node.js avec Azure, découvrez comment [spécifier la version de Node.js], [créer et déployer une application web Node.js](app-service/app-service-web-get-started-nodejs.md) et [utiliser l'interface de ligne de commande Azure pour Mac et Linux].
 
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/nodejs/azure/).
 
 [spécifier la version de Node.js]: nodejs-specify-node-version-azure-apps.md
 [utiliser l'interface de ligne de commande Azure pour Mac et Linux]:cli-install-nodejs.md
-[Scripts de déploiement de site Web personnalisés avec Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
+[Scripts de déploiement de site web personnalisés avec Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
 

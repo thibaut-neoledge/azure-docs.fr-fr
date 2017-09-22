@@ -1,6 +1,6 @@
 ---
 title: "Intégration à Azure Active Directory | Microsoft Docs"
-description: "Un guide sur les avantages et les ressources de l&quot;intégration avec Azure Active Directory."
+description: "Un guide sur les avantages et les ressources de l'intégration avec Azure Active Directory."
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 32c236c7082e48990f41a1a9069cea53d0cab96f
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="integrating-with-azure-active-directory"></a>Intégration avec Azure Active Directory
@@ -34,7 +33,7 @@ Il existe plusieurs façons d’intégrer votre application à Azure AD.  Bén�
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Prise en charge d'Azure AD pour de se connecter à votre application
 **Réduction des problèmes de connexion et réduction des coûts de prise en charge.** En utilisant Azure AD pour se connecter à votre application, vos utilisateurs n'auront pas un nom et un mot de passe supplémentaires à mémoriser.  En tant que développeur, vous aurez un mot de passe en moins à stocker et à protéger.  Ne pas avoir à gérer les réinitialisations de mots de passe oubliés peut être en soi une économie considérable.  Azure AD alimente les connexions pour certaines des applications cloud les plus populaires au monde, y compris Office 365 et Microsoft Azure.  Avec des centaines de millions d'utilisateurs dans des millions d'organisations, il est fort probable que votre utilisateur soit déjà connecté à Azure AD.  En savoir plus sur [l’ajout de la prise en charge pour la connexion Azure AD](active-directory-authentication-scenarios.md).
 
-**Simplifiez l’inscription à votre application.**  Lors de l'inscription de votre application, Azure AD peut envoyer des informations essentielles sur un utilisateur pour vous permettre de remplir au préalable votre formulaire d'inscription ou de le supprimer complètement.  Les utilisateurs peuvent s’inscrire à votre application à l'aide de leur compte Azure AD via une expérience de consentement courante, similaire à celles des réseaux sociaux et des applications mobiles.  N'importe quel utilisateur peut s'inscrire et se connecter à une application qui est intégrée à Azure AD sans avoir besoin de l’intervention des services informatiques.  En savoir plus sur [l’inscription de votre application pour la connexion d’un compte Azure AD](../../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) .
+**Simplifiez l’inscription à votre application.**  Lors de l'inscription de votre application, Azure AD peut envoyer des informations essentielles sur un utilisateur pour vous permettre de remplir au préalable votre formulaire d'inscription ou de le supprimer complètement.  Les utilisateurs peuvent s’inscrire à votre application à l'aide de leur compte Azure AD via une expérience de consentement courante, similaire à celles des réseaux sociaux et des applications mobiles.  N'importe quel utilisateur peut s'inscrire et se connecter à une application qui est intégrée à Azure AD sans avoir besoin de l’intervention des services informatiques.  En savoir plus sur [l’inscription de votre application pour la connexion d’un compte Azure AD](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md) .
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Recherche des utilisateurs, gestion de l’attribution de privilèges d’accès des utilisateurs et contrôle de l’accès à votre application
 **Rechercher des utilisateurs dans le répertoire.**  Utilisez l'API Graph pour la recherche d’utilisateurs et recherchez d'autres personnes dans leur organisation lorsque vous invitez d'autres personnes ou que vous leur permettez l’accès, au lieu de leur demander de taper leur adresse e-mail.  Les utilisateurs peuvent effectuer leur recherche dans une interface similaire à un carnet d’adresses, notamment en affichant les détails de la hiérarchie organisationnelle.  En savoir plus sur [l’API Graph](active-directory-graph-api.md).

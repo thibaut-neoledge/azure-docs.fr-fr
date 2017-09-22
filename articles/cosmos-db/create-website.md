@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 42146cdc20bcff84d54110c8fba6d00951558bd0
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
+ms.openlocfilehash: 633b88761de4d2c99cfd196cfac8e664fc83c546
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Déployer Azure Cosmos DB et Azure App Service Web Apps avec un modèle Azure Resource Manager
@@ -130,9 +130,13 @@ Maintenant nous allons déployer notre deuxième modèle.  Ce modèle vous montr
 ## <a name="next-steps"></a>Étapes suivantes
 Félicitations ! Vous avez déployé Azure Cosmos DB, une application web App Service et un exemple d’application web avec les modèles Azure Resource Manager.
 
-* Pour en savoir plus sur Azure Cosmos DB, consultez la [page du service Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
-* Pour en savoir plus sur les applications web d’Azure App Service, consultez la [documentation de Web Apps](http://go.microsoft.com/fwlink/?LinkId=325362).
-* Pour en savoir plus sur les modèles Azure Resource Manager, consultez [API REST de Resource Manager : Déploiements](https://docs.microsoft.com/rest/api/resources/deployments).
+* Pour en savoir plus sur Azure Cosmos DB, cliquez [ici](http://azure.com/docdb).
+* Pour en savoir plus sur les applications web Azure App Service, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=325362).
+* Pour en savoir plus sur les modèles Azure Resource Manager, cliquez [ici](https://msdn.microsoft.com/library/azure/dn790549.aspx).
+
+## <a name="whats-changed"></a>Changements apportés
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure Classic](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 > [!NOTE]
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: a30859610aed55c1ffa22e821de3702d265a7fa7
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d5de4f5a7357cf5adde7773867356d47ad447bab
 ms.contentlocale: fr-fr
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Migration et publication d’une application web sur un service cloud Azure à partir de Visual Studio
 Pour tirer parti des services d’hébergement et de l’extensibilité d’Azure, vous pouvez migrer et publier votre application web sur un service cloud Azure. Vous pouvez exécuter une application web dans Azure avec un minimum de modifications sur votre application existante.
 
 > [!NOTE]
-> Cette rubrique concerne le déploiement sur des services cloud, pas sur des sites web. Pour plus d’informations sur le déploiement sur des sites web, consultez [Déployer une application web dans Azure App Service](app-service-web/web-sites-deploy.md).
+> Cette rubrique concerne le déploiement sur des services cloud, pas sur des sites web. Pour plus d’informations sur le déploiement sur des sites web, consultez [Déployer une application web dans Azure App Service](app-service/app-service-deploy-local-git.md).
 >
 >
 

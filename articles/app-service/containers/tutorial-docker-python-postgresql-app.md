@@ -16,15 +16,15 @@ ms.date: 05/03/2017
 ms.author: beverst
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7757ecf442314d294432266750502e384e39bde0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 36cf3c0bb4a28a4ccfd5fc94b72fba023516a9ce
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Créer une application web Docker Python et PostgreSQL dans Azure
 
-Azure Web Apps offre un service d’hébergement web hautement évolutif et appliquant des mises à jour correctives automatiques. Ce didacticiel vous montre comment créer une application web Docker Python de base dans Azure. Vous allez connecter cette application à une base de données PostgreSQL. Ceci fait, vous disposerez d’une application Python Flask s’exécutant dans un conteneur Docker sur [Azure App Service Web Apps](../../app-service-web/app-service-web-overview.md).
+Azure Web Apps offre un service d’hébergement web hautement évolutif et appliquant des mises à jour correctives automatiques. Ce didacticiel vous montre comment créer une application web Docker Python de base dans Azure. Vous allez connecter cette application à une base de données PostgreSQL. Ceci fait, vous disposerez d’une application Python Flask s’exécutant dans un conteneur Docker sur [Azure App Service Web Apps](../app-service-web-overview.md).
 
 ![Application Docker Python Flask dans Azure App Service](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -111,7 +111,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Naviguez jusqu’à http://127.0.0.1:5000 dans un navigateur. Cliquez sur **S’inscrire** et créez un utilisateur de test.
+Dans un navigateur, accédez à `http://127.0.0.1:5000`. Cliquez sur **S’inscrire** et créez un utilisateur de test.
 
 ![Application Python Flask s’exécutant localement](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -554,5 +554,5 @@ Par défaut, le portail affiche la page **Vue d’ensemble** de votre applicatio
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
 
 > [!div class="nextstepaction"] 
-> [Mapper un nom DNS personnalisé existant à des applications web Azure](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service-web-tutorial-custom-domain.md)
 

@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 879854c4afc6fa5ac31f8e18dad0164e77f190cd
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 5fc61fed674f0d2fc64bc29c064e7e872b4f2e68
 ms.contentlocale: fr-fr
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service
@@ -68,7 +68,7 @@ Vous devez installer [Node] sur votre ordinateur local  ainsi que le package de 
 ```npm i -g azure-mobile-apps-compatibility```
 
 ## <a name="obtain-ams-scripts"></a> Obtenir vos scripts Azure Mobile Services
-* Connectez-vous au [Portail Azure].
+* Connectez-vous au [portail Azure].
 * Dans **Toutes les ressources** ou **App Services**, recherchez votre site Mobile Services.
 * Sur le site, cliquez sur **Outils** -> **Kudu** -> **Accéder** pour ouvrir le site Kudu.
 * Cliquez sur **Console de débogage** -> **PowerShell** pour ouvrir la console de débogage.
@@ -87,7 +87,7 @@ Un backend Azure Mobile Apps structuré est alors créé dans le répertoire `ou
 ## <a name="deploy-ama-app"></a> Déployer votre backend Azure Mobile Apps
 Au cours du déploiement, vous devez effectuer les opérations suivantes :
 
-1. Créer une application Mobile App dans le [Portail Azure].
+1. Créer une application Mobile App dans le [portail Azure].
 2. Exécuter le script `createViews.sql` sur votre base de données connectée.
 3. Lier la base de données liée à votre Mobile Service à votre nouvel App Service.
 4. Lier d’autres ressources (par exemple Notification Hubs) au nouvel App Service.
@@ -111,7 +111,7 @@ Vous pouvez exécuter ce script à partir de SQL Server Management Studio ou de 
 ### <a name="link-the-database-to-your-app-service"></a>Lier la base de données à votre App Service
 Liez la base de données existante à votre App Service :
 
-* Dans le [Portail Azure], ouvrez votre App Service.
+* Dans le [portail Azure], ouvrez votre App Service.
 * Sélectionnez **Tous les paramètres** -> **Connexions de données**.
 * Cliquez sur **+ Ajouter**.
 * Dans la liste déroulante, sélectionnez **Base de données SQL**
@@ -156,16 +156,16 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
-[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[Web Job]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[tarification App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[Tarification App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[concepts d’authentification]: ../app-service/app-service-authentication-overview.md
-[démarrage rapide de l’authentification]: app-service-mobile-auth.md
+[Concepts d’authentification]: ../app-service/app-service-authentication-overview.md
+[Authentication Quickstart (Démarrage rapide de l’authentification) (Démarrage rapide de l’authentification)]: app-service-mobile-auth.md
 
-[Portail Azure]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

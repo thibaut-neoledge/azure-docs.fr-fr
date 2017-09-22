@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: c5daf4622c8b6c4f572062d5db9b567413daaec0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: dd2dfe20f86b3fac28871b27a1c2b66c2b4a4cd6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -38,24 +38,20 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
-<<<<<<< HEAD Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). =======
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4
-
-Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com).
+Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Créer une machine virtuelle Linux dans un nouveau groupe de ressources
 
-Pour ce didacticiel, nous allons créer une machine virtuelle Linux. Vous pouvez également activer l’identité du service administré sur une machine virtuelle existante.
+Pour ce didacticiel, nous créons une machine virtuelle Linux. Vous pouvez également activer l’identité du service administré sur une machine virtuelle existante.
 
 1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
 2. Sélectionnez **Compute**, puis sélectionnez **Ubuntu Server 16.04 LTS**.
 3. Saisissez les informations de la machine virtuelle. Dans **Type d’authentification**, sélectionnez **Clé publique SSH** ou **Mot de passe**. Les informations d’identification créées vous permettent de vous connecter à la machine virtuelle.
-<<<<<<< HEAD ===
 
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4 ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Choisissez un **Abonnement** pour la machine virtuelle dans la liste déroulante.
-5. Pour sélectionner un nouveau **Groupe de ressources** dans lequel vous souhaitez créer une machine virtuelle, choisissez **Créer un nouveau**. Lorsque vous avez terminé, cliquez sur **OK**.
+5. Pour sélectionner un nouveau **Groupe de ressources** dans lequel vous souhaitez créer la machine virtuelle, choisissez **Créer nouveau**. Lorsque vous avez terminé, cliquez sur **OK**.
 6. Choisissez la taille de la machine virtuelle. Pour voir plus de tailles, sélectionnez **Afficher tout** ou modifiez le filtre de type de disque pris en charge. Conservez les valeurs par défaut dans la page des paramètres et cliquez sur **OK**.
 
 ## <a name="enable-msi-on-your-vm"></a>Activer l’identité du service administré sur votre machine virtuelle
@@ -80,14 +76,14 @@ L’identité du service administré d’une machine virtuelle permet d’obteni
 
 Tout d’abord, nous devons créer un Key Vault et accorder l’accès au Key Vault à l’identité de la machine virtuelle.   
 
-1. En haut de la barre de navigation gauche, sélectionnez **+ Nouveau**, **Sécurité + identité**, puis **Key Vault**.  
+1. En haut de la barre de navigation gauche, sélectionnez **+ Nouveau**, **Sécurité + Identité**, puis **Key Vault**.  
 2. Entrez un **Nom** pour le nouveau Key Vault. 
 3. Recherchez le Key Vault dans le même abonnement et le même groupe de ressources que la machine virtuelle créée précédemment. 
 4. Sélectionnez des **Stratégies d’accès** et cliquez sur le bouton **Ajouter un nouveau**. 
 5. Dans Configurer à partir du modèle, sélectionnez **Gestion de secret**. 
 6. Choisissez **Sélectionner le principal**, et dans la zone de recherche entrez le nom de la machine virtuelle créée précédemment.  Sélectionnez la machine virtuelle dans la liste des résultats, cliquez sur **Sélectionner**. 
 7. Cliquez sur **OK** pour terminer l’ajout de la nouvelle stratégie d’accès, puis sur **OK** pour terminer la sélection de stratégie d’accès. 
-8. Cliquez sur **créer** pour terminer la création de Key Vault. 
+8. Cliquez sur **Créer** pour terminer la création de Key Vault. 
 
     ![Texte de remplacement d’image](media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
@@ -111,7 +107,7 @@ Pour effectuer cette procédure, vous avez besoin d'un client SSH.  Si vous util
     Vous trouverez la requête CURL pour le jeton d’accès ci-dessous.  
     
     ```bash
-    curl http://localhost:50432/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
+    curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
     ```
     La réponse inclut le jeton d’accès dont vous avez besoin pour accéder au Gestionnaire des ressources. 
     

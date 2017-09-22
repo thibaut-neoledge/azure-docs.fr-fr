@@ -16,10 +16,10 @@ ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: b2035d6bc0d323f2497a1db9b88d3ed015235b16
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bd4e629e522fb9acea5601be8eac7c70ae61d042
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -76,7 +76,7 @@ Avant de configurer le travail dans Jenkins, vous avez besoin d’un plan Azure 
 
 
 1. Créez un plan Azure App Service avec le niveau tarifaire **Gratuit** à l’aide de la commande d’interface de ligne de commande [az appservice plan create](/cli/azure/appservice/plan#create). Le plan App Service définit les ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent ces ressources, ce qui vous permet de réduire les coûts lors de l’hébergement de plusieurs applications.
-2. Créez une application web. Vous pouvez utiliser le [portail Azure](/azure/app-service-web/web-sites-configure) ou la commande CLI Az suivante :
+2. Créez une application web. Vous pouvez utiliser le [portail Azure](/azure/app-service/web-sites-configure) ou la commande CLI Az suivante :
 ```azurecli-interactive 
 az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
 ```

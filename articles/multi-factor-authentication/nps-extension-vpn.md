@@ -17,10 +17,10 @@ ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 3dfcf25856ede50266336c2ebb057dd3f7b8897e
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -100,12 +100,12 @@ L’extension de serveur NPS requiert Windows Server 2008 R2 SP1 ou version ult�
 
 ### <a name="libraries"></a>Bibliothèques
 
-Les deux bibliothèques suivantes sont requises :
+Ces bibliothèques sont installées automatiquement avec l’extension.
 
-* [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-* _Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0_ ou version supérieure. Pour la version la plus récente et les instructions d’installation, consultez [Historique des mises en production de la version du module Microsoft Azure Active Directory PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx).
+-   [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-   [Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
-Ces bibliothèques ne sont pas packagées avec les fichiers de configuration d’extension NPS (version 0.9.1.2), en dépit de la documentation existante qui stipule le contraire. Au minimum, vous devez installer les packages redistribuables Visual C++ pour Visual Studio 2013. Le module Microsoft Azure Active Directory pour Windows PowerShell est installé, s’il n’est pas déjà présent, via un script de configuration que vous exécutez en tant que partie du processus de configuration. Il est inutile d’installer ce module en avance s’il n’est pas déjà installé.
+Le module Microsoft Azure Active Directory pour Windows PowerShell est installé, s’il n’est pas déjà présent, via un script de configuration que vous exécutez en tant que partie du processus de configuration. Il est inutile d’installer ce module en avance s’il n’est pas déjà installé.
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Active Directory synchronisé avec Active Directory local 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 69f1850bfed90392e9a4695e2443ffaa6bfc746d
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 435d01f14978ea72b088691747175c56f31b8bc3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Red Hat Enterprise Linux 7 à un domaine géré
@@ -148,7 +148,7 @@ Vous trouverez ci-dessous un exemple de sortie de ces commandes :
 ![Vérifier la jonction de domaine](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-verify-domain-join.png)
 
 ## <a name="troubleshooting-domain-join"></a>Résolution des problèmes de jonction de domaine
-Reportez-vous à l’article relatif à la [résolution des problèmes de jonction de domaine](active-directory-ds-admin-guide-join-windows-vm.md#troubleshooting-domain-join) .
+Reportez-vous à l’article relatif à la [résolution des problèmes de jonction de domaine](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) .
 
 ## <a name="related-content"></a>Contenu connexe
 * [Services de domaine Azure AD : guide de prise en main](active-directory-ds-getting-started.md)

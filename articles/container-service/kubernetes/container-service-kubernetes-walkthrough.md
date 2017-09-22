@@ -18,10 +18,10 @@ ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 5a2131659903e79b28f4d1b795d25a31d8d4ce8d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e05d24655149dc03cfd435fbc07539d91f2e1502
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -71,8 +71,10 @@ Output:
 Pour créer un cluster Kubernetes dans Azure Container Service, utilisez la commande [az acs create](/cli/azure/acs#create). L’exemple ci-après permet de créer un cluster nommé *myK8sCluster*, qui inclut un nœud maître Linux et trois nœuds agents Linux.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
 ```
+
+Dans certains cas, par exemple avec une version d’évaluation limitée, un abonnement Azure dispose d’un accès limité aux ressources Azure. Si le déploiement échoue à cause d’une limitation du nombre de cœurs disponibles, réduisez le nombre d’agents par défaut en ajoutant `--agent-count 1` à la commande [az acs create](/cli/azure/acs#create). 
 
 Au bout de quelques minutes, la commande se termine et retourne des informations formatées Json sur le cluster. 
 

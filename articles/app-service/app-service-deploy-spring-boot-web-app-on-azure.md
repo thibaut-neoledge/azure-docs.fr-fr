@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 0c388862d927a1492745832225c686670c071f86
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 8776142d5452bf5057990702c89aa1a541382ffc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
 # <a name="deploy-a-spring-boot-application-to-the-azure-app-service"></a>Déployer une application Spring Boot sur Azure App Service
 
- **[Spring Framework]**  une solution open source qui permet aux développeurs Java de créer des applications d’entreprise. Un des projets les plus populaires s’appuyant sur cette plateforme est [Spring Boot], qui offre une approche simplifiée pour la création d’applications Java autonomes.
+** [Spring Framework] ** une solution open source qui permet aux développeurs Java de créer des applications d’entreprise. Un des projets les plus populaires s’appuyant sur cette plateforme est [Spring Boot], qui offre une approche simplifiée pour la création d’applications Java autonomes.
 
 Ce didacticiel vous montre comment créer l’exemple d’application web Spring Boot Getting Started et la déployer sur [Azure App Service].
 
@@ -215,15 +215,15 @@ Pour plus d’informations sur la configuration de paramètres supplémentaires 
 [Azure App Service]: https://azure.microsoft.com/services/app-service/
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
-[portail Azure]: https://portal.azure.com/
-[Configurer des applications web dans Azure App Service]: /azure/app-service-web/web-sites-configure
-[Déployer votre application sur Azure App Service avec FTP/S]: https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp
+[Portail Azure]: https://portal.azure.com/
+[Configurer des applications web dans Azure App Service]: /azure/app-service/web-sites-configure
+[Déployer votre application sur Azure App Service avec FTP/S]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
 [compte Azure gratuit]: https://azure.microsoft.com/pricing/free-trial/
-[client Git]: https://github.com/
+[Git]: https://github.com/
 [JDK (Java Developer Kit)]: http://www.oracle.com/technetwork/java/javase/downloads/
-[outils Java pour Visual Studio Team Services]: https://java.visualstudio.com/
+[Outils Java pour Visual Studio Team Services]: https://java.visualstudio.com/
 [Maven]: http://maven.apache.org/
-[avantages d’abonné MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[Avantages pour les abonnés MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Boot Getting Started]: https://github.com/spring-guides/gs-spring-boot
 [Spring Framework]: https://spring.io/

@@ -12,10 +12,10 @@ ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 6a4c32d73050795a70a86f745840536bb3fc2a49
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 720d4c592256389f9494cb1b2be56393f4e9f03f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -51,6 +51,6 @@ Utilisez les plug-ins Jenkins pour déployer vos applications sur Azure dans le 
  Des plug-ins sont disponibles pour être déployés sur les services et environnements suivants :
 
 - [Azure Web App sur Linux](/azure/app-service-web/app-service-linux-intro). Consultez le [didacticiel](java-deploy-webapp-tutorial.md) pour commencer.
-- [Azure Web App](/azure/app-service-web/app-service-web-overview). Consultez les [procédures](deploy-Jenkins-app-service-plugin.md) pour commencer.
+- [Azure Web App](/azure/app-service/app-service-web-overview). Consultez les [procédures](deploy-Jenkins-app-service-plugin.md) pour commencer.
 
 

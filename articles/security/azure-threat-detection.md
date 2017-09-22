@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7db677614c23a3447e3e40ae867711a754b06d0d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -290,7 +290,7 @@ Les fonction SQL Database Threat Detector utilisent les méthodes de détection 
 
 ### <a name="application-gateway-web-application-firewall"></a>Pare-feu d’applications web sur Application Gateway
 
-Le [pare-feu d’applications web](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall) est une fonction de [passerelle Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) qui offre une protection pour les applications web qui utilisent la passerelle d’application pour les fonctions de [contrôle de remise d’application](https://kemptechnologies.com/in/application-delivery-controllers) standard. Le pare-feu d’applications web procède en les protégeant contre la plupart des [10 plus courantes vulnérabilités web de l’OWASP](https://www.owasp.org/index.php/Top_10_2010-Main)
+Le [pare-feu d’applications web](../app-service/environment/app-service-app-service-environment-web-application-firewall.md) est une fonction de [passerelle Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) qui offre une protection pour les applications web qui utilisent la passerelle d’application pour les fonctions de [contrôle de remise d’application](https://kemptechnologies.com/in/application-delivery-controllers) standard. Le pare-feu d’applications web procède en les protégeant contre la plupart des [10 plus courantes vulnérabilités web de l’OWASP](https://www.owasp.org/index.php/Top_10_2010-Main)
 
 ![Pare-feu d’applications web sur Application Gateway](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 

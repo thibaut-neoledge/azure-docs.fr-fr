@@ -15,10 +15,10 @@ ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 8b8ab2883234850fe243c4d7473d737c497204b4
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
+ms.openlocfilehash: 8eb0e7aa1a0fd55ece4adcfe4619c64845b7d271
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
@@ -153,10 +153,20 @@ Pour les autres plateformes Windows sur site AD et jointes à un domaine :
 
 ---
 
-**Q : Où puis-je trouver des instructions pour la configuration d’appareils hybrides joints à Azure AD ?**
+**Q : Où puis-je trouver des instructions pour la configuration de l’inscription automatique  d’appareils ?**
 
-**R :** Pour obtenir des instructions détaillées, consultez [Configurer des appareils hybrides joints à Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md).
+**R :** Pour plus d’instructions, consultez [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md)
 
+---
+
+**Q : Où puis-je trouver des informations de résolution des problèmes concernant l’inscription d’appareils automatique ?**
+
+**R :** Pour obtenir des informations de résolution des problèmes, consultez :
+
+- [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD – Windows 10 et Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
+
+- [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD pour les clients de bas niveau Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+ 
 ---
 
 
