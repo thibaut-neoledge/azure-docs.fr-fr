@@ -36,7 +36,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |qpu_metric|QPU|Nombre|Moyenne|QPU. Plage de 0 à 100 pour S1, de 0 à 200 pour S2 et de 0 à 400 pour S4|
 |memory_metric|Mémoire|Octets|Moyenne|Mémoire. Plage de 0 à 25 Go pour S1, de 0 à 50 Go pour S2 et de 0 à 100 Go pour S4|
 |TotalConnectionRequests|Nombre total de demandes de connexion|Nombre|Moyenne|Nombre total de demandes de connexion. Il s’agit des arrivées.|
-|SuccessfullConnectionsPerSec|Connexions réussies par seconde|Nombre par seconde|Moyenne|Taux de connexions terminées réussies.|
+|SuccessfullConnectionsPerSec|Connexions réussies par seconde|CountPerSecond|Moyenne|Taux de connexions terminées réussies.|
 |TotalConnectionFailures|Nombre total d’échecs de connexion|Nombre|Moyenne|Total des échecs de tentatives de connexion.|
 |CurrentUserSessions|Sessions utilisateur actuelles|Nombre|Moyenne|Nombre actuel de sessions utilisateur établies.|
 |QueryPoolBusyThreads|Threads occupés du pool de threads de requêtes|Nombre|Moyenne|Nombre de threads occupés dans le pool de threads de requêtes.|
@@ -55,9 +55,9 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |QuotaBlocked|Mémoire : quota bloqué|Nombre|Moyenne|Nombre actuel de requêtes de quota qui sont bloquées en attendant la libération d’autres quotas de mémoire.|
 |VertiPaqNonpaged|Mémoire : réserve non paginée VertiPaq|Octets|Moyenne|Octets de mémoire verrouillée dans la plage de travail pour utilisation par le moteur en mémoire.|
 |VertiPaqPaged|Mémoire : réserve paginée VertiPaq|Octets|Moyenne|Octets de mémoire paginée utilisée pour les données en mémoire.|
-|RowsReadPerSec|Traitement : lignes lues par seconde|Nombre par seconde|Moyenne|Taux de lignes lues à partir de toutes les bases de données relationnelles.|
-|RowsConvertedPerSec|Traitement : lignes converties par seconde|Nombre par seconde|Moyenne|Taux de lignes converties lors du traitement.|
-|RowsWrittenPerSec|Traitement : lignes écrites par seconde|Nombre par seconde|Moyenne|Taux de lignes écrites lors du traitement.|
+|RowsReadPerSec|Traitement : lignes lues par seconde|CountPerSecond|Moyenne|Taux de lignes lues à partir de toutes les bases de données relationnelles.|
+|RowsConvertedPerSec|Traitement : lignes converties par seconde|CountPerSecond|Moyenne|Taux de lignes converties lors du traitement.|
+|RowsWrittenPerSec|Traitement : lignes écrites par seconde|CountPerSecond|Moyenne|Taux de lignes écrites lors du traitement.|
 |CommandPoolBusyThreads|Threads : threads occupés du pool commandes|Nombre|Moyenne|Nombre de threads occupés dans le pool de threads de commandes.|
 |CommandPoolIdleThreads|Threads : threads inactifs du pool commande|Nombre|Moyenne|Nombre de threads inactifs dans le pool de threads de commandes.|
 |LongParsingBusyThreads|Threads : threads d’analyse longue occupés|Nombre|Moyenne|Nombre de threads occupés dans le pool de threads d’analyse longue.|
@@ -86,8 +86,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |UnauthorizedRequests|Demandes de la passerelle non autorisées|Nombre|Total|Nombre de demandes de la passerelle non autorisées|
 |FailedRequests|Demandes de la passerelle ayant échoué|Nombre|Total|Nombre de défaillances des demandes de la passerelle|
 |OtherRequests|Autres demandes de la passerelle|Nombre|Total|Nombre d’autres demandes de la passerelle|
-|Durée|Durée globale des demandes de passerelle|Millisecondes|Moyenne, Maximale|Durée globale des demandes de passerelle en millisecondes|
-|Capacité|Capacité (préversion)|Pourcentage|Moyenne, Maximale|Métrique d’utilisation pour le service ApiManagement|
+|Duration|Durée globale des demandes de passerelle|Millisecondes|Moyenne, Maximale|Durée globale des demandes de passerelle en millisecondes|
+|Capacity|Capacité (préversion)|Pourcentage|Moyenne, Maximale|Métrique d’utilisation pour le service ApiManagement|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -140,8 +140,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |usedmemory|Mémoire utilisée|Octets|Maximale||
 |usedmemoryRss|Taille de la mémoire résidente utilisée|Octets|Maximale||
 |serverLoad|Charge du serveur|Pourcentage|Maximale||
-|cacheWrite|Cache d’écriture|Octets par seconde|Maximale||
-|cacheRead|Lecture du cache|Octets par seconde|Maximale||
+|cacheWrite|Cache d’écriture|BytesPerSecond|Maximale||
+|cacheRead|Lecture du cache|BytesPerSecond|Maximale||
 |percentProcessorTime|UC|Pourcentage|Maximale||
 |connectedclients0|Clients connectés (Shard 0)|Nombre|Maximale||
 |totalcommandsprocessed0|Total des opérations (Shard 0)|Nombre|Total||
@@ -155,8 +155,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |usedmemory0|Mémoire utilisée (Shard 0)|Octets|Maximale||
 |usedmemoryRss0|Mémoire résidente utilisée (Shard 0)|Octets|Maximale||
 |serverLoad0|Charge du serveur (Shard 0)|Pourcentage|Maximale||
-|cacheWrite0|Cache d’écriture (Shard 0)|Octets par seconde|Maximale||
-|cacheRead0|Cache de lecture (Shard 0)|Octets par seconde|Maximale||
+|cacheWrite0|Cache d’écriture (Shard 0)|BytesPerSecond|Maximale||
+|cacheRead0|Cache de lecture (Shard 0)|BytesPerSecond|Maximale||
 |percentProcessorTime0|UC (Shard 0)|Pourcentage|Maximale||
 |connectedclients1|Clients connectés (Shard 1)|Nombre|Maximale||
 |totalcommandsprocessed1|Total des opérations (Shard 1)|Nombre|Total||
@@ -170,8 +170,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |usedmemory1|Mémoire utilisée (Shard 1)|Octets|Maximale||
 |usedmemoryRss1|Mémoire résidente utilisée (Shard 1)|Octets|Maximale||
 |serverLoad1|Charge du serveur (Shard 1)|Pourcentage|Maximale||
-|cacheWrite1|Cache d’écriture (Shard 1)|Octets par seconde|Maximale||
-|cacheRead1|Lecture du cache (Shard 1)|Octets par seconde|Maximale||
+|cacheWrite1|Cache d’écriture (Shard 1)|BytesPerSecond|Maximale||
+|cacheRead1|Lecture du cache (Shard 1)|BytesPerSecond|Maximale||
 |percentProcessorTime1|UC (Shard 1)|Pourcentage|Maximale||
 |connectedclients2|Clients connectés (Shard 2)|Nombre|Maximale||
 |totalcommandsprocessed2|Total des opérations (Shard 2)|Nombre|Total||
@@ -185,8 +185,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |usedmemory2|Mémoire utilisée (Shard 2)|Octets|Maximale||
 |usedmemoryRss2|Mémoire résidente utilisée (Shard 2)|Octets|Maximale||
 |serverLoad2|Charge du serveur (Shard 2)|Pourcentage|Maximale||
-|cacheWrite2|Cache d’écriture (Shard 2)|Octets par seconde|Maximale||
-|cacheRead2|Lecture du cache (Shard 2)|Octets par seconde|Maximale||
+|cacheWrite2|Cache d’écriture (Shard 2)|BytesPerSecond|Maximale||
+|cacheRead2|Lecture du cache (Shard 2)|BytesPerSecond|Maximale||
 |percentProcessorTime2|UC (Shard 2)|Pourcentage|Maximale||
 |connectedclients3|Clients connectés (Shard 3)|Nombre|Maximale||
 |totalcommandsprocessed3|Total des opérations (Shard 3)|Nombre|Total||
@@ -200,8 +200,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |usedmemory3|Mémoire utilisée (Shard 3)|Octets|Maximale||
 |usedmemoryRss3|Mémoire résidente utilisée (Shard 3)|Octets|Maximale||
 |serverLoad3|Charge du serveur (Shard 3)|Pourcentage|Maximale||
-|cacheWrite3|Cache d’écriture (Shard 3)|Octets par seconde|Maximale||
-|cacheRead3|Lecture du cache (Shard 3)|Octets par seconde|Maximale||
+|cacheWrite3|Cache d’écriture (Shard 3)|BytesPerSecond|Maximale||
+|cacheRead3|Lecture du cache (Shard 3)|BytesPerSecond|Maximale||
 |percentProcessorTime3|UC (Shard 3)|Pourcentage|Maximale||
 |connectedclients4|Clients connectés (Shard 4)|Nombre|Maximale||
 |totalcommandsprocessed4|Total des opérations (Shard 4)|Nombre|Total||
@@ -215,8 +215,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |usedmemory4|Mémoire utilisée (Shard 4)|Octets|Maximale||
 |usedmemoryRss4|Mémoire résidente utilisée (Shard 4)|Octets|Maximale||
 |serverLoad4|Charge du serveur (Shard 4)|Pourcentage|Maximale||
-|cacheWrite4|Cache d’écriture (Shard 4)|Octets par seconde|Maximale||
-|cacheRead4|Lecture du cache (Shard 4)|Octets par seconde|Maximale||
+|cacheWrite4|Cache d’écriture (Shard 4)|BytesPerSecond|Maximale||
+|cacheRead4|Lecture du cache (Shard 4)|BytesPerSecond|Maximale||
 |percentProcessorTime4|UC (Shard 4)|Pourcentage|Maximale||
 |connectedclients5|Clients connectés (Shard 5)|Nombre|Maximale||
 |totalcommandsprocessed5|Total des opérations (Shard 5)|Nombre|Total||
@@ -230,8 +230,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |usedmemory5|Mémoire utilisée (Shard 5)|Octets|Maximale||
 |usedmemoryRss5|Mémoire résidente utilisée (Shard 5)|Octets|Maximale||
 |serverLoad5|Charge du serveur (Shard 5)|Pourcentage|Maximale||
-|cacheWrite5|Cache d’écriture (Shard 5)|Octets par seconde|Maximale||
-|cacheRead5|Lecture du cache (Shard 5)|Octets par seconde|Maximale||
+|cacheWrite5|Cache d’écriture (Shard 5)|BytesPerSecond|Maximale||
+|cacheRead5|Lecture du cache (Shard 5)|BytesPerSecond|Maximale||
 |percentProcessorTime5|UC (Shard 5)|Pourcentage|Maximale||
 |connectedclients6|Clients connectés (Shard 6)|Nombre|Maximale||
 |totalcommandsprocessed6|Total des opérations (Shard 6)|Nombre|Total||
@@ -245,8 +245,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |usedmemory6|Mémoire utilisée (Shard 6)|Octets|Maximale||
 |usedmemoryRss6|Mémoire résidente utilisée (Shard 6)|Octets|Maximale||
 |serverLoad6|Charge du serveur (Shard 6)|Pourcentage|Maximale||
-|cacheWrite6|Cache d’écriture (Shard 6)|Octets par seconde|Maximale||
-|cacheRead6|Lecture du cache (Shard 6)|Octets par seconde|Maximale||
+|cacheWrite6|Cache d’écriture (Shard 6)|BytesPerSecond|Maximale||
+|cacheRead6|Lecture du cache (Shard 6)|BytesPerSecond|Maximale||
 |percentProcessorTime6|UC (Shard 6)|Pourcentage|Maximale||
 |connectedclients7|Clients connectés (Shard 7)|Nombre|Maximale||
 |totalcommandsprocessed7|Total des opérations (Shard 7)|Nombre|Total||
@@ -260,8 +260,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |usedmemory7|Mémoire utilisée (Shard 7)|Octets|Maximale||
 |usedmemoryRss7|Mémoire résidente utilisée (Shard 7)|Octets|Maximale||
 |serverLoad7|Charge du serveur (Shard 7)|Pourcentage|Maximale||
-|cacheWrite7|Cache d’écriture (Shard 7)|Octets par seconde|Maximale||
-|cacheRead7|Lecture du cache (Shard 7)|Octets par seconde|Maximale||
+|cacheWrite7|Cache d’écriture (Shard 7)|BytesPerSecond|Maximale||
+|cacheRead7|Lecture du cache (Shard 7)|BytesPerSecond|Maximale||
 |percentProcessorTime7|UC (Shard 7)|Pourcentage|Maximale||
 |connectedclients8|Clients connectés (Shard 8)|Nombre|Maximale||
 |totalcommandsprocessed8|Total des opérations (Shard 8)|Nombre|Total||
@@ -275,8 +275,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |usedmemory8|Mémoire utilisée (Shard 8)|Octets|Maximale||
 |usedmemoryRss8|Mémoire résidente utilisée (Shard 8)|Octets|Maximale||
 |serverLoad8|Charge du serveur (Shard 8)|Pourcentage|Maximale||
-|cacheWrite8|Cache d’écriture (Shard 8)|Octets par seconde|Maximale||
-|cacheRead8|Lecture du cache (Shard 8)|Octets par seconde|Maximale||
+|cacheWrite8|Cache d’écriture (Shard 8)|BytesPerSecond|Maximale||
+|cacheRead8|Lecture du cache (Shard 8)|BytesPerSecond|Maximale||
 |percentProcessorTime8|UC (Shard 8)|Pourcentage|Maximale||
 |connectedclients9|Clients connectés (Shard 9)|Nombre|Maximale||
 |totalcommandsprocessed9|Total des opérations (Shard 9)|Nombre|Total||
@@ -290,21 +290,21 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |usedmemory9|Mémoire utilisée (Shard 9)|Octets|Maximale||
 |usedmemoryRss9|Mémoire résidente utilisée (Shard 9)|Octets|Maximale||
 |serverLoad9|Charge du serveur (Shard 9)|Pourcentage|Maximale||
-|cacheWrite9|Cache d’écriture (Shard 9)|Octets par seconde|Maximale||
-|cacheRead9|Cache de lecture (Shard 9)|Octets par seconde|Maximale||
+|cacheWrite9|Cache d’écriture (Shard 9)|BytesPerSecond|Maximale||
+|cacheRead9|Cache de lecture (Shard 9)|BytesPerSecond|Maximale||
 |percentProcessorTime9|UC (Shard 9)|Pourcentage|Maximale||
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|Pourcentage UC|Pourcentage UC|Pourcentage|Moyenne|Pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles.|
-|Entrée réseau|Entrée réseau|Octets|Total|Nombre d’octets reçus sur toutes les interfaces réseau par les machines virtuelles (trafic entrant).|
-|Sortie réseau|Sortie réseau|Octets|Total|Nombre d’octets envoyés sur toutes les interfaces réseau par les machines virtuelles (trafic sortant).|
-|Lectures disque, octets/s|Lecture du disque|Octets par seconde|Moyenne|Moyenne d’octets lus à partir du disque pendant la période d’analyse.|
-|Écritures disque, octets/s|Écriture sur le disque|Octets par seconde|Moyenne|Moyenne d’octets écrits sur le disque pendant la période d’analyse.|
-|Opérations de lecture disque/s|Opérations de lecture disque/s|Nombre par seconde|Moyenne|E/S de lecture disque par seconde.|
-|Opérations d’écriture disque/s|Opérations d’écriture disque/s|Nombre par seconde|Moyenne|E/S d’écriture sur disque par seconde.|
+|Percentage CPU|Percentage CPU|Pourcentage|Moyenne|Pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles.|
+|Network In|Network In|Octets|Total|Nombre d’octets reçus sur toutes les interfaces réseau par les machines virtuelles (trafic entrant).|
+|Network Out|Network Out|Octets|Total|Nombre d’octets envoyés sur toutes les interfaces réseau par les machines virtuelles (trafic sortant).|
+|Disk Read Bytes/Sec|Lecture du disque|BytesPerSecond|Moyenne|Moyenne d’octets lus à partir du disque pendant la période d’analyse.|
+|Disk Write Bytes/Sec|Écriture sur le disque|BytesPerSecond|Moyenne|Moyenne d’octets écrits sur le disque pendant la période d’analyse.|
+|Disk Read Operations/Sec|Disk Read Operations/Sec|CountPerSecond|Moyenne|E/S de lecture disque par seconde.|
+|Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Moyenne|E/S d’écriture sur disque par seconde.|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
@@ -318,43 +318,43 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |ClientErrors|Erreurs de client|Nombre|Total|Nombre d’appels avec erreur côté client (code de réponse HTTP : 4xx).|
 |DataIn|Données entrantes|Octets|Total|Taille des données entrantes en octets.|
 |DataOut|Données sortantes|Octets|Total|Taille des données sortantes en octets.|
-|Latence|Latence|Millisecondes|Moyenne|Latence en millisecondes.|
+|Latency|Latency|Millisecondes|Moyenne|Latence en millisecondes.|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|Pourcentage UC|Pourcentage UC|Pourcentage|Moyenne|Le pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles|
-|Entrée réseau|Entrée réseau|Octets|Total|Le nombre d’octets reçus sur toutes les interfaces réseau par les ordinateurs virtuels (trafic entrant)|
-|Sortie réseau|Sortie réseau|Octets|Total|Le nombre d’octets envoyés sur toutes les interfaces réseau par les ordinateurs virtuels (trafic sortant)|
-|Octets lus disque|Octets lus disque|Octets|Total|Total d’octets lus à partir du disque pendant la période d’analyse|
-|Octets écrits disque|Octets écrits disque|Octets|Total|Total d’octets écrits sur le disque pendant la période d’analyse|
-|Opérations de lecture disque/s|Opérations de lecture disque/s|Nombre par seconde|Moyenne|E/S de lecture disque par seconde|
-|Opérations d’écriture disque/s|Opérations d’écriture disque/s|Nombre par seconde|Moyenne|E/S d’écriture disque par seconde|
+|Percentage CPU|Percentage CPU|Pourcentage|Moyenne|Le pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles|
+|Network In|Network In|Octets|Total|Le nombre d’octets reçus sur toutes les interfaces réseau par les ordinateurs virtuels (trafic entrant)|
+|Network Out|Network Out|Octets|Total|Le nombre d’octets envoyés sur toutes les interfaces réseau par les ordinateurs virtuels (trafic sortant)|
+|Disk Read Bytes|Disk Read Bytes|Octets|Total|Total d’octets lus à partir du disque pendant la période d’analyse|
+|Disk Write Bytes|Disk Write Bytes|Octets|Total|Total d’octets écrits sur le disque pendant la période d’analyse|
+|Disk Read Operations/Sec|Disk Read Operations/Sec|CountPerSecond|Moyenne|E/S de lecture disque par seconde|
+|Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Moyenne|E/S d’écriture disque par seconde|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|Pourcentage UC|Pourcentage UC|Pourcentage|Moyenne|Le pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles|
-|Entrée réseau|Entrée réseau|Octets|Total|Le nombre d’octets reçus sur toutes les interfaces réseau par les ordinateurs virtuels (trafic entrant)|
-|Sortie réseau|Sortie réseau|Octets|Total|Le nombre d’octets envoyés sur toutes les interfaces réseau par les ordinateurs virtuels (trafic sortant)|
-|Octets lus disque|Octets lus disque|Octets|Total|Total d’octets lus à partir du disque pendant la période d’analyse|
-|Octets écrits disque|Octets écrits disque|Octets|Total|Total d’octets écrits sur le disque pendant la période d’analyse|
-|Opérations de lecture disque/s|Opérations de lecture disque/s|Nombre par seconde|Moyenne|E/S de lecture disque par seconde|
-|Opérations d’écriture disque/s|Opérations d’écriture disque/s|Nombre par seconde|Moyenne|E/S d’écriture disque par seconde|
+|Percentage CPU|Percentage CPU|Pourcentage|Moyenne|Le pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles|
+|Network In|Network In|Octets|Total|Le nombre d’octets reçus sur toutes les interfaces réseau par les ordinateurs virtuels (trafic entrant)|
+|Network Out|Network Out|Octets|Total|Le nombre d’octets envoyés sur toutes les interfaces réseau par les ordinateurs virtuels (trafic sortant)|
+|Disk Read Bytes|Disk Read Bytes|Octets|Total|Total d’octets lus à partir du disque pendant la période d’analyse|
+|Disk Write Bytes|Disk Write Bytes|Octets|Total|Total d’octets écrits sur le disque pendant la période d’analyse|
+|Disk Read Operations/Sec|Disk Read Operations/Sec|CountPerSecond|Moyenne|E/S de lecture disque par seconde|
+|Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Moyenne|E/S d’écriture disque par seconde|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|Pourcentage UC|Pourcentage UC|Pourcentage|Moyenne|Le pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles|
-|Entrée réseau|Entrée réseau|Octets|Total|Le nombre d’octets reçus sur toutes les interfaces réseau par les ordinateurs virtuels (trafic entrant)|
-|Sortie réseau|Sortie réseau|Octets|Total|Le nombre d’octets envoyés sur toutes les interfaces réseau par les ordinateurs virtuels (trafic sortant)|
-|Octets lus disque|Octets lus disque|Octets|Total|Total d’octets lus à partir du disque pendant la période d’analyse|
-|Octets écrits disque|Octets écrits disque|Octets|Total|Total d’octets écrits sur le disque pendant la période d’analyse|
-|Opérations de lecture disque/s|Opérations de lecture disque/s|Nombre par seconde|Moyenne|E/S de lecture disque par seconde|
-|Opérations d’écriture disque/s|Opérations d’écriture disque/s|Nombre par seconde|Moyenne|E/S d’écriture disque par seconde|
+|Percentage CPU|Percentage CPU|Pourcentage|Moyenne|Le pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles|
+|Network In|Network In|Octets|Total|Le nombre d’octets reçus sur toutes les interfaces réseau par les ordinateurs virtuels (trafic entrant)|
+|Network Out|Network Out|Octets|Total|Le nombre d’octets envoyés sur toutes les interfaces réseau par les ordinateurs virtuels (trafic sortant)|
+|Disk Read Bytes|Disk Read Bytes|Octets|Total|Total d’octets lus à partir du disque pendant la période d’analyse|
+|Disk Write Bytes|Disk Write Bytes|Octets|Total|Total d’octets écrits sur le disque pendant la période d’analyse|
+|Disk Read Operations/Sec|Disk Read Operations/Sec|CountPerSecond|Moyenne|E/S de lecture disque par seconde|
+|Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Moyenne|E/S d’écriture disque par seconde|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -440,61 +440,61 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|d2c.telemetry.ingress.allProtocol|Tentatives d’envoi de message de télémétrie|Count|Total|Nombre de tentatives d’envoi de messages de télémétrie appareil vers cloud à votre hub IoT|
-|d2c.telemetry.ingress.success|Messages de télémétrie envoyés|Count|Total|Nombre de messages de télémétrie appareil vers cloud envoyés avec succès à votre hub IoT|
-|c2d.commands.egress.complete.success|Commandes terminées|Count|Total|Nombre de commandes cloud vers appareil terminées avec succès par l’appareil|
-|c2d.commands.egress.abandon.success|Commandes abandonnées|Count|Total|Nombre de commandes cloud vers appareil abandonnées par l’appareil|
-|c2d.commands.egress.reject.success|Commandes rejetées|Count|Total|Nombre de commandes cloud vers appareil rejetées par l’appareil|
-|devices.totalDevices|Nombre total d’appareils|Count|Total|Nombre d’appareils enregistrés sur votre hub IoT|
-|devices.connectedDevices.allProtocol|Appareils connectés|Count|Total|Nombre d’appareils connectés à votre hub IoT|
+|d2c.telemetry.ingress.allProtocol|Tentatives d’envoi de message de télémétrie|Nombre|Total|Nombre de tentatives d’envoi de messages de télémétrie appareil vers cloud à votre hub IoT|
+|d2c.telemetry.ingress.success|Messages de télémétrie envoyés|Nombre|Total|Nombre de messages de télémétrie appareil vers cloud envoyés avec succès à votre hub IoT|
+|c2d.commands.egress.complete.success|Commandes terminées|Nombre|Total|Nombre de commandes cloud vers appareil terminées avec succès par l’appareil|
+|c2d.commands.egress.abandon.success|Commandes abandonnées|Nombre|Total|Nombre de commandes cloud vers appareil abandonnées par l’appareil|
+|c2d.commands.egress.reject.success|Commandes rejetées|Nombre|Total|Nombre de commandes cloud vers appareil rejetées par l’appareil|
+|devices.totalDevices|Nombre total d’appareils|Nombre|Total|Nombre d’appareils enregistrés sur votre hub IoT|
+|devices.connectedDevices.allProtocol|Appareils connectés|Nombre|Total|Nombre d’appareils connectés à votre hub IoT|
 |d2c.telemetry.egress.success|Messages de télémétrie remis|Nombre|Total|Nombre de fois où des messages ont été écrits aux points de terminaison (total)|
-|d2c.telemetry.egress.dropped|Messages supprimés|Count|Total|Nombre de messages ignorés, car le point de terminaison de livraison était indisponible|
-|d2c.telemetry.egress.orphaned|Messages orphelins|Count|Total|Nombre de messages ne correspondant à aucun itinéraire, itinéraire de secours compris|
-|d2c.telemetry.egress.invalid|Messages non valides|Count|Total|Nombre de messages non remis en raison d’une incompatibilité avec le point de terminaison|
-|d2c.telemetry.egress.fallback|Messages correspondant à une condition de secours|Count|Total|Nombre de messages écrits au point de terminaison de secours|
-|d2c.endpoints.egress.eventHubs|Messages remis aux points de terminaison Event Hub|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison Event Hub|
+|d2c.telemetry.egress.dropped|Messages supprimés|Nombre|Total|Nombre de messages ignorés, car le point de terminaison de livraison était indisponible|
+|d2c.telemetry.egress.orphaned|Messages orphelins|Nombre|Total|Nombre de messages ne correspondant à aucun itinéraire, itinéraire de secours compris|
+|d2c.telemetry.egress.invalid|Messages non valides|Nombre|Total|Nombre de messages non remis en raison d’une incompatibilité avec le point de terminaison|
+|d2c.telemetry.egress.fallback|Messages correspondant à une condition de secours|Nombre|Total|Nombre de messages écrits au point de terminaison de secours|
+|d2c.endpoints.egress.eventHubs|Messages remis aux points de terminaison Event Hub|Nombre|Total|Nombre de fois où des messages ont été écrits aux points de terminaison Event Hub|
 |d2c.endpoints.latency.eventHubs|Latence des messages des points de terminaison Event Hub|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison Event Hub, en millisecondes|
-|d2c.endpoints.egress.serviceBusQueues|Messages remis aux points de terminaison de file d’attente Service Bus|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison de file d’attente Service Bus|
+|d2c.endpoints.egress.serviceBusQueues|Messages remis aux points de terminaison de file d’attente Service Bus|Nombre|Total|Nombre de fois où des messages ont été écrits aux points de terminaison de file d’attente Service Bus|
 |d2c.endpoints.latency.serviceBusQueues|Latence des messages des points de terminaison de files d’attente Service Bus|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de file d’attente Service Bus, en millisecondes|
-|d2c.endpoints.egress.serviceBusTopics|Messages remis aux points de terminaison de rubrique Service Bus|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison de rubrique Service Bus|
+|d2c.endpoints.egress.serviceBusTopics|Messages remis aux points de terminaison de rubrique Service Bus|Nombre|Total|Nombre de fois où des messages ont été écrits aux points de terminaison de rubrique Service Bus|
 |d2c.endpoints.latency.serviceBusTopics|Latence des messages des points de terminaison de rubriques Service Bus|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de rubrique Service Bus, en millisecondes|
-|d2c.endpoints.egress.builtIn.events|Messages remis au point de terminaison intégré (messages/événements)|Count|Total|Nombre de fois où des messages ont été écrits au point de terminaison intégré (messages/événements)|
+|d2c.endpoints.egress.builtIn.events|Messages remis au point de terminaison intégré (messages/événements)|Nombre|Total|Nombre de fois où des messages ont été écrits au point de terminaison intégré (messages/événements)|
 |d2c.endpoints.latency.builtIn.events|Latence de message pour le point de terminaison intégré (messages/événements)|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison prédéfini (messages/événements), en millisecondes |
 |d2c.endpoints.egress.storage|Messages remis aux points de terminaison de stockage|Nombre|Total|Nombre de fois où des messages ont correctement été écrits sur des points de terminaison de stockage|
 |d2c.endpoints.latency.storage|Latence des messages pour les points de terminaison de stockage|Millisecondes|Moyenne|Latence moyenne entre l’entrée des messages dans IoT Hub et l’entrée des message dans un point de terminaison de stockage, en millisecondes|
 |d2c.endpoints.egress.storage.bytes|Données écrites dans le stockage|Octets|Total|Volume de données, en octets, écrites sur des points de terminaison de stockage|
 |d2c.endpoints.egress.storage.blobs|Objets blob écrits dans le stockage|Nombre|Total|Nombre d’objets blob écrits sur des points de terminaison de stockage|
-|d2c.twin.read.success|Lectures de représentations réussies d’appareils|Count|Total|Total des lectures de représentations réussies initiées par un appareil.|
-|d2c.twin.read.failure|Lectures de représentations d’appareils en échec|Count|Total|Total des lectures de représentations en échec initiées par un appareil.|
+|d2c.twin.read.success|Lectures de représentations réussies d’appareils|Nombre|Total|Total des lectures de représentations réussies initiées par un appareil.|
+|d2c.twin.read.failure|Lectures de représentations d’appareils en échec|Nombre|Total|Total des lectures de représentations en échec initiées par un appareil.|
 |d2c.twin.read.size|Taille de la réponse des lectures de représentations des appareils|Octets|Moyenne|Moyenne, minimum et maximum de toutes les lectures de représentations réussies initiées par un appareil.|
-|d2c.twin.update.success|Mises à jour de représentations réussies d’appareils|Count|Total|Total des mises à jour de représentations réussies initiées par un appareil.|
-|d2c.twin.update.failure|Mises à jour de représentations d’appareils en échec|Count|Total|Total des mises à jour de représentations en échec initiées par un appareil.|
+|d2c.twin.update.success|Mises à jour de représentations réussies d’appareils|Nombre|Total|Total des mises à jour de représentations réussies initiées par un appareil.|
+|d2c.twin.update.failure|Mises à jour de représentations d’appareils en échec|Nombre|Total|Total des mises à jour de représentations en échec initiées par un appareil.|
 |d2c.twin.update.size|Taille des mises à jour de représentations d’appareils|Octets|Moyenne|Taille moyenne, minimale et maximale de toutes les mises à jour de représentations réussies initiées par un appareil.|
-|c2d.methods.success|Appels de méthode directe réussis|Count|Total|Total des appels de méthode directe réussis.|
-|c2d.methods.failure|Appels de méthode directe en échec|Count|Total|Total des appels de méthode directe en échec.|
+|c2d.methods.success|Appels de méthode directe réussis|Nombre|Total|Total des appels de méthode directe réussis.|
+|c2d.methods.failure|Appels de méthode directe en échec|Nombre|Total|Total des appels de méthode directe en échec.|
 |c2d.methods.requestSize|Taille de demande des appels de méthode directe|Octets|Moyenne|Moyenne, minimum et maximum de toutes les demandes de méthode directe réussies.|
 |c2d.methods.responseSize|Taille de réponse des appels de méthode directe|Octets|Moyenne|Moyenne, minimum et maximum de toutes les réponses de méthode directe réussies.|
-|c2d.twin.read.success|Lectures de représentations réussies de serveur principal|Count|Total|Total des lectures de représentations réussies initiées par un serveur principal.|
-|c2d.twin.read.failure|Lectures de représentations de serveur principal en échec|Count|Total|Total des lectures de représentations en échec initiées par un serveur principal.|
+|c2d.twin.read.success|Lectures de représentations réussies de serveur principal|Nombre|Total|Total des lectures de représentations réussies initiées par un serveur principal.|
+|c2d.twin.read.failure|Lectures de représentations de serveur principal en échec|Nombre|Total|Total des lectures de représentations en échec initiées par un serveur principal.|
 |c2d.twin.read.size|Taille de la réponse des lectures de représentations de serveur principal|Octets|Moyenne|Moyenne, minimum et maximum de toutes les lectures de représentations réussies initiées par un serveur principal.|
-|c2d.twin.update.success|Mises à jour de représentations réussies de serveur principal|Count|Total|Total des mises à jour de représentations réussies initiées par un serveur principal.|
-|c2d.twin.update.failure|Mises à jour de représentations de serveur principal en échec|Count|Total|Total des mises à jour de représentations en échec initiées par un serveur principal.|
+|c2d.twin.update.success|Mises à jour de représentations réussies de serveur principal|Nombre|Total|Total des mises à jour de représentations réussies initiées par un serveur principal.|
+|c2d.twin.update.failure|Mises à jour de représentations de serveur principal en échec|Nombre|Total|Total des mises à jour de représentations en échec initiées par un serveur principal.|
 |c2d.twin.update.size|Taille des mises à jour de représentations de serveur principal|Octets|Moyenne|Taille moyenne, minimale et maximale de toutes les mises à jour de représentations réussies initiées par un serveur principal.|
-|twinQueries.success|Requêtes de représentations réussies|Count|Total|Total des requêtes de représentations réussies.|
-|twinQueries.failure|Requêtes de représentations en échec|Count|Total|Total des requêtes de représentations en échec.|
+|twinQueries.success|Requêtes de représentations réussies|Nombre|Total|Total des requêtes de représentations réussies.|
+|twinQueries.failure|Requêtes de représentations en échec|Nombre|Total|Total des requêtes de représentations en échec.|
 |twinQueries.resultSize|Taille du résultat des requêtes de représentations|Octets|Moyenne|Moyenne, minimum et maximum de la taille du résultat de toutes les requêtes de représentations réussies.|
-|jobs.createTwinUpdateJob.success|Créations réussies des travaux de mises à jour de représentations|Count|Total|Total des créations réussies de travaux de mises à jour de représentations.|
-|jobs.createTwinUpdateJob.failure|Créations des travaux de mises à jour de représentations en échec|Count|Total|Total des créations en échec des travaux de mises à jour de représentations.|
-|jobs.createDirectMethodJob.success|Créations réussies des travaux d’appel de méthode|Count|Total|Total des créations réussies des travaux d’appel de méthode directe.|
-|jobs.createDirectMethodJob.failure|Créations des travaux d’appel de méthode en échec|Count|Total|Total des créations en échec des travaux d’appel de méthode directe.|
-|jobs.listJobs.success|Appels réussis pour répertorier les travaux|Count|Total|Total des appels réussis pour répertorier les travaux.|
-|jobs.listJobs.failure|Appels en échec pour répertorier les travaux|Count|Total|Total des appels en échec pour répertorier les travaux.|
-|jobs.cancelJob.success|Annulations de travaux réussies|Count|Total|Total des appels réussis pour annuler un travail.|
-|jobs.cancelJob.failure|Annulations de travaux en échec|Count|Total|Total des appels en échec pour annuler un travail.|
-|jobs.queryJobs.success|Requêtes de travaux réussies|Count|Total|Total des appels réussis pour interroger les travaux.|
-|jobs.queryJobs.failure|Requêtes de travaux en échec|Count|Total|Total des appels en échec pour interroger les travaux.|
-|jobs.completed|Travaux terminés|Count|Total|Total des travaux terminés.|
-|jobs.failed|Travaux en échec|Count|Total|Total des travaux en échec.|
+|jobs.createTwinUpdateJob.success|Créations réussies des travaux de mises à jour de représentations|Nombre|Total|Total des créations réussies de travaux de mises à jour de représentations.|
+|jobs.createTwinUpdateJob.failure|Créations des travaux de mises à jour de représentations en échec|Nombre|Total|Total des créations en échec des travaux de mises à jour de représentations.|
+|jobs.createDirectMethodJob.success|Créations réussies des travaux d’appel de méthode|Nombre|Total|Total des créations réussies des travaux d’appel de méthode directe.|
+|jobs.createDirectMethodJob.failure|Créations des travaux d’appel de méthode en échec|Nombre|Total|Total des créations en échec des travaux d’appel de méthode directe.|
+|jobs.listJobs.success|Appels réussis pour répertorier les travaux|Nombre|Total|Total des appels réussis pour répertorier les travaux.|
+|jobs.listJobs.failure|Appels en échec pour répertorier les travaux|Nombre|Total|Total des appels en échec pour répertorier les travaux.|
+|jobs.cancelJob.success|Annulations de travaux réussies|Nombre|Total|Total des appels réussis pour annuler un travail.|
+|jobs.cancelJob.failure|Annulations de travaux en échec|Nombre|Total|Total des appels en échec pour annuler un travail.|
+|jobs.queryJobs.success|Requêtes de travaux réussies|Nombre|Total|Total des appels réussis pour interroger les travaux.|
+|jobs.queryJobs.failure|Requêtes de travaux en échec|Nombre|Total|Total des appels en échec pour interroger les travaux.|
+|jobs.completed|Travaux terminés|Nombre|Total|Total des travaux terminés.|
+|jobs.failed|Travaux en échec|Nombre|Total|Total des travaux en échec.|
 |d2c.telemetry.ingress.sendThrottle|Nombre d’erreurs de limitation|Nombre|Total|Nombre d’erreurs de limitation causées par des limitations de débit d’appareil|
 |dailyMessageQuotaUsed|Nombre total de messages utilisés|Nombre|Moyenne|Nombre total de messages utilisés aujourd'hui|
 
@@ -555,7 +555,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|Débit|Débit|Octets par seconde|Moyenne|Nombre d’octets par seconde servis par Application Gateway|
+|Throughput|Throughput|BytesPerSecond|Moyenne|Nombre d’octets par seconde servis par Application Gateway|
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
@@ -636,7 +636,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
 |SearchLatency|Latence de recherche|Secondes|Moyenne|Latence moyenne de recherche du service de recherche|
-|SearchQueriesPerSecond (Recherches par seconde)|Requêtes de recherche par seconde|Nombre par seconde|Moyenne|Requêtes de recherche par seconde pour le service de recherche|
+|SearchQueriesPerSecond|Requêtes de recherche par seconde|CountPerSecond|Moyenne|Requêtes de recherche par seconde pour le service de recherche|
 |ThrottledSearchQueriesPercentage|Pourcentage de requêtes de recherche limitées|Pourcentage|Moyenne|Pourcentage de requêtes de recherche limitées par le service de recherche|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
@@ -712,7 +712,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |LateInputEvents|Événements d’entrée tardifs|Nombre|Total|Événements d’entrée tardifs|
 |OutputEvents|Événements de sortie|Nombre|Total|Événements de sortie|
 |ConversionErrors|Erreurs de conversion de données|Nombre|Total|Erreurs de conversion de données|
-|Erreurs|Erreurs d’exécution|Nombre|Total|Erreurs d’exécution|
+|Errors|Erreurs d’exécution|Nombre|Total|Erreurs d’exécution|
 |DroppedOrAdjustedEvents|Événements en désordre|Nombre|Total|Événements en désordre|
 |AMLCalloutRequests|Requêtes de fonction|Nombre|Total|Requêtes de fonction|
 |AMLCalloutFailedRequests|Requêtes de fonction ayant échoué|Nombre|Total|Requêtes de fonction ayant échoué|
@@ -722,21 +722,21 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|Pourcentage UC|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|
-|Pourcentage mémoire|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|
-|Longueur de file d’attente du disque|Longueur de file d'attente de disque|Nombre|Total|Longueur de file d'attente de disque|
-|Longueur de file d’attente HTTP|Longueur de la file d’attente HTTP|Nombre|Total|Longueur de la file d’attente HTTP|
-|Octets reçus|Données entrantes|Octets|Total|Données entrantes|
-|Octets envoyés|Données sortantes|Octets|Total|Données sortantes|
+|CpuPercentage|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|
+|MemoryPercentage|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|
+|DiskQueueLength|Longueur de file d'attente de disque|Nombre|Total|Longueur de file d'attente de disque|
+|HttpQueueLength|Longueur de la file d’attente HTTP|Nombre|Total|Longueur de la file d’attente HTTP|
+|BytesReceived|Données entrantes|Octets|Total|Données entrantes|
+|BytesSent|Données sortantes|Octets|Total|Données sortantes|
 
 ## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (à l’exclusion de Functions)
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
 |CpuTime|Temps processeur|Secondes|Total|Temps processeur|
-|Requêtes|Requêtes|Nombre|Total|Requêtes|
-|Octets reçus|Données entrantes|Octets|Total|Données entrantes|
-|Octets envoyés|Données sortantes|Octets|Total|Données sortantes|
+|Requests|Requests|Nombre|Total|Requests|
+|BytesReceived|Données entrantes|Octets|Total|Données entrantes|
+|BytesSent|Données sortantes|Octets|Total|Données sortantes|
 |Http101|HTTP 101|Nombre|Total|HTTP 101|
 |Http2xx|Http 2xx|Nombre|Total|Http 2xx|
 |Http3xx|Http 3xx|Nombre|Total|Http 3xx|
@@ -754,8 +754,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|Octets reçus|Données entrantes|Octets|Total|Données entrantes|
-|Octets envoyés|Données sortantes|Octets|Total|Données sortantes|
+|BytesReceived|Données entrantes|Octets|Total|Données entrantes|
+|BytesSent|Données sortantes|Octets|Total|Données sortantes|
 |Http5xx|Erreurs de serveur http|Nombre|Total|Erreurs de serveur http|
 |MemoryWorkingSet|Plage de travail de la mémoire|Octets|Moyenne|Plage de travail de la mémoire|
 |AverageMemoryWorkingSet|Plage de travail moyenne de la mémoire|Octets|Moyenne|Plage de travail moyenne de la mémoire|
@@ -767,9 +767,9 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
 |CpuTime|Temps processeur|Secondes|Total|Temps processeur|
-|Requêtes|Requêtes|Nombre|Total|Requêtes|
-|Octets reçus|Données entrantes|Octets|Total|Données entrantes|
-|Octets envoyés|Données sortantes|Octets|Total|Données sortantes|
+|Requests|Requests|Nombre|Total|Requests|
+|BytesReceived|Données entrantes|Octets|Total|Données entrantes|
+|BytesSent|Données sortantes|Octets|Total|Données sortantes|
 |Http101|HTTP 101|Nombre|Total|HTTP 101|
 |Http2xx|Http 2xx|Nombre|Total|Http 2xx|
 |Http3xx|Http 3xx|Nombre|Total|Http 3xx|
@@ -789,9 +789,9 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|Requêtes|Requêtes|Nombre|Total|Requêtes|
-|Octets reçus|Données entrantes|Octets|Total|Données entrantes|
-|Octets envoyés|Données sortantes|Octets|Total|Données sortantes|
+|Requests|Requests|Nombre|Total|Requests|
+|BytesReceived|Données entrantes|Octets|Total|Données entrantes|
+|BytesSent|Données sortantes|Octets|Total|Données sortantes|
 |Http101|HTTP 101|Nombre|Total|HTTP 101|
 |Http2xx|Http 2xx|Nombre|Total|Http 2xx|
 |Http3xx|Http 3xx|Nombre|Total|Http 3xx|
@@ -802,10 +802,10 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |Http4xx|Http 4xx|Nombre|Total|Http 4xx|
 |Http5xx|Erreurs de serveur http|Nombre|Total|Erreurs de serveur http|
 |AverageResponseTime|Temps de réponse moyen|Secondes|Moyenne|Temps de réponse moyen|
-|Pourcentage UC|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|
-|Pourcentage mémoire|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|
-|Longueur de file d’attente du disque|Longueur de file d'attente de disque|Nombre|Total|Longueur de file d'attente de disque|
-|Longueur de file d’attente HTTP|Longueur de la file d’attente HTTP|Nombre|Total|Longueur de la file d’attente HTTP|
+|CpuPercentage|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|
+|MemoryPercentage|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|
+|DiskQueueLength|Longueur de file d'attente de disque|Nombre|Total|Longueur de file d'attente de disque|
+|HttpQueueLength|Longueur de la file d’attente HTTP|Nombre|Total|Longueur de la file d’attente HTTP|
 |ActiveRequests|Requêtes actives|Nombre|Total|Requêtes actives|
 |TotalFrontEnds|Nombre total de serveurs frontaux|Nombre|Moyenne|Nombre total de serveurs frontaux|
 |SmallAppServicePlanInstances|Workers de plan App Service de petite taille|Nombre|Moyenne|Workers de plan App Service de petite taille|
