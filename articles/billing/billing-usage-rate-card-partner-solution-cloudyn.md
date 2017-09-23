@@ -3,7 +3,7 @@ title: "Cloudyn assure des tâches de gestion financière informatique pour ses 
 description: "Décrit la façon dont Cloudyn, un partenaire de facturation de Microsoft Azure, a intégré les API Azure Billing à son produit.  Ces informations sont particulièrement utiles pour les clients Azure et Cloudyn qui souhaitent utiliser ou essayer les services Cloudyn pour Azure."
 services: 
 documentationcenter: 
-author: BryanLa
+author: tonguyen10
 manager: tonguyen
 editor: 
 tags: billing
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 02/03/2017
-ms.author: mobandyo;bryanla
+ms.author: tonguyen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: fac0ee2e9cbc87c8b3d04675551bba61f7a532b6
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/28/2017
-
 
 ---
 # <a name="microsoft-azure-usage-and-ratecard-apis-enable-cloudyn-to-provide-itfm-for-customers"></a>Cloudyn assure des tâches de gestion financière informatique pour ses clients grâce aux API Microsoft Azure Usage et RateCard

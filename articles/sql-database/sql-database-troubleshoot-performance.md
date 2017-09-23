@@ -22,7 +22,6 @@ ms.openlocfilehash: 7a2f1199a56e0bd32eafef9f420879c756673e7f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/14/2017
 
-
 ---
 # <a name="monitoring-and-performance-tuning"></a>Surveillance et optimisation des performances
 

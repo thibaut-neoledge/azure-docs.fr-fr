@@ -22,7 +22,6 @@ ms.openlocfilehash: d38adc6104337aa6cea9ee0f8042c22434624c9a
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a>Créer une machine virtuelle avec une adresse IP publique statique à l’aide d’un modèle Azure Resource Manager
 

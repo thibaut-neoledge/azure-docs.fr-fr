@@ -1,6 +1,6 @@
 ---
 title: "Gérer des machines virtuelles dans un groupe de machines virtuelles identiques | Microsoft Docs"
-description: "Gérez des machines virtuelles dans un jeu de mise à l’échelle de machine virtuelle à l&quot;aide d&quot;Azure PowerShell."
+description: "Gérez des machines virtuelles dans un jeu de mise à l’échelle de machine virtuelle à l'aide d'Azure PowerShell."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -20,7 +20,6 @@ ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 88541f6054df1476866d68fdc1c9690a73ada83c
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="manage-virtual-machines-in-a-virtual-machine-scale-set"></a>Gérer des machines virtuelles dans un groupe de machines virtuelles identiques

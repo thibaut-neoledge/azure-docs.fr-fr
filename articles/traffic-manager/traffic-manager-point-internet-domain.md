@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
 ms.openlocfilehash: 0322b3510cfd4f94031d8c1db8f1cc032b997fa8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/30/2016
 
 ---
 
@@ -38,9 +40,4 @@ L’intégralité des demandes de trafic pour *www.contoso.com* est redirigée v
 * [Méthodes de routage de Traffic Manager](traffic-manager-routing-methods.md)
 * [Traffic Manager - Désactiver, activer ou supprimer un profil](disable-enable-or-delete-a-profile.md)
 * [Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

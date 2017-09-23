@@ -1,6 +1,6 @@
 ---
 title: "Prérequis techniques pour la création d’un modèle de solution pour Azure Marketplace | Microsoft Docs"
-description: "Identifier la configuration requise pour la création d&quot;un modèle de solution à déployer et à vendre sur Azure Marketplace"
+description: "Identifier la configuration requise pour la création d'un modèle de solution à déployer et à vendre sur Azure Marketplace"
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
 ms.author: hascipio; v-divte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 40f0e2b1b1b6144b2f9aa5814a4408b4964ede97
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/11/2017
 
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Conditions techniques préalables à la création d'un modèle de solution pour Azure Marketplace
@@ -36,9 +37,4 @@ Vous devez choisir les blocs de construction de votre solution avant de complét
 À présent que vous avez passé en revue les conditions préalables et effectué les tâches nécessaires, vous pouvez procéder à la création de votre offre de modèle de solution, comme indiqué dans le document suivant : [Guide de création d'un modèle de solution](marketplace-publishing-solution-template-creation.md). Pour revenir à la page principale des tâches du serveur de publication, consultez [Prise en main : Publier une offre dans Azure Marketplace](marketplace-publishing-getting-started.md).
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
 ms.openlocfilehash: 9f085dfa1fe4db36d58cb976bb550a46bf241ac7
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-azure-cli-10"></a>Attribuer plusieurs adresses IP aux machines virtuelles à l’aide d’Azure CLI 1.0
@@ -122,7 +122,7 @@ Vous pouvez effectuer cette tâche à l’aide d’Azure CLI 1.0 (cet article) o
 8. Entrez la commande suivante pour afficher la carte d’interface réseau et les configurations IP associées :
 
     ```azurecli
-    azure network nic show --resource-group $RgName    --name myNic1
+    azure network nic show --resource-group $RgName --name myNic1
     ```
 9. Ajoutez les adresses IP privées pour le système d’exploitation de la machine virtuelle en suivant les étapes pour votre système d’exploitation dans la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) de cet article.
 
@@ -161,7 +161,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau e
         --domain-name-label mypublicdns3
         ```
 
-         Pour créer une nouvelle configuration IP avec une adresse IP privée statique et la ressource d’adresse IP publique *myPublicIP3*, saisissez la commande suivante :
+        Pour créer une nouvelle configuration IP avec une adresse IP privée statique et la ressource d’adresse IP publique *myPublicIP3*, saisissez la commande suivante :
 
         ```azurecli
         azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic --name IPConfig-4 \
@@ -178,7 +178,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau e
 
         Recherchez une ligne similaire à celle qui suit pour IPConfig-3 dans la sortie retournée :
 
-        ```            
+        ```         
         Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
         default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
         IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2

@@ -119,7 +119,7 @@ Pour les zones de recherche directe, le processus de délégation de zone DNS es
 
 L’exemple suivant vous guide tout au long du processus de création d’un enregistrement PTR dans une zone DNS inversée dans Azure DNS. Pour découvrir d’autres types d’enregistrements et pour modifier les enregistrements existants, consultez [Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure](dns-operations-recordsets-portal.md).
 
-1.    En haut du panneau **Zone DNS**, sélectionnez **+ Jeu d’enregistrements** pour ouvrir le panneau **Ajouter un jeu d’enregistrements**.
+1.  En haut du panneau **Zone DNS**, sélectionnez **+ Jeu d’enregistrements** pour ouvrir le panneau **Ajouter un jeu d’enregistrements**.
 
  ![Zone DNS](./media/dns-reverse-dns-hosting/figure4.png)
 

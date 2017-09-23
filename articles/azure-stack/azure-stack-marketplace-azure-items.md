@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: aec0c8a7d5d0c219e5550e0a8aa9ecfa936ab051
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure marketplace items available for Azure Stack

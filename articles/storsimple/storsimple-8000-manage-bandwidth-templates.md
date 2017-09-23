@@ -20,7 +20,6 @@ ms.openlocfilehash: 50d0a920bef097013feddc828d2c37133b9057b0
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Utiliser le service StorSimple Device Manager pour gérer les modèles de bande passante StorSimple
 

@@ -1,6 +1,6 @@
 ---
 title: "Surveiller les opérations, les événements et les compteurs pour l’équilibrage de charge | Microsoft Docs"
-description: "Découvrez comment activer la journalisation des événements d&quot;alerte et de l&quot;état des sondes d&quot;intégrité pour l&quot;équilibreur de charge Azure"
+description: "Découvrez comment activer la journalisation des événements d'alerte et de l'état des sondes d'intégrité pour l'équilibreur de charge Azure"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 638ecd5e02889bd8cb6e7429dfcec335feaac4a3
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/29/2017
 
 ---

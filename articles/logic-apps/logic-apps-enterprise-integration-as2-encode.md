@@ -20,7 +20,6 @@ ms.openlocfilehash: 7889bf9e4e02143b6bb4c797531afa54f8647ce5
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Encodez des messages AS2 pour Azure Logic Apps avec Enterprise Integration Pack
 

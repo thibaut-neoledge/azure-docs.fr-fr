@@ -1,6 +1,6 @@
 ---
 title: "Utilisation de Fiddler pour évaluer et tester les API REST du service Recherche Azure | Microsoft Docs"
-description: "Utilisation de Fiddler dans une approche sans code pour vérifier la disponibilité d&quot;Azure Search et tester les API REST."
+description: "Utilisation de Fiddler dans une approche sans code pour vérifier la disponibilité d'Azure Search et tester les API REST."
 services: search
 documentationcenter: 
 author: HeidiSteen

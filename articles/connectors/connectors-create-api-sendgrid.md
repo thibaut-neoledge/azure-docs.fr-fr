@@ -21,7 +21,6 @@ ms.openlocfilehash: 9ff0591741899d65b8274fb14ab3f3c8db9abe36
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-sendgrid-connector"></a>Prise en main du connecteur SendGrid
 Le fournisseur de connexion SendGrid vous permet d’envoyer un message électronique et de gérer les listes de destinataires.

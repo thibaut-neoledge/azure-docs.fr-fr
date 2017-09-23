@@ -1,6 +1,6 @@
 ---
 title: "Utilisation de Twilio pour les fonctionnalités vocales et de SMS (Java) | Microsoft Docs"
-description: "Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d&quot;API Twilio sur Azure. Exemples de code écrits en Java."
+description: "Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d'API Twilio sur Azure. Exemples de code écrits en Java."
 services: 
 documentationcenter: java
 author: devinrader
@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
 ms.openlocfilehash: 5a1b2ffa160a31b639605242b651dc8d14e7a01b
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/07/2017
-
 
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Utilisation de Twilio pour les fonctionnalités vocales et de SMS dans Java

@@ -1,6 +1,6 @@
 ---
 title: Utilisation du tableau de bord du service StorSimple Manager | Microsoft Docs
-description: "Décrit le tableau de bord du service StorSimple Manager et explique comment l&quot;utiliser pour afficher les mesures de stockage et les initiateurs connectés, et rechercher le numéro de série et l’IQN."
+description: "Décrit le tableau de bord du service StorSimple Manager et explique comment l'utiliser pour afficher les mesures de stockage et les initiateurs connectés, et rechercher le numéro de série et l’IQN."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 182d7b2bd4d9f663b545684f2bc2a02d06952b61
 ms.openlocfilehash: 0d8035b9608ca3bac3d4822c7c755b81c96d481e
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/28/2017
-
 
 ---
 # <a name="use-the-device-dashboard-in-storsimple-manager-service"></a>Utilisation du tableau de bord d’appareil dans le service StorSimple Manager  

@@ -20,7 +20,6 @@ ms.openlocfilehash: 99b76e3bc2939c65654cbf606fda6f8a45e0c44b
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
-
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set-update-2"></a>Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde (Mise à jour 2)
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
@@ -54,7 +53,7 @@ Pour les appareils exécutant Update 4 ou version ultérieure, une restauration
 Le suivi basé sur la carte thermique est activé uniquement pour les volumes hiérarchisés (les volumes épinglés localement ne sont pas pris en charge). La restauration basée sur la carte thermique n’est pas prise en charge lors du clonage d’un volume sur un autre appareil. Si une restauration en place et si une capture instantanée locale existent sur l’appareil pour le volume à restaurer, aucun rafraîchissement n’est nécessaire (car les données sont déjà disponibles localement). Par défaut, lors de la restauration, les travaux de rafraîchissement sont initiés et rafraîchissent les données de façon proactive en fonction de la carte thermique. Dans Update 4, les cmdlets Windows PowerShell peuvent être utilisées pour interroger des travaux de rafraîchissement en cours d’exécution, annuler un travail de rafraîchissement et obtenir l’état du travail de rafraîchissement.
 
 * `Get-HcsRehydrationJob` : cette cmdlet obtient l’état du travail de rafraîchissement. Un seul travail de rafraîchissement est déclenché pour un volume.
-* `Set-HcsRehydrationJob` : cette cmdlet vous permet d’interrompre, d’arrêter ou de reprendre le travail de rafraîchissement au cours du rafraîchissement.    
+* `Set-HcsRehydrationJob` : cette cmdlet vous permet d’interrompre, d’arrêter ou de reprendre le travail de rafraîchissement au cours du rafraîchissement. 
 
 Pour plus d’informations sur les cmdlets de rafraîchissement, consultez le [document de référence sur les cmdlets Windows PowerShell pour StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 

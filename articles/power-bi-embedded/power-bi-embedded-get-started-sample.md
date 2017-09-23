@@ -21,7 +21,6 @@ ms.openlocfilehash: c3cb1763f807220a4a829f410d7eb77974b25776
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
-
 ---
 # <a name="get-started-with-power-bi-embedded-sample"></a>Prise en main de l’exemple Power BI Embedded
 

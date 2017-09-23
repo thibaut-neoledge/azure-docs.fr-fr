@@ -19,7 +19,6 @@ ms.openlocfilehash: ebc95d600eca1027331cd92cfe481d0c3ee833a5
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à BC in the Cloud
 

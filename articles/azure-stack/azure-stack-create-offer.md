@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 3d7360a1fb1c0cf42d77b3f39bf92c30438c2e01
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Create an offer in Azure Stack

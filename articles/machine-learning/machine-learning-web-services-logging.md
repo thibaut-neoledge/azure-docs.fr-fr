@@ -20,7 +20,6 @@ ms.openlocfilehash: 7d0b2db01427430d6b0a317cdfefc265dd4b06e2
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Activation de la journalisation pour les services Web de Machine Learning
 Ce document fournit des informations sur la fonctionnalité de journalisation des services web Machine Learning. La journalisation fournit des informations supplémentaires, au-delà d’un numéro et d’un message d’erreur, qui peuvent vous aider à résoudre des problèmes liés à vos appels aux API Machine Learning.  

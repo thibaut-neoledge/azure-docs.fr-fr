@@ -21,7 +21,6 @@ ms.openlocfilehash: fc5fc128efe01bd0727e3ff30d8938918e89ac3a
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-slack-connector"></a>Prise en main du connecteur Slack
 Slack est un outil de communication collaboratif qui centralise toutes les communications de votre équipe dans un seul emplacement que vous pouvez consulter instantanément, où que vous vous trouviez. 

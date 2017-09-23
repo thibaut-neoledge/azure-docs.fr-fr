@@ -1,6 +1,6 @@
 ---
 title: "Guide pratique pour créer des groupes de sécurité réseau en mode classique à l’aide d’Azure CLI | Microsoft Docs"
-description: "Découvrez comment créer et déployer des groupes de sécurité réseau en mode classique à l&quot;aide de l’interface de ligne de commande Azure"
+description: "Découvrez comment créer et déployer des groupes de sécurité réseau en mode classique à l'aide de l’interface de ligne de commande Azure"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 115a1937a4c88ba2b986a40c84b1b759ed5e03b5
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/21/2017
-
 
 ---
 # <a name="how-to-create-nsgs-classic-in-the-azure-cli"></a>Création de NSG (classiques) dans l’interface de ligne de commande Azure

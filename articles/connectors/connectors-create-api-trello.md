@@ -21,7 +21,6 @@ ms.openlocfilehash: 526a14710f24ee4a4b61a11873aa6caa0b47dc10
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-trello-connector"></a>Prise en main du connecteur Trello
 Trello vous donne une perspective sur tous vos projets, qu’ils soient personnels ou professionnels.  Cet outil simple, gratuit, souple et visuel vous permet de gérer vos projets et d’organiser tout ce que vous souhaitez.  Connectez-vous à Trello pour gérer vos tableaux, vos listes et vos cartes.

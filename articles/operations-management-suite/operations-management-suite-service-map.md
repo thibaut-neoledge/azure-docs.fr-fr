@@ -20,7 +20,6 @@ ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/14/2017
 
-
 ---
 
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Utiliser la solution Carte de service dans Operations Management Suite

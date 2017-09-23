@@ -21,7 +21,6 @@ ms.openlocfilehash: 7c93a02f7a290aab3d451da72dabd431f9d40b0c
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Affecter plusieurs adresses IP à des machines virtuelles avec PowerShell
 
@@ -268,7 +267,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau 
         -AllocationMethod Static
         ```
 
-         Pour créer une nouvelle configuration IP avec une adresse IP privée statique et la ressource d’adresse IP publique *myPublicIp3*, saisissez la commande suivante :
+        Pour créer une nouvelle configuration IP avec une adresse IP privée statique et la ressource d’adresse IP publique *myPublicIp3*, saisissez la commande suivante :
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `
@@ -289,7 +288,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau 
 
         Vous voyez une sortie similaire à ce qui suit :
 
-        ```        
+        ```     
         Name       PrivateIpAddress PublicIpAddress                                           Primary
         
         IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True

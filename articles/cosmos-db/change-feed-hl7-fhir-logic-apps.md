@@ -21,7 +21,6 @@ ms.openlocfilehash: 6e6e12f3d6d95002b223ad0fcb11d72bd920cdaf
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/07/2017
 
-
 ---
 
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Notification aux patients des modifications des dossiers médicaux HL7 FHIR à l’aide de Logic Apps et Azure Cosmos DB

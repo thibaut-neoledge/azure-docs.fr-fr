@@ -21,7 +21,6 @@ ms.openlocfilehash: 13317b016f9ff3955f376b858645c42668b0de42
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/21/2017
 
-
 ---
 # <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Connexion et déconnexion d’Azure AD à l’aide d’une application web Node.js
 Nous utilisons Passport pour :

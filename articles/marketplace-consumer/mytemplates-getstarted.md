@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
 ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Prise en main des modèles privés sur le portail Azure
@@ -132,10 +133,5 @@ Cliquez sur **Sélectionner**, puis sur **OK**. Vous pouvez à présent afficher
 * Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles](../azure-resource-manager/resource-group-authoring-templates.md)
 * Pour mieux comprendre les fonctions que vous pouvez utiliser dans un modèle Resource Manager, voir [Fonctions des modèles](../azure-resource-manager/resource-group-template-functions.md)
 * Pour obtenir des instructions sur la conception de vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

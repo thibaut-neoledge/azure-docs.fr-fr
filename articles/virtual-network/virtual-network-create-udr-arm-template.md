@@ -21,7 +21,6 @@ ms.openlocfilehash: 78936ac34cc582684e938efa74133426f1b53741
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Créer des routages définis par l’utilisateur à l’aide d’un modèle
 
@@ -47,7 +46,7 @@ La section ci-dessous illustre la définition du routage défini par l’utilisa
     "name": "[parameters('frontEndRouteTableName')]",
     "location": "[resourceGroup().location]",
     "tags": {
-      "displayName": "UDR - FrontEnd"    
+      "displayName": "UDR - FrontEnd"   
     },
     "properties": {
       "routes": [

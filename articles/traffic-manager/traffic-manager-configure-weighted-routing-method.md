@@ -41,9 +41,9 @@ Il est courant d'utiliser un ensemble de points de terminaison identiques, compr
         2. Pour **Chemin d’accès**, entrez une barre oblique */*. Pour surveiller les points de terminaison, vous devez indiquer un chemin et un nom de fichier. Une barre oblique (« / ») est une entrée valide pour le chemin d’accès relatif. Elle implique que le fichier se trouve dans le répertoire racine (par défaut).
         3. En haut de la page, cliquez sur **Enregistrer**.
 5. Testez les modifications dans votre configuration comme suit :
-    1.    Dans la barre de recherche du portail, recherchez le nom du profil Traffic Manager et cliquez sur le profil Traffic Manager dans les résultats affichés.
-    2.    Dans le panneau du profil **Traffic Manager**, cliquez sur **Vue d’ensemble**.
-    3.    Le panneau **Profil Traffic Manager** affiche le nom DNS de votre profil Traffic Manager nouvellement créé. Celui-ci peut être utilisé par tous les clients (par exemple, en y accédant à l’aide d’un navigateur web) pour être routés vers le point de terminaison correct, comme déterminé par le type de routage. Dans ce cas, toutes les demandes sont routées vers chaque point de terminaison de manière alternée.
+    1.  Dans la barre de recherche du portail, recherchez le nom du profil Traffic Manager et cliquez sur le profil Traffic Manager dans les résultats affichés.
+    2.  Dans le panneau du profil **Traffic Manager**, cliquez sur **Vue d’ensemble**.
+    3.  Le panneau **Profil Traffic Manager** affiche le nom DNS de votre profil Traffic Manager nouvellement créé. Celui-ci peut être utilisé par tous les clients (par exemple, en y accédant à l’aide d’un navigateur web) pour être routés vers le point de terminaison correct, comme déterminé par le type de routage. Dans ce cas, toutes les demandes sont routées vers chaque point de terminaison de manière alternée.
 6. Une fois le profil Traffic Manager opérationnel, modifiez l’enregistrement DNS sur le serveur DNS faisant autorité, afin de faire pointer votre nom de domaine d’entreprise vers le nom de domaine Traffic Manager.
 
 ![Configuration de la méthode de routage du trafic par pondération à l’aide de Traffic Manager][1]

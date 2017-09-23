@@ -21,7 +21,6 @@ ms.openlocfilehash: 416420d855505508735ebd8526e93efdb230ad53
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="installing-rstudio-with-r-server-on-hdinsight"></a>Installation de RStudio avec R Server sur HDInsight
 

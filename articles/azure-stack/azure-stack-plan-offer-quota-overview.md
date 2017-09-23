@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 9f19d4ea53fb07bff97a5cd06d10af74f605bf1c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Plan, offer, quota, and subscription overview

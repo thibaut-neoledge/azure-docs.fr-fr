@@ -20,7 +20,6 @@ ms.openlocfilehash: aadbe872dd3384c8d337b432fb3be69422ca322b
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analyse des modèles d’utilisation CDN Azure
 

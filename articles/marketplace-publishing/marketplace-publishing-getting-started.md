@@ -20,7 +20,6 @@ ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/25/2017
 
-
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publier et gérer une offre dans la Place de marché Azure
 Cet article a pour but d’aider les développeurs à créer, déployer et gérer leurs solutions répertoriées sur la Place de marché Azure afin de la proposer à d’autres clients et partenaires Azure.

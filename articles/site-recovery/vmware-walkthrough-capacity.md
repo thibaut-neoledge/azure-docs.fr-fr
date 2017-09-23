@@ -20,7 +20,6 @@ ms.openlocfilehash: f5b334e594e3d002e1862b25c4faba7163efa7d4
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-3-plan-capacity-and-scaling-for-vmware-to-azure-replication"></a>Étape 3 : Planifier la capacité et la mise à l’échelle pour la réplication de VMware vers Azure
 

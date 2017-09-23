@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
 ms.openlocfilehash: aae4e4f59e76bf48b00a2ee92aedd7d5643ba91a
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/30/2017
-
 
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importer des données en parallèle et en bloc à l’aide de tables de partition SQL

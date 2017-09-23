@@ -19,7 +19,6 @@ ms.openlocfilehash: 73c81691b68ee820e1d905a17b4f2ab6b6ceb5fd
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler"></a>Didacticiel : Intégration d’Azure AD à Zscaler
 

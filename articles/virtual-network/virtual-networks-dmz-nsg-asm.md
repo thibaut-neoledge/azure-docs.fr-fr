@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cb2e480a45871ad0c956dc976de955ca48ecdfd0
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Exemple 1 : Générer une zone DMZ simple en utilisant des groupes de sécurité réseau (NSG) avec Classic PowerShell
@@ -138,9 +139,9 @@ Chaque règle est abordée plus en détail par la suite (**Remarque**: tous les 
         Set-AzureNetworkSecurityRule -Name "Enable $VMName[1] to $VMName[2]" `
         -Type Inbound -Priority 130 -Action Allow `
         -SourceAddressPrefix $VMIP[1] -SourcePortRange '*' `
-         -DestinationAddressPrefix $VMIP[2] `
-         -DestinationPortRange '*' `
-         -Protocol *
+        -DestinationAddressPrefix $VMIP[2] `
+        -DestinationPortRange '*' `
+        -Protocol *
     ```
 
 6. Cette règle refuse le trafic en provenance d’Internet vers des serveurs sur le réseau. Avec les règles de priorité 110 et 120, elle permet uniquement au trafic Internet entrant d’accéder au pare-feu et aux ports RDP d’autres serveurs et bloque tout le reste. Cette règle est une règle de « prévention de défaillance » qui bloque tous les flux inattendus.
@@ -589,10 +590,5 @@ Si vous souhaitez installer un exemple d’application et d’autres exemples de
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

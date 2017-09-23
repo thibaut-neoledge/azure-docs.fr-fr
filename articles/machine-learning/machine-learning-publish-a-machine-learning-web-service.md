@@ -20,7 +20,6 @@ ms.openlocfilehash: 39761f94efc530452a41ef9f2130976803cff711
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Déploiement d’un service web Azure Machine Learning
 Microsoft Azure Machine Learning vous permet de générer, tester et déployer des solutions d’analyse prédictive.

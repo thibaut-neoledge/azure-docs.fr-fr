@@ -20,7 +20,6 @@ ms.openlocfilehash: 4001ca908ff00b1a40829d687589080e9b07b18a
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="troubleshoot-cloud-services-using-application-insights"></a>Résoudre les problèmes de Cloud Services à l’aide d’Application Insights
 Avec le kit [Azure SDK 2.8](https://azure.microsoft.com/downloads/) et l’extension des diagnostics Azure 1.5, vous pouvez envoyer directement à Application Insights les données Azure Diagnostics pour votre service cloud. Les journaux recueillis par Azure Diagnostics (journaux d’applications, journaux des événements Windows, journaux ETW, compteurs de performances, etc.) peuvent être envoyés à Application Insights. Vous pouvez dès lors visualiser ces informations dans l’interface utilisateur du portail Application Insights. Vous pouvez ensuite utiliser le kit SDK Application Insights pour tirer des enseignements des métriques et des journaux issus de votre application, mais aussi des données de niveau système et infrastructure issues d’Azure Diagnostics.

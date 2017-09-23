@@ -19,7 +19,6 @@ ms.openlocfilehash: e1a9653d5feea910308cefabdbdfe3a6af44bbe4
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Didacticiel : Intégration d’Azure Active Directory avec SanSan
 

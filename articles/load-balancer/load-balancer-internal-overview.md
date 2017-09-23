@@ -1,6 +1,6 @@
 ---
 title: "Présentation de l’équilibrage de charge interne | Microsoft Docs"
-description: "Vue d&quot;ensemble de l&quot;équilibrage de charge interne et de ses fonctionnalités. Procédure de fonctionnement de l&quot;équilibrage de charge pour Azure et les scénarios de configuration possibles des points de terminaison internes"
+description: "Vue d'ensemble de l'équilibrage de charge interne et de ses fonctionnalités. Procédure de fonctionnement de l'équilibrage de charge pour Azure et les scénarios de configuration possibles des points de terminaison internes"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: d324aaf8ec2c8766d5cf11452158d14c19cba4d9
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/13/2017
 
 ---

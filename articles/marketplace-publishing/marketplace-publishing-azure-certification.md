@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Obtenir l'approbation préalable via le programme Microsoft Azure Certified
@@ -41,9 +42,4 @@ Une fois que vous avez reçu l'approbation préalable du programme de certificat
 
 ## <a name="see-also"></a>Voir aussi
 * [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

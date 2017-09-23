@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: e4e2293149b64056d1ec9d1900119e9f4f511d06
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure Stack deployment prerequisites

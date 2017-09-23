@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: c361d5b47a22689e7bf6749067a39e12df25c84a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Key features and concepts in Azure Stack

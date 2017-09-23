@@ -20,7 +20,6 @@ ms.openlocfilehash: 4e4e8b097fbab3ddce551eb93945d0880f8c457f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Résoudre les problèmes de réplication de machine virtuelle Azure vers Azure
 

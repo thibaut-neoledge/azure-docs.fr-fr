@@ -22,7 +22,6 @@ ms.openlocfilehash: 87246de343f5c810bf765b467ba0d131934f8526
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Créer des groupes de sécurité réseau à l’aide d’un modèle Azure Resource Manager
 

@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 3cba11acc6279f24d0a47af8978610180724c0a2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Before you get started with App Service on Azure Stack

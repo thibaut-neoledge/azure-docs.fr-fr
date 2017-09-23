@@ -21,7 +21,6 @@ ms.openlocfilehash: b2e755b5b1b4939eac90ac55ba8398c5687124c8
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-informix-connector"></a>Prise en main du connecteur Informix
 Microsoft Connector for Informix connecte Logic Apps aux ressources stockées dans une base de données IBM Informix. Le connecteur Informix inclut un client Microsoft permettant de communiquer avec les ordinateurs serveur Informix distants via un réseau TCP/IP. Cela inclut les bases de données cloud, telles que IBM Informix pour Windows en cours d’exécution dans la virtualisation Azure et les bases de données locales utilisant la passerelle de données locale. Consultez la [liste prise en charge](connectors-create-api-informix.md#supported-informix-platforms-and-versions) des plates-formes et versions IBM Informix (dans cette rubrique).

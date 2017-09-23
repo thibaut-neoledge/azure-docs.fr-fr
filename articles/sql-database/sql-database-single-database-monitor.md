@@ -22,7 +22,6 @@ ms.openlocfilehash: e11ed3275413b428523eef78a5a89b537f6a4afc
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/13/2017
 
-
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Analyse des performances d’une base de données dans une base de données SQL Azure
 L’analyse des performances d’une base de données SQL dans Azure démarre par l’analyse de l’utilisation des ressources par rapport au niveau de performances que vous avez choisi pour votre base de données. La surveillance permet de déterminer si votre base de données a une capacité excédentaire ou rencontre des problèmes parce que les ressources ont atteint leur maximum, et ensuite de décider s’il est temps d’ajuster le niveau de performances et le [niveau de service](sql-database-service-tiers.md) de votre base de données. Vous pouvez surveiller votre base de données à l’aide d’outils graphiques dans le [portail Azure](https://portal.azure.com) ou à l’aide de [vues de gestion dynamique](https://msdn.microsoft.com/library/ms188754.aspx) SQL.

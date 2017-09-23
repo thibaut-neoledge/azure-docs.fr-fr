@@ -22,7 +22,6 @@ ms.openlocfilehash: e0fb1e3fc87e3a3a93d42f9f2722696e0f9aae57
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>Créer un réseau virtuel à l’aide de PowerShell
 

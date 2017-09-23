@@ -21,7 +21,6 @@ ms.openlocfilehash: 522b932ab055978c52f085dbaa36095bb6b77962
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="monitor-and-improve-performance"></a>Surveiller et améliorer les performances
 Azure SQL Database identifie les problèmes potentiels de votre base de données et recommande les actions susceptibles d’améliorer les performances de votre charge de travail en fournissant des recommandations et des actions de réglage intelligent.

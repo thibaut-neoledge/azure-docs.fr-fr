@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
 ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Créer des alertes de métrique dans Azure Monitor pour les services Azure - Interface CLI multiplateforme

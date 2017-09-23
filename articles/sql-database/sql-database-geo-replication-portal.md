@@ -21,7 +21,6 @@ ms.openlocfilehash: db90fad2fe397f0c8466db6bdc1bd8c8d1cf8f15
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurer la géoréplication active pour Azure SQL Database dans le portail Azure et initier le basculement
 

@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>Utiliser l’API Azure Mobile Engagement dans une application web
@@ -215,9 +216,4 @@ Les informations sur l’application sont limitées à 1 024 caractères par app
 Dans l’exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
     {"birthdate":"1983-12-07","gender":"female"}
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

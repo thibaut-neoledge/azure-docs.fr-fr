@@ -1,5 +1,4 @@
 ---
-
 title: "Utiliser une machine virtuelle de dépannage Linux avec Azure CLI 1.0 | Microsoft Docs"
 description: "Découvrez comment résoudre les problèmes de machines virtuelles Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide d’Azure CLI 1.0."
 services: virtual-machines-linux
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: d817358211f123c96d899c5cff88cc47aeb5c9c1
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/03/2017
-
 
 ---
 

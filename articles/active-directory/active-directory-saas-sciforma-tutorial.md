@@ -19,7 +19,6 @@ ms.openlocfilehash: 4a04f5b2b5ccb33dddefc063a89118d87a11ebf5
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciforma"></a>Didacticiel : intégration d’Azure Active Directory à Sciforma
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/12/2017
 
-
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Instructions et recommandations pour les collections fiables dans Azure Service Fabric
 Cette section fournit des instructions pour l’utilisation du gestionnaire d’état fiable et des collections fiables. L’objectif consiste à aider les utilisateurs à éviter les pièges courants.

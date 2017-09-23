@@ -22,7 +22,6 @@ ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurer un réseau virtuel (Classic) à l’aide d’un fichier config réseau
 > [!IMPORTANT]

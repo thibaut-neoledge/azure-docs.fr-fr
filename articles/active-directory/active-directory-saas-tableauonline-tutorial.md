@@ -19,7 +19,6 @@ ms.openlocfilehash: 443fab1198a91a4d5749e6421f7b8603fc75a81e
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Didacticiel : Intégration d’Azure Active Directory à Tableau Online
 

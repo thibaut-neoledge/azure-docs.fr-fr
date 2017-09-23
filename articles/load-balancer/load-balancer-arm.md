@@ -1,6 +1,6 @@
 ---
 title: "Support d’Azure Resource Manager pour l’équilibrage de charge | Microsoft Docs"
-description: "Utilisation de Powershell pour l’équilibrage de charge avec Azure Resource Manager. Utilisation de modèles pour l&quot;équilibrage de charge"
+description: "Utilisation de Powershell pour l’équilibrage de charge avec Azure Resource Manager. Utilisation de modèles pour l'équilibrage de charge"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
 ms.openlocfilehash: d06c924f384a2684b5a91c202039c581796c1091
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/11/2017
 
 ---
 
@@ -68,9 +70,4 @@ Prise en main des applets de commande, des outils de ligne de commande et des AP
 Vous pouvez également [commencer par créer un équilibrage de charge avec accès par Internet](load-balancer-get-started-internet-arm-ps.md) et configurer le type de [mode de distribution](load-balancer-distribution-mode.md) pour un comportement spécifique de trafic réseau d’équilibrage de charge.
 
 Découvrez comment gérer les [paramètres de délai d’expiration TCP inactif pour un équilibreur de charge](load-balancer-tcp-idle-timeout.md). C’est important lorsque votre application a besoin de conserver des connexions actives pour les serveurs situés derrière un équilibreur de charge.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

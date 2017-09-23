@@ -1,6 +1,6 @@
 ---
 title: "Guide pratique pour utiliser Twilio avec les fonctionnalités vocales et SMS (Python) | Microsoft Docs"
-description: "Découvrez comment passer un appel téléphonique et envoyer un SMS avec le service d&quot;API Twilio sur Azure. Exemples de code écrits en Python."
+description: "Découvrez comment passer un appel téléphonique et envoyer un SMS avec le service d'API Twilio sur Azure. Exemples de code écrits en Python."
 services: 
 documentationcenter: python
 author: devinrader
@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
 ms.openlocfilehash: f4a02bb7a7c46e7a0e3c75b870c522eae8294339
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/07/2017
-
 
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Guide pratique pour utiliser Twilio avec les fonctionnalités vocales et SMS dans Python

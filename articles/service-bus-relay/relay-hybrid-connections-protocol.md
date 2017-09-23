@@ -20,7 +20,6 @@ ms.openlocfilehash: 6b76403ba5fc4d00a625057549c85db59a473898
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # Protocole de connexions hybrides Azure Relay
 Azure Relay est l’une des fonctionnalités clés de la plateforme Azure Service Bus. La nouvelle fonctionnalité *Connexions hybrides* de Relay est une évolution sécurisée, à protocole ouvert, sur HTTP et WebSocket. Elle remplace l’ancienne fonctionnalité, nommée *BizTalk Services*, conçue sur un protocole propriétaire. L’intégration des connexions hybrides dans Azure App Services continue de fonctionner telle quelle.

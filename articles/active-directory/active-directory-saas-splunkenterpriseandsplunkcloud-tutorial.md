@@ -19,7 +19,6 @@ ms.openlocfilehash: 181d0f33245f0811c15c1e7945c797502ef71eba
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Didacticiel : Intégration d’Azure Active Directory avec Splunk Enterprise et Splunk Cloud
 

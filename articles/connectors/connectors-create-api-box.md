@@ -21,7 +21,6 @@ ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-box-connector"></a>Prise en main du connecteur Box
 Connectez-vous à Box pour créer des fichiers, supprimer des fichiers et bien plus encore. Avec Box, vous pouvez :

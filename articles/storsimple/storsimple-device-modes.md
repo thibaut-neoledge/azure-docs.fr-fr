@@ -1,5 +1,5 @@
 ---
-title: Changer le mode de l&quot;appareil StorSimple | Microsoft Docs
+title: Changer le mode de l'appareil StorSimple | Microsoft Docs
 description: "Décrit les modes de l’appareil StorSimple et explique comment utiliser Windows PowerShell for StorSimple pour changer le mode de l’appareil."
 services: storsimple
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 33c65bf2eecff3914f3227c76f7d638a4507e1f6
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Changement du mode de votre appareil StorSimple
@@ -90,10 +91,5 @@ Vous pouvez mettre l’appareil StorSimple en mode Maintenance (à partir du mod
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [appliquer les mises à jour des modes Normal et Maintenance](storsimple-update-device.md) sur votre appareil StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

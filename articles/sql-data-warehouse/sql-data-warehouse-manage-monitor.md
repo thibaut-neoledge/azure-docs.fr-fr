@@ -1,6 +1,6 @@
 ---
 title: "Surveiller votre charge de travail à l’aide de vues de gestion dynamique | Microsoft Docs"
-description: "Comment surveiller votre charge de travail à l&quot;aide de vues de gestion dynamique"
+description: "Comment surveiller votre charge de travail à l'aide de vues de gestion dynamique"
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
@@ -20,7 +20,6 @@ ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/14/2017
-
 
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Surveiller votre charge de travail à l'aide de vues de gestion dynamique

@@ -20,7 +20,6 @@ ms.openlocfilehash: 08998340afb2f242b9a268331607b0d1ddb9b0c6
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local
 > [!div class="op_single_selector"]

@@ -20,7 +20,6 @@ ms.openlocfilehash: 9173e34f889ce1c082b20bb382cb6ca9a03dd797
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Utiliser le service StorSimple Manager pour gérer les enregistrements de contrôle d’accès
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: 72a966bdc271f86b9568d3310d2e22d83b447594
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/21/2017
 
-
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Variables système et fonctions
 Cet article fournit des informations sur les fonctions et variables prises en charge par Azure Data Factory.

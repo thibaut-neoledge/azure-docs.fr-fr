@@ -1,6 +1,6 @@
 ---
 title: "Comment utiliser la Recherche Azure à partir d’une application .NET | Microsoft Docs"
-description: "Comment utiliser Azure Search à partir d&quot;une application .NET"
+description: "Comment utiliser Azure Search à partir d'une application .NET"
 services: search
 documentationcenter: 
 author: brjohnstmsft
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
 ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/22/2017
-
 
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Comment utiliser Azure Search à partir d'une application .NET

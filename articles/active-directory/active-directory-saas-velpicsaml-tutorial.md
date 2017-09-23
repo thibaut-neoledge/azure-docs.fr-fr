@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 5325f3cca00167e6b7b687509ce43435447ad2f4
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Didacticiel : Intégration d’Azure Active Directory à Velpic SAML
@@ -217,7 +217,7 @@ Connectez-vous au site de votre entreprise Velpic SAML en tant qu’administrate
 
     e. Les autres informations sont facultatives et vous pouvez les renseigner si nécessaire.
     
-    f. Cliquez sur **ENREGISTRER**.    
+    f. Cliquez sur **ENREGISTRER**.  
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 

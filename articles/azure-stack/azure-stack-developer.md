@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 28bca0c94e88b31012c4c53ace47d8bfe6cbe163
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="develop-for-azure-stack"></a>Develop for Azure Stack

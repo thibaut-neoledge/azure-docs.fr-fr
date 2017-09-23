@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d&quot;Azure Active Directory à Condeco | Microsoft Docs"
-description: "Découvrez comment configurer l&quot;authentification unique entre Azure Active Directory et Condeco."
+title: "Didacticiel : Intégration d'Azure Active Directory à Condeco | Microsoft Docs"
+description: "Découvrez comment configurer l'authentification unique entre Azure Active Directory et Condeco."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: eab1d25abc2fccdeffdf2706269bfd078eb5a09f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-condeco"></a>Didacticiel : Intégration d'Azure Active Directory à Condeco

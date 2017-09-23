@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/24/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8600
@@ -267,10 +268,5 @@ Vous avez terminé le branchement des câbles d’alimentation, d’accès rése
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous êtes maintenant prêt à procéder au [déploiement et à la configuration de votre appareil StorSimple local](storsimple-deployment-walkthrough-u2.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

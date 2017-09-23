@@ -20,7 +20,6 @@ ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/15/2017
 
-
 ---
 # <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Dépanner les travaux Azure Data Lake Analytics à l’aide du portail Azure
 Apprenez à utiliser le portail Azure afin de dépanner les travaux Data Lake Analytics.

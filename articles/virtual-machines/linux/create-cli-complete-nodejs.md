@@ -22,7 +22,6 @@ ms.openlocfilehash: 201ccd523e49d638ace50fbc0ffdceb705b35473
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Créer un environnement Linux complet à l’aide de l’interface Azure CLI 1.0
 Dans cet article, nous créons un réseau simple avec un équilibreur de charge et deux machines virtuelles à des fins de développement et de calcul simple. Nous suivons ce processus, commande par commande, jusqu’à ce que vous disposiez de deux machines virtuelles Linux sécurisées opérationnelles, auxquelles vous pouvez vous connecter à partir de n’importe quel emplacement via Internet. Vous pourrez ensuite créer des réseaux et des environnements plus complexes.

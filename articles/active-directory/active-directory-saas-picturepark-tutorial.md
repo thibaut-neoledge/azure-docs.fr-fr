@@ -19,7 +19,6 @@ ms.openlocfilehash: 1c009aa1fdd3140a4466cf762b6c9687e74ce4c7
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Didacticiel : Intégration d’Azure Active Directory avec Picturepark
 

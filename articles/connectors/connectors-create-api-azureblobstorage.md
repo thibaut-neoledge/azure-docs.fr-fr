@@ -21,7 +21,6 @@ ms.openlocfilehash: bc7908868828bd1628633cf9e57f8c44f8000827
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>Utilisation du connecteur Stockage Blob Azure dans une application logique
 Le connecteur Stockage Blob Azure permet de télécharger, de mettre à jour, d’obtenir et de supprimer des objets blob dans votre compte de stockage, le tout au sein d’une application logique.  

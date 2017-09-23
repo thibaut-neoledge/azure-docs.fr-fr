@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 4b4f978f008dbcd8a7424f285198535cf133d7e2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Add an App Service resource provider to Azure Stack

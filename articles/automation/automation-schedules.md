@@ -1,6 +1,6 @@
 ---
 title: "Planifications dans Azure Automation | Microsoft Docs"
-description: "Les planifications Automation permettent de planifier les Runbooks dans Azure pour qu&quot;ils démarrent automatiquement. Décrit comment créer et gérer une planification afin de pouvoir démarrer automatiquement un Runbook à un instant donné ou selon une planification périodique."
+description: "Les planifications Automation permettent de planifier les Runbooks dans Azure pour qu'ils démarrent automatiquement. Décrit comment créer et gérer une planification afin de pouvoir démarrer automatiquement un Runbook à un instant donné ou selon une planification périodique."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -19,7 +19,6 @@ ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: 140bea93c4563666e8cfdf356eaf87500c1aca8e
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/14/2017
-
 
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Planification d'un Runbook dans Azure Automation

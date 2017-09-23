@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: ff34bcd6ba485806baf7963e11393633dd893fa7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Create a plan in Azure Stack

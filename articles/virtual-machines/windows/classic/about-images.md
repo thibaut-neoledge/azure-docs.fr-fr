@@ -1,6 +1,6 @@
 ---
 title: "À propos des images pour les machines virtuelles Windows | Microsoft Docs"
-description: En savoir plus sur l&quot;utilisation des images avec des machines virtuelles Windows dans Azure.
+description: En savoir plus sur l'utilisation des images avec des machines virtuelles Windows dans Azure.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: d421cee0becabdf81d865036d0c98b12b077152b
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/27/2017
-
 
 ---
 # <a name="about-images-for-windows-virtual-machines"></a>À propos des images pour les machines virtuelles Windows

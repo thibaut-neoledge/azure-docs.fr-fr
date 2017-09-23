@@ -21,7 +21,6 @@ ms.openlocfilehash: bde1629504c97cf6706b42219570ffa6243073dd
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-outlookcom-connector"></a>Prise en main du connecteur Outlook.com
 Le connecteur Outlook.com vous permet de gérer votre messagerie, les calendriers et les contacts. Vous pouvez effectuer différentes actions comme envoyer un message, planifier des réunions, ajouter des contacts, etc.

@@ -1,6 +1,6 @@
 ---
-title: Comment utiliser l&quot;API Engagement sur Android
-description: Dernier SDK Android - Comment utiliser l&quot;API Engagement sur Android
+title: Comment utiliser l'API Engagement sur Android
+description: Dernier SDK Android - Comment utiliser l'API Engagement sur Android
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>Comment utiliser l'API Engagement sur Android
@@ -281,9 +282,4 @@ Les informations de l'application sont limitées à **1024** caractères par app
 Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
             {"expiration":"2016-12-07","status":"premium"}
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

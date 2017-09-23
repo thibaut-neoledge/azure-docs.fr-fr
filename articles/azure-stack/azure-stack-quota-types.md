@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 9c65abd596b1a67175a4f91558c318f16ddbb11f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="quota-types-in-azure-stack"></a>Quota types in Azure Stack

@@ -12,7 +12,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 0830b394c71cc27d96c7a46867b6c151260f6325
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 

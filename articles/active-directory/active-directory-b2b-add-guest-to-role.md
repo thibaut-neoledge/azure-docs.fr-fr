@@ -1,5 +1,4 @@
 ---
-
 title: "Ajouter un utilisateur Azure Active Directory B2B Collaboration à un rôle | Microsoft Docs"
 description: "Ajouter un utilisateur invité à un rôle dans Azure Active Directory"
 services: active-directory
@@ -17,11 +16,11 @@ ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: e816349ea971c997f655b4d51672dba666bc3e89
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/17/2017
-
 
 ---
 

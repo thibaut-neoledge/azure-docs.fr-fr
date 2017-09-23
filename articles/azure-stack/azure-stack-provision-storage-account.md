@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: de32c0ce79e8357274cc19cd1ea4ec23b85b918f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Storage accounts in Azure Stack

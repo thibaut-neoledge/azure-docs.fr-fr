@@ -1,6 +1,6 @@
 ---
 title: "Didacticiel de démarrage rapide sur le langage R pour Machine Learning | Microsoft Docs"
-description: "Utilisez ce didacticiel sur la programmation R pour prendre en main rapidement l&quot;utilisation du langage R avec Azure Machine Learning Studio afin de créer une solution de prévision."
+description: "Utilisez ce didacticiel sur la programmation R pour prendre en main rapidement l'utilisation du langage R avec Azure Machine Learning Studio afin de créer une solution de prévision."
 keywords: "démarrage rapide,langage r,langage de programmation r,didacticiel de programmation en r"
 services: machine-learning
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: 598f5ce445e520b6cdc347c80f7f3dcbc9c2c9e5
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/15/2017
-
 
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Didacticiel de démarrage rapide pour le langage de programmation R pour Azure Machine Learning

@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: beb2d26afb8ddc5e85b1828c71de5cbd9e678fe1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Storage: Differences and considerations

@@ -20,7 +20,6 @@ ms.openlocfilehash: b34c67ecc1bd50157ded790948ac7b88a5807ddb
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="azure-key-vault-service-limits"></a>Limites du service Azure Key Vault
 Ce sont les limites du service pour Azure Key Vault.

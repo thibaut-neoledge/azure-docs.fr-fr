@@ -19,7 +19,6 @@ ms.openlocfilehash: 7e1dad18ff0ae9a9102b789b2cb32e7b96ed3d38
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/08/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Didacticiel : Intégration d’Azure Active Directory à ServiceChannel
 
@@ -122,7 +121,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 4. Votre application ServiceChannel attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre un exemple : **NameIdentifier (Identifiant utilisateur)** est la seule revendication obligatoire et la valeur par défaut est **user.userprincipalname**, mais ServiceChannel attend que ceci soit mappé à **user.mail**. Si vous prévoyez d’activer l’approvisionnement des utilisateurs juste à temps, vous devez ajouter les revendications suivantes comme indiqué ci-dessous. La revendication **Rôle** doit être mappée à **user.assignedroles**, qui contient le rôle de l’utilisateur.  
 
     Vous pouvez consulter le guide de ServiceChannel [ici](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example) pour obtenir des instructions sur les revendications.
-      
+    
     ![Configurer l’authentification unique](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
     > [!NOTE] 

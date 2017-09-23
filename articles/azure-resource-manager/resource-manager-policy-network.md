@@ -20,7 +20,6 @@ ms.openlocfilehash: bca66bbdd9da9b3e4099d0d961f42c9368a17f5e
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="apply-resource-policies-to-network-resources"></a>Appliquer des stratégies de ressources à des ressources réseau
 Cet article présente un exemple de [stratégie de ressources](resource-manager-policy.md) que vous pouvez appliquer aux passerelles de réseau virtuel Azure. Cette stratégie garantit la cohérence pour les passerelles déployées dans votre organisation. 

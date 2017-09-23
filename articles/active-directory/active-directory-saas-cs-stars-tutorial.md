@@ -19,7 +19,6 @@ ms.openlocfilehash: acc9160f86e58c7af4779a8bab5627dc5c5ad721
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Didacticiel : Intégration d’Azure Active Directory avec CS Stars
 

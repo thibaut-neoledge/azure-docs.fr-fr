@@ -20,7 +20,6 @@ ms.openlocfilehash: 419e489e4e99935dea49b2d3f9a405013b94048c
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>Informations de référence sur les applets de commande PowerShell de Scheduler
 Le tableau suivant décrit chacune des principales applets de commande disponibles dans Azure Scheduler et établit un lien vers la page de référence correspondante.

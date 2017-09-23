@@ -21,7 +21,6 @@ ms.openlocfilehash: dc0244f0e0949b172c391825057f5c14893a5158
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Optimisation des performances dans Azure SQL Database
 

@@ -19,7 +19,6 @@ ms.openlocfilehash: dc4a362b5737bb424ca2c196c85f4c51b6ee5e30
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="service-remoting-with-reliable-services"></a>Communication à distance des services avec Reliable Services
 > [!div class="op_single_selector"]

@@ -20,7 +20,6 @@ ms.openlocfilehash: a63b15ca5126b45451f0694c9ee75d7b67b1ceaf
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/08/2017
 
-
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Collecter des données à partir de CollectD sur les agents Linux dans Log Analytics
 [CollectD](https://collectd.org/) est un démon Linux open source qui collecte périodiquement des mesures de performances à partir d’applications et d’informations de niveau système. Les applications peuvent être, par exemple, la machine virtuelle Java (JVM), le serveur MySQL et Nginx. Cet article fournit des informations sur la collecte des données de performances à partir de CollectD dans Log Analytics.

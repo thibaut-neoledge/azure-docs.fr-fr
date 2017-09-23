@@ -20,7 +20,6 @@ ms.openlocfilehash: 8072a863fab0b304ccbbba639aa56b403e8f37c7
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Didacticiel : Utiliser le portail Azure pour créer un pipeline Data Factory afin de copier des données 
 > [!div class="op_single_selector"]

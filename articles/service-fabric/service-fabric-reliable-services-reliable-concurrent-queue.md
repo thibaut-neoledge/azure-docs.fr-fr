@@ -20,7 +20,6 @@ ms.openlocfilehash: 122cb48149477f295a65b8ee623c647b6db10a86
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/17/2017
 
-
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Présentation de ReliableConcurrentQueue dans Azure Service Fabric
 Une file d’attente simultanée fiable est une file d’attente asynchrone, transactionnelle et répliquée, qui permet d’effectuer des opérations de mise en file d’attente et de retrait de file d’attente avec un niveau élevé de simultanéité. Elle est conçue pour offrir un débit élevé et une latence faible en assouplissant la séquence stricte de premier entré, premier sorti fournie par une [file d’attente fiable](https://msdn.microsoft.com/library/azure/dn971527.aspx), et fournit à la place un classement selon le principe de l’effort optimal.

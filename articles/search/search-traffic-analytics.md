@@ -14,9 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/05/2017
 ms.author: betorres
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -176,11 +177,11 @@ Pour instancier le modèle Power BI Desktop, vous avez besoin de trois informati
 
 Mesures incluses dans le modèle Power BI Desktop :
 
-*    Taux de clic (CTR) : rapport entre les utilisateurs qui cliquent sur un document spécifique et le nombre total de recherches.
-*    Recherches sans clic : termes renvoyant aux principales requêtes qui n’enregistrent aucun clic
-*    Documents ayant reçu le plus de clics : documents les plus consultés, classés par ID, au cours des 24 dernières heures, des 7 derniers jours et des 30 derniers jours.
-*    Paires terme-document populaires : termes qui amènent l’utilisateur à cliquer sur le même document, classés par clics.
-*    Temps de clic : clics compartimentés en fonction du délai écoulé depuis la requête de recherche
+*   Taux de clic (CTR) : rapport entre les utilisateurs qui cliquent sur un document spécifique et le nombre total de recherches.
+*   Recherches sans clic : termes renvoyant aux principales requêtes qui n’enregistrent aucun clic
+*   Documents ayant reçu le plus de clics : documents les plus consultés, classés par ID, au cours des 24 dernières heures, des 7 derniers jours et des 30 derniers jours.
+*   Paires terme-document populaires : termes qui amènent l’utilisateur à cliquer sur le même document, classés par clics.
+*   Temps de clic : clics compartimentés en fonction du délai écoulé depuis la requête de recherche
 
 ![Modèle Power BI pour lire à partir d’Application Insights][3]
 

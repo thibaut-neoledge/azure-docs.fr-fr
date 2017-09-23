@@ -1,5 +1,5 @@
 ---
-title: "Configuration d&quot;Apache Tomcat sur une machine virtuelle Linux | Microsoft Docs"
+title: "Configuration d'Apache Tomcat sur une machine virtuelle Linux | Microsoft Docs"
 description: "Apprenez à configurer Apache Tomcat7 avec une machine virtuelle Azure exécutant Linux."
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: fa30c78a5a5d458ba8845c3c10b87538427786c9
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/27/2017
-
 
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurer Tomcat7 sur une machine virtuelle Linux avec Azure

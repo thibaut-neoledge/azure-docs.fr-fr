@@ -18,8 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: a7309693d8f7971e42768a13d12fa0a8bd81925a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack troubleshooting

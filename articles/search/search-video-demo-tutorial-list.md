@@ -1,6 +1,6 @@
 ---
 title: "Vidéos, exemples et didacticiels dans la Recherche Azure | Microsoft Docs"
-description: "Liste centrale de l&quot;ensemble des vidéos, exemples, démonstrations et didacticiels créés pour Azure Search, un service cloud hébergé sur MIcrosoft Azure."
+description: "Liste centrale de l'ensemble des vidéos, exemples, démonstrations et didacticiels créés pour Azure Search, un service cloud hébergé sur MIcrosoft Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/08/2017
-
 
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Azure Search : exemples de code, démonstrations, vidéos et didacticiels

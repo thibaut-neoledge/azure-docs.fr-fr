@@ -21,7 +21,6 @@ ms.openlocfilehash: 783d6a640d9626508bcabc5f991dc5b6fc22eaf4
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Prise en main du connecteur OneDrive Entreprise
 Connectez-vous à OneDrive Entreprise pour gérer vos fichiers. Vous pouvez effectuer diverses actions, comme charger, mettre à jour, obtenir et supprimer des fichiers.

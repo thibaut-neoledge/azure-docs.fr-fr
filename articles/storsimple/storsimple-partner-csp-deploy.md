@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b28c5e93dc8f53597b1d2fa6f4ae154acf16068
 ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -104,9 +106,4 @@ Dans certains cas, vous avez peut-être un client existant et vous devez ajouter
 
 - Si vous avez des questions supplémentaires concernant StorSimple dans le programme des fournisseurs de solutions cloud, accédez à [StorSimple in CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple dans le programme des fournisseurs de solutions cloud : Forum Aux Questions).
 - Si vous êtes prêt à déployer votre instance StorSimple, accédez à [Deploy StorSimple Virtual Array for Cloud Solution Provider Program](storsimple-partner-csp-deploy.md) (Déployer StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

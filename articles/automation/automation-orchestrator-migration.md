@@ -1,6 +1,6 @@
 ---
 title: "Migration d’Orchestrator vers Azure Automation | Microsoft Docs"
-description: "Décrit comment migrer des Runbooks et des packs d&quot;intégration de System Center Orchestrator vers Azure Automation."
+description: "Décrit comment migrer des Runbooks et des packs d'intégration de System Center Orchestrator vers Azure Automation."
 services: automation
 documentationcenter: 
 author: bwren
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
 ms.openlocfilehash: 457888b4d38875b912ad87d44e96ab727e3ee3ee
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migration d'Orchestrator vers Azure Automation (bêta)
@@ -135,9 +136,4 @@ Les Runbooks d'Orchestrator font démarrer d'autres Runbooks avec l'activité **
 * [Runbook Worker hybride](automation-hybrid-runbook-worker.md)
 * [Activités standard d'Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
 * [Télécharger le kit de migration System Center Orchestrator](https://www.microsoft.com/en-us/download/details.aspx?id=47323)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: "Configurer des sources de données dans OMS Log Analytics | Microsoft Docs"
-description: "Les sources de données définissent les données que Log Analytics collectent auprès des agents et d&quot;autres sources connectées.  Cet article décrit la façon dont Log Analytics utilise les sources de données, explique en détail comment les configurer, et fournit un résumé des différentes sources de données disponibles."
+description: "Les sources de données définissent les données que Log Analytics collectent auprès des agents et d'autres sources connectées.  Cet article décrit la façon dont Log Analytics utilise les sources de données, explique en détail comment les configurer, et fournit un résumé des différentes sources de données disponibles."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -19,7 +19,6 @@ ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 00d030a502cf70ea9a5dea767f560cdf2919573e
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/25/2017
-
 
 ---
 # <a name="data-sources-in-log-analytics"></a>Sources de données dans Log Analytics

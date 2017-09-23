@@ -20,7 +20,6 @@ ms.openlocfilehash: 05159bfd98977d0b57b43fbc02e4579439f7ce4c
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Déplacer des données depuis MySQL à l’aide d’Azure Data Factory
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données à partir d’une base de données MySQL locale. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.

@@ -19,7 +19,6 @@ ms.openlocfilehash: 3a597d228f6c9234ec2fd2644ec3ac50b98f3b6b
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Didacticiel : Intégration d’Azure Active Directory à FM:Systems
 

@@ -1,6 +1,6 @@
 ---
 title: "Configuration d’un service cloud (portail) | Microsoft Docs"
-description: "Découvrez comment configurer des services cloud dans Azure. Apprenez à mettre à jour la configuration d&quot;un service cloud et à configurer l&quot;accès distant aux instances de rôle. Ces exemples utilisent le portail Azure."
+description: "Découvrez comment configurer des services cloud dans Azure. Apprenez à mettre à jour la configuration d'un service cloud et à configurer l'accès distant aux instances de rôle. Ces exemples utilisent le portail Azure."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb66627b170c9010414b24266fdae608e67f5c61
 ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/20/2017
 
 ---
 # <a name="how-to-configure-cloud-services"></a>Configuration des services cloud
@@ -109,9 +110,4 @@ Vous devrez peut-être reconfigurer votre service cloud via le fichier [configur
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -21,7 +21,6 @@ ms.openlocfilehash: c581b1468630a9f28204592c936360b72f42f0d8
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/21/2017
 
-
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Modifier l’algorithme de hachage de signature pour l’approbation de partie de confiance Office 365
 ## <a name="overview"></a>Vue d'ensemble

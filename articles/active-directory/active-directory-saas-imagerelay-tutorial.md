@@ -19,7 +19,6 @@ ms.openlocfilehash: 0bfbbaee7a74df6508584b7c8846fd07c2dc15c9
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Didacticiel : Intégration d’Azure Active Directory à ImageRelay
 

@@ -14,9 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: brjohnst
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
 ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/14/2017
 
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Mise à niveau vers la version 2016-09-01 de l’API REST du service Recherche Azure
@@ -66,10 +68,5 @@ Pour plus d’informations sur l’utilisation de l’API REST du service Recher
 Vos commentaires sur la Recherche Azure sont les bienvenus. Si vous rencontrez des problèmes, n’hésitez pas à nous demander de l’aide sur le [forum MSDN de la Recherche Azure ](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) ou sur [StackOverflow](http://stackoverflow.com/). Si vous souhaitez poser une question sur la Recherche Azure sur StackOverflow, veillez à utiliser le mot clé `azure-search`.
 
 Merci d’utiliser Azure Search !
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

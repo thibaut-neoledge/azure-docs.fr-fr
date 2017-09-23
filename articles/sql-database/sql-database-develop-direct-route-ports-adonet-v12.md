@@ -21,7 +21,6 @@ ms.openlocfilehash: d47ee8c794d1e231507dae6bb4aa88bf19ce6418
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/08/2017
 
-
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Ports au-delà de 1433 pour ADO.NET 4.5
 Cette rubrique décrit le comportement de connexion d’Azure SQL Database pour les clients qui utilisent ADO.NET version 4.5 ou ultérieure. 

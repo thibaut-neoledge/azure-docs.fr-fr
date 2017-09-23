@@ -21,7 +21,6 @@ ms.openlocfilehash: 6032263848c469ce2f416306e5c91c29f4cb30e4
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Capturer l’image d’une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique
 > [!IMPORTANT]

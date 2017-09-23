@@ -20,7 +20,6 @@ ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/17/2017
 
-
 ---
 
 # <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>Créer l’application web Service Manager en utilisant le script automatisé (préversion)

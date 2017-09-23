@@ -1,6 +1,6 @@
 ---
 title: Forum Aux Questions (FAQ) Azure Machine Learning | Microsoft Docs
-description: "Présentation d&quot;Azure Machine Learning : FAQ portant sur la facturation, les fonctionnalités et les limitations d&quot;un service cloud pour la modélisation prédictive rationalisée."
+description: "Présentation d'Azure Machine Learning : FAQ portant sur la facturation, les fonctionnalités et les limitations d'un service cloud pour la modélisation prédictive rationalisée."
 keywords: "introduction à l’apprentissage automatique, modélisation prédictive, présentation de l’apprentissage automatique"
 services: machine-learning
 documentationcenter: 
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: 0a1e23cd52ab5c10791a11d93753b54eb1c1b71a
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/07/2017
-
 
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Forum Aux Questions Azure Machine Learning : facturation, fonctionnalités, limitations et support

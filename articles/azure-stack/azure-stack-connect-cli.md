@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: ece02b5132dcaaf229847542c5b634c9b28855ae
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="install-and-configure-cli-for-the-azure-stack-users-environment"></a>Install and configure CLI for the Azure Stack user's environment

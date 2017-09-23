@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 65278e7b352df5651f04151210ccc34a58dd321a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="what-is-azure-stack"></a>What is Azure Stack?

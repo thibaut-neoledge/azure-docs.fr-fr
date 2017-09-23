@@ -19,7 +19,6 @@ ms.openlocfilehash: 7820a70b34b6d25ba81b17c472159d08904335d1
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appblade"></a>Didacticiel : Intégration d’Azure Active Directory à AppBlade
 

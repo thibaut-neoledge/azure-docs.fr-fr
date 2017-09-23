@@ -20,7 +20,6 @@ ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exemple 3 : créer un réseau de périmètre DMZ pour protéger les réseaux avec un pare-feu, un réseau défini sur l’utilisateur et un groupe de réseau
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]

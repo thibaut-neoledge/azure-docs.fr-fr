@@ -20,7 +20,6 @@ ms.openlocfilehash: 94b629a62c3a54eee69ee397b2f27e3f20b753d5
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-8-set-up-the-source-and-target-for-vmware-replication-to-azure"></a>Étape 8 : configurer la source et la cible pour la réplication VMware sur Azure
 

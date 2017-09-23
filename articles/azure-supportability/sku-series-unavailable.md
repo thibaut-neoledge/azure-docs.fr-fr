@@ -20,7 +20,6 @@ ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="sku-series-unavailable"></a>Séries de références (SKU) non disponibles
 Dans certaines régions, certaines références (SKU) ne sont pas automatiquement disponibles pour les nouveaux abonnements.  Cela peut se produire lorsque [de meilleures références sont commercialisées dans une région](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) et que les anciennes références sont moins demandées.

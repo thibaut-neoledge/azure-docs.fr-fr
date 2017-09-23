@@ -20,7 +20,6 @@ ms.openlocfilehash: 1e3cea027b599e2b1af1ced0fdf14e2cc8a0db82
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
-
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>Déployer un modèle Resource Manager privé avec un jeton SAP et Azure PowerShell
 

@@ -12,10 +12,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
 ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/10/2016
 
 ---
 # <a name="create-an-azure-search-index"></a>Création d'un index Azure Search
@@ -65,10 +66,5 @@ Pour plus d’informations sur les attributs d’index du service Recherche Azur
 Lorsque vous concevez votre index, prenez le temps lors de la phase de planification de réfléchir chaque décision. Il est important de ne perdre de vue ni votre expérience de recherche ni vos besoins métiers lorsque vous concevez votre index, chaque champ devant être associé à des [attributs corrects](https://docs.microsoft.com/rest/api/searchservice/Create-Index). La modification d’un index une fois déployé implique la reconstruction et le rechargement des données.
 
 Si vos besoins en stockage de données changent au fil du temps, vous pouvez augmenter ou diminuer la capacité en ajoutant ou en supprimant des partitions. Pour plus d’informations, consultez [Gérer votre service de recherche dans Azure](search-manage.md) ou [Limites de service](search-limits-quotas-capacity.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

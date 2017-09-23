@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: b5a1cd57106895fdd04f0281f0f81c0be0aca428
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="connect-to-azure-stack"></a>Connect to Azure Stack

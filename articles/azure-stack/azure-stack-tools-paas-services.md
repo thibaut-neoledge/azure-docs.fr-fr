@@ -18,8 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: a3866a91bf2656990c40ead20cedb67fc47a87fd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="paas-services-for-azure-stack"></a>PaaS services for Azure Stack

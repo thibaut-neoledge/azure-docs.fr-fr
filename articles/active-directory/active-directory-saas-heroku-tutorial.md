@@ -19,7 +19,6 @@ ms.openlocfilehash: d30605e4757b484f327a784b73f939b62ef59373
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heroku"></a>Didacticiel : Intégration d’Azure Active Directory à Heroku
 

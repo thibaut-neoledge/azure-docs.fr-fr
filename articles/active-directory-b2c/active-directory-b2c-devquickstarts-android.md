@@ -20,7 +20,6 @@ ms.openlocfilehash: cd4b8048245be49ea79bcb1b364f2f99c56f8291
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/25/2017
 
-
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure Active Directory B2C : Se connecter à l’aide d’une application Android
 

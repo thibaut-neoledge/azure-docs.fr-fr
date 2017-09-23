@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 30160088d9c770400f342e67527e1cf1cabc4f6b
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/25/2017
 
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Limiter l’accès à votre contenu CDN Azure par pays
@@ -62,15 +63,10 @@ Par exemple, la règle de blocage /Photos/Strasbourg/ filtre les fichiers, notam
 ### <a name="country-codes"></a>Codes de pays
 La fonctionnalité de **Filtrage géographique** utilise des codes de pays pour définir les pays à partir desquels une demande est autorisée ou bloquée pour un répertoire sécurisé. Vous trouverez les codes de pays sur la page [Azure CDN Country Codes (Code de pays du CDN Azure)](https://msdn.microsoft.com/library/mt761717.aspx). 
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="considerations"></a>Considérations
+## <a id="considerations"></a>Considérations
 * L’implémentation des modifications apportées à votre configuration de filtrage par pays peut prendre jusqu’à 90 minutes avec la solution Verizon ou quelques minutes avec la solution Akamai.
 * Cette fonctionnalité ne prend pas en charge les caractères génériques (par exemple, « * »).
 * La configuration de filtrage géographique associée avec le chemin d'accès relatif de filtrage est appliquée de manière récursive à ce chemin d’accès.
 * Une seule règle peut être appliquée au même chemin d'accès relatif (vous ne pouvez pas créer plusieurs filtres de pays qui pointent vers le même chemin d'accès relatif). Toutefois, un dossier peut avoir plusieurs filtres par pays. Cela est dû à la nature récursive des filtres par pays. En d'autres termes, un filtre par pays différent peut être attribué à un sous-dossier d'un dossier déjà configuré.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

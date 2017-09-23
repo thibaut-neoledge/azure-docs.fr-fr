@@ -1,6 +1,6 @@
 ---
 title: "Création de groupes de sécurité réseau (portail Classic) dans Azure - PowerShell| Microsoft Docs"
-description: "Découvrez comment créer et déployer des groupes de sécurité réseau en mode classique à l&quot;aide de PowerShell"
+description: "Découvrez comment créer et déployer des groupes de sécurité réseau en mode classique à l'aide de PowerShell"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -20,7 +20,6 @@ ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 097f0f7df8db8ec06d91e598cedcfb92a4cc160c
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="how-to-create-nsgs-classic-in-powershell"></a>Procédure de création des groupes de sécurité réseau (classique) dans PowerShell

@@ -20,7 +20,6 @@ ms.openlocfilehash: 60b784fd00013c2b9504f8635c6b5c4c592563be
 ms.contentlocale: fr-fr
 ms.lasthandoff: 03/27/2017
 
-
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Sauvegarder un serveur Exchange dans une sauvegarde Microsoft Azure avec le serveur de sauvegarde Azure
 Cet article explique comment configurer un serveur de sauvegarde Azure pour sauvegarder un serveur Microsoft Exchange dans une sauvegarde Microsoft Azure.  

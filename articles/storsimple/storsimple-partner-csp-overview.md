@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d2b55f7be932161b086f0ec395faa16114d4a1f1
 ms.openlocfilehash: 3722fc1198549102bd4fd215b9ede04a3ca1fbf5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -43,9 +45,4 @@ Pour plus d’informations, consultez [Deploy StorSimple Virtual Array for Cloud
 
 - Si vous avez des questions supplémentaires concernant StorSimple dans le programme des fournisseurs de solutions cloud, accédez à [StorSimple for Cloud Solutions Provider Program: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions).
 - Si vous êtes prêt à déployer votre solution StorSimple, accédez à [Deploy StorSimple Virtual Array for Cloud Solution Provider Program](storsimple-partner-csp-deploy.md) (Déployer la baie virtuelle StorSimple pour le programme des fournisseurs de solutions cloud).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

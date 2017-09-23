@@ -20,7 +20,6 @@ ms.openlocfilehash: 51b3519bbba8cb4c768bfdd7dadf92fced434f22
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/30/2017
 
-
 ---
 # <a name="apply-resource-policies-for-names-and-text"></a>Appliquer des stratégies de ressources pour les noms et le texte
 Cette rubrique montre plusieurs [stratégies de ressources](resource-manager-policy.md) que vous pouvez appliquer pour établir des conventions d’affectation de noms et de texte. Ces stratégies garantissent la cohérence des noms de ressources et des valeurs de balise. 

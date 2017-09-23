@@ -20,7 +20,6 @@ ms.openlocfilehash: 849eccff114c2fd6d952e44d095d0cc89a238675
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Remplacement d’un module de contrôleur sur votre appareil StorSimple
 ## <a name="overview"></a>Vue d'ensemble

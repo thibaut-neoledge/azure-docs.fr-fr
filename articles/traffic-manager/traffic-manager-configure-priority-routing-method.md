@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 0db83cde6facc89b8b8aa72e6419129ec868235c
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/22/2017
 
 ---
@@ -44,9 +45,9 @@ Dans le cadre du basculement des services, il est courant de diriger le trafic v
 8. Cliquez sur **Enregistrer** pour enregistrer les modifications des paramètres des points de terminaison.
 9. Une fois que vous avez terminé de modifier la configuration, cliquez sur **Enregistrer** en bas de la page.
 10. Testez les modifications dans votre configuration comme suit :
-    1.    Dans la barre de recherche du portail, recherchez le nom du profil Traffic Manager et cliquez sur le profil Traffic Manager dans les résultats affichés.
-    2.    Dans le panneau du profil **Traffic Manager**, cliquez sur **Vue d’ensemble**.
-    3.    Le panneau **Profil Traffic Manager** affiche le nom DNS de votre profil Traffic Manager nouvellement créé. Celui-ci peut être utilisé par tous les clients (par exemple, en y accédant à l’aide d’un navigateur web) pour être acheminés vers le point de terminaison correct, comme déterminé par le type de routage. Dans ce cas, toutes les demandes sont acheminées vers le premier point de terminaison et si Traffic Manager détecte que celui-ci n’est pas intègre, le trafic bascule automatiquement vers le point de terminaison suivant.
+    1.  Dans la barre de recherche du portail, recherchez le nom du profil Traffic Manager et cliquez sur le profil Traffic Manager dans les résultats affichés.
+    2.  Dans le panneau du profil **Traffic Manager**, cliquez sur **Vue d’ensemble**.
+    3.  Le panneau **Profil Traffic Manager** affiche le nom DNS de votre profil Traffic Manager nouvellement créé. Celui-ci peut être utilisé par tous les clients (par exemple, en y accédant à l’aide d’un navigateur web) pour être acheminés vers le point de terminaison correct, comme déterminé par le type de routage. Dans ce cas, toutes les demandes sont acheminées vers le premier point de terminaison et si Traffic Manager détecte que celui-ci n’est pas intègre, le trafic bascule automatiquement vers le point de terminaison suivant.
 11. Une fois le profil Traffic Manager opérationnel, modifiez l’enregistrement DNS sur le serveur DNS faisant autorité, afin de faire pointer votre nom de domaine d’entreprise vers le nom de domaine Traffic Manager.
 
 ![Configuration de la méthode de routage du trafic prioritaire à l’aide de Traffic Manager][1]

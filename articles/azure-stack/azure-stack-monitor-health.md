@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 93835eabcf9622735aada0f5dfa46028553c25bd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Monitor health and alerts in Azure Stack

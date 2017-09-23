@@ -21,7 +21,6 @@ ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Étendre des groupes de disponibilité Always On locaux à Azure
 Les groupes de disponibilité Always On fournissent une haute disponibilité pour les groupes de bases de données en ajoutant des réplicas secondaires. Ces réplicas autorisent le basculement des bases de données en cas de défaillance. Ils permettent en outre de décharger les charges de travail de lecture ou les tâches de sauvegarde.

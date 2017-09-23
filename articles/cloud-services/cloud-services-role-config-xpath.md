@@ -1,6 +1,6 @@
 ---
 title: "Aide-mémoire XPath de configuration d’un rôle Services cloud | Microsoft Docs"
-description: "Les différents paramètres XPath que vous pouvez utiliser dans la configuration d’un rôle de service cloud pour exposer les paramètres sous la forme d&quot;une variable d&quot;environnement."
+description: "Les différents paramètres XPath que vous pouvez utiliser dans la configuration d’un rôle de service cloud pour exposer les paramètres sous la forme d'une variable d'environnement."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: fd6efac829d3fd9e2840362b8d2ff423add566d9
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
-
 
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Exposer les paramètres de configuration de rôle comme variable d'environnement avec XPath

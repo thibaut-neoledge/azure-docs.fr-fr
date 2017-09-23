@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 2f7615e0f0928f4ef70f98b7e2b2dce823621314
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="enable-cli-for-azure-stack-users"></a>Enable CLI for Azure Stack users

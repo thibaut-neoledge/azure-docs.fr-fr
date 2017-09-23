@@ -20,7 +20,6 @@ ms.openlocfilehash: f11ed42b474e4f208eac92689bfa33fb188d15a1
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/17/2017
 
-
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Limites et quotas de mise à l’échelle dans votre laboratoire Azure DevTest Labs
 Lorsque vous travaillez dans DevTest Labs, vous pouvez remarquer un certain nombre de limites par défaut qui s’appliquent à certaines ressources Azure, ce qui peut affecter le service DevTest Labs. Ces limites sont appelées **quotas**.

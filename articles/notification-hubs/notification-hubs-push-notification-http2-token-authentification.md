@@ -19,7 +19,6 @@ ms.openlocfilehash: 5a21bcd9f12fc3f96b17a556ba15526c35ababe2
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Authentification basée sur un jeton (HTTP/2) pour APNS
 ## <a name="overview"></a>Vue d'ensemble

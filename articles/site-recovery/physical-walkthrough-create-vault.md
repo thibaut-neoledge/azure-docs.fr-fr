@@ -20,7 +20,6 @@ ms.openlocfilehash: deb5ad0495edc969b374795eeb2698326dd4ff4d
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-6-set-up-a-vault-for-physical-server-replication-to-azure"></a>Étape 6 : Configurer un coffre pour la réplication de serveurs physiques vers Azure
 

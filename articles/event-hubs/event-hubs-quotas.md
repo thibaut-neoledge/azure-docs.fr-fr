@@ -20,7 +20,6 @@ ms.openlocfilehash: c1c9217cf51cef450837bdd255f8c44c14a74ac0
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/13/2017
 
-
 ---
 # <a name="event-hubs-quotas"></a>Quotas Event Hubs
 Cette section répertorie les quotas et les limites de base de Azure Event Hubs.

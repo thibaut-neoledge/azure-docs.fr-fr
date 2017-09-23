@@ -21,7 +21,6 @@ ms.openlocfilehash: 0bca4fb6874bd265f0ae9faeb4219abeb4ffb6d4
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="azure-powershell-samples-for-networking"></a>Exemples Azure PowerShell pour la mise en réseau
 

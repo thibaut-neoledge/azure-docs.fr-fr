@@ -1,6 +1,6 @@
 ---
-title: "Création et téléchargement d&quot;un disque dur virtuel SUSE Linux dans Azure"
-description: "Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d&quot;exploitation SUSE Linux."
+title: "Création et téléchargement d'un disque dur virtuel SUSE Linux dans Azure"
+description: "Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation SUSE Linux."
 services: virtual-machines-linux
 documentationcenter: 
 author: szarkos
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: szark
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: c829f5d9a90b4260c6f41b2d9e511a0c6cb48f18
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle SLES ou openSUSE pour Azure

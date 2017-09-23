@@ -21,7 +21,6 @@ ms.openlocfilehash: 357a25a665894c86ddb0f93beeb4dd59d8837489
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="performance-recommendations"></a>Recommandations en matière de performances
 

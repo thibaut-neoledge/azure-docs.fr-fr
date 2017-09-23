@@ -1,6 +1,6 @@
 ---
 title: "Implémentation de la navigation à facettes dans Recherche Azure | Microsoft Docs"
-description: "Ajoutez la navigation à facettes aux applications qui s&quot;intègrent à Azure Search, un service de recherche cloud hébergé sur Microsoft Azure."
+description: "Ajoutez la navigation à facettes aux applications qui s'intègrent à Azure Search, un service de recherche cloud hébergé sur Microsoft Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 3/10/2017
 ms.author: heidist
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
 ms.openlocfilehash: 413f498eeb0bbc9a971c7a65200ed2fd8caa9aaf
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/16/2017
-
 
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implémentation de la navigation à facettes dans Azure Search

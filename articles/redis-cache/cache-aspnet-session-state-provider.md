@@ -20,7 +20,6 @@ ms.openlocfilehash: 0f3683939ac9646565a0669e19b4c82811d621fc
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/02/2017
 
-
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Fournisseur d’état de session ASP.NET pour Cache Redis Azure
 Cache Redis Azure intègre un fournisseur d'état de session, qui vous permet de stocker l'état de votre session dans un cache plutôt qu'en mémoire ou dans une base de données SQL Server. Pour utiliser le fournisseur d’état de session de la mise en cache, configurez d’abord votre cache, puis configurez votre application ASP.NET pour la mise en cache à l’aide du package NuGet de l’état de session Cache Redis.

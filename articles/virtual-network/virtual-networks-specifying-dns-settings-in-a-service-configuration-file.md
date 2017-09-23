@@ -1,6 +1,6 @@
 ---
 title: "Définition des paramètres DNS dans un fichier de configuration de service | Microsoft Docs"
-description: "spécification de paramètres DNS personnalisés à l&quot;aide du fichier de configuration de service d’un réseau virtuel"
+description: "spécification de paramètres DNS personnalisés à l'aide du fichier de configuration de service d’un réseau virtuel"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0fba2ea06827aff29a7a092933edb8120d668b29
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Définition des paramètres DNS dans un fichier de configuration de service
@@ -45,10 +46,5 @@ Un fichier de configuration de service peut contenir un élément DnsServers av
 [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](http://go.microsoft.com/fwlink/?LinkId=248094)
 
 [À propos des paramètres de réseau virtuel dans le Portail de gestion](http://go.microsoft.com/fwlink/?LinkId=248092)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

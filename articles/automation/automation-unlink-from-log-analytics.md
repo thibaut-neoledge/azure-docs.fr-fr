@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 02/07/2017
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cd65cd34846122ff14f6d5df61e4f61a7c1ac4f
 ms.openlocfilehash: 56b09c2cfc14813b5efcb364c580787fec1bf639
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/08/2017
 
 ---
 
@@ -53,8 +55,3 @@ Si vous avez utilisé la solution Démarrer/arrêter des machines virtuelles pen
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour reconfigurer votre compte Automation et l’intégrer dans OMS Log Analytics, consultez [Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md). 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

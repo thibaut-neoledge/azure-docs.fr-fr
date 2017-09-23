@@ -21,7 +21,6 @@ ms.openlocfilehash: 8a1650a65e7980f4a13fa4edc7918b0099bb5464
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 ## <a name="configure-your-aspnet-web-app-with-the-applications-registration-information"></a>Configurer votre application Web ASP.NET avec les informations d’inscription de l’application
 

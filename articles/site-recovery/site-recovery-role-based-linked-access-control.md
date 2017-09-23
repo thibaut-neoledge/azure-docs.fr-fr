@@ -20,7 +20,6 @@ ms.openlocfilehash: 9dd74014bf05234a83c7678b67b42b96cd8b8d64
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer les déploiements Azure Site Recovery
 

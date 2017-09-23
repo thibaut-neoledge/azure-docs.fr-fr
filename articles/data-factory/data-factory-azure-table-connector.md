@@ -20,7 +20,6 @@ ms.openlocfilehash: 792a551ae3dae46c503e5f0dda74cd0ac3a69c3a
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Déplacer des données vers et depuis Azure Table à l’aide d’Azure Data Factory
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données vers ou à partir du Stockage Table Azure. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie. 

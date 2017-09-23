@@ -1,6 +1,6 @@
 ---
 title: "Créer des hôtes Docker dans Azure avec Docker Machine | Microsoft Docs"
-description: "Décrit l&quot;utilisation de Docker Machine pour créer des hôtes Docker dans Azure."
+description: "Décrit l'utilisation de Docker Machine pour créer des hôtes Docker dans Azure."
 services: azure-container-service
 documentationcenter: na
 author: mlearned
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: 766d327a87ed13e04166d71c3d9ae0a1e7a66d19
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/07/2017
-
 
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Créer des hôtes Docker dans Azure avec Docker Machine

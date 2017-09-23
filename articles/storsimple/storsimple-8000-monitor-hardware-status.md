@@ -20,7 +20,6 @@ ms.openlocfilehash: 90724099842eac513c39dccf113ad1c0a63983f2
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Utiliser le service StorSimple Device Manager pour surveiller les composants et l’état du matériel
 ## <a name="overview"></a>Vue d'ensemble

@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: 1c39fee739c2f5fd4b928e1e76e1ea57f072b5f8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure
@@ -77,10 +79,5 @@ Confirmez la suppression, puis cliquez sur **Enregistrer** pour appliquer les mo
 
 [unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

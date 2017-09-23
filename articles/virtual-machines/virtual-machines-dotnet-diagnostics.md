@@ -20,7 +20,6 @@ ms.openlocfilehash: 8ff6b9825212359617b748aba1c78ed789b130dd
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="enabling-diagnostics-in-azure-virtual-machines"></a>Activation des diagnostics dans Azure Virtual Machines
 Consultez la page [Présentation des diagnostics Azure](../monitoring-and-diagnostics/azure-diagnostics.md) pour obtenir des informations sur les diagnostics Azure.

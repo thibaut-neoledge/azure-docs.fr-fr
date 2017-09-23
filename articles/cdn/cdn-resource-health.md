@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 37fe208f5087f318e665e76825127854b4a11c98
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/25/2017
 
 ---
 
@@ -65,8 +66,3 @@ Nous sommes désolés, nous rencontrons des problèmes avec certains de nos four
 - [Vue d’ensemble d’Azure Resource Health](../resource-health/resource-health-overview.md)
 - [Résolution des problèmes de compression des fichiers CDN](./cdn-troubleshoot-compression.md)
 - [Dépannage des points de terminaison de CDN renvoyant des états 404](./cdn-troubleshoot-endpoint.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

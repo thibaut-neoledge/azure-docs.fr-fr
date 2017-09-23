@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
 ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="manage-nsgs-using-the-portal"></a>Gérer les groupes de sécurité réseau à partir du portail
@@ -199,9 +200,4 @@ Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est asso
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Activez la journalisation](virtual-network-nsg-manage-log.md) des groupes de sécurité réseau.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

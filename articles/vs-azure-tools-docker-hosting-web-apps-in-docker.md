@@ -20,7 +20,6 @@ ms.openlocfilehash: 4a87ee69f23779bf4f6f5db40bc05edbcfc7668d
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/23/2017
 
-
 ---
 # <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>Déployer un conteneur ASP.NET sur un hôte Docker distant
 ## <a name="overview"></a>Vue d'ensemble

@@ -20,7 +20,6 @@ ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Introduction au niveau Premium du Cache Redis Azure
 le Cache Redis Azure est un cache distribué et géré qui vous permet de développer des applications hautement évolutives et réactives en fournissant un accès ultra-rapide aux données. 

@@ -19,7 +19,6 @@ ms.openlocfilehash: 668c094d5330be1c5f71d51d2e76170dc69d1bce
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>Didacticiel : Intégration d’Azure Active Directory à Capriza Platform
 

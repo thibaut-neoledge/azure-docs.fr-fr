@@ -1,6 +1,6 @@
 ---
 title: "Gestion des données Azure Automation | Microsoft Docs"
-description: "Cet article contient plusieurs rubriques concernant la gestion d’un environnement Azure Automation.  Il inclut actuellement Conservation des données, Sauvegarde Azure Automation et Récupération d&quot;urgence dans Azure Automation."
+description: "Cet article contient plusieurs rubriques concernant la gestion d’un environnement Azure Automation.  Il inclut actuellement Conservation des données, Sauvegarde Azure Automation et Récupération d'urgence dans Azure Automation."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
 ms.openlocfilehash: 92893edc4e02de148f6585e83c6861fd751401bb
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/03/2017
-
 
 ---
 # <a name="managing-azure-automation-data"></a>Gestion des données Azure Automation

@@ -20,7 +20,6 @@ ms.openlocfilehash: cc06ee9305b4d3034154a0825c1aea53fe446f80
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Options de résolution de noms DNS pour les machines virtuelles Linux dans Azure
 Azure fournit une résolution des noms DNS par défaut pour toutes les machines virtuelles d’un même réseau virtuel. Vous pouvez implémenter votre propre solution de résolution de noms DNS en configurant vos propres services DNS sur vos machines virtuelles hébergées sur Azure. Les scénarios suivants vous aideront à choisir la solution qui fonctionne dans votre situation.

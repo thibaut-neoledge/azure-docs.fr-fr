@@ -18,7 +18,6 @@ ms.openlocfilehash: ca7092a06a9ffce8383ca8bc9f70ce312cdf9de4
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="service-fabric-hosting-model"></a>Modèle d’hébergement Service Fabric
 Cet article fournit une vue d’ensemble des modèles d’hébergement d’applications fournis par Service Fabric et décrit les différences entre les modèles à **processus partagé** et à **processus exclusif**. Il décrit le fonctionnement d’une application déployée sur un nœud Service Fabric et présente la relation entre les réplicas (ou instances) du service et le processus hôte du service.

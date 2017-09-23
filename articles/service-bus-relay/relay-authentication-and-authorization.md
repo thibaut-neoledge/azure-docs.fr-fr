@@ -20,7 +20,6 @@ ms.openlocfilehash: 95589ca169926362fa77f0e307afd449014c8402
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Authentification et autorisation Azure Relay
 Les applications peuvent s’authentifier auprès d’Azure Relay à l’aide de l’authentification par signature d’accès partagé. À l’instar de la [messagerie Service Bus](../service-bus-messaging/service-bus-authentication-and-authorization.md), l’authentification par signature d’accès partagé permet aux applications de s’authentifier auprès du service Azure Relay à l’aide d’une clé d’accès configurée dans l’espace de noms Relay. Vous pouvez ensuite utiliser cette clé pour générer un jeton de signature d’accès partagé que les clients peuvent alors utiliser pour s’authentifier auprès du service Azure Relay.

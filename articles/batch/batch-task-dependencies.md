@@ -21,7 +21,6 @@ ms.openlocfilehash: 465306d2de8d1dbe6ba1f0cd74be720b78a50de3
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Créer des dépendances de tâches pour exécuter des tâches qui dépendent d’autres tâches
 

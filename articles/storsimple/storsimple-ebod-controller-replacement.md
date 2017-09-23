@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 23d819ddc3bbcbaf2847cdcc9191407ead0ff43d
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Remplacer un contrôleur EBOD sur votre appareil StorSimple
@@ -102,10 +103,5 @@ La procédure et le tableau suivants expliquent comment installer un module de c
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

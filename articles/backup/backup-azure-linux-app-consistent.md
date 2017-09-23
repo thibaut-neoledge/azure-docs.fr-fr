@@ -20,11 +20,9 @@ ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/12/2017
 
-
 ---
 
-# Sauvegarde cohérente des applications des machines virtuelles Linux Azure (version préliminaire)
-<a id="application-consistent-backup-of-azure-linux-vms-preview" class="xliff"></a>
+# <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Sauvegarde cohérente des applications des machines virtuelles Linux Azure (version préliminaire)
 
 Cet article traite de la structure de pré-scripts et post-scripts de Linux, ainsi que de la façon dont elle peut être utilisée pour effectuer des sauvegardes cohérentes d’applications de machines virtuelles Linux Azure.
 
@@ -32,15 +30,13 @@ Cet article traite de la structure de pré-scripts et post-scripts de Linux, ain
 > La structure de pré-scripts et post-scripts est prise en charge uniquement pour les machines virtuelles déployées par Azure Resource Manager. Les scripts pour la cohérence d’application ne sont pas pris en charge pour les machines virtuelles déployées par Service Manager ou les machines virtuelles Windows.
 >
 
-## Fonctionnement de l’infrastructure
-<a id="how-the-framework-works" class="xliff"></a>
+## <a name="how-the-framework-works"></a>Fonctionnement de l’infrastructure
 
 L’infrastructure fournit une option permettant d’exécuter des pré/post-scripts personnalisés lors de la capture d’instantanés de machines virtuelles. Les pré-scripts sont exécutés juste avant la capture d’instantané de machine virtuelle, et les post-scripts juste après la capture. Cela vous permet de contrôler votre environnement et l’application lorsque vous prenez des instantanés de machines virtuelles.
 
 Dans ce scénario, il est important d’assurer la sauvegarde cohérente des applications de la machine virtuelle. Le pré-script peut appeler les API natives de l’application pour suspendre les E/S et vider le contenu de la mémoire sur le disque. Cela garantit que l’instantané est cohérent avec l’application (autrement dit, que l’application est lancée lorsque la machine virtuelle est démarrée après la restauration). Le post-script permet de libérer les E/S. Il effectue cela à l’aide des API d’applications natives, afin que l’application puisse reprendre son fonctionnement normal après la capture instantanée de la machine virtuelle.
 
-## Procédure de configuration du pré-script et du post-script
-<a id="steps-to-configure-pre-script-and-post-script" class="xliff"></a>
+## <a name="steps-to-configure-pre-script-and-post-script"></a>Procédure de configuration du pré-script et du post-script
 
 1. Connectez-vous en tant qu’utilisateur root de la machine virtuelle Linux que vous souhaitez sauvegarder.
 
@@ -84,25 +80,23 @@ Dans ce scénario, il est important d’assurer la sauvegarde cohérente des app
 
 6. L’infrastructure de script est désormais configurée. Si la sauvegarde de la machine virtuelle est déjà configurée, la sauvegarde suivante appelle les scripts et déclenche la sauvegarde cohérente avec les applications. Si la sauvegarde de machine virtuelle n’est pas configurée, faites-le à l’aide de [Sauvegarde de machines virtuelles Azure dans des coffres Recovery Services.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
-## Résolution de problèmes
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 Veillez à ajouter un enregistrement approprié lors de l’écriture de votre pré-script et post-script et passez en revue vos journaux de script pour résoudre les problèmes de script. Si vous rencontrez toujours des problèmes pour exécuter des scripts, reportez-vous au tableau suivant pour plus d’informations.
 
 | Erreur | Message d’erreur | Action recommandée |
 | ------------------------ | -------------- | ------------------ |
-| Pre-ScriptExecutionFailed |Le pré-script a renvoyé une erreur ; la sauvegarde peut ne pas être cohérente avec les applications.    | Examinez les journaux d’erreur de votre script pour résoudre le problème.|  
-|    Post-ScriptExecutionFailed |    Le post-script a renvoyé une erreur qui peut affecter l’état de l’application. |    Examinez les journaux d’erreur de votre script pour résoudre le problème et vérifiez l’état de l’application. |
-| Pre-ScriptNotFound |    Le pré-script est introuvable à l’emplacement spécifié dans le fichier de configuration **VMSnapshotScriptPluginConfig.json**. |    Assurez-vous que ce pré-script est présent au niveau du chemin d’accès spécifié dans le fichier de configuration pour garantir la sauvegarde cohérente des applications.|
-| Post-ScriptNotFound |    Le post-script est introuvable à l’emplacement spécifié dans le fichier de configuration **VMSnapshotScriptPluginConfig.json**. |    Assurez-vous que ce post-script est présent au niveau du chemin d’accès spécifié dans le fichier de configuration pour garantir la sauvegarde cohérente des applications.|
-| IncorrectPluginhostFile |    Le fichier **Pluginhost** fourni avec l’extension VmSnapshotLinux est endommagé. Le pré-script et le post-script ne peuvent donc pas être exécutés et la sauvegarde ne sera pas cohérente avec les applications.    | Désinstallez l’extension **VmSnapshotLinux**, et elle sera automatiquement réinstallée avec la sauvegarde suivante pour résoudre le problème. |
+| Pre-ScriptExecutionFailed |Le pré-script a renvoyé une erreur ; la sauvegarde peut ne pas être cohérente avec les applications.   | Examinez les journaux d’erreur de votre script pour résoudre le problème.|  
+|   Post-ScriptExecutionFailed |    Le post-script a renvoyé une erreur qui peut affecter l’état de l’application. |    Examinez les journaux d’erreur de votre script pour résoudre le problème et vérifiez l’état de l’application. |
+| Pre-ScriptNotFound |  Le pré-script est introuvable à l’emplacement spécifié dans le fichier de configuration **VMSnapshotScriptPluginConfig.json**. |   Assurez-vous que ce pré-script est présent au niveau du chemin d’accès spécifié dans le fichier de configuration pour garantir la sauvegarde cohérente des applications.|
+| Post-ScriptNotFound | Le post-script est introuvable à l’emplacement spécifié dans le fichier de configuration **VMSnapshotScriptPluginConfig.json**. |   Assurez-vous que ce post-script est présent au niveau du chemin d’accès spécifié dans le fichier de configuration pour garantir la sauvegarde cohérente des applications.|
+| IncorrectPluginhostFile | Le fichier **Pluginhost** fourni avec l’extension VmSnapshotLinux est endommagé. Le pré-script et le post-script ne peuvent donc pas être exécutés et la sauvegarde ne sera pas cohérente avec les applications. | Désinstallez l’extension **VmSnapshotLinux**, et elle sera automatiquement réinstallée avec la sauvegarde suivante pour résoudre le problème. |
 | IncorrectJSONConfigFile | Le fichier **VMSnapshotScriptPluginConfig.json** est incorrect. Le pré-script et le post-script ne peuvent donc pas être exécutés et la sauvegarde ne sera pas cohérente avec les applications. | Téléchargez la copie à partir de [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) et la configurer à nouveau. |
 | InsufficientPermissionforPre-Script | Pour l’exécution de scripts, l’utilisateur racine doit être le propriétaire du fichier et le fichier doit avoir des autorisations « 700 », (seul le propriétaire doit avoir des autorisations de « lecture », « d’écriture » et « d’exécution »). | Assurez-vous que l’utilisateur « racine » est le « propriétaire » du fichier de script et que seul le propriétaire dispose des autorisations de « lecture », « d’écriture » et « d’exécution ». |
 | InsufficientPermissionforPost-Script | Pour l’exécution de scripts, l’utilisateur racine doit être le propriétaire du fichier et le fichier doit avoir des autorisations « 700 » (c.-à-d. que seul le propriétaire doit avoir des autorisations de « lecture », « d’écriture » et « d’exécution »). | Assurez-vous que l’utilisateur « racine » est le « propriétaire » du fichier de script et que seul le propriétaire dispose des autorisations de « lecture », « d’écriture » et « d’exécution ». |
 | Pre-ScriptTimeout | L’exécution du pré-script de sauvegarde cohérente des applications a expiré. | Vérifiez le script et augmentez le délai d’expiration dans le fichier **VMSnapshotScriptPluginConfig.json** situé à l’emplacement **/etc/azure**. |
 | Post-ScriptTimeout | L’exécution du post-script de sauvegarde cohérente des applications a expiré. | Vérifiez le script et augmentez le délai d’expiration dans le fichier **VMSnapshotScriptPluginConfig.json** situé à l’emplacement **/etc/azure**. |
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 [Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
 

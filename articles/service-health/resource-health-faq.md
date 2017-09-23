@@ -20,7 +20,6 @@ ms.openlocfilehash: 794117b6f383bdd1851681864e99b3c1ef077f86
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 
 # <a name="azure-resource-health-faq"></a>FAQ Azure Resource Health

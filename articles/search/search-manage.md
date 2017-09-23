@@ -21,7 +21,6 @@ ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administration des services pour Azure Search dans le portail Azure
 > [!div class="op_single_selector"]

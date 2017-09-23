@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
 ms.openlocfilehash: 687da15bdaf854254321b59350f47549781676f5
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/21/2016
 
 ---
 # <a name="migrate-automation-account-and-resources"></a>Migration d’un compte et de ressources Automation
@@ -65,9 +66,4 @@ Comme dans l’exemple précédent, vous devrez confirmer le déplacement.
 * Pour plus d’informations sur le contrôle d’accès en fonction du rôle dans Azure Automation, reportez-vous à l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
 * Pour plus d’informations sur les applets de commande PowerShell permettant de gérer votre abonnement, consultez [Utilisation d’Azure PowerShell avec Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 * Pour plus d’informations sur les fonctionnalités du portail permettant de gérer votre abonnement, consultez [Utilisation du Portail Azure pour gérer les ressources](../azure-resource-manager/resource-group-portal.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

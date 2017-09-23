@@ -20,7 +20,6 @@ ms.openlocfilehash: bf8038b7171053b75eeb9aed88bff4246e65a8a8
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer des travaux (Update 3 et versions ultérieures)
 

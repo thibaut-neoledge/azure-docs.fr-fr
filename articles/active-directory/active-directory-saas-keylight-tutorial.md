@@ -19,7 +19,6 @@ ms.openlocfilehash: e64a966f24411818abc4cc4ab29a428b5577d012
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Didacticiel : Intégration d’Azure Active Directory avec LockPath Keylight
 

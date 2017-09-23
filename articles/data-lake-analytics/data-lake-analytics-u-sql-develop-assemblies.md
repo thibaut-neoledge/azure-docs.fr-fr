@@ -19,7 +19,6 @@ ms.openlocfilehash: c49f80f8dcd330d7f46726241e7178351b9cc28f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/08/2017
 
-
 ---
 # <a name="develop-u-sql-assemblies-for-azure-data-lake-analytics-jobs"></a>Développer des assemblys U-SQL pour des travaux Azure Data Lake Analytics
 Apprenez à convertir des fichiers code-behind and assemblys pour les utiliser et les réutiliser dans des travaux Data Lake Analytics. 

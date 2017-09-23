@@ -17,7 +17,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: b3992b296d5a999601eb69b071559f9d37dacf8f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Provide applications access to Azure Stack

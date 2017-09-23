@@ -20,7 +20,6 @@ ms.openlocfilehash: 9a364adad3342b211a647eb743776a47812b75f4
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="service-bus-quotas"></a>Quotas Service Bus
 Cette section répertorie les quotas de base et les seuils de limitation qui s’appliquent à la messagerie de Microsoft Azure Service Bus.

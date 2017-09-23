@@ -21,7 +21,6 @@ ms.openlocfilehash: 29a92f0c70bffedeb75c50b7fc3b687ee5ee227d
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
-
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Tarification des machines virtuelles SQL Server Azure
 

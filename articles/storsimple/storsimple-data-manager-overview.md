@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 32fcca540c1db317c5f11e94b2ee3359cadcc806
 ms.openlocfilehash: aedb44610fe57055851538b9dbdb810e66e58d73
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/28/2016
 
 ---
 
@@ -72,8 +74,3 @@ StorSimple Data Manager est disponible en version préliminaire privée. Pour vo
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Utilisez l’interface utilisateur de StorSimple Data Manager pour transformer vos données](storsimple-data-manager-ui.md).
-
-
-<!--HONumber=Nov16_HO4-->
-
-

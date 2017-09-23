@@ -20,7 +20,6 @@ ms.openlocfilehash: b085091ea7bfd601efb0eee84144ddd091422d6e
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/13/2017
 
-
 ---
 
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs

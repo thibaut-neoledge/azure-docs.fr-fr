@@ -21,7 +21,6 @@ ms.openlocfilehash: fb986a41e33501ee71c93a48457ac4114e33c671
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Que faire si une interruption du service Azure affecte des machines virtuelles Azure ?
 Microsoft s’engage à déployer tous les efforts nécessaires pour vous garantir en permanence la disponibilité de ses services quand vous en avez besoin. Il arrive parfois que des phénomènes incontrôlables entraînent des interruptions de service non planifiées.

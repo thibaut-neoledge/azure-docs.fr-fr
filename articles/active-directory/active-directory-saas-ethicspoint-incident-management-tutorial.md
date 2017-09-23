@@ -19,7 +19,6 @@ ms.openlocfilehash: b5ac3afd973b5765ba151e766754934b49ac0e0c
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Didacticiel : Intégration d’Azure Active Directory avec EthicsPoint Incident Management (EPIM)
 

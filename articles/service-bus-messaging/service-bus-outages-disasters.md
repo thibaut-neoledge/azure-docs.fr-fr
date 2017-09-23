@@ -20,7 +20,6 @@ ms.openlocfilehash: bc84dbe5c26a834b2cff5f71ba5f541e94ba0b38
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/13/2017
 
-
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres
 Les applications stratégiques doivent fonctionner en permanence, même en cas de pannes non planifiées ou de sinistres. Cette rubrique décrit les techniques que vous pouvez utiliser pour protéger les applications Service Bus contre une panne ou un sinistre potentiel.

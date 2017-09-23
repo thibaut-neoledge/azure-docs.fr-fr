@@ -20,7 +20,6 @@ ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
-
 ---
 # <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>Créer une passerelle Application Gateway pour l’hébergement de plusieurs applications web
 

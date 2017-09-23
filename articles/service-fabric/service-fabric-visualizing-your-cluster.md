@@ -20,7 +20,6 @@ ms.openlocfilehash: c58de22e29b6403e88bf22bdfe704a25757cdfca
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/13/2017
 
-
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
 Service Fabric Explorer est un outil web dédié à l’inspection et à la gestion d’applications et de nœuds dans un cluster Azure Service Fabric. Service Fabric Explorer est hébergé directement au sein du cluster, de sorte qu’il est toujours disponible, quel que soit l’emplacement d’exécution de votre cluster.

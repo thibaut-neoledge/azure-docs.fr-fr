@@ -19,7 +19,6 @@ ms.openlocfilehash: 8c441656a1a52d1e1e75b7d0f7025f4331bf9dc1
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/24/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Didacticiel : Intégration d’Azure Active Directory à Kontiki
 

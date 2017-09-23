@@ -20,7 +20,6 @@ ms.openlocfilehash: a1e7b95e6dcbf46d83ce3bf10a38d6a572f4497d
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Manuel d’utilisation du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité
 ## <a name="executive-summary"></a>Résumé

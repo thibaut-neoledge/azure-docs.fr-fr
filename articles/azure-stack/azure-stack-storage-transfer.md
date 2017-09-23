@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 01069b8b7488ae0caaec4ae608c36b0f361e544c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="tools-for-azure-stack-storage"></a>Tools for Azure Stack Storage

@@ -19,7 +19,6 @@ ms.openlocfilehash: 932f5f12c75299e532d3fa2c31f1805a7df30158
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Didacticiel : Intégration d’Azure Active Directory à Learningpool Act
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
 ms.openlocfilehash: 2428c707ddeed281fddd1e57bc5574603f0b9b1c
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 # <a name="network-resource-provider"></a>Fournisseur de ressources réseau
@@ -265,10 +266,5 @@ Vous pouvez déployer des services dans Azure à partir d’un modèle à l’ai
 [Déploiement Azure Resource Manager et déploiement Classic](../azure-resource-manager/resource-manager-deployment-model.md)
 
 [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

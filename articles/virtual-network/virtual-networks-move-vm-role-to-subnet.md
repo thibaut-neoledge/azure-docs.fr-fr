@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
 ms.openlocfilehash: b094f8338394ef2e84cad3070936d715411326a4
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/28/2017
-
 
 ---
 # <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>Déplacer une machine virtuelle (Classic) ou une instance de rôle Services cloud vers un autre sous-réseau à l’aide de PowerShell

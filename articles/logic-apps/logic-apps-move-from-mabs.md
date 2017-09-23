@@ -20,7 +20,6 @@ ms.openlocfilehash: e58c6950d1d9420f32fc98ca917216dc5fae4fc3
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/31/2017
 
-
 ---
 
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Déplacer depuis BizTalk Services vers Logic Apps
@@ -31,8 +30,8 @@ Microsoft Azure BizTalk Services (MABS) fait l’objet d’une mise hors service
 
 BizTalk Services se compose de deux services secondaires :
 
-1.    Le service Connexions hybrides Microsoft BizTalk Services
-2.    L’intégration de pont IAE et EDI
+1.  Le service Connexions hybrides Microsoft BizTalk Services
+2.  L’intégration de pont IAE et EDI
 
 Si vous cherchez à déplacer des connexions hybrides, l’article [Connexions hybrides d’Azure App Service](../app-service/app-service-hybrid-connections.md) décrit les modifications et les fonctionnalités de ce service. Le service Connexions hybrides Azure remplace le service Connexions hybrides BizTalk Services. Le service Connexions hybrides Azure est disponible avec Azure App Service et est proposé dans le portail Azure. En outre, le service Connexions hybrides Azure fournit un nouveau gestionnaire de connexions hybrides pour gérer les connexions hybrides BizTalk Services existantes et les connexions hybrides que vous créez dans le portail. Le service Connexions hybrides Azure App Service bénéficie d’une mise à disposition générale.
 

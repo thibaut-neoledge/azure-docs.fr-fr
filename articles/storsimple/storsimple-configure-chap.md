@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
 ms.openlocfilehash: 36b4e73d0336deb9560d44163fc5330d1c9d775c
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/26/2017
 
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configuration de CHAP pour votre appareil StorSimple
@@ -160,10 +161,5 @@ Vous pouvez vérifier que le protocole CHAP est utilisé en procédant comme sui
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 * En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

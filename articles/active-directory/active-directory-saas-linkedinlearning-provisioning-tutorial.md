@@ -48,9 +48,9 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devrez
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-learning"></a>Conseils importants pour l’assignation d’utilisateurs à LinkedIn Learning
 
-*    Il est recommandé d’assigner un seul utilisateur Azure AD à LinkedIn Learning pour tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
+*   Il est recommandé d’assigner un seul utilisateur Azure AD à LinkedIn Learning pour tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
 
-*    Quand vous assignez un utilisateur à LinkedIn Learning, vous devez sélectionner le rôle **Utilisateur** dans la boîte de dialogue d’assignation. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
+*   Quand vous assignez un utilisateur à LinkedIn Learning, vous devez sélectionner le rôle **Utilisateur** dans la boîte de dialogue d’assignation. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-learning"></a>Configuration de l’approvisionnement des utilisateurs sur LinkedIn Learning
@@ -93,9 +93,9 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 8) Si vous avez déjà configuré LinkedIn Learning pour l’authentification unique, recherchez votre instance de LinkedIn Learning à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter**, puis recherchez **LinkedIn Learning** dans la galerie d’applications. Sélectionnez LinkedIn Learning dans les résultats de la recherche, puis ajoutez-le à votre liste d’applications.
 
-9)    Sélectionnez votre instance de LinkedIn Learning, puis sélectionnez l’onglet **Approvisionnement**.
+9)  Sélectionnez votre instance de LinkedIn Learning, puis sélectionnez l’onglet **Approvisionnement**.
 
-10)    Définissez le **Mode d’approvisionnement** sur **Automatique**.
+10) Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
 ![Approvisionnement LinkedIn Learning](./media/active-directory-saas-linkedinlearning-provisioning-tutorial/linkedin_3.PNG)
 

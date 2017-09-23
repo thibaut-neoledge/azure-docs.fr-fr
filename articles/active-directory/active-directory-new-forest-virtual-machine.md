@@ -21,7 +21,6 @@ ms.openlocfilehash: 516240ccc82a522a414d837ec334712196edf7dd
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Installation d'une nouvelle forêt Active Directory sur un réseau virtuel Azure
 Cette rubrique explique comment créer un nouvel environnement Windows Server Active Directory sur un réseau virtuel Azure sur une machine virtuelle sur un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Dans ce cas, le réseau virtuel Azure n'est pas connecté à un réseau local.

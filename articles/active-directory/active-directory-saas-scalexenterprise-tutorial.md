@@ -19,7 +19,6 @@ ms.openlocfilehash: 0ebed0c2605862426384c0e219e52c9d626b6246
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/23/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Didacticiel : Intégration d’Azure Active Directory avec ScaleX Enterprise
 
@@ -135,7 +134,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Cliquez sur l’attribut **emailaddress** pour ouvrir la fenêtre Modifier l’attribut. Modifiez sa valeur de **user.mail** en **user.userprincipalname** et cliquez sur OK.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)    
+    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)   
     
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 

@@ -19,7 +19,6 @@ ms.openlocfilehash: a573a7ef79e28c50ae0923849a88f88af40f21be
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Didacticiel : configuration de Salesforce pour approvisionner automatiquement des utilisateurs
 

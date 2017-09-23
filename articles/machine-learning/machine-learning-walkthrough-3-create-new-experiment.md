@@ -1,6 +1,6 @@
 ---
 title: "Étape 3 : Création d’une expérience Machine Learning | Microsoft Docs"
-description: "Étape 3 du guide pas à pas du développement d&quot;une solution prédictive : Création d&quot;une expérience d&quot;apprentissage dans Azure Machine Learning Studio."
+description: "Étape 3 du guide pas à pas du développement d'une solution prédictive : Création d'une expérience d'apprentissage dans Azure Machine Learning Studio."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: cd410316910bce76f5c915c06e83b24c034481b7
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/25/2017
-
 
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Étape 3 de la procédure pas à pas : création d’une expérience Azure Machine Learning

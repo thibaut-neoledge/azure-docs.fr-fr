@@ -20,7 +20,6 @@ ms.openlocfilehash: da8c1bf3d283e7514e1ab13fd31d7d581771ea4f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/14/2017
 
-
 ---
 
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Comprendre un redémarrage du système pour une machine virtuelle Azure

@@ -19,7 +19,6 @@ ms.openlocfilehash: 93acbd90bbe5f0a40bf3f56edb766a0fdd30f68f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Didacticiel : Intégration d’Azure Active Directory à Beeline
 

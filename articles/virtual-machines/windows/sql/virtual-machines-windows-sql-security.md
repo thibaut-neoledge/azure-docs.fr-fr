@@ -21,7 +21,6 @@ ms.openlocfilehash: 4ad9156e481eac0bae32bca35a2b126363e5d8b6
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure
 

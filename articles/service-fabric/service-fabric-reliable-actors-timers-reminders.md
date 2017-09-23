@@ -20,7 +20,6 @@ ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="actor-timers-and-reminders"></a>Minuteries et rappels d’acteur
 Les acteurs peuvent planifier un travail régulier par eux-mêmes en inscrivant des minuteries ou des rappels. Cet article montre comment utiliser des minuteries et des rappels, puis explique les différences entre les deux.

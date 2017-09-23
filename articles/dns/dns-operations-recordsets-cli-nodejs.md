@@ -1,6 +1,6 @@
 ---
 title: "Gérer les enregistrements DNS dans Azure DNS à l’aide d’Azure CLI 1.0 | Microsoft Docs"
-description: "Gestion des jeux d&quot;enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes CLI 1.0 destinées aux opérations sur les jeux d’enregistrements et les enregistrements."
+description: "Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes CLI 1.0 destinées aux opérations sur les jeux d’enregistrements et les enregistrements."
 services: dns
 documentationcenter: na
 author: jtuliani

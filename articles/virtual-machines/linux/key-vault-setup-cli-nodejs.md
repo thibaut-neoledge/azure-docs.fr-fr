@@ -21,7 +21,6 @@ ms.openlocfilehash: fed612a354d45f34619f2a66bd40d78740c43ac7
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-the-azure-cli-10"></a>Configurer Key Vault pour des machines virtuelles dans Azure Resource Manager avec Azure CLI 1.0
 Dans la pile Azure Resource Manager, les secrets/certificats sont modélisés en tant que ressources fournies par le fournisseur de ressources de Key Vault. Pour en savoir plus sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/key-vault-whatis.md) Pour que Key Vault puisse être utilisé avec des machines virtuelles Azure Resource Manager, la propriété *EnabledForDeployment* doit être définie sur true dans Key Vault. Vous pouvez le faire dans différents clients. Cet article explique comment configurer Key Vault pour une utilisation avec des machines virtuelles Azure.

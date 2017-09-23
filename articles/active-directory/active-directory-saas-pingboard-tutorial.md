@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 008c670a8043da0c67ccefde48d5ef721c75d97c
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Didacticiel : Intégration d’Azure Active Directory avec Pingboard
@@ -138,7 +138,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-pingboard-tutorial/Pingboard_integration.png)
 
-9.    Sur la page **Intégrations**, recherchez la mosaïque **« Azure Active Directory »**, puis cliquez dessus.
+9.  Sur la page **Intégrations**, recherchez la mosaïque **« Azure Active Directory »**, puis cliquez dessus.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-pingboard-tutorial/Pingboard_aad.png)
 
@@ -208,7 +208,7 @@ Dans le cas de Pingboard, l’approvisionnement est une tâche manuelle.
 
     d. Dans la liste déroulante **Emplacement**, sélectionnez l’emplacement de Britta Simon.
     
-    e. Cliquez sur **Add**.    
+    e. Cliquez sur **Add**.   
 
 4. Un écran de confirmation s’affichera pour confirmer l’ajout de l’utilisateur.
     

@@ -1,5 +1,4 @@
 ---
-
 title: "Utiliser une machine virtuelle de dépannage Linux dans le portail Azure | Microsoft Docs"
 description: "Découvrez comment résoudre les problèmes de machines virtuelles Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide du portail Azure"
 services: virtual-machines-linux
@@ -19,7 +18,6 @@ ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: c96ff625c3e83f6fc9057f1163c877e8e0aed5e3
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/12/2017
-
 
 ---
 

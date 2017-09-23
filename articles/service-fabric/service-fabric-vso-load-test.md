@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
 ms.author: cawa
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e8e270ce865d4da3ee219958b308db2c1c89b11b
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="load-test-your-application-by-using-visual-studio-team-services"></a>Effectuez un test de charge de votre application avec Visual Studio Team Services
@@ -125,9 +126,4 @@ Les tests de charge de Visual Studio Team Services proposent des API vous permet
 [7]: ./media/service-fabric-vso-load-test/RunTest.png
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

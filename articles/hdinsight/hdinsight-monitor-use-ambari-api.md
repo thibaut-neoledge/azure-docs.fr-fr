@@ -22,7 +22,6 @@ ms.openlocfilehash: b6fc2098027690eb76b69b1427f0e9541b8a7a69
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/10/2017
 
-
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Surveillance des clusters Hadoop dans HDInsight à l'aide des API Ambari
 Découvrez comment surveiller les clusters HDInsight à l’aide des API Ambari.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: a992fa17a07d6167297c4cf5fe9fb3b58181d7df
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/16/2017
-
 
 ---
 # <a name="get-started-with-the-query-action"></a>Prise en main de l’action de requête

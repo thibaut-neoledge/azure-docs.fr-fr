@@ -21,7 +21,6 @@ ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/08/2017
 
-
 ---
 # Appels service à service utilisant l’identité utilisateur déléguée dans le flux Pour le compte de
 Le flux Pour le compte de OAuth 2.0 sert quand une application appelle un service/API web, qui à son tour doit appeler un autre service/API web. L’idée est de propager l’identité et les autorisations de l’utilisateur délégué via la chaîne de la demande. Pour que le service de niveau intermédiaire puisse faire des demandes authentifiées au service en aval, il doit sécuriser un jeton d’accès d’Azure Active Directory (Azure AD) pour le compte de l’utilisateur.

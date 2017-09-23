@@ -1,6 +1,6 @@
 ---
 title: "Limiter l’accès par le biais d’un point de terminaison accessible sur Internet dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous montre comment implémenter la recommandation du Centre de sécurité Azure **Limiter l&quot;accès par le biais d&quot;un point de terminaison accessible sur Internet**."
+description: "Ce document vous montre comment implémenter la recommandation du Centre de sécurité Azure **Limiter l'accès par le biais d'un point de terminaison accessible sur Internet**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
 ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/06/2017
-
 
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restreindre l’accès via des points de terminaison accessibles sur Internet dans le Centre de sécurité Azure

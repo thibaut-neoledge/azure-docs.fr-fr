@@ -21,7 +21,6 @@ ms.openlocfilehash: 31253d8daee1581167a96a20ba8ad529a04b3e92
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-sftp-connector"></a>Prise en main du connecteur SFTP
 Utilisez le connecteur SFTP pour accéder à un compte SFTP afin d’envoyer et de recevoir des fichiers. Vous pouvez effectuer diverses opérations, telles que créer, mettre à jour, obtenir ou supprimer des fichiers.  

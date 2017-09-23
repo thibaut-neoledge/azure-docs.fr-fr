@@ -19,7 +19,6 @@ ms.openlocfilehash: ab3891e11eb33b4d233e4fc967a40c7df06e4f4e
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Igloo Software
 

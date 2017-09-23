@@ -20,7 +20,6 @@ ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/28/2017
 
-
 ---
 # <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Utilisez le ciblage de solution dans Operations Management Suite (OMS) pour limiter les solutions de gestion à des agents spécifiques (version préliminaire)
 Lorsque vous ajoutez une solution à OMS, elle est déployée automatiquement par défaut à tous les agents Windows et Linux connectés à votre espace de travail Log Analytics.  Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents.  Cet article explique comment utiliser le **ciblage de solution**, une fonctionnalité OMS qui permet d’appliquer une étendue à vos solutions.

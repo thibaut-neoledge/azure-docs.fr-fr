@@ -19,7 +19,6 @@ ms.openlocfilehash: 725fba1227cfc9c4850f9e2d6fd0b13e88eafa20
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Didacticiel : Intégration d’Azure Active Directory à Panopto
 

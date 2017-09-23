@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: 15a3bc9dce3cc76f98816ba5c88066fdc23cdbe1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="region-management-in-azure-stack"></a>Region management in Azure Stack

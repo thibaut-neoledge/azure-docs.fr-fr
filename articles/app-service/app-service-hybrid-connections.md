@@ -20,7 +20,6 @@ ms.openlocfilehash: fef9e7b280387934cb093f51b4c8aa134a3b87e7
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/25/2017
 
-
 ---
 
 # <a name="azure-app-service-hybrid-connections"></a>Connexions hybrides d’Azure App Service #

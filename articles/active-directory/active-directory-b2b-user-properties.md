@@ -21,7 +21,6 @@ ms.openlocfilehash: 6e49cb202ed03bf50fb9ca34d34924cda434829c
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriétés d’un utilisateur Azure Active Directory B2B Collaboration

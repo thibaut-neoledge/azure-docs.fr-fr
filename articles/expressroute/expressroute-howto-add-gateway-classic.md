@@ -21,7 +21,6 @@ ms.openlocfilehash: aa9b7e3ac07d4da035afd549fbeebaec17b56426
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide de PowerShell (classique)
 > [!div class="op_single_selector"]

@@ -21,7 +21,6 @@ ms.openlocfilehash: 4d7b7a17751cc476d0365cbcbff3fcf23dd0c6ff
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>Créer une machine virtuelle personnalisée exécutant Windows à l’aide du modèle de déploiement classique
 > [!IMPORTANT]

@@ -20,7 +20,6 @@ ms.openlocfilehash: 332d7af2539eea8890745005104ac5b0921c2b7f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-rest-apis"></a>Prise en main d’Azure Data Lake Analytics à l’aide d’API REST
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]

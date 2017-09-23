@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 57e56c38e003cb83dcf44f455c4451d159db8a59
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/25/2017
 
 ---
 
@@ -43,9 +44,4 @@ ELSE IF| Une expression ELSE IF spécifie une autre condition qui doit être rem
 * [Conditions de correspondance du moteur de règles](cdn-rules-engine-reference-match-conditions.md)
 * [Fonctionnalités du moteur de règles](cdn-rules-engine-reference-features.md)
 * [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

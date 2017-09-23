@@ -19,7 +19,6 @@ ms.openlocfilehash: 8e97c365383ecdb72cc1cd449b522b75875fc1db
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>Didacticiel : Intégration d’Azure Active Directory à Allocadia
 

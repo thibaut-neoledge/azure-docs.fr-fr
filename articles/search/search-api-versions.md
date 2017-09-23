@@ -14,9 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
 ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -63,9 +65,4 @@ Toutefois, comme les fonctionnalités en version préliminaire sont susceptibles
 Pour le Kit de développement logiciel (SDK) .NET, des conseils sur la migration du code sont disponibles à la page [Mise à niveau du Kit de développement logiciel (SDK) .NET](search-dotnet-sdk-migration.md).
 
 La mise à la disposition générale signifie qu’Azure Search est désormais associé à un contrat SLA. Ce contrat SLA est disponible à la page sur les [contrats SLA Azure Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

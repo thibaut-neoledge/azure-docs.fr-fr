@@ -19,7 +19,6 @@ ms.openlocfilehash: 9dd002f71b7a960338071db869f7c8cf88071342
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/24/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Didacticiel : Intégration d’Azure Active Directory avec Icertis Contract Management Platform
 

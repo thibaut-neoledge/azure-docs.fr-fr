@@ -20,7 +20,6 @@ ms.openlocfilehash: 3c4b7ad16e6a03fb605447def18f7475d502fdd1
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-9-set-up-a-replication-policy-for-vmware-vm-replication-to-azure"></a>Étape 9 : configurer une stratégie de réplication pour la réplication d’une machine virtuelle VMware sur Azure
 

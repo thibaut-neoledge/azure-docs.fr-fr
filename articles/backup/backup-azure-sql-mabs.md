@@ -20,7 +20,6 @@ ms.openlocfilehash: 2af9ebaa8f52690ed63406cbd85b77544d2d900d
 ms.contentlocale: fr-fr
 ms.lasthandoff: 03/27/2017
 
-
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Sauvegarder des données SQL Server vers Azure à l’aide du serveur de sauvegarde Azure
 Cet article vous guide tout au long des étapes de configuration de la sauvegarde des bases de données SQL Server à l’aide du serveur de sauvegarde Microsoft Azure.

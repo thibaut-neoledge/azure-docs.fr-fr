@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fe9d4f6b232e9abcf1fe9fc5657044b6c72fedb8
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>Notes de publication de StorSimple Virtual Array Update 0.3
@@ -72,10 +73,5 @@ Vous recherchez une note de version antérieure ? Accédez à :
 
 * [Notes de publication de StorSimple Virtual Array Update 0.1 et 0.2](storsimple-ova-update-01-release-notes.md)
 * [Notes de publication de StorSimple Virtual Array General Availability](storsimple-ova-pp-release-notes.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

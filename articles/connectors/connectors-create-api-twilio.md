@@ -21,7 +21,6 @@ ms.openlocfilehash: a790ac51b0fea7e3fa379d20e0e094e7ce0d7696
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Prise en main du connecteur Twilio
 Connectez-vous à Twilio pour envoyer et recevoir des SMS, des MMS, et des adresses IP. Avec Twilio, vous pouvez :

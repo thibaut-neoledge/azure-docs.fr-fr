@@ -20,7 +20,6 @@ ms.openlocfilehash: c33e132037d95fa92fd59a8243a9a8a351ae0224
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plateformes prises en charge dans Azure Security Center
 Le monitoring de l’état de la sécurité et des recommandations sont disponibles pour les machines virtuelles créées à l’aide des modèles de déploiement Classic et Resource Manager.

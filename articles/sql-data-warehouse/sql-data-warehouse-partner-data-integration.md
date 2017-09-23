@@ -21,7 +21,6 @@ ms.openlocfilehash: 892a7f2727ab899ef539ac4ae06a8669512e6fef
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Partenaires de SQL Data Warehouse en matière d’intégration de données
 Pour créer votre solution d’entrepôt de données de bout en bout, vous pouvez choisir parmi un large éventail d’outils performants. Cet article met en évidence les sociétés partenaires de Microsoft qui proposent des solutions d’intégration de données prenant en charge Azure SQL Data Warehouse.

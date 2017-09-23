@@ -1,6 +1,6 @@
 ---
 title: "Gestion d’un espace de travail Machine Learning | Microsoft Docs"
-description: "Gestion de l&quot;accès aux espaces de travail Azure Machine Learning, et déploiement et gestion des services web d&quot;API ML"
+description: "Gestion de l'accès aux espaces de travail Azure Machine Learning, et déploiement et gestion des services web d'API ML"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: garye
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
 ms.openlocfilehash: 94800f51baf83311c33490cada5f991ff2101da9
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/02/2017
-
 
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Gestion d'un espace de travail Azure Machine Learning

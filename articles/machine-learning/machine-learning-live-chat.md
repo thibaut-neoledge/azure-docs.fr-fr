@@ -1,6 +1,6 @@
 ---
-title: "Obtenir de l&quot;aide de la part du support par conversation en direct sur Machine Learning | Microsoft Docs"
-description: "Obtenez de l&quot;aide en temps réel sur Machine Learning dans le cloud grâce à la fonctionnalité de support par conversation en direct."
+title: "Obtenir de l'aide de la part du support par conversation en direct sur Machine Learning | Microsoft Docs"
+description: "Obtenez de l'aide en temps réel sur Machine Learning dans le cloud grâce à la fonctionnalité de support par conversation en direct."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: garye
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: f8e624b54578009e55921606a9e37f884faf50c7
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/12/2017
-
 
 ---
 # <a name="get-help-from-machine-learning-live-chat-support"></a>Obtenir de l'aide de la part du support par conversation en direct sur Machine Learning

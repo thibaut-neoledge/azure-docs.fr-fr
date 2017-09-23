@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Procédures de mise à niveau du SDK web Azure Mobile Engagement
@@ -120,10 +121,5 @@ La chaîne de connexion de votre application est affichée sur le Portail Azure.
 L’objet JavaScript global `window.capptain` a été renommé `window.azureEngagement`, mais vous pouvez utiliser l’alias `window.engagement` pour les appels d’API. Vous ne pouvez pas utiliser l’alias pour définir la configuration du Kit de développement logiciel (SDK).
 
 Par exemple : `capptain.deviceId` devient `engagement.deviceId`, `capptain.agent.startActivity` devient `engagement.agent.startActivity`, etc.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

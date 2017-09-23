@@ -20,22 +20,18 @@ ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/11/2017
 
-
 ---
 
-# Développer le disque de système d’exploitation sur une machine virtuelle Linux à l’aide de l’interface Azure CLI 1.0
-<a id="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10" class="xliff"></a>
+# <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Développer le disque de système d’exploitation sur une machine virtuelle Linux à l’aide de l’interface Azure CLI 1.0
 La taille par défaut de disque virtuel pour le système d’exploitation est généralement de 30 Go sur une machine virtuelle Linux dans Azure. Vous pouvez [ajouter des disques de données](add-disk.md) afin d’offrir un espace de stockage supplémentaire, mais vous pouvez également développer le disque du système d’exploitation. Cet article vous explique comment développer le disque du système d’exploitation sur une machine virtuelle Linux à l’aide de disques non managés avec l’interface Azure CLI 1.0.
 
-## Versions de l’interface de ligne de commande permettant d’effectuer la tâche
-<a id="cli-versions-to-complete-the-task" class="xliff"></a>
+## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
 
 - [Azure CLI 1.0](#prerequisites) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager (cet article)
 - [Azure CLI 2.0](expand-disks.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
 
-## Composants requis
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Composants requis
 La [dernière version de l’interface Azure CLI 1.0](../../cli-install-nodejs.md) doit être installée et connectée à un [compte Azure](https://azure.microsoft.com/pricing/free-trial/) à l’aide du mode Resource Manager comme suit :
 
 ```azurecli
@@ -44,8 +40,7 @@ azure config mode arm
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup* et *myVM*.
 
-## Développer le disque du système d’exploitation
-<a id="expand-os-disk" class="xliff"></a>
+## <a name="expand-os-disk"></a>Développer le disque du système d’exploitation
 
 1. Il est impossible d’exécuter les opérations sur les disques durs virtuels avec la machine virtuelle en cours d’exécution. L’exemple suivant arrête et redéploie la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
 
@@ -80,7 +75,6 @@ Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos
     /dev/sda1        49G  1.3G   48G   3% /
     ```
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 Si vous avez besoin de stockage supplémentaire, vous pouvez également [ajouter des disques de données à une machine virtuelle Linux](add-disk.md). Pour plus d’informations sur le chiffrement de disque, consultez la section [Chiffrer des disques sur une machine virtuelle Linux à l’aide de l’interface de ligne de commande Azure (CLI)](encrypt-disks.md).
 

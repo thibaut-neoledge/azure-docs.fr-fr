@@ -19,7 +19,6 @@ ms.openlocfilehash: 27013ca9724cf2f57fc85f5f4ccb71921ca57a3b
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Didacticiel : Intégration d’Azure Active Directory à Promapp
 

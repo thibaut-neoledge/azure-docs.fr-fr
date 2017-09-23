@@ -19,7 +19,6 @@ ms.openlocfilehash: 353798fcfd4ad7ce017fc2fddf4110715db3ace2
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/24/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Didacticiel : Intégration d’Azure Active Directory à Kudos
 

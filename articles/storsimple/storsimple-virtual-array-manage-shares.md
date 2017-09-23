@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 19177fe13db2aefcef7fcf37ea8fef2fa99c728f
 ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/26/2017
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour gérer des partages sur l’instance StorSimple Virtual Array
@@ -142,10 +144,5 @@ Pour supprimer un partage, procédez comme suit.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [cloner un partage StorSimple](storsimple-virtual-array-clone.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

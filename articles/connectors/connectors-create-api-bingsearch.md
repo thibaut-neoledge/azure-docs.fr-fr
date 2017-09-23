@@ -22,7 +22,6 @@ ms.openlocfilehash: 863a15d716161bfa9d3e041174504b73a2956e8d
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-bing-search-connector"></a>Prise en main du connecteur Bing Search
 Connecte-vous à Bing Search pour rechercher des actualités, des vidéos et bien plus encore. Avec Bing Search, vous pouvez effectuer les opérations suivantes : 

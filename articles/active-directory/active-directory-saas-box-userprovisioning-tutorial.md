@@ -19,7 +19,6 @@ ms.openlocfilehash: 9f061f3f5a0a4825854b893150ceccc8951487de
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="tutorial-configuring-box-for-automatic-user-provisioning"></a>Didacticiel : Configuration de Box pour l’attribution automatique d’utilisateurs
 

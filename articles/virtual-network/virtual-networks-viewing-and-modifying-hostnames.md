@@ -1,6 +1,6 @@
 ---
 title: "Affichage et modification des noms d’hôtes | Microsoft Docs"
-description: "Affichage et modification des noms d&quot;hôtes pour les machines virtuelles, les rôles web et les rôles de travail pour la résolution de noms"
+description: "Affichage et modification des noms d'hôtes pour les machines virtuelles, les rôles web et les rôles de travail pour la résolution de noms"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9a3a1e1b58dcb828e2d2d09c18f1aab6d46051aa
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Affichage et modification des noms d'hôtes
@@ -65,10 +66,5 @@ Pour modifier le nom d’hôte associé à une machine virtuelle ou à une insta
 [Schéma de configuration du réseau virtuel Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Définir les paramètres DNS à l'aide de fichiers de configuration réseau](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 0567811e36102177af9f9c339587b251e04a1ff5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Key considerations: Using services or building apps for Azure Stack

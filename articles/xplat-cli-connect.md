@@ -1,5 +1,5 @@
 ---
-title: "Se connecter à Azure à partir de l&quot;interface de ligne de commande | Microsoft Docs"
+title: "Se connecter à Azure à partir de l'interface de ligne de commande | Microsoft Docs"
 description: "Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI) pour Mac, Linux et Windows"
 editor: tysonn
 manager: timlt
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/21/2017
-
 
 ---
 # <a name="log-in-to-azure-from-the-azure-cli"></a>Connectez-vous à Azure à partir de l’interface de ligne de commande (CLI) Azure

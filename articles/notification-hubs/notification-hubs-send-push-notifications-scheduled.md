@@ -1,6 +1,6 @@
 ---
 title: "Envoyer des notifications planifiées | Microsoft Docs"
-description: "Cette rubrique décrit l&quot;utilisation de notifications planifiées avec Azure Notification Hubs."
+description: "Cette rubrique décrit l'utilisation de notifications planifiées avec Azure Notification Hubs."
 services: notification-hubs
 documentationcenter: .net
 keywords: notifications push,notification push,planification de notifications push
@@ -15,10 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: efac6e1ecc00359f1622d380333140bc055c83e0
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Procédure : envoi de notifications planifiées
@@ -35,10 +36,5 @@ Vous pouvez également annuler une notification précédemment planifiée à l'a
     await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 
 Il n'existe aucune limite quant au nombre de notifications planifiées que vous pouvez envoyer.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

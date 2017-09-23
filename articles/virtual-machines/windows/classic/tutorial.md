@@ -1,6 +1,6 @@
 ---
 title: "Créer une machine virtuelle sur le Portail Azure | Microsoft Docs"
-description: "Création d&quot;une machine virtuelle Windows dans le portail Azure."
+description: "Création d'une machine virtuelle Windows dans le portail Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 0981872ff819fdf49a9cc97afce3c212013ce76b
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/01/2017
-
 
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Créer une machine virtuelle exécutant Windows dans le portail Azure

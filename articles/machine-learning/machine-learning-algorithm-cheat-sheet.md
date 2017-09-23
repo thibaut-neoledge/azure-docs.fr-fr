@@ -1,6 +1,6 @@
 ---
-title: "Aide-mémoire d&quot;algorithme d&quot;apprentissage automatique | Microsoft Docs"
-description: "Un aide-mémoire imprimable d&quot;algorithme d&quot;apprentissage automatique vous permet de choisir l&quot;algorithme adapté à votre modèle prédictif dans Azure Machine Learning Studio."
+title: "Aide-mémoire d'algorithme d'apprentissage automatique | Microsoft Docs"
+description: "Un aide-mémoire imprimable d'algorithme d'apprentissage automatique vous permet de choisir l'algorithme adapté à votre modèle prédictif dans Azure Machine Learning Studio."
 keywords: "aide mémoire d’algorithme, aide mémoire, algorithme d’apprentissage automatique"
 services: machine-learning
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 2cf4f498a107b8c6085489723ae946b119bb6244
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/17/2017
-
 
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Aide-mémoire d'algorithme d'apprentissage automatique pour Microsoft Azure Machine Learning Studio

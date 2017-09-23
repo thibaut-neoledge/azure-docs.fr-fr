@@ -19,7 +19,6 @@ ms.openlocfilehash: fcc3743028e369fdc42b71887d49fb41fba2c0dc
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/03/2017
 
-
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Lire des messages appareil-à-cloud à partir du point de terminaison intégré
 

@@ -48,9 +48,9 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-sales-navigator"></a>Conseils importants pour l’affectation d’utilisateurs à LinkedIn Sales Navigator
 
-*    Il est recommandé d’affecter un seul utilisateur Azure AD à LinkedIn Sales Navigator pour tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
+*   Il est recommandé d’affecter un seul utilisateur Azure AD à LinkedIn Sales Navigator pour tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
 
-*    Quand vous affectez un utilisateur à LinkedIn Sales Navigator, vous devez sélectionner le rôle **Utilisateur** dans la boîte de dialogue d’affectation. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
+*   Quand vous affectez un utilisateur à LinkedIn Sales Navigator, vous devez sélectionner le rôle **Utilisateur** dans la boîte de dialogue d’affectation. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-sales-navigator"></a>Configuration de l’approvisionnement des utilisateurs sur LinkedIn Sales Navigator
@@ -93,9 +93,9 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 8) Si vous avez déjà configuré LinkedIn Sales Navigator pour l’authentification unique, recherchez votre instance de LinkedIn Sales Navigator à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter**, puis recherchez **LinkedIn Sales Navigator** dans la galerie d’applications. Sélectionnez LinkedIn Sales Navigator dans les résultats de la recherche, puis ajoutez-le à votre liste d’applications.
 
-9)    Sélectionnez votre instance de LinkedIn Sales Navigator, puis sélectionnez l’onglet **Approvisionnement**.
+9)  Sélectionnez votre instance de LinkedIn Sales Navigator, puis sélectionnez l’onglet **Approvisionnement**.
 
-10)    Définissez le **Mode d’approvisionnement** sur **Automatique**.
+10) Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
 ![Approvisionnement LinkedIn Sales Navigator](./media/active-directory-saas-linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 

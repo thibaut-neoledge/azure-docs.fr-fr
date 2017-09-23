@@ -21,7 +21,6 @@ ms.openlocfilehash: 46de91881f84183d0359755f49a115e712a7033b
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>Prise en main du connecteur MailChimp
 MailChimp est un service SaaS qui permet aux entreprises de gérer et d’automatiser les activités de marketing par courrier électronique, y compris l’envoi de courriers électroniques de marketing, de messages automatisés et de campagnes ciblées.

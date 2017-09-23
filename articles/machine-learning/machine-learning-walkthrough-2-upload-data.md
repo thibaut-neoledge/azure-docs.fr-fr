@@ -1,6 +1,6 @@
 ---
 title: "Étape 2 : télécharger des données dans une expérience Machine Learning | Microsoft Docs"
-description: "Étape 2 du guide pas à pas du développement d&quot;une solution prédictive : téléchargement de données publiques stockées dans Azure Machine Learning Studio."
+description: "Étape 2 du guide pas à pas du développement d'une solution prédictive : téléchargement de données publiques stockées dans Azure Machine Learning Studio."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: c2ab5f5252e1ea1ec51f6c3bd489826c70ff011c
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/25/2017
-
 
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>Étape de didacticiel pas à pas 2 : téléchargement de données existantes dans une expérience Azure Machine Learning

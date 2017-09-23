@@ -20,7 +20,6 @@ ms.openlocfilehash: af202cf652300ee7897eb2dede33f38058fc2837
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/25/2017
 
-
 ---
 # <a name="storsimple-virtual-array-update-06-release-notes"></a>Notes de publication de StorSimple Virtual Array Update 0.6
 

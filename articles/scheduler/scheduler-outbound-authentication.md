@@ -20,7 +20,6 @@ ms.openlocfilehash: e345b2e22daae5b24c23645f7d2636f66df630ff
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="scheduler-outbound-authentication"></a>Authentification sortante de Scheduler
 Les travaux de Scheduler peuvent avoir besoin de faire appel à des services qui requièrent une authentification. De cette façon, un service appelé peut déterminer si le travail de Scheduler peut accéder à ses ressources. Certains de ces services incluent d'autres services Azure, Salesforce.com, Facebook et des sites Web personnalisés sécurisés.

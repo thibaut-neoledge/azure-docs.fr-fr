@@ -20,7 +20,6 @@ ms.openlocfilehash: 0a09b35e98dc0b2f5283c2a707a3a2b8ac9a39f2
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="replicate-physical-servers-to-azure-with-site-recovery"></a>Répliquer des serveurs physiques vers Azure avec Site Recovery
 

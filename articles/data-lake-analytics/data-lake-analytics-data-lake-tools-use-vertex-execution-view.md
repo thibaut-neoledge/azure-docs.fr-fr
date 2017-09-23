@@ -20,7 +20,6 @@ ms.openlocfilehash: b788e7bc8ded86ebd49cc0be73e5b4e1bcbeaba3
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Utilisation de la vue d’exécution du vertex dans Azure Data Lake Tools pour Visual Studio
 Découvrez comment utiliser la vue d’exécution du vertex pour examiner des travaux Data Lake Analytics.

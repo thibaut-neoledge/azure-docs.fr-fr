@@ -20,7 +20,6 @@ ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Déployer plusieurs instances d’une ressource ou d’une propriété dans des modèles Azure Resource Manager
 Cette rubrique montre comment procéder à une itération dans votre modèle Azure Resource Manager pour créer plusieurs instances d’une ressource ou d’une propriété sur une ressource.

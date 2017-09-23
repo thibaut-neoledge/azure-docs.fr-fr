@@ -20,7 +20,6 @@ ms.openlocfilehash: cb7a9f01e43d41eb7315cb37a41e69f044ce5566
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C : Inscription et connexion de consommateurs à vos applications avec des stratégies personnalisées
 Les stratégies personnalisées sont des fichiers de configuration qui définissent le comportement de votre client Azure AD B2C. Elles peuvent être entièrement modifiées par un développeur d’identité pour effectuer un nombre presque illimité de tâches.

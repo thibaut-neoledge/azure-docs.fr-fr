@@ -20,7 +20,6 @@ ms.openlocfilehash: 7dc2f29db64218b9db17eaf555c43a7ad282ea07
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Installer Update 4 sur votre appareil StorSimple
 

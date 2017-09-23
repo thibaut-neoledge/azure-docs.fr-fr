@@ -1,6 +1,6 @@
 ---
 title: "Utilisation de Twilio pour les fonctionnalités vocales et de SMS (.NET) | Microsoft Docs"
-description: "Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d&quot;API Twilio sur Azure. Exemples de code écrits en .NET."
+description: "Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d'API Twilio sur Azure. Exemples de code écrits en .NET."
 services: 
 documentationcenter: .net
 author: devinrader
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: 1442e3af26ae87e645cf207228ed1197b2afdd4d
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Utilisation de Twilio pour les fonctionnalités vocales et de SMS depuis Azure

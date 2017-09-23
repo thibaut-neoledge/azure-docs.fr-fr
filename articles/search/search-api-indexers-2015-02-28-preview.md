@@ -1,6 +1,6 @@
 ---
 title: "Opérations de l’indexeur (API REST du service Recherche Azure : 2015-02-28-Preview) | Microsoft Docs"
-description: "Opérations de l&quot;indexeur (API REST du service Azure Search : 2015-02-28-Preview)"
+description: "Opérations de l'indexeur (API REST du service Azure Search : 2015-02-28-Preview)"
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 356ceb98106d080d8c24dedc3547bee33750156e
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>Opérations de l'indexeur (API REST du service Azure Search : 2015-02-28-Preview)

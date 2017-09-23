@@ -20,7 +20,6 @@ ms.openlocfilehash: d479af515566f497d9611e75426f6acb8f8276d9
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/20/2017
 
-
 ---
 
 # <a name="tutorial-get-started-with-extending-u-sql-with-r"></a>Tutoriel : Get started with extending U-SQL with R (Bien démarrer avec l’extension de U-SQL avec R)

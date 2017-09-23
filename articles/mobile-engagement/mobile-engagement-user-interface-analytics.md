@@ -1,5 +1,5 @@
 ---
-title: "Interface utilisateur d&quot;Azure Mobile Engagement - Analyses"
+title: "Interface utilisateur d'Azure Mobile Engagement - Analyses"
 description: "En savoir plus sur l’analyse des données historiques de votre application avec Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/01/2017
-
 
 ---
 # <a name="how-to-analyze-historical-data-about-your-application"></a>Analyse des données historiques de votre application

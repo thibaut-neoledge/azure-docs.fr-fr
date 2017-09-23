@@ -22,7 +22,6 @@ ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/08/2017
 
-
 ---
 # Azure Active Directory v2.0 et le flux d'informations d'identification du client OAuth 2.0
 Vous pouvez utiliser [l’octroi des informations d’identification du client OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), parfois appelé *OAuth à deux branches* pour accéder à des ressources hébergées sur le web à l’aide de l’identité d’une application. Ce type d'octroi est couramment utilisé pour les interactions de serveur à serveur qui doivent s’exécuter en arrière-plan sans l'interaction immédiate d’un utilisateur. Ces types d’application sont souvent appelés *démons* (daemons) ou *comptes de service*.

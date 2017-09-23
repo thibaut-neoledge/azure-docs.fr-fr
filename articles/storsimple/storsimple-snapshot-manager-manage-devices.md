@@ -20,7 +20,6 @@ ms.openlocfilehash: f5e3186a4271e0be781f367fa75ada195c58c960
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple
 ## <a name="overview"></a>Vue d'ensemble

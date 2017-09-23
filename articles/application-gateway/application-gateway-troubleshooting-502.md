@@ -21,7 +21,6 @@ ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/07/2017
 
-
 ---
 
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Résolution des erreurs de passerelle incorrecte dans Application Gateway

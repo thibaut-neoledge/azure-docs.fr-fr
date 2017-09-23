@@ -20,7 +20,6 @@ ms.openlocfilehash: e212b2c935eb0ae64ed1cd2e6dc1564f8fcd503b
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Aide-mémoire relatif au pipeline de données automatisé pour les prévisions Azure Machine Learning
 L’ **aide-mémoire relatif au pipeline de données automatisé pour les prévisions Microsoft Azure Machine Learning** vous permet d’accéder aux technologies que vous pouvez utiliser pour transférer vos données au service web Machine Learning où celles-ci peuvent être évaluées par votre modèle d’analyse prédictive.

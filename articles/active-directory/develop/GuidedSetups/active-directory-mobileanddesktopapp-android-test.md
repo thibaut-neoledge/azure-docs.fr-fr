@@ -21,7 +21,6 @@ ms.openlocfilehash: 6df64f4820f8409bd8897d5ac24f81bffeeef102
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 ## <a name="test-your-code"></a>Test de votre code
 

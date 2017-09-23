@@ -20,7 +20,6 @@ ms.openlocfilehash: 3013607e62a3ac532cb0c035130fe35e503a345c
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/17/2017
 
-
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemples
 ## <a name="samples-on-github"></a>Exemples sur GitHub

@@ -1,6 +1,6 @@
 ---
-title: "Création et téléchargement d&quot;un disque dur virtuel Linux CentOS dans Azure"
-description: "Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d&quot;exploitation Linux CentOS."
+title: "Création et téléchargement d'un disque dur virtuel Linux CentOS dans Azure"
+description: "Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux CentOS."
 services: virtual-machines-linux
 documentationcenter: 
 author: szarkos
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 010f4b05b35fa1f31c14f34a5fae9298fcd831e4
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle CentOS pour Azure

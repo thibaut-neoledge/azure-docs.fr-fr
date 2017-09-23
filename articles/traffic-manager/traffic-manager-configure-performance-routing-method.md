@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 014aa646459cd64fca7c697419324caa3edaeeea
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/22/2017
 
 ---
@@ -37,9 +38,9 @@ La méthode de routage du trafic en fonction des performances vous permet de dir
         2. Pour **Chemin d’accès**, entrez une barre oblique */*. Pour surveiller les points de terminaison, vous devez indiquer un chemin et un nom de fichier. Une barre oblique (« / ») est une entrée valide pour le chemin d’accès relatif. Elle implique que le fichier se trouve dans le répertoire racine (par défaut).
         3. En haut de la page, cliquez sur **Enregistrer**.
 5.  Testez les modifications dans votre configuration comme suit :
-    1.    Dans la barre de recherche du portail, recherchez le nom du profil Traffic Manager et cliquez sur le profil Traffic Manager dans les résultats affichés.
-    2.    Dans le panneau du profil **Traffic Manager**, cliquez sur **Vue d’ensemble**.
-    3.    Le panneau **Profil Traffic Manager** affiche le nom DNS de votre profil Traffic Manager nouvellement créé. Celui-ci peut être utilisé par tous les clients (par exemple, en y accédant à l’aide d’un navigateur web) pour être routés vers le point de terminaison correct, comme déterminé par le type de routage. Dans ce cas, toutes les demandes sont routées vers le point de terminaison avec la latence la plus faible dans le réseau du client.
+    1.  Dans la barre de recherche du portail, recherchez le nom du profil Traffic Manager et cliquez sur le profil Traffic Manager dans les résultats affichés.
+    2.  Dans le panneau du profil **Traffic Manager**, cliquez sur **Vue d’ensemble**.
+    3.  Le panneau **Profil Traffic Manager** affiche le nom DNS de votre profil Traffic Manager nouvellement créé. Celui-ci peut être utilisé par tous les clients (par exemple, en y accédant à l’aide d’un navigateur web) pour être routés vers le point de terminaison correct, comme déterminé par le type de routage. Dans ce cas, toutes les demandes sont routées vers le point de terminaison avec la latence la plus faible dans le réseau du client.
 6. Une fois le profil Traffic Manager opérationnel, modifiez l’enregistrement DNS sur le serveur DNS faisant autorité, afin de faire pointer votre nom de domaine d’entreprise vers le nom de domaine Traffic Manager.
 
 ![Configuration de la méthode de routage du trafic selon les performances à l’aide de Traffic Manager][1]

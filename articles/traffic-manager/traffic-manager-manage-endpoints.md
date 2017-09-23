@@ -45,8 +45,8 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
     5. Pour **Priorité**, sélectionnez **1**. Ainsi, tout le trafic est dirigé vers ce point de terminaison, s’il est intègre.
     6. Vérifiez que la case **Ajouter comme désactivé** est désélectionnée.
     7. Cliquez sur **OK**
-6.    Répétez les étapes 4 et 5 pour ajouter le prochain point de terminaison Azure. Veillez à ajouter à sa valeur de **Priorité** définie sur **2**.
-7.    Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans le panneau du **profil Traffic Manager** ainsi que leur état de surveillance en tant que **En ligne**.
+6.  Répétez les étapes 4 et 5 pour ajouter le prochain point de terminaison Azure. Veillez à ajouter à sa valeur de **Priorité** définie sur **2**.
+7.  Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans le panneau du **profil Traffic Manager** ainsi que leur état de surveillance en tant que **En ligne**.
 
 > [!NOTE]
 > Après ajout ou suppression d’un point de terminaison dans un profil selon la méthode de routage du trafic par *Basculement*, la liste de priorité des basculements peut ne pas être ordonnée comme vous le souhaitez. Vous pouvez ajuster l’ordre de la liste de priorité des basculements sur la page Configuration. Pour plus d’informations, consultez la rubrique [Configurer le routage du trafic par basculement](traffic-manager-configure-failover-routing-method.md).

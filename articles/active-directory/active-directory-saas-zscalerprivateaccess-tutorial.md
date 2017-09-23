@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c81f23603cfbbc916c148c61bd3de52ef1db36ac
 ms.openlocfilehash: 5c598bfa5b6725d21a89df54dbcb3314cc631d80
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/15/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler Private Access (ZPA)
@@ -125,7 +125,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Créer un certificat**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_400.png)     
+    ![Configurer l’authentification unique](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_400.png)   
 
 5. Dans la boîte de dialogue **Créer un certificat**, cliquez sur l’icône de calendrier et sélectionnez une **date d’expiration**. Puis cliquez sur le bouton **Enregistrer**.
 

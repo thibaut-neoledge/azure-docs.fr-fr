@@ -20,7 +20,6 @@ ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/25/2017
 
-
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Utilisation des règles d’alerte dans Log Analytics
 Les alertes sont créées par des règles dédiées, qui exécutent automatiquement des recherches de journaux à intervalles réguliers.  Elles créent un enregistrement d’alerte si les résultats correspondent aux critères spécifiques.  La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus de façon proactive.   

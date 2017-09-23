@@ -1,6 +1,6 @@
 ---
-title: Interface utilisateur d&quot;Azure Mobile Engagement - Mon compte
-description: "Apprenez à gérer le profil de votre compte et à tester les périphériques à l&quot;aide d&quot;Azure Mobile Engagement"
+title: Interface utilisateur d'Azure Mobile Engagement - Mon compte
+description: "Apprenez à gérer le profil de votre compte et à tester les périphériques à l'aide d'Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/01/2017
-
 
 ---
 # <a name="how-to-manage-your-account-profile-and-test-devices"></a>Gestion du profil de votre compte et test des périphériques

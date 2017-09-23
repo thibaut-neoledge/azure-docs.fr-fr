@@ -21,7 +21,6 @@ ms.openlocfilehash: 30d8a26f337c00390b1da51e85a0c01ea0d816e3
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="automatically-scale-machines-in-a-virtual-machine-scale-set"></a>Mettre automatiquement à l’échelle des machines dans un jeu de mise à l’échelle de machines virtuelles
 Les jeux de mise à l’échelle de machines virtuelles facilitent le déploiement et la gestion de machines virtuelles identiques en tant qu’ensemble. Les groupes à échelle identique fournissent une couche de calcul hautement évolutive et personnalisable pour les applications « hyperscale », et prennent en charge les images de plateforme Windows, les images de plateforme Linux, des images personnalisées et les extensions. Pour plus d’informations sur les jeux de mise à l’échelle, consultez [Jeux de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-overview.md).

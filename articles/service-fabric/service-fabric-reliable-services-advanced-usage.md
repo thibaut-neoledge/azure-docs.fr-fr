@@ -20,7 +20,6 @@ ms.openlocfilehash: a87924faaf5c6c43716b06b6d70ab5100c61f097
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="advanced-usage-of-the-reliable-services-programming-model"></a>Utilisation avancée du modèle de programmation de services fiables
 Azure Service Fabric simplifie l’écriture et la gestion des services fiables avec et sans état. Ce guide vous présente les utilisations avancées de Reliable Services offrant plus de contrôle et de flexibilité sur vos services. Avant de lire ce guide, familiarisez-vous avec [le modèle de programmation de services fiables](service-fabric-reliable-services-introduction.md).

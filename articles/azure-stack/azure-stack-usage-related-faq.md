@@ -18,8 +18,7 @@ ms.translationtype: Human Translation
 ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 6dde832fe6b4679bd36575ca6aa3c274fed84f0c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="azure-stack-usage-api-faqs"></a>Azure Stack Usage API FAQs

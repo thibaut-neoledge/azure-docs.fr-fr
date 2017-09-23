@@ -22,7 +22,6 @@ ms.openlocfilehash: 33d4aaa78fcdf3bd9e2e236606f2d3049f464a8a
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>Comment créer une machine virtuelle Linux à l’aide d’Azure CLI 1.0 et d’un modèle Azure Resource Manager
 Cet article explique comment déployer rapidement une machine virtuelle Linux en utilisant Azure 1.0 et un modèle Azure Resource Manager. L’article requiert :

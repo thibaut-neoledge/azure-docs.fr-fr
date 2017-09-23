@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 33f23d324a843165d7fe6016ee626e369acfc958
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Toutes les rubriques pour le service Azure SQL Server Stretch Database
@@ -57,10 +58,5 @@ Cette rubrique répertorie toutes les rubriques qui s’appliquent directement a
 | ---:|:--- |:--- |
 | 14 |[Sauvegarder des bases de données Stretch](sql-server-stretch-database-backup.md) |Découvrez comment sauvegarder des bases de données Stretch. |
 | 15 |[Restaurer des bases de données Stretch](sql-server-stretch-database-restore.md) |Découvrez comment restaurer des bases de données Stretch. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

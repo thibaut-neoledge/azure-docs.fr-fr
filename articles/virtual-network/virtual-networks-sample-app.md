@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cb2e480a45871ad0c956dc976de955ca48ecdfd0
 ms.openlocfilehash: 8506238e41c5d9dac8d76d729d4919b30a0528b9
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Exemple d’application pour une utilisation avec des réseaux de périmètre
@@ -202,9 +203,4 @@ Aucun script n’est inclus dans cet exemple d’application pour configurer le 
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

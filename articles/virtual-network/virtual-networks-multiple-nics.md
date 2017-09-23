@@ -21,7 +21,6 @@ ms.openlocfilehash: 5b26aecc7b9797d7bf604ea5e3d8bdece5bea17b
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="create-a-vm-classic-with-multiple-nics"></a>Créer une machine virtuelle (classique) avec plusieurs cartes réseau
 Vous pouvez créer des machines virtuelles (VM) dans Azure et joindre plusieurs cartes d’interface réseau (NIC) à chacune d’elles. Il s’agit d’une exigence pour de nombreuses appliances virtuelles réseau, comme les solutions de distribution d’applications et d’optimisation de réseau étendu (WAN). La présence de plusieurs cartes réseau assure aussi une isolation du trafic entre les cartes réseau.

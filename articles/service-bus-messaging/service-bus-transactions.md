@@ -20,7 +20,6 @@ ms.openlocfilehash: a88f2d81ab43e38c9363a67aaefc178b47bfb259
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Vue d’ensemble du traitement des transactions Service Bus
 Cet article décrit les fonctionnalités de transaction d’Azure Service Bus. Le propos est principalement illustré avec l’exemple [Atomic Transactions with Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions) (Transactions atomiques avec Service Bus). Cet article se limite à une vue d’ensemble du traitement des transactions et de la fonctionnalité de *transfert* de Service Bus, tandis que l’exemple des transactions atomiques est de portée plus étendue et plus complexe.

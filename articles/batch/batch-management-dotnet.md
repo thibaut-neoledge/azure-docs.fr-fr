@@ -22,7 +22,6 @@ ms.openlocfilehash: eafde9258222a2ab09ade2e366f9cc595a303dec
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/28/2017
 
-
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gérer les quotas et comptes Batch avec la bibliothèque cliente Batch Management pour .NET
 

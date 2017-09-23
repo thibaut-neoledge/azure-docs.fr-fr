@@ -19,7 +19,6 @@ ms.openlocfilehash: 657d8d4c98b7b133698a5cda0aa675da7f68c464
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Didacticiel : Intégration d’Azure Active Directory à HackerOne
 

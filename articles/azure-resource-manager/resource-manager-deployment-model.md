@@ -20,7 +20,6 @@ ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/13/2017
 
-
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources
 Dans cette rubrique, vous allez découvrir le modèle de déploiement Azure Resource Manager et le modèle de déploiement classique, l’état de vos ressources et la raison pour laquelle vos ressources ont été déployées avec l’un ou l’autre modèle de déploiement. Resource Manager et les modèles de déploiement classique représentent deux façons différentes de déployer et de gérer vos solutions Azure. Vous les utilisez avec deux ensembles différents d’API et les ressources déployées peuvent contenir des différences importantes. Les deux modèles ne sont pas entièrement compatibles entre eux. Cette rubrique décrit ces différences.

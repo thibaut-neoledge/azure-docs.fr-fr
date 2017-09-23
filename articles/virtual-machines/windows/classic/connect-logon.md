@@ -21,7 +21,6 @@ ms.openlocfilehash: 43d54de7e875de9212c23c49ad0539bf2272a312
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Ouvrir une session sur une machine virtuelle Windows à l’aide du portail Azure
 Sur le portail Azure, vous utilisez le bouton **Connecter** pour démarrer une session Bureau à distance et ouvrir une session sur une machine virtuelle Windows.

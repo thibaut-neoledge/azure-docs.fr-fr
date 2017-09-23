@@ -20,7 +20,6 @@ ms.openlocfilehash: f497006a8ba48da0032b82113702d8014952ca20
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Comprendre le paramètre ImageStoreConnectionString
 

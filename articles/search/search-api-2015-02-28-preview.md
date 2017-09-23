@@ -1,6 +1,6 @@
 ---
 title: "API REST du service Azure Search : version 2015-02-28-Preview | Microsoft Docs"
-description: "L&quot;API REST du service Azure Search version 2015-02-28-Preview comprend des fonctionnalités expérimentales telles que des analyseurs de langage naturel et des recherches moreLikeThis."
+description: "L'API REST du service Azure Search version 2015-02-28-Preview comprend des fonctionnalités expérimentales telles que des analyseurs de langage naturel et des recherches moreLikeThis."
 services: search
 documentationcenter: na
 author: brjohnstmsft
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: e6ad5c964bfa8421be2706cb4015980e01a271b7
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/09/2017
-
 
 ---
 # <a name="azure-search-service-rest-api-version-2015-02-28-preview"></a>API REST du service Azure Search : version 2015-02-28-Preview

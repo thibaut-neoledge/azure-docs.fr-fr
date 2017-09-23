@@ -20,15 +20,10 @@ ms.openlocfilehash: c704ee189072ce8ed196d1ef0a23edd528a10025
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/30/2017
 
-
 ---
-<a id="enable-azure-active-directory-domain-services-preview" class="xliff"></a>
+# <a name="enable-azure-active-directory-domain-services-preview"></a>Activer Azure Active Directory Domain Services (préversion)
 
-# Activer Azure Active Directory Domain Services (préversion)
-
-<a id="task-4-update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
-
-## Tâche 4 : Mettre à jour les paramètres DNS pour le réseau virtuel Azure
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Tâche 4 : Mettre à jour les paramètres DNS pour le réseau virtuel Azure
 Dans les tâches de configuration précédentes, vous avez activé Azure Active Directory Domain Services pour votre répertoire. La tâche suivante consiste à s’assurer que les ordinateurs du réseau virtuel peuvent se connecter et utiliser ces services. Dans cet article, vous mettez à jour les paramètres de serveur DNS de votre réseau virtuel afin qu’il pointe vers les deux adresses IP pour lesquelles Azure Active Directory Domain Services est disponible sur le réseau virtuel.
 
 Afin de mettre à jour le paramètre de serveur DNS pour le réseau virtuel sur lequel vous avez activé Azure Active Directory Domain Services, procédez comme suit :
@@ -52,8 +47,6 @@ Afin de mettre à jour le paramètre de serveur DNS pour le réseau virtuel sur
 >
 >
 
-<a id="next-step" class="xliff"></a>
-
-## Étape suivante
+## <a name="next-step"></a>Étape suivante
 [Tâche 5 : Activer la synchronisation du mot de passe pour Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
 

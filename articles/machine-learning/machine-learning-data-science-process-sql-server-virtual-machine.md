@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: fashah;garye;bradsev
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0813611f581a68efb8f09a1e041cfbe429bf0c5c
 ms.openlocfilehash: 16fabb29bdc8ec770efd843e18e9016e338a8f4e
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/24/2017
 
 ---
-# <a name="a-nameheadingaprocess-data-in-sql-server-virtual-machine-on-azure"></a><a name="heading"></a>Traitement des données d’une machine virtuelle SQL Server sur Azure
+# <a name="heading"></a>Traitement des données d’une machine virtuelle SQL Server sur Azure
 Ce document décrit l'exploration des données et la génération de fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure. Cela est possible avec le retraitement des données à l'aide de SQL ou en utilisant un langage de programmation comme Python.
 
 > [!NOTE]
@@ -28,13 +29,13 @@ Ce document décrit l'exploration des données et la génération de fonctionnal
 > 
 > 
 
-## <a name="a-namesqlausing-sql"></a><a name="SQL"></a>Utilisation de SQL
+## <a name="SQL"></a>Utilisation de SQL
 Dans cette section, nous décrivons les tâches de retraitement des données via SQL ci-après :
 
 1. [Exploration des données](#sql-dataexploration)
 2. [Génération de fonctionnalités](#sql-featuregen)
 
-### <a name="a-namesql-dataexplorationadata-exploration"></a><a name="sql-dataexploration"></a>Exploration des données
+### <a name="sql-dataexploration"></a>Exploration des données
 Voici quelques exemples de scripts SQL utilisables pour l’exploration de magasins de données dans SQL Server.
 
 > [!NOTE]
@@ -55,7 +56,7 @@ Voici quelques exemples de scripts SQL utilisables pour l’exploration de magas
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
-### <a name="a-namesql-featuregenafeature-generation"></a><a name="sql-featuregen"></a>Génération de fonctionnalités
+### <a name="sql-featuregen"></a>Génération de fonctionnalités
 Dans cette section, nous décrivons plusieurs manières de générer des fonctionnalités via SQL :  
 
 1. [Génération de fonctionnalités utilisant des décomptes](#sql-countfeature)
@@ -67,7 +68,7 @@ Dans cette section, nous décrivons plusieurs manières de générer des fonctio
 > 
 > 
 
-### <a name="a-namesql-countfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
+### <a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
 Les exemples suivants décrivent deux manières de générer des fonctionnalités utilisant des décomptes. La première méthode a recours à une somme conditionnelle, tandis que la seconde méthode utilise la clause « where ». Vous pouvez ensuite associer ces dernières à la table d’origine (à l’aide des colonnes de clé primaire) pour disposer de fonctionnalités de décompte parallèlement aux données d’origine.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
@@ -75,13 +76,13 @@ Les exemples suivants décrivent deux manières de générer des fonctionnalité
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
-### <a name="a-namesql-binningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Génération de caractéristiques de compartimentage
+### <a name="sql-binningfeature"></a>Génération de caractéristiques de compartimentage
 L’exemple ci-dessous illustre comment générer des fonctionnalités compartimentées en divisant (à l’aide de cinq emplacements) une colonne numérique qui peut être plutôt utilisée sous la forme d’une fonctionnalité :
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="a-namesql-featurerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Déploiement des caractéristiques à partir d’une seule colonne
+### <a name="sql-featurerollout"></a>Déploiement des caractéristiques à partir d’une seule colonne
 Dans cette section, nous décrivons comment déployer une seule colonne dans une table afin de générer des fonctionnalités supplémentaires. Cet exemple présuppose l’existence d’une colonne de latitude ou de longitude dans la table à partir de laquelle vous essayez de générer des fonctionnalités.
 
 Voici une petite présentation des données de latitude/longitude issue du site stackoverflow : [How to measure the accuracy of latitude and longitude?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)(Comment mesurer la précision de la latitude et de la longitude). Vous pourrez ainsi vous familiariser avec ces notions avant d’implémenter le champ d’emplacement :
@@ -117,12 +118,12 @@ Vous pouvez en outre exploiter ces fonctionnalités de localisation pour génér
 > 
 > 
 
-### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Connexion à Azure Machine Learning
+### <a name="sql-aml"></a>Connexion à Azure Machine Learning
 La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Importer des données][import-data] dans Azure Machine Learning comme expliqué ci-dessous :
 
 ![lecteurs azureml][1] 
 
-## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Utilisation d’un langage de programmation tel que Python
+## <a name="python"></a>Utilisation d’un langage de programmation tel que Python
 L’utilisation de Python pour explorer les données et générer des fonctionnalités quand les données sont stockées dans SQL Server est comparable au traitement des données dans l’objet blob Azure à l’aide de Python comme expliqué dans [Traiter les données Azure Blob dans votre environnement de science des données](machine-learning-data-science-process-data-blob.md). Les données doivent être chargées à partir de la base de données dans une trame de données pandas, puis faire l’objet d’un traitement complémentaire. Nous décrivons dans cette section le processus de connexion à la base de données et de chargement des données dans la trame de données.
 
 Le format de chaîne de connexion ci-après vous permet de vous connecter à une base de données SQL Server à partir de Python à l’aide de pyodbc (en remplaçant les variables servername, dbname, username et password par les valeurs qui vous correspondent) :
@@ -146,10 +147,5 @@ Pour découvrir un exemple de procédure pas à pas du processus de science des 
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -13,7 +13,6 @@ ms.openlocfilehash: cb6c5b3e86f126d4110d1cd29d8c9891e356e414
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 
 # <a name="resource-manager-core-quota-increase-requests"></a>Demandes d’augmentation du quota de base de Resource Manager

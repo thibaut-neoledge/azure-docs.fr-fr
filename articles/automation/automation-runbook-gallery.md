@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e6033f089152c27713f98f12634c53012f5ff070
 ms.openlocfilehash: 04cfafc9e7a037d915f63723fd0b67a07954460b
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/16/2016
 
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galeries de runbooks et de modules pour Azure Automation
@@ -121,10 +122,5 @@ Vous pouvez envoyer des demandes à [User Voice](https://feedback.azure.com/foru
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour vous familiariser avec les runbooks, consultez [Création ou importation d’un runbook dans Azure Automation](automation-creating-importing-runbook.md)
 * Pour comprendre les différences entre PowerShell et un workflow PowerShell avec les Runbooks, consultez [Apprentissage du workflow PowerShell](automation-powershell-workflow.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Nettoyer et préparer des données pour Azure Machine Learning | Microsoft Docs"
-description: "Prétraitez et nettoyez les données afin de les préparer pour l&quot;apprentissage automatique."
+description: "Prétraitez et nettoyez les données afin de les préparer pour l'apprentissage automatique."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
 ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/30/2017
-
 
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tâches de préparation des données pour l'apprentissage automatique amélioré

@@ -21,7 +21,6 @@ ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="azure-automation-overview"></a>Vue d’ensemble d’Azure Automation
 Microsoft Azure Automation permet aux utilisateurs d'automatiser les tâches répétitives, manuelles, de longue durée et susceptibles d'engendrer des erreurs, qui sont communément exécutées dans un environnement cloud et d’entreprise. Il fait gagner du temps, accroît la fiabilité des tâches d'administration récurrentes et planifie même leur exécution automatique à intervalles réguliers. Vous pouvez automatiser les processus à l'aide de Runbooks ou automatiser la gestion de configuration avec la Configuration de l'état souhaité (DSC, Desired State Configuration). Cet article propose une brève présentation d’Azure Automation et apporte des réponses à certaines questions courantes. Vous pouvez vous référer à d'autres articles de cette bibliothèque pour des informations plus détaillées sur les différentes rubriques.

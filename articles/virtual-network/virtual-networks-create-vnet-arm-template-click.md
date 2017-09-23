@@ -22,7 +22,6 @@ ms.openlocfilehash: a179f184b7d6a425d0fed4b58551b08bb937ea87
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Créer un réseau virtuel à l’aide d’un modèle Azure Resource Manager
 

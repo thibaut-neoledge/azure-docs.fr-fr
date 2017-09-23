@@ -1,5 +1,4 @@
 ---
-
 title: "Ajouter des utilisateurs B2B Collaboration à Azure Active Directory sans invitation | Microsoft Docs"
 description: "Vous pouvez permettre à un utilisateur invité d’ajouter d’autres utilisateurs invités à votre Azure AD sans échanger d’invitation dans Azure Active Directory B2B Collaboration."
 services: active-directory
@@ -16,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 91b9477cdb679851e7d8d2942c06999a05f64e46
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/17/2017
-
 
 ---
 

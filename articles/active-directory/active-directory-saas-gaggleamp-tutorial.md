@@ -1,6 +1,6 @@
 ---
 title: "Didacticiel : Intégration d’Azure Active Directory à GaggleAMP | Microsoft Docs"
-description: "Découvrez comment configurer l&quot;authentification unique entre Azure Active Directory et GaggleAMP."
+description: "Découvrez comment configurer l'authentification unique entre Azure Active Directory et GaggleAMP."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: c591cf99aecc4153e378c42a530b80deeca63158
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Didacticiel : Intégration d’Azure AD à GaggleAMP

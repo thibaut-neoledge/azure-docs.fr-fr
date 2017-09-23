@@ -19,7 +19,6 @@ ms.openlocfilehash: 0f2682cf7cd3e11a5a7156938fbe9d4c7f541312
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Didacticiel : Intégration d’Azure AD à M-Files
 

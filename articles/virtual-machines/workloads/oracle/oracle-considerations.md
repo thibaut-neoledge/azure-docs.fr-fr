@@ -20,7 +20,6 @@ ms.openlocfilehash: 9174f7c8d16ff311312980fbe4d35996ec7ac832
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Solutions Oracle et leur déploiement sur Microsoft Azure
 Cet article fournit les informations requises pour déployer correctement différentes solutions Oracle sur Microsoft Azure. Ces solutions sont basées sur des images de machine virtuelle publiées par Oracle sur la Place de marché Microsoft Azure. Pour obtenir la liste des images actuellement disponibles, exécutez la commande suivante :

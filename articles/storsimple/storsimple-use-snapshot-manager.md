@@ -21,7 +21,6 @@ ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Utiliser l’interface utilisateur StorSimple Snapshot Manager pour gérer les tâches de sauvegarde et le catalogue de sauvegarde
 

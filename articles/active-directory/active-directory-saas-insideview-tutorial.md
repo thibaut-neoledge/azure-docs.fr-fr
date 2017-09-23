@@ -19,7 +19,6 @@ ms.openlocfilehash: f2b0a1d4bc44f8d0cd57c61e2d78950cb6a99854
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Didacticiel : Intégration d’Azure Active Directory à InsideView
 

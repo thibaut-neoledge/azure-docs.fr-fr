@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 071156367c1f819a00d31f1d0335e301391fda81
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli-20"></a>Configurer des adresses IP privées pour une machine virtuelle à l’aide de l’interface Azure CLI 2.0

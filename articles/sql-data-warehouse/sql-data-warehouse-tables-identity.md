@@ -20,7 +20,6 @@ ms.openlocfilehash: 3ab5d159e6eaeb830135fe134e108b0e4de4b7d6
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="create-surrogate-keys-by-using-identity"></a>Créer des clés de substitution à l’aide d’IDENTITY
 > [!div class="op_single_selector"]

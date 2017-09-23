@@ -19,7 +19,6 @@ ms.openlocfilehash: b1b27918bb5fcff1d19f4711ea70fe46a5697933
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tivitz"></a>Didacticiel : Intégration d’Azure AD avec TiViTz
 

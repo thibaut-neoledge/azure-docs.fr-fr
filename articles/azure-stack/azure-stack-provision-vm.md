@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
 ms.openlocfilehash: 4e3f90fe35b7fb2509db0eb7a467305f4c4167ef
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="create-a-test-virtual-machine-in-azure-stack"></a>Create a test virtual machine in Azure Stack

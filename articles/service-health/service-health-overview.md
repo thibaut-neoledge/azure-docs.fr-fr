@@ -20,7 +20,6 @@ ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Azure Service Health fournit en temps voulu des informations personnalisées lorsque des problèmes touchant les services Azure ont une incidence sur vos services.  Cette fonctionnalité vous aide également à vous préparer aux maintenances planifiées à venir.

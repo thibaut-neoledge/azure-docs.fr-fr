@@ -20,7 +20,6 @@ ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gérer les erreurs et les exceptions dans Azure Logic Apps
 

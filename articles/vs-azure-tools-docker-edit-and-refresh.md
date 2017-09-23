@@ -20,12 +20,9 @@ ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/11/2017
 
-
 ---
-# Débogage d’applications dans un conteneur Docker local
-<a id="debugging-apps-in-a-local-docker-container" class="xliff"></a>
-## Vue d'ensemble
-<a id="overview" class="xliff"></a>
+# <a name="debugging-apps-in-a-local-docker-container"></a>Débogage d’applications dans un conteneur Docker local
+## <a name="overview"></a>Vue d'ensemble
 Visual Studio Tools pour Docker fournit un moyen cohérent de développer et valider votre application localement sur un conteneur de Docker Linux.
 Vous n’avez pas besoin de redémarrer le conteneur chaque fois que vous modifiez le code.
 Cet article illustre comment utiliser la fonctionnalité Modifier et actualiser pour démarrer une application web ASP.NET Core dans un conteneur Docker local, apporter les modifications nécessaires, puis actualiser le navigateur pour afficher ces modifications.
@@ -36,8 +33,7 @@ Cet article vous montre également comment définir des points d’arrêt pour l
 >
 >
 
-## Composants requis
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Composants requis
 Les outils suivants doivent être installés.
 
 * [Dernière version de Visual Studio](https://www.visualstudio.com/downloads/)
@@ -48,16 +44,13 @@ Vous pouvez utiliser la [Boîte à outils Docker](https://www.docker.com/product
 
 Si vous utilisez la Boîte à outils Docker, vous devrez [Configurer le client Docker](vs-azure-tools-docker-setup.md)
 
-## 1. Créer une application web
-<a id="1-create-a-web-app" class="xliff"></a>
+## <a name="1-create-a-web-app"></a>1. Créer une application web
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## 2. Ajouter la prise en charge Docker
-<a id="2-add-docker-support" class="xliff"></a>
+## <a name="2-add-docker-support"></a>2. Ajouter la prise en charge Docker
 [!INCLUDE [Add docker support](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
-## 3. Modifier votre code et actualiser
-<a id="3-edit-your-code-and-refresh" class="xliff"></a>
+## <a name="3-edit-your-code-and-refresh"></a>3. Modifier votre code et actualiser
 Pour effectuer une itération rapide des modifications, vous pouvez lancer votre application au sein d’un conteneur et continuer à apporter des modifications, en les observant comme vous le feriez avec IIS Express.
 
 1. Définissez la configuration de solution sur `Debug`, puis appuyez sur **&lt;CTRL + F5 >** pour créer votre image de Docker et l’exécuter localement.
@@ -79,8 +72,7 @@ Pour effectuer une itération rapide des modifications, vous pouvez lancer votre
    ```
 6. Vos modifications ont été appliquées !
 
-## 4. Déboguer à l’aide de points d’arrêt
-<a id="4-debug-with-breakpoints" class="xliff"></a>
+## <a name="4-debug-with-breakpoints"></a>4. Déboguer à l’aide de points d’arrêt
 Les modifications nécessitent souvent une inspection plus poussée, en exploitant les fonctionnalités de débogage de Visual Studio
 
 1. Revenez à Visual Studio et ouvrez `Controllers\HomeController.cs`
@@ -97,16 +89,13 @@ Les modifications nécessitent souvent une inspection plus poussée, en exploita
 
    ![][2]
 
-## Résumé
-<a id="summary" class="xliff"></a>
+## <a name="summary"></a>Résumé
 Avec [Visual Studio 2015 Tools pour Docker](https://aka.ms/DockerToolsForVS), vous pouvez obtenir la productivité du travail local tout en conservant le réalisme de production du développement au sein d’un conteneur Docker.
 
-## Résolution des problèmes
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>Résolution des problèmes
 [Résolution des problèmes de développement avec Docker pour Visual Studio](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
-## En savoir plus sur Docker avec Visual Studio, Windows et Azure
-<a id="more-about-docker-with-visual-studio-windows-and-azure" class="xliff"></a>
+## <a name="more-about-docker-with-visual-studio-windows-and-azure"></a>En savoir plus sur Docker avec Visual Studio, Windows et Azure
 * [Outils Docker pour Visual Studio](http://aka.ms/dockertoolsforvs) : développer votre code .NET Core dans un conteneur
 * [Outils Docker pour Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) : créez et déployez des conteneurs Docker
 * [Outils Docker pour Visual Studio Code](http://aka.ms/dockertoolsforvscode) : services linguistiques pour la modification de fichiers Docker, avec plus de scénarios E2E à venir
@@ -114,16 +103,13 @@ Avec [Visual Studio 2015 Tools pour Docker](https://aka.ms/DockerToolsForVS), vo
 * [Service de conteneur Azure](https://azure.microsoft.com/services/container-service/) - [Contenu du service de conteneur Azure](http://aka.ms/AzureContainerService)
 * Pour plus d’exemples sur l’utilisation de Docker, consultez [Utilisation de Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) à partir de la [démonstration](https://github.com/Microsoft/HealthClinic.biz) de 2015 Connect pour [HealthClinic.biz](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Pour d’autres démarrages rapides à partir de la démonstration pour HealthClinic.biz, consultez [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)(Démarrages rapides avec les outils de développement Azure).
 
-## Divers outils Docker
-<a id="various-docker-tools" class="xliff"></a>
+## <a name="various-docker-tools"></a>Divers outils Docker
 [D’excellents outils Docker (blog de Steve Lasker)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)
 
-## Articles intéressants
-<a id="good-articles" class="xliff"></a>
+## <a name="good-articles"></a>Articles intéressants
 [Introduction aux microservices de NGINX](https://www.nginx.com/blog/introduction-to-microservices/)
 
-## Présentations
-<a id="presentations" class="xliff"></a>
+## <a name="presentations"></a>Présentations
 * [Steve Lasker : Visual Studio Live Las Vegas 2016 - E2E Docker](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
 * [Introduction à ASP.NET Core build 2016 - Démonstration Where You At](https://channel9.msdn.com/Events/Build/2016/B810)
 * [Développement d’applications .NET dans des conteneurs, Channel 9](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)

@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: be61e746d97fbce166f44262fcc33e2f7118fd82
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>The Azure Stack Marketplace overview

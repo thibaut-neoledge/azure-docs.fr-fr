@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
 ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/30/2017
-
 
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Vidéos traitant de la sécurité Azure sur Channel 9

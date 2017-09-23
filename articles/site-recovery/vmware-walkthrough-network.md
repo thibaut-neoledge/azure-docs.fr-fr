@@ -20,7 +20,6 @@ ms.openlocfilehash: f164ac68ba6ec650bb3996b4aa870e1b98533a23
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/29/2017
 
-
 ---
 
 # <a name="step-4-plan-networking-for-vmware-to-azure-replication"></a>Étape 4 : Planifier une mise en réseau pour la réplication de VMware vers Azure

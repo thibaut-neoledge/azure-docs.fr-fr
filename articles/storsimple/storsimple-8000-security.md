@@ -20,7 +20,6 @@ ms.openlocfilehash: e4980cdb77650f011d143ed9e86fbe0af6b29d5d
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sécurité et protection des données StorSimple
 

@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 770a83131a3e661771db50b22ce7de25b2d541cf
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="azure-mobile-engagement-web-sdk"></a>Kit de développement logiciel (SDK) web pour Azure Mobile Engagement
@@ -130,10 +131,5 @@ L’objet JavaScript global `window.capptain` a été renommé `window.azureEnga
 Par exemple : `capptain.deviceId` devient `engagement.deviceId`, `capptain.agent.startActivity` devient `engagement.agent.startActivity`, etc.
 
 Si vous avez déjà intégré une version antérieure du kit de développement logiciel (SDK) web Azure Mobile Engagement à votre application, consultez les [procédures de mise à niveau](mobile-engagement-web-upgrade-procedure.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

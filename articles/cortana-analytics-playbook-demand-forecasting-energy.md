@@ -20,7 +20,6 @@ ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manuel du modèle de solution Microsoft Cortana Intelligence de prévision de la demande d’énergie
 ## <a name="executive-summary"></a>Résumé

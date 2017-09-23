@@ -21,7 +21,6 @@ ms.openlocfilehash: 0c7a21461e5bb111c4359df8e949d48382b591c1
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="connect-windows-virtual-machines-created-with-the-classic-deployment-model-with-a-virtual-network-or-cloud-service"></a>Connecter des machines virtuelles Windows créées avec le modèle de déploiement classique à un réseau virtuel ou à un service cloud
 > [!IMPORTANT]

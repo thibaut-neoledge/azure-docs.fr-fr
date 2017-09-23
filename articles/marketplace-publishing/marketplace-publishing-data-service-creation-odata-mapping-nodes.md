@@ -20,7 +20,6 @@ ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Présentation du schéma de nœuds pour le mappage d’un service web existant à OData via le langage CSDL
 > [!IMPORTANT]

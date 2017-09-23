@@ -21,7 +21,6 @@ ms.openlocfilehash: e10a30ccef3e81cb3d7749696453d82b8958d076
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-facebook-connector"></a>Prise en main du connecteur Facebook
 Connectez-vous à Facebook et publiez dans un journal, obtenez un flux de page et bien plus encore. Avec Facebook, vous pouvez effectuer les opérations suivantes :

@@ -22,7 +22,6 @@ ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Mise à l’échelle automatique et groupes identiques de machines virtuelles
 La mise à l’échelle automatique de machines virtuelles dans un jeu de mise à l’échelle consiste à créer ou à supprimer des machines dans l’ensemble en fonction des exigences de performances. Au fur et à mesure de l’évolution du volume de travail, une application peut nécessiter des ressources supplémentaires afin d’exécuter les tâches de manière efficace.

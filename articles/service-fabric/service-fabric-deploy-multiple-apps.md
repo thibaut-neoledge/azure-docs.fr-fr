@@ -20,7 +20,6 @@ ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="deploy-multiple-guest-executables"></a>Déploiement de plusieurs exécutables invités
 Cet article montre comment empaqueter et déployer plusieurs exécutables sur Azure Service Fabric. Pour créer et déployer un package Service Fabric, lisez l’article [Déploiement d’un exécutable invité dans Service Fabric](service-fabric-deploy-existing-app.md).

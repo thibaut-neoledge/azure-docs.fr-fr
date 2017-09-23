@@ -20,7 +20,6 @@ ms.openlocfilehash: 95d6f295ba145a55fe4ed3fc7c6f627c9d419a3c
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
-
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Modèles de messagerie asynchrone et haute disponibilité
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: 48e2f606ff676ca1c3217ac4fcca75db0d283616
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell
 

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: deonhe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
 ms.openlocfilehash: a5a73a9f124e5339b61dbc49021444a208a471f0
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/20/2017
 
 ---
 # <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Comment migrer des applications logiques vers la version préliminaire du schéma du 01/08/2015
@@ -51,10 +52,5 @@ Pour migrer vos applications logiques existantes vers le nouveau schéma, procé
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

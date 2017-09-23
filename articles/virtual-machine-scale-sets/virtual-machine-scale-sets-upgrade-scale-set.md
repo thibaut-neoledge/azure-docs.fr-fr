@@ -21,7 +21,6 @@ ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Mettre à niveau un jeu de mise à l’échelle de machines virtuelles
 Cet article décrit comment déployer une mise à jour de système d’exploitation sur un jeu de mise à l’échelle de machines virtuelles Azure sans interruption de service. Dans ce contexte, une mise à jour de système d’exploitation implique la modification de la version ou de la référence (SKU) du système d’exploitation, ou la modification de l’URI d’une image personnalisée. Une mise à jour sans interruption de service consiste à mettre à jour des machines virtuelles une par une, ou dans des groupes (par exemple, un domaine d’erreur à la fois), plutôt que toutes simultanément. En procédant de la sorte, les machines virtuelles qui ne sont pas mises à niveau peuvent continuer à opérer.

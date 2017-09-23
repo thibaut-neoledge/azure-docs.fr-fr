@@ -1,5 +1,5 @@
 ---
-title: Interface utilisateur d&quot;Azure Mobile Engagement - Tableau de bord
+title: Interface utilisateur d'Azure Mobile Engagement - Tableau de bord
 description: "En savoir plus sur l’affichage et la gestion des graphiques de données relatifs à votre application à l’aide d’Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/01/2017
-
 
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Affichage et gestion des graphiques de données relatifs à votre application

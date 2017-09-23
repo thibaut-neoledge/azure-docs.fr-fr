@@ -21,7 +21,6 @@ ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importer des données dans Azure Search à l’aide du portail
 Le portail Azure propose, sur le tableau de bord Azure Search, un Assistant **Importer des données** qui vous permet de charger des données dans un index. 

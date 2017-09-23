@@ -20,7 +20,6 @@ ms.openlocfilehash: 54974ef06efdae69ddbfa12b1ba9278b48b113d3
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)
 

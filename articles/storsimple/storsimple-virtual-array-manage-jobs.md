@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
 ms.openlocfilehash: 3fd1c262a8ce94d8e98f2b066a8028d974b15b1d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/28/2016
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour afficher les tâches du StorSimple Virtual Array
@@ -63,10 +65,5 @@ Cet échec concerne les tâches de sauvegarde, de restauration, de mise à jour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Découvrez comment utiliser l’interface utilisateur web locale pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

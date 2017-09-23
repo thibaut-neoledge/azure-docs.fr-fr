@@ -22,7 +22,6 @@ ms.openlocfilehash: c066a10b33e172eb5f16eede43ec407794000c90
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Prise en main du connecteur Google Drive
 Connectez-vous à Google Drive pour créer des fichiers, obtenir des lignes et plus encore. Avec Google Drive, vous pouvez effectuer les opérations suivantes : 

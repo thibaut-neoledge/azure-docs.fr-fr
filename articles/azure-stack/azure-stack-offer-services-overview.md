@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 785acbeba7eebea5a0414ac8bb9942410bf4252e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Overview of offering services in Azure Stack

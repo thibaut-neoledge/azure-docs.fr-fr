@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
 ms.openlocfilehash: 8dea36f92b034f8c6cdb6875634848d37f4c6606
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/28/2016
 
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Désactiver et supprimer un StorSimple Virtual Array
@@ -89,10 +91,5 @@ Pour supprimer l’appareil, procédez comme suit.
 * Pour plus d’informations sur la procédure de basculement, accédez à la page [Failover and disaster recovery of your StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md) (Basculement et récupération d’urgence de votre instance StorSimple Virtual Array).
 
 * Pour plus d’informations sur l’utilisation du service StorSimple Device Manager, accédez à [Utiliser le service StorSimple Device Manager pour gérer votre StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md). 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

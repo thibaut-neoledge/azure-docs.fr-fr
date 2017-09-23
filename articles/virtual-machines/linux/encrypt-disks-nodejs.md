@@ -21,7 +21,6 @@ ms.openlocfilehash: b436f2d43c41000f4385889edb3fa3983d4a8c66
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli-10"></a>Chiffrer des disques sur une machine virtuelle Linux avec Azure CLI 1.0
 Pour renforcer la sécurité et la conformité de la machine virtuelle , les disques virtuels dans Azure peuvent être chiffrés au repos. Les disques sont chiffrés à l’aide de clés de chiffrement sécurisées dans un coffre de clés Azure. Vous contrôlez ces clés de chiffrement et pouvez effectuer un audit de leur utilisation. Cet article explique comment chiffrer des disques virtuels sur une machine virtuelle Linux avec Azure CLI 1.0 et le modèle de déploiement Resource Manager.

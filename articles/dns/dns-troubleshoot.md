@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: jonatul
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bae6cf7f5025936deba301dc4fd05f6fd5fd8fa6
 ms.openlocfilehash: 1d9bb681a864bdc3e5a2f9c9a531d9566b16ada4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/20/2017
 
 ---
 
@@ -104,10 +106,5 @@ Exemples de noms d’enregistrement SRV (nom de service « sip », protocole �
 * En savoir plus sur les [Enregistrements et zones DNS](dns-zones-records.md)
 * Pour commencer à utiliser le DNS Azure, découvrez comment [créer une zone DNS](dns-getstarted-create-dnszone-portal.md) et [créer des enregistrements DNS](dns-getstarted-create-recordset-portal.md).
 * Pour migrer une zone DNS, découvrez comment [importer et exporter un fichier de zone DNS](dns-import-export.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

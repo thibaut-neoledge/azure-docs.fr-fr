@@ -14,10 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Envoi de courriers électroniques à l'aide de SendGrid depuis Java
@@ -194,9 +195,4 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
 [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
 [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

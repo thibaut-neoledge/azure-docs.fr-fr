@@ -20,7 +20,6 @@ ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 0c627802ccfba230dcde2dafffee26cb1c895791
 ms.contentlocale: fr-fr
 
-
 ---
 
 ## <a name="create-an-application-express"></a>Créer une application (Express)

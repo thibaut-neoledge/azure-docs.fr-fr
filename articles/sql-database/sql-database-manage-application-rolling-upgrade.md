@@ -21,7 +21,6 @@ ms.openlocfilehash: 4b59c8aa3dea3e8fba692ab66420295a09210d3b
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gestion des mises à niveau propagées d’applications cloud à l’aide d’une géoréplication active de SQL Database
 > [!NOTE]

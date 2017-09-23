@@ -20,17 +20,12 @@ ms.openlocfilehash: 1a6bf0a0352e6d9e3a22586ac825558d12e1307a
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/28/2017
 
-
 ---
-<a id="what-is-event-hubs" class="xliff"></a>
-
-# Qu’est-ce qu’Event Hubs ?
+# <a name="what-is-event-hubs"></a>Qu’est-ce qu’Event Hubs ?
 
 Azure Event Hubs est une plateforme de diffusion de données hautement évolutive et de service d’ingestion d’événement capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Grâce à leur capacité à fournir des [fonctionnalités publication-abonnement](https://msdn.microsoft.com/library/aa560414.aspx) avec une faible latence et à grande échelle, les concentrateurs d’événements constitue la « base » des données volumineuses (Big Data).
 
-<a id="why-use-event-hubs" class="xliff"></a>
-
-## Pourquoi utiliser Azure Event Hubs ?
+## <a name="why-use-event-hubs"></a>Pourquoi utiliser Azure Event Hubs ?
 
 Les fonctionnalités de traitement des événements et données de télémétrie de cette solution sont particulièrement adaptées pour les opérations suivantes :
 
@@ -40,9 +35,7 @@ Les fonctionnalités de traitement des événements et données de télémétrie
 
 Par exemple, les concentrateurs d’événements inclut une fonction de suivi du comportement dans les applications mobiles, des informations sur le trafic provenant de batteries de serveurs web, de capture d’événements de jeu dans les jeux de console ou des données de télémétrie collectées sur des machines industrielles, des véhicules connectés ou d’autres appareils.
 
-<a id="azure-event-hubs-overview" class="xliff"></a>
-
-## Vue d'ensemble des hubs d'événements Azure
+## <a name="azure-event-hubs-overview"></a>Vue d'ensemble des hubs d'événements Azure
 
 Dans les architectures de solution, les concentrateurs d’événements jouent souvent le rôle de « porte d’entrée » pour un pipeline d’événements, parfois qualifié de service de *réception d’événements*. Un service de réception d'événements est un composant ou service qui se trouve entre les éditeurs d'événements et les consommateurs d'événements pour dissocier la production d'un flux d'événements de leur consommation. La figure suivante illustre cette architecture :
 
@@ -50,9 +43,7 @@ Dans les architectures de solution, les concentrateurs d’événements jouent s
 
 Cette solution fournit une fonctionnalité de gestion du flux de messages mais présente des caractéristiques différentes de la messagerie d’entreprise traditionnelle. Ses fonctionnalités reposent sur des scénarios de traitement des événements et un débit élevé. Par conséquent, les concentrateurs d’événements sont différents de la messagerie [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) et n’implémentent pas certaines des fonctionnalités qui sont disponibles pour les entités de [messagerie Service Bus](/azure/service-bus-messaging/), par exemple les rubriques.
 
-<a id="event-hubs-features" class="xliff"></a>
-
-## Fonctionnalités des concentrateurs d’événements
+## <a name="event-hubs-features"></a>Fonctionnalités des concentrateurs d’événements
 
 Les concentrateurs d’événements incluent les éléments clés suivants :
 
@@ -66,9 +57,7 @@ Les concentrateurs d’événements incluent les éléments clés suivants :
 
 Pour obtenir des détails techniques sur ces fonctionnalités et d’autres fonctionnalités encore des concentrateurs d’événements, consultez la [Vue d’ensemble des fonctionnalités des concentrateurs d’événements](event-hubs-features.md). 
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour obtenir des informations de tarification détaillées des concentrateurs d’événements, consultez [Tarification des concentrateurs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: f4886b1d78dfa87cf25737fb46c12b5963034f27
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/25/2017
 
 ---
 
@@ -124,10 +125,5 @@ Caractère générique de requête d’URL | Compare les valeurs spécifiées à
 * [Expressions conditionnelles du moteur de règles](cdn-rules-engine-reference-conditional-expressions.md)
 * [Fonctionnalités du moteur de règles](cdn-rules-engine-reference-features.md)
 * [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

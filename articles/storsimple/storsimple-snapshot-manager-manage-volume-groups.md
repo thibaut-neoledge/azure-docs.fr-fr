@@ -20,7 +20,6 @@ ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes
 ## <a name="overview"></a>Vue d'ensemble

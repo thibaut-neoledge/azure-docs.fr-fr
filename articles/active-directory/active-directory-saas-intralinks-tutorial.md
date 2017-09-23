@@ -19,7 +19,6 @@ ms.openlocfilehash: ee7fd5b88ac806104002ffb41af11bab4fd1b2dc
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Didacticiel : intégration d’Azure Active Directory à Intralinks
 

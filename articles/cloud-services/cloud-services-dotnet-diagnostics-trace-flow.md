@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: robb
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 35b4a4270846c54a1ca760e803ef7adba60cf03b
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Assurer le suivi du flux dans une application Cloud Services avec Diagnostics Azure
@@ -75,10 +76,5 @@ Une fois les opérations destinées à ajouter l’écouteur terminées, vous po
     ```
 3. Ajoutez les instructions de suivi à l’endroit où vous souhaitez capturer des informations sur l’état de votre application. Vous pouvez utiliser différentes méthodes pour mettre en forme la sortie de l’instruction de suivi. Pour plus d’informations, consultez [Procédure : Ajout d’instructions de suivi au code d’application](https://msdn.microsoft.com/library/zd83saa2.aspx).
 4. Enregistrez le fichier source.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: 1164fc24355657af22b6befaad74685ebbc2b5cb
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Migration de la passerelle VPN du modèle Classic vers le modèle Resource Manager
 Les passerelles VPN peuvent désormais être migrées du modèle de déploiement Classic vers le modèle de déploiement Resource Manager. Vous pouvez découvrir plus en détail les [fonctionnalités et les avantages](../azure-resource-manager/resource-group-overview.md) d’Azure Resource Manager. Dans cet article, nous expliquons en détail comment migrer des déploiements Classic vers le modèle plus récent basé sur Resource Manager. 

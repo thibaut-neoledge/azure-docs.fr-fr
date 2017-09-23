@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 61a9955c5ee65ccbe9a8231fa394eab01cda584f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="dns-in-azure-stack"></a>DNS in Azure Stack

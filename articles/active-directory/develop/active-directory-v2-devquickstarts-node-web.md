@@ -21,7 +21,6 @@ ms.openlocfilehash: 6d49c742f72440e22830915c90de009d9188db2a
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="add-sign-in-to-a-nodejs-web-app"></a>Ajouter une connexion à une application web Node.js
 

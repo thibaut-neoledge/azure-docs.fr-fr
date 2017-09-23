@@ -21,7 +21,6 @@ ms.openlocfilehash: fa2e37bd922690322ccc3d8f68128180d013b701
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Mettre à niveau le cluster HDInsight
 Pour tirer parti des dernières fonctionnalités proposées par HDInsight, nous vous recommandons de mettre à niveau les clusters HDInsight vers la version la plus récente. Suivez les instructions ci-dessous pour mettre à niveau vos clusters HDInsight.
@@ -44,11 +43,11 @@ Le workflow pour mettre à niveau un cluster HDInsight est le suivant :
 
 Une fois que vous avez vérifié que tout fonctionne comme prévu, planifiez un temps d’arrêt pour la migration. Pendant ce temps d’arrêt, effectuez les actions suivantes :
 
-1.    Sauvegardez toutes les données temporaires stockées localement sur les nœuds du cluster, par exemple si vous avez des données stockées directement sur un nœud principal.
-2.    Supprimez le cluster existant.
-3.    Créez un cluster dans le même sous-réseau de réseau virtuel avec la version HDI la plus récente (ou prise en charge) à l’aide du même magasin de données par défaut que le cluster précédent a utilisé. Cela permet au nouveau cluster de continuer à travailler sur vos données de production existantes.
-4.    Importez toutes les données temporaires que vous avez sauvegardées.
-5.    Démarrez des tâches ou poursuivez le traitement avec le nouveau cluster.
+1.  Sauvegardez toutes les données temporaires stockées localement sur les nœuds du cluster, par exemple si vous avez des données stockées directement sur un nœud principal.
+2.  Supprimez le cluster existant.
+3.  Créez un cluster dans le même sous-réseau de réseau virtuel avec la version HDI la plus récente (ou prise en charge) à l’aide du même magasin de données par défaut que le cluster précédent a utilisé. Cela permet au nouveau cluster de continuer à travailler sur vos données de production existantes.
+4.  Importez toutes les données temporaires que vous avez sauvegardées.
+5.  Démarrez des tâches ou poursuivez le traitement avec le nouveau cluster.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md)

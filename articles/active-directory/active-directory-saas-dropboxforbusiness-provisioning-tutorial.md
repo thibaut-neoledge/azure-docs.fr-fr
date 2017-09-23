@@ -19,7 +19,6 @@ ms.openlocfilehash: 6f7616e47322242f01a13d763f71c93d4ac06a92
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="tutorial-configuring-dropbox-for-business-for-automatic-user-provisioning"></a>Didacticiel : Configuration de Dropbox for Business pour approvisionner automatiquement des utilisateurs
 

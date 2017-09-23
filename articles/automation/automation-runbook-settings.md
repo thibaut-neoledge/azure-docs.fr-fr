@@ -1,6 +1,6 @@
 ---
 title: "Paramètres du Runbook | Microsoft Docs"
-description: "Décrit les paramètres de configuration d&quot;un Runbook dans Azure Automation et explique comment les modifier à l&quot;aide du portail de gestion Azure et de Windows PowerShell."
+description: "Décrit les paramètres de configuration d'un Runbook dans Azure Automation et explique comment les modifier à l'aide du portail de gestion Azure et de Windows PowerShell."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ac8b5372aa06eac8c9a701f0621dbb675fbb565c
 ms.openlocfilehash: 20ecbc270e61d234e026e6ba2634c7aad63b3355
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="runbook-settings"></a>Paramètres du Runbook
@@ -58,10 +59,5 @@ Les exemples de commandes suivants montrent comment définir les propriétés d'
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour découvrir comment créer et récupérer la sortie et les messages d’erreur à partir des Runbooks, consultez [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md) 
 * Pour découvrir comment ajouter un Runbook qui a déjà été développé par la Communauté ou une autre source, ou pour créer votre propre Runbook, consultez [Création ou importation d’un runbook](automation-creating-importing-runbook.md) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

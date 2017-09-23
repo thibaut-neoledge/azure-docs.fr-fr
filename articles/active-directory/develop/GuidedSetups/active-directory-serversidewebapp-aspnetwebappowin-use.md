@@ -20,18 +20,17 @@ ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 3b7d29e48c91f40e8782a5e32a52998b815fe331
 ms.contentlocale: fr-fr
 
-
 ---
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Ajouter un contrôleur pour gérer les demandes de connexion et de déconnexion
 
 Cette étape explique comment créer un contrôleur pour exposer les méthodes de connexion et de déconnexion.
 
-1.    Cliquez avec le bouton droit sur le dossier `Controllers` et sélectionnez `Add` > `Controller`.
-2.    Sélectionnez `MVC (.NET version) Controller – Empty`.
-3.    Cliquez sur *Ajouter*.
-4.    Nommez-le `HomeController`, puis cliquez sur *Ajouter*.
-5.    Ajoutez les références *OWIN* à la classe :
+1.  Cliquez avec le bouton droit sur le dossier `Controllers` et sélectionnez `Add` > `Controller`.
+2.  Sélectionnez `MVC (.NET version) Controller – Empty`.
+3.  Cliquez sur *Ajouter*.
+4.  Nommez-le `HomeController`, puis cliquez sur *Ajouter*.
+5.  Ajoutez les références *OWIN* à la classe :
 
 ```csharp
 using Microsoft.Owin.Security;
@@ -75,9 +74,9 @@ public void SignOut()
 
 Dans Visual Studio, créez une vue pour ajouter le bouton de connexion et afficher les informations de l’utilisateur après l’authentification :
 
-1.    Cliquez avec le bouton droit sur le dossier `Views\Home` et sélectionnez `Add View`.
-2.    Nommez-le `Index`.
-3.    Ajoutez le code HTML suivant, qui inclut le bouton de connexion, au fichier :
+1.  Cliquez avec le bouton droit sur le dossier `Views\Home` et sélectionnez `Add View`.
+2.  Nommez-le `Index`.
+3.  Ajoutez le code HTML suivant, qui inclut le bouton de connexion, au fichier :
 
 ```html
 <html>
@@ -124,11 +123,11 @@ else
 ## <a name="add-a-controller-to-display-users-claims"></a>Ajouter un contrôleur pour afficher les revendications de l’utilisateur
 Ce contrôleur démontre les utilisations de l’attribut `[Authorize]` pour protéger un contrôleur. Cet attribut limite l’accès au contrôleur en autorisant uniquement les utilisateurs authentifiés. Le code ci-dessous tire parti de l’attribut pour afficher les revendications de l’utilisateur qui ont été récupérées dans le cadre de la connexion.
 
-1.    Cliquez avec le bouton droit sur le dossier `Controllers` et sélectionnez `Add` > `Controller`
-2.    Sélectionnez `MVC {version} Controller – Empty`.
-3.    Cliquez sur *Ajouter*.
-4.    Nommez-le `ClaimsController`.
-5.    Remplacez le code de votre classe de contrôleur par le code ci-dessous afin d’ajouter l’attribut `[Authorize]` à la classe :
+1.  Cliquez avec le bouton droit sur le dossier `Controllers` et sélectionnez `Add` > `Controller`
+2.  Sélectionnez `MVC {version} Controller – Empty`.
+3.  Cliquez sur *Ajouter*.
+4.  Nommez-le `ClaimsController`.
+5.  Remplacez le code de votre classe de contrôleur par le code ci-dessous afin d’ajouter l’attribut `[Authorize]` à la classe :
 
 ```csharp
 [Authorize]
@@ -167,9 +166,9 @@ public class ClaimsController : Controller
 
 Dans Visual Studio, créez une vue pour afficher les revendications de l’utilisateur dans une page web :
 
-1.    Cliquez avec le bouton droit sur le dossier `Views\Claims` et sélectionnez `Add View`.
-2.    Nommez-le `Index`.
-3.    Ajoutez le code HTML suivant au fichier :
+1.  Cliquez avec le bouton droit sur le dossier `Views\Claims` et sélectionnez `Add View`.
+2.  Nommez-le `Index`.
+3.  Ajoutez le code HTML suivant au fichier :
 
 ```html
 <html>

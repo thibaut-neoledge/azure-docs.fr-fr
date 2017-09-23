@@ -20,7 +20,6 @@ ms.openlocfilehash: 9d3b4abdd395806b1a53d4f23d45ba8b449978a9
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]

@@ -20,7 +20,6 @@ ms.openlocfilehash: f9e97bb2352231b46bdf66b1165bf22ec639fddf
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
 ## <a name="overview"></a>Vue d'ensemble

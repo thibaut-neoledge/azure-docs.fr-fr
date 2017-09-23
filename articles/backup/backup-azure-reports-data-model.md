@@ -21,7 +21,6 @@ ms.openlocfilehash: efecbc9f1c410744f49795889c4ec3cc618f07e0
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/26/2017
 
-
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modèle de données pour les rapports de sauvegarde Azure
 Cet article décrit le modèle de données Power BI utilisé pour créer des rapports de sauvegarde Azure. À l’aide de ce modèle de données, vous pouvez filtrer les rapports existants sur les champs appropriés et surtout, créer vos propres rapports en utilisant des tables et des champs du modèle. 

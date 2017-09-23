@@ -3,7 +3,7 @@ title: "Configurer un pare-feu d’applications web : passerelle Azure Applicati
 description: "Cet article explique comment utiliser un pare-feu d’applications web sur une passerelle Application Gateway nouvelle ou existante."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 999d1ad3ee54d84e155254655dbb7a39ac60572c

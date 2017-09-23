@@ -20,7 +20,6 @@ ms.openlocfilehash: 207a6562965b4913416bd4dbf3eb132b42938dc9
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Utilisation d’un client Windows dans Azure pour les scénarios de développement et/ou test
 Vous pouvez utiliser Windows 7, Windows 8 ou Windows 10 dans Azure pour des scénarios de développement / de test à condition de disposer d'un abonnement Visual Studio (anciennement MSDN) approprié. Cet article décrit les conditions d’admissibilité pour les clients Windows en cours d’exécution dans Azure et l’utilisation des images de galerie Azure.

@@ -19,7 +19,6 @@ ms.openlocfilehash: d7aedd360ba1d4c11da210f8fae7be6035007c22
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redvector"></a>Didacticiel : Intégration d’Azure AD à RedVector
 

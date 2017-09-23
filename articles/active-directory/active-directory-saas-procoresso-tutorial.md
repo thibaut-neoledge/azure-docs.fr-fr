@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 042a41eaa6bb21670b4c12068f1b017222f64b99
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/12/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Didacticiel : Intégration d’Azure Active Directory à Procore SSO
@@ -199,7 +199,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Suivez les étapes ci-dessous pour créer un utilisateur de test Procore de leur côté.
 
-1. Connectez-vous à votre site d’entreprise Procore en tant qu’administrateur.    
+1. Connectez-vous à votre site d’entreprise Procore en tant qu’administrateur.  
 
 2. Dans la liste déroulante de boîte à outils, cliquez sur **Annuaire** pour ouvrir la page d’annuaire de l’entreprise.
 

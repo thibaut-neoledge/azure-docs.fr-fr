@@ -21,7 +21,6 @@ ms.openlocfilehash: 5a601b75ec67824e72d8736bc3c45f8e1231ca86
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="upload-data-to-azure-search"></a>Charger des données dans Azure Search
 > [!div class="op_single_selector"]

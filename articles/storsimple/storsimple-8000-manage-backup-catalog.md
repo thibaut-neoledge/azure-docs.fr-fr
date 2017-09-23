@@ -20,7 +20,6 @@ ms.openlocfilehash: ac2577c6cd350d6d437d55e61ec73d954cb24893
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Utiliser le service StorSimple Device Manager pour gérer votre catalogue de sauvegarde
 ## <a name="overview"></a>Vue d'ensemble

@@ -21,7 +21,6 @@ ms.openlocfilehash: 308d78550e9e60303b70d591eb4e6bfff3e49ce7
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-rss-connector"></a>Prise en main du connecteur RSS
 RSS est un format de syndication populaire web utilisé pour publier du contenu fréquemment mise à jour, tel que des entrées de blog et des titres d’actualité.  De nombreux éditeurs de contenu fournissent un flux RSS pour permettre aux utilisateurs d’y souscrire.  Le connecteur RSS permet de récupérer le flux d’informations et de déclencher des flux lorsque de nouveaux éléments sont publiés dans un flux RSS.

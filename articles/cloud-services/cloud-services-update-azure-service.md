@@ -20,7 +20,6 @@ ms.openlocfilehash: 2ba9676ed2afce7f18446642527971f5001b5ca7
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
-
 ---
 # <a name="how-to-update-a-cloud-service"></a>Mettre à jour un service cloud
 

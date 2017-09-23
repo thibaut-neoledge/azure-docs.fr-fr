@@ -21,7 +21,6 @@ ms.openlocfilehash: 091bba93bd9730f3fea0aa8667cfdcda2d7aa0ed
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="common-azure-cli-20-commands-for-managing-azure-resources"></a>Commandes Azure CLI 2.0 courantes pour la gestion des ressources Azure
 [!INCLUDE [virtual-machines-common-cli-manage](../../../includes/virtual-machines-common-cli-manage.md)]

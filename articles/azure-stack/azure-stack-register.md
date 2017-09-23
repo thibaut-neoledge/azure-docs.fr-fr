@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: f71ec571fee8e59ea9061cd619914b81a5bf701a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Register Azure Stack with your Azure Subscription
