@@ -3,7 +3,7 @@ title: Activer FTP dans App Service sur Azure Stack | Microsoft Docs
 description: "Étapes à effectuer pour activer FTP dans App Service sur Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: apwestgarth
+author: ErikjeMS
 manager: stefsch
 editor: 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 4/6/2017
-ms.author: anwestg
+ms.author: erikje
 ms.translationtype: HT
 ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: bab69a9ff7e101f22713ba7f1ac2cbd0add7fdbd

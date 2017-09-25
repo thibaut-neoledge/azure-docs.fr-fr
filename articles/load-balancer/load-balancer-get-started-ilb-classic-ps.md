@@ -3,7 +3,7 @@ title: "Créer un équilibrage de charge interne à l’aide de PowerShell class
 description: "Découvrez comment créer un équilibreur de charge interne à l’aide de PowerShell dans le modèle de déploiement classique"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
