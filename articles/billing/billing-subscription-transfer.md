@@ -18,10 +18,10 @@ ms.date: 08/15/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: e918e2863384d44533efaee25d3fea3cceedba77
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 15c6d3b8a335be068ead512c9b9d93940086c9ab
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété d’un abonnement Azure à un autre compte
@@ -104,7 +104,7 @@ L’administrateur d’entreprise peut transférer la propriété des abonnement
 
 ### <a name="whoisaa"></a> Qui est l’administrateur de compte de l’abonnement ?
 
-L’administrateur de compte est la personne qui s’est inscrite ou a acheté l’abonnement Azure. Il est autorisé à accéder au [Centre des comptes](https://account.windowsazure.com/Home/Index) et à effectuer diverses tâches de gestion comme créer des abonnements, annuler des abonnements, modifier la facturation d’un abonnement et modifier l’administrateur de services fédérés. Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, procédez comme suit pour le découvrir.
+L’administrateur de compte est la personne qui s’est inscrite ou a acheté l’abonnement Azure. Il est autorisé à accéder au [Centre des comptes](https://account.azure.com/Subscriptions) et à effectuer diverses tâches de gestion comme créer des abonnements, annuler des abonnements, modifier la facturation d’un abonnement et modifier l’administrateur de services fédérés. Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, procédez comme suit pour le découvrir.
 
 1. Accédez à la [page Abonnements du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Sélectionnez l’abonnement que vous souhaitez vérifier, puis regardez sous **Paramètres**.

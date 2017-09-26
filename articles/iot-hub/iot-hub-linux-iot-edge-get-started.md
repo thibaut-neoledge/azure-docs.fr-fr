@@ -12,15 +12,14 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
+ms.date: 09/19/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: b02d79fcd9cd2a2ef0041aac4e85528263c8d58a
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: e2f26c1abe09feff77e1e2633d8bfcf4ca527aee
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="explore-azure-iot-edge-architecture-on-linux"></a>Explorer l’architecture de Azure IoT Edge sur Linux
@@ -35,7 +34,7 @@ Le script **build.sh** génère sa sortie dans le dossier **build** de votre cop
 
 Le script place **liblogger.so** dans le dossier **build/modules/logger/** et **libhello\_world.so** dans le dossier **build/modules/hello_world/**. Utilisez ces chemins d’accès pour les valeurs **module path** comme indiqué dans le fichier d’exemple de paramètres JSON suivant.
 
-Le processus hello\_world\_sample utilise le chemin d’accès à un fichier de configuration JSON en tant qu’argument de ligne de commande. Le fichier d’exemple JSON suivant est fourni dans le référentiel du Kit de développement logiciel (SDK) à **samples/hello\_world/src/hello\_world\_lin.json**. Ce fichier de configuration fonctionne comme tel, sauf si vous modifiez le script build pour placer des modules IoT Edge ou des exécutables de l’exemple dans des emplacements autres que ceux par défaut.
+Le processus hello\_world\_sample utilise le chemin vers un fichier de configuration JSON comme argument de ligne de commande. Le fichier d’exemple JSON suivant est fourni dans le référentiel du Kit de développement logiciel (SDK) à **samples/hello\_world/src/hello\_world\_lin.json**. Ce fichier de configuration fonctionne comme tel, sauf si vous modifiez le script build pour placer des modules IoT Edge ou des exécutables de l’exemple dans des emplacements autres que ceux par défaut.
 
 > [!NOTE]
 > Les chemins d’accès du module sont relatifs au répertoire de travail actuel à partir duquel l’exécutable hello\_world\_sample est lancé, et non au répertoire où se trouve l’exécutable. L’exemple de fichier de configuration JSON écrit par défaut « log.txt » dans votre répertoire de travail actuel.

@@ -15,16 +15,15 @@ ms.workload: na
 ms.date: 09/07/2017
 ms.author: juanpere
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 6879f51527802591d45ee56aa47ab304623a4323
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: e169367592b25ea45c3d1017937316a3b3b538b8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Utilisation de la gestion des appareils pour lancer une mise à jour du microprogramme d’un appareil (Node/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-## <a name="introduction"></a>Introduction
 Dans le didacticiel [Prise en main de la gestion d’appareils][lnk-dm-getstarted], vous avez vu comment utiliser les primitives de [représentation d’appareil physique][lnk-devtwin] et de [méthodes directives][lnk-c2dmethod] pour redémarrer à distance un appareil. Ce didacticiel utilise les mêmes primitives IoT Hub, fournit des conseils, et montre comment effectuer une mise à jour du microprogramme simulée de bout en bout.  Ce modèle est utilisé dans l’implémentation de la mise à jour du microprogramme de l’exemple d’appareil Intel Edison.
 
 Ce didacticiel vous explique les procédures suivantes :

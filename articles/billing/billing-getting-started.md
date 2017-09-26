@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: tonguyen
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 474550e5b9ebb0a2741c66f92a13cd78ae4a0e5c
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: d74f649a8b5f35ffe16479576959e5ebb2857bf1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Éviter les charges inattendues avec la gestion de la facturation et des coûts dans Azure
@@ -164,7 +164,7 @@ Les vues des coûts d’entreprise sont actuellement en préversion publique. É
 
 ### <a name="check-your-subscription-and-access"></a>Vérifiez votre abonnement et votre accès
 
-L’affichage des coûts nécessite un [accès de niveau abonnement aux informations de facturation](billing-manage-access.md), mais seul l’administrateur de compte peut accéder au [Centre des comptes](https://account.windowsazure.com/Home/Index), modifier les informations de facturation et gérer les abonnements. L’administrateur de compte est la personne qui a effectué le processus d’inscription. Pour plus d’informations, consultez [Ajout ou modification de rôles d’administrateur Azure gérant l’abonnement ou les services](billing-add-change-azure-subscription-administrator.md).
+L’affichage des coûts nécessite un [accès de niveau abonnement aux informations de facturation](billing-manage-access.md), mais seul l’administrateur de compte peut accéder au [Centre des comptes](https://account.azure.com/Subscriptions), modifier les informations de facturation et gérer les abonnements. L’administrateur de compte est la personne qui a effectué le processus d’inscription. Pour plus d’informations, consultez [Ajout ou modification de rôles d’administrateur Azure gérant l’abonnement ou les services](billing-add-change-azure-subscription-administrator.md).
 
 Pour savoir si vous êtes l’administrateur de compte, accédez à l’[onglet Abonnements du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et examinez la liste des abonnements auxquels vous avez accès. Regardez sous **Mon rôle**. S’il est indiqué *Administrateur de compte*, vous disposez bien de tous les droits associés. S’il est indiqué autre chose, par exemple *Propriétaire*, vous ne disposez pas de privilèges complets.
 
