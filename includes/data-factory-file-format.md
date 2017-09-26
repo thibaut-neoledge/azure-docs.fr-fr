@@ -56,7 +56,7 @@ Pour utiliser un caractère `escapeChar` au lieu de `quoteChar`, remplacez la li
 * Vous copiez à partir d’un fichier texte et souhaitez ignorer quelques lignes au début, qui ne contiennent ni données, ni informations d’en-tête. Spécifiez le paramètre `skipLineCount` pour indiquer le nombre de lignes à ignorer. Si le reste du fichier contient une ligne d’en-tête, vous pouvez également spécifier `firstRowAsHeader`. Si les paramètres `skipLineCount` et `firstRowAsHeader` sont tous deux spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-tête sont lues à partir du fichier d’entrée.
 
 ### <a name="specifying-jsonformat"></a>Définition de JsonFormat
-Pour en savoir plus sur **l’importation ou l’exportation de fichiers JSON en l’état dans ou à partir d’Azure Cosmos DB**, consultez la section [Importer/exporter des documents JSON](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) dans le connecteur Azure Cosmos DB.
+Pour en savoir plus sur **l’importation ou l’exportation de fichiers JSON en l’état dans ou à partir d’Azure Cosmos DB**, consultez la section [Importer/exporter des documents JSON](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) dans le connecteur Azure Cosmos DB.
 
 Si vous souhaitez analyser des fichiers JSON ou écrire des données au format JSON, définissez la propriété `format` `type` sur **JsonFormat**. Vous pouvez également spécifier les propriétés **facultatives** suivantes, dans la section `format`. Consultez la section [Exemple pour JsonFormat](#jsonformat-example) pour en savoir plus sur la méthode de configuration à suivre.
 

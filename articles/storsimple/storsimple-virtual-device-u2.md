@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f9a9ff81913dda1457123525fe509d194798db14
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Déployer et gérer un appareil virtuel StorSimple dans Azure
@@ -64,7 +64,7 @@ Le tableau ci-dessous présente quelques différences clés entre l’appareil v
 | **Clé de chiffrement de données du service** |Régénérer la clé sur l’appareil physique, puis mettre à jour l’appareil virtuel avec la nouvelle clé. |Ne peut pas régénérer à partir de l'appareil virtuel. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Configuration requise pour l’appareil virtuel
-Les sections suivantes décrivent les conditions préalables à la configuration de votre appareil virtuel StorSimple. Avant de déployer un appareil virtuel, passez en revue les [Considérations de sécurité relatives à l’utilisation d’un appareil virtuel](storsimple-security.md#storsimple-virtual-device-security).
+Les sections suivantes décrivent les conditions préalables à la configuration de votre appareil virtuel StorSimple. Avant de déployer un appareil virtuel, passez en revue les [Considérations de sécurité relatives à l’utilisation d’un appareil virtuel](storsimple-security.md).
 
 #### <a name="azure-requirements"></a>Conditions requises pour Azure
 Avant d’approvisionner l’appareil virtuel, vous devez effectuer les préparatifs suivants dans votre environnement Azure :

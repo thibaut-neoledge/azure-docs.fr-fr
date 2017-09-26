@@ -16,7 +16,7 @@ Data Factory est un service mutualisé qui possède, par défaut, les limites s
 
 <sup>2</sup> Les cœurs HDInsight à la demande sont alloués en dehors de l’abonnement qui contient la fabrique de données. Par conséquent, la limite indiquée ci-dessus correspond à la limite appliquée par Data Factory pour les cœurs HDInsight à la demande et est différente de la limite associée à votre abonnement Azure.
 
-<sup>3</sup> L’unité de déplacement de données cloud est utilisée dans une opération de copie cloud-cloud. C’est une mesure qui représente la puissance (combinaison de l’allocation de ressources de processeur, de mémoire et de réseau) d’une seule unité dans Data Factory. Vous pouvez obtenir un débit de copie plus élevé en utilisant plus d’unités de déplacement pour certains scénarios. Reportez-vous à la section détaillée [Unités de déplacement de données cloud](../articles/data-factory/data-factory-copy-activity-performance.md#cloud-data-movement-units).
+<sup>3</sup> L’unité de déplacement de données cloud est utilisée dans une opération de copie cloud-cloud. C’est une mesure qui représente la puissance (combinaison de l’allocation de ressources de processeur, de mémoire et de réseau) d’une seule unité dans Data Factory. Vous pouvez obtenir un débit de copie plus élevé en utilisant plus d’unités de déplacement pour certains scénarios. Reportez-vous à la section détaillée [Unités de déplacement de données cloud](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units).
 
 | **Ressource** | **Limite inférieure par défaut** | **Limite minimale** |
 | --- | --- | --- |
