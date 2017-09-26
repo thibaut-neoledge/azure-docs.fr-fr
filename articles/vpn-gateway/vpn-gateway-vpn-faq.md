@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 6a66289ee52eca02a7ab416f5bcf55e6cff8b720
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
@@ -113,7 +113,7 @@ Nous sommes limités à l'utilisation de clés prépartagées (PSK) pour l'authe
 * Portail Azure : accédez au réseau virtuel classique > Connexions VPN > Connexions VPN site à site > Nom du site local > Site local > Espace d’adressage du client. 
 * Portail Classic : ajoutez chaque plage que vous souhaitez envoyer via la passerelle de votre réseau virtuel dans la page Réseaux, sous Réseaux locaux. 
 
-### <a name="can-i-configure-forced-tunneling"></a>Puis-je configurer un tunneling forcé ?
+### <a name="can-i-configure-force-tunneling"></a>Puis-je configurer un tunneling forcé ?
 
 Oui. Consultez [Configurer un tunneling forcé](vpn-gateway-about-forced-tunneling.md).
 
@@ -159,9 +159,13 @@ Nous prenons en charge les serveurs de routage et d’accès distant (RRAS) Wind
 
 D’autres solutions VPN logicielles fonctionnent avec notre passerelle tant qu'elles sont conformes aux implémentations IPsec standard. Contactez le fournisseur du logiciel pour obtenir des instructions de configuration et de prise en charge.
 
-## <a name="P2S"></a>Connexions de point à site
+## <a name="P2S"></a>Point à site : authentification par certificat Azure native
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="point-to-site---radius-authentication"></a>Point à site : authentification RADIUS
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>Connexions multi-sites et réseau virtuel à réseau virtuel
 
