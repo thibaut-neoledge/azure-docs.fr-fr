@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 0230ec0e4fc4ff7fe98a7c3e82f252bd8dd66d16
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: de7aff6b31d937576da65498c5fcce2ae9abdbf1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Intégration de Data Lake Store à d'autres services Azure
@@ -41,7 +41,7 @@ Pour obtenir des instructions sur l'utilisation de Data Lake Analytics avec Data
 ## <a name="use-data-lake-store-with-azure-data-factory"></a>Utiliser Data Lake Store avec Azure Data Factory
 Vous pouvez utiliser [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pour recevoir des données à partir de tables Azure, de bases de données SQL Azure, d'Azure SQL DataWarehouse, d'objets Blob Azure Storage et de bases de données locales. Jouissant d'un statut de premier ordre dans l'écosystème Azure, Azure Data Factory peut être utilisé pour orchestrer l'ingestion de données de ces sources vers Azure Data Lake Store.
 
-Pour obtenir des instructions sur l'utilisation d'Azure Data Factory avec Data Lake Store, consultez [Déplacer des données vers et depuis Data Lake Store avec Data Factory](../data-factory/data-factory-azure-datalake-connector.md).
+Pour obtenir des instructions sur l'utilisation d'Azure Data Factory avec Data Lake Store, consultez [Déplacer des données vers et depuis Data Lake Store avec Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
 ## <a name="copy-data-from-azure-storage-blobs-into-data-lake-store"></a>Copier des données d’objets blob Azure Storage dans Data Lake Store
 Azure Data Lake Store fournit un outil en ligne de commande, AdlCopy, qui vous permet de copier les données d’objets blob Azure Storage vers un compte Data Lake Store. Pour plus d’informations, consultez [Copier des données d’objets blob Azure Storage vers Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md).

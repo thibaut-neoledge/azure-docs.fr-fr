@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: yuemlu
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b7cc8bc2b39e544a5807a2f6f9ff86ba73c54564
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b432426cb5cc5401fa2e8f7aaa6bc0955aff0931
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Stockage Standard économique et disques de machine virtuelle Azure gérés et non gérés
@@ -48,7 +48,7 @@ Pour plus d’informations sur la création d’une machine virtuelle avec disqu
 
 Examinons certaines des fonctionnalités du stockage Standard. Pour plus d’informations, consultez [Introduction à Microsoft Azure Storage](../storage-introduction.md).
 
-**Stockage Standard** : le stockage Standard Azure prend en charge les disques Azure, les blobs Azure, le stockage de fichiers Azure, les tables Azure et les files d’attente Azure. Pour utiliser les services de stockage Standard, commencez par [Créer un compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account).
+**Stockage Standard** : le stockage Standard Azure prend en charge les disques Azure, les objets blob Azure, les fichiers Azure, les tables Azure et les files d’attente Azure. Pour utiliser les services de stockage Standard, commencez par [Créer un compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account).
 
 **Disques de stockage Standard :** les disques de stockage Standard peuvent être associés à toutes les machines virtuelles Azure, y compris les machines virtuelles de tailles utilisées avec le stockage Premium, comme les séries DSv2 et GS. Un disque de stockage Standard ne peut être associé qu’à une seule machine virtuelle. Toutefois, vous pouvez associer un ou plusieurs de ces disques à une machine virtuelle, jusqu’au nombre maximal de disques défini pour cette taille de machine virtuelle. La section suivante sur les objectifs de performance et d’extensibilité du stockage Standard décrit ces spécifications plus en détail. 
 

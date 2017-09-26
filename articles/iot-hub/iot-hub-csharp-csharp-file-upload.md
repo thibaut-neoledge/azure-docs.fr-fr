@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/04/2017
 ms.author: elioda
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: b45d85d0d77cf47f36cb793bc8c0dbe2d5c12634
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f0be85d661807f36890fc79090c3f820ae8c376d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub en utilisant .NET
@@ -37,7 +37,7 @@ Les didacticiels [Bien démarrer avec IoT Hub](iot-hub-csharp-csharp-getstarted.
 * Données de vibration échantillonnées à une fréquence élevée
 * Un certain type de données prétraitées
 
-Ces fichiers sont généralement traités par lot dans le cloud à l’aide d’outils tels que [Azure Data Factory](../data-factory/index.md) ou de la pile [Hadoop](../hdinsight/index.md). Si vous avez besoin de charger des fichiers à partir d’un appareil, vous pouvez toujours exploiter la sécurité et la fiabilité d’IoT Hub.
+Ces fichiers sont généralement traités par lot dans le cloud à l’aide d’outils tels que [Azure Data Factory](../data-factory/introduction.md) ou de la pile [Hadoop](../hdinsight/index.md). Si vous avez besoin de charger des fichiers à partir d’un appareil, vous pouvez toujours exploiter la sécurité et la fiabilité d’IoT Hub.
 
 À la fin de ce didacticiel, vous exécutez deux applications console .NET :
 
@@ -191,7 +191,7 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 <!-- Links -->
 
-[portail Azure]: https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/
 
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 

@@ -3,7 +3,7 @@ title: "Présentation de l’équilibrage de charge interne | Microsoft Docs"
 description: "Vue d'ensemble de l'équilibrage de charge interne et de ses fonctionnalités. Procédure de fonctionnement de l'équilibrage de charge pour Azure et les scénarios de configuration possibles des points de terminaison internes"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 ms.assetid: 36065bfe-0ef1-46f9-a9e1-80b229105c85
@@ -12,17 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: d324aaf8ec2c8766d5cf11452158d14c19cba4d9
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ec07c77119c2da408da21fbdc7877d0b43d16556
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="internal-load-balancer-overview"></a>Présentation de l’équilibrage de charge interne
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Contrairement à l’équilibreur de charge avec accès par Internet, l’équilibreur de charge interne (ILB) dirige le trafic uniquement vers les ressources au sein du service cloud ou via le VPN pour accéder à l’infrastructure Azure. L’infrastructure limite l’accès aux adresses IP virtuelles à charge équilibrée d’un service cloud ou d’un réseau virtuel. Ainsi, elles ne seront jamais exposées directement à un point de terminaison Internet. Cela permet aux applications cœur de métier (LOB) internes de s’exécuter dans Azure et d’être accessibles depuis le cloud ou à partir de ressources locales.
 

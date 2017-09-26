@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bd8957f1257a5fdd867658be9c708bbdc8717f36
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Prise en main de l’Explorateur de stockage (version préliminaire)
@@ -68,7 +68,7 @@ En outre, vous pouvez utiliser des comptes de stockage Azure à l’échelle int
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Connexion à un abonnement Azure Stack
 
-Pour en savoir plus sur la connexion à un abonnement Azure Stack, consultez [Connecter l’Explorateur de stockage à un abonnement Azure Stack](azure-stack/azure-stack-storage-connect-se.md).
+Pour en savoir plus sur la connexion à un abonnement Azure Stack, consultez [Connecter l’Explorateur de stockage à un abonnement Azure Stack](azure-stack/user/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Utilisation du stockage de développement local
 Avec l’Explorateur de stockage (version préliminaire), vous pouvez travailler sur le stockage local à l’aide de l’émulateur de stockage Azure. Cette approche vous permet d’écrire du code pour le stockage et de le tester sans nécessairement disposer d’un compte de stockage déployé sur Azure, étant donné que le compte de stockage est émulé par l’émulateur de stockage Azure.

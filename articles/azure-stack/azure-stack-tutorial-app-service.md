@@ -1,6 +1,6 @@
 ---
-title: Make web, mobile, and API apps available to your Azure Stack users | Microsoft Docs
-description: Tutorial to install the App Service resource provider and create offers that give your Azure Stack users the ability to create web, mobile, and API apps.
+title: "Mettre des applications web, mobiles et API à la disposition de vos utilisateurs Azure Stack | Microsoft Docs"
+description: "Didacticiel pour installer le fournisseur de ressources App Service et créer des offres qui donnent à vos utilisateurs Azure Stack la possibilité de créer des applications web, mobiles et API."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -11,86 +11,86 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 11ecaa8ec017a9eb1285928e3d3d367ddfc43022
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>Make web, mobile, and API apps available to your Azure Stack users
+# <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>Mettre des applications web, mobiles et API à la disposition de vos utilisateurs Azure Stack
 
-As an Azure Stack cloud administrator, you can create offers that let your users (tenants) create Azure Functions and web, mobile, and API applications. By providing access to these on-demand, cloud-based apps to your users, you can save them time and resources. To set this up, you will:
+En tant qu’un administrateur de cloud Azure Stack, vous pouvez créer des offres qui permettent à vos utilisateurs (locataires) de créer des applications Azure Functions, web, mobiles et API. En permettant à vos utilisateurs d’accéder à ces applications cloud à la demande, vous pouvez leur faire gagner du temps et économiser des ressources. Pour effectuer cette configuration, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
-> * Deploy the App Service resource provider
-> * Create an offer
-> * Test the offer
+> * Déployer le fournisseur de ressources App Service
+> * Créer une offre
+> * Tester l’offre
 
-## <a name="deploy-the-app-service-resource-provider"></a>Deploy the App Service resource provider
+## <a name="deploy-the-app-service-resource-provider"></a>Déployer le fournisseur de ressources App Service
 
-1. [Prepare the Azure Stack Development Kit host](azure-stack-app-service-before-you-get-started.md). This includes deploying the SQL Server resource provider, which is required for creating some apps.
-2. [Download the installer and helper scripts](azure-stack-app-service-deploy.md#download-the-required-components).
-3. [Run the helper script to create required certificates](azure-stack-app-service-deploy.md#create-certificates-required-by-app-service-on-azure-stack).
-4. [Install the App Service resource provider](azure-stack-app-service-deploy.md#use-the-installer-to-download-and-install-app-service-on-azure-stack) (it will take a couple hours to install and for all the worker roles to appear).
-5. [Validate the installation](azure-stack-app-service-deploy.md#validate-the-app-service-on-azure-stack-installation).
+1. [Préparez l’hôte du Kit de développement Azure Stack](azure-stack-app-service-before-you-get-started.md). Cette opération inclut le déploiement du fournisseur de ressources SQL Server, qui est nécessaire pour la création de certaines applications.
+2. [Téléchargez le programme d’installation et les scripts d’assistance](azure-stack-app-service-deploy.md).
+3. [Exécutez le script d’assistance pour créer des certificats nécessaires](azure-stack-app-service-deploy.md).
+4. [Installez le fournisseur de ressources App Service](azure-stack-app-service-deploy.md). (Plusieurs heures sont nécessaires pour effectuer l’installation et afficher tous les rôles de travail.)
+5. [Validez l’installation](azure-stack-app-service-deploy.md#validate-the-app-service-on-azure-stack-installation).
 
-## <a name="create-an-offer"></a>Create an offer
+## <a name="create-an-offer"></a>Créer une offre
 
-As an example, you can create an offer that lets users create DNN web content management systems. It requires the SQL Server service which you already enabled by installing the SQL Server resource provider.
+Vous pouvez créer une offre qui, par exemple, permet aux utilisateurs de créer des systèmes de gestion de contenu web DNN. Cette opération nécessite le service SQL Server que vous est déjà activé en installant le fournisseur de ressources SQL Server.
 
-1.  [Set a quota](azure-stack-setting-quotas.md) and name it *AppServiceQuota*. Select **Microsoft.Web** for the **Namespace** field.
-2.  [Create a plan](azure-stack-create-plan.md). Name it *TestAppServicePlan*, select the the **Microsoft.SQL** service, and **AppService Quota** quota.
+1.  [Définissez un quota](azure-stack-setting-quotas.md) et nommez-le *AppServiceQuota*. Sélectionnez **Microsoft.Web** pour le champ **Namespace**.
+2.  [Créez un plan](azure-stack-create-plan.md). Nommez-le *TestAppServicePlan*, puis sélectionnez le service **Microsoft.SQL** et le quota **AppService Quota**.
 
     > [!NOTE]
-    > To let users create other apps, other services might be required in the plan. For example, Azure Functions requires that the plan     include the **Microsoft.Storage** service, while Wordpress requires **Microsoft.MySQL**.
+    > Pour permettre aux utilisateurs de créer d’autres applications, il est possible que d’autres services soient exigés dans le plan. Par exemple, Azure Functions exige que le plan inclue le service **Microsoft.Storage**, tandis que Wordpress exige **Microsoft.MySQL**.
     > 
     >
 
-3.  [Create an offer](azure-stack-create-offer.md), name it **TestAppServiceOffer** and select the **TestAppServicePlan** plan.
+3.  [Créez une offre](azure-stack-create-offer.md), nommez-la **TestAppServiceOffer**, puis sélectionnez le plan **TestAppServicePlan**.
 
-## <a name="test-the-offer"></a>Test the offer
+## <a name="test-the-offer"></a>Tester l’offre
 
-Now that you've deployed the App Service resource provider and created an offer, you can sign in as a user, subscribe to the offer, and create an app. For this example, we'll create a DNN Platform content management system. You must first create a SQL database and then the DNN web app.
+Maintenant que vous avez déployé le fournisseur de ressources App Service et créé une offre, vous pouvez vous connecter en tant qu’utilisateur, vous abonner à l’offre, puis créer une application. Pour cet exemple, nous allons créer un système de gestion de contenu de plateforme DNN. Vous devez d’abord créer une base de données SQL, puis l’application web DNN.
 
-### <a name="subscribe-to-the-offer"></a>Subscribe to the offer
-1. Sign in to the Azure Stack portal (https://portal.local.azurestack.external) as a tenant.
-2. Click **Get a subscription** > type **TestAppServiceSubscription** under **Display Name** > **Select an offer** > **TestAppServiceOffer** > **Create**.
+### <a name="subscribe-to-the-offer"></a>S’abonner à l’offre
+1. Connectez-vous au portail Azure Stack (https://portal.local.azurestack.external) en tant que locataire.
+2. Cliquez sur **Prendre un abonnement** > tapez **TestAppServiceSubscription** sous **’** > **Sélectionner une offre** > **TestAppServiceOffer** > **Créer**.
 
-### <a name="create-a-sql-database"></a>Create a SQL database
+### <a name="create-a-sql-database"></a>Créer une base de données SQL
 
-1. Click **+** > **Data + Storage** > **SQL Database**.
-2. Leave the defaults for the fields, except as follows:
-    - **Database Name**: DNNdb
-    - **Max Size in MB**: 100
-    - **Subscription**: TestAppServiceOffer
-    - **Resource Group**: DNN-RG
-3. Click **Login Settings**, enter credentials for the database, and then click **OK**. You'll use these credentials later in these steps.
-4. Click **SKU** > select the SQL SKU that you created for the SQL Hosting Server > **OK**.
-5. Click **Create**.
+1. Cliquez sur **+** > **Données et stockage** > **Base de données SQL**.
+2. Conservez les valeurs par défaut pour les champs, sauf pour ce qui suit :
+    - **Nom de la base de données** : DNNdb
+    - **Taille maximale (en Mo)** : 100
+    - **Abonnement**: TestAppServiceOffer
+    - **Groupe de ressources** : DNN-RG
+3. Cliquez sur **Paramètres de connexion**, entrez les informations d’identification pour la base de données, puis cliquez sur **OK**. Vous allez utiliser ces informations d’identification plus tard dans cette procédure.
+4. Cliquez sur **Référence** > sélectionnez le SKU SQL que vous avez créé pour le serveur d’hébergement SQL > **OK**.
+5. Cliquez sur **Create**.
 
-### <a name="create-a-dnn-app"></a>Create a DNN app    
+### <a name="create-a-dnn-app"></a>Créer une application DNN    
 
-1. Click **+** > **See all** > **DNN Platform preview** > **Create**.
-2. Type *DNNapp* under **App name** and select **TestAppServiceOffer** under **Subscription**.
-3. Click **Configure required settings** > **Create New** > type an **App Service plan** name.
-4. Click **Pricing tier** > **F1 Free** > **Select** > **OK**.
-5. Click **Database** and enter the information for the SQL database you created earlier.
-6. Click **Create**.
+1. Cliquez sur **+** > **Afficher tout** > **Aperçu de la plateforme DNN** > **Créer**.
+2. Tapez *DNNapp* sous **Nom de l’application**, puis sélectionnez **TestAppServiceOffer** sous **Abonnement**.
+3. Cliquez sur **Configurer les paramètres obligatoires** > **Créer** > tapez un nom de**Plan App Service**.
+4. Cliquez sur **Niveau tarifaire** > **F1 Gratuit** > **Sélectionner** > **OK**.
+5. Cliquez sur **Base de données**, puis entrez les informations relatives à la base de données SQL créée précédemment.
+6. Cliquez sur **Create**.
 
-In this tutorial, you learned how to:
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Deploy the App Service resource provider
-> * Create an offer
-> * Test the offer
+> * Déployer le fournisseur de ressources App Service
+> * Créer une offre
+> * Tester l’offre
 
-Advance to the next tutorial to learn how to:
+Passez au didacticiel suivant pour savoir comment :
 
 > [!div class="nextstepaction"]
-> [Deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md)
+> [Déployer des applications sur Azure et Azure Stack](user/azure-stack-solution-pipeline.md)
 

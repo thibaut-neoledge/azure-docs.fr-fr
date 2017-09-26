@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: c84b2406e6373701c83c509342129bd6d7d4034b
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9a33e83c7453d5b80043599acca3ac4310446562
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -79,7 +79,7 @@ Procédez comme suit pour définir les valeurs de verrouillage intelligent de vo
 1. Connectez-vous à l’Explorateur graphique en tant qu’administrateur global de votre client. Si vous y êtes invité, accordez l’accès pour les autorisations demandées.
 2. Cliquez sur « Modifier les autorisations » et sélectionnez l’autorisation « Directory.ReadWrite.All ».
 3. Configurez la requête d’API Graph comme suit : définir la version sur « BETA », le type de requête sur « POST » et l’URL sur `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
-4. Copiez et collez la requête JSON suivante dans le champ « Corps de la requête ». Modifiez les valeurs de verrouillage intelligent comme il convient et utilisez un GUID aléatoire pour `templateId`.
+4. Copiez et collez la requête JSON suivante dans le champ « Corps de la requête ».
 5. Cliquez sur « Exécuter la requête » pour définir les valeurs de verrouillage intelligent de votre client.
 
 ```

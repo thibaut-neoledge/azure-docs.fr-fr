@@ -12,22 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 518b2719f24be96dffba3458f6c15e65f16b7e0d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f603c4f0305184bfefe23a02b07cef134c83e678
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : questions fréquentes
 
 Dans cet article, nous répondons au forum aux questions sur l’authentification unique et transparente Azure Active Directory. N’hésitez pas à le consulter régulièrement, du contenu nouveau y est fréquemment ajouté.
-
->[!IMPORTANT]
->La fonctionnalité Authentification unique transparente est en préversion.
 
 ## <a name="what-sign-in-methods-do-seamless-sso-work-with"></a>Avec quelles méthodes de connexion l’authentification unique transparente est-elle compatible ?
 
@@ -49,9 +46,9 @@ Oui. L’authentification unique transparente prend en charge `Alternate ID` com
 
 Oui, ce scénario nécessite la version 2.1 ou ultérieure du [client workplace-join](https://www.microsoft.com/download/details.aspx?id=53554).
 
-## <a name="how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account"></a>Comment puis-je substituer la clé de déchiffrement Kerberos du `AZUREADSSOACCT` compte d’ordinateur ?
+## <a name="how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account"></a>Comment puis-je substituer la clé de déchiffrement Kerberos du `AZUREADSSOACC` compte d’ordinateur ?
 
-Il est important de fréquemment substituer la clé de déchiffrement Kerberos du `AZUREADSSOACCT` compte d’ordinateur (c’est-à-dire Azure AD) créé dans votre forêt AD locale.
+Il est important de fréquemment substituer la clé de déchiffrement Kerberos du `AZUREADSSOACC` compte d’ordinateur (c’est-à-dire Azure AD) créé dans votre forêt AD locale.
 
 >[!IMPORTANT]
 >Nous vous recommandons vivement de substituer la clé de déchiffrement Kerberos au moins tous les 30 jours.
@@ -70,7 +67,7 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>Étape 2. Mettre à jour la clé de déchiffrement Kerberos sur chaque forêt AD à laquelle elle a été attribuée.
 
 1. Appelez `$creds = Get-Credential`. Quand vous y êtes invité, entrez les informations d’identification d’administrateur de domaine pour la forêt AD souhaitée.
-2. Appelez `Update-AzureADSSOForest -OnPremCredentials $creds`. Cette commande met à jour la clé de déchiffrement de Kerberos pour le `AZUREADSSOACCT` compte de l’ordinateur et la forêt AD spécifique et dans Azure AD.
+2. Appelez `Update-AzureADSSOForest -OnPremCredentials $creds`. Cette commande met à jour la clé de déchiffrement de Kerberos pour le `AZUREADSSOACC` compte de l’ordinateur et la forêt AD spécifique et dans Azure AD.
 3. Répétez les étapes précédentes pour chaque forêt AD dans laquelle vous avez configuré la fonctionnalité.
 
 >[!IMPORTANT]

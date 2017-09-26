@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c88bf04f904d6784b882f524ac8737ca70003c91
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a9f61ec7c051ccdd867aec94121347db19b059b5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introduction à R Server et aux fonctionnalités Open Source R sur HDInsight
@@ -32,7 +32,7 @@ R Server sur HDInsight fournit les dernières fonctionnalités d’analyse R sur
 
 Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud périphérique permet d’exécuter des fonctions distribuées parallélisées de ScaleR sur les différents cœurs du serveur associé. Vous pouvez également les exécuter sur les différents nœuds du cluster à l’aide des contextes de calcul Hadoop Map Reduce ou Spark de ScaleR.
 
-Les modèles ou prévisions résultant des analyses peuvent être téléchargés pour une utilisation locale. Ils peuvent également être mis en œuvre ailleurs dans Azure, en particulier par le biais du [service web](../machine-learning/machine-learning-publish-a-machine-learning-web-service.md) [Azure Machine Learning Studio](http://studio.azureml.net).
+Les modèles ou prévisions résultant des analyses peuvent être téléchargés pour une utilisation locale. Ils peuvent également être mis en œuvre ailleurs dans Azure, en particulier par le biais du [service web](../machine-learning/studio/publish-a-machine-learning-web-service.md) [Azure Machine Learning Studio](http://studio.azureml.net).
 
 ## <a name="get-started-with-r-on-hdinsight"></a>Prise en main de R sur HDInsight
 Pour inclure R Server dans un cluster HDInsight, vous devez sélectionner le type de cluster R Server lors de la création d’un cluster HDInsight via le portail Azure. Le type de cluster R Server inclut R Server sur les nœuds de données du cluster et sur un nœud périphérique, qui sert de zone d’accueil pour l’analyse R Server. Pour une description détaillée de la création du cluster, consultez la page [Bien démarrer avec R Server sur HDInsight](hdinsight-hadoop-r-server-get-started.md).

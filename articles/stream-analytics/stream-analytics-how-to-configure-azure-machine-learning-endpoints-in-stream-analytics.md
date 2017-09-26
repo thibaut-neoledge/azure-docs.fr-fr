@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: d0771509dfa6ca4fc005edfdbc7c0a9cb5ca0e9e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 65ba6deaf5391b013c5337e00c80099e81aa4bea
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Intégration de Machine Learning dans Stream Analytics
@@ -33,7 +33,7 @@ Microsoft Azure Machine Learning offre un outil collaboratif fonctionnant par
 * **Point de terminaison**: les *points de terminaison* sont un objet Azure Machine Learning servant à saisir des fonctionnalités en entrée, appliquer un modèle machine learning spécifié et renvoyer le résultat évalué.
 * **Service Web d’évaluation**: un *service web d’évaluation* est une collection de points de terminaison, comme indiqué ci-dessus.
 
-Chaque point de terminaison dispose d’API servant à l’exécution de lots et l’exécution synchronisée. Stream Analytics utilise l’exécution synchronisée. Le service spécifique s’appelle [Service requête/réponse](../machine-learning/machine-learning-consume-web-services.md) dans AzureML studio.
+Chaque point de terminaison dispose d’API servant à l’exécution de lots et l’exécution synchronisée. Stream Analytics utilise l’exécution synchronisée. Le service spécifique s’appelle [Service requête/réponse](../machine-learning/studio/consume-web-services.md) dans AzureML studio.
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Ressources Machine Learning nécessaires aux tâches d’analyse Stream Analytics
 Pour les besoins de l’analyse des travaux Stream Analytics, un point de terminaison demande/réponse, une clé [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md)et une définition swagger sont nécessaires pour une exécution réussie. Stream Analytics est doté d’un point de terminaison supplémentaire qui génère l’URL d’un point de terminaison swagger, fait des recherches dans l’interface et retourne une définition de fonction UDF par défaut à l’utilisateur.
