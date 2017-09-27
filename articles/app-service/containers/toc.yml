@@ -1,4 +1,5 @@
 - name: Web App for Containers
+  href: index.yml
 - name: Vue d'ensemble
   items:
     - name: À propos de Web Apps
