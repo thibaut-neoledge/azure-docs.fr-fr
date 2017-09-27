@@ -16,8 +16,8 @@
 #### [Automatique - avec modèle](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Manuel - conditions préalables](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Manuel - didacticiel](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Équilibrage de charge - portail](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Équilibrage de charge - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Équilibrage de charge - Portail Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Équilibrage de charge - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Plusieurs régions](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Instance de cluster de basculement
 #### [Configurer](virtual-machines-windows-portal-sql-create-failover-cluster.md)
@@ -36,7 +36,7 @@
 ## [Modèles d’application](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # Référence
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Interface de ligne de commande Azure](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [Pilotes SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)

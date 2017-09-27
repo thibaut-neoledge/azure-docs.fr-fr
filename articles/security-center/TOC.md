@@ -19,7 +19,7 @@
 # Procédures
 
 ## Stratégie de sécurité
-### [Collecte des données](security-center-enable-data-collection.md)
+### [Collecte de données](security-center-enable-data-collection.md)
 ### [Stratégie de sécurité](security-center-policies.md)
 ### [Notifications par e-mail](security-center-provide-security-contact-details.md)
 ### [Niveau de tarification](security-center-pricing.md)
@@ -74,6 +74,7 @@
 
 ## Protections cloud
 ### [Accès juste à temps](security-center-just-in-time.md)
+### [Contrôles d’application adaptative](security-center-adaptive-application.md)
 
 ## Automation et orchestration
 ### [Manuels](security-center-playbooks.md)

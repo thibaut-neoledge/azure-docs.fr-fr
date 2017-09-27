@@ -4,7 +4,7 @@
   items:
     - name: À propos des fonctions
       href: functions-overview.md
-    - name: 'Choisir entre Flow, Logic Apps, Functions et WebJobs'
+    - name: Comparaison sans serveur
       href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Démarrages rapides
   expanded: true
@@ -17,21 +17,23 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: Déclencheurs
       items:
+        - name: Stockage d'objets blob
+          href: functions-create-storage-blob-triggered-function.md
+        - name: Azure Cosmos DB
+          href: functions-create-cosmos-db-triggered-function.md
         - name: Minuteur
           href: functions-create-scheduled-function.md
         - name: Webhook générique
           href: functions-create-generic-webhook-triggered-function.md
         - name: webhook GitHub
           href: functions-create-github-webhook-triggered-function.md
-        - name: Stockage d'objets blob
-          href: functions-create-storage-blob-triggered-function.md
         - name: Stockage de files d'attente
           href: functions-create-storage-queue-triggered-function.md
     - name: Integrate
       items:
         - name: Storage
           href: functions-integrate-storage-queue-output-binding.md
-        - name: Cosmos DB
+        - name: Azure Cosmos DB
           href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Didacticiels
   items:
@@ -41,6 +43,8 @@
       href: functions-create-serverless-api.md
     - name: 3 - Création d’une définition OpenAPI
       href: functions-openapi-definition.md
+    - name: 4 - Redimensionnement d’image avec Event Grid
+      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Exemples
   items:
     - name: Exemples de code
@@ -103,6 +107,8 @@
           href: app-service-export-api-to-powerapps-and-flow.md
         - name: Appeler une fonction dans PowerApps
           href: functions-powerapps-scenario.md
+        - name: Appeler une fonction à partir de Microsoft Flow
+          href: functions-flow-scenario.md
         - name: Utiliser l’identité du service administré
           href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Référence
@@ -111,7 +117,7 @@
       items:
         - name: Stockage d'objets blob
           href: functions-bindings-storage-blob.md
-        - name: Cosmos DB
+        - name: Azure Cosmos DB
           href: functions-bindings-documentdb.md
         - name: Event Hubs
           href: functions-bindings-event-hubs.md
@@ -121,6 +127,8 @@
           href: functions-bindings-external-table.md
         - name: HTTP et webhooks
           href: functions-bindings-http-webhook.md
+        - name: "Microsoft\_Graph"
+          href: functions-bindings-microsoft-graph.md
         - name: "Mobile\_Apps"
           href: functions-bindings-mobile-apps.md
         - name: Notification Hubs

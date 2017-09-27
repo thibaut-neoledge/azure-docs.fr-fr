@@ -5,18 +5,18 @@
 ## [Applications open source qui fonctionnent avec Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 # Prise en main
-## [Utilisation du portail](data-lake-store-get-started-portal.md)
-## [Utiliser PowerShell](data-lake-store-get-started-powershell.md)
+## [En passant par le portail Azure](data-lake-store-get-started-portal.md)
+## [Utilisation de Microsoft Azure PowerShell](data-lake-store-get-started-powershell.md)
 ## [Utilisation du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 ## [Utilisation du kit de développement logiciel (SDK) Java](data-lake-store-get-started-java-sdk.md)
 ## [Utilisation de l'API REST](data-lake-store-get-started-rest-api.md)
-## [Utilisation de l’interface de ligne de commande Azure 2.0](data-lake-store-get-started-cli-2.0.md)
+## [Utilisation de l’interface de ligne de commande Azure](data-lake-store-get-started-cli-2.0.md)
 ## [Utilisation de Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Utilisation de Python](data-lake-store-get-started-python.md)
 
 # Procédures
 ## Copier des données
-### [Utilisation d’Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Utilisation d’Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Utilisation d’AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Utilisation de DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Utilisation de Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -40,14 +40,14 @@
 
 ## Intégrer avec les services Azure
 ### Avec HDInsight
-#### [Utilisation du portail](data-lake-store-hdinsight-hadoop-use-portal.md)
-#### [Utilisation de PowerShell (stockage par défaut)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-#### [Utilisation de PowerShell (stockage supplémentaire)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [En passant par le portail Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Utilisation d’Azure PowerShell (stockage par défaut)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Utilisation d’Azure PowerShell (stockage supplémentaire)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 #### [Utilisation du modèle Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Accéder à partir de machines virtuelles dans un réseau virtuel Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Utiliser avec Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Utiliser avec Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
-### [Utiliser avec Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Utiliser avec Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Utiliser avec Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Utiliser avec Power BI](data-lake-store-power-bi.md)
 ### [Utiliser avec Data Catalog](data-lake-store-with-data-catalog.md)
@@ -61,14 +61,14 @@
 
 # Référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
-## [PowerShell](/powershell/module/azurerm.datalakestore)
+## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (gestion des comptes)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (gestion du système de fichiers)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
-## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
+## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/dls)
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)

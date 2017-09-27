@@ -11,7 +11,7 @@
       href: quick-create-cli.md
     - name: Créer une machine virtuelle - Portail
       href: quick-create-portal.md
-    - name: Créer une machine virtuelle - PowerShell
+    - name: Créer une machine virtuelle - Azure PowerShell
       href: quick-create-powershell.md
 - name: Didacticiels
   items:
@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9 – Sauvegarder les machines virtuelles
       href: tutorial-backup-vms.md
-    - name: 10 – Surveiller les machines virtuelles
+    - name: 10 - Surveiller et mettre à jour les machines virtuelles
       href: tutorial-monitoring.md
     - name: 11 – Gérer la sécurité des machines virtuelles
       href: tutorial-azure-security.md
@@ -53,7 +53,7 @@
   items:
     - name: Interface de ligne de commande Azure
       href: cli-samples.md
-    - name: PowerShell
+    - name: "Azure\_PowerShell"
       href: powershell-samples.md
 - name: Concepts
   items:
@@ -187,6 +187,8 @@
           href: manage-availability.md
         - name: Mise à l’échelle verticale
           href: vertical-scaling-automation.md
+        - name: Créer une machine virtuelle dans une zone de disponibilité
+          href: create-cli-availability-zone.md
     - name: Utiliser des outils d’automatisation
       items:
         - name: Ansible

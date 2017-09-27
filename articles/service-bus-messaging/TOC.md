@@ -60,13 +60,14 @@
 #### [Créer une règle d’autorisation pour les espaces de noms et les files d’attente](service-bus-resource-manager-namespace-auth-rule.md)
 #### [Créer des espaces de noms avec des rubriques, des abonnements et des règles](service-bus-resource-manager-namespace-topic-with-rule.md)
 #### 
-### [Utilisation de PowerShell pour approvisionner des entités](service-bus-manage-with-ps.md)
+### [Utilisation d’Azure PowerShell pour approvisionner des entités](service-bus-manage-with-ps.md)
 
 # Référence
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Exceptions](service-bus-messaging-exceptions.md)
 ## [Quotas](service-bus-quotas.md)

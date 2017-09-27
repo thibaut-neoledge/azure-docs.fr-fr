@@ -6,6 +6,10 @@
 ## [Ajouter la mise en cache pour améliorer les performances](api-management-howto-cache.md)
 ## [Forum Aux Questions](api-management-faq.md)
 # Procédures
+## Configurer un service APIM
+### [Créer une instance APIM](get-started-create-service-instance.md)
+### [Mettre à niveau et mettre à l’échelle](upgrade-and-scale.md)
+### [Configurer un domaine personnalisé](configure-custom-domain.md)
 ## Développer des API
 ### [Ajouter et publier un produit API](api-management-howto-add-products.md)
 ### [Ajouter des opérations](api-management-howto-add-operations.md)
@@ -51,7 +55,7 @@
 #### [Démarrage rapide](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Référence
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Stratégies](api-management-policies.md)

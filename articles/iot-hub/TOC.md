@@ -109,23 +109,24 @@
 ### Utiliser des travaux d’appareils pour mettre à jour le microprogramme des appareils
 #### [Serveur principal Node/appareil Node](iot-hub-node-node-firmware-update.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-firmware-update.md)
+#### [Serveur principal Java/appareil Java](iot-hub-java-java-firmware-update.md)
 ### Planifier et diffuser des travaux
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Gérer
 ### Créer un hub IoT 
-#### [Utiliser le portail](iot-hub-create-through-portal.md)
-#### [Utiliser PowerShell](iot-hub-create-using-powershell.md)
-#### [Utiliser l’interface de ligne de commande 2.0](iot-hub-create-using-cli.md)
+#### [Utiliser le portail Azure](iot-hub-create-through-portal.md)
+#### [Utilisation d'Azure PowerShell](iot-hub-create-using-powershell.md)
+#### [Utiliser l’interface de ligne de commande Microsoft Azure](iot-hub-create-using-cli.md)
 #### [Utiliser l’interface de ligne de commande](iot-hub-create-using-cli-nodejs.md)
 #### [Utiliser l’API REST](iot-hub-rm-rest.md)
-#### [Utiliser un modèle à partir de PowerShell](iot-hub-rm-template-powershell.md)
+#### [Utiliser un modèle à partir d’Azure PowerShell](iot-hub-rm-template-powershell.md)
 #### [Utiliser un modèle à partir de .NET](iot-hub-rm-template.md)
 ### Configurer le chargement de fichiers
-#### [Utiliser le portail](iot-hub-configure-file-upload.md)
-#### [Utiliser PowerShell](iot-hub-configure-file-upload-powershell.md)
-#### [Utiliser l’interface de ligne de commande 2.0](iot-hub-configure-file-upload-cli.md)
+#### [Utiliser le portail Azure](iot-hub-configure-file-upload.md)
+#### [Utilisation d'Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Utiliser l’interface de ligne de commande Microsoft Azure](iot-hub-configure-file-upload-cli.md)
 ### [Gestion en bloc des appareils IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Mesures d’utilisation](iot-hub-metrics.md)
 ### [Surveillance des opérations](iot-hub-operations-monitoring.md)

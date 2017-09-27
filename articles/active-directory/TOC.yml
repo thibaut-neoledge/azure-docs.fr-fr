@@ -31,10 +31,14 @@
       href: role-based-access-control-troubleshooting.md
     - name: Opérations du fournisseur de ressources
       href: role-based-access-control-resource-provider-operations.md
+- name: Privileged Identity Management (PIM) pour RBAC
+  href: pim-azure-resource.md
+- name: Accès conditionnel pour la gestion Azure
+  href: conditional-access-azure-management.md
 - name: Identité du service administré
   href: msi-overview.md
   items:
-    - name: Configurer MSI pour la machine virtuelle Windows
+    - name: Configurer MSI pour une machine virtuelle Azure
       items:
         - name: Avec le portail Azure
           href: msi-qs-configure-portal-windows-vm.md

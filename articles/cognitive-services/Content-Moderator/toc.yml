@@ -62,6 +62,10 @@
           href: Review-Tool-User-Guide/Workflows.md
         - name: Afficher le tableau de bord
           href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Didacticiels
+  items:
+    - name: Modération des publications Facebook
+      href: facebook-post-moderation.md
 - name: Informations de référence des API
   items:
     - name: Toutes les API
@@ -73,6 +77,6 @@
     - name: Kit de développement logiciel (SDK) Windows
       href: 'https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/'
     - name: Exemples
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services'
+      href: 'https://github.com/MicrosoftContentModerator'
     - name: Forum Aux Questions
       href: FAQs.md

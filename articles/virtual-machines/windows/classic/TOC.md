@@ -7,7 +7,7 @@
 ## [Conteneurs](../../virtual-machines-windows-containers.md)
 
 # Prise en main
-## [Créer une machine virtuelle à l’aide du portail](tutorial.md)
+## [Créer une machine virtuelle à l’aide du portail Azure](tutorial.md)
 ## [Se connecter à une machine virtuelle](connect-logon.md)
 ## [Installation d'Azure PowerShell](/powershell/azure/overview)
 ## [Installation de l’interface de ligne de commande Azure](../../../cli-install-nodejs.md)
@@ -85,7 +85,7 @@
 ### [Attacher un disque dur virtuel pour résoudre des problèmes de machine virtuelle](troubleshoot-recovery-disks-portal.md)
 
 # Référence
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Interface de ligne de commande Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

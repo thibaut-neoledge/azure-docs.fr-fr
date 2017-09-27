@@ -1,0 +1,31 @@
+- name: Vue d'ensemble
+  items:
+    - name: Présentation de la stratégie Azure
+      href: azure-policy-introduction.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Attribuer une stratégie - Portail
+      href: assign-policy-definition.md
+    - name: Attribuer une stratégie - PowerShell
+      href: assign-policy-definition-ps.md
+    - name: Attribuer une stratégie - Azure CLI
+      href: assign-policy-definition-cli.md
+- name: Didacticiels
+  items:
+    - name: Créer et gérer une stratégie Azure
+      href: create-manage-policy.md
+- name: Référence
+  items:
+    - name: Interface de ligne de commande Azure
+      href: 'https://docs.microsoft.com/cli/azure/policy?view=azure-cli-latest'
+    - name: "Azure\_PowerShell"
+      href: 'https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.3.1'
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/details/azure-policy/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'

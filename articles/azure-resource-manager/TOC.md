@@ -12,7 +12,7 @@
 
 # Exemples
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## PowerShell
+## Azure PowerShell
 ### [Déployer un modèle](resource-manager-samples-powershell-deploy.md)
 
 ## Interface de ligne de commande Azure
@@ -35,7 +35,7 @@
 
 
 ## Déployer
-### PowerShell
+### Azure PowerShell
 #### [Déployer un modèle](resource-group-template-deploy.md)
 #### [Déployer un modèle privé avec un jeton SAS](resource-manager-powershell-sas-token.md)
 #### [Exporter un modèle et le redéployer](resource-manager-export-template-powershell.md)
@@ -43,7 +43,7 @@
 #### [Déployer un modèle](resource-group-template-deploy-cli.md)
 #### [Déployer un modèle privé avec un jeton SAS](resource-manager-cli-sas-token.md)
 #### [Exporter un modèle et le redéployer](resource-manager-export-template-cli.md)
-### Portail
+### Portail Azure
 #### [Déploiement des ressources](resource-group-template-deploy-portal.md)
 #### [Exportation du modèle](resource-manager-export-template.md)
 ### [API REST](resource-group-template-deploy-rest.md)
@@ -52,9 +52,9 @@
 ### [Passage de valeurs sécurisées lors du déploiement](resource-manager-keyvault-parameter.md)
 
 ## Gérer
-### [PowerShell](powershell-azure-resource-manager.md)
+### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
-### [Portail](resource-group-portal.md)
+### [Portail Azure](resource-group-portal.md)
 ### [API REST](resource-manager-rest-api.md)
 ### [Utiliser des balises pour organiser les ressources](resource-group-using-tags.md)
 ### [Déplacer les ressources vers un nouveau groupe ou un nouvel abonnement](resource-group-move-resources.md)
@@ -62,16 +62,16 @@
 
 ## Contrôler l’accès
 ### Créer un principal du service
-#### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure PowerShell](resource-group-authenticate-service-principal.md)
+#### [Interface de ligne de commande Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
-#### [Portail](resource-group-create-service-principal-portal.md)
+#### [Portail Azure](resource-group-create-service-principal-portal.md)
 ### [API d’authentification pour l’accès aux abonnements](resource-manager-api-authentication.md)
 ### [Verrouiller des ressources](resource-group-lock-resources.md)
 
 ## Définir des stratégies de ressources
 ### [Que sont les stratégies de ressources ?](resource-manager-policy.md)
-### [Utiliser le portail pour attribuer la stratégie](resource-manager-policy-portal.md)
+### [Utiliser le portail Azure pour attribuer la stratégie](resource-manager-policy-portal.md)
 ### [Utiliser des scripts pour attribuer la stratégie](resource-manager-policy-create-assign.md)
 ### Exemples
 #### [Balises](resource-manager-policy-tags.md)

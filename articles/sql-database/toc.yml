@@ -11,7 +11,7 @@
       href: sql-database-get-started-portal.md
     - name: Créer une base de données - Interface de ligne de commande Azure
       href: sql-database-get-started-cli.md
-    - name: Créer une base de données - PowerShell
+    - name: Créer une base de données - Azure PowerShell
       href: sql-database-get-started-powershell.md
     - name: Connexion et requête
       items:
@@ -51,7 +51,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
     - name: Interface de ligne de commande Azure
       href: sql-database-cli-samples.md
-    - name: PowerShell
+    - name: "Azure\_PowerShell"
       href: sql-database-powershell-samples.md
 - name: Concepts
   items:
@@ -71,6 +71,8 @@
           href: sql-database-connectivity-architecture.md
         - name: Règles de pare-feu
           href: sql-database-firewall-configure.md
+        - name: Règles de réseau virtuel de pare-feu
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: DTU et eDTU
           href: sql-database-what-is-a-dtu.md
         - name: Référence DTU
@@ -95,6 +97,8 @@
           href: sql-database-elastic-transactions-overview.md
         - name: Tâches élastiques
           href: sql-database-elastic-jobs-overview.md
+        - name: Évaluation des vulnérabilités SQL
+          href: sql-vulnerability-assessment.md
         - name: Fonctionnalités communes de SQL Server
           href: sql-database-features.md
     - name: Sécurité
@@ -155,6 +159,10 @@
           href: sql-database-advisor.md
         - name: Réglage automatique
           href: sql-database-automatic-tuning.md
+        - name: Intelligent Insights
+          href: sql-database-intelligent-insights.md
+        - name: Journal de diagnostic Intelligent Insights
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: Réglage manuel
           href: sql-database-performance-guidance.md
         - name: Exploiter le magasin de requêtes
@@ -229,7 +237,7 @@
           href: sql-database-elastic-jobs-service-installation.md
         - name: Créer un travail - Portail
           href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Créer un travail - PowerShell
+        - name: Créer un travail - Azure PowerShell
           href: sql-database-elastic-jobs-powershell.md
         - name: Créer un travail - Échantillon d’application
           href: sql-database-elastic-jobs-getting-started.md
@@ -255,12 +263,14 @@
           href: sql-database-dynamic-data-masking-get-started-portal.md
         - name: Configuration de l’authentification multifacteur
           href: sql-database-ssms-mfa-authentication-configure.md
+        - name: Règles de réseau virtuel par PowerShell
+          href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Continuité de l’activité
       items:
         - name: Chargement des données avec BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Chargement des données avec ADF
-          href: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
         - name: Synchroniser les données
           href: sql-database-get-started-sql-data-sync.md
     - name: Surveiller et régler
@@ -273,6 +283,8 @@
           href: sql-database-advisor-portal.md
         - name: Activer le réglage automatique
           href: sql-database-automatic-tuning-enable.md
+        - name: Résolution des problèmes de performances Intelligent Insights
+          href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: Utiliser des DMV pour surveiller les performances
           href: sql-database-monitoring-with-dmvs.md
         - name: Créez des alertes
@@ -335,7 +347,7 @@
           href: sql-database-connect-excel.md
 - name: Référence
   items:
-    - name: PowerShell
+    - name: "Azure\_PowerShell"
       href: '/powershell/module/azurerm.sql/#sql'
     - name: PowerShell (base de données élastique)
       href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
