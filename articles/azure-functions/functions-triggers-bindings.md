@@ -349,7 +349,7 @@ Par exemple, le *function.json* suivant utilise une propriété appelée `BlobNa
       "name": "info",
       "type": "httpTrigger",
       "direction": "in",
-      "webHookType": "genericJson",
+      "webHookType": "genericJson"
     },
     {
       "name": "blobContents",

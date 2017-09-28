@@ -114,19 +114,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
-    | `https://<instancename>.sandboxcerner.com/session-api/protocol/saml2/metadata` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
-    | `https://sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
-    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
+    
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL en respectant les formats suivants : 
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
-    | `https://cernercentral.com/<instasncename>` |
-    | `https://sandboxcernercentral.com/<instancename>` |
-    | `https://sandboxcernercentral.com/<instancename>` |
-    | `https://<subdomain>.sandboxcernercentral.com/<instancename>` |
+    | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
+    
 
     > [!NOTE] 
     > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations).
