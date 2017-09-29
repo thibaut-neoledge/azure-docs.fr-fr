@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/05/2017
+ms.date: 09/20/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 357a25a665894c86ddb0f93beeb4dd59d8837489
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 53bfbd602c2c395d510529eacd5b8075b20437ab
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="performance-recommendations"></a>Recommandations en matière de performances
 
 Azure SQL Database apprend et s’adapte à votre application afin de vous fournir des recommandations personnalisées qui vous permettront d’optimiser les performances de vos bases de données SQL. Vos performances sont évaluées en permanence grâce à l’analyse de votre historique d’utilisation de SQL Database. Les recommandations fournies se fondent sur un modèle unique de charge de travail d’une base de données, et aident à améliorer les performances de la base de données.
 
-> [!NOTE]
-> Il est conseillé d’utiliser les recommandations en activant l’option de réglage automatique sur votre base de données. Pour en savoir plus, consultez la page [Réglage automatique](sql-database-automatic-tuning.md).
+> [!TIP]
+> Le [Paramétrage automatique](sql-database-automatic-tuning.md) est la méthode recommandée pour le réglage des performances. [Intelligent Insights](sql-database-intelligent-insights.md) est la méthode recommandée pour l’analyse des performances. 
 >
 
 ## <a name="create-index-recommendations"></a>Recommandations relatives à la création d’un index
@@ -77,12 +77,10 @@ Les recommandations « Résoudre les problèmes de schéma » s’affichent lors
 ## <a name="next-steps"></a>Étapes suivantes
 Surveillez vos recommandations et continuez à les appliquer pour affiner les performances. Les charges de travail d’une base de données sont dynamiques et évoluent en permanence. SQL Database Advisor continue à surveiller et à fournir des recommandations pouvant potentiellement améliorer les performances de votre base de données. 
 
+* Consultez [Réglage automatique de Microsoft Azure SQL Database](sql-database-automatic-tuning.md) pour le réglage automatique des index de base de données et les plans d’exécution de requêtes.
+* Consultez [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) pour la surveillance automatique des performances de base de données avec des diagnostics automatiques et l’analyse des causes racine des problèmes de performance.
 * Consultez la page [Performance recommendations in the Azure portal](sql-database-advisor-portal.md) (Recommandations en matière de performances dans le portail Azure) afin d’obtenir des instructions sur l’utilisation des recommandations relatives aux performances dans le portail Azure.
 * Pour connaître l’impact de vos principales requêtes sur les performances, consultez [Query Performance Insights](sql-database-query-performance.md) (Analyse des performances des requêtes).
 
-## <a name="additional-resources"></a>Ressources supplémentaires
-* [Magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md)
 
 
