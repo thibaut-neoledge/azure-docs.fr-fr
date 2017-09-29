@@ -9,21 +9,23 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: f246ee8aaecf3a398182debdea07832c75c1bd9c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="azure-service-fabric-cli"></a>Interface de ligne de commande Azure Service Fabric
 
 L’interface de ligne de commande Azure Service Fabric est un utilitaire de ligne de commande pour interagir avec des entités Service Fabric, et les gérer. L’interface de ligne de commande Service Fabric peut être utilisée avec des clusters Windows ou Linux. L’interface de ligne de commande Service Fabric s’exécute sur toute plateforme prenant en charge Python.
 
-## <a name="prerequisites"></a>Composants requis
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
+
+## <a name="prerequisites"></a>Prérequis
 
 Avant l’installation, vérifiez que Python et pip sont installés dans votre environnement. Pour plus d’informations, consultez la [documentation de démarrage rapide de pip](https://pip.pypa.io/en/latest/quickstart/) et la [documentation d’installation officielle de Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-Bien que les Python 2.7 et 3.6 soient tous deux pris en charge, nous vous recommandons d’utiliser Python 3.6. La section suivante couvre l’installation de tous les composants requis et de l’interface de ligne de commande.
+Bien que les Python 2.7 et 3.6 soient tous deux pris en charge, nous vous recommandons d’utiliser Python 3.6. La section suivante couvre l’installation de tous les prérequis et de l’interface de ligne de commande.
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>Installer pip, Python et l’interface de ligne de commande Service Fabric
 
@@ -55,6 +57,13 @@ pip install sfctl
 sfctl -h
 ```
 
+Si vous rencontrez une erreur indiquant que `sfctl` est introuvable, exécutez les commandes suivantes :
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 ### <a name="ubuntu"></a>Ubuntu
 
 Pour Ubuntu 16.04 Desktop, vous pouvez installer Python 3.6 à l’aide d’une archive de package personnel tiers (PPA).
@@ -75,6 +84,13 @@ python3.6 -m pip install sfctl
 sfctl -h
 ```
 
+Si vous rencontrez une erreur indiquant que `sfctl` est introuvable, exécutez les commandes suivantes :
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 Ces étapes n’affectent pas l’installation du système de Python 3.5 et 2.7. N’essayez pas de modifier ces installations, à moins de connaître Ubuntu.
 
 ### <a name="macos"></a>MacOS
@@ -92,6 +108,15 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
+
+
+Si vous rencontrez une erreur indiquant que `sfctl` est introuvable, exécutez les commandes suivantes :
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 
 Ces étapes ne modifient pas l’installation système de Python 2.7.
 
@@ -120,10 +145,10 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 Le point de terminaison de cluster doit inclure le préfixe `http` ou `https`. Il doit inclure le port pour la passerelle HTTP. Le port et l’adresse sont identiques à l’URL de Service Fabric Explorer.
 
-Pour les clusters sécurisés avec un certificat, vous pouvez spécifier un certificat codé PEM. Le certificat peut être spécifié en tant que fichier unique ou en tant que certificat et paire de clé.
+Pour les clusters sécurisés avec un certificat, vous pouvez spécifier un certificat codé PEM. Le certificat peut être spécifié en tant que fichier unique ou en tant que certificat et paire de clé. S’il s’agit d’un certificat auto-signé qui n’est pas signé par une autorité de certification, vous pouvez passer l’option `--no-verify` pour ignorer la vérification de l’autorité de certification.
 
 ```azurecli
-sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 Pour plus d’informations, consultez [Se connecter à un cluster sécurisé](service-fabric-connect-to-secure-cluster.md).
@@ -175,6 +200,12 @@ L’interface de ligne de commande Service Fabric prend en charge les certificat
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
+De même, pour convertir un fichier PEM en fichier PFX, vous pouvez utiliser la commande suivante (aucun mot de passe n’est fourni ici) :
+
+```bash
+openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
+```
+
 Pour plus d’informations, consultez la [documentation OpenSSL](https://www.openssl.org/docs/).
 
 ### <a name="connection-problems"></a>Problèmes de connexion
@@ -202,6 +233,16 @@ Voici un autre exemple :
 ```azurecli
 sfctl application create -h
 ```
+
+## <a name="updating-the-service-fabric-cli"></a>Mettre à jour l’interface de ligne de commande Service Fabric 
+
+Pour mettre à jour l’interface de ligne de commande Service Fabric, exécutez les commandes suivantes (remplacez `pip` par `pip3` selon ce que vous avez choisi lors de l’installation initiale) :
+
+```bash
+pip uninstall sfctl 
+pip install sfctl 
+```
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
