@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f23f71cc01eccf17d36885f786de9a7517606803
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Création d’une application web avec le Cache Redis
@@ -71,7 +70,7 @@ Si vous utilisez Visual Studio 2013, vous pouvez [télécharger la dernière ver
 
     Vérifiez que la valeur **Aucune authentification** est spécifiée dans les paramètres **Authentification**. Selon votre version de Visual Studio, la valeur par défaut peut être différente. Pour la modifier, cliquez sur **Modifier l’authentification** et sélectionnez **Aucune authentification**.
 
-    Si vous poursuivez la procédure avec Visual Studio 2015, décochez la case **Héberger dans le cloud**. Vous [approvisionnerez les ressources Azure](#provision-the-azure-resources) et [publierez l’application sur Azure](#publish-the-application-to-azure) au cours des étapes suivantes du didacticiel. Pour obtenir un exemple d’approvisionnement d’application web App Service à partir de Visual Studio en laissant la case à cocher **Héberger sur le cloud** activée, consultez [Prise en main de Web Apps dans Azure App Service à l’aide d’ASP.NET et Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
+    Si vous poursuivez la procédure avec Visual Studio 2015, décochez la case **Héberger dans le cloud**. Vous [approvisionnerez les ressources Azure](#provision-the-azure-resources) et [publierez l’application sur Azure](#publish-the-application-to-azure) au cours des étapes suivantes du didacticiel. Pour obtenir un exemple d’approvisionnement d’application web App Service à partir de Visual Studio en laissant la case à cocher **Héberger sur le cloud** activée, consultez [Prise en main de Web Apps dans Azure App Service à l’aide d’ASP.NET et Visual Studio](../app-service/app-service-web-get-started-dotnet.md).
    
     ![Sélectionner un modèle de projet][cache-select-template]
 4. Cliquez sur **OK** pour créer le projet.
@@ -688,7 +687,7 @@ Le code de génération de modèles automatique qui a été généré dans le ca
     ```
 
 
-1. Faites défiler le fichier **Index.cshtml`tr` vers le bas pour visualiser la fin du fichier, puis ajoutez l’élément**  suivant, de sorte qu’il représente la dernière ligne de la dernière table du fichier.
+1. Faites défiler le fichier **Index.cshtml`tr` vers le bas pour visualiser la fin du fichier, puis ajoutez l’élément ** suivant, de sorte qu’il représente la dernière ligne de la dernière table du fichier.
    
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
@@ -827,7 +826,7 @@ Une fois que vous avez sélectionné ou créé le cache à utiliser, accédez au
 * Pour plus d’exemples de création d’une application web ASP.NET dans App Service, voir [Création d’une application web ASP.NET dans Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) dans la [démonstration](https://github.com/Microsoft/HealthClinic.biz) de 2015 Connect pour [HealthClinic.biz](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/).
   * Pour d’autres démarrages rapides à partir de la démonstration pour HealthClinic.biz, consultez [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)(Démarrages rapides avec les outils de développement Azure).
 * Apprenez-en plus sur l’approche d’Entity Framework [Code First pour une nouvelle base de données](https://msdn.microsoft.com/data/jj193542) utilisée dans ce didacticiel.
-* Apprenez-en davantage sur les [applications web dans Azure App Service](../app-service-web/app-service-web-overview.md).
+* Apprenez-en davantage sur les [applications web dans Azure App Service](../app-service/app-service-web-overview.md).
 * Découvrez comment [surveiller](cache-how-to-monitor.md) votre cache dans le Portail Azure.
 * Explorez les fonctionnalités Premium du Cache Redis Azure
   

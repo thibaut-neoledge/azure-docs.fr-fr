@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 09/20/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 18ae6a970455646b7a25170f5abefa52a98b0ba2
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Contrôles d’application adaptative dans Azure Security Center (version préliminaire)
@@ -33,6 +33,9 @@ Les contrôles d’application adaptative vous aident à contrôler les applicat
 - Empêcher l’exécution des applications obsolètes et non prises en charge.
 - Bloquer des outils logiciels spécifiques qui ne sont pas autorisés dans votre organisation.
 - Autoriser le service informatique à contrôler l’accès aux données sensibles en utilisant l’application.
+
+> [!NOTE]
+> Les contrôles d’application adaptative sont disponibles pour les clients Azure Security Center Standard en tant que version préliminaire publique limitée. [Envoyez-nous](mailto:ASC_appcontrol@microsoft.com) un e-mail avec vos ID d’abonnement pour joindre la version préliminaire.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Comment activer les contrôles d’application adaptative ?
 Les contrôles d’application adaptative vous aident à définir un ensemble d’applications autorisées à s’exécuter sur des groupes de ressources configurés. Cette fonctionnalité est disponible uniquement pour les machines Windows (toutes les versions, Classic ou Azure Resource Manager). Suivez les étapes ci-dessous pour configurer la mise en liste verte des applications dans Security Center :
@@ -144,10 +147,6 @@ Security Center ne recommande la mise en liste verte d’application que pour le
 La liste contient :
 - **NOM** : le nom de l’abonnement et des groupes de ressources.
 - **MACHINES VIRTUELLES** : le nombre de machines virtuelles dans le groupe de ressources.
-
-## <a name="preview-registration"></a>Inscription de la version préliminaire
-
-Les contrôles d’application adaptative sont disponibles pour les clients Azure Security Center Standard en tant que version préliminaire publique limitée. [Envoyez-nous](mailto:ASC_appcontrol@microsoft.com) un e-mail avec vos ID d’abonnement pour joindre la version préliminaire.
 
 ## <a name="see-also"></a>Voir aussi
 Dans ce document, vous avez découvert comment utiliser les contrôles d’application adaptative dans Azure Security Center afin d’inclure dans une liste verte des applications s’exécutant sur les machines virtuelles Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :

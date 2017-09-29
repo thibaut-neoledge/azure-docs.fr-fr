@@ -43,21 +43,23 @@ Packer s’authentifie auprès d’Azure à l’aide d’un principal de service
 Créez un principal de service avec la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) et affichez les informations d’identification nécessaires à Packer :
 
 ```azurecli
-az ad sp create-for-rbac --query [appId,password,tenant]
+az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
 ```
 
 Voici un exemple de sortie issue des commandes précédentes :
 
 ```azurecli
-"f5b6a5cf-fbdf-4a9f-b3b8-3c2cd00225a4",
-"0e760437-bf34-4aad-9f8d-870be799c55d",
-"72f988bf-86f1-41af-91ab-2d7cd011db47"
+{
+    "client_id": "f5b6a5cf-fbdf-4a9f-b3b8-3c2cd00225a4",
+    "client_secret": "0e760437-bf34-4aad-9f8d-870be799c55d",
+    "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
 ```
 
 Pour s’authentifier sur Azure, vous devez également obtenir votre ID d’abonnement Azure avec [az account show](/cli/azure/account#show) :
 
 ```azurecli
-az account show --query [id] --output tsv
+az account show --query "{ subscription_id: id }"
 ```
 
 Vous utiliserez la sortie de ces deux commandes à l’étape suivante.

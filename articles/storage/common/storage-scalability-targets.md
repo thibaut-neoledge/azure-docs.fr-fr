@@ -3,7 +3,7 @@ title: "Objectifs de performance et d’extensibilité Azure Storage | Microsof
 description: "Obtenez plus d’informations sur les objectifs d’extensibilité et de performances pour Azure Storage, y compris la capacité, le taux de demande et la bande passante entrante et sortante pour les comptes de stockage standard et premium. Découvrez les objectifs de performances des partitions dans chacun des services Azure Storage."
 services: storage
 documentationcenter: na
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 47a1d2b87269d40716b3dae02276207060b41c24

@@ -1,4 +1,4 @@
-* [Mise à l'échelle d'Azure App Service](../articles/app-service-web/web-sites-scale.md)
+* [Mise à l'échelle d'Azure App Service](../articles/app-service/web-sites-scale.md)
   
   * Présentation de la fiabilité et la redondance
   * Applications avec état et sans état

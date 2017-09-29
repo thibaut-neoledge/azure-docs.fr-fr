@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b590fb06a3dba8aec66a380217269e1ca39bb5e7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Didacticiel : Opérations de développement avec le portail Azure
@@ -264,7 +264,7 @@ Ce didacticiel a présenté succinctement la puissance de la plateforme Azure, q
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Azure Resource Manager est important pour permettre les opérations de développement sur la plateforme Azure.  Pour en savoir plus, consultez la page [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-* Pour en savoir plus sur le déploiement d’Azure App Service, consultez la page [Déploiement de votre application dans Azure App Service](../app-service-web/web-sites-deploy.md)
+* Pour en savoir plus sur le déploiement d’Azure App Service, consultez la page [Déploiement de votre application dans Azure App Service](../app-service/app-service-deploy-local-git.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
 [image2]: ./media/tutorial-azureportal-devops/image2.png

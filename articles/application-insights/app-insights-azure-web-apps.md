@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 110a4d26e90f46e823a3e1c9ebece3360fbdf0c9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="monitor-azure-web-app-performance"></a>Surveillance des performances d'application web Azure
-Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer la surveillance des performances d’application pour vos [applications web Azure](../app-service-web/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumente votre application afin qu’elle envoie des données de télémétrie concernant ses activités au service Application Insights, où elles sont stockées et analysées. Les graphiques de mesure et les outils de recherche peuvent alors être utilisés pour aider à diagnostiquer les problèmes, améliorer les performances et évaluer l’utilisation.
+Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer la surveillance des performances d’application pour vos [applications web Azure](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumente votre application afin qu’elle envoie des données de télémétrie concernant ses activités au service Application Insights, où elles sont stockées et analysées. Les graphiques de mesure et les outils de recherche peuvent alors être utilisés pour aider à diagnostiquer les problèmes, améliorer les performances et évaluer l’utilisation.
 
 ## <a name="run-time-or-build-time"></a>En cours d’exécution ou en cours de création
 Vous pouvez configurer la surveillance par l’instrumentation de l’application de deux manières :

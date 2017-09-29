@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 366922a083b9d18ef50e04eb8b459d2725315e1e
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d15c30dad9fb4bbe9082d6a3c72cd20ed42bbc3e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Application .NET locale/de cloud hybride avec Azure WCF Relay
@@ -232,7 +231,7 @@ Dans cette section, vous allez générer une application ASP.NET simple qui affi
     ![][18]
 
 7. De retour dans la boîte de dialogue **Nouvelle application web ASP.NET**, cliquez sur **OK** pour créer l’application MVC.
-8. Vous devez maintenant configurer les ressources Azure d’une nouvelle application web. Suivez les étapes de [publication sur Azure décrites dans cet article](../app-service-web/app-service-web-get-started-dotnet.md). Ensuite, revenez à ce didacticiel et passez à l’étape suivante.
+8. Vous devez maintenant configurer les ressources Azure d’une nouvelle application web. Suivez les étapes de [publication sur Azure décrites dans cet article](../app-service/app-service-web-get-started-dotnet.md). Ensuite, revenez à ce didacticiel et passez à l’étape suivante.
 10. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Modèles**, puis cliquez sur **Ajouter** et sur **Classe**. Dans la zone **Nom**, saisissez le nom **Product.cs**. Cliquez ensuite sur **Add**.
 
     ![][17]

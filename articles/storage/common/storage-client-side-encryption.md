@@ -3,7 +3,7 @@ title: "Chiffrement côté client avec .NET pour Microsoft Azure Storage | Micro
 description: "La bibliothèque cliente de stockage Azure pour .NET prend en charge le chiffrement côté client et l’intégration au coffre de clés Azure pour assurer une sécurité maximale à vos applications Azure Storage."
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: becfccca-510a-479e-a798-2044becd9a64
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 634da215e29ede4e90f7edbef43a3be853165349

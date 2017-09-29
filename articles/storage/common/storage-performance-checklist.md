@@ -3,7 +3,7 @@ title: "Liste de contrôle des performances et de l’extensibilité d’Azure S
 description: "Une liste des pratiques éprouvées à utiliser avec Azure Storage dans le développement d’applications performantes."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: d2683bf9a2833485467bf2b4edff527876102f7d
