@@ -1,6 +1,6 @@
 ---
 title: "Découverte : Protéger les machines virtuelles Azure avec un coffre Recovery Services | Microsoft Docs"
-description: "Protégez les machines virtuelles Azure avec un coffre Recovery Services. Utilisez les sauvegardes des machines virtuelles déployées à l’aide de Resource Manager, des machines virtuelles déployées à l’aide du modèle Classic et des machines virtuelles, machines virtuelles chiffrées et machines virtuelles sur disques gérés du service de stockage Premium pour protéger vos données. Créez et enregistrez un coffre Recovery Services. Enregistrez des machines virtuelles, créez une stratégie et protégez des machines virtuelles dans Azure."
+description: "Protégez les machines virtuelles Azure avec un coffre Recovery Services. Utilisez les sauvegardes des machines virtuelles déployées à l’aide de Resource Manager, des machines virtuelles déployées à l’aide du modèle classique, des machines virtuelles de stockage Premium, des machines virtuelles chiffrées et des machines virtuelles sur Managed Disks pour protéger vos données. Créez et enregistrez un coffre Recovery Services. Enregistrez des machines virtuelles, créez une stratégie et protégez des machines virtuelles dans Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/15/2017
+ms.date: 09/04/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 696f8025d0d7a65f59be650fac0a6e0e68f1a2ca
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 639f008eea61b973b9d32dc734d42d5c4e93e924
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Sauvegarde de machines virtuelles Azure dans des coffres Recovery Services
@@ -32,15 +32,15 @@ ms.lasthandoff: 08/21/2017
 
 Ce didacticiel détaille les procédures de création d’un coffre Recovery Services et de sauvegarde d’une machine virtuelle Azure. Les coffres Recovery Services protègent :
 
-* Machines virtuelles déployées à l’aide de Resource Manager
-* les machines virtuelles Classic,
-* les machines virtuelles de stockage standard,
-* les machines virtuelles Premium Storage.
-* Machines virtuelles exécutées sur des disques gérés
-* les machines virtuelles chiffrées à l’aide d’Azure Disk Encryption, avec des clés BEK et KEK
+* Les machines virtuelles déployées à l’aide de Resource Manager
+* Les machines virtuelles classiques
+* Les machines virtuelles de stockage standard
+* Les machines virtuelles de stockage Premium
+* Les machines virtuelles exécutées sur Managed Disks
+* Les machines virtuelles chiffrées à l’aide d’Azure Disk Encryption
 * Sauvegarde cohérente des applications des machines virtuelles Windows à l’aide de machines virtuelles VSS et Linux avec des scripts pré et post-instantané personnalisés
 
-Pour plus d’informations sur la protection des machines virtuelles Stockage Premium, consultez la section [Sauvegarder et restaurer des machines virtuelles Stockage Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Pour plus d’informations sur la prise en charge des machines virtuelles sur disques gérés, consultez la section [Back up and restore VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) (Sauvegarder et restaurer des machines virtuelles sur des disques gérés). Pour plus d’informations sur l’infrastructure pré et post-script pour la sauvegarde de machine virtuelle Linux, consultez l’article [Sauvegarde de machine virtuelle Linux cohérente dans l’application à l’aide de pré/post-scripts] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+Pour plus d’informations sur la protection des machines virtuelles Stockage Premium, consultez la section [Sauvegarder et restaurer des machines virtuelles Stockage Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Pour plus d’informations sur la prise en charge des machines virtuelles sur disques managés, consultez [Sauvegarder et restaurer des machines virtuelles sur disques managés](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Pour plus d’informations sur l’infrastructure pré et post-script pour la sauvegarde de machine virtuelle Linux, consultez l’article [Sauvegarde de machine virtuelle Linux cohérente dans l’application à l’aide de pré/post-scripts] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
 Pour plus d’informations sur ce que vous pouvez ou non sauvegarder, consultez [cette section](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
@@ -183,7 +183,7 @@ Pour créer un archivage de Recovery Services :
 Maintenant que vous avez créé votre archivage, découvrez comment définir la réplication du stockage.
 
 ### <a name="set-storage-replication"></a>Définir la réplication du stockage
-L’option de réplication du stockage vous permet de choisir entre stockage géo-redondant et stockage localement redondant. Par défaut, votre archivage utilise un stockage géo-redondant. Si le coffre Recovery Services est votre sauvegarde principale, laissez l’option de réplication de stockage définie sur le stockage géoredondant. Choisissez Stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage [géo-redondant](../storage/common/storage-redundancy.md#geo-redundant-storage) et [localement redondant](../storage/common/storage-redundancy.md#locally-redundant-storage), consultez l’article [Réplication Azure Storage](../storage/common/storage-redundancy.md).
+L’option de réplication du stockage vous permet de choisir entre stockage géo-redondant et stockage localement redondant. Par défaut, votre archivage utilise un stockage géo-redondant. Si le coffre Recovery Services est votre sauvegarde principale, laissez l’option de réplication de stockage définie sur le stockage géoredondant. Choisissez Stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage [géoredondant](../storage/common/storage-redundancy.md#geo-redundant-storage) et [localement redondant](../storage/common/storage-redundancy.md#locally-redundant-storage), consultez [Réplication Stockage Azure](../storage/common/storage-redundancy.md).
 
 Pour modifier le paramètre de réplication du stockage :
 
