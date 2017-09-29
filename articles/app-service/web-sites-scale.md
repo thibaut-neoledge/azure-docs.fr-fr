@@ -15,18 +15,23 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: c7989c3639e0fe3fd1f59dca98e5614f412e9593
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 248b96cc97367ca2cb3fd82c9824d43dfee43c0a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="scale-up-an-app-in-azure"></a>Montée en puissance d’une application dans Azure
+
+> [!NOTE]
+> Le nouveau niveau **PremiumV2** offre des processeurs plus rapides, un stockage SSD et le double de ratio mémoire-cœur en comparaison des niveaux tarifaires précédents. Pour savoir comment monter en puissance jusqu’au niveau **PremiumV2**, voir [Configurer le niveau PremiumV2 pour App Service](app-service-configure-premium-tier.md).
+>
+
 Cet article décrit la mise à l’échelle d’une application web dans Azure App Service. Il existe deux workflows de mise à l’échelle : montée en puissance et augmentation de la taille des instances. Cet article décrit le workflow de montée en puissance.
 
 * [Montée en puissance](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): bénéficiez d’un surcroît de capacité d’UC, de mémoire et d’espace disque, ainsi que de fonctionnalités supplémentaires, comme des machines virtuelles dédiées, des domaines et des certificats personnalisés, des emplacements intermédiaires, la mise à l’échelle automatique, et bien davantage. Pour monter en puissance en modifiant le niveau tarifaire du plan App Service auquel appartient votre application.
 * [Augmentation de la taille des instances](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): augmentez le nombre d’instances de machine virtuelle qui exécutent votre application.
-  Ce nombre peut atteindre 20 instances, en fonction de votre niveau tarifaire. [d’environnements App Service](environment/intro.md) au niveau **Premium** tier will further au niveaucrease your scale-out count to 50 au niveaustances. Pour plus d’informations sur l’augmentation de la taille des instances, voir [Mise à l’échelle manuelle ou automatique du nombre d’instances](../monitoring-and-diagnostics/insights-how-to-scale.md). Vous y trouverez comment utiliser la mise à l’échelle automatique, qui permet de mettre à l’échelle le nombre d’instances automatiquement en fonction des planifications et des règles prédéfinies.
+  Ce nombre peut atteindre 20 instances, en fonction de votre niveau tarifaire. La solution [Environnements App Service](environment/intro.md) au niveau **Isolé** augmente votre capacité de montée en puissance parallèle à 100 instances. Pour plus d’informations sur l’augmentation de la taille des instances, voir [Mise à l’échelle manuelle ou automatique du nombre d’instances](../monitoring-and-diagnostics/insights-how-to-scale.md). Vous y trouverez comment utiliser la mise à l’échelle automatique, qui permet de mettre à l’échelle le nombre d’instances automatiquement en fonction des planifications et des règles prédéfinies.
 
 Ces paramètres de mise à l’échelle sont applicables en quelques secondes et affectent toutes les applications de votre [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 Ils ne nécessitent pas de modifier votre code ou de redéployer votre application.
@@ -43,7 +48,7 @@ Pour plus d’informations sur la tarification et les fonctionnalités de chaque
 
 ## <a name="scale-up-your-pricing-tier"></a>Montée en puissance de votre niveau de tarification
 1. Dans votre navigateur, ouvrez le [portail Azure][portal].
-2. Dans le panneau de votre application, cliquez sur **Tous les paramètres**, puis sur **Monter en puissance**.
+2. Dans la page de votre application App Service, cliquez sur **Tous les paramètres**, puis sur **Monter en puissance**.
    
     ![Accédez à la montée en puissance pour votre application Azure.][ChooseWHP]
 3. Choisissez votre niveau, puis cliquez sur **Sélectionner**.
@@ -53,14 +58,14 @@ Pour plus d’informations sur la tarification et les fonctionnalités de chaque
 <a name="ScalingSQLServer"></a>
 
 ## <a name="scale-related-resources"></a>Mettre à l’échelle des ressources associées
-Si votre application dépend d’autres services, tels que Azure SQL Database ou Azure Storage, vous pouvez également faire monter en puissance ces ressources selon vos besoins. Ces ressources ne sont pas mises à l’échelle avec le plan App Service et doivent être mises à l’échelle séparément.
+Si votre application dépend d’autres services, tels qu’Azure SQL Database ou Stockage Microsoft Azure, vous pouvez faire monter en puissance ces ressources séparément. Ces ressources ne sont pas gérées par le plan App Service.
 
 1. Dans **Essentials**, cliquez sur le lien **Groupe de ressources**.
    
     ![Montée en puissance des ressources connexes de votre application Azure](./media/web-sites-scale/RGEssentialsLink.png)
-2. Dans la partie **Résumé** du panneau **Groupe de ressources**, cliquez sur une ressource à mettre à l’échelle. La capture d’écran ci-après illustre une ressource Base de données SQL et une ressource Azure Storage.
+2. Dans la partie **Résumé** de la page **Groupe de ressources**, cliquez sur une ressource à mettre à l’échelle. La capture d’écran ci-après illustre une ressource Base de données SQL et une ressource Azure Storage.
    
-    ![Accédez au panneau du groupe de ressources pour activer la montée en puissance de votre application Azure](./media/web-sites-scale/ResourceGroup.png)
+    ![Accéder à la page du groupe de ressources pour activer la montée en puissance de votre application Azure](./media/web-sites-scale/ResourceGroup.png)
 3. Pour une ressource Base de données SQL, cliquez sur **Paramètres** > **Niveau tarifaire** pour mettre à l’échelle le niveau tarifaire.
    
     ![Montée en puissance de la base de données SQL principale pour votre application Azure](./media/web-sites-scale/ScaleDatabase.png)
@@ -71,23 +76,12 @@ Si votre application dépend d’autres services, tels que Azure SQL Database ou
    
     ![Montée en puissance du compte de stockage Azure utilisé par votre application Azure](./media/web-sites-scale/ScaleStorage.png)
 
+<a name="OtherFeatures"></a>
 <a name="devfeatures"></a>
 
-## <a name="learn-about-developer-features"></a>En savoir plus sur les fonctionnalités de développement
-Selon le niveau de tarification, les fonctionnalités orientées développeur disponibles sont les suivantes :
-
-### <a name="bitness"></a>Nombre de bits
-* Les modes **De base**, **Standard** et **Premium** prennent en charge les applications 64 bits et 32 bits.
-* Les niveaux de plan **Gratuit** et **Partagé** prennent uniquement en charge les applications 32 bits.
-
-### <a name="debugger-support"></a>Prise en charge du débogueur
-* Une prise en charge du débogueur est disponible en modes **Gratuit**, **Partagé** et **De base** pour une connexion par plan App Service.
-* Une prise en charge du débogueur est disponible en modes **Standard** et **Premium** pour cinq connexions simultanées par plan App Service.
-
-<a name="OtherFeatures"></a>
-
-## <a name="learn-about-other-features"></a>En savoir plus sur les autres fonctionnalités
-* Pour obtenir des informations détaillées sur toutes les autres fonctionnalités des plans App Service, notamment concernant la tarification et les fonctionnalités présentant de l’intérêt pour tous les utilisateurs (y compris les développeurs), consultez la page [Détails de la tarification - App Service](https://azure.microsoft.com/pricing/details/web-sites/).
+## <a name="compare-pricing-tiers"></a>Comparer les niveaux tarifaires
+Pour plus d’informations, par exemple sur les tailles de machine virtuelle pour chaque niveau tarifaire, voir [Tarification App Service](https://azure.microsoft.com/pricing/details/web-sites/).
+Pour un tableau des limites, quotas et contraintes du service, ainsi que des fonctionnalités prises en charge dans chaque niveau, voir [Limites d’App Service](../azure-subscription-service-limits.md#app-service-limits).
 
 > [!NOTE]
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [d’essai d’App Service](https://azure.microsoft.com/try/app-service/) , qui vous permet de créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est nécessaire, et vous ne prenez aucun engagement.
@@ -97,8 +91,7 @@ Selon le niveau de tarification, les fonctionnalités orientées développeur di
 <a name="Next Steps"></a>
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Pour plus d’informations sur la tarification, le support et les contrats SLA, accédez aux liens suivants.
+* Pour plus d’informations sur la tarification, le support et les contrats SLA, accédez aux liens suivants :
   
     [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/)
   
@@ -110,9 +103,6 @@ Selon le niveau de tarification, les fonctionnalités orientées développeur di
   
     [Tailles des machines virtuelles et de Service cloud pour Microsoft Azure][vmsizes]
   
-    [Détails de la tarification – App Service](https://azure.microsoft.com/pricing/details/app-service/)
-  
-    [Détails de la tarification – App Service - Connexions SSL](https://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
 * Pour plus d’informations sur les meilleures pratiques liées à Azure App Service, notamment la création d’une architecture évolutive et résiliente, voir [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)(Meilleures pratiques : Azure App Service Web Apps).
 * Pour visionner des vidéos concernant la mise à l’échelle des applications App Service, consultez les ressources suivantes :
   
