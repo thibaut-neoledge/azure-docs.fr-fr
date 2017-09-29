@@ -188,7 +188,7 @@ Cette procédure n’explique pas comment interpréter ces résultats et optimis
 > 
 
 - - -
-** : [Déployer le service web](walkthrough-5-publish-web-service.md)**
+ **: [Déployer le service web](walkthrough-5-publish-web-service.md)**
 
 [0]: ./media/walkthrough-4-train-and-evaluate-models/train-model-select-column.png
 [1]: ./media/walkthrough-4-train-and-evaluate-models/experiment-with-train-model.png

@@ -184,7 +184,7 @@ Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’ai
 
 <!-- internal links -->
 [Créez une expérience d'apprentissage]: #create-a-training-experiment
-[Convertissez-la en une expérience prédictive]: #convert-the-training-experiment-to-a-predictive-experiment.
+[Convertissez-la en expérience prédictive]: #convert-the-training-experiment-to-a-predictive-experiment.
 [Déployez-la en tant que service web]: #deploy-it-as-a-web-service.
 [nouveau]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [classique]: #deploy-the-predictive-experiment-as-a-new-Web-service
