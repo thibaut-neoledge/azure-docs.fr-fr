@@ -26,9 +26,8 @@
 ### [Configurer l’équilibrage de charge Internet (interface de ligne de commande)](load-balancer-get-started-internet-arm-cli.md)
 ### [Configurer l’équilibrage de charge Internet (modèle)](load-balancer-get-started-internet-arm-template.md)
 
-## [Configurer l’équilibrage de charge Internet (portail classique)](load-balancer-get-started-internet-classic-portal.md)
+## [Configurer un équilibreur de charge accessible sur Internet : (PowerShell classique)](load-balancer-get-started-internet-classic-ps.md)
 ### [Configurer l’équilibrage de charge Internet (cloud classique)](load-balancer-get-started-internet-classic-cloud.md)
-### [Configurer l’équilibrage de charge Internet (PS classique)](load-balancer-get-started-internet-classic-ps.md)
 ### [Configurer l’équilibrage de charge Internet (interface de ligne de commande classique)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [Créer un équilibrage de charge Internet avec IPv6](load-balancer-ipv6-internet-ps.md)

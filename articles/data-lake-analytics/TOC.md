@@ -33,6 +33,7 @@
 
 ## Déboguer des programmes U-SQL
 ### [Travaux de surveillance et de résolution des problèmes](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [Résoudre les problèmes liés à une tâche périodique inhabituelle](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 ### [Déboguer le code C# dans U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Utiliser l’explorateur de travaux et la vue des travaux](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Utiliser la vue d’exécution du vertex](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

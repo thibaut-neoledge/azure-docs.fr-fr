@@ -43,6 +43,7 @@
 ##### [Verrouillage intelligent](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Forum Aux Questions (FAQ)](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Résolution des problèmes](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
+##### [Présentation approfondie de Sécurité](active-directory-aadconnect-pta-security-deep-dive.md)
 ### [Prise en charge de plusieurs domaines pour la fédération](active-directory-aadconnect-multiple-domains.md)
 ### [Mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Utiliser un fournisseur d’identité (IdP) SAML 2.0 pour l’authentification unique](active-directory-aadconnect-federation-saml-idp.md)

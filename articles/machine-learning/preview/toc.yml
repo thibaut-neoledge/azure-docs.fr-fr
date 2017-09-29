@@ -45,6 +45,8 @@
       items:
         - name: Configurer des cibles d’exécution
           href: experiment-execution-configuration.md
+        - name: Créer un cluster Spark DSVM et HDI
+          href: how-to-create-dsvm-hdi.md
         - name: Effectuer l'apprentissage avec des GPU
           href: how-to-use-gpu.md
     - name: Acquérir et comprendre les données
@@ -141,6 +143,8 @@
       items:
         - name: Configuration de l’exécution
           href: experiment-execution-configuration-reference.md
+        - name: API de jouurnalisation
+          href: reference-logging-api.md
     - name: Gestion des modèles
       items:
         - name: API de gestion des modèles

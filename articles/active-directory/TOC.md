@@ -42,7 +42,6 @@
 #### [Identifier et résoudre les problèmes de licence dans un groupe](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrer des utilisateurs individuels titulaires d’une licence aux licences par groupe](active-directory-licensing-group-migration-azure-portal.md)
 #### [Scénarios supplémentaires pour la gestion des licences par groupe](active-directory-licensing-group-advanced.md)
-#### [Fournir des conditions d’utilisation pour les utilisateurs et les applications](active-directory-tou.md)
 #### [Exemples Azure PowerShell pour les licences basées sur les groupes](active-directory-licensing-ps-examples.md)
 ### [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
 ### [Réinitialiser un mot de passe](active-directory-users-reset-password-azure-portal.md)
@@ -149,13 +148,14 @@
 ### [Prise en main](active-directory-integrating-applications-getting-started.md)
 ### [Didacticiels d’intégration d’applications SaaS](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [Qu’est-ce que Cloud App Discovery ?](active-directory-cloudappdiscovery-whatis.md)
-#### [Étapes de configuration](cloudappdiscovery-get-started.md)
+#### [Configurer la découverte sans agent](cloudappdiscovery-get-started.md)
 #### [Créer des rapports d’instantanés](cloudappdiscovery-set-up-snapshots.md)
 #### [Configurer le reporting continu](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Utiliser un analyseur de journal personnalisé](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
-#### [Mettre à jour les paramètres du Registre](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Comprendre la sécurité et la confidentialité](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### [Utiliser un analyseur de journal personnalisé](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
+#### Découverte basée sur les agents
+##### [Qu’est-ce que Cloud App Discovery ?](active-directory-cloudappdiscovery-whatis.md)
+##### [Mettre à jour les paramètres du Registre](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [Comprendre la sécurité et la confidentialité](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Accéder aux applications à distance avec le proxy d’application](active-directory-application-proxy-get-started.md)
@@ -300,6 +300,7 @@
 #### Tâches
 ##### [Configurer l’accès conditionnel basé sur les appareils](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Configurer l’accès conditionnel basé sur les applications](active-directory-conditional-access-mam.md)
+##### [Fournir des conditions d’utilisation pour les utilisateurs et les applications](active-directory-tou.md)
 ##### [Configurer la connectivité VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)
 ##### [Configurer SharePoint et Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Correction](active-directory-conditional-access-device-remediation.md)
