@@ -1,6 +1,6 @@
 ---
-title: Before you deploy App Service on Azure Stack | Microsoft Docs
-description: Steps to complete before you deploy App Service on Azure Stack
+title: "Avant de déployer App Service sur Azure Stack | Microsoft Docs"
+description: "Étapes à effectuer avant de déployer App Service sur Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: apwestgarth
@@ -21,61 +21,61 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Before you get started with App Service on Azure Stack
+# <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Avant de commencer avec App Service sur Azure Stack
 
-You need a few items to install Azure App Service on Azure Stack:
+Vous avez besoin de quelques éléments pour installer Azure App Service sur Azure Stack :
 
-- A completed deployment of the [Azure Stack development kit](azure-stack-run-powershell-script.md).
-- Enough space in your Azure Stack system for a small deployment of App Service on Azure Stack.  The required space is roughly 20 GB of disk space.
-- A Windows Server VM image for use when you create virtual machines for App Service on Azure Stack.
-- [A server that's running SQL Server](#SQL-Server).
+- Un déploiement terminé du [Kit de développement Azure Stack](azure-stack-run-powershell-script.md).
+- Suffisamment d’espace dans votre système Azure Stack pour un petit déploiement d’App Service sur Azure Stack.  L’espace requis est d’environ 20 Go d’espace disque.
+- Une image de machine virtuelle Windows Server à utiliser lorsque vous créez des machines virtuelles pour App Service sur Azure Stack.
+- [Un serveur qui exécute SQL Server](#SQL-Server).
 
 >[!NOTE] 
-> The following steps *all* take place on the Azure Stack host machine.
+> Les étapes suivantes sont *toutes* exécutées sur l’ordinateur hôte Azure Stack.
 
-To deploy a resource provider, you must run the PowerShell Integrated Scripting Environment (ISE) as an administrator. For this reason, you need to allow cookies and JavaScript in the Internet Explorer profile that you use to sign in to Azure Active Directory.
+Pour déployer un fournisseur de ressources, vous devez exécuter l’ISE PowerShell en tant qu’administrateur. Pour cette raison, vous devez autoriser les cookies et JavaScript dans le profil Internet Explorer que vous utilisez pour vous connecter à Azure Active Directory.
 
-## <a name="turn-off-internet-explorer-enhanced-security"></a>Turn off Internet Explorer enhanced security
+## <a name="turn-off-internet-explorer-enhanced-security"></a>Désactiver la sécurité renforcée d’Internet Explorer
 
-1.  Sign in to the Azure Stack development kit machine as **AzureStack/administrator**, and then open **Server Manager**.
+1.  Connectez-vous sur la machine du Kit de développement Azure Stack en tant que **AzureStack/administrator**, puis ouvrez le **Gestionnaire de serveur**.
 
-2.  Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
+2.  Désactivez la **Configuration de sécurité renforcée d’Internet Explorer** pour les administrateurs et les utilisateurs.
 
-3.  Sign in to the Azure Stack development kit machine as an administrator, and then open **Server Manager**.
+3.  Connectez-vous sur la machine du Kit de développement Azure Stack en tant qu’administrateur, puis ouvrez le **Gestionnaire de serveur**.
 
-4.  Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
+4.  Désactivez la **Configuration de sécurité renforcée d’Internet Explorer** pour les administrateurs et les utilisateurs.
 
-## <a name="enable-cookies"></a>Enable cookies
+## <a name="enable-cookies"></a>Activer les cookies
 
-1.  Select **Start** > **All apps** > **Windows accessories**. Right-click **Internet Explorer** > **More** > **Run as an administrator**.
+1.  Sélectionnez **Démarrer** > **Toutes les applications** > **Accessoires Windows**. Cliquez avec le bouton droit sur **Internet Explorer** > **Plus** > **Exécuter en tant qu’administrateur**.
 
-2.  If you're prompted, select **Use recommended security**, and then select **OK**.
+2.  Si vous y êtes invité, sélectionnez **Utiliser la sécurité recommandée**, puis sélectionnez **OK**.
 
-3.  In Internet Explorer, select **Tools** (the gear icon) > **Internet Options** > **Privacy** > **Advanced**.
+3.  Dans Internet Explorer, sélectionnez **Outils** (icône d’engrenage) > **Options Internet** > **Confidentialité** > **Avancé**.
 
-4.  Select **Advanced**. Make sure that both **Accept** check boxes are selected. Select **OK** twice.
+4.  Sélectionnez **Advanced (Avancé)**. Vérifiez que les deux cases **Accepter** sont cochées. Sélectionnez **OK** deux fois.
 
-5.  Close Internet Explorer, and restart the PowerShell ISE as an administrator.
+5.  Fermez Internet Explorer et redémarrez l’ISE PowerShell en tant qu’administrateur.
 
-## <a name="install-powershell-for-azure-stack"></a>Install PowerShell for Azure Stack
+## <a name="install-powershell-for-azure-stack"></a>Installer PowerShell pour Azure Stack
 
-To install PowerShell for Azure Stack, follow the steps in [Install PowerShell](azure-stack-powershell-install.md).
+Pour installer PowerShell pour Azure Stack, suivez les étapes sous [Installer PowerShell](azure-stack-powershell-install.md).
 
-## <a name="use-visual-studio-with-azure-stack"></a>Use Visual Studio with Azure Stack
+## <a name="use-visual-studio-with-azure-stack"></a>Utiliser Visual Studio avec Azure Stack
 
-To use Visual Studio with Azure Stack, follow the steps in [Install Visual Studio](azure-stack-install-visual-studio.md).
+Pour utiliser Visual Studio avec Azure Stack, suivez les étapes sous [Installer Visual Studio](azure-stack-install-visual-studio.md).
 
-## <a name="add-a-windows-server-2016-vm-image-to-azure-stack"></a>Add a Windows Server 2016 VM image to Azure Stack
+## <a name="add-a-windows-server-2016-vm-image-to-azure-stack"></a>Ajouter une image de machine virtuelle Windows Server 2016 à Azure Stack
 
-Because App Service deploys a number of virtual machines, it requires a Windows Server 2016 VM image in Azure Stack. To install a VM image, follow the steps in [Add a default virtual machine image](azure-stack-add-default-image.md).
+Étant donné qu’App Service déploie plusieurs machines virtuelles, il requiert une image de machine virtuelle Windows Server 2016 dans Azure Stack. Pour installer une image de machine virtuelle, suivez les étapes sous [Ajouter une image de machine virtuelle par défaut](azure-stack-add-default-image.md).
 
 ## <a name="SQL-Server"></a>SQL Server
 
-App Service on Azure Stack requires access to a SQL Server instance to create and host two databases to run the App Service resource provider.  Should you choose to deploy a SQL Server VM on Azure Stack it must have the SQL connectivity level set to **Public**.  You can choose the SQL Server instance to use when you complete the options in the App Service on Azure Stack installer.
+App Service sur Azure Stack nécessite l’accès à une instance SQL Server pour créer et héberger deux bases de données afin d’exécuter le fournisseur de ressources App Service.  Si vous décidez de déployer une machine virtuelle SQL Server sur Azure Stack, son niveau de connectivité SQL doit être défini sur **Public**.  Vous pouvez choisir l’instance SQL Server à utiliser lorsque vous choisissez les options dans le programme d’installation App Service sur Azure Stack.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Install the App Service resource provider](azure-stack-app-service-deploy.md).
+- [Installer le fournisseur de ressources App Service](azure-stack-app-service-deploy.md).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-before-you-get-started/PSGallery.png

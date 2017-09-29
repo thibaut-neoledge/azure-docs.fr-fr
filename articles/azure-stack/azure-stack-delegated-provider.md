@@ -1,6 +1,6 @@
 ---
-title: Delegating offers in Azure Stack | Microsoft Docs
-description: Learn how to put other people in charge of creating offers and signing up users for you.
+title: "Délégation des offres dans Azure Stack | Microsoft Docs"
+description: "Découvrez comment placer d’autres personnes en charge de la création d’offres et de l’inscription des utilisateurs."
 services: azure-stack
 documentationcenter: 
 author: AlfredoPizzirani
@@ -21,126 +21,126 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="delegating-offers-in-azure-stack"></a>Delegating offers in Azure Stack
+# <a name="delegating-offers-in-azure-stack"></a>Délégation des offres dans Azure Stack
 
-As the Azure Stack cloud operator, you often want to put other people in charge of creating offers and signing up users for you. For example, if you are a service provider and you want resellers to sign up customers and manage them on your behalf. It can also happen in an enterprise if you are part of a central IT group and want divisions or subsidiaries to sign up users without your intervention.
+En tant qu’opérateur cloud Azure Stack, vous souhaitez souvent placer d’autres personnes en charge de la création d’offres et de l’inscription des utilisateurs. Par exemple, si vous êtes un fournisseur de services et souhaitez que les revendeurs inscrivent les clients et les gèrent à votre place. Cela peut également être le cas dans une entreprise si vous faites partie d’un groupe informatique centralisé et souhaitez que des départements ou des filiales inscrivent les utilisateurs sans votre intervention.
 
-Delegation helps you with these tasks, helping you to reach and manage more users than you would be able to do directly. The following illustration shows one level of delegation, but Azure Stack supports multiple levels. Delegated providers can in turn delegate to other providers, up to five levels.
+La délégation vous aide dans ces tâches, ce qui vous permet d’atteindre et de gérer plus d’utilisateurs que vous ne pourriez le faire directement. L’illustration suivante montre un niveau de délégation, mais Azure Stack prend en charge plusieurs niveaux. Les fournisseurs délégués peuvent à leur tour déléguer à d’autres fournisseurs, et ce sur jusqu’à cinq niveaux.
 
 ![](media/azure-stack-delegated-provider/image1.png)
 
-Azure Stack cloud operators can delegate the creation of offers and tenants to other users by using the delegation functionality.
+Les opérateurs cloud Azure Stack peuvent déléguer la création d’offres et de locataires à d’autres utilisateurs à l’aide de la fonctionnalité de délégation.
 
-## <a name="roles-and-steps-in-delegation"></a>Roles and steps in delegation
-To understand delegation, keep in mind that there are three roles involved:
+## <a name="roles-and-steps-in-delegation"></a>Rôles et étapes de la délégation
+Pour comprendre la délégation, gardez à l’esprit qu’elle comprend trois rôles :
 
-* The **cloud operator** manages the Azure Stack infrastructure, creates an offer template, and delegates others to offer it to their users.
-* The delegated Azure Stack operators are called **delegated providers**. They can belong to other organizations (such as other Azure Active Directory tenants).
-* **Users** sign up for the offers and use them for managing their workloads, creating VMs, storing data, etc.
+* **L’opérateur cloud** gère l’infrastructure Azure Stack, crée un modèle d’offre et délègue à d’autres la responsabilité de proposer l’offre à leurs utilisateurs.
+* Les opérateurs Azure Stack délégués sont appelés **fournisseurs délégués**. Ils peuvent appartenir à d’autres organisations (comme d’autres locataires Azure Active Directory).
+* Les **utilisateurs** s’inscrivent aux offres et les utilisent pour gérer leurs charges de travail, la création de machines virtuelles, le stockage des données, etc.
 
-As shown in the following graphic, there are two steps in setting up delegation.
+Comme indiqué dans l’illustration suivante, la configuration de la délégation inclut deux étapes.
 
-1. **Identify the delegated providers** by subscribing them to an offer based on a plan that contains only the subscriptions service.
-   Users who subscribe to this offer acquire some of the Azure Stack operator’s capabilities, including the ability to extend offers and sign users up for them.
-2. **Delegate an offer to the delegated provider**, this offer functions as a template for what the delegated provider can offer. The delegated provider is now able to take the offer, choose a name for it (but not change its services and quotas), and offer it to customers.
+1. **Identifier les fournisseurs délégués** en les abonnant à une offre basée sur un plan qui contient uniquement le service d’abonnements.
+   Les utilisateurs qui s’abonnent à cette offre acquièrent certaines des fonctionnalités de l’opérateur Azure Stack, notamment la possibilité d’étendre les offres et d’y inscrire des utilisateurs.
+2. **Déléguer une offre au fournisseur délégué**, cette offre fonctionne comme un modèle concernant ce que le fournisseur délégué peut offrir. Le fournisseur délégué est désormais en mesure de prendre l’offre, de choisir un nom pour celle-ci (mais pas d’en modifier les services et les quotas) et de la proposer aux clients.
 
 ![](media/azure-stack-delegated-provider/image2.png)
 
-To act as delegated providers, users need to establish a relationship with the main provider; in other words, they need to create a subscription. In this scenario, this subscription identifies the delegated providers as having the right to present offers on behalf of the main provider.
+Pour agir en tant que fournisseurs délégués, les utilisateurs doivent établir une relation avec le fournisseur principal ; en d’autres termes, ils doivent créer un abonnement. Dans ce scénario, cet abonnement identifie les fournisseurs délégués comme ayant le droit de présenter des offres pour le compte du fournisseur principal.
 
-Once this relationship is established, the cloud operator can delegate an offer to the delegated provider. The delegated provider is now able to take the offer, rename it (but not change its substance), and offer it to its customers.
+Une fois que cette relation est établie, l’opérateur cloud peut déléguer une offre au fournisseur délégué. Le fournisseur délégué est désormais en mesure de prendre l’offre, de la renommer (sans en modifier la substance) et de la proposer à ses clients.
 
-The following sections describe how to establish a delegated provider, delegate an offer, and verify that users can sign up for it.
+Les sections suivantes expliquent comment établir un fournisseur délégué, déléguer une offre et vérifier que les utilisateurs peuvent s’y inscrire.
 
-## <a name="set-up-roles"></a>Set up roles
+## <a name="set-up-roles"></a>Configurer les rôles
 
-To see a delegated provider at work, you need additional Azure Active Directory accounts in addition to your cloud operator account. If you do not have them, create the two accounts. The accounts can belong to any AAD tenant. We refer to them as the delegated provider (DP) and the user.
+Pour voir un fournisseur délégué au travail, vous avez besoin de comptes Azure Active Directory supplémentaires en plus de votre compte d’opérateur cloud. Si vous n’en avez pas, créez les deux comptes. Les comptes peuvent appartenir à n’importe quel client AAD. Nous les appelons le fournisseur délégué (DP) et l’utilisateur.
 
-| **Role** | **Organizational rights** |
+| **Rôle** | **Droits d’organisation** |
 | --- | --- |
-| Delegated Provider |User |
-| User |User |
+| Fournisseur délégué |Utilisateur |
+| Utilisateur |Utilisateur |
 
-## <a name="identify-the-delegated-providers"></a>Identify the delegated providers
-1. Sign in as cloud operator.
-2. Create the offer that enables users to become delegated providers. This requires that you create a plan and an offer based on it:
+## <a name="identify-the-delegated-providers"></a>Identifier les fournisseurs délégués
+1. Connectez-vous en tant qu’opérateur cloud.
+2. Créez l’offre qui permet aux utilisateurs de devenir des fournisseurs délégués. Pour ce faire, vous devez créer un plan et une offre basée sur celui-ci :
    
-   a.  [Create a plan](azure-stack-create-plan.md).
-       This plan should include only the subscriptions service. In this article, we use a plan called PlanForDelegation.
+   a.  [Créer un plan](azure-stack-create-plan.md).
+       Ce plan doit inclure uniquement le service d’abonnements. Dans cet article, nous utilisons un plan appelé PlanForDelegation.
    
-   b.  [Create an offer](azure-stack-create-offer.md) based on this plan. In this article, we use an offer called OfferToDP.
+   b.  [Créer une offre](azure-stack-create-offer.md) basée sur ce plan. Dans cet article, nous utilisons une offre appelée OfferToDP.
    
-   c.  Once the creation of the offer is complete, add the delegated provider as a subscriber to this offer by clicking **Subscriptions** &gt; **Add** &gt; **New Tenant Subscription**.
+   c.  Une fois la création de l’offre terminée, ajoutez le fournisseur délégué en tant qu’abonné à cette offre en cliquant sur **Abonnements** &gt; **Ajouter** &gt; **Nouvel abonnement client**.
    
    ![](media/azure-stack-delegated-provider/image3.png)
 
 > [!NOTE]
-> As with all Azure Stack offers, you have the option of making the offer public and letting users sign up for it, or keeping it private and have the cloud operator manage the sign-up. Delegated providers are usually a small group and you want to control who is admitted to it, so keeping this offer private makes sense in most cases.
+> Comme avec toutes les offres Azure Stack, vous avez la possibilité de rendre l’offre publique et de laisser les utilisateurs y souscrire, ou de conserver l’offre comme privée et demander à l’opérateur cloud de gérer l’inscription. Les fournisseurs délégués appartiennent généralement à un petit groupe et vous souhaitez contrôler qui y est admis, donc le fait de conserver cette offre privée est logique dans la plupart des cas.
 > 
 > 
 
-## <a name="cloud-operator-creates-the-delegated-offer"></a>Cloud operator creates the delegated offer
+## <a name="cloud-operator-creates-the-delegated-offer"></a>L’opérateur cloud crée l’offre déléguée
 
-You have now established your delegated provider. The next step is to create the plan and offer that you are going to delegate, and which your customers will use. You should define this offer exactly as you want the customers to see it, because the delegated provider will not be able to change the plans and quotas it includes.
+Vous avez désormais établi votre fournisseur délégué. L’étape suivante consiste à créer le plan et l’offre que vous allez déléguer et que vos clients utiliseront. Vous devez définir cette offre telle que vous souhaitez que les clients la voient, car le fournisseur délégué ne sera pas en mesure d’en modifier les plans et les quotas.
 
-1. As cloud operator, [create a plan](azure-stack-create-plan.md) and [an offer](azure-stack-create-offer.md) based on it. For this article, we use an offer called DelegatedOffer.
+1. En tant qu’opérateur cloud, [créez un plan](azure-stack-create-plan.md) et [une offre](azure-stack-create-offer.md) basée sur celui-ci. Dans cet article, nous utilisons une offre appelée DelegatedOffer.
    
    > [!NOTE]
-   > This offer does not have to be public. It can be made public if you choose, but, in most cases, you only want delegated providers to have access to it. Once you delegate a private offer as described in the following steps, the delegated provider has access to it.
+   > Cette offre ne doit pas nécessairement être publique. Elle peut être rendue publique si vous le souhaitez, mais, dans la plupart des cas, vous souhaitez que seuls les fournisseurs délégués y aient accès. Une fois que vous déléguez une offre privée comme décrit dans les étapes suivantes, le fournisseur délégué y a accès.
    > 
    > 
-1. Delegate the offer. Go to DelegatedOffer, and in the Settings pane, click **Delegated Providers** &gt; **Add**.
-2. Select the delegated provider’s subscription from the drop-down list box and click **Delegate**.
+1. Déléguez l’offre. Accédez à DelegatedOffer et, dans le volet Paramètres, cliquez sur **Fournisseurs délégués** &gt; **Ajouter**.
+2. Sélectionnez l’abonnement du fournisseur délégué dans la zone de liste déroulante et cliquez sur **Déléguer**.
 
 > ![](media/azure-stack-delegated-provider/image4.png)
 > 
 > 
 
-## <a name="delegated-provider-customizes-the-offer"></a>Delegated provider customizes the offer
+## <a name="delegated-provider-customizes-the-offer"></a>Le fournisseur délégué personnalise l’offre
 
-Sign in to the **tenant portal** as the delegated provider and create a new offer using the delegated offer as a template.
+Connectez-vous au **portail du locataire** en tant que fournisseur délégué et créez une offre en utilisant l’offre déléguée comme modèle.
 
-1. Click **New** &gt; **Tenant Offers + Plans** &gt; **Offer**.
+1. Cliquez sur **Nouveau** &gt; **Offres + Plans clients** &gt; **Offre**.
 
     ![](media/azure-stack-delegated-provider/image5.png)
 
 
-1. Assign a name to the offer. Here we choose ResellerOffer. Select the delegated offer to base it on and then click **Create**.
+1. Attribuez un nom à l’offre. Ici, nous avons choisi le nom ResellerOffer. Sélectionnez l’offre déléguée sur laquelle baser cette offre, puis cliquez sur **Créer**.
    
    ![](media/azure-stack-delegated-provider/image6.png)
 
     >[!NOTE] 
-    > Note the difference compared to offer creation as experienced by the cloud operator. The delegated provider does not construct the offer from base plans and add-on plans; they can only choose from offers that have been delegated to them, and can't make changes to those offers.
+    > Notez la différence par rapport à la création d’offre telle qu’elle est vécue par l’opérateur cloud. Le fournisseur délégué ne construit pas l’offre à partir de plans de base et de plans d’extension ; il ne peut choisir que parmi des offres qui lui ont été déléguées et ne peut pas apporter des modifications à ces offres.
 
-1. Make the offer public by clicking **Browse** &gt; **Offers**, selecting the offer, and clicking **Change State**.
-2. The delegated provider exposes these offers through their own portal URL. These offers are visible only through the delegated portal. To find and change this URL:
+1. Rendez l’offre publique en cliquant sur **Parcourir** &gt; **Offres**, en sélectionnant l’offre et en cliquant sur **Modifier l’état**.
+2. Le fournisseur délégué expose ces offres via l’URL de son propre portail. Ces offres sont visibles uniquement via le portail délégué. Pour rechercher et modifier cette URL :
    
-    a.  Click **Browse**&gt; **More services**&gt; **Subscriptions**&gt; Select the delegated provider subscription, in our case its *DPSubscription*&gt; **Properties**.
+    a.  Cliquez sur **Parcourir**&gt; **Plus de services**&gt; **Abonnements**&gt; Sélectionnez l’abonnement du fournisseur délégué, dans notre cas il s’agit de *DPSubscription*&gt; **Propriétés**.
    
-    b.  Copy the portal URL to a separate location, such as Notepad.
+    b.  Copiez l’URL du portail vers un autre emplacement, comme le Bloc-notes.
    
     ![](media/azure-stack-delegated-provider/dpportaluri.png)  
    
-   You have now completed the creation of a delegated offer as a delegated provider. Sign out as the delegated provider. Close the browser tab you have been using.
+   Vous avez maintenant terminé la création d’une offre déléguée en tant que fournisseur délégué. Déconnectez-vous en tant que fournisseur délégué. Fermez l’onglet de navigateur que vous avez utilisé.
 
-## <a name="sign-up-for-the-offer"></a>Sign up for the offer
-1. In a new browser window, go to the delegated portal URL you saved in the previous step. Sign in to the portal as user. Note: Use the delegated portal for this step. The delegated offer are not visible otherwise.
-2. In the dashboard, click **Get a subscription**. You will see that only the delegated offers created by the delegated provider are presented to the user:
+## <a name="sign-up-for-the-offer"></a>S’inscrire à l’offre
+1. Dans une nouvelle fenêtre de navigateur, accédez à l’URL du portail délégué que vous avez enregistrée à l’étape précédente. Connectez-vous au portail en tant qu’utilisateur. Remarque : utilisez le portail délégué pour cette étape. Sinon, l’offre déléguée ne s’affiche pas.
+2. Dans le tableau de bord, cliquez sur **Prendre un abonnement**. Vous verrez que seules les offres déléguées créés par le fournisseur délégué sont présentées à l’utilisateur :
 
 > ![](media/azure-stack-delegated-provider/image8.png)
 > 
 > 
 
-This concludes the process of offer delegation. The user can now sign up for this offer by getting a subscription for it.
+Ceci conclut le processus de délégation de l’offre. L’utilisateur peut désormais s’inscrire à cette offre en prenant un abonnement à celle-ci.
 
-## <a name="multiple-tier-delegation"></a>Multiple-tier delegation
+## <a name="multiple-tier-delegation"></a>Délégation à plusieurs niveaux
 
-Multiple-tier delegation allows the delegated provider to delegate the offer to other entities. This allows, for example, the creation of deeper reseller channels, in which the provider managing Azure Stack delegates an offer to a distributor, who in turn delegates to reseller.
-Azure Stack supports up to five levels of delegation.
+La délégation à plusieurs niveaux permet au fournisseur délégué de déléguer l’offre à d’autres entités. Cela permet, par exemple, la création de réseaux de revendeurs plus approfondis, dans lesquels le fournisseur qui gère Azure Stack délègue une offre à un distributeur, qui à son tour délègue au revendeur.
+Azure Stack prend en charge jusqu’à cinq niveaux de délégation.
 
-To create multiple tiers of offer delegation, the delegated provider in turn delegates the offer to the next provider. The process is the same for the delegated provider as it was for the cloud operator (see [Cloud operator creates the delegated offer](#cloud-operator-creates-the-delegated-offer)).
+Pour créer plusieurs niveaux de délégation de l’offre, le fournisseur délégué délègue à son tour l’offre au fournisseur suivant. Le processus pour le fournisseur délégué est similaire à celui pour l’opérateur cloud (consultez [L’opérateur cloud crée l’offre déléguée](#cloud-operator-creates-the-delegated-offer)).
 
-## <a name="next-steps"></a>Next steps
-[Provision a VM](azure-stack-provision-vm.md)
+## <a name="next-steps"></a>Étapes suivantes
+[Approvisionner une machine virtuelle](azure-stack-provision-vm.md)
 
 

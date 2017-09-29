@@ -1,6 +1,6 @@
 ---
-title: 'App Service overview: Azure Stack | Microsoft Docs'
-description: Overview of App Service on Azure Stack
+title: "Vue d’ensemble d’App Service : Azure Stack | Microsoft Docs"
+description: "Vue d’ensemble d’App Service sur Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: apwestgarth
@@ -22,51 +22,51 @@ ms.lasthandoff: 09/15/2017
 
 ---
 
-# <a name="app-service-on-azure-stack-overview"></a>App Service on Azure Stack overview
+# <a name="app-service-on-azure-stack-overview"></a>Vue d’ensemble d’App Service sur Azure Stack
 
-Azure App Service on Azure Stack is the Azure offering brought to Azure Stack. The App Service on Azure Stack installer creates the following set of role instances:
+Azure App Service sur Azure Stack est l’offre Azure intégrée à Azure Stack. Le programme d’installation App Service sur Azure Stack crée l’ensemble suivant des instances de rôles :
 
 *  Controller
-*  Management (two instances are created)
+*  Gestion (deux instances sont créées)
 *  FrontEnd
-*  Publisher
-*  Worker (in Shared mode)
+*  Éditeur
+*  Worker (en mode Partagé)
 
-In addition, the App Service on Azure Stack installer creates a file server.
+En outre, le programme d’installation App Service sur Azure Stack crée un serveur de fichiers.
     
-## <a name="whats-new-in-the-first-release-candidate-of-app-service-on-azure-stack"></a>What's new in the first release candidate of App Service on Azure Stack?
-![App Service in the Azure Stack portal][1]
+## <a name="whats-new-in-the-first-release-candidate-of-app-service-on-azure-stack"></a>Quelles sont les nouveautés dans la première version candidate App Service sur Azure Stack ?
+![Portail App Service sur Azure Stack][1]
 
-The first release candidate of App Service on Azure Stack builds on top of the third preview and brings new capabilities and improvements:
+La première version candidate App Service sur Azure Stack s’appuie sur la troisième préversion et apporte des améliorations et des nouvelles fonctionnalités :
 
-* Azure Functions in Azure Stack environments based on Active Directory Federation Services 
-* Single sign-on support for the Functions portal and the advanced developer tools (Kudu)
-* Java support for web, mobile, and API applications
-* Management of worker tiers by virtual machine scale sets to improve scale-out capabilities for service administrators
-* Localization of the admin experience
-* Increased stability of the service
-* Tenant portal experience updates and installation process updates
+* Environnements Azure Functions dans Azure Stack basés sur AD FS 
+* Prise en charge de l’authentification unique pour le portail Functions et des outils de développement avancés (Kudu)
+* Prise en charge de Java pour les applications web, mobiles et d’API
+* Gestion des niveaux Worker à l’échelle du groupe de machines virtuelles identiques pour améliorer les fonctionnalités de montée en puissance pour les administrateurs de service
+* Localisation de l’expérience administrateur
+* Stabilité accrue du service
+* Mises à jour de l’expérience du portail du locataire et mises à jour du processus d’installation
 
-## <a name="limitations-of-the-technical-preview"></a>Limitations of the technical preview
+## <a name="limitations-of-the-technical-preview"></a>Limitations de la préversion technique
 
-There is no support for the App Service on Azure Stack preview releases, although we do monitor the Azure Stack MSDN Forum. Do not put production workloads on this preview release. There is also no upgrade between App Service on Azure Stack preview releases. The primary purposes of these preview releases are to show what we're providing and to obtain feedback. 
+Il n’existe aucune prise en charge des préversions App Service sur Azure Stack, même si nous surveillons le Forum MSDN Azure Stack. Ne placez aucune charge de travail de production dans cette préversion. Il n’existe également aucune mise à niveau entre les préversions App Service sur Azure Stack. L’objectif principal de ces préversions est de montrer ce que nous fournissons et d’obtenir des commentaires. 
 
-## <a name="what-is-an-app-service-plan"></a>What is an App Service plan?
+## <a name="what-is-an-app-service-plan"></a>Qu’est-ce qu’un plan App Service ?
 
-The App Service resource provider uses the same code that Azure App Service uses. As a result, some common concepts are worth describing. In App Service, the pricing container for applications is called the App Service plan. It represents the set of dedicated virtual machines used to hold your apps. Within a given subscription, you can have multiple App Service plans. 
+Le fournisseur de ressources App Service utilise le même code que celui utilisé par Azure App Service. Par conséquent, il peut être utile de décrire certains concepts communs. Dans App Service, le conteneur de tarification pour les applications est appelé le plan App Service. Il représente l’ensemble des machines virtuelles dédiées utilisées pour contenir vos applications. Vous pouvez avoir plusieurs plans App Service dans un abonnement donné. 
 
-In Azure, there are shared and dedicated workers. A shared worker supports high-density multitenant app hosting, and there is only one set of shared workers. Dedicated servers are used by only one tenant and come in three sizes: small, medium, and large. The needs of on-premises customers can't always be described by using those terms. In App Service on Azure Stack, resource provider administrators can define the worker tiers they want to make available. Administrators can define multiple sets of shared workers or different sets of dedicated workers based on their unique hosting needs. By using those worker-tier definitions, they can then define their own pricing SKUs.
+Dans Azure, il existe des Workers partagés et dédiés. Un Worker partagé prend en charge l’hébergement d’applications mutualisées à densité élevée et il n'existe qu’un seul ensemble de Workers partagés. Les serveurs dédiés sont utilisés par un seul locataire et se présentent dans trois tailles : petit, moyen et grand. Les besoins des clients locaux ne peuvent pas toujours être décrits à l’aide de ces termes. Dans App Service sur Azure Stack, les administrateurs du fournisseur de ressources peuvent définir les niveaux Worker qu'ils souhaitent rendre disponibles. Les administrateurs peuvent définir plusieurs jeux de Workers partagés ou des jeux différents de Workers dédiés selon leurs besoins d’hébergements uniques. À l’aide de ces définitions de niveau Worker, ils peuvent ensuite définir leurs propres références de tarification.
 
-## <a name="portal-features"></a>Portal features
+## <a name="portal-features"></a>Fonctionnalités du portail
 
-App Service on Azure Stack uses the same UI that Azure App Service uses, as is true with the back end. Some features are disabled and aren't functional in Azure Stack. The Azure-specific expectations or services that those features require aren't yet available in Azure Stack. 
+App Service sur Azure Stack utilise la même interface utilisateur que celle utilisée par Azure App Service, ce qui est également le cas du serveur principal. Certaines fonctionnalités sont désactivées et ne sont pas fonctionnelles dans Azure Stack. Les exigences ou les services spécifiques à Azure dont ces fonctionnalités ont besoin ne sont pas encore disponibles dans Azure Stack. 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Before you get started with App Service on Azure Stack](azure-stack-app-service-before-you-get-started.md)
-- [Install the App Service resource provider](azure-stack-app-service-deploy.md)
+- [Avant de commencer avec App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md)
+- [Installer le fournisseur de ressources App Service](azure-stack-app-service-deploy.md)
 
-You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md) and the [MySQL resource provider](azure-stack-mysql-resource-provider-deploy.md).
+Vous pouvez également tester d’autres [services PaaS](azure-stack-tools-paas-services.md), comme le [fournisseur de ressources SQL Server](azure-stack-sql-resource-provider-deploy.md) et le [fournisseur de ressources MySQL](azure-stack-mysql-resource-provider-deploy.md).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-overview/AppService_Portal.png
