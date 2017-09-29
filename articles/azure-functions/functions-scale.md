@@ -48,7 +48,7 @@ Quand vous utilisez un plan Consommation, les instances de l’hôte Azure Funct
 > [!NOTE]
 > Le délai d’expiration par défaut pour les fonctions dans un plan Consommation est de 5 minutes. Vous pouvez augmenter la valeur à 10 minutes pour l’application de fonction en modifiant la propriété `functionTimeout` dans [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 
-La facturation est basée sur la durée d’exécution et la mémoire utilisée. Elle est agrégée dans toutes les fonctions d’une application de fonction. Pour plus d’informations, consultez la page [Tarification d’Azure Functions].
+La facturation est basée sur la durée d’exécution et la mémoire utilisée. Elle est agrégée dans toutes les fonctions d’une application de fonction. Pour plus d’informations, consultez la page [Tarification d’Azure Functions].
 
 Le plan par défaut, le plan Consommation, présente les avantages suivants :
 - Paiement uniquement à l’exécution de vos fonctions
@@ -108,5 +108,5 @@ La facturation du plan de consommation est décrite en détail dans la page [Tar
 * **Consommation des ressources en gigaoctet/seconde (Go/s)**. Calcul effectué d’après une combinaison de la taille de la mémoire et de la durée d’exécution pour toutes les fonctions d’une application de fonction. 
 * **Exécutions**. Comptées chaque fois qu’une fonction est exécutée en réponse à un événement déclenché par une liaison.
 
-[Tarification d’Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+[Tarification d’Azure Functions]: https://azure.microsoft.com/pricing/details/functions
 

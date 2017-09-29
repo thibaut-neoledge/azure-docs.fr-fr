@@ -101,6 +101,6 @@ Vous avez maintenant configuré une application cliente native qui peut accéder
 <!-- URLs. -->
 
 [portail Azure]: https://portal.azure.com/
-[Portail Azure Classic]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [alternative method]:#advanced
 

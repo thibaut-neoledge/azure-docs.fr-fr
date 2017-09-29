@@ -24,7 +24,7 @@ ms.lasthandoff: 09/20/2017
 
 # <a name="deploy-a-spring-boot-application-to-the-azure-app-service"></a>Déployer une application Spring Boot sur Azure App Service
 
-** [Spring Framework] ** une solution open source qui permet aux développeurs Java de créer des applications d’entreprise. Un des projets les plus populaires s’appuyant sur cette plateforme est [Spring Boot], qui offre une approche simplifiée pour la création d’applications Java autonomes.
+ **[Spring Framework]**  une solution open source qui permet aux développeurs Java de créer des applications d’entreprise. Un des projets les plus populaires s’appuyant sur cette plateforme est [Spring Boot], qui offre une approche simplifiée pour la création d’applications Java autonomes.
 
 Ce didacticiel vous montre comment créer l’exemple d’application web Spring Boot Getting Started et la déployer sur [Azure App Service].
 
@@ -215,15 +215,15 @@ Pour plus d’informations sur la configuration de paramètres supplémentaires 
 [Azure App Service]: https://azure.microsoft.com/services/app-service/
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
-[Portail Azure]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
 [Configurer des applications web dans Azure App Service]: /azure/app-service/web-sites-configure
 [Déployer votre application sur Azure App Service avec FTP/S]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
 [compte Azure gratuit]: https://azure.microsoft.com/pricing/free-trial/
-[Git]: https://github.com/
+[client Git]: https://github.com/
 [JDK (Java Developer Kit)]: http://www.oracle.com/technetwork/java/javase/downloads/
-[Outils Java pour Visual Studio Team Services]: https://java.visualstudio.com/
+[outils Java pour Visual Studio Team Services]: https://java.visualstudio.com/
 [Maven]: http://maven.apache.org/
-[Avantages pour les abonnés MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[avantages d’abonné MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Boot Getting Started]: https://github.com/spring-guides/gs-spring-boot
 [Spring Framework]: https://spring.io/

@@ -129,7 +129,7 @@ Les fonctions et tâches web varient selon le site SCM mais elles sont prises en
 Un ASE présente quelques adresses IP qu’il est important de connaître. Il s'agit de :
 
 - **Adresse IP entrante publique** : utilisée pour le trafic d’applications dans un ASE externe et pour le trafic de gestion aussi bien dans un ASE externe que dans un ASE ILB.
-- **Adresse IP publique sortante ** : utilisée en tant qu’adresse IP source pour les connexions sortantes de l’ASE quittant le réseau virtuel, qui ne sont pas acheminées via un VPN.
+- **Adresse IP publique sortante**  : utilisée en tant qu’adresse IP source pour les connexions sortantes de l’ASE quittant le réseau virtuel, qui ne sont pas acheminées via un VPN.
 - **Adresse IP ILB** : si vous utilisez un ASE ILB.
 - **Adresse SSL basée sur IP attribuée par l’application** : uniquement possibles avec un ASE externe et lorsque le mode SSL basé sur IP est configuré.
 
