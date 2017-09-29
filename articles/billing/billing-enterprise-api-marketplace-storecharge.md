@@ -3,7 +3,7 @@ title: "API de facturation Azure Enterprise - Frais de la Place de marché | Mic
 description: "En savoir plus sur les API de création de rapports qui permettent aux clients d’Azure Enterprise d’extraire leurs données de consommation par programme."
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing

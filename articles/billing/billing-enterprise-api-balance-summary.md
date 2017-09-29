@@ -3,7 +3,7 @@ title: API de facturation Azure Enterprise - Balance and Summary | Microsoft Doc
 description: "En savoir plus sur les API Azure Billing Usage et RateCard, qui fournissent des vues d’ensemble des tendances et de la consommation des ressources Azure."
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing

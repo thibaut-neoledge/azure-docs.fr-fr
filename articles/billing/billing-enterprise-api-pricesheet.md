@@ -3,7 +3,7 @@ title: "API de facturation d’entreprise Azure - Grille tarifaire | Microsoft D
 description: "Découvrez les API de création de rapports qui permettent aux clients Azure en entreprise d’extraire leurs données de consommation par programmation."
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing
