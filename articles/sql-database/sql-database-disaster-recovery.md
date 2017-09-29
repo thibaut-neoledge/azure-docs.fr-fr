@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: e5242b5f76866ca382b31005deca07cd722af423
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 535dcd8b03a0fd92eaa5800a924ca17fc958d630
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire
@@ -64,7 +64,7 @@ Utilisez l’un des guides suivants pour effectuer le basculement vers une base 
 
 * [Basculer vers une base de données secondaire géorépliquée à l’aide du portail Azure](sql-database-geo-replication-portal.md)
 * [Basculer vers une base de données secondaire géorépliquée à l’aide de PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-* [Basculer vers une base de données secondaire géorépliquée à l’aide de T-SQL](/sql/t-sql/statements/alter-database-azure-sql-database.md)
+* [Basculer vers une base de données secondaire géorépliquée à l’aide de T-SQL](/sql/t-sql/statements/alter-database-azure-sql-database)
 
 ## <a name="recover-using-geo-restore"></a>Récupérer à l’aide de la géorestauration
 Si le temps d’arrêt de votre application ne met pas en cause votre responsabilité professionnelle, vous pouvez utiliser la [géorestauration](sql-database-recovery-using-backups.md) pour récupérer les bases de données de votre application. Cela permet de créer une copie de la base de données à partir de la dernière sauvegarde géo-redondante.

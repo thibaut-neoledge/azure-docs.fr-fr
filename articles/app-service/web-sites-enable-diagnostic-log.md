@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7b125aeb9c0ee1dcbb199da98b0ce079820ea85c
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 42644bd97443e827b523503989b0b25d3d48028c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications web dans Azure App Service
@@ -275,7 +275,7 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 >
 
 ## <a name="nextsteps"></a> Étapes suivantes
-* [Surveillance d’applications Web](http://docs.microsoft.com/en-us/azure/app-service-web/web-sites-monitor)
+* [Surveillance d’applications Web](web-sites-monitor.md)
 * [Résolution des problèmes des applications web Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Analyse des journaux d’application Web dans HDInsight (en anglais)](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 

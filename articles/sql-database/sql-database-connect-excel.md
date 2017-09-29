@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: jhubbard
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 6a9993aa31142681f3f6c57684913bf932fd5e7d
+ms.translationtype: HT
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 68eadf7a7eef4ba5e6bcd9af1279227a01efdf70
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/15/2017
-
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Connectez Excel à une base de données SQL Azure et créez un rapport
@@ -80,6 +79,6 @@ Maintenant que vous avez établi la connexion et créé le fichier avec les donn
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [se connecter à la base de données SQL avec SQL Server Management Studio](sql-database-connect-query-ssms.md) pour une interrogation et une analyse avancées.
 * En savoir plus sur les avantages des [pools élastiques](sql-database-elastic-pool.md).
-* Découvrez comment [créer une application web qui se connecte à la base de données SQL sur le serveur principal](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+* Découvrez comment [créer une application web qui se connecte à la base de données SQL sur le serveur principal](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).
 
 

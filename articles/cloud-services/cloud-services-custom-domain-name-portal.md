@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: cf43d86dddc3a68573e1ba1b09118c54f0b16bc5
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: f5d244fc747b923989407afd50927cda2b8d4a0f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuration d’un nom de domaine personnalisé pour un service cloud Azure
@@ -35,7 +35,7 @@ Toutefois, vous pouvez également exposer votre application sur votre propre nom
 Vous avez compris ce que sont les enregistrements CNAME et A ? [Passez l’explication](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> Les procédures décrites dans cette tâche s’appliquent aux services cloud Azure. Pour App Services, consultez [cette page](../app-service-web/web-sites-custom-domain-name.md). Pour les comptes de stockage, consultez [cette page](../storage/blobs/storage-custom-domain-name.md).
+> Les procédures décrites dans cette tâche s’appliquent aux services cloud Azure. Pour App Services, consultez [cette page](../app-service/app-service-web-tutorial-custom-domain.md). Pour les comptes de stockage, consultez [cette page](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

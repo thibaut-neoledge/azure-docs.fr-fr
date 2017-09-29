@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 08/26/2017
 ms.author: mahender
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: cac0f437cee86aa933763e5133ac1a0e892ffb52
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 3c3247592cbe2bc382d220264b0c646ee566b8a7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Liaisons HTTP et webhook Azure Functions
@@ -63,9 +63,9 @@ La liaison prend en charge les propriétés suivantes :
 
 |Propriété  |Description  |
 |---------|---------|
-| **name** | Obligatoire - nom de variable utilisé dans le code de la fonction pour la requête ou le corps de la requête. Voir [Utilisation d’un déclencheur HTTP à partir d’un code](#httptriggerusage). |
-| **type** | Obligatoire - doit être défini sur `httpTrigger`. |
-| **direction** | Obligatoire - doit être défini sur `in`. |
+| **name** | Obligatoire : nom de variable utilisé dans le code de la fonction pour la requête ou le corps de la requête. Voir [Utilisation d’un déclencheur HTTP à partir d’un code](#httptriggerusage). |
+| **type** | Obligatoire : doit être défini sur `httpTrigger`. |
+| **direction** | Obligatoire : doit être défini sur `in`. |
 | **authLevel** | Détermine, le cas échéant, les clés qui doivent être présentes dans la requête pour appeler la fonction. Les valeurs possibles sont les suivantes : <ul><li><code>anonymous</code>&mdash;Aucune clé API n’est obligatoire.</li><li><code>function</code>&mdash;Une clé API spécifique à la fonction est obligatoire. Il s’agit de la valeur par défaut si aucune valeur n’est fournie.</li><li><code>admin</code>&mdash;La clé principale est obligatoire.</li></ul> Pour plus d’informations, consultez [Utilisation de clés](#keys). |
 | **methods** | Tableau des méthodes HTTP auxquelles la fonction répond. À défaut de spécification, la fonction répond à toutes les méthodes HTTP. Voir [Personnalisation du point de terminaison HTTP](#url). |
 | **route** | Définit le modèle de routage, en contrôlant les URL de requête auxquelles votre fonction répond. La valeur par défaut est `<functionname>`. Pour plus d’informations, consultez [Personnalisation du point de terminaison HTTP](#url). |
@@ -200,19 +200,19 @@ Par défaut, tous les itinéraires de fonction sont préfixés par *api*. Vous p
 }
 ```
 
-Pour plus d’informations sur la mise à jour du fichier *host.json* de votre fonction, consultez [Mettre à jour les fichiers d’application de fonction](functions-reference.md#fileupdate). 
+Pour plus d’informations sur la mise à jour du fichier *host.json* de votre fonction, consultez [Mettre à jour les fichiers Function App](functions-reference.md#fileupdate). 
 
-Pour plus d’informations sur les autres propriétés que vous pouvez configurer dans votre fichier *host.json*, consultez la [référence host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+Pour plus d’informations sur les autres propriétés que vous pouvez configurer dans votre fichier *host.json*, consultez la [référence host.json](functions-host-json.md).
 
 
 <a name="keys"></a>
 ## <a name="working-with-keys"></a>Utilisation de clés
 Les déclencheurs HTTP vous permettent d’utiliser des clés pour une sécurité accrue. Un déclencheur HTTP standard peut les utiliser comme une clé API, en exigeant que la clé soit présente dans la requête. Les webhooks peuvent utiliser des clés pour autoriser des demandes de plusieurs façons, selon ce que le fournisseur prend en charge.
 
-Les clés sont stockées dans votre application de fonction dans Azure, et chiffrées au repos. Pour afficher vos clés, créez des clés, ou restaurez des clés avec de nouvelles valeurs, accédez à l’une de vos fonctions au sein du portail, puis sélectionnez « Gérer ». 
+Les clés sont stockées dans votre Function App dans Azure, et chiffrées au repos. Pour afficher vos clés, créez des clés, ou restaurez des clés avec de nouvelles valeurs, accédez à l’une de vos fonctions au sein du portail, puis sélectionnez « Gérer ». 
 
 Il existe deux types de clés :
-- **Clés d’hôte** : ces clés sont partagées par toutes les fonctions au sein de l’application de fonction. Utilisées en tant que clés API, elles permettent d’accéder à toute fonction au sein de l’application de fonction.
+- **Clés d’hôte** : ces clés sont partagées par toutes les fonctions au sein de la Function App. Utilisées en tant que clés API, elles permettent d’accéder à toute fonction au sein de la Function App.
 - **Clés de fonction** : ces clés s’appliquent uniquement aux fonctions spécifiques sous lesquelles elles sont définies. Utilisées en tant que clés API, elles permettent d’accéder uniquement à ces fonctions.
 
 Chaque clé est nommée pour référence et il existe une clé par défaut (nommée « default ») au niveau fonction et hôte. La **clé principale** est une clé d’hôte par défaut nommée « _master » qui est définie pour chaque application de fonction. Cette clé ne peut pas être révoquée. Elle fournit un accès administratif aux API de runtime. L’utilisation de `"authLevel": "admin"` dans le JSON de liaison nécessite que cette clé soit présentée à la requête. Une autre clé entraînerait un échec de l’autorisation.

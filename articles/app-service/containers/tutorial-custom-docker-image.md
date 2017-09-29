@@ -17,10 +17,10 @@ ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 2a14c9539e46bffbe3e11ff372f37190a562e199
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 10795d59b019d7c683abfeea611d5909b88891ec
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>Utiliser une image Docker personnalisée pour Azure Web App for Containers
@@ -529,16 +529,16 @@ La commande fournit deux mots de passe qui peuvent être utilisés avec le nom d
 }
 ```
 
-Maintenant que vous disposez des informations d’identification nécessaires, connectez-vous à Azure Container Registry à l’aide de la commande `docker login`. La connexion nécessite l’URL du registre. Utilisez le format `http://{azure-container-registry-name>.azureacr.io`.
+Maintenant que vous disposez des informations d’identification nécessaires, connectez-vous à Azure Container Registry à l’aide de la commande `docker login`. La connexion nécessite l’URL du registre. Utilisez le format `http://{azure-container-registry-name>.azurecr.io`.
 
 ```bash
-docker login <azure-container-registry-name>.azureacr.io --username <azure-container-registry-name> --password <password> 
+docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
 ```
 
 Vérifiez que la connexion a réussi. Transférez l’image en utilisant la commande `docker push` et le balisage de l’image avec l’URL complète du registre, suivi du nom et de la balise de l’image.
 
 ```bash
-docker push http://<azure-container-registry-name>.azureacr.io/mydockerimage:v1.0.0
+docker push http://<azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
 Vérifiez que le transfert a correctement ajouté un conteneur au registre en répertoriant les référentiels ACR. 

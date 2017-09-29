@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: robmcm;kevinzha
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: f47ee59d72ea49d62be2cb435ebaf8bc841e4198
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: b087003b3a1e236e4a306678904107b8bf99395e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -109,7 +109,7 @@ Dans cette section, vous créez un principal du service Azure utilisé par le pl
    ```azurecli
    az ad sp create-for-rbac --name "uuuuuuuu" --password "pppppppp"
    ```
-   Où `uuuuuuuu` est le nom d’utilisateur et `pppppppp` est le mot de passe pour le principal du service.
+   Où `uuuuuuuu` est le nom d’utilisateur et `pppppppp` est le mot de passe du principal du service.
 
 1. Azure répond avec un texte JSON similaire à l’exemple suivant :
    ```json
@@ -205,9 +205,9 @@ Dans cette section, vous créez un principal du service Azure utilisé par le pl
    Élément | Description
    ---|---|---
    `<id>` | Spécifie un nom unique que Maven utilise pour rechercher vos paramètres de sécurité lorsque vous déployez votre application web dans Azure.
-   `<client>` | Contient la valeur `appId` de votre principal de service.
-   `<tenant>` | Contient la valeur `tenant` de votre principal de service.
-   `<key>` | Contient la valeur `password` de votre principal de service.
+   `<client>` | Contient la valeur `appId` de votre principal du service.
+   `<tenant>` | Contient la valeur `tenant` de votre principal du service.
+   `<key>` | Contient la valeur `password` de votre principal du service.
    `<environment>` | Définit l’environnement de cloud Azure cible, qui est `AZURE` dans cet exemple. (Une liste complète des environnements est disponible dans la documentation [Maven Plugin for Azure Web Apps])
 
 1. Enregistrez et fermez le fichier *settings.xml*.
@@ -323,7 +323,7 @@ Il existe plusieurs valeurs que vous pouvez modifier pour le plug-in Maven ; un
    mvn clean package
    ```
 
-1. Déployez votre application web sur Azure à l’aide de Maven ; par exemple :
+1. Déployez votre application web dans Azure à l’aide de Maven ; par exemple :
    ```shell
    mvn azure-webapp:deploy
    ```
@@ -382,7 +382,7 @@ Pour plus d’informations sur les différentes technologies présentées dans c
 [portail Azure]: https://portal.azure.com/
 [Maven Plugin for Azure Web Apps]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
-[Using a custom Docker image for Azure Web App on Linux]: /azure/app-service-web/app-service-linux-using-custom-docker-image
+[Using a custom Docker image for Azure Web App on Linux]: tutorial-custom-docker-image.md
 [client Docker]: https://www.docker.com/
 [Plug-in Docker pour Maven]: https://github.com/spotify/docker-maven-plugin
 [compte Azure gratuit]: https://azure.microsoft.com/pricing/free-trial/

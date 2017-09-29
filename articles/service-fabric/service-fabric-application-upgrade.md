@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
-ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
+ms.translationtype: HT
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 23ee3572752030332c5bfdd84edc97df5fb8e58f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="service-fabric-application-upgrade"></a>Mise à niveau des applications Service Fabric
@@ -50,7 +50,7 @@ Il est possible de mettre à niveau les services par défaut dans l’applicatio
 
 1. Les services par défaut du nouveau [manifeste de l’application](service-fabric-application-model.md#describe-an-application) qui n’existent pas dans le cluster sont créés.
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) doit avoir la valeur true pour activer les règles suivantes. Cette fonctionnalité est prise en charge à partir de la version 5.5.
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) doit avoir la valeur true pour activer les règles suivantes. Cette fonctionnalité est prise en charge à partir de la version 5.5.
 
 2. Les services par défaut présents à la fois dans le [manifeste de l’application](service-fabric-application-model.md#describe-an-application) précédent et dans la nouvelle version sont mis à jour. Les descriptions de service dans la nouvelle version remplaceraient celles qui se trouvent déjà dans le cluster. La mise à niveau de l’application serait restaurée automatiquement en cas d’échec de mise à jour des services par défaut.
 3. Les services par défaut présents dans le [manifeste de l’application](service-fabric-application-model.md#describe-an-application) précédent et non dans la nouvelle version sont supprimés. **Notez qu’il n’est pas possible de rétablir les services par défaut supprimés.**
