@@ -23,7 +23,7 @@
       href: powershell-samples.md
 - name: Concepts
   items:
-    - name: Forum Aux Questions
+    - name: FAQ sur Log Analytics
       href: log-analytics-faq.md
     - name: Consommation des données
       href: log-analytics-usage.md
@@ -31,6 +31,14 @@
       href: log-analytics-manage-access.md
     - name: Fonctionnalités pour les fournisseurs de services
       href: log-analytics-service-providers.md
+    - name: Recherche dans les journaux
+      items:
+        - name: FAQ sur la recherche dans les journaux
+          href: log-analytics-log-search-faq.md
+        - name: Présentation de la recherche dans les journaux
+          href: log-analytics-log-search-new.md
+        - name: Portails de recherche dans les journaux
+          href: log-analytics-log-search-portals.md
 - name: Procédure
   items:
     - name: Collecter les données
@@ -92,15 +100,6 @@
       items:
         - name: Mettre à jour votre espace de travail
           href: log-analytics-log-search-upgrade.md
-        - name: Forum Aux Questions
-          href: log-analytics-log-search-faq.md
-        - name: Présentation de la recherche dans les journaux
-          href: log-analytics-log-search-new.md
-        - name: Portails de recherche dans les journaux
-          href: log-analytics-log-search-portals.md
-          items:
-            - name: Utiliser le portail de recherche dans les journaux
-              href: log-analytics-log-search-log-search-portal.md
         - name: Transition à partir du langage hérité
           href: log-analytics-log-search-transition.md
         - name: Connecteur de flux

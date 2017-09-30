@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 09/21/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: a7e389037a458c91d67643f7c0fca0691c22224f
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 9bda115455ff1e122ac2764cec612546c71365c4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publier une application HDInsight sur la Place de marché Microsoft Azure
@@ -33,7 +33,7 @@ Pour plus d’informations, consultez les articles suivants relatifs à l’appl
 * [Installer des applications HDInsight](hdinsight-apps-install-applications.md) : découvrez comment installer une application HDInsight sur vos clusters.
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment installer et tester des applications HDInsight personnalisées.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 Pour envoyer votre application personnalisée à la Place de marché, vous devez d’abord [créer et tester votre application personnalisée](hdinsight-apps-install-custom-applications.md).
 
 Vous devez également enregistrer votre compte de développeur. Pour plus d’informations, consultez [Publier une offre sur la Place de marché Microsoft Azure](../marketplace-publishing/marketplace-publishing-getting-started.md) et [Créer un compte de développeur Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
@@ -41,16 +41,17 @@ Vous devez également enregistrer votre compte de développeur. Pour plus d’in
 ## <a name="define-the-application"></a>Définition de l’application
 La publication d’applications sur la Place de marché comprend deux étapes. Définissez d’abord un fichier *createUiDef.json*. Le fichier createUiDef.json indique les clusters avec lesquels votre application est compatible. Publiez ensuite le modèle depuis le portail Azure. Voici un exemple de fichier createUiDef.json :
 
-    {
-        "handler": "Microsoft.HDInsight",
-        "version": "0.0.1-preview",
-        "clusterFilters": {
-            "types": ["Hadoop", "HBase", "Storm", "Spark"],
-            "tiers": ["Standard", "Premium"],
-            "versions": ["3.4"]
-        }
+```json
+{
+    "handler": "Microsoft.HDInsight",
+    "version": "0.0.1-preview",
+    "clusterFilters": {
+        "types": ["Hadoop", "HBase", "Storm", "Spark"],
+        "tiers": ["Standard", "Premium"],
+        "versions": ["3.4"]
     }
-
+}
+```
 
 | Champ | Description | Valeurs possibles |
 | --- | --- | --- |
@@ -64,7 +65,7 @@ Lorsqu’une application est installée sur un cluster (existant ou nouveau), un
   > [!IMPORTANT]
   > Le nom du script d’installation de l’application sur un cluster spécifique doit être unique et avoir le format suivant :
   > 
-  > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
+  > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
   > Le nom du script est composé de trois parties :
   > 

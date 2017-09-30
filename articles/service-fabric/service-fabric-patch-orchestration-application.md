@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 2c5842822e347113e388d570f6ae603a313944d6
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: bcd1d13265350d8ac96250c5cd5b4b2880e1c146
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -274,6 +274,17 @@ L’application d’orchestration des correctifs expose les API REST pour affich
   ...
 ]
 ```
+
+Les champs de l’objet JSON sont décrits ci-dessous.
+
+Champ | Valeurs | Détails
+-- | -- | --
+OperationResult | 0 - Réussi<br> 1 - Réussi avec erreurs<br> 2 - Échec<br> 3 - Abandonné<br> 4 - Abandonné avec délai d’expiration | Indique le résultat de l’opération globale (généralement impliquant l’installation d’une ou de plusieurs mises à jour).
+ResultCode | Identique à OperationResult | Ce champ indique le résultat de l’opération d’installation pour une mise à jour individuelle.
+OperationType | 1 - Installation<br> 0 - Rechercher et télécharger.| L’installation est le seul OperationType qui s’affiche dans les résultats par défaut.
+WindowsUpdateQuery | La valeur par défaut est « IsInstalled=0 » |Requête Windows Update utilisée pour rechercher les mises à jour. Pour plus d’informations, voir [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
+RebootRequired | true : le redémarrage était requis<br> false : le redémarrage n’était pas requis | Indique si le redémarrage était requis pour terminer l’installation des mises à jour.
+
 Si aucune mise à jour n’est planifiée, le JSON de résultat est vide.
 
 Connectez-vous au cluster pour interroger les résultats des mises à jour Windows Update. Déterminez ensuite l’adresse de réplica pour le serveur principal du service Coordinateur, puis accédez à l’URL à partir du navigateur : http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
@@ -363,7 +374,7 @@ R. Le temps dont l’application d’orchestration des correctifs a besoin dépe
 
 Q : **Pourquoi certaines mises à jour sont-elles affichées dans les résultats Windows Update obtenus via les API REST, et non dans l’historique Windows Update de l’ordinateur ?**
 
-R : Certaines mises à jour de produits doivent être archivées dans l’historique de correctifs/mises à jour correspondant. Ainsi, les mises à jour de Windows Defender ne s’affichent pas dans l’historique Windows Update de Windows Server 2016.
+R : Certaines mises à jour de produits doivent être archivées dans l’historique de correctifs/mises à jour correspondant. Par exemple, les mises à jour de Windows Defender ne s’affichent pas dans l’historique Windows Update de Windows Server 2016.
 
 ## <a name="disclaimers"></a>Clauses d’exclusion de responsabilité
 
@@ -403,7 +414,7 @@ Une mise à jour Windows Update défectueuse peut dégrader l’intégrité d’
 
 Un administrateur doit intervenir et déterminer la raison pour laquelle l’application ou le cluster sont devenus défectueux en raison d’une opération de Windows Update.
 
-## <a name="release-notes-"></a>Notes de publication :
+## <a name="release-notes"></a>Notes de publication
 
 ### <a name="version-110"></a>Version 1.1.0
 - Version publique

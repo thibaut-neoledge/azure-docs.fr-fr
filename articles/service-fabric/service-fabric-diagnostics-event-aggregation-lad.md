@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/17/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: bcc3a229369a065cfcfbd32eadbf3f6ae6fe0036
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: 5e5c6d3cf840a80be08473a300c01555d69cf57d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 09/16/2017
 
 ---
 
@@ -41,21 +41,17 @@ Service Fabric émet quelques journaux prêts à l’emploi via [LTTng](http://l
 ### <a name="application-events"></a>Événements liés aux applications
  Les événements émis à partir du code de vos applications et services tel que spécifié par vous-même lors de l’instrumentation de votre logiciel. Vous pouvez utiliser une solution de journalisation qui écrit des fichiers journaux textuels, par exemple LTTng. Pour plus d’informations, consultez la documentation de LTTng sur le traçage de votre application.
 
-[Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+[Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 
 ## <a name="deploy-the-diagnostics-extension"></a>Déployer l’extension Diagnostics
-La première étape de la collecte de journaux consiste à déployer l’extension Diagnostics sur chaque machine virtuelle du cluster Service Fabric. Cette extension collecte les journaux sur chaque machine virtuelle et les charge dans le compte de stockage que vous spécifiez. Les étapes varient selon que vous utilisez le portail Azure ou Azure Resource Manager.
+La première étape de la collecte de journaux consiste à déployer l’extension Diagnostics sur chaque machine virtuelle du cluster Service Fabric. Cette extension collecte les journaux sur chaque machine virtuelle et les charge dans le compte de stockage que vous spécifiez. 
 
-Pour déployer l’extension Diagnostics sur les machines virtuelles du cluster lors de la création de ce dernier, définissez **Diagnostics** sur **Activé**. Une fois le cluster créé, vous ne pouvez plus modifier ce paramètre à l’aide du portail.
+Pour déployer l’extension Diagnostics sur les machines virtuelles du cluster lors de la création de ce dernier, définissez **Diagnostics** sur **Activé**. Une fois le cluster créé, vous ne pouvez plus modifier ce paramètre à l’aide du portail et vous devez donc apporter les modifications appropriées dans le modèle Resource Manager.
 
-Ensuite, configurez Linux Azure Diagnostics (LAD) pour collecter les fichiers et les placer dans votre compte de stockage. Ce processus est détaillé dans le scénario 3 (Charger vos propres fichiers journaux) de l’article [Utilisation de l’extension de diagnostic Linux pour analyser les données de performances et de diagnostic d’une machine virtuelle Linux](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Cette procédure vous fournit un accès aux suivis. Vous pouvez charger les suivis dans le visualiseur de votre choix.
+Vous configurez ainsi l’agent LAD pour surveiller les fichiers journaux indiqués. Dès qu’une nouvelle ligne est ajoutée au fichier, elle crée une entrée dans le journal syslog, qui est envoyée au stockage (à la table) que vous avez spécifié.
 
-Vous pouvez également déployer l’extension Diagnostics à l’aide d’Azure Resource Manager. Le processus, identique pour Windows et Linux, est documenté pour les clusters Windows, dans la section [Collecte des journaux avec Linux Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md).
-
-Vous pouvez également utiliser Operations Management Suite, comme indiqué dans [Operations Management Suite Log Analytics with Linux (Analyse des journaux Operations Management Suite avec Linux)](https://blogs.technet.microsoft.com/hybridcloud/2016/01/28/operations-management-suite-log-analytics-with-linux/).
-
-Une fois cette configuration effectuée, l’agent LAD analyse les fichiers journaux spécifiés. Dès qu’une nouvelle ligne est ajoutée au fichier, elle crée une entrée dans le journal syslog, qui est envoyée au stockage que vous avez spécifié.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour identifier plus précisément les événements à consulter lors de la résolution des problèmes, consultez la [documentation de LTTng](http://lttng.org/docs) et la section [Utilisation de l’extension de diagnostic Linux pour analyser les données de performances et de diagnostic d’une machine virtuelle Linux](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+1. Pour identifier plus précisément les événements à consulter lors de la résolution des problèmes, consultez la [documentation de LTTng](http://lttng.org/docs) et la section [Utilisation de l’extension de diagnostic Linux pour analyser les données de performances et de diagnostic d’une machine virtuelle Linux](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+2. [Configurez l’agent OMS](service-fabric-diagnostics-event-analysis-oms.md) pour rassembler les métriques, surveiller les conteneurs déployés sur votre cluster et visualiser vos journaux 

@@ -16,10 +16,10 @@ ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6624d683edb548a65d07ab4012c599faaf940ed0
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -36,6 +36,7 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [Créer une application .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 > * Déployer l’application sur un cluster distant
 > * [Configurer l’intégration et le déploiement continus à l’aide de Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Composants requis
 Avant de commencer ce didacticiel :
@@ -54,6 +55,8 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 Les clusters tiers sont des clusters Service Fabric gratuits et limités dans le temps. Ils sont hébergés sur Azure et exécutés par l’équipe Service Fabric, dont tous les membres peuvent déployer des applications et en savoir plus sur la plateforme gratuitement.
 
 Pour accéder à un cluster tiers, rendez-vous sur le site http://aka.ms/tryservicefabric et suivez les instructions. Vous avez besoin d’un compte Facebook ou GitHub pour accéder à un cluster tiers.
+
+Si vous le souhaitez, vous pouvez utiliser votre propre cluster à la place du cluster tiers.  Le frontend web ASP.NET Core utilise le proxy inverse pour communiquer avec le backend de service avec état.  Le proxy inverse est activé par défaut sur les clusters tiers et le cluster de développement local.  Si vous déployez l’exemple d’application Voting sur votre propre cluster, vous devez [activer le proxy inverse dans le cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 > [!NOTE]
 > Les clusters tiers ne sont pas sécurisés. Vos applications et toutes les données que vous y placez sont donc visibles par d’autres personnes. Ne déployez aucun élément que vous souhaitez cacher aux autres utilisateurs. Veillez à lire les conditions d’utilisation pour plus d’informations.

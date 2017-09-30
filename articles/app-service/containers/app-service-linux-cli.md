@@ -1,6 +1,6 @@
 ---
-title: "Gérer les applications Web Apps for Containers à l’aide d’Azure CLI 2.0 | Microsoft Docs"
-description: "Gérez les applications Web Apps for Containers à l’aide d’Azure CLI."
+title: "Gérer les applications Web App for Containers à l’aide d’Azure CLI 2.0 | Microsoft Docs"
+description: "Gérer les applications Web App for Containers à l’aide d’Azure CLI."
 keywords: azure app service, application web, cli, linux, oss
 services: app-service
 documentationCenter: 
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: d58fab0b423b7bc1382a82f4bf308b6ad7286296
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 5213bec66095d50ef29cc3bec0a7b6307614dc92
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="manage-web-apps-for-containers-using-azure-cli"></a>Gérer les applications Web Apps for Containers à l’aide d’Azure CLI
+# <a name="manage-web-app-for-containers-using-azure-cli"></a>Gérer les applications Web App for Containers à l’aide d’Azure CLI
 
-À l’aide des commandes de cet article, vous pouvez créer et gérer une application Web Apps for Containers à l’aide d’Azure CLI 2.0.
+À l’aide des commandes présentées dans cet article, vous pouvez créer et gérer une application Web App for Containers à l’aide d’Azure CLI 2.0.
 Vous pouvez commencer à utiliser la nouvelle version de la CLI de deux manières :
 
 * [Installation d’Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) sur votre ordinateur.
@@ -54,7 +54,7 @@ Pour activer la journalisation du conteneur Docker, vous pouvez utiliser la comm
 az webapp log config -n sname -g rgname --web-server-logging filesystem
 ```
 
-## <a name="change-the-custom-docker-container-for-an-existing-web-apps-for-containers-app"></a>Changer le conteneur Docker personnalisé pour une application Web Apps for Containers existante
+## <a name="change-the-custom-docker-container-for-an-existing-web-app-for-containers-app"></a>Changer le conteneur Docker personnalisé pour une application Web App for Containers existante
 
 Pour modifier une application créée précédemment, de l’image Docker actuelle en une nouvelle image, vous pouvez utiliser la commande suivante :
 
@@ -78,15 +78,15 @@ Avec la commande suivante, vous pouvez activer la fonctionnalité CD et obtenir 
 az webapp deployment container config -n sname -g rgname -e true
 ```
 
-## <a name="create-a-web-apps-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Créer une application Web Apps for Containers à l’aide de l’un de nos frameworks d’exécution intégrés
+## <a name="create-a-web-app-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Créer une application Web App for Containers à l’aide de l’une de nos infrastructures runtime intégrées
 
-Pour créer une application Web Apps for Containers PHP 5.6, vous pouvez utiliser la commande suivante.
+Pour créer une application PHP 5.6 Web App for Containers, vous pouvez utiliser la commande suivante.
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -r "php|5.6"
 ```
 
-## <a name="change-framework-version-for-an-existing-web-apps-for-containers-app"></a>Changer la version du framework pour une application Web Apps for Containers existante
+## <a name="change-framework-version-for-an-existing-web-app-for-containers-app"></a>Changer la version de l’infrastructure pour une application Web App for Containers existante
 
 Pour modifier une application créée précédemment, de la version d’infrastructure actuelle en Node.js 6.11, vous pouvez utiliser la commande suivante :
 
@@ -107,6 +107,6 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [Présentation d’Azure Web Apps for Containers](app-service-linux-intro.md)
 * [Installation d’Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (version préliminaire)](../../cloud-shell/overview.md)
-* [Configurer des environnements intermédiaires dans Azure App Service](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Déploiement continu avec Azure Web Apps for Containers](app-service-linux-ci-cd.md)
+* [Configurer des environnements intermédiaires dans Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Déploiement continu avec Azure Web App for Containers](app-service-linux-ci-cd.md)
 

@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 87cc66752dae1f4bd0903607d8a8ae9bd9125b11
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 75cafa6868d54f9d8a7e0dbe9f2a9e85ed43f16f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -199,6 +199,16 @@ Cet exemple de sortie indique le début du traitement, les modifications utilisa
 
 >[!TIP]
 > Cliquer sur des éléments liés à une *Modification de la licence d’un utilisateur* a pour effet d’afficher les détails des changements de licence appliqués à chaque utilisateur.
+
+## <a name="deleting-a-group-with-an-assigned-license"></a>Suppression d’un groupe avec une licence attribuée
+
+Il n’est pas possible de supprimer un groupe disposant d’une licence active assignée. Un administrateur peut supprimer un groupe sans réaliser que cela entraînera des retraits de licences à des utilisateurs - Pour cette raison, nous demandons que les licences soient supprimées du groupe avant de pouvoir le supprimer.
+
+Lorsque vous tentez de supprimer un groupe dans le portail Azure, vous pouvez voir une notification d’erreur comme suit : ![Capture d’écran d’un échec de suppression du groupe](media/active-directory-licensing-group-advanced/groupdeletionfailed.png)
+
+Accédez à l’onglet **Licences** du groupe et vérifiez si des licences sont attribuées. Si c’est le cas, supprimez ces licences et essayez de nouveau de supprimer le groupe.
+
+Vous pouvez obtenir des erreurs similaires en tentant de supprimer le groupe avec PowerShell ou API Graph. Si vous utilisez un groupe synchronisé localement, Azure AD Connect peut également signaler des erreurs s’il n’arrive pas à supprimer le groupe dans Azure AD. Dans ce cas, veillez à vérifier s’il existe des licences attribuées au groupe et retirez-les d’abord.
 
 ## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 

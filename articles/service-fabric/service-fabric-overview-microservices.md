@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 53c142217c67465d29fa413f4edb4f96fcb4c6cc
+ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
+ms.openlocfilehash: d90b8c41d130526607adb035c5c6d4c02c5f7c4f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Pourquoi une approche de microservices pour la conception d’applications ?
@@ -156,7 +156,7 @@ Une approche clé de Service Fabric consiste à réutiliser le code existant, ce
 
 ![Migration vers les microservices][Image3]
 
-Il est important d’insister à nouveau sur le fait que vous pouvez **commencer et arrêter chaque étape**, vous n’êtes pas tenu de passer à l’étape suivante. Passons maintenant aux exemples de chacune de ces étapes.
+Il est important d’insister à nouveau sur le fait que vous pouvez **commencer et arrêter à chacune de ces étapes**. Vous n’êtes pas tenu de passer à l’étape suivante. Passons maintenant aux exemples de chacune de ces étapes.
 
 **Lift and Shift** : un grand nombre d’entreprises déplacent des applications monolithiques existantes vers des conteneurs pour deux raisons.
 

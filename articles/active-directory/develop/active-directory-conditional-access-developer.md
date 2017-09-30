@@ -15,10 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: b8fac1b258535fd668b45acbe2c1c8580fb8a340
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ea4421f7b22cf60b2c3e42b59057162ad56f412e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -34,7 +34,7 @@ Pour plus d’informations sur toutes les fonctionnalités de l’accès conditi
 
 Dans cet article, nous nous concentrons sur ce que l’accès conditionnel permet aux développeurs de générer des applications pour Azure AD.  Il suppose des connaissances [d’applications uniques](active-directory-integrating-applications.md) et [mutualisées](active-directory-devhowto-multi-tenant-overview.md) et [des modèles courants d’authentification](active-directory-authentication-scenarios.md).
 
-Nous allons approfondir l’impact de l’accès aux ressources que vous ne contrôlez pas et qui peuvent avoir des stratégies d’accès conditionnelles appliquées.  En outre, nous explorons les implications de l’accès conditionnel dans les applications Web et de flux Pour le compte de accédant à Microsoft Graph et appelant des API.
+Nous allons approfondir l’impact de l’accès aux ressources que vous ne contrôlez pas et qui peuvent avoir des stratégies d’accès conditionnelles appliquées.  En outre, nous explorons les implications de l’accès conditionnel dans les applications web et de flux « Pour le compte de » accédant à Microsoft Graph et appelant des API.
 
 ## <a name="how-does-conditional-access-impact-an-app"></a>Comment l’accès conditionnel impacte-t-il une application ?
 
@@ -58,7 +58,7 @@ Selon le scénario, un client d’entreprise peut appliquer et supprimer des str
 Certains scénarios requièrent des modifications de code pour gérer l’accès conditionnel, tandis que d’autres travaillent tel quel.  Voici quelques scénarios utilisant l’accès conditionnel pour l’authentification multifacteur qui donne une idée de la différence.
 
 * Vous générez une application iOS de client unique et appliquez une stratégie d’accès conditionnel.  L’application connecte un utilisateur et ne demande pas l’accès à une API.  Lorsque l’utilisateur se connecte, la stratégie est appelée automatiquement et l’utilisateur doit effectuer l’authentification multifacteur (MFA). 
-* Vous générez une application Web multi-locataire qui utilise Microsoft Graph pour accéder à Exchange, entre autres services.  Un client d’entreprise qui adopte cette application définit une stratégie sur SharePoint Online.  Lorsque l’application web demande un jeton pour MS Graph, une stratégie sur tous les services Microsoft est appliquée (en particulier les services qui sont accessibles via le graphique).  Cet utilisateur final est invité à fournir l’authentification multifacteur. Dans ce cas, l’utilisateur final s’est connecté avec des jetons valides, un « défi » de revendications est renvoyé à l’application Web.  
+* Vous générez une application web multi-locataire qui utilise Microsoft Graph pour accéder à Exchange, entre autres services.  Un client d’entreprise qui adopte cette application définit une stratégie sur SharePoint Online.  Lorsque l’application web demande un jeton pour MS Graph, une stratégie sur tous les services Microsoft est appliquée (en particulier les services qui sont accessibles via le graphique).  Cet utilisateur final est invité à fournir l’authentification multifacteur. Dans ce cas, l’utilisateur final s’est connecté avec des jetons valides, un « défi » de revendications est renvoyé à l’application Web.  
 * Vous générez une application native qui utilise un service de niveau intermédiaire pour accéder à Microsoft Graph.  Un client d’entreprise de la société utilisant cette application applique une stratégie à Exchange Online.  Lorsqu’un utilisateur final se connecte, l’application native demande l’accès au niveau intermédiaire et envoie le jeton.  Le niveau intermédiaire effectue le flux Pour le compte pour demander l’accès à MS Graph.  À ce stade, un défi de « revendications » est présenté au niveau intermédiaire. Le niveau intermédiaire renvoie la demande à l’application native, qui doit se conformer à la stratégie d’accès conditionnel.
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Conformité à une stratégie d’accès conditionnel
@@ -90,9 +90,9 @@ Les informations suivantes s’appliquent uniquement dans ces scénarios d’acc
 
 Dans les sections suivantes, nous aborderons des scénarios communs plus complexes.  Le principe de fonctionnement central est que les stratégies d’accès conditionnel sont évaluées au moment où le jeton est demandé pour le service qui contient une stratégie d’accès conditionnel, sauf si elle est accessible via Microsoft Graph.
 
-### <a name="scenario-app-accessing-the-microsoft-graph"></a>Scénario : applications ayant accès à Microsoft Graph
+### <a name="scenario-app-accessing-microsoft-graph"></a>Scénario : application ayant accès à Microsoft Graph
 
-Dans ce scénario, nous abordons le cas où l’application Web demande l’accès à Microsoft Graph. Dans ce cas, la stratégie d’accès conditionnel peut être attribuée à SharePoint, Exchange ou un autre service accessible en tant que charge de travail via Microsoft Graph.  Dans cet exemple, supposons qu’il existe une stratégie d’accès conditionnel sur Sharepoint Online.
+Dans ce scénario, nous abordons le cas où une application web demande l’accès à Microsoft Graph. Dans ce cas, la stratégie d’accès conditionnel peut être attribuée à SharePoint, Exchange ou à un autre service accessible en tant que charge de travail via Microsoft Graph.  Dans cet exemple, supposons qu’il existe une stratégie d’accès conditionnel sur Sharepoint Online.
 
 ![Applications ayant accès au diagramme de flux Microsoft Graph](media/active-directory-conditional-access-developer/app-accessing-microsoft-graph-scenario.png)
 

@@ -82,6 +82,8 @@
   items:
     - name: Récupération d'urgence
       items:
+        - name: Vers Azure pour les machines virtuelles VMware avec l’architecture multilocataires
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Vers Azure pour les machines virtuelles Hyper-V
           href: tutorial-hyper-v-to-azure.md
         - name: Vers Azure pour les serveurs physiques

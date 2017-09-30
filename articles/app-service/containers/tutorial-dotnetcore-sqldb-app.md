@@ -1,6 +1,6 @@
 ---
-title: "Création d’une application web .NET Core et SQL Database dans Azure Web Apps for Containers | Microsoft Docs"
-description: "Découvrez comment faire fonctionner une application .NET Core dans Azure Web Apps for Containers en établissant une connexion à une instance SQL Database."
+title: "Créer une application web .NET Core et SQL Database dans Azure Web App for Containers | Microsoft Docs"
+description: "Découvrez comment faire fonctionner une application .NET Core dans Azure Web App for Containers en établissant une connexion à une instance SQL Database."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -16,19 +16,19 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7683856e5ad7bf19b38d51f019e4eef106f1800c
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 365747f9f9c765e8db1ab86946ba578c321ec732
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-apps-for-containers"></a>Création d’une application web .NET Core et SQL Database dans Azure Web Apps for Containers
+# <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-app-for-containers"></a>Créer une application web .NET Core et SQL Database dans Azure Web App for Containers
 
-[Web Apps for Containers](app-service-linux-intro.md) fournit un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce didacticiel vous montre comment créer une application web .NET Core et comment la connecter à une instance SQL Database. Lorsque vous avez terminé, vous disposez d’une application MVC .NET Core en cours d’exécution dans Web Apps for Containers. 
+[Web App for Containers](app-service-linux-intro.md) est un service d’hébergement web hautement scalable qui applique automatiquement des mises à jour correctives et utilise le système d’exploitation Linux. Ce didacticiel vous montre comment créer une application web .NET Core et comment la connecter à une instance SQL Database. Quand vous avez terminé, vous disposez d’une application MVC .NET Core en cours d’exécution dans Web App for Containers. 
 
-![application en cours d’exécution dans Web Apps pour Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![application en cours d’exécution dans Web App for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-Vous apprendrez à :
+Vous apprendrez à :
 
 > [!div class="checklist"]
 > * Créer une base de données SQL dans Azure
@@ -38,7 +38,7 @@ Vous apprendrez à :
 > * Diffusion des journaux de diagnostic à partir d’Azure
 > * Gestion de l’application dans le portail Azure
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
@@ -55,7 +55,7 @@ Cette étape consiste à configurer le projet .NET Core local.
 
 Dans la fenêtre de terminal, `cd` vers un répertoire de travail.  
 
-Exécutez les commandes suivantes pour cloner l’exemple de référentiel et modifier son répertoire racine.
+Exécutez les commandes suivantes pour cloner l’exemple de dépôt et modifier son répertoire racine.
 
 ```bash
 git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
@@ -74,7 +74,7 @@ dotnet ef database update
 dotnet run
 ```
 
-Accédez à http://localhost:5000 dans un navigateur. Sélectionnez le lien **Create New** et créez quelques éléments _to-do_.
+Dans un navigateur, accédez à `http://localhost:5000`. Sélectionnez le lien **Create New** et créez quelques éléments _to-do_.
 
 ![se connecte correctement à SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
@@ -151,7 +151,7 @@ Chaîne de connexion pour votre application .NET Core. Copiez-la pour une utilis
 
 ## <a name="deploy-app-to-azure"></a>Déployer des applications dans Azure
 
-Dans cette étape, vous déployez votre application .NET Core connectée à SQL Database dans Web Apps for Containers.
+Dans cette étape, vous déployez votre application .NET Core connectée à SQL Database dans Web App for Containers.
 
 ### <a name="configure-local-git-deployment"></a>Configurer le déploiement Git local 
 
@@ -183,7 +183,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 ### <a name="connect-to-sql-database-in-production"></a>Connexion à SQL Database en production
 
-Dans votre référentiel local, ouvrez Startup.cs et recherchez le code suivant :
+Dans votre dépôt local, ouvrez Startup.cs et recherchez le code suivant :
 
 ```csharp
 services.AddDbContext<MyDatabaseContext>(options =>
@@ -251,9 +251,9 @@ http://<app_name>.azurewebsites.net
 
 Ajoutez quelques tâches.
 
-![application en cours d’exécution dans Web Apps pour Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![application en cours d’exécution dans Web App for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-**Félicitations !** Vous exécutez une application .NET Core pilotée par les données dans Web Apps for Containers.
+**Félicitations !** Vous exécutez une application .NET Core pilotée par les données dans Web App for Containers.
 
 ## <a name="update-locally-and-redeploy"></a>Mise à jour locale et redéploiement
 
@@ -335,7 +335,7 @@ Exécutez l’application localement.
 dotnet run
 ```
 
-Dans votre navigateur, accédez à http://local:5000/. Vous pouvez maintenant ajouter un élément de tâche et cocher **Terminé**. Cette tâche devrait ensuite apparaître dans votre page d’accueil comme un élément terminé. N’oubliez pas que la vue `Edit` n’affiche pas le champ `Done`, car vous n’avez pas modifié la vue `Edit`.
+Dans votre navigateur, accédez à `http://localhost:5000/`. Vous pouvez maintenant ajouter un élément de tâche et cocher **Terminé**. Cette tâche devrait ensuite apparaître dans votre page d’accueil comme un élément terminé. N’oubliez pas que la vue `Edit` n’affiche pas le champ `Done`, car vous n’avez pas modifié la vue `Edit`.
 
 ### <a name="publish-changes-to-azure"></a>Publier les modifications dans Azure
 
@@ -381,5 +381,5 @@ Vous avez appris à effectuer les opérations suivantes :
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
 
 > [!div class="nextstepaction"] 
-> [Mapper un nom DNS personnalisé existant à des applications web Azure](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service-web-tutorial-custom-domain.md)
 

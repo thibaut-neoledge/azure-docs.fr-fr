@@ -172,22 +172,34 @@
           href: control-flow-expression-language-functions.md
         - name: Variables système
           href: control-flow-system-variables.md
-    - name: Stocker les informations d’identification dans le coffre de clés
-      href: store-credentials-in-key-vault.md
+    - name: Sécurité
+      items:
+        - name: Considérations relatives à la sécurité des déplacements de données
+          href: data-movement-security-considerations.md
+        - name: Informations d’identification dans Azure Key Vault
+          href: store-credentials-in-key-vault.md
+        - name: Chiffrer des informations d’identification pour le runtime d’intégration auto-hébergé
+          href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: Surveillance et gestion
       items:
         - name: Utiliser .NET
           href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
         - name: "Utiliser Azure\_Monitor"
           href: monitor-using-azure-monitor.md
+        - name: "Gérer le runtime d’intégration Azure\_SSIS"
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Surveiller le runtime d’intégration
+          href: monitor-integration-runtime.md
     - name: Créer un runtime d’intégration
       items:
         - name: Runtime d’intégration Azure
           href: create-azure-integration-runtime.md
-        - name: Runtime d’intégration Azure SSIS
-          href: create-azure-ssis-integration-runtime.md
         - name: Runtime d’intégration auto-hébergé
           href: create-self-hosted-integration-runtime.md
+        - name: "Runtime d’intégration Azure\_SSIS"
+          href: create-azure-ssis-integration-runtime.md
+        - name: Associer un runtime d’intégration Azure SSIS à un réseau virtuel
+          href: join-azure-ssis-integration-runtime-virtual-network.md
 - name: Référence
   items:
     - name: .NET
@@ -200,6 +212,8 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Ressources
   items:
+    - name: Forum Aux Questions
+      href: frequently-asked-questions.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: Tarification

@@ -13,23 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/05/2017
-ms.author: cfowler;cephalin
+ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 8dba82b37a1584199f6a16cd2b05129e2adca276
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 6a7e2a99af7bca9bd0b12f877511f765593acb0a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-nodejs-web-app-in-a-linux-container-in-azure"></a>Créer une application web Node.js dans un conteneur Linux dans Azure
 
-[Web Apps for Containers](app-service-linux-intro.md) est un service d’hébergement web hautement scalable qui applique automatiquement des mises à jour correctives et utilise le système d’exploitation Linux. Ce guide de démarrage rapide vous montre comment déployer une application Node.js dans Azure Web Apps for Containers. Vous allez créer l’application web à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) et utiliser Git pour déployer le code Node.js dans l’application web.
+[Web App for Containers](app-service-linux-intro.md) est un service d’hébergement web hautement scalable qui applique automatiquement des mises à jour correctives et utilise le système d’exploitation Linux. Ce guide de démarrage rapide vous montre comment déployer une application Node.js dans Azure Web App for Containers. Vous allez créer l’application web à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) et utiliser Git pour déployer le code Node.js dans l’application web.
 
 ![Exemple d’application s’exécutant dans Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
 Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windows ou Linux.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide :
 
@@ -62,7 +63,7 @@ Exécutez l’application localement en ouvrant une fenêtre de terminal et en u
 npm start
 ```
 
-Ouvrez un navigateur web et accédez à l’exemple d’application à l’adresse http://localhost:1337.
+Ouvrez un navigateur web et accédez à l’exemple d’application à l’adresse `http://localhost:1337`.
 
 Vous voyez apparaître sur la page le message **Hello World** de l’exemple d’application.
 

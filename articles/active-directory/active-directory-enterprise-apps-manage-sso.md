@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2017
+ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 73c0917702e2c222f3dc09ddfa2d6d54cf005abf
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 882180a553fffee05a612cf70ddd9a0f30108415
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gestion de l’authentification unique pour les applications d’entreprise
@@ -40,7 +40,7 @@ Pour gérer les paramètres d’authentification unique, sélectionnez **Authent
 ## <a name="single-sign-on-modes"></a>Modes d’authentification unique
 L’**Authentification unique** commence par un menu **Mode**, qui permet de configurer le mode d’authentification. Les options disponibles incluent :
 
-* **Authentification basée sur SAML** : cette option est disponible si l’application prend en charge l’authentification unique fédérée complète avec Azure Active Directory à l’aide du protocole SAML 2.0.
+* **Authentification basée sur SAML** : cette option est disponible si l’application prend en charge l’authentification unique fédérée complète avec Azure Active Directory à l’aide des protocoles de connexion SAML 2.0, WS-Federation ou OpenID.
 * **Authentification par mot de passe** : cette option est disponible si Azure AD prend en charge le remplissage de formulaire de mot de passe pour cette application.
 * **Authentification liée** : précédemment appelée « Authentification unique existante », cette option permet aux administrateurs de placer un lien vers cette application dans le panneau d’accès Azure AD ou le lanceur d’applications Office 365 de leurs utilisateurs.
 
@@ -49,8 +49,8 @@ Pour plus d’informations sur ces modes, voir [Fonctionnement de l’authentifi
 ## <a name="saml-based-sign-on"></a>Authentification basée sur SAML
 L’option **Authentification basée sur SAML** est divisée en quatre sections :
 
-### <a name="domains-and-urls"></a>Domaines et URL
-C’est là que toutes les informations concernant le domaine et les URL de l’application doivent être ajoutées à votre annuaire Azure AD. Toutes les entrées requises pour que l’authentification unique fonctionne sont affichées directement dans l’écran, tandis que toutes les entrées facultatives peuvent être affichées en sélectionnant la case à cocher **Afficher les paramètres d’URL avancés**. La liste complète des entrées prises en charge inclut :
+### <a name="domains-and-urls"></a>Domains and URLs (Domaines et URL)
+C’est là que toutes les informations concernant le domaine et les URL de l’application doivent être ajoutées à votre annuaire Azure AD. Toutes les entrées requises pour que l’authentification unique fonctionne sont affichées directement dans l’écran, tandis que toutes les entrées facultatives peuvent être affichées en sélectionnant la case à cocher **Show advanced URL settings** (Afficher les paramètres d’URL avancés). La liste complète des entrées prises en charge inclut :
 
 * **URL d’authentification** : adresse où l’utilisateur se connecte à l’application. Si l’application est configurée pour effectuer une authentification unique lancée par le fournisseur de services, quand un utilisateur accède à cette URL, le fournisseur de services redirige vers Azure AD pour authentifier et connecter l’utilisateur. 
   * Si ce champ est renseigné, Azure AD utilise l’URL pour démarrer l’application à partir d’Office 365 et du panneau d’accès Azure AD.

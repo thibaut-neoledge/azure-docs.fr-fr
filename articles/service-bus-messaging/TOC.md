@@ -43,6 +43,7 @@
 ### [Files d’attente de lettres mortes](service-bus-dead-letter-queues.md)
 ### [Traitement des transactions](service-bus-transactions.md)
 ### [Journaux de diagnostic](service-bus-diagnostic-logs.md)
+### [Implémentation de l’espace de noms associé](service-bus-paired-namespaces.md)
 ### AMQP
 #### [Vue d’ensemble du protocole AMQP](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)

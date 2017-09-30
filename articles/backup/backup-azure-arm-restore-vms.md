@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/15/2017
+ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: e1fe2b94d462a30f09cb23ab905542aa121ba46b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d234d9c97064e22a0ea882f199da326b0aae0674
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="use-azure-portal-to-restore-virtual-machines"></a>Utiliser le portail Azure pour restaurer des machines virtuelles
@@ -164,7 +164,7 @@ Pour voir l’opération en cours de traitement, ou l’afficher lorsqu’elle e
 Une fois [l’opération de restauration des disques terminée](#Track-the-restore-operation), vous pouvez utiliser le modèle généré dans le cadre de l’opération de restauration pour créer une machine virtuelle avec une configuration différente de la configuration de la sauvegarde ou pour personnaliser les noms de ressources créés lors de l’opération Créer une machine virtuelle à partir du point de restauration. 
 
 > [!NOTE]
-> Les modèles seront ajoutés dans le cadre de la restauration des disques pour les points de récupération effectuée après le 1er mars 2017. Ils sont applicables aux machines virtuelles non chiffrées et aux machines virtuelles avec disque non géré. La prise en charge des machines virtuelles chiffrées et des machines virtuelles avec disque géré est prévue dans une prochaine version. 
+> Les modèles seront ajoutés dans le cadre de la restauration des disques pour les points de récupération effectuée après le 1er mars 2017. Ils sont applicables aux machines virtuelles avec disque non géré. La prise en charge des machines virtuelles avec disque géré est prévue dans une prochaine version. 
 >
 >
 

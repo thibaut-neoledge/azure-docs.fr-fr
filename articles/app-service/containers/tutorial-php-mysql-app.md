@@ -16,15 +16,15 @@ ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: c6981b8059f11afbce0492aac5acdf06b3ca4858
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 77d5e04b2e4606cdeb79de12b7c5a0b0cc8f5c25
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Créer une application web PHP et MySQL dans Azure
 
-[Web Apps for Containers](app-service-linux-intro.md) fournit un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce didacticiel vous montre comment créer une application web PHP et comment la connecter à une base de données MySQL. Une fois terminé, vous disposerez d’une application [Laravel](https://laravel.com/) s’exécutant dans Web Apps for Containers.
+[Web App for Containers](app-service-linux-intro.md) est un service d’hébergement web hautement scalable qui applique automatiquement des mises à jour correctives et utilise le système d’exploitation Linux. Ce didacticiel vous montre comment créer une application web PHP et comment la connecter à une base de données MySQL. Quand vous avez terminé, vous disposez d’une application [Laravel](https://laravel.com/) en cours d’exécution dans Web App for Containers.
 
 ![Application PHP exécutée dans Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -38,7 +38,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Diffusion des journaux de diagnostic à partir d’Azure
 > * Gestion de l’application dans le portail Azure
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
@@ -89,7 +89,7 @@ Dans cette étape, vous allez créer un exemple d’application Laravel, configu
 
 Dans la fenêtre de terminal, `cd` vers un répertoire de travail.
 
-Exécutez la commande suivante pour cloner l’exemple de référentiel.
+Exécutez la commande suivante pour cloner l’exemple de dépôt.
 
 ```bash
 git clone https://github.com/Azure-Samples/laravel-tasks
@@ -105,7 +105,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>Configuration de la connexion MySQL
 
-À la racine du référentiel, créez un fichier nommé *.env*. Copiez les variables suivantes dans le fichier *.env*. Remplacez l’espace réservé _&lt;root_password>_ par le mot de passe de l’utilisateur racine de MySQL.
+À la racine du dépôt, créez un fichier nommé *.env*. Copiez les variables suivantes dans le fichier *.env*. Remplacez l’espace réservé _&lt;root_password>_ par le mot de passe de l’utilisateur racine de MySQL.
 
 ```
 APP_ENV=local
@@ -123,7 +123,7 @@ Pour en savoir plus sur la manière dont Laravel utilise ce fichier _.env_, cons
 
 ### <a name="run-the-sample-locally"></a>Télécharger l’exemple localement
 
-Exécutez les [migrations de base de données Laravel](https://laravel.com/docs/5.4/migrations) pour créer les tables requises par l’application. Pour voir quelles tables sont créées dans les migrations, consultez le répertoire _database/migrations_ dans le référentiel Git.
+Exécutez les [migrations de base de données Laravel](https://laravel.com/docs/5.4/migrations) pour créer les tables requises par l’application. Pour voir quelles tables sont créées dans les migrations, consultez le répertoire _database/migrations_ dans le dépôt Git.
 
 ```bash
 php artisan migrate
@@ -236,7 +236,7 @@ Dans cette étape, vous allez connecter l’application PHP à la base de donné
 
 ### <a name="configure-the-database-connection"></a>Configurer la connexion à la base de données
 
-À la racine du référentiel, créez un fichier _.env.production_ et copiez-y les variables suivantes. Remplacez l’espace réservé _&lt;mysql_server_name>_.
+À la racine du dépôt, créez un fichier _.env.production_ et copiez-y les variables suivantes. Remplacez l’espace réservé _&lt;mysql_server_name>_.
 
 ```
 APP_ENV=production
@@ -254,7 +254,7 @@ DB_PASSWORD=MySQLAzure2017
 Enregistrez les modifications.
 
 > [!TIP]
-> Pour sécuriser vos informations de connexion MySQL, ce fichier est déjà exclu du référentiel Git (consultez _.gitignore_ dans la racine du référentiel). Vous apprendrez ultérieurement à configurer les variables d’environnement dans App Service pour vous connecter à votre base de données dans Azure Database pour MySQL (version préliminaire). Avec les variables d’environnement, vous n’avez pas besoin du fichier *.env* dans App Service.
+> Pour sécuriser vos informations de connexion MySQL, ce fichier est déjà exclu du dépôt Git (consultez _.gitignore_ dans la racine du dépôt). Vous apprendrez ultérieurement à configurer les variables d’environnement dans App Service pour vous connecter à votre base de données dans Azure Database pour MySQL (version préliminaire). Avec les variables d’environnement, vous n’avez pas besoin du fichier *.env* dans App Service.
 >
 
 <!-- ### Configure SSL certificate
@@ -390,7 +390,7 @@ Par défaut, Azure App Service pointe le chemin d’accès à l’application vi
 
 ### <a name="push-to-azure-from-git"></a>Effectuer une transmission de type push vers Azure à partir de Git
 
-Ajoutez un référentiel distant Azure dans votre référentiel Git local.
+Ajoutez un référentiel distant Azure dans votre dépôt Git local.
 
 ```bash
 git remote add azure <paste_copied_url_here>
@@ -420,7 +420,7 @@ remote: Running deployment command...
 ```
 
 > [!NOTE]
-> Vous remarquerez peut-être que le processus de déploiement installe les packages [Composer](https://getcomposer.org/) à la fin. App Service n’exécute pas ces automatisations pendant le déploiement par défaut. Cet exemple de référentiel possède donc trois fichiers supplémentaires dans son répertoire racine pour l’activer :
+> Vous remarquerez peut-être que le processus de déploiement installe les packages [Composer](https://getcomposer.org/) à la fin. App Service n’exécute pas ces automatisations pendant le déploiement par défaut. Cet exemple de dépôt compte donc trois fichiers supplémentaires dans son répertoire racine pour l’activer :
 >
 > - `.deployment` : ce fichier indique à App Service d’exécuter `bash deploy.sh` en tant que script de déploiement personnalisé.
 > - `deploy.sh` : le script de déploiement personnalisé. Si vous examinez le fichier, vous verrez qu’il exécute `php composer.phar install` après `npm install`.
@@ -445,7 +445,7 @@ Pour le scénario des tâches, vous modifiez l’application afin de pouvoir mar
 
 ### <a name="add-a-column"></a>Ajout d’une colonne
 
-Dans le terminal, accédez à la racine du référentiel Git.
+Dans le terminal, accédez à la racine du dépôt Git.
 
 Générez une nouvelle migration de base de données pour la table `tasks` :
 
@@ -545,7 +545,7 @@ Le code ci-dessus ajoute le bouton Envoyer qui fait référence à l’itinérai
 
 ### <a name="test-the-changes-locally"></a>Test des modifications en local
 
-À partir du répertoire racine du référentiel Git, exécutez le serveur de développement.
+À partir du répertoire racine du dépôt Git, exécutez le serveur de développement.
 
 ```bash
 php artisan serve
@@ -612,5 +612,5 @@ Dans ce didacticiel, vous avez appris à :
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à une application web.
 
 > [!div class="nextstepaction"]
-> [Mapper un nom DNS personnalisé existant à des applications web Azure](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service-web-tutorial-custom-domain.md)
 

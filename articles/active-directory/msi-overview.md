@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: skwan
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 891a895419a4fe882e01495231f33a1d79eb42a9
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: c18fd5d5b528dfbafa456b3702996b80c3a60a02
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -57,7 +57,6 @@ Les services Azure suivants prennent en charge l’identité du service administ
 | Service | État | Date |
 | --- | --- | --- |
 | Machines virtuelles Azure | VERSION PRÉLIMINAIRE | Septembre 2017 |
-| Groupes de machines virtuelles identiques Azure | VERSION PRÉLIMINAIRE | Septembre 2017 |
 | Azure App Service | VERSION PRÉLIMINAIRE | Septembre 2017 |
 | Azure Functions | VERSION PRÉLIMINAIRE | Septembre 2017 |
 
@@ -69,7 +68,6 @@ Les services suivants prennent en charge l’authentification Azure AD et ont é
 | --- | --- | --- | --- |
 | Azure Resource Manager | https://management.azure.com/ | Disponible | Septembre 2017 |
 | coffre de clés Azure | https://vault.azure.net/ | Disponible | Septembre 2017 |
-| Azure SQL | https://database.windows.net/ | Disponible | Septembre 2017 |
 | Azure Data Lake | https://datalake.azure.net/ | Disponible | Septembre 2017 |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Combien coûte l’identité du service administré ?
@@ -85,28 +83,35 @@ Nous sommes à votre écoute !
 
 ## <a name="try-managed-service-identity"></a>Essayer l’identité du service administré
 
-Maintenant que vous maîtrisez les notions de base, essayez un didacticiel sur l’identité du service administré pour savoir comment accéder aux différentes ressources Azure.
+Essayez un didacticiel d’identité du service administré afin d’en savoir plus sur les scénarios de bout en bout pour l’accès à d’autres ressources Azure :
 
-- [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-arm.md)
-- [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-arm.md)
-- [Accéder à stockage Azure avec l’identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-storage.md)
-- [Accéder à stockage Azure avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-storage.md)
-- [Accéder à une ressource non Azure AD avec l’identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-nonaad.md)
-- [Accéder à une ressource non Azure AD avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-nonaad.md)
-- [Utiliser l’identité du service administré avec Azure App Service ou Azure Functions](/azure/app-service/app-service-managed-service-identity)
+| À partir d’une ressource compatible avec l’identité du service administré | Découvrez comment |
+| ------- | -------- |
+| Machine virtuelle Azure (Windows) | [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Accéder à stockage Azure avec l’identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Accéder à une ressource non Azure AD avec l’identité du service administré d’une machine virtuelle Windows et Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
+| Machine virtuelle Azure (Linux)   | [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-arm.md) |
+|                    | [Accéder à stockage Azure avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [Accéder à une ressource non Azure AD avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-nonaad.md) |
+| Azure App Service  | [Utiliser l’identité du service administré avec Azure App Service ou Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Fonction Azure     | [Utiliser l’identité du service administré avec Azure App Service ou Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 
+Si vous souhaitez simplement apprendre les principes fondamentaux de l’activation de l’identité du service administré sur une ressource Azure :
 
+| Pour une ressource Azure | Activer/désactiver l’identité du service administré avec |
+| ------------------ | ------------------------------------ |
+| Machine virtuelle Azure (Windows) | [Le portail Azure](msi-qs-configure-portal-windows-vm.md) |
+|                    | [PowerShell](msi-qs-configure-powershell-windows-vm.md) |
+|                    | [Interface de ligne de commande Azure](msi-qs-configure-cli-windows-vm.md)|
+|                    | [Modèles Microsoft Azure Resource Manager](msi-qs-configure-template-windows-vm.md) |
 
+Apprenez ensuite à utiliser le contrôle d’accès en fonction du rôle (RBAC) pour permettre à une identité du service administré d’accéder à une autre ressource Azure :
 
-
-
-
-
-
-
-
-
-
+| À partir d’une ressource compatible avec l’identité du service administré | Assigner l’accès à une autre ressource Azure avec |
+| ------------------------ | ---------------------------------------------------------- |
+| Machine virtuelle Azure (Windows) | [Le portail Azure](msi-howto-assign-access-portal.md) |
+|                    | [PowerShell](msi-howto-assign-access-powershell.md) |
+|                    | [interface de ligne de commande Azure](msi-howto-assign-access-CLI.md) |
 
 
 

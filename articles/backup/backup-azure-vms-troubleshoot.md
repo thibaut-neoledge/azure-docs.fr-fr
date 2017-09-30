@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: bb058b11d211c4c41ff8f8c3849a4630886c78d5
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: d555f7a93a980a35c6b50d480c43de6bdc5c86df
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Dépannage de la sauvegarde de machine virtuelle Azure
@@ -32,9 +32,13 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure
 
 ## <a name="backup"></a>Sauvegarde
 
-## <a name="error-the-specified-disk-configuration-is-not-supported"></a>Erreur : La configuration de disque spécifiée n’est pas prise en charge
+### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Erreur : La configuration de disque spécifiée n’est pas prise en charge
 
-Actuellement, Sauvegarde Azure ne prend en charge des tailles de disque supérieures à 1 023 Go. Veillez à ce que les tailles de disque soient inférieures à la limite en fractionnant les disques. Pour fractionner des disques, vous devez copier les données des disques supérieurs à 1 023 Go sur de nouveaux disques de taille inférieure à 1 023 Go.
+Actuellement, Sauvegarde Azure ne prend en charge des tailles de disque [supérieures à 1 023 Go](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- Si vous disposez de disques supérieurs à 1 To, [installez de nouveaux disques](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) disposant d’un espace inférieur à 1 To. <br>
+- Copiez ensuite les données du disque de plus de 1 To vers le(s) disque(s) plus petit(s). <br>
+- Vérifiez que toutes les données ont bien été copiées et retirez les disques supérieures à 1 To
+- Lancez la sauvegarde.
 
 | Détails de l’erreur | Solution de contournement |
 | --- | --- |

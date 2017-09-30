@@ -1,6 +1,6 @@
 ---
 title: "Créer une application web .NET Core dans un conteneur Linux dans Azure | Microsoft Docs"
-description: "Déployez votre première application .NET Core Hello World dans Web Apps for Containers en quelques minutes."
+description: "Déployez votre première application .NET Core Hello World dans Web App for Containers en quelques minutes."
 keywords: azure app service, application web, dotnet, core, linux, oss
 services: app-service
 documentationCenter: 
@@ -14,23 +14,24 @@ ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/30/2017
-ms.author: aelnably;wesmc;mikono;rachelap;cephalin;cfowler
+ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 5d84e558e2fd998df31725b71d1474c0a774490b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3ae0f28272d70a63b74a9f249566ae789f07aad5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>Créer une application web .NET Core dans un conteneur Linux dans Azure
 
-[Web Apps for Containers](app-service-linux-intro.md) est un service d’hébergement web hautement scalable qui applique automatiquement des mises à jour correctives et utilise le système d’exploitation Linux. Ce guide de démarrage rapide vous montre comment créer une application [.NET Core](https://docs.microsoft.com/aspnet/core/) sur Azure Web Apps for Containers. Vous allez créer l’application web à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) et utiliser Git pour déployer le code .NET Core dans l’application web.
+[Web App for Containers](app-service-linux-intro.md) est un service d’hébergement web hautement scalable qui applique automatiquement des mises à jour correctives et utilise le système d’exploitation Linux. Ce guide de démarrage rapide vous montre comment créer une application [.NET Core](https://docs.microsoft.com/aspnet/core/) sur Azure Web App for Containers. Vous allez créer l’application web à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) et utiliser Git pour déployer le code .NET Core dans l’application web.
 
 ![Exemple d’application s’exécutant dans Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
 Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windows ou Linux. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide :
 
@@ -63,7 +64,7 @@ dotnet restore
 dotnet run
 ```
 
-Ouvrez un navigateur web et accédez à l’application à l’adresse http://localhost:5000.
+Ouvrez un navigateur web et accédez à l’application à l’adresse `http://localhost:5000`.
 
 Vous voyez apparaître sur la page le message **Hello World** de l’exemple d’application.
 
@@ -87,7 +88,7 @@ git commit -m "first commit"
 
 ## <a name="create-a-web-app"></a>Créer une application web
 
-Créez une [application web](../../app-service-web/app-service-web-overview.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#create). N’oubliez pas de remplacer `<app name>` par un nom d’application unique.
+Créez une [application web](../app-service-web-overview.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#create). N’oubliez pas de remplacer `<app name>` par un nom d’application unique.
 
 Dans la commande suivante, le runtime est défini sur `DOTNETCORE|1.1`. Pour afficher tous les runtimes pris en charge, exécutez [az webapp list-runtimes](/cli/azure/webapp#list-runtimes).
 
@@ -184,5 +185,5 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer une application web .NET Core et SQL Database dans Azure Web Apps for Containers](tutorial-dotnetcore-sqldb-app.md)
+> [Créer une application web .NET Core et SQL Database dans Azure Web App for Containers](tutorial-dotnetcore-sqldb-app.md)
 

@@ -3,7 +3,7 @@ title: "Maintenance et mises à jour pour les machines virtuelles Linux dans Azu
 description: "Vue d’ensemble de la maintenance et des mises à jour pour les machines virtuelles Linux s’exécutant dans Azure."
 services: virtual-machines-linux
 documentationcenter: 
-author: zivr
+author: cynthn
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,22 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
-ms.author: zivr
+ms.date: 09/15/2017
+ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 56aa6ea584c9fb8298541969c8b7bbdb00dc3453
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1bdeebd34f811aee1f3bc2f7767db3263d8e3273
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
-# <a name="planned-maintenance-for-virtual-machines-in-azure"></a>Maintenance planifiée des machines virtuelles dans Azure
+# <a name="planned-maintenance-for-linux-virtual-machines"></a>Maintenance planifiée pour les machines virtuelles Linux 
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Le [service de métadonnées Azure](instance-metadata-service.md) vous permet d’obtenir des informations relatives à votre machine virtuelle hébergée dans Azure. 
+Pour plus d’informations sur la gestion de la maintenance planifiée, consultez [Gestion des notifications de maintenance planifiée](maintenance-notifications.md).
+
 
 

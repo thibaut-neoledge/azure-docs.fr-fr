@@ -226,6 +226,13 @@
       items:
         - name: Exportation continue
           href: app-insights-export-telemetry.md
+          items:
+            - name: Exemples de code
+              items:
+                - name: "Exporter vers SQL à l’aide de Stream\_Analytics"
+                  href: app-insights-code-sample-export-sql-stream-analytics.md
+                - name: "Exporter vers Stream\_Analytics"
+                  href: app-insights-export-stream-analytics.md
         - name: Exporter le modèle de données
           href: app-insights-export-data-model.md
         - name: Exporter vers Power BI

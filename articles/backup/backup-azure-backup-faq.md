@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
-ms.author: markgal;arunak;trinadhk;
+ms.author: markgal;arunak;trinadhk;sogup;
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Questions sur le service de sauvegarde Azure
@@ -47,7 +47,7 @@ Non. Le coffre est créé au niveau de l’abonnement et ne peut pas être ensui
 Tous les coffres de sauvegarde existants dans le [portail Classic](https://manage.windowsazure.com) sont toujours pris en charge. Toutefois, vous ne pouvez plus utiliser le portail Classic pour déployer de nouveaux coffres de sauvegarde. Microsoft vous recommande d’utiliser des coffres Recovery Services pour tous les déploiements, car les améliorations futures s’appliquent uniquement aux coffres Recovery Services. Si vous essayez de créer un coffre de sauvegarde dans le portail Classic, vous serez redirigé vers le [portail Azure](https://portal.azure.com).
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Puis-je migrer un coffre Azure Backup dans un coffre Recovery Services ? <br/>
-Malheureusement non, vous ne pouvez pas migrer le contenu d’un coffre Azure Backup dans un coffre Azure Recovery Services. Nous travaillons sur l’ajout de cette fonctionnalité, mais elle n’est pas disponible actuellement.
+Oui, vous pouvez désormais mettre à niveau votre coffre de sauvegarde vers un coffre Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md).
 
 ### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>J’ai sauvegardé mes machines virtuelles classiques dans un coffre de sauvegarde Azure. Puis-je migrer mes machines virtuelles du mode Classic vers le mode Ressource Manager et les protéger dans un coffre Recovery Services ?
 Les points de récupération des machines virtuelles classiques dans un coffre Azure Backup ne sont pas migrés automatiquement vers un coffre Recovery Services lorsque vous déplacez les machines virtuelles du mode Classic vers le mode Resource Manager. Suivez ces étapes pour transférer vos sauvegardes de machines virtuelles :

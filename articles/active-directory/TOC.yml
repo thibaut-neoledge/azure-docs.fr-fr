@@ -1,3 +1,5 @@
+- name: Présentation de la gestion des accès
+  href: manage-access-to-azure-resources.md
 - name: Accès aux ressources dans Azure
   href: active-directory-understanding-resource-access.md
 - name: Contrôle d’accès en fonction du rôle

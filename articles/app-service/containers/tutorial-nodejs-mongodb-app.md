@@ -1,6 +1,6 @@
 ---
-title: "Créer une application web Node.js et MongoDB dans Azure Web Apps for Containers | Microsoft Docs"
-description: "Apprenez à faire fonctionner une application Node.js dans Azure Web Apps for Containers, avec une connexion à une base de données Cosmos DB, via une chaîne de connexion MongoDB."
+title: "Créer une application web Node.js et MongoDB dans Azure Web App for Containers | Microsoft Docs"
+description: "Découvrez comment faire fonctionner une application Node.js dans Azure Web App for Containers en établissant une connexion à une base de données Cosmos DB via une chaîne de connexion MongoDB."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -16,15 +16,15 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1203a77ebc117c646f587f0d64466364f0e47751
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e1bc68426f93717dcf466652d2481b6ab1db2a18
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-apps-for-containers"></a>Créer une application web Node.js et MongoDB dans Azure Web Apps for Containers
+# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-app-for-containers"></a>Créer une application web Node.js et MongoDB dans Azure Web App for Containers
 
-[Web Apps for Containers](app-service-linux-intro.md) fournit un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce didacticiel vous montre comment créer une application web Node.js et comment la connecter à une base de données MongoDB. Lorsque vous aurez terminé, vous disposerez d’une application MEAN (MongoDB, Express, AngularJS et Node.js) exécutée dans Web Apps for Containers. Pour plus de simplicité, l’exemple d’application utilise [l’infrastructure de développement web MEAN.js](http://meanjs.org/).
+[Web App for Containers](app-service-linux-intro.md) est un service d’hébergement web hautement scalable qui applique automatiquement des mises à jour correctives et utilise le système d’exploitation Linux. Ce didacticiel vous montre comment créer une application web Node.js et comment la connecter à une base de données MongoDB. Quand vous avez terminé, vous disposez d’une application MEAN (MongoDB, Express, AngularJS et Node.js) en cours d’exécution dans Web App for Containers. Pour plus de simplicité, l’exemple d’application utilise [l’infrastructure de développement web MEAN.js](http://meanjs.org/).
 
 ![Application MEAN.js exécutée dans Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -38,7 +38,7 @@ Vous apprendrez à :
 > * Diffusion des journaux de diagnostic à partir d’Azure
 > * Gestion de l’application dans le portail Azure
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
@@ -71,13 +71,13 @@ Cette étape consiste à configurer le projet Node.js local.
 
 Dans la fenêtre de terminal, `cd` vers un répertoire de travail.  
 
-Exécutez la commande suivante pour cloner l’exemple de référentiel. 
+Exécutez la commande suivante pour cloner l’exemple de dépôt. 
 
 ```bash
 git clone https://github.com/Azure-Samples/meanjs.git
 ```
 
-Cet exemple de référentiel contient une copie du référentiel [MEAN.js](https://github.com/meanjs/mean). Il est modifié pour s’exécuter sous App Service (pour plus d’informations, consultez le fichier [Lisez-moi](https://github.com/Azure-Samples/meanjs/blob/master/README.md) du référentiel MEAN.js).
+Cet exemple de dépôt contient une copie du dépôt [MEAN.js](https://github.com/meanjs/mean). Il est modifié pour s’exécuter sous App Service (pour plus d’informations, consultez le fichier [Lisez-moi](https://github.com/Azure-Samples/meanjs/blob/master/README.md) du dépôt MEAN.js).
 
 ### <a name="run-the-application"></a>Exécution de l'application
 
@@ -103,7 +103,7 @@ MEAN.JS version: 0.5.0
 --
 ```
 
-Accédez à http://localhost:3000 dans un navigateur. Cliquez sur **S’inscrire** dans le menu supérieur et créez un utilisateur test. 
+Dans un navigateur, accédez à `http://localhost:3000`. Cliquez sur **S’inscrire** dans le menu supérieur et créez un utilisateur test. 
 
 L’exemple d’application MEAN.js stocke les données utilisateur dans la base de données. Si vous parvenez à créer un utilisateur et à vous connecter, votre application écrit les données dans la base de données MongoDB locale.
 
@@ -183,7 +183,7 @@ Copiez la valeur de `primaryMasterKey`. Vous aurez besoin de ces informations da
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configurer la chaîne de connexion dans votre application Node.js
 
-Dans votre référentiel MEAN.js local, dans le dossier _config/env/_, créez un fichier nommé _local-production.js_. _.gitignore_ est configuré pour conserver ce fichier en dehors du référentiel. 
+Dans votre dépôt MEAN.js local, dans le dossier _config/env/_, créez un fichier nommé _local-production.js_. _.gitignore_ est configuré pour conserver ce fichier en dehors du dépôt. 
 
 Copiez-y le code ci-après. Veillez à remplacer les deux espaces réservés *\<nom_cosmosdb>* par le nom de votre base de données Cosmos DB, et remplacez l’espace réservé *\<clé_primaire_principale>* par la clé que vous avez copiée à l’étape précédente.
 
@@ -213,7 +213,7 @@ Dans une fenêtre de terminal local, exécutez la commande suivante pour utilise
 NODE_ENV=production node server.js
 ```
 
-`NODE_ENV=production` définit la variable d’environnement qui indique à Node.js de s’exécuter dans l’environnement de production.  `node server.js` démarre le serveur Node.js avec `server.js` à la racine du référentiel. Voici comment est chargée votre application Node.js dans Azure. 
+`NODE_ENV=production` définit la variable d’environnement qui indique à Node.js de s’exécuter dans l’environnement de production.  `node server.js` démarre le serveur Node.js avec `server.js` à la racine du dépôt. Voici comment est chargée votre application Node.js dans Azure. 
 
 Lorsque l’application est chargée, assurez-vous qu’elle s’exécute dans l’environnement de production :
 
@@ -228,7 +228,7 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Accédez à http://localhost:8443 dans un navigateur. Cliquez sur **S’inscrire** dans le menu supérieur et créez un utilisateur test. Si vous parvenez à créer un utilisateur et à vous connecter, votre application écrit les données dans la base de données Cosmo DB dans Azure. 
+Dans un navigateur, accédez à `http://localhost:8443`. Cliquez sur **S’inscrire** dans le menu supérieur et créez un utilisateur test. Si vous parvenez à créer un utilisateur et à vous connecter, votre application écrit les données dans la base de données Cosmo DB dans Azure. 
 
 Dans le terminal, arrêtez Node.js en tapant `Ctrl+C`. 
 
@@ -250,7 +250,7 @@ Dans cette étape, vous allez déployer dans Azure App Service votre application
 
 ### <a name="configure-an-environment-variable"></a>Configurer une variable d’environnement
 
-Étant donné que _config/env/local-production.js_ n’est pas dans le référentiel Git. Ainsi, pour votre application web Azure, vous utilisez des paramètres d’application pour définir votre chaîne de connexion MongoDB.
+Étant donné que _config/env/local-production.js_ n’est pas dans le dépôt Git. Ainsi, pour votre application web Azure, vous utilisez des paramètres d’application pour définir votre chaîne de connexion MongoDB.
 
 Pour définir des paramètres d’application, utilisez la commande [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) dans Cloud Shell. 
 
@@ -262,7 +262,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Dans le code Node.js, vous accédez à ce paramètre d’application avec `process.env.MONGODB_URI`, comme vous accéderiez à n’importe quelle variable d’environnement. 
 
-Dans votre référentiel MEAN.js local, rouvrez _config/env/production.js_, qui a une configuration propre à l’environnement de production. Notez que l’application MEAN.js par défaut est déjà configurée pour utiliser la variable d’environnement `MONGODB_URI` que vous avez créée.
+Dans votre dépôt MEAN.js local, rouvrez _config/env/production.js_, qui a une configuration propre à l’environnement de production. Notez que l’application MEAN.js par défaut est déjà configurée pour utiliser la variable d’environnement `MONGODB_URI` que vous avez créée.
 
 ```javascript
 db: {
@@ -295,7 +295,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ``` 
 
-Vous remarquerez peut-être que le processus de déploiement exécute [Gulp](http://gulpjs.com/) après `npm install`. App Service n’exécute pas les tâches Gulp ou Grunt pendant le déploiement ; cet exemple de référentiel possède donc deux fichiers supplémentaires dans son répertoire racine pour l’activer : 
+Vous remarquerez peut-être que le processus de déploiement exécute [Gulp](http://gulpjs.com/) après `npm install`. App Service n’exécute pas les tâches Gulp ou Grunt pendant le déploiement ; cet exemple de dépôt compte donc deux fichiers supplémentaires dans son répertoire racine pour l’activer : 
 
 - _.deployment_ : ce fichier indique à App Service d’exécuter `bash deploy.sh` en tant que script de déploiement personnalisé.
 - _deploy.sh_ : le script de déploiement personnalisé. Si vous examinez le fichier, vous verrez qu’il exécute `gulp prod` après `npm install` et `bower install`. 
@@ -326,7 +326,7 @@ Dans cette étape, vous allez changer le modèle de données `article` et publie
 
 ### <a name="update-the-data-model"></a>Mettre à jour le modèle de données
 
-Dans votre référentiel MEAN.js local, ouvrez _modules/articles/server/models/article.server.model.js_.
+Dans votre dépôt MEAN.js local, ouvrez _modules/articles/server/models/article.server.model.js_.
 
 Dans `ArticleSchema`, ajoutez un type `String` appelé `comment`. Lorsque vous aurez terminé, votre code de schéma doit ressembler à ceci :
 
@@ -479,5 +479,5 @@ Vous avez appris à effectuer les opérations suivantes :
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
 
 > [!div class="nextstepaction"] 
-> [Mapper un nom DNS personnalisé existant à des applications web Azure](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service-web-tutorial-custom-domain.md)
 

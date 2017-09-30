@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: 9f72a4900f20282827ff939aa41bc4f306e547a3
+ms.translationtype: HT
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: de2d41d8c2787ffdc80daddf959487f6031da87d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 09/16/2017
 
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>La réinitialisation de mot de passe en libre-service Azure AD pour les professionnels de l’informatique
@@ -55,8 +55,8 @@ Si vous êtes prêt, vous pouvez commencer à utiliser Azure AD SSPR en vous aid
 
 La réinitialisation de mot de passe libre-service Azure AD est disponible dans trois niveaux, selon votre abonnement.
 
-* **Azure AD Gratuit** : les administrateurs chargés uniquement du cloud peuvent réinitialiser leur propre mot de passe.
-* **Azure AD De base** ou tout **abonnement Office 365 payé** : les clients utilisant uniquement le cloud et les administrateurs chargés uniquement du cloud peuvent réinitialiser leur propre mot de passe.
+* **Azure Active Directory Free** : les administrateurs cloud uniquement peuvent réinitialiser leur mot de passe.
+* **Azure Active Directory Basic** ou tout **abonnement Office 365 payé** : les utilisateurs cloud uniquement peuvent changer leur mot de passe et les administrateurs cloud uniquement peuvent réinitialiser leur mot de passe.
 * **Azure AD Premium** : n’importe quel utilisateur ou administrateur, notamment les clients utilisant uniquement le cloud et les utilisateurs fédérés ou synchronisés par mot de passe, peuvent réinitialiser leur propre mot de passe. L’écriture différée doit être activée pour les mots de passe locaux.
 
 ## <a name="azure-ad-self-service-password-reset-a-sum-of-the-parts"></a>Composants de la réinitialisation de mot de passe en libre-service Azure AD

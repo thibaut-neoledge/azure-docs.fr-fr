@@ -16,21 +16,21 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1b10636848198ab0ff46e6a492373ecf42a96202
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Créer une application web PHP dans un conteneur Linux dans Azure
 
-[Web Apps for Containers](app-service-linux-intro.md) est un service d’hébergement web hautement scalable qui applique automatiquement des mises à jour correctives et utilise le système d’exploitation Linux. Ce guide de démarrage rapide vous montre comment déployer une application PHP dans Azure Web Apps for Containers. Vous allez créer l’application web via [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) dans Cloud Shell et utiliser Git pour déployer le code PHP dans l’application web.
+[Web App for Containers](app-service-linux-intro.md) est un service d’hébergement web hautement scalable qui applique automatiquement des mises à jour correctives et utilise le système d’exploitation Linux. Ce didacticiel de démarrage rapide vous montre comment déployer une application PHP dans Azure Web App for Containers. Vous allez créer l’application web via [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) dans Cloud Shell et utiliser Git pour déployer le code PHP dans l’application web.
 
 ![Exemple d’application s’exécutant dans Azure]](media/quickstart-php/hello-world-in-browser.png)
 
 Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windows ou Linux. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide :
 
@@ -56,7 +56,7 @@ Exécutez l’application localement en ouvrant une fenêtre de terminal et en u
 php -S localhost:8080
 ```
 
-Ouvrez un navigateur web et accédez à l’exemple d’application à l’adresse http://localhost:8080.
+Ouvrez un navigateur web et accédez à l’exemple d’application à l’adresse `http://localhost:8080`.
 
 Vous voyez apparaître sur la page le message **Hello World !** de l’exemple d’application.
 

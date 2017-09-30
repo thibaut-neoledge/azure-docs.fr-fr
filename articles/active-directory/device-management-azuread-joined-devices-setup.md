@@ -16,49 +16,37 @@ ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: f548833cca27debb67cb155be0791299470f28dd
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
+ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Configurer des appareils joints à Azure Active Directory
 
-La fonction de gestion des appareils intégrée à Azure Active Directory (Azure AD) vous permet de vous assurer que les utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
+La fonction de gestion des appareils intégrée à Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
 
-Avec des [appareils joints à Azure AD](device-management-introduction.md#azure-ad-joined-devices), vous pouvez placer sous le contrôle d’Azure AD des appareils Windows 10 qui appartiennent à votre organisation. Ces appareils ne doivent pas être déjà [joints à un service AD local](device-management-introduction.md#hybrid-azure-ad-joined-devices).
-
-Cette rubrique vous explique comment inscrire des appareils Windows 10 à Azure AD. 
-
-## <a name="prerequisites"></a>Composants requis
-
-Avant de commencer, vous devez vérifier que :
-
-- Vous disposez d’autorisations pour joindre des appareils à Azure AD
-
-    ![Connecté](./media/device-management-azuread-joined-devices-setup/21.png)
-
-- Vous n’avez pas encore dépassé le nombre maximal d’appareils par utilisateur 
-
-    ![Connecté](./media/device-management-azuread-joined-devices-setup/22.png)
+Si vous souhaitez mettre des appareils Windows 10 d’entreprise sous le contrôle d’Azure AD, configurez-les comme des appareils joints Azure AD. Cette rubrique contient les étapes à suivre pour une telle configuration. 
 
 
-Pour plus d’informations, consultez [Configurer les paramètres de l’appareil](device-management-azure-portal.md#configure-device-settings).
+## <a name="prerequisites"></a>Prérequis
+
+Pour joindre un appareil Windows 10, le service d’inscription des appareils doit être configuré pour vous permettre d’inscrire des appareils. En plus d’avoir l’autorisation de joindre des appareils dans votre locataire Azure AD, vous devez avoir moins d’appareils inscrits que le nombre maximal configuré. Pour plus d’informations, consultez [Configurer les paramètres de l’appareil](device-management-azure-portal.md#configure-device-settings).
 
 
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
 
-- Windows inscrit l’appareil à l’annuaire de l’entreprise dans Azure AD.
+- Windows joint l’appareil à l’annuaire de l’entreprise dans Azure AD.
 
-- Vous devrez peut-être répondre à une demande d’authentification multifacteur. Votre administrateur informatique peut configurer cette demande.
+- Vous devrez peut-être répondre à une demande d’authentification multifacteur. Cette demande est configurable par votre administrateur informatique.
 
-- Azure AD vérifie si un appareil nécessite une inscription auprès de la gestion des appareils mobiles. Il inscrit l’appareil, le cas échéant.
+- Azure Active vérifie si l’appareil nécessite une inscription à la gestion des appareils mobiles, et l’inscrit si nécessaire.
 
-- Windows redirige les utilisateurs gérés vers le Bureau par le biais de la connexion automatique.
+- Si vous êtes un utilisateur géré, Windows vous dirige vers le bureau par le biais de la connexion automatique.
 
-- Les utilisateurs fédérés sont redirigés vers une page de connexion Windows afin d’entrer les informations d’identification.
+- Si vous êtes un utilisateur fédéré, vous devez vous connecter à l’aide de vos informations d’identification.
 
 
 ## <a name="joining-a-device"></a>Joindre un appareil
@@ -93,9 +81,9 @@ Cette section fournit les étapes permettant de joindre votre appareil Windows 1
     ![Connecter](./media/device-management-azuread-joined-devices-setup/08.png)
 
 
-6. Dans la boîte de dialogue **Let’s get you signed in** (Connectez-vous), entrez le nom de votre compte (par exemple, someone@example.com), puis cliquez sur **Suivant**.
+6. Dans la boîte de dialogue **Procédons à votre connexion**, entrez le nom de votre compte (par exemple, someone@example.com), puis cliquez sur **Suivant**.
 
-    ![Boîte de dialogue Let’s get you signed in (Connectez-vous)](./media/device-management-azuread-joined-devices-setup/10.png)
+    ![Boîte de dialogue Procédons à votre connexion](./media/device-management-azuread-joined-devices-setup/10.png)
 
 
 6. Dans la boîte de dialogue **Saisie du mot de passe**, entrez votre mot de passe, puis cliquez sur **Se connecter**.
@@ -110,7 +98,7 @@ Cette section fournit les étapes permettant de joindre votre appareil Windows 1
 
 8. Dans la boîte de dialogue **Vous avez terminé**, cliquez sur **Terminé**.
 
-    ![Boîte de dialogue You’re all set (C’est terminé !)](./media/device-management-azuread-joined-devices-setup/12.png)
+    ![C’est terminé !](./media/device-management-azuread-joined-devices-setup/12.png)
 
 ## <a name="verification"></a>Vérification
 
@@ -135,9 +123,8 @@ Pour plus d’informations, consultez [Localiser des appareils](device-managemen
 Pour plus d'informations, consultez les pages suivantes : 
 
 - [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md)
-
 - [Gestion des appareils via le portail Azure](device-management-azure-portal.md)
-
+- 
 
 
 

@@ -24,8 +24,7 @@
 ### Configurer le protocole LDAP sécurisé pour un domaine géré
 #### [Tâche 1 : Obtenir un certificat pour le protocole LDAP sécurisé](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tâche 2 : Exporter le certificat LDAP sécurisé](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Tâche 3 : Activer le protocole LDAP sécurisé pour le domaine managé à l’aide du portail Azure Classic](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [Tâche 3 : Activer le protocole LDAP sécurisé pour le domaine managé à l’aide du portail Azure (préversion)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Tâche 3 : Activer le protocole LDAP sécurisé pour le domaine managé à l’aide du portail Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Créer une UO sur un domaine géré](active-directory-ds-admin-guide-create-ou.md)
 ### [Administrer la stratégie de groupe sur un domaine géré](active-directory-ds-admin-guide-administer-group-policy.md)

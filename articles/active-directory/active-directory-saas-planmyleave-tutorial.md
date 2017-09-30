@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: b0d31cbe-7ae2-488b-9cf3-4927391fa744
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 08/16/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 83334b1b02df214e51c86a862636c9392cd19474
-ms.openlocfilehash: ba418a641b339a0d94a3c7b2596d37fbd88a30c5
-ms.lasthandoff: 02/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: f803378424d2c951e0ff85d80df72645af342208
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Didacticiel : Intégration de PlanMyLeave à Azure Active Directory
@@ -28,27 +29,24 @@ L’intégration de PlanMyLeave à Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à PlanMyLeave.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à PlanMyLeave (par le biais de l’authentification unique) avec leurs comptes Azure AD.
-- Vous pouvez gérer vos comptes de manière centralisée dans le portail de gestion Azure.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD dans PlanMyLeave, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
 - Un abonnement PlanMyLeave pour lequel l’authentification unique est activée
 
-
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
-
 Vous devez en outre suivre les recommandations ci-dessous :
 
-- Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -56,157 +54,137 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 1. Ajout de PlanMyLeave depuis la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-
 ## <a name="adding-planmyleave-from-the-gallery"></a>Ajout de PlanMyLeave depuis la galerie
 Pour configurer l’intégration de PlanMyLeave à Azure AD, vous devez ajouter PlanMyLeave depuis la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter PlanMyLeave à partir de la galerie, procédez comme suit :**
 
-1. Dans le panneau de navigation gauche du **[Portail de gestion Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Puis à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![Panneau Applications d’entreprise][2]
     
-3. Cliquez sur le bouton **Ajouter** en haut de la boîte de dialogue.
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![Bouton Nouvelle application][3]
 
-4. Dans le champ de recherche, entrez **PlanMyLeave**.
+4. Dans la zone de recherche, tapez **PlanMyLeave**, sélectionnez **PlanMyLeave** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_001.png)
+    ![PlanMyLeave dans la liste des résultats](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_addfromgallery.png)
 
-5. Dans le volet de résultats, sélectionnez **PlanMyLeave**, puis cliquez sur **Ajouter** pour ajouter l’application.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_0001.png)
-
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec PlanMyLeave avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur PlanMyLeave équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur PlanMyLeave associé doit être établie.
 
-Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans PlanMyLeave.
+Dans PlanMyLeave, assignez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** pour établir la relation.
 
 Pour configurer et tester l’authentification unique Azure AD avec PlanMyLeave, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test PlanMyLeave](#creating-a-planmyleave-test-user)** pour avoir un équivalent de Britta Simon dans PlanMyLeave qui soit lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Créer un utilisateur de test PlanMyLeave](#create-a-planmyleave-test-user)** pour avoir un équivalent de Britta Simon dans PlanMyLeave qui est lié à la représentation Azure AD de l’utilisateur.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail de gestion Azure et configurer l’authentification unique dans votre application PlanMyLeave.
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application PlanMyLeave.
 
 **Pour configurer l’authentification unique Azure AD avec PlanMyLeave, procédez comme suit :**
 
-1. Dans le portail de gestion Azure, sur la page d’intégration de l’application **PlanMyLeave**, cliquez sur **Authentification unique**.
+1. Dans le portail Azure, dans la page d’intégration de l’application **PlanMyLeave**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, sous **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_01.png)
+    ![Boîte de dialogue Authentification unique](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_samlbase.png)
 
 3. Dans la section **Domaine et URL PlanMyLeave**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_02.png)
+    ![Informations d’authentification unique dans Domaine et URL PlanMyLeave](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company-name>.planmyleave.com/Login.aspx`
-    
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company-name>.planmyleave.com`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company-name>.planmyleave.com/Login.aspx`
+
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company-name>.planmyleave.com`
 
     > [!NOTE] 
-    > Notez qu’il ne s’agit pas des valeurs réelles. Vous devez mettre à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez [l’équipe de support technique PlanMyLeave](mailto:support@planmyleave.com) pour obtenir ces valeurs.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez l’[équipe de support client PlanMyLeave](mailto:support@planmyleave.com) pour obtenir ces valeurs. 
+ 
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Créer un certificat**.
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_certificate.png) 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_03.png)     
+5. Cliquez sur le bouton **Enregistrer** .
 
-5. Dans la boîte de dialogue **Créer un certificat**, cliquez sur l’icône de calendrier et sélectionnez une **date d’expiration**. Puis cliquez sur le bouton **Enregistrer**.
+    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-planmyleave-tutorial/tutorial_general_400.png)
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-planmyleave-tutorial/tutorial_general_300.png)
+6. Dans la section **Configuration de PlanMyLeave** , cliquez sur **Configurer PlanMyLeave** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-6. Dans la section **Certificat de signature SAML**, sélectionnez **Activer le nouveau certificat** et cliquez sur **Enregistrer**.
+    ![Configuration de PlanMyLeave](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_configure.png) 
+7. Dans une autre fenêtre de navigateur web, connectez-vous à votre locataire PlanMyLeave en tant qu’administrateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_04.png)
-
-7. Dans la fenêtre contextuelle **Certificat de substitution**, cliquez sur **OK**.
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-planmyleave-tutorial/tutorial_general_400.png)
-
-8. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_05.png) 
-
-9. Dans la section **Configuration de PlanMyLeave** , cliquez sur **Configurer PlanMyLeave** pour ouvrir la fenêtre **Configurer l’authentification**.
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_06.png) 
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_07.png)
-
-10. Dans une autre fenêtre de navigateur web, connectez-vous à votre locataire PlanMyLeave en tant qu’administrateur.
-
-11. Accédez à la section **System Setup** (Configuration système). Puis, dans la section **Security Management** (Gestion de la sécurité), cliquez sur **Company SAML settings** (Paramètres SAML d’entreprise).
+8. Accédez à la section **System Setup** (Configuration système). Puis, dans la section **Security Management** (Gestion de la sécurité), cliquez sur **Company SAML settings** (Paramètres SAML d’entreprise).
 
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_002.png) 
 
-12. Dans la section **SAML Settings** (Paramètres SAML), cliquez sur icône de l’éditeur.
+9. Dans la section **SAML Settings** (Paramètres SAML), cliquez sur icône de l’éditeur.
 
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_003.png)
 
-13. Dans la section **Update SAML Settings** (Mettre à jour les paramètres SAML), procédez comme suit :
+10. Dans la section **Update SAML Settings** (Mettre à jour les paramètres SAML), procédez comme suit :
 
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_004.png)
 
-    a.  Dans la zone de texte **Login URL** (URL de connexion), copiez la valeur de **URL du service d’authentification unique SAML** indiquée dans la fenêtre Configuration de l’application Azure AD.
+    a.  Dans la zone de texte **Login URL**, collez l’**URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
 
-    b.  Ouvrez votre fichier de certificat téléchargé dans le Bloc-notes, copiez uniquement le contenu compris entre ---Begin Certificate--- et ---End certificate---- dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat**.
+    b.  Ouvrez vos métadonnées téléchargées, copiez la valeur **X509Certificate** et collez-la dans la zone de texte **Certificat**.
 
     c. Définissez "**Is Enable**" sur "**Yes**".
 
-    d. Cliquez sur **Save**.
+    d. Cliquez sur **Save**. 
 
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail de gestion Azure.
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-![Créer un utilisateur Azure AD][100]
+   ![Créer un utilisateur de test Azure AD][100]
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le panneau de navigation gauche du **Portail de gestion Azure**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-planmyleave-tutorial/create_aaduser_01.png) 
+    ![Bouton Azure Active Directory](./media/active-directory-saas-planmyleave-tutorial/create_aaduser_01.png)
 
-2. Accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs** pour afficher la liste des utilisateurs.
-    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-planmyleave-tutorial/create_aaduser_02.png) 
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
-3. En haut de la boîte de dialogue, cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Utilisateur**.
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/active-directory-saas-planmyleave-tutorial/create_aaduser_02.png)
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+
+    ![Bouton Ajouter](./media/active-directory-saas-planmyleave-tutorial/create_aaduser_03.png)
+
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+
+    ![Boîte de dialogue Utilisateur](./media/active-directory-saas-planmyleave-tutorial/create_aaduser_04.png)
+
+    a. Dans la zone **Nom**, tapez **BrittaSimon**.
+
+    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
+
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+
+    d. Cliquez sur **Create**.
  
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-planmyleave-tutorial/create_aaduser_03.png) 
-
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
- 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-planmyleave-tutorial/create_aaduser_04.png) 
-
-    a. Dans la zone de texte **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse de messagerie** de Britta Simon.
-
-    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
-
-    d. Cliquez sur **Create**. 
-
-
-
-### <a name="creating-a-planmyleave-test-user"></a>Création d’un utilisateur de test PlanMyLeave
+### <a name="create-a-planmyleave-test-user"></a>Créer un utilisateur de test PlanMyLeave
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans PlanMyLeave. PlanMyLeave prend en charge l’approvisionnement juste-à-temps, option activée par défaut.
 
@@ -215,31 +193,29 @@ Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur 
 > [!NOTE]
 > Si vous devez créer un utilisateur manuellement, contactez l’[équipe du support technique PlanMyLeave](mailto:support@planmyleave.com).
 
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à PlanMyLeave.
 
-![Affecter des utilisateurs][200] 
+![Attribuer le rôle utilisateur][200] 
 
 **Pour affecter Britta Simon à PlanMyLeave, procédez comme suit :**
 
-1. Dans le Portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires, allez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
-    ![Affecter des utilisateurs][201] 
+    ![Affecter l’utilisateur][201] 
 
 2. Dans la liste des applications, sélectionnez **PlanMyLeave**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_50.png) 
+    ![Lien PlanMyLeave dans la liste des applications](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_app.png)  
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-    ![Affecter des utilisateurs][202] 
+    ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
-    ![Affecter des utilisateurs][203]
+    ![Volet Ajouter une attribution][203]
 
 5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
@@ -247,14 +223,12 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
-
-
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette PlanMyLeave dans le volet d’accès, vous êtes connecté automatiquement à votre application PlanMyLeave.
-
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
@@ -276,3 +250,5 @@ Quand vous cliquez sur la vignette PlanMyLeave dans le volet d’accès, vous ê
 [201]: ./media/active-directory-saas-planmyleave-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-planmyleave-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-planmyleave-tutorial/tutorial_general_203.png
+
+

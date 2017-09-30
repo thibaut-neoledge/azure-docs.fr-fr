@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 2d0f9d7f32ad79f49d58165d734b9df4af862835
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1943e87ffd991d099ab655af5a7d16d7f1608d22
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>Prise en main d’Azure SQL Data Sync (version préliminaire)
@@ -63,7 +63,7 @@ Pour obtenir des exemples PowerShell complets qui montrent comment configurer SQ
     2.  Dans la section **Synchroniser la base de données de métadonnées**, choisissez entre créer une base de données (recommandé) ou utiliser une base de données existante.
 
         > [!NOTE]
-        > Microsoft recommande de créer une base de données vide à utiliser comme base de métadonnées de synchronisation. SQL Data Sync crée les tables dans cette base de données et exécute une charge de travail fréquente. Cette base de données est automatiquement partagée comme base des métadonnées de synchronisation pour l’ensemble de vos groupes de synchronisation dans la région sélectionnée. Vous ne pouvez pas modifier la base des métadonnées de synchronisation, son nom ou son niveau de service, sans la supprimer.
+        > Microsoft recommande de créer une base de données vide à utiliser comme base de métadonnées de synchronisation. SQL Data Sync crée les tables dans cette base de données et exécute une charge de travail fréquente. Cette base de données est automatiquement partagée comme base des métadonnées de synchronisation pour l’ensemble de vos groupes de synchronisation dans la région sélectionnée. Vous ne pouvez pas modifier la base des métadonnées de synchronisation ou son nom sans la supprimer.
 
         Si vous avez choisi **Nouvelle base de données**, sélectionnez **Créer une nouvelle base de données.** Le panneau **SQL Database** s’ouvre. Dans le panneau **SQL Database**, nommez et configurez la nouvelle base de données. Sélectionnez ensuite **OK**.
 
