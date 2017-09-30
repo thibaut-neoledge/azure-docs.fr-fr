@@ -3,7 +3,7 @@ title: "Préparation du déploiement d’un cluster Azure Service Fabric autonom
 description: "Documentation relative à la préparation de l’environnement et la création de la configuration du cluster, à prendre en considération avant de déployer un cluster conçu pour gérer une charge de travail de production."
 services: service-fabric
 documentationcenter: .net
-author: maburlik
+author: dkkapur
 manager: timlt
 editor: 
 ms.service: service-fabric
@@ -11,44 +11,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: maburlik;chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f332193f9a53260173a1010b8bf9f08726bea427
-ms.lasthandoff: 03/31/2017
-
+ms.date: 9/12/2017
+ms.author: dekapur;maburlik;chackdan
+ms.translationtype: HT
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: e5d582431b53aafb977e219ecf3bc882232efaaa
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/16/2017
 
 ---
 
 <a id="preparemachines"></a>
 
-## <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planifier et préparer votre déploiement de cluster Service Fabric autonome
+# <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planifier et préparer votre déploiement de cluster Service Fabric autonome
 Exécutez les étapes suivantes avant de créer votre cluster.
 
-### <a name="step-1-plan-your-cluster-infrastructure"></a>Étape 1 : planifier votre infrastructure de cluster
-Vous allez créer un cluster Service Fabric sur les ordinateurs que vous avez pour décider des types de défaillance auxquels le cluster doit survivre. Par exemple, devez-vous séparer les lignes d’alimentation des connexions internet reliées à ces ordinateurs ? Prenez en outre en compte la sécurité physique de ces ordinateurs. Où sont situés les ordinateurs et qui a besoin d’y accéder ? Une fois ces décisions prises, vous pouvez mapper logiquement les ordinateurs sur les différents domaines d’erreur (voir l’étape 4). La planification de l’infrastructure pour les clusters de production est plus complexe que pour les clusters de test.
+## <a name="plan-your-cluster-infrastructure"></a>Planifier votre infrastructure de cluster
+Vous allez créer un cluster Service Fabric sur les ordinateurs que vous avez pour décider des types de défaillances auxquels le cluster doit survivre. Par exemple, devez-vous séparer les lignes d’alimentation des connexions internet reliées à ces ordinateurs ? Prenez en outre en compte la sécurité physique de ces ordinateurs. Où sont situés les ordinateurs et qui a besoin d’y accéder ? Une fois ces décisions prises, vous pouvez mapper logiquement les ordinateurs aux différents domaines d’erreur (voir l’étape suivante). La planification de l’infrastructure pour les clusters de production est plus complexe que pour les clusters de test.
 
-### <a name="step-2-prepare-the-machines-to-meet-the-prerequisites"></a>Étape 2 : préparer les ordinateurs pour répondre aux conditions préalables
-Conditions préalables pour chaque ordinateur que vous souhaitez ajouter au cluster :
-
-* Un minimum de 16 Go de RAM est recommandé.
-* Un minimum de 40 Go d’espace disque disponible est recommandé.
-* Un processeur 4 cœurs ou plus est recommandé.
-* Connectivité à un ou plusieurs réseaux sécurisés pour tous les ordinateurs.
-* Windows Server 2012 R2 ou Windows Server 2016. 
-* [.NET Framework 4.5.1 ou une version ultérieure](https://www.microsoft.com/download/details.aspx?id=40773), installation complète.
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell).
-* Le [service RemoteRegistry](https://technet.microsoft.com/library/cc754820) doit être exécuté sur tous les ordinateurs.
-
-L’administrateur de cluster déployant et configurant le cluster doit disposer de [privilèges d’administrateur](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) sur chaque ordinateur. Vous ne pouvez pas installer Service Fabric sur un contrôleur de domaine.
-
-### <a name="step-3-determine-the-initial-cluster-size"></a>Étape 3 : déterminer la taille initiale du cluster
-Le runtime Service Fabric est déployé sur chaque nœud d’un cluster Service Fabric autonome, et les nœuds sont membres du cluster. Un déploiement de production type comprend un nœud par instance du système d’exploitation (physique ou virtuel). La taille de cluster est déterminée par les besoins de votre entreprise. Toutefois, vous devez disposer d’une taille minimale de cluster de trois nœuds (ordinateurs ou machines virtuelles).
-À des fins de développement, vous pouvez avoir plusieurs nœuds sur un ordinateur donné. Dans un environnement de production, Service Fabric ne prend en charge qu’un seul nœud par ordinateur physique ou virtuel.
-
-### <a name="step-4-determine-the-number-of-fault-domains-and-upgrade-domains"></a>Étape 4 : déterminer le nombre de domaines d’erreur et de domaines de mise à niveau
-Un *domaine d’erreur (FD)* est une unité physique de défaillance directement liée à l’infrastructure physique dans les centres de données. Un domaine d’erreur est constitué de composants matériels (ordinateurs, commutateurs, réseaux, etc.) qui partagent un point de défaillance unique. Bien qu’il n’existe aucun mappage 1:1 entre les domaines d’erreur et les racks, chaque rack peut être considéré au sens large comme un domaine d’erreur. Lorsque vous envisagez d’utiliser les nœuds de votre cluster, nous vous recommandons fortement de distribuer les nœuds sur au moins trois domaines d’erreur.
+## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>Déterminer le nombre de domaines d’erreur et de domaines de mise à niveau
+Un [*domaine d’erreur* (FD)](service-fabric-cluster-resource-manager-cluster-description.md) est une unité physique de défaillance directement liée à l’infrastructure physique dans les centres de données. Un domaine d’erreur est constitué de composants matériels (ordinateurs, commutateurs, réseaux, etc.) qui partagent un point de défaillance unique. Bien qu’il n’existe aucun mappage 1:1 entre les domaines d’erreur et les racks, chaque rack peut être considéré au sens large comme un domaine d’erreur.
 
 Quand vous spécifiez des domaines d’erreur dans ClusterConfig.json, vous pouvez choisir le nom de chaque domaine d’erreur. Service Fabric prend en charge les domaines d’erreur hiérarchiques pour vous permettre d’y refléter votre topologie d’infrastructure.  Par exemple, les domaines d’erreur suivants sont valides :
 
@@ -67,12 +49,35 @@ Quand vous spécifiez des domaines de mise à niveau dans ClusterConfig.json, vo
 * "upgradeDomain": "DomainRed"
 * "upgradeDomain": "Blue"
 
-Pour plus d’informations sur les domaines de mise à niveau et les domaines d’erreur, consultez [Description d’un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md) .
+Pour plus d’informations sur les domaines d’erreur et les domaines de mise à niveau, consultez [Description d’un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-### <a name="step-5-download-the-service-fabric-standalone-package-for-windows-server"></a>Étape 5 : télécharger le package autonome Service Fabric pour Windows Server
+Un cluster en production doit s’étendre sur au moins trois domaines d’erreur afin d’être pris en charge dans un environnement de production si vous avez un contrôle total sur la maintenance et la gestion des nœuds, autrement dit si vous êtes responsable de la mise à jour et du remplacement des ordinateurs. Pour les clusters exécutés dans des environnements (en d’autres termes, les instances de machine virtuelle Amazon Web Services) où vous n’avez pas un contrôle total sur les ordinateurs, vous devez avoir un minimum de cinq domaines d’erreur dans votre cluster. Chaque domaine d’erreur peut avoir un ou plusieurs nœuds. Cela permet d’éviter les problèmes causés par des mises à niveau et mises à jour de l’ordinateur qui, en fonction du calendrier, peuvent interférer avec l’exécution d’applications et de services dans les clusters.
+
+## <a name="determine-the-initial-cluster-size"></a>Déterminer la taille initiale du cluster
+
+En règle générale, le nombre de nœuds de votre cluster est déterminé par les besoins de votre entreprise, autrement dit le nombre de services et de conteneurs qui s’exécuteront sur le cluster et le nombre de ressources nécessaires pour gérer vos charges de travail. Pour les clusters de production, nous vous recommandons d’avoir au moins 5 nœuds dans votre cluster, qui s’étendent sur 5 domaines d’erreur. Toutefois, comme décrit ci-dessus, si vous avez un contrôle total sur les nœuds et que vous pouvez couvrir trois domaines d’erreur, trois nœuds doivent également s’avérer suffisants.
+
+Les clusters de test exécutant des charges de travail avec état doivent avoir trois nœuds, tandis que les clusters de test exécutant uniquement des charges de travail sans état n’ont besoin que d’un nœud. Notez également qu’à des fins de développement, vous pouvez avoir plusieurs nœuds sur un ordinateur donné. Toutefois, dans un environnement de production, Service Fabric ne prend en charge qu’un seul nœud par ordinateur physique ou virtuel.
+
+## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>Préparer les ordinateurs qui serviront de nœuds
+
+Voici quelques spécifications recommandées pour chaque ordinateur que vous souhaitez ajouter au cluster :
+
+* Un minimum de 16 Go de RAM
+* Un minimum de 40 Go d’espace disque disponible
+* Un processeur 4 cœurs ou plus
+* Connectivité à un ou plusieurs réseaux sécurisés pour tous les ordinateurs
+* Windows Server 2012 R2 ou Windows Server 2016
+* [.NET Framework 4.5.1 ou version ultérieure](https://www.microsoft.com/download/details.aspx?id=40773), installation complète
+* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
+* Le [service RemoteRegistry](https://technet.microsoft.com/library/cc754820) doit être exécuté sur tous les ordinateurs
+
+L’administrateur de cluster déployant et configurant le cluster doit disposer de [privilèges d’administrateur](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) sur chaque ordinateur. Vous ne pouvez pas installer Service Fabric sur un contrôleur de domaine.
+
+## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Télécharger le package autonome Service Fabric pour Windows Server
 [Lien de téléchargement - Package autonome Service Fabric - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) et décompressez le package sur un ordinateur de déploiement qui ne fait pas partie du cluster ou sur l’un des ordinateurs qui fera partie de votre cluster.
 
-### <a name="step-6-modify-cluster-configuration"></a>Étape 6 : Modifier la configuration du cluster
+## <a name="modify-cluster-configuration"></a>Modifier la configuration du cluster
 Pour créer un cluster autonome, vous devez créer un fichier ClusterConfig.json de configuration de cluster autonome qui décrit les spécifications du cluster. Vous pouvez baser le fichier de configuration sur les modèles accessibles avec le lien ci-dessous. <br>
 [Configurations de cluster autonome](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
@@ -88,7 +93,7 @@ Une fois tous les paramètres de la configuration du cluster configurés dans l�
 
 <a id="environmentsetup"></a>
 
-### <a name="step-7-environment-setup"></a>Étape 7. Configuration de l’environnement
+## <a name="environment-setup"></a>Configuration de l’environnement
 
 Lorsqu’un administrateur de cluster configure un cluster autonome Service Fabric, l’environnement doit être configuré avec les critères suivants : <br>
 1. L’utilisateur qui crée le cluster doit disposer de privilèges de sécurité de niveau administrateur sur tous les ordinateurs qui sont répertoriés en tant que nœuds dans le fichier de configuration du cluster.
@@ -102,10 +107,10 @@ Lorsqu’un administrateur de cluster configure un cluster autonome Service Fabr
 * les ports requis doivent êtres ouverts pour le service Registre distant et SMB Windows : 135, 137, 138, 139 et 445 ;
 * la connectivité réseau entre les ordinateurs doit être activée.
 3. Aucun des ordinateurs nœuds de cluster ne doit être un contrôleur de domaine.
-4. Si le cluster à déployer est un cluster sécurisé, vérifiez que les conditions préalables de sécurité requises sont en place et correctement configurées en fonction de la configuration.
+4. Si le cluster à déployer est un cluster sécurisé, vérifiez que les prérequis de sécurité sont en place et correctement configurées en fonction de la configuration.
 5. Si les ordinateurs du cluster ne sont pas accessibles via Internet, définissez les éléments suivants dans la configuration du cluster :
-* Désactiver la télémétrie : sous *Propriétés*, définissez   *« enableTelemetry » : false*
-* Désactivez le téléchargement de version Fabric automatique et les notifications indiquant que la prise en charge de la version actuelle touche à sa fin : sous *Propriétés*, définissez   *"fabricClusterAutoupgradeEnabled": false*
+* Désactiver la télémétrie : sous *Propriétés*, définissez *« enableTelemetry » : false*
+* Désactiver le téléchargement de version Fabric automatique et les notifications indiquant que la prise en charge de la version actuelle touche à sa fin : sous *Propriétés*, définissez *« fabricClusterAutoupgradeEnabled » : false*
 * Si l’accès réseau à Internet est limité à des domaines sur liste verte, les domaines ci-dessous sont nécessaires pour la mise à niveau automatique : go.microsoft.com   download.microsoft.com
 
 6. Définissez les exclusions antivirus Service Fabric appropriées :
@@ -131,7 +136,7 @@ Lorsqu’un administrateur de cluster configure un cluster autonome Service Fabr
 | FabricRM.exe |
 | FileStoreService.exe |
 
-### <a name="step-8-validate-environment-using-testconfiguration-script"></a>Étape 8 : Valider l’environnement à l’aide du script TestConfiguration
+## <a name="validate-environment-using-testconfiguration-script"></a>Valider l’environnement à l’aide du script TestConfiguration
 Vous trouverez le script TestConfiguration.ps1 dans le package autonome. Il est utilisé comme un outil d’analyse des meilleures pratiques pour valider certains des critères ci-dessus et doit être utilisé comme contrôle de la validité pour vérifier si un cluster peut être déployé dans un environnement donné. En cas de défaillance, consultez la liste sous [Configuration de l’environnement](service-fabric-cluster-standalone-deployment-preparation.md) pour la résolution des problèmes. 
 
 Ce script peut être exécuté sur n’importe quel ordinateur disposant d’un accès administrateur à tous les ordinateurs qui sont répertoriés en tant que nœuds dans le fichier de configuration du cluster. L’ordinateur sur lequel ce script est exécuté ne doit pas nécessairement faire partie du cluster.
