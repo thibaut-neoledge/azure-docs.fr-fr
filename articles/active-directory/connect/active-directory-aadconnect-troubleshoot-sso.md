@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4d96f96d6b9d6808d6a7c7ad8d720c2c2773d7d5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,12 +28,14 @@ Cet article fournit des informations sur les problèmes courants liés à l’au
 
 ## <a name="known-issues"></a>Problèmes connus
 
+- Dans certains cas, l’activation de l’authentification unique transparente peut prendre jusqu’à 30 minutes.
+- La prise en charge du navigateur Edge n’est pas disponible.
+- L’activation de la licence sur les clients Office, surtout dans les scénarios d’ordinateurs partagés, provoque l’affichage d’invites de connexion supplémentaires pour les utilisateurs.
+- L’authentification unique transparente ne fonctionne pas en mode Navigation privée sur Firefox. Et 
+- L’authentification unique transparente ne fonctionne pas sur Internet Explorer quand le mode protégé amélioré est activé.
+- L’authentification unique transparente ne fonctionne pas sur les navigateurs mobiles iOS et Android.
 - Si vous synchronisez 30 forêts AD ou plus, vous ne pouvez pas activer l’authentification unique transparente à l’aide d’Azure AD Connect. En guise de solution de contournement, vous pouvez [activer manuellement](#manual-reset-of-azure-ad-seamless-sso) la fonctionnalité pour votre locataire.
 - L’ajout des URL du service Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) à la zone « Sites de confiance » plutôt qu’à la zone « Intranet local », **empêche les utilisateurs de se connecter**.
-- L’authentification unique transparente ne fonctionne pas en mode Navigation privée sur Firefox et Edge. Il en va de même sur Internet Explorer lorsque le mode Protégé amélioré est activé.
-
->[!IMPORTANT]
->Nous avons récemment restauré la prise en charge de Edge afin d’examiner les problèmes signalés par le client.
 
 ## <a name="check-status-of-the-feature"></a>Vérifiez l’état de la fonctionnalité
 

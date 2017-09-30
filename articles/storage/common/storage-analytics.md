@@ -3,7 +3,7 @@ title: "Utiliser Azure Storage Analytics pour collecter les données de journaux
 description: "Storage Analytics vous permet d’une part d’effectuer le suivi des données de métriques pour tous les services de stockage et, d’autre part, de collecter les journaux de Blob Storage, Queue Storage et Table Storage."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: a477c1eaf2388f31d4fd36b90f9a830c782873d3
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 61e4f599d17417c11d7ff79489300b82df0bc9c8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="storage-analytics"></a>Storage Analytics
@@ -38,7 +38,7 @@ Storage Analytics enregistre des informations détaillées sur les demandes ayan
 
 Les entrées de journal sont créées uniquement s'il existe une activité du service de stockage. Par exemple, si un compte de stockage a une activité dans son service BLOB, mais pas dans ses services de Table ou de File d'attente, seuls des journaux relatifs au service BLOB sont créés.
 
-La journalisation Storage Analytics n’est pas disponible pour le stockage de fichiers Azure.
+La journalisation Storage Analytics n’est pas disponible pour Azure Files.
 
 ### <a name="logging-authenticated-requests"></a>Enregistrement des demandes authentifiées
 Les types de demandes authentifiées suivants sont enregistrés :

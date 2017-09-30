@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 425c7a733a0a2383f01d2122e7155d3e3a9071be
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: f52988f2a67f2cafe93a7e0a358c599658d068b2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -92,7 +92,7 @@ Cet article décrit les étapes requises pour configurer la surveillance de cont
 
 Pour configurer la solution Conteneurs dans votre espace de travail, vérifiez que l’agent OMS est déployé sur les nœuds de votre cluster en suivant les étapes mentionnées ci-dessus. Une fois le cluster prêt, déployez un conteneur dessus. N’oubliez pas que la première fois qu’une image de conteneur est déployée sur un cluster, plusieurs minutes peuvent être nécessaires pour télécharger l’image en fonction de sa taille.
 
-Dans la Place de marché Azure, recherchez *Conteneurs*, puis créez une ressource Conteneurs (sous la catégorie Surveillance + gestion).
+Sur la Place de marché Azure, recherchez *Solution de monitorage des conteneurs* et créez le résultat **Solution de monitorage des conteneurs** qui devrait s’afficher, sous la catégorie Monitorage + gestion.
 
 ![Ajout de la solution Conteneurs](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 

@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/13/2017
+ms.date: 09/18/2017
 ms.author: ryanwi
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 80c5a2a43302e1cc8ec3b4298eb393a1861252d3
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 86c01a55304c5f5179e0e94d67f318e42075fd48
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="create-a-secure-cluster-on-azure-using-powershell"></a>Créer un cluster sécurisé sur Azure à l’aide de PowerShell
-Ce didacticiel vous montre comment créer un cluster Service Fabric (Windows ou Linux) s’exécutant dans Azure. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications.
+# <a name="create-a-windows-cluster-in-azure-using-powershell"></a>Créer un cluster Windows dans Azure à l’aide de PowerShell
+Ce didacticiel vous montre comment créer un cluster Windows Service Fabric s’exécutant dans Azure. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -46,7 +46,7 @@ Pour calculer le coût lié à l’exécution d’un cluster Service Fabric dans
 Pour plus d’informations sur la création de clusters Service Fabric, consultez l’article [Créer un cluster Service Fabric à l’aide d’Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## <a name="create-the-cluster-using-azure-powershell"></a>Créer le cluster à l’aide d’Azure PowerShell
-1. Téléchargez une copie locale du modèle Azure Resource Manager et le fichier de paramètres du [modèle Azure Resource Manager pour le référentiel GitHub de Service Fabric](https://aka.ms/securepreviewonelineclustertemplate).  *azuredeploy.json* est le modèle Azure Resource Manager qui définit un cluster Service Fabric. *azuredeploy.parameters.json* est le fichier de paramètres permettant de personnaliser le déploiement du cluster.
+1. Téléchargez une copie locale du modèle Azure Resource Manager et le fichier de paramètres du [modèle Azure Resource Manager pour le référentiel GitHub de Service Fabric](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial).  *azuredeploy.json* est le modèle Azure Resource Manager qui définit un cluster Service Fabric. *azuredeploy.parameters.json* est le fichier de paramètres permettant de personnaliser le déploiement du cluster.
 
 2. Personnalisez les paramètres suivants dans le fichier de paramètres *azuredeploy.parameters.json* :
 
@@ -56,7 +56,7 @@ Pour plus d’informations sur la création de clusters Service Fabric, consulte
    | clusterName     | Nom du cluster que vous souhaitez créer. | *par exemple, bobs-sfpreviewcluster* |
    | adminUsername   | Compte d’administrateur local sur les machines virtuelles du cluster. | *N’importe quel nom d’utilisateur Windows Server valide* |
    | adminPassword   | Mot de passe du compte d’administrateur local sur les machines virtuelles du cluster. | *N’importe quel mot de passe Windows Server valide* |
-   | clusterCodeVersion | Version de Service Fabric à exécuter. (255.255.X.255 sont des préversions). | **255.255.5718.255** |
+   | clusterCodeVersion | Version de Service Fabric à exécuter. (255.255.X.255 sont des préversions). | **5.7.198.9494** |
    | vmInstanceCount | Nombre de machines virtuelles dans votre cluster (1 ou de 3 à 99). | **1** | *Pour un cluster de la version d’évaluation, spécifiez uniquement un ordinateur virtuel* |
 
 3. Ouvrez une console PowerShell, connectez-vous à Azure et sélectionnez l’abonnement dans lequel vous souhaitez déployer le cluster :

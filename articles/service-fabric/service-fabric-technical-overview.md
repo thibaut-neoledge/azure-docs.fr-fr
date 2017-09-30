@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 2d90baf42d067ad8476995fba524a46f0815b6d5
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 204c415a6dc77af1be78f8b28a1a5cbcd2fa7883
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="service-fabric-terminology-overview"></a>Présentation de la terminologie Service Fabric
@@ -48,6 +48,10 @@ Il existe deux types de service :
 
 * **Sans état** : utilisez un service sans état si l’état persistant du service est stocké dans un service de stockage externe, par exemple Stockage Azure, Azure SQL Database ou Azure Cosmos DB. Utilisez un service sans état si le service est totalement dépourvu de stockage persistant. Par exemple, pour un service de calculatrice où des valeurs sont transmises au service, un calcul est effectué à l’aide de ces valeurs, et un résultat est retourné.
 * **Avec état** : utilisez un service avec état si vous souhaitez que Service Fabric gère l’état de votre service via ses modèles de programmation Collections fiables ou Reliable Actors. Spécifie le nombre de partitions sur lesquelles vous souhaitez répartir votre état (pour l’évolutivité) lors de la création d’un service nommé. Spécifie également le nombre de réplications de votre état sur plusieurs nœuds (pour la fiabilité). Chaque service nommé possède un seul réplica principal et plusieurs réplicas secondaires. Vous modifiez l’état de votre service nommé en écrivant dans le réplica principal. Service Fabric réplique ensuite cet état sur tous les réplicas secondaires, préservant ainsi la synchronisation de votre état. Service Fabric détecte automatiquement l’échec d’un réplica principal et promeut un réplica secondaire existant en réplica principal. Service Fabric crée ensuite un nouveau réplica secondaire.  
+
+**Réplicas ou instances** : code (et état pour les services avec état) d’un service déployé et en cours d’exécution. Voir [Réplicas et instances](service-fabric-concepts-replica-lifecycle.md)
+
+**Reconfiguration** : processus de changement (quel qu’il soit) dans le jeu de réplicas d’un service. Voir [Reconfiguration](service-fabric-concepts-reconfiguration.md)
 
 **Package de services** : répertoire de disque contenant le fichier `ServiceManifest.xml` du type de service. Ce fichier référence le code, les données statiques et les packages de configuration correspondant au type de service. Les fichiers contenus dans le répertoire de package de services sont référencés par le fichier `ApplicationManifest.xml` du type d’application. Par exemple, un package de services peut faire référence au code, aux données statiques et aux packages de configuration qui composent un service de base de données.
 
@@ -80,6 +84,8 @@ Pour plus d’informations sur les API de communication de client et de service 
 Consultez [Comprendre le paramètre ImageStoreConnectionString](service-fabric-image-store-connection-string.md) pour plus d’informations sur le service de magasin d’images.
 
 Pour plus d’informations sur le déploiement d’applications vers le service de magasin d’images, consultez l’article [Déployer une application](service-fabric-deploy-remove-applications.md) .
+
+**Service Failover Manager (FM)** : chaque cluster Service Fabric possède un service Failover Manager, chargé des fonctions liées à la haute disponibilité et à la cohérence des services ; son rôle est également d’orchestrer les mises à niveau des applications et des clusters et d’interagir avec d’autres composants système.
 
 ## <a name="built-in-programming-models"></a>Modèles de programmation intégrés
 Des modèles de programmation .NET Framework vous permettent de générer des services Service Fabric :

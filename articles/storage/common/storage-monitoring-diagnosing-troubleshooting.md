@@ -1,6 +1,6 @@
 ---
-title: "Analyse, diagnostic et résolution des problèmes de stockage Azure | Microsoft Docs"
-description: "Utilisation de fonctionnalités telles que l’analyse du stockage, la journalisation côté client et d’autres outils tiers pour identifier, diagnostiquer et résoudre les problèmes liés à Azure Storage."
+title: "Surveiller, diagnostiquer et résoudre les problèmes liés à Stockage Azure | Microsoft Docs"
+description: "Utilisation de fonctionnalités telles que l’analytique du stockage, la journalisation côté client et d’autres outils tiers pour identifier, diagnostiquer et résoudre les problèmes liés à Stockage Azure."
 services: storage
 documentationcenter: 
 author: fhryo-msft
@@ -15,25 +15,25 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12db22d1444dc07a45db430c01407f9398e13bad
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1a9c9354b665294778886441cc6d7f02adb1163f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
+# <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Stockage Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 Le diagnostic et la résolution des problèmes dans une application distribuée hébergée dans un environnement cloud peuvent s'avérer plus complexes que dans des environnements traditionnels. Les applications peuvent être déployées dans une infrastructure PaaS ou IaaS, localement, sur un appareil mobile ou selon une formule combinée. Le trafic réseau de votre application traverse généralement des réseaux publics et privés, et votre application peut utiliser différentes technologies de stockage, comme Stockage Table, Stockage Blob, Stockage File d’attente ou Stockage Fichier de Microsoft Azure, en plus d’autres magasins de données, comme des bases de données relationnelles et de documents.
 
-Pour gérer avec succès de telles applications, vous devez les analyser de façon proactive et savoir comment diagnostiquer et résoudre n'importe quel problème associé à leur fonctionnement et leurs technologies associées. En tant qu'utilisateur des services Azure Storage, vous devez surveiller en permanence les services de stockage utilisés par votre application afin de détecter tout comportement imprévu (par ex., des temps de réponse plus lents que d'habitude), et utiliser la journalisation afin de collecter davantage de données détaillées et analyser chaque problème en profondeur. Les informations de diagnostic obtenues via l'analyse et la journalisation vous aideront à déterminer la cause première du problème rencontré par votre application. Vous pouvez alors résoudre le problème et déterminer la procédure appropriée pour y remédier. Azure Storage est l'un des principaux services de Azure et un élément essentiel de la plupart des solutions que les clients déploient dans l'infrastructure Azure. Azure Storage inclut des fonctionnalités qui permettent de simplifier l'analyse, le diagnostic et la résolution des problèmes de stockage rencontrés par vos applications sur le cloud.
+Pour gérer avec succès de telles applications, vous devez les analyser de façon proactive et savoir comment diagnostiquer et résoudre n'importe quel problème associé à leur fonctionnement et leurs technologies associées. En tant qu'utilisateur des services Stockage Azure, vous devez surveiller en permanence les services de stockage utilisés par votre application afin de détecter tout comportement imprévu (par ex., des temps de réponse plus lents que d'habitude), et utiliser la journalisation afin de collecter davantage de données détaillées et analyser chaque problème en profondeur. Les informations de diagnostic obtenues via l'analyse et la journalisation vous aideront à déterminer la cause première du problème rencontré par votre application. Vous pouvez alors résoudre le problème et déterminer la procédure appropriée pour y remédier. Stockage Azure est l'un des principaux services de Azure et un élément essentiel de la plupart des solutions que les clients déploient dans l'infrastructure Azure. Stockage Azure inclut des fonctionnalités qui permettent de simplifier l'analyse, le diagnostic et la résolution des problèmes de stockage rencontrés par vos applications sur le cloud.
 
 > [!NOTE]
-> Actuellement, le stockage de fichiers Azure ne prend pas en charge la journalisation.
+> Azure Files ne prend pas en charge pas la journalisation pour l’instant.
 > 
 
-Pour obtenir un guide pratique de bout en bout pour la résolution des problèmes dans les applications Azure Storage, consultez [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](../storage-e2e-troubleshooting.md).
+Pour obtenir un guide pratique de bout en bout pour la résolution des problèmes dans les applications Stockage Azure, consultez [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](../storage-e2e-troubleshooting.md).
 
 * [Introduction]
   * [Organisation de ce guide]
@@ -71,8 +71,8 @@ Pour obtenir un guide pratique de bout en bout pour la résolution des problème
   * [Votre problème provient de l’utilisation de l’émulateur de stockage pour le développement ou les tests]
   * [Vous rencontrez des problèmes pendant l’installation du Kit de développement logiciel (SDK) Azure pour .NET]
   * [Vous rencontrez un autre problème avec un service de stockage]
-  * [Résolution des problèmes de stockage de fichiers Azure dans Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
-  * [Résolution des problèmes de stockage de fichiers Azure dans Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
+  * [Résolution des problèmes Azure Files avec Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
+  * [Résolution des problèmes Azure Files avec Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Annexes]
   * [Annexe 1 : utilisation de Fiddler pour capturer le trafic HTTP et HTTPS]
   * [Annexe 2 : utilisation de Wireshark pour capturer le trafic réseau]
@@ -81,18 +81,18 @@ Pour obtenir un guide pratique de bout en bout pour la résolution des problème
   * [Annexe 5 : analyse avec Application Insights pour Visual Studio Team Services]
 
 ## <a name="introduction"></a>Introduction
-Ce guide vous explique comment utiliser des fonctionnalités telles que Azure Storage Analytics, la journalisation côté client dans la bibliothèque cliente de Azure Storage, et d’autres outils tiers permettant d’identifier, diagnostiquer et résoudre les problèmes liés à Azure Storage.
+Ce guide vous explique comment utiliser des fonctionnalités telles que Azure Storage Analytics, la journalisation côté client dans la bibliothèque cliente Stockage Azure, et d’autres outils tiers permettant d’identifier, diagnostiquer et résoudre les problèmes liés à Stockage Azure.
 
 ![][1]
 
-Ce guide est destiné principalement aux développeurs de services en ligne qui utilisent les services Azure Storage et aux professionnels de l’informatique responsables de la gestion de tels services en ligne. Ce guide a pour objectifs de :
+Ce guide est destiné principalement aux développeurs de services en ligne qui utilisent les services Stockage Azure et aux professionnels de l’informatique responsables de la gestion de tels services en ligne. Ce guide a pour objectifs de :
 
-* Vous aider à maintenir l'état d'intégrité et les performances de vos comptes Azure Storage.
-* Mettre à votre disposition les processus et outils nécessaires pour vous aider à déterminer si un problème rencontré dans une application est lié à Azure Storage.
-* Mettre à votre disposition des mesures concrètes pour la résolution des problèmes liés à Azure Storage.
+* Vous aider à maintenir l'état d'intégrité et les performances de vos comptes de stockage Azure.
+* Mettre à votre disposition les processus et outils nécessaires pour vous aider à déterminer si un problème rencontré dans une application est lié à Stockage Azure.
+* Mettre à votre disposition des mesures concrètes pour la résolution des problèmes liés à Stockage Azure.
 
 ### <a name="how-this-guide-is-organized"></a>Organisation de ce guide
-La section «[Analyse de votre service de stockage]» explique comment analyser l'état d'intégrité et les performances de vos services Azure Storage à l'aide des métriques Azure Storage Analytics (métriques de stockage).
+La section «[Analyse de votre service de stockage]» explique comment analyser l'état d'intégrité et les performances de vos services Stockage Azure à l'aide des métriques Azure Storage Analytics (métriques de stockage).
 
 La section «[Diagnostic des problèmes de stockage]» explique comment diagnostiquer les problèmes à l'aide de la journalisation Azure Storage Analytics (journalisation du stockage). Elle explique également comment activer la journalisation côté client à l'aide des fonctionnalités dans une des bibliothèques clientes, telles que la bibliothèque cliente de stockage pour .NET ou le Kit de développement logiciel (SDK) pour Java.
 
@@ -103,7 +103,7 @@ La section «[Instructions pour la résolution des problèmes]» fournit des ins
 La section «[Annexes]» inclut des informations concernant l'utilisation d'autres outils tels que Wireshark et Netmon pour l'analyse des données des paquets réseau, Fiddler pour l'analyse des messages HTTP/HTTPS, et l'analyseur de message Microsoft pour la mise en corrélation des données de journalisation.
 
 ## <a name="monitoring-your-storage-service"></a>Analyse de votre service de stockage
-Si vous connaissez les outils d’analyse de performances Windows, vous pouvez considérer les métriques de stockage comme l’équivalent, dans Azure Storage, des compteurs de l’Analyseur de performances Windows. Les métriques de stockage incluent un vaste éventail de métriques (appelées compteurs dans la terminologie de l’Analyseur de performances Windows) telles que la disponibilité du service, le nombre total de demandes du service ou le pourcentage de demandes réussies du service. Pour obtenir une liste de toutes les métriques disponibles, consultez l’article [Schéma de table de métriques Storage Analytics](http://msdn.microsoft.com/library/azure/hh343264.aspx). Vous pouvez spécifier si vous désirez que le service de stockage collecte et agrège les métriques toutes les heures ou toutes les minutes. Pour plus d’informations sur la façon d’activer les métriques et d’analyser vos comptes de stockage, consultez la section [Activation de Storage Metrics et affichage des données de métriques](http://go.microsoft.com/fwlink/?LinkId=510865).
+Si vous connaissez les outils d’analyse de performances Windows, vous pouvez considérer les métriques de stockage comme l’équivalent, dans Stockage Azure, des compteurs de l’Analyseur de performances Windows. Les métriques de stockage incluent un vaste éventail de métriques (appelées compteurs dans la terminologie de l’Analyseur de performances Windows) telles que la disponibilité du service, le nombre total de demandes du service ou le pourcentage de demandes réussies du service. Pour obtenir une liste de toutes les métriques disponibles, consultez l’article [Schéma de table de métriques Storage Analytics](http://msdn.microsoft.com/library/azure/hh343264.aspx). Vous pouvez spécifier si vous désirez que le service de stockage collecte et agrège les métriques toutes les heures ou toutes les minutes. Pour plus d’informations sur la façon d’activer les métriques et d’analyser vos comptes de stockage, consultez la section [Activation de Storage Metrics et affichage des données de métriques](http://go.microsoft.com/fwlink/?LinkId=510865).
 
 Vous pouvez sélectionner les métriques horaires à afficher dans le [portail Azure](https://portal.azure.com) et configurer les règles de notification par e-mail des administrateurs lorsqu’une métrique horaire dépasse un seuil spécifique. Pour plus d’informations, consultez [Réception de notifications d’alerte](/azure/monitoring-and-diagnostics/monitoring-overview-alerts.md). 
 
@@ -175,14 +175,14 @@ Il existe différentes façons de savoir si votre application a rencontré un pr
 Les problèmes associés aux services de stockage Azure se répartissent généralement en quatre catégories principales :
 
 * Votre application connaît un problème de performances signalé par les utilisateurs ou révélé par des changements dans les métriques de performances.
-* Il existe un problème au niveau de l'infrastructure Azure Storage dans une ou plusieurs régions.
+* Il existe un problème au niveau de l'infrastructure Stockage Azure dans une ou plusieurs régions.
 * Votre application connaît un problème de performances signalé par les utilisateurs ou révélé par une augmentation dans les métriques de nombre d'erreurs que vous analysez.
 * Pendant le développement et les tests, il se peut que vous utilisiez l'émulateur de stockage local et rencontriez des problèmes spécifiques à son utilisation.
 
 Les sections suivantes expliquent les étapes à suivre pour le diagnostic et la résolution des problèmes dans chacune de ces quatre catégories. La section «[Instructions pour la résolution des problèmes]» plus bas dans ce guide aborde plus en détail certains des problèmes que vous pouvez être amené à rencontrer.
 
 ### <a name="service-health-issues"></a>Problèmes d’état d’intégrité du service
-Les problèmes d’état du service sont généralement des problèmes sur lesquels vous n’avez pas de contrôle. Le [portail Azure](https://portal.azure.com) fournit des informations sur n’importe quel problème en cours avec les services Azure, y compris les services de stockage. Si vous avez opté pour un stockage géo-redondant avec accès en lecture lors de la création de votre compte de stockage, lorsque vos données ne sont plus accessibles depuis l'emplacement principal, votre application peut passer provisoirement à une copie en lecture seule sur l'emplacement secondaire. Pour ce faire, votre application doit être capable de passer indifféremment des emplacements de stockage principaux aux emplacements de stockage secondaires, et de fonctionner dans un mode de fonctionnalités réduites, avec des données en lecture seule. Les bibliothèques clientes Azure Storage vous permettent de définir une stratégie de nouvelle tentative afin de passer à une lecture depuis le stockage secondaire lorsque la lecture depuis le stockage principal échoue. Votre application doit également être capable de reconnaître que les données de l’emplacement secondaire sont cohérentes. Pour plus d’informations, consultez le billet de blog [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+Les problèmes d’état du service sont généralement des problèmes sur lesquels vous n’avez pas de contrôle. Le [portail Azure](https://portal.azure.com) fournit des informations sur n’importe quel problème en cours avec les services Azure, y compris les services de stockage. Si vous avez opté pour un stockage géo-redondant avec accès en lecture lors de la création de votre compte de stockage, lorsque vos données ne sont plus accessibles depuis l'emplacement principal, votre application peut passer provisoirement à une copie en lecture seule sur l'emplacement secondaire. Pour ce faire, votre application doit être capable de passer indifféremment des emplacements de stockage principaux aux emplacements de stockage secondaires, et de fonctionner dans un mode de fonctionnalités réduites, avec des données en lecture seule. Les bibliothèques clientes Stockage Azure vous permettent de définir une stratégie de nouvelle tentative afin de passer à une lecture depuis le stockage secondaire lorsque la lecture depuis le stockage principal échoue. Votre application doit également être capable de reconnaître que les données de l’emplacement secondaire sont cohérentes. Pour plus d’informations, consultez le billet de blog [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ### <a name="performance-issues"></a>Problèmes de performances
 Les performances d’une application peuvent être subjectives, en particulier du point de vue de l’utilisateur. C'est pourquoi il est important de disposer de métriques de base afin de vous aider à identifier les problèmes de performances éventuels. De nombreux facteurs peuvent affecter les performances d'un service de stockage Azure du point de vue de l'application cliente. Ces facteurs peuvent affecter le service de stockage, l'infrastructure cliente ou l'infrastructure réseau ; il est donc important d'établir une stratégie d'identification de la cause initiale du problème de performances.
@@ -236,14 +236,14 @@ Dans de nombreux cas, les données de journalisation issues de la journalisation
 Le suivi de bout en bout basé sur plusieurs fichiers journaux est une technique utile pour l’identification des problèmes potentiels. Vous pouvez utiliser les informations de date/heure de vos données métriques pour savoir où commencer à chercher des informations plus détaillées dans vos fichiers journaux afin de résoudre le problème.
 
 ### <a name="correlating-log-data"></a>Corrélation des données de journalisation
-Lors de l'affichage des journaux à partir des applications clientes, des suivis réseau et du stockage côté serveur, leur journalisation est essentielle afin de pouvoir mettre en corrélation les demandes à travers différents fichiers journaux. Les fichiers journaux incluent un certain nombre de champs différents, utiles en tant qu'identificateurs de corrélation. L'ID de la demande client est le champ le plus utile pour mettre en corrélation les entrées dans les différents journaux. Mais il peut parfois être utile d'utiliser l'ID de la demande serveur ou les horodatages. Les sections suivantes expliquent plus en détail ces options.
+Lors de l'affichage des journaux à partir des applications clientes, des suivis réseau et du stockage côté serveur, leur journalisation est essentielle afin de pouvoir mettre en corrélation les demandes à travers différents fichiers journaux. Les fichiers journaux incluent un certain nombre de champs différents, utiles en tant qu'identificateurs de corrélation. L'ID de demande client est le champ le plus utile pour mettre en corrélation les entrées dans les différents journaux. Toutefois, il peut parfois être utile d'utiliser l'ID de demande serveur ou les horodatages. Les sections suivantes expliquent plus en détail ces options.
 
 ### <a name="client-request-id"></a>ID de la demande client
 La bibliothèque cliente de stockage génère automatiquement un ID de demande client unique pour chaque demande.
 
-* Dans le journal côté client créé par la bibliothèque cliente de stockage, l'ID de la demande client s'affiche dans le champ **Client Request ID** de chaque entrée de journal associée à la demande.
-* Dans un suivi réseau comme celui capturé par Fiddler, l'ID de la demande client s'affiche dans les messages de demande en tant que valeur d'en-tête HTTP **x-ms-client-request-id** .
-* Dans le journal de journalisation du stockage côté serveur, l’ID de la demande client s’affiche dans la colonne Client request ID.
+* Dans le journal côté client créé par la bibliothèque cliente de stockage, l'ID de demande client s'affiche dans le champ **ID de demande client** de chaque entrée de journal associée à la demande.
+* Dans un suivi réseau comme celui capturé par Fiddler, l'ID de demande client s'affiche dans les messages de demande comme valeur d'en-tête HTTP **x-ms-client-request-id**.
+* Dans le journal de journalisation du stockage côté serveur, l’ID de demande client s’affiche dans la colonne ID de demande client.
 
 > [!NOTE]
 > Plusieurs demandes peuvent partager le même ID de demande client, car le client peut affecter cette valeur (même si la bibliothèque cliente de stockage affecte une nouvelle valeur automatiquement). Quand le client effectue de nouvelles tentatives, ces dernières partagent le même ID de demande client. Quand un lot est envoyé par le client, le lot a un seul ID de demande client.
@@ -253,12 +253,12 @@ La bibliothèque cliente de stockage génère automatiquement un ID de demande c
 ### <a name="server-request-id"></a>ID de la demande serveur
 Le service de stockage génère automatiquement les ID de demande serveur.
 
-* Dans le journal de journalisation du stockage côté serveur, l'ID de la demande serveur s'affiche dans la colonne **Request ID header** .
-* Dans un suivi réseau comme celui capturé par Fiddler, l'ID de la demande serveur s'affiche dans les messages de réponse en tant que valeur d'en-tête HTTP **x-ms-request-id** .
-* Dans le journal côté client créé par la bibliothèque cliente de stockage, l'ID de la demande serveur s'affiche dans la colonne **Operation Text** pour l'entrée de journal qui affiche les détails de la réponse du serveur.
+* Dans le journal de journalisation du stockage côté serveur, l'ID de demande serveur s'affiche dans la colonne **En-tête d’ID de demande**.
+* Dans un suivi réseau comme celui capturé par Fiddler, l'ID de demande serveur s'affiche dans les messages de réponse comme valeur d'en-tête HTTP **x-ms-request-id** .
+* Dans le journal côté client créé par la bibliothèque cliente de stockage, l'ID de demande serveur s'affiche dans la colonne **Texte de l’opération** pour l'entrée de journal qui affiche les détails de la réponse du serveur.
 
 > [!NOTE]
-> Le service de stockage affecte toujours un ID de demande serveur unique à chaque demande qu’il reçoit ; par conséquent, chaque nouvelle tentative du client et chaque opération incluse dans un lot a un ID de demande serveur unique.
+> Le service de stockage affecte toujours un ID de demande serveur unique à chaque demande qu’il reçoit. Par conséquent, chaque nouvelle tentative du client et chaque opération incluse dans un lot a un ID de demande serveur unique.
 > 
 > 
 
@@ -406,7 +406,7 @@ Si vous constatez une valeur **AverageServerLatency** élevée pour les demandes
 Des valeurs **AverageServerLatency** élevées peuvent également indiquer la présence de tables mal conçues ou de requêtes donnant lieu à des opérations d'analyse ou qui suivent l'anti-modèle d'ajout/ajout de préfixe. Voir la section «[Les métriques indiquent une augmentation de la valeur PercentThrottlingError]» pour plus d'informations.
 
 > [!NOTE]
-> Pour obtenir une liste de contrôle exhaustive des performances, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](storage-performance-checklist.md).
+> Pour obtenir une liste de contrôle exhaustive des performances, consultez [Liste de contrôle des performances et de l’extensibilité de Stockage Microsoft Azure](storage-performance-checklist.md).
 > 
 > 
 
@@ -420,7 +420,7 @@ Si vous constatez un retard entre le moment où une application ajoute un messag
 * Vérifiez dans les journaux de journalisation du stockage la présence d’opérations de file d’attente présentant des valeurs **E2ELatency** et **ServerLatency** supérieures à celles prévues, pendant une période plus longue que prévu.
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Les métriques indiquent une augmentation de la valeur PercentThrottlingError
-Les erreurs de limitation se produisent lorsque vous dépassez les valeurs cibles d’évolutivité d’un service de stockage. Le service de stockage effectue cette opération afin de s’assurer qu’aucun client ne peut utiliser le service au détriment des autres utilisateurs. Pour plus d’informations sur les cibles d’évolutivité des comptes de stockage et les cibles de performances des partitions dans les comptes de stockage, voir [Objectifs de performance et évolutivité d'Azure Storage](storage-scalability-targets.md).
+Les erreurs de limitation se produisent lorsque vous dépassez les valeurs cibles d’évolutivité d’un service de stockage. Le service de stockage effectue cette opération afin de s’assurer qu’aucun client ne peut utiliser le service au détriment des autres utilisateurs. Pour plus d’informations sur les cibles d’évolutivité des comptes de stockage et les cibles de performances des partitions dans les comptes de stockage, voir [Objectifs de performance et évolutivité de Stockage Azure](storage-scalability-targets.md).
 
 Si la métrique **PercentThrottlingError** indique une augmentation du pourcentage de demandes qui échouent avec une erreur de limitation, vous devez enquêter sur un des deux scénarios suivants :
 
@@ -574,7 +574,7 @@ Le tableau suivant donne un exemple de message de journal côté serveur à part
 | Type d'authentification| Sas                          |
 | Type de service       | Blob                         |
 | URL de la demande        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Request ID header  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID de la demande client  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -596,7 +596,7 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 
 Ces erreurs sont dues au fait que le navigateur implémente la restriction de sécurité [same origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy) , qui empêche une page web d’appeler une API dans un domaine différent de celui dont la page provient.
 
-Pour contourner le problème JavaScript, vous devez configurer le service Partage des ressources cross-origin (CORS) pour le service de stockage auquel le client accède. Pour plus d’informations, voir [Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage](http://msdn.microsoft.com/library/azure/dn535601.aspx).
+Pour contourner le problème JavaScript, vous devez configurer le service Partage des ressources cross-origin (CORS) pour le service de stockage auquel le client accède. Pour plus d’informations, voir [Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Stockage Azure](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
 L'exemple de code suivant montre comment configurer votre service d'objet blob afin de permettre l'exécution de JavaScript dans le domaine Contoso pour accéder à un objet blob dans votre service de stockage d'objets blob :
 
@@ -653,12 +653,12 @@ Il est important de noter que ces opérations ont été réalisées avec succès
 Vous trouverez une liste des codes d’erreur API REST communs renvoyés par les services de stockage à la page [Codes d’erreur API REST communs](http://msdn.microsoft.com/library/azure/dd179357.aspx).
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Les métriques de capacité indiquent une augmentation inattendue de l’utilisation de la capacité de stockage
-Si vous constatez des changements soudains, inattendus dans l'utilisation de la capacité de votre compte de stockage, vous pouvez enquêter sur les raisons d'abord en consultant vos métriques de disponibilité ; par exemple, une augmentation du nombre de demandes de suppression qui échouent peut provoquer une augmentation du volume de stockage d'objets blob que vous utilisez, car les opérations de nettoyage spécifiques à l'application supposées libérer de l'espace peuvent ne pas fonctionner comme prévu (par exemple, suite à l'expiration des jetons SAS utilisés pour libérer de l'espace).
+Si vous constatez des changements soudains, inattendus dans l'utilisation de la capacité de votre compte de stockage, vous pouvez rechercher les raisons en consultant d’abord vos métriques de disponibilité. Par exemple, une augmentation du nombre de demandes de suppression qui échouent peut provoquer une augmentation du volume de stockage blob que vous utilisez, car les opérations de nettoyage spécifiques de l'application supposées libérer de l'espace peuvent ne pas fonctionner comme prévu (par exemple, suite à l'expiration des jetons SAS utilisés pour libérer de l'espace).
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>Vous constatez des redémarrages inattendus des machines virtuelles Azure associées à un grand nombre de disques durs virtuels
 Si une machine virtuelle Azure est associée à un grand nombre de disques durs virtuels dans le même compte de stockage, vous risquez de dépasser les cibles d’évolutivité pour un compte de stockage individuel, ce qui provoquera une panne de la machine virtuelle. Vous devez consulter les métriques par minute pour le compte de stockage (**TotalRequests**/**TotalIngress**/**TotalEgress**) et vérifier la présence de pics dépassant les cibles d’évolutivité pour un compte de stockage. La section «[Les métriques indiquent une augmentation de la valeur PercentThrottlingError]» vous aidera à déterminer si une limitation a été appliquée à votre compte de stockage.
 
-En général, chaque opération d’entrée ou de sortie individuelle sur un disque dur virtuel à partir d’une machine virtuelle traduit les opérations **Get Page** ou **Put Page** sur l’objet blob de la page sous-jacente. Vous pouvez donc utiliser les opérations d’E/S par seconde (IOPS) estimées pour votre environnement pour déterminer le nombre de disques durs virtuels que vous pouvez avoir dans un compte de stockage unique, sur base du comportement spécifique de votre application. Nous déconseillons d’avoir plus de 40 disques dans un compte de stockage unique. Pour obtenir des détails sur les cibles d’extensibilité actuelles des comptes de stockage, en particulier le taux de demandes total et la bande passante totale pour le type de compte de stockage que vous utilisez, consultez [Objectifs de performance et évolutivité d’Azure Storage](storage-scalability-targets.md).
+En général, chaque opération d’entrée ou de sortie individuelle sur un disque dur virtuel à partir d’une machine virtuelle traduit les opérations **Get Page** ou **Put Page** sur l’objet blob de la page sous-jacente. Vous pouvez donc utiliser les opérations d’E/S par seconde (IOPS) estimées pour votre environnement pour déterminer le nombre de disques durs virtuels que vous pouvez avoir dans un compte de stockage unique, sur base du comportement spécifique de votre application. Nous déconseillons d’avoir plus de 40 disques dans un compte de stockage unique. Pour obtenir des détails sur les cibles d’extensibilité actuelles des comptes de stockage, en particulier le taux de demandes total et la bande passante totale pour le type de compte de stockage que vous utilisez, consultez [Objectifs de performance et évolutivité de Stockage Azure](storage-scalability-targets.md).
 Si vous dépassez les cibles d’évolutivité pour votre compte de stockage, vous devez placer vos disques durs virtuels dans plusieurs comptes de stockage différents afin de réduire l’activité dans chaque compte individuel.
 
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Votre problème provient de l’utilisation de l’émulateur de stockage pour le développement ou les tests
@@ -674,7 +674,7 @@ L'émulateur de stockage ne prend pas en charge toutes les fonctionnalités des 
 Pour accéder à ces fonctions non prises en charge par l’émulateur de stockage, vous devez utiliser le service de stockage Azure dans le cloud.
 
 #### <a name="error-HTTP-header-not-correct-format"></a>Erreur « The value for one of the HTTP headers is not in the correct format » (Le format de la valeur d’un des en-têtes HTTP est incorrect) lors de l’utilisation de l’émulateur de stockage
-Vous êtes en train de tester votre application, qui utilise la bibliothèque cliente de stockage, avec l'émulateur de stockage local, et les appels de méthode tels que **CreateIfNotExists** échouent avec un message d'erreur « The value for one of the HTTP headers is not in the correct format » (Le format de la valeur d'un des en-têtes HTTP est incorrect). Cela indique que la version de l'émulateur de stockage que vous utilisez ne prend pas en charge la version de la bibliothèque cliente de stockage que vous utilisez. La bibliothèque cliente de stockage ajoute l'en-tête **x-ms-version** à toutes les demandes qu'elle effectue. Si l'émulateur de stockage ne reconnaît pas la valeur dans l'en-tête **x-ms-version** , il refuse la demande.
+Vous testez votre application qui utilise la bibliothèque cliente de stockage dans l'émulateur de stockage local, et les appels de méthode comme **CreateIfNotExists** échouent avec le message d'erreur « La valeur de l’un des en-têtes HTTP n’a pas un format correct ». Cela indique que la version de l'émulateur de stockage que vous utilisez ne prend pas en charge la version de la bibliothèque cliente de stockage que vous utilisez. La bibliothèque cliente de stockage ajoute l'en-tête **x-ms-version** à toutes les demandes qu'elle effectue. Si l'émulateur de stockage ne reconnaît pas la valeur dans l'en-tête **x-ms-version** , il refuse la demande.
 
 Vous pouvez utiliser les journaux de la bibliothèque cliente de stockage pour afficher la valeur de l' **en-tête x-ms-version** envoyée. Vous pouvez également afficher la valeur de l' **en-tête x-ms-version** si vous utilisez Fiddler pour procéder au suivi des demandes à partir de votre application cliente.
 
@@ -716,7 +716,7 @@ Pour plus d’informations sur l’utilisation de Wireshark, consultez «[Annexe
 Pour plus d’informations sur l’utilisation de l’analyseur de message Microsoft, consultez «[Annexe 3 : utilisation de l’analyseur de message Microsoft pour capturer le trafic réseau]».
 
 ## <a name="appendices"></a>Annexes
-Les annexes décrivent plusieurs outils qui peuvent s’avérer utiles lors du diagnostic et de la résolution des problèmes liés à Azure Storage (et aux autres services). Ces outils ne font pas partie de Azure Storage, et certains d'entre eux sont des produits tiers. En tant que tels, les outils décrits dans les annexes ne sont couverts par aucun contrat de support technique que vous pourriez avoir établi avec Microsoft Azure ou Azure Storage ; vous devez donc procéder à votre propre évaluation et examiner les options de licence et de support technique disponibles proposées par les fournisseurs de ces outils.
+Les annexes décrivent plusieurs outils qui peuvent s’avérer utiles lors du diagnostic et de la résolution des problèmes liés à Stockage Azure (et aux autres services). Ces outils ne font pas partie de Stockage Azure, et certains d'entre eux sont des produits tiers. En tant que tels, les outils décrits dans les annexes ne sont couverts par aucun contrat de support technique que vous pourriez avoir établi avec Microsoft Azure ou Stockage Azure ; vous devez donc procéder à votre propre évaluation et examiner les options de licence et de support technique disponibles proposées par les fournisseurs de ces outils.
 
 ### <a name="appendix-1"></a>Annexe 1 : utilisation de Fiddler pour capturer le trafic HTTP et HTTPS
 [Fiddler](http://www.telerik.com/fiddler) est un outil utile pour l’analyse du trafic HTTP et HTTPS entre votre application cliente et le service de stockage Azure que vous utilisez.
@@ -756,7 +756,7 @@ WireShark met en évidence toutes les erreurs détectées dans la fenêtre **pac
 
 ![][7]
 
-Vous pouvez également choisir d'afficher les données TCP telles que la couche d'application les voit en cliquant avec le bouton droit de la souris sur les données TCP et en sélectionnant **Follow TCP Stream**. Cette option est particulièrement utile si vous avez capturé votre image mémoire sans filtre de capture. Pour plus d’informations, consultez [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)(Suivi du flux TCP).
+Vous pouvez également choisir d'afficher les données TCP telles que la couche d'application les voit en cliquant avec le bouton droit sur les données TCP et en sélectionnant **Suivre le flux TCP**. Cette option est particulièrement utile si vous avez capturé votre image mémoire sans filtre de capture. Pour plus d’informations, consultez [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)(Suivi du flux TCP).
 
 ![][8]
 
@@ -816,7 +816,7 @@ Vous pouvez également utiliser la fonctionnalité Application Insights pour Vis
 * Vous assurer que votre service Web est disponible et réactif. Que votre application soit destinée à un site web ou à un appareil qui utilise un service web, il peut tester votre URL toutes les quelques minutes depuis différents emplacements de par le monde et vous signaler tout problème éventuel.
 * Rapidement diagnostiquer tous les problèmes ou exceptions de performances rencontrés par votre service Web. Découvrez si l'UC ou d'autres ressources sont en difficulté, obtenez les traces de la pile à partir des exceptions et effectuez des recherches aisées dans les suivis de journalisation. Si les performances de l’application chutent en deçà des limites acceptables, nous pouvons vous envoyer un e-mail. Vous pouvez analyser les services Web .NET et Java.
 
-Vous trouverez plus d’informations dans la [Présentation d’Application Insights](../../application-insights/app-insights-overview.md).
+Plus d’informations sont disponibles dans [Présentation d’Application Insights](../../application-insights/app-insights-overview.md).
 
 <!--Anchors-->
 [Introduction]: #introduction

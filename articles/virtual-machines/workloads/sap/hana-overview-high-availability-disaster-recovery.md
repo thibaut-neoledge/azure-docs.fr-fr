@@ -3,7 +3,7 @@ title: "Haute disponibilité et récupération d’urgence de SAP HANA sur Azure
 description: "Établir la haute disponibilité et planifier la récupération d’urgence de SAP HANA sur Azure (grandes instances)"
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
+author: saghorpa
 manager: timlt
 editor: 
 ms.service: virtual-machines-linux
@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/11/2016
-ms.author: rclaus
+ms.date: 09/15/2016
+ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 87ea8b808c0b7e5fe79a5bee038a3d34ed59a1e6
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 293ac7a275398f05e3abe815413403efeaadc6e0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Haute disponibilité et récupération d’urgence des grandes instances SAP HANA sur Azure 
@@ -41,9 +41,9 @@ Le tableau suivant indique les combinaisons et méthodes de haute disponibilité
 | Basculement automatique avec hôte : N+m<br /> y compris 1+1 | Possible avec nœud de secours en rôle actif.<br /> Contrôle par HANA de la permutation des rôles. | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente.<br /> Synchronisation de la récupération d’urgence à l’aide de la réplication du stockage. | Des jeux de volumes HANA sont attachés à tous les nœuds (n+m).<br /> Le site de récupération d’urgence doit avoir le même nombre de nœuds. |
 | Réplication de système HANA | Possible avec configuration de réplica principal ou secondaire.<br /> Le réplica secondaire prend le rôle principal en cas de basculement.<br /> Réplication de système HANA et basculement du contrôle du système d’exploitation. | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente.<br /> Synchronisation de la récupération d’urgence à l’aide de la réplication du stockage.<br /> La récupération d’urgence à l’aide de la réplication de système HANA n’est pas possible sans composants tiers. | Des jeux distincts de volumes de disque sont attachés à chaque nœud.<br /> Seuls les volumes de disque de réplica secondaire sur le site de production sont répliqués à l’emplacement de la récupération d’urgence.<br /> Un jeu de volumes est requis sur le site de récupération d’urgence. | 
 
-L’expression « configuration de récupération d’urgence dédiée » désigne une configuration où l’unité de grande instance HANA sur le site de récupération d’urgence n’est pas utilisée pour exécuter d’autres charges de travail ou systèmes de non-production. L’unité est passive et est déployée uniquement si un basculement d’urgence est exécuté. À ce jour, aucun client n’a une configuration de ce type.
+L’expression « configuration de récupération d’urgence dédiée » désigne une configuration où l’unité de grande instance HANA sur le site de récupération d’urgence n’est pas utilisée pour exécuter d’autres charges de travail ou systèmes de non-production. L’unité est passive et est déployée uniquement si un basculement d’urgence est exécuté. Cependant, il ne s’agit pas d’un choix par défaut pour de nombreux clients.
 
-L’expression « configuration de récupération d’urgence polyvalente » désigne une configuration où l’unité de grande instance HANA sur le site de récupération d’urgence exécute une charge de travail de non-production. En cas de panne, vous arrêtez le système de non-production, vous montez les jeux de volumes (supplémentaires) répliqués par le stockage et vous démarrez l’instance HANA de production. À ce jour, tous les clients qui utilisent la fonctionnalité de récupération d’urgence des grandes instances HANA recourent à cette autre configuration. 
+L’expression « configuration de récupération d’urgence polyvalente » désigne une configuration où l’unité de grande instance HANA sur le site de récupération d’urgence exécute une charge de travail de non-production. En cas de panne, vous arrêtez le système de non-production, vous montez les jeux de volumes (supplémentaires) répliqués par le stockage et vous démarrez l’instance HANA de production. La plupart des clients qui utilisent la fonctionnalité de récupération d’urgence des grandes instances HANA recourent à cette configuration. 
 
 
 Vous trouverez plus d’informations sur la haute disponibilité de SAP HANA dans les articles SAP suivants : 
@@ -221,7 +221,15 @@ Dans cette étape, vous autorisez le compte d’utilisateur SAP HANA que vous av
 
 Entrez La commande `hdbuserstore` comme suit :
 
-![Saisie de la commande hdbuserstore](./media/hana-overview-high-availability-disaster-recovery/image4-hdbuserstore-command.png)
+**Pour la configuration HANA non MDC**
+```
+hdbuserstore set <key> <host><3[instance]15> <user> <password>
+```
+
+**Pour la configuration HANA MDC**
+```
+hdbuserstore set <key> <host><3[instance]13> <user> <password>
+```
 
 Dans l’exemple ci-après, l’utilisateur est **SCADMIN01**, le nom d’hôte est **lhanad01** et le numéro d’instance est **01** :
 ```
@@ -231,8 +239,8 @@ Si vous avez une configuration SAP HANA avec montée en puissance parallèle, vo
 
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 SCADMIN <password>
-hdbuserstore set SCADMIN02 lhanad02:30215 SCADMIN <password>
-hdbuserstore set SCADMIN03 lhanad03:30315 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad02:30115 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad03:30115 SCADMIN <password>
 ```
 
 ### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>Étape 6 : Obtenir les scripts de capture instantanée, configurer les captures instantanées et tester la connectivité et la configuration
@@ -285,7 +293,7 @@ Storage IP Address: 10.240.20.31
 #hdbuserstore utility.
 Node 1 IP Address: 
 Node 1 HANA instance number:
-Node 1 HANA Backup Name:
+Node 1 HANA userstore Name:
 ```
 
 >[!NOTE]
@@ -376,28 +384,28 @@ Si la capture instantanée de test a été correctement exécutée avec le scrip
 Une fois réalisées toutes les étapes de préparation, vous pouvez commencer à configurer la configuration de capture instantanée de stockage réelle. Le script à planifier fonctionne avec les configurations de SAP HANA avec montée en puissance et montée en puissance parallèle. Vous devez planifier l’exécution des scripts par le biais de cron. 
 
 Il est possible de créer trois types de sauvegardes de captures instantanées :
-- **hana** : sauvegarde de captures instantanées combinées dans laquelle les volumes contenant /hana/data et /hana/log, /hana/shared (qui contient également /usr/sap) sont couverts par la capture instantanée coordonnée. Une restauration de fichier unique est possible à partir de cette capture instantanée.
+- **HANA** : sauvegarde de captures instantanées combinées dans laquelle les volumes contenant /hana/data et /hana/shared (qui contient également /usr/sap) sont couverts par la capture instantanée coordonnée. Une restauration de fichier unique est possible à partir de cette capture instantanée.
 - **logs** : sauvegarde de capture instantanée du volume/hana/logbackups. Aucune capture instantanée HANA n’est déclenchée pour exécuter cette capture instantanée de stockage. Ce volume de stockage est le volume destiné à contenir les sauvegardes de fichier journal SAP HANA, qui sont effectuées plus fréquemment afin de limiter la croissance du journal et d’éviter toute perte de données. Une restauration de fichier unique est possible à partir de cette capture instantanée. Vous ne devez pas réduire la fréquence à moins de cinq minutes.
 - **boot** : capture instantanée du volume qui contient le numéro d’unité logique de démarrage de la grande instance HANA. Cette sauvegarde de capture instantanée est uniquement possible avec les références SKU de type I des grandes instances HANA. Vous ne pouvez pas effectuer de restaurations de fichier unique à partir de la capture instantanée du volume qui contient le numéro d’unité logique de démarrage.  
 
 
 La syntaxe d’appel de ces trois types de captures instantanées ressemble à ceci :
 ```
-HANA backup covering /hana/data, /hana/log, /hana/shared (includes/usr/sap)
+HANA backup covering /hana/data and /hana/shared (includes/usr/sap)
 ./azure_hana_backup.pl hana <HANA SID> manual 30
 
 For /hana/logbackups snapshot
 ./azure_hana_backup.pl logs <HANA SID> manual 30
 
 For snapshot of the volume storing the boot LUN
-./azure_hana_backup.pl boot manual 30
+./azure_hana_backup.pl boot none manual 30
 
 ```
 
 Les paramètres suivants doivent être spécifiés :
 
 - Le premier paramètre définit le type de la sauvegarde de captures instantanées. Les valeurs autorisées sont **hana**, **logs** et **boot**. 
-- La deuxième valeur est le SID HANA (tel que HM3). Ce paramètre n’est pas nécessaire pour effectuer une sauvegarde du volume de démarrage.
+- Le deuxième paramètre est **HANA SID** (comme HM3) ou **none** (aucun). Si la valeur du premier paramètre fourni est **hana** ou **logs**, alors la valeur de ce paramètre est **HANA SID** (comme HM3). Sinon, pour la sauvegarde du volume de démarrage, la valeur est **none** (aucun). 
 - Le troisième paramètre est une capture instantanée ou une étiquette de sauvegarde pour le type de capture instantanée. Il a deux objectifs. Il permet d’une part de lui attribuer un nom pour savoir à quoi correspondent ces captures instantanées. Le script Azure \_hana\_backup.pl détermine d’autre part le nombre de captures instantanées de stockage qui sont conservées sous cette étiquette spécifique. Si vous planifiez deux sauvegardes de captures instantanées de stockage du même type (par exemple, **hana**), avec deux étiquettes différentes, et définissez que 30 captures instantanées doivent être conservées pour chacune d’elles, vous obtiendrez au total 60 captures instantanées de stockage des volumes concernés. 
 - Le quatrième paramètre définit la rétention des captures instantanées indirectement en définissant le nombre de captures instantanées de même préfixe (étiquette) à conserver. Ce paramètre est important pour une exécution planifiée par le biais de cron. 
 
@@ -428,7 +436,7 @@ Dans les considérations et recommandations ci-après, nous supposons que vous n
 - Le nombre de captures instantanées par volume est limité à 255.
 
 
-Pour les clients qui n’utilisent pas la fonctionnalité de récupération d’urgence des grandes instances HANA, la période de capture instantanée est moins fréquente. Dans ces cas, nous constatons que les clients effectuent les captures instantanées combinées sur /hana/data, /hana/log et /hana/shared (/usr/sap compris) toutes les 12 ou 24 heures et qu’ils conservent ces captures instantanées de manière à couvrir un mois complet. Il en va de même pour les captures instantanées du volume de sauvegarde de fichier journal. Toutefois, les sauvegardes de fichier journal SAP HANA sur le volume de sauvegarde de fichier journal sont exécutées toutes les 5 à 15 minutes.
+Pour les clients qui n’utilisent pas la fonctionnalité de récupération d’urgence des grandes instances HANA, la période de capture instantanée est moins fréquente. Dans ces cas, nous constatons que les clients effectuent les captures instantanées combinées sur /hana/data et /hana/shared (/usr/sap compris) toutes les 12 ou 24 heures et qu’ils conservent ces captures instantanées de manière à couvrir un mois complet. Il en va de même pour les captures instantanées du volume de sauvegarde de fichier journal. Toutefois, les sauvegardes de fichier journal SAP HANA sur le volume de sauvegarde de fichier journal sont exécutées toutes les 5 à 15 minutes.
 
 Nous vous encourageons à effectuer des captures instantanées de stockage planifiées à l’aide de cron et à utiliser le même script pour la totalité des sauvegardes et des besoins en matière de récupération d’urgence (en modifiant les entrées du script en fonction des différentes heures de sauvegarde demandées). Ces captures instantanées sont toutes planifiées différemment dans cron selon leur durée d’exécution : toutes les heures, toutes les 12 heures, une fois par jour ou une fois par semaine. 
 
@@ -440,9 +448,9 @@ Voici un exemple de planification cron dans /etc/crontab :
 22 12 * * *  ./azure_hana_backup.pl log HM3 dailylogback 28
 30 00 * * *  ./azure_hana_backup.pl boot dailyboot 28
 ```
-Dans l’exemple précédent, une capture instantanée horaire combinée couvre les volumes contenant les emplacements /hana/data, /hana/log et /hana/shared (/usr/sap compris). Ce type de capture instantanée doit être utilisé pour une récupération jusqu’à une date et heure plus rapide dans la période des deux derniers jours. En outre, il existe une capture instantanée quotidienne sur ces volumes. Vous avez ainsi deux jours couverts par les captures instantanées horaires, ainsi que quatre semaines couvertes par les captures instantanées quotidiennes. En outre, le volume de sauvegarde de fichier journal est sauvegardé une fois par jour. Ces sauvegardes sont conservées pendant quatre semaines également. Comme le montre la troisième ligne de crontab, la sauvegarde du journal des transactions HANA est planifiée pour être exécutée toutes les cinq minutes. Les minutes de début des différents travaux cron qui exécutent des captures instantanées de stockage sont décalées de façon à ce que ces captures instantanées ne soient pas toutes exécutées en même temps à un moment donné. 
+Dans l’exemple précédent, une capture instantanée horaire combinée couvre les volumes contenant les emplacements /hana/data et /hana/shared (/usr/sap compris). Ce type de capture instantanée doit être utilisé pour une récupération jusqu’à une date et heure plus rapide dans la période des deux derniers jours. En outre, il existe une capture instantanée quotidienne sur ces volumes. Vous avez ainsi deux jours couverts par les captures instantanées horaires, ainsi que quatre semaines couvertes par les captures instantanées quotidiennes. En outre, le volume de sauvegarde de fichier journal est sauvegardé une fois par jour. Ces sauvegardes sont conservées pendant quatre semaines également. Comme le montre la troisième ligne de crontab, la sauvegarde du journal des transactions HANA est planifiée pour être exécutée toutes les cinq minutes. Les minutes de début des différents travaux cron qui exécutent des captures instantanées de stockage sont décalées de façon à ce que ces captures instantanées ne soient pas toutes exécutées en même temps à un moment donné. 
 
-Dans l’exemple suivant, vous effectuez une capture instantanée combinée qui couvre les volumes contenant les emplacements /hana/data, /hana/log et /hana/shared (/usr/sap compris) toutes les heures. Vous conservez ces captures instantanées pendant deux jours. Les captures instantanées des volumes de sauvegarde de fichier journal sont exécutées toutes les cinq minutes et sont conservées pendant quatre heures. Une fois encore, la sauvegarde du fichier journal des transactions HANA est planifiée pour s’exécuter toutes les cinq minutes. La capture instantanée du volume de sauvegarde de fichier journal est effectuée dans un délai de deux minutes après le démarrage de la sauvegarde du fichier journal. Dans des circonstances normales, la sauvegarde du fichier journal SAP HANA doit se terminer dans cet intervalle de deux minutes. Une fois encore, le volume contenant le numéro d’unité logique de démarrage est sauvegardé une fois par jour par une capture instantanée de stockage et est conservé pendant quatre semaines.
+Dans l’exemple suivant, vous effectuez une capture instantanée combinée qui couvre les volumes contenant les emplacements /hana/data et /hana/shared (/usr/sap compris) toutes les heures. Vous conservez ces captures instantanées pendant deux jours. Les captures instantanées des volumes de sauvegarde de fichier journal sont exécutées toutes les cinq minutes et sont conservées pendant quatre heures. Une fois encore, la sauvegarde du fichier journal des transactions HANA est planifiée pour s’exécuter toutes les cinq minutes. La capture instantanée du volume de sauvegarde de fichier journal est effectuée dans un délai de deux minutes après le démarrage de la sauvegarde du fichier journal. Dans des circonstances normales, la sauvegarde du fichier journal SAP HANA doit se terminer dans cet intervalle de deux minutes. Une fois encore, le volume contenant le numéro d’unité logique de démarrage est sauvegardé une fois par jour par une capture instantanée de stockage et est conservé pendant quatre semaines.
 
 ```
 10 0-23 * * * ./azure_hana_backup.pl hana HM3 hourlyhana 48
@@ -453,9 +461,9 @@ Dans l’exemple suivant, vous effectuez une capture instantanée combinée qui 
 
 Le graphique suivant illustre les séquences de l’exemple précédent, à l’exception du numéro d’unité logique de démarrage :
 
-![Relation entre les sauvegardes et les captures instantanées](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot.PNG)
+![Relation entre les sauvegardes et les captures instantanées](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot_updated0921.PNG)
 
-SAP HANA effectue des écritures régulières sur le volume /hana/log pour documenter les modifications validées dans la base de données. Régulièrement, SAP HANA écrit un point de sauvegarde dans le volume /hana/data. Comme spécifié dans crontab, une sauvegarde de fichier journal SAP HANA est exécutée toutes les cinq minutes. Une capture instantanée SAP HANA est également exécutée toutes les heures suite au déclenchement d’une capture instantanée de stockage combinée sur les volumes /hana/data, /hana/log et /hana/shared. Une fois que la capture instantanée HANA a réussi, la capture instantanée de stockage combinée est exécutée. Comme indiqué dans crontab, la capture instantanée de stockage sur le volume /hana/logbackup est exécutée toutes les cinq minutes, environ deux minutes après la sauvegarde de fichier journal HANA.
+SAP HANA effectue des écritures régulières sur le volume /hana/log pour documenter les modifications validées dans la base de données. Régulièrement, SAP HANA écrit un point de sauvegarde dans le volume /hana/data. Comme spécifié dans crontab, une sauvegarde de fichier journal SAP HANA est exécutée toutes les cinq minutes. Une capture instantanée SAP HANA est également exécutée toutes les heures suite au déclenchement d’une capture instantanée de stockage combinée sur les volumes /hana/data et /hana/shared. Une fois que la capture instantanée HANA a réussi, la capture instantanée de stockage combinée est exécutée. Comme indiqué dans crontab, la capture instantanée de stockage sur le volume /hana/logbackup est exécutée toutes les cinq minutes, environ deux minutes après la sauvegarde de fichier journal HANA.
 
 
 >[!IMPORTANT]
@@ -463,7 +471,7 @@ SAP HANA effectue des écritures régulières sur le volume /hana/log pour docum
 
 Si vous vous êtes engagé envers les utilisateurs à assurer une récupération jusqu’à une date et heure remontant à 30 jours, procédez comme suit :
 
-- Dans des cas extrêmes, vous devez pouvoir accéder à une capture instantanée de stockage combinée sur les volumes /hana/data, /hana/log et /hana/shared remontant à 30 jours.
+- Dans des cas extrêmes, vous devez pouvoir accéder à une capture instantanée de stockage combinée sur les volumes /hana/data et /hana/shared remontant à 30 jours.
 - Veillez à disposer de sauvegardes de fichier journal contiguës qui couvrent la période entre des captures instantanées de stockage combinées. La capture instantanée la plus ancienne du volume de sauvegarde de fichier journal doit par conséquent remonter à 30 jours, ce qui n’est pas le cas si vous copiez les sauvegardes de fichier journal dans un autre partage NFS qui se trouve sur le stockage Azure. Dans ce cas, vous pourriez extraire les anciennes sauvegardes de fichier journal de ce partage NFS.
 
 Pour pouvoir tirer parti des captures instantanées de stockage et de la réplication de stockage éventuelle des sauvegardes de fichier journal, vous devez changer l’emplacement auquel SAP HANA écrit les sauvegardes de fichier journal. Vous pouvez effectuer ce changement dans HANA Studio. Bien que SAP HANA sauvegarde automatiquement des segments de journal complets, vous devez spécifier un intervalle de sauvegarde de fichier journal de manière à ce qu’il soit déterministe. Cela est particulièrement vrai si vous utilisez l’option de récupération d’urgence, car vous souhaitez généralement exécuter des sauvegardes de fichier journal avec une période déterministe. Dans le cas suivant, nous avons choisi 15 minutes comme intervalle de sauvegarde de fichier journal.

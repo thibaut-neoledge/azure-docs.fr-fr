@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: adb998754615150f1e74cba01ffc2fc9e53827ed
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: f19b58ad8f12169acefd74bfe86a28ad950dad34
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="about-point-to-site-vpn"></a>À propos du VPN de point à site
@@ -32,9 +32,13 @@ La connexion VPN point à site peut utiliser un des protocoles suivants :
 
 * Le Protocole SSTP (Secure Socket Tunneling Protocol) est un protocole propriétaire VPN basé sur le protocole SSL. Une solution VPN SSL peut pénétrer des pare-feux puisque la plupart des pare-feux ouvrent le port TCP 443 utilisé par le protocole SSL. SSTP est pris en charge sur les appareils Windows uniquement. Azure prend en charge toutes les versions de Windows disposant de SSTP (Windows 7 et versions ultérieures).
 
-* Un VPN IKEv2 est une solution VPN IPsec basée sur des normes. Un VPN IKEv2 peut être utilisé pour se connecter à partir d’appareils Mac (OSX 10.11 et versions ultérieures). Azure ne prend pas en charge le VPN IKEv2 avec Windows. 
+* Un VPN IKEv2 est une solution VPN IPsec basée sur des normes. Un VPN IKEv2 peut être utilisé pour se connecter à partir d’appareils Mac (OSX 10.11 et versions ultérieures).
 
 Si vous avez un environnement client mixte comportant des appareils Windows et Mac, configurez SSTP et IKEv2.
+
+>[!NOTE]
+>IKEv2 pour P2S est actuellement en préversion.
+>
 
 ## <a name="authentication"></a>Comment les clients VPN P2S sont-ils authentifiés ?
 
@@ -53,6 +57,10 @@ L’authentification de domaine AD permet aux utilisateurs de se connecter à Az
   Le serveur RADIUS permet également l’intégration de services de certificat AD. Cela vous permet d’utiliser le serveur RADIUS et le déploiement de certificat d’entreprise pour votre authentification par certificat P2S comme alternative à l’authentification par certificat Azure. L’avantage est que vous n’avez pas besoin de charger les certificats racine et les certificats révoqués sur Azure.
 
 Un serveur RADIUS permet également l’intégration avec d’autres systèmes d’identité externe. Cette opération ouvre de nombreuses options d’authentification pour les VPN P2S, notamment les options de multifacteur.
+
+>[!NOTE]
+>L’authentification RADIUS pour P2S est actuellement en préversion.
+>
 
 ![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
 
@@ -73,11 +81,11 @@ Le fichier zip fournit également les valeurs de certains paramètres importants
 * Pour des informations sur les prix, consultez la page Tarification. 
 * Vous trouverez des informations relatives au contrat de niveau de service (SLA) sur la page SLA.
 
-## <a name="faqcert"></a>Forum aux questions P2S sur l’authentification par certificat Azure
+## <a name="faqcert"></a>Forum Aux Questions (FAQ) sur l’authentification par certificat Azure native
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="faqradius"></a>Forum aux questions P2S sur l’authentification RADIUS
+## <a name="faqradius"></a>Forum Aux Questions (FAQ) sur l’authentification RADIUS
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

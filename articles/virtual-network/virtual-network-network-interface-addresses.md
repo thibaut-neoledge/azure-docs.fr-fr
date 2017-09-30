@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 17ddb30c87d757176ce9428264135252c02bf713
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 254d5d43f0f665f64ddfe276fe31702f66f16758
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -190,10 +190,17 @@ Vous pouvez assigner zéro ou une adresse [IPv6](#ipv6) privée à une configura
 
 Vous ne pouvez pas assigner d’adresse IPv6 publique à une configuration IP principale ou secondaire.
 
+## <a name="skus"></a>Références (SKU)
+
+Une adresse IP publique est créée avec la référence SKU de base ou standard.  Pour plus d’informations sur les différences entre les références SKU, consultez [Gérer les adresses IP publiques](virtual-network-public-ip-address.md).
+
+> [!NOTE]
+> Quand vous assignez une adresse IP publique de référence SKU standard à l’interface réseau d’une machine virtuelle, vous devez explicitement autoriser le trafic prévu avec un [groupe de sécurité réseau](security-overview.md#network-security-groups). La communication avec la ressource est possible uniquement si vous créez et associez un groupe de sécurité réseau et que vous autorisez explicitement le trafic prévu.
+
 ## <a name="next-steps"></a>Étapes suivantes
 Pour créer une machine virtuelle avec différentes configurations IP, consultez les articles suivants :
 
-|Tâche|Outil|
+|Task|Outil|
 |---|---|
 |Créer une machine virtuelle avec plusieurs cartes d’interface réseau|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Créer une machine virtuelle à carte réseau unique avec plusieurs adresses IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

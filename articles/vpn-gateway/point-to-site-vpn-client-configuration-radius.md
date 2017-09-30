@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 7484d42eae8364cf248bbf2e60eab8fb3a43d107
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: c56a9b06a11d25cf046a0faeb29af1d78d9a4a89
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Créer et installer les fichiers de configuration du client VPN pour une authentification P2S RADIUS
+# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Créer et installer les fichiers de configuration du client VPN pour une authentification P2S RADIUS (préversion)
 
 Les fichiers de configuration du client VPN se trouvent dans un fichier zip. Les fichiers de configuration fournissent les paramètres nécessaires à un client VPN IKEv2 Windows ou Mac pour se connecter à un réseau virtuel en point à site. Le serveur RADIUS fournit plusieurs options d’authentification. La configuration du client VPN varie ainsi d’une option à une autre.
 
@@ -39,16 +39,18 @@ Les fichiers de configuration du client VPN se trouvent dans un fichier zip. Les
 
 ## <a name="adeap"></a>Authentification par nom d’utilisateur/mot de passe
 
-* **Authentification Active Directory** : un scénario courant est l’authentification AD Domain. Dans ce scénario, les utilisateurs utilisent leurs informations d’identification de domaine pour se connecter à des réseaux virtuels Azure. Vous pouvez créer les fichiers de configuration du client VPN pour une authentification AD RADIUS. Veillez à ce que tous les utilisateurs qui se connectent disposent d’informations d’identification (nom d’utilisateur et mot de passe) qui peuvent être authentifiées via RADIUS. Vous pouvez seulement créer une configuration pour le protocole d’authentification par nom d’utilisateur/mot de passe EAP-MSCHAPv2. La méthode « -AuthenticationMethod » est spécifiée en tant que « EapMSChapv2 ».
+* **Authentification Active Directory** : un scénario courant est l’authentification AD Domain. Dans ce scénario, les utilisateurs utilisent leurs informations d’identification de domaine pour se connecter à des réseaux virtuels Azure. Vous pouvez créer les fichiers de configuration du client VPN pour une authentification AD RADIUS.
 
 * **Authentification sans AD** : vous pouvez également configurer ce scénario d’authentification RADIUS par nom d’utilisateur/mot de passe sans AD.
+
+Veillez à ce que tous les utilisateurs qui se connectent disposent d’informations d’identification (nom d’utilisateur et mot de passe) qui peuvent être authentifiées via RADIUS. Vous pouvez seulement créer une configuration pour le protocole d’authentification par nom d’utilisateur/mot de passe EAP-MSCHAPv2. La méthode « -AuthenticationMethod » est spécifiée en tant que « EapMSChapv2 ».
 
 ### <a name="usernamefiles"></a>Générer les fichiers de configuration du client VPN
 
 Créez la configuration du client VPN à l’aide de la commande suivante :
 
 ```powershell 
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapMSChapv2"
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
 Après avoir exécuté la commande, un lien est retourné. Copiez et collez ce lien dans un navigateur web pour télécharger un fichier compressé, nommé « VpnClientConfiguration.zip ». Décompressez le fichier pour afficher les dossiers suivants : 
@@ -121,7 +123,7 @@ Vous pouvez créer les fichiers de configuration du client VPN pour une authenti
 Créez la configuration du client VPN à l’aide de la commande suivante :
  
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
 ```
 
 Le résultat de la cmdlet retourne un lien. Copiez et collez ce lien dans un navigateur web pour télécharger un fichier compressé, nommé « VpnClientConfiguration.zip ». Décompressez le fichier pour afficher les dossiers suivants :

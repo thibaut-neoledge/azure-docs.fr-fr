@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 617da1cf41db08d319d6fe9fa7bc96b794a0001e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf1fc38d2b9fd54fe5b00db616224a0848179fe
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-load-balancer-overview"></a>Vue d’ensemble de l’équilibreur de charge Azure
 
 L'équilibrage de charge Azure offre une haute disponibilité et des performances réseau élevées pour vos applications. Il s’agit d’un équilibreur de charge Layer-4 (TCP, UDP) qui distribue le trafic entrant parmi des instances saines de services définis dans un jeu à charge équilibrée.
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer peut être configuré pour :
 
@@ -33,38 +35,6 @@ Azure Load Balancer peut être configuré pour :
 * transférer du trafic externe vers une instance spécifique de machine virtuelle.
 
 Toutes les ressources du cloud ont besoin d'une adresse IP publique pour être accessibles depuis Internet. L’infrastructure de cloud dans Azure utilise des adresses IP non routables pour ses ressources. Azure utilise la traduction d’adresses réseau (NAT) avec des adresses IP publiques pour communiquer avec Internet.
-
-## <a name="azure-deployment-models"></a>Modèles de déploiement Azure
-
-Il est important de comprendre les différences entre les [modèles de déploiement](../azure-resource-manager/resource-manager-deployment-model.md)Azure Classic et Resource Manager. Azure Load Balancer est configuré différemment selon les modèles.
-
-### <a name="azure-classic-deployment-model"></a>Modèle de déploiement classique Azure
-
-Les machines virtuelles déployées dans une limite de service cloud peuvent être regroupées afin d’utiliser un équilibreur de charge. Dans ce modèle, une adresse IP publique et un nom de domaine complet (FQDN) sont affectés à un service cloud. L’équilibrage de charge effectue une traduction de port et équilibre la charge du trafic réseau en utilisant l’adresse IP publique du service cloud.
-
-Le trafic à charge équilibrée est défini par points de terminaison. Les points de terminaison de traduction de port ont une relation un-à-un entre le port public affecté à l’adresse IP publique et le port local affecté au service sur une machine virtuelle spécifique. Les points de terminaison d’équilibrage de charge ont une relation un-à-plusieurs entre l’adresse IP publique et les ports locaux affectés aux services sur les machines virtuelles du service cloud.
-
-![L’équilibrage de charge dans le modèle de déploiement classique](./media/load-balancer-overview/asm-lb.png)
-
-Illustration 1 - L’équilibrage de charge dans le modèle de déploiement classique
-
-Le nom de domaine de l’adresse IP publique que l’équilibreur de charge utilise pour ce modèle de déploiement est \<nom du service cloud\>.cloudapp.net. Le graphique suivant montre Azure Load Balancer dans ce modèle.
-
-### <a name="azure-resource-manager-deployment-model"></a>Modèle de déploiement Azure Resource Manager
-
-Dans le modèle de déploiement Resource Manager, il n’est pas nécessaire de créer un service cloud. L’équilibreur de charge est créé explicitement pour acheminer le trafic entre plusieurs machines virtuelles.
-
-Une adresse IP publique est une ressource individuelle qui a une étiquette de domaine (nom DNS). L’adresse IP publique est associée à la ressource d’équilibrage de charge. Les règles d’équilibrage de charge et les règles NAT entrantes utilisent l’adresse IP publique comme point de terminaison Internet pour les ressources recevant le trafic réseau à charge équilibrée.
-
-Une adresse IP privée ou publique est affectée à la ressource d’interface réseau associée à une machine virtuelle. Une fois l’interface réseau ajoutée au pool d’adresses IP principales de l’équilibreur de charge, ce dernier est capable d’envoyer le trafic réseau à charge équilibrée selon les règles à charge équilibrée créées.
-
-Le graphique suivant montre Azure Load Balancer dans ce modèle :
-
-![L’équilibrage de charge Azure dans Resource Manager](./media/load-balancer-overview/arm-lb.png)
-
-Illustration 2 - L’équilibrage de charge Azure dans Resource Manager
-
-L’équilibrage de charge peut maintenant être géré à l’aide des outils, modèles et API de Resource Manager. Pour plus d’informations sur Resource Manager, consultez la [Présentation de Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="load-balancer-features"></a>Fonctionnalités d’équilibrage de charge
 
@@ -76,7 +46,7 @@ L’équilibrage de charge peut maintenant être géré à l’aide des outils, 
 
     ![Distribution basée sur le hachage](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    Figure 3 : distribution basée sur le hachage
+    Figure : distribution basée sur le hachage
 
 * Réacheminement de port
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: a1db3dda674ffe43587333d88f3816549af3019c
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a8579c66cbfb0968a3659316aa5f03b798f4e332
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>Déploiement d'un exécutable invité dans Service Fabric
@@ -101,7 +100,7 @@ Visual Studio fournit un modèle de service Service Fabric pour vous aider à d�
 6. Vous pouvez maintenant utiliser le package et exécuter l’action de publication sur votre cluster local, en effectuant le débogage de la solution dans Visual Studio. Vous pouvez, quand vous le souhaitez, publier l’application sur un cluster à distance ou archiver la solution pour contrôler le code source.
 7. Accédez à la fin de cet article pour découvrir comment afficher le service d’exécutable invité lancé dans Service Fabric Explorer.
 
-## <a name="use-yoeman-to-package-and-deploy-an-existing-executable-on-linux"></a>Utiliser Yeoman pour empaqueter et déployer un exécutable existant sur Linux
+## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>Utiliser Yeoman pour empaqueter et déployer un exécutable existant sous Linux
 
 La procédure de création et de déploiement d'un exécutable invité sur Linux est identique au déploiement d’une application csharp ou java.
 

@@ -3,7 +3,7 @@ title: "Azure Storage Service Encryption pour les données au repos | Microsoft 
 description: "La fonctionnalité Azure Storage Service Encryption permet de chiffrer votre stockage d’objets blob Azure côté service lors du stockage des données et de le déchiffrer lorsque vous récupérez les données."
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bac7b3292f21aa97d02a18dd58f79a4f10485b7d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f3486ca87a1797c312caa3fe27f692037c80b747
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption pour les données au repos
@@ -84,7 +84,7 @@ AzCopy est un utilitaire de ligne de commande Windows conçu pour copier des don
 Pour plus d’informations, voir [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
 #### <a name="using-smb"></a>Utilisation de SMB
-Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Vous pouvez monter un partage de fichiers à partir d’un client local ou dans Azure. Une fois le partage monté, des outils tels que Robocopy peuvent être utilisés pour copier les fichiers sur des partages de fichiers Azure. Pour plus d’informations, consultez [Montage d’un partage de fichiers Azure et accès au partage dans Windows](../files/storage-how-to-use-files-windows.md) et [Utilisation du stockage de fichiers Azure avec Linux](../storage-how-to-use-files-linux.md).
+Azure Files offre des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Vous pouvez monter un partage de fichiers à partir d’un client local ou dans Azure. Une fois le partage monté, des outils tels que Robocopy peuvent être utilisés pour copier les fichiers sur des partages de fichiers Azure. Pour plus d’informations, consultez [Montage d’un partage de fichiers Azure et accès au partage dans Windows](../files/storage-how-to-use-files-windows.md) et [Utilisation du stockage de fichiers Azure avec Linux](../files/storage-how-to-use-files-linux.md).
 
 
 #### <a name="using-the-storage-client-libraries"></a>Utilisation des bibliothèques clientes de stockage

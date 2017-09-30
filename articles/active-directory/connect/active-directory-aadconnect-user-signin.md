@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: da517c096357bb8db4334715fa46aa209c273f22
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Options de connexion de l’utilisateur via Azure AD Connect
@@ -26,14 +26,14 @@ Azure Active Directory (Azure AD) Connect permet à vos utilisateurs de se con
 
 Si vous connaissez déjà le modèle d’identité Azure AD et que vous souhaitez en savoir plus sur une méthode spécifique, cliquez sur le lien adéquat :
 
-* [Synchronisation de mot de passe](#password-synchronization) avec [authentification unique (SSO)](active-directory-aadconnect-sso.md)
-* [Authentification directe](active-directory-aadconnect-pass-through-authentication.md)
+* [Synchronisation de hachage de mot de passe](#password-synchronization) avec [authentification unique transparente (SSO)](active-directory-aadconnect-sso.md)
+* [Synchronisation directe](active-directory-aadconnect-pass-through-authentication.md) avec [authentification unique transparente (SSO)](active-directory-aadconnect-sso.md)
 * [Authentification unique fédérée (avec Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>Choix de la méthode de connexion utilisateur pour votre organisation
-Pour la plupart des organisations qui souhaitent juste activer l’authentification utilisateur pour Office 365, les applications SaaS et d’autres ressources basées sur Azure AD, l’option de synchronisation de mot de passe par défaut est recommandée. Certaines organisations, toutefois, ne sont pas en mesure d’utiliser cette option pour une raison particulière. Elles peuvent choisir une option de connexion fédérée, comme AD FS, ou l’authentification directe. Vous pouvez utiliser le tableau suivant pour vous aider à faire le bon choix.
+Pour la plupart des organisations qui souhaitent juste activer l’authentification utilisateur pour Office 365, les applications SaaS et d’autres ressources basées sur Azure AD, l’option de synchronisation de hachage de mot de passe par défaut est recommandée. Certaines organisations, toutefois, ne sont pas en mesure d’utiliser cette option pour une raison particulière. Elles peuvent choisir une option de connexion fédérée, comme AD FS, ou l’authentification directe. Vous pouvez utiliser le tableau suivant pour vous aider à faire le bon choix.
 
-J’ai besoin de | PS avec l’authentification unique| PA avec l’authentification unique| AD FS |
+J’ai besoin de | PHS avec l’authentification unique| PTA avec l’authentification unique| AD FS |
  --- | --- | --- | --- |
 Synchroniser de nouveaux comptes d’utilisateurs, de contacts et de groupes dans mon Active Directory local vers le cloud.|x|x|x|
 Configurer mon client pour des scénarios hybrides Office 365.|x|x|x|
@@ -42,19 +42,16 @@ Implémenter l’authentification unique à l’aide des informations d’identi
 M’assurer qu’aucun mot de passe n’est stocké dans le cloud.||x*|x|
 Activer des solutions d’authentification multifacteur locales.|||x|
 
-*Via un connecteur léger.
+*Via un agent léger.
 
->[!NOTE]
-> L’authentification directe présente actuellement des limitations concernant les clients riches. Pour plus d’informations, consultez [Authentification directe](active-directory-aadconnect-pass-through-authentication.md).
+### <a name="password-hash-synchronization"></a>Synchronisation de hachage de mot de passe
+Avec la synchronisation de hachage de mot de passe, les hachages des mots de passe utilisateur sont synchronisés de votre annuaire Active Directory local vers Azure AD. Lorsque les mots de passe sont modifiés ou réinitialisés localement, les hachages des nouveaux mots de passe sont immédiatement synchronisés avec Azure AD afin que vos utilisateurs puissent toujours utiliser le même mot de passe pour les ressources cloud comme pour les ressources locales. Les mots de passe ne sont jamais envoyés à Azure AD ni stockés dans Azure AD sous forme de texte clair. Vous pouvez utiliser la synchronisation de hachage de mot de passe avec la réécriture de mot de passe pour permettre la réinitialisation de mot de passe libre-service dans Azure AD.
 
-### <a name="password-synchronization"></a>Synchronisation de mot de passe
-Avec la synchronisation du mot de passe, les hachages des mots de passe utilisateur sont synchronisés de votre annuaire Active Directory local vers Azure AD. Lorsque les mots de passe sont modifiés ou réinitialisés localement, les nouveaux mots de passe sont immédiatement synchronisés avec Azure AD afin que vos utilisateurs puissent toujours utiliser le même mot de passe pour les ressources cloud comme pour les ressources locales. Les mots de passe ne sont jamais envoyés à Azure AD ni stockés dans Azure AD sous forme de texte clair. La synchronisation de mot de passe peut être utilisée avec l’écriture différée de mot de passe pour activer la réinitialisation du mot de passe libre-service dans Azure AD.
+De plus, vous pouvez activer [l’authentification unique transparente (SSO)](active-directory-aadconnect-sso.md) pour des utilisateurs sur des machines jointes à un domaine qui se trouvent sur le réseau d’entreprise. Avec l’authentification unique, les utilisateurs activés doivent seulement entrer un nom d’utilisateur pour accéder en toute sécurité aux ressources cloud.
 
-En outre, vous pouvez activer [l’authentification unique (SSO)](active-directory-aadconnect-sso.md) pour des utilisateurs sur des ordinateurs joints à un domaine qui se trouvent sur le réseau d’entreprise. Avec l’authentification unique, les utilisateurs activés doivent seulement entrer un nom d’utilisateur pour accéder en toute sécurité aux ressources cloud.
+![Synchronisation de hachage de mot de passe](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-![Synchronisation de mot de passe](./media/active-directory-aadconnect-user-signin/passwordhash.png)
-
-Pour plus d’informations, consultez l’article sur la [Synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md).
+Pour plus d’informations, consultez l’article sur la [synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md).
 
 ### <a name="pass-through-authentication"></a>Authentification directe
 Avec l’authentification directe, le mot de passe de l’utilisateur est validé par rapport au contrôleur Active Directory local. Le mot de passe n’a pas besoin d’être présent dans Azure AD sous quelque forme que ce soit. Ceci permet d’évaluer les stratégies locales au cours de l’authentification auprès des services cloud, comme pour les restrictions sur les heures d’ouverture de session.
@@ -140,7 +137,7 @@ Il est très important de comprendre la relation entre les états de domaine per
 
 Pour les informations suivantes, supposons que nous nous intéressons au suffixe UPN contoso.com utilisé dans l’annuaire local dans le nom UPN, par exemple user@contoso.com.
 
-###### <a name="express-settingspassword-synchronization"></a>Configuration rapide / Synchronisation de mot de passe
+###### <a name="express-settingspassword-hash-synchronization"></a>Configuration rapide / Synchronisation de hachage de mot de passe
 | State | Effet sur l’expérience de connexion utilisateur Azure |
 |:---:|:--- |
 | Non ajouté |Dans ce cas, aucun domaine personnalisé pour contoso.com n’a été ajouté à l’annuaire Azure AD. Les utilisateurs possédant un UPN local avec le suffixe @contoso.com ne pourront pas utiliser leur UPN local pour se connecter à Azure. Ils devront utiliser un nouvel UPN fourni par Azure AD en ajoutant le suffixe de l’annuaire Azure AD par défaut. Par exemple, si vous synchronisez des utilisateurs sur l’annuaire Azure AD azurecontoso.onmicrosoft.com, l’utilisateur local user@contoso.com aura un nom UPN user@azurecontoso.onmicrosoft.com. |
@@ -159,7 +156,7 @@ Si vous avez sélectionné l’option de connexion utilisateur **Fédération av
 | Verified |Dans ce cas, vous pouvez poursuivre la configuration sans autre action. |
 
 ## <a name="changing-the-user-sign-in-method"></a>Modification de la méthode de connexion utilisateur
-Vous pouvez modifier la méthode de connexion utilisateur de Fédération à Synchronisation de mot de passe ou à Authentification directe avec les tâches disponibles dans Azure AD Connect après la configuration initiale d’Azure AD Connect à l’aide de l’Assistant. Réexécutez l’Assistant Azure AD Connect. La liste des tâches que vous pouvez effectuer s’affiche. Sélectionnez **Modifier la connexion utilisateur** dans la liste des tâches.
+Après la configuration initiale d’Azure AD Connect dans l’Assistant, vous pouvez changer la méthode de connexion utilisateur de Fédération, Synchronisation de mot de passe ou Authentification directe à l’aide des tâches disponibles dans Azure AD Connect. Réexécutez l’Assistant Azure AD Connect. La liste des tâches que vous pouvez effectuer s’affiche. Sélectionnez **Modifier la connexion utilisateur** dans la liste des tâches.
 
 ![Modifier la connexion de l’utilisateur](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -172,7 +169,7 @@ Dans la page **Connexion de l’utilisateur**, sélectionnez la connexion d’ut
 ![Se connecter à Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2a.png)
 
 > [!NOTE]
-> Si vous passez à la synchronisation de mot de passe de façon temporaire, cochez la case **Ne pas convertir les comptes utilisateurs**. Si vous ne cochez pas l’option, chaque utilisateur devient fédéré, et la conversion peut prendre plusieurs heures.
+> Si vous passez à la synchronisation de hachage de mot de passe de façon temporaire, cochez la case **Ne pas convertir les comptes utilisateurs**. Si vous ne cochez pas l’option, chaque utilisateur devient fédéré, et la conversion peut prendre plusieurs heures.
 >
 >
 

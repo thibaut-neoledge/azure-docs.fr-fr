@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 745a9c016bd037f1051025a2c5a468c3935e4550
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Créer des alertes dans Azure Monitor pour les services Azure - Portail Azure
@@ -30,12 +30,12 @@ ms.lasthandoff: 03/31/2017
 >
 
 ## <a name="overview"></a>Vue d’ensemble
-Cet article vous montre comment configurer des alertes de métrique Azure avec le portail Azure.   
+Cet article vous montre comment configurer des alertes de métrique Azure avec le portail Azure. 
 
 Vous pouvez recevoir une alerte en fonction de métriques de surveillance pour vos services Azure ou d'événements sur ces derniers.
 
 * **Valeurs de métriques** : l’alerte se déclenche lorsque la valeur d’une métrique spécifiée dépasse un seuil que vous affectez dans un des deux sens. C’est-à-dire que le déclenchement se fait à la fois lorsque la condition est remplie et par la suite une fois que la condition n’est plus remplie.    
-* **Événements du journal d’activité** : une alerte peut se déclencher sur *chaque* événement ou seulement quand un certain événement se produit. Pour plus d’informations sur les alertes du journal d’activité, [cliquez ici](monitoring-activity-log-alerts.md)
+* **Événements du journal d’activité** : une alerte peut se déclencher sur *chaque* événement ou seulement quand un événement particulier se produit. Découvrez plus en détail les [alertes du journal d’activité](monitoring-activity-log-alerts.md).
 
 Vous pouvez configurer une alerte de métrique pour effectuer les opérations suivantes lors de son déclenchement :
 
@@ -43,6 +43,11 @@ Vous pouvez configurer une alerte de métrique pour effectuer les opérations su
 * envoyer un courrier électronique à d’autres adresses que vous spécifiez.
 * appeler un webhook
 * démarrer l’exécution d’un runbook Azure (uniquement à partir du Portail Azure)
+
+> [!NOTE]
+> Azure Monitor prend désormais en charge les alertes de métriques en quasi temps réel dans la préversion publique. Ces alertes utilisent les groupes d’actions. Découvrez plus en détail les [alertes de métriques en quasi temps réel](monitoring-near-real-time-metric-alerts.md).
+>
+>
 
 Vous pouvez configurer et obtenir des informations sur les règles d’alerte de métrique via
 
@@ -64,7 +69,7 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte de
 
 4. **Nommez** votre règle d’alerte, puis choisissez une **Description** qui indique également les adresses électroniques de notification.
 
-5. Sélectionnez la **Métrique** que vous souhaitez surveiller, puis choisissez une **Condition** et une valeur de **Seuil** pour la métrique. Choisissez également la **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche. Par exemple, si vous utilisez la période « PT5M » et que vous alerte recherche l’UC au-dessus de 80 %, elle se déclenche quand l’UC a été constamment au-dessus de 80 % pendant cinq minutes. Après le premier déclenchement, elle se déclenche à nouveau lorsque l’UC reste au-dessous de 80 % pendant cinq minutes. La mesure de l’UC se produit toutes les minutes.   
+5. Sélectionnez la **Métrique** que vous souhaitez surveiller, puis choisissez une **Condition** et une valeur de **Seuil** pour la métrique. Choisissez également la **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche. Par exemple, si vous utilisez la période « Au cours des 5 dernières minutes » et que votre alerte recherche une utilisation de l’UC supérieure à 80 %, l’alerte se déclenche quand l’utilisation de l’UC dépasse 80 % depuis cinq minutes. Après le premier déclenchement, elle se déclenche à nouveau lorsque l’UC reste au-dessous de 80 % pendant cinq minutes. La mesure de la métrique de l’UC est effectuée toutes les minutes.
 
 6. Cochez **Propriétaires de messagerie...** si vous souhaitez que les administrateurs et les coadministrateurs reçoivent un courrier électronique lorsque l’alerte se déclenche.
 
@@ -87,6 +92,7 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et :
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Consultez une vue d’ensemble de la surveillance Azure](monitoring-overview.md) , notamment les types d’informations que vous pouvez collecter et surveiller.
+* Découvrez plus en détail les nouvelles [alertes de métriques en quasi temps réel (préversion)](monitoring-near-real-time-metric-alerts.md).
 * Découvrez plus en détail la [configuration des webhooks dans les alertes](insights-webhooks-alerts.md).
 * Découvrez plus d’informations sur la [configuration des alertes sur les événements de journal d’activité](monitoring-activity-log-alerts.md).
 * Découvrez plus en détails les [runbooks Azure Automation](../automation/automation-starting-a-runbook.md).

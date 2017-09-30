@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 977108687734a5eb7f7a30419de2a6bdef184d0e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 75c361cca556c797fd3ea5480cacbbc14799aca8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -27,9 +27,6 @@ ms.lasthandoff: 08/07/2017
 ## <a name="how-to-deploy-seamless-sso"></a>Déploiement de l’authentification unique transparente
 
 L’authentification unique transparente Azure Active Directory connecte automatiquement les utilisateurs lorsque leurs ordinateurs d’entreprise sont connectés au réseau de l’entreprise. Elle offre à vos utilisateurs un accès facilité à vos applications dans le cloud sans nécessiter de composants locaux supplémentaires.
-
->[!IMPORTANT]
->La fonctionnalité Authentification unique transparente est en préversion.
 
 Pour déployer l’authentification unique transparente, vous devez procéder comme suit :
 
@@ -73,7 +70,7 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 
 ## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
 
-Pour étendre cette fonctionnalité à vos utilisateurs, vous devez ajouter deux URL Azure AD (https://autologon.microsoftazuread-sso.com et https://aadg.windows.net.nsatc.net) aux paramètres de la zone Intranet des utilisateurs via la stratégie de groupe dans Active Directory.
+Pour déployer la fonctionnalité à vos utilisateurs, ajoutez des URL Azure AD dans les paramètres de la zone intranet des utilisateurs à l’aide de la stratégie de groupe dans Active Directory.
 
 >[!NOTE]
 > Les instructions suivantes ne valent que pour les navigateurs Internet Explorer et Google Chrome sur Windows (si ce dernier partage l’ensemble des URL de sites de confiance avec Internet Explorer). Lisez la section suivante pour savoir comment configurer Mozilla Firefox et Google Chrome sur Mac.
@@ -122,7 +119,7 @@ Pour ce qui est de Google Chrome sur Mac OS et sur les autres plateformes autres
 
 L’utilisation des extensions de stratégie de groupe Active Directory tierces permettant de déployer les URL Azure AD pour les utilisateurs de Firefox et de Google Chrome sur Mac dépasse la portée de cet article.
 
-#### <a name="known-limitations"></a>Limites connues
+#### <a name="known-browser-limitations"></a>Limitations connues du navigateur
 
 L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Firefox et Edge. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée.
 
@@ -146,7 +143,7 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
 
 ## <a name="step-5-roll-over-keys"></a>Étape 5 : substituer les clés
 
-À l’étape 2, Azure AD Connect crée des comptes d’ordinateurs (représentant Azure AD) dans toutes les forêts AD sur lesquelles vous avez activé l’authentification unique transparente. Obtenez plus de détails [ici](active-directory-aadconnect-sso-how-it-works.md). Pour améliorer la sécurité, il vous est recommandé de fréquemment substituer les clés de déchiffrement Kerberos de ces comptes d’ordinateur.
+À l’étape 2, Azure AD Connect crée des comptes d’ordinateurs (représentant Azure AD) dans toutes les forêts AD sur lesquelles vous avez activé l’authentification unique transparente. Obtenez plus de détails [ici](active-directory-aadconnect-sso-how-it-works.md). Pour améliorer la sécurité, nous vous recommandons de substituer régulièrement les clés de déchiffrement Kerberos de ces comptes d’ordinateur. Consultez [ici](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) les instructions sur cette opération.
 
 >[!IMPORTANT]
 >Vous n’avez pas besoin d’effectuer cette étape _immédiatement_ après avoir activé la fonctionnalité. Substituez les clés de déchiffrement Kerberos au moins tous les 30 jours.

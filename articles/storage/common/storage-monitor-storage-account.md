@@ -3,7 +3,7 @@ title: "Surveillance d’un compte de stockage Azure | Microsoft Docs"
 description: "Découvrez comment surveiller un compte de stockage dans Azure en utilisant le portail Azure."
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: b83cba7b-4627-4ba7-b5d0-f1039fe30e78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e8fbc4ecdffe62806019f494e1412cfedbccf71f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bb2d019a751131e031f244e09b524227348bc190
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/21/2017
 > [!NOTE]
 > L’analyse des données de surveillance dans le portail Azure occasionne des frais. Pour plus d'informations, consultez la page [Storage Analytics et facturation](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
-> Le stockage de fichiers Azure prend actuellement en charge les métriques de Storage Analytics, mais pas encore la journalisation.
+> Azure Files prend actuellement en charge les métriques de Storage Analytics, mais pas encore la journalisation.
 >
 > Pour l’instant, les fonctionnalités de métrique et de journalisation ne sont pas activées pour les comptes de stockage avec un type de réplication Stockage redondant dans une zone (ZRS).
 > 
@@ -138,7 +138,7 @@ Une fois que vous avez ajouté des graphiques à votre tableau de bord, vous pou
 Vous pouvez demander au Stockage Azure d’enregistrer les journaux de diagnostic pour les requêtes de lecture, d’écriture et de suppression pour les services blob, table et file d’attente. La stratégie de rétention des données que vous définissez s’applique également à ces journaux.
 
 > [!NOTE]
-> Le stockage de fichiers Azure prend actuellement en charge les métriques de Storage Analytics, mais pas encore la journalisation.
+> Azure Files prend actuellement en charge les métriques de Storage Analytics, mais pas encore la journalisation.
 >
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Comptes de stockage**, puis le nom du compte de stockage pour ouvrir le panneau du compte de stockage.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 6acbc347d7b187a6aac603dd05cf95c6aba54475
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9fcf2756dee8a19ee3fd6013ccbb427fcef99ae1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,16 +28,15 @@ ms.lasthandoff: 08/01/2017
 
 L’authentification directe Azure Active Directory (Azure AD) permet à vos utilisateurs de se connecter aux applications locales et aux applications cloud à l’aide des mêmes mots de passe. Cette fonctionnalité offre aux utilisateurs une meilleure expérience : moins de mots de passe à mémoriser et réduction des coûts de support technique informatique, car les utilisateurs sont moins susceptibles d’oublier comment se connecter. Lorsque les utilisateurs se connectent à l’aide d’Azure AD, cette fonctionnalité valide les mots de passe utilisateurs directement à partir d’Active Directory local.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+
 Cette fonctionnalité est une alternative à [Synchronisation du hachage de mot de passe Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md), qui offre les mêmes fonctionnalités d’authentification sur le cloud aux organisations. Toutefois, les stratégies de conformité et de sécurité de certaines organisations ne permettent pas à ces organisations d’envoyer des mots de passe utilisateurs, même dans un format haché, en dehors de leurs limites internes. L’authentification directe est la solution appropriée pour ces organisations.
 
 ![Authentification directe Azure AD](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
 Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authentification unique transparente](active-directory-aadconnect-sso.md). De cette façon, lorsque vos utilisateurs accèdent à leurs ordinateurs d’entreprise au sein de votre réseau d’entreprise, ils n’ont pas besoin de saisir leurs mots de passe pour se connecter.
 
->[!IMPORTANT]
->L’authentification directe Azure AD est actuellement en préversion.
-
-## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Avantages clés de utilisation de l’authentification directe Azure AD
+## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Avantages clés de l’utilisation de l’authentification directe Azure AD
 
 - *Une meilleure expérience utilisateur*
   - Les utilisateurs utilisent les mêmes mots de passe pour se connecter aux applications locales et sur le cloud.
@@ -59,6 +58,7 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 - Prend en charge la connexion de l’utilisateur dans toutes les applications basées sur un navigateur web et dans les applications clientes Microsoft Office qui utilisent [l’authentification moderne](https://aka.ms/modernauthga).
 - Les noms d’utilisateur de connexion peuvent être soit un nom d’utilisateur local par défaut (`userPrincipalName`), soit un autre attribut configuré dans Azure AD Connect (appelé `Alternate ID`).
 - La fonctionnalité fonctionne de façon transparente avec les fonctionnalités [d’accès conditionnel](../active-directory-conditional-access.md) telles que l’authentification multifacteur (MFA) pour aider à sécuriser vos utilisateurs.
+- Elle est intégrée à la [gestion des mots de passe libre-service](../active-directory-passwords-overview.md) sur le cloud, y compris la réécriture des mots de passe dans l’annuaire Active Directory local et la protection par mot de passe en interdisant l’emploi de mots de passe courants.
 - Les environnements à plusieurs forêts sont pris en charge s’il existe des approbations de forêts entre les forêts AD et si le routage du suffixe de leurs noms est configuré correctement.
 - Cette fonctionnalité est gratuite et il est inutile de disposer des éditions payantes d’Azure AD pour l’utiliser.
 - Elle peut être activée via [Azure AD Connect](active-directory-aadconnect.md).
@@ -69,8 +69,8 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [**Démarrage rapide**](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
-- [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : cette fonctionnalité est actuellement en préversion. Découvrez les scénarios pris en charge et ceux qui ne le sont pas.
-- [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
+- [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) :découvrez les scénarios pris en charge et ceux qui ne le sont pas.
+- [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez le mode opératoire de cette fonctionnalité.
 - [**Forum aux questions**](active-directory-aadconnect-pass-through-authentication-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
 - [**Authentification unique transparente Azure AD**](active-directory-aadconnect-sso.md) : explorez en détail cette fonctionnalité complémentaire.

@@ -1,9 +1,9 @@
 ---
-title: "Développer pour le stockage de fichiers Azure avec Python | Microsoft Docs"
-description: "Apprenez à développer des services et applications Python qui utilisent le stockage de fichiers Azure pour stocker les données de fichiers."
+title: "Développement pour Azure Files avec Python | Microsoft Docs"
+description: "Découvrez comment développer des services et applications Python qui utilisent Azure Files pour stocker les données de fichiers."
 services: storage
 documentationcenter: python
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
@@ -12,23 +12,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/08/2016
-ms.author: robinsh
+ms.date: 09/19/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3dd14e8d3ea7d1e50f41633a7920a6d36becf789
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c9c7ee20e511d7aa6261119e7307e2b96682a6bb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-python"></a>Développer pour le stockage de fichiers Azure avec Python
+# <a name="develop-for-azure-files-with-python"></a>Développement pour Azure Files avec Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>À propos de ce didacticiel
-Ce didacticiel vous montre les principes fondamentaux de l’utilisation de Python pour développer des applications ou services qui utilisent le stockage de fichiers Azure pour stocker les données de fichiers. Dans ce didacticiel, nous allons créer une application de console simple et effectuer des actions de base avec Python et le stockage de fichiers Azure :
+Ce didacticiel décrit les principes fondamentaux de l’utilisation de Python pour développer des applications ou services qui utilisent Azure Files pour stocker les données de fichiers. Dans ce didacticiel, nous allons créer une application de console simple et effectuer des actions de base avec Python et Azure Files :
 
 * Créer des partages de fichiers Azure
 * Créer des répertoires
@@ -36,16 +36,16 @@ Ce didacticiel vous montre les principes fondamentaux de l’utilisation de Pyth
 * Charger, télécharger et supprimer un fichier
 
 > [!Note]  
-> Étant donné que le stockage de fichiers Azure est accessible sur SMB, il est possible d’écrire de simples applications qui accèdent au partage de fichiers Azure à l’aide des fonctions et des classes d’E/S Python standard. Cet article indique comment écrire des applications qui utilisent le kit de développement logiciel (SDK) Python de stockage Azure, lequel utilise [l’API REST de stockage de fichiers Azure](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec le stockage de fichiers Azure.
+> Parce qu’Azure Files est accessible sur SMB, il est possible d’écrire des applications simples qui accèdent au partage de fichiers Azure à l’aide des fonctions et des classes d’E/S Python standard. Cet article indique comment écrire des applications qui utilisent le SDK Python de stockage Azure, lequel utilise l’[API REST Azure Files](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec Azure Files.
 
-### <a name="set-up-your-application-to-use-azure-file-storage"></a>Configuration de votre application pour l’utilisation du stockage de fichiers Azure
-Ajoutez ce qui suit vers le début de chaque fichier source Python dans lequel vous souhaitez accéder au stockage Azure Storage par programme.
+### <a name="set-up-your-application-to-use-azure-files"></a>Configurer votre application pour utiliser Azure Files
+Ajoutez ce qui suit vers le début de chaque fichier source Python dans lequel vous souhaitez accéder au stockage Azure par programmation.
 
 ```python
 from azure.storage.file import FileService
 ```
 
-### <a name="set-up-a-connection-to-azure-file-storage"></a>Configuration d’une connexion au stockage de fichiers Azure 
+### <a name="set-up-a-connection-to-azure-files"></a>Configurer une connexion à Azure Files 
 L’objet `FileService` vous permet d’utiliser des partages, des répertoires et des fichiers. Le code suivant crée un objet `FileService` à l’aide du nom et de la clé du compte de stockage. Remplacez `<myaccount>` et `<mykey>` par le nom et la clé de votre compte.
 
 ```python
@@ -60,7 +60,7 @@ file_service.create_share('myshare')
 ```
 
 ### <a name="create-a-directory"></a>Créer un répertoire
-Vous pouvez également organiser le stockage en plaçant des fichiers dans des sous-répertoires, plutôt que de tous les mettre dans le répertoire racine. Le stockage de fichiers Azure vous permet de créer autant de répertoires que le permet votre compte. Le code ci-dessous crée un sous-répertoire nommé **sampledir** sous le répertoire racine.
+Vous pouvez également organiser le stockage en plaçant des fichiers dans des sous-répertoires, plutôt que de tous les mettre dans le répertoire racine. Azure Files vous permet de créer autant de répertoires que le permet votre compte. Le code ci-dessous crée un sous-répertoire nommé **sampledir** sous le répertoire racine.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
@@ -111,8 +111,8 @@ file_service.delete_file('myshare', None, 'myfile')
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez appris comment manipuler le stockage de fichiers Azure avec Python, suivez ces liens pour en savoir plus.
+Maintenant que vous avez appris comment manipuler Azure Files avec Python, suivez ces liens pour en savoir plus.
 
 * [Centre de développement Python](/develop/python/)
-* [API REST des services d’Azure Storage](http://msdn.microsoft.com/library/azure/dd179355)
-* [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python](https://github.com/Azure/azure-storage-python)
+* [API REST des services Stockage Azure](http://msdn.microsoft.com/library/azure/dd179355)
+* [Kit SDK Stockage Microsoft Azure pour Python](https://github.com/Azure/azure-storage-python)

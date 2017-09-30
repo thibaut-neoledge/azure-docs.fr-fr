@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
-ms.author: jdial;narayan;annahar
+ms.date: 09/25/2017
+ms.author: jdial;anavin
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 7d75d85863ce4b06ef1f552e0d583dec302f7ace
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1adf219dc4ca9ba91dc1ffc1ae98b764c9ef61b5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement différents, même abonnement 
@@ -34,9 +34,40 @@ Les étapes de création d’une homologation de réseaux virtuels sont différe
 |[Tous deux Resource Manager](create-peering-different-subscriptions.md) |Différent|
 |[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models-subscriptions.md) |Différent|
 
-Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux réseaux virtuels déployés via le modèle de déploiement classique. Une homologation de réseaux virtuels ne peut être créée qu’entre deux réseaux virtuels qui existent dans la même région Azure. Si vous avez besoin de connecter des réseaux virtuels tous deux créés par le biais du modèle de déploiement classique, ou qui existent dans différentes régions Azure, vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure. 
+Une homologation de réseaux virtuels ne peut être créée qu’entre deux réseaux virtuels qui existent dans la même région Azure.
 
-Vous pouvez utiliser le [portail Azure](#portal), l’[interface de ligne de commande](#cli) ou Azure [PowerShell](#powershell) pour créer une homologation de réseaux virtuels. Cliquez sur les liens des outils précédents pour accéder directement à la procédure permettant de créer une homologation de réseaux virtuels à l’aide de l’outil de votre choix.
+  > [!WARNING]
+  > La création d’une homologation de réseaux virtuels entre des réseaux virtuels situés dans des régions différentes est actuellement une fonctionnalité en préversion. Vous pouvez inscrire votre abonnement pour la préversion ci-dessous. Les homologations de réseaux virtuels créées dans ce scénario peuvent ne pas avoir le même niveau de disponibilité et de fiabilité que celles créées dans les scénarios applicables lors de la disponibilité générale. Les homologations de réseaux virtuels créées dans ce scénario ne sont pas prises en charge, peuvent avoir des fonctionnalités limitées et peuvent ne pas être disponibles dans toutes les régions Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+
+Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux réseaux virtuels déployés par le biais du modèle de déploiement classique. Si vous avez besoin de connecter deux réseaux virtuels créés par le biais du modèle de déploiement classique, ou qui sont dans des régions Azure différentes, utilisez une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure. 
+
+Vous pouvez utiliser le [portail Azure](#portal), [l’interface de ligne de commande](#cli) (CLI) Azure, Azure [PowerShell](#powershell) ou un [modèle Azure Resource Manager](#template) pour créer une homologation de réseaux virtuels. Cliquez sur les liens des outils précédents pour accéder directement à la procédure permettant de créer une homologation de réseaux virtuels à l’aide de l’outil de votre choix.
+
+## <a name="register"></a>Inscrire votre abonnement pour la préversion de Global VNet Peering
+
+Pour créer une homologation entre des réseaux virtuels situés dans des régions différentes, inscrivez votre abonnement pour la préversion, en suivant les étapes ci-dessous pour les deux abonnements qui contiennent les réseaux virtuels à homologuer. Le seul outil que vous pouvez utiliser pour vous inscrire pour la préversion est PowerShell.
+
+1. Installez la dernière version du module PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/). Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Démarrez une session PowerShell et connectez-vous à Azure à l’aide de la commande `Login-AzureRmAccount`.
+3. Inscrivez votre abonnement pour la préversion en entrant les commandes suivantes :
+
+    ```powershell
+    Register-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    
+    Register-AzureRmResourceProvider `
+      -ProviderNamespace Microsoft.Network
+    ```
+    N’effectuez pas les étapes décrites dans les sections Portail, Interface de ligne de commande Azure ou PowerShell de cet article tant que la sortie **RegistrationState** que vous avez reçue après avoir entré la commande suivante n’est pas **Registered** pour les deux abonnements :
+
+    ```powershell    
+    Get-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    ```
+  > [!WARNING]
+  > La création d’une homologation de réseaux virtuels entre des réseaux virtuels situés dans des régions différentes est actuellement une fonctionnalité en préversion. Les homologations de réseaux virtuels créées dans ce scénario peuvent avoir des fonctionnalités limitées et peuvent ne pas être disponibles dans toutes les régions Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="cli"></a>Créer une homologation - Portail
 

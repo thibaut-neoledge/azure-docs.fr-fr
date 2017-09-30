@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 85d4f9bc11de18f171b923b4ae55950fb0a360c0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -130,6 +130,9 @@ La [solution Intégrité de l’appareil](https://docs.microsoft.com/windows/dep
 
 ### <a name="known-issue-application-insights-connector"></a>Problème connu : Application Insights Connector
 Dans la [solution Application Insights Connector](log-analytics-app-insights-connector.md), les perspectives ne sont pas prises en charge dans un espace de travail mis à niveau pour l’instant.  Un correctif permettant de résoudre ce problème est en cours d’analyse.
+
+### <a name="known-issue-backup-solution"></a>Problème connu : solution Sauvegarde
+La solution Sauvegarde ne collecte pas de données dans un espace de travail mis à niveau. Une nouvelle solution Sauvegarde qui fonctionne avec l’espace de travail mis à niveau sera annoncée sous peu.
 
 ## <a name="upgrade-process"></a>Mise à niveau
 

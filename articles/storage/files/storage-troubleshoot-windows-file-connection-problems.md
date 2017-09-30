@@ -1,6 +1,6 @@
 ---
-title: "Résoudre les problèmes liés au stockage Azure File dans Windows | Microsoft Docs"
-description: "Résolution des problèmes liés au stockage Azure File dans Windows"
+title: "Résoudre les problèmes liés à Azure Files sous Windows | Microsoft Docs"
+description: "Résoudre les problèmes liés à Azure Files sous Windows"
 services: storage
 documentationcenter: 
 author: genlin
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 09/19/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 0e3bbf5ad2ae9cda72876af6bdf880e3aa4f63ac
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5aacc8a920c9343c5efa89128aabb1505fc2d9aa
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="troubleshoot-azure-file-storage-problems-in-windows"></a>Résoudre les problèmes liés au stockage Azure File dans Windows
+# <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
-Cet article répertorie les problèmes courants liés au stockage Microsoft Azure File lorsque vous vous connectez à partir des clients Windows et Linux. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de résolutions présentées dans cet article, vous pouvez aussi utiliser [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) pour être sûr que l’environnement du client Windows est configuré correctement. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales. Vous pouvez également trouver ces informations dans [l’utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), qui indique la procédure à suivre pour vous aider en cas de problèmes de connexion/mappage/montage de partages Azure Files.
+Cet article liste les problèmes courants liés à Microsoft Azure Files en cas de connexion à partir de clients Windows. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de résolutions présentées dans cet article, vous pouvez aussi utiliser [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) pour être sûr que l’environnement du client Windows est configuré correctement. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales. Vous pouvez également trouver ces informations dans [l’utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), qui indique la procédure à suivre pour vous aider en cas de problèmes de connexion/mappage/montage de partages Azure Files.
 
 
 <a id="error53-67-87"></a>
@@ -50,7 +50,7 @@ Connectez-vous depuis un client qui :
 
 ### <a name="cause-2-port-445-is-blocked"></a>Cause 2 : Le Port 445 est bloqué
 
-Les messages Erreur système 53 ou Erreur système 67 peuvent s’afficher si la communication sortante du port 445 vers le centre de données du stockage Azure File est bloquée. Pour afficher le récapitulatif des FAI qui autorisent ou interdisent l’accès depuis le port 445, consultez [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
+Une erreur système 53 ou 67 peut se produire si la communication sortante du port 445 vers le centre de données Azure Files est bloquée. Pour afficher le récapitulatif des FAI qui autorisent ou interdisent l’accès depuis le port 445, consultez [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Pour comprendre s’il s’agit de la raison pour laquelle le message « Erreur système 53 » s’affiche, vous pouvez utiliser Portqry pour interroger le point de terminaison TCP:445. Si le point de terminaison TCP:445 est affiché comme filtré, le port TCP est bloqué. Voici un exemple de requête :
 
@@ -68,7 +68,7 @@ Contactez votre service informatique pour ouvrir le port 445 sortant aux [plages
 
 ### <a name="cause-3-ntlmv1-is-enabled"></a>Cause 3 : NTLMv1 est activé
 
-Les messages Erreur système 53 ou Erreur système 87 peuvent également s’afficher si la communication NTLMv1 est activée sur le client. Le stockage Azure File prend uniquement en charge l’authentification NTLMv2. Le fait d’activer NTLMv1 crée un client moins sécurisé. Par conséquent, les communications sont bloquées pour le stockage Azure File. 
+Les messages Erreur système 53 ou Erreur système 87 peuvent également s’afficher si la communication NTLMv1 est activée sur le client. Azure Files prend uniquement en charge l’authentification NTLMv2. Le fait d’activer NTLMv1 crée un client moins sécurisé. Par conséquent, les communications sont bloquées pour Azure Files. 
 
 Pour déterminer s’il s’agit de la cause de l’erreur, vérifiez que la sous-clé de Registre suivante est définie sur une valeur de 3 :
 
@@ -94,7 +94,7 @@ L’erreur 1816 se produit lorsque vous atteignez la limite autorisée de descri
 Réduisez le nombre de handles ouverts simultanément en fermant certains d’entre eux, puis réessayez. Pour plus d’informations, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 <a id="slowfilecopying"></a>
-## <a name="slow-file-copying-to-and-from-azure-file-storage-in-windows"></a>Ralentissement des copies de fichiers vers et depuis le stockage Azure File dans Windows
+## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Ralentissement des copies de fichiers vers et à partir d’Azure Files sous Windows
 
 Les performances peuvent être ralenties lorsque vous essayez de transférer des fichiers vers le service Azure File.
 
@@ -153,7 +153,7 @@ Vous pouvez utiliser l’une des étapes suivantes pour contourner le problème�
 - Placez des guillemets doubles autour de la clé pour résoudre ce problème, sauf si la barre oblique est le premier caractère. Si c’est le cas, utilisez le mode interactif et entrez votre mot de passe séparément, ou régénérez vos clés pour obtenir une clé qui ne commence pas par une barre oblique.
 
 <a id="cannotaccess"></a>
-## <a name="application-or-service-cannot-access-a-mounted-azure-file-storage-drive"></a>L’application ou service ne peut pas accéder à un lecteur monté de stockage Azure File
+## <a name="application-or-service-cannot-access-a-mounted-azure-files-drive"></a>L’application ou service ne peut pas accéder à un lecteur Azure Files monté
 
 ### <a name="cause"></a>Cause :
 
@@ -174,7 +174,7 @@ Après avoir suivi ces instructions, vous pourriez recevoir le message d’erreu
 Lorsqu’un fichier est copié sur le réseau, le fichier est déchiffré sur l’ordinateur source, transmis en clair, puis de nouveau chiffré une fois à destination. Toutefois, vous pourriez rencontrer l’erreur suivante en essayant de copier un fichier chiffré : « Vous copiez le fichier vers une destination qui ne prend pas en charge le chiffrement. »
 
 ### <a name="cause"></a>Cause :
-Ce problème peut se survenir si vous utilisez le système de fichiers EFS (Encrypting File System). Les fichiers chiffrés par BitLocker peuvent être copiés vers le stockage Azure Files. Toutefois, le stockage Azure File ne prend pas en charge le système de fichiers EFS NTFS.
+Ce problème peut se survenir si vous utilisez le système de fichiers EFS (Encrypting File System). Les fichiers chiffrés BitLocker peuvent être copiés vers Azure Files. Toutefois, Azure Files ne prend pas en charge le système de fichiers EFS NTFS.
 
 ### <a name="workaround"></a>Solution de contournement
 Pour copier un fichier sur le réseau, vous devez d’abord le déchiffrer. Utilisez l’une des méthodes suivantes :

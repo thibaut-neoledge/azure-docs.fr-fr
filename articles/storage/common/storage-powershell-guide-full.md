@@ -3,7 +3,7 @@ title: "Utilisation d’Azure PowerShell avec Azure Storage | Microsoft Docs"
 description: "Découvrez comment utiliser les applets de commande Azure PowerShell pour Azure Storage afin de créer et gérer des comptes de stockage, d’utiliser des objets blob, des tables, des files d’attente et des fichiers ; de configurer et d’interroger Storage Analytics et de créer des signatures d’accès partagé."
 services: storage
 documentationcenter: na
-author: robinsh
+author: tamram
 manager: timlt
 ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 87a116111d085fe2913bf6f5f8751c3ff5f3c076
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8306ae5d4a943b9246da1d941725150c60026ca5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -689,9 +689,9 @@ $Queue.CloudQueue.DeleteMessage($QueueMessage)
 ```
 
 ## <a name="how-to-manage-azure-file-shares-and-files"></a>Gestion des partages de fichiers et des fichiers Azure
-Le stockage de fichiers Azure propose un stockage partagé pour les applications utilisant le protocole SMB. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d'application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d'un partage via l'API de stockage de fichiers ou via Azure PowerShell.
+Azure Files propose un stockage partagé pour les applications utilisant le protocole SMB standard. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d'application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d'un partage via l'API de stockage de fichiers ou via Azure PowerShell.
 
-Pour plus d’informations sur le stockage de fichiers Azure, consultez [Prise en main du stockage de fichiers Azure sous Windows](../storage-dotnet-how-to-use-files.md) et [API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx).
+Pour plus d’informations sur Azure Files, consultez [Bien démarrer avec Azure Files sur Windows](../files/storage-files-introduction.md) et [API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## <a name="how-to-set-and-query-storage-analytics"></a>Définition et interrogation de Storage Analytics
 Vous pouvez utiliser [Azure Storage Analytics](../storage-analytics.md) pour recueillir des mesures de vos comptes de stockage Azure et enregistrer des données de journaux concernant les demandes envoyées à votre compte de stockage. Vous pouvez utiliser des mesures de stockage pour analyser l’intégrité d’un compte de stockage et utiliser la journalisation de stockage pour diagnostiquer et résoudre les problèmes de votre compte de stockage. Vous pouvez configurer la surveillance en utilisant le portail Azure ou Windows PowerShell, ou par programmation en utilisant la bibliothèque cliente de stockage. La journalisation du stockage se produit côté serveur. Elle vous permet d’enregistrer les détails des demandes ayant réussi et des demandes ayant échoué dans votre compte de stockage. Ces journaux permettent d'afficher les détails des opérations de lecture, d'écriture et de suppression sur vos tables, vos files d'attente et vos objets blob, ainsi que la raison de l'échec de certaines demandes.
