@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/01/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d6a13ceb8ccd9207ecacc166247535d496d5dec7
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 76606189e7bed1a5179c7486d7c10f3c253884b5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="connect-to-a-secure-cluster"></a>Se connecter à un cluster sécurisé
@@ -312,6 +312,8 @@ Pour atteindre [Service Fabric Explorer](service-fabric-visualizing-your-cluster
 `http://<your-cluster-endpoint>:19080/Explorer`
 
 L'URL complète est également disponible dans le volet des éléments essentiels du cluster dans le portail Azure.
+
+Pour vous connecter à un cluster sécurisé sur Windows ou OS X à l’aide d’un navigateur, vous pouvez importer le certificat client et le navigateur vous demande le certificat à utiliser pour la connexion au cluster.  Sur les ordinateurs Linux, le certificat devra être importé à l’aide de paramètres du navigateur avancés (chaque navigateur dispose de mécanismes différents) et faites-le pointer vers l’emplacement du certificat sur le disque.
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Se connecter à un cluster sécurisé à l’aide d’Azure Active Directory
 

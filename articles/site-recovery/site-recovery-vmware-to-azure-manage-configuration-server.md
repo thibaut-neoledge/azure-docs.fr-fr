@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 36da8c7d0f3ace194522e5288f26069cf46d470e
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: bf62fb21dfac99038e3b3759d9e78c6870f52f9e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -26,15 +26,19 @@ ms.lasthandoff: 06/30/2017
 
 Le serveur de configuration fait office de coordinateur entre les services Site Recovery et votre infrastructure locale. Cet article explique comment configurer et gérer le serveur de configuration.
 
-## <a name="prerequisites"></a>Composants requis
-Vous trouverez ci-dessous des informations sur la configuration minimale requise pour le matériel, le logiciel et le réseau pour configurer un serveur de configuration.
-
 > [!NOTE]
 > La [planification de la capacité](site-recovery-capacity-planner.md) est une étape importante pour vous assurer de déployer le serveur de configuration avec une configuration répondant à vos exigences de charge. Pour en savoir plus, consultez la section [Exigences de dimensionnement d’un serveur de configuration](#sizing-requirements-for-a-configuration-server).
+
+
+## <a name="prerequisites"></a>Composants requis
+Vous trouverez ci-dessous des informations sur la configuration minimale requise pour le matériel, le logiciel et le réseau pour configurer un serveur de configuration.
+> [!IMPORTANT]
+> Lorsque vous déployez un serveur de configuration pour protéger des machines virtuelles VMware, nous vous recommandons de le déployer en tant que machine virtuelle **hautement disponible (HA)**.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## <a name="downloading-the-configuration-server-software"></a>Téléchargement du logiciel serveur de configuration
+
 1. Connectez-vous au portail Azure et accédez à votre coffre Recovery Services.
 2. Sélectionnez **Infrastructure Site Recovery** > **Serveurs de configuration** (sous For VMware & Physical Machines [Pour VMware et machines physiques]).
 
@@ -131,10 +135,10 @@ ProxyPassword="Password"
 1. Connectez-vous à votre serveur de configuration.
 2. À partir d’une invite de commandes d’administration, exécutez la commande indiquée ci-dessous.
 
-```
-reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-net stop dra
-```
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
 3. Lancez l’exécutable cspsconfigtool.exe à l’aide du raccourci sur votre serveur.
 4. Cliquez sur l’onglet **Vault Registration (Inscription du coffre)**.
 5. Téléchargez un nouveau fichier d’inscription à partir du portail et indiquez-le comme entrée de l’outil.
@@ -149,6 +153,17 @@ net stop dra
     net stop obengine
     net start obengine
     ```
+
+## <a name="updating-a-configuration-server"></a>Mise à jour d’un serveur de configuration
+
+> [!WARNING]
+> Les mises à jour sont prises en charge jusqu’à la version N+4 uniquement. Par exemple, si la dernière version sur le marché est 9.11, vous pouvez alors mettre à jour de la version 9.10, 9.9, 9.8 ou 9.7 directement vers la version 9.11. Cependant, si vous utilisez une version inférieure ou égale à 9.6, vous devez mettre à jour vers la version 9.7 minimum pour pouvoir appliquer les dernières mises à jour à votre serveur de configuration. Les liens de téléchargement de la version précédente sont disponibles sous [Mises à jour du service Azure Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)
+
+1. Téléchargez le programme d’installation de mise à jour sur votre serveur de configuration.
+2. Exécutez le programme d’installation en double-cliquant sur celui-ci.
+3. Le programme d’installation détectera la version des composants de Site Recovery présents sur l’ordinateur et demandera une confirmation. 
+4. Cliquez sur le bouton OK pour confirmer et continuer la mise à niveau.
+
 
 ## <a name="decommissioning-a-configuration-server"></a>Désaffectation d’un serveur de configuration
 Effectuez les opérations suivantes avant de désaffecter votre serveur de configuration.

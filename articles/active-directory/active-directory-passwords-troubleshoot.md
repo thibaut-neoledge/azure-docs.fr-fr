@@ -13,17 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 60d35b230534ca5721a49a770ea81cc79d52ec02
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: d33e516628c56a7aa038e37b4498461de17f8433
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/22/2017
 
 ---
-
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Guide pratique de réinitialisation de mot de passe libre-service
 
 Si vous rencontrez des problèmes avec la réinitialisation du mot de passe en libre-service, les éléments qui suivent peuvent vous aider à faire fonctionner la solution rapidement.
@@ -152,17 +151,21 @@ Pour résoudre les problèmes liés à l’écriture différée des mots de pass
 | 33008| ADPasswordPolicyError| Cet événement se produit quand le service d’écriture différée des mots de passe tente de définir un mot de passe sur votre annuaire local qui ne respecte pas les critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine. <br> <br> S’il existe une ancienneté minimale pour un mot de passe, alors que vous l’avez modifié avant le terme de cette ancienneté, vous ne pouvez pas le remodifier tant qu’il n’a pas atteint l’ancienneté spécifiée dans votre domaine. À des fins de test, l’ancienneté minimale doit être définie sur 0. <br> <br> Si des critères d’historique de mot de passe sont activés, vous devez sélectionner un mot de passe qui n’a pas été utilisé au cours des N dernières fois, où N est le paramètre d’historique du mot de passe. Si vous sélectionnez un mot de passe qui a été utilisé au cours des N dernières fois, un échec se produit. À des fins de test, l’historique doit être défini sur 0. <br> <br> S’il existe des critères de complexité des mots de passe, ils sont tous appliqués quand l’utilisateur tente de modifier ou réinitialiser un mot de passe. <br> <br> Si des filtres de mots de passe sont activés et qu’un utilisateur sélectionne un mot de passe qui ne répond pas aux critères de filtrage, alors l’opération de réinitialisation ou de modification échoue.|
 | 33009| ADConfigurationError| Cet événement indique qu’un problème s’est produit lors de l’écriture d’un mot de passe dans votre annuaire local en raison d’un problème de configuration avec Active Directory. Consultez le journal des événements de l’application de l’ordinateur Azure AD Connect pour identifier les messages provenant du service ADSync et obtenir plus d’informations sur l’erreur qui s’est produite.|
 
-
 ## <a name="troubleshoot-password-writeback-connectivity"></a>Résolution des problèmes de connectivité de l’écriture différée de mot de passe
 
 Si vous rencontrez des interruptions de service avec le composant d’écriture différée de mot de passe d’Azure AD Connect, voici quelques mesures rapides à prendre pour résoudre le problème :
 
+* [Vérifier la connectivité réseau](#confirm-network-connectivity)
 * [Redémarrer le service de synchronisation Azure AD Connect](#restart-the-azure-ad-connect-sync-service)
 * [Désactiver et réactiver la fonctionnalité d’écriture différée de mot de passe](#disable-and-re-enable-the-password-writeback-feature)
 * [Installer la dernière version d’Azure AD Connect](#install-the-latest-azure-ad-connect-release)
 * [Résoudre les problèmes d’écriture différée du mot de passe](#troubleshoot-password-writeback)
 
 En général, nous vous recommandons d’exécuter ces étapes dans l’ordre ci-dessus afin de récupérer votre service de la manière la plus rapide.
+
+### <a name="confirm-network-connectivity"></a>Vérifier la connectivité réseau
+
+Le point de défaillance le plus courant est que le pare-feu et/ou les ports de proxy et délais d’inactivité sont mal configurés. Passez en revue la configuration réseau requise dans l’article [Découverte approfondie de la réinitialisation de mot de passe libre-service dans Azure AD](active-directory-passwords-how-it-works.md#network-requirements) pour plus d’informations.
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Redémarrer le service de synchronisation Azure AD Connect
 

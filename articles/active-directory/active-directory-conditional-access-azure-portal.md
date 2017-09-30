@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/10/2017
+ms.date: 09/27/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 19bc7abbbf7e133018b234399d91604dfdbfe73f
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accès conditionnel dans Azure Active Directory
@@ -67,7 +67,7 @@ Il existe deux types de contrôles :
 - **Contrôle d’octroi** : Les contrôles d’octroi déterminent si un utilisateur peut effectuer l’authentification et atteindre la ressource à laquelle il essaie de se connecter. Si vous avez sélectionné plusieurs contrôles, vous pouvez indiquer si tous ces contrôles sont requis lors du traitement de votre stratégie.
 L’implémentation actuelle d’Azure Active Directory vous permet de configurer les exigences de contrôle d’octroi suivantes :
 
-    ![Contrôle](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![Contrôle](./media/active-directory-conditional-access-azure-portal/73.png)
 
 - **Contrôles de session** : Les contrôles de session permettent de limiter l’expérience dans une application cloud. Les contrôles de session sont appliqués par les applications cloud et s’appuient sur des informations supplémentaires fournies par Azure AD à l’application concernant la session.
 
@@ -108,7 +108,7 @@ Pour obtenir la liste complète des applications cloud utilisables dans une stra
 
 Tant que l’accès à vos applications s’effectue dans des conditions que vous pouvez contrôler, il est potentiellement inutile d’imposer des contrôles supplémentaires sur les modalités d’accès de vos utilisateurs à vos applications cloud. Toutefois, les choses peuvent être différentes si l’accès à vos applications cloud s’effectue notamment à partir de réseaux non approuvés ou d’appareils non conformes. Dans une instruction de condition, vous pouvez définir certaines conditions d’accès qui précisent des exigences supplémentaires concernant le mode d’accès à vos applications.
 
-![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
+![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
 
 
 ## <a name="conditions"></a>Conditions
@@ -120,11 +120,12 @@ Dans l’implémentation actuelle d’Azure Active Directory, vous pouvez défin
 - Emplacements
 - Applications clientes
 
-![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
+
+![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
 
 ### <a name="sign-in-risk"></a>Risque à la connexion
 
-Un risque à la connexion est un objet qui permet à Azure Active Directory de suivre la probabilité qu’une tentative de connexion n’émane pas du propriétaire légitime d’un compte d’utilisateur. Dans cet objet, la probabilité (haute, moyenne ou faible) est stockée sous forme d’un attribut appelé [niveau de risque de connexion](active-directory-reporting-risk-events.md#risk-level). Cet objet est généré lors de la connexion d’un utilisateur si des risques de connexion ont été détectés par Azure Active Directory. Pour en savoir plus, voir [Connexions risquées](active-directory-identityprotection.md#risky-sign-ins).  
+Un risque à la connexion est un objet qui permet à Azure Active Directory de suivre la probabilité qu’une tentative de connexion n’émane pas du propriétaire légitime d’un compte d’utilisateur. Dans cet objet, la probabilité (haute, moyenne ou faible) est stockée sous forme d’un attribut appelé [niveau de risque de connexion](active-directory-reporting-risk-events.md#risk-level). Cet objet est généré lors de la connexion d’un utilisateur si des risques de connexion ont été détectés par Azure Active Directory. Pour plus d’informations, consultez [Connexions risquées](active-directory-identityprotection.md#risky-sign-ins).  
 Vous pouvez utiliser le niveau de risque de connexion calculé en tant que condition dans une stratégie d’accès conditionnel. 
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/22.png)
@@ -147,22 +148,35 @@ Pour utiliser des plateformes d’appareils dans la stratégie, commencez par r�
 
 ### <a name="locations"></a>Emplacements
 
-L’emplacement est identifié par l’adresse IP du client que vous avez utilisée pour vous connecter à Azure Active Directory. Pour cette condition, vous devez connaître les **emplacements nommés** et les **adresses IP approuvées MFA**.  
+Les emplacements vous permettent de définir des conditions en fonction de l’endroit à partir duquel a été effectuée une tentative de connexion. La liste des emplacements peut contenir des **emplacements nommés** ou des **adresses IP approuvées MFA**.  
 
-Les **emplacements nommés** sont une fonctionnalité d’Azure Active Directory qui vous permet de désigner des plages d’adresses IP approuvées au sein de vos organisations. Dans votre environnement, vous pouvez utiliser les emplacements nommés dans le cadre de la détection [d’événements à risque](active-directory-reporting-risk-events.md), ainsi que pour l’accès conditionnel. Pour plus d’informations sur la configuration des emplacements nommés dans Azure Active Directory, consultez [Emplacements nommés dans Azure Active Directory](active-directory-named-locations.md).
+Les **emplacements nommés** sont une fonctionnalité d’Azure Active Directory qui permet de définir des étiquettes pour les emplacements à partir desquels des tentatives de connexion ont été effectuées. Pour définir un emplacement, vous pouvez configurer des plages d’adresses IP, ou sélectionner un pays ou une région.  
 
-Le nombre d’emplacements que vous pouvez configurer est limité par la taille de l’objet associé dans Azure AD. Vous pouvez configurer les éléments suivants :
+![Conditions](./media/active-directory-conditional-access-azure-portal/42.png)
+
+Vous pouvez aussi marquer un emplacement nommé comme emplacement approuvé. Pour une stratégie d’accès conditionnel, l’emplacement approuvé est une autre option de filtre qui vous permet de sélectionner *tous les emplacements approuvés* dans votre condition d’emplacements.
+Les emplacements nommés sont également importants pour la détection des [événements à risque](active-directory-reporting-risk-events.md), car ils permettent de réduire le nombre de faux positifs pour l’événement à risque Déplacement impossible vers des emplacements inhabituels. 
+
+Le nombre d’emplacements nommés que vous pouvez configurer est limité par la taille de l’objet associé dans Azure AD. Vous pouvez configurer les éléments suivants :
  
  - Un emplacement nommé avec 500 plages d’adresses IP maximum
  - Un maximum de 60 emplacements nommés (préversion) avec une plage d’adresses IP assignée à chacun d’eux. 
 
-
-Les **adresses IP approuvées MFA** sont une fonctionnalité de Multi-Factor Authentication, qui vous permet de définir les plages d’adresses IP approuvées correspondant à l’intranet local de votre organisation. Lorsque vous configurez des conditions d’emplacement, les adresses IP approuvées vous permettent de faire la distinction entre les connexions effectuées depuis le réseau de votre organisation et celles provenant de tous les autres emplacements. Pour plus d’informations, consultez [Adresses IP approuvées](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
-
+Pour plus d’informations, consultez [Emplacements nommés dans Azure Active Directory](active-directory-named-locations.md).
 
 
-Vous pouvez soit inclure tous les emplacements ou toutes les adresses IP approuvées, soit exclure toutes les adresses IP approuvées.
+Les **adresses IP approuvées MFA** sont une fonctionnalité de Multi-Factor Authentication, qui vous permet de définir les plages d’adresses IP approuvées correspondant à l’intranet local de votre organisation. Quand vous configurez une condition d’emplacement, les adresses IP approuvées vous permettent de faire la distinction entre les connexions effectuées depuis le réseau de votre organisation et celles provenant de tous les autres emplacements. Pour plus d’informations, consultez [Adresses IP approuvées](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
 
+Dans votre stratégie d’accès conditionnel, vous pouvez :
+
+- Inclure
+    - N’importe quel emplacement
+    - Tous les emplacements approuvés
+    - Des emplacements sélectionnés
+- Exclure
+    - Tous les emplacements approuvés
+    - Des emplacements sélectionnés
+     
 ![Conditions](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
@@ -175,6 +189,7 @@ L’authentification héritée concerne les clients qui utilisent l’authentifi
 
 
 Pour obtenir la liste complète des applications clientes utilisables dans une stratégie d’accès conditionnel, consultez la [référence technique sur l’accès conditionnel Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+
 
 
 

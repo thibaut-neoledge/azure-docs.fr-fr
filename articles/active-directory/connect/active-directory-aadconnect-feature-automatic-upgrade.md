@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9541cd195e8afa6e692a5a0214b0d614e429c33b
-ms.openlocfilehash: 234f06a858987b03ec2ed0bbe0899423d8f0bcdd
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 57cd81a92817171a23ffd0f607eb127005bc1e0d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 12/20/2016
+ms.lasthandoff: 09/22/2017
 
 ---
-# Azure AD Connect : Mise à niveau automatique
-<a id="azure-ad-connect-automatic-upgrade" class="xliff"></a>
+# <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect : Mise à niveau automatique
 Cette fonctionnalité a été introduite avec la version 1.1.105.0 (publiée en février 2016).
 
-## Vue d'ensemble
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Vue d'ensemble
 Grâce à la fonctionnalité de **mise à niveau automatique** , vous pouvez facilement vous assurer que votre installation Azure AD Connect est à jour. Cette fonctionnalité est activée par défaut pour les installations expresses et les mises à niveau de DirSync. Quand une nouvelle version est publiée, votre installation est mise à niveau automatiquement.
 
 La mise à niveau automatique est activée par défaut pour les éléments suivants :
@@ -50,8 +48,7 @@ La mise à niveau automatique utilise Azure AD Connect Health pour l’infrastru
 
 Si l’interface utilisateur du **Synchronization Service Manager** est en cours d’exécution sur le serveur, la mise à niveau est suspendue jusqu’à la fermeture de l’interface utilisateur.
 
-## Résolution de problèmes
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>Résolution de problèmes
 Si votre installation Connect ne se met pas elle-même à niveau comme prévu, procédez comme suit pour savoir d’où vient le problème.
 
 Tout d'abord, ne vous attendez pas à ce qu’il y ait déjà une tentative de mise à niveau automatique le jour du lancement d’une nouvelle version. Toute tentative de mise à niveau a un caractère aléatoire intentionnel. Ne vous inquiétez pas si votre installation n'est pas mise à niveau immédiatement.
@@ -90,6 +87,7 @@ Voici une liste de messages les plus courants. Elle n’est pas exhaustive, mais
 | UpgradeAbortedSyncExeInUse |L’ [interface utilisateur du gestionnaire des services de synchronisation](active-directory-aadconnectsync-service-manager-ui.md) est ouverte sur le serveur. |
 | UpgradeAbortedSyncOrConfigurationInProgress |L'Assistant Installation est en cours d'exécution ou une synchronisation a été planifiée à l'extérieur du planificateur. |
 | **UpgradeNotSupported** | |
+| UpgradeNotSupportedAdfsSignInMethod | Vous avez sélectionné AD FS en tant que méthode de connexion. | 
 | UpgradeNotSupportedCustomizedSyncRules |Vous avez ajouté vos propres règles de personnalisation à la configuration. |
 | UpgradeNotSupportedDeviceWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md) . |
 | UpgradeNotSupportedGroupWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback) . |
@@ -98,10 +96,11 @@ Voici une liste de messages les plus courants. Elle n’est pas exhaustive, mais
 | UpgradeNotSupportedMultiForestSetup |Vous vous connectez à plusieurs forêts. L’installation rapide se connecte à une seule forêt. |
 | UpgradeNotSupportedNonLocalDbInstall |Vous n’utilisez pas une base de données LocalDB SQL Server Express. |
 | UpgradeNotSupportedNonMsolAccount |Le [compte de connecteur AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) n’est plus le compte MSOL_ par défaut. |
+| UpgradeNotSupportedNotConfiguredSignInMethod | Vous avez sélectionné *Ne pas configurer* en tant que méthode de connexion. | 
+| UpgradeNotSupportedPtaSignInMethod | Vous avez sélectionné Authentification directe comme mode d’authentification. |
 | UpgradeNotSupportedStagingModeEnabled |Le serveur est défini pour être en [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée de l’utilisateur](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 

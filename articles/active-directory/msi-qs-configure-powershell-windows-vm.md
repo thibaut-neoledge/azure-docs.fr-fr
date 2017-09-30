@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 104c43e6fab2c3f18824a00860c30c8d6f82bbc4
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 612311f1c4e081e87dde76ce4a1d8efd46428c06
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -25,85 +25,33 @@ ms.lasthandoff: 09/14/2017
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-L’identité du service administré fournit des services Azure avec une identité automatiquement gérée dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier auprès de tout service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
+L’identité du service administré fournit des services Azure avec une identité automatiquement gérée dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
 
-Dans cet article, vous apprenez à activer et à supprimer la MSI pour une machine virtuelle Windows Azure, à l’aide de PowerShell.
+Dans cet article, vous apprenez à activer et à supprimer la MSI pour une machine virtuelle Azure à l’aide de PowerShell.
 
 ## <a name="prerequisites"></a>Composants requis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
 
-Installez également [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1) si vous ne l’avez pas déjà fait.
+En outre, si ce n’est pas déjà fait, installez [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1).
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Activer l’identité du service administré lors de la création d’une machine virtuelle Azure
 
-Une nouvelle ressource de l’ordinateur virtuel Windows compatible avec l’identité du service administré est créée dans un nouveau groupe de ressources, à l’aide des paramètres de configuration spécifiés. Notez également que nombre de ces cmdlets peuvent s’exécuter au minimum pendant 30 secondes avant de renvoyer des résultats et que la création de machine virtuelle finale prend plusieurs minutes.
+Pour créer une machine virtuelle compatible avec l’identité du service administré :
 
-1. Connectez-vous au portail Azure à l’aide de `Login-AzureRmAccount`. Utilisez un compte associé à l’abonnement Azure dans lequel vous souhaitez déployer la machine virtuelle.
+1. Consultez l’un des démarrages rapides de machine virtuelle Azure suivants, en ne complétant que les sections nécessaires (« Se connecter à Azure », « Créer un groupe de ressources », « Créer un groupe de mise en réseau », « Créer la machine virtuelle »). 
 
-   ```powershell
-   Login-AzureRmAccount
-   ```
+   > [!IMPORTANT] 
+   > Lorsque vous accédez à la section « Créer la machine virtuelle », apportez une légère modification à la syntaxe de l’applet de commande [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm). Veillez à ajouter un paramètre `-IdentityType "SystemAssigned"` pour configurer la machine virtuelle avec une identité du service administré, par exemple :
+   >  
+   > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
 
-2. Créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md#terminology) destiné à l’imbrication et au déploiement de votre machine virtuelle et de ses ressources connexes à l’aide de la cmdlet `New-AzureRmResourceGroup`. Vous pouvez ignorer cette étape si vous disposez déjà d’un groupe de ressources que vous souhaitez utiliser à la place :
+   - [Créer une machine virtuelle Windows avec PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+   - [Créer une machine virtuelle Linux avec PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-   ```powershell
-   New-AzureRmResourceGroup -Name myResourceGroup -Location WestUS
-   ```
-3. Créez des ressources réseau pour la machine virtuelle.
 
-   a. Créez un réseau virtuel, un sous-réseau et une adresse IP publique. Ces ressources sont utilisées pour fournir une connectivité réseau à la machine virtuelle et la connecter à Internet :
 
-   ```powershell
-   # Create a subnet configuration
-   $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
-
-   # Create a virtual network
-   $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location WestUS -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
-
-   # Create a public IP address and specify a DNS name
-   $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location WestUS -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
-   ```
-
-   b. Créez un groupe de sécurité réseau et une règle de groupe de sécurité réseau. Le groupe de sécurité réseau permet sécurise la machine virtuelle avec des règles entrantes et sortantes. Dans ce cas, une règle entrante est créée pour le port 3389, qui autorise les connexions Bureau à distance entrantes. Nous souhaitons également créer une règle entrante pour le port 80, qui autorise le trafic web entrant :
-
-   ```powershell
-   # Create an inbound network security group rule for port 3389
-   $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
-
-   # Create an inbound network security group rule for port 80
-   $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleWWW  -Protocol Tcp -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80 -Access Allow
-
-   # Create a network security group
-   $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location WestUS -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb
-   ```
-
-   c. Créez une carte réseau virtuelle pour la machine virtuelle. La carte réseau connecte la machine virtuelle à un sous-réseau, un groupe de sécurité réseau et une adresse IP publique :
-
-   ```powershell
-   # Create a virtual network card and associate with public IP address and NSG
-   $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location WestUS -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-   ```
-
-4. Créez la machine virtuelle.
-
-   a. Créez un objet de machine virtuelle pouvant être configuré. Ces paramètres sont utilisés lors du déploiement de la machine virtuelle, comme une image de machine virtuelle, la taille et la configuration de l’authentification. Le paramètre `-IdentityType "SystemAssigned"` utilisé dans la cmdlet [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) entraîne l’approvisionnement de la machine virtuelle avec une MSI. La cmdlet `Get-Credential` vous invite à saisir des informations d’identification, qui sont configurées en tant que nom d’utilisateur et mot de passe pour la machine virtuelle :
-
-   ```powershell
-   # Define a credential object (prompts for user/password to be used for VM authentication)
-   $cred = Get-Credential
-
-   # Create a configurable VM object with a Managed Service Identity
-   $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 -IdentityType "SystemAssigned" | Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
-   ```
-
-   b. Approvisionnez la nouvelle machine virtuelle :
-
-   ```powershell
-   New-AzureRmVM -ResourceGroupName myResourceGroup -Location WestUS -VM $vmConfig
-   ```
-
-5. Ajoutez l’extension de machine virtuelle de la MSI à l’aide du paramètre `-Type "ManagedIdentityExtensionForWindows"` sur la cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton :
+2. Ajoutez l’extension de machine virtuelle de la MSI à l’aide du paramètre `-Type` sur la cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Vous pouvez transmettre « ManagedIdentityExtensionForWindows » ou « ManagedIdentityExtensionForLinux », selon le type de machine virtuelle, et nommez-le à l’aide paramètre `-Name`. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton :
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -114,7 +62,7 @@ Une nouvelle ressource de l’ordinateur virtuel Windows compatible avec l’ide
 
 Si vous devez activer l’identité du service administré sur une machine virtuelle existante :
 
-1. Connectez-vous au portail Azure à l’aide de `Login-AzureRmAccount`. Utilisez un compte associé à l’abonnement Azure dans lequel vous souhaitez déployer la machine virtuelle :
+1. Connectez-vous au portail Azure à l’aide de `Login-AzureRmAccount`. Utilisez un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles » :
 
    ```powershell
    Login-AzureRmAccount
@@ -127,7 +75,7 @@ Si vous devez activer l’identité du service administré sur une machine virtu
    Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType "SystemAssigned"
    ```
 
-3. Ajoutez l’extension de machine virtuelle de la MSI à l’aide du paramètre `-Type "ManagedIdentityExtensionForWindows"` sur la cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton. Veillez à indiquer le paramètre `-Location` approprié, correspondant à l’emplacement de la machine virtuelle existante :
+3. Ajoutez l’extension de machine virtuelle de la MSI à l’aide du paramètre `-Type` sur la cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Vous pouvez transmettre « ManagedIdentityExtensionForWindows » ou « ManagedIdentityExtensionForLinux », selon le type de machine virtuelle, et nommez-le à l’aide paramètre `-Name`. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton. Veillez à indiquer le paramètre `-Location` approprié, correspondant à l’emplacement de la machine virtuelle existante :
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -138,7 +86,13 @@ Si vous devez activer l’identité du service administré sur une machine virtu
 
 Si vous disposez d’une machine virtuelle pour laquelle la MSI n’est plus nécessaire, vous pouvez utiliser la cmdlet `RemoveAzureRmVMExtension` pour supprimer la MSI de la machine virtuelle :
 
-1. Utilisez l’option `-Name "ManagedIdentityExtensionForWindows"` avec la cmdlet [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) :
+1. Connectez-vous au portail Azure à l’aide de `Login-AzureRmAccount`. Utilisez un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles » :
+
+   ```powershell
+   Login-AzureRmAccount
+   ```
+
+2. Utilisez le commutateur `-Name` avec l’applet de commande [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension), en spécifiant le même nom que celui utilisé lorsque vous avez ajouté l’extension :
 
    ```powershell
    Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
@@ -147,7 +101,10 @@ Si vous disposez d’une machine virtuelle pour laquelle la MSI n’est plus né
 ## <a name="related-content"></a>Contenu connexe
 
 - [Vue d’ensemble de l’identité du service administré](msi-overview.md)
-- Cet article est une adaptation du démarrage rapide [Créer une machine virtuelle Windows avec PowerShell](../virtual-machines/windows/quick-create-powershell.md), modifié pour inclure des instructions spécifiques à la MSI. 
+- Pour obtenir les guides de démarrages rapides complets sur la création de machines virtuelles Azure, consultez :
+  
+  - [Créer une machine virtuelle Windows avec PowerShell](../virtual-machines/windows/quick-create-powershell.md) 
+  - [Créer une machine virtuelle Linux avec PowerShell](../virtual-machines/linux/quick-create-powershell.md) 
 
 Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
 

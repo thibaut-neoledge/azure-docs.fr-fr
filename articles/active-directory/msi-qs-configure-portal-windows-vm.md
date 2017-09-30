@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 9406ba2bbbea41f4677cd0d5aaddf16b0f4f26c8
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 169417530da21e0c8c58cbf770fd1d26660387f7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 L’identité du service administré fournit des services Azure avec une identité gérée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
 
-Dans cet article, vous allez apprendre à activer et supprimer l’identité du service administré d’une machine virtuelle Windows Azure, à l’aide du portail Azure.
+Dans cet article, vous allez apprendre à activer et supprimer l’identité du service administré d’une machine virtuelle Azure, à l’aide du portail Azure.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -35,13 +35,18 @@ Dans cet article, vous allez apprendre à activer et supprimer l’identité du 
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Activer l’identité du service administré lors de la création d’une machine virtuelle Azure
 
-Au moment de rediger cet article, l’activation de l’identité du service administré lors de la création d’une machine virtuelle dans le portail Azure n’est pas prise en charge. Au lieu de cela, reportez-vous au guide de démarrage rapide [Créer une machine virtuelle Windows avec le portail Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) pour plus d’informations sur la création d’une machine virtuelle. Passez ensuite à la section suivante pour plus d’informations sur l’activation de l’identité du service administré.
+Au moment de rediger cet article, l’activation de l’identité du service administré lors de la création d’une machine virtuelle dans le portail Azure n’est pas prise en charge. Consultez plutôt l’un des articles de démarrage rapide de création de machine virtuelle suivants pour créer une machine virtuelle :
+
+- [Créer une machine virtuelle Windows avec le portail Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Créer une machine virtuelle Linux avec le portail Azure](../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
+
+Passez ensuite à la section suivante pour plus d’informations sur l’activation de l’identité du service administré sur la machine virtuelle.
 
 ## <a name="enable-msi-on-an-existing-azure-vm"></a>Activer l’identité du service administré sur une machine virtuelle Azure existante
 
 Si vous avez une machine virtuelle qui a été initialement approvisionnée sans identité du service administré :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte associé à l’abonnement Azure sous lequel vous souhaitez déployer la machine virtuelle.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles ».
 
 2. Accédez à la machine virtuelle souhaitée.
 
@@ -53,7 +58,7 @@ Si vous avez une machine virtuelle qui a été initialement approvisionnée sans
 
 Si vous disposez d’une machine virtuelle qui ne nécessite plus d’identité du service administré :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte associé à l’abonnement Azure sous lequel vous souhaitez déployer la machine virtuelle.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles ».
 
 2. Accédez à la machine virtuelle souhaitée.
 
@@ -64,7 +69,6 @@ Si vous disposez d’une machine virtuelle qui ne nécessite plus d’identité 
 ## <a name="related-content"></a>Contenu connexe
 
 - Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](msi-overview.md).
-- Cet article se base sur le guide de démarrage rapide [Créer une machine virtuelle Windows avec le portail Azure](../virtual-machines/windows/quick-create-portal.md) ,et a été modifié pour inclure des instructions spécifiques à l’identité du service administré. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

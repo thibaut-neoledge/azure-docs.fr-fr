@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 09/21/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: bcfffe05dbce2824ea4933997865e8c7e86610b6
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -42,9 +42,9 @@ Si vos stratégies de sécurité n’autorisent pas les ordinateurs sur votre r�
 ## <a name="system-requirements"></a>Conditions requises pour le système
 Avant de commencer, prenez connaissance des informations suivantes pour vérifier que les conditions préalables sont remplies.
 
-* OMS prend uniquement en charge Operations Manager 2016, Operations Manager 2012 SP1 UR6 et versions supérieures et Operations Manager 2012 R2 UR2 et versions supérieures.  La prise en charge du proxy a été ajoutée dans Operations Manager 2012 SP1 UR7 et Operations Manager 2012 R2 UR3.
+* OMS prend uniquement en charge Operations Manager 2016, Operations Manager 2012 SP1 UR10 et versions supérieures et Operations Manager 2012 R2 UR11 et versions supérieures.
 * Tous les agents Operations Manager doivent répondre aux exigences en matière de prise en charge. Vérifiez que chaque agent est au niveau minimum de mise à jour ; sinon, le trafic de l’agent Windows échouera, entraînant de nombreuses erreurs qui risquent de saturer le journal des événements Operations Manager.
-* Un abonnement OMS.  Pour plus d’informations, consultez [Prise en main de Log Analytics](log-analytics-get-started.md).
+* Un abonnement Azure Log Analytics.  Pour plus d’informations, consultez [Prise en main de Log Analytics](log-analytics-get-started.md).
 
 ### <a name="network"></a>Réseau
 Les informations ci-dessous indiquent les informations de configuration de proxy et de pare-feu requises pour permettre à l’agent Operations Manager, aux serveurs d’administration et à la console Operations de communiquer avec OMS.  Le trafic provenant de chaque composant sort de votre réseau et se dirige vers le service OMS.     

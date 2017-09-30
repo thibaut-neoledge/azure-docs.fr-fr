@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 78a6164e76f6ceab936874e68bd38bb4eb387e00
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 03fb9cc6633f81e284ae299f7b2ba4018d19cc73
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 L’identité du service administré fournit des services Azure avec une identité gérée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
 
-Dans cet article, vous allez apprendre à activer et à supprimer l’identité du service administré d’une machine virtuelle Windows Azure, à l’aide d’Azure CLI.
+Dans cet article, vous allez apprendre à activer et à supprimer l’identité du service administré d’une machine virtuelle Azure à l’aide de l’interface de ligne de commande Azure.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -43,7 +43,7 @@ Pour exécuter les exemples de script d’Azure CLI, vous disposez de trois opti
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Activer l’identité du service administré lors de la création d’une machine virtuelle Azure
 
-Une nouvelle ressource de l’ordinateur virtuel Windows compatible avec l’identité du service administré est créée dans un nouveau groupe de ressources, à l’aide des paramètres de configuration spécifiés. Note : plusieurs de ces fonctions peuvent s’exécuter pendant plusieurs secondes/minutes avant de retourner.
+Pour créer une machine virtuelle compatible avec l’identité du service administré :
 
 1. Si vous n’utilisez pas Azure Cloud Shell à partir du portail Azure, connectez-vous d’abord à Azure à l’aide de la commande [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez déployer la machine virtuelle :
 
@@ -67,7 +67,7 @@ Une nouvelle ressource de l’ordinateur virtuel Windows compatible avec l’ide
 
 Si vous devez activer l’identité du service administré sur une machine virtuelle existante :
 
-1. Si vous n’utilisez pas Azure Cloud Shell à partir du portail Azure, connectez-vous d’abord à Azure à l’aide de la commande [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez déployer la machine virtuelle :
+1. Si vous n’utilisez pas Azure Cloud Shell à partir du portail Azure, connectez-vous d’abord à Azure à l’aide de la commande [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles » :
 
    ```azurecli-interactive
    az login
@@ -83,13 +83,13 @@ Si vous devez activer l’identité du service administré sur une machine virtu
 
 Si vous disposez d’une machine virtuelle qui ne nécessite plus d’identité du service administré :
 
-1. Si vous n’utilisez pas Azure Cloud Shell à partir du portail Azure, connectez-vous d’abord à Azure à l’aide de la commande [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez déployer la machine virtuelle :
+1. Si vous n’utilisez pas Azure Cloud Shell à partir du portail Azure, connectez-vous d’abord à Azure à l’aide de la commande [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles » :
 
    ```azurecli-interactive
    az login
    ```
 
-2. Utilisez le commutateur `-n ManagedIdentityExtensionForWindows` avec la commande [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) pour supprimer l’identité du service administré :
+2. Utilisez le commutateur `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` (selon le type de machine virtuelle) avec [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) pour supprimer l’identité du service administré :
 
    ```azurecli-interactive
    az vm extension delete --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -98,7 +98,10 @@ Si vous disposez d’une machine virtuelle qui ne nécessite plus d’identité 
 ## <a name="related-content"></a>Contenu connexe
 
 - [Vue d’ensemble de l’identité du service administré](msi-overview.md)
-- Cet article se base sur le guide de démarrage rapide [Créer une machine virtuelle Windows avec Azure CLI](../virtual-machines/windows/quick-create-cli.md), et a été modifié pour inclure des instructions spécifiques à l’identité du service administré. 
+- Pour obtenir les guides de démarrages rapides complets sur la création de machines virtuelles Azure, consultez : 
+
+  - [Créer une machine virtuelle Windows avec l’interface Azure CLI](../virtual-machines/windows/quick-create-cli.md)  
+  - [Créer une machine virtuelle Linux avec Azure CLI](../virtual-machines/linux/quick-create-cli.md) 
 
 Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
 
