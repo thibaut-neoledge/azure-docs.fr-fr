@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Service Fabric container application on Linux | Microsoft Docs
-description: Create your first Linux container application on Azure Service Fabric.  Build a Docker image with your application, push the image to a container registry, build and deploy a Service Fabric container application.
+title: "Créer une application de conteneur Microsoft Azure Service Fabric sur Linux | Microsoft Docs"
+description: "Créez votre première application de conteneur Linux sur Microsoft Azure Service Fabric.  Concevez une image Docker avec votre application, envoyez l’image vers un registre de conteneurs, créez et déployez une application de conteneur Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,34 +15,34 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: c0fb0f45d64fe542d40d66ebfe37199583751891
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 606e8d63c29b754261621e583652f8209efea0f5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="create-your-first-service-fabric-container-application-on-linux"></a>Create your first Service Fabric container application on Linux
+# <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Running an existing application in a Linux container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster.  You will also share your containerized application through [Azure Container Registry](/azure/container-registry/).  This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
+L’exécution d’une application existante dans un conteneur Linux sur un cluster Service Fabric ne nécessite aucune modification de votre application. Cet article vous accompagne dans la création d’une image Docker contenant une application web [Flask](http://flask.pocoo.org/) Python et le déploiement dans un cluster Service Fabric.  Vous allez également partager votre application en conteneur via [Azure Container Registry](/azure/container-registry/).  Cet article suppose une connaissance élémentaire de Docker. Pour en savoir plus sur Docker, consultez la [présentation de Docker](https://docs.docker.com/engine/understanding-docker/).
 
-## <a name="prerequisites"></a>Prerequisites
-* A development computer running:
-  * [Service Fabric SDK and tools](service-fabric-get-started-linux.md).
-  * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
-  * [Service Fabric CLI](service-fabric-cli.md)
+## <a name="prerequisites"></a>Composants requis
+* Un ordinateur de développement exécutant :
+  * [Outils et SDK Service Fabric](service-fabric-get-started-linux.md).
+  * [Docker CE pour Linux](https://docs.docker.com/engine/installation/#prior-releases). 
+  * [Interface de ligne de commande Service Fabric](service-fabric-cli.md)
 
-* A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription. 
+* Un registre dans Azure Container Registry. [Créez un registre de conteneurs](../container-registry/container-registry-get-started-portal.md) dans votre abonnement Azure. 
 
-## <a name="define-the-docker-container"></a>Define the Docker container
-Build an image based on the [Python image](https://hub.docker.com/_/python/) located on Docker Hub. 
+## <a name="define-the-docker-container"></a>Définir le conteneur Docker
+Créez une image basée sur [l’image Python](https://hub.docker.com/_/python/) située sur Docker Hub. 
 
-Define your Docker container in a Dockerfile. The Dockerfile contains instructions for setting up the environment inside your container, loading the application you want to run, and mapping ports. The Dockerfile is the input to the `docker build` command, which creates the image. 
+Définissez votre conteneur Docker dans un fichier Dockerfile. Le fichier Dockerfile contient des instructions pour la configuration de l’environnement à l’intérieur de votre conteneur, le chargement de l’application que vous souhaitez exécuter et le mappage des ports. Le fichier Dockerfile est l’entrée de la commande `docker build`, qui crée l’image. 
 
-Create an empty directory and create the file *Dockerfile* (with no file extension). Add the following to *Dockerfile* and save your changes:
+Créez un répertoire vide et créez le fichier *Dockerfile* (sans extension de fichier). Ajoutez ce qui suit au fichier *Dockerfile* et enregistrez vos modifications :
 
 ```
 # Use an official Python runtime as a base image
@@ -67,15 +67,15 @@ ENV NAME World
 CMD ["python", "app.py"]
 ```
 
-Read the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) for more information.
+Pour plus d'informations, consultez les [références Dockerfile](https://docs.docker.com/engine/reference/builder/).
 
-## <a name="create-a-simple-web-application"></a>Create a simple web application
-Create a Flask web application listening on port 80 that returns "Hello World!".  In the same directory, create the file *requirements.txt*.  Add the following and save your changes:
+## <a name="create-a-simple-web-application"></a>Créer une application web simple
+Créez une application web Flask écoutant le port 80 qui renvoie « Hello World! ».  Dans le même répertoire, créez le fichier *requirements.txt*.  Ajoutez ce qui suit et enregistrez vos modifications :
 ```
 Flask
 ```
 
-Also create the *app.py* file and add the following:
+Créez également le fichier *app.py* et ajoutez ce qui suit :
 
 ```python
 from flask import Flask
@@ -91,16 +91,16 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## <a name="build-the-image"></a>Build the image
-Run the `docker build` command to create the image that runs your web application. Open a PowerShell window and navigate to *c:\temp\helloworldapp*. Run the following command:
+## <a name="build-the-image"></a>Créer l’image
+Exécutez la commande `docker build` pour créer l’image qui exécute votre application web. Ouvrez une fenêtre PowerShell et accédez à *c:\temp\helloworldapp*. Exécutez la commande suivante :
 
 ```bash
 docker build -t helloworldapp .
 ```
 
-This command builds the new image using the instructions in your Dockerfile, naming (-t tagging) the image "helloworldapp". Building an image pulls the base image down from Docker Hub and creates a new image that adds your application on top of the base image.  
+Cette commande crée la nouvelle image en suivant les instructions de votre fichier Dockerfile, et la nomme (balisage -t) « helloworldapp ». La création d’une image extrait l’image de base de Docker Hub et crée une image qui vient s’ajouter à votre application par-dessus l’image de base.  
 
-Once the build command completes, run the `docker images` command to see information on the new image:
+Une fois la création terminée, exécutez la commande `docker images` pour afficher des informations sur la nouvelle image :
 
 ```bash
 $ docker images
@@ -109,88 +109,89 @@ REPOSITORY                    TAG                 IMAGE ID            CREATED   
 helloworldapp                 latest              86838648aab6        2 minutes ago       194 MB
 ```
 
-## <a name="run-the-application-locally"></a>Run the application locally
-Verify that your containerized application runs locally before pushing it the container registry.  
+## <a name="run-the-application-locally"></a>Exécution locale de l'application
+Vérifiez que votre application en conteneur s’exécute en local avant de l’envoyer dans le registre de conteneurs.  
 
-Run the application, mapping your computer's port 4000 to the container's exposed port 80:
+Exécutez l’application, en mappant le port 4000 de votre ordinateur au port 80 exposé du conteneur :
 
 ```bash
 docker run -d -p 4000:80 --name my-web-site helloworldapp
 ```
 
-*name* gives a name to the running container (instead of the container ID).
+*name* donne un nom au conteneur en cours d’exécution (au lieu d’utiliser l’ID de conteneur).
 
-Connect to the running container.  Open a web browser pointing to the IP address returned on port 4000, for example "http://localhost:4000". You should see the heading "Hello World!" display in the browser.
+Connectez le conteneur en cours d’exécution.  Ouvrez un navigateur web qui pointe vers l’adresse IP renvoyée sur le port 4000, par exemple « http://localhost:4000 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
 
 ![Hello World!][hello-world]
 
-To stop your container, run:
+Pour arrêter votre conteneur, exécutez :
 
 ```bash
 docker stop my-web-site
 ```
 
-Delete the container from your development machine:
+Supprimez le conteneur de votre ordinateur de développement :
 
 ```bash
 docker rm my-web-site
 ```
 
-## <a name="push-the-image-to-the-container-registry"></a>Push the image to the container registry
-After you verify that the application runs in Docker, push the image to your registry in Azure Container Registry.
+## <a name="push-the-image-to-the-container-registry"></a>Envoyer l’image dans le registre de conteneurs
+Après avoir vérifié que l’application s’exécute dans Docker, envoyez l’image à votre registre dans Azure Container Registry.
 
-Run `docker login` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
+Exécutez `docker login` pour vous connecter à votre Registre de conteneur à l’aide de vos [informations d’identification du Registre](../container-registry/container-registry-authentication.md).
 
-The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry for an automation scenario.  Or, you could login using your registry username and password.
+L’exemple suivant transmet l’ID et le mot de passe d’un [principal du service](../active-directory/active-directory-application-objects.md) Azure Active Directory . Par exemple, vous pouvez avoir affecté un principal du service à votre Registre pour un scénario d’automatisation.  Ou bien, vous pouvez vous connecter à l’aide de votre nom d’utilisateur de registre et mot de passe.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
-The following command creates a tag, or alias, of the image, with a fully qualified path to your registry. This example places the image in the `samples` namespace to avoid clutter in the root of the registry.
+La commande suivante crée une balise, ou un alias, de l’image, avec un chemin d’accès qualifié complet vers votre registre. Cet exemple place l’image dans l’espace de noms `samples` pour éviter un encombrement à la racine du registre.
 
 ```bash
 docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
 ```
 
-Push the image to your container registry:
+Envoyez l’image vers votre registre de conteneurs :
 
 ```bash
 docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="package-the-docker-image-with-yeoman"></a>Package the Docker image with Yeoman
-The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create an application with a single Docker container called *SimpleContainerApp*.
+## <a name="package-the-docker-image-with-yeoman"></a>Placer l’image Docker dans un package avec Yeoman
+Le Kit de développement logiciel (SDK) Service Fabric pour Linux comprend un générateur [Yeoman](http://yeoman.io/) qui facilite la création de votre application et l’ajout d’une image de conteneur. Nous allons utiliser Yeoman pour créer une application avec un seul conteneur Docker appelé *SimpleContainerApp*.
 
-To create a Service Fabric container application, open a terminal window and run `yo azuresfcontainer`.  
+Pour créer une application de conteneur Service Fabric, ouvrez une fenêtre de terminal et exécutez `yo azuresfcontainer`.  
 
-Name your application (for example, "mycontainer"). 
+Nommez votre application (par exemple, « mycontainer »). 
 
-Provide the URL for the container image in a container registry (for example, ""). 
+Fournissez l’URL de l’image de conteneurs dans un registre de conteneur (ex : « myregistry.azurecr.io/samples/helloworldapp »). 
 
-This image has a workload entry-point defined, so need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup). 
+Cette image possède un point d’entrée de charge de travail défini, vous devrez alors spécifier des commandes d’entrée explicitement (les commandes s’exécutent dans le conteneur et garderont le conteneur en exécution après le démarrage). 
 
-Specify an instance count of "1".
+Spécifiez un nombre d’instances de « 1 ».
 
-![Service Fabric Yeoman generator for containers][sf-yeoman]
+![Générateur Yeoman Service Fabric pour les conteneurs][sf-yeoman]
 
-## <a name="configure-port-mapping-and-container-repository-authentication"></a>Configure port mapping and container repository authentication
-Your containerized service needs an endpoint for communication.  Now add the protocol, port, and type to an `Endpoint` in the ServiceManifest.xml file under the 'Resources' tag. For this article, the containerized service listens on port 4000: 
+## <a name="configure-port-mapping-and-container-repository-authentication"></a>Configurer l’authentification de référentiel de conteneur et le mappage de port
+Votre service en conteneur a besoin d’un point de terminaison pour la communication.  Ajoutez ensuite le protocole, le port et le type à un `Endpoint` dans le fichier ServiceManifest.xml sous la balise « Ressources ». Dans cet article, le service en conteneur écoute le port 4000 : 
 
 ```xml
+
 <Resources>
     <Endpoints>
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
     </Endpoints>
   </Resources>
  ```
  
-Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
+Fournir `UriScheme` enregistre automatiquement le point de terminaison du conteneur avec le service Service Fabric Naming pour la découverte. Un exemple de fichier ServiceManifest.xml complet est fourni à la fin de cet article. 
 
-Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "myserviceTypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 4000 are mapped to port 80 on the container.  If your container needs to authenticate with a private repository, then add `RepositoryCredentials`.  For this article, add the account name and password for the myregistry.azurecr.io container registry. Ensure the policy is added under the 'ServiceManifestImport' tag corresponding to the right service package.
+Configurez le mappage port/hôte du conteneur en spécifiant une stratégie `PortBinding` dans `ContainerHostPolicies` dans le fichier ApplicationManifest.xml.  Dans cet article, `ContainerPort` correspond à 80 (le conteneur expose le port 80, tel que spécifié dans le fichier Dockerfile) et `EndpointRef` correspond à « myserviceTypeEndpoint » (le point de terminaison défini dans le manifeste de service).  Les demandes entrantes pour le service sur le port 4000 sont mappées au port 80 dans le conteneur.  Si votre conteneur doit s’authentifier auprès d’un référentiel privé, ajoutez `RepositoryCredentials`.  Pour cet article, ajoutez le nom de compte et le mot de passe du registre de conteneurs myregistry.azurecr.io. Assurez-vous que la stratégie est ajoutée sous la balise « ServiceManifestImport » correspondant au package de service approprié.
 
 ```xml
    <ServiceManifestImport>
@@ -198,57 +199,57 @@ Configure the container port-to-host port mapping by specifying a `PortBinding` 
     <Policies>
         <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
         </ContainerHostPolicies>
     </Policies>
    </ServiceManifestImport>
 ``` 
 
-## <a name="build-and-package-the-service-fabric-application"></a>Build and package the Service Fabric application
-The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal. To build and package the application, run the following:
+## <a name="build-and-package-the-service-fabric-application"></a>Créer et placer l’application Service Fabric dans un package
+Les modèles Yeoman Service Fabric incluent un script de build pour [Gradle](https://gradle.org/), que vous pouvez utiliser pour générer l’application à partir du terminal. Pour générer et placer l’application dans un package, exécutez ce qui suit :
 
 ```bash
 cd mycontainer
 gradle
 ```
 
-## <a name="deploy-the-application"></a>Deploy the application
-Once the application is built, you can deploy it to the local cluster using the Service Fabric CLI.
+## <a name="deploy-the-application"></a>Déployer l’application
+Une fois que l’application est générée, vous pouvez la déployer vers le cluster local à l’aide de l’interface de ligne de commande Service Fabric.
 
-Connect to the local Service Fabric cluster.
+Connectez-vous au cluster Service Fabric local.
 
 ```bash
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+Utilisez le script d’installation fourni dans le modèle pour copier le package d’application dans le magasin d’images du cluster, inscrire le type d’application et créer une instance de l’application.
 
 ```bash
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X). Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
+Ouvrez un navigateur et accédez à Service Fabric Explorer à l’adresse http://localhost:19080/Explorer (remplacez localhost par l’adresse IP privée de la machine virtuelle si vous utilisez Vagrant sur Mac OS X). Développez le nœud Applications et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
 
-Connect to the running container.  Open a web browser pointing to the IP address returned on port 4000, for example "http://localhost:4000". You should see the heading "Hello World!" display in the browser.
+Connectez le conteneur en cours d’exécution.  Ouvrez un navigateur web qui pointe vers l’adresse IP renvoyée sur le port 4000, par exemple « http://localhost:4000 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
 
 ![Hello World!][hello-world]
 
-## <a name="clean-up"></a>Clean up
-Use the uninstall script provided in the template to delete the application instance from the local development cluster and unregister the application type.
+## <a name="clean-up"></a>Nettoyer
+Utilisez le script de désinstallation fourni dans le modèle pour supprimer l’instance de l’application du cluster de développement local et annuler l’inscription du type d’application.
 
 ```bash
 ./uninstall.sh
 ```
 
-After you push the image to the container registry you can delete the local image from your development computer:
+Une fois l’image publiée dans le registre de conteneurs, vous pouvez supprimer l’image locale de votre ordinateur de développement :
 
 ```
 docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Complete example Service Fabric application and service manifests
-Here are the complete service and application manifests used in this article.
+## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Exemples complets de manifestes d’application et de service Service Fabric
+Voici les manifestes d’application et de service complets utilisés dans cet article.
 
 ### <a name="servicemanifestxml"></a>ServiceManifest.xml
 ```xml
@@ -289,7 +290,7 @@ Here are the complete service and application manifests used in this article.
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -311,7 +312,7 @@ Here are the complete service and application manifests used in this article.
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>
@@ -333,19 +334,19 @@ Here are the complete service and application manifests used in this article.
   </DefaultServices>
 </ApplicationManifest>
 ```
-## <a name="adding-more-services-to-an-existing-application"></a>Adding more services to an existing application
+## <a name="adding-more-services-to-an-existing-application"></a>Ajout d’autres services à une application existante
 
-To add another container service to an application already created using yeoman, perform the following steps:
+Pour ajouter un autre service de conteneur à une application déjà créée à l’aide de Yeoman, procédez comme suit :
 
-1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
-2. Run `yo azuresfcontainer:AddService`
+1. Accédez au répertoire à la racine de l’application existante.  Par exemple, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` est l’application créée par Yeoman.
+2. Exécutez `yo azuresfcontainer:AddService`.
 
 <a id="manually"></a>
 
 
-## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configure time interval before container is force terminated
+## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configurer l’intervalle de temps d’attente avant l’arrêt forcé du conteneur
 
-You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
+Vous pouvez configurer un intervalle de temps d’attente pour le runtime avant que le conteneur ne soit supprimé après le début de la suppression du service (ou d’un déplacement vers un autre nœud). Le fait de configurer l’intervalle de temps envoie la commande `docker stop <time in seconds>` au conteneur.   Pour plus d’informations, consultez [Arrêt du docker](https://docs.docker.com/engine/reference/commandline/stop/). L’intervalle de temps d’attente est spécifié dans la section `Hosting`. L’extrait de manifeste de cluster suivant montre comment définir l’intervalle d’attente :
 
 ```xml
 {
@@ -358,12 +359,12 @@ You can configure a time interval for the runtime to wait before the container i
         ]
 }
 ```
-The default time interval is set to 10 seconds. Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout. 
+L’intervalle de temps par défaut est défini sur 10 secondes. Étant donné que cette configuration est dynamique, une mise à niveau uniquement de la configuration sur un cluster met à jour le délai d’expiration. 
 
 
-## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Configure the runtime to remove unused container images
+## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Configurer le runtime pour supprimer les images conteneur inutilisées
 
-You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node.  To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
+Vous pouvez configurer le cluster Service Fabric pour supprimer des images conteneur inutilisées à partir du nœud. Cette configuration permet à l’espace disque d’être rétabli si trop d’images conteneur sont présentes sur le nœud.  Pour activer cette fonctionnalité, mettez à jour la section `Hosting` du manifeste de cluster, comme indiqué dans l’extrait de code suivant : 
 
 
 ```xml
@@ -379,14 +380,14 @@ You can configure the Service Fabric cluster to remove unused container images f
 } 
 ```
 
-For images that should not be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
+Vous pouvez les spécifier les images qui ne doivent pas être supprimées à l’aide du paramètre `ContainerImagesToSkip`. 
 
 
-## <a name="next-steps"></a>Next steps
-* Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
-* Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
-* Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
-* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
+## <a name="next-steps"></a>Étapes suivantes
+* En savoir plus sur l’exécution des [conteneurs sur Service Fabric](service-fabric-containers-overview.md).
+* Consultez le didacticiel [Déployer une application .NET dans un conteneur vers Azure Service Fabric](service-fabric-host-app-in-a-container.md).
+* En savoir plus sur le [cycle de vie des applications](service-fabric-application-lifecycle.md) Service Fabric.
+* Consulter les [exemples de code de conteneur Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-containers) sur GitHub.
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png

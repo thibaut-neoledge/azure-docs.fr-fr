@@ -12,32 +12,33 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/21/2017
+ms.date: 9/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Créer votre première application Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [Java - Linux (préversion)](service-fabric-create-your-first-linux-application-with-java.md)
+> * [C# - Linux (préversion)](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
-Service Fabric fournit des Kits de développement logiciel (SDK) pour générer des services Linux dans .NET Core et Java. Dans ce didacticiel, nous apprenons à créer une application pour Linux et à générer un service à l’aide de C# (.NET Core).
+Service Fabric fournit des Kits de développement logiciel (SDK) pour générer des services Linux dans .NET Core et Java. Dans ce didacticiel, nous apprenons à créer une application pour Linux et à générer un service à l’aide de C# sur .NET Core 2.0.
 
 ## <a name="prerequisites"></a>Composants requis
 Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement Linux](service-fabric-get-started-linux.md). Si vous utilisez Mac OS X, vous pouvez [configurer un environnement Linux à boîtier unique sur une machine virtuelle à l’aide de Vagrant](service-fabric-get-started-mac.md).
 
 Il vous sera également utile d’installer l’[interface de ligne de commande Service Fabric](service-fabric-cli.md)
 
-### <a name="install-and-set-up-the-generators-for-csharp"></a>Installer et configurer les générateurs de CSharp
-Service Fabric fournit des outils de génération de modèles automatique qui vous aideront à créer une application Service Fabric CSharp à partir du terminal à l’aide du générateur de modèles Yeoman. Suivez les étapes ci-dessous pour vous assurer que le générateur de modèle yeoman Service Fabric de CSharp est en état de fonctionnement sur votre machine.
+### <a name="install-and-set-up-the-generators-for-c"></a>Installer et configurer des générateurs pour C#
+Service Fabric fournit des outils de génération de modèles automatique qui vous aideront à créer des applications Service Fabric à partir d’un terminal, à l’aide des générateurs de modèle Yeoman. Suivez ces étapes pour configurer les générateurs de modèle Service Fabric Yeoman pour C# :
+
 1. Installer nodejs et NPM sur votre machine
 
   ```bash
@@ -56,7 +57,7 @@ Service Fabric fournit des outils de génération de modèles automatique qui vo
   ```
 
 ## <a name="create-the-application"></a>Création de l’application
-Une application Service Fabric peut contenir un ou plusieurs services, chacun ayant un rôle précis pour la fourniture de la fonctionnalité d’application. Le générateur Service Fabric [Yeoman](http://yeoman.io/) de CSharp, que vous avez installé lors de la dernière étape, facilite la création de votre premier service et vous aide à ajouter de nouveaux services ultérieurement. Nous utilisons Yeoman pour créer une application avec un seul service.
+Une application Service Fabric peut contenir un ou plusieurs services, chacun ayant un rôle précis pour la fourniture de la fonctionnalité d’application. Le générateur Service Fabric [Yeoman](http://yeoman.io/) pour C#, que vous avez installé lors de la dernière étape, facilite la création de votre premier service et vous aide à ajouter de nouveaux services ultérieurement. Nous utilisons Yeoman pour créer une application avec un seul service.
 
 1. Dans un terminal, tapez la commande suivante pour commencer la génération de modèles automatique : `yo azuresfcsharp`
 2. Donnez un nom à votre application.
@@ -126,10 +127,9 @@ Pour ajouter un autre service à une application déjà créée à l’aide de `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Présentation des Acteurs fiables Service Fabric](service-fabric-reliable-actors-introduction.md)
 * [Interaction avec les clusters Service Fabric à l’aide de l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
 * En savoir plus sur les [options de prise en charge de Service Fabric](service-fabric-support.md)
-* [Prise en main de l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
+* [Bien démarrer avec l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png

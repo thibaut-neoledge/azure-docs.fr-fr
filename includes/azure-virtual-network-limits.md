@@ -22,27 +22,36 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
-| Réseaux virtuels |50 |500 |
-| Nombre de sous-réseaux par réseau virtuel |1 000 |contacter le support |
+| Réseaux virtuels |50 |1 000 |
+| Nombre de sous-réseaux par réseau virtuel |1 000 |10000 |
+| Homologations VNet par réseau virtuel |10 |50 |
 | Serveurs DNS par réseau virtuel |9 |25 |
 | Adresses IP privées par réseau virtuel |4096 |8 192 |
-| Adresses IP privées par interface réseau |50 |contacter le support technique |
+| Adresses IP privées par interface réseau |256 |1 024 |
 | Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500K |500K |
-| Interfaces réseau (NIC) |300 |10000 |
-| Groupes de sécurité réseau (NSG) |100 |400 |
+| Interfaces réseau (NIC) |350 |20000 |
+| Groupes de sécurité réseau (NSG) |100 |5 000 |
 | Règles de groupe de sécurité réseau par groupe de sécurité réseau |200 |500 |
+| Adresses IP et plages spécifiées pour la source ou la destination dans une règle de sécurité |2000 |4000 |
+| Groupes de sécurité d’application |200 |500 |
+| Groupes de sécurité d’application par configuration IP, par carte réseau |10 |20 |
+| Configurations IP par groupe de sécurité d’application |1 000 |4000 |
+| Groupes de sécurité d’application qui peuvent être spécifiés dans toutes les règles de sécurité d’un groupe de sécurité réseau |50 |100 |
 | Tables d'itinéraires définis par l'utilisateur |100 |200 |
 | Itinéraires définis par l'utilisateur par table d'itinéraire |100 |400 |
-| Adresses IP publiques (dynamiques) |60 |contacter le support technique |
-| Adresses IP publiques (statiques) |20 |contacter le support technique |
-| Équilibreurs de charge (accès interne et Internet) |100 |contacter le support technique |
-| Règles d’équilibreur de charge par équilibreur de charge |150 |150 |
-| Règles d’équilibreur de charge par configuration IP |299 |299 |
-| Protocole Internet frontal public par équilibreur de charge |10 |30 |
-| Protocole Internet frontal privé par équilibreur de charge |10 |contacter le support technique |
-| Homologations VNet par réseau virtuel |10 |50 |
+| Adresses IP publiques (dynamiques) |(Basic) |60 |contacter le support technique |
+| Adresses IP publiques (statiques) |(Basic) 20 |contacter le support technique |
+| Adresses IP publiques (statiques) |(Standard) 20 |contacter le support technique |
+| Équilibreurs de charge (accès interne et Internet, Basic et Standard) |100 |1 000 |
+| Règles d’équilibreur de charge (Basic) par équilibreur de charge |150 |250 |
+| Règles d’équilibreur de charge (Standard) par équilibreur de charge | 1250 | 1 500|
+| Règles d’équilibreur de charge (Basic) par configuration IP |250 |250 |
+| Protocole Internet frontal public par équilibreur de charge (Basic) |10 |30 |
+| Protocole Internet frontal public par équilibreur de charge (Standard) | 10 | 600 |
+| Protocole Internet frontal privé par équilibreur de charge (Basic) |10 |contacter le support technique |
+| Protocole Internet frontal privé par équilibreur de charge (Standard) | 10 | 600 |
 | Certificats racines point à site pour chaque passerelle VPN |20 |20 |
-| Configurations IP secondaires par réseau virtuel |1 000 |contacter le support |
+
 
 Pour accroître les limites par défaut, [contactez le support technique](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

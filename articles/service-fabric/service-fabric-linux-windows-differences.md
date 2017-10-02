@@ -1,6 +1,6 @@
 ---
 title: "Différences Azure Service Fabric entre Linux et Windows | Microsoft Docs"
-description: "Différences entre la version préliminaire d’Azure Service Fabric sur Linux et Azure Service Fabric sur Windows."
+description: "Différences entre le service Azure Service Fabric sur Linux et Windows."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,36 +12,28 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 09/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7b80bb7d4a4e6a1b4cf47ce87200f47339785c53
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 25976ba919454e26f1dd7965de5db7c4f80b9355
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Différences entre Service Fabric sur Linux (version préliminaire) et Windows (mise à la disposition générale)
+# <a name="differences-between-service-fabric-on-linux-and-windows"></a>Différences entre Service Fabric sur Linux et Windows
 
-Étant donné que Service Fabric sur Linux est une version préliminaire, certaines fonctionnalités sont prises en charge sur Windows, mais pas encore sur Linux. Les ensembles de fonctionnalités seront identiques lors de la mise à disposition générale de Service Fabric sur Linux. Avec les versions à venir, cet écart de fonctionnalités sera réduit. Les différences suivantes existent entre les versions les plus récentes disponibles (c’est-à-dire entre la version 5.6 pour Windows et la version 5.5 pour Linux) : 
+Il existe certaines fonctionnalités qui sont prises en charge sur Windows, mais pas encore sur Linux. Dans le futur, les jeux de fonctionnalités seront à parité et cet écart de fonctionnalités diminuera à chaque version. Les différences suivantes existent entre les versions disponibles les plus récentes (c’est-à-dire entre la version 6.0 pour Windows et la version 6.0 pour Linux) : 
 
-* Les collections fiables (et les services avec état fiable) 
-* ReverseProxy 
-* Le programme d’installation autonome 
-* La validation de schéma XML pour les fichiers de manifeste 
-* La redirection de la console 
-* Le service d’analyse des erreurs
-* Docker Compose et les pilotes de journalisation et de volume pour les conteneurs 
-* La gestion des ressources pour les conteneurs et les services 
-* Service DNS
-* La prise en charge d’Azure Active Directory
-* Des équivalents de commandes d’interface de ligne de commande de certaines commandes Powershell 
-* Seul un sous-ensemble de commandes Powershell peut être exécuté sur un cluster Linux (comme expliqué en détail dans la section suivante).
+* Tous les modèles de programmation sont en version préliminaire (Java / C# Reliable Actors, services sans état Reliable et services avec état Reliable)
+* Envoy (ReverseProxy) est en préversion sur Linux
+* Le programme d’installation autonome n’est pas encore disponible sur Linux.
+* Redirection de la console (non prise en charge dans les clusters de production Windows ou Linux)
+* Le Service d’analyse d’erreur (FAS) sur Linux
+* Service DNS pour les services Service Fabric (le service DNS est pris en charge pour les conteneurs sur Linux)
+* Équivalents de commande de l’interface de ligne de commande de certaines commandes PowerShell (liste ci-dessous, dont la plupart ne s’appliquent qu’aux clusters autonomes)
 
->[!NOTE]
->La redirection de console n’est pas prise en charge dans les clusters de production, même sur Windows.
-
-Les outils de développement sont également différents entre Windows et Linux. VisualStudio, Powershell, VSTS et ETW sont utilisés sur Windows, tandis que Yeoman, Eclipse, Jenkins et LTTng sont utilisés sur Linux.
+Les outils de développement sont également différents entre Windows et Linux. Visual Studio, PowerShell, VSTS et ETW sont utilisés sur Windows, tandis que Yeoman, Eclipse, Jenkins et LTTng sont utilisés sur Linux.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Applets de commande PowerShell ne fonctionnant pas sur un cluster Linux Service Fabric
 
@@ -67,7 +59,6 @@ Les outils de développement sont également différents entre Windows et Linux.
 * Start-ServiceFabricPartitionRestart
 * Stop-ServiceFabricChaos
 * Stop-ServiceFabricTestCommand
-* Cmd
 * Get-ServiceFabricNodeConfiguration
 * Get-ServiceFabricClusterConfiguration
 * Get-ServiceFabricClusterConfigurationUpgradeStatus

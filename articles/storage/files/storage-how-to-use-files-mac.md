@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc3d67745afb8bbffe7ec3462e995104daff9632
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montage du partage de fichiers Azure via SMB avec MacOS
-[Stockage Fichier Azure](../storage-dotnet-how-to-use-files.md) est un service de Microsoft qui vous permet de créer et d’utiliser des partages de fichiers réseau dans Azure en utilisant la norme industrielle. Les partages de fichiers Azure peuvent être montés dans MacOS Sierra (10.12) et El Capitan (10.11). Cet article expose deux méthodes de montage d’un partage de fichiers Azure sur MacOS avec l’interface utilisateur Finder et à l’aide de Terminal.
+[Azure Files](storage-files-introduction.md) est un service de Microsoft qui vous permet de créer et d’utiliser des partages de fichiers réseau dans Azure en utilisant la norme du secteur. Les partages de fichiers Azure peuvent être montés dans MacOS Sierra (10.12) et El Capitan (10.11). Cet article expose deux méthodes de montage d’un partage de fichiers Azure sur MacOS avec l’interface utilisateur Finder et à l’aide de Terminal.
 
 > [!Note]  
 > Avant de monter un partage de fichiers Azure via SMB, il est recommandé de désactiver la signature de paquet SMB. Dans le cas contraire, cela risque d’entraîner des dysfonctionnements lors de l’accès au partage de fichiers Azure depuis MacOS. Votre connexion SMB est chiffrée. Cela n’affecte donc pas la sécurité de votre connexion. À partir du terminal, utilisez les commandes suivantes pour désactiver la signature de paquet SMB, conformément à la[rubrique d’aide Apple sur la désactivation de la signature des paquets SMB](https://support.apple.com/HT205926) :  
@@ -65,7 +65,7 @@ ms.lasthandoff: 08/21/2017
     ![Une capture instantanée du partage de fichiers Azure monté](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur le stockage de fichiers Azure, consultez ces liens.
+Consultez ces liens pour en savoir plus sur Azure Files.
 
 * [Rubrique d’aide Apple : connexion au partage de fichiers sur Mac](https://support.apple.com/HT204445)
 * [FAQ](../storage-files-faq.md)

@@ -16,8 +16,8 @@ Vous disposez déjà d’une définition OpenAPI pour votre fonction. Il s’agi
 
     |Paramètre|Description|
     |--------|------------|
-    |**Mode d’exportation**|Sélectionnez **Express** pour générer automatiquement l’API personnalisée. Quand vous sélectionnez l’option **Manuel**, la définition de l’API est exportée, mais vous devez ensuite l’importer dans PowerApps et Microsoft Flow manuellement. Pour plus d’informations, consultez [Exporter vers PowerApps et Microsoft Flow](https://docs.microsoft.com/azure/app-service/app-service-export-api-to-powerapps-and-flow?toc=%2fazure%2fazure-functions%2ftoc.json).|
-    |**Environment**|Sélectionnez l’environnement dans lequel l’API personnalisée doit être enregistrée. Pour plus d’informations, consultez [Vue d’ensemble des environnements (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) ou [Vue d’ensemble des environnements (Microsoft Flow)] (https://us.flow.microsoft.com/documentation/environments-overview-admin/.|
+    |**Mode d’exportation**|Sélectionnez **Express** pour générer automatiquement l’API personnalisée. Quand vous sélectionnez l’option **Manuel**, la définition de l’API est exportée, mais vous devez ensuite l’importer dans PowerApps et Microsoft Flow manuellement. Pour plus d’informations, consultez [Exporter vers PowerApps et Microsoft Flow](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md).|
+    |**Environment**|Sélectionnez l’environnement dans lequel l’API personnalisée doit être enregistrée. Pour en savoir plus, consultez [Vue d’ensemble des environnements](https://powerapps.microsoft.com/tutorials/environments-overview/) ou [Vue d’ensemble des environnements (Microsoft Flow)](https://us.flow.microsoft.com/documentation/environments-overview-admin/).|
     |**Nom de l’API personnalisée**|Entrez un nom tel que `Turbine Repair`.|
     |**Nom de la clé API**|Entrez le nom que les concepteurs d’applications et de flux doivent voir dans l’interface utilisateur de l’API personnalisée. Notez que l’exemple comprend des informations utiles.|
  

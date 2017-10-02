@@ -3,7 +3,7 @@ title: "Présentation du stockage Azure | Microsoft Docs"
 description: "Présentation du stockage Azure, stockage de données de Microsoft dans le cloud."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 163f35682a4fdaa971f715c7429153bfdcf6a584
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a854a0033c365336c5ab13fb65524d84da92618c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-<!-- this is the same version that is in the MVC branch -->
+
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduction à Microsoft Azure Storage
 
 Le stockage Microsoft Azure est un service cloud géré par Microsoft qui fournit un stockage hautement disponible, sécurisé, durable, évolutif et redondant. Microsoft prend en charge la maintenance et gère les problèmes critiques pour vous. 
 
-Le stockage Azure se compose de trois services de données : le stockage d’objets blob, le stockage de fichiers et le stockage de files d’attente. Le stockage d’objets blob prend en charge le stockage Standard et Premium, mais n’utilise que des instances SSD pour une rapidité d’action optimale avec le stockage Premium. Le stockage des données peu utilisées est une autre fonctionnalité qui vous permet de stocker d’importants volumes de données rarement sollicitées à un coût faible.
+Le stockage Azure se compose de trois services de données : le stockage d’objets blob, le stockage de fichiers et le stockage de files d’attente. Le stockage d’objets blob prend en charge le stockage Standard et Premium, mais n’utilise que des instances SSD pour une rapidité d’action optimale avec le stockage Premium. Le stockage froid constitue une autre fonctionnalité qui vous permet de stocker d’importants volumes de données rarement sollicitées à un coût faible.
 
 Cet article vous détaillera :
 * les services de stockage Azure
@@ -37,13 +37,9 @@ Cet article vous détaillera :
 * comment transférer des données vers le stockage ou hors du stockage
 * les nombreuses bibliothèques de client de stockage disponibles. 
 
-
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
-
+Pour être opérationnel et exécuter avec le stockage Azure rapidement, consultez l’un des démarrages rapides suivants :
+* [Créer un compte de stockage à l’aide de PowerShell](storage-quickstart-create-storage-account-powershell.md)
+* [Créer un compte de stockage à l’aide de l’interface de ligne de commande](storage-quickstart-create-storage-account-cli.md)
 
 ## <a name="introducing-the-azure-storage-services"></a>Présentation des services Azure Storage
 
@@ -55,7 +51,7 @@ Les objets blob sont essentiellement des fichiers semblables à ceux que vous st
 
 Après avoir stocké les fichiers dans le stockage blob, vous pouvez y accéder depuis n’importe où dans le monde via des URL, l’interface REST ou l’une des bibliothèques clientes de stockage du Kit de développement logiciel (SDK) Azure. Les bibliothèques clientes de stockage sont disponibles dans plusieurs langages, tels que Node.js, Java, PHP, Ruby, Python et .NET. 
 
-Il existe trois types d’objets blob : les objets blob de blocs, les objets blob d’ajouts et les objets blob de pages (utilisés avec les fichiers VHD).
+Il existe trois types de blob : les blobs de blocs, les blobs de pages (utilisés pour les fichiers VHD) et les blobs d’ajout.
 
 * Les objets blob de blocs servent à stocker des fichiers ordinaires d’une taille maximale approximative de 4,7 To. 
 * Les objets blob de pages servent à stocker les fichiers à accès aléatoire d’une taille maximale de 8 To. Ces objets sont utilisés avec les fichiers VHD qui soutiennent les machines virtuelles.
@@ -63,11 +59,10 @@ Il existe trois types d’objets blob : les objets blob de blocs, les objets bl
 
 Pour les jeux de données très volumineux où les contraintes du réseau rendent irréaliste le téléchargement de données vers/depuis le stockage d’objets blob par le biais du réseau, vous pouvez expédier un ensemble de disques durs à Microsoft pour importer ou exporter les données directement à partir du centre de données. Consultez [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](../storage-import-export-service.md).
 
-## <a name="file-storage"></a>Stockage Fichier
+## <a name="azure-files"></a>Azure Files
+[Azure Files](../files/storage-files-introduction.md) vous permet de configurer les partages de fichiers réseau hautement disponibles qui sont accessibles à l’aide du protocole Server Message Block (SMB) standard. Cela signifie que plusieurs machines virtuelles peuvent partager les mêmes fichiers avec accès en lecture et en écriture. Vous pouvez également consulter les fichiers à l’aide de l’interface REST ou des bibliothèques clientes de stockage. 
 
-Le service Azure Files vous permet de configurer des partages de fichiers réseau hautement disponibles, accessibles via le protocole Server Message Block (SMB) standard. Cela signifie que plusieurs machines virtuelles peuvent partager les mêmes fichiers avec accès en lecture et en écriture. Vous pouvez également consulter les fichiers à l’aide de l’interface REST ou des bibliothèques clientes de stockage. 
-
-Ce qui distingue le stockage de fichiers Azure des fichiers sur un partage de fichiers d’entreprise, c’est que vous pouvez accéder aux fichiers depuis n’importe quelle région du monde via une URL qui pointe vers le fichier et inclut un jeton de signature d’accès partagé (SAP). Vous pouvez générer des jetons SAP, qui autorisent un accès spécifique à une ressource privée pour une durée définie. 
+Ce qui distingue Azure Files des fichiers sur un partage de fichiers d’entreprise est le fait de pouvoir accéder aux fichiers depuis n’importe où dans le monde, à l’aide d’une URL qui pointe vers le fichier et inclut un jeton de signature (SAP) d’accès partagé. Vous pouvez générer des jetons SAP, qui autorisent un accès spécifique à une ressource privée pour une durée définie. 
 
 Les partages de fichiers peuvent être utilisés dans de nombreux scénarios courants : 
 
@@ -85,14 +80,13 @@ Le service de files d’attente Azure sert à stocker et à récupérer des mess
 
 Par exemple, vous souhaitez que vos clients soient en mesure de charger des images, et vous souhaitez créer des miniatures de chaque image. La procédure normale serait de faire patienter votre client, le temps que vous créiez les miniatures tout en chargeant les images. L’utilisation d’une file d’attente est une autre possibilité. Lorsque le client a terminé le chargement d’images, écrivez un message dans la file d’attente. Utilisez ensuite une fonction Azure afin de récupérer le message dans la file d’attente pour créer les miniatures. Chaque étape de ce processus peut être développée séparément, vous offrant ainsi plus de contrôle lorsque vous le réglez.
 
-<!-- this bookmark is used by other articles; you'll need to update them before this goes into production ROBIN-->
 ## <a name="table-storage"></a>Stockage de tables
-<!-- add a link to the old table storage to this paragraph once it's moved -->
-Le stockage de tables Azure Standard fait désormais partie de Cosmos DB. Le service de tables Premium pour le stockage de tables Azure est également disponible et propose des tables optimisées pour le débit, la distribution globale et les index secondaires automatiques. Pour en savoir plus et essayer la nouvelle expérience premium, consultez [Azure Cosmos DB : Table API](https://aka.ms/premiumtables).
+
+Le stockage de tables Azure Standard fait désormais partie de Cosmos DB. Pour consulter cette documentation, voir [Vue d’ensemble du service de Table Azure](../../cosmos-db/table-storage-overview.md). Le service de tables Premium pour le stockage de tables Azure est également disponible et propose des tables optimisées pour le débit, la distribution globale et les index secondaires automatiques. Pour en savoir plus et essayer la nouvelle expérience premium, consultez [Azure Cosmos DB : Table API](https://aka.ms/premiumtables).
 
 ## <a name="disk-storage"></a>Stockage sur disque
 
-L’équipe du Stockage Azure dispose aussi du service Disks, qui inclut toutes les fonctionnalités des disques gérés et non gérés utilisées par les machines virtuelles. Pour en savoir plus sur ces fonctionnalités, consultez la [documentation Compute Service](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+Le stockage Azure comprend également des fonctionnalités de disque géré et non géré utilisées par des machines virtuelles. Pour en savoir plus sur ces fonctionnalités, consultez la [documentation Compute Service](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Types de compte de stockage 
 
@@ -125,7 +119,7 @@ Le niveau d’accès « chaud » désigne les fichiers souvent sollicités : 
 
 Chaque compte de stockage dispose deux clés d’authentification, qu’il est possible d’utiliser pour n’importe quelle opération. Vous pouvez ainsi passer de temps en temps d’une clé à l’autre et améliorer la sécurité. Il est essentiel que ces clés soient sécurisées, car leur possession, avec le nom du compte, offre un accès illimité à toutes les données du compte de stockage. 
 
-Cette section présente deux façons de sécuriser un compte de stockage et ses données. Pour en savoir plus sur la sécurisation de votre compte de stockage et de vos données, consultez le [guide de sécurité pour le stockage Azure](storage-security-guide.md).
+Cette section présente deux façons de sécuriser le compte de stockage et ses données. Pour en savoir plus sur la sécurisation de votre compte de stockage et de vos données, consultez le [guide de sécurité pour le stockage Azure](storage-security-guide.md).
 
 ### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Sécuriser l’accès aux comptes de stockage à l’aide d’Azure AD
 
@@ -145,7 +139,7 @@ Il existe deux types de chiffrement de base pour les services de stockage.
 
 ### <a name="encryption-at-rest"></a>Chiffrement au repos 
 
-Vous pouvez activer le chiffrement du service de stockage (SSE) pour le service Fichiers (version préliminaire) ou pour le service Blob d’un compte de stockage Azure. S’il est activé, toutes les données écrites dans ce service sont chiffrées avant l’écriture. Lorsque vous lisez les données, elles sont déchiffrées avant d’être retournées. 
+Vous pouvez activer le chiffrement du service de stockage (SSE) pour le service Fichiers (version préliminaire) ou pour le service Blob d’un compte de stockage Azure. En cas d’activation, toutes les données écrites dans ce service sont chiffrées avant l’écriture. Lorsque vous lisez les données, elles sont déchiffrées avant d’être retournées. 
 
 ### <a name="client-side-encryption"></a>chiffrement côté client
 
@@ -159,7 +153,7 @@ Pour en savoir plus sur la sécurisation de votre compte de stockage et sur le c
 
 ## <a name="replication"></a>Réplication
 
-Pour assurer la durabilité de vos données, le stockage Azure est capable de conserver (et de gérer) plusieurs copies de vos données. On parle alors de réplication, ou parfois de redondance. Lorsque vous configurez votre compte de stockage, vous choisissez le type de réplication. Dans la plupart des cas, ce paramètre peut être modifié après avoir configuré le compte de stockage. 
+Pour assurer la durabilité de vos données, le stockage Azure est capable de conserver (et de gérer) plusieurs copies de vos données. On parle alors de réplication, ou parfois de redondance. Lorsque vous configurez votre compte de stockage, vous choisissez un type de réplication. Dans la plupart des cas, ce paramètre peut être modifié après avoir configuré le compte de stockage. 
 
 Tous les comptes de stockage disposent du **stockage localement redondant (LRS)**. Cela signifie que trois copies de vos données sont gérées par le stockage Azure dans le centre de données spécifié lors de la configuration du compte de stockage. Lorsque les modifications sont validées sur une copie, les deux autres copies sont mises à jour avant de retourner les cas de réussite. Cela signifie que les trois réplicas sont toujours synchronisées. En outre, les trois copies résident dans des domaines d’erreur et des domaines de mise à niveau distincts, ce qui signifie que vos données sont disponibles même si un nœud de stockage contenant vos données tombe en panne ou est mis hors ligne en vue d’une mise à jour. 
 
@@ -227,11 +221,9 @@ Les ressources Azure Storage sont accessibles par n’importe quel langage capab
 * [En savoir plus sur le stockage de fichiers](../storage-files-introduction.md)
 * [En savoir plus sur le stockage de file d’attente](../queues/storage-queues-introduction.md)
 
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
+Pour être opérationnel et exécuter avec le stockage Azure rapidement, consultez l’un des démarrages rapides suivants :
+* [Créer un compte de stockage à l’aide de PowerShell](storage-quickstart-create-storage-account-powershell.md)
+* [Créer un compte de stockage à l’aide de l’interface de ligne de commande](storage-quickstart-create-storage-account-cli.md)
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
@@ -273,9 +265,6 @@ To learn more about Azure Storage, explore these resources:
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Create a storage account](../storage-create-storage-account.md)
 
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
-<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 -->
 
 ### <a name="for-administrators"></a>Pour les administrateurs
@@ -284,15 +273,15 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-net-developers"></a>Pour les développeurs .NET
 * [Prise en main d’Azure Blob Storage à l’aide de .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [Développer pour Azure Files avec .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Prise en main d’Azure Table Storage à l’aide de .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Prise en main du stockage de files d’attente Azure à l’aide de .NET](../storage-dotnet-how-to-use-queues.md)
-* [Prise en main d’Azure File Storage sur Windows](../storage-dotnet-how-to-use-files.md)
 
 ### <a name="for-javaandroid-developers"></a>Pour les développeurs Java/Android
 * [Utilisation du stockage d'objets blob à partir de Java](../blobs/storage-java-how-to-use-blob-storage.md)
+* [Développer pour Azure Files avec Java](../files/storage-java-how-to-use-file-storage.md)
 * [Utilisation du stockage de tables à partir de Java](../../cosmos-db/table-storage-how-to-use-java.md)
 * [Utilisation du stockage de files d'attente à partir de Java](../storage-java-how-to-use-queue-storage.md)
-* [Utilisation du stockage de fichiers à partir de Java](../storage-java-how-to-use-file-storage.md)
 
 ### <a name="for-nodejs-developers"></a>Pour les développeurs Node.js
 * [Utilisation du stockage d'objets blob à partir de Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
@@ -311,7 +300,6 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-python-developers"></a>Pour les développeurs Python
 * [Utilisation du stockage d'objets blob à partir de Python](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Développer pour Azure Files avec Python](../files/storage-python-how-to-use-file-storage.md)
 * [Utilisation du stockage de tables à partir de Python](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Utilisation du stockage de files d'attente à partir de Python](../storage-python-how-to-use-queue-storage.md)   
-* [Utilisation du stockage de fichiers à partir de Python](../storage-python-how-to-use-file-storage.md) 
--->
+* [Utilisation du stockage de files d'attente à partir de Python](../storage-python-how-to-use-queue-storage.md)
