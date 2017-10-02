@@ -48,6 +48,6 @@ sections:
         className: cardsD
         items:
           - title: Ligne de commande
-            html: <p><a href="/cli/azure/container">Interface de ligne de commande Azure</a></p>
+            html: '<p><a href="/cli/azure/container">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>'
           - title: REST
             html: "<p><a href=\"/rest/api/container-instances\">Référence d’API\_REST</a></p>"
