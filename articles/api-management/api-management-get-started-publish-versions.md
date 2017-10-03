@@ -34,7 +34,7 @@ Au cours de cette procédure pas à pas, nous allons ajouter une nouvelle versio
 ## <a name="add-a-new-version"></a>Ajouter une nouvelle version
 ![Menu contextuel de l’API : ajouter une version](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 1. Accédez à la page des **API** au sein du service Gestion des API sur le portail Azure.
-2. Sélectionnez **API Conference** dans la liste des API, puis le menu contextuel (**... **) en regard de celle-ci.
+2. Sélectionnez **API Conference** dans la liste des API, puis le menu contextuel (**...**) en regard de celle-ci.
 3. Sélectionnez **+ Ajouter une version**.
 
     > [!TIP]

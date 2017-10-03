@@ -581,7 +581,7 @@ Dans cet exercice, nous avons déjà exploré et généré les données dans SQL
 2. Dans le panneau **Propriétés**, sélectionnez **Azure SQL Database** dans le champ **Source de données**.
 3. Dans le champ **Nom du serveur de base de données** , entrez le nom DNS de la base de données. Format : `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Dans le champ **Nom de la base de données** , entrez le nom de la base de données.
-5. Entrez le **nom d’utilisateur SQL** dans le champ ****Nom de compte d’utilisateur du serveur et le mot de passe dans le champ** Mot de passe de compte d’utilisateur du serveur.
+5. Entrez le **nom d’utilisateur SQL** dans le champ **Nom de compte d’utilisateur du serveur et le mot de passe dans le champ** Mot de passe de compte d’utilisateur du serveur.
 6. Activez l’option **Accepter tout certificat de serveur** .
 7. Dans la zone de texte **Requête de base de données** , collez la requête qui extrait les champs de base de données nécessaires (y compris les champs calculés tels que les étiquettes) et qui sous-échantillonne les données pour obtenir la taille d’échantillon souhaitée.
 

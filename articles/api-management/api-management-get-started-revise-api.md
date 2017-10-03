@@ -37,7 +37,7 @@ Au cours de cette procédure pas à pas nous ajoutons une révision, nous lui aj
 3. Sélectionnez **+ Ajouter une révision**
 
     > [!TIP]
-    > Vous pouvez également choisir **Ajouter une révision** dans le menu contextuel (**... **) de l’API.
+    > Vous pouvez également choisir **Ajouter une révision** dans le menu contextuel (**...**) de l’API.
 ![Menu révisions situé près du haut de l’écran](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 4. Indiquez une description pour la nouvelle révision qui vous aidera à vous souvenir à quoi elle sert.
@@ -63,7 +63,7 @@ Au cours de cette procédure pas à pas nous ajoutons une révision, nous lui aj
 ## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>Rendre cette révision actuelle et ajouter une entrée au journal des modifications
 1. Sélectionnez l’onglet **Révisions** dans le menu situé en haut de la page.
 ![Menu révision sur l’écran révision.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
-2. Ouvrez le menu contextuel (**... **) pour **Revision 2**.
+2. Ouvrez le menu contextuel (**...**) pour **Revision 2**.
 3. Sélectionnez **Rendre actuel**.
 ![Rendre la révision actuelle et l’indiquer dans le journal des modifications](media/api-management-getstarted-revise-api/MakeCurrent.PNG)
 4. Sélectionnez **Publier sur le journal des modifications public de cette API**
