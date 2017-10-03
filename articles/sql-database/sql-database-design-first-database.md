@@ -57,7 +57,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
 
-2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans cette même**** page.
+2. Dans la page **Nouveau** , sélectionnez **Bases de données** , puis **Créer** sous **SQL Database** dans cette **même** page.
 
    ![créer une base de données vide](./media/sql-database-design-first-database/create-empty-database.png)
 
