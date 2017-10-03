@@ -243,7 +243,7 @@ Si ce voyant clignote, le contrôleur est actif et l’autre contrôleur est en 
 
 | Étiquette | Description |
 |:--- |:--- |
-| 1 à&6; |Ports réseau DATA 0 – 5 |
+| 1 à 6 |Ports réseau DATA 0 – 5 |
 | 7 |Voyant LED bleu |
 
 ## <a name="next-steps"></a>Étapes suivantes
