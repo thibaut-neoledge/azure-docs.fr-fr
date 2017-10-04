@@ -39,6 +39,8 @@
           href: backup-azure-vm-backup-faq.md
         - name: FAQ sur la sauvegarde de fichiers-dossiers à l’aide de l’agent de sauvegarde Azure
           href: backup-azure-file-folder-backup-faq.md
+        - name: FAQ sur la mise à niveau automatique du coffre de sauvegarde
+          href: backup-upgrade-backup-vault.md
     - name: Contrôle d’accès en fonction du rôle
       href: backup-rbac-rs-vault.md
     - name: Sécurité pour les sauvegardes hybrides

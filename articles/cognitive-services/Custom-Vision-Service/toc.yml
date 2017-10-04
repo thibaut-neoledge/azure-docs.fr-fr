@@ -1,33 +1,35 @@
-- name: Custom Vision Documentation
+- name: Documentation de Vision personnalisée
   href: ../index.md
-- name: Overview
+- name: Vue d'ensemble
   href: home.md
-- name: Quickstarts
+- name: Démarrages rapides
   expanded: true
   items:
-    - name: Build a classifier
+    - name: Créer un classifieur
       href: getting-started-build-a-classifier.md
-    - name: Improve your classifier
+    - name: Améliorer votre classifieur
       href: getting-started-improving-your-classifier.md
-    - name: Test your model
+    - name: Tester votre modèle
       href: test-your-model.md
-    - name: Use the prediction API
+    - name: Utiliser l’API de prédiction
       href: use-prediction-api.md
-- name: Tutorials
+    - name: Exporter votre modèle sur votre mobile
+      href: export-your-model.md
+- name: Didacticiels
   items:
-    - name: 'C# Tutorial'
+    - name: 'Didacticiel C#'
       href: csharp-tutorial.md
-- name: Reference
+- name: Référence
   items:
-    - name: Custom Vision Prediction API Reference
+    - name: Référence des API de prédiction Vision personnalisée
       href: 'https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814'
-    - name: Custom Vision Training API Reference
+    - name: Référence des API de formation Vision personnalisée
       href: 'https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3'
-    - name: Glossary
+    - name: Glossaire
       href: glossary-of-terms.md
-    - name: SDK
+    - name: Foundation
       href: 'http://github.com/Microsoft/Cognitive-CustomVision-Windows/'
-- name: Resources
+- name: Ressources
   items:
-    - name: Azure Roadmap
+    - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'

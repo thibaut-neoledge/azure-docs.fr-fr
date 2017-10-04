@@ -40,6 +40,8 @@
 - name: Identité du service administré
   href: msi-overview.md
   items:
+    - name: Connecter ou obtenir un jeton
+      href: msi-how-to-get-access-token-using-msi.md
     - name: Configurer MSI pour une machine virtuelle Azure
       items:
         - name: Avec le portail Azure
@@ -50,6 +52,8 @@
           href: msi-qs-configure-cli-windows-vm.md
         - name: Avec un modèle Azure Resource Manager
           href: msi-qs-configure-template-windows-vm.md
+        - name: Avec un kit de développement logiciel (SDK) Azure
+          href: msi-qs-configure-sdk-windows-vm.md
     - name: Affecter un accès MSI à une ressource Azure
       items:
         - name: Avec le portail Azure

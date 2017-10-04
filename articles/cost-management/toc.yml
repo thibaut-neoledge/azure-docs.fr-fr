@@ -19,6 +19,8 @@
       href: tutorial-review-usage.md
     - name: 2 - Contrôler l'accès aux données
       href: tutorial-user-access.md
+    - name: 3 - prévoir les dépenses
+      href: tutorial-forecast-spending.md
 - name: Ressources
   items:
     - name: Feuille de route Azure

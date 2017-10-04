@@ -24,7 +24,7 @@ sections:
         style: icon48
         items:
           - image:
-              src: /azure/app-service-api/media/index/cli.svg
+              src: /azure/event-grid/media/index/cli.svg
             text: Interface de ligne de commande Azure
             href: /azure/event-grid/custom-event-quickstart
   - title: Didacticiels pas à pas
@@ -35,6 +35,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Surveiller les modifications apportées aux machines virtuelles avec les applications logiques</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Redimensionner les images chargées</a>
   - title: Référence
     items:
       - type: list
@@ -42,7 +43,7 @@ sections:
         className: cardsD
         items:
           - title: Ligne de commande
-            html: <p><a href="/cli/azure/eventgrid">Interface de ligne de commande Azure</a></p>
+            html: <p><a href="/cli/azure/eventgrid">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
           - title: API REST
             html: <p><a href="/rest/api/eventgrid">REST</a></p>
           - title: Schémas

@@ -1,13 +1,13 @@
-- name: ACS avec Kubernetes
+- name: Kubernetes sur Azure
   href: ./index.yml
 - name: Vue d'ensemble
   items:
-    - name: À propos du service de conteneur
+    - name: Kubernetes sur Azure
       href: container-service-intro-kubernetes.md
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Linux Kubernetes
+    - name: Kubernetes sur Azure
       href: container-service-kubernetes-walkthrough.md
 - name: Didacticiels
   items:
@@ -25,14 +25,8 @@
       href: container-service-tutorial-kubernetes-app-update.md
     - name: 7 - Surveiller avec OMS
       href: container-service-tutorial-kubernetes-monitor.md
-- name: Exemples
-  items:
-    - name: Interface de ligne de commande Azure
-      href: cli-samples.md
 - name: Concepts
   items:
-    - name: Sécuriser les conteneurs
-      href: container-service-security.md
     - name: Principal de service – Kubernetes
       href: container-service-kubernetes-service-principal.md
 - name: Procédures
@@ -41,18 +35,14 @@
       href: container-service-kubernetes-windows-walkthrough.md
     - name: Interface web de Kubernetes
       href: container-service-kubernetes-ui.md
-    - name: Déployer des graphiques Helm
+    - name: Utiliser des graphiques Helm
       href: container-service-kubernetes-helm.md
-    - name: Jenkins et ACS Kubernetes
+    - name: Utiliser Jenkins avec ACS
       href: container-service-kubernetes-jenkins.md
-    - name: Utiliser le brouillon avec ACR et ACS
+    - name: Utiliser le brouillon avec ACS
       href: container-service-draft-up.md
-    - name: Se connecter avec un cluster ACS
-      href: container-service-connect.md
-    - name: Mettre à l’échelle un cluster ACS
+    - name: Mettre à l’échelle le cluster
       href: container-service-scale.md
-    - name: "Équilibrer la charge d’un cluster\_ACS\_Kubernetes"
-      href: container-service-kubernetes-load-balancing.md
     - name: Surveiller
       items:
         - name: Surveiller avec OMS
@@ -73,10 +63,10 @@
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Référence
   items:
-    - name: Azure CLI 2.0
+    - name: Interface de ligne de commande Azure
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/container-services
+      href: /rest/api/container-service
 - name: Ressources
   items:
     - name: Feuille de route Azure

@@ -16,8 +16,9 @@
 # Procédures
 ## Joindre un domaine géré
 ### [Joindre une ordinateur Virtuel de Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Créer une machine virtuelle Windows à l’aide d’Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Une machine virtuelle Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Créer une machine virtuelle Windows à l’aide de PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Serveur Ubuntu](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administrer un domaine géré
 ### [Administrer un domaine géré](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrer DNS sur un domaine géré](active-directory-ds-admin-guide-administer-dns.md)
@@ -36,7 +37,6 @@
 ## Résolution des problèmes
 ### [FAQ](active-directory-ds-faqs.md)
 ### [Guide de résolution des problèmes](active-directory-ds-troubleshooting.md)
-### [Activer la préversion de l’expérience du portail Azure](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Résoudre les erreurs relatives à des locataires qui ne correspondent pas](active-directory-ds-mismatched-tenant-error.md)
 
 # Référence

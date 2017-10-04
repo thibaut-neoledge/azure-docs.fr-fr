@@ -1,44 +1,42 @@
 # Vue d'ensemble
-## [Présentation de Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-## [Nouveautés de Power BI Embedded](power-bi-embedded-whats-new.md)
+## [Présentation de Power BI Embedded](what-is-power-bi-embedded.md)
 
 # Prise en main
-## [Prise en main de Power BI Embedded](power-bi-embedded-get-started.md)
-## [Prise en main d’un exemple](power-bi-embedded-get-started-sample.md)
-## [FAQ](power-bi-embedded-faq.md)
+## [Prise en main de Power BI Embedded](get-started.md)
+## [Prise en main d’un exemple](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 
 # Procédures
-## Planifier et concevoir
-### [Scénarios courants](power-bi-embedded-scenarios.md)
+## Gérer la capacité
+### [Créer la capacité](create-capacity.md)
+### [Mettre à l’échelle la capacité](scale-capacity.md)
+### [Suspendre et démarrer la capacité](pause-start.md)
+## [Inscription d’une application Azure AD](https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/)
+## [Incorporer votre contenu Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/)
 
-## Gérer
-### [Se connecter à une source de données](power-bi-embedded-connect-datasource.md)
-### [Incorporer un rapport Power BI](power-bi-embedded-embed-report.md)
-### [Interagir avec les rapports](power-bi-embedded-interact-with-reports.md)
-### [Créer un rapport à partir d’un jeu de données](power-bi-embedded-create-report-from-dataset.md)
-### [Enregistrer des rapports](power-bi-embedded-save-reports.md)
-### [Basculer entre l’affichage et la modification](power-bi-embedded-toggle-mode.md)
+## Migrer
+### [Migrer à partir des collections d’espaces de travail Power BI](migrate-from-power-bi-workspace-collections.md)
+### [Outil de migration](migrate-tool.md)
+### [Extraits de code de migration](migrate-code-snippets.md)
 
-## Sécuriser
-### [Authentification et autorisation](power-bi-embedded-app-token-flow.md)
-### [Sécurité au niveau des lignes avec Power BI Embedded](power-bi-embedded-rls.md)
+# Exemples
+## [Exemples de code](https://github.com/Microsoft/PowerBI-Developer-Samples)
+## [Exemple de procédure pas à pas](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 
 # Référence
-## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=power-bi-embedded)
-## [Azure PowerShell](/powershell/module/azurerm.powerbiembedded)
-## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
-## [Téléchargement du Kit de développement logiciel (SDK) .NET](https://www.nuget.org/profiles/powerbi)
-## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
-## [API REST de gestion](/rest/api/powerbiembedded/)
-## [API REST](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-
+## API
+### [API REST de gestion des ressources Azure](/rest/api/powerbiembedded/)
+### [API REST](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
+## Kits de développement logiciel (SDK)
+### [Téléchargement du Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
+### [Téléchargement du kit de développement logiciel (SDK) JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-## [Référentiel Git JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Référentiel Git Power BI C#](https://github.com/Microsoft/PowerBI-CSharp)
-## [Communauté Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Apiary](http://docs.powerbi.apiary.io/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
-## [Exemple d’application](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
+## Référentiel GitHub
+### [.NET](https://github.com/Microsoft/PowerBI-CSharp)
+### [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [Communauté Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+
