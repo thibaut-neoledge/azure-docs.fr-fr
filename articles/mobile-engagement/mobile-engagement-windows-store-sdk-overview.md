@@ -25,7 +25,7 @@ ms.lasthandoff: 02/09/2017
 Ce document décrit toutes les options d’intégration et de configuration disponibles pour le Kit de développement logiciel (SDK) Windows Universal pour Azure Engagement Mobile.
 
 ## <a name="prerequisites"></a>Composants requis
-Avant de commencer ce didacticiel, vous devez suivre notre [didacticiel de&15; minutes](mobile-engagement-windows-store-dotnet-get-started.md).
+Avant de commencer ce didacticiel, vous devez suivre notre [didacticiel de 15 minutes](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## <a name="advanced-features"></a>Fonctionnalités avancées
 ### <a name="reporting-features"></a>Fonctionnalités de génération de rapports

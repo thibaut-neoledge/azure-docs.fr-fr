@@ -42,8 +42,8 @@ Lorsque vous définissez votre schéma, vous devez spécifier le nom, le type et
 | *Edm.String* |Texte pouvant éventuellement être tokenisé pour la recherche en texte intégral (césure de mots, recherche de radical, etc). |
 | *Collection(Edm.String)* |Liste de chaînes pouvant être éventuellement tokenisées pour la recherche en texte intégral. En théorie, il n’existe pas de limite supérieure quant au nombre d’éléments d’une collection, mais la limite supérieure de 16 Mo sur la taille de charge utile s’applique aux collections. |
 | *Edm.Boolean* |Contient des valeurs true/false. |
-| *Edm.Int32* |Valeurs entières&32; bits. |
-| *Edm.Int64* |Valeurs entières&64; bits. |
+| *Edm.Int32* |Valeurs entières 32 bits. |
+| *Edm.Int64* |Valeurs entières 64 bits. |
 | *Edm.Double* |Données numériques à double précision. |
 | *Edm.DateTimeOffset* |Dates et heures représentées au format OData V4 (par exemple, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Point représentant un emplacement géographique de la planète. |
