@@ -1,11 +1,5 @@
 # Vue d'ensemble
 ## [Guide du développeur](azure-developer-guide.md) 
-### [Qu’est-ce qu’Azure DNS ?](azure-developer-guide.md#what-is-azure)
-### [Par où commencer ?](azure-developer-guide.md#where-do-i-start)
-### [Régions Azure](azure-developer-guide.md#azure-regions)
-### [Comment faire pour gérer mes applications et projets ?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [Présentation des comptes, des abonnements et de la facturation](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
 ## [Présentation des services Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Présentation du portail](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Kits de développement logiciel (SDK) et outils](https://docs.microsoft.com/azure/index#pivot=sdkstools)

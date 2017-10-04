@@ -45,6 +45,8 @@ L’exemple suivant crée un groupe de ressources et déploie un modèle à part
 
 ```powershell
 Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
