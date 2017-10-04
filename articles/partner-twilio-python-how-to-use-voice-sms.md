@@ -32,7 +32,7 @@ Twilio alimente le futur des communications professionnelles, en permettant aux 
 **Twilio Client** permet de passer des appels VoIP à partir d'un téléphone, d'une tablette ou d'un navigateur et prend en charge WebRTC.
 
 ## <a id="Pricing"></a>Tarification de Twilio et offres spéciales
-Les clients Azure reçoivent une [offre spéciale][special_offer] de&10; $ en crédit Twilio quand ils mettent à niveau leur compte Twilio. Ce crédit peut servir à l'achat d'une prestation Twilio (un crédit de 10 $ correspond à l'envoi de 1 000 SMS ou à la réception de 1 000 minutes vocales maximum, en fonction de l'emplacement de votre numéro de téléphone, du message ou de la destination de l'appel). Profitez de ce [crédit Twilio][special_offer] et lancez-vous.
+Les clients Azure reçoivent une [offre spéciale][special_offer] de 10 $ en crédit Twilio quand ils mettent à niveau leur compte Twilio. Ce crédit peut servir à l'achat d'une prestation Twilio (un crédit de 10 $ correspond à l'envoi de 1 000 SMS ou à la réception de 1 000 minutes vocales maximum, en fonction de l'emplacement de votre numéro de téléphone, du message ou de la destination de l'appel). Profitez de ce [crédit Twilio][special_offer] et lancez-vous.
 
 Twilio est un service de paiement à l'utilisation. Il n'existe pas de frais d'entrée et vous pouvez fermer votre compte quand vous le souhaitez. Pour plus d’informations, consultez la page [Tarification de Twilio][twilio_pricing].
 
