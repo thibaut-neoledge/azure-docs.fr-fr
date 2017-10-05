@@ -68,7 +68,7 @@ Vous devez installer [Node] sur votre ordinateur local  ainsi que le package de 
 ```npm i -g azure-mobile-apps-compatibility```
 
 ## <a name="obtain-ams-scripts"></a> Obtenir vos scripts Azure Mobile Services
-* Connectez-vous au [portail Azure].
+* Connectez-vous au [Portail Azure].
 * Dans **Toutes les ressources** ou **App Services**, recherchez votre site Mobile Services.
 * Sur le site, cliquez sur **Outils** -> **Kudu** -> **Accéder** pour ouvrir le site Kudu.
 * Cliquez sur **Console de débogage** -> **PowerShell** pour ouvrir la console de débogage.
@@ -87,7 +87,7 @@ Un backend Azure Mobile Apps structuré est alors créé dans le répertoire `ou
 ## <a name="deploy-ama-app"></a> Déployer votre backend Azure Mobile Apps
 Au cours du déploiement, vous devez effectuer les opérations suivantes :
 
-1. Créer une application Mobile App dans le [portail Azure].
+1. Créer une application Mobile App dans le [Portail Azure].
 2. Exécuter le script `createViews.sql` sur votre base de données connectée.
 3. Lier la base de données liée à votre Mobile Service à votre nouvel App Service.
 4. Lier d’autres ressources (par exemple Notification Hubs) au nouvel App Service.
@@ -111,7 +111,7 @@ Vous pouvez exécuter ce script à partir de SQL Server Management Studio ou de 
 ### <a name="link-the-database-to-your-app-service"></a>Lier la base de données à votre App Service
 Liez la base de données existante à votre App Service :
 
-* Dans le [portail Azure], ouvrez votre App Service.
+* Dans le [Portail Azure], ouvrez votre App Service.
 * Sélectionnez **Tous les paramètres** -> **Connexions de données**.
 * Cliquez sur **+ Ajouter**.
 * Dans la liste déroulante, sélectionnez **Base de données SQL**
@@ -160,12 +160,12 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Tarification App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[tarification App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Concepts d’authentification]: ../app-service/app-service-authentication-overview.md
-[Authentication Quickstart (Démarrage rapide de l’authentification) (Démarrage rapide de l’authentification)]: app-service-mobile-auth.md
+[concepts d’authentification]: ../app-service/app-service-authentication-overview.md
+[démarrage rapide de l’authentification]: app-service-mobile-auth.md
 
-[portail Azure]: https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

@@ -271,6 +271,6 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [Utilisation du Kit de développement logiciel (SDK) serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Tarification App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[tarification App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Présentation du Kit de développement logiciel (SDK) serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 

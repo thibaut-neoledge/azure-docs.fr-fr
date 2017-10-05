@@ -869,7 +869,7 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Google Sign-In pour
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [Tableau de bord de Fabric]: https://www.fabric.io/home
-[Fabric pour iOS : prise en main]: https://docs.fabric.io/ios/fabric/getting-started.html
+[Fabric pour iOS : prise en main]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
 [2]: http://azure.github.io/azure-mobile-apps-ios-client/
 [3]: https://msdn.microsoft.com/library/azure/dn495101.aspx
