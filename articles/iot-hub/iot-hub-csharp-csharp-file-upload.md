@@ -191,7 +191,7 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 <!-- Links -->
 
-[Portail Azure]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
 
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 
