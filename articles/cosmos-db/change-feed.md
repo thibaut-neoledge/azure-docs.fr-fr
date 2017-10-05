@@ -309,7 +309,7 @@ private async Task<Dictionary<string, string>> GetChanges(
 
         while (query.HasMoreResults)
         {
-            FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+            FeedResponse<DeviceReading> readChangesResponse = await query.ExecuteNextAsync<DeviceReading>();
 
             foreach (DeviceReading changedDocument in readChangesResponse)
             {
@@ -339,7 +339,7 @@ checkpoints = await GetChanges(client, collection, checkpoints);
 Vous pouvez également filtrer le flux de modification à l’aide de la logique côté client pour traiter les événements de manière sélective. Par exemple, voici un extrait de code qui utilise LINQ côté client pour traiter uniquement les événements de modification de température des capteurs de périphérique.
 
 ```csharp
-FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+FeedResponse<DeviceReading> readChangesResponse = await query.ExecuteNextAsync<DeviceReading>;
 
 foreach (DeviceReading changedDocument in 
     readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))

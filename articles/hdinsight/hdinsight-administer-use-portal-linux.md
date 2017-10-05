@@ -3,7 +3,7 @@ title: "Gérer des clusters Hadoop dans HDInsight au moyen du portail Azure | Mi
 description: "Apprenez à créer et à gérer des clusters HDInsight avec le portail Azure."
 services: hdinsight
 documentationcenter: 
-author: mumian
+author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: jgao
+ms.author: ashishtha
 ms.translationtype: HT
 ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 54e53c98390b44ee5f298d5f61c13a4d299e5ae1
@@ -24,6 +24,7 @@ ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure
+
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 L’utilisation du [portail Azure][azure-portal], vous permet de gérer des clusters Hadoop dans HDInsight. Utilisez le sélecteur d’onglets ci-dessus pour obtenir des informations sur la gestion de clusters Hadoop dans HDInsight à l’aide d’autres outils.

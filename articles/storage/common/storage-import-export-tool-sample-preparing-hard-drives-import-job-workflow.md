@@ -35,7 +35,7 @@ Cet exemple importe les données suivantes dans un compte de stockage Azure nomm
 |H:\Video\ |Collection de vidéos|12 To|
 |H:\Photo\ |Collection de photos|30 Go|
 |K:\Temp\FavoriteMovie.ISO|Image de disque Blu-ray™|25 Go|
-|\\\bigshare\john\music\|Collection de fichiers de musique sur un partage réseau|10 Go|
+|\\\bigshare\john\music\ |Collection de fichiers de musique sur un partage réseau|10 Go|
 
 ## <a name="storage-account-destinations"></a>Destinations dans le compte de stockage
 
