@@ -3,7 +3,7 @@ title: "Créer un compte d’utilisateur Azure AD | Microsoft Docs"
 description: "Cet article décrit comment créer les informations d’identification d’un compte d’utilisateur Azure AD pour les Runbooks dans Azure Automation pour l’authentification dans Azure et Azure Classic."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "utilisateur azure active directory, azure service management, compte d’utilisateur azure ad"

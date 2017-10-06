@@ -3,7 +3,7 @@ title: "Dépanner les runbooks Workers hybrides d’Azure Automation | Microsoft
 description: "Décrit les symptômes, les causes et les solutions liés aux problèmes de runbooks Worker hybrides les plus courants."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 02c6606e-8924-4328-a196-45630c2255e9

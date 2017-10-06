@@ -3,7 +3,7 @@ title: Gestion des erreurs dans les runbooks graphiques Azure Automation | Micro
 description: "Cet article décrit comment implémenter une logique de gestion des erreurs dans les runbooks graphiques Azure Automation."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 

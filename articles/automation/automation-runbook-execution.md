@@ -3,7 +3,7 @@ title: "Exécution d’un Runbook dans Azure Automation | Microsoft Docs"
 description: "Décrit les détails du traitement d'un Runbook dans Azure Automation."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca

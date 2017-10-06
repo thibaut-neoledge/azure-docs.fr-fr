@@ -3,7 +3,7 @@ title: "Mon premier Runbook PowerShell dans Azure Automation | Microsoft Docs"
 description: "Ce didacticiel vous familiarise avec la création, le test et la publication d’un Runbook Powershell simple."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: azure powershell, didacticiel sur le script powershell, automatisation powershell

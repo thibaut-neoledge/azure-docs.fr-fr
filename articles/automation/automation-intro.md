@@ -3,7 +3,7 @@ title: "Présentation d’Azure Automation | Microsoft Docs"
 description: "Découvrez les avantages d’Azure Automation et obtenez des réponses aux questions courantes afin de commencer à créer et à utiliser des Runbooks et Azure Automation DSC."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "présentation d’automatisation, azure automation, exemples d’applications d’azure automation"

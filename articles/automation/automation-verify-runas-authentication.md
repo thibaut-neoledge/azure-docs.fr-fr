@@ -3,7 +3,7 @@ title: Validation de la configuration de compte Azure Automation | Microsoft Doc
 description: "Cet article décrit comment vérifier que votre compte Automation est correctement configuré."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

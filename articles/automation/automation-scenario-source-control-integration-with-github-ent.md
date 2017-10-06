@@ -3,7 +3,7 @@ title: "Intégration du contrôle de code source avec GitHub Enterprise | Micros
 description: "Décrit de manière détaillée comment configurer l’intégration avec GitHub Enterprise pour le contrôle de code source des runbooks Automation."
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: jwhit
 editor: 
 ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4

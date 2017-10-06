@@ -3,7 +3,7 @@ title: "Prise en main d’Azure Automation | Microsoft Docs"
 description: "Cet article fournit une vue d’ensemble du service Azure Automation en examinant les détails de conception et d’implémentation dans l’optique d’intégrer l’offre à partir de la plateforme Place de marché Microsoft Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

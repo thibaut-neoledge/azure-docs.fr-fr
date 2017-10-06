@@ -3,7 +3,7 @@ title: "Création d’un compte d’identification Azure Automation avec PowerSh
 description: "Cet article décrit comment mettre à niveau votre compte Automation avec PowerShell pour créer des comptes d’identification si vous n’avez pas effectué cette étape lors de la création initiale à partir du portail."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
