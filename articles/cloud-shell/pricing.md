@@ -12,22 +12,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 09/25/2017
 ms.author: juluk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 191a5d12fa899db48bbb751409ce3a732a56095e
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: eddbc6e977b52e3a068a1b55792512b966a58c18
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="pricing"></a>Tarification
 
 ## <a name="compute-cost"></a>Coût de calcul
-Azure Cloud Shell s’exécute sur une machine fournie gratuitement, mais requiert un partage de fichiers Azure attaché à utiliser. 
+Azure Cloud Shell s’exécute sur une machine fournie gratuitement par Azure, mais requiert un partage de fichiers Azure à utiliser. 
 
 ## <a name="storage-cost"></a>Coût de stockage
-Cloud Shell crée une image de 5 Go par défaut dans votre partage de fichiers pour conserver votre répertoire $HOME. Les partages de fichiers Azure font l’objet de frais standard.
+Cloud Shell requiert un partage de fichier Azure nouveau ou existant à monter pour conserver les fichiers entre les sessions. Le stockage entraîne des coûts réguliers.
 
 Cliquez [ici pour plus d’informations sur les coûts d’Azure](https://azure.microsoft.com/pricing/details/storage/files/). 

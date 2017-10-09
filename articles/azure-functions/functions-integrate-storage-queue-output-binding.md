@@ -1,5 +1,5 @@
 ---
-title: "Créer une fonction dans Azure déclenchée par des messages de file d’attente | Microsoft Docs"
+title: "Ajouter des messages à une file d’attente de Stockage Azure à l’aide d’Azure Functions | Microsoft Docs"
 description: "Utilisez Azure Functions pour créer une fonction sans serveur appelée par un message soumis à une file d’attente de stockage Azure."
 services: azure-functions
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/17/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 57c59273a9da55f3e357764c522b444ae2d73cb5
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 822879861ee8189cdd413f0061f26fb91819d88d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
@@ -29,7 +29,7 @@ Dans Azure Functions, les liaisons d’entrée et de sortie fournissent une mé
 
 ![Affichage du message dans les journaux.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-## <a name="prerequisites"></a>Composants requis 
+## <a name="prerequisites"></a>Conditions préalables 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 

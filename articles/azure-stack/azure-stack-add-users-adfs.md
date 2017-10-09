@@ -1,6 +1,6 @@
 ---
-title: Add users for Azure Stack ADFS | Microsoft Docs
-description: Learn how to add users for ADFS deployments of Azure Stack
+title: Ajouter des utilisateurs pour Azure Stack ADFS | Microsoft Docs
+description: "Découvrez comment ajouter des utilisateurs pour les déploiements ADFS d’Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -11,24 +11,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: helaw
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 5ff45235cffead8c665d5c8610edca3c787ac267
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 2cad56caa182a9abdca02944000b1506953af3f4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="add-users-in-the-azure-stack-development-kit"></a>Add users in the Azure Stack Development Kit
+# <a name="add-users-in-the-azure-stack-development-kit"></a>Ajouter des utilisateurs dans le Kit de développement Azure Stack
 
-To add additional users to the Development Kit deployment, you must add them to the Azure Stack Development Kit directory using Microsoft Management Console from the Azure Stack host computer.
-1.  On the Azure Stack host computer, open Microsoft Management Console.
-2.  Click **File > Add or remove snap-in**.
-3.  Select **Active Directory Users and Computers** > **AzureStack.local** > **Users**.
-4.  Click **Action** > **New** > **User**.
-5.  In the New Object – User window, provide and confirm a password
-6.  Click **Next** to finalize the values and click Finish to create the user.
+*S’applique à : Kit de développement Azure Stack*
+
+Pour ajouter des utilisateurs supplémentaires dans le déploiement du Kit de développement, vous devez les ajouter dans le répertoire du Kit de développement Azure Stack à l’aide de Microsoft Management Console à partir de l’ordinateur hôte Azure Stack.
+1.  Sur l’ordinateur hôte Azure Stack, ouvrez Microsoft Management Console.
+2.  Cliquez sur **Fichier > Ajouter ou supprimer un composant logiciel enfichable**.
+3.  Sélectionnez **Utilisateurs et ordinateurs Active Directory** > **AzureStack.local** > **Utilisateurs**.
+4.  Cliquez sur **Action** > **Nouveau** > **Utilisateur**.
+5.  Dans la fenêtre Nouvel objet – Utilisateur, entrez et confirmez un mot de passe
+6.  Cliquez sur **Suivant** pour finaliser les valeurs et cliquez sur Terminer pour créer l’utilisateur.
 
 
 

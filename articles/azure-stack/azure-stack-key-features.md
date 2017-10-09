@@ -1,6 +1,6 @@
 ---
-title: Key features and concepts in Azure Stack | Microsoft Docs
-description: Learn about the key features and concepts in Azure Stack.
+title: "Fonctionnalités et concepts clés d’Azure Stack | Microsoft Docs"
+description: "Découvrez les fonctionnalités et concepts clés de Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: Heathl17
@@ -12,136 +12,139 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 09/25/2017
 ms.author: helaw
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c361d5b47a22689e7bf6749067a39e12df25c84a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4d5dc523886ea1b03fdb2d1cafce4dcf3fef2576
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="key-features-and-concepts-in-azure-stack"></a>Key features and concepts in Azure Stack
-If you’re new to Microsoft Azure Stack, these terms and feature descriptions might be helpful.
+# <a name="key-features-and-concepts-in-azure-stack"></a>Fonctionnalités et concepts clés de Azure Stack
 
-## <a name="personas"></a>Personas
-There are two varieties of users for Microsoft Azure Stack, the cloud operator (provider) and the tenant (consumer).
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-* A **cloud operator** can configure Azure Stack and manage offers, plans, services, quotas, and pricing to provide resources for their tenants.  Cloud operators also manage capacity and respond to alerts.  
-* A **tenant** (also referred to as a user) consumes services that the cloud administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines.
+Si vous ne connaissez pas encore Microsoft Azure Stack, ces termes et descriptions de fonctionnalité peuvent vous être utiles.
 
-## <a name="portal"></a>Portal
-The primary methods of interacting with Microsoft Azure Stack are the administrator portal, user portal, and PowerShell.
+## <a name="personas"></a>Rôles
+Il existe deux types d’utilisateurs pour Microsoft Azure Stack, l’opérateur cloud (fournisseur) et le locataire (consommateur).
 
-The Azure Stack portals are each backed by separate instances of Azure Resource Manager.  A cloud operator uses the administrator portal to manage Azure Stack, and to do things like create tenant offerings.  The user portal (also referred to as the tenant portal) provides a self-service experience for consumption of cloud resources, like virtual machines, storage accounts, and Web Apps. For more information, see [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md).
+* Un **opérateur cloud** peut configurer Azure Stack et gérer les offres, les plans, les services, les quotas et la tarification pour fournir des ressources à ses locataires.  Les opérateurs cloud gèrent aussi la capacité et répondent aux alertes.  
+* Un **locataire** (également appelé utilisateur) consomme des services proposés par l’administrateur de cloud. Les clients peuvent approvisionner, surveiller et gérer les services auxquels ils sont abonnés, tels que les Web Apps, le stockage et les machines virtuelles.
 
-## <a name="identity"></a>Identity 
-Azure Stack uses either Azure Active Directory (AAD) or Active Directory Federation Services (AD FS) as an identity provider.  
+## <a name="portal"></a>Portail
+Les principales méthodes d’interaction avec Microsoft Azure Stack sont le portail administrateur, le portail utilisateur et PowerShell.
+
+Les portails Azure Stack sont chacun secondés par des instances distinctes d’Azure Resource Manager.  Un opérateur cloud utilise le portail administrateur pour gérer Azure Stack et effectuer des tâches telles que la création d’offres pour les locataires.  Le portail utilisateur (également appelé portail du locataire) fournit une expérience de libre-service pour la consommation de ressources cloud telles que des machines virtuelles, des comptes de stockage et des applications web. Pour plus d’informations, consultez [Utilisation des portails administrateur et utilisateur d’Azure Stack](azure-stack-manage-portals.md).
+
+## <a name="identity"></a>Identité 
+Azure Stack utilise Azure Active Directory (AAD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité.  
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory is Microsoft's cloud-based, multi-tenant identity provider.  Most hybrid scenarios use Azure Active Directory as the identity store.
+Azure Active Directory est le fournisseur d’identité Microsoft multilocataire basé sur le cloud.  La plupart des scénarios hybrides utilisent Azure Active Directory comme magasin d’identités.
 
-### <a name="active-directory-federation-services"></a>Active Directory Federation Services
-You may choose to use Active Directory Federation Services (AD FS) for disconnected deployments of Azure Stack.  Azure Stack, resource providers, and other applications work much the same way with AD FS as they do with Azure Active Directory. Azure Stack includes its own AD FS and Active Directory instance, and an Active Directory Graph API. Azure Stack Development Kit supports the following AD FS scenarios:
+### <a name="active-directory-federation-services"></a>Services de fédération Active Directory (AD FS)
+Vous pouvez choisir d’utiliser les services AD FS pour les déploiements déconnectés d’Azure Stack.  Azure Stack, les fournisseurs de ressources et les autres applications fonctionnent quasiment de la même façon avec AD FS et avec Azure Active Directory. Azure Stack inclut sa propre instance d’AD FS et d’Active Directory, ainsi qu’une API Graph Active Directory. Le Kit de développement Azure Stack prend en charge les scénarios AD FS suivants :
 
-- Sign in to the deployment by using AD FS.
-- Create a virtual machine with secrets in Key Vault
-- Create a vault for storing/accessing secrets
-- Create custom RBAC roles in subscription
-- Assign users to RBAC roles on resources
-- Create system-wide RBAC roles through Azure PowerShell
-- Sign in as a user through Azure PowerShell
-- Create service principals use them to sign in to Azure PowerShell
+- Se connecter au déploiement à l’aide d’AD FS
+- Créer une machine virtuelle avec des secrets dans Key Vault
+- Créer un coffre pour le stockage et l’accès aux secrets
+- Créer des rôles RBAC personnalisés dans l’abonnement
+- Affecter des utilisateurs aux rôles RBAC sur les ressources
+- Créer des rôles RBAC à l’échelle du système par le biais d’Azure PowerShell
+- Se connecter en tant qu’utilisateur par le biais d’Azure PowerShell
+- Créer des principaux du service et les utiliser pour se connecter à Azure PowerShell
 
 
-## <a name="regions-services-plans-offers-and-subscriptions"></a>Regions, services, plans, offers, and subscriptions
-In Azure Stack, services are delivered to tenants using regions, subscriptions, offers, and plans. Tenants can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
+## <a name="regions-services-plans-offers-and-subscriptions"></a>Régions, services, plans, offres et abonnements
+Dans Azure Stack, les services sont fournis aux locataires par le biais de régions, d’abonnements, d’offres et de plans. Les clients peuvent s’abonner à plusieurs offres. Les offres peuvent contenir un ou plusieurs plans, et les plans peuvent contenir un ou plusieurs services.
 
 ![](media/azure-stack-key-features/image4.png)
 
-Example hierarchy of a tenant’s subscriptions to offers, each with varying plans and services.
+Exemple de hiérarchie d’abonnements d’un client aux offres, chacune avec différents plans et services.
 
-### <a name="regions"></a>Regions
-Azure Stack regions are a basic element of scale and management. An organization may have multiple regions with resources available in each region. Regions may also have different service offerings available. In Azure Stack Development Kit, only a single region is supported, and is automatically named *local*.
+### <a name="regions"></a>Régions
+Les régions Azure Stack sont un élément de base de la mise à l’échelle et de la gestion. Une organisation peut avoir plusieurs régions avec des ressources disponibles dans chaque région. Les régions peuvent également avoir différentes offres de services disponibles. Dans le Kit de développement Azure Stack, une seule région est prise en charge. Elle est automatiquement nommée *local*.
 
 ### <a name="services"></a>Services
-Microsoft Azure Stack enables providers to deliver a wide variety of services and applications, such as virtual machines, SQL Server databases, SharePoint, Exchange, and more.
+Microsoft Azure Stack permet aux fournisseurs de proposer un large éventail de services et d’applications, tels que des machines virtuelles, des bases de données SQL Server, SharePoint, Exchange et bien plus encore.
 
-### <a name="plans"></a>Plans
-Plans are groupings of one or more services. As a provider, you create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include.
+### <a name="plans"></a>Abonnements
+Les plans regroupent un ou plusieurs services. En tant que fournisseur, vous créez des plans à proposer aux clients. En retour, les clients s’abonnent à vos offres pour utiliser les plans et les services inclus.
 
-Each service added to a plan can be configured with quota settings to help you manage your cloud capacity. Quotas can include restrictions such as VM, RAM, and CPU limits and are applied per user subscription. Quotas can be differentiated by location. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4 GB RAM, and 10 CPU cores.
+Chaque service ajouté à un plan peut être configuré avec des paramètres de quota pour vous aider à gérer votre capacité du cloud. Les quotas peuvent inclure des restrictions, telles que des limites de machine virtuelle, de mémoire et d’unité centrale, appliquées par abonnement de l’utilisateur. Les quotas peuvent être différenciés par emplacement. Par exemple, un plan comprenant des services de calcul à partir de la région A peut avoir un quota de deux machines virtuelles, 4 Go de RAM et dix cœurs de processeur.
 
-When creating an offer, the service administrator can include a **base plan**. These base plans are included by default when a tenant subscribes to that offer. When a user subscribes (and the subscription is created), the user has access to all the resource providers specified in those base plans (with the corresponding quotas).
+Lors de la création d’une offre, l’administrateur de service peut inclure un **plan de base**. Ces plans de base sont inclus par défaut lorsqu’un client s’abonne à cette offre. Quand un utilisateur s’abonne (et que l’abonnement est créé), il a accès à tous les fournisseurs de ressources spécifiés dans ces plans de base (avec les quotas correspondants).
 
-The service administrator can also include **add-on plans** in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (quotas) available in an offer that a subscription owner can add to their subscriptions.
+L’administrateur de service peut également inclure des **plans additionnels** dans une offre. Les plans additionnels ne sont pas inclus par défaut dans l’abonnement. Les plans additionnels sont des plans supplémentaires (quotas) disponibles dans une offre que le propriétaire de l’abonnement peut ajouter à ses abonnements.
 
-### <a name="offers"></a>Offers
-Offers are groups of one or more plans that providers present to tenants to buy (subscribe to). For example, Offer Alpha can contain Plan A containing a set of compute services and Plan B containing a set of storage and network services.
+### <a name="offers"></a>Offres
+Les offres sont des groupes d’un ou plusieurs plans que les fournisseurs proposent à leurs clients d’acheter. Par exemple, une offre Alpha peut contenir un plan A comportant un ensemble de services de calcul et un plan B comportant un ensemble de services de stockage et réseau.
 
-An offer comes with a set of base plans, and service administrators can create add-on plans that tenants can add to their subscription.
+Une offre est fournie avec un ensemble de plans de base, et les administrateurs de service peuvent créer des plans additionnels que les clients peuvent ajouter à leur abonnement.
 
-### <a name="subscriptions"></a>Subscriptions
-A subscription is how tenants buy your offers. A subscription is a combination of a tenant with an offer. A tenant can have subscriptions to multiple offers. Each subscription applies to only one offer. A tenant’s subscriptions determine which plans/services they can access.
+### <a name="subscriptions"></a>Abonnements
+Un abonnement est la forme sous laquelle les clients achètent vos offres. Un abonnement est la combinaison d’un client avec une offre. Un client peut être abonné à plusieurs offres. Chaque abonnement s’applique à une seule offre. Les abonnements d’un client déterminent les plans/services accessibles.
 
-Subscriptions help providers organize and access cloud resources and services.
+Les abonnements aident les fournisseurs à organiser et à accéder aux services et aux ressources cloud.
 
-For the administrator, a Default Provider Subscription is created during deployment. This subscription can be used to manage Azure Stack, deploy further resource providers, and create plans and offers for tenants. It should not be used to run customer workloads and applications. 
+Pour l’administrateur, un Abonnement Fournisseur par défaut est créé pendant le déploiement. Cet abonnement peut être utilisé pour gérer Azure Stack, déployer d’autres fournisseurs de ressources et créer des plans et des offres pour les locataires. Il ne doit pas être utilisé pour exécuter des applications et des charges de travail clientes. 
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
-By using Azure Resource Manager, you can work with your infrastructure resources in a template-based, declarative model.   It provides a single interface that you can use to deploy and manage your solution components. For full information and guidance, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+Azure Resource Manager vous permet de travailler avec vos ressources d’infrastructure selon un modèle déclaratif et basé sur des modèles.   Il fournit une interface unique que vous pouvez utiliser pour déployer et gérer les composants de votre solution. Pour plus d’informations et pour obtenir des instructions, consultez [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-### <a name="resource-groups"></a>Resource groups
-Resource groups are collections of resources, services, and applications—and each resource has a type, such as virtual machines, virtual networks, public IPs, storage accounts, and websites. Each resource must be in a resource group and so resource groups help logically organize resources, such as by workload or location.  In Microsoft Azure Stack, resources such as plans and offers are also managed in resource groups.
+### <a name="resource-groups"></a>Groupes de ressources
+Les groupes de ressources sont des ensembles de ressources, de services et d’applications, et chaque ressource a son type, tel que les machines virtuelles, les réseaux virtuels, les IP publiques, les comptes de stockage et les sites web. Chaque ressource doit être dans un groupe de ressources. Ceux-ci aident à organiser les ressources de manière logique, par exemple par charge de travail ou par emplacement.  Dans Microsoft Azure Stack, les ressources, telles que les plans et les offres, sont également gérées dans des groupes de ressources.
  
-### <a name="azure-resource-manager-templates"></a>Azure Resource Manager templates
-With Azure Resource Manager, you can create a template (in JSON format) that defines deployment and configuration of your application. This template is known as an Azure Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.
+### <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
+Avec z Resource Manager, vous pouvez créer un modèle (au format JSON) qui définit le déploiement et la configuration de votre application. Ce modèle est connu sous le nom de modèle Azure Resource Manager et permet de définir le déploiement de façon déclarative. En utilisant un modèle, vous pouvez déployer votre application à plusieurs reprises tout au long du cycle de vie de l’application et avoir ainsi l’assurance que vos ressources présentent un état cohérent lors de leur déploiement.
 
-## <a name="resource-providers-rps"></a>Resource providers (RPs)
-Resource providers are web services that form the foundation for all Azure-based IaaS and PaaS services. Azure Resource Manager relies on different RPs to provide access to services.
+## <a name="resource-providers-rps"></a>Fournisseurs de ressources
+Les fournisseurs de ressources sont les services web qui constituent la base de tous les services IaaS et PaaS Azure. Azure Resource Manager s’appuie sur différents fournisseurs de ressources pour fournir l’accès aux services.
 
-There are four foundational RPs: Network, Storage, Compute and KeyVault. Each of these RPs helps you configure and control its respective resources. Service administrators can also add new custom resource providers.
+Il existe quatre fournisseurs de ressources fondamentaux : réseau, stockage, calcul et KeyVault. Chacun de ces fournisseurs vous permet de configurer et contrôler ses ressources respectives. Les administrateurs de services peuvent également ajouter de nouveaux fournisseurs de ressources personnalisés.
 
-### <a name="compute-rp"></a>Compute RP
-The Compute Resource Provider (CRP) allows Azure Stack tenants to create their own virtual machines. The CRP includes the ability to create virtual machines as well as Virtual Machine extensions. The Virtual Machine extension service helps provide IaaS capabilities for Windows and Linux virtual machines.  As an example, you can use the CRP to provision a Linux virtual machine and run Bash scripts during deployment to configure the VM.
+### <a name="compute-rp"></a>Fournisseur de ressources de calcul
+Le fournisseur de ressources de calcul (CRP) permet aux clients Azure Stack de créer leurs propres machines virtuelles. Le CRP inclut la possibilité de créer des machines virtuelles, ainsi que des extensions de machine virtuelle. Le service d’extension de machine virtuelle fournit des fonctionnalités IaaS pour les machines virtuelles Windows et Linux.  Par exemple, vous pouvez utiliser le CRP pour approvisionner une machine virtuelle Linux et exécuter des scripts Bash pendant le déploiement pour configurer la machine virtuelle.
 
-### <a name="network-rp"></a>Network RP
-The Network Resource Provider (NRP) delivers a series of Software Defined Networking (SDN) and Network Function Virtualization (NFV) features for the private cloud.  You can use the NRP to create resources like software load balancers, public IPs, network security groups, virtual networks.
+### <a name="network-rp"></a>Fournisseur de ressources réseau
+Le fournisseur de ressources réseau (NRP) offre une série de fonctionnalités SDN (Software Defined Networking) et NFV (Network Function Virtualization) pour le cloud privé.  Vous pouvez utiliser le NRP pour créer des ressources telles que des équilibreurs de charge logiciels, des adresses IP publiques, des groupes de sécurité réseau et des réseaux virtuels.
 
-### <a name="storage-rp"></a>Storage RP
-The Storage RP delivers four Azure-consistent storage services: blob, table, queue, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md).
+### <a name="storage-rp"></a>Fournisseur de ressources de stockage
+Le fournisseur de ressources de stockage propose quatre services de stockage cohérents au niveau Azure : objets blob, table, file d’attente et gestion de compte. Il offre également un service d’administration de stockage cloud pour faciliter l’administration du fournisseur de services de stockage cohérents au niveau Azure. Azure Storage offre la flexibilité nécessaire pour stocker et récupérer de grandes quantités de données non structurées, telles que des documents et des fichiers multimédias avec des objets blob Azure, et de données NoSQL structurées avec les tables Azure. Pour plus d’informations sur le stockage Azure, consultez la page [Introduction au Stockage Microsoft Azure](../storage/common/storage-introduction.md).
 
-#### <a name="blob-storage"></a>Blob storage
-Blob storage stores any data set. A blob can be any type of text or binary data, such as a document, media file, or application installer. Table storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data. Queue storage provides reliable messaging for workflow processing and for communication between components of cloud services.
+#### <a name="blob-storage"></a>Stockage d'objets blob
+Le stockage d’objets blob stocke tous les jeux de données. Un objet blob peut correspondre à n'importe quel type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d'installation d'application. Le stockage de tables stocke les jeux de données structurés. Le stockage de tables est un magasin de données de clés-attributs NoSQL qui permet le développement rapide et l'accès rapide à de grosses quantités de données. Le stockage de files d’attente fournit une messagerie fiable pour le traitement du workflow et pour la communication entre les composants des services cloud.
 
-Every blob is organized under a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the 500 TB capacity limit of the storage account. Blob storage offers three types of blobs, block blobs, append blobs, and page blobs (disks). Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc. Append blobs are similar to block blobs, but are optimized for append operations. An append blob can be updated only by adding a new block to the end. Append blobs are a good choice for scenarios such as logging, where new data needs to be written only to the end of the blob. Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB. An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.
+Chaque objet blob est organisé sous un conteneur. Les conteneurs fournissent également un moyen utile d'affecter des stratégies de sécurité à des groupes d'objets. Un compte de stockage peut contenir un nombre quelconque de conteneurs, et un conteneur peut contenir un nombre quelconque d'objets blobs, jusqu'à la limite de capacité de 500 To du compte de stockage. Le stockage d’objets blob propose trois types d’objets : les objets blob de bloc, les objets blob d’ajout et les objets blob de page (disques). Les objets blob de bloc sont optimisés pour la diffusion en continu et le stockage d’objets cloud. Ils constituent une solution de choix pour stocker des documents, des fichiers multimédias, des sauvegardes, etc. Les objets blob d’ajout sont similaires aux objets blob de blocs, mais ils sont optimisés pour les opérations d’ajout. Un objet blob d’ajout ne peut être mis à jour qu’en lui ajoutant un nouveau bloc à la fin. Les objets blob d’ajout sont idéaux pour des opérations telles que la journalisation, où les nouvelles données ne doivent être écrites qu’à la fin de l’objet blob. Les objets blob de page sont optimisés pour représenter les disques IaaS et prendre en charge les écritures aléatoires. Leur taille maximale est de 1 To. Un disque IaaS rattaché à un réseau de machines virtuelles Azure est un disque dur virtuel stocké en tant qu'objet blob de page.
 
-#### <a name="table-storage"></a>Table storage
-Table storage is Microsoft’s NoSQL key/attribute store – it has a design without schemas, making it different from traditional relational databases. Since data stores lack schemas, it's easy to adapt your data as the needs of your application evolve. Table storage is easy to use, so developers can create applications quickly. Table storage is a key-attribute store, meaning that every value in a table is stored with a typed property name. The property name can be used for filtering and specifying selection criteria. A collection of properties and their values comprise an entity. Since Table storage lack schemas, two entities in the same table can contain different collections of properties, and those properties can be of different types. You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
+#### <a name="table-storage"></a>Stockage de tables
+Le stockage de tables est le magasin de clés/attributs NoSQL de Microsoft ; il a une conception sans schéma, ce en quoi il diffère des bases de données relationnelles classiques. Avec un magasin de données sans schéma, il est facile d’adapter vos données au fur et à mesure que les besoins de votre application évoluent. Facile à utiliser, le stockage de tables permet aux développeurs de créer rapidement des applications. Le stockage de tables est un magasin de clés/attributs : cela signifie que chaque valeur dans une table est stockée avec un nom de propriété typé. Le nom de propriété peut être utilisé pour filtrer et spécifier des critères de sélection. Une collection de propriétés et leurs valeurs constituent une entité. Dans la mesure où le stockage de tables est sans schéma, deux entités d’une même table contiennent différentes collections de propriétés, et ces propriétés peuvent être de différents types. Vous pouvez utiliser le stockage de tables pour stocker des jeux de données flexibles, par exemple, des données utilisateur pour des applications Web, des carnets d'adresses, des informations sur les périphériques et tout autre type de métadonnées requis par votre service. Vous pouvez stocker un nombre quelconque d'entités dans une table, et un compte de stockage peut contenir un nombre quelconque de tables, jusqu'à la limite de capacité du compte de stockage.
 
-#### <a name="queue-storage"></a>Queue Storage
-Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
+#### <a name="queue-storage"></a>Stockage de files d’attente
+Le Stockage File d’attente Azure fournit une messagerie cloud entre les composants d’application. Lors de la conception d'applications pour la mise à l'échelle, des composants d'application sont souvent découplés, de sorte qu'ils peuvent être mis à l'échelle indépendamment. Le stockage de files d’attente offre une messagerie asynchrone pour la communication entre les composants d’application, qu’ils soient exécutés dans le cloud, sur le bureau, sur un serveur local ou sur un appareil mobile. Le stockage de files d’attente prend également en charge la gestion des tâches asynchrones et la création des flux de travail de processus.
 
 ### <a name="keyvault"></a>KeyVault
-The KeyVault RP provides management and auditing of secrets, such as passwords and certificates. As an example, a tenant can use the KeyVault RP to provide administrator passwords or keys during VM deployment.
+Le fournisseur de ressources KeyVault fournit la gestion et l’audit des secrets, tels que les mots de passe et les certificats. Par exemple, un locataire peut utiliser le fournisseur de ressources KeyVault pour fournir des mots de passe ou des clés d’administrateur lors du déploiement de machine virtuelle.
 
-## <a name="role-based-access-control-rbac"></a>Role Based Access Control (RBAC)
-You can use RBAC to grant system access to authorized users, groups, and services by assigning them roles at a subscription, resource group, or individual resource level. Each role defines the access level a user, group, or service has over Microsoft Azure Stack resources.
+## <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle (RBAC)
+Vous pouvez utiliser le contrôle RBAC pour accorder l’accès au système aux utilisateurs, groupes et services autorisés en leur attribuant des rôles au niveau de l’abonnement, du groupe de ressources ou de la ressource individuelle. Chaque rôle définit le niveau d’accès dont un utilisateur, un groupe ou un service dispose sur les ressources Microsoft Azure Stack.
 
-Azure RBAC has three basic roles that apply to all resource types: Owner, Contributor, and Reader. Owner has full access to all resources including the right to delegate access to others. Contributor can create and manage all types of Azure resources but can’t grant access to others. Reader can only view existing Azure resources. The rest of the RBAC roles in Azure allow management of specific Azure resources. For instance, the Virtual Machine Contributor role allows creation and management of virtual machines but does not allow management of the virtual network or the subnet that the virtual machine connects to.
+Le contrôle d’accès en fonction du rôle Azure comporte trois rôles de base qui s’appliquent à tous les types de ressources : Propriétaire, Contributeur et Lecteur. Le Propriétaire dispose d’un accès total à toutes les ressources, ainsi que le droit de déléguer l’accès à d’autres personnes. Le Contributeur peut créer et gérer tous types de ressources Azure, mais ne peut pas accorder l’accès à d’autres personnes. Le Lecteur peut uniquement afficher les ressources Azure existantes. Les autres rôles RBAC dans Azure permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle de Contributeur de machine virtuelle autorise la création et la gestion de machines virtuelles, mais pas la gestion du réseau virtuel ou du sous-réseau auquel la machine virtuelle se connecte.
 
-## <a name="usage-data"></a>Usage data
-Microsoft Azure Stack collects and aggregates usage data across all resource providers, and transmits it to Azure for processing by Azure commerce. The usage data collected on Azure Stack can be viewed via a REST API. There is an Azure-consistent Tenant API as well as Provider and Delegated Provider APIs to get usage data across all tenant subscriptions. This data can be used to integrate with an external tool or service for billing or chargeback. Once usage has been processed by Azure commerce, it can be viewed in the Azure billing portal.
+## <a name="usage-data"></a>Données d'utilisation
+Microsoft Azure Stack collecte et agrège les données d’utilisation de tous les fournisseurs de ressources, et il les transmet à Azure en vue de leur traitement par la solution commerciale Azure. Les données d’utilisation collectées sur Azure Stack sont consultables par le biais d’une API REST. Il existe une API client, et des API fournisseur et fournisseur délégué cohérentes au niveau Azure pour obtenir des données d’utilisation sur tous les abonnements du locataire. Ces données peuvent être utilisées pour intégrer un outil ou un service externe de facturation ou de facturation interne. Une fois les données d’utilisation traitées par la solution commerciale Azure, elles peuvent être visualisées dans le portail de facturation Azure.
 
-## <a name="in-development-build-of-azure-stack-development-kit"></a>In-development build of Azure Stack Development Kit
-In-development builds let early-adopters evaluate the most recent version of the Azure Stack Development Kit. They’re incremental builds based on the most recent major release. While major versions will continue to be released every few months, the in-development builds will release intermittently between the major releases.
+## <a name="in-development-build-of-azure-stack-development-kit"></a>Builds de développement du Kit de développement Azure Stack
+Les builds de développement permettent aux utilisateurs précoces d’évaluer la version la plus récente du Kit de développement Azure Stack. Il s’agit de builds incrémentielles basées sur la version principale la plus récente. Les versions principales continueront à être publiées tous les quelques mois, tandis que les builds de développement seront publiées par intermittence entre les versions majeures.
 
-In-development builds will provide the following benefits:
-- Bug fixes
-- New features
-- Other improvements
+Les builds de développement offrent les avantages suivants :
+- Résolution des bogues
+- Nouvelles fonctionnalités
+- Autres améliorations
 
-## <a name="next-steps"></a>Next steps
-[Deploy Azure Stack Development Kit](azure-stack-deploy.md)
+## <a name="next-steps"></a>Étapes suivantes
+[Déployer le Kit de développement Azure Stack](azure-stack-deploy.md)
 
 

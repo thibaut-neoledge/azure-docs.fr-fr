@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 05/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: edcf294856582569c00f7cf49beb3a481e28d7d8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ccea92dda99c3b76cbb7d37b20ce810b210a8217
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Visite guidée d’Analytics dans Application Insights
-[Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Log Analytics.
+[Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Log Analytics.
 
 * **[Regardez la vidéo d’introduction](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Testez la version d’évaluation d’Analytics sur nos données simulées](https://analytics.applicationinsights.io/demo)** si votre application n’envoie pas encore de données à Application Insights.
@@ -58,6 +58,16 @@ Développez un élément pour afficher les détails :
 > Cliquez sur l’en-tête d’une colonne pour trier à nouveau les résultats disponibles dans le navigateur web. Sachez toutefois que, pour un jeu de résultats volumineux, le système limite le nombre de lignes téléchargées vers le navigateur. L’utilisation de cette méthode de tri ne vous permet pas toujours d’obtenir effectivement les éléments dans l’ordre croissant ou décroissant. Pour trier les éléments de manière fiable, utilisez l’opérateur `top` ou `sort`.
 >
 >
+
+## <a name="query-across-applications"></a>Requête dans plusieurs applications
+Si vous souhaitez combiner des données provenant de plusieurs applications Application Insights, utilisez le mot clé **application** pour spécifier l’application et le nom de la table.  Cette requête combine les requêtes de deux applications différentes à l’aide de la commande **union**.
+
+
+```AIQL
+
+    union app('fabrikamstage').requests, app('fabrikamprod').requests
+    
+```
 
 ## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) et [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
 `take` est utile pour obtenir un exemple rapide d’un résultat, mais il n’affiche pas les lignes de la table dans un ordre particulier. Pour obtenir un affichage ordonné, utilisez `top` (pour un échantillon) ou `sort` (qui porte sur la table entière).

@@ -1,6 +1,6 @@
 ---
-title: Manage updates in Azure Stack | Microsoft Docs
-description: Learn how to manage updates in Azure Stack
+title: "Gérer les mises à jour dans Azure Stack - Vue d’ensemble | Microsoft Docs"
+description: "Découvrez la gestion des mises à jour pour les systèmes intégrés Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -12,33 +12,59 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: twooley
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 1462079c1aac9031e8ea195282555c0707480ec8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="manage-updates-in-azure-stack"></a>Manage updates in Azure Stack
+# <a name="manage-updates-in-azure-stack-overview"></a>Gérer les mises à jour dans Azure Stack - Vue d’ensemble
 
-In the Azure Stack Development Kit, you can preview the experience for managing Azure Stack updates in a multi-node environment. Because virtual machines are not highly available in the development kit, you cannot apply updates through the **Updates** tile.
+*S’applique à : systèmes intégrés Azure Stack*
 
-In the Azure Stack administrator portal, you can determine the current version (or build number) of Azure Stack.
+Microsoft publie des packages de mise à jour pour les systèmes intégrés Azure Stack de manière régulière. Chaque version des mises à jour logicielles Microsoft est fournie sous forme de package de mise à jour unique. En tant qu’opérateur Azure Stack, vous pouvez facilement importer, installer et surveiller la progression de l’installation de ces packages de mise à jour à partir du portail administrateur. 
 
-## <a name="determine-the-current-version"></a>Determine the current version
+Votre fabricant de matériel OEM publie également des mises à jour, par exemple pour les pilotes et le microprogramme. Ces mises à jour sont fournies sous forme de packages distincts par votre fabricant de matériel OEM, et sont gérées séparément des mises à jour Microsoft.
 
-To determine the current version of Azure Stack, do either of the following in the administrator portal:
+Pour conserver votre système dans un état de prise en charge, vous devez maintenir Azure Stack à jour à un niveau de version spécifique. Pensez à passer en revue la [Stratégie de maintenance d’Azure Stack](azure-stack-servicing-policy.md).
 
-- On the dashboard, view the current version in the **Updates** tile.
-- On the **Region management** tile, click the region name (such as **local**). View the current version in the **Updates** tile.
+> [!NOTE]
+> Vous ne pouvez pas appliquer des packages de mise à jour Azure Stack au Kit de développement Azure Stack. Les packages de mise à jour sont conçues pour les systèmes intégrés.
 
-   ![Updates tile on default dashboard](./media/azure-stack-updates/image1.png)
+## <a name="the-update-resource-provider"></a>Le fournisseur de ressources de mise à jour
 
-## <a name="next-steps"></a>Next steps
+Azure Stack inclut un fournisseur de ressources de mise à jour qui orchestre l’application des mises à jour logicielles Microsoft. Ce fournisseur de ressources garantit que les mises à jour sont appliquées sur tous les hôtes physiques, les applications et runtimes Service Fabric, et toutes les machines virtuelles d’infrastructure et leurs services associés.
 
-* [Region management in Azure Stack](azure-stack-region-management.md)     
+Lors de l’installation des mises à jour, vous pouvez facilement afficher l’état à mesure que le processus de mise à jour cible les différents sous-systèmes dans Azure Stack (par exemple les hôtes physiques et les machines virtuelles d’infrastructure).
+
+## <a name="plan-for-updates"></a>Planifier les mises à jour
+
+Nous vous recommandons vivement d’informer les utilisateurs de toutes les opérations de maintenance, et de planifier dans la mesure du possible les fenêtres de maintenance ordinaire pendant les heures creuses. Les opérations de maintenance peuvent affecter les opérations de portail et les charges de travail de locataire.
+
+## <a name="using-the-update-tile-to-manage-updates"></a>Utilisation de la vignette Mise à jour pour gérer les mises à jour
+La gestion des mises à jour à partir du portail administrateur est un processus simple. Un opérateur Azure Stack peut accéder à la vignette Mise à jour dans le tableau de bord pour :
+
+- Afficher des informations importantes telles que la version actuelle
+- Installer des mises à jour et surveiller la progression
+- Examiner l’historique des mises à jour pour les mises à jour précédemment installées
+ 
+## <a name="determine-the-current-version"></a>Déterminer la version actuelle
+
+La vignette Mise à jour affiche la version actuelle d’Azure Stack. Vous pouvez accéder à la vignette Mise à jour en appliquant l’une des méthodes suivantes dans le portail administrateur :
+
+- Dans le tableau de bord, consultez la version actuelle dans la vignette **Mise à jour**.
+ 
+   ![Vignette Mises à jour sur le tableau de bord par défaut](./media/azure-stack-updates/image1.png)
+ 
+- Dans la vignette **Gestion des régions**, cliquez sur le nom de la région. Consultez la version actuelle dans la vignette **Mise à jour**.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Stratégie de maintenance d’Azure Stack](azure-stack-servicing-policy.md) 
+- [Gestion des régions dans Azure Stack](azure-stack-region-management.md)     
 
 
 

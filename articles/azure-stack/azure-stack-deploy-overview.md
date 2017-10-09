@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit deployment quickstart | Microsoft Docs
-description: Learn how to deploy the Azure Stack Development Kit
+title: "Démarrage rapide du déploiement du Kit de développement Azure Stack | Microsoft Docs"
+description: "En savoir plus sur le déploiement du Kit de développement Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -11,30 +11,32 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 81b6282addd1e88e4146367c4dd9a2ee7b8c84bf
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 54d16b57526241544ae50c9b8e10a8add667916b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack Development Kit deployment quickstart
+# <a name="azure-stack-development-kit-deployment-quickstart"></a>Démarrage rapide du déploiement du Kit de développement Azure Stack
 
-The [Azure Stack Development Kit](azure-stack-poc.md) is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you’ll need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and tenant portals to manage Azure Stack and test offers. 
+*S’applique à : Kit de développement Azure Stack*
 
-1. [**Plan your hardware, software, and network**](azure-stack-deploy.md). The computer that hosts the development kit (the development kit host) must meet hardware, software, and network requirements. You must also choose between using Azure Active Directory or Active Directory Federation Services. Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
+Le [Kit de développement Azure Stack](azure-stack-poc.md) est un environnement de développement et de test que vous pouvez déployer pour évaluer et présenter les fonctionnalités et services Azure Stack. Pour l’installer et le rendre opérationnel, vous devez préparer l’environnement matériel nécessaire et exécuter plusieurs scripts (cette opération peut prendre plusieurs heures). Une fois que vous aurez effectué ces étapes préalables, vous pourrez vous connecter aux portails de l’administrateur et du locataire pour gérer Azure Stack et tester des offres. 
 
-2. [**Download and extract the deployment package**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). You can download the deployment package to the development kit host or to a another computer. The extracted deployment files take up 60 GB of free disk space, so using another computer can help reduce the hardware requirements for the development kit host.
+1. [**Planifiez votre matériel, vos logiciels et votre réseau**](azure-stack-deploy.md). Vérifiez que l’ordinateur prévu pour héberger le Kit de développement (l’hôte du Kit de développement) a la configuration matérielle, logicielle et réseau requise. Vous devez également déterminer si vous allez utiliser Azure Active Directory ou les services de fédération Active Directory (AD FS). Avant de démarrer votre déploiement, assurez-vous que tous ces prérequis sont remplis pour que le processus d’installation s’exécute correctement. 
 
-3. [**Prepare the development kit host**](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) by using the installer. After this step, the development kit host will boot to the Cloudbuilder.vhdx (a virtual hard drive that includes a bootable operating system and the Azure Stack install files).
+2. [**Téléchargez et extrayez le package de déploiement**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). Vous pouvez télécharger le package de déploiement sur l’hôte du Kit de développement ou sur un autre ordinateur. Une fois extraits, les fichiers de déploiement occupent jusqu’à 60 Go d’espace disque. L’utilisation d’un autre ordinateur peut vous permettre d’avoir une configuration matérielle moins exigeante pour l’hôte du Kit de développement.
 
-4. [**Deploy the development kit**](azure-stack-run-powershell-script.md#deploy-the-development-kit) on the development kit host.
+3. [**Préparez l’hôte du Kit de développement**](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) en utilisant le programme d’installation. Après cette étape, l’hôte du Kit de développement démarrera sur Cloudbuilder.vhdx (disque dur virtuel qui contient un système d’exploitation démarrable et les fichiers d’installation d’Azure Stack).
 
-5. If your Azure Stack deployment uses Azure Active Directory, you must [register Azure Stack with Azure](azure-stack-register.md) so that you can [download Azure marketplace items](azure-stack-download-azure-marketplace-item.md) to Azure Stack.
+4. [**Déployez le Kit de développement**](azure-stack-run-powershell-script.md#deploy-the-development-kit) sur l’hôte du Kit de développement.
 
-After completing these steps, you’ll have a development kit environment with both administrator and tenant portals. Next, you can [connect and sign in](azure-stack-connect-azure-stack.md) to the portal. You can then start deploying resource providers, creating [offers](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions), and populating the Azure Stack [marketplace](azure-stack-marketplace.md).
+5. Si votre déploiement Azure Stack utilise Azure Active Directory, vous devez [inscrire Azure Stack auprès d’Azure](azure-stack-register.md) pour pouvoir ensuite [télécharger des éléments de la Place de marché Azure](azure-stack-download-azure-marketplace-item.md) dans Azure Stack.
+
+Après toutes ces étapes, l’environnement pour le Kit de développement est prêt, avec les portails de l’administrateur et du client. Vous pouvez maintenant [vous connecter et ouvrir une session](azure-stack-connect-azure-stack.md) sur le portail. Vous pouvez ensuite commencer à déployer des fournisseurs de ressources, créer des [offres](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions)et ajouter des éléments sur la [Place de marché](azure-stack-marketplace.md) Azure Stack.
 

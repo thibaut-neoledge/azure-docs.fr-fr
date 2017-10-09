@@ -1,6 +1,6 @@
 ---
-title: Liaisons Cosmos DB Azure Functions | Microsoft Docs
-description: "Découvrez comment utiliser des liaisons Azure Cosmos DB dans Azure Functions."
+title: Liaisons Azure Cosmos DB pour Azure Functions | Microsoft Docs
+description: "Découvrez comment utiliser des déclencheurs et liaisons Azure Cosmos DB dans Azure Functions."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -9,33 +9,105 @@ editor:
 tags: 
 keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
 ms.assetid: 3d8497f0-21f3-437d-ba24-5ece8c90ac85
-ms.service: functions
+ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/26/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: fb79e2ad7514ae2cf48b9a5bd486e54b9b407bee
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ad058929eb888920823fddf549ada4ce2c6d9eee
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="azure-functions-cosmos-db-bindings"></a>Liaisons Cosmos DB Azure Functions
+# <a name="azure-cosmos-db-bindings-for-functions"></a>Liaisons Azure Cosmos DB pour Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Cet article explique comment configurer et coder des liaisons Azure Cosmos DB dans Azure Functions. Azure Functions prend en charge des liaisons d’entrée et de sortie pour Cosmos DB.
+Cet article explique comment configurer et coder des liaisons Azure Cosmos DB dans Azure Functions. Azure Functions prend en charge les liaisons de déclencheur, d’entrée et de sortie pour Azure Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Pour plus d’informations sur Cosmos DB, consultez les pages [Présentation de Cosmos DB](../documentdb/documentdb-introduction.md) et [Créer une application de console Cosmos DB](../documentdb/documentdb-get-started.md).
+Pour plus d’informations sur l’informatique sans serveur avec Azure Cosmos DB, voir [Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions](..\cosmos-db\serverless-computing-database.md).
+
+<a id="trigger"></a>
+<a id="cosmosdbtrigger"></a>
+
+## <a name="azure-cosmos-db-trigger"></a>Déclencheur Azure Cosmos DB
+
+Le déclencheur Azure Cosmos DB utilise le [flux de modification d’Azure Cosmos DB](../cosmos-db/change-feed.md) pour écouter les modifications sur plusieurs partitions. Le déclencheur nécessite une deuxième collection qu’il utilise pour stocker des _baux_ sur les partitions.
+
+La collection surveillée et la collection contenant les baux doivent être disponibles pour que le déclencheur fonctionne.
+
+Le déclencheur Azure Cosmos DB prend en charge les propriétés suivantes :
+
+|Propriété  |Description  |
+|---------|---------|
+|**type** | Doit être défini sur `cosmosDBTrigger`. |
+|**name** | Nom de variable utilisé dans le code de fonction, qui représente la liste des documents modifiés. | 
+|**direction** | Doit être défini sur `in`. Ce paramètre est défini automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
+|**connectionStringSetting** | Nom d’un paramètre d’application contenant la chaîne de connexion utilisée pour se connecter au compte Azure Cosmos DB surveillé. |
+|**databaseName** | Nom de la base de données Azure Cosmos DB contenant la collection surveillée. |
+|**collectionName** | Nom de la collection surveillée. |
+| **leaseConnectionStringSetting** | (Facultatif) Nom d’un paramètre d’application contenant la chaîne de connexion au service stockant la collection de baux. S’il n’est pas défini, la valeur `connectionStringSetting` est utilisée. Ce paramètre est automatiquement défini lorsque la liaison est créée dans le portail. |
+| **leaseDatabaseName** | (Facultatif) Nom de la base de données contenant la collection utilisée pour stocker des baux. S’il n’est pas défini, la valeur du paramètre `databaseName` est utilisée. Ce paramètre est automatiquement défini lorsque la liaison est créée dans le portail. |
+| **leaseCollectionName** | (Facultatif) Nom de la collection utilisée pour stocker des baux. S’il n’est pas défini, la valeur `leases` est utilisée. |
+| **createLeaseCollectionIfNotExists** | (Facultatif) Lorsque la valeur est définie sur `true`, la collection de baux est créée automatiquement si elle n’existe pas. La valeur par défaut est `false`. |
+| **leaseCollectionThroughput** | (Facultatif) Définit la quantité d’unités de requête à attribuer lors de la création de la collection de baux. Ce paramètre est utilisé uniquement quand `createLeaseCollectionIfNotExists` est défini sur `true`. Ce paramètre est automatiquement défini lors de la création de la liaison à l’aide du portail.
+
+>[!NOTE] 
+>La chaîne de connexion utilisée pour se connecter à la collection de baux doit avoir des autorisations en écriture.
+
+Ces propriétés peuvent être définies sous l’onglet Intégrer de la fonction dans le portail Azure ou en modifiant le fichier de projet `function.json`.
+
+## <a name="using-an-azure-cosmos-db-trigger"></a>Utilisation d’un déclencheur Azure Cosmos DB
+
+Cette section contient des exemples d’utilisation du déclencheur Azure Cosmos DB. Les exemples supposent des métadonnées de déclencheur qui ressemblent à ceci :
+
+```json
+{
+  "type": "cosmosDBTrigger",
+  "name": "documents",
+  "direction": "in",
+  "leaseCollectionName": "leases",
+  "connectionStringSetting": "<connection-app-setting>",
+  "databaseName": "Tasks",
+  "collectionName": "Items",
+  "createLeaseCollectionIfNotExists": true
+}
+```
+ 
+Pour obtenir un exemple montrant comment créer un déclencheur Azure Cosmos DB à partir d’une application de fonction dans le portail, voir [Créer une fonction déclenchée par Azure Cosmos DB](functions-create-cosmos-db-triggered-function.md). 
+
+### <a name="trigger-sample-in-c"></a>Exemple de déclencheur en C# #
+```cs 
+    #r "Microsoft.Azure.Documents.Client"
+    using Microsoft.Azure.Documents;
+    using System.Collections.Generic;
+    using System;
+    public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
+    {
+        log.Verbose("Documents modified " + documents.Count);
+        log.Verbose("First document Id " + documents[0].Id);
+    }
+```
+
+
+### <a name="trigger-sample-in-javascript"></a>Exemple de déclencheur en JavaScript
+```javascript
+    module.exports = function (context, documents) {
+        context.log('First document Id modified : ', documents[0].id);
+
+        context.done();
+    }
+```
 
 <a id="docdbinput"></a>
 
 ## <a name="documentdb-api-input-binding"></a>Liaison d’entrée d’API DocumentDB
-La liaison d’entrée d’API DocumentDB récupère un document Cosmos DB et le transmet au paramètre d’entrée nommé de la fonction. L’ID du document peut être déterminé en fonction du déclencheur qui appelle la fonction. 
+La liaison d’entrée de l’API DocumentDB récupère un document Azure Cosmos DB et transmet celui-ci au paramètre d’entrée nommé de la fonction. L’ID du document peut être déterminé en fonction du déclencheur qui appelle la fonction. 
 
 La liaison d’entrée d’API DocumentDB possède les propriétés suivantes dans *function.json* :
 
@@ -46,8 +118,8 @@ La liaison d’entrée d’API DocumentDB possède les propriétés suivantes da
 |**databaseName** | Base de données contenant le document.        |
 |**collectionName**  | Nom de la collection qui contient le document. |
 |**id**     | ID du document à récupérer. Cette propriété prend en charge les paramètres de liaison. Pour plus d’informations, consultez [Lier aux propriétés d’entrée personnalisées dans une expression de liaison](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression). |
-|**sqlQuery**     | Requête SQL Cosmos DB utilisée pour récupérer plusieurs documents. La requête prend en charge les liaisons d’exécution, telles que `SELECT * FROM c where c.departmentId = {departmentId}`.        |
-|**Connexion**     |Nom du paramètre d’application qui contient votre chaîne de connexion Cosmos DB.        |
+|**sqlQuery**     | Requête SQL Azure Cosmos DB utilisée pour récupérer plusieurs documents. La requête prend en charge les liaisons d’exécution, telles que `SELECT * FROM c where c.departmentId = {departmentId}`.        |
+|**Connexion**     |Nom du paramètre d’application contenant votre chaîne de connexion Azure Cosmos DB.        |
 |**direction**     | Doit être défini sur `in`.         |
 
 Vous ne pouvez pas définir à la fois la propriété **id** et la propriété **sqlQuery**. Si aucune propriété n’est définie, l’ensemble de la collection est récupéré.
@@ -189,7 +261,7 @@ La liaison de sortie d’API DocumentDB vous permet d’écrire un nouveau docum
 |**databaseName** | Base de données contenant la collection dans laquelle le document est créé.     |
 |**collectionName**  | Nom de la collection dans laquelle le document est créé. |
 |**createIfNotExists**     | Valeur booléenne indiquant si la collection doit être créée si elle n’existe pas déjà. La valeur par défaut est *false*. En effet, les collections sont créées avec un débit réservé, ce qui a des conséquences sur la tarification. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/).  |
-|**Connexion**     |Nom du paramètre d’application qui contient votre chaîne de connexion Cosmos DB.        |
+|**Connexion**     |Nom du paramètre d’application contenant votre chaîne de connexion Azure Cosmos DB.        |
 |**direction**     | Doit être défini sur `out`.         |
 
 ## <a name="using-a-documentdb-api-output-binding"></a>Utilisation d’une liaison de sortie d’API DocumentDB
@@ -229,7 +301,7 @@ Et que vous disposez d’une liaison d’entrée de file d’attente pour une fi
 }
 ```
 
-Et que vous souhaitez créer des documents Cosmos DB au format suivant pour chaque enregistrement :
+Et que vous souhaitez créer des documents Azure Cosmos DB au format suivant pour chaque enregistrement :
 
 ```json
 {

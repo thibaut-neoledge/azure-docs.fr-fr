@@ -12,80 +12,87 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 7165633cd354eeea2e3619f839338e6af1524e56
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 44d2ac2fd35621ab8cd8d7584744139ee3bab5c2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Vue d’ensemble d’Azure Cloud Shell (version préliminaire)
 Azure Cloud Shell est un shell interactif, accessible par navigateur pour la gestion des ressources Azure.
+Il vous donne la possibilité de choisir l’expérience d’interpréteur de commandes la plus adaptée à votre façon de travailler.
+Les utilisateurs Linux peuvent choisir une expérience Bash, et les utilisateurs Windows l’option PowerShell.
 
-![](media/overview-pic.png)
+![Bash dans Cloud Shell](media/overview/overview-bash-pic.png)
+
+![PowerShell dans Cloud Shell](media/overview/overview-ps-pic.png)
 
 ## <a name="features"></a>Caractéristiques
 ### <a name="browser-based-shell-experience"></a>Expérience shell basée sur navigateur
-Cloud Shell permet d’accéder à une expérience de ligne de commande basée sur navigateur avec les tâches de gestion Azure à l’esprit. Exploitez Cloud Shell pour travailler librement à partir d’une machine locale d’une façon que seul le cloud peut fournir.
+Cloud Shell permet d’accéder à une expérience de ligne de commande basée sur navigateur avec les tâches de gestion Azure à l’esprit.
+Exploitez Cloud Shell pour travailler librement à partir d’une machine locale d’une façon que seul le cloud peut fournir.
+
+### <a name="choice-of-preferred-shell-experience"></a>Choix de votre expérience d’interpréteur de commandes préféré
+Azure Cloud Shell vous donne la possibilité de choisir l’expérience d’interpréteur de commandes la plus adaptée à votre façon de travailler.
+Les utilisateurs Linux peuvent choisir une expérience Bash, et les utilisateurs Windows l’option PowerShell.
 
 ### <a name="pre-configured-azure-workstation"></a>Station de travail Azure préconfigurée
 Cloud Shell est préinstallé avec des outils de ligne de commande et la prise en charge de langages populaires afin de pouvoir travailler plus rapidement.
 
-[Consultez la liste complète des outils pour Azure Cloud Shell ici.](features.md#tools)
+Affichez la liste complète des outils pour les expériences [Bash](features.md#tools) et [PowerShell.](features-powershell.md#tools)
 
 ### <a name="automatic-authentication"></a>Authentification automatique
 Cloud Shell s’authentifie automatiquement de façon sécurisée sur chaque session pour accéder immédiatement à vos ressources via Azure CLI 2.0.
 
 ### <a name="connect-your-azure-file-storage"></a>Connexion à votre stockage de fichiers Azure
 Les machines Cloud Shell sont temporaires et nécessitent ainsi qu’un partage de fichiers Azure soit monté en tant que `clouddrive` pour conserver votre répertoire $Home.
-Lors du premier lancement, Cloud Shell vous invite à créer un groupe de ressources, un compte de stockage et un partage de fichiers en votre nom. Il s’agit d’une étape unique, et ces ressources sont automatiquement jointes pour toutes les sessions. 
+Lors du premier lancement, Cloud Shell vous invite à créer un groupe de ressources, un compte de stockage et un partage de fichiers en votre nom. Il s’agit d’une étape unique, et ces ressources sont automatiquement jointes pour toutes les sessions. Un partage de fichier unique peut être mappé et sera utilisé par Bash et PowerShell dans Cloud Shell.
 
 #### <a name="create-new-storage"></a>Créer un stockage
-![](media/basic-storage.png)
+![](media/overview/basic-storage.png)
 
-Un compte de stockage localement redondant (LRS) peut être créé en votre nom avec un partage de fichiers Azure contenant une image de disque de 5 Go par défaut. Le partage de fichiers se monte en tant que `clouddrive` pour l’interaction du partage de fichiers avec l’image de disque utilisée pour synchroniser et conserver votre répertoire $Home. Les coûts de stockage standard s’appliquent.
+Un compte de stockage localement redondant (LRS) et un partage de fichiers Azure peuvent être créés en votre nom. Le partage de fichiers Azure servira pour les environnements Bash et PowerShell si vous choisissez d’utiliser les deux. Les coûts de stockage standard s’appliquent.
 
 Trois ressources sont créées en votre nom :
 1. Groupe de ressources nommé : `cloud-shell-storage-<region>`
 2. Compte de stockage nommé : `cs<uniqueGuid>`
-3. Partage de fichiers nommé : `cs-<user>-<domain>-com-uniqueGuid`
+3. Partage de fichiers nommé : `cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
-> Tous les fichiers figurant dans votre répertoire $Home, tels que les clés SSH, sont conservés dans l’image de disque utilisateur stockée dans votre partage de fichiers monté. Appliquez les meilleures pratiques lors de l’enregistrement des fichiers dans votre répertoire $Home et le partage de fichiers monté.
+> Bash dans Cloud Shell crée également une image de disque de 5 Go par défaut pour rendre `$Home` persistant. Tous les fichiers figurant dans votre répertoire $Home, tels que les clés SSH, sont conservés dans l’image de disque utilisateur stockée dans votre partage de fichiers monté. Appliquez les meilleures pratiques lors de l’enregistrement des fichiers dans votre répertoire $Home et le partage de fichiers monté.
 
 #### <a name="use-existing-resources"></a>Utiliser les ressources existantes
-![](media/advanced-storage.png)
+![](media/overview/advanced-storage.png)
 
-Vous disposez également d’une option avancée qui vous permet d’associer des ressources existantes à Cloud Shell. Lorsque l’invite de configuration du stockage s’affiche, cliquez sur « Afficher les paramètres avancés » pour sélectionner des options supplémentaires. Les listes déroulantes sont filtrées pour la région Cloud Shell qui vous a été attribuée et pour les comptes de stockage localement/globalement redondant.
+Vous disposez d’une option avancée qui permet d’associer des ressources existantes à Cloud Shell.
+À l’invite de configuration du stockage, cliquez sur « Afficher les paramètres avancés » pour afficher des options supplémentaires.
+Les listes déroulantes sont filtrées pour la région Cloud Shell qui vous a été attribuée et pour les comptes de stockage localement/globalement redondant.
 
-[Découvrez le stockage Cloud Shell, la mise à jour des partages de fichiers et le chargement/téléchargement de fichiers.] (persisting-shell-storage.md)
+[Découvrez le stockage Cloud Shell, la mise à jour des partages de fichiers et le chargement/téléchargement de fichiers.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Concepts
 * Cloud Shell s’exécute sur une machine temporaire fournie par session et par utilisateur
 * Cloud Shell expire après 20 minutes sans activité interactive
 * Cloud Shell est accessible uniquement avec un partage de fichiers attaché
+* Cloud Shell utilise le même partage de fichiers pour Bash et PowerShell
 * Cloud Shell est affecté à une machine par compte d’utilisateur
-* Les autorisations sont définies en tant qu’utilisateur Linux standard
+* Les autorisations sont définies en tant qu’utilisateur Linux standard (Bash)
 
-[Découvrez-en davantage sur toutes les fonctionnalités de Cloud Shell.](features.md)
+En savoir plus sur les fonctionnalités de [Bash dans Cloud Shell](features.md) et [PowerShell dans Cloud Shell](features-powershell.md).
 
 ## <a name="examples"></a>Exemples
-* Créer ou modifier des scripts pour automatiser la gestion Azure
-* Gérer simultanément des ressources via le portail Azure et Azure CLI 2.0
-* Essayer Azure CLI 2.0
+* Utiliser des scripts pour automatiser les tâches de gestion Azure
+* Gérer simultanément des ressources Azure via le portail Azure et des outils à ligne de commande Azure
+* Essayer Azure CLI 2.0 ou les applets de commande Azure PowerShell
 
-[Essayez tous ces exemples sur le démarrage rapide de Cloud Shell.](quickstart.md)
+Essayez ces exemples dans les démarrages rapides pour [Bash dans Cloud Shell](quickstart.md) et [PowerShell dans Cloud Shell](quickstart-powershell.md).
 
 ## <a name="pricing"></a>Tarification
-La machine qui héberge Cloud Shell est gratuite, avec comme condition préalable le montage d’un partage de fichiers Azure pour conserver votre répertoire $Home. Les coûts de stockage standard s’appliquent.
+La machine qui héberge Cloud Shell est gratuite, avec comme condition préalable le montage d’un partage de fichiers Azure. Les coûts de stockage standard s’appliquent.
 
 ## <a name="supported-browsers"></a>Navigateurs pris en charge
-Cloud Shell est recommandé pour Chrome, Safari et Edge. Si Cloud Shell est pris en charge par Chrome, Firefox, Safari, IE et Edge, il est soumis aux paramètres propres au navigateur.
-
-## <a name="troubleshooting"></a>Résolution des problèmes
-1. Lorsque j’utilise un abonnement Azure Active Directory, je ne peux pas créer de stockage en raison de l’erreur : 400 DisallowedOperation. Pour résoudre ce problème, utilisez un abonnement Azure habilité à créer des ressources de stockage. Les abonnements AD ne peuvent pas créer de ressources Azure.
-
-Pour connaître les limitations spécifiques connues, consultez les [limitations de Cloud Shell](limitations.md).
-
+Cloud Shell est recommandé pour Chrome, Safari et Edge.
+Si Cloud Shell est pris en charge par Chrome, Firefox, Safari, IE et Edge, il est soumis aux paramètres propres au navigateur.
