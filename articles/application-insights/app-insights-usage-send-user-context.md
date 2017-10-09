@@ -1,9 +1,25 @@
-titre : Envoyer des ID de contexte utilisateur pour activer les expériences d’utilisation dans Azure Application Insights | Microsoft Docs description : Suivi de la manière dont les utilisateurs se déplacent dans votre service en affectant à chacun d’eux une chaîne d’ID unique et permanente dans Application Insights.
-services: application-insights documentationcenter: '' author: abgreg manager: carmonm
-
-ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: csharp ms.topic: article ms.date: 08/02/2017 ms.author: bwren
+---
+title: "Envoi d’ID de contexte utilisateur pour activer les expériences d’utilisation dans Azure Application Insights | Microsoft Docs"
+description: "Suivez les déplacements des utilisateurs dans votre service en affectant une chaîne d’ID unique et permanente à chacun d’eux dans Application Insights."
+services: application-insights
+documentationcenter: 
+author: abgreg
+manager: carmonm
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: csharp
+ms.topic: article
+ms.date: 08/02/2017
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e16866501fd34f0b998ba929771a423866759b55
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/20/2017
 
 ---
+
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Envoyer des ID de contexte utilisateur pour activer les expériences d’utilisation dans Azure Application Insights
 
 ## <a name="tracking-users"></a>Suivi des utilisateurs
@@ -81,3 +97,4 @@ Cet exemple configure l’ID d’utilisateur en tant qu’identificateur expiran
     * [Entonnoirs](usage-funnels.md)
     * [Rétention](app-insights-usage-retention.md)
     * [Classeurs](app-insights-usage-workbooks.md)
+

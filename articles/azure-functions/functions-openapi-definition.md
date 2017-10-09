@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: be871b1c5f131b0ff6de1f74ed3e6f12b7a482ce
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 5aed57e69924f03221fc0d9909889358d80df9a4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -37,9 +37,9 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Modifier la définition pour fournir des métadonnées supplémentaires
 > * Tester la définition en appelant la fonction
 
-## <a name="create-a-function-app"></a>Créer une application de fonction
+## <a name="create-a-function-app"></a>Créer une Function App
 
-Vous devez disposer d’une application de fonction pour héberger l’exécution de vos fonctions. Une application de fonction vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. 
+Vous devez disposer d’une Function App pour héberger l’exécution de vos fonctions. Une Function App vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -50,9 +50,9 @@ Vous devez disposer d’une application de fonction pour héberger l’exécutio
 
 Ce didacticiel utilise une fonction HTTP déclenchée qui accepte deux paramètres : le temps estimé de la réparation (en heures) et la capacité de l’éolienne (exprimée en kilowatts). La fonction calcule ensuite le coût de la réparation et les revenus engendrés par 24 heures de fonctionnement de l’éolienne.
 
-1. Développez votre application de fonction, cliquez sur le bouton **+** à côté de **Fonctions**, puis cliquez sur le modèle **HTTPTrigger**. Entrez `TurbineRepair` pour le **Nom** de la fonction, puis cliquez sur **Créer**.
+1. Développez votre Function App, cliquez sur le bouton **+** à côté de **Fonctions**, puis cliquez sur le modèle **HTTPTrigger**. Entrez `TurbineRepair` pour le **Nom** de la fonction, puis cliquez sur **Créer**.
 
-    ![Panneau Applications de fonctions, Fonctions +](media/functions-openapi-definition/add-function.png)
+    ![Panneau Function Apps, Fonctions +](media/functions-openapi-definition/add-function.png)
 
 1. Remplacez le contenu du fichier run.csx par le code suivant, puis cliquez sur **Enregistrer** :
 
@@ -113,7 +113,7 @@ Vous disposez maintenant d’une fonction qui détermine la rentabilité des ré
 
 ## <a name="generate-the-openapi-definition"></a>Générer la définition OpenAPI
 
-Vous êtes maintenant prêt à générer la définition OpenAPI. Cette définition peut être utilisée par d’autres technologies Microsoft, telles que [API Apps](../app-service-api/app-service-api-dotnet-get-started.md), [PowerApps](functions-powerapps-scenario.md) et [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md), ainsi que des outils de développement tiers comme [Postman](https://www.getpostman.com/docs/importing_swagger) et [bien d’autres](http://swagger.io/tools/).
+Vous êtes maintenant prêt à générer la définition OpenAPI. Cette définition peut être utilisée par d’autres technologies Microsoft, telles que API Apps, [PowerApps](functions-powerapps-scenario.md) et [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), ainsi que des outils de développement tiers comme [Postman](https://www.getpostman.com/docs/importing_swagger) et [bien d’autres packages](http://swagger.io/tools/).
 
 1. Sélectionnez uniquement les *verbes* que votre API prend en charge (dans ce cas, POST). Cela rend la définition d’API générée plus claire.
 
@@ -175,20 +175,9 @@ Vous êtes maintenant prêt à générer la définition OpenAPI. Cette définiti
     Cette définition est décrite comme un _modèle_, car elle nécessite davantage de métadonnées pour être une définition OpenAPI complète. Dans l’étape suivante, vous allez modifier la définition.
 
 ## <a name="modify-the-openapi-definition"></a>Modifier la définition OpenAPI
-Maintenant que vous avez une définition de modèle, vous la modifiez pour fournir des métadonnées supplémentaires concernant les opérations et les structures de données de l’API. Pour ce didacticiel, vous pouvez coller la définition modifiée ci-dessous dans le volet **Définition de l’API** et cliquer sur **Enregistrer**.
+Maintenant que vous avez une définition de modèle, vous la modifiez pour fournir des métadonnées supplémentaires concernant les opérations et les structures de données de l’API. Dans **Définition de l’API**, supprimez la définition générée de l’élément `post` jusqu’en bas de la définition, collez le contenu ci-dessous, puis cliquez sur **Enregistrer**.
 
 ```yaml
-swagger: '2.0'
-info:
-  title: Turbine Repair
-  version: 1.0.0
-host: function-demo-energy.azurewebsites.net
-basePath: /
-schemes:
-  - https
-  - http
-paths:
-  /api/TurbineRepair:
     post:
       operationId: CalculateCosts
       description: Determines if a technician should be sent for repair
@@ -248,7 +237,7 @@ securityDefinitions:
     in: query
 ```
 
-Maintenant, il est important de comprendre les types de modifications que nous avons apportées au modèle par défaut :
+Dans ce cas, il vous suffit de coller les métadonnées mises à jour, mais il est important de comprendre les types de modifications que nous avons apportées au modèle par défaut :
 
 + Nous avons spécifié que l’API génère et consomme des données au format JSON.
 

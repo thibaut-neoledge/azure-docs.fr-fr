@@ -1,5 +1,5 @@
 ---
-title: Activer Azure Application Insights Profiler pour une ressource Azure Cloud Services | Microsoft Docs
+title: Activer Azure Application Insights Profiler sur les ressources de calcul Azure | Microsoft Docs
 description: "Découvrez comment configurer le profileur dans une application ASP.NET hébergée par une ressource Azure Cloud Services."
 services: application-insights
 documentationcenter: 
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: c2cae6129386260f2bf35f75d44fa001f7541d40
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 65ba755f35df7bd09dd652ac6fccf96a878c6ca9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -113,13 +113,15 @@ Il existe plusieurs façons de publier une application sur une machine virtuelle
 
 
 ## <a name="enable-the-profiler"></a>Activer le profileur
-1. Accédez au panneau **Performances** d’Application Insights et sélectionnez **Configurer**.
-   
-   ![Icône Configurer](./media/enable-profiler-compute/enableprofiler1.png)
- 
+
+1. Accédez au panneau **Performances** Application Insights, puis cliquez sur **Profileur** dans l’angle supérieur droit pour le configurer.
+
+   ![Bouton Configurer le profileur](./media/enable-profiler-compute/PerformanceTriageViewPofilerButton.png)
+
 2. Sélectionnez **Activer le profileur**.
-   
-   ![Icône Activer le profileur](./media/enable-profiler-compute/enableprofiler2.png)
+
+   ![Bouton Activer le profileur](./media/enable-profiler-compute/enableprofiler2.png)
+
 
 ## <a name="add-a-performance-test-to-your-application"></a>Ajouter un test de performance à votre application
 Suivez ces étapes pour collecter des exemples de données à afficher dans Application Insights Profiler :
@@ -134,9 +136,15 @@ Suivez ces étapes pour collecter des exemples de données à afficher dans Appl
 
 1. Attendez 10 à 15 minutes que le profileur collecte et analyse les données. 
 
-2. Accédez au panneau **Performances** dans votre ressource Application Insights et voyez comment votre application s’est comportée lorsqu’elle était soumise à une charge importante.
+2. Accédez au panneau **Performances** dans votre ressource Application Insights et voyez comment votre application s’est comportée lorsqu’elle était soumise à une charge importante. Concentrez-vous sur l’opération lente qui vous intéresse avec suffisamment d’expérience d’utilisation en triant la grille des opérations par rapport à la colonne Nombre. Déterminez quelles plages de durée ont des traces du profileur en examinant la voie du profileur au-dessus de la distribution de durée. Notez que plus vous analysez votre application, plus le profileur collecte de traces, et donc plus la distribution est couverte dans les exemples de codes enrichis pris en charge par les traces du profileur. 
 
-   ![Affichage des données de performance](./media/enable-profiler-compute/aiperformance.png)
+   ![Traces du profileur dans la vue de triage des performances](./media/enable-profiler-compute/PerformanceTriageViewProfilerTraces.png)
+
+    Vous pouvez effectuer un zoom avant sur la plage de durée qui vous intéresse, comme le troisième pic au niveau du 95e centile. Cette opération limite le nombre d’exemples et de traces du profileur dans les boutons permettant d’effectuer des actions. 
+
+    ![Zoom sur la plage de durée](./media/enable-profiler-compute/DurationRangeZoomedTo95th.png)
+
+    Cliquez maintenant sur le bouton **Traces du profileur** afin d’ouvrir le profileur avec la trace appropriée.
 
 3. Sélectionnez l’icône située sous **Exemples** pour ouvrir le panneau **Vue de la trace**.
 
