@@ -14,21 +14,21 @@ ms.topic: article
 ms.date: 09/08/2017
 ms.author: shengc
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f72ee8b6ef51046a64e794b17d1c389a25246358
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformer des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-usql-activity.md)
-> * [Version 2 - Préversion](transform-data-using-data-lake-analytics.md)
+> * [Version 1 - Disponibilité générale](v1/data-factory-usql-activity.md)
+> * [Version 2 - Préversion](transform-data-using-data-lake-analytics.md)
 
 Un pipeline dans une fabrique de données Azure traite les données dans les services de stockage liés à l'aide des services de calcul liés. Il contient une séquence d'activités dans laquelle chaque activité effectue une opération de traitement spécifique. Cet article décrit l’**activité U-SQL de Data Lake Analytics** qui exécute un script **U-SQL** sur un service lié de calcul **Azure Data Lake Analytics**. 
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, qui est actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez [Activité USQL dans V1](v1/data-factory-usql-activity.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez [Activité USQL dans V1](v1/data-factory-usql-activity.md).
 
 Créez un compte Azure Data Lake Analytics avant de créer un pipeline avec une activité U-SQL Data Lake Analytics. Pour plus d’informations sur Azure Data Lake Analytics, consultez [Prise en main d’Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
@@ -123,7 +123,7 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 | name                | Nom de l’activité dans le pipeline     | Oui      |
 | Description         | Texte décrivant l’activité.  | Non       |
 | type                | Pour l’activité U-SQL Data Lake Analytics, le type d’activité est **DataLakeAnalyticsU-SQL**. | Oui      |
-| linkedServiceName   | Service lié à Azure Data Lake Analytics. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  |          |
+| linkedServiceName   | Service lié à Azure Data Lake Analytics. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  |Oui       |
 | scriptPath          | Chemin d'accès au dossier qui contient le script SQL-U. Le nom de fichier respecte la casse. | Oui      |
 | scriptLinkedService | Service lié qui lie le stockage qui contient le script à la fabrique de données | Oui      |
 | degreeOfParallelism | Le nombre maximal de nœuds utilisés simultanément pour exécuter le travail. | Non       |

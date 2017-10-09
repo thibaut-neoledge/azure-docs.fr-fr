@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 09/15/2017
+ms.date: 09/27/2017
 ms.author: genemi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: eb409b6e5cb0f6bfbf6bfa8103c01482abf928cf
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: e4ee69abe0b3b5d594ee191cc8210d25c325efaa
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure SQL Database
 
-Les *règles de réseau virtuel* Microsoft Azure sont une fonctionnalité de pare-feu. Elles permettent de contrôler si votre serveur Azure SQL Database doit accepter ou non les communications provenant de sous-réseaux spécifiques dans des réseaux virtuels. Cet article explique pourquoi la fonctionnalité de règles de réseau virtuel est parfois la meilleure solution pour autoriser en toute sécurité des communications sur votre serveur Azure SQL Database.
+Les *règles de réseau virtuel* sont une fonctionnalité de sécurité de pare-feu. Elles permettent de contrôler si votre serveur Azure SQL Database doit accepter ou non les communications provenant de sous-réseaux spécifiques dans des réseaux virtuels. Cet article explique pourquoi la fonctionnalité de règles de réseau virtuel est parfois la meilleure solution pour autoriser en toute sécurité des communications sur votre serveur Azure SQL Database.
+
+Pour créer une règle de réseau virtuel, il doit d’abord exister un [point de terminaison de service de réseau virtuel][vm-virtual-network-service-endpoints-overview-649d] pour la règle à référencer.
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>Création d’une règle de réseau virtuel
 
@@ -44,7 +46,7 @@ Si vous créez uniquement une règle de réseau virtuel, vous pouvez passer dire
 
 **Sous-réseau :** un réseau virtuel contient des **sous-réseaux**. Toutes les machines virtuelles Azure que vous avez sont assignées à des sous-réseaux. Un sous-réseau peut contenir plusieurs machines virtuelles ou d’autres nœuds de calcul. Les nœuds de calcul qui se trouvent en dehors de votre réseau virtuel ne peuvent pas accéder à ce dernier, sauf si vous configurez votre sécurité pour leur en donner l’accès.
 
-**Point de terminaison de service de réseau virtuel :** un point de terminaison de service de réseau virtuel est un sous-réseau dont les valeurs de propriétés incluent un ou plusieurs noms de type de service Azure formels. Dans cet article, nous nous intéressons au nom de type de **Microsoft.Sql**, qui fait référence au service Azure nommé SQL Database.
+**Point de terminaison de service de réseau virtuel :** un [point de terminaison de service de réseau virtuel][vm-virtual-network-service-endpoints-overview-649d] est un sous-réseau dont les valeurs de propriétés incluent un ou plusieurs noms de type de service Azure formels. Dans cet article, nous nous intéressons au nom de type de **Microsoft.Sql**, qui fait référence au service Azure nommé SQL Database.
 
 **Règle de réseau virtuel :** une règle de réseau virtuel pour le serveur SQL Database est un sous-réseau répertorié dans la liste de contrôle d’accès (ACL) du serveur SQL Database. Pour figurer dans l’ACL pour le serveur SQL Database, le sous-réseau doit contenir le nom de type **Microsoft.Sql**.
 
@@ -118,15 +120,21 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 
 #### <a name="limitations"></a>Limites
 
-La fonctionnalité de règles de réseau virtuel présente les limitations suivantes :
+Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel présente les limitations suivantes :
 
-- Chaque serveur Azure SQL Database peut avoir jusqu'à 128 entrées IP-ACL pour un réseau virtuel donné.
+- Chaque serveur Azure SQL Database peut avoir jusqu’à 128 entrées ACL pour un réseau virtuel donné.
 
 - Les règles de réseau virtuel s’appliquent uniquement à des réseaux virtuels Azure Resource Manager, et non à des réseaux avec un [modèle de déploiement Classic][arm-deployment-model-568f].
 
-- Les règles de réseau virtuel ne s’appliquent pas aux éléments de mise en réseau suivants :
-    - En local via [Expressroute][expressroute-indexmd-744v]
+- Sur le pare-feu, les plages d’adresses IP s’appliquent aux éléments de mise en réseau suivants, contrairement aux règles de réseau virtuel :
     - [Réseau privé virtuel (VPN) site à site (S2S)][vpn-gateway-indexmd-608y]
+    - En local via [ExpressRoute][expressroute-indexmd-744v]
+
+#### <a name="expressroute"></a>ExpressRoute
+
+Si votre réseau est connecté au réseau Azure via l’utilisation [d’ExpressRoute][expressroute-indexmd-744v], chaque circuit est configuré avec deux adresses IP publiques sur Microsoft Edge. Les deux adresses IP sont utilisées pour se connecter aux services Microsoft, comme le stockage Azure, à l’aide de l’homologation publique Azure.
+
+Pour permettre la communication de votre circuit avec Azure SQL Database, vous devez créer des règles de réseau IP pour les adresses IP publiques de vos circuits. Pour rechercher les adresses IP publiques de votre circuit ExpressRoute, ouvrez un ticket de support avec ExpressRoute dans le portail Azure.
 
 
 <!--
@@ -195,6 +203,7 @@ Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* 
 ## <a name="related-articles"></a>Articles connexes
 
 - [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel, puis une règle de réseau virtuel pour Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Points de terminaison de service de réseau virtuel Azure][vm-virtual-network-service-endpoints-overview-649d]
 - [Règles de pare-feu au niveau du serveur et de la base de données d’Azure SQL Database][sql-db-firewall-rules-config-715d]
 
 La fonctionnalité de points de terminaison de service de réseau virtuel Microsoft Azure et la fonctionnalité de règles de réseau virtuel pour Azure SQL Database sont toutes deux disponibles depuis fin septembre 2017.
@@ -228,6 +237,8 @@ La fonctionnalité de points de terminaison de service de réseau virtuel Micros
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]: sql-database-vnet-service-endpoint-rule-powershell.md#a-verify-subnet-is-endpoint-ps-100
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+
+[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.md
 

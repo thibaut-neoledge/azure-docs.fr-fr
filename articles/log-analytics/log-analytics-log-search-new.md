@@ -1,5 +1,5 @@
 ---
-title: Recherches dans les journaux dans OMS Log Analytics | Microsoft Docs
+title: Recherches dans les journaux dans Azure Log Analytics | Microsoft Docs
 description: "Vous avez besoin d’effectuer une recherche dans les journaux pour récupérer des données à partir de Log Analytics.  Cet article décrit comment sont utilisées les nouvelles recherches dans les journaux dans Log Analytics, puis présente les concepts que vous devez comprendre avant de créer une recherche."
 services: log-analytics
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/26/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 34f4af31773097eafe2613eb7f3400655c387a84
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: db271f5157fee29a5cc0c4534768bdb3c769ba74
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Présentation des recherches dans les journaux dans Log Analytics
@@ -33,9 +33,9 @@ Vous avez besoin d’effectuer une recherche dans les journaux pour récupérer 
 
 Voici quelques-unes des différentes façons dont vous utiliserez les recherches dans les journaux dans Log Analytics :
 
-- **Portails.** Vous pouvez effectuer une analyse interactive des données dans le dépôt avec le [portail Recherche dans les journaux](log-analytics-log-search-log-search-portal.md) ou le [portail Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587).  Cela vous permet de modifier votre requête et d’analyser les résultats dans divers formats et visualisations.  La plupart des requêtes que vous créerez démarreront dans l’un des portails, puis seront copiées une fois que vous aurez vérifié qu’elles fonctionnent comme prévu.
+- **Portails.** Vous pouvez effectuer une analyse interactive des données dans le dépôt sur le portail Azure ou le [portail Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587).  Cela vous permet de modifier votre requête et d’analyser les résultats dans divers formats et visualisations.  La plupart des requêtes que vous créerez démarreront dans l’un des portails, puis seront copiées une fois que vous aurez vérifié qu’elles fonctionnent comme prévu.
 - **Règles d’alerte.** Les [règles d’alerte](log-analytics-alerts.md) identifient de façon proactive les problèmes à partir des données dans votre espace de travail.  Chaque règle d’alerte est basée sur une recherche dans les journaux qui est exécutée automatiquement à intervalles réguliers.  Les résultats sont inspectés pour déterminer si une alerte doit être créée.
-- **Vues.**  Vous pouvez créer des visualisations de données à inclure dans les tableaux de bord utilisateur avec le [Concepteur de vues](log-analytics-view-designer.md).  Les recherches dans les journaux fournissent les données utilisées par les [vignettes](log-analytics-view-designer-tiles.md) et les [parties de visualisation](log-analytics-view-designer-parts.md) dans chaque vue.  Vous pouvez descendre dans la hiérarchie à partir des parties de visualisation dans le portail Recherche dans les journaux afin d’effectuer une analyse approfondie des données.
+- **Vues.**  Vous pouvez créer des visualisations de données à inclure dans les tableaux de bord utilisateur avec le [Concepteur de vues](log-analytics-view-designer.md).  Les recherches dans les journaux fournissent les données utilisées par les [vignettes](log-analytics-view-designer-tiles.md) et les [parties de visualisation](log-analytics-view-designer-parts.md) dans chaque vue.  Vous pouvez descendre dans la hiérarchie à partir des parties de visualisation dans la page Recherche dans les journaux afin d’effectuer une analyse approfondie des données.
 - **Exportation.**  Quand vous exportez des données de l’espace de travail Log Analytics vers Excel ou [Power BI](log-analytics-powerbi.md), vous créez une recherche dans les journaux pour définir les données à exporter.
 - **PowerShell.** Vous pouvez exécuter un script PowerShell à partir d’une ligne de commande ou d’un runbook Azure Automation qui utilise [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) pour récupérer des données à partir de Log Analytics.  Cette applet de commande nécessite une requête pour déterminer les données à récupérer.
 - **API Log Analytics.**  L’[API de recherche dans les journaux Log Analytics](log-analytics-log-search-api.md) permet à tout client d’API REST de récupérer des données à partir de l’espace de travail.  La demande d’API comprend une requête qui est exécutée sur Log Analytics pour déterminer les données à récupérer.
@@ -43,7 +43,7 @@ Voici quelques-unes des différentes façons dont vous utiliserez les recherches
 ![Recherches dans les journaux](media/log-analytics-log-search-new/log-search-overview.png)
 
 ## <a name="how-log-analytics-data-is-organized"></a>Organisation des données Log Analytics
-Quand vous générez une requête, commencez par déterminer les tables où figurent les données que vous recherchez. Chaque [source de données](log-analytics-data-sources.md) et [solution](../operations-management-suite/operations-management-suite-solutions.md) stocke ses données dans des tables dédiées dans l’espace de travail Log Analytics.  La documentation de chaque source de données et solution inclut le nom du type de données qu’elle crée et une description de chacune de ses propriétés.     De nombreuses requêtes nécessitent les données d’une seule table, mais d’autres peuvent utiliser diverses options pour inclure des données provenant de plusieurs tables.
+Quand vous générez une requête, commencez par déterminer les tables où figurent les données que vous recherchez. Chaque [source de données](log-analytics-data-sources.md) et [solution](../operations-management-suite/operations-management-suite-solutions.md) stocke ses données dans des tables dédiées dans l’espace de travail Log Analytics.  La documentation de chaque source de données et solution inclut le nom du type de données qu’elle crée et une description de chacune de ses propriétés.  De nombreuses requêtes nécessitent les données d’une seule table, mais d’autres peuvent utiliser diverses options pour inclure des données provenant de plusieurs tables.
 
 ![Tables](media/log-analytics-log-search-new/queries-tables.png)
 
@@ -90,5 +90,5 @@ Pour obtenir une documentation complète sur le langage de requête Azure Log An
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les [portails que vous utilisez pour créer et modifier des recherches dans les journaux](log-analytics-log-search-portals.md).
-- Consultez un [didacticiel sur l’écriture de requêtes](https://go.microsoft.com/fwlink/?linkid=856078) à l’aide du nouveau langage de requête.
+- Consultez un [didacticiel sur l’écriture de requêtes](log-analytics-tutorial-viewdata.md) à l’aide du nouveau langage de requête.
 

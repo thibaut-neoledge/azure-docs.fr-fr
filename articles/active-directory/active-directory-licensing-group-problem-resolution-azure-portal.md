@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: bfa951a897c9b383072c0d29c9a4266c163fe753
+ms.translationtype: HT
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 955efc9e6b209195935d1f7c13f96c6a42536b2a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -106,6 +106,35 @@ Vous pouvez attribuer plusieurs licences produit à un même groupe. Par exemple
 Azure AD tente d’attribuer toutes les licences spécifiées dans le groupe à chaque utilisateur. Si Azure AD ne peut pas attribuer l’un des produits en raison de problèmes de logique métier (par exemple, nombre insuffisant de licences pour l’ensemble du groupe ou conflits avec d’autres services activés pour l’utilisateur), les autres licences ne pourront pas non plus être attribuées au groupe.
 
 Vous pourrez voir les utilisateurs pour lesquels l’attribution a échoué et vérifier les produits concernés.
+
+## <a name="how-to-manage-licenses-for-products-with-prerequisites"></a>Comment gérer les licences pour les produits avec des exigences ?
+
+Certains produits Microsoft Online que vous possédez peut-être sont des « modules complémentaires » - ils nécessitent un plan de service requis à activer pour un utilisateur ou un groupe, avant de pouvoir les attribuer. Avec les licences basées le groupe, le système impose que les plans de service requis et du module complémentaire soient présents pour le même groupe. Cela permet de veiller à ce que tous les utilisateurs ajoutés au groupe puissent recevoir le produit de travail complet. Considérez l’exemple suivant :
+
+*Microsoft Workplace Analytics* est un produit complémentaire. Il contient un plan de service unique portant le même nom. Ce plan de service peut uniquement être affecté à un utilisateur, ou un groupe, lorsque l’une des conditions suivantes est également assignée :
+- *Exchange Online (Plan 1)*
+- ou, *Exchange Online (Plan 2)*
+
+Si nous essayons d’attribuer ce produit seul à un groupe, le portail renverra une erreur - cliquer sur la notification d’erreur affiche les détails suivants :
+
+![Groupe, prérequis manquant](media/active-directory-licensing-group-problem-resolution-azure-portal/group-prerequisite-required.png)
+
+Cliquer sur les détails permet d’afficher le message d’erreur suivant :
+
+*Échec de l’opération de licence. Assurez-vous que le groupe possède les services nécessaires avant d’ajouter ou de retirer un service dépendant. **Le service Microsoft Workplace Analytics nécessite Exchange Online (Plan 2) pour être activé également.***
+
+Afin de pouvoir attribuer cette licence de module complémentaire à un groupe, nous devons nous assurer que le groupe contient également le plan de service requis. Par exemple, nous pouvons mettre à jour un groupe existant qui contient déjà le produit *Office 365 E3* complet, et lui ajouter le produit complémentaire.
+
+Il est également possible de créer un groupe autonome contenant uniquement les produits requis pour que le module complémentaire fonctionne - il peut être utilisé pour fournir une licence uniquement aux utilisateurs sélectionnés pour le produit complémentaire. Dans cet exemple, nous avons assigné les produits suivants au même groupe :
+- *Office 365 Enterprise E3*, avec uniquement le plan de service *Exchange Online (Plan 2)* activé
+- *Microsoft Workplace Analytics*
+
+![Groupe, prérequis inclus](media/active-directory-licensing-group-problem-resolution-azure-portal/group-addon-with-prerequisite.png)
+
+Dorénavant, tout utilisateur ajouté à ce groupe utilisera une licence du produit E3 et une licence du produit Workplace Analytics. Dans le même temps, ces utilisateurs peuvent être membres d’un autre groupe leur fournissant le produit E3 complet et ils ne consommeront alors qu’une seule licence du produit.
+
+> [!TIP]
+> Vous pouvez créer plusieurs groupes, pour chaque plan de service requis. Par exemple, si vous utilisez *Office 365 Enterprise **E1*** et *Office 365 Enterprise **E3*** pour vos utilisateurs, vous pouvez créer deux groupes pour accorder une licence *Microsoft Workplace Analytics* ; un groupe demandant E1 comme condition préalable et un autre demandant E3. Cela vous permettra de distribuer le module complémentaire aux utilisateurs de E1 et de E3 sans consommer de licences supplémentaires.
 
 ## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>L’attribution de licence échoue sans avertissement pour un utilisateur en raison de la présence d’adresses proxy en double dans Exchange Online
 

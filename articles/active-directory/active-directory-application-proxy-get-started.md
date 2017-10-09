@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 67f7f5b8d411d11c97a8666d1bfc3c0c5f1174ce
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 426056d394af0a9ded28202615cb80c7b50e59fc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -81,7 +81,7 @@ Le Proxy d’application Azure AD fournit l’authentification unique (SSO) aux 
 Pour plus d’informations sur Kerberos, consultez la page [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Tout ce que vous voulez savoir sur Kerberos Constrained Delegation (KCD)).
 
 ### <a name="managing-apps"></a>Gestion des applications
-Une fois votre application publiée avec le Proxy d’application, la gestion se fait comme pour toute autre application d’entreprise du portail Azure. Vous pouvez utiliser les fonctionnalités de sécurité Azure Active Directory (accès conditionnel et vérification en deux étapes, par exemple), mais aussi contrôler les autorisations des utilisateurs et personnaliser la marque de votre application. 
+Une fois votre application publiée avec le Proxy d’application, la gestion se fait comme pour toute autre application d’entreprise dans le portail Azure. Vous pouvez utiliser les fonctionnalités de sécurité Azure Active Directory (accès conditionnel et vérification en deux étapes, par exemple), mais aussi contrôler les autorisations des utilisateurs et personnaliser la marque de votre application. 
 
 ## <a name="get-started"></a>Prise en main
 

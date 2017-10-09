@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 09/26/2017
 ms.author: jejiang
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 17900c88fcfccd9c56ac548d1e9167b16a92b433
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: fdf1911f4f5b515592b6197ea738d808104cb43e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
-# <a name="use-azure-hdinsight-tool-for-visual-studio-code-hive-llap-or-pyspark"></a>Utiliser Azure HDInsight Tools pour Visual Studio Code (Hive, LLAP ou pySpark)
+# <a name="use-azure-hdinsight-tool-for-visual-studio-code"></a>Utiliser Azure HDInsight Tools pour Visual Studio Code
 
 Découvrez comment utiliser Azure HDInsight Tools pour Visual Studio Code (VSCode) pour créer et envoyer des travaux Hive de traitement par lots, des requêtes Hive interactives et des scripts pySpark. Azure HDInsight Tools peut être installé sur les plateformes prises en charge par VSCode, notamment sur Windows, Linux et MacOS. Renseignez-vous sur les prérequis pour les différentes plateformes.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Avant de poursuivre cet article, vérifiez que vous avez les éléments nécessaires suivants :
 
@@ -44,7 +44,7 @@ Une fois que vous avez tous les éléments prérequis, installez Azure HDInsight
 **Pour installer Azure HDInsight tools**
 
 1. Ouvrez **Visual Studio Code**.
-2. Cliquez sur **Extensions** dans le volet gauche. Entrez **Azure HDInsight tools** dans la zone de recherche.
+2. Cliquez sur **Extensions** dans le volet gauche. Saisissez **HDInsight** dans la zone de recherche.
 3. Cliquez sur **Installer** à côté de **Azure HDInsight tools**. Après quelques secondes, le bouton **Installer** change en **Recharger**.
 4. Cliquez sur **Recharger** pour activer l’extension **Azure HDInsight tools**.
 5. Cliquez sur **Recharger la fenêtre** pour confirmer. **Azure HDInsight tools** est maintenant affiché dans le volet Extensions.
@@ -86,13 +86,9 @@ Pour pouvoir envoyer des scripts aux clusters HDInsight à partir de VSCode, vou
 2. Cliquez avec le bouton droit sur l’éditeur de script, puis sélectionnez **HDInsight: Login** dans le menu contextuel. Vous pouvez également appuyer sur **Ctrl+Maj+P** et entrer **HDInsight: Login**.
 
     ![connexion HDInsight Tools pour Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
-3. Cliquez sur **Azure** ou **AzureChina** en fonction de votre abonnement.
-
-    ![options de connexion HDInsight Tools pour Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login-options.png)
-
 3. Connectez-vous en suivant les instructions de connexion affichées dans le volet **OUTPUT**.
 
-    **Azure :** ![informations de connexion HDInsight Tools pour Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png) **AzureChina :** ![informations de connexion HDInsight Tools pour Visual Studio Code (Chine)](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-AzureChinalogin-info.png)
+    **Azure :** ![informations de connexion HDInsight Tools pour Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png)
 
     Une fois connecté, le nom de votre compte Azure s’affiche dans la barre d’état dans l’angle inférieur gauche de la fenêtre VSCode. 
 

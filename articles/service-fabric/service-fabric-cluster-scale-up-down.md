@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 32d8fca81c20e77db4ed3aae05d017ccc2ce1be3
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: f5ffcb5be1c52f27948414304f1fc2e82c76709b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Augmenter ou diminuer la taille des instances d’un cluster Service Fabric à l’aide de règles de mise à l’échelle automatique
@@ -32,7 +32,7 @@ Les jeux de mise à l’échelle de machine virtuelle sont des ressources de cal
 ## <a name="choose-the-node-typevirtual-machine-scale-set-to-scale"></a>Choisir le type de nœud/groupe de machines virtuelles identiques à mettre à l’échelle
 Actuellement, vous n’êtes pas en mesure de spécifier les règles de mise à l’échelle automatique pour les groupes de machines virtuelles identiques à l’aide du portail. Nous allons donc utiliser Azure PowerShell (1.0 et versions ultérieures) pour répertorier les types de nœud et leur ajouter des règles de mise à l’échelle automatique.
 
-Pour obtenir la liste des groupes de machines virtuelles identiques qui composent votre cluster, exécutez les cmdlets suivantes :
+Pour obtenir la liste des groupes de machines virtuelles identiques qui composent votre cluster, exécutez les applets de commande suivantes :
 
 ```powershell
 Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
@@ -100,7 +100,7 @@ Les nœuds répertoriés dans Service Fabric Explorer reflètent ce que savent l
 
 Pour vous assurer qu’un nœud est supprimé lorsqu’une machine virtuelle est supprimée, vous avez deux possibilités :
 
-1) Choisissez un niveau de durabilité Gold ou Silver (disponible prochainement) pour les types de nœuds de votre cluster, ce qui assure l’intégration de l’infrastructure. Ceci supprimera automatiquement les nœuds de l’état de nos services système (FM) lors de la descente en puissance.
+1) Choisissez un niveau de durabilité Gold ou Silver pour les types de nœuds de votre cluster, ce qui assure l’intégration de l’infrastructure. Ceci supprimera automatiquement les nœuds de l’état de nos services système (FM) lors de la descente en puissance.
 Consultez les [détails sur les niveaux de durabilité ici](service-fabric-cluster-capacity.md)
 
 2) Après la descente en puissance de l’instance de machine virtuelle, vous devez appeler [l’applet de commande Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx).

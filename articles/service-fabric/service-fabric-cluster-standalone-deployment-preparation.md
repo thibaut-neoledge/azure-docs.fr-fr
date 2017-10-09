@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 9/12/2017
 ms.author: dekapur;maburlik;chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
-ms.openlocfilehash: e5d582431b53aafb977e219ecf3bc882232efaaa
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 67d47739c27081c4e10bf11988ed121ff02d8bb0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/16/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -107,11 +107,11 @@ Lorsqu’un administrateur de cluster configure un cluster autonome Service Fabr
 * les ports requis doivent êtres ouverts pour le service Registre distant et SMB Windows : 135, 137, 138, 139 et 445 ;
 * la connectivité réseau entre les ordinateurs doit être activée.
 3. Aucun des ordinateurs nœuds de cluster ne doit être un contrôleur de domaine.
-4. Si le cluster à déployer est un cluster sécurisé, vérifiez que les prérequis de sécurité sont en place et correctement configurées en fonction de la configuration.
+4. Si le cluster à déployer est un cluster sécurisé, vérifiez que les conditions préalables de sécurité requises sont en place et correctement configurées en fonction de la configuration.
 5. Si les ordinateurs du cluster ne sont pas accessibles via Internet, définissez les éléments suivants dans la configuration du cluster :
 * Désactiver la télémétrie : sous *Propriétés*, définissez *« enableTelemetry » : false*
 * Désactiver le téléchargement de version Fabric automatique et les notifications indiquant que la prise en charge de la version actuelle touche à sa fin : sous *Propriétés*, définissez *« fabricClusterAutoupgradeEnabled » : false*
-* Si l’accès réseau à Internet est limité à des domaines sur liste verte, les domaines ci-dessous sont nécessaires pour la mise à niveau automatique : go.microsoft.com   download.microsoft.com
+* De même, si l’accès réseau à Internet est limité à des domaines sur liste verte, les domaines ci-dessous sont nécessaires pour la mise à niveau automatique : go.microsoft.com   download.microsoft.com
 
 6. Définissez les exclusions antivirus Service Fabric appropriées :
 

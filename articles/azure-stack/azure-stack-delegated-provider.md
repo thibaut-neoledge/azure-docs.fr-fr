@@ -15,27 +15,29 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: alfredop
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: af591c51fec3326941980dbe5ffb08ca432d1d51
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 48b75233e1a485e8fb3fbce9776a6ef398c4e99c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="delegating-offers-in-azure-stack"></a>Délégation des offres dans Azure Stack
 
-En tant qu’opérateur cloud Azure Stack, vous souhaitez souvent placer d’autres personnes en charge de la création d’offres et de l’inscription des utilisateurs. Par exemple, si vous êtes un fournisseur de services et souhaitez que les revendeurs inscrivent les clients et les gèrent à votre place. Cela peut également être le cas dans une entreprise si vous faites partie d’un groupe informatique centralisé et souhaitez que des départements ou des filiales inscrivent les utilisateurs sans votre intervention.
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+
+En tant qu’opérateur Azure Stack, vous souhaitez souvent placer d’autres personnes en charge de la création d’offres et de l’inscription des utilisateurs. Par exemple, si vous êtes un fournisseur de services et souhaitez que les revendeurs inscrivent les clients et les gèrent à votre place. Cela peut également être le cas dans une entreprise si vous faites partie d’un groupe informatique centralisé et souhaitez que des départements ou des filiales inscrivent les utilisateurs sans votre intervention.
 
 La délégation vous aide dans ces tâches, ce qui vous permet d’atteindre et de gérer plus d’utilisateurs que vous ne pourriez le faire directement. L’illustration suivante montre un niveau de délégation, mais Azure Stack prend en charge plusieurs niveaux. Les fournisseurs délégués peuvent à leur tour déléguer à d’autres fournisseurs, et ce sur jusqu’à cinq niveaux.
 
 ![](media/azure-stack-delegated-provider/image1.png)
 
-Les opérateurs cloud Azure Stack peuvent déléguer la création d’offres et de locataires à d’autres utilisateurs à l’aide de la fonctionnalité de délégation.
+Les opérateurs Azure Stack peuvent déléguer la création d’offres et d’utilisateurs à d’autres utilisateurs à l’aide de la fonctionnalité de délégation.
 
 ## <a name="roles-and-steps-in-delegation"></a>Rôles et étapes de la délégation
 Pour comprendre la délégation, gardez à l’esprit qu’elle comprend trois rôles :
 
-* **L’opérateur cloud** gère l’infrastructure Azure Stack, crée un modèle d’offre et délègue à d’autres la responsabilité de proposer l’offre à leurs utilisateurs.
-* Les opérateurs Azure Stack délégués sont appelés **fournisseurs délégués**. Ils peuvent appartenir à d’autres organisations (comme d’autres locataires Azure Active Directory).
+* L’opérateur cloud Azure Stack gère l’infrastructure Azure Stack, crée un modèle d’offre et délègue à d’autres la responsabilité de proposer l’offre à leurs utilisateurs.
+* Les opérateurs Azure Stack délégués sont appelés **fournisseurs délégués**. Ils peuvent appartenir à d’autres organisations (comme d’autres utilisateurs Azure Active Directory).
 * Les **utilisateurs** s’inscrivent aux offres et les utilisent pour gérer leurs charges de travail, la création de machines virtuelles, le stockage des données, etc.
 
 Comme indiqué dans l’illustration suivante, la configuration de la délégation inclut deux étapes.
@@ -48,13 +50,13 @@ Comme indiqué dans l’illustration suivante, la configuration de la délégati
 
 Pour agir en tant que fournisseurs délégués, les utilisateurs doivent établir une relation avec le fournisseur principal ; en d’autres termes, ils doivent créer un abonnement. Dans ce scénario, cet abonnement identifie les fournisseurs délégués comme ayant le droit de présenter des offres pour le compte du fournisseur principal.
 
-Une fois que cette relation est établie, l’opérateur cloud peut déléguer une offre au fournisseur délégué. Le fournisseur délégué est désormais en mesure de prendre l’offre, de la renommer (sans en modifier la substance) et de la proposer à ses clients.
+Une fois que cette relation est établie, l’opérateur Azure Stack peut déléguer une offre au fournisseur délégué. Le fournisseur délégué est désormais en mesure de prendre l’offre, de la renommer (sans en modifier la substance) et de la proposer à ses clients.
 
 Les sections suivantes expliquent comment établir un fournisseur délégué, déléguer une offre et vérifier que les utilisateurs peuvent s’y inscrire.
 
 ## <a name="set-up-roles"></a>Configurer les rôles
 
-Pour voir un fournisseur délégué au travail, vous avez besoin de comptes Azure Active Directory supplémentaires en plus de votre compte d’opérateur cloud. Si vous n’en avez pas, créez les deux comptes. Les comptes peuvent appartenir à n’importe quel client AAD. Nous les appelons le fournisseur délégué (DP) et l’utilisateur.
+Pour voir un fournisseur délégué au travail, vous avez besoin de comptes Azure Active Directory supplémentaires en plus de votre compte d’opérateur Azure Stack. Si vous n’en avez pas, créez les deux comptes. Les comptes peuvent appartenir à n’importe quel utilisateur AAD. Nous les appelons le fournisseur délégué (DP) et l’utilisateur.
 
 | **Rôle** | **Droits d’organisation** |
 | --- | --- |
@@ -62,7 +64,7 @@ Pour voir un fournisseur délégué au travail, vous avez besoin de comptes Azur
 | Utilisateur |Utilisateur |
 
 ## <a name="identify-the-delegated-providers"></a>Identifier les fournisseurs délégués
-1. Connectez-vous en tant qu’opérateur cloud.
+1. Connectez-vous en tant qu’opérateur Azure Stack.
 2. Créez l’offre qui permet aux utilisateurs de devenir des fournisseurs délégués. Pour ce faire, vous devez créer un plan et une offre basée sur celui-ci :
    
    a.  [Créer un plan](azure-stack-create-plan.md).
@@ -75,15 +77,15 @@ Pour voir un fournisseur délégué au travail, vous avez besoin de comptes Azur
    ![](media/azure-stack-delegated-provider/image3.png)
 
 > [!NOTE]
-> Comme avec toutes les offres Azure Stack, vous avez la possibilité de rendre l’offre publique et de laisser les utilisateurs y souscrire, ou de conserver l’offre comme privée et demander à l’opérateur cloud de gérer l’inscription. Les fournisseurs délégués appartiennent généralement à un petit groupe et vous souhaitez contrôler qui y est admis, donc le fait de conserver cette offre privée est logique dans la plupart des cas.
+> Comme avec toutes les offres Azure Stack, vous avez la possibilité de rendre l’offre publique et de laisser les utilisateurs y souscrire, ou de conserver l’offre comme privée et demander à l’opérateur Azure Stack de gérer l’inscription. Les fournisseurs délégués appartiennent généralement à un petit groupe et vous souhaitez contrôler qui y est admis, donc le fait de conserver cette offre privée est logique dans la plupart des cas.
 > 
 > 
 
-## <a name="cloud-operator-creates-the-delegated-offer"></a>L’opérateur cloud crée l’offre déléguée
+## <a name="azure-stack-operator-creates-the-delegated-offer"></a>L’opérateur Azure Stack crée l’offre déléguée
 
 Vous avez désormais établi votre fournisseur délégué. L’étape suivante consiste à créer le plan et l’offre que vous allez déléguer et que vos clients utiliseront. Vous devez définir cette offre telle que vous souhaitez que les clients la voient, car le fournisseur délégué ne sera pas en mesure d’en modifier les plans et les quotas.
 
-1. En tant qu’opérateur cloud, [créez un plan](azure-stack-create-plan.md) et [une offre](azure-stack-create-offer.md) basée sur celui-ci. Dans cet article, nous utilisons une offre appelée DelegatedOffer.
+1. En tant qu’opérateur Azure Stack, [créez un plan](azure-stack-create-plan.md) et [une offre](azure-stack-create-offer.md) basée sur celui-ci. Dans cet article, nous utilisons une offre appelée DelegatedOffer.
    
    > [!NOTE]
    > Cette offre ne doit pas nécessairement être publique. Elle peut être rendue publique si vous le souhaitez, mais, dans la plupart des cas, vous souhaitez que seuls les fournisseurs délégués y aient accès. Une fois que vous déléguez une offre privée comme décrit dans les étapes suivantes, le fournisseur délégué y a accès.
@@ -98,7 +100,7 @@ Vous avez désormais établi votre fournisseur délégué. L’étape suivante c
 
 ## <a name="delegated-provider-customizes-the-offer"></a>Le fournisseur délégué personnalise l’offre
 
-Connectez-vous au **portail du locataire** en tant que fournisseur délégué et créez une offre en utilisant l’offre déléguée comme modèle.
+Connectez-vous au portail utilisateur en tant que fournisseur délégué et créez une offre en utilisant l’offre déléguée comme modèle.
 
 1. Cliquez sur **Nouveau** &gt; **Offres + Plans clients** &gt; **Offre**.
 
@@ -110,7 +112,7 @@ Connectez-vous au **portail du locataire** en tant que fournisseur délégué et
    ![](media/azure-stack-delegated-provider/image6.png)
 
     >[!NOTE] 
-    > Notez la différence par rapport à la création d’offre telle qu’elle est vécue par l’opérateur cloud. Le fournisseur délégué ne construit pas l’offre à partir de plans de base et de plans d’extension ; il ne peut choisir que parmi des offres qui lui ont été déléguées et ne peut pas apporter des modifications à ces offres.
+    > Notez la différence par rapport à la création d’offre telle qu’elle est vécue par l’opérateur Azure Stack. Le fournisseur délégué ne construit pas l’offre à partir de plans de base et de plans d’extension ; il ne peut choisir que parmi des offres qui lui ont été déléguées et ne peut pas apporter des modifications à ces offres.
 
 1. Rendez l’offre publique en cliquant sur **Parcourir** &gt; **Offres**, en sélectionnant l’offre et en cliquant sur **Modifier l’état**.
 2. Le fournisseur délégué expose ces offres via l’URL de son propre portail. Ces offres sont visibles uniquement via le portail délégué. Pour rechercher et modifier cette URL :
@@ -138,7 +140,7 @@ Ceci conclut le processus de délégation de l’offre. L’utilisateur peut dé
 La délégation à plusieurs niveaux permet au fournisseur délégué de déléguer l’offre à d’autres entités. Cela permet, par exemple, la création de réseaux de revendeurs plus approfondis, dans lesquels le fournisseur qui gère Azure Stack délègue une offre à un distributeur, qui à son tour délègue au revendeur.
 Azure Stack prend en charge jusqu’à cinq niveaux de délégation.
 
-Pour créer plusieurs niveaux de délégation de l’offre, le fournisseur délégué délègue à son tour l’offre au fournisseur suivant. Le processus pour le fournisseur délégué est similaire à celui pour l’opérateur cloud (consultez [L’opérateur cloud crée l’offre déléguée](#cloud-operator-creates-the-delegated-offer)).
+Pour créer plusieurs niveaux de délégation de l’offre, le fournisseur délégué délègue à son tour l’offre au fournisseur suivant. Le processus pour le fournisseur délégué est similaire à celui pour l’opérateur Azure Stack (consultez [L’opérateur Azure Stack crée l’offre déléguée](#cloud-operator-creates-the-delegated-offer)).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Approvisionner une machine virtuelle](azure-stack-provision-vm.md)

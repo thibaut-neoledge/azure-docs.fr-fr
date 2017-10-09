@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 03fb9cc6633f81e284ae299f7b2ba4018d19cc73
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: fe276fe802eceb1f062ed8bda685dd44a1e3d175
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -45,7 +45,7 @@ Pour exécuter les exemples de script d’Azure CLI, vous disposez de trois opti
 
 Pour créer une machine virtuelle compatible avec l’identité du service administré :
 
-1. Si vous n’utilisez pas Azure Cloud Shell à partir du portail Azure, connectez-vous d’abord à Azure à l’aide de la commande [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez déployer la machine virtuelle :
+1. Si vous utilisez l’interface de ligne de commande Azure dans une console locale, commencez par vous connecter à Azure avec [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez déployer la machine virtuelle :
 
    ```azurecli-interactive
    az login
@@ -67,7 +67,7 @@ Pour créer une machine virtuelle compatible avec l’identité du service admin
 
 Si vous devez activer l’identité du service administré sur une machine virtuelle existante :
 
-1. Si vous n’utilisez pas Azure Cloud Shell à partir du portail Azure, connectez-vous d’abord à Azure à l’aide de la commande [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles » :
+1. Si vous utilisez l’interface de ligne de commande Azure dans une console locale, commencez par vous connecter à Azure avec [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles » :
 
    ```azurecli-interactive
    az login
@@ -83,7 +83,7 @@ Si vous devez activer l’identité du service administré sur une machine virtu
 
 Si vous disposez d’une machine virtuelle qui ne nécessite plus d’identité du service administré :
 
-1. Si vous n’utilisez pas Azure Cloud Shell à partir du portail Azure, connectez-vous d’abord à Azure à l’aide de la commande [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles » :
+1. Si vous utilisez l’interface de ligne de commande Azure dans une console locale, commencez par vous connecter à Azure avec [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles » :
 
    ```azurecli-interactive
    az login

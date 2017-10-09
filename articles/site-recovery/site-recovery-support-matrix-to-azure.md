@@ -15,16 +15,16 @@ ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: rajanaki
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 30ccdc62e68ff86d693b9eb3477c65e4e6a1fe3f
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 103643ace17961cd4e2e37313f75c775e3dcd8cd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication de machines virtuelles locales vers Azure
 
 
-Cet article résume les composants et les configurations pris en charge pour Azure Site Recovery lors de la réplication et de la récupération vers Azure. Pour plus d’informations sur les conditions requises pour Azure Site Recovery, consultez les [prérequis](site-recovery-prereq.md).
+Cet article résume les composants et les configurations pris en charge pour Azure Site Recovery lors de la réplication et de la récupération vers Azure. Pour plus d’informations sur les conditions requises pour Azure Site Recovery, consultez la [configuration requise](site-recovery-prereq.md).
 
 
 ## <a name="support-for-deployment-options"></a>Prise en charge des options de déploiement
@@ -47,7 +47,7 @@ Cet article résume les composants et les configurations pris en charge pour Azu
 
   >[!Note]
   > Un cloud System Center Virtual Machine Manager 2016 qui combine des hôtes Windows Server 2016 et 2012 R2 n’est pas actuellement pris en charge.
-
+  > Les configurations qui incluent la mise à niveau d’un SCVMM 2012 R2 existant vers la version 2016 ne sont pas prises en charge pour le moment.
 ### <a name="host-servers"></a>Serveurs hôtes
 
 **Déploiement** | **Support**
@@ -93,7 +93,7 @@ Les systèmes de fichiers et le logiciel de configuration de stockage suivants s
 * Gestionnaire de volume : LVM2
 * Logiciel multichemin : Device Mapper
 
-Les dispositifs de stockage Paravirtualized (exportés par les pilotes paravirtualized) ne sont pas pris en charge.<br/>
+Les périphériques de stockage Paravirtualized (exportés par les pilotes paravirtualized) ne sont pas pris en charge.<br/>
 Les unités de bloc d’entrée et de sortie en file d’attente ne sont pas prises en charge.<br/>
 Les serveurs physiques avec le contrôleur de stockage HP CCISS ne sont pas pris en charge.<br/>
 

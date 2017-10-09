@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
-ms.openlocfilehash: edf3b0a80712e8287a66978e0e9574949805a27a
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 44748f3152718f3cec348d7e2bdccdbe0f79091e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Créer des règles basées sur les attributs pour l’appartenance à un groupe dynamique dans Azure Active Directory
@@ -292,7 +292,75 @@ Vous pouvez également créer une règle qui sélectionne des objets d’apparei
 
 
 
+## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Passage de l’appartenance dynamique à statique et vice versa
+Il est possible de modifier la façon dont l’appartenance est gérée dans un groupe. Cela est utile lorsque vous souhaitez conserver le même nom et le même ID de groupe dans le système, afin que toutes les références au groupe existantes soient toujours valides ; la création d’un nouveau groupe nécessiterait la mise à jour de ces références.
 
+Nous sommes en train de mettre à jour le portail Azure pour prendre en charge cette fonctionnalité. En attendant, vous pouvez utiliser le [portail Azure Classic](https://manage.windowsazure.com) (suivez les instructions [ici](active-directory-accessmanagement-groups-with-advanced-rules.md#changing-dynamic-membership-to-static-and-vice-versa)) ou les applets de commande PowerShell, comme indiqué ci-dessous.
+
+> [!WARNING]
+> Lorsque vous faites passer un groupe statique existant à un groupe dynamique, tous les membres existants sont retirés du groupe, puis la règle d’appartenance est exécutée pour ajouter de nouveaux membres. Si le groupe est utilisé pour contrôler l’accès aux applications ou aux ressources, les membres d’origine peuvent perdre l’accès jusqu’à ce que la règle d’appartenance soit totalement exécutée.
+>
+> Il est recommandé de tester la nouvelle règle d’appartenance au préalable pour vous assurer que la nouvelle appartenance du groupe est conforme à votre attente.
+
+**Utilisation de PowerShell pour modifier la gestion des appartenances d’un groupe**
+
+> [!NOTE]
+> Pour modifier les propriétés de groupe dynamique, vous devez utiliser les applets de commande de [Azure AD PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+>
+> Pour le moment, seule la dernière version d’évaluation de la bibliothèque contient les applets de commande requises. Vous pouvez l’installer à partir d’ [ici](https://www.powershellgallery.com/packages/AzureADPreview).
+
+Voici un exemple de fonctions qui permettent de changer la gestion des appartenances d’un groupe existant. Notez qu’une attention particulière est nécessaire pour manipuler correctement la propriété GroupTypes et conserver toutes les valeurs qui peuvent exister ici, qui ne sont pas liées à l’appartenance dynamique.
+
+```
+#The moniker for dynamic groups as used in the GroupTypes property of a group object
+$dynamicGroupTypeString = "DynamicMembership"
+
+function ConvertDynamicGroupToStatic
+{
+    Param([string]$groupId)
+
+    #existing group types
+    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
+
+    if($groupTypes -eq $null -or !$groupTypes.Contains($dynamicGroupTypeString))
+    {
+        throw "This group is already a static group. Aborting conversion.";
+    }
+
+
+    #remove the type for dynamic groups, but keep the other type values
+    $groupTypes.Remove($dynamicGroupTypeString)
+
+    #modify the group properties to make it a static group: i) change GroupTypes to remove the dynamic type, ii) pause execution of the current rule
+    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "Paused"
+}
+
+function ConvertStaticGroupToDynamic
+{
+    Param([string]$groupId, [string]$dynamicMembershipRule)
+
+    #existing group types
+    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
+
+    if($groupTypes -ne $null -and $groupTypes.Contains($dynamicGroupTypeString))
+    {
+        throw "This group is already a dynamic group. Aborting conversion.";
+    }
+    #add the dynamic group type to existing types
+    $groupTypes.Add($dynamicGroupTypeString)
+
+    #modify the group properties to make it a static group: i) change GroupTypes to add the dynamic type, ii) start execution of the rule, iii) set the rule
+    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "On" -MembershipRule $dynamicMembershipRule
+}
+```
+Pour rendre un groupe statique :
+```
+ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
+```
+Pour rendre un groupe dynamique :
+```
+ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
+```
 ## <a name="next-steps"></a>Étapes suivantes
 Ces articles fournissent des informations supplémentaires sur les groupes dans Azure Active Directory.
 

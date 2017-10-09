@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8badb3455fa508e4eef56ec7fc1901fbbc8b23d0
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: a1a3688d4ff215d05d2f78cdfa7d402e3fc20be2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="manage-azure-ddos-protection-standard-using-azure-powershell"></a>Gérer service Protection DDos Standard Azure à l’aide d’Azure PowerShell
 
 >[!IMPORTANT]
->Le service Protection DDos Standard Azure (Protection DDos) est disponible en préversion. Un nombre limité de ressources Azure prennent en charge le service Protection DDos, et ce dans un nombre limité de régions. Vous devez [vous inscrire au service](http://aka.ms/ddosprotection) pendant la préversion limitée afin que le service Protection DDos soit activé pour votre abonnement. L’équipe Azure DDoS vous contacte au moment de l’inscription pour vous guider tout au long du processus d’activation. Le service Protection DDos est disponible dans les régions États-Unis de l’Est, États-Unis de l’Ouest et États-Unis du Centre. Pendant la préversion, l’utilisation du service ne vous est pas facturée.
+>Le service Protection DDos Standard Azure (Protection DDos) est disponible en préversion. Un nombre limité de ressources Azure prennent en charge le service Protection DDos, et ce dans un nombre limité de régions. Vous devez [vous inscrire au service](http://aka.ms/ddosprotection) pendant la préversion limitée afin que le service Protection DDos soit activé pour votre abonnement. L’équipe Azure DDoS vous contacte au moment de l’inscription pour vous guider tout au long du processus d’activation. Le service Protection DDos est disponible dans les régions États-Unis de l’Est, États-Unis de l’Ouest et États-Unis Centre-Ouest. Pendant la préversion, l’utilisation du service ne vous est pas facturée.
 
 Cet article explique comment utiliser Azure PowerShell pour activer le service Protection DDos, pour le désactiver et pour utiliser les données de télémétrie afin d’atténuer une attaque.
 

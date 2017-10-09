@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 2b55341a9d5107376557147913f4fb6cb3966bae
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 5c599b4cc867dbc9a081af3a081195b998f63954
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gérer le service Protection DDos Standard Azure à l’aide du portail Azure
 
 >[!IMPORTANT]
->Le service Protection DDos Standard Azure (Protection DDos) est disponible en préversion. Un nombre limité de ressources Azure prennent en charge le service Protection DDos, et ce dans un nombre limité de régions. Vous devez [vous inscrire au service](http://aka.ms/ddosprotection) pendant la préversion limitée afin que le service Protection DDos soit activé pour votre abonnement. L’équipe Azure DDoS vous contacte au moment de l’inscription pour vous guider tout au long du processus d’activation. Le service Protection DDos est disponible dans les régions États-Unis de l’Est, États-Unis de l’Ouest et États-Unis du Centre. Pendant la préversion, l’utilisation du service ne vous est pas facturée.
+>Le service Protection DDos Standard Azure (Protection DDos) est disponible en préversion. Un nombre limité de ressources Azure prennent en charge le service Protection DDos, et ce dans un nombre limité de régions. Vous devez [vous inscrire au service](http://aka.ms/ddosprotection) pendant la préversion limitée afin que le service Protection DDos soit activé pour votre abonnement. L’équipe Azure DDoS vous contacte au moment de l’inscription pour vous guider tout au long du processus d’activation. Le service Protection DDos est disponible dans les régions États-Unis de l’Est, États-Unis de l’Ouest et États-Unis Centre-Ouest. Pendant la préversion, l’utilisation du service ne vous est pas facturée.
 
 Cet article explique comment utiliser le portail Azure pour activer le service Protection DDos, pour le désactiver et pour utiliser les données de télémétrie afin d’atténuer une attaque. 
 
@@ -93,7 +93,7 @@ Vous disposez de trois options pour la journalisation :
 
 ## <a name="use-ddos-protection-telemetry"></a>Utiliser les données de télémétrie du service Protection DDos
 
-Les données de télémétrie d’une attaque sont fournies par Azure Monitor en temps réel. Les données de télémétrie ne sont disponibles que pendant l’atténuation dont fait l’objet une adresse IP publique. Vous ne les voyez pas avant ou après l’atténuation d’une attaque.
+Les données de télémétrie pour une attaque sont fournies par le biais d’Azure Monitor en temps réel. Les données de télémétrie ne sont disponibles que pendant l’atténuation dont fait l’objet une adresse IP publique. Vous ne les voyez pas avant ou après l’atténuation d’une attaque.
 
 1. Cliquez sur **Surveiller**, puis cliquez sur **Métriques**. 
 2. Dans l’écran *Métriques*, sélectionnez le groupe de ressources, le type de ressource **Adresse IP publique** et votre adresse IP publique Azure. Une série de métriques disponibles s’affiche sur le côté gauche de l’écran. Quand elles sont sélectionnées, ces métriques sont représentées dans le graphique des métriques Azure Monitor sur l’écran de vue d’ensemble. 

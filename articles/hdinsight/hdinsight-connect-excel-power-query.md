@@ -17,17 +17,17 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 415ecc7398e9fc5b29522265e17084000ad4588b
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: c8ba8743fbadc2c40762d555a8c573c741a75282
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>Connexion d’Excel à Hadoop à l’aide de Power Query
 Une fonctionnalité clé de la solution de données volumineuses (« big data ») de Microsoft est l’intégration d’outils décisionnels (BI) Microsoft à des clusters Hadoop dans Azure HDInsight. Un exemple important de cette intégration est la possibilité de connecter Excel au compte Azure Storage contenant les données associées à votre cluster Hadoop en utilisant le complément Microsoft Power Query pour Excel. Cet article vous explique comment configurer et utiliser Power Query pour interroger des données associées à un cluster Hadoop géré avec HDInsight.
 
-### <a name="prerequisites"></a>Prérequis
-Avant de poursuivre cet article, vérifiez que vous avez les éléments suivants :
+### <a name="prerequisites"></a>Composants requis
+Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un cluster HDInsight**. Pour en configurer un, consultez la section [Prise en main d’Azure HDInsight][hdinsight-get-started].
 * **Une station de travail** fonctionnant sous Windows 7, Windows Server 2008 R2 ou une version ultérieure.
@@ -79,7 +79,7 @@ Dans cet article, vous avez appris à utiliser Power Query pour extraire des don
 * [Utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight](./hdinsight-connect-hive-zeppelin.md).
 * [Connecter Excel à HDInsight avec le pilote ODBC Microsoft Hive](./hdinsight-connect-excel-hive-odbc-driver.md).
 * [Se connecter à Azure HDInsight et exécuter des requêtes Hive avec Data Lake Tools pour Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
-* [Utiliser Visual Studio Code pour Hive, LLAP ou pySpark](hdinsight-for-vscode.md).
+* [Utiliser Azure HDInsight Tools pour Visual Studio Code](hdinsight-for-vscode.md).
 * [Charger des données dans HDInsight](./hdinsight-upload-data.md).
 
 [image-hdi-powerquery-hdi-source]: ./media/hdinsight-connect-excel-power-query/hdi.powerquery.selecthdisource.png

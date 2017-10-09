@@ -16,26 +16,26 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: d71fdcf2a054a9b9ac1d74ddd3a6b43d151fa87d
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: cedfba78d8d1186618cf4f61154c5d88a00eb12b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
-Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le portail ou à l’aide d’un modèle Azure Resource Manager.
+Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
 
 > [!NOTE]
-> Il se peut que certains paramètres ne soient pas disponibles via le portail. Si un paramètre répertorié ci-dessous n’est pas disponible via le portail, personnalisez-le à l’aide d’un modèle Azure Resource Manager.
+> Tous les paramètres ne sont pas disponibles dans le portail. Si un paramètre répertorié ci-dessous n’est pas disponible via le portail, personnalisez-le à l’aide d’un modèle Azure Resource Manager.
 > 
 
-## <a name="customizing-service-fabric-cluster-settings-using-azure-resource-manager-templates"></a>Personnalisation des paramètres de cluster Service Fabric à l’aide de modèles Azure Resource Manager
+## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personnaliser les paramètres de cluster à l’aide de modèles Resource Manager
 Les étapes ci-dessous montrent comment ajouter un nouveau paramètre *MaxDiskQuotaInMB* à la section *Diagnostics*.
 
 1. Accédez à https://resources.azure.com.
-2. Accédez à votre abonnement en développant Abonnements -> Groupes de ressources -> Microsoft.ServiceFabric -> Nom de votre cluster.
-3. Dans l’angle supérieur droit, sélectionnez Lecture/écriture.
-4. Sélectionnez Modifier, mettez à jour l’élément JSON `fabricSettings` et ajoutez un nouvel élément.
+2. Accédez à votre abonnement en développant **Abonnements** -> **Groupes de ressources** -> **Microsoft.ServiceFabric** -> **\<Nom de votre cluster>**.
+3. Dans l’angle supérieur droit, sélectionnez **Lecture/écriture**.
+4. Sélectionnez **Modifier**, mettez à jour l’élément JSON `fabricSettings` et ajoutez un nouvel élément :
 
 ```
       {
@@ -49,10 +49,9 @@ Les étapes ci-dessous montrent comment ajouter un nouveau paramètre *MaxDiskQu
       }
 ```
 
-## <a name="fabric-settings-that-you-can-customize"></a>Paramètres de structure que vous pouvez personnaliser
-Voici les paramètres de structure que vous pouvez personnaliser :
+Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés par section.
 
-### <a name="section-name-diagnostics"></a>Nom de la section : Diagnostics
+## <a name="diagnostics"></a>Diagnostics
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | ConsumerInstances |String |Liste des instances de consommateur DCA. |
@@ -66,12 +65,12 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | EnableTelemetry |Valeur booléenne (valeur par défaut : true) |Ce paramètre active ou désactive la télémétrie. |
 | EnableCircularTraceSession |Valeur booléenne (valeur par défaut : false) |Indicateur spécifiant si les sessions de trace circulaire doivent être utilisées. |
 
-### <a name="section-name-traceetw"></a>Nom de la section : Trace/Etw
+## <a name="traceetw"></a>Trace/Etw
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | Level |Entier (valeur par défaut : 4) |Le niveau etw de la trace accepte les valeurs 1, 2, 3, 4. Pour assurer la prise en charge, vous devez conserver le niveau de trace sur 4 |
 
-### <a name="section-name-performancecounterlocalstore"></a>Nom de la section : PerformanceCounterLocalStore
+## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | IsEnabled |Valeur booléenne (valeur par défaut : true) |Indicateur spécifiant si la collection de compteurs de performance sur le nœud local est activée. |
@@ -80,7 +79,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | MaxCounterBinaryFileSizeInMB |Entier (valeur par défaut : 1) |Taille maximale (en Mo) de chaque fichier binaire de compteur de performances. |
 | NewCounterBinaryFileCreationIntervalInMinutes |Entier (valeur par défaut : 10) |Durée maximale (en secondes) après lequel un fichier binaire de compteur de performances est créé. |
 
-### <a name="section-name-setup"></a>Nom de la section : Setup
+## <a name="setup"></a>Paramétrage
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | FabricDataRoot |String |Répertoire racine des données Service Fabric. La valeur par défaut pour Azure est d:\svcfab |
@@ -89,7 +88,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | ServiceStartupType |String |Type de démarrage du service hôte Fabric. |
 | SkipFirewallConfiguration |Valeur booléenne (valeur par défaut : false) |Indique si les paramètres de pare-feu doivent être définis par le système ou non. Cela s’applique uniquement si vous utilisez le pare-feu Windows. Si vous utilisez des pare-feu tiers, vous devez alors ouvrir les ports que le système et les applications doivent utiliser |
 
-### <a name="section-name-transactionalreplicator"></a>Nom de la section : TransactionalReplicator
+## <a name="transactionalreplicator"></a>TransactionalReplicator
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | MaxCopyQueueSize |Valeur Uint (valeur par défaut : 16384) |Valeur maximale définissant la taille initiale de la file d’attente qui gère les opérations de réplication. Ce nombre doit être une puissance de 2. Si, pendant l’exécution, la file d’attente atteint cette taille, les opérations sont limitées entre les réplicateurs principal et secondaire. |
@@ -113,7 +112,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | SlowApiMonitoringDuration |Durée en secondes, la valeur par défaut est 300 | Spécifiez la durée de l’API avant l’émission d’un événement d’avertissement.|
 | MinLogSizeInMB |Entier (valeur par défaut : 0) |Taille minimale du journal des transactions. Le journal ne peut pas être tronqué à une taille inférieure à ce paramètre. 0 indique que le réplicateur détermine la taille minimale du journal en fonction d’autres paramètres. Si vous augmentez cette valeur, vous augmentez la possibilité de faire des copies partielles et des sauvegardes incrémentielles, car la probabilité de la troncation des enregistrements de journaux pertinents est réduite. |
 
-### <a name="section-name-fabricclient"></a>Nom de la section : FabricClient
+## <a name="fabricclient"></a>FabricClient
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | NodeAddresses |Chaîne (valeur par défaut : "") |Collection d’adresses (chaînes de connexion) sur différents nœuds pouvant servir à communiquer avec le service d’attribution de noms. Au début, le client se connecte en sélectionnant une des adresses de façon aléatoire. Si plusieurs chaînes de connexion sont fournies et qu’une échoue en raison d’une erreur de communication ou de délai d’attente, le client utilise l’adresse suivante dans la liste. Pour plus d’informations sur la sémantique des nouvelles tentatives, consultez la section sur les nouvelles tentatives concernant l’adresse du service d’attribution de noms. |
@@ -127,38 +126,38 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | RetryBackoffInterval |Durée en secondes (valeur par défaut : 3) |Spécifiez la durée en secondes. Délai de temporisation à respecter avant de retenter l’opération. |
 | MaxFileSenderThreads |Valeur Uint (valeur par défaut : 10) |Nombre maximum de fichiers transférés en parallèle. |
 
-### <a name="section-name-common"></a>Nom de la section : Common
+## <a name="common"></a>Courant
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | PerfMonitorInterval |Durée en secondes (valeur par défaut : 1) |Spécifiez la durée en secondes. Interface de surveillance des performances. Une valeur nulle ou négative désactive la surveillance. |
 
-### <a name="section-name-healthmanager"></a>Nom de la section : HealthManager
+## <a name="healthmanager"></a>HealthManager
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | EnableApplicationTypeHealthEvaluation |Valeur booléenne (valeur par défaut : false) |Stratégie d’évaluation de l’intégrité du cluster : activer pour chaque évaluation de l’intégrité du type d’application. |
 
-### <a name="section-name-fabricnode"></a>Nom de la section : FabricNode
+## <a name="fabricnode"></a>FabricNode
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | StateTraceInterval |Durée en secondes, la valeur par défaut est 300 |Spécifiez la durée en secondes. Durée du suivi d’état sur chaque nœud et les nœuds actifs sur FM/FMM. |
 
-### <a name="section-name-nodedomainids"></a>Nom de la section : NodeDomainIds
+## <a name="nodedomainids"></a>NodeDomainIds
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | UpgradeDomainId |Chaîne (valeur par défaut : "") |Décrit le domaine de mise à niveau auquel un nœud appartient. |
 | PropertyGroup |NodeFaultDomainIdCollection |Décrit les domaines d’erreur auquel un nœud appartient. Le domaine par défaut est défini par un URI qui décrit l’emplacement du nœud dans le centre de données.  Les URI de domaine d’erreur sont au format de:/de suivi d’un segment de chemin d’accès d’URI.|
 
-### <a name="section-name-nodeproperties"></a>Nom de la section : NodeProperties
+## <a name="nodeproperties"></a>NodeProperties
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | PropertyGroup |NodePropertyCollectionMap |Collection de paires clé-valeur de chaîne pour les propriétés du nœud. |
 
-### <a name="section-name-nodecapacities"></a>Nom de la section : NodeCapacities
+## <a name="nodecapacities"></a>NodeCapacities
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | PropertyGroup |NodeCapacityCollectionMap |Collection des capacités du nœud pour les différentes mesures. |
 
-### <a name="section-name-fabricnode"></a>Nom de la section : FabricNode
+## <a name="fabricnode"></a>FabricNode
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | StartApplicationPortRange |Entier (valeur par défaut : 0) |Début des ports d’application gérés par le sous-système d’hébergement. Requis si EndpointFilteringEnabled a la valeur true dans Hosting. |
@@ -180,12 +179,12 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | UserRoleClientX509FindValue |Chaîne (valeur par défaut : "") |Valeur de filtre de recherche utilisée pour localiser le certificat du rôle d’utilisateur par défaut FabricClient. |
 | UserRoleClientX509FindValueSecondary |Chaîne (valeur par défaut : "") |Valeur de filtre de recherche utilisée pour localiser le certificat du rôle d’utilisateur par défaut FabricClient. |
 
-### <a name="section-name-paas"></a>Nom de la section : Paas
+## <a name="paas"></a>PaaS
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | ClusterId |Chaîne (valeur par défaut : "") |Magasin de certificats X509 utilisé par l’infrastructure pour protéger la configuration. |
 
-### <a name="section-name-fabrichost"></a>Nom de la section : FabricHost
+## <a name="fabrichost"></a>FabricHost
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | StopTimeout |Durée en secondes, la valeur par défaut est 300 |Spécifiez la durée en secondes. Délai d’attente pour l’activation, la désactivation et la mise à niveau du service hébergé. |
@@ -198,7 +197,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | EnableRestartManagement |Valeur booléenne (valeur par défaut : false) |Ce paramètre active le redémarrage du serveur. |
 
 
-### <a name="section-name-failovermanager"></a>Nom de la section : FailoverManager
+## <a name="failovermanager"></a>FailoverManager
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | UserReplicaRestartWaitDuration |Durée en secondes (valeur par défaut : 60.0 * 30) |Spécifiez la durée en secondes. Lorsqu’un réplica persistant tombe en panne, Windows Fabric attend pendant cette durée que le réplica revienne en ligne avant de créer d’autres réplicas de remplacement (ce qui nécessite une copie de l’état). |
@@ -206,7 +205,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | UserStandByReplicaKeepDuration |Durée en secondes (valeur par défaut : 3600.0 * 24 * 7) |Spécifiez la durée en secondes. Lorsqu’un réplica persistant n’est plus défaillant, il peut avoir déjà été remplacé. Ce minuteur détermine la durée pendant laquelle le FM conserve le réplica en attente avant de le rejeter. |
 | UserMaxStandByReplicaCount |Entier (valeur par défaut : 1) |Nombre maximum par défaut de réplicas en attente que le système conserve pour les services de l’utilisateur. |
 
-### <a name="section-name-namingservice"></a>Nom de la section : NamingService
+## <a name="namingservice"></a>NamingService
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Entier (valeur par défaut : 7) |Nombre de jeux de réplicas pour chaque partition de la banque du magasin du service d’attribution de noms. En augmentant le nombre de jeux de réplicas, vous augmentez le niveau de fiabilité des informations contenues dans le magasin du Service d’attribution de noms, ce qui diminue le risque de perte d’informations suite à des défaillances de nœud, moyennant une charge accrue sur Windows Fabric et le temps nécessaire pour mettre à jour les données d’attribution de noms.|
@@ -228,35 +227,35 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | GatewayServiceDescriptionCacheLimit |Entier (valeur par défaut : 0) |Nombre maximum d’entrées maintenues dans le cache de description du service LRU au niveau de la passerelle d’attribution de noms (0 correspond à aucune limite). |
 | PartitionCount |Entier (valeur par défaut : 3) |Nombre de partitions du magasin du Service d’attribution de noms à créer. Chaque partition possède sa clé de partition unique qui correspond à son index. Les clés de partition [0; PartitionCount) existent donc. En augmentant le nombre de partitions du Services d’attribution de noms, vous augmentez l’étendue sur laquelle intervient le Service d’attribution de noms, tout en diminuant le volume moyen de données stockées par un jeu de réplicas de secours, moyennant une utilisation accrue des ressources (car les réplicas de service PartitionCount*ReplicaSetSize doivent être maintenus).|
 
-### <a name="section-name-runas"></a>Nom de la section : RunAss
+## <a name="runas"></a>RunAs
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | RunAsAccountName |Chaîne (valeur par défaut : "") |Indique le nom du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser ou ManagedServiceAccount. Les valeurs autorisées sont "domain\user" ou "user@domain". |
 |RunAsAccountType|Chaîne (valeur par défaut : "") |Indique le type du compte RunAs. Ce paramètre est nécessaire pour toutes les sections RunAs. Les valeurs autorisées DomainUser/NetworkService/ManagedServiceAccount/LocalSystem.|
 |RunAsPassword|Chaîne (valeur par défaut : "") |Indique le mot de passe du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser. |
 
-### <a name="section-name-runasfabric"></a>Nom de la section : RunAs_Fabric
+## <a name="runasfabric"></a>RunAs_Fabric
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | RunAsAccountName |Chaîne (valeur par défaut : "") |Indique le nom du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser ou ManagedServiceAccount. Les valeurs autorisées sont "domain\user" ou "user@domain". |
 |RunAsAccountType|Chaîne (valeur par défaut : "") |Indique le type du compte RunAs. Ce paramètre est nécessaire pour toutes les sections RunAs. Les valeurs autorisées sont LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem. |
 |RunAsPassword|Chaîne (valeur par défaut : "") |Indique le mot de passe du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser. |
 
-### <a name="section-name-runashttpgateway"></a>Nom de la section : RunAs_HttpGateway
+## <a name="runashttpgateway"></a>RunAs_HttpGateway
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | RunAsAccountName |Chaîne (valeur par défaut : "") |Indique le nom du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser ou ManagedServiceAccount. Les valeurs autorisées sont "domain\user" ou "user@domain". |
 |RunAsAccountType|Chaîne (valeur par défaut : "") |Indique le type du compte RunAs. Ce paramètre est nécessaire pour toutes les sections RunAs. Les valeurs autorisées sont LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem. |
 |RunAsPassword|Chaîne (valeur par défaut : "") |Indique le mot de passe du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser. |
 
-### <a name="section-name-runasdca"></a>Nom de la section : RunAs_DCA
+## <a name="runasdca"></a>RunAs_DCA
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | RunAsAccountName |Chaîne (valeur par défaut : "") |Indique le nom du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser ou ManagedServiceAccount. Les valeurs autorisées sont "domain\user" ou "user@domain". |
 |RunAsAccountType|Chaîne (valeur par défaut : "") |Indique le type du compte RunAs. Ce paramètre est nécessaire pour toutes les sections RunAs. Les valeurs autorisées sont LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem. |
 |RunAsPassword|Chaîne (valeur par défaut : "") |Indique le mot de passe du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser. |
 
-### <a name="section-name-httpgateway"></a>Nom de la section : HttpGateway
+## <a name="httpgateway"></a>HttpGateway
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 |IsEnabled|Valeur booléenne (valeur par défaut : false) | Active/désactive le paramètre httpgateway. Le paramètre Httpgateway est désactivé par défaut et cette configuration doit être définie pour l’activer. |
@@ -264,7 +263,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |MaxEntityBodySize |Valeur Uint (valeur par défaut : 4194304) |  Ce paramètre indique la taille maximum du corps que l’on peut attendre d’une requête HTTP. Valeur par défaut : 4 Mo. Le paramètre httpgateway ne peut pas traiter une requête si son corps a une taille supérieure à cette valeur. La taille minimum du bloc de lectures est de 4096 octets. Cette valeur doit donc être supérieure ou égale à 4096. |
 |HttpGatewayHealthReportSendInterval |Durée en secondes, la valeur par défaut est 30 | Spécifiez la durée en secondes. Délai à l’issue duquel la passerelle HTTP envoie les rapports d’intégrité cumulés à Health Manager. |
 
-### <a name="section-name-ktllogger"></a>Nom de la section : KtlLogger
+## <a name="ktllogger"></a>KtlLogger
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 |AutomaticMemoryConfiguration |Entier (valeur par défaut : 1) | Indicateur spécifiant si les paramètres de mémoire doivent être configurés automatiquement et dynamiquement. Si vous spécifiez 0, les paramètres de configuration de la mémoire sont utilisés directement et ne sont pas modifiés par les conditions du système. Si vous spécifiez 1, les paramètres de mémoire sont configurés automatiquement et peuvent varier selon les conditions du système. |
@@ -275,7 +274,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |SharedLogId |Chaîne (valeur par défaut : "") |GUID unique du conteneur du journal partagé. Utilisez "" si vous choisissez le chemin par défaut sous la racine des données de structure. |
 |SharedLogSizeInMB |Entier (valeur par défaut : 8192) | Nombre de Mo à allouer dans le conteneur de journal partagé. |
 
-### <a name="section-name-applicationgatewayhttp"></a>Nom de la section : ApplicationGateway/Http
+## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 |IsEnabled |Valeur booléenne (valeur par défaut : false) | Active/désactive le paramètre HttpApplicationGateway. Le paramètre Httpgateway est désactivé par défaut et cette configuration doit être définie pour l’activer. |
@@ -289,7 +288,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |GatewayX509CertificateFindValue | Chaîne (valeur par défaut : "") | Valeur du filtre de recherche utilisée pour localiser le certificat de la passerelle d’application HTTP. Ce certificat est configuré sur le point d’extrémité HTTPS et peut également servir à vérifier l’identité de l’application au besoin par les services. Le paramètre FindValue est consulté en premier. S’il n’existe pas, FindValueSecondary est consulté. |
 |GatewayX509CertificateFindValueSecondary | Chaîne (valeur par défaut : "") |Valeur du filtre de recherche utilisée pour localiser le certificat de la passerelle d’application HTTP. Ce certificat est configuré sur le point d’extrémité HTTPS et peut également servir à vérifier l’identité de l’application au besoin par les services. Le paramètre FindValue est consulté en premier. S’il n’existe pas, FindValueSecondary est consulté.|
 
-### <a name="section-name-management"></a>Nom de la section : Management
+## <a name="management"></a>Gestion
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | ImageStoreConnectionString |SecureString | Chaîne de connexion à la racine d’ImageStore. |
@@ -301,7 +300,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |DisableChecksumValidation | Valeur booléenne (valeur par défaut : false) | Cette configuration nous permet d’activer ou de désactiver la validation de la somme de contrôle pendant l’approvisionnement de l’application. |
 |DisableServerSideCopy | Valeur booléenne (valeur par défaut : false) | Cette configuration active ou désactive la copie côté serveur du package d’application sur le magasin ImageStore pendant l’approvisionnement de l’application. |
 
-### <a name="section-name-healthmanagerclusterhealthpolicy"></a>Nom de la section : HealthManager/ClusterHealthPolicy
+## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | ConsiderWarningAsError |Valeur booléenne (valeur par défaut : false) |Stratégie d’évaluation d’intégrité de cluster : avertissements traités comme des erreurs. |
@@ -310,7 +309,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |MaxPercentDeltaUnhealthyNodes | Entier (valeur par défaut : 10) |Stratégie d’évaluation d’intégrité de mise à niveau de cluster : pourcentage maximum du delta de nœuds défaillants autorisés pour que le cluster soit fonctionnel. |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes | Entier (valeur par défaut : 15) |Stratégie d’évaluation d’intégrité de mise à niveau de cluster : pourcentage maximum de delta de nœuds défaillants autorisés pour que le cluster soit fonctionnel.|
 
-### <a name="section-name-faultanalysisservice"></a>Nom de la section : FaultAnalysisService
+## <a name="faultanalysisservice"></a>FaultAnalysisService
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Entier (valeur par défaut : 0) |NOT_PLATFORM_UNIX_START Paramètre TargetReplicaSetSize pour FaultAnalysisService. |
@@ -323,7 +322,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | CompletedActionKeepDurationInSeconds | Entier (valeur par défaut : 604800) | Durée approximative de conservation des actions dans un état terminal.  Cela dépend également de StoredActionCleanupIntervalInSeconds, car le travail de nettoyage ne s’effectue que pendant cette durée. 604800 correspond à 7 jours. |
 | StoredChaosEventCleanupIntervalInSeconds | Entier (valeur par défaut : 3600) |Fréquence à laquelle le système évalue la nécessité du nettoyage. Si le nombre d’événements est supérieur à 30000, le nettoyage se déclenche. |
 
-### <a name="section-name-filestoreservice"></a>Nom de la section : FileStoreService
+## <a name="filestoreservice"></a>FileStoreService
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | NamingOperationTimeout |Durée en secondes, la valeur par défaut est 60 |Spécifiez la durée en secondes. Délai pour effectuer l’opération d’attribution de noms. |
@@ -349,7 +348,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | SecondaryAccountNTLMX509StoreName | Chaîne (valeur par défaut : "MY") |Nom du certificat X509 utilisé pour générer le code HMAC sur le SecondaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
 | SecondaryAccountNTLMX509Thumbprint | Chaîne (valeur par défaut : "")| Empreinte du certificat X509 utilisé pour générer le code HMAC sur le SecondaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
 
-### <a name="section-name-imagestoreservice"></a>Nom de la section : ImageStoreService
+## <a name="imagestoreservice"></a>ImageStoreService
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | Activé |Valeur booléenne (valeur par défaut : false) |Indicateur d’activation d’ImageStoreService. |
@@ -365,7 +364,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | ClientListTimeout | Durée en secondes (valeur par défaut : 600) | Spécifiez la durée en secondes. Délai d’expiration de la requête de liste de niveau supérieur dans ImageStoreService. |
 | ClientDefaultTimeout | Durée en secondes (valeur par défaut : 180) | Spécifiez la durée en secondes. Délai d’expiration de toutes les requêtes autres que de chargement/déchargement (existence ou suppression) dans ImageStoreService. |
 
-### <a name="section-name-imagestoreclient"></a>Nom de la section : ImageStoreClient
+## <a name="imagestoreclient"></a>ImageStoreClient
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | ClientUploadTimeout |Durée en secondes (valeur par défaut : 1800) | Spécifiez la durée en secondes. Délai d’expiration de la requête de chargement de niveau supérieur dans ImageStoreService. |
@@ -374,12 +373,12 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |ClientListTimeout | Durée en secondes (valeur par défaut : 600) |Spécifiez la durée en secondes. Délai d’expiration de la requête de liste de niveau supérieur dans ImageStoreService. |
 |ClientDefaultTimeout | Durée en secondes (valeur par défaut : 180) | Spécifiez la durée en secondes. Délai d’expiration de toutes les requêtes autres que de chargement/déchargement (existence ou suppression) dans ImageStoreService. |
 
-### <a name="section-name-tokenvalidationservice"></a>Nom de la section : TokenValidationService
+## <a name="tokenvalidationservice"></a>TokenValidationService
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | Fournisseurs |Chaîne (valeur par défault : "DSTS") |Liste séparée par des virgules, des fournisseurs de validation de jeton à activer (fournisseurs valides : DSTS, AAD). Pour l’instant, un seul fournisseur peut être activé à la fois. |
 
-### <a name="section-name-upgradeorchestrationservice"></a>Nom de la section : UpgradeOrchestrationService
+## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Entier (valeur par défaut : 0) |Paramètre TargetReplicaSetSize pour UpgradeOrchestrationService. |
@@ -391,7 +390,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | AutoupgradeEnabled | Valeur booléenne (valeur par défaut : true) | Interrogation automatique et action de mise à niveau basée sur un fichier d’état d’objectif. |
 | UpgradeApprovalRequired | Valeur booléenne (valeur par défaut : false) | La configuration de la mise à niveau du code requiert une autorisation de l’administrateur. |
 
-### <a name="section-name-upgradeservice"></a>Nom de la section : UpgradeService
+## <a name="upgradeservice"></a>UpgradeService
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | PlacementConstraints |Chaîne (valeur par défaut : "") |Paramètre PlacementConstraints pour le service de mise à niveau. |
@@ -408,7 +407,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | OnlyBaseUpgrade | Valeur booléenne (valeur par défaut : false) | Paramètre OnlyBaseUpgrade pour UpgradeService. |
 | TestCabFolder | Chaîne (valeur par défaut : "") | Paramètre TestCabFolder pour UpgradeService. |
 
-### <a name="section-name-securityclientaccess"></a>Nom de la section : Security/ClientAccess
+## <a name="securityclientaccess"></a>Security/ClientAccess
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | CreateName |Chaîne (valeur par défault : "Admin") |Configuration de la sécurité pour la création d’URI d’attribution de noms. |
@@ -449,7 +448,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | InvokeInfrastructureCommand |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour les commandes de gestion des tâches d’infrastructure. |
 | FileContent |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour le transfert de fichiers clients du magasin d’images (externe vers le cluster). |
 | FileDownload |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour le lancement du téléchargement de fichiers clients du magasin d’images (externe vers le cluster). |
-| InternalList |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour l’opération de liste de fichiers clients deumagasin d’images (interne). |
+| InternalList |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour l’opération de liste de fichiers clients du magasin d’images (interne). |
 | Supprimer |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour l’opération de suppression de clients du magasin d’images (interne). |
 | Télécharger |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour l’opération de chargement de clients du magasin d’images. |
 | GetStagingLocation |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour récupérer l’emplacement intermédiaire du client du magasin d’images. |
@@ -495,7 +494,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | GetClusterConfigurationUpgradeStatus | Chaîne (valeur par défault : "Admin\)|\|User") | Déclenche GetClusterConfigurationUpgradeStatus sur une partition. |
 | GetClusterConfiguration | Chaîne (valeur par défault : "Admin\)|\|User") | Déclenche GetClusterConfiguration sur une partition. |
 
-### <a name="section-name-reconfigurationagent"></a>Nom de la section : ReconfigurationAgent
+## <a name="reconfigurationagent"></a>ReconfigurationAgent
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | ApplicationUpgradeMaxReplicaCloseDuration | Durée en secondes (valeur par défaut : 900) |Spécifiez la durée en secondes. Délai respecté par le système avant de mettre fin à des hôtes de service dont des réplicas sont bloqués en fermeture. |
@@ -506,7 +505,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | FabricUpgradeMaxReplicaCloseDuration | Durée en secondes (valeur par défaut : 900) | Spécifiez la durée en secondes. Délai maximum à respecter par RA avant d’arrêter l’hôte de service du réplica qui ne se ferme pas. |
 | IsDeactivationInfoEnabled | Valeur booléenne (valeur par défaut : true) | Détermine si RA doit utiliser les informations de désactivation pour désigner à nouveau le réplica principal. Pour les nouveaux clusters, cette configuration doit être définie sur « True ». Pour les clusters existants en cours de mise à niveau, consultez les notes de publication afin de savoir comment activer cette option. |
 
-### <a name="section-name-placementandloadbalancing"></a>Nom de la section : PlacementAndLoadBalancing
+## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | TraceCRMReasons |Valeur booléenne (valeur par défaut : true) |Spécifie si les raisons des mouvements effectués par CRM doivent être envoyés au canal des événements opérationnels. |
@@ -558,12 +557,12 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |PartiallyPlaceServices | Valeur booléenne (valeur par défaut : true) | Détermine si tous les réplicas de service dans le cluster seront placés selon le principe du « tout ou rien », en fonction du nombre limité de nœuds appropriés pour eux.|
 |InterruptBalancingForAllFailoverUnitUpdates | Valeur booléenne (valeur par défaut : false) | Détermine si n’importe quel type de mise à jour des unités de basculement doit interrompre l’exécution lente ou rapide de l’équilibrage. Avec la valeur « false », l’exécution de l’équilibrage est interrompue si FailoverUnit est créé/supprimé, a des réplicas manquants, a modifié l’emplacement du réplica principal ou a modifié le nombre de réplicas. L’exécution de l’équilibrage n’est pas interrompue si FailoverUnit a des réplicas supplémentaires, a modifié un indicateur de réplica, n’a modifié que la version de la partition ou dans tout autre cas. |
 
-### <a name="section-name-security"></a>Nom de la section : Sécurité
+## <a name="security"></a>Sécurité
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | ClusterProtectionLevel |None ou EncryptAndSign |None (par défaut) pour les clusters non sécurisés, EncryptAndSign pour les clusters sécurisés. |
 
-### <a name="section-name-hosting"></a>Nom de la section : Hébergement
+## <a name="hosting"></a>Hébergement
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | ServiceTypeRegistrationTimeout |Durée en secondes, la valeur par défaut est 300 |Durée maximale autorisée pour que ServiceType soit inscrit auprès de la structure |
@@ -572,18 +571,18 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | ActivationMaxRetryInterval |Durée en secondes, la valeur par défaut est 300 |Pour chaque cas d’échec d’activation continue, le système retente l’activation pour une durée équivalente à ActivationMaxFailureCount. ActivationMaxRetryInterval spécifie l’intervalle de temps d’attente avant une nouvelle tentative après chaque échec d’activation |
 | ActivationMaxFailureCount |Nombre entier, la valeur par défaut est 10 |Nombre de fois où les nouvelles tentatives système ont échoué à l’activation avant d’abandonner |
 
-### <a name="section-name-failovermanager"></a>Nom de la section : FailoverManager
+## <a name="failovermanager"></a>FailoverManager
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | PeriodicLoadPersistInterval |Durée en secondes, la valeur par défaut est 10 |Ce paramètre détermine la fréquence à laquelle FM vérifie la présence de nouveaux rapports de charge |
 
-### <a name="section-name-federation"></a>Nom de la section : Fédération
+## <a name="federation"></a>Fédération
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | LeaseDuration |Durée en secondes, la valeur par défaut est 30 |Durée de bail entre un nœud et ses voisins. |
 | LeaseDurationAcrossFaultDomain |Durée en secondes, la valeur par défaut est 30 |Durée de bail entre un nœud et ses voisins dans des domaines d’erreur. |
 
-### <a name="section-name-clustermanager"></a>Nom de la section : ClusterManager
+## <a name="clustermanager"></a>ClusterManager
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
 | UpgradeStatusPollInterval |Durée en secondes, la valeur par défaut est 60 |Fréquence d’interrogation de l’état de mise à niveau de l’application. Cette valeur détermine le taux de mise à jour pour tout appel GetApplicationUpgradeProgress |

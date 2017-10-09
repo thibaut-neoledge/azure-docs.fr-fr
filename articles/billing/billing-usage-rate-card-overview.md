@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/18/2017
 ms.author: mobandyo;bryanla
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d3e1dd894c1548b44257bcc02c12cfafe364d5eb
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 85b53620a886625920e8e057a14e1ed5fa3e5333
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -43,13 +42,13 @@ Utiliser l’[API Azure Resource Usage](https://msdn.microsoft.com/library/azure
 * **Agrégations horaires ou quotidiennes** : les appelants peuvent indiquer s’ils souhaitent visualiser leurs données d’utilisation Azure par intervalles de temps horaires ou quotidiens. Par défaut, les données sont présentées par jour.
 * **Métadonnées d’instance (balises de ressource incluses)** : obtenez des détails de niveau instance, comme l’URI de ressource complet (/subscriptions/{subscription-id}/..) et des informations de groupe de ressources et les balises de ressource. Les métadonnées vous aideront à allouer de façon déterministe et par programme l’utilisation par les balises, pour les cas d’utilisation comme la facturation interne.
 * **Métadonnées sur les ressources** : des détails sur les ressources, comme le nom du compteur, la catégorie du compteur, la sous-catégorie du compteur, l’unité et la région offrent à l’appelant une meilleure compréhension des ressources consommées. Nous nous efforçons également d’aligner la terminologie des métadonnées de ressource dans l’ensemble du portail Azure, des fichiers CSV sur l’utilisation d’Azure et sur la facturation Contrat Entreprise (EA), ainsi que dans toutes les autres expériences destinées au public, afin de vous permettre de mettre en corrélation les données des différentes expériences.
-* **Utilisation pour tous les types d’offre** : les données d’utilisation sont accessibles pour tous les types d’offre, tels que Paiement à l’utilisation, MSDN, Engagement monétaire, Crédit monétaire et Contrat Entreprise (EA).
+* **Utilisation pour différents types d’offre** : les données d’utilisation sont accessibles pour tous les types d’offre, tels que Paiement à l’utilisation, MSDN, Engagement monétaire, Crédit monétaire et Contrat Entreprise (EA), excepté [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
 
 ## <a name="azure-resource-ratecard-api-preview"></a>API Azure Resource RateCard (version préliminaire)
 Utilisez l’[API Azure Resource RateCard](https://msdn.microsoft.com/library/azure/mt219005) pour obtenir la liste des ressources Azure disponibles et une estimation des informations de prix pour chacune de ces ressources. L’API comprend :
 
 * **Contrôle d’accès en fonction du rôle Azure** : configurez vos stratégies d’accès dans le [portail Azure](https://portal.azure.com) ou par le biais des [applets de commande Azure PowerShell](/powershell/azure/overview) pour spécifier les utilisateurs ou les applications qui peuvent accéder aux données d’utilisation de RateCard. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure particulier.
-* **Prise en charge des offres Paiement à l’utilisation, MSDN, Engagement monétaire et Crédit monétaire (offre EA non prise en charge)** : cette API fournit des informations de tarif au niveau des offres Azure.  L’appelant de cette API doit transmettre les informations d’offre pour obtenir les détails et les tarifs des ressources. Nous sommes actuellement pas en mesure de fournir les tarifs EA, car les offres EA présentent des tarifs par inscription personnalisés. 
+* **Prise en charge des offres Paiement à l’utilisation, MSDN, Engagement monétaire et Crédit monétaire (offre EA et [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) non prises en charge)** : cette API fournit des informations de tarif au niveau des offres Azure.  L’appelant de cette API doit transmettre les informations d’offre pour obtenir les détails et les tarifs des ressources. Nous sommes actuellement pas en mesure de fournir les tarifs EA, car les offres EA présentent des tarifs par inscription personnalisés. 
 
 ## <a name="scenarios"></a>Scénarios
 Voici quelques-uns des scénarios autorisés par l’utilisation combinée des API Usage et RateCard :

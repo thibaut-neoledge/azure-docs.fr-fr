@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e81c58beb6e220c62ee2287090561d1744cdc749
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 9a17c984f5ca801dfa017f1d6fc8fa5ccdeaf39b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="visualize-hive-data-with-microsoft-power-bi-in-azure-hdinsight"></a>Visualiser des données Hive à l’aide de Microsoft Power BI dans Azure HDInsight
@@ -31,7 +31,7 @@ Découvrez comment connecter Microsoft Power BI à Azure HDInsight et comment vi
 
 Les informations s’appliquent également au nouveau type de cluster [Interactive Query](./hdinsight-hadoop-use-interactive-hive.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Avant de poursuivre cet article, vérifiez que vous avez les éléments suivants :
 
 * Un **cluster HDInsight**. Cela peut être un cluster HDInsight avec Hive ou un cluster du nouveau type Interactive Query. Pour plus d’informations sur la création de clusters, consultez [Créer un cluster](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
@@ -70,6 +70,6 @@ Dans cet article, vous avez appris à visualiser des données de HDInsight à l�
 * [Connecter Excel à HDInsight avec le pilote ODBC Microsoft Hive](./hdinsight-connect-excel-hive-odbc-driver.md).
 * [Connexion d’Excel à Hadoop à l’aide de Power Query](./hdinsight-connect-excel-power-query.md).
 * [Se connecter à Azure HDInsight et exécuter des requêtes Hive avec Data Lake Tools pour Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
-* [Utiliser Visual Studio Code pour Hive, LLAP ou pySpark](hdinsight-for-vscode.md).
+* [Utiliser Azure HDInsight Tools pour Visual Studio Code](hdinsight-for-vscode.md).
 * [Charger des données dans HDInsight](./hdinsight-upload-data.md).
 

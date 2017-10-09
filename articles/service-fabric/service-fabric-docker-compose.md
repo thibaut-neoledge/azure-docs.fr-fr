@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/25/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: e05d1a3d6111e3bbc34008226bcd1fdf35935450
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 519bab9d226f9d00ae0fa21348823d2d6b6cd2c9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="docker-compose-application-support-in-azure-service-fabric-preview"></a>Prise en charge de l’application Docker Compose dans Azure Service Fabric (préversion)
@@ -34,26 +34,26 @@ Pour utiliser cette préversion, créez votre cluster en utilisant la version 5
 
 ## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Déployer un fichier Docker Compose sur Service Fabric
 
-Les commandes ci-après créent une application Service Fabric (nommée `fabric:/TestContainerApp` dans l’exemple précédent), que vous pouvez surveiller et gérer comme n’importe quelle autre application Service Fabric. Vous pouvez utiliser le nom de l’application spécifiée pour des requêtes d’intégrité.
+Les commandes ci-après créent une application Service Fabric (nommée `TestContainerApp`), que vous pouvez surveiller et gérer comme n’importe quelle autre application Service Fabric. Vous pouvez utiliser le nom de l’application spécifiée pour des requêtes d’intégrité.
 
 ### <a name="use-powershell"></a>Utiliser PowerShell
 
-Créez une application Compose Service Fabric à partir d’un fichier docker-compose.yml en exécutant la commande suivante dans PowerShell :
+Créez un déploiement Compose Service Fabric à partir d’un fichier docker-compose.yml en exécutant la commande suivante dans PowerShell :
 
 ```powershell
-New-ServiceFabricComposeDeployment -DeploymentName fabric:/TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
+New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName` et `RegistryPassword` font référence au nom d’utilisateur et au mot de passe du registre de conteneurs. Une fois que vous avez créé l’application, vous pouvez en vérifier l’état à l’aide de la commande suivante :
+`RegistryUserName` et `RegistryPassword` font référence au nom d’utilisateur et au mot de passe du registre de conteneurs. Une fois que vous avez créé le déploiement, vous pouvez en vérifier l’état à l’aide de la commande suivante :
 
 ```powershell
-Get-ServiceFabricComposeDeploymentStatus -DeploymentName fabric:/TestContainerApp -GetAllPages
+Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp -GetAllPages
 ```
 
-Pour supprimer l’application Compose, utilisez la commande suivante dans PowerShell :
+Pour supprimer le déploiement Compose, utilisez la commande suivante dans PowerShell :
 
 ```powershell
-Remove-ServiceFabricComposeDeployment  -DeploymentName fabric:/TestContainerApp
+Remove-ServiceFabricComposeDeployment  -DeploymentName TestContainerApp
 ```
 
 ### <a name="use-azure-service-fabric-cli-sfctl"></a>Utiliser l’interface CLI Azure Service Fabric (sfctl)
@@ -61,7 +61,7 @@ Remove-ServiceFabricComposeDeployment  -DeploymentName fabric:/TestContainerApp
 Vous pouvez également utiliser la commande CLI Service Fabric ci-après :
 
 ```azurecli
-sfctl compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
+sfctl compose create --application-id TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
 ```
 
 Après avoir créé l’application, vous pouvez en vérifier l’état à l’aide de la commande suivante :

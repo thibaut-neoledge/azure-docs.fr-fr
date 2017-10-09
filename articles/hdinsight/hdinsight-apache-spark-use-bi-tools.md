@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 49dd161049ac442081fe6d26cf8bd3a56a2e0687
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 869a000909813e607620c47ef802b4043e37dfa9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI utilisant des outils de visualisation de données avec Azure HDInsight
@@ -146,7 +146,7 @@ Une fois que vous avez enregistré les données dans une table, vous pouvez util
 
       ![épertorier des tables sur le tableau de bord Apache Spark BI](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "épertorier des tables sur le tableau de bord Apache Spark BI")
 
-8. Générez une visualisation pour afficher l’écart entre la température cible et la température réelle de chaque bâtiment. Sélectionnez **Graphique en aires** (affiché en rouge) pour visualiser vos données. Pour définir l’axe, effectuez un glisser-déplacer du champ **BuildingID** situé sous **Axe** et des champs **ActualTemp**/**TargetTemp** situés sous **Valeur**.
+8. Générez une visualisation pour afficher l’écart entre la température cible et la température réelle de chaque bâtiment. Pour visualiser vos données, sélectionnez **Graphique en aires** (affiché en rouge). Pour définir l’axe, effectuez un glisser-déplacer du champ **BuildingID** situé sous **Axe** et des champs **ActualTemp**/**TargetTemp** situés sous **Valeur**.
 
     ![Créer des visualisations de données Spark à l’aide d’Apache Spark BI](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "Créer des visualisations de données Spark à l’aide d’Apache Spark BI")
 
@@ -209,6 +209,6 @@ Une fois que vous avez enregistré les données dans une table, vous pouvez util
 Jusqu’ici, vous avez appris à créer un cluster, des trames de données Spark pour interroger des données, et à accéder à ces données depuis des outils décisionnels. Vous pouvez maintenant suivre les instructions pour gérer les ressources du cluster et pour déboguer les tâches exécutées sur un cluster HDInsight Spark.
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
+* [Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight](hdinsight-apache-spark-job-debugging.md)
 
 

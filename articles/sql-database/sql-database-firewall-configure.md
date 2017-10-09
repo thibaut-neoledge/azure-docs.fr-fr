@@ -18,10 +18,10 @@ ms.workload: data-management
 ms.date: 09/15/2017
 ms.author: rickbyh
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 445689cb067d33b0da45d63730e5e755bc799909
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: a683481c9ebcdb8be6f9fefe442541e222482823
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Règles de pare-feu au niveau du serveur et de la base de données d’Azure SQL Database 
@@ -30,7 +30,7 @@ Microsoft Azure SQL Database fournit un service de base de données relationnell
 
 #### <a name="virtual-netowrk-rules-as-alternatives-to-ip-rules"></a>Règles de réseau virtuel comme alternatives aux règles d’adresses IP
 
-Outre les règles d’adresses IP, le pare-feu gère également *les règles de réseau virtuel*. Les règles de réseau virtuel sont basées sur les points de terminaison de service de réseau virtuel. Les règles de réseau virtuel peuvent être préférables aux règles d’adresses IP dans certains cas. Pour plus d’informations, voir [Points de terminaison de service de réseau virtuel et règles dans Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
+Outre les règles d’adresses IP, le pare-feu gère également *les règles de réseau virtuel*. Les règles de réseau virtuel dépendent des points de terminaison de service de réseau virtuel. Les règles de réseau virtuel peuvent être préférables aux règles d’adresses IP dans certains cas. Pour plus d’informations, voir [Points de terminaison de service de réseau virtuel et règles dans Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -227,3 +227,4 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
+

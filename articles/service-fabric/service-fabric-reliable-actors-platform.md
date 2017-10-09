@@ -12,26 +12,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 09/20/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 0a12da52b6e74c721cd25f89e7cde3c07153a396
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Comment le service Reliable Actors utilise la plateforme Service Fabric
 Cet article décrit le fonctionnement du service Reliable Actors sur la plateforme Azure Service Fabric. La solution Reliable Actors s’exécute dans une infrastructure hébergée dans une implémentation d’un service fiable avec état nommé *service d’acteur*. Le service d’acteur contient tous les composants nécessaires pour gérer le cycle de vie et la distribution des messages destinés à vos acteurs :
 
-* Le runtime de l’acteur gère le cycle de vie et le nettoyage de la mémoire, et applique une accès monothread.
+* Le runtime de l’acteur gère le cycle de vie et le nettoyage de la mémoire, et applique un accès monothread.
 * Un écouteur de communication à distance du service d’acteur accepte les appels d’accès à distance adressés aux acteurs, et les transmet à un répartiteur qui les route vers l’instance d’acteur appropriée.
 * Le fournisseur d’état de l’acteur encapsule des fournisseurs d’état (par exemple, le fournisseur d’état Collections fiables), et fournit un adaptateur pour la gestion de l’état de l’acteur.
 
 Ces composants forment ensemble l’infrastructure d’acteur fiable.
 
 ## <a name="service-layering"></a>Couches de service
-Étant donné que le service d’acteur est un service fiable, l’ensemble des concepts des Reliable Services relatifs au [modèle d’application](service-fabric-application-model.md), au cycle de vie, à [l’empaquetage](service-fabric-package-apps.md), au [déploiement](service-fabric-deploy-remove-applications.md), à la mise à niveau et à la mise à l’échelle s’appliquent de la même manière aux services d’acteur. 
+Étant donné que le service d’acteur est un service fiable, l’ensemble des concepts des Reliable Services relatifs au [modèle d’application](service-fabric-application-model.md), au cycle de vie, à [l’empaquetage](service-fabric-package-apps.md), au [déploiement](service-fabric-deploy-remove-applications.md), à la mise à niveau et à la mise à l’échelle s’appliquent de la même manière aux services d’acteur.
 
 ![Superposition de service d’acteur][1]
 
@@ -372,6 +372,35 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ```
 
 Lorsque vous utilisez des chaînes et des GUID / UUID, les valeurs sont hachées en Int64. Toutefois, lorsque vous fournissez explicitement une valeur Int64 à un `ActorId`, la valeur Int64 mappe directement à une partition sans hachage supplémentaire. Vous pouvez utiliser cette technique pour contrôler la partition dans laquelle les acteurs sont placés.
+
+## <a name="actor-using-remoting-v2-stack"></a>Acteur utilisant la pile Remoting V2
+Avec le package nuget 2.8, les utilisateurs peuvent désormais utiliser la pile Remoting V2, qui est plus performante et offre des fonctionnalités comme la sérialisation personnalisée. Remoting V2 n’est pas rétrocompatible avec la pile Remoting existante (nous l’appelons désormais pile V1 Remoting).
+
+Les modifications suivantes sont requises pour utiliser la pile Remoting V2.
+ 1. Ajoutez l’attribut d’assembly suivant sur les interfaces Actor.
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   ```
+
+ 2. Créez et mettez à jour des projets ActorService et Actor Client pour démarrer à l’aide de la pile V2.
+
+### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Mise à niveau du service d’acteur vers la pile Remoting V2 sans impact sur la disponibilité des services.
+Cette modification sera une mise à niveau en 2 étapes. Suivez les étapes dans l’ordre indiqué.
+
+1.  Ajoutez l’attribut d’assembly suivant sur les interfaces Actor. Cet attribut démarre deux écouteurs pour ActorService, V1 (existant) et V2 Listener. Mettez à niveau ActorService avec cette modification.
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  ```
+
+2. Mettez à niveau ActorClients après avoir effectué la mise à niveau ci-dessus.
+Cette étape permet de s’assurer de qu’Actor Proxy utilise la pile Remoting V2.
+
+3. Cette étape est facultative. Modifiez l’attribut ci-dessus pour supprimer V1 Listener.
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Gestion des états d’acteur](service-fabric-reliable-actors-state-management.md)

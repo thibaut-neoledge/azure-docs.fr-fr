@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 57cd81a92817171a23ffd0f607eb127005bc1e0d
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 894e387b4b83ed859139b4aecb3d8bb5df9ab56f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect : Mise à niveau automatique
@@ -26,7 +26,6 @@ Cette fonctionnalité a été introduite avec la version 1.1.105.0 (publiée en
 
 ## <a name="overview"></a>Vue d'ensemble
 Grâce à la fonctionnalité de **mise à niveau automatique** , vous pouvez facilement vous assurer que votre installation Azure AD Connect est à jour. Cette fonctionnalité est activée par défaut pour les installations expresses et les mises à niveau de DirSync. Quand une nouvelle version est publiée, votre installation est mise à niveau automatiquement.
-
 La mise à niveau automatique est activée par défaut pour les éléments suivants :
 
 * Installation de la configuration rapide et mises à niveau de DirSync.
@@ -45,6 +44,7 @@ L’état actuel de la mise à niveau automatique peut être affiché avec l’a
 Vous pouvez passer de **Activé** à **Désactivé** avec `Set-ADSyncAutoUpgrade`. Seul le système doit définir l’état **Interrompu**.
 
 La mise à niveau automatique utilise Azure AD Connect Health pour l’infrastructure de mise à niveau. Pour qu’une mise à niveau automatique fonctionne, assurez-vous d’avoir ouvert les URLs dans votre serveur proxy pour **Azure AD Connect Health** comme indiqué dans la rubrique [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+
 
 Si l’interface utilisateur du **Synchronization Service Manager** est en cours d’exécution sur le serveur, la mise à niveau est suspendue jusqu’à la fermeture de l’interface utilisateur.
 
@@ -96,7 +96,7 @@ Voici une liste de messages les plus courants. Elle n’est pas exhaustive, mais
 | UpgradeNotSupportedMultiForestSetup |Vous vous connectez à plusieurs forêts. L’installation rapide se connecte à une seule forêt. |
 | UpgradeNotSupportedNonLocalDbInstall |Vous n’utilisez pas une base de données LocalDB SQL Server Express. |
 | UpgradeNotSupportedNonMsolAccount |Le [compte de connecteur AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) n’est plus le compte MSOL_ par défaut. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | Vous avez sélectionné *Ne pas configurer* en tant que méthode de connexion. | 
+| UpgradeNotSupportedNotConfiguredSignInMethod | Lorsque vous configurez AAD Connect, vous avez choisi *Ne pas configurer* lors de la sélection de la méthode d’authentification unique. | 
 | UpgradeNotSupportedPtaSignInMethod | Vous avez sélectionné Authentification directe comme mode d’authentification. |
 | UpgradeNotSupportedStagingModeEnabled |Le serveur est défini pour être en [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée de l’utilisateur](active-directory-aadconnect-feature-preview.md#user-writeback) . |

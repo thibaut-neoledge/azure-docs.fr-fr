@@ -3,7 +3,7 @@ title: "Activation des métriques de stockage dans le portail Azure | Microsoft 
 description: "Activation des métriques de stockage pour les services d’objet Blob, de File d’attente, de Table et de Fichier"
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1525a2258dd6ab8e72e8607826523eca8121483c
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 8abb4f968c1fa84e03c8cc807826d3684713847a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Activation des métriques Azure Storage et affichage des données associées
@@ -39,7 +39,7 @@ Pour activer les mesures dans le [Portail Azure](https://portal.azure.com), suiv
 1. Spécifiez une stratégie de rétention pour indiquer la durée de conservation des métriques et de journalisation des données.
 1. Sélectionnez **Enregistrer**.
 
-Notez qu’actuellement le [Portail Azure](https://portal.azure.com) ne vous permet pas de configurer des mesures par minute dans votre compte de stockage ; vous devez les activer avec PowerShell ou par programmation.
+Le [Portail Azure](https://portal.azure.com) ne vous permet pas de configurer des métriques par minute dans votre compte de stockage ; vous devez les activer avec PowerShell ou par programmation.
 
 ## <a name="how-to-enable-metrics-using-powershell"></a>Comment activer les métriques à l’aide de PowerShell
 Vous pouvez utiliser PowerShell sur votre ordinateur local pour configurer Storage Metrics dans votre compte de stockage. Utilisez l’applet de commande Azure PowerShell Get-AzureStorageServiceMetricsProperty pour récupérer les paramètres actuels et l’applet de commande Set-AzureStorageServiceMetricsProperty pour modifier les paramètres actuels.
@@ -101,12 +101,12 @@ blobClient.SetServiceProperties(properties);
 Après que vous avez configuré les métriques d’analyse du stockage pour surveiller votre compte de stockage, l’analyse du stockage enregistre les métriques dans des tables connues dans votre compte de stockage. Vous pouvez configurer des graphiques permettant de consulter des mesures horaires dans le [Portail Azure](https://portal.azure.com) :
 
 1. Accédez à votre compte de stockage dans le [Portail Azure](https://portal.azure.com).
-1. Sélectionnez **Mesures** dans le panneau **Menu** du service dont vous souhaitez afficher les mesures.
+1. Sélectionnez **Mesures** dans le volet **Menu** du service dont vous souhaitez afficher les mesures.
 1. Sélectionnez **Modifier** sur le graphique que vous souhaitez configurer.
-1. Dans le panneau **Modifier le graphique**, sélectionnez **l’Intervalle de temps**, le **Type de graphique** et les mesures que vous souhaitez afficher dans le graphique.
+1. Dans le volet **Modifier le graphique**, sélectionnez l’**Intervalle de temps**, le **Type de graphique** et les mesures que vous souhaitez afficher dans le graphique.
 1. Sélectionnez **OK**.
 
-Si vous souhaitez télécharger les métriques pour un stockage à long terme ou pour les analyser localement, vous devez :
+Si vous souhaitez télécharger les métriques pour un stockage à long terme ou pour les analyser localement, vous devez :
 
 * Utiliser un outil qui prend en charge ces tables et vous permet de les afficher et de les télécharger
 * Écrire une application ou un script personnalisé pour lire et stocker les tables
@@ -143,7 +143,7 @@ Vous trouverez des informations complètes sur les schémas de ces tables dans [
 | 20140522T1100 |user;QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
 | 20140522T1100 |user;UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6 |100 |
 
-Dans cet exemple de données de métriques par minute, la clé de partition (PartitionKey) utilise une résolution d’une minute. La clé de ligne (RowKey) identifie le type d’informations qui sont stockées dans la ligne. Elle se compose de deux éléments : le type d’accès et le type de demande.
+Dans cet exemple de données de métriques par minute, la clé de partition (PartitionKey) utilise une résolution d’une minute. La clé de ligne identifie le type d’informations stockées dans la ligne. La clé de ligne est composée de deux éléments d’informations, le type d’accès et le type de demande :
 
 * Le type d’accès a la valeur user ou system, user correspondant à toutes les demandes de l’utilisateur au service de stockage et system correspondant à toutes les demandes formulées par Storage Analytics.
 * Le type de demande peut avoir la valeur all, auquel cas il s’agit d’une ligne de résumé, ou il identifie l’API spécifique comme QueryEntity ou UpdateEntity.
@@ -151,10 +151,10 @@ Dans cet exemple de données de métriques par minute, la clé de partition (Par
 Les exemples de données ci-dessus montrent tous les enregistrements pour une seule minute (à partir de 11h00). Ainsi, la somme des demandes QueryEntities, QueryEntity et UpdateEntity est égale à sept, ce qui correspond bien au total indiqué sur la ligne user:All. De même, vous pouvez déduire la latence de bout en bout moyenne (104,4286) sur la ligne user:All en effectuant le calcul suivant : ((143,8 * 5) + 3 + 9)/7.
 
 ## <a name="metrics-alerts"></a>Alertes liées aux métriques
-Il peut être intéressant de définir des alertes dans le [Portail Azure](https://portal.azure.com), afin que Storage Metrics puisse vous avertir automatiquement de tout changement important de comportement de vos services de stockage. Si vous utilisez un outil Explorateur de stockage pour télécharger ces données dans un format délimité, vous pouvez utiliser Microsoft Excel pour les analyser. Pour obtenir la liste des outils d’exploration du stockage disponibles, consultez [Outils clients Azure Storage](storage-explorers.md) . Vous pouvez configurer des alertes dans le panneau **Règles d’alerte**, accessible sous **Surveillance** dans le panneau du menu Compte de stockage.
+Il peut être intéressant de définir des alertes dans le [Portail Azure](https://portal.azure.com), afin que Storage Metrics puisse vous avertir automatiquement de tout changement important de comportement de vos services de stockage. Si vous utilisez un outil Explorateur de stockage pour télécharger ces données dans un format délimité, vous pouvez utiliser Microsoft Excel pour les analyser. Pour obtenir la liste des outils d’exploration du stockage disponibles, consultez [Outils clients Azure Storage](storage-explorers.md) . Vous pouvez configurer des alertes dans le volet **Règles d’alerte**, accessible sous **Surveillance** dans le volet du menu Compte de stockage.
 
 > [!IMPORTANT]
-> Il peut y avoir un décalage entre un événement de stockage et l’enregistrement des données métriques par heure ou par minute correspondantes. Dans le cas des métriques par minute, plusieurs minutes de données peuvent être écrites à la fois. Cela peut entraîner des transactions l’agrégation de minutes précédentes dans la transaction pour la minute actuelle. Dans ce cas, le service d’alerte peut ne pas disposer de toutes les données de métriques disponibles pour l’intervalle d’alerte configuré, ce qui peut conduire à des déclenchements d’alerte inattendus.
+> Il peut y avoir un décalage entre un événement de stockage et l’enregistrement des données métriques par heure ou par minute correspondantes. Lorsque vous enregistrez des métriques par minute, plusieurs minutes de données peuvent être écrites à la fois. Des transactions de minutes précédentes pourraient alors être agrégées dans la transaction pour la minute actuelle. Dans ce cas, le service d’alerte peut ne pas disposer de toutes les données de métriques disponibles pour l’intervalle d’alerte configuré, ce qui peut conduire à des déclenchements d’alerte inattendus.
 >
 
 ## <a name="accessing-metrics-data-programmatically"></a>Accès aux données de métriques par programmation

@@ -15,10 +15,10 @@ ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: bf62fb21dfac99038e3b3759d9e78c6870f52f9e
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: ba236ad1327a7f3419d7c8cf7effc889a90dde61
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -33,7 +33,7 @@ Le serveur de configuration fait office de coordinateur entre les services Site�
 ## <a name="prerequisites"></a>Composants requis
 Vous trouverez ci-dessous des informations sur la configuration minimale requise pour le matériel, le logiciel et le réseau pour configurer un serveur de configuration.
 > [!IMPORTANT]
-> Lorsque vous déployez un serveur de configuration pour protéger des machines virtuelles VMware, nous vous recommandons de le déployer en tant que machine virtuelle **hautement disponible (HA)**.
+> Quand vous déployez un serveur de configuration pour protéger des machines virtuelles VMware, nous vous recommandons de le déployer en tant que machine virtuelle **hautement disponible**.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -111,6 +111,17 @@ ProxyPassword="Password"
   >[!WARNING]
   Si vous avez attaché des serveurs de processus de montée en puissance parallèle à ce serveur de configuration, vous devez [corriger les paramètres de proxy sur tous les serveurs de processus de montée en puissance parallèle](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) de votre déploiement.
 
+## <a name="modify-user-accounts-and-passwords"></a>Modifier les comptes d’utilisateurs et mots de passe
+
+L’outil CSPSConfigTool.exe est utilisé pour gérer les comptes d’utilisateurs utilisés pour la **détection automatique des ordinateurs virtuels VMware** et effectuer **l’installation Push du service Mobilité sur les ordinateurs protégés**. 
+
+1. Connectez-vous à votre serveur de configuration.
+2. Lancez CSPSConfigtool.exe en cliquant sur le raccourci sur le bureau.
+3. Cliquez sur l’onglet **Gérer les comptes**.
+4. Sélectionnez le compte pour lequel le mot de passe doit être modifié, puis cliquez sur le bouton **Modifier**.
+5. Entrez le nouveau mot de passe et cliquez sur **OK**
+
+
 ## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>Réinscription d’un serveur de configuration auprès du même coffre Recovery Services
   1. Connectez-vous à votre serveur de configuration.
   2. Lancez l’exécutable cspsconfigtool.exe à l’aide du raccourci sur votre bureau.
@@ -132,6 +143,10 @@ ProxyPassword="Password"
   Si vous avez attaché des serveurs de processus de montée en puissance parallèle à ce serveur de configuration, vous devez [réinscrire tous les serveurs de processus de montée en puissance parallèle](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) de votre déploiement.
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>Inscription d’un serveur de configuration auprès d’un autre coffre Recovery Services.
+
+> [!WARNING]
+> L’ensemble d’étapes ci-dessous dissocie la configuration du coffre actuel, et la réplication de tous les ordinateurs virtuels protégés sous le serveur de configuration sera arrêtée.
+
 1. Connectez-vous à votre serveur de configuration.
 2. À partir d’une invite de commandes d’administration, exécutez la commande indiquée ci-dessous.
 
@@ -157,11 +172,11 @@ ProxyPassword="Password"
 ## <a name="updating-a-configuration-server"></a>Mise à jour d’un serveur de configuration
 
 > [!WARNING]
-> Les mises à jour sont prises en charge jusqu’à la version N+4 uniquement. Par exemple, si la dernière version sur le marché est 9.11, vous pouvez alors mettre à jour de la version 9.10, 9.9, 9.8 ou 9.7 directement vers la version 9.11. Cependant, si vous utilisez une version inférieure ou égale à 9.6, vous devez mettre à jour vers la version 9.7 minimum pour pouvoir appliquer les dernières mises à jour à votre serveur de configuration. Les liens de téléchargement de la version précédente sont disponibles sous [Mises à jour du service Azure Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)
+> Les mises à jour sont prises en charge jusqu’à la version N+4 uniquement. Par exemple, si la dernière version sur le marché est 9.11, vous pouvez alors mettre à jour de la version 9.10, 9.9, 9.8 ou 9.7 directement vers la version 9.11. Cependant, si vous utilisez une version inférieure ou égale à 9.6, vous devez mettre à jour vers la version 9.7 minimum pour pouvoir appliquer les dernières mises à jour à votre serveur de configuration. Les liens de téléchargement de la version précédente sont disponibles sous [Mises à jour du service Azure Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
 
 1. Téléchargez le programme d’installation de mise à jour sur votre serveur de configuration.
 2. Exécutez le programme d’installation en double-cliquant sur celui-ci.
-3. Le programme d’installation détectera la version des composants de Site Recovery présents sur l’ordinateur et demandera une confirmation. 
+3. Le programme d’installation détecte la version des composants de Site Recovery présents sur l’ordinateur et demande une confirmation. 
 4. Cliquez sur le bouton OK pour confirmer et continuer la mise à niveau.
 
 
@@ -227,6 +242,17 @@ La validité du certificat SSL de toutes les installations qui ont été effectu
 
   >[!TIP]
   Si un bouton **Mettre à niveau maintenant** s’affiche à la place d’un bouton **Renouveler maintenant**, cela signifie que certains composants de votre environnement n’ont pas encore été mis à niveau vers 9.4.xxxx.x ou supérieur.
+
+## <a name="revive-a-configuration-server-if-the-secure-socket-layer-ssl-certificate-expired"></a>Réactiver un serveur de configuration si le certificat SSL a expiré
+
+1. Mettre à jour votre serveur de configuration vers la [version la plus récente](http://aka.ms/unifiedinstaller)
+2. Si vous avez des serveurs de traitement avec montée en puissance parallèle, des serveurs cibles maîtres de restauration automatique et des serveurs de traitement de restauration automatique, mettez-les à jour vers la dernière version.
+3. Mettez à jour le service Mobilité sur tous les ordinateurs virtuels protégés vers la dernière version.
+4. Connectez-vous au serveur de configuration et ouvrez une invite de commandes avec des privilèges d’administrateur.
+5. Recherchez le dossier %ProgramData%\ASR\home\svsystems\bin.
+6. Exécutez RenewCerts.exe pour renouveler le certificat SSL sur le serveur de configuration.
+7. Si l’opération réussit, vous devez voir un message similaire à « Renouvellement du certificat réussi ».
+
 
 ## <a name="sizing-requirements-for-a-configuration-server"></a>Exigences de dimensionnement d’un serveur de configuration
 

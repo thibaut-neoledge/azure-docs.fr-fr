@@ -15,16 +15,28 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: pullabhk;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 5672bb1e17dac4ae0aaa67f936676d6c2fc5ef12
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 71da98bf6d53ab50df4f6e40cf0b548752d10f93
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
 # <a name="troubleshoot-azure-backup-server"></a>Résoudre les problèmes d’un serveur de sauvegarde Azure
 
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’un serveur de sauvegarde Azure à l’aide des informations figurant dans la table suivante.
+
+## <a name="error-invalid-vault-credentials-provided-the-file-is-either-corrupted-or-does-not-have-the-latest-credentials-associated-with-recovery-service"></a>Erreur : informations d’identification du coffre fournies non valides. Cela signifie que le fichier est endommagé ou qu’il ne contient pas les dernières informations d’identification associées au service de récupération. 
+
+Suivez ces [étapes de dépannage](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) pour résoudre ce problème.
+
+## <a name="error-the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-server"></a>Erreur : l’opération de l’agent a échoué en raison d’une erreur de communication avec le service Coordinateur d’agents DPM sur le serveur 
+
+Suivez ces [étapes de dépannage](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) pour résoudre ce problème.
+
+## <a name="error-setup-could-not-update-registry-metadata"></a>Erreur : le programme d’installation n’a pas pu mettre à jour les métadonnées du registre
+
+Suivez ces [étapes de dépannage] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#installation-issues) pour résoudre ce problème.
 
 
 ## <a name="installation-issues"></a>Problèmes d’installation

@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 87f4d219a678cab78980af2ff8b98ae55739f04c
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 9d1b629ad05f45efc8d01799616c82b4a11ecaab
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster HBase dans les réseaux virtuels Azure
@@ -130,7 +130,11 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
   3.  **Principal** : assurez-vous que cette option est sélectionnée. Supprimez les autres types de nœuds.
   4. **Paramètres** : les paramètres d’exemple suivants activent la réplication pour toutes les tables existantes, puis copient toutes les données du cluster source vers le cluster de destination :
 
-            -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+          -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+    
+    >[!note]
+    >
+    > Utilisez le nom d’hôte plutôt que le nom de domaine complet (FQDN) pour le nom DNS du cluster source et du cluster de destination.
 
 6. Sélectionnez **Créer**. L’exécution du script peut prendre un certain temps, en particulier lorsque vous utilisez l’argument **-copydata**.
 

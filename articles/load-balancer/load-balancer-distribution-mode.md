@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5c08b1361dfd2d13e0e7ca2ce6f9a2cf357a8dff
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: a6b3c346358e0aed4c60c4903932236edc237379
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -35,7 +35,7 @@ Figure 1 : distribution 5 tuples
 
 ## <a name="source-ip-affinity-mode"></a>Mode d’affinité d’IP source
 
-Nous vous avons un autre mode de distribution appelé « affinité d’IP source » (également connu sous le nom d’« affinité de session » ou d’« affinité d’IP client »). L’équilibrage de charge Azure peut être configuré pour utiliser 2 tuples (IP source, IP de destination) ou 3 tuples (IP Source, adresse de destination, protocole) pour mapper le trafic vers les serveurs disponibles. En utilisant l'affinité d’IP Source, les connexions établies à partir du même ordinateur client vont au même point de terminaison DIP.
+Nous vous avons un autre mode de distribution appelé « affinité d’IP source » (également connu sous le nom d’« affinité de session » ou d’« affinité d’IP client »). L’équilibrage de charge Azure peut être configuré pour utiliser 2 tuples (IP source, IP de destination) ou 3 tuples (IP Source, adresse de destination, protocole) pour mapper le trafic vers les serveurs disponibles. En utilisant l’affinité d’IP source, les connexions initiées depuis le même ordinateur client s’orientent vers le même point de terminaison DIP.
 
 Le schéma suivant illustre une configuration à 2 tuples. Notez comment la distribution 2 tuples passe de l’équilibrage de charge à la machine virtuelle 1 (VM1), puis est sauvegardée par VM2 et VM3.
 
@@ -99,7 +99,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 ### <a name="cloud-service-configuration-to-change-distribution-mode"></a>Configuration du service cloud pour modifier le mode de distribution
 
-Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour .NET 2.5 (qui sera publié en novembre) pour mettre à jour votre service cloud. Les paramètres de point de terminaison des services cloud sont définis dans .csdef. Pour mettre à jour le mode de distribution d'équilibrage de charge pour un déploiement de services cloud, une mise à niveau du déploiement s'impose.
+Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour .NET 2.5 afin de mettre à jour votre service cloud. Les paramètres de point de terminaison des services cloud sont définis dans .csdef. Pour mettre à jour le mode de distribution d'équilibrage de charge pour un déploiement de services cloud, une mise à niveau du déploiement s'impose.
 Voici un exemple de modifications apportées aux paramètres de point de terminaison dans .csdef :
 
 ```xml

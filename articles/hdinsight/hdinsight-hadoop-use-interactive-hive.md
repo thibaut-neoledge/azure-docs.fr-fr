@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ad47c3b6d7f44815208741e686f11675c81eca8b
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 17fac0327c3c454a8ea5c4d91b2d3e23de71f4ce
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Utiliser Interactive Query avec HDInsight
@@ -45,7 +45,7 @@ Pour exécuter des requêtes Hive, vous disposez des options suivantes :
 
     Consultez [Visualiser des Big Data à l’aide de Power BI dans Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
 
-* Utiliser Zeppelin
+* Utilisez Zeppelin
 
     Consultez [Utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight](./hdinsight-connect-hive-zeppelin.md).
 
@@ -82,7 +82,7 @@ Pour rechercher la chaîne de connexion Java Database Connectivity (JDBC) :
 * Découvrez comment [visualiser des Big Data à l’aide de Power BI dans Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
 * Découvrez comment [utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight](./hdinsight-connect-hive-zeppelin.md).
 * Découvrez comment [exécuter des requêtes Hive à l’aide de Data Lake Tools pour Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md#run-a-hive-query).
-* Découvrez comment [utiliser Visual Studio Code pour Hive, LLAP ou pySpark](hdinsight-for-vscode.md).
+* Découvrez comment [utiliser les outils HDInsight pour Visual Studio Code](hdinsight-for-vscode.md).
 * Découvrez comment [utiliser la vue Hive avec Hadoop dans HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 * Découvrez comment [utiliser Beeline pour envoyer des requêtes Hive dans HDInsight](hdinsight-hadoop-use-hive-beeline.md).
 * Découvrez comment [connecter Excel à Hadoop avec le pilote ODBC Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md).

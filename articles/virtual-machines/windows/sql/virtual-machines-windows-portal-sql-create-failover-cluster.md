@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 09/26/2017
 ms.author: mikeray
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 439353b7d22fb7376049ea8e1433a8d5840d3e0f
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 1bbfd7cc63d534d7f9c360ad4afd05bd4e225725
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -427,19 +427,37 @@ Pour créer l’équilibrage de charge :
 
 Définissez le paramètre de port de sonde de cluster dans PowerShell.
 
-Pour définir le paramètre de port de sonde de cluster, mettez à jour les variables dans le script suivant à partir de votre environnement.
+Pour définir le paramètre de port de sonde de cluster, mettez à jour les variables dans le script suivant avec des valeurs à partir de votre environnement. Supprimez les crochets pointus `<>` du script. 
 
-  ```PowerShell
-   $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
-   $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name.
-   $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = <59999>
+   ```PowerShell
+   $ClusterNetworkName = "<Cluster Network Name>"
+   $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
+   $ILBIP = "<n.n.n.n>" 
+   [int]$ProbePort = <nnnnn>
 
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
+Dans le script précédent, définissez les valeurs pour votre environnement. La liste ci-dessous décrit les valeurs :
+
+   - `<Cluster Network Name>` : nom du cluster de basculement Windows Server pour le réseau. Dans le **Gestionnaire du cluster de basculement** > **Réseaux**, cliquez avec le bouton droit sur le réseau et cliquez sur **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**. 
+
+   - `<SQL Server FCI IP Address Resource Name>`: nom de ressource d’adresse IP de l’instance de cluster de basculement SQL Server. Dans le **Gestionnaire du cluster de basculement** > **Rôles**, sous le rôle de l’instance de cluster de basculement SQL Server, sous **Nom du serveur**, cliquez avec le bouton droit sur la ressource d’adresse IP, et cliquez sur **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**. 
+
+   - `<ILBIP>` : adresse IP de l’ILB. Cette adresse est configurée dans le portail Azure en tant qu’adresse frontale d’équilibrage de charge interne. Il s’agit également de l’adresse IP de l’instance de cluster de basculement SQL Server. Vous pouvez la trouver dans le **Gestionnaire du cluster de basculement** sur la page de propriétés où se trouve également localisé le `<SQL Server FCI IP Address Resource Name>`.  
+
+   - `<nnnnn>`: est le port de sonde que vous avez configuré dans la sonde d’intégrité d’équilibrage de charge. N’importe quel port TCP inutilisé est valide. 
+
+>[!IMPORTANT]
+>Le masque de sous-réseau pour le paramètre de cluster doit être l’adresse de diffusion TCP IP : `255.255.255.255`.
+
+Après avoir défini la sonde du cluster, vous pouvez voir tous les paramètres de cluster dans PowerShell. Exécutez le script qui suit :
+
+   ```PowerShell
+   Get-ClusterResource $IPResourceName | Get-ClusterParameter 
+  ```
 
 ## <a name="step-7-test-fci-failover"></a>Étape 7 : Test du basculement FCI
 

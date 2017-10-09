@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 85d4f9bc11de18f171b923b4ae55950fb0a360c0
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 0ced7a128003402f74b847cc71e1c3ed21982651
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -58,6 +58,18 @@ Vous pouvez utiliser l’outil de conversion de langage dans la page de recherch
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>Question : Pourquoi mes résultats de requête ne sont pas triés ?
 Par défaut, les résultats ne sont pas triés dans le nouveau langage de requête.  Utilisez l’[opérateur de tri](https://go.microsoft.com/fwlink/?linkid=856079) pour trier vos résultats selon une ou plusieurs propriétés.
+
+### <a name="question-where-did-minify-go-after-i-upgraded"></a>Question : Où se trouve Minify après la mise à niveau ?
+Minify est une fonctionnalité qui fournit une synthèse de vos résultats de recherche.  Une fois la mise à niveau effectuée, l’option Minify ne s’affiche plus dans le portail de recherche dans les journaux.  Vous pouvez obtenir des fonctionnalités similaires avec le nouveau langage de recherche en utilisant [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) ou [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | reduce by RenderedDescription
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | evaluate autocluster_v2()
+
 
 ### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Problème connu : Les résultats de recherche figurant dans une liste peuvent inclure des propriétés sans données
 Les résultats des recherches dans les journaux figurant dans une liste peuvent présenter des propriétés sans données.  Avant la mise à niveau, ces propriétés n’auraient pas été incluses.  Ce problème sera corrigé pour que les propriétés vides ne s’affichent pas.
@@ -124,9 +136,6 @@ Toutes les solutions continueront de fonctionner dans un espace de travail mis �
 
 ### <a name="known-issue-capacity-and-performance-solution"></a>Problème connu : Solution Capacity and Performance
 Certaines parties de la vue [Capacity and Performance](log-analytics-capacity.md) peuvent être vides.  Ce problème sera prochainement corrigé.
-
-### <a name="known-issue-device-health-solution"></a>Problème connu : Solution Intégrité de l’appareil
-La [solution Intégrité de l’appareil](https://docs.microsoft.com/windows/deployment/update/device-health-monitor) ne collecte pas de données dans un espace de travail mis à niveau.  Ce problème sera prochainement corrigé.
 
 ### <a name="known-issue-application-insights-connector"></a>Problème connu : Application Insights Connector
 Dans la [solution Application Insights Connector](log-analytics-app-insights-connector.md), les perspectives ne sont pas prises en charge dans un espace de travail mis à niveau pour l’instant.  Un correctif permettant de résoudre ce problème est en cours d’analyse.

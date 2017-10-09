@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2017
+ms.date: 09/26/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 17fee798661b7db4f9933684fceefbfed51409cd
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Comment configurer des ports de haute disponibilité pour l’équilibreur de charge interne
 
 Cet article montre un exemple de déploiement de ports de haute disponibilité dans un équilibreur de charge interne. Pour connaître les configurations d’appliances virtuelles réseau spécifiques, reportez-vous aux sites web des fournisseurs correspondants.
+
+>[!NOTE]
+> Les ports de haute disponibilité sont actuellement en préversion. Le niveau de disponibilité et la fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 La figure 1 montre la configuration de l’exemple de déploiement décrit dans cet article :
 - Les appliances virtuelles réseau sont déployées dans le pool backend d’un équilibreur de charge interne, derrière la configuration des ports de haute disponibilité. 
@@ -37,6 +40,22 @@ La figure 1 montre la configuration de l’exemple de déploiement décrit dans 
 ![exemple de déploiement de ports de haute disponibilité](./media/load-balancer-configure-ha-ports/haports.png)
 
 Figure 1 : Appliances virtuelles réseau déployées derrière un équilibreur de charge interne avec ports de haute disponibilité 
+
+## <a name="preview-sign-up"></a>S’inscrire à la préversion
+
+Pour découvrir la préversion des ports de haute disponibilité associés aux références SKU de l’équilibreur de charge standard, inscrivez votre abonnement et bénéficiez d’un accès via PowerShell ou Azure CLI 2.0.
+
+- S’inscrire à l’aide de PowerShell
+
+   ```powershell
+   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- S’inscrire à l’aide d’Azure CLI 2.0
+
+    ```cli
+  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
+    ```
 
 ## <a name="configuring-ha-ports"></a>Configuration des ports de haute disponibilité
 

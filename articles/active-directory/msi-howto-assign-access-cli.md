@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/25/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: e6eede1c093145894f4330a0c4385969cd4dd7da
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: e77915c1d982ccf6262ffcbc09dc91dfd986dac5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -31,10 +31,10 @@ Une fois que vous avez configuré une ressource Azure avec une identité du serv
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
 
-Pour exécuter les exemples de script CLI, vous disposez de trois options :
+Pour exécuter les exemples de script d’Azure CLI, vous disposez de trois options :
 
-- Utilisez [Azure Cloud Shell](../cloud-shell/overview.md) à partir du portail Azure (consultez la section suivante).
-- Utilisez l’interface Azure Cloud Shell incorporée via le bouton « Essayer », situé dans le coin supérieur droit de chaque bloc de code.
+- Utilisez [Azure Cloud Shell](../cloud-shell/overview.md) à partir du portail Azure (voir section suivante).
+- Utilisez l’interface intégrée Azure Cloud Shell via le bouton « Essayer », situé dans le coin supérieur droit de chaque bloc de code.
 - [Installez la dernière version de CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 ou version ultérieure) si vous préférez utiliser une console CLI locale. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -43,7 +43,7 @@ Pour exécuter les exemples de script CLI, vous disposez de trois options :
 
 Après avoir activé l’identité du service administré sur une ressource Azure, [telle qu’une machine virtuelle Azure](msi-qs-configure-cli-windows-vm.md) : 
 
-1. Si vous n’utilisez pas Azure Cloud Shell à partir du portail Azure, connectez-vous d’abord à Azure à l’aide de la commande [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez déployer la machine virtuelle :
+1. Si vous utilisez l’interface de ligne de commande Azure dans une console locale, commencez par vous connecter à Azure avec [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez déployer la machine virtuelle :
 
    ```azurecli-interactive
    az login
@@ -52,7 +52,7 @@ Après avoir activé l’identité du service administré sur une ressource Azur
 2. Dans cet exemple, nous accordons à une machine virtuelle Azure l’accès à un compte de stockage. Tout d’abord, nous utilisons [az resource list](/cli/azure/resource/#list) pour obtenir le principal de service pour la machine virtuelle nommée « myVM », qui a été créé lorsque nous avons activé l’identité du service administré sur la machine virtuelle :
 
    ```azurecli-interactive
-   $spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
+   spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
    ```
 
 3. Une fois l’ID de principal du service obtenue, nous utilisons [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour accorder au « Lecteur » de la machine virtuelle l’accès à un compte de stockage appelé « myStorageAcct » :

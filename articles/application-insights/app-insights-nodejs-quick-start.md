@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f7351f310752803b910eef69e71d081ddc923c5e
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 279838150c94ab04eaea08dc30ee8b0f9f7ee3d5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -30,7 +30,7 @@ Pour effectuer ce démarrage rapide :
 
 - Vous avez besoin d’un abonnement Azure et d’une application web Node.js existante.
 
-Si vous n’avez pas d’application web Node.js, vous pouvez en créer une en suivant le [guide de démarrage rapide de création d’une application web Node.js](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs) suivant.
+Si vous n’avez pas d’application web Node.js, vous pouvez en créer une en suivant le [guide de démarrage rapide de création d’une application web Node.js](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs) suivant.
  
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -55,7 +55,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
    | **Emplacement** | Est des États-Unis | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
 
-2. Cliquez sur **Create**.
+2. Cliquez sur **Créer**.
 
 ## <a name="configure-app-insights-sdk"></a>Configurer le Kit de développement logiciel (SDK) Application Insights
 
@@ -69,7 +69,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
    npm install applicationinsights --save
    ```
 
-3. Modifiez le premier fichier .js de votre application et ajoutez les deux lignes ci-dessous dans la partie supérieure de votre script. Si vous utilisez l’[application de démarrage rapide Node.js](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs), vous modifiez le fichier index.js. 
+3. Modifiez le premier fichier .js de votre application et ajoutez les deux lignes ci-dessous dans la partie supérieure de votre script. Si vous utilisez l’[application de démarrage rapide Node.js](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs), vous modifiez le fichier index.js. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');

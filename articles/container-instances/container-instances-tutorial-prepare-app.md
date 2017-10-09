@@ -18,10 +18,10 @@ ms.date: 08/01/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 07ad1a6edbcb4d6160b37b4923586e23058f3c04
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: ca4cd00b3e9e58fd1137b896e7aac96549bf6d05
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -42,7 +42,9 @@ Ce didacticiel suppose une compréhension élémentaire des concepts Docker prin
 
 Pour terminer ce didacticiel, il vous faut un environnement de développement Docker. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
-## <a name="get-application-code"></a>Obtenir le code de l’application
+Azure Cloud Shell n’inclut pas les composants Docker requis pour effectuer chaque étape de ce didacticiel. Par conséquent, nous recommandons d’utiliser un environnement de développement Docker complet.
+
+## <a name="get-application-code"></a>Obtenir le code d’application
 
 L’exemple dans ce didacticiel inclut une application web basique générée dans [Node.js](http://nodejs.org). L’application se présente sous forme de page HTML statique et ressemble à ceci :
 

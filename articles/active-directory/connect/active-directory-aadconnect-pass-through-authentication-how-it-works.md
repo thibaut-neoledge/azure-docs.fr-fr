@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/27/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3c648054666a1771187b3862b7c4972831b85f2c
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 9507a718ba982eb8b3381a6ef70156f075729161
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Authentification directe Azure Active Directory : immersion technique
+L’article suivant est une vue d’ensemble du fonctionnement de l’authentification directe Azure AD.  Pour en savoir plus sur la sécurité et accéder à d’autres détails techniques, consultez la section de [**présentation approfondie des fonctions de sécurité de l’authentification directe Azure AD.**](active-directory-aadconnect-pta-security-deep-dive.md)
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Comment l’authentification directe Azure Active Directory fonctionne-t-elle ?
 
@@ -30,7 +31,7 @@ Quand un utilisateur tente de se connecter à une application sécurisée par Az
 
 1. L’utilisateur tente d’accéder à une application (par exemple, Outlook Web App - https://outlook.office365.com/owa/).
 2. Si l’utilisateur n’est pas encore connecté, il est redirigé vers la page de connexion Azure AD.
-3. L’utilisateur entre son nom d’utilisateur et son mot de passe dans la page de connexion à Azure AD, puis clique sur le bouton « Se connecter ».
+3. L’utilisateur entre son nom d’utilisateur et sont mot de passe dans la page de connexion à Azure AD, puis clique sur le bouton « Se connecter ».
 4. Azure AD, lors de la réception de la demande de connexion, place le nom d’utilisateur et le mot de passe (chiffré à l’aide d’une clé publique) dans une file d’attente.
 5. Un agent d’authentification directe local effectue un appel sortant à la file d’attente et récupère le nom d’utilisateur et le mot de passe chiffré.
 6. L’agent déchiffre le mot de passe à l’aide de sa clé privée.
@@ -50,5 +51,6 @@ Le schéma suivant illustre les composants et les étapes impliqués dans ce pro
 - [**Forum aux questions**](active-directory-aadconnect-pass-through-authentication-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
 - [**Authentification unique transparente Azure AD**](active-directory-aadconnect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour formuler des demandes de nouvelles fonctionnalités.
+- [**Présentation approfondie de sécurité**](active-directory-aadconnect-pta-security-deep-dive.md) : informations techniques supplémentaires sur l’authentification directe Azure AD.
+- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.
 

@@ -1,5 +1,5 @@
 ---
-title: Configurer Cloud App Discovery dans Azure Active Directory | Microsoft Docs
+title: "Configurer Cloud App Discovery dans Azure Active Directory | Microsoft Docs"
 description: Fournit une vue d'ensemble de la recherche et de la gestion d'applications avec Cloud App Discovery, ainsi que des informations sur ses avantages et son fonctionnement.
 services: active-directory
 keywords: "détection d'applications cloud, gestion d'applications"
@@ -16,31 +16,31 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 2943e0b119726b31dd6e6507d279f6c8f74df98b
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
-# <a name="get-started-using-cloud-app-discovery-in-azure-ad"></a>Bien démarrer avec Cloud App Discovery dans Azure AD
+# <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Configurer Cloud App Discovery dans Azure AD
 
-La préversion publique des améliorations de Cloud App Discovery dans Azure AD est désormais disponible avec une licence Azure Active Directory Premium P1. Ces améliorations sont basées sur l’intégration à Microsoft Cloud App Security. Cloud App Discovery compare vos journaux de trafic au catalogue Cloud App Security de plus de 15 000 applications cloud pour vous fournir des informations en continu sur l’utilisation du cloud et l’informatique fantôme. 
+Les améliorations de Cloud App Discovery dans Azure AD sont désormais disponibles avec une licence Azure Active Directory Premium P1. Ces améliorations sont basées sur l’intégration à Microsoft Cloud App Security. Cloud App Discovery compare vos journaux de trafic au catalogue Cloud App Security de plus de 15 000 applications cloud pour vous fournir des informations en continu sur l’utilisation du cloud et l’informatique fantôme. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Votre organisation doit disposer d’une licence Azure AD Premium P1 pour utiliser le produit. Pour plus d’informations, consultez [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Pour configurer Cloud App Discovery, vous devez être administrateur général ou lecteur sécurité dans Azure Active Directory. Un utilisateur à qui un rôle d’administrateur est affecté a les mêmes autorisations pour toutes les applications cloud auxquelles votre organisation s’est abonnée.
 
-## <a name="snapshot-and-continuous-reports"></a>Rapports d’instantané et continus
+## <a name="setup-steps"></a>Étapes de configuration
 
-Vous pouvez générer deux types de rapports :
+1. [Configurez les rapports d’instantané](cloudappdiscovery-set-up-snapshots.md) pour vérifier le format des journaux, et vous assurer que ces derniers fournissent des informations utiles à Cloud App Discovery. Ces rapports fournissent une visibilité ad hoc sur les journaux de trafic que vous chargez manuellement à partir de vos pare-feu et serveurs proxy.
 
-* Les **rapports d’instantané** fournissent une visibilité ad hoc des journaux de trafic que vous chargez manuellement à partir de vos pare-feu et serveurs proxy. Vous pouvez les utiliser pour vérifier que vos journaux fournissent des informations utiles à Cloud App Discovery.
+2. [Configurez des rapports continus](https://docs.microsoft.com/cloud-app-security/discovery-docker) afin d’analyser tous les journaux qui sont transférés à partir de votre réseau à l’aide du collecteur de journaux Cloud App Security. Vous pouvez les utiliser pour identifier les nouvelles applications et les tendances d’utilisation.
 
-* Les **rapports continus** analysent tous les journaux qui sont transférés à partir de votre réseau à l’aide du [collecteur de journaux Cloud App Security](https://docs.microsoft.com/cloud-app-security/discovery-docker). Vous pouvez les utiliser pour identifier les nouvelles applications et les tendances d’utilisation.
-
+3. Si vos journaux ne sont pas actuellement pris en charge, [configurez un analyseur des journaux personnalisé](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser) pour que Cloud App Discovery puisse les analyser.
+  
 ## <a name="log-processing-flow"></a>Flux de traitement des journaux
 
 Suivant le volume de données, la génération de rapports peut prendre entre quelques minutes et plusieurs heures. Voici ce qui est analysé :
@@ -134,8 +134,8 @@ Si votre journal n’est pas pris en charge, sélectionnez **Autre** comme **Sou
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Utilisez les liens suivants pour continuer à configurer la version améliorée de Cloud App Discovery dans Azure AD.
+Les liens suivants permettent de poursuivre la configuration de Cloud App Discovery dans Azure AD.
 
-* [Créer des rapports d’instantané Cloud App Discovery](cloudappdiscovery-set-up-snapshots.md)
-* [Configurer le chargement automatique des journaux pour des rapports continus](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [Créer des rapports d’instantanés](cloudappdiscovery-set-up-snapshots.md)
+* [Configurer le reporting continu](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [Utiliser un analyseur de journal personnalisé](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

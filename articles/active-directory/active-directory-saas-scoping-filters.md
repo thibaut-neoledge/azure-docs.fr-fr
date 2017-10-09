@@ -14,43 +14,81 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c06c089fb08c19b55246122201c378917a560e14
-ms.openlocfilehash: 3e4458f70afce9ebd9477b00afc39b6e84e49319
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: e40ba3d3035d5c04017a8ed558981b01fae40a13
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cette section est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour l’application.
 
-## <a name="clauses-and-scope-groups"></a>Clauses et groupes d’étendue
-![Filtre d’étendue][1] 
+## <a name="scoping-filter-use-cases"></a>Cas d’utilisation du filtre d’étendue
 
-Les filtres d’étendue sont définis par un ou plusieurs **groupes d’étendue**, chacun contenant une ou plusieurs **clauses**. Pour afficher les clauses d’un groupe d’étendue particulier, développez-le en cliquant sur la flèche située à gauche du nom du groupe.
+Un filtre d’étendue permet au service d’approvisionnement Azure AD d’inclure ou d’exclure tous les utilisateurs dont un attribut correspond à une valeur spécifique. Par exemple, lors d’un approvisionnement d’utilisateurs depuis Azure AD vers une application SaaS utilisée par une équipe de vente, vous pouvez spécifier que seuls les utilisateurs dont l’attribut « Département » est « Ventes » doivent être sujets à l’approvisionnement.
 
-Une **clause** détermine quels utilisateurs sont autorisés à traverser le filtre d’étendue en évaluant les attributs de chaque utilisateur. Par exemple, l’une de vos clauses peut exiger que l’attribut « état » d’un utilisateur soit égal à New York, afin que seuls les utilisateurs de New York soient approvisionnés dans l’application.
+Les filtres d’étendue peuvent être utilisés différemment en fonction du type du connecteur d’approvisionnement :
 
-![Nom du groupe d’étendue][2] 
+* **Approvisionnement sortant de Azure AD vers des applications SaaS** - quand Azure AD est le système source, [les affectations d’utilisateur et de groupe](active-directory-coreapps-assign-user-azure-portal.md) sont les méthodes les plus courantes pour déterminer les utilisateurs sujets à un approvisionnement. Ces affectations sont également utilisées pour activer l’authentification unique et fournissent une méthode unique pour gérer l’accès et l’approvisionnement. Les filtres d’étendue peuvent être utilisés si vous le souhaitez, en plus des affectations ou à leur place, afin de filtrer les utilisateurs selon des valeurs d’attribut.
 
-Chaque **groupe d’étendue** commence par une **clause** obligatoire, comme illustré dans la capture d’écran ci-dessus. Cette clause stipule simplement que l’utilisateur doit être préalablement affecté à l’application avant son évaluation par vos filtres d’étendue. Cette clause ne peut pas être supprimée ou modifiée.
+>[!TIP]
+> Vous pouvez désactiver l’approvisionnement basé sur des affectations pour une application d’entreprise en configurant le menu **[Étendue](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application)** sous les paramètres d’approvisionnement sur **Synchroniser tous les utilisateurs et groupes**. L’utilisation de cette option alliée aux filtres d’étendue basés sur les attributs offre de meilleures performances qu’en utilisant des affectations de groupe.  
 
-Vous pouvez ajouter de nouvelles clauses ou de nouveaux groupes d’étendue en appuyant sur le bouton approprié. Vous pouvez attribuer un nom à chaque groupe d’étendue en modifiant sa propriété **Nom du groupe d’étendue** .
+* **Approvisionnement entrant des applications HCM vers Azure AD et Active Directory** - quand une [application HCM telle que Workday](active-directory-saas-workday-tutorial.md) est le système source, l’utilisation de filtres d’étendue est la principale méthode pour déterminer les utilisateurs sujets à un approvisionnement de l’application HCM vers Active Directory ou Azure Active Directory.
 
-## <a name="how-scoping-filters-are-evaluated"></a>Évaluation des filtres d’étendue
-Lors de l’approvisionnement, nous testons chaque utilisateur affecté par rapport à vos filtres d’étendue pour déterminer si cet utilisateur mérite l’accès à l’application. On peut considérer chaque clause comme un test qui doit être réussi pour que l’utilisateur ne soit pas filtré et exclu. 
+Par défaut, les connecteurs d’approvisionnement Azure AD ne disposent pas de filtres d’étendue basés sur les attributs. 
 
-Si vous avez défini plusieurs groupes d’étendue, chaque utilisateur doit satisfaire à au moins l’un d’eux pour accéder à l’application. Dans chaque groupe d’étendue, toutefois, l’utilisateur doit satisfaire à chaque clause pour satisfaire à ce groupe d’étendue spécifique. 
+## <a name="scoping-filter-construction"></a>Construction d’un filtre d’étendue
 
-En d’autres termes, on peut considérer les groupes d’étendue comme étant liés par une opération logique OU et les clauses au sein de ces groupes comme étant liées par une opération logique ET. Par exemple, considérez le filtre d’étendue ci-dessous :
+Un filtre d’étendue se compose d’une ou plusieurs **clauses**. Les clauses déterminent quels utilisateurs sont autorisés à traverser le filtre d’étendue en évaluant les attributs de chaque utilisateur. Par exemple, l’une de vos clauses peut exiger que l’attribut « État » d’un utilisateur soit égal à « New York », afin que seuls les utilisateurs de New York soient approvisionnés dans l’application. 
 
-![Nom du groupe d’étendue][3]  
+Une seule clause définit une condition unique pour une seule valeur d’attribut. Si plusieurs clauses sont créées dans un seul filtre d’étendue, ils sont évalués ensemble en utilisant la logique « ET ». Cela signifie que chacune des clauses doit être considérée « true » pour qu’un utilisateur soit approvisionné.
+
+Enfin, plusieurs filtres d’étendue peuvent être créés pour une seule application. Si plusieurs filtres d’étendue sont présents, ils sont évalués ensemble en utilisant la logique « OU ». Cela signifie que si toutes les clauses présentes dans un seul des filtres d’étendue configurés sont considérées « true », l’utilisateur est approvisionné.
+
+Chaque utilisateur ou groupe traité par le service d’approvisionnement Azure AD est toujours évalué individuellement par rapport à chaque filtre d’étendue.
+
+Par exemple, considérez le filtre d’étendue ci-dessous :
+
+![Filtre d’étendue](./media/active-directory-saas-scoping-filters/scoping-filter.PNG) 
 
 D’après ce filtre d’étendue, les utilisateurs doivent satisfaire aux critères suivants pour être approvisionnés :
 
-1. Ils doivent être affectés à l’application.
+1. Ils doivent être de New York
 2. Ils doivent travailler dans le service Ingénierie
-3. Ils doivent travailler à San Francisco ou au Canada.
+3. Leur ID d’employé de leur société doit être compris entre 1000000 et 2000000
+4. Leur fonction ne doit être null ou vide
+
+## <a name="creating-scoping-filters"></a>Création de filtres d’étendue
+Les filtres d’étendue sont configurés comme parties des mappages d’attributs pour chaque connecteur d’approvisionnement d’utilisateur Azure AD. La procédure ci-dessous suppose que l’approvisionnement automatique soit déjà configuré pour [l’une des applications prises en charge](active-directory-saas-tutorial-list.md)et que vous lui ajoutez un filtre d’étendue.
+
+### <a name="to-create-a-scoping-filter"></a>Pour créer un filtre d’étendue :
+1. Dans le [Portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
+2. Sélectionnez l’application pour laquelle vous avez configuré l’approvisionnement automatique. Exemple : « ServiceNow »
+3. Sélectionnez l’onglet **Approvisionnement**.
+4. Dans la section **Mappages**, sélectionnez le mappage pour lequel vous souhaitez configurer un filtre d’étendue. Exemple : « Synchroniser les utilisateurs Azure Active Directory avec ServiceNow »
+5. Sélectionnez le menu **Étendue de l’objet source**.
+6. Sélectionnez **Ajouter un filtre d’étendue**.
+7. Définissez une clause en sélectionnant un **nom d’attribut** source, un **opérateur**et une **valeur d’attribut** pour effectuer la comparaison. Voici les opérateurs pris en charge :
+   * **EQUALS** -la clause renvoie « true » si l’attribut évalué correspond exactement à la valeur de chaîne d’entrée (respecte la casse).
+   * **NOT EQUALS** -la clause renvoie « true » si l’attribut évalué ne correspond pas à la valeur de chaîne d’entrée (respecte la casse).
+   * **IS TRUE** -la clause renvoie « true » si l’attribut évalué contient une valeur booléenne True.
+   * **IS FALSE** -la clause renvoie « true » si l’attribut évalué contient une valeur booléenne False.
+   * **IS NULL** -la clause renvoie « true » si l’attribut évalué est vide.
+   * **IS NOT NULL** -la clause renvoie « true » si l’attribut évalué n’est pas vide.
+   * **REGEX MATCH** -la clause renvoie « true » si l’attribut évalué correspond à un modèle d’expression régulière. Exemple : ([1-9][0-9]) comprend tout nombre compris entre 10 et 99
+   * **NOT REGEX MATCH** -la clause renvoie « true » si l’attribut évalué ne correspond pas à un modèle d’expression régulière.
+8. Sélectionnez **Ajouter une nouvelle clause d’étendue**.
+9. Si vous le souhaitez, répétez les étapes 7 et 8 pour ajouter d’autres clauses d’étendues.
+10. Dans **Titre du filtre d’étendue**, saisissez un nom pour votre filtre d’étendue.
+11. Sélectionnez **OK**.
+12. Sélectionnez **OK** à nouveau sur l’écran des filtres d’étendue (ou bien répétez les étapes 6 à 11 pour ajouter un autre filtre d’étendue).
+13. Sélectionnez **Enregistrer** sur l’écran de mappage d’attributs. 
+
+>[!IMPORTANT] 
+> L’enregistrement d’un nouveau filtre d’étendue déclenche une nouvelle synchronisation complète pour l’application, avec une comparaison de tous les utilisateurs dans le système source par rapport au nouveau filtre d’étendue. Si un utilisateur dans l’application répondait précédemment aux exigences d’un approvisionnement, mais que ce n’est plus le cas maintenant, son compte sera désactivé ou déprovisionné dans l’application.
+
 
 ## <a name="related-articles"></a>Articles connexes
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
@@ -61,8 +99,4 @@ D’après ce filtre d’étendue, les utilisateurs doivent satisfaire aux crit�
 * [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md)
 * [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
-<!--Image references-->
-[1]: ./media/active-directory-saas-scoping-filters/ic782811.png
-[2]: ./media/active-directory-saas-scoping-filters/ic782812.png
-[3]: ./media/active-directory-saas-scoping-filters/ic782813.png
 

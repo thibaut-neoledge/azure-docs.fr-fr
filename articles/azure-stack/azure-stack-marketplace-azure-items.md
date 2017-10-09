@@ -15,13 +15,15 @@ ms.topic: article
 ms.date: 8/11/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: aec0c8a7d5d0c219e5550e0a8aa9ecfa936ab051
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: ad65d0fe93a0b67772521c9020c288d0698a8cf0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Éléments de Place de Marché Azure disponibles pour Azure Stack
+
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Microsoft Azure Stack prend en charge les éléments suivants de Place de Marché Azure :
 
@@ -80,7 +82,7 @@ Microsoft Azure Stack prend en charge les éléments suivants de Place de March�
 | ![](media/azure-stack-marketplace-azure-items/mattermostteamedition.png) | [Mattermost Team Edition](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mattermost?tab=Overview) | Solution de messagerie d’espace de travail Open Source. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/mautic.png) | [Mautic](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mautic?tab=Overview) | Plateforme d’automatisation de marketing d’entreprise Open Source. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/mean.png) | [MEAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mean?tab=Overview) | Environnement de développement populaire pour MongoDB et Node.js. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/mediawiki.png) | [MediaWiki](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mediawiki?tab=Overview) | Implémentation de wiki très puissante et scalable. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/mediawiki.png) | [MediaWiki](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mediawiki?tab=Overview) | Implémentation de wiki puissante et évolutive. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/memcached.png) | [Memcached](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.memcached?tab=Overview) | Système de mise en cache d’objets en mémoire à hautes performances et distribué. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/modx.png) | [MODX](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.modx?tab=Overview) | CMS web intuitif. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mongodb?tab=Overview) | Base de données NoSQL Open Source à hautes performances écrite en C++. | Bitnami |

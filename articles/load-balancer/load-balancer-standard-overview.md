@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2017
+ms.date: 09/28/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c863dbdcb242bdea208f7e72f6c1f61b5ba04844
-ms.openlocfilehash: 77d157800d71d1afc3411553b31c1182a1d0bc28
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 2728e8b1e190b4ecd0635925b96e97775564a2ee
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/22/2017
 Utilisées ensemble, la référence SKU Standard d’Azure Load Balancer et la référence SKU Standard d’adresse IP publique vous permettent de créer des architectures hautement évolutives et fiables.  Les applications utilisant la référence Standard de Load Balancer peuvent tirer parti des nouvelles fonctionnalités en plus d’une faible latence, d’un débit élevé et d’une mise à l’échelle pour des millions de flux de toutes les applications TCP et UDP.
 
 >[!NOTE]
-> La référence SKU Standard de Load Balancer est actuellement en préversion. Les niveaux de disponibilité et de fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour vos services de production, utilisez la [référence SKU De base de Load Balancer](load-balancer-overview.md) de la version publique.
+> La référence SKU Standard de Load Balancer est actuellement en préversion. Le niveau de disponibilité et la fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour vos services de production, utilisez la [référence SKU De base de Load Balancer](load-balancer-overview.md) de la version publique.
 
 ## <a name="why-use-load-balancer-standard"></a>Pourquoi utiliser la référence Standard de Load Balancer ?
 
@@ -369,6 +369,9 @@ Pour découvrir la préversion de la référence SKU Standard de Load Balancer e
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
     ```
+
+>[!NOTE]
+>L’inscription de la fonctionnalité Standard de Load Balancer peut prendre jusqu’à une heure.
 
 >[!NOTE]
 >Si vous souhaitez utiliser des zones de disponibilité avec Load Balancer et l’adresse IP publique, vous devez également inscrire votre abonnement à la préversion des zones de disponibilité.

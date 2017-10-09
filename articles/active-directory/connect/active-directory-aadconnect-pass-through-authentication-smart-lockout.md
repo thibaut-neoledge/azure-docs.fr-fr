@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 9a33e83c7453d5b80043599acca3ac4310446562
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 7e05c469260a445578c80cdf77fab2d5ffb48022
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -56,7 +56,7 @@ Utilisez les instructions suivantes pour vérifier vos stratégies de verrouilla
 
 ![Stratégies de verrouillage de compte AD](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
 
-## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values"></a>Utilisez l’API Graph pour gérer les valeurs de verrouillage intelligent de votre client
+## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values-needs-premium-license"></a>Utilisez l’API Graph pour gérer les valeurs de verrouillage intelligent de votre locataire (licence Premium nécessaire)
 
 >[!IMPORTANT]
 >Modifier les valeurs du seuil de verrouillage et de la durée de verrouillage d’Azure AD à l’aide de l’API Graph est une fonctionnalité d’Azure AD Premium P2. Vous devez également être un Administrateur global sur votre client.

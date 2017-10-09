@@ -15,13 +15,16 @@ ms.topic: article
 ms.date: 08/21/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e0df5b4c4ce23a746e60b491193e5a69df5ffdbd
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Créer et publier un article de la Place de marché
+
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+
 ## <a name="create-a-marketplace-item"></a>Créer un élément de Marketplace
 1. [Téléchargez](http://www.aka.ms/azurestackmarketplaceitem) l’outil Azure Gallery Packager et l’échantillon de Marketplace Azure Stack.
 2. Ouvrez l’échantillon de Marketplace et renommez le dossier **SimpleVMTemplate**. (Utilisez le même nom que votre article de Marketplace, par exemple, **Contoso.TodoList**.) Ce dossier contient les éléments suivants :
@@ -80,7 +83,7 @@ ms.lasthandoff: 09/25/2017
    | SubscriptionID |ID d’abonnement d’administrateur. Vous pouvez le récupérer avec PowerShell. Si vous préférez le récupérer sur le portail, accédez à l’abonnement du fournisseur et copiez l’ID d’abonnement. |
    | GalleryItemUri |URI Blob du package de galerie déjà chargé sur le stockage. |
    | Apiversion |Définir sur **2015-04-01**. |
-4. Accédez au portail. L’article de Marketplace apparaît maintenant sur le portail, en tant qu’administrateur ou que client.
+4. Accédez au portail. L’article de Marketplace apparaît maintenant sur le portail, en tant qu’opérateur ou qu’utilisateur.
    
    > [!NOTE]
    > Le package peut mettre quelques minutes à s’afficher.

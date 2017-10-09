@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 72bd39bcf720cf5704274fcdfa0f2b8fc44a77bc
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -51,9 +51,9 @@ Si l’utilisateur ne peut pas se connecter avec l’authentification directe, l
 |AADSTS80005|La validation a rencontré une WebException imprévisible|Erreur temporaire. relancez la requête. Si l’erreur se reproduit, contactez le Support Microsoft.
 |AADSTS80007|Une erreur s’est produite lors de la communication avec Active Directory|Consultez les journaux de l’agent pour plus d’informations, et vérifiez qu’Active Directory fonctionne comme prévu.
 
-### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory
+### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory (licence Premium requise)
 
-Commencez le dépannage des problèmes de connexion de l’utilisateur en examinant le [rapport d’activité de connexion](../active-directory-reporting-activity-sign-ins.md) dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
+Si votre locataire dispose d’une licence Azure AD Premium, vous pouvez également consulter le [rapport d’activité de connexion](../active-directory-reporting-activity-sign-ins.md) dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Centre d’administration Azure Active Directory - rapport de connexions](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 

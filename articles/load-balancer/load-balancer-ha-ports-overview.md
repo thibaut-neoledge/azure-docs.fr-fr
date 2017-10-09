@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 2e41c70b982b97c6aab7b6c0322c193c61370a26
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 2219aeb725b207fd92ff3e7603d7ee9c78f2844c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
-# <a name="high-availability-ports-overview"></a>Présentation des ports de haute disponibilité
+# <a name="high-availability-ports-overview-preview"></a>Présentation des ports de haute disponibilité (préversion)
 
 La référence SKU Standard d’Azure Load Balancer comprend de nouveaux ports de haute disponibilité qui permettent de distribuer le trafic provenant de tous les ports, pour tous les protocoles pris en charge. Lorsque vous configurez un équilibreur de charge interne, les utilisateurs peuvent configurer une règle de ports de haute disponibilité qui définit les ports frontend et backend sur **0** et le protocole sur **Tous**, permettant ainsi au trafic de circuler au sein de l’équilibreur de charge interne.
+
+>[!NOTE]
+> Les ports de haute disponibilité sont actuellement en préversion. Le niveau de disponibilité et la fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L’algorithme d’équilibrage de charge reste le même, et la destination est sélectionnée en fonction des cinq tuples <adresse IP source, port source, adresse IP de destination, port de destination, protocole>. Toutefois, cette configuration permet à une seule règle d’équilibrage de charge de traiter tout le trafic disponible, ce qui simplifie la configuration et permet de ne pas être limité par le nombre maximal de règles d’équilibrage de charge pouvant être ajoutées.
 
@@ -43,6 +46,32 @@ L’exemple suivant présente un déploiement de type « Hub and Spoke » sur un
 
 Figure 1 : Réseau virtuel « Hub and Spoke » avec appliances virtuelles réseau déployées en mode haute disponibilité
 
+
+## <a name="region-availability"></a>Disponibilité des régions
+
+Les ports de haute disponibilité sont actuellement disponibles dans les régions suivantes :
+- Est des États-Unis 2
+- Centre des États-Unis
+- Europe du Nord
+- Centre-Ouest des États-Unis
+- Europe de l'Ouest
+- Asie du Sud-Est 
+
+## <a name="preview-sign-up"></a>S’inscrire à la préversion
+
+Pour découvrir la préversion des ports de haute disponibilité associés aux références SKU de l’équilibreur de charge standard, inscrivez votre abonnement et bénéficiez d’un accès via PowerShell ou Azure CLI 2.0.
+
+- S’inscrire à l’aide de PowerShell
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- S’inscrire à l’aide d’Azure CLI 2.0
+
+    ```cli
+    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
+    ```
 ## <a name="caveats"></a>Mises en garde
 
 Voici les configurations et exceptions prises en charge pour les ports de haute disponibilité :

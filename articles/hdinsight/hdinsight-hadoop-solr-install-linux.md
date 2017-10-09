@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 09/28/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: ad930ca023a36fa5874483873c82fdba11d117c7
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c7a911474d6fb90f45565c90a72bfd407898ceba
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installation et utilisation de Solr sur des clusters HDInsight Hadoop
@@ -59,7 +59,7 @@ Un exemple de script d’installation de Solr sur un cluster HDInsight est dispo
 
 Pour créer un cluster sur lequel Solr est installé, utilisez les étapes décrites dans le document [Créer des clusters HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md). Pendant le processus de création, procédez comme suit pour installer Solr :
 
-1. Dans le panneau __Résumé du cluster__ sélectionnez__Paramètres avancés__, puis __Actions de script__. Utilisez les informations suivantes pour remplir le formulaire :
+1. Dans la section __Résumé du cluster__ sélectionnez__Paramètres avancés__, puis __Actions de script__. Utilisez les informations suivantes pour remplir le formulaire :
 
    * **NAME**: saisissez un nom convivial pour l’action de script.
    * **URI du script** : https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
@@ -68,7 +68,7 @@ Pour créer un cluster sur lequel Solr est installé, utilisez les étapes décr
    * **ZOOKEEPER** : cochez cette option pour installer le nœud ZooKeeper
    * **PARAMETERS**: laissez ce champ vide.
 
-2. En bas du panneau **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration. Enfin, cliquez sur **Suivant** pour revenir au __résumé du cluster__
+2. En bas de la section **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration. Enfin, cliquez sur **Suivant** pour revenir au __résumé du cluster__
 
 3. Sur la page __résumé du cluster__, sélectionnez __Créer__ pour créer le cluster.
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: d234d9c97064e22a0ea882f199da326b0aae0674
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c4723a7d174991f5bf679bf3e8c97fe2338926a2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="use-azure-portal-to-restore-virtual-machines"></a>Utiliser le portail Azure pour restaurer des machines virtuelles
@@ -95,7 +95,7 @@ La restauration d’une machine virtuelle ou de tous les disques à partir de la
 ## <a name="choosing-a-vm-restore-configuration"></a>Choisir une configuration de restauration de machine virtuelle
 Maintenant que vous avez sélectionné le point de restauration, choisissez une configuration pour votre machine virtuelle de restauration. Pour configurer la machine virtuelle de restauration, vous pouvez utiliser le portail Azure ou PowerShell.
 
-1. Si vous n’en n’êtes pas encore là, accédez au panneau **Restaurer** . Vérifiez qu’un [Point de restauration](#select-restore-point-for-restore) a bien été sélectionné, puis cliquez sur **Configuration de la restauration** pour ouvrir le panneau **Configuration de la récupération**.
+1. Si vous n’en n’êtes pas encore là, accédez au panneau **Restaurer** . Vérifiez qu’un [point de restauration a bien été sélectionné](#select-restore-point-for-restore), puis cliquez sur **Configuration de la restauration** pour ouvrir le panneau **Configuration de la restauration**.
 
     ![l’assistant de configuration de récupération est défini](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. Dans le panneau **Restaurer la configuration**, vous avez deux possibilités :

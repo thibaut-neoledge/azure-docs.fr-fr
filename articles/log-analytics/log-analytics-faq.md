@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/26/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 8ddea06b1a90e9b1599466ad4d1c3af7a6dc8ba9
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 0b27386cd0f9f3ae50314b8c5d7708aea3e3d028
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
-Ce FAQ Microsoft est une liste des questions fréquemment posées concernant Log Analytics dans Microsoft Operations Management Suite (OMS). Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
+Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet de Log Analytics dans Microsoft Azure. Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
 
 ## <a name="general"></a>Généralités
 
@@ -40,21 +40,17 @@ R. La requête suivante comporte une description de tous les contrôles effectu�
 
 Les résultats peuvent ensuite être exportés vers Excel pour être examinés.
 
-### <a name="q-why-do-i-see-something-different-than-oms-in-system-center-operations-manager-console"></a>Q : Pourquoi vois-je autre chose *qu’OMS* dans la console System Center Operations Manager ?
+### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>Q : Pourquoi vois-je autre chose qu’OMS dans la console System Center Operations Manager ?
 
 R : Selon le correctif cumulatif d’Operations Manager que vous utilisez, vous pouvez voir un nœud pour *System Center Advisor*, *Operational Insights* ou *Log Analytics*.
 
 La mise à jour de la chaîne de texte vers *OMS* est incluse dans un pack d’administration, qui doit être importé manuellement. Pour afficher le texte et les fonctionnalités actuels, suivez les instructions de l’article de la Base de connaissances sur le dernier correctif cumulatif de System Center Operations Manager et actualisez la console.
 
-### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>Q : Existe-t-il une version *locale* de Log Analytics ?
+### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>Q : Existe-t-il une version locale de Log Analytics ?
 
-R : Non. Log Analytics traite et stocke de grandes quantités de données. En tant que service cloud, Log Analytics peut évoluer si nécessaire et éviter tout impact sur les performances de votre environnement.
+R : Non. Log Analytics est un service cloud évolutif qui traite et stocke d’importants volumes de données. 
 
-En voici d’autres avantages :
-- Microsoft exécute l’infrastructure Log Analytics, ce qui est source d’économies pour vous.
-- Des correctifs et des mises à jour des fonctionnalités sont régulièrement déployés.
-
-### <a name="q-how-do-i-troubleshoot-that-log-analytics-is-no-longer-collecting-data"></a>Q : Si Log Analytics ne collecte plus de données, comment détecter le problème ?
+### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q : Comment procéder au dépannage si Log Analytics ne collecte plus de données ?
 
 R : Si vous utilisez le niveau tarifaire gratuit et que vous avez envoyé plus de 500 Mo de données le même jour, la collecte de données s’arrête pour le reste de la journée. La limite quotidienne est la principale raison pour laquelle Log Analytics arrête la collecte de données ou des données semblent manquantes.
 
@@ -127,13 +123,13 @@ R : La mise à jour vers le dernier correctif cumulatif et l’importation de pa
 
 R : Pour s’assurer que l’agent peut communiquer avec OMS, accédez à : Panneau de configuration, Security & Settings (Sécurité et paramètres), **Microsoft Monitoring Agent**.
 
-Sous l’onglet **Azure Log Analytics (OMS)** , recherchez une coche verte. Une icône de coche verte confirme que l’agent est en mesure de communiquer avec le service OMS.
+Sous l’onglet **Azure Log Analytics (OMS)** , recherchez une coche verte. Une icône en forme de coche verte confirme que l’agent est en mesure de communiquer avec le service Azure.
 
-Une icône d’avertissement jaune signifie que l’agent rencontre des problèmes de communication avec OMS. L’une des raisons courantes est que le service Microsoft Monitoring Agent s’est arrêté. Utilisez le Gestionnaire de contrôle des services pour redémarrer le service.
+Une icône d’avertissement jaune signifie que l’agent rencontre des problèmes de communication avec Log Analytics. L’une des raisons courantes est que le service Microsoft Monitoring Agent s’est arrêté. Utilisez le Gestionnaire de contrôle des services pour redémarrer le service.
 
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>Q : Comment empêcher un agent de communiquer avec Log Analytics ?
 
-R : Dans System Center Operations Manager, supprimez l’ordinateur de la liste des ordinateurs gérés par Advisor. Operations Manager met à jour la configuration de l’agent pour qu’il ne fasse plus de rapports à Log Analytics. En ce qui concerne les agents connectés directement à Log Analytics, vous pouvez les empêcher de communiquer de la façon suivante : Panneau de configuration, Sécurité et paramètres, **Microsoft Monitoring Agent**.
+R : Dans System Center Operations Manager, supprimez l’ordinateur de la liste des ordinateurs managés par OMS. Operations Manager met à jour la configuration de l’agent pour qu’il ne fasse plus de rapports à Log Analytics. En ce qui concerne les agents connectés directement à Log Analytics, vous pouvez les empêcher de communiquer de la façon suivante : Panneau de configuration, Sécurité et paramètres, **Microsoft Monitoring Agent**.
 Sous **Azure Log Analytics (OMS)**, supprimez tous les espaces de travail répertoriés.
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>Q : Pourquoi une erreur se produit-elle lorsque j’essaie de déplacer mon espace de travail d’un abonnement Azure vers un autre ?
@@ -169,8 +165,6 @@ Pour les ordinateurs en mesure d’exécuter l’agent Wire Data, lancez la requ
 ```
 Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe") (Direction=Outbound) | measure Sum(TotalBytes) by Computer
 ```
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Familiarisez-vous avec Log Analytics](log-analytics-get-started.md) pour en savoir plus sur Log Analytics et être opérationnel en quelques minutes.

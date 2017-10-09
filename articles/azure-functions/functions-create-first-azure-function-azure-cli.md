@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: faa592af285569c7423a1597fcd9086311486abc
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: ab35963dc9d10134799270e6ab3e6593be0e601a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -125,7 +125,7 @@ az functionapp deployment source config --name <app_name> --resource-group myRes
 --repo-url https://github.com/Azure-Samples/functions-quickstart \
 --manual-integration 
 ```
-Une fois la source du déploiement définie, Azure CLI affiche des informations semblables à l’exemple suivant (les valeurs null sont supprimées pour une meilleure lisibilité) :
+Une fois la source du déploiement définie, Azure CLI affiche des informations semblables à l’exemple suivant (les valeurs Null sont supprimées pour une meilleure lisibilité) :
 
 ```json
 {

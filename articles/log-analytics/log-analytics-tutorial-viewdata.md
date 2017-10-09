@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ac702c356f0adc172674b2a3669de2a8d5dfd6ed
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics
@@ -31,20 +31,24 @@ Dans Log Analytics, vous pouvez exploiter les recherches dans les journaux en cr
 
 Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machine virtuelle [connectée à l’espace de travail Log Analytics](log-analytics-quick-collect-azurevm.md).  
 
-## <a name="log-in-to-azure-portal"></a>Se connecter au portail Azure
+Vous pouvez créer et modifier des requêtes, ou manipuler de manière interactive les données retournées, de deux manières différentes.  Dans le cas de requêtes de base, utilisez la page Recherche dans les journaux du portail Azure. Pour les requêtes avancées, vous pouvez utiliser le portail d’analytique avancée. Pour en savoir plus sur les différences entre les fonctionnalités des deux portails, voir [Portails servant à la création et la modification des requêtes de journal dans Azure Log Analytics.](log-analytics-log-search-portals.md)
+
+Dans ce didacticiel, nous travaillerons avec la fonction Recherche dans les journaux du portail Azure. 
+
+## <a name="log-in-to-azure-portal"></a>Connexion au portail Azure
 Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="open-the-log-search-portal"></a>Ouvrir le portail Recherche dans les journaux 
 Commencez par ouvrir le portail Recherche dans les journaux.   
 
-1. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, tapez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
+1. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis la vignette **Recherche dans les journaux**.<br> ![Bouton Recherche dans les journaux](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
 
 Vous avez peut-être noté la présence de la bannière en haut de votre page de ressource Log Analytics du portail vous invitant à effectuer une mise à niveau.<br> ![Avis de mise à niveau Log Analytics dans le portail Azure](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
 
 Log Analytics a inauguré dernièrement un nouveau langage de requête destiné à faciliter la création de requêtes, à mettre en corrélation des données issues de différentes sources et à procéder à une analyse pour identifier rapidement les tendances ou les problèmes.
 
-La mise à niveau est simple.  Pour lancer le processus, cliquez sur la bannière violette intitulée **En savoir plus et mise à niveau**.  Prenez connaissance des informations complémentaires sur la mise à niveau dans la page d’informations sur la mise à niveau, puis cliquez sur **Mettre à niveau maintenant**.
+La mise à niveau est simple.  Pour lancer le processus, cliquez sur la bannière intitulée **En savoir plus et mise à niveau**.  Prenez connaissance des informations complémentaires sur la mise à niveau dans la page d’informations sur la mise à niveau, puis cliquez sur **Mettre à niveau maintenant**.
 
 Ce processus prend quelques minutes. Pendant ce temps, vous pouvez suivre sa progression sous **Notifications** dans le menu. Pour plus d’informations, consultez [Avantages du nouveau langage de requête](log-analytics-log-search-upgrade.md#why-the-new-language).
 

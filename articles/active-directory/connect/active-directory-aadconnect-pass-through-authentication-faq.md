@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: cfc95726c535aa49add98d700740b24bde5ea0f7
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 79d2f5265c05a1e5f83325295d3d750e1796e1cc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -97,11 +97,11 @@ Si les services AD FS ont été configurés en tant que méthode de connexion _h
 
 Oui. Les environnements à plusieurs forêts sont pris en charge s’il existe des approbations de forêts entre les forêts AD et si le routage du suffixe de leurs noms est configuré correctement.
 
-## <a name="do-pass-through-authentication-agents-provide-load-balancing-capability"></a>Les agents d’authentification directe fournissent-ils une fonctionnalité d’équilibrage de charge ?
+## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Combien d’agents d’authentification directe dois-je installer ?
 
-Non, l’installation de plusieurs agents d’authentification directe assure une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), mais pas l’équilibrage de charge. Un ou deux agents d’authentification peuvent mettre fin à la gestion de l’ensemble des requêtes de connexion.
+L’installation de plusieurs agents d’authentification directe assure une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Toutefois, elle n’assure pas l’équilibrage de charge. Un ou deux agents d’authentification peuvent mettre fin à la gestion de l’ensemble des requêtes de connexion.
 
-Les requêtes de validation du mot de passe que les Agents d’authentification doivent gérées sont légères. Par conséquent la charge de pointe et moyenne pour la plupart des clients est facilement gérée par deux ou trois agents d’authentification au total.
+Envisagez la charge moyenne et les pics de charge lors des demandes de connexion que vous attendez de la part de votre locataire. À titre de référence, un seul agent d’authentification peut gérer entre 300 000 et 400 000 authentifications par seconde sur un serveur doté d’un CPU à 4 cœurs et de 16 Go de RAM. Pour la plupart des clients, deux ou trois agents d’authentification au total suffisent à offrir la haute disponibilité et suffisamment de capacité.
 
 Nous vous recommandons d’installer des agents d’authentification près de vos contrôleurs de domaine pour améliorer la latence de connexion.
 

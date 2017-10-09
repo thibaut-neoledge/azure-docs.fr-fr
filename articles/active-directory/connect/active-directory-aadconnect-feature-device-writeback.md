@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 310dcb176c2e1556af4ed0e0f50ea77c4644ec98
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect : Activation de l’écriture différée des appareils
@@ -44,19 +44,27 @@ Cela fournit une sécurité supplémentaire et l’assurance que l’accès aux 
 Utilisez les étapes suivantes pour préparer l’utilisation de l’écriture différée des appareils.
 
 1. À partir de l’ordinateur sur lequel est installé Azure AD Connect, lancez PowerShell en mode élevé.
-2. Si le module Active Directory PowerShell n’est PAS installé, installez-le à l’aide de la commande suivante :
-   
-   `Add-WindowsFeature RSAT-AD-PowerShell`
-3. Si le module Azure Active Directory PowerShell n’est PAS installé, téléchargez-le et installez-le à partir du [Module Azure Active Directory pour Windows PowerShell (version 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Ce composant a une dépendance à l’assistant de connexion, qui est installé avec Azure AD Connect.
+2. Si le module Active Directory PowerShell n’est PAS installé, installez les outils d’administration de serveur distant qui contiennent le module AD PowerShell ainsi que dsacls.exe qui est requis pour l’exécution du script.  Exécutez la commande suivante :
+  
+   ``` powershell
+   Add-WindowsFeature RSAT-AD-Tools
+   ```
+
+3. Si le module Azure Active Directory PowerShell n’est PAS installé, téléchargez-le et installez-le à partir du [Module Azure Active Directory pour Windows PowerShell (version 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Ce composant a une dépendance à l’assistant de connexion, qui est installé avec Azure AD Connect.  
 4. Avec les informations d’identification d’administrateur d’entreprise, exécutez les commandes suivantes, puis quittez PowerShell.
    
-   `Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
-   
-   `Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
+   ``` powershell
+   Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+   ```
+
+   ``` powershell
+   Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}
+   ```
 
 Les informations d’identification d’administrateur d’entreprise sont requises, car des modifications à l’espace de noms de configuration sont nécessaires. Un administrateur de domaine ne dispose pas des autorisations suffisantes.
 
-![Powershell pour l’activation de l’écriture différée des appareils](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
+![PowerShell pour l’activation de l’écriture différée des appareils](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
+
 
 Description :
 

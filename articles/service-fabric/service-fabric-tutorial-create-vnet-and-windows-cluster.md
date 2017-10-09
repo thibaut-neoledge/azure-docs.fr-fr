@@ -1,6 +1,6 @@
 ---
-title: "Créer un cluster Service Fabric dans Azure | Microsoft Docs"
-description: "Découvrez comment créer un cluster Windows dans Azure à l’aide d’un modèle."
+title: "Créer un cluster Windows Service Fabric dans Azure | Microsoft Docs"
+description: "Découvrez comment déployer un cluster Windows Service Fabric dans un réseau virtuel Azure existant à l’aide de PowerShell."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,32 +12,32 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5d56fd468998ee4b1253b47aa133812e0141062b
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 7cee4f8d68062dcfd2b6f61d55319160a2a80a98
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
-# <a name="deploy-a-secure-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Déployer un cluster Windows Service Fabric sécurisé dans un réseau virtuel Azure
-Ce didacticiel est la première partie d’une série d’étapes. Vous allez apprendre à créer un cluster Service Fabric (Windows) dans Azure et à le déployer dans un réseau virtuel (VNET) et un sous-réseau existant. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications.  Pour créer un cluster Linux, consultez la page [Créer un cluster Linux sécurisé sur Azure à l’aide d’un modèle](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+# <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Déployer un cluster Windows Service Fabric dans un réseau virtuel Azure
+Ce didacticiel est la première partie d’une série d’étapes. Vous découvrirez comment déployer un cluster Windows Service Fabric dans un réseau virtuel et sous-réseau Azure existant à l’aide de PowerShell. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications.  Pour créer un cluster Linux à l’aide de l’interface de ligne de commande Azure, consultez la page [Créer un cluster Linux sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Créer un réseau virtuel dans Azure à l’aide d’un modèle
+> * Créer un réseau virtuel dans Azure à l’aide de PowerShell
 > * Créer un coffre de clés et charger un certificat
-> * Créer un cluster Service Fabric sécurisé dans Azure à l’aide d’un modèle
+> * Créer un cluster Service Fabric sécurisé dans Azure PowerShell
 > * Sécuriser le cluster avec un certificat X.509
 > * Se connecter à un cluster à l’aide de PowerShell
 > * Supprimer un cluster
 
 Cette série de didacticiels vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-> * créer un cluster sécurisé sur Azure à l’aide d’un modèle ;
+> * Créer un cluster sécurisé sur Azure
 > * [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
 ## <a name="prerequisites"></a>Composants requis
@@ -46,10 +46,7 @@ Avant de commencer ce didacticiel :
 - Installez le [Kit de développement logiciel (SDK) Service Fabric et le module PowerShell](service-fabric-get-started.md).
 - Installez le [module Azure PowerShell, version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
-Les procédures suivantes créent un cluster Service Fabric à cinq nœuds. Le cluster est sécurisé par un certificat auto-signé et placé dans un coffre de clés. 
-
-Pour calculer le coût lié à l’exécution d’un cluster Service Fabric dans Azure, utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/).
-Pour plus d’informations sur la création de clusters Service Fabric, consultez l’article [Créer un cluster Service Fabric à l’aide d’Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
+Les procédures suivantes créent un cluster Service Fabric à cinq nœuds. Pour calculer le coût lié à l’exécution d’un cluster Service Fabric dans Azure, utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/).
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Se connecter à Azure et sélectionner un abonnement
 Ce guide utilise Azure PowerShell. Lorsque vous démarrez une nouvelle session PowerShell, connectez-vous à votre compte Azure et sélectionnez votre abonnement avant d’exécuter des commandes Azure.
@@ -181,33 +178,17 @@ Write-Host "Certificate Thumbprint: " $output.CertificateThumbprint
 ```
 
 ## <a name="deploy-the-service-fabric-cluster"></a>Déploiement du cluster Service Fabric
-Une fois le déploiement des ressources réseau terminé et le certificat chargé dans un coffre de clés, il s’agit de déployer un cluster Service Fabric sur le réseau virtuel dans le sous-réseau et le Groupe de sécurité réseau désignés pour le cluster Service Fabric. Dans le cadre de ce didacticiel, le modèle Resource Manager Service Fabric est préconfiguré pour utiliser les noms du réseau virtuel, du sous-réseau et du Groupe de sécurité réseau que vous avez configurés au cours d’une étape précédente.
-
-Téléchargez le modèle Resource Manager et le fichier de paramètres suivants :
+Une fois le déploiement des ressources réseau terminé, la prochaine étape consiste à déployer un cluster Service Fabric sur le réseau virtuel dans le sous-réseau et le groupe de sécurité réseau désignés pour le cluster Service Fabric. Le déploiement d’un cluster sur un réseau virtuel existant et le sous-réseau associé (déployés précédemment dans cet article) nécessite un modèle Resource Manager.  Pour en savoir plus, consultez la section relative à la [Création d’un cluster à l’aide d’Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Dans cette série de didacticiels, le modèle est préconfiguré de façon à utiliser les noms du réseau virtuel, sous-réseau et groupe de sécurité réseau que vous avez configurés au cours d’une étape précédente.  Téléchargez le modèle Resource Manager et le fichier de paramètres suivants :
 - [cluster.json][cluster-arm]
 - [cluster.parameters.json][cluster-parameters-arm]
 
-Renseignez les paramètres vides dans le fichier `cluster.parameters.json` pour votre déploiement, y compris les [informations du coffre de clés](service-fabric-cluster-creation-via-arm.md#set-up-a-key-vault) pour votre certificat de cluster.
+Renseignez les champs vides des paramètres **clusterName**, **adminUserName**, **adminPassword**, **certificateThumbprint**, **certificateUrlValue** et **sourceVaultValue** dans le fichier *cluster.parameters.json* pour votre déploiement.  Si vous avez un certificat précédemment téléchargé dans un coffre de clés, renseignez les valeurs **certificateThumbprint**, **certificateUrlValue** et **sourceVaultValue** pour ce certificat.
 
 Utilisez la commande PowerShell suivante pour déployer le modèle Resource Manager et les fichiers de paramètres nécessaires à la création du cluster Service Fabric :
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
 ```
-
-## <a name="modify-the-certificate--access-service-fabric-explorer"></a>Modifier le certificat et accéder à Service Fabric Explorer 
-
-1. Double-cliquez sur le certificat pour ouvrir l’Assistant Importation de certificat.
-
-2. Utilisez les paramètres par défaut, mais veillez à cocher la case **Marquer cette clé comme exportable** à l’étape **Protection de clé privée**. Visual Studio doit exporter le certificat pendant la configuration d’Azure Container Registry pour l’authentification de cluster Service Fabric plus loin dans ce didacticiel.
-
-3. Vous pouvez maintenant ouvrir Service Fabric Explorer dans un navigateur. Pour ce faire, accédez à l’URL de **ManagementEndpoint** pour votre cluster à l’aide d’un navigateur web et sélectionnez le certificat qui a été enregistré sur votre ordinateur.
-
->[!NOTE]
->Quand vous ouvrez Service Fabric Explorer, vous voyez une erreur de certificat, car vous utilisez un certificat auto-signé. Dans Edge, vous devez cliquer sur *Détails*, puis sur le lien *Atteindre la page web*. Dans Chrome, vous devez cliquer sur *Avancé*, puis sur le lien *proceed* (Continuer).
-
->[!NOTE]
->Si la création du cluster échoue, vous pouvez toujours réexécuter la commande et mettre ainsi à jour les ressources déjà déployées. Si un certificat a été créé dans le cadre du déploiement ayant échoué, un nouveau est généré. Pour résoudre les problèmes liés à la création du cluster, consultez l’article [Créer un cluster Service Fabric à l’aide d’Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## <a name="connect-to-the-secure-cluster"></a>Se connecter à un cluster sécurisé
 Connectez-vous au cluster à l’aide du module Service Fabric PowerShell installé avec le Kit de développement logiciel (SDK) Service Fabric.  Tout d’abord, installez le certificat dans le magasin personnel de l’utilisateur actuel sur votre ordinateur.  Exécutez la commande PowerShell suivante :
@@ -237,13 +218,8 @@ Vérifiez que vous êtes connecté et que le cluster est sain à l’aide de la 
 Get-ServiceFabricClusterHealth
 ```
 
-```azurecli
-sfctl cluster health
-```
-
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-
-Un cluster est composé d’autres ressources Azure en plus de la ressource de cluster elle-même. Le plus simple pour supprimer le cluster et toutes les ressources qu’il consomme consiste à supprimer le groupe de ressources.
+Les autres articles de cette série de didacticiels utilisent le cluster que vous venez de créer. Si vous ne passez pas immédiatement à l’article suivant, vous souhaiterez peut-être supprimer le cluster pour éviter de subir des frais. Le plus simple pour supprimer le cluster et toutes les ressources qu’il consomme consiste à supprimer le groupe de ressources.
 
 Connectez-vous à Azure et sélectionnez l’ID d’abonnement pour lequel vous souhaitez supprimer le cluster.  Vous pouvez trouver votre ID d’abonnement en vous connectant au [portail Azure](http://portal.azure.com). Pour supprimer un groupe de ressources et toutes les ressources de cluster, utilisez la cmdlet [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
@@ -259,14 +235,14 @@ Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Créer un réseau virtuel dans Azure à l’aide d’un modèle
+> * Créer un réseau virtuel dans Azure à l’aide de PowerShell
 > * Créer un coffre de clés et charger un certificat
-> * Créer un cluster Service Fabric sécurisé dans Azure à l’aide d’un modèle
+> * Création d’un cluster Service Fabric sécurisé dans Azure à l’aide de PowerShell
 > * Sécuriser le cluster avec un certificat X.509
 > * Se connecter à un cluster à l’aide de PowerShell
 > * Supprimer un cluster
 
-Ensuite, passez au didacticiel suivant pour apprendre à déployer une application existante.
+Ensuite, passez au didacticiel suivant pour apprendre à déployer la Gestion des API avec Service Fabric.
 > [!div class="nextstepaction"]
 > [Déployer la Gestion des API](service-fabric-tutorial-deploy-api-management.md)
 

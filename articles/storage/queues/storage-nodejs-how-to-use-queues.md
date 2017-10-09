@@ -3,7 +3,7 @@ title: "Utilisation du stockage de files d’attente à partir de Node.js | Micr
 description: "Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Node.js."
 services: storage
 documentationcenter: nodejs
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: aec5eb551ef438015d4f6a3d1578d0fa890d737e
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 649c656b08c03ca9c902b0d80e77d9b3b662635b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Utilisation du stockage de files d'attente à partir de Node.js
@@ -341,9 +341,8 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
 [Créer une application web Node.js dans Azure App Service](../../app-service/app-service-web-get-started-nodejs.md)
-   
 
 
-[Création et déploiement d’une application Node.js dans un service cloud Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)   
-[Blog de l’équipe Stockage Azure] : http://blogs.msdn.com/b/windowsazurestorage/ [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix] : https://www.microsoft.com/web/webmatrix/   
+
+[Créer et déployer une application Node.js dans un service Cloud Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)[Blog de l’équipe Stockage Azure] : http://blogs.msdn.com/b/windowsazurestorage/ [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix] : https://www.microsoft.com/web/webmatrix/
 

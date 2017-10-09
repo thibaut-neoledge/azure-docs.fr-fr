@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4f46c0ee94cbeb39bc7b28874cd41f1faf5deb5
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: bef3e7bf8b1fd9199d0c8a083d94660b8eed3365
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Résoudre les problèmes liés à Azure Files dans Linux
@@ -129,6 +129,32 @@ Utilisez le nom de l’utilisateur du compte de stockage pour copier les fichier
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
+
+## <a name="cannot-connect-or-mount-an-azure-file-share"></a>Connexion ou montage impossible d’un partage de fichiers Azure
+
+### <a name="cause"></a>Cause :
+
+Causes courantes de ce problème :
+
+
+- Vous utilisez un client de distribution Linux non compatible. Nous vous recommandons d’utiliser les distributions Linux suivantes pour vous connecter à un partage de fichiers Azure :
+
+    - Ubuntu Server 14.04+ 
+    - RHEL 7+ 
+    - CentOS 7+ 
+    - Debian 8 
+    - openSUSE 13.2+ 
+    - SUSE Linux Enterprise Server 12
+
+- Les éléments CIFS-util ne sont pas installés sur le client.
+- La version de SMB/CIFS minimale, la version 2.1, n’est pas installée sur le client.
+- Le chiffrement SMB 3.0 n’est pas pris en charge sur le client. Le chiffrement SMB 3.0 est disponible dans Ubuntu 16.4 et plus et SUSE 12.3 et plus. Les autres distributions requièrent un noyau de versions 4.11 et plus.
+- Vous tentez de vous connecter à un compte de stockage via le port TCP 445, qui n’est pas pris en charge.
+- Vous tentez de cous connecter à un partage de fichiers Azure depuis une machine virtuelle Azure, qui n’est pas située dans la même région que le compte de stockage.
+
+### <a name="solution"></a>Solution
+
+Pour résoudre le problème, utilisez [l’outil de résolution des erreurs de montage Azure Files sur Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Cet outil vous permet de valider le client exécutant l’environnement, de détecter les problèmes d’incompatibilité des configurations client qui risquent de compromettre l’accès d’Azure Files, de fournir des conseils prescriptifs sur les correctifs autonomes et de collecter les suivis de diagnostic.
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 

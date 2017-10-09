@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 08/22/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a0563af9a7fc62fe3923562dd352d756f4945287
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 65a93003eb829a2eaf4684d2a6ecacf74b0adc75
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Connecter Excel à Hadoop dans Azure HDInsight avec le pilote ODBC Microsoft Hive
@@ -37,9 +37,9 @@ Il est également possible de connecter les données associées à un cluster HD
 > 
 > 
 
-**Prérequis** :
+**Conditions préalables**:
 
-Avant de poursuivre cet article, vérifiez que vous avez les éléments suivants :
+Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un cluster HDInsight**. Pour en créer un, consultez [Prise en main d’Azure HDInsight][hdinsight-get-started].
 * **Une station de travail** avec Office Professionnel Plus 2013, Office 365 ProPlus, l'édition autonome d'Excel 2013 ou Office Professionnel Plus 2010.
@@ -108,7 +108,7 @@ Dans cet article, vous avez appris à utiliser le pilote ODBC Microsoft Hive pou
 * [Utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight](./hdinsight-connect-hive-zeppelin.md).
 * [Connexion d’Excel à Hadoop à l’aide de Power Query](./hdinsight-connect-excel-power-query.md).
 * [Se connecter à Azure HDInsight et exécuter des requêtes Hive avec Data Lake Tools pour Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
-* [Utiliser Visual Studio Code pour Hive, LLAP ou pySpark](hdinsight-for-vscode.md).
+* [Utiliser Azure HDInsight Tools pour Visual Studio Code](hdinsight-for-vscode.md).
 * [Charger des données dans HDInsight](./hdinsight-upload-data.md).
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md

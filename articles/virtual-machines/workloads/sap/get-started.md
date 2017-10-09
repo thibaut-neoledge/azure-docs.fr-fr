@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/29/2017
+ms.date: 09/27/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: e69d96e5f18b4334a63445b08979c457d241e818
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 7af2657b01b954c3f43a687dedebad7e4a814e6a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -340,7 +340,7 @@ Titre : Haute disponibilité et récupération d’urgence de SAP HANA sur Azure
 
 Résumé : La haute disponibilité et la récupération d’urgence constituent des aspects fondamentaux de l’exécution de votre SAP HANA critique sur des serveurs Azure (grandes instances). Il est important de collaborer avec SAP, votre intégrateur système et/ou Microsoft pour concevoir et implémenter correctement la stratégie de haute disponibilité/récupération d’urgence adaptée à votre situation. Les considérations importantes telles que l’objectif de point de récupération (RPO) et l’objectif de délai de récupération (RTO), spécifiques à votre environnement, doivent être examinées.  Ce document décrit les options disponibles pour activer le niveau de haute disponibilité et de récupération d’urgence de votre choix.
 
-Mise à jour : décembre 2016
+Mise à jour : septembre 2017
 
 [Ce document est disponible ici](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

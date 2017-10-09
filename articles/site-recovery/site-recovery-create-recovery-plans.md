@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/23/2017
+ms.date: 09/25/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 1b0d64cd592c4738311797b826e490639340f92a
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 81d8a6e3015ddc4241cce8e888d51d6e2b2cb173
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="create-recovery-plans"></a>Créer des plans de récupération
@@ -77,10 +77,13 @@ Si vous utilisez VMM dans votre déploiement :
 * Vérifiez que vous disposez d’au moins un serveur de bibliothèque au sein de votre déploiement VMM. Par défaut, le chemin d’accès de partage de bibliothèque d’un serveur VMM est disponible localement sur le serveur VMM, sous le nom de dossier MSCVMMLibrary.
     * Si votre chemin d’accès de partage de bibliothèque est distant (ou local mais non partagé avec MSCVMMLibrary), configurez le partage comme suit (en utilisant \\libserver2.contoso.com\share\ comme exemple) :
       * Ouvrez l’Éditeur du Registre, puis accédez à **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
-      * Modifiez la valeur de **ScriptLibraryPath** et placez-la comme \\libserver2.contoso.com\share\. Spécifiez le nom de domaine complet. Fournissez des autorisations d’accès à l’emplacement de partage.
+      * Modifiez la valeur de **ScriptLibraryPath** et placez-la comme \\libserver2.contoso.com\share\. Spécifiez le nom de domaine complet. Fournissez des autorisations d’accès à l’emplacement de partage. Notez qu’il s’agit du nœud racine du partage. **Pour vérifier ce point, vous pouvez ouvrir la bibliothèque au niveau du nœud racine dans VMM. Le chemin d’accès qui s’ouvre correspond à la racine du chemin d’accès, celui que vous devez utiliser dans la variable**.
       * Veillez à tester le script avec un compte d’utilisateur qui dispose des mêmes autorisations que le compte de service VMM. Cela permet de vérifier que les scripts testés autonomes s’exécuteront de la même manière dans les plans de récupération. Sur le serveur VMM, définissez le mode de contournement suivant de la stratégie d’exécution :
-        * Ouvrez la console Windows PowerShell 64 bits à l’aide des privilèges élevés.
+        * Ouvrez la console **Windows PowerShell 64 bits** à l’aide des privilèges élevés.
         * Entrez : **Set-executionpolicy bypass**. [Plus d’informations](https://technet.microsoft.com/library/ee176961.aspx)
+
+> [!IMPORTANT]
+> Vous devez définir la stratégie d’exécution sur Contournement uniquement dans les consoles PowerShell 64 bits. Si vous l’avez définie dans la console PowerShell 32 bits, les scripts ne s’exécuteront pas.
 
 ## <a name="add-a-script-or-manual-action-to-a-plan"></a>Ajouter un script ou une action manuelle à un plan
 

@@ -17,10 +17,10 @@ ms.date: 09/20/2017
 ms.author: jdial
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 21729bc6af282abc47c9b226f343bf2d44153d55
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 035eb44432081ef52c758a5d311b4d2ba2c6108d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrer le trafic réseau avec des groupes de sécurité réseau et d’application (préversion)
@@ -36,13 +36,25 @@ Cet article explique comment créer des groupes de sécurité réseau par le bia
 
 ## <a name="azure-cli"></a>Interface de ligne de commande Azure
 
-Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir de Windows, de Linux ou de macOS. Toutefois, il existe des différences de script entre les interpréteurs de commandes du système d’exploitation. Le script présenté dans les étapes suivantes s’exécute dans un interpréteur de commandes Bash. 
+Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir de Windows, de Linux ou de macOS. Toutefois, il existe des différences de script entre les interpréteurs de commandes du système d’exploitation. Le script présenté dans les étapes suivantes s’exécute dans un interpréteur de commandes Bash. 
 
 1. [Installez et configurez Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Vérifiez que vous utilisez une version de CLI 2.0 supérieure à 2.0.17 en entrant la commande `az --version`. Si ce n’est pas le cas, installez la version la plus récente.
+2. Vérifiez que vous utilisez la version 2.0.18 ou une version ultérieure de l’interface Azure CLI en saisissant la commande `az --version`. Si ce n’est pas le cas, installez la version la plus récente.
 3. Connectez-vous à Azure avec la commande `az login`.
-4. Inscrivez-vous aux fonctionnalités en préversion utilisées dans ce didacticiel en effectuant les étapes 1 à 5 dans [PowerShell](#powershell). Vous pouvez uniquement vous inscrire à la préversion à l’aide de PowerShell. N’effectuez pas les étapes restantes tant que votre inscription n’est pas couronnée de succès, sinon elles sont vouées à l’échec.
-5. Utilisez le script suivant pour créer un groupe de ressources :
+4. Inscrivez-vous à la préversion en entrant les commandes suivantes :
+    
+    ```azurecli-interactive
+    az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    ``` 
+
+5. Vérifiez que vous êtes inscrit à la préversion en saisissant la commande suivante :
+
+    ```azurecli-interactive
+    az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    ```
+
+    N’effectuez pas les étapes restantes tant que la mention *Registered* n’apparaît pas dans la section **state** de la sortie retournée par la commande précédente. Si vous continuez avant d’être inscrit, les étapes restantes échouent.
+6. Exécutez le script bash suivant pour créer un groupe de ressources :
 
     ```azurecli-interactive
     #!/bin/bash
@@ -52,7 +64,7 @@ Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir d
       --location westcentralus
     ```
 
-6. Créez trois groupes de sécurité d’application, à raison d’un par type de serveur :
+7. Créez trois groupes de sécurité d’application, à raison d’un par type de serveur :
 
     ```azurecli-interactive
     az network asg create \
@@ -71,7 +83,7 @@ Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir d
       --location westcentralus
     ```
 
-7. Créez un groupe de sécurité réseau :
+8. Créez un groupe de sécurité réseau :
 
     ```azurecli-interactive
     az network nsg create \
@@ -80,7 +92,7 @@ Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir d
       --location westcentralus
     ```
 
-8. Créez des règles de sécurité dans le groupe de sécurité réseau.
+9. Créez des règles de sécurité dans le groupe de sécurité réseau, en définissant les groupes de sécurité d’application en tant que destination :
     
     ```azurecli-interactive    
     az network nsg rule create \
@@ -120,7 +132,7 @@ Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir d
       --protocol "TCP" 
     ``` 
 
-9. Créez un réseau virtuel : 
+10. Créez un réseau virtuel : 
     
     ```azurecli-interactive
     az network vnet create \
@@ -129,8 +141,9 @@ Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir d
       --subnet-name mySubnet \
       --address-prefix 10.0.0.0/16 \
       --location westcentralus
+    ```
 
-10. Associate the network security group to the subnet in the virtual network:
+11. Associez le groupe de sécurité réseau au sous-réseau du réseau virtuel :
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -138,8 +151,9 @@ Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir d
       --resource-group myResourceGroup \
       --vnet-name myVnet \
       --network-security-group myNsg
-
-11. Create three network interfaces, one for each server type. 
+    ```
+    
+12. Créez trois interfaces réseau, à raison d’une par type de serveur : 
 
     ```azurecli-interactive
     az network nic create \
@@ -170,9 +184,9 @@ Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir d
       --application-security-groups "DatabaseServers"
     ```
 
-    Seule la règle de sécurité correspondante créée à l’étape 8 est appliquée à l’interface réseau, en fonction du groupe de sécurité d’application dont l’interface réseau est membre. Par exemple, seul *WebRule* est efficace pour *myWebNic*, car l’interface réseau est membre du groupe de sécurité d’application *WebServers* et la règle spécifie le groupe de sécurité d’application *WebServers* comme destination. Les règles *AppRule* et *DatabaseRule* ne sont pas appliquées à *myWebNic*, car l’interface réseau n’est pas membre des groupes de sécurité d’application *AppServers* et *DatabaseServers*.
+    Seule la règle de sécurité correspondante, créée à l’étape 9, est appliquée à l’interface réseau, en fonction du groupe de sécurité d’application dont l’interface réseau est membre. Par exemple, seul *WebRule* est efficace pour *myWebNic*, car l’interface réseau est membre du groupe de sécurité d’application *WebServers* et la règle spécifie le groupe de sécurité d’application *WebServers* comme destination. Les règles *AppRule* et *DatabaseRule* ne sont pas appliquées à *myWebNic*, car l’interface réseau n’est pas membre des groupes de sécurité d’application *AppServers* et *DatabaseServers*.
 
-12. Créez une machine virtuelle pour chaque type de serveur, en attachant l’interface réseau correspondante à chaque machine virtuelle. Cet exemple crée des machines virtuelles Windows, mais vous pouvez remplacer *win2016datacenter* par *UbuntuLTS* pour créer des machines virtuelles Linux à la place.
+13. Créez une machine virtuelle pour chaque type de serveur, en attachant l’interface réseau correspondante à chaque machine virtuelle. Cet exemple crée des machines virtuelles Windows, mais vous pouvez remplacer *win2016datacenter* par *UbuntuLTS* pour créer des machines virtuelles Linux à la place.
 
     ```azurecli-interactive
     # Update for your admin password
@@ -206,7 +220,7 @@ Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir d
       --admin-password $AdminPassword    
     ```
 
-13. **Facultatif :** supprimez les ressources que vous avez créées dans ce didacticiel en suivant les étapes indiquées dans la section [Supprimer des ressources](#delete-cli).
+14. **Facultatif :** supprimez les ressources que vous avez créées dans ce didacticiel en suivant les étapes indiquées dans la section [Supprimer des ressources](#delete-cli).
 
 ## <a name="powershell"></a>PowerShell
 

@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 08/25/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 12bf76deebda27cdc7e7611e0585dc0bf92bde2f
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 3af597d7af13daaf80cd750b230675c8475033e1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gérer les ressources pour une base de données unique dans Azure SQL Database
@@ -95,14 +95,14 @@ Pour définir ou modifier les niveaux de service, les niveaux de performances et
 
 | Commande | Description |
 | --- | --- |
-|[Bases de données : création ou mise à jour](/rest/api/sql/databases/createorupdate)|Créez une nouvelle base de données ou met à jour une base de données existante.|
-|[Bases de données - Get](/rest/api/sql/databases/get)|Obtient une base de données.|
-|[Bases de données - Get par pool élastique](/rest/api/sql/databases/getbyelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique.|
-|[Bases de données - Get par pool élastique recommandé](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique recommandé.|
-|[Bases de données - Liste par pool élastique](/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
-|[Bases de données - Liste par pool élastique recommandé](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourne une liste des bases de données à l’intérieur d’un pool élastique recommandé.|
-|[Bases de données - Liste par serveur](/rest/api/sql/databases/listbyserver)|Renvoie une liste des bases de données sur un serveur.|
-|[Bases de données - Mise à jour](/api/sql/databases/update)|Met à jour une base de données existante.|
+|[Bases de données - Créer ou mettre à jour](/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
+|[Bases de données - Obtenir](/rest/api/sql/databases/get)|Obtient une base de données.|
+|[Bases de données - Obtenir par pool élastique](/rest/api/sql/databases/getbyelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique.|
+|[Bases de données - Obtenir par pool élastique recommandé](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique recommandé.|
+|[Bases de données - Lister par pool élastique](/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
+|[Bases de données - Lister par pool élastique recommandé](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourne une liste de bases de données à l’intérieur d’un pool élastique recommandé.|
+|[Bases de données - Lister par serveur](/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
+|[Base de données - Mise à jour] ((/ rest/api/sql/bases de données/mise à jour)|Met à jour une base de données existante.|
 
 
 

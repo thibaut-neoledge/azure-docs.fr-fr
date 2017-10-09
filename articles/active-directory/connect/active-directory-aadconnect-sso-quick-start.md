@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 75c361cca556c797fd3ea5480cacbbc14799aca8
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 9d91c59d3e4d73879d95ab193949d54f7b86d6cd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -70,7 +70,10 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 
 ## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
 
-Pour déployer la fonctionnalité à vos utilisateurs, ajoutez des URL Azure AD dans les paramètres de la zone intranet des utilisateurs à l’aide de la stratégie de groupe dans Active Directory.
+Pour déployer la fonctionnalité sur les systèmes de vos utilisateurs, ajoutez les URL Azure AD suivantes dans les paramètres de zone intranet des utilisateurs, à l’aide de la stratégie de groupe, dans Active Directory :
+
+- https://autologon.microsoftazuread-sso.com
+- https://aadg.windows.net.nsatc.net
 
 >[!NOTE]
 > Les instructions suivantes ne valent que pour les navigateurs Internet Explorer et Google Chrome sur Windows (si ce dernier partage l’ensemble des URL de sites de confiance avec Internet Explorer). Lisez la section suivante pour savoir comment configurer Mozilla Firefox et Google Chrome sur Mac.

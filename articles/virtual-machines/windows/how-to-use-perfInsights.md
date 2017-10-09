@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/18/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: f22bd42302b96118dba0d4e5e387c6798a0b8777
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 45953b4512cb2f602edbd837e62b9344c4211d03
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights 
@@ -87,9 +87,9 @@ Ce scénario exécute une capture du compteur de performances spéciale ainsi qu
 | E/S par seconde         | Requêtes de données/s             |
 |              | Requêtes de lecture/s             |
 |              | Requêtes d’écriture/s            |
-| Latence      | Avg. s/requête de données         |
-|              | Avg. s/lecture                 |
-|              | Avg. s/écriture                |
+| Latency      | Requête de données/s (moyenne)         |
+|              | Lecture/s (moyenne)                 |
+|              | Écriture/s (moyenne)                |
 | Taille d’E/S      | Avg. Octets/requête de données       |
 |              | Avg. Octets/lecture               |
 |              | Avg. Octets/écriture              |
@@ -110,7 +110,7 @@ Lorsque vous exécutez une configuration personnalisée, vous exécutez tous les
 
 ## <a name="what-kind-of-information-is-collected-by-the-script"></a>Quelles informations sont collectées par le script ?
 
-Les informations portant sur la configuration de la machine virtuelle Windows, des disques ou des pools de stockage, les compteurs de performances, les journaux et les différents suivis sont recueillies en fonction du scénario de performances utilisé :
+Les informations portant sur la configuration de la machine virtuelle Windows, des disques ou des pools de stockage, les compteurs de performances, les journaux et les différentes traces sont recueillies en fonction du scénario de performances utilisé :
 
 |Données collectées                              |  |  | Scénarios de performances |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
@@ -299,7 +299,7 @@ La section **Vue d’ensemble** affiche plusieurs vues de la configuration de st
 
 Les sections **DiskMap** et **VolumeMap** offrent un double point de vue sur les liens entre volumes logiques et disques physiques.
 
-Dans la perspective PhysicalDisk (DiskMap), le tableau affiche tous les volumes logiques en cours d’exécution sur le disque. Dans l’exemple suivant, PhysicalDrive2 exécute 2 volumes logiques créés sur plusieurs partitions (J et H) :
+Dans la perspective PhysicalDisk (DiskMap), le tableau affiche tous les volumes logiques en cours d’exécution sur le disque. Dans l’exemple suivant, PhysicalDrive2 exécute deux volumes logiques créés sur plusieurs partitions (J et H) :
 
 ![onglet Données](media/how-to-use-perfInsights/disktab.png)
 
@@ -309,7 +309,7 @@ Dans la perspective Volume (*VolumeMap*), les tables affichent tous les disques 
 
 ### <a name="sql-server-tab"></a>Onglet Serveur SQL
 
-Si la machine virtuelle cible héberge toutes les instances de SQL Server, un onglet supplémentaire nommé **SQL Server** apparaît dans le rapport :
+Si la machine virtuelle cible héberge toutes les instances de SQL Server, un onglet supplémentaire appelé **SQL Server** apparaît dans le rapport :
 
 ![onglet sql](media/how-to-use-perfInsights/sqltab.png)
 

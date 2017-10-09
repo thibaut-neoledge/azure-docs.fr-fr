@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ae17a712b0b2a6ba0b9cdf4749fe2aa8b7f535fb
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: daecef7962ddee2f5e4b6a36c418619285f3ba5a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Forum aux questions sur le déploiement de Web Apps dans Azure
@@ -46,7 +46,7 @@ Pour résoudre cette erreur, mettez à niveau vers la [dernière version du Kit 
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Comment déployer une application ASP.NET à partir de Visual Studio vers App Service ?
 <a id="deployasp"></a>
 
-Le didacticiel [Création d’une application web ASP.NET dans Azure](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-get-started/) décrit comment déployer une application web ASP.NET vers une application web dans App Service à l’aide de Visual Studio 2015.
+Le didacticiel [Création d’une application web ASP.NET dans Azure](app-service-web-get-started-dotnet.md) explique comment déployer une application web ASP.NET vers une application web dans App Service à l’aide de Visual Studio 2017.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Quelles sont les différents types d’informations d’identification de déploiement ?
 
