@@ -20,13 +20,9 @@ Nous prenons en charge jusqu'à 128 clients VPN pouvant se connecter à un rés
 
 Azure prend en charge deux types d’options de VPN point à site :
 
-* Protocole SSTP (Secure Socket Tunneling Protocol)
+* Protocole SSTP (Secure Socket Tunneling Protocol). SSTP est une solution SSL propriétaire de Microsoft qui peut pénétrer les pare-feux, car la plupart des pare-feux ouvrent le port TCP 443 utilisé par SSL.
 
-  SSTP est une solution SSL propriétaire de Microsoft qui peut pénétrer les pare-feux, car la plupart des pare-feux ouvrent le port TCP 443 utilisé par SSL.
-
-* VPN IKEv2
-
-  Le VPN IKEv2 est une solution VPN IPsec basée sur des normes qui utilise les ports UDP 500 et 4500 ainsi que le protocole IP no. 50. Les pare-feux n’ouvrent pas toujours ces ports. Il est donc possible que le VPN IKEv2 ne soit pas en mesure de parcourir les proxies et pare-feux.
+* VPN IKEv2. Le VPN IKEv2 est une solution VPN IPsec basée sur des normes qui utilise les ports UDP 500 et 4500 ainsi que le protocole IP no. 50. Les pare-feux n’ouvrent pas toujours ces ports. Il est donc possible que le VPN IKEv2 ne soit pas en mesure de parcourir les proxies et pare-feux.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Si je redémarre un ordinateur client avec une configuration point à site, le réseau VPN va-t-il se reconnecter automatiquement ?
 
@@ -51,3 +47,21 @@ Il est difficile de maintenir le débit exact des tunnels VPN. IPsec et SSTP son
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Puis-je utiliser un client VPN logiciel pour une connexion point à site prenant en charge SSTP et/ou IKEv2 ?
 
 Non. Vous ne pouvez utiliser le client VPN natif sur Windows que pour SSTP et pour le client VPN natif sur Mac pour IKEv2. Reportez-vous à la liste des systèmes d’exploitation client pris en charge.
+
+### <a name="can-i-access-the-internet-when-i-am-connected-over-p2s-vpn"></a>Puis-je accéder à Internet lorsque je suis connecté via le réseau VPN P2S ?
+
+Oui, vous pouvez accéder à Internet lorsque vous vous trouvez sur un réseau VPN P2S.
+
+### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure prend-elle en charge le VPN IKEv2 avec Windows ?
+
+Les utilisateurs peuvent se connecter à Azure à l’aide du client VPN Windows intégré, qui prend en charge IKEv2. Toutefois, les connexions IKEv2 à partir d’un appareil Windows ne fonctionnent pas dans le scénario suivant :
+
+  Lorsque l’appareil de l’utilisateur contient un grand nombre de certificats racines de confiance, la taille de la charge utile du message lors de l’échange IKE est importante et provoque la fragmentation de la couche IP. Les fragments sont rejetés à la fin d’Azure, ce qui entraîne l’échec de la connexion. Le nombre de certificats exact sur lesquels ce problème se produit est difficile à estimer. Par conséquent, le fonctionnement des connexions IKEv2 à partir d’appareils Windows n’est pas garanti. Lorsque vous configurez SSTP et IKEv2 dans un environnement mixte (composé d’appareils Windows et Mac), le profil VPN Windows essaie toujours le tunnel IKEv2 en premier. En cas d’échec en raison du problème décrit ici, il bascule vers SSTP.
+
+### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>À part Windows et Mac, quelles autres plateformes sont prises en charge par Azure pour le réseau VPN P2S ?
+
+Azure prend en charge uniquement Windows et Mac pour le réseau VPN P2S.
+
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enabled-radius-andor-ikev2-vpn-on-it"></a>J’ai déjà une passerelle VPN Azure déployée. Puis-je activer RADIUS et/ou le réseau VPN IKEv2 sur celle-ci ?
+
+Oui, vous pouvez activer ces nouvelles fonctionnalités sur les passerelles déjà déployées, à la fois via Powershell et le portail Azure.

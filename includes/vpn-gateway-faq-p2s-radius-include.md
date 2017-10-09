@@ -28,4 +28,8 @@ Il n’y a pas de modification quant au nombre maximal de connexions SSTP prises
 
 Dans l’authentification par certificat RADIUS, la demande d’authentification est transférée à un serveur RADIUS qui gère la validation du certificat réel. Cette option est utile si vous souhaitez intégrer une infrastructure d’authentification par certificat que vous possédez déjà via RADIUS.
   
-Lorsque vous utilisez Azure pour l’authentification par certificat, la passerelle VPN Azure effectue la validation du certificat. Vous devez charger la clé publique de votre certificat sur la passerelle. Vous pouvez également spécifier la liste des certificats révoqués qui ne doivent pas être autorisés à se connecter.  
+Lorsque vous utilisez Azure pour l’authentification par certificat, la passerelle VPN Azure effectue la validation du certificat. Vous devez charger la clé publique de votre certificat sur la passerelle. Vous pouvez également spécifier la liste des certificats révoqués qui ne doivent pas être autorisés à se connecter.
+
+### <a name="does-radius-authentication-work-with-both-ikev2-and-sstp-vpn"></a>L’authentification RADIUS fonctionne-t-elle avec les réseaux VPN IKEv2 et SSTP ?
+
+Oui, l’authentification RADIUS est prise en charge pour les réseaux VPN IKEv2 et SSTP.  

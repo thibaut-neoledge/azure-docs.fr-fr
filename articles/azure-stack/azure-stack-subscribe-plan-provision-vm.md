@@ -1,6 +1,6 @@
 ---
 title: "S’abonner à une offre | Microsoft Docs"
-description: "Découvrez comment vous abonner à une offre en qualité de locataire."
+description: "Découvrez comment vous abonner à une offre en qualité d’utilisateur."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,16 +15,19 @@ ms.topic: get-started-article
 ms.date: 7/03/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 3cd87ebe9827249d32f15b5de0ad8521d0282c47
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: f70815b5e89753a4b0083ffbe10d9920062d1ff0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="subscribe-to-an-offer"></a>S’abonner à une offre
-Maintenant que vous avez [créé une offre](azure-stack-create-offer.md), vérifiez que vos locataires peuvent créer un abonnement.
 
-1. [Connectez-vous](azure-stack-connect-azure-stack.md) au portail des locataires Azure Stack (https://portal.local.azurestack.external) et cliquez sur **Obtenir un abonnement**.
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+
+Maintenant que vous avez [créé une offre](azure-stack-create-offer.md), vérifiez que vos utilisateurs peuvent créer un abonnement.
+
+1. [Connectez-vous](azure-stack-connect-azure-stack.md) au portail des utilisateurs Azure Stack (https://portal.local.azurestack.external) et cliquez sur **Obtenir un abonnement**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 2. Dans le champ **Nom d’affichage**, tapez un nom pour votre abonnement, cliquez sur **Offre**, cliquez sur l’une des offres du panneau **Choisir une offre**, puis sur **Créer**.
@@ -35,9 +38,9 @@ Maintenant que vous avez [créé une offre](azure-stack-create-offer.md), vérif
 Une fois que vous êtes abonné à une offre, actualisez le portail pour voir les services qui font partie du nouvel abonnement.
 
 ## <a name="subscribe-to-an-add-on-plan"></a>S’abonner à un plan additionnel
-Si l’offre a un plan additionnel, les locataires peuvent l’ajouter à leur abonnement à tout moment.  
+Si l’offre a un plan additionnel, les utilisateurs peuvent l’ajouter à leur abonnement à tout moment.  
 
-1. Dans le portail des locataires, sélectionnez **Autres services** > **Abonnements**.
+1. Dans le portail des utilisateurs, sélectionnez **Autres services** > **Abonnements**.
 
 2. Cliquez sur l’abonnement > sur le bouton **Ajouter un plan**, puis sélectionnez le plan additionnel.
 

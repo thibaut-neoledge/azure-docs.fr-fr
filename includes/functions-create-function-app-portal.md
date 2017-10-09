@@ -1,12 +1,13 @@
 1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
 
-1. Cliquez sur **Calcul** > **Function App**, sélectionnez votre **Abonnement**. Ensuite, utilisez les paramètres de Function App comme indiqué dans la table.
+1. Cliquez sur **Calcul** > **Function App**. Ensuite, utilisez les paramètres de Function App comme indiqué dans la table.
 
     ![Créer une Function App dans le Portail Azure](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nom de l’application** | Nom globalement unique | Nom qui identifie votre nouvelle Function App. | 
+    | **Abonnement** | Votre abonnement | Abonnement sous lequel cette nouvelle application de fonction sera créé. | 
     | **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nom du nouveau groupe de ressources dans lequel créer votre Function App. | 
     | **[Plan d’hébergement](../articles/azure-functions/functions-scale.md)** |   Plan de consommation | Plan d’hébergement qui définit la façon dont les ressources sont allouées à votre Function App. Dans la valeur par défaut **Plan de consommation**, les ressources sont ajoutées dynamiquement comme requis par vos fonctions. Vous payez uniquement pour la durée d’exécution de vos fonctions.   |
     | **Emplacement** | Europe de l’Ouest | Choisissez un emplacement près de chez vous ou près d’autres services auxquels vos fonctions accéderont. |

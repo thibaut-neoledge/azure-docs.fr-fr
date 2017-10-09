@@ -10,7 +10,7 @@ Le processus de résolution de problème se présente comme suit :
 5. Créez une machine virtuelle à l’aide du disque dur virtuel d’origine.
 
 ## <a name="delete-the-original-vm"></a>Supprimez la machine virtuelle d’origine
-Les disques durs virtuels et les machines virtuelles sont deux ressources distinctes dans Azure. Le disque dur virtuel est l’emplacement de stockage du système d’exploitation, des applications et des configurations. La machine virtuelle correspond à des métadonnées définissant la taille ou l’emplacement ; elle référence des ressources comme un disque dur virtuel ou une carte d’interface réseau virtuelle (NIC). Chaque disque dur virtuel associé à une machine virtuelle se voit attribuer un bail. Bien que l’association et la dissociation des disques de données puisse s’effectuer pendant l’exécution de la machine virtuelle, le disque du système d’exploitation ne peut pas être dissocié, sauf si la ressource de machine virtuelle est supprimée. Le bail continue à associer le disque du système d’exploitation à une machine virtuelle, même lorsque cette machine virtuelle se trouve dans un état d’arrêt ou de libération.
+Les disques durs virtuels et les machines virtuelles sont deux ressources distinctes dans Azure. Le disque dur virtuel est l’emplacement de stockage du système d’exploitation, des applications et des configurations. La machine virtuelle correspond à des métadonnées définissant la taille ou l’emplacement ; elle référence des ressources comme un disque dur virtuel ou une carte d’interface réseau virtuelle (NIC). Chaque disque dur virtuel associé à une machine virtuelle se voit attribuer un bail. Bien que l’association et la dissociation des disques de données puissent s’effectuer pendant l’exécution de la machine virtuelle, le disque du système d’exploitation ne peut pas être dissocié, sauf si la ressource de machine virtuelle est supprimée. Le bail continue à associer le disque du système d’exploitation à une machine virtuelle, même lorsque cette machine virtuelle se trouve dans un état d’arrêt ou de libération.
 
 La première étape de la récupération de votre machine virtuelle consiste à supprimer la ressource de machine virtuelle. En supprimant la machine virtuelle, vous ne vous séparez pas des disques durs virtuels de votre compte de stockage. Une fois la machine virtuelle supprimée, vous pouvez associer le disque dur virtuel à une autre machine virtuelle afin de réparer et de corriger les erreurs. 
 
@@ -53,9 +53,9 @@ Une fois les erreurs résolues, démontez et détachez le disque dur virtuel exi
 
 ## <a name="create-a-vm-from-the-original-hard-disk"></a>Créer une machine virtuelle à partir du disque dur d’origine
 
-Pour créer une machine virtuelle à partir de votre disque dur d’origine, utilisez le [portail Azure Classic](https://manage.windowsazure.com).
+Pour créer une machine virtuelle à partir de votre disque dur virtuel d’origine, utilisez le [portail Azure](https://portal.azure.com).
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Au bas du portail, sélectionnez **Nouveau** > **Calcul** > **Machine virtuelle** > **Depuis la galerie**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. En haut à gauche du portail, sélectionnez **Nouveau** > **Calcul** > **Machine virtuelle** > **Depuis la galerie**.
 3. Dans la section **Choisir une image**, sélectionnez **Mes disques**, puis le disque dur virtuel d’origine. Vérifiez les informations d’emplacement. Il s’agit de la région dans laquelle vous devez déployer la machine virtuelle. Cliquez sur Suivant.
 4. Dans la section **Configuration de la machine virtuelle**, entrez le nom de la machine virtuelle et sélectionnez une taille.
