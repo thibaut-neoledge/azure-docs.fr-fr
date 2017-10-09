@@ -414,7 +414,7 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 Pour plus d'informations, consultez les ressources suivantes.
 
 * [Kit de développement logiciel (SDK) Stockage Azure pour la référence de l’API Node][Kit de développement logiciel (SDK) Stockage Azure pour la référence de l'API Node]  
-* [Blog de l’équipe Stockage Azure] [Blog de l’équipe Stockage Azure]  
+* [Blog de l’équipe Stockage Azure][Blog de l’équipe Stockage Azure]  
 * Référentiel [Kit de développement logiciel (SDK) Stockage Azure pour Node][Azure Storage SDK for Node] sur GitHub  
 * [Centre de développement Node.js](https://azure.microsoft.com/develop/nodejs/)  
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)  
@@ -425,6 +425,6 @@ Pour plus d'informations, consultez les ressources suivantes.
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
 [Création et déploiement d’une application Node.js dans un service cloud Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
-[Blog de l’équipe Stockage Azure] : http://blogs.msdn.com/b/windowsazurestorage/  
+[Blog de l’équipe Stockage Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
 [SDK Stockage Azure pour les références de l’API de nœud] : http://dl.windowsazure.com/nodestoragedocs/index.html  
 
