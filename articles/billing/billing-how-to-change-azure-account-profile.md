@@ -17,10 +17,10 @@ ms.date: 08/30/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 10d73f9209d804f3003e6eb9e4e75a5b2198af0c
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 22d64ba9c9bdceda108b1160aef32ff3d38e4b03
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Modifiez les informations de profil de votre compte Azure, comme l'e-mail de contact, l'adresse et le numéro de téléphone
@@ -29,7 +29,7 @@ L'adresse de messagerie du profil de l'administrateur de compte est utilisée pa
 
 ## <a name="how-to-change-your-profile-information"></a>Comment modifier vos informations de profil
 
-1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/) en tant qu’administrateur de compte, puis cliquez sur **Profil**. 
+1. Connectez-vous au [Centre des comptes Azure](https://account.azure.com/Profile).
 1. Sélectionnez le bouton **Modifier les détails**, puis mettez à jour les informations du **profil**.
 
    ![Profil](./media/billing-how-to-change-azure-account-profile/profile.png)

@@ -17,10 +17,10 @@ ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: af8a7bbc4bf007dfa5bef7ceb9cf940ad752239a
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 5f9d4e580b0d4d7c3ea39c53b1bf4067a59d4d52
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Résoudre les problèmes d’inscription pour Azure
@@ -30,8 +30,8 @@ Si vous ne pouvez pas vous inscrire à Azure, utilisez les conseils de cet artic
 
 Pour résoudre ce problème, effectuez les étapes suivantes :
 
-1. Connectez-vous au [Centre des comptes Azure](https://account.azure.com) en utilisant des informations d’identification d’administrateur de compte. 
-2. Cliquez sur **Profil**, puis sur **Modifier les détails**.
+1. Connectez-vous au [Centre des comptes Azure](https://account.azure.com/Profile) en utilisant des informations d’identification d’administrateur de compte. 
+2. Cliquez sur **Modifier les détails**.
 3. Assurez-vous que tous les champs d’adresse sont renseignés et valides. 
 4. Quand vous souscrivez l’abonnement Azure, vérifiez que l’adresse de facturation entrée pendant l’enregistrement de la carte de crédit correspond à celle que possède votre banque.
 
