@@ -96,6 +96,6 @@ Pour plus d’informations, consultez le [Centre pour développeurs Node.js](htt
 
 [utiliser des outils en ligne de commande Azure pour Mac et Linux]:cli-install-nodejs.md
 [outils en ligne de commande Azure]:cli-install-nodejs.md
-[work with modules]: nodejs-use-node-modules-azure-apps.md
+[utiliser des modules]: nodejs-use-node-modules-azure-apps.md
 [build and deploy a Node.js Web Site]: app-service/app-service-web-get-started-nodejs.md
 
