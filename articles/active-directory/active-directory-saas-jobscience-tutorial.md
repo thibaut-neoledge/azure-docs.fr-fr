@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 66bec35a8f17482433dbf02827b90620d1cff378
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Didacticiel : Intégration d’Azure Active Directory à Jobscience
 
@@ -45,7 +44,7 @@ Pour configurer l’intégration d’Azure AD avec Jobscience, vous avez besoin
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez bénéficier de l’[offre d’essai](https://azure.microsoft.com/pricing/free-trial/) d’un mois.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -111,7 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_url.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `http://<company name>.my.salesforce.com`
+    Dans la zone de texte **URL d’authentification**, tapez une URL en utilisant le modèle suivant : `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’URL de connexion réelle. Obtenez cette valeur auprès de l’[équipe de support Client Jobscience](https://www.jobscience.com/support) ou à partir du profil d’authentification unique que vous allez créer, qui est expliqué plus loin dans le tutoriel. 
@@ -327,5 +326,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-jobscience-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-jobscience-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-jobscience-tutorial/tutorial_general_203.png
-
 

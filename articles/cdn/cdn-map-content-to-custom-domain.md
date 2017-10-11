@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: cd6db44f7776859d1e6a893543cf0666182ca41a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="map-azure-cdn-content-to-a-custom-domain"></a>Mapper du contenu Azure CDN à un domaine personnalisé
 Vous pouvez mapper un domaine personnalisé à un point de terminaison CDN pour utiliser votre propre nom de domaine dans les URL de contenu mis en cache, plutôt que d’utiliser un sous-domaine d’azureedge.net.
@@ -81,5 +80,4 @@ Après avoir inscrit votre domaine personnalisé selon l’une des procédures m
 
 ## <a name="see-also"></a>Voir aussi
 [Comment activer le réseau de distribution de contenu (CDN) pour Azure](cdn-create-new-endpoint.md)  
-
 

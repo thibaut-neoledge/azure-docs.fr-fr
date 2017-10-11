@@ -1,6 +1,6 @@
 ---
-title: Utiliser la solution Carte de service dans Operations Management Suite | Microsoft Docs
-description: "Carte de service est une solution OMS (Operations Management Suite) qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article fournit des informations sur le déploiement de Carte de service dans votre environnement et son utilisation dans divers scénarios."
+title: Utiliser la solution Service Map dans Operations Management Suite | Microsoft Docs
+description: "Service Map est une solution OMS (Operations Management Suite) qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article fournit des informations sur le déploiement de Service Map dans votre environnement et son utilisation dans divers scénarios."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,46 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
+# <a name="use-the-service-map-solution-in-operations-management-suite"></a>Utiliser la solution Service Map dans Operations Management Suite
+La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Elle vous permet d’afficher vos serveurs comme vous les imaginez, en tant que systèmes interconnectés fournissant des services critiques. Elle affiche les connexions entre serveurs, processus et ports au sein de toute architecture TCP connectée, sans nécessiter de configuration autre que l’installation d’un agent.
 
-# <a name="use-the-service-map-solution-in-operations-management-suite"></a>Utiliser la solution Carte de service dans Operations Management Suite
-La solution Carte de service détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Elle vous permet d’afficher vos serveurs comme vous les imaginez, en tant que systèmes interconnectés fournissant des services critiques. Elle affiche les connexions entre serveurs, processus et ports au sein de toute architecture TCP connectée, sans nécessiter de configuration autre que l’installation d’un agent.
-
-Cet article décrit les détails de l’utilisation de Carte de service. Pour plus d’informations sur la configuration de la solution Carte de service et l’intégration d’agents, voir [Configuration de la solution Carte de service dans Operations Management Suite (OMS)](operations-management-suite-service-map-configure.md).
+Cet article décrit les détails de l’utilisation de Service Map. Pour plus d’informations sur la configuration de la solution Service Map et l’intégration d’agents, voir [Configuration de la solution Service Map dans Operations Management Suite (OMS)](operations-management-suite-service-map-configure.md).
 
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Cas d’utilisation : Intégrer la dépendance dans les processus informatiques
 
 ### <a name="discovery"></a>Découverte
-Carte de service crée automatiquement une carte de référence commune des dépendances entre vos serveurs, les processus et les services tiers. La solution découvre et mappe toutes les dépendances TCP, en identifiant les connexions inattendues, les systèmes tiers distants dont vous dépendez et les dépendances envers les zones sombres traditionnelles de votre réseau comme Active Directory. Carte de service détecte les échecs de connexion réseau que vos systèmes gérés tentent d’établir, vous aidant ainsi à identifier d’éventuels problèmes de réseau, interruptions de service et autres configurations de serveur inappropriées.
+Service Map crée automatiquement une carte de référence commune des dépendances entre vos serveurs, les processus et les services tiers. La solution découvre et mappe toutes les dépendances TCP, en identifiant les connexions inattendues, les systèmes tiers distants dont vous dépendez et les dépendances envers les zones sombres traditionnelles de votre réseau comme Active Directory. Service Map détecte les échecs de connexion réseau que vos systèmes gérés tentent d’établir, vous aidant ainsi à identifier d’éventuels problèmes de réseau, interruptions de service et autres configurations de serveur inappropriées.
 
 ### <a name="incident-management"></a>Gestion des incidents
-Carte de service vous montre comment les systèmes sont connectés et ont une incidence les uns sur les autres, ce qui vous évide de devoir isoler vous-même le problème. Outre l’identification des échecs de connexion, la solution aide à identifier les équilibreurs de charge mal configurés, des charges imprévues ou excessives sur des services critiques, ainsi que des clients non autorisés tels que des ordinateurs de développeurs qui communiquent avec les systèmes de production. En utilisant des flux de travail intégrés avec la fonction Change Tracking d’Operations Management Suite, vous pouvez également voir si un événement de modification sur un ordinateur ou service principal explique la cause première d’un incident.
+Service Map vous montre comment les systèmes sont connectés et ont une incidence les uns sur les autres, ce qui vous évide de devoir isoler vous-même le problème. Outre l’identification des échecs de connexion, la solution aide à identifier les équilibreurs de charge mal configurés, des charges imprévues ou excessives sur des services critiques, ainsi que des clients non autorisés tels que des ordinateurs de développeurs qui communiquent avec les systèmes de production. En utilisant des flux de travail intégrés avec la fonction Change Tracking d’Operations Management Suite, vous pouvez également voir si un événement de modification sur un ordinateur ou service principal explique la cause première d’un incident.
 
 ### <a name="migration-assurance"></a>Garantie d’une migration réussie
-La solution Carte de service vous permet de planifier, d’accélérer et de valider efficacement les migrations vers Azure pour vous assurer que rien n’est oublié et vous prémunir contre toute panne surprise. Vous pouvez découvrir tous les systèmes interdépendants qui doivent migrer en même temps, évaluer la capacité et la configuration du système et déterminer si un système en cours d’exécution continue de servir les utilisateurs ou si une mise hors service peut être envisagée au lieu de la migration. Une fois la migration terminée, vous pouvez vérifier la charge et l’identité du client pour contrôler que les systèmes de test et les clients se connectent. Si vos définitions de pare-feu et de planification de sous-réseau rencontrent des problèmes, les connexions ayant échoué dans les mappages Carte de service vous dirigent vers les systèmes nécessitant une connectivité.
+La solution Service Map vous permet de planifier, d’accélérer et de valider efficacement les migrations vers Azure pour vous assurer que rien n’est oublié et vous prémunir contre toute panne surprise. Vous pouvez découvrir tous les systèmes interdépendants qui doivent migrer en même temps, évaluer la capacité et la configuration du système et déterminer si un système en cours d’exécution continue de servir les utilisateurs ou si une mise hors service peut être envisagée au lieu de la migration. Une fois la migration terminée, vous pouvez vérifier la charge et l’identité du client pour contrôler que les systèmes de test et les clients se connectent. Si vos définitions de pare-feu et de planification de sous-réseau rencontrent des problèmes, les connexions ayant échoué dans les mappages Service Map vous dirigent vers les systèmes nécessitant une connectivité.
 
 ### <a name="business-continuity"></a>Continuité de l’activité
-Si vous utilisez Azure Site Recovery et que vous avez besoin d’aide pour définir la séquence de récupération pour votre environnement d’application, Carte de service peut automatiquement vous indiquer comment les systèmes s’appuient les uns sur les autres pour s’assurer que votre plan de récupération est fiable. En choisissant un serveur ou un groupe critiques, et en affichant ses clients, vous pouvez identifier les systèmes frontaux à récupérer une fois le serveur restauré et disponible. Inversement, en examinant les dépendances des serveurs critiques par rapport au serveur principal, vous pouvez identifier les systèmes à récupérer avant la restauration de vos systèmes principaux.
+Si vous utilisez Azure Site Recovery et que vous avez besoin d’aide pour définir la séquence de récupération pour votre environnement d’application, Service Map peut automatiquement vous indiquer comment les systèmes s’appuient les uns sur les autres pour s’assurer que votre plan de récupération est fiable. En choisissant un serveur ou un groupe critiques, et en affichant ses clients, vous pouvez identifier les systèmes frontaux à récupérer une fois le serveur restauré et disponible. Inversement, en examinant les dépendances des serveurs critiques par rapport au serveur principal, vous pouvez identifier les systèmes à récupérer avant la restauration de vos systèmes principaux.
 
 ### <a name="patch-management"></a>Gestion des correctifs
-La solution Carte de service améliore l’utilisation de la fonction Évaluation des mises à jour système d’Operations Management Suite en vous montrant les autres équipes et serveurs dépendant de votre service. Vous pouvez ainsi notifier ces derniers avant d’arrêter vos systèmes en vue d’une mise à jour corrective. La solution Carte de service facilite également la gestion des correctifs dans Operations Management Suite en vous montrant si vos services sont disponibles et connectés correctement après application de la mise à jour corrective et redémarrage.
+La solution Service Map améliore l’utilisation de la fonction Évaluation des mises à jour système d’Operations Management Suite en vous montrant les autres équipes et serveurs dépendant de votre service. Vous pouvez ainsi notifier ces derniers avant d’arrêter vos systèmes en vue d’une mise à jour corrective. La solution Service Map facilite également la gestion des correctifs dans Operations Management Suite en vous montrant si vos services sont disponibles et connectés correctement après application de la mise à jour corrective et redémarrage.
 
 
 ## <a name="mapping-overview"></a>Vue d’ensemble du mappage
-Les agents Carte de service rassemblent des informations sur tous les processus connectés via TCP sur le serveur où ils sont installés, ainsi que des détails sur les connexions entrantes et sortantes pour chaque processus. Dans la liste du volet gauche, vous pouvez sélectionner les ordinateurs ou les groupes disposant d’agents Carte de service afin de visualiser leurs dépendances sur une plage de temps spécifiée. Les cartes de dépendance d’ordinateur ciblent un ordinateur spécifique, et montrent tous les ordinateurs qui sont des clients ou serveurs TCP directs de cet ordinateur.  Les cartes de groupe d’ordinateurs montrent des ensembles de serveurs et leurs dépendances.
+Les agents Service Map rassemblent des informations sur tous les processus connectés via TCP sur le serveur où ils sont installés, ainsi que des détails sur les connexions entrantes et sortantes pour chaque processus. Dans la liste du volet gauche, vous pouvez sélectionner les ordinateurs ou les groupes disposant d’agents Service Map afin de visualiser leurs dépendances sur une plage de temps spécifiée. Les cartes de dépendance d’ordinateur ciblent un ordinateur spécifique, et montrent tous les ordinateurs qui sont des clients ou serveurs TCP directs de cet ordinateur.  Les cartes de groupe d’ordinateurs montrent des ensembles de serveurs et leurs dépendances.
 
-![Vue d’ensemble de Carte de service](media/oms-service-map/service-map-overview.png)
+![Vue d’ensemble de Service Map](media/oms-service-map/service-map-overview.png)
 
-Les ordinateurs peuvent être développés sur le mappage de manière à afficher les processus en cours d’exécution avec les connexions réseau actives pendant la période sélectionnée. Quand un ordinateur distant doté d’un agent Carte de service est développé pour afficher des détails de processus, seuls les processus qui communiquent avec l’ordinateur ciblé sont affichés. Le nombre d’ordinateurs frontaux sans agent qui se connectent à l’ordinateur ciblé est indiqué à gauche des processus auxquels ils se connectent. Si l’ordinateur ciblé se connecte à un ordinateur principal dépourvu d’agent, ce serveur principal est inclus dans un groupe de ports du serveur, avec les autres connexions au même numéro de port.
+Les ordinateurs peuvent être développés sur le mappage de manière à afficher les processus en cours d’exécution avec les connexions réseau actives pendant la période sélectionnée. Quand un ordinateur distant doté d’un agent Service Map est développé pour afficher des détails de processus, seuls les processus qui communiquent avec l’ordinateur ciblé sont affichés. Le nombre d’ordinateurs frontaux sans agent qui se connectent à l’ordinateur ciblé est indiqué à gauche des processus auxquels ils se connectent. Si l’ordinateur ciblé se connecte à un ordinateur principal dépourvu d’agent, ce serveur principal est inclus dans un groupe de ports du serveur, avec les autres connexions au même numéro de port.
 
-Par défaut, les mappages Carte de service affichent les 30 dernières minutes des informations de dépendance. Les contrôles de temps en haut à gauche permettent d’interroger des cartes pour obtenir des plages horaires historiques de jusqu’à une heure afin de voir l’aspect passé des dépendances (par exemple, pendant un incident ou avant une modification). Les données Carte de service sont stockées pendant 30 jours dans les espaces de travail payants et pendant 7 jours dans les espaces de travail gratuits.
+Par défaut, les mappages Service Map affichent les 30 dernières minutes des informations de dépendance. Les contrôles de temps en haut à gauche permettent d’interroger des cartes pour obtenir des plages horaires historiques de jusqu’à une heure afin de voir l’aspect passé des dépendances (par exemple, pendant un incident ou avant une modification). Les données Service Map sont stockées pendant 30 jours dans les espaces de travail payants et pendant 7 jours dans les espaces de travail gratuits.
 
 ## <a name="status-badges-and-border-coloring"></a>Badges d’état et couleur de bordure
 En bas de chaque serveur dans le mappage, une liste de badges état affiche des informations sur l’état du serveur. Les badges indiquent qu’il existe des informations pertinentes concernant le serveur provenant d’une des intégrations des solutions Operations Management Suite. En cliquant sur un badge, vous accédez directement aux détails de l’état dans le volet droit. Les badges d’état actuellement disponibles sont Alertes, Service Desk, Modifications, Sécurité et Mises à jour.
@@ -121,7 +119,7 @@ Cliquez sur le menu représenté par des points de suspension en regard du nom d
 
 
 ## <a name="role-icons"></a>Icônes de rôle
-Certains processus jouent des rôles particuliers sur les machines : serveurs web, serveurs d’applications, base de données, etc. La carte de service annote les zones de processus et de machine avec des icônes de rôle pour identifier en un coup d’œil le rôle que joue un processus ou un serveur.
+Certains processus jouent des rôles particuliers sur les machines : serveurs web, serveurs d’applications, base de données, etc. Service Map annote les zones de processus et de machine avec des icônes de rôle pour identifier en un coup d’œil le rôle que joue un processus ou un serveur.
 
 | Icône de rôle | Description |
 |:--|:--|
@@ -135,7 +133,7 @@ Certains processus jouent des rôles particuliers sur les machines : serveurs w
 
 
 ## <a name="failed-connections"></a>Connexions ayant échoué
-Les connexions qui ont échoué sont affichées dans les cartes de type Carte de service des processus et machines, avec une ligne rouge en pointillés indiquant qu’un système client ne parvient pas à atteindre un processus ou un port. Les connexions ayant échoué sont signalées par n’importe quel système ayant un agent Carte de service déployé si ce système est celui qui a tenté d’établir de telles connexions. La solution Carte de service mesure ce processus en observant les sockets TCP qui ne parviennent pas à établir une connexion. Cet échec peut être dû à un pare-feu, à une configuration incorrecte du client ou du serveur, ou à l’indisponibilité d’un service distant.
+Les connexions qui ont échoué sont affichées dans les cartes de type Service Map des processus et machines, avec une ligne rouge en pointillés indiquant qu’un système client ne parvient pas à atteindre un processus ou un port. Les connexions ayant échoué sont signalées par n’importe quel système ayant un agentService Map déployé si ce système est celui qui a tenté d’établir de telles connexions. La solution Service Map mesure ce processus en observant les sockets TCP qui ne parviennent pas à établir une connexion. Cet échec peut être dû à un pare-feu, à une configuration incorrecte du client ou du serveur, ou à l’indisponibilité d’un service distant.
 
 ![Connexions ayant échoué](media/oms-service-map/failed-connections.png)
 
@@ -172,7 +170,7 @@ Le volet **Récapitulatif d’une machine** contient une vue d’ensemble du sys
 ![Volet Récapitulatif d’une machine](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Propriétés des ordinateurs et processus
-Lorsque vous naviguez dans une carte de type Carte de service, vous pouvez sélectionner des machines et des processus afin d’obtenir un contexte supplémentaire concernant leurs propriétés. Les machines fournissent des informations sur le nom DNS, les adresses IPv4, la capacité du processeur et de la mémoire, le type de machine virtuelle, le système d’exploitation et sa version, l’heure du dernier redémarrage et les ID de leurs agents Operations Management Suite et Carte de service.
+Lorsque vous naviguez dans une carte de type Service Map, vous pouvez sélectionner des machines et des processus afin d’obtenir un contexte supplémentaire concernant leurs propriétés. Les machines fournissent des informations sur le nom DNS, les adresses IPv4, la capacité du processeur et de la mémoire, le type de machine virtuelle, le système d’exploitation et sa version, l’heure du dernier redémarrage et les ID de leurs agents Operations Management Suite et Service Map.
 
 ![Volet Propriétés d’une machine](media/oms-service-map/machine-properties.png)
 
@@ -185,11 +183,11 @@ Le volet **Récapitulatif du processus** fournit des informations supplémentair
 ![Volet Récapitulatif du processus](media/oms-service-map/process-summary.png)
 
 ## <a name="operations-management-suite-alerts-integration"></a>Intégration des alertes d’Operations Management Suite
-La solution Carte de service s’intègre avec les alertes d’Operations Management Suite pour afficher les alertes déclenchées pour le serveur sélectionné pendant la période sélectionnée. Le serveur affiche une icône s’il existe des alertes, et le volet **Alertes de la machine** répertorie les alertes.
+La solution Service Map s’intègre avec les alertes d’Operations Management Suite pour afficher les alertes déclenchées pour le serveur sélectionné pendant la période sélectionnée. Le serveur affiche une icône s’il existe des alertes, et le volet **Alertes de la machine** répertorie les alertes.
 
 ![Volet Alertes d’une machine](media/oms-service-map/machine-alerts.png)
 
-Pour permettre à la solution Carte de service d’afficher les alertes pertinentes, créez une règle d’alerte qui se déclenche pour un ordinateur spécifique. Pour créer des alertes appropriées :
+Pour permettre à la solution Service Map d’afficher les alertes pertinentes, créez une règle d’alerte qui se déclenche pour un ordinateur spécifique. Pour créer des alertes appropriées :
 - Incluez une clause de regroupement par ordinateur (par exemple, **by Computer interval 1minute**).
 - Choisissez d’alerter des mesures de métriques.
 
@@ -197,12 +195,12 @@ Pour permettre à la solution Carte de service d’afficher les alertes pertinen
 
 
 ## <a name="operations-management-suite-log-events-integration"></a>Intégration des journaux d’événements d’Operations Management Suite
-Carte de service intègre la recherche dans les journaux pour afficher un nombre de tous les événements du journal disponibles pour le serveur sélectionné au cours de la période sélectionnée. Vous pouvez cliquer sur n’importe quelle ligne dans la liste des événements pour passer à la recherche dans les journaux et consulter les événements du journal individuel.
+Service Map intègre la recherche dans les journaux pour afficher un nombre de tous les événements du journal disponibles pour le serveur sélectionné au cours de la période sélectionnée. Vous pouvez cliquer sur n’importe quelle ligne dans la liste des événements pour passer à la recherche dans les journaux et consulter les événements du journal individuel.
 
 ![Volet Journaux d’événements d’une machine](media/oms-service-map/log-events.png)
 
 ## <a name="operations-management-suite-service-desk-integration"></a>Intégration du Service Desk d’Operations Management Suite
-L’intégration de la solution Carte de service avec IT Service Management Connector est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail Operations Management Suite. L’intégration dans Carte de service est libellée « Service Desk ». Pour plus d’informations, voir [Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+L’intégration de la solution Service Map avec IT Service Management Connector est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail Operations Management Suite. L’intégration dans Service Map est libellée « Service Desk ». Pour plus d’informations, voir [Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 Le volet **Service Desk d’une machine** affiche la liste de tous les événements d’IT Service Management survenus pour le serveur sélectionné pendant la période sélectionnée. Le serveur affiche une icône s’il existe des éléments en cours, et le volet Service Desk de la machine affiche la liste de ceux-ci.
 
@@ -214,7 +212,7 @@ Pour afficher les détails de l’élément dans la recherche, cliquez sur **Rec
 
 
 ## <a name="operations-management-suite-change-tracking-integration"></a>Intégration de la solution Change Tracking d’Operations Management Suite
-L’intégration de la solution Carte de service avec la fonction Change Tracking est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail Operations Management Suite.
+L’intégration de la solution Service Map avec la fonction Change Tracking est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail Operations Management Suite.
 
 Le volet **Change Tracking d’une machine** affiche la liste de toutes les modifications, les plus récentes en tête, ainsi qu’un lien pour consulter des détails supplémentaires dans Recherche dans les journaux.
 
@@ -240,19 +238,19 @@ Le volet **Sécurité d’une machine** affiche des données provenant de la sol
 
 
 ## <a name="operations-management-suite-updates-integration"></a>Intégration de la solution Update Management d’Operations Management Suite
-L’intégration de la solution Carte de service avec la solution Update Management est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail Operations Management Suite.
+L’intégration de la solution Service Map avec la solution Update Management est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail Operations Management Suite.
 
 Le volet **Mises à jour d’une machine** affiche les données provenant de la solution Update Management d’Operations Management Suite pour le serveur sélectionné. Le volet affiche un récapitulatif de toutes les mises à jour manquantes pour le serveur pendant la période sélectionnée.
 
 ![Volet Change Tracking d’une machine](media/oms-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
-Les données d’inventaire des ordinateurs et processus de la solution Carte de service sont disponibles pour effectuer une [recherche](../log-analytics/log-analytics-log-searches.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
+Les données d’inventaire des ordinateurs et processus de la solution Service Map sont disponibles pour effectuer une [recherche](../log-analytics/log-analytics-log-searches.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
 
-Un enregistrement par heure est généré pour chaque processus et ordinateur, en plus des enregistrements générés quand un processus ou ordinateur démarre ou est intégré à la solution Carte de service. Les propriétés de ces enregistrements sont décrites dans les tableaux suivants. Les champs et les valeurs des événements ServiceMapComputer_CL sont mappés aux champs de la ressource Machine dans l’API Azure Resource Manager ServiceMap. Les champs et les valeurs des événements ServiceMapProcess_CL sont mappés aux champs de la ressource Processus dans l’API Azure Resource Manager ServiceMap. Le champ ResourceName_s correspond au champ de nom dans la ressource Azure Resource Manager correspondante. 
+Un enregistrement par heure est généré pour chaque processus et ordinateur, en plus des enregistrements générés quand un processus ou ordinateur démarre ou est intégré à la solution Service Map. Les propriétés de ces enregistrements sont décrites dans les tableaux suivants. Les champs et les valeurs des événements ServiceMapComputer_CL sont mappés aux champs de la ressource Machine dans l’API Azure Resource Manager ServiceMap. Les champs et les valeurs des événements ServiceMapProcess_CL sont mappés aux champs de la ressource Processus dans l’API Azure Resource Manager ServiceMap. Le champ ResourceName_s correspond au champ de nom dans la ressource Azure Resource Manager correspondante. 
 
 >[!NOTE]
->À mesure que les fonctionnalités la solution Carte de service s’étofferont, il se peut que ces champs soient modifiés.
+>À mesure que les fonctionnalités la solution Service Map s’étofferont, il se peut que ces champs soient modifiés.
 
 Il existe des propriétés générées en interne que vous pouvez utiliser pour identifier les ordinateurs et processus uniques :
 
@@ -262,7 +260,7 @@ Il existe des propriétés générées en interne que vous pouvez utiliser pour 
 Étant donné que plusieurs enregistrements peuvent exister pour un processus et un ordinateur donnés au cours d’une période spécifique, les requêtes peuvent renvoyer plusieurs enregistrements pour un même ordinateur ou processus. Pour inclure uniquement l’enregistrement le plus récent, ajoutez "| dedup ResourceId" à la requête.
 
 ### <a name="servicemapcomputercl-records"></a>Enregistrements ServiceMapComputer_CL
-Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventaire pour les serveurs incluant des agents Carte de service. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
+Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventaire pour les serveurs incluant des agents Service Map. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
 | Propriété | Description |
 |:--|:--|
@@ -289,7 +287,7 @@ Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventa
 
 
 ### <a name="servicemapprocesscl-type-records"></a>Enregistrements de type ServiceMapProcess_CL
-Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventaire pour les processus connectés à TCP sur des serveurs ayant des agents Carte de service. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
+Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventaire pour les processus connectés à TCP sur des serveurs ayant des agents Service Map. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
 | Propriété | Description |
 |:--|:--|
@@ -348,17 +346,17 @@ Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct Com
 
 
 ## <a name="rest-api"></a>de l’API REST
-L’ensemble des données relatives au serveur, au processus et aux dépendances dans Carte de service est disponible via [l’API REST Carte de service](https://docs.microsoft.com/rest/api/servicemap/).
+L’ensemble des données relatives au serveur, au processus et aux dépendances dans Service Map est disponible via [l’API REST Carte de service](https://docs.microsoft.com/rest/api/servicemap/).
 
 
 ## <a name="diagnostic-and-usage-data"></a>Données relatives aux diagnostics et à l’utilisation
-Microsoft collecte automatiquement les données sur l’utilisation et les performances via votre utilisation du service Carte de service. Microsoft utilise ces données pour fournir et améliorer la qualité, la sécurité et l’intégrité de la solution Carte de service. Afin d’offrir des fonctionnalités de dépannage précises et efficaces, les données incluent des informations sur la configuration de votre logiciel, telles que le système d’exploitation et la version, l’adresse IP, le nom DNS et le nom de la station de travail. Microsoft ne collecte pas de nom, d’adresse ou d’autres coordonnées.
+Microsoft collecte automatiquement les données sur l’utilisation et les performances via votre utilisation du service Service Map. Microsoft utilise ces données pour fournir et améliorer la qualité, la sécurité et l’intégrité de la solution Service Map. Afin d’offrir des fonctionnalités de dépannage précises et efficaces, les données incluent des informations sur la configuration de votre logiciel, telles que le système d’exploitation et la version, l’adresse IP, le nom DNS et le nom de la station de travail. Microsoft ne collecte pas de nom, d’adresse ou d’autres coordonnées.
 
 Pour plus d’informations sur l’utilisation et la collecte de données, voir la [Déclaration de confidentialité des Services en ligne de Microsoft](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur les [recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) dans Log Analytics pour récupérer les données collectées par la solution Carte de service.
+En savoir plus sur les [recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) dans Log Analytics pour récupérer les données collectées par la solution Service Map.
 
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
@@ -366,5 +364,4 @@ Consultez la [section Résolution des problèmes du document Configuration de la
 
 
 ## <a name="feedback"></a>Commentaires
-Avez-vous des commentaires à nous transmettre à propos de la carte de service ou de sa documentation ?  Si c’est le cas, sachez que notre page [User Voice](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map) vous permet de nous suggérer des fonctionnalités ou de voter pour des suggestions en cours.
-
+Avez-vous des commentaires à nous transmettre à propos de Service Map ou de sa documentation ?  Si c’est le cas, sachez que notre page [User Voice](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map) vous permet de nous suggérer des fonctionnalités ou de voter pour des suggestions en cours.

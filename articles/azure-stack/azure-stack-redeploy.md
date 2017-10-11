@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 891cde9b16bbbb51729129b6ad7a0f3794307baa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="redeploy-azure-stack"></a>Redéployer Azure Stack
 Pour redéployer Azure Stack, vous devez recommencer à partir de zéro comme décrit ci-dessous.
@@ -32,5 +31,4 @@ Pour redéployer Azure Stack, vous devez recommencer à partir de zéro comme d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Se connecter à Azure Stack](azure-stack-connect-azure-stack.md)
-
 

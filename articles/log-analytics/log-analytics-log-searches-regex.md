@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Utilisation d’expressions régulières pour filtrer les recherches dans les journaux Log Analytics
 
@@ -99,4 +98,3 @@ Cette section décrit la méthode vous permettant de convertir des caractères s
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Familiarisez-vous avec les [recherches dans les journaux](log-analytics-log-searches.md) pour visualiser et analyser les données dans le référentiel Log Analytics.
-

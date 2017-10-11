@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
 ms.openlocfilehash: 28f0542dbe87bb34c83a7852db7c3a9fef055ce9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Didacticiel : Intégration d’Azure Active Directory à TOPdesk - Secure
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et TOPdesk - Secure.  
@@ -105,7 +104,7 @@ La configuration de l’authentification unique pour TOPdesk - Secure vous oblig
 
 6. Dans une autre fenêtre de navigateur web, connectez-vous à votre **portail Azure Classic** en tant qu’administrateur.
 
-7. Dans la page d’intégration d’application **TOPdesk - Secure**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+7. Sur le **TOPdesk - Secure** page d’intégration d’application, cliquez sur **configurer l’authentification unique sur** pour ouvrir la ** configurer Single Sign On ** boîte de dialogue.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "Configurer l’authentification unique")
 
@@ -206,7 +205,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ### <a name="to-assign-users-to-topdesk---secure-perform-the-following-steps"></a>Pour affecter des utilisateurs à TOPdesk - Secure, procédez comme suit :
 1. Dans le portail Azure Classic, créez un compte de test.
-2. Dans la page d’intégration d’application **TOPdesk - Secure**, cliquez sur **Affecter des utilisateurs**.
+2. Sur la ** TOPdesk - Secure ** page d’intégration d’application, cliquez sur **affecter des utilisateurs**.
    
     ![Affecter des utilisateurs](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "Affecter des utilisateurs")
 
@@ -215,5 +214,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
     ![Oui](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
 

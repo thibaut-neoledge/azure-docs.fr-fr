@@ -12,30 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9d118e26340371d63d18b5e6793cbd51add3da55
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: ced7e23dca2ea7a9222648a79c2d0afc7c15001d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="troubleshoot-azure-active-directory-application-management-and-development" class="xliff"></a>
-
-# Résolution des problèmes liés à la gestion et au développement d’applications Azure Active Directory
+# <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>Résolution des problèmes liés à la gestion et au développement d’applications Azure Active Directory
 Cet article vous permet de trouver des documents utiles sur la résolution des problèmes courants liés à la gestion des **applications d’entreprise** et au développement de nouvelles applications avec le **Registre d’application**.
 
-<a id="problems-with-application-development" class="xliff"></a>
-
-## Problèmes de développement des applications
+## <a name="problems-with-application-development"></a>Problèmes de développement des applications
 Les liens suivants vous redirigent vers un plan de contenu qui vous aidera à résoudre des problèmes courants de développement d’applications avec le **Registre d’application** dans Azure Active Directory.
 
 * [Problèmes de configuration et d’enregistrement des applications](active-directory-application-dev-config-content-map.md)
 * [Problèmes de développement des applications](active-directory-application-dev-development-content-map.md)
 
-<a id="problems-with-application-management" class="xliff"></a>
-
-## Problèmes de gestion des applications
+## <a name="problems-with-application-management"></a>Problèmes de gestion des applications
 Les liens suivants vous redirigent vers un plan de contenu qui vous aidera à résoudre des problèmes courants de gestion d’**applications d’entreprise** dans Azure Active Directory.
 
 * [Problèmes de configuration des applications](active-directory-application-config-content-map.md)
@@ -45,4 +37,3 @@ Les liens suivants vous redirigent vers un plan de contenu qui vous aidera à r�
 * [Problèmes avec le panneau d’accès](active-directory-application-access-panel-content-map.md)
 * [Problèmes avec le proxy d’application](active-directory-application-proxy-content-map.md)
 * [Problèmes d’accès conditionnel](active-directory-application-conditional-access-content-map.md)
-

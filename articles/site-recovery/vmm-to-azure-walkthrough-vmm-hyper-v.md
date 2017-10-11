@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: ec118ed837dbf140083b3ae1e4ecd41c81562018
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="step-6-prepare-vmm-servers-and-hyper-v-hosts-for-hyper-v-replication-to-azure"></a>Étape 6 : Préparer les serveurs VMM et les hôtes Hyper-V pour la réplication Hyper-V vers Azure
 
 Après avoir configuré les [composants Azure](vmm-to-azure-walkthrough-prepare-azure.md) pour le déploiement, suivez les instructions dans cet article pour préparer les serveurs VMM et les hôtes Hyper-V locaux pour interagir avec Azure Site Recovery.
@@ -49,5 +47,4 @@ Pendant un déploiement de Site Recovery, vous téléchargez le fournisseur Azur
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à l’[Étape 7 : créer un coffre](vmm-to-azure-walkthrough-create-vault.md)
-
 

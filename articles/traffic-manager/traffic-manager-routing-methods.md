@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: fe776e24a4f78b389c6096694055b38befa3c419
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="traffic-manager-routing-methods"></a>Méthodes de routage de Traffic Manager
 
 Azure Traffic Manager prend en charge quatre méthodes de routage du trafic pour déterminer comment router le trafic réseau vers les différents points de terminaison de service. Traffic Manager applique la méthode de routage du trafic à chaque requête DNS qu’il reçoit. La méthode de routage du trafic détermine le point de terminaison retourné dans la réponse DNS.
@@ -136,7 +134,6 @@ En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-
 [1]: ./media/traffic-manager-routing-methods/priority.png
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
-
 
 
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>Affecter plusieurs adresses IP à des machines virtuelles à l’aide d’Azure CLI 2.0
 
@@ -109,7 +108,7 @@ az network nic ip-config create \
 --private-ip-address 10.0.0.5 \
 --public-ip-name myPublicIP2
 
-# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and    # no public IP address.
+# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and   # no public IP address.
 
 azure network nic ip-config create \
 --resource-group $RgName \
@@ -206,7 +205,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau e
         --dns-name mypublicdns3
         ```
 
-         Pour créer une nouvelle configuration IP avec une adresse IP privée statique et la ressource d’adresse IP publique *myPublicIP3*, saisissez la commande suivante :
+        Pour créer une nouvelle configuration IP avec une adresse IP privée statique et la ressource d’adresse IP publique *myPublicIP3*, saisissez la commande suivante :
 
         ```bash
         az network nic ip-config create \
@@ -217,8 +216,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau e
         --public-ip-address myPublicIP3
         ```
 
-    - **Associer la ressource à une configuration IP existante**
-       Une ressource d’adresse IP publique peut uniquement être associée à une configuration d’adresses IP n’ayant pas encore de ressource associée. Pour déterminer si une configuration IP a une adresse IP publique associée, entrez la commande suivante :
+    - **Associer la ressource à une configuration IP existante** une ressource d’adresse IP publique peut uniquement être associée à une configuration IP qui n’en avez pas encore associé. Pour déterminer si une configuration IP a une adresse IP publique associée, entrez la commande suivante :
 
         ```bash
         az network nic ip-config list \
@@ -277,4 +275,3 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau e
 4. Ajoutez les adresses IP privées que vous avez ajoutées à l’interface réseau pour le système d’exploitation de la machine virtuelle en suivant les instructions fournies dans la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) de cet article. N’ajoutez pas les adresses IP publiques au système d’exploitation.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

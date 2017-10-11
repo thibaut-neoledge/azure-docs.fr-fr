@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 02/27/2017
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
-ms.openlocfilehash: 9d40c5028fd8b3ab20f7562dce9274664e4e56ac
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 3fec4935f5317be4bf8c9e05f1c24a7c05381b1e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="validate-and-transform-xml-encode-and-decode-flat-files-and-enrich-messages-features-in-logic-apps"></a>Validation et transformation XML, codage et décodage de fichiers plats et enrichissement des fonctionnalités des messages dans les applications logiques
 
 Les applications logiques vous permettent de traiter les messages XML envoyés et reçus. Cette fonctionnalité est incluse dans Enterprise Integration Pack. Pour les utilisateurs de BizTalk Server, Enterprise Integration Pack offre des capacités similaires pour transformer et valider des messages, utiliser des fichiers plats et même XPath pour enrichir ou extraire des propriétés spécifiques d’un message. 
@@ -41,4 +39,3 @@ Enterprise Integration Pack inclut les éléments suivants :
 
 ## <a name="learn-more"></a>En savoir plus
 [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")
-

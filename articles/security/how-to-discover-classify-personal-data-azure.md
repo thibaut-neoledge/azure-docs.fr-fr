@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 953df2f0dbbccc153b0a4206c9c0b5f5ea9a51a7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.openlocfilehash: 6ccb064a9a76e7041d4f365b3997673dc9182e0b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Découvrir, identifier et classer des données personnelles dans Microsoft Azure
 
@@ -58,9 +57,9 @@ C’est particulièrement utile si vous voulez rechercher ou modifier les donné
 
 ### <a name="how-do-i-locate-or-view-user-profile-and-work-information"></a>Comment localiser ou afficher des informations professionnelles et de profil utilisateur ?
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour l’annuaire.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 
-2. Sélectionnez **Autres services**, tapez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
+2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
 
    ![comment localiser des informations professionnelles et de profil utilisateur](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
@@ -123,7 +122,7 @@ Vous pouvez utiliser l’outil Éditeur de requêtes intégré au portail Azure 
 
 L’étape 5 du didacticiel montre un exemple de requête dans le volet de l’Éditeur de requêtes, mais elle ne se limite pas aux informations personnelles ou sensibles (elle combine aussi les données de deux tables et crée des alias pour la colonne source du jeu de données retourné). La capture d’écran suivante présente la requête de l’étape 5, ainsi que le volet de résultats retourné :
 
-  ![éditeur de requêtes](media/how-to-discover-classify-personal-data-azure/query-editor.png)
+  ![query editor](media/how-to-discover-classify-personal-data-azure/query-editor.png)
 
 Si votre base de données s’intitule MaTable, un exemple de requête portant sur des informations personnelles pourrait inclure le nom, le numéro de sécurité sociale et le numéro d’identification et ressembler à ceci :
 
@@ -190,9 +189,9 @@ Si vous débutez avec Azure Cosmos DB et que vous voulez apprendre à créer une
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50)
+[Base de données SQL Azure](https://azure.microsoft.com/services/sql-database/?v=16.50)
 
-[Qu’est-ce que le service Azure SQL Database ?](../sql-database/sql-database-technical-overview.md)
+[Définition de la base de données SQL](../sql-database/sql-database-technical-overview.md)
 
 [Éditeur de requêtes SQL Database disponible dans le portail Azure] (https://azure.microsoft.com/blog/t-sql-query-editor-in-browser-azure-portal/)
 
@@ -201,4 +200,3 @@ Si vous débutez avec Azure Cosmos DB et que vous voulez apprendre à créer une
 [En quoi consiste Azure Rights Management ?](https://docs.microsoft.com/information-protection/understand-explore/what-is-azure-rms)
 
 [Azure Information Protection: Ready, set, protect!](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/21/azure-information-protection-ready-set-protect/)
-

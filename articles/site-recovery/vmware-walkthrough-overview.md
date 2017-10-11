@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: db6f5f95929503e82a529dba26b56af1edb0767f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replicate-vmware-vms-to-azure-with-site-recovery"></a>Répliquer des machines virtuelles VMware sur Azure à l’aide de Site Recovery
 
@@ -32,14 +31,14 @@ Cet article fournit une vue d’ensemble des étapes à suivre pour répliquer d
 
 ## <a name="step-1-review-architecture-and-prerequisites"></a>Étape 1 : vérifier l’architecture et les conditions préalables.
 
-Avant de commencer le déploiement, vérifiez l’architecture du scénario et assurez-vous de bien comprendre le fonctionnement de tous les composants que vous devez déployer
+Avant de commencer le déploiement, vérifiez l’architecture du scénario et prenez connaissance de tous les composants que vous devez déployer.
 
-Aller à [Étape 1 : examen de l’architecture](vmware-walkthrough-architecture.md)
+Accédez à [Étape 1 : examen de l’architecture](vmware-walkthrough-architecture.md).
 
 
-## <a name="step-2-review-prerequisites"></a>Étape 2 : vérifier les conditions préalables
+## <a name="step-2-review-prerequisites"></a>Étape 2 : Vérifier les conditions préalables
 
-Assurez-vous d’avoir réuni les conditions préalables pour chaque composant du déploiement :
+Assurez-vous que les conditions préalables sont remplies pour chaque composant du déploiement :
 
 - **Conditions préalables Azure** : vous avez besoin d’un compte Microsoft Azure, d’un réseau Azure et de comptes de stockage.
 - **Composants Site Recovery locaux** : vous avez besoin d’une machine exécutant les composants Site Recovery locaux.
@@ -50,19 +49,19 @@ Aller à [Étape 2 : vérifier les conditions préalables et les limitations](
 
 ## <a name="step-3-plan-capacity"></a>Étape 3 : planifier la capacité
 
-Si vous effectuez un déploiement complet, vous devez déterminer les ressources de réplication dont vous avez besoin. Vous disposez de plusieurs outils pour vous aider à cela. Allez à l’étape 2. Si vous souhaitez réaliser une configuration rapide pour tester l’environnement, vous pouvez passer cette étape.
+Si vous effectuez un déploiement complet, vous devez déterminer les ressources de réplication dont vous avez besoin. Pour ce faire, vous disposez de plusieurs outils. Accédez à l’étape 2. Si vous souhaitez réaliser une configuration rapide pour tester l’environnement, vous pouvez passer cette étape.
 
-Aller à [Étape 3 : planifier la capacité](vmware-walkthrough-capacity.md)
+Accédez à [Étape 3 : planifier la capacité](vmware-walkthrough-capacity.md).
 
-## <a name="step-4-plan-networking"></a>Étape 4 : planifier la mise en réseau
+## <a name="step-4-plan-networking"></a>Étape 4 : Planifier la mise en réseau
 
-Vous devez établir un plan du réseau pour vous assurer que les machines virtuelles Azure sont connectées au réseau après le basculement, et qu’elles disposent des bonnes adresses IP.
+Vous devez établir un plan du réseau pour vous assurer que les machines virtuelles Azure sont connectées aux réseaux après le basculement et qu’elles disposent des bonnes adresses IP.
 
-Aller à [Étape 4 : planifier la mise en réseau](vmware-walkthrough-network.md)
+Aller à [Étape 4 : Planifier la mise en réseau](vmware-walkthrough-network.md)
 
-##  <a name="step-5-prepare-azure-resources"></a>Étape 5 : préparer les ressources Azure
+##  <a name="step-5-prepare-azure-resources"></a>Étape 5 : Préparer les ressources Azure
 
-Configurez les réseaux Azure et le stockage avant de commencer. Vous pouvez configurer les réseaux pendant le déploiement mais nous vous recommandons de vous en occuper avant de commencer.
+Configurez les réseaux et le stockage Azure avant de commencer. Vous pouvez le faire pendant le déploiement, mais nous vous recommandons de vous en occuper avant de commencer.
 
 Aller à [Étape 5 : Préparer Azure](vmware-walkthrough-prepare-azure.md)
 
@@ -111,4 +110,3 @@ Aller à [Étape 11 : activer la réplication](vmware-walkthrough-enable-repli
 Lorsque la réplication initiale est terminée et la réplication delta est en cours d’exécution, vous pouvez exécuter un test de basculement pour vous assurer que tout fonctionne comme prévu.
 
 Aller à [Étape 12 : exécuter un test de basculement](vmware-walkthrough-test-failover.md)
-

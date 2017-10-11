@@ -1,6 +1,6 @@
 ---
-title: Configuration de l&quot;authentification mutuelle TLS pour une application Web
-description: "Découvrez comment configurer votre application Web pour utiliser l&quot;authentification par certificat client sur TLS."
+title: Configuration de l'authentification mutuelle TLS pour une application Web
+description: "Découvrez comment configurer votre application Web pour utiliser l'authentification par certificat client sur TLS."
 services: app-service
 documentationcenter: 
 author: naziml
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
 ms.openlocfilehash: db69852cffd1ff331ac4a640b04ea4360d00bf75
-ms.lasthandoff: 03/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Configuration de l'authentification mutuelle TLS pour une application Web
 ## <a name="overview"></a>Vue d'ensemble
@@ -195,4 +194,3 @@ Le certificat client qui est envoyé à l'application n'est soumis à aucune val
             }
         }
     }
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f2b0655bdddc162c7c8ef7d478b2ce1fd1993f15
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 7df2fd7ef838465a60e3b0ce2f889127b7487684
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>Gestion des alertes à l’aide de Microsoft Monitoring
 Une alerte indique un problème qui nécessite une attention particulière de la part d’un administrateur.  Il existe des différences entre System Center Operations Manager (SCOM) et Log Analytics dans Operations Management Suite (OMS) en termes de création, de gestion et d’analyse des alertes et de notification en cas de détection d’un problème critique.
@@ -74,5 +73,4 @@ Si vous utilisez SCOM comme source de données pour Log Analytics, vous pouvez c
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez plus d’informations sur les [alertes dans System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
-
 

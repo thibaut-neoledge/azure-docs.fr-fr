@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: 93300ba995f2a556cb90fc657db5cf9ad56b9846
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceptions de la messagerie Service Bus
 Cet article répertorie certaines exceptions générées par les API de la messagerie Microsoft Azure Service Bus. Cette référence est susceptible de changer, donc consultez-la régulièrement.
@@ -91,12 +89,10 @@ ConnectionsQuotaExceeded for namespace xxx.
 #### <a name="common-causes"></a>Causes courantes
 Il existe deux causes courantes pour cette erreur : la file d'attente de lettres mortes et des récepteurs de messages non fonctionnels.
 
-1. **File d’attente de lettres mortes**
-    Un lecteur ne parvient pas à terminer les messages. Ceux-ci sont renvoyés à la file d’attente/rubrique après expiration du verrouillage. Cela peut se produire si le lecteur rencontre une exception qui l’empêche d’appeler [BrokeredMessage.Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx). Une fois un message lu 10 fois, il passe à la file d'attente de lettres mortes par défaut. Ce comportement est contrôlé par la propriété [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) et a une valeur par défaut de 10. Quand les messages s'accumulent dans la file d'attente de lettres mortes, ils prennent de la place.
+1. **File d’attente de lettres mortes** Un lecteur ne parvient pas à terminer les messages ; ceux-ci sont renvoyés à la file d’attente/rubrique après expiration du verrouillage. Cela peut se produire si le lecteur rencontre une exception qui l’empêche d’appeler [BrokeredMessage.Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx). Une fois un message lu 10 fois, il passe à la file d'attente de lettres mortes par défaut. Ce comportement est contrôlé par la propriété [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) et a une valeur par défaut de 10. Quand les messages s'accumulent dans la file d'attente de lettres mortes, ils prennent de la place.
    
     Pour résoudre ce problème, lisez et terminez les messages de la file d'attente de lettres mortes, comme vous le feriez pour une autre file d'attente. La classe [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) contient même une méthode [FormatDeadLetterPath](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.formatdeadletterpath.aspx) pour aider à mettre en forme le chemin d’accès de la file d’attente de lettres mortes.
-2. **Récepteur arrêté**
-    Un récepteur a arrêté de recevoir des messages d’une file d’attente ou d’un abonnement. Pour l’identifier, examinez la propriété [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx) , qui affiche la répartition complète des messages. Si la propriété [ActiveMessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) est élevée ou croissante, les messages ne sont pas lus aussi rapidement qu’ils sont écrits.
+2. **Récepteur arrêté** Un récepteur a arrêté de recevoir des messages d’une file d’attente ou d’un abonnement. Pour l’identifier, examinez la propriété [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx) , qui affiche la répartition complète des messages. Si la propriété [ActiveMessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) est élevée ou croissante, les messages ne sont pas lus aussi rapidement qu’ils sont écrits.
 
 ### <a name="event-hubs"></a>Event Hubs
 Event Hubs a une limite de 20 groupes de consommateurs par Event Hub. Lorsque vous essayez d’en créer plus, vous recevez une [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
@@ -115,10 +111,8 @@ Pour Event Hubs, le délai d'attente est spécifié au sein de la chaîne de con
 ### <a name="common-causes"></a>Causes courantes
 Il existe deux causes communes pour cette erreur : une configuration incorrecte ou une erreur de service temporaire.
 
-1. **Configuration incorrecte**
-    Le délai d’expiration de l’opération est peut-être trop court pour un bon fonctionnement. La valeur par défaut du délai d'expiration de l'opération dans le Kit de développement logiciel (SDK) client est de 60 secondes. Vérifiez si votre code définit une valeur trop petite. Notez que la condition du réseau et l'utilisation du processeur peuvent affecter le temps nécessaire à la réalisation d’une opération particulière. Par conséquent, le délai d'expiration de l'opération ne doit pas être défini sur une valeur très faible.
-2. **Erreur de service temporaire**
-    Parfois, le service Service Bus peut rencontrer des retards de traitement des requêtes, par exemple pendant les périodes de trafic élevé. Dans ce cas, vous pouvez réessayer l'opération après un certain délai, jusqu'à ce que l'opération réussisse. Si la même opération échoue encore après plusieurs tentatives, consultez le [Site d'état des services Azure](https://azure.microsoft.com/status/) pour voir s'il existe des interruptions de service connues.
+1. **Configuration incorrecte** Le délai d’expiration de l’opération est peut-être trop court pour un bon fonctionnement. La valeur par défaut du délai d'expiration de l'opération dans le Kit de développement logiciel (SDK) client est de 60 secondes. Vérifiez si votre code définit une valeur trop petite. Notez que la condition du réseau et l'utilisation du processeur peuvent affecter le temps nécessaire à la réalisation d’une opération particulière. Par conséquent, le délai d'expiration de l'opération ne doit pas être défini sur une valeur très faible.
+2. **Erreur de service temporaire** Parfois, le service Service Bus peut rencontrer des retards de traitement des requêtes, par exemple pendant les périodes de trafic élevé. Dans ce cas, vous pouvez réessayer l'opération après un certain délai, jusqu'à ce que l'opération réussisse. Si la même opération échoue encore après plusieurs tentatives, consultez le [Site d'état des services Azure](https://azure.microsoft.com/status/) pour voir s'il existe des interruptions de service connues.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -129,5 +123,4 @@ Pour en savoir plus sur [Service Bus](https://azure.microsoft.com/services/servi
 * [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Architecture de Service Bus](service-bus-architecture.md)
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
 ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 Beaucoup considèrent l’identité comme la nouvelle couche de sécurité assumant ce rôle du point classique du réseau. Les efforts en matière de gestion de la sécurité et les investissements ont changé de cible principale, car les périmètres réseau sont de plus en plus poreux et la défense du périmètre n’est plus aussi efficace qu’elle ne l’était avant l’explosion des appareils [BYOD](http://aka.ms/byodcg) et des applications cloud.
@@ -29,7 +28,7 @@ Dans cet article, nous allons étudier une collection de meilleures pratiques en
 Pour chaque meilleure pratique, nous allons détailler les éléments suivants :
 
 * Nature de la meilleure pratique
-* Raison pour laquelle activer cette meilleure pratique
+* Raison pour laquelle activer cette bonne pratique
 * Conséquence possible en cas de non-utilisation de la meilleure pratique
 * Alternatives possibles à la meilleure pratique
 * Comment apprendre à utiliser la meilleure pratique
@@ -136,4 +135,3 @@ En revanche, la protection d’identité Azure AD est un système de surveillanc
 
 Les organisations qui ne surveillent pas activement leurs systèmes d’identité risquent de compromettre les informations d’identification des utilisateurs. Si elles n’ont pas connaissance des activités suspectes se déroulant avec ces informations d’identification, elles ne seront pas en mesure de limiter ce type de menace.
 Pour en savoir plus sur la protection d’identité Azure, lisez l’article [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md) (Protection de l’identité Azure Active Directory).
-

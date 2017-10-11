@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0da01df8ac5fd3cdb6b4e42dfbc08fab7d9615
-ms.openlocfilehash: 5931d532a0790f1570d1d99687611231aafc7596
-ms.lasthandoff: 02/08/2017
-
-
+ms.openlocfilehash: 017a8cabe81743af4c0cbb694098df799a904468
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Créer une UO sur un domaine géré par les services de domaine Azure Active Directory
 Les domaines gérés par les services de domaine Azure Active Directory incluent deux conteneurs intégrés, appelés « Ordinateurs AADDC » et « Utilisateurs AADDC », respectivement. Le conteneur « Ordinateurs AADDC » inclut des objets ordinateur associés à tous les ordinateurs qui sont joints au domaine géré. Le conteneur « Utilisateurs AADDC » comprend les utilisateurs et les groupes du client Azure AD. Parfois, il peut être nécessaire de créer des comptes de service sur le domaine géré, afin de déployer des charges de travail. Pour cela, vous pouvez créer une unité d’organisation (UO) personnalisée dans le domaine géré, puis générer des comptes de service dans cette UO. Cet article vous explique comment créer une UO dans votre domaine géré.
@@ -65,7 +64,7 @@ Maintenant que les outils d’administration AD sont installés sur la machine v
     ![ADAC - Unité d’organisation créée](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
 ## <a name="permissionssecurity-for-newly-created-ous"></a>Sécurité/autorisations associées aux nouvelles unités d’organisation
-Par défaut, l’utilisateur (membre du groupe « AAD DC Administrators ») ayant créé l’UO personnalisée bénéficie de privilèges d’administration (contrôle total) concernant l’unité d’organisation. L’utilisateur peut ensuite accorder des privilèges à d’autres utilisateurs ou au groupe « AAD DC Administrators », au besoin. Comme indiqué dans la capture d’écran ci-dessous, l’utilisateur 'bob@domainservicespreview.onmicrosoft.com', qui a créé la nouvelle UI « MyCustomOU », bénéficie d’un contrôle absolu sur cette dernière.
+Par défaut, l’utilisateur (membre du groupe « AAD DC Administrators ») ayant créé l’UO personnalisée bénéficie de privilèges d’administration (contrôle total) concernant l’unité d’organisation. L’utilisateur peut ensuite accorder des privilèges à d’autres utilisateurs ou au groupe « AAD DC Administrators », au besoin. Comme indiqué dans la capture d’écran suivante, l’utilisateur 'bob@domainservicespreview.onmicrosoft.com' qui a créé la nouvelle unité d’organisation 'MyCustomOU' bénéficie d’un contrôle total sur elle.
 
  ![ADAC - Sécurité de la nouvelle UO](./media/active-directory-domain-services-admin-guide/create-ou-permissions.png)
 
@@ -82,4 +81,3 @@ Maintenant que vous avez créé une UO personnalisée, vous pouvez créer des ut
 * [Configurer la stratégie de groupe sur un domaine géré](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Centre d’administration Active Directory : Prise en main](https://technet.microsoft.com/library/dd560651.aspx)
 * [Guide pas à pas des comptes de service (éventuellement en anglais)](https://technet.microsoft.com/library/dd548356.aspx)
-

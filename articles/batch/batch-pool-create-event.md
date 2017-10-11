@@ -12,14 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 67edaa55d7ccd00d4aebb309f11bcf95486e87fa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="pool-create-event"></a>Événement de création de pool
 
  Cet événement est émis après la création d’un pool. Le contenu du journal fournit des informations générales sur le pool. Notez que, si la taille cible du pool est supérieure à 0 nœud de calcul, un événement de démarrage de redimensionnement de pool suit immédiatement cet événement.
@@ -99,4 +97,3 @@ ms.lasthandoff: 04/22/2017
 |Nom de l'élément|Type|Remarques|
 |------------------|--------------|----------|
 |subnetId|String|Spécifie l’identificateur de ressource du sous-réseau dans lequel les nœuds de calcul du pool sont créés.|
-

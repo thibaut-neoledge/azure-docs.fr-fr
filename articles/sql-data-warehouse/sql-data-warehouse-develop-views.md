@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 902929fba9e2486d97323ab52505ba6db3fe0aab
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: d2a03be810bd7f792876607ec735eb578b65a3b5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="views-in-sql-data-warehouse"></a>Vues proposées par SQL Data Warehouse
 Les vues sont particulièrement utiles dans SQL Data Warehouse. Vous pouvez les utiliser de différentes façons, afin d’améliorer la qualité de votre solution.  Cet article met en évidence quelques exemples montrant comment enrichir votre solution avec des vues, ainsi que les limites à prendre en considération.
@@ -80,4 +79,3 @@ Pour la syntaxe de `CREATE VIEW`, consultez [CREATE VIEW][CREATE VIEW].
 [CREATE VIEW]: https://msdn.microsoft.com/en-us/library/ms187956.aspx
 
 <!--Other Web references-->
-

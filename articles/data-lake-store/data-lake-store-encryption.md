@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 4/14/2017
 ms.author: yagupta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Chiffrement des données dans Azure Data Lake Store
 
 Le chiffrement dans Azure Data Lake Store vous permet de protéger vos données, de mettre en œuvre des stratégies de sécurité d’entreprise et de répondre aux exigences de conformité réglementaire. Cet article fournit une vue d’ensemble de la conception et présente certains aspects techniques de la mise en œuvre.
@@ -93,7 +91,7 @@ Le schéma suivant illustre ces concepts :
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Pseudo-algorithme lorsqu’un fichier doit être déchiffré :
 1.  Vérifiez si la DEK du compte Data Lake Store est mise en cache et prête à être utilisée.
-    - Si ce n’est pas le cas, lisez alors la DEK chiffrée à partir d’un stockage permanent et envoyez-la vers Key Vault pour être déchiffrée. Mettez la clé DEK déchiffrée en cache dans la mémoire. Elle est maintenant prête à utiliser.
+    - Si ce n’est pas le cas, lisez alors la DEK chiffrée à partir d’un stockage permanent et envoyez-la vers Key Vault pour être déchiffrée. Mettez la DEK déchiffrée en mémoire cache. Elle est maintenant prête à utiliser.
 2.  Pour chaque bloc de données du fichier :
     - Lire le bloc de données chiffré sur un stockage permanent.
     - Générer la BEK à partir de la DEK et du bloc de données chiffré.
@@ -140,4 +138,3 @@ Notez que si vous utilisez les options par défaut pour le chiffrement, vos donn
     ![Capture d’écran de la fenêtre Data Lake Store avec le message et Rotation de clé en surbrillance](./media/data-lake-store-encryption/rotatekey.png)
 
 Cette opération doit prendre moins de deux minutes et aucune interruption de service due à la rotation des clés n’est attendue. Une fois l’opération terminée, la nouvelle version de la clé est utilisée.
-

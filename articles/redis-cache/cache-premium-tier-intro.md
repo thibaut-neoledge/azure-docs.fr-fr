@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Introduction au niveau Premium du Cache Redis Azure
 le Cache Redis Azure est un cache distribué et géré qui vous permet de développer des applications hautement évolutives et réactives en fournissant un accès ultra-rapide aux données. 
@@ -102,5 +101,4 @@ Créez un cache et explorez les nouvelles fonctionnalités de niveau Premium.
 * [Comment configurer le clustering pour un Cache Redis Azure Premium](cache-how-to-premium-clustering.md)
 * [How to import data into and export data from Azure Redis Cache (Comment importer et exporter des données vers ou depuis le Cache Redis Azure)](cache-how-to-import-export-data.md)
 * [Comment administrer le Cache Redis Azure](cache-administration.md)
-
 

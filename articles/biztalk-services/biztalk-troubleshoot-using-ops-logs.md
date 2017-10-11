@@ -1,6 +1,6 @@
 ---
 title: "Résolution des problèmes BizTalk Services à l’aide des journaux des opérations | Microsoft Docs"
-description: "Résolution des problèmes BizTalk Services à l&quot;aide des journaux des opérations. MABS, WABS"
+description: "Résolution des problèmes BizTalk Services à l'aide des journaux des opérations. MABS, WABS"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: c0c83361f94ffd9c30d7fcc551ff4b85ad7d6fa5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services : résolution des problèmes à l’aide des journaux des opérations
 
@@ -38,7 +36,7 @@ Les journaux des opérations sont une fonction des services de gestion disponibl
 ## <a name="view-biztalk-services-operation-logs"></a>Affichage des journaux des opérations BizTalk Services
 1. Dans le portail Azure Classic, sélectionnez **Services de gestion**, puis l’onglet **Journaux des opérations**.
 2. Vous pouvez filtrer les journaux selon différents paramètres tels que l’abonnement, la plage de dates, le type de service (ex. : BizTalk Services), le nom du service ou le statut de l’opération (ex. : réussite, échec).
-3. Sélectionnez la coche pour afficher la liste filtrée. L’image suivante montre les activités liées à testbiztalkservice :  ![Affichage des journaux des opérations][ViewLogs] 
+3. Sélectionnez la coche pour afficher la liste filtrée. L’image suivante montre les activités liées à testbiztalkservice : ![Affichage des journaux des opérations][ViewLogs] 
 4. Pour afficher plus d'informations sur une opération spécifique, sélectionnez la ligne et cliquez sur **Détails** en bas de la page.
 
 ## <a name="bizops"></a>Opérations suivies à l'aide des services de gestion Azure
@@ -74,5 +72,4 @@ Le tableau ci-dessous répertorie les opérations suivies à l'aide des services
 * [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
-
 

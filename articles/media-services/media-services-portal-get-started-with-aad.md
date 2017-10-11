@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 0a32c758693c1889d7acfa6510bffba46b7eabc2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 829e0759f8aeb8758f6b8895b88b60b66ffb22ed
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Prise en main de l’authentification Azure AD à l’aide du portail Azure
 
@@ -112,4 +111,3 @@ Pour modifier les paramètres ou le manifeste de l’application, cliquez sur **
 ## <a name="next-steps"></a>Étapes suivantes
 
 Commencez le [chargement de fichiers sur votre compte](media-services-portal-upload-files.md).
-

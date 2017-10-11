@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: e89bbf5a2c1d71852e49da43d3106a05ebfc28a8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-7-set-up-the-source-and-target-for-physical-server-replication-to-azure"></a>Étape 7 : Configurer la source et la cible pour la réplication de serveurs physiques vers Azure
 
@@ -73,4 +72,3 @@ Avant de configurer l’environnement cible, assurez-vous de disposer d’un com
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à l’[Étape 8 : Configurer une stratégie de réplication](physical-walkthrough-replication.md)
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 0f0129710bcf81c0ad8def2f3305e525477c7d3d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: 1a6f1c6566468188daa71939db8345280b7a529f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configuration d’un accès conditionnel en local à l’aide du service Azure Active Directory Device Registration
 Quand vous demandez aux utilisateurs de joindre leurs appareils à l’espace de travail du service Azure Active Directory Device Registration, leurs appareils peuvent être marqués comme étant connus de votre organisation. Vous trouverez ci-dessous un guide pas à pas visant à activer l’accès conditionnel pour des applications locales à l’aide des services de fédération Active Directory (AD FS) dans Windows Server 2012 R2.
@@ -224,6 +223,5 @@ Veillez à supprimer les sauts de ligne éventuels dans le contenu HTML que vous
 Désormais, quand les utilisateurs accèderont à votre application à partir d’un appareil qui n’est pas enregistré auprès d’Azure Active Directory Device Registration Service, ils verront s’afficher une page qui ressemble à la capture d’écran suivante.
 
 ![Capture d’écran d’une erreur qui s’affiche quand les utilisateurs n’ont pas enregistré leur appareil auprès d’Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
-
 
 

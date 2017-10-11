@@ -12,14 +12,12 @@ ms.date: 05/15/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-backup-server-protection-matrix"></a>Matrice de protection du serveur de sauvegarde Azure
 
 Cet article répertorie les différents serveurs et charges de travail que vous pouvez protéger avec le serveur de sauvegarde Azure. La matrice suivante répertorie ce qui peut être protégé avec le serveur de sauvegarde Azure v1 et v2.
@@ -112,4 +110,3 @@ Le serveur de sauvegarde Azure peut protéger les données dans les applications
 -   SQL Server : le serveur de sauvegarde Azure ne prend en charge la sauvegarde des bases de données SQL Server hébergées sur des volumes partagés de cluster.
 
 Le serveur de sauvegarde Azure peut protéger les charges de travail de cluster qui se trouvent dans le même domaine que le serveur DPM, et dans un domaine enfant ou approuvé. Si vous voulez protéger des sources de données dans des domaines ou des groupes de travail non approuvés, utilisez NTLM ou l’authentification par certificat pour un serveur unique, ou l’authentification par certificat uniquement pour un cluster.
-

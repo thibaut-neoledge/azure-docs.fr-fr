@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: e03d17992ee0b12049636e40188950bcc4a6f31e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-4-set-up-a-vault-for-azure-to-azure-replication"></a>Étape 4 : Configurer un coffre pour la réplication entre régions Azure
 
 Après avoir [planifié les réseaux](azure-to-azure-walkthrough-network.md), utilisez cet article afin de configurer un coffre pour la réplication de machines virtuelles vers une autre région Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md) dans le portail Azure.
@@ -50,4 +48,3 @@ Après avoir [planifié les réseaux](azure-to-azure-walkthrough-network.md), ut
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à [Étape 5 : Activer la réplication](azure-to-azure-walkthrough-enable-replication.md)
-

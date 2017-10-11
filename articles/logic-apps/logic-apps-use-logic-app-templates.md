@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
-ms.openlocfilehash: 17486fd41b471356648656b65ca66e1234313d4c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 89272869f7dfaa34cbd2ad32d67dca0955e6158b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-a-workflow-using-a-pre-built-template-or-pattern-to-get-started-quickly"></a>Configuration d’un flux de travail à l’aide d’un modèle prédéfini pour démarrer rapidement
 
@@ -71,5 +69,4 @@ Une fois que vous avez chargé votre modèle et effectué les modifications souh
  ![](../../includes/media/app-service-logic-templates/template6.png)  
 
 Si vous souhaitez plus d’informations sur l’ajout d’étapes supplémentaires à un modèle d’application logique existant, ou l’apport de modifications générales, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)pour en savoir plus.
-
 

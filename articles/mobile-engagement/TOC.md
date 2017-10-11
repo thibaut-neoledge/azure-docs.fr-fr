@@ -66,7 +66,7 @@
 #### [Mettre à niveau votre Kit de développement logiciel (SDK)](mobile-engagement-windows-phone-upgrade-procedure.md)
 
 ### [Windows Universal](mobile-engagement-windows-store-sdk-overview.md)
-#### [Intégrer avec une application universelle Windows](mobile-engagement-windows-store-integrate-engagement.md)                    
+#### [Intégrer avec une application universelle Windows](mobile-engagement-windows-store-integrate-engagement.md)
 #### [Configuration avancée](mobile-engagement-windows-store-advanced-configuration.md)
 #### [Intégrer Reach](mobile-engagement-windows-store-integrate-engagement-reach.md)
 #### [Génération de rapports avancés](mobile-engagement-windows-store-advanced-reporting.md)

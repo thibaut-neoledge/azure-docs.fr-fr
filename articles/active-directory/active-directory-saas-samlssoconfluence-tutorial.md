@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Didacticiel : Intégration d’Azure Active Directory avec SSO SAML pour Confluence de resolution GmbH
 
@@ -133,7 +131,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)    
+    ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)  
     
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre **portail d’administration de SSO SAML pour Confluence de resolution GmbH** en tant qu’administrateur.
 
@@ -159,7 +157,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon9.png)
 
-13.    Cliquez sur **Gérer**.
+13. Cliquez sur **Gérer**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon10.png)
     
@@ -187,7 +185,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     d. Cliquez sur le bouton **Charger**.
 
-    e. Les métadonnées d’IdP sont lues et les champs sont renseignés de la manière mise en évidence dans la capture d’écran.    
+    e. Les métadonnées d’IdP sont lues et les champs sont renseignés de la manière mise en évidence dans la capture d’écran. 
 18. Cliquez sur le bouton **Enregistrer les paramètres** pour enregistrer les paramètres.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
@@ -312,5 +310,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_203.png
-
 

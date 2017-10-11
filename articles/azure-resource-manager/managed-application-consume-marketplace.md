@@ -10,14 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/11/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: baf456740bddd562391ed64d707f990c8921d710
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="consume-azure-managed-applications-in-the-marketplace"></a>Utilisation des applications gérées de la Place de marché Azure
 
 Comme décrit dans l’article [Vue d’ensemble des applications gérées Azure](managed-application-overview.md), il existe deux scénarios dans l’expérience de bout en bout. D’un côté, il y a l’éditeur ou le fournisseur désireux de créer une application gérée destinée à être utilisée par les clients. De l’autre, le client final ou l’utilisateur de l’application gérée. Cet article concerne le second scénario. Il décrit comment vous pouvez déployer une application gérée à partir de la Place de marché Microsoft Azure.

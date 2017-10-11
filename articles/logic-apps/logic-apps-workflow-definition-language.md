@@ -14,14 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Schéma du langage de définition du flux de travail pour Azure Logic Apps
 
 Une définition de flux de travail contient la logique réelle qui s’exécute dans le cadre de votre application logique. Cette définition inclut un ou plusieurs déclencheurs qui démarrent l’application logique, et une ou plusieurs actions à entreprendre pour l’application logique.  
@@ -338,4 +336,3 @@ Ces fonctions vous permettent d’obtenir des informations sur le flux de travai
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Actions et déclencheurs de flux de travail](logic-apps-workflow-actions-triggers.md)
-

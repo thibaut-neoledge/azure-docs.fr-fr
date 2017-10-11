@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ca5bec5cf1152e6259b9fe7a869edd2d62b88e1a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-9-set-up-a-replication-policy-for-hyper-v-vm-replication-to-azure"></a>Étape 9 : configurer une stratégie de réplication pour la réplication de machines virtuelles Hyper-V vers Azure
 
 Cet article explique comment configurer une stratégie de réplication pour la réplication de machines virtuelles Hyper-V vers Azure (sans System Center VMM) à l’aide du service [Azure Site Recovery](site-recovery-overview.md) dans le portail Azure.
@@ -58,4 +56,3 @@ Lorsque vous créez une stratégie, elle est automatiquement associée au site H
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à [Étape 10 : activer la réplication](hyper-v-site-walkthrough-enable-replication.md)
-

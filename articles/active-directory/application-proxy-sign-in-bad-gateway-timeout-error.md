@@ -13,23 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7c4e2f084571a2146e5013f24bd5da55319118af
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 78ff8763a461162cbcfa04c6a86123973271928a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="cant-access-this-corporate-application-error-when-using-an-application-proxy-application" class="xliff"></a>
-
-# Erreur « Impossible d’accéder à cette application d’entreprise » lors de l’utilisation d’une application Proxy d’application
+# <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erreur « Impossible d’accéder à cette application d’entreprise » lors de l’utilisation d’une application Proxy d’application
 
 Cet article vous aide à résoudre les problèmes couramment associés à l’erreur « Impossible d’accéder à cette application d’entreprise » sur une application Proxy d’application Azure AD.
 
-<a id="overview" class="xliff"></a>
-
-## Vue d'ensemble
+## <a name="overview"></a>Vue d'ensemble
 Quand cette erreur se produit, la page indique un code d’état. Ce code est généralement l’un des suivants :
 
 -   **Dépassement du délai de la passerelle** : le service Proxy d’application ne peut pas atteindre le connecteur. Cela indique généralement un problème lié à l’attribution du connecteur, au connecteur proprement dit ou aux règles de mise en réseau régissant le connecteur.
@@ -44,16 +38,12 @@ Pour trouver le code, examinez le champ « Code d’état » situé en bas à ga
 
 Pour plus d’informations sur la résolution de la cause racine de ces erreurs et sur les suggestions de correction, consultez la section appropriée ci-dessous.
 
-<a id="gateway-timeout-errors" class="xliff"></a>
-
-## Erreurs liées au dépassement du délai de la passerelle
+## <a name="gateway-timeout-errors"></a>Erreurs liées au dépassement du délai de la passerelle
 
 Un dépassement du délai de la passerelle se produit quand le service ne peut pas atteindre le connecteur dans le délai imparti. Ceci est généralement le cas quand une application est affectée à un groupe de connecteurs qui ne compte aucun connecteur opérationnel, ou quand certains ports nécessaires par le connecteur ne sont pas ouverts.
 
 
-<a id="bad-gateway-errors" class="xliff"></a>
-
-## Erreurs liées à une passerelle incorrecte
+## <a name="bad-gateway-errors"></a>Erreurs liées à une passerelle incorrecte
 
 Une passerelle incorrecte indique que le connecteur ne peut pas atteindre l’application back-end. Vérifiez que vous avez publié la bonne l’application. Erreurs courantes à l’origine de ce problème :
 
@@ -65,9 +55,7 @@ Une passerelle incorrecte indique que le connecteur ne peut pas atteindre l’ap
 
 -   Problèmes liés à l’application back-end
 
-<a id="forbidden-errors" class="xliff"></a>
-
-## Erreurs liées à une interdiction
+## <a name="forbidden-errors"></a>Erreurs liées à une interdiction
 
 Si vous constatez une erreur liée à une interdiction, l’utilisateur n’a pas été affecté à l’application (soit dans Azure Active Directory, soit ou sur l’application back-end).
 
@@ -75,15 +63,11 @@ Pour savoir comment affecter des utilisateurs à l’application dans Azure, con
 
 Si vous confirmez que l’utilisateur est affecté à l’application dans Azure, vérifiez la configuration de l’utilisateur dans l’application back-end. Si vous utilisez la délégation Kerberos contrainte ou l’authentification Windows intégrée, consultez notre page de dépannage consacrée à la délégation Kerberos contrainte pour obtenir des instructions.
 
-<a id="check-the-applications-internal-url" class="xliff"></a>
-
-## Vérifier l’URL interne de l’application
+## <a name="check-the-applications-internal-url"></a>Vérifier l’URL interne de l’application
 
 La première chose à faire consiste à vérifier l’URL interne et à la corriger si nécessaire. Pour cela, ouvrez l’application par le biais d’**Applications d’entreprise**, puis sélectionnez le menu **Proxy d’application**. Vérifiez qu’il s’agit bien de l’URL interne utilisée sur votre réseau local pour accéder à l’application.
 
-<a id="check-the-application-is-assigned-to-a-working-connector-group" class="xliff"></a>
-
-## Vérifier que l’application est affectée à un groupe de connecteurs opérationnel
+## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>Vérifier que l’application est affectée à un groupe de connecteurs opérationnel
 
 Pour vérifier que l’application est affectée à un groupe de connecteurs opérationnel :
 
@@ -103,23 +87,17 @@ Pour vérifier que l’application est affectée à un groupe de connecteurs op�
 
 Après avoir suivi ces étapes pour vérifier que l’application est affectée à un groupe comprenant des connecteurs opérationnels, retestez l’application. Si elle ne fonctionne toujours pas, passez à la section suivante.
 
-<a id="check-all-required-ports-are-whitelisted" class="xliff"></a>
-
-## Vérifier que tous les ports nécessaires figurent dans la liste verte
+## <a name="check-all-required-ports-are-whitelisted"></a>Vérifier que tous les ports nécessaires figurent dans la liste verte
 
 Pour vérifier que tous les ports nécessaires sont ouverts, consultez notre documentation sur l’ouverture des ports. Si tous les ports nécessaires sont ouverts, passez à la section suivante.
 
-<a id="check-for-other-connector-errors" class="xliff"></a>
-
-## Rechercher d’autres erreurs liées aux connecteurs
+## <a name="check-for-other-connector-errors"></a>Rechercher d’autres erreurs liées aux connecteurs
 
 Si aucune des procédures précédentes ne résout le problème, l’étape suivante consiste à rechercher des problèmes ou des erreurs liés au connecteur proprement dit. Certaines erreurs courantes sont répertoriées dans le [document de dépannage](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
 
 Vous pouvez également consulter directement les journaux du connecteur pour identifier d’éventuelles erreurs. La plupart des messages d’erreur indiquent des recommandations plus spécifiques sur les corrections à apporter. Pour savoir comment afficher les journaux, consultez [notre documentation sur les connecteurs](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors#under-the-hood).
 
-<a id="additional-resolutions" class="xliff"></a>
-
-## Résolutions supplémentaires
+## <a name="additional-resolutions"></a>Résolutions supplémentaires
 
 Si les procédures précédentes ne vous ont pas permis de résoudre le problème, il existe d’autres causes possibles. Pour identifier le problème :
 
@@ -131,8 +109,5 @@ Si l’erreur persiste, accédez à l’ordinateur sur lequel le connecteur est 
 
 Si vous pouvez atteindre l’application à partir de cet ordinateur, recherchez des problèmes ou des erreurs liés au connecteur proprement dit. Certaines erreurs courantes sont listées dans le [document de dépannage](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). Vous pouvez également consulter directement les journaux du connecteur pour identifier d’éventuelles erreurs. La plupart des messages d’erreur indiquent des recommandations plus spécifiques sur les corrections à apporter. Pour savoir comment afficher les journaux, consultez [notre documentation sur les connecteurs](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors#under-the-hood).
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md)
-

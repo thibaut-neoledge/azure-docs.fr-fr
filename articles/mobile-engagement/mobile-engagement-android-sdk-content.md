@@ -1,5 +1,5 @@
 ---
-title: "Intégration du SDK Android d&quot;Azure Mobile Engagement"
+title: "Intégration du SDK Android d'Azure Mobile Engagement"
 description: "Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f47772a16dc38c5b9b4751b22b99938e26cc1e0
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 27190b54fc2b3b5c77b5f0a02273883e36ceaf1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sdk-content"></a>Contenu du Kit de développement logiciel (SDK)
 Ce document répertorie et décrit le contenu de l'archive du SDK.
@@ -51,5 +50,4 @@ Ce document répertorie et décrit le contenu de l'archive du SDK.
 > 
 
 Les autres fichiers sont une copie des licences logicielles.
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: d15931a5d430252bbd9ae342e1f8fde1a539355b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Didacticiel : Intégration d’Azure AD à TargetProcess
 
@@ -254,5 +253,4 @@ Lorsque vous cliquez sur la vignette TargetProcess dans le volet d’accès, vou
 [201]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_203.png
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: c27aef24e859522b8001ecb747906abdca14d87a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Didacticiel : Intégration d’Azure AD avec Sugar CRM
 
@@ -291,5 +290,4 @@ Quand vous cliquez sur la vignette Sugar CRM dans le volet d’accès, vous deve
 [201]: ./media/active-directory-saas-sugarcrm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sugarcrm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sugarcrm-tutorial/tutorial_general_203.png
-
 

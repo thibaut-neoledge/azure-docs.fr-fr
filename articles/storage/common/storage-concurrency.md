@@ -1,6 +1,6 @@
 ---
-title: "Gestion de l’accès concurrentiel dans Stockage Microsoft Azure"
-description: "Gestion de l’accès concurrentiel pour les services Blob, File d’attente, Table et Fichier"
+title: "Gestion de l’accès concurrentiel dans Microsoft Azure Storage"
+description: "Gestion de l’accès concurrentiel pour les services BLOB, de File d’attente, de Table et de Fichier"
 services: storage
 documentationcenter: 
 author: jasontang501
@@ -14,14 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 937cca66a0af0674b868e6a87681adbea330e91c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestion de l’accès concurrentiel dans Stockage Microsoft Azure
+# <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestion de l’accès concurrentiel dans Microsoft Azure Storage
 ## <a name="overview"></a>Vue d'ensemble
 Dans les applications Internet modernes, les données sont généralement consultées et mises à jour par plusieurs utilisateurs à la fois. Les développeurs d'applications doivent donc bien réfléchir à la manière de proposer une expérience prévisible à leurs utilisateurs finaux, notamment lorsque plusieurs utilisateurs peuvent mettre à jour les mêmes données. Les développeurs prennent généralement en compte trois grandes stratégies d’accès concurrentiel aux données :  
 
@@ -31,12 +30,12 @@ Dans les applications Internet modernes, les données sont généralement consul
 
 Cet article propose une vue d'ensemble de la manière dont la plateforme Azure Storage simplifie le développement en proposant une prise en charge de premier ordre pour ces trois stratégies d'accès concurrentiel.  
 
-## <a name="azure-storage--simplifies-cloud-development"></a>Stockage Azure – Simplification du développement dans le cloud
+## <a name="azure-storage--simplifies-cloud-development"></a>Azure Storage – Simplification du développement dans le cloud
 Le service de stockage Azure prend en charge les trois stratégies. Il se distingue cependant dans sa capacité à proposer une prise en charge complète pour les accès concurrentiels optimistes et pessimistes. Il a en effet été conçu pour adopter un modèle de cohérence forte qui garantit que lorsque le service de stockage procède à une mise à jour ou à un ajout de données, la dernière mise à jour s'affiche pour les utilisateurs qui accèdent aux données par la suite. Les plateformes de stockage qui utilisent un modèle de cohérence éventuelle présentent un décalage entre le moment où des données sont ajoutées par un utilisateur et le moment où les données mises à jour peuvent être consultées par les autres utilisateurs, ce qui complique le développement d'applications clientes, afin d'éviter que les incohérences n'affectent les utilisateurs finaux.  
 
 Parallèlement à la sélection d'une stratégie d'accès concurrentiel adaptée, les développeurs doivent savoir comment la plateforme de stockage isole les changements, notamment ceux apportés à un même objet au fil des transactions. Le service de stockage Azure utilise l'isolement de capture instantanée pour permettre l'exécution simultanée des opérations de lecture et d'écriture au sein d'une même partition. Contrairement à d'autres niveaux d'isolement, l'isolement de capture instantanée permet de garantir l'affichage d'une capture instantanée cohérente des données pour tous les lecteurs, même lorsque des mises à jour sont en cours, en renvoyant notamment les dernières valeurs validées pendant le traitement d'une transaction de mise à jour.  
 
-## <a name="managing-concurrency-in-blob-storage"></a>Gestion de l’accès concurrentiel dans Stockage Blob
+## <a name="managing-concurrency-in-blob-storage"></a>Gestion de l’accès concurrentiel dans Blob Storage
 Vous pouvez choisir d'utiliser des modèles d'accès concurrentiel optimiste ou pessimiste pour gérer l'accès aux objets blob et aux conteneurs dans le service BLOB. Si vous ne sélectionnez pas une stratégie de manière explicite, la règle de Thomas est utilisée par défaut.  
 
 ### <a name="optimistic-concurrency-for-blobs-and-containers"></a>Accès concurrentiel optimiste pour les objets blob et les conteneurs
@@ -50,7 +49,7 @@ Ce processus se déroule comme suit :
 4. Si la valeur ETag de l'objet blob n'est pas la même que la balise ETag dans l'en-tête conditionnel **If-Match** de la demande, le service renvoie une erreur 412 au client. Cela indique au client que l'objet blob a été mis à jour par un autre processus depuis la récupération par le client.
 5. Si la valeur ETag actuelle de l'objet blob est la même que la balise ETag dans l'en-tête conditionnel **If-Match** de la demande, le service effectue l'opération demandée et met la valeur ETag de l'objet blob à jour pour indiquer qu'il a créé une nouvelle version.  
 
-L'extrait de code C# suivant (à l'aide de la bibliothèque de stockage cliente 4.2.0) présente un exemple simple de construction d'une condition d'accès **If-Match AccessCondition** basée sur la valeur ETag obtenue à partir des propriétés d'un objet blob précédemment récupéré ou inséré. Il utilise ensuite l’objet **AccessCondition** au moment de mettre à jour l’objet blob : l’objet **AccessCondition** ajoute l’en-tête **If-Match** à la demande. Si l’objet blob a été mis à jour par un autre processus, le service BLOB renvoie un message d’état HTTP 412 (Échec de la condition préalable). Vous pouvez télécharger l’exemple complet ici : [Gestion de l’accès concurrentiel avec Stockage Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
+L'extrait de code C# suivant (à l'aide de la bibliothèque de stockage cliente 4.2.0) présente un exemple simple de construction d'une condition d'accès **If-Match AccessCondition** basée sur la valeur ETag obtenue à partir des propriétés d'un objet blob précédemment récupéré ou inséré. Il utilise ensuite l’objet **AccessCondition** au moment de mettre à jour l’objet blob : l’objet **AccessCondition** ajoute l’en-tête **If-Match** à la demande. Si l’objet blob a été mis à jour par un autre processus, le service BLOB renvoie un message d’état HTTP 412 (Échec de la condition préalable). Vous pouvez télécharger l’exemple complet ici : [Gestion de l’accès concurrentiel avec Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
 
 ```csharp
 // Retrieve the ETag from the newly created blob
@@ -278,17 +277,16 @@ Pour plus d'informations, consultez les pages suivantes :
 * [Gestion des verrouillages de fichiers](http://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
 ## <a name="summary-and-next-steps"></a>Résumé et étapes suivantes
-Le service Stockage Microsoft Azure a été conçu pour répondre aux besoins des applications en ligne les plus complexes sans forcer les développeurs à faire des compromis ou à repenser des hypothèses de conception clés, telles que l'accès concurrentiel et la cohérence des données, qu'ils considèrent désormais comme acquises.  
+Le service Microsoft Azure Storage a été conçu pour répondre aux besoins des applications en ligne les plus complexes sans forcer les développeurs à faire des compromis ou à repenser des hypothèses de conception clés, telles que l'accès concurrentiel et la cohérence des données, qu'ils considèrent désormais comme acquises.  
 
 Pour l'exemple complet d'application auquel il est fait référence dans ce blog :  
 
-* [Gestion de l’accès concurrentiel avec Stockage Azure - Exemple d’application](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
+* [Gestion de l’accès concurrentiel avec Azure Storage - Exemple d’application](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
 
-Pour plus d’informations concernant Stockage Azure, consultez la page :  
+Pour plus d’informations concernant Azure Storage, consultez la page :  
 
-* [Page d’accueil de Stockage Microsoft Azure](https://azure.microsoft.com/services/storage/)
-* [Introduction à Stockage Azure](storage-introduction.md)
+* [Page d’accueil de Microsoft Azure Storage](https://azure.microsoft.com/services/storage/)
+* [Introduction à Azure Storage](storage-introduction.md)
 * Prise en main du Stockage [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [Table](../../cosmos-db/table-storage-how-to-use-dotnet.md), [File d’attente](../storage-dotnet-how-to-use-queues.md) et [Fichier](../storage-dotnet-how-to-use-files.md)
 * Architecture de stockage – [Stockage Azure : service de stockage cloud à haute disponibilité et à forte cohérence](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
 

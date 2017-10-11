@@ -15,15 +15,13 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 3750f975600575349e5ea9de249cf4521636fd2f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="v20-protocols---oauth-20--openid-connect"></a>Protocoles v2.0 - OAuth 2.0 et OpenID Connect
+# Protocoles v2.0 - OAuth 2.0 et OpenID Connect
 Le point de terminaison v2.0 peut utiliser Azure AD pour l’identité en tant que service avec les protocoles standard, OpenID Connect et OAuth 2.0.  Bien que ce service soit conforme aux normes, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles.  Les informations fournies ici vous seront utiles si vous choisissez d’écrire votre code en envoyant ou en traitant directement des requêtes HTTP ou si vous utilisez une bibliothèque open source tierce, plutôt qu’en utilisant l’une de nos bibliothèques open source.
 <!-- TODO: Need link to libraries above -->
 
@@ -32,7 +30,7 @@ Le point de terminaison v2.0 peut utiliser Azure AD pour l’identité en tant q
 >
 >
 
-## <a name="the-basics"></a>Concepts de base
+## Concepts de base
 Dans presque tous les flux OAuth et OpenID Connect, quatre parties sont concernées par l’échange :
 
 ![Rôles OAuth 2.0](../../media/active-directory-v2-flows/protocols_roles.png)
@@ -42,7 +40,7 @@ Dans presque tous les flux OAuth et OpenID Connect, quatre parties sont concern�
 * Le **Client OAuth** est votre application, identifiée par son ID d'application.  Il s’agit généralement de la partie avec laquelle l’utilisateur final interagit ; elle demande des jetons provenant du serveur d’autorisation.  Le client doit se voir octroyer une autorisation d’accès à la ressource par le propriétaire de cette dernière.
 * Le **serveur de ressources** héberge la ressource ou les données.  Il approuve le serveur d’autorisation pour authentifier et autoriser de manière sûre le client OAuth et utilise les jetons d’accès porteurs pour garantir l’octroi de l’accès à une ressource.
 
-## <a name="app-registration"></a>Inscription d’application
+## Inscription d’application
 Toutes les applications qui utilisent le point de terminaison v2.0 doivent être inscrites à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) avant de pouvoir interagir à l’aide d’OAuth ou d’OpenID Connect.  Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
 
 * un **ID d’application** qui identifie de manière unique votre application ;
@@ -51,7 +49,7 @@ Toutes les applications qui utilisent le point de terminaison v2.0 doivent être
 
 Pour plus d’informations, découvrez comment [inscrire une application](active-directory-v2-app-registration.md).
 
-## <a name="endpoints"></a>Points de terminaison
+## Points de terminaison
 Une fois inscrite, l’application communique avec Azure AD en transmettant les requêtes au point de terminaison v2.0 :
 
 ```
@@ -70,12 +68,12 @@ Où le `{tenant}` peut prendre l’une de quatre valeurs différentes :
 
 Pour plus d’informations sur la façon d’interagir avec ces points de terminaison, choisissez un type particulier d’application ci-dessous.
 
-## <a name="tokens"></a>Jetons
+## Jetons
 L’implémentation d’OAuth 2.0 et d’OpenID Connect par v2.0 utilise massivement les jetons du porteur, y compris ceux représentés sous forme de JWT. Un jeton porteur est un jeton de sécurité léger qui octroie l’accès à une ressource protégée au « porteur ». En ce sens, le « porteur » désigne toute partie qui peut présenter le jeton. Une partie doit certes d’abord s’authentifier auprès d’Azure AD pour recevoir le jeton porteur, mais si les mécanismes nécessaires à la sécurité du jeton lors de la transmission et du stockage ne sont pas en place, il peut être intercepté et utilisé par une partie non autorisée. Bien que certains jetons de sécurité intègrent un mécanisme de protection contre l’utilisation par des parties non autorisées, les jetons porteurs n’en sont pas dotés et doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS). Si un jeton porteur est transmis en clair, une partie malveillante peut utiliser une attaque d’intercepteur afin de s’approprier le jeton et de l’utiliser pour accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons porteurs pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée. Pour en savoir plus sur les aspects de sécurité des jetons porteurs, consultez [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
 Pour plus d’informations sur les différents types de jetons utilisés dans le point de terminaison v2.0, consultez la page de [Référence sur les jetons du point de terminaison v2.0](active-directory-v2-tokens.md).
 
-## <a name="protocols"></a>Protocoles
+## Protocoles
 Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacticiels ci-dessous.  Chacun d’eux correspond à un scénario d’authentification particulier.  Si vous avez besoin d’aide pour déterminer le flux qui vous convient, consultez les [types d’applications que vous pouvez créer avec le point de terminaison v2.0](active-directory-v2-flows.md).
 
 * [Génération d’une application mobile et native avec OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
@@ -83,4 +81,3 @@ Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacti
 * [Génération d'applications de page unique avec le flux implicite OAuth 2.0](active-directory-v2-protocols-implicit.md)
 * [Génération de démons ou de processus côté serveur avec le flux d’informations d’identification de client OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 * [Obtention de jetons dans une API web avec le flux Au nom de d’OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
-

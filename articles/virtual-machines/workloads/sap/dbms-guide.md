@@ -17,12 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 4af0621c4ba0f0c283a6292824cc1ff819c1d232
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
-
+ms.openlocfilehash: 1046d32a0b4b6ede027ef1931314a188c64c94bb
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles Azure pour SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -886,7 +885,7 @@ La base de données temporaire contenant toutes les tables de travail et les tab
 Selon la version de SAPInst/SWPM utilisée pour installer le système, la base de données peut contenir les éléments suivants :
 
 * Une seule base de données tempdb SAP ASE, créée lors de l’installation de SAP ASE
-* Une base de données tempdb SAP ASE créée via l’installation de SAP ASE, ainsi qu’une base de données saptempdb supplémentaire, créée par le programme d’installation de SAP
+* une base de données tempdb SAP ASE créée via l’installation de SAP ASE ainsi qu’une base de données saptempdb supplémentaire, créée par le programme d’installation de SAP ;
 * Une base de données tempdb SAP ASE créée par l’installation de SAP ASE, et une tempdb supplémentaire créée manuellement (voir note SAP [1752266]) pour répondre aux exigences ERP/BW de tempdb
 
 En ce qui concerne les performances de charges de travail ERP spécifiques et de toutes les charges de travail BW, il peut être pertinent de placer les unités tempdb de la base de données tempdb créée en plus (via SWPM ou manuellement) sur un lecteur autre que C:\. Si aucune tempdb supplémentaire n’existe, il est recommandé d’en créer une (voir note SAP [1752266]).
@@ -951,7 +950,7 @@ Lorsque vous définissez le paramètre de profil SAP icm/host_name_full sur le n
 Dans ce cas, vous devez veiller à :
 
 * Ajouter des règles de trafic entrant au groupe de sécurité réseau dans le portail Azure pour les ports TCP/IP utilisés afin de communiquer avec ICM
-* Ajouter des règles de trafic entrant à la configuration du pare-feu Windows pour les ports TCP/IP utilisés afin de communiquer avec ICM
+* ajouter des règles de trafic entrant à la configuration du pare-feu Windows pour les ports TCP/IP utilisés afin de communiquer avec ICM.
 
 Pour effectuer une importation automatisée de toutes les corrections disponibles, il est recommandé d’appliquer périodiquement la note SAP de collection de correction applicable à votre version SAP :
 
@@ -1505,5 +1504,4 @@ N’utilisez pas la géoréplication pour les comptes de stockage qui stockent l
 Tous les autres sujets généraux, notamment les groupes à haute disponibilité Azure ou la surveillance SAP, s’appliquent avec IBM DB2 pour LUW comme décrit dans les trois premiers chapitres dans ce document pour les déploiements de machines virtuelles.
 
 Voir également le chapitre [Résumé – SQL Server général pour SAP sur Azure][dbms-guide-5.8].
-
 

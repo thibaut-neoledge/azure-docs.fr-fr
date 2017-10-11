@@ -15,12 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 1/10/2017
 ms.author: saurse;trinadhk;markgal
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
 ms.openlocfilehash: f0f3152daf5f91f7c9e540797bf09b21969d2d33
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/02/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Déplacement de votre stockage à long terme de la bande vers le cloud Azure
 Les clients Azure Backup et System Center Data Protection Manager peuvent effectuer les actions suivantes :
@@ -79,4 +78,3 @@ Pour plus d’informations sur la Sauvegarde Azure, consultez :
 
 * [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
 * [Test d’Azure Backup](backup-try-azure-backup-in-10-mins.md)
-

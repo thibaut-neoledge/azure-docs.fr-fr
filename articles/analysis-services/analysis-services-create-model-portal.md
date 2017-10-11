@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/21/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bd58f1845dabf6afb47ce27236d14479677a8808
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-model-in-azure-portal"></a>Créer un modèle dans le portail Azure
 
@@ -72,6 +71,5 @@ Votre nouveau modèle s’affiche dans votre navigateur. À ce stade, vous pouve
 ## <a name="next-steps"></a>Étapes suivantes 
 [Gérer les utilisateurs et rôles de bases de données](analysis-services-database-users.md)  
 [Connexion avec Excel](analysis-services-connect-excel.md)  
-
 
 

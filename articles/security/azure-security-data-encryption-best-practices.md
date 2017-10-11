@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 06c308f41444e7fa7b227911ff8542149790710a
-
-
+ms.openlocfilehash: 81136e53756adfdba2f07c103b042499fe2967db
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Meilleures pratiques en matière de chiffrement et de sécurité des données - Azure
 Pour assurer la protection des données dans le cloud, l’un des facteurs clés consiste à tenir compte des états que les données peuvent présenter, mais aussi des contrôles disponibles pour ces états. Dans le cadre des meilleures pratiques en termes de chiffrement et de sécurité des données d’Azure, les recommandations que nous proposons s’articulent autour des états suivants des données :
@@ -31,7 +31,7 @@ Dans cet article, nous aborderons différentes meilleures pratiques d’Azure en
 Pour chaque meilleure pratique, nous allons détailler les éléments suivants :
 
 * Nature de la meilleure pratique
-* Raison pour laquelle activer cette meilleure pratique
+* Raison pour laquelle activer cette bonne pratique
 * Conséquence possible en cas de non-utilisation de la meilleure pratique
 * Alternatives possibles à la meilleure pratique
 * Comment apprendre à utiliser la meilleure pratique
@@ -157,9 +157,3 @@ Si vous planifiez l’adoption d’Azure RMS, nous vous recommandons de suivre l
 Les organisations bénéficiant d’une [classification](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) et d’une protection insuffisantes des données sont plus vulnérables aux fuites de données. Si la protection des fichiers n’est pas appropriée, les organisations ne pourront pas optimiser leur visibilité, ni surveiller les abus ou empêcher tout accès malveillant aux fichiers.
 
 Vous pouvez en savoir plus sur Azure RMS en lisant l’article [Prise en main d’Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

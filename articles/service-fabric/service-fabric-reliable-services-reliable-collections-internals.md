@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
 ms.openlocfilehash: d607449a16e886337ab1bd96213fbb4231124353
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-service-fabric-reliable-state-manager-and-reliable-collection-internals"></a>Éléments internes de collection fiable et de gestionnaire d’état fiable Azure Service Fabric
 Ce document examine en profondeur le Gestionnaire d’état fiable et les Collections fiables pour comprendre comment les principaux composants fonctionnent en arrière-plan.
 
@@ -55,5 +53,4 @@ En revanche, la collection fiable ne contrôle que la dernière version de chaqu
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Transactions et verrous](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-
 

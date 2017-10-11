@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 90a6172dbd887ecda5a9f5d9082a4e136092bc10
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personnaliser le mode d’affichage des données de vos serveurs OPC UA par la solution d’usine connectée
 
@@ -36,7 +35,7 @@ La solution permet d’afficher des informations détaillées pour des élément
 
 ![Graphiques du nombre d’éléments fabriqués][img-manufactured-items]
 
-Si vous cliquez sur l’un des graphes, vous pouvez explorer les données plus en détail à l’aide de Time Series Insights (TSI) :
+Si vous cliquez sur l’un des graphiques, vous pouvez explorer les données plus en détail à l’aide de Time Series Insights (TSI) :
 
 ![Explorer les données à l’aide de Time Series Insights][img-tsi]
 

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d1660c9ea528741ea02e6bbae7b1f8fd7afea0eb
 ms.openlocfilehash: c952975919cfd948f1b9ea93ff2ac2641a53f923
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Didacticiel : Intégration d’Azure Active Directory à Coupa
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Coupa.  
@@ -143,7 +142,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 **Pour affecter des utilisateurs à Coupa, suivez les étapes ci-dessous :**
 
 1. Dans le portail Azure Classic, créez un compte de test.
-2. Dans la page d’intégration d’applications **Coupa**, cliquez sur **Affecter des utilisateurs**.
+2. Sur la ** Coupa ** page d’intégration d’application, cliquez sur **affecter des utilisateurs**.
    
    ![Affecter des utilisateurs](./media/active-directory-saas-coupa-tutorial/IC791911.png "Affecter des utilisateurs")
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
@@ -151,5 +150,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
    ![Oui](./media/active-directory-saas-coupa-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
 

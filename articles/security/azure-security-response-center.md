@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35b51ab7fa40e16ebe5170c3dea33b02a653d23b
-
-
+ms.openlocfilehash: bc47589ac769d89b2aa7f7565d08555ace3119d9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="microsoft-security-response-center"></a>Centre de réponse aux problèmes de sécurité Microsoft
 Le centre de réponse aux problèmes de sécurité Microsoft (MSRC) est dirigé par les experts en sécurité les plus expérimentés du monde. Ces experts identifient et analysent les incidents de sécurité et les vulnérabilités du Cloud, y répondent et les résolvent en continu, chaque jour de l’année.
@@ -39,9 +39,3 @@ Les programmes de primes Microsoft paient les chercheurs pour découvrir de nouv
 Apprenez-en plus sur ces programmes sur la page [Primes liées aux bugs MSRC](https://technet.microsoft.com/security/dn425036) et sur le [blog MSRC](https://blogs.technet.microsoft.com/msrc/).
 
 Pour plus d’informations sur le MSRC, consultez la [page d’accueil du MSRC](https://technet.microsoft.com/library/dn440717.aspx).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

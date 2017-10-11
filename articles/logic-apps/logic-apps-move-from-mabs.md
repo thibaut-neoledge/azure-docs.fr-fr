@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: e58c6950d1d9420f32fc98ca917216dc5fae4fc3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Déplacer depuis BizTalk Services vers Logic Apps
 
 Microsoft Azure BizTalk Services (MABS) fait l’objet d’une mise hors service. Utilisez cette rubrique pour déplacer vos solutions d’intégration MABS vers Azure Logic Apps. 
@@ -131,4 +129,3 @@ Pour obtenir une haute disponibilité dans BizTalk Services, vous utilisez plusi
 * [Qu’est-ce qu’une application logique ?](logic-apps-what-are-logic-apps.md)
 * [Créez votre première application logique](logic-apps-create-a-logic-app.md), ou devenez rapidement opérationnel à l’aide d’un [modèle prédéfini](logic-apps-use-logic-app-templates.md)  
 * [Affichez tous les connecteurs disponibles](../connectors/apis-list.md) que vous pouvez utiliser dans une application logique
-

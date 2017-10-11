@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 2e6995d730089e194dcac989151af13df28a173a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 742b4578118bde878385c12cc7c9e4438f89cb33
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-when-signing-in-to-applications"></a>Problèmes lors de la connexion aux applications
 
 
@@ -44,4 +42,3 @@ ms.lasthandoff: 04/17/2017
   * [Je ne parviens pas à me connecter à une application relevant de la galerie Azure AD qui est configurée pour l’authentification unique fédérée](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Je ne parviens pas à me connecter à une application personnalisée](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-custom-dev/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Je ne parviens pas à me connecter à une application locale à l’aide du proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-on-premises-application-proxy/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

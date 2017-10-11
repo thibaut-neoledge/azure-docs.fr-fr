@@ -15,13 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e94837bf79e42602e2f72cda747ea629eed45a20
-ms.openlocfilehash: 920940d8ebe23d24216d3e886bd8ae58be12ce34
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Créer des définitions de workflow pour les applications logiques à l’aide de JSON
 
@@ -277,9 +275,9 @@ Dans ce cas, nous commençons par obtenir une liste d’articles. Selon la caté
 
 Tenez compte des points suivants : 
 
-*    La fonction [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) vérifie si la catégorie correspond ou non à l’une des catégories définies connues.
+*   La fonction [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) vérifie si la catégorie correspond ou non à l’une des catégories définies connues.
 
-*    Une fois que nous avons obtenu la catégorie, nous pouvons extraire l’élément du mappage à l’aide de crochets : `parameters[...]`
+*   Une fois que nous avons obtenu la catégorie, nous pouvons extraire l’élément du mappage à l’aide de crochets : `parameters[...]`
 
 ## <a name="process-strings"></a>Traiter des chaînes
 
@@ -452,4 +450,3 @@ Puis, dans la requête `PUT` réelle pour les applications logiques, vous pouvez
 Vous pouvez fournir une valeur différente pour le paramètre `connection` dans chaque environnement. 
 
 Pour connaître toutes les options dont vous disposez pour créer et gérer des applications logiques, consultez la [documentation de l’API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx). 
-

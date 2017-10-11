@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
 ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tâches de préparation des données pour l'apprentissage automatique amélioré
 Le prétraitement et le nettoyage des données sont des tâches importantes qui doivent intervenir avant d'utiliser un jeu de données à des fins d'apprentissage automatique. Les données brutes sont souvent bruyantes, peu fiables et incomplètes. Leur utilisation pour la modélisation peut générer des résultats trompeurs. Ces tâches font partie du processus TDSP (Team Data Science Process) et suivent généralement l'exploration initiale d'un jeu de données utilisé pour découvrir et planifier le traitement préliminaire requis. Pour plus d'instructions sur le processus TDSP, consultez les étapes décrites dans le [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
@@ -60,7 +59,7 @@ Lorsque vous détectez des problèmes dans les données, des **étapes de traite
 * **Nettoyage des données :**compléter les valeurs manquantes, détecter et supprimer les données bruyantes et les aberrations.
 * **Transformation des données :**normaliser les données pour réduire le volume et le bruit.
 * **Réduction des données :**échantillonner les enregistrements de données ou les attributs pour faciliter la manipulation des données.
-* **Discrétisation des données :**convertir des attributs continus en attributs catégoriels pour simplifier l’exploitation des données dans certains outils d’apprentissage automatique.
+* **Discrétisation des données :** convertir des attributs continus en attributs catégoriels pour simplifier l’exploitation des données dans certains outils d’apprentissage automatique.
 * **Nettoyage du texte :**supprimer les caractères intégrés pouvant perturber l’alignement des données (comme les tabulations dans un fichier TSV), les nouvelles lignes qui peuvent interrompre des enregistrements, etc.
 
 Les sections suivantes décrivent certaines de ces étapes de traitement des données.
@@ -69,7 +68,7 @@ Les sections suivantes décrivent certaines de ces étapes de traitement des don
 Si vous avez des valeurs manquantes, la première chose à faire est d’en identifier l’origine. Les méthodes les plus courantes de traitement des valeurs manquantes sont les suivantes :
 
 * **Suppression :**supprimer les enregistrements ayant des valeurs manquantes.
-* **Remplacement par une valeur factice :**remplacer des valeurs manquantes par une valeur factice : par exemple, *inconnu* pour les valeurs catégorielles ou 0 pour les valeurs numériques.
+* **Remplacement par une valeur factice :** remplacer des valeurs manquantes par une valeur factice : par exemple, *inconnu* pour les valeurs catégorielles ou 0 pour les valeurs numériques.
 * **Remplacement par la moyenne :**si les données manquantes sont numériques, remplacez-les par la valeur moyenne.
 * **Remplacement par l’élément le plus fréquent :**si les données manquantes sont catégorielles, remplacer les valeurs manquantes par l’élément le plus fréquent.
 * **Remplacement par la valeur de régression :**remplacer les valeurs manquantes par des valeurs de régression.  
@@ -103,5 +102,4 @@ Plusieurs méthodes permettent de réduire la taille des données pour en facili
 > *Data Mining : Concepts et Techniques*, 3e édition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber et Jian Pei
 > 
 > 
-
 

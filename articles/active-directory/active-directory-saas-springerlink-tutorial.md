@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
 ms.openlocfilehash: b9aec6f8f293cdd31456a7f50e3efe792804c7c8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Didacticiel : Intégration d’Azure Active Directory avec Springer Link
 
@@ -235,5 +234,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-springerlink-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-springerlink-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-springerlink-tutorial/tutorial_general_203.png
-
 

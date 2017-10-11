@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: 90e08b9cf2feb93de4877bec9734352949896dca
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Didacticiel : Intégration d’Azure Active Directory à Salesforce Sandbox
 
@@ -288,5 +287,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 [201]: ./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_general_203.png
-
 

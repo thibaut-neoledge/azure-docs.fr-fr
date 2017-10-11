@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: febecd5f53077c2e3daa0845964e95025b97893b
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 6ea45c40bc428282faf24b4a08f8b0d345adb3fd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Sécuriser une base de données dans SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -111,4 +110,3 @@ Pour plus d’informations sur la connexion à SQL Data Warehouse avec différen
 
 <!--Other Web references-->
 [Role-based access control in Azure Portal]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
-

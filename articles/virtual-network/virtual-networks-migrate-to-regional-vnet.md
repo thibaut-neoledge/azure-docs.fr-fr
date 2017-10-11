@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: b9b3bd0f2184ac85261166d5fe2ab67e1bf319d4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>Migrer un réseau virtuel Azure (classique) depuis un groupe d’affinités vers une région
 
@@ -62,4 +61,3 @@ Nous vous recommandons de ne pas utiliser les groupes d’affinités en généra
 
 ## <a name="what-to-do-if-you-have-a-vm-classic-in-an-affinity-group"></a>Marche à suivre en cas de machine virtuelle (classique) dans un groupe d’affinités
 Les machines virtuelles (classiques) qui sont actuellement dans un groupe d’affinités n’ont pas besoin d’être supprimées du groupe d’affinités. Une fois qu’une machine virtuelle est déployée, elle l’est sur une seule unité d’échelle. Les groupes d’affinités peuvent restreindre la taille disponible de l’ensemble des machines virtuelles pour un nouveau déploiement de machines virtuelles, mais les machines virtuelles existantes déployées sont déjà limitées à la taille disponible de l’ensemble des machines virtuelles dans l’unité d’échelle où elles sont déployées. Étant donné que la machine virtuelle est déjà déployée dans une unité d’échelle, la suppression d’une machine virtuelle d’un groupe d’affinités n’a aucun effet sur cette dernière.
-

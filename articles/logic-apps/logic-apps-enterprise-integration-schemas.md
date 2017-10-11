@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7884032fd4b5a72ca7e2f2dc2830b0a7c2220e94
-ms.openlocfilehash: 5d8ddd4449d3b160dbca7496c801e75dcf4a44e5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Valider des documents XML avec des schémas pour Azure Logic Apps et Enterprise Integration Pack
 
@@ -60,11 +58,11 @@ Ces étapes varient selon le niveau d’accès du conteneur d’objets blob : *
 
 **Pour déterminer ce niveau d’accès**
 
-1.    Ouvrez **l’Explorateur de stockage Azure**. 
+1.  Ouvrez **l’Explorateur de stockage Azure**. 
 
-2.    Sous **Conteneurs d’objets Blob**, sélectionnez le conteneur d’objets blob de votre choix. 
+2.  Sous **Conteneurs d’objets Blob**, sélectionnez le conteneur d’objets blob de votre choix. 
 
-3.    Sélectionnez **Sécurité**, **Niveau d’accès**.
+3.  Sélectionnez **Sécurité**, **Niveau d’accès**.
 
 Si le niveau d’accès de sécurité d’objet blob est **Public**, procédez comme suit.
 
@@ -134,5 +132,4 @@ Azure affiche un message indiquant que le schéma a été téléchargé avec suc
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack").  
-
 

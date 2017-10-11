@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 42f35c53eec06a346281fd90c97aecfd2269307d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-10-enable-replication-for-physical-servers-to-azure"></a>Étape 10 : activer la réplication des serveurs physiques vers Azure
 
@@ -67,5 +66,4 @@ Par défaut, tous les disques d’une machine sont répliqués. Vous pouvez excl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Aller à [Étape 11 : exécuter un test de basculement](physical-walkthrough-test-failover.md)
-
+Accédez à [Étape 11 : exécuter un test de basculement](physical-walkthrough-test-failover.md).

@@ -15,16 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 427070021ac547058c2f18be0e58ef6d81822b8a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: 14e16a238e60ecfeeb3cbf88c3922a79349dcc75
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-<a id="changing-the-ad-ds-account-password" class="xliff"></a>
-
-# Modifier le mot de passe du compte AD DS
+# <a name="changing-the-ad-ds-account-password"></a>Modifier le mot de passe du compte AD DS
 Le compte AD DS fait référence au compte d’utilisateur utilisé par Azure AD Connect pour communiquer avec le répertoire Active Directory local. Si vous modifiez le mot de passe du compte AD DS, vous devez mettre à jour le service de synchronisation Azure AD Connect avec le nouveau mot de passe. Dans le cas contraire, la synchronisation avec le répertoire Active Directory local ne s’effectue plus correctement et les erreurs suivantes apparaissent :
 
 * Dans Synchronization Service Manager, toute opération d’importation ou d’exportation avec le répertoire local Active Directory échoue avec une erreur **no-start-credentials**.
@@ -32,9 +29,7 @@ Le compte AD DS fait référence au compte d’utilisateur utilisé par Azure A
 * Dans l’Observateur d’événements Windows, le journal d’événement d’application contient une erreur avec l’**ID d’événement 6000** et le message **«  failed to run because the credentials were invalid « contoso.com » en raison d'informations d'identification non valides. »**.
 
 
-<a id="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account" class="xliff"></a>
-
-## Mise à jour du service de synchronisation avec un nouveau mot de passe pour le compte AD DS
+## <a name="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account"></a>Mise à jour du service de synchronisation avec un nouveau mot de passe pour le compte AD DS
 Pour mettre à jour le service de synchronisation avec le nouveau mot de passe :
 
 1. Démarrez Synchronization Service Manager (DÉMARRER → Service de synchronisation).
@@ -54,12 +49,9 @@ Pour mettre à jour le service de synchronisation avec le nouveau mot de passe 
 
 8. Redémarrez le service de synchronisation Azure AD Connect sous le Gestionnaire de contrôle des services Windows. Cela permet de s’assurer que toute référence à l’ancien mot de passe est supprimée du cache mémoire.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 **Rubriques de présentation**
 
 * [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-

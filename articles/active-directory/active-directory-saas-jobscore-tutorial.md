@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: f6ed2d362f7b027bfdc38ba2fdaa03948ff5632c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscore"></a>Didacticiel : Intégration d’Azure Active Directory à JobScore
 
@@ -219,5 +218,4 @@ Si vous cliquez sur la mosaïque JobScore dans le volet d’accès, vous devez v
 [201]: ./media/active-directory-saas-jobscore-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-jobscore-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-jobscore-tutorial/tutorial_general_203.png
-
 

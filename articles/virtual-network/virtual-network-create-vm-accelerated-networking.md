@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c852a1297261504015a3a985fe14a38957d1a64a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 449425189a3b42dcb2c31316c1c8e38fac69d761
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle avec mise en réseau accélérée
 
@@ -450,4 +449,3 @@ La création d’une machine virtuelle Red Hat Enterprise Linux ou CentOS 7.3 n�
     ```
 
 La machine virtuelle devrait commencer par bond0 configuré, avec activation du chemin de mise réseau accélérée.  Exécutez `ifconfig` pour confirmer.
-

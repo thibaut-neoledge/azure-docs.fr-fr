@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="security-frame-authorization--mitigations"></a>Infrastructure de sécurité : Autorisation | Mesures de correction 
 | Produit/service | Article |
 | --------------- | ------- |
@@ -462,4 +460,3 @@ public class CustomController : ApiController
 | **Attributs**              | N/A  |
 | **Informations de référence**              | N/A  |
 | **Étapes** | La passerelle de champ doit autoriser l’appelant afin de vérifier si l’appelant dispose des autorisations nécessaires pour exécuter l’action demandée. Par exemple, les autorisations pour une interface/API d’utilisateur administrateur doivent être différentes de celles utilisées pour configurer une passerelle de champ par rapport aux appareils qui s’y connectent.|
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Meilleures pratiques en matière de sécurité réseau - Azure
 Microsoft Azure vous permet de connecter des machines virtuelles et des appliances à d’autres appareils en réseau, en les plaçant sur des réseaux virtuels Microsoft Azure. Un réseau virtuel Azure est une construction de réseau virtuel qui vous permet de connecter des cartes d’interface réseau virtuel à un réseau virtuel, afin de permettre des communications via TCP/IP entre les appareils fonctionnant sur le réseau. Les machines Microsoft Azure Virtual Machines reliées à un réseau virtuel Azure peuvent se connecter à des appareils se trouvant sur le même réseau virtuel Azure, ou des réseaux virtuels Azure différents, sur Internet ou sur vos réseaux locaux.
@@ -29,7 +28,7 @@ Dans cet article, nous aborderons différentes meilleures pratiques en matière 
 Pour chaque meilleure pratique, nous allons détailler les éléments suivants :
 
 * Nature de la meilleure pratique
-* Raison pour laquelle activer cette meilleure pratique
+* Raison pour laquelle activer cette bonne pratique
 * Conséquence possible en cas de non-utilisation de la meilleure pratique
 * Alternatives possibles à la meilleure pratique
 * Comment apprendre à utiliser la meilleure pratique
@@ -236,4 +235,3 @@ Toutefois, cela implique le traitement préalable de divers problèmes liés à 
 Microsoft a créé le [diagramme d’architecture de référence des extensions de centre de données](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) et la documentation associée pour vous aider à comprendre à quoi ressemble une extension de centre de données de ce type. Il fournit un exemple d’implémentation de référence, que vous pouvez utiliser pour planifier et concevoir une extension de centre de données d’entreprise sécurisée dans le cloud. Nous vous recommandons de consulter ce document pour vous familiariser avec les composants clés d’une solution sécurisée.
 
 Pour en savoir plus sur l’extension sécurisée de votre centre de données dans Azure, consultez notre vidéo portant sur [l’extension de votre centre de données dans Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
-

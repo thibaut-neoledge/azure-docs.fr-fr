@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 0a09b35e98dc0b2f5283c2a707a3a2b8ac9a39f2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replicate-physical-servers-to-azure-with-site-recovery"></a>Répliquer des serveurs physiques vers Azure avec Site Recovery
 
@@ -37,13 +36,13 @@ Aller à [Étape 1 : Examen de l’architecture](physical-walkthrough-architec
 
 Assurez-vous que les conditions préalables sont remplies pour chaque composant du déploiement :
 
-- **Conditions préalables Azure** : vous avez besoin d’un compte Microsoft Azure, de réseaux Azure et de comptes de stockage.
+- **Conditions préalables Azure** : vous avez besoin d’un compte Microsoft Azure, d’un réseau Azure et de comptes de stockage.
 - **Composants Site Recovery locaux** : vous avez besoin d’une machine exécutant les composants Site Recovery locaux.
 - **Machines répliquées** : les serveurs à répliquer doivent remplir les conditions requises pour l’environnement local et Azure.
 
 Aller à [Étape 2 : Vérifier les conditions préalables et les limitations](physical-walkthrough-prerequisites.md)
 
-## <a name="step-3-plan-capacity"></a>Étape 3 : Planifier la capacité
+## <a name="step-3-plan-capacity"></a>Étape 3 : planifier la capacité
 
 Si vous effectuez un déploiement complet, vous devez déterminer les ressources de réplication dont vous avez besoin. Si vous souhaitez réaliser une configuration rapide pour tester l’environnement, vous pouvez ignorer cette étape.
 
@@ -97,5 +96,4 @@ Aller à [Étape 10 : Activer la réplication](physical-walkthrough-enable-rep
 Lorsque la réplication initiale est terminée et que la réplication delta est en cours d’exécution, vous pouvez exécuter un test de basculement pour vous assurer que tout fonctionne comme prévu.
 
 Aller à [Étape 11 : Exécuter un test de basculement](physical-walkthrough-test-failover.md)
-
 

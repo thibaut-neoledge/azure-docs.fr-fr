@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: c81a6adb3abad58af149bbef6f5dff736c142f51
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Didacticiel : Intégration d’Azure Active Directory à 10,000ft Plans
 
@@ -226,5 +225,4 @@ Lorsque vous cliquez sur la vignette 10,000ft Plans dans le volet d’accès, vo
 [201]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_203.png
-
 

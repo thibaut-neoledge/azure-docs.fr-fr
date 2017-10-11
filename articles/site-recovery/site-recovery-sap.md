@@ -14,20 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: manayar
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 951980eeba61e53c983d5b23c301c81eee9528bd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Protéger un déploiement d’applications SAP NetWeaver multiniveau à l’aide d’Azure Site Recovery
 
 La plupart des déploiements SAP, de moyenne et grande taille, disposent d’une forme de solution de récupération d’urgence.  Avoir des solutions de récupération d’urgence fiables et testables est de plus en plus important, d’autant que de plus en plus de processus métier essentiels sont déplacés vers des applications telles que SAP.  Testé et intégré aux applications SAP, le service Azure Site Recovery dépasse les capacités de la plupart des solutions de récupération d’urgence locales, à un coût total de possession (TCO) inférieur aux solutions concurrentes.
 Avec Azure Site Recovery, vous pouvez :
 * Activer la protection des applications de production SAP NetWeaver et non-NetWeaver exécutées localement, par la réplication des composants sur Azure.
-* Activer la protection des applications de production SAP NetWeaver et non-NetWeaver exécutant Azure, par la réplication des composants sur un autre centre de données Azure.
-* Simplifier la migration vers le cloud en utilisant Site Recovery pour migrer votre déploiement SAP vers Azure.
+* Activez la protection des applications de production SAP NetWeaver et non-NetWeaver exécutant Azure, par la réplication des composants sur un autre centre de données Azure.
+* Simplifiez la migration vers le cloud en utilisant Site Recovery pour migrer votre déploiement SAP vers Azure.
 * Simplifier les mises à niveau, les tests et la création de prototypes du projet SAP, par la création d’un clone de production à la demande pour tester les applications SAP.
 
 Cet article indique comment protéger les déploiements d’applications SAP NetWeaver à l’aide du service [Azure Site Recovery](site-recovery-overview.md). Cet article traite des bonnes pratiques de protection d’un déploiement SAP NetWeaver à trois niveaux dans Azure, par la réplication sur un autre centre de données Azure, au moyen d’Azure Site Recovery ; il aborde aussi les configurations et les scénarios pris en charge ainsi que la procédure de basculement, qu’il s’agisse d’un basculement test (exercices de récupération d’urgence) ou d’un basculement réel.
@@ -119,4 +118,3 @@ Suivez [ce guide](site-recovery-failover.md) lorsque vous effectuez un basculeme
 Découvrez en détail la création d’une solution de récupération d’urgence pour les déploiements SAP NetWeaver à l’aide d’Azure Site Recovery dans [ce livre blanc](http://aka.ms/asr-sap). Ce livre blanc présente également les recommandations émises pour les différentes architectures SAP, il répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les plans de tests possibles pour votre solution de récupération d’urgence.
 
 Découvrez en détail la [réplication d’autres charges de travail](site-recovery-workload.md) à l’aide de Site Recovery.
-

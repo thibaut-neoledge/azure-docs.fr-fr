@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: f28d6fbfad9dae578a20db7218b7e3b174ed859c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Didacticiel : Intégration d’Azure Active Directory à TalentLMS
 
@@ -45,7 +44,7 @@ Pour configurer l’intégration d’Azure AD à TalentLMS, vous avez besoin des
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -213,9 +212,9 @@ Pour se connecter à TalentLMS, les utilisateurs d’Azure AD doivent être appr
    
     ![Ajouter un utilisateur](./media/active-directory-saas-talentlms-tutorial/IC777299.png "Ajouter un utilisateur")  
 
-    a. Dans la zone de texte **Prénom**, entrez le prénom de l’utilisateur, par exemple **Britta**.
+    a. Dans la zone de texte **First name**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 
-    b. Dans la zone de texte **Nom**, tapez le nom de l’utilisateur, par exemple **Simon**.
+    b. Dans la zone de texte **Last name**, tapez le nom de l’utilisateur, par exemple **Simon**.
  
     c. Dans la zone de texte **Email**, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon@contoso.com**.
 
@@ -281,5 +280,4 @@ Lorsque vous cliquez sur la vignette TalentLMS dans le volet d’accès, vous de
 [201]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_203.png
-
 

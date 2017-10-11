@@ -13,31 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6aba9206ab0634e9379d63520ad9e2d0256b7e94
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 80f4a965920fec9cb578c1bee235c7857f37431e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="how-to-determine-what-single-sign-on-method-to-use" class="xliff"></a>
-
-# Déterminer quelle méthode d’authentification unique utiliser
+# <a name="how-to-determine-what-single-sign-on-method-to-use"></a>Déterminer quelle méthode d’authentification unique utiliser
 
 Cet article présente les modes d’authentification unique pris en charge par Azure AD et vous montre comment choisir celui adapté à l’application qui vous intéresse.
 
-<a id="single-sign-on-and-provisioning-modes-supported-by-specific-application-types" class="xliff"></a>
-
-## Modes d’authentification unique et d’approvisionnement pris en charge par des types d’applications spécifiques
+## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>Modes d’authentification unique et d’approvisionnement pris en charge par des types d’applications spécifiques
 
 Le tableau ci-dessous décrit les différents modes d’authentification unique et d’approvisionnement pris en charge par chacun des types d’applications ci-dessus. Vous pouvez utiliser ce tableau pour mieux comprendre quelle application vous devez ajouter pour répondre à un objectif précis.
 
   ![Tableau des types d’applications](./media/application-tables/table1.png)
 
-<a id="how-to-choose-a-single-sign-on-mode" class="xliff"></a>
-
-## Comment choisir un mode d’authentification unique
+## <a name="how-to-choose-a-single-sign-on-mode"></a>Comment choisir un mode d’authentification unique
 
 Les modes d’**authentification unique** pris en charge pour les applications Azure AD sont répertoriés ci-dessous.
 
@@ -53,9 +45,7 @@ Les modes d’**authentification unique** pris en charge pour les applications A
 
 -   **Authentification Windows intégrée** : choisissez le mode d’authentification unique [Authentification Windows intégrée](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) lorsque vous exposez une application WIA locale pour laquelle vous souhaitez utiliser l’authentification unique à *.(**Remarque :** cette option est seulement disponible quand le proxy d’application est configuré pour une application)*
 
-<a id="single-sign-on-modes-for-custom-developed-applications" class="xliff"></a>
-
-## Modes d’authentification unique pour les applications personnalisées
+## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modes d’authentification unique pour les applications personnalisées
 
 Les applications que vous avez développées de manière personnalisée par le biais de la fonction d’[application personnalisée](#_Custom-Developed_Applications) prennent également en charge des modes d’authentification unique supplémentaires non répertoriés ci-dessus. Vous avez notamment vu les points suivants :
 
@@ -69,31 +59,26 @@ Les applications que vous avez développées de manière personnalisée par le b
 
 Consultez le [guide du développeur Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide) pour en savoir plus sur la création d’une application personnalisée qui prend en charge ces modes d’authentification unique.
 
-<a id="how-to-set-an-applications-single-sign-on-mode" class="xliff"></a>
-
-## Comment définir le mode d’authentification unique d’une application
+## <a name="how-to-set-an-applications-single-sign-on-mode"></a>Comment définir le mode d’authentification unique d’une application
 
 Pour définir le mode d’**authentification unique** d’une application, procédez comme suit :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**.
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez **Azure Active Directory** dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation gauche d’Azure Active Directory.
+4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste de toutes vos applications.
+5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
-   * Si l’application que vous recherchez n’apparaît pas, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications**.
+   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications**.
 
 6.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
 7.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation gauche de l’application.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
-
 

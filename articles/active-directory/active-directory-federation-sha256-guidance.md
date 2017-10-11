@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: c581b1468630a9f28204592c936360b72f42f0d8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Modifier l’algorithme de hachage de signature pour l’approbation de partie de confiance Office 365
 ## <a name="overview"></a>Vue d'ensemble
@@ -49,5 +48,4 @@ Une fois que vous avez défini l’algorithme de signature selon l’un des deux
 
 ## <a name="also-read"></a>À lire également
 * [Réparation de l’approbation Office 365 avec Azure AD Connect](connect/active-directory-aadconnect-federation-management.md#repairthetrust)
-
 

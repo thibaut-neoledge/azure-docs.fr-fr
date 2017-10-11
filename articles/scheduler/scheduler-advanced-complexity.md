@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
 ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/19/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Comment créer des planifications complexes et une périodicité avancée avec Azure Scheduler
 ## <a name="overview"></a>Vue d'ensemble
@@ -110,9 +108,9 @@ Le tableau suivant décrit comment *startTime* contrôle la manière dont un tra
 
 Examinons un exemple de ce qui se passe lorsque *startTime* se situe dans le passé, avec la valeur *recurrence* définie, mais pas la valeur *schedule*.  Supposons que la date et l’heure actuelle sont 2015-04-08 13:00, la valeur *startTime* est 2015-04-07 14:00 et la valeur *recurrence* est tous les 2 jours (définie avec *frequency* : day et *interval* : 2) Notez que la valeur *startTime* se situe dans le passé et se produit avant l’heure actuelle
 
-Dans ces conditions, la *première exécution* sera le 2015-04-09 à 14:00\. Le moteur de Scheduler calcule les occurrences d’exécution à partir de l’heure de début.  Toutes les instances dans le passé sont ignorées. Le moteur utilise l'instance suivante qui se produit dans le futur.  Dans ce cas, *startTime* étant 2015-04-07 à 14:00, l’instance suivante aura lieu dans les 2 jours à partir de cette date, c’est-à-dire le 2015-04-09 à 14:00.
+Dans ces conditions, la *première exécution* sera 2015-04-09 à 14:00\. Le moteur d'Azure Scheduler calcule les occurrences de l'exécution à partir de l'heure de début.  Toutes les instances dans le passé sont ignorées. Le moteur utilise l'instance suivante qui se produit dans le futur.  Dans ce cas, *startTime* étant 2015-04-07 à 14:00, l’instance suivante aura lieu dans les 2 jours à partir de cette date, c’est-à-dire le 2015-04-09 à 14:00.
 
-Notez que la première exécution serait identique même avec une valeur StartTime de 2015-04-05 14:00 ou de 2015-04-01 14:00\. Après la première exécution, les exécutions suivantes sont calculées à l’aide de la planification, afin qu’elles aient lieu le 2015-04-11 à 14:00, puis le 2015-04-13 à 14:00, puis le 2015-04-15 à 14:00, etc.
+Notez que la première exécution devriez être le même même si l’heure de début 2015-04-05 14:00 ou 2015-04-01 14:00\. Après la première exécution, les exécutions suivantes sont calculées à l'aide de la planification, afin qu'elles aient lieu le 2015-04-11 à 14:00, puis le 2015-04-13 à 14:00, puis le 2015-04-15 à 14:00, etc.
 
 Enfin, lorsqu'un travail a une planification, si les heures et/ou les minutes ne sont pas définies dans la planification, elles prennent la valeur par défaut des heures et/ou minutes de la première exécution, respectivement.
 
@@ -136,7 +134,7 @@ Le tableau suivant décrit les éléments *schedule* en détail.
 ## <a name="examples-recurrence-schedules"></a>Exemples : planifications de périodicité
 Voici divers exemples de planifications de périodicité, avec un accent sur l'objet de planification et ses sous-éléments.
 
-Les planifications ci-dessous supposent que la valeur *interval* est définie sur 1\. En outre, vous devez supposer la bonne fréquence conformément à ce qui est dans la *planification*. Par exemple, un utilisateur ne peut pas utiliser la fréquence « day » et une modification « monthDays » dans la planification. Ces restrictions sont décrites ci-dessus.
+Les planifications ci-dessous tous supposent que le *intervalle* est défini sur 1\. En outre, une doit supposer la fréquence de droite conformément à ce qui est dans le *planification* – par exemple, une ne peut pas utiliser la fréquence de « day » et a une modification de « jour du mois » dans la planification. Ces restrictions sont décrites ci-dessus.
 
 | **Exemple** | **Description** |
 |:--- |:--- |
@@ -190,5 +188,4 @@ Les planifications ci-dessous supposent que la valeur *interval* est définie su
  [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
-
 

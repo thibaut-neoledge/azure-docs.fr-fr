@@ -1,5 +1,5 @@
 ---
-title: Interface utilisateur d&quot;Azure Mobile Engagement - Moniteur
+title: Interface utilisateur d'Azure Mobile Engagement - Moniteur
 description: "En savoir plus sur la surveillance des données en temps réel de votre application à l’aide d’Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a2971c3b66b31e2936ca7ebc95d103ff5daf5881
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 5f8a02e35db93585e0fe46d77b3ad18b94c99597
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-monitor-real-time-data-about-your-application"></a>Surveillance des données en temps réel de votre application
 Cet article décrit l’onglet **SURVEILLER** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement** . 
@@ -155,4 +154,3 @@ Vous pouvez également indiquer un taux de détection minimum qui correspond au 
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-

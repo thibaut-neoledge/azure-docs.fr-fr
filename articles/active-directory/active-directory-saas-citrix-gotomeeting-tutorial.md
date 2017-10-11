@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: c1ac144c4fa43312ec26fce03cd0ee1bfcf73d4b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-gotomeeting"></a>Didacticiel : Intégration d’Azure Active Directory à Citrix GoToMeeting
 
@@ -224,7 +223,7 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-* [Configurer l’attribution d’utilisateurs](active-directory-saas-citrixgotomeeting-provisioning-tutorial.md)
+* [Configurer l’approvisionnement de l’utilisateur](active-directory-saas-citrixgotomeeting-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -239,5 +238,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 [201]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_203.png
-
 

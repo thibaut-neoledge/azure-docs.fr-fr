@@ -1,6 +1,6 @@
 ---
-title: "Exécution de l&quot;outil de planification de la capacité Hyper-V pour Site Recovery | Microsoft Docs"
-description: "Cet article décrit comment exécuter l&quot;outil de planification de la capacité Hyper-V pour Azure Site Recovery."
+title: "Exécution de l'outil de planification de la capacité Hyper-V pour Site Recovery | Microsoft Docs"
+description: "Cet article décrit comment exécuter l'outil de planification de la capacité Hyper-V pour Azure Site Recovery."
 services: site-recovery
 documentationcenter: na
 author: rayne-wiselman
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
-ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: 272b5abb5e6451164ca7900dda399b6aac65f986
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="run-the-hyper-v-capacity-planner-tool-for-site-recovery"></a>Exécution de l'outil de planification de la capacité Hyper-V pour Site Recovery
 
@@ -135,4 +133,3 @@ Une fois que vous avez terminé la planification de la capacité, vous pouvez co
 * [Répliquer des machines virtuelles Hyper-V dans des clouds VMM vers Azure.](site-recovery-vmm-to-azure.md)
 * [Répliquer des machines virtuelles Hyper-V (sans VMM) dans Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Répliquer des machines virtuelles Hyper-V entre des sites VMM](site-recovery-vmm-to-vmm.md)
-

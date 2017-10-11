@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
 ms.openlocfilehash: c179c39a43da0aa35e945acceacbf27fe8e328f3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="release-notes"></a>Notes de publication
 
@@ -89,5 +88,4 @@ ms.lasthandoff: 07/18/2017
 * Suppression de l'API pour envoyer et recevoir des messages entre appareils.
 * Améliorations de sécurité.
 * Suppression du suivi de Google Play et SmartAd.
-
 

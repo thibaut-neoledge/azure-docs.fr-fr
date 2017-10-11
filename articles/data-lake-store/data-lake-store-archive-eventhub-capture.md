@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: a9e69576958ae96d22a4eb03d0df429f0b307298
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Utiliser Azure Data Lake Store pour capturer des données Event Hubs
 
@@ -59,7 +58,7 @@ Dans cette section, vous allez créer un dossier au sein du compte dans lequel v
 
     c. Sous **Affecter des autorisations**, cliquez sur **Sélectionner des autorisations**. Définissez **Autorisations** à **Exécuter**. Définissez **Ajouter à** sur **Ce dossier et tous ses enfants**. Définissez **Ajouter en tant que** sur **Une entrée d’autorisation d’accès et une entrée d’autorisation par défaut**.
 
-    ![Affecter des autorisations pour la racine de Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Affecter des autorisations pour la racine de Data Lake Store")
+    ![Affecter des autorisations pour la racine du compte Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Affecter des autorisations pour la racine du compte Data Lake Store")
 
     Cliquez sur **OK**.
 
@@ -103,7 +102,7 @@ Dans cette section, vous allez créer un Event Hub dans un espace de noms Event 
 
     e. Pour l’option **Exemples de formats de nom de fichier de capture**, conservez la valeur par défaut. Cette option détermine la structure de dossiers qui est créée sous le dossier de capture.
 
-    f. Cliquez sur **Create**.
+    f. Cliquez sur **Créer**.
 
 ## <a name="test-the-setup"></a>Tester la configuration
 
@@ -124,4 +123,3 @@ Une fois les données dans Data Lake Store, vous pouvez exécuter des tâches an
 ## <a name="see-also"></a>Voir aussi
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Copier des données d’objets blob Azure Storage vers Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
-

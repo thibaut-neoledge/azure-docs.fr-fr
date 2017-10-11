@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: markgal,masaran
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 30f70a702d7d9a3e1196c04096708c035e406607
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Sauvegarder l’état du système et effectuer une récupération complète avec le Serveur de sauvegarde Azure
 
 Le Serveur de sauvegarde Azure sauvegarde l’état de votre système et effectue une récupération complète de celui-ci.
@@ -227,5 +225,4 @@ Exécutez l’application Sauvegarde Windows Server :
     Utilisez l’identificateur de version pour démarrer la restauration de l’état du système. À l’invite de commandes, entrez ce qui suit : ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```.
 
     Confirmez que vous souhaitez démarrer la récupération. Vous pouvez voir le processus dans la fenêtre d’invite de commandes. Un journal de restauration est créé. Après la restauration, redémarrez le serveur.
-
 

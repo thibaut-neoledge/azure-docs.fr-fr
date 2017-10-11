@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/6/2017
 ms.author: anirudha
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 6e14bd6312135b45984a82099e68a934ec2a4a70
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gérer les comptes de stockage dans Azure Stack
 Découvrez comment gérer les comptes de stockage dans Azure Stack pour rechercher, restaurer et récupérer de la capacité de stockage en fonction des besoins de l’entreprise.
@@ -54,7 +53,7 @@ Si vous êtes intéressé par un compte de stockage particulier, vous pouvez **f
 
 1. Cliquez sur **Filtrer** en haut du panneau.
 2. Dans le panneau Filtrer, vous pouvez spécifier un **nom de compte**, un **ID d’abonnement** ou un **état** pour affiner la liste des comptes de stockage à afficher. Utilisez-les pour filtrer selon vos besoins.
-3. Cliquez sur **Mettre à jour**. La liste est normalement actualisée en conséquence.
+3. Cliquez sur **Update**. La liste est normalement actualisée en conséquence.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
 4. Pour réinitialiser le filtre : cliquez sur **Filtrer**, effacez les sélections et mettez à jour la liste.
@@ -80,7 +79,7 @@ Dans Azure Stack, il existe un moyen très simple de le faire :
 3. Vérifiez l’*état* du compte. Il doit être **Supprimé**.
 4. Cliquez sur le compte pour ouvrir le panneau des détails du compte.
 5. En haut de ce panneau, recherchez le bouton **Récupérer** et cliquez sur celui-ci.
-6. Cliquez sur **Oui** pour confirmer.
+6. Cliquez sur **Yes** (Oui) pour confirmer.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. La récupération est maintenant *en cours... Attendez* un message indiquant que la récupération est effective.

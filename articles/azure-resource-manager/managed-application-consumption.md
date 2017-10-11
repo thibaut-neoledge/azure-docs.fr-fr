@@ -10,12 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/23/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: ed8fbaf2a4546c8e31eeced11cd0b5627fd62c0c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="consume-an-internal-managed-application"></a>Utiliser une application managée interne
 
@@ -31,15 +30,15 @@ Pour déployer une application managée via le portail, suivez ces étapes :
 
 1. Accédez au portail Azure. Recherchez **Application managée du catalogue de services**.
 
-   ![Application managée du catalogue de services](./media/managed-application-consumption/create-service-catalog-managed-application.png)
+   ![Application gérée du catalogue de services](./media/managed-application-consumption/create-service-catalog-managed-application.png)
 
 1. Sélectionnez l’application managée que vous voulez créer dans la liste des solutions disponibles. Sélectionnez **Créer**.
 
-   ![Sélection d’application managée](./media/managed-application-consumption/select-offer.png)
+   ![Sélection d’application gérée](./media/managed-application-consumption/select-offer.png)
 
 1. Fournissez les valeurs des paramètres nécessaires à l’approvisionnement des ressources. Sélectionnez **Ouest-Centre des États-Unis** comme emplacement. Sélectionnez **OK**.
 
-   ![Paramètres de l’application managée](./media/managed-application-consumption/input-parameters.png)
+   ![Paramètres de l’application gérée](./media/managed-application-consumption/input-parameters.png)
 
 1. Le modèle valide les valeurs que vous avez fournies. Si la validation aboutit, sélectionnez **OK** pour commencer le déploiement.
 
@@ -124,4 +123,3 @@ Cette version préliminaire comprend les problèmes suivants :
 * Pour plus d’informations sur la publication d’une application gérée de catalogue de services, consultez l’article [Créer et publier une application gérée de catalogue de services](managed-application-publishing.md).
 * Pour plus d’informations sur la publication d’applications gérées sur la Place de marché, consultez l’article [Applications gérées sur la Place de marché](managed-application-author-marketplace.md).
 * Pour plus d’informations sur l’utilisation d’applications gérées de la Place de marché, consultez l’article [Utilisation des applications gérées de la Place de marché Azure](managed-application-consume-marketplace.md).
-

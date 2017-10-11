@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Utiliser PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif
 > [!IMPORTANT] 
@@ -67,7 +66,7 @@ Cette rubrique explique comment déployer et configurer un serveur de rapports S
    * **Taille : A3** est la taille de machine virtuelle recommandée pour les charges de travail SQL Server. Si une machine virtuelle est utilisée uniquement comme serveur de rapports, la taille A2 est suffisante, sauf si la charge de travail du serveur est importante. Pour connaître les informations de tarification des machines virtuelles, consultez la page [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Nouveau nom d’utilisateur**: le nom que vous fournissez est créé en tant qu’administrateur sur la machine virtuelle.
    * **Nouveau mot de passe** et **confirmation**. Ce mot de passe est utilisé pour le nouveau compte Administrateur. Il est recommandé d’utiliser un mot de passe fort.
-   * Cliquez sur **Next**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * Cliquez sur **Suivant**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. Sur la page suivante, renseignez les champs suivants comme indiqué :
    
    * **Service cloud** : sélectionnez **Créer un service cloud**.
@@ -512,7 +511,7 @@ Si vous ne souhaitez pas exécuter le script PowerShell pour configurer le serve
    
    1. Cliquez sur **Changer la base de données**.
    2. Cliquez sur **Créer une nouvelle base de données de serveur de rapports**, puis sur **Suivant**.
-   3. Laissez la valeur par défaut **Nom du serveur** : comme nom de la machine virtuelle et la valeur par défaut **Type d’authentification** sur **Utilisateur actuel** – **Sécurité intégrée**. Cliquez sur **Next**.
+   3. Laissez la valeur par défaut **Nom du serveur** : comme nom de la machine virtuelle et la valeur par défaut **Type d’authentification** sur **Utilisateur actuel** – **Sécurité intégrée**. Cliquez sur **Suivant**.
    4. Laissez la valeur par défaut **Nom de la base de données** sur **ReportServer** et cliquez sur **Suivant**.
    5. Laissez la valeur par défaut **Type d’authentification** sur **Informations d’identification du service** et cliquez sur **Suivant**.
    6. Cliquez sur **Suivant** on the **Suivant** .
@@ -608,5 +607,4 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 ### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>Liens vers d’autres ressources pour SQL Server dans les machines virtuelles Azure
 [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
-
 

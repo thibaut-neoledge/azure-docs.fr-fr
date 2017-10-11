@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: b2e005d707717a8f6db90b24438527304823a6a8
-ms.openlocfilehash: a0867e97805bbb905d5defa89d13bbb0d4c4aa49
-
-
+ms.openlocfilehash: dad415936280b4af916b8c46df46f6c51ac0bca4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Résoudre des problèmes d’itinéraire à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -150,9 +150,3 @@ Quelques éléments à prendre en compte lors de l’examen de la liste d’itin
 * Pour que le trafic VNet Peering fonctionne correctement, un itinéraire système avec **nextHopType** *VNetPeering* doit exister pour la plage de préfixes du réseau virtuel homologué. Si un itinéraire de ce type n’existe pas et si le lien d’homologation du réseau virtuel semble correct :
   * Patientez quelques secondes, puis recommencez s’il s’agit d’un lien d’homologation récemment établi. Il faut parfois plus de temps pour propager les itinéraires à toutes les interfaces réseau dans un sous-réseau.
   * Des règles du groupe de sécurité réseau peuvent avoir une incidence sur les flux de trafic. Pour plus d’informations, consultez [Résoudre les problèmes relatifs aux groupes de sécurité réseau](virtual-network-nsg-troubleshoot-portal.md) .
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

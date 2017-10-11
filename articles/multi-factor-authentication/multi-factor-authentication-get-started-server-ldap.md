@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: kgremban
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 740624a048e97217767956f3994b6566acce4786
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.openlocfilehash: 8f4d5f9e84ad7bb4fff501370036e7f0da589bf3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Authentification LDAP et serveur Azure Multi-Factor Authentication
 Par défaut, le serveur Azure Multi-Factor Authentication est configuré pour importer ou synchroniser des utilisateurs à partir d'Active Directory. Toutefois, il peut être configuré pour être lié à d’autres répertoires LDAP, comme un répertoire ADAM ou un contrôleur de domaine Active Directory spécifique. Lorsqu’il est connecté à un annuaire par LDAP, le serveur Azure Multi-Factor Authentication peut servir de proxy LDAP pour effectuer les authentifications. Il permet également d’utiliser la liaison LDAP comme cible RADIUS, pour pré-authentifier les utilisateurs avec l’authentification IIS ou pour effectuer l’authentification principale dans le portail de l’utilisateur Azure MFA.
@@ -75,5 +74,4 @@ Pour configurer le client LDAP, suivez ces indications :
 * Configurez votre appliance, votre serveur ou votre application pour vous authentifier par LDAP auprès du serveur Azure Multi-Factor Authentication, comme s’il s’agissait de votre annuaire LDAP. Utilisez les mêmes paramètres que pour vous connecter directement à votre annuaire LDAP, sauf pour le nom du serveur ou l’adresse IP qui sera celui ou celle du serveur Azure Multi-Factor Authentication.
 * Réglez le délai d’expiration LDAP sur 30 à 60 secondes pour pouvoir valider les informations d’identification de l’utilisateur dans l’annuaire LDAP, effectuer la vérification en deux étapes, recevoir leur réponse et répondre à la demande d’accès LDAP.
 * Si vous utilisez LDAPS, l’appliance ou le serveur qui effectue les requêtes LDAP doit approuver le certificat SSL installé sur le serveur Azure Multi-Factor Authentication.
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: a3866a91bf2656990c40ead20cedb67fc47a87fd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="paas-services-for-azure-stack"></a>Services PaaS pour Azure Stack
 
@@ -30,7 +29,6 @@ Vous pouvez déployer les services [PaaS (Platform as a Service)](https://azure.
 [Ajouter un fournisseur de ressources SQL Server à Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
 
 [Ajouter un fournisseur de ressources MySQL Server à Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
-
 
 
 

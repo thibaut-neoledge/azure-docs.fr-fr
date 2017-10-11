@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ums.workload: na
 ms.date: 08/18/2017
 ms.author: barclayn
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 752568747ab96bc0a9c7fc5f24ff28c3bce4e09f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-encryption-overview"></a>Vue d’ensemble du chiffrement Azure
 
@@ -206,4 +205,3 @@ Azure Key Vault soulage les entreprises de la nécessité de configurer, de corr
 - [Vue d’ensemble de la sécurité des machines virtuelles d’Azure](security-virtual-machines-overview.md)
 - [Chiffrement des données au repos](azure-security-encryption-atrest.md)
 - [Meilleures pratiques en matière de chiffrement et de sécurité des données](azure-security-data-encryption-best-practices.md)
-

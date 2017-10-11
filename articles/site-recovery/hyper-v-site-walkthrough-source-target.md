@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: b38eb3a011d46f2239891ea1d1bcac2a4059a866
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-8-set-up-the-source-and-target-for-hyper-v-replication-to-azure"></a>Étape 8 : configurer la source et la cible pour la réplication de Hyper-V vers Azure
 
 Cet article explique comment configurer les paramètres de source et de cible pour la réplication de machines virtuelles Hyper-V (sans System Center VMM) vers Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md) dans le portail Azure.
@@ -93,5 +91,4 @@ Spécifiez le compte Azure Storage à utiliser pour la réplication, ainsi que l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Accédez à [Étape 9 : configurer une stratégie de réplication](hyper-v-site-walkthrough-replication.md).
-
+Aller à [Étape 9 : configurer une stratégie de réplication](hyper-v-site-walkthrough-replication.md)

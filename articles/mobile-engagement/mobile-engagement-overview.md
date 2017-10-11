@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement-overview"></a>Présentation d'Azure Mobile Engagement
 Azure Mobile Engagement est une plateforme SaaS d'engagement des utilisateurs qui fournit des informations orientées données sur l'utilisation des applications, qui permet de segmenter les utilisateurs en temps réel et d'activer les notifications Push adaptées au contexte, ainsi que la messagerie au sein de l'application.
@@ -50,10 +50,4 @@ Depuis longtemps, Microsoft fait preuve d'un engagement réel vis-à-vis de la c
 [Prise en main](/index.md)
 
 [Télécharger des applications de démonstration avec le code source](https://aka.ms/azmedemoapps)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

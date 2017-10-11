@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
 ms.openlocfilehash: d6d3fa7aa0e8b2462b3a6b4b66d3d87ab5535314
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-10"></a>Importer et exporter un fichier de zone DNS en utilisant Azure CLI 1.0 
 
 Cet article vous guide dans l’importation et l’exportation de fichiers de zone DNS pour Azure DNS à l’aide d’Azure CLI 1.0.
@@ -219,4 +217,3 @@ Pour importer une zone, vous devez d’abord vous connecter, sélectionner votre
     ```azurecli
     azure network dns zone export myresourcegroup contoso.com contoso.com.txt
     ```
-

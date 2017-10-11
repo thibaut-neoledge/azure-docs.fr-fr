@@ -1,6 +1,6 @@
 ---
 title: "Présélection Media Encoder Standard H264 - Vitesse de transmission unique - 16 x 9 SD - Azure | Microsoft Docs"
-description: "Cette rubrique présente une vue d’ensemble de la présélection de tâches **H264 - Vitesse de transmission unique - 16 x 9 SD**."
+description: "La rubrique présente une vue d’ensemble de la présélection de travaux **H264 - Vitesse de transmission unique - 16 x 9 SD**."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: 056cb7eef9d134b7a89c0dea627e4518d2c96b5a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 746dc845f1e32d6be3f207448523d8966da9f8a0
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
-
-
 # <a name="h264-single-bitrate-16x9-sd"></a>H264 – Vitesse de transmission unique – 16 x 9 SD
 `Media Encoder Standard` définit un ensemble de présélections d’encodage à utiliser lors de la création de travaux d’encodage. Vous pouvez utiliser un `preset name` afin de spécifier le format dans lequel vous souhaitez encoder votre fichier multimédia. Sinon, vous pouvez créer vos propres présélections basées sur JSON ou XML (à l’aide de l’encodage UTF-8 ou UTF-16). Vous pouvez ensuite transmettre la présélection personnalisée à l’encodeur. Pour obtenir la liste de tous les noms de présélections pris en charge par cet encodeur `Media Encoder Standard`, consultez [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md).  
   
@@ -118,4 +115,3 @@ ms.lasthandoff: 01/27/2017
   ]  
 }  
 ```
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: bf6a98fd7e7e11764bef174f9efd0635fa7efe9a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Créer des alertes de journal d’activité sur les notifications de service
 ## <a name="overview"></a>Vue d'ensemble
@@ -71,7 +70,7 @@ Pour plus d’informations sur le mode de configuration des alertes de notificat
 
     a. **Nom** : entrez le nom, l’alias ou l’identificateur du destinataire.
 
-    b. **Type d’action** : sélectionnez SMS, e-mail ou Webhook.
+    b. **Type d’action** : sélectionnez SMS, e-mail ou webhook.
 
     c. **Détails** : selon le type d’action choisi, indiquez un numéro de téléphone, une adresse e-mail ou une URI Webhook.
 
@@ -110,4 +109,3 @@ Une fois l’alerte créée, elle apparaît dans la section **Alertes** du panne
 - Consultez le [schéma webhook des alertes de journal d’activité](monitoring-activity-log-alerts-webhook.md).
 - Obtenez une [vue d’ensemble des alertes du journal d’activité](monitoring-overview-alerts.md) et découvrez comment recevoir des alertes. 
 - En savoir plus sur les [groupes d’actions](monitoring-action-groups.md).
-

@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: 1555f13c3ea88b61be0ea240b51218b83f6f9724
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB : importer des données MongoDB 
 
 Pour migrer des données de MongoDB vers un compte Azure Cosmos DB en vue d’une utilisation avec l’API pour MongoDB, vous devez :
@@ -154,4 +152,3 @@ Vous pouvez passer au didacticiel suivant et découvrir comment interroger les d
 
 > [!div class="nextstepaction"]
 >[Comment interroger les données MongoDB ?](../cosmos-db/tutorial-query-mongodb.md)
-

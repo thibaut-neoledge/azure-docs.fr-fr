@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>Quelles sont les particularités du point de terminaison v2.0 ?
 Si vous connaissez bien le service Azure Active Directory ou si vous avez déjà intégré des applications à Azure AD dans le passé, il peut exister des différences dans le point de terminaison v2.0 auxquelles vous ne vous attendiez pas.  Pour votre bonne compréhension, ce document énumère ces différences.
@@ -127,4 +125,3 @@ Les demandes des jetons émis par le point de terminaison v2.0 ne sont pas iden
 
 ## <a name="limitations"></a>Limites
 Il existe quelques restrictions à connaître lors de l’utilisation du point v2.0.  Consultez le [document relatif aux limites v2.0](active-directory-v2-limitations.md) pour voir si ces restrictions s’appliquent à votre scénario particulier.
-

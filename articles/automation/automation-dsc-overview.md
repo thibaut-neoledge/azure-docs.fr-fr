@@ -1,11 +1,11 @@
 ---
 title: "Vue d’ensemble d’Azure Automation DSC | Microsoft Docs"
-description: "Vue d&quot;ensemble de la configuration d&quot;état souhaité (DSC) Azure Automation, les termes s&quot;y rapportant et les problèmes connus"
+description: "Vue d'ensemble de la configuration d'état souhaité (DSC) Azure Automation, les termes s'y rapportant et les problèmes connus"
 services: automation
 documentationcenter: dev-center-name
 author: eslesar
 manager: carmonm
-keywords: "PowerShell DSC, Desired State Configuration, configuration d&quot;état souhaité PowerShell DSC Azure"
+keywords: "PowerShell DSC, Desired State Configuration, configuration d'état souhaité PowerShell DSC Azure"
 ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
 ms.service: automation
 ms.devlang: NA
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 23a6e09d410616b135506df778d6fdd5ed68bb41
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 468321fa6863d78bc0d179fbe5c2ed6195040d50
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-automation-dsc-overview"></a>Vue d'ensemble d'Azure Automation DSC
 
 Azure Automation DSC est un service Azure qui vous permet d’écrire, de gérer et de compiler les [configurations](https://msdn.microsoft.com/powershell/dsc/configurations) PowerShell DSC, d’importer des [ressources DSC](https://msdn.microsoft.com/powershell/dsc/resources) et d’assigner des configurations aux nœuds cibles, le tout dans le cloud.
@@ -67,4 +65,4 @@ Lire de la documentation vous enchante moyennement ? Jetez un œil à la vidéo
 * Pour en savoir plus sur la compilation des configurations DSC pour les assigner à des nœuds cibles, consultez [Compilation de configurations dans Azure Automation DSC](automation-dsc-compile.md).
 * Pour la référence de cmdlet PowerShell pour Azure Automation DSC, consultez [AzureRM.Automation](/powershell/module/azurerm.automation/#automation).
 * Pour plus d’informations sur la tarification, consultez [Tarification de Automation](https://azure.microsoft.com/pricing/details/automation/).
-* Pour voir un exemple d’utilisation d’Azure Automation DSC dans un pipeline de déploiement continu, consultez  [Exemple d’utilisation : Déploiement continu sur des ordinateurs virtuels à l’aide d’Automation DSC et Chocolatey](automation-dsc-cd-chocolatey.md).
+* Pour voir un exemple d’utilisation d’Azure Automation DSC dans un pipeline de déploiement continu, consultez [déploiement continu pour IaaS machines virtuelles à l’aide de Azure Automation DSC et Chocolatey](automation-dsc-cd-chocolatey.md)

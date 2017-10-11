@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a662841bebda460d4225e080f16705b3f16fdc46
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="get-started-with-azure-advisor"></a>Prise en main d’Azure Advisor
 
 Découvrez comment accéder à Advisor à l’aide du portail Azure, et comment obtenir, implémenter, rechercher et actualiser des recommandations.
@@ -95,4 +93,3 @@ Pour en savoir plus sur Advisor, consultez les ressources suivantes :
 * [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)
 -  [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md)
 * [Recommandations du conseiller en matière de coûts](advisor-performance-recommendations.md)
-

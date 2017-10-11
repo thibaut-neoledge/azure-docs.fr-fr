@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: dcb0455fe223e99b4f1b0035b1d1109ecf5ee268
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 11ec0d3d9e33c06d4c0a164f7fba5dd5cca73872
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli-20"></a>Gérer des groupes de sécurité réseau avec Azure CLI 2.0
 
@@ -352,5 +351,4 @@ Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est asso
     ```
 ## <a name="next-steps"></a>Étapes suivantes
 * [Activez la journalisation](virtual-network-nsg-manage-log.md) des groupes de sécurité réseau.
-
 

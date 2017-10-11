@@ -14,21 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 4a88cf56eea3dd562d4d5dcc4fe7364ea226a348
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-<a id="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration" class="xliff"></a>
-
-# Azure AD Connect Sync : comment modifier la configuration par défaut
+# <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect Sync : comment modifier la configuration par défaut
 L’objectif de cette rubrique est de vous expliquer comment apporter des modifications à la configuration par défaut dans Azure AD Connect Sync. Elle explique pas à pas la procédure pour les scénarios courants. Après avoir lu cette page, vous devriez être en mesure d’apporter des modifications simples à votre configuration en fonction de vos propres règles d’entreprise.
 
-<a id="synchronization-rules-editor" class="xliff"></a>
-
-## Éditeur de règles de synchronisation
+## <a name="synchronization-rules-editor"></a>Éditeur de règles de synchronisation
 L’éditeur de règles de synchronisation sert à afficher et modifier la configuration par défaut. Il est disponible dans le menu Démarrer, sous le groupe **Azure Connect AD** .  
 ![Menu Démarrer avec l’Éditeur de règles de synchronisation](./media/active-directory-aadconnectsync-change-the-configuration/startmenu2.png)
 
@@ -36,9 +31,7 @@ Lorsque vous l’ouvrez, vous accédez directement aux règles par défaut.
 
 ![Éditeur de règles de synchronisation](./media/active-directory-aadconnectsync-change-the-configuration/sre2.png)
 
-<a id="navigating-in-the-editor" class="xliff"></a>
-
-### Navigation dans l’Éditeur
+### <a name="navigating-in-the-editor"></a>Navigation dans l’Éditeur
 Les listes déroulantes situées en haut de l’Éditeur vous permettent d’accéder rapidement à une règle particulière. Par exemple, si vous souhaitez afficher les règles comprenant l’attribut proxyAddresses, vous pouvez modifier les listes déroulantes comme suit :   
 ![Filtrage SRE](./media/active-directory-aadconnectsync-change-the-configuration/filtering.png)  
 pour redéfinir le filtrage et charger une nouvelle configuration, appuyez sur la **F5** du clavier.
@@ -47,21 +40,15 @@ En haut à droite de l’écran se trouve le bouton **Ajouter une nouvelle règl
 
 En bas, vous disposez de boutons permettant d’agir sur une règle de synchronisation sélectionnée. Les boutons **Modifier** et **Supprimer** permettent de modifier et de supprimer des règles. **Exporterer** génère un script PowerShell pour recréer la règle de synchronisation. Cette procédure vous permet de déplacer une règle de synchronisation d’un serveur vers un autre.
 
-<a id="create-your-first-custom-rule" class="xliff"></a>
-
-## Création de votre première règle personnalisée
+## <a name="create-your-first-custom-rule"></a>Création de votre première règle personnalisée
 Le changement le plus courant consiste à modifier les flux d’attributs. Les données contenues dans votre répertoire source ne sont peut-être pas telles que vous souhaiteriez les restituer dans Azure AD. Dans l’exemple de cette section, vous voulez faire en sorte que le nom d’un utilisateur donné apparaisse toujours au format **Nom propre**.
 
-<a id="disable-the-scheduler" class="xliff"></a>
-
-### Désactivation du planificateur
+### <a name="disable-the-scheduler"></a>Désactivation du planificateur
 Par défaut, le [planificateur](active-directory-aadconnectsync-feature-scheduler.md) s’exécute toutes les 30 minutes. Vous souhaitez vous assurer qu’il ne démarre pas pendant que vous apportez des modifications et corrigez les problèmes de vos nouvelles règles. Pour désactiver temporairement le planificateur, démarrez PowerShell et exécutez `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 ![Désactivation du planificateur](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)  
 
-<a id="create-the-rule" class="xliff"></a>
-
-### Création de la règle
+### <a name="create-the-rule"></a>Création de la règle
 1. Cliquez sur **Ajouter une nouvelle règle**.
 2. Sur la page **Description**, entrez les informations suivantes :  
    ![Filtrage des règles entrantes](./media/active-directory-aadconnectsync-change-the-configuration/description2.png)  
@@ -83,9 +70,7 @@ Par défaut, le [planificateur](active-directory-aadconnectsync-feature-schedule
 
 Votre nouvelle règle personnalisée doit être visible pour les autres règles de synchronisation du système.
 
-<a id="verify-the-change" class="xliff"></a>
-
-### Vérification des modifications
+### <a name="verify-the-change"></a>Vérification des modifications
 Après avoir apporté une nouvelle modification, il est préférable de s’assurer que tout fonctionne comme prévu et qu’aucune erreur n’est générée. Selon le nombre d’objets dont vous disposez, il existe deux façons de procéder.
 
 1. Exécuter une synchronisation complète de tous les objets
@@ -106,19 +91,13 @@ Démarrez le **Service de synchronisation** depuis le menu Démarrer. Les étape
 Vous souhaitez maintenant choisir quelques exemples d’objets pour vous assurer que la valeur correspond à celle attendue et que la règle est bien appliquée. Sélectionnez **Metaverse Search** (Recherche dans le métaverse) en haut de l’écran. Ajoutez les filtres dont vous avez besoin pour rechercher les objets appropriés. Dans les résultats de la recherche, ouvrez un objet. Examinez les valeurs d’attribut et vérifiez dans la colonne **Règles de synchronisation** que la règle a bien été appliquée comme prévu.  
 ![Metaverse search](./media/active-directory-aadconnectsync-change-the-configuration/mvsearch.png)  
 
-<a id="enable-the-scheduler" class="xliff"></a>
-
-### Activation du planificateur
+### <a name="enable-the-scheduler"></a>Activation du planificateur
 Si tout fonctionne comme prévu, vous pouvez réactiver le planificateur. À partir de PowerShell, exécutez `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
-<a id="other-common-attribute-flow-changes" class="xliff"></a>
-
-## Autres modifications courantes du flux d’attributs
+## <a name="other-common-attribute-flow-changes"></a>Autres modifications courantes du flux d’attributs
 Dans la section précédente, nous avons vu comment apporter des modifications à un flux d’attributs. Dans cette section, vous trouverez d’autres exemples. Les étapes de création de la règle de synchronisation ont été condensées, mais vous trouverez la procédure complète dans la section précédente.
 
-<a id="use-another-attribute-than-the-default" class="xliff"></a>
-
-### Utiliser un autre attribut que l’attribut par défaut
+### <a name="use-another-attribute-than-the-default"></a>Utiliser un autre attribut que l’attribut par défaut
 Chez Fabrikam, il existe une forêt où l’alphabet local est utilisé pour les prénoms, noms et noms complets. La représentation sous forme de caractères latins de ces attributs est stockée dans les attributs d’extension. Au moment de la création de la liste d’adresses globale dans Azure AD et Office 365, l’organisation souhaite que ces attributs soient utilisés.
 
 Avec une configuration par défaut, un objet de la forêt locale ressemble à ceci :   
@@ -140,31 +119,23 @@ Pour créer une règle avec d’autres flux d’attributs, procédez comme suit�
 Il s’agit du résultat obtenu pour le même objet avec cette règle personnalisée :   
 ![Flux d’attributs 4](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp4.png)
 
-<a id="length-of-attributes" class="xliff"></a>
-
-### Longueur des attributs
+### <a name="length-of-attributes"></a>Longueur des attributs
 Les attributs de chaîne sont par défaut définis pour être indexables et la longueur maximale est de 448 caractères. Si vous travaillez avec des attributs de chaîne qui peuvent contenir davantage de caractères, assurez-vous d’inclure ce qui suit dans le flux d’attributs :   
 `attributeName` <- `Left([attributeName],448)`
 
-<a id="changing-the-userprincipalsuffix" class="xliff"></a>
-
-### Modification de userPrincipalSuffix
+### <a name="changing-the-userprincipalsuffix"></a>Modification de userPrincipalSuffix
 L’attribut userPrincipalName dans Active Directory n’est pas toujours connu des utilisateurs et peut ne pas convenir comme ID de connexion. L’Assistant d’installation d’Azure AD Connect Sync permet de choisir un autre attribut, par exemple un e-mail, mais dans certains cas l’attribut doit être calculé. Par exemple, la société Contoso possède deux annuaires AD, un pour la production et un pour les tests. Elle souhaite que les utilisateurs de son client test utilisent un autre suffixe dans l’ID de connexion.  
 `userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
 Dans cette expression, prenons tout ce qui figure à gauche du premier signe @-sign (Word) et concaténons avec une chaîne fixe.
 
-<a id="convert-a-multi-value-to-a-single-value" class="xliff"></a>
-
-### Convertir un attribut à valeurs multiples en attribut à valeur unique
+### <a name="convert-a-multi-value-to-a-single-value"></a>Convertir un attribut à valeurs multiples en attribut à valeur unique
 Certains attributs dans Active Directory sont à valeurs multiples dans le schéma, même s’ils semblent être à valeur unique dans Utilisateurs et ordinateurs Active Directory. L’attribut description constitue un exemple.  
 `description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
 Dans cette expression, au cas où l’attribut a une valeur, prenez le premier élément (Item) dans l’attribut, supprimez les espaces à gauche et à droite (Trim), puis conservez les 448 premiers caractères (Left) de la chaîne.
 
-<a id="do-not-flow-an-attribute" class="xliff"></a>
-
-### Ne transmettez pas d'attribut
+### <a name="do-not-flow-an-attribute"></a>Ne transmettez pas d'attribut
 Pour plus d’informations sur le scénario de cette section, consultez la section [Contrôler le processus de flux d’attributs](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
 
 Il existe deux manières de ne pas transmettre un attribut. La première est disponible dans l'Assistant d'installation et vous permet de [Supprimer les attributs sélectionnés](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). Cette option fonctionne si vous n'avez jamais synchronisé l'attribut auparavant. Toutefois, si vous avez commencé à synchroniser cet attribut et que vous le supprimez ultérieurement avec cette fonctionnalité, le moteur de synchronisation cesse de gérer l’attribut et les valeurs existantes sont maintenues dans Azure AD.
@@ -181,19 +152,13 @@ Chez Fabrikam, nous nous sommes rendus compte que certains des attributs que nou
 * Vérifiez que les modifications prévues vont être exportées en recherchant l'espace de connecteur.
   ![Suppression progressive](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
-<a id="create-rules-with-powershell" class="xliff"></a>
-
-## Création de règles avec PowerShell
+## <a name="create-rules-with-powershell"></a>Création de règles avec PowerShell
 L’éditeur de règles de synchronisation est adapté lorsque vous avez seulement quelques modifications à apporter. Si vous devez apporter de nombreuses modifications, PowerShell peut être une meilleure option. Certaines fonctionnalités avancées sont uniquement disponibles avec PowerShell.
 
-<a id="get-the-powershell-script-for-an-out-of-box-rule" class="xliff"></a>
-
-### Obtenir le script PowerShell pour une règle out-of-box
+### <a name="get-the-powershell-script-for-an-out-of-box-rule"></a>Obtenir le script PowerShell pour une règle out-of-box
 Pour voir le script PowerShell qui a créé une règle out-of-box, sélectionnez la règle dans l’éditeur de règles de synchronisation, puis cliquez sur **Exporter**. Cette action vous donne le script PowerShell qui a créé la règle.
 
-<a id="advanced-precedence" class="xliff"></a>
-
-### Priorité avancée
+### <a name="advanced-precedence"></a>Priorité avancée
 Les règles de synchronisation out-of-box commencent avec une valeur de priorité de 100. Si vous avez de nombreuses forêts et que vous devez apporter de nombreuses modifications personnalisées, 99 règles de synchronisation pourraient ne pas suffire.
 
 Vous pouvez indiquer au moteur de synchronisation que vous souhaitez que des règles supplémentaires soient insérées avant les règles out-of-box. Pour obtenir ce comportement, procédez comme suit :
@@ -207,9 +172,7 @@ Vous pouvez indiquer au moteur de synchronisation que vous souhaitez que des rè
 Vous pouvez avoir plusieurs règles de synchronisation personnalisées utilisant la même valeur **PrecedenceBefore** si nécessaire.
 
 
-<a id="enable-synchronization-of-preferreddatalocation" class="xliff"></a>
-
-## Activer la synchronisation de l’attribut PreferredDataLocation
+## <a name="enable-synchronization-of-preferreddatalocation"></a>Activer la synchronisation de l’attribut PreferredDataLocation
 Azure AD Connect prend en charge la synchronisation de l’attribut **PreferredDataLocation** pour les objets **Utilisateur** dans la version 1.1.524.0 et versions ultérieures. Plus spécifiquement, les modifications introduites sont les suivantes :
 
 * Le schéma du type d’objet **Utilisateur** dans le connecteur Azure AD est étendu pour inclure l’attribut PreferredDataLocation qui est de type chaîne et n’a qu’une seule valeur.
@@ -254,9 +217,7 @@ Les étapes d’activation de la synchronisation de l’attribut PreferredDataLo
 > [!NOTE]
 > Le reste de cette section décrit ces étapes en détail. Ils sont décrits dans le cadre d’un déploiement d’Azure AD avec une topologie de forêt unique et sans règles de synchronisation personnalisées. Si vous avez une topologie à forêts multiples, des règles de synchronisation personnalisées configurées ou un serveur intermédiaire, vous devez ajuster les étapes en conséquence.
 
-<a id="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress" class="xliff"></a>
-
-### Étape 1 : désactiver le planificateur de synchronisation et vérifier qu’aucune synchronisation n’est en cours
+### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Étape 1 : désactiver le planificateur de synchronisation et vérifier qu’aucune synchronisation n’est en cours
 Veillez à ce qu’aucune synchronisation ne se produise quand vous êtes en train de mettre à jour des règles de synchronisation afin d’éviter l’exportation de modifications inattendues vers Azure AD. Pour désactiver le planificateur de synchronisation intégré :
 
  1. Lancez une session PowerShell sur le serveur Azure AD Connect.
@@ -269,9 +230,7 @@ Veillez à ce qu’aucune synchronisation ne se produise quand vous êtes en tra
 
 ![Synchronization Service Manager - Vérifier qu’aucune opération n’est en cours](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step1.png)
 
-<a id="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema" class="xliff"></a>
-
-### Étape 2  : ajouter l’attribut source au schéma du connecteur AD local
+### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Étape 2  : ajouter l’attribut source au schéma du connecteur AD local
 Certains attributs AD ne sont pas importés dans l’espace du connecteur AD local. Pour ajouter l’attribut source à la liste des attributs importés :
 
  1. Accédez à l’onglet **Connecteurs** dans Synchronization Service Manager.
@@ -286,9 +245,7 @@ Certains attributs AD ne sont pas importés dans l’espace du connecteur AD loc
 
 ![Ajoutez l’attribut source au schéma du connecteur AD local](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step2.png)
 
-<a id="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema" class="xliff"></a>
-
-### Étape 3 : ajouter l’attribut PreferredDataLocation au schéma du connecteur Azure AD
+### <a name="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>Étape 3 : ajouter l’attribut PreferredDataLocation au schéma du connecteur Azure AD
 Par défaut, l’attribut PreferredDataLocation n’est pas importé dans l’espace Azure AD Connect. Pour ajouter l’attribut PreferredDataLocation à la liste des attributs importés :
 
  1. Accédez à l’onglet **Connecteurs** dans Synchronization Service Manager.
@@ -303,9 +260,7 @@ Par défaut, l’attribut PreferredDataLocation n’est pas importé dans l’es
 
 ![Ajouter un attribut source au schéma du connecteur Azure AD](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step3.png)
 
-<a id="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory" class="xliff"></a>
-
-### Étape 4 : créer une règle de synchronisation de trafic entrant pour transmettre la valeur de l’attribut à partir de l’Active Directory local
+### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Étape 4 : créer une règle de synchronisation de trafic entrant pour transmettre la valeur de l’attribut à partir de l’Active Directory local
 La règle de synchronisation de trafic entrant permet de transmettre la valeur de l’attribut de l’attribut source de l’Active Directory local au Metaverse :
 
 1. Lancez **Synchronization Rules Editor** dans le menu DÉMARRER → Éditeur de règles de synchronisation.
@@ -344,9 +299,7 @@ La règle de synchronisation de trafic entrant permet de transmettre la valeur d
 
 ![Créer une règle de synchronisation de trafic entrant](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step4.png)
 
-<a id="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad" class="xliff"></a>
-
-### Étape 5 : créer une règle de synchronisation de trafic sortant pour transmettre la valeur de l’attribut à Azure AD
+### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Étape 5 : créer une règle de synchronisation de trafic sortant pour transmettre la valeur de l’attribut à Azure AD
 La règle de synchronisation de trafic sortant permet de transmettre la valeur de l’attribut du Metaverse à l’attribut PreferredDataLocation dans Azure AD :
 
 1. Accédez à l’**Éditeur de règles de synchronisation**.
@@ -386,9 +339,7 @@ La règle de synchronisation de trafic sortant permet de transmettre la valeur d
 
 ![Créer une règle de synchronisation de trafic sortant](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step5.png)
 
-<a id="step-6-run-full-synchronization-cycle" class="xliff"></a>
-
-### Étape 6 : exécuter un cycle de synchronisation complète
+### <a name="step-6-run-full-synchronization-cycle"></a>Étape 6 : exécuter un cycle de synchronisation complète
 En règle générale, un cycle de synchronisation complète est nécessaire parce que nous avons ajouté de nouveaux attributs à l’AD et au schéma du connecteur Azure AD, et introduit des règles de synchronisation personnalisées. Il est recommandé de vérifier les modifications avant de les exporter vers Azure AD. Vous pouvez procéder comme suit pour vérifier les modifications tandis que vous exécutez manuellement les étapes d’un cycle de synchronisation complète. 
 
 1. Exécutez l’étape d’**importation complète** sur le **Connecteur Active Directory local** :
@@ -449,9 +400,7 @@ L’attribut source de l’Active Directory local et l’attribut PreferredDataL
 > [!NOTE]
 > Vous pouvez remarquer que les étapes n’incluent pas la synchronisation complète et l’exportation sur le connecteur Azure AD. Ces étapes ne sont pas obligatoires car les valeurs d’attribut sont transmises uniquement de l’Active Directory local à Azure AD.
 
-<a id="step-7-re-enable-sync-scheduler" class="xliff"></a>
-
-### Étape 7 : réactiver le planificateur de synchronisation
+### <a name="step-7-re-enable-sync-scheduler"></a>Étape 7 : réactiver le planificateur de synchronisation
 Réactivez le planificateur de synchronisation intégré :
 
 1. Lancez une session PowerShell.
@@ -460,9 +409,7 @@ Réactivez le planificateur de synchronisation intégré :
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le modèle de configuration dans [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * En savoir plus sur le langage d’expression dans [Comprendre les expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 
@@ -470,4 +417,3 @@ Réactivez le planificateur de synchronisation intégré :
 
 * [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-

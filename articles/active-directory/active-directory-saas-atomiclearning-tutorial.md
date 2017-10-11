@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 6cce8fc839e60eb6498ab48bf68e9906c98889a2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Didacticiel : Intégration d’Azure Active Directory à Atomic Learning
 
@@ -91,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Atomic Learn
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Atomic Learning](#creating-an-atomic-learning-test-user)** pour avoir dans Atomic Learning un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -222,5 +221,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_203.png
-
 

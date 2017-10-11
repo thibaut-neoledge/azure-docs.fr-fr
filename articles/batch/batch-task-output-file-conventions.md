@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: a9de327c20463469bc91d9720aa17333a36f919e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>Conserver le résultat d’un travail et d’une tâche dans Azure Storage avec la bibliothèque File Conventions pour .NET 
 
@@ -77,7 +76,7 @@ Pour en savoir plus sur les conteneurs et les objets blob dans Azure Storage, co
 
 ### <a name="create-storage-container"></a>Créer un conteneur de stockage
 
-Pour conserver les sorties de tâche dans Azure Storage, créez d’abord un conteneur avec la commande [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Cette méthode d’extension nécessite un objet [CloudStorageAccount][net_cloudstorageaccount] comme paramètre. Elle permet de créer un conteneur nommé selon le standard de nommage de File Conventions, afin que son contenu soit détectable par le portail Azure et par les méthodes de récupération présentées dont nous parlerons plus loin.
+Pour conserver les sorties de tâche dans Azure Storage, créez d’abord un conteneur avec la commande [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Cette méthode d’extension nécessite un objet [CloudStorageAccount] [ net_cloudstorageaccount] comme paramètre. Elle permet de créer un conteneur nommé selon le standard de nommage de File Conventions, afin que son contenu soit détectable par le portail Azure et par les méthodes de récupération présentées dont nous parlerons plus loin.
 
 En général, vous placez ce code pour créer un conteneur dans votre application cliente &mdash;, qui crée vos pools, travaux et tâches.
 
@@ -206,7 +205,7 @@ Le portail Azure affiche les fichiers de sortie de tâches et les journaux qui s
 Pour activer l’affichage de vos fichiers de sortie dans le portail, vous devez respecter les exigences suivantes :
 
 1. [Liez un compte Azure Storage](#requirement-linked-storage-account) à votre compte Batch.
-2. Respectez les conventions d’affectation de noms prédéfinies pour les conteneurs de stockage et les fichiers lors de la conservation des sorties. Vous trouverez la définition de ces conventions dans le fichier [LISEZMOI][github_file_conventions_readme] de la bibliothèque File Conventions. Si vous utilisez la bibliothèque [Azure Batch File Conventions][nuget_package] pour conserver vos sorties, vos fichiers sont conservés selon le standard de nommage de File Conventions.
+2. Respectez les conventions d’affectation de noms prédéfinies pour les conteneurs de stockage et les fichiers lors de la conservation des sorties. Vous trouverez la définition de ces conventions dans le fichier [LISEZMOI][github_file_conventions_readme] de la bibliothèque File Conventions. Si vous utilisez la bibliothèque [Azure Batch File Conventions] [ nuget_package] pour conserver vos sorties, vos fichiers sont conservés selon le standard de nommage de File Conventions.
 
 Pour afficher les fichiers de sortie de tâches et les journaux dans le portail Azure, accédez à la tâche dont la sortie vous intéresse, puis cliquez sur **Fichiers de sortie enregistrés** ou **Journaux enregistrés**. Cette image affiche l’écran **Saved output files (Fichiers de sortie enregistrés)** pour la tâche pourvue de l’ID « 007 » :
 
@@ -262,4 +261,3 @@ Le [code source][github_file_conventions] de la bibliothèque File Conventions e
 
 [1]: ./media/batch-task-output/task-output-01.png "Sélecteurs Saved output files (Fichiers de sortie enregistrés) et Fichiers enregistrés dans le portail"
 [2]: ./media/batch-task-output/task-output-02.png "Panneau des sorties des tâches dans le Portail Azure"
-

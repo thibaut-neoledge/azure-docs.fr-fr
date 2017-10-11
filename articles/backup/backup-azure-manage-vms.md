@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gestion des sauvegardes de machines virtuelles Azure
 > [!div class="op_single_selector"]
@@ -171,7 +170,7 @@ Pour arrêter la protection d’une machine virtuelle :
 
     Si vous n’êtes pas sûr du nom de l’élément, survolez le point d’exclamation pour en afficher le nom. Le nom de l’élément figure également sous **Arrêter la sauvegarde** en haut du panneau.
 4. Vous pouvez, si vous le souhaitez, indiquer une **Raison** ou un **Commentaire**.
-5. Pour arrêter le travail de sauvegarde de l’élément actif, cliquez sur le  ![bouton Arrêter la sauvegarde](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
+5. Pour arrêter le travail de sauvegarde pour l’élément actif, cliquez sur ![bouton sauvegarde arrêter](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
 
     Un message de notification vous informe que les travaux de sauvegarde ont été interrompus.
 
@@ -220,10 +219,9 @@ Pour supprimer les données de sauvegarde d’une machine virtuelle avec l’opt
 
     Si vous n’êtes pas sûr du nom de l’élément, survolez le point d’exclamation pour en afficher le nom. Le nom de l’élément figure également sous **Supprimer les données de sauvegarde** en haut du panneau.
 3. Vous pouvez, si vous le souhaitez, indiquer une **Raison** ou un **Commentaire**.
-4. Pour supprimer les données de sauvegarde de l’élément actif, cliquez sur le  ![bouton Arrêter la sauvegarde](./media/backup-azure-manage-vms/delete-button.png)
+4. Pour supprimer les données de sauvegarde pour l’élément actif, cliquez sur ![bouton sauvegarde arrêter](./media/backup-azure-manage-vms/delete-button.png)
 
     Un message de notification vous informe que les données de sauvegarde ont été supprimées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la manière de recréer une machine virtuelle à partir d’un point de récupération, consultez [Restauration de machines virtuelles Azure](backup-azure-restore-vms.md). Pour plus d’informations sur la protection de vos machines virtuelles, consultez [Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services](backup-azure-vms-first-look-arm.md). Pour plus d’informations sur la surveillance des événements, consultez [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md)(Surveiller les alertes des sauvegardes de machines virtuelles Azure).
-

@@ -15,14 +15,12 @@ ms.date: 06/26/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 1869b7a4ef42536a3cd909ba2983ae0fe97185a9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Comment exiger la vérification en deux étapes pour un utilisateur ou un groupe
 
 Il existe deux approches pour exiger une vérification en deux étapes. La première option consiste à activer l’authentification Azure Multi-Factor Authentication (MFA) pour chaque utilisateur. En activant chaque utilisateur individuellement, celui-ci effectue toujours la vérification en deux étapes (à quelques exceptions près, comme lorsqu’ils se connectent à partir d’adresses IP approuvées ou si la fonctionnalité de mémorisation des appareils est activée). La seconde option consiste à définir une stratégie d’accès conditionnel qui requiert une vérification en deux étapes sous certaines conditions.

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Association d’un disque de données à une machine virtuelle Linux
 > [!IMPORTANT] 
@@ -90,7 +89,7 @@ Vous pouvez connecter des disques à vos machines virtuelles Azure, qu’ils soi
     sudo fdisk /dev/sdc
     ```
 
-4. Lorsque vous y êtes invité, tapez **n** pour créer une partition.
+4. Lorsque vous y êtes invité, tapez  **n**  pour créer une partition.
 
     ![Créer un appareil](./media/attach-disk/fdisknewpartition.png)
 
@@ -235,4 +234,3 @@ Vous trouverez plus d’informations sur l’utilisation de votre machine virtue
 <!--Link references-->
 [Agent]:../agent-user-guide.md
 [Logon]:../mac-create-ssh-keys.md
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 317792e04244a96cf8e47bc7e4a7f633f7a6d8c3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) .NET Azure Cosmos DB : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -258,7 +257,7 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| [1.17.0](#1.17.0) |10 août 2017 |--- |
+| [1.17.0](#1.17.0) |10 août 2017 |--- |
 | [1.16.1](#1.16.1) |7 août 2017 |--- |
 | [1.16.0](#1.16.0) |2 août 2017 |--- |
 | [1.15.0](#1.15.0) |30 juin 2017 |--- |
@@ -303,5 +302,4 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
 

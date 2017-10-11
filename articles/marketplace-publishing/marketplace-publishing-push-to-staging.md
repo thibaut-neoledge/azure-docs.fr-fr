@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Compléter la création d’offre avec du contenu marketing
 Dans cette étape du processus de publication, vous devez fournir du contenu marketing et des informations sur votre offre et/ou vos références SKU dans Azure Marketplace. Par exemple, vous devez fournir une description de votre produit, le logo de votre entreprise, les offres tarifaires, le détail des offres et d’autres informations nécessaires pour envoyer votre offre et/ou référence SKU dans l’environnement intermédiaire. Ces informations sont utilisées comme contenu marketing dans le portail Azure. Vous allez commencer ce processus dans le [portail de publication][link-pubportal].
@@ -215,7 +215,7 @@ Suivez les étapes ci-dessous pour configurer un modèle de tarification BYOL po
 6. Sélectionnez la région de base et rendez la référence disponible dans la région en cochant la case à côté de la référence sous la section DISPONIBILITÉ DE LA RÉFÉRENCE AVEC LICENCE EXTERNE (BYOL) (voir la capture d’écran ci-dessous).
    
    ![dessin](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)
-7. Rendez la région disponible dans les autres régions manuellement ou utilisez l’assistant TARIFICATION AUTOMATIQUE à cette fin. Consultez les points #9 à 13 # (qui détaillent l’utilisation de l’assistant de tarification automatique) dans la section **2.1.1 Comment configurer le modèle de tarification horaire pour une référence** de cette page.
+7. Rendez la région disponible dans les autres régions manuellement ou utilisez l’assistant TARIFICATION AUTOMATIQUE à cette fin. Consultez les points #9 à &#13; (qui détaillent l’utilisation de l’assistant de tarification automatique) dans la section **2.1.1 Comment configurer le modèle de tarification horaire pour une référence** de cette page.
 
 ### <a name="22-set-your-developer-service-prices"></a>2.2. Définir le prix de vos services de développement
 Les offres peuvent constituer une combinaison quelconque de tarifs De base + Consommation, où De base est le tarif mensuel et Dépassement est le tarif à l’utilisation. (Voir détails ci-dessous)
@@ -287,9 +287,3 @@ Votre contenu Marketplace étant chargé, nous allons maintenant tester votre of
 
 [link-pubportal]:https://publish.windowsazure.com
 [link-push-to-production]:marketplace-publishing-push-to-production.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

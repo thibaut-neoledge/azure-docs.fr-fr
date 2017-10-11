@@ -15,14 +15,12 @@ ms.date: 06/15/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 6166e20a4652379dc9eeffe522feb651f5e57ea2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.openlocfilehash: f43f6e33976325920da9cf0f6aef6decae5bde26
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Meilleures pratiques pour l’utilisation de l’authentification multifacteur Azure avec des comptes Azure AD
 
 La vérification en deux étapes est le choix privilégié par la plupart des organisations qui souhaitent améliorer leur processus d’authentification. Azure Multi-Factor Authentication (MFA) aide les entreprises à satisfaire les exigences des sociétés en matière de sécurité et de conformité tout en fournissant une expérience de connexion facile pour leurs utilisateurs. Cet article propose quelques conseils pour la planification de l’adoption de l’authentification Azure MFA.
@@ -114,5 +112,4 @@ Bien que cet article mette en évidence quelques-unes des meilleures pratiques d
 * [Rapports dans Azure Multi-Factor Authentication](multi-factor-authentication-manage-reports.md)
 * [Processus d’inscription à la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md)
 * [Forum Aux Questions d’Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
-
 

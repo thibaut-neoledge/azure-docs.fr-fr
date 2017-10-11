@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
 ms.openlocfilehash: 1cc0d2d1e9a62ff8531f963413ff573713d508ad
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Meilleures pratiques et tendances Azure relatives à la sécurité
 Nous disposons actuellement des articles suivants sur les tendances et meilleures pratiques de sécurité Azure. Veillez à consulter ce site régulièrement pour voir les mises à jour de notre liste croissante de tendances et meilleures pratiques de sécurité Azure :  
@@ -42,10 +41,9 @@ Ces articles présentent un ensemble de meilleures pratiques et de tendances uti
 Pour chaque meilleure pratique, nous tentons d’expliquer les éléments suivants :
 
 * Nature de la meilleure pratique
-* Raison pour laquelle activer cette meilleure pratique
+* Raison pour laquelle activer cette bonne pratique
 * Conséquence possible en cas de non-utilisation de la meilleure pratique
 * Alternatives possibles à la meilleure pratique
 * Comment apprendre à utiliser la meilleure pratique
 
 Nous sommes impatients d’ajouter de nombreux autres articles sur l’architecture de sécurité Azure et les meilleures pratiques. Si vous souhaitez que nous incluions certaines rubriques, faites-le nous savoir dans la zone de discussion en bas de cette page.
-

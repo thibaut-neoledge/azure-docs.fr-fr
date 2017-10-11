@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="stored-procedures-in-sql-data-warehouse"></a>Procédures stockées dans SQL Data Warehouse
 SQL Data Warehouse prend en charge plusieurs fonctionnalités Transact-SQL proposées par SQL Server. Plus important encore, il existe différentes fonctions, spécifiques à la montée en charge, que nous voulons exploiter pour optimiser les performances de notre solution.
@@ -102,4 +101,3 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 [nest level]: https://msdn.microsoft.com/library/ms187371.aspx
 
 <!--Other Web references-->
-

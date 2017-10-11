@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: a573a7ef79e28c50ae0923849a88f88af40f21be
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Didacticiel : configuration de Salesforce pour approvisionner automatiquement des utilisateurs
 
@@ -69,7 +68,7 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
 ![Approvisionnement](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
 
-5. Dans la section **Informations d’identification d’administrateur**, fournissez les paramètres de configurations suivants :
+5. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
    
     a. Dans la zone de texte **Nom d’utilisateur administrateur**, entrez le nom d’un compte Salesforce auquel le profil **Administrateur système** est assigné dans Salesforce.com.
    
