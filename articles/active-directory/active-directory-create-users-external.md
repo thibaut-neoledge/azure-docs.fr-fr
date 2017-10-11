@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/26/2017
+
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Ajouter des utilisateurs à partir d’autres répertoires ou entreprises partenaires dans Azure Active Directory
 
@@ -79,3 +80,4 @@ Si un utilisateur est supprimé de son annuaire de base ou s’il annule son com
 * [Administration d’Azure AD](active-directory-administer.md)
 * [Gestion des mots de passe dans Azure AD](active-directory-manage-passwords.md)
 * [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
+

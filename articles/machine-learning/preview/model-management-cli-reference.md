@@ -193,7 +193,7 @@ Arguments globaux
 
 Vous pouvez créer une image avec la possibilité de créer préalablement son manifeste. 
 
-`az ml image create -n [image name] -manifest-id [the manifest ID]`
+`az ml image create -n [image name] --manifest-id [the manifest ID]`
 
 Vous pouvez aussi créer le manifeste et l’image avec une seule commande. 
 
