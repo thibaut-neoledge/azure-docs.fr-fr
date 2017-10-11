@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: d890b59595628ca3eeff1df258847c2bb54d29ff
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-change-your-storsimple-passwords"></a>Utilisation du service StorSimple Manager pour modifier vos mots de passe StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -57,5 +56,4 @@ Le mot de passe du Gestionnaire d’instantanés StorSimple doit maintenant êtr
 * En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 * En savoir plus sur la [modification de la configuration de votre appareil](storsimple-modify-device-config.md).
 * En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
 

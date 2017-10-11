@@ -1,5 +1,5 @@
 ---
-title: "Planifier la capacité et la mise à l’échelle de la réplication VMware vers Azure avec Azure Site Recovery | Microsoft Docs"
+title: "Planifier la capacité et la mise à l’échelle de la réplication VMware vers Azure avec Azure Site Recovery | Microsoft Docs"
 description: "Utilisez cet article pour planifier la capacité et la mise à l’échelle lors de la réplication des machines virtuelles VMware vers Azure avec Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: rayne
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: f5b334e594e3d002e1862b25c4faba7163efa7d4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-3-plan-capacity-and-scaling-for-vmware-to-azure-replication"></a>Étape 3 : Planifier la capacité et la mise à l’échelle pour la réplication de VMware vers Azure
 
@@ -54,7 +53,7 @@ Le serveur de configuration doit être en mesure de gérer le taux de modificati
 
 ## <a name="sizing-recommendations"></a>Recommandations de dimensionnement
 
-Le tableau indique les recommandations de dimensionnement selon le processeur.
+Ce tableau récapitule les recommandations de dimensionnement en fonction du processeur.
 
 **UC** | **Mémoire** | **Taille du disque cache** | **Taux de modification des données** | **Machines protégées**
 --- | --- | --- | --- | ---
@@ -124,7 +123,7 @@ Suivez ces instructions pour configurer un serveur de processus supplémentaire.
 
     ![Basculer serveur de processus](./media/vmware-walkthrough-capacity/migrate-ps3.png)
 3. Dans **Sélectionner un serveur de traitement cible**, sélectionnez le serveur de processus à utiliser, puis les machines virtuelles que le serveur va gérer.
-4. Cliquez sur l’icône Informations. Pour vous aider à prendre des décisions quant à la charge, l’espace moyen nécessaire à la réplication de chaque machine virtuelle sélectionnée vers le nouveau serveur de processus s’affiche.
+4. Cliquez sur l’icône Informations. Pour vous aider à prendre des décisions portant sur la charge, l’espace moyen nécessaire à la réplication de chaque machine virtuelle sélectionnée vers le nouveau serveur de processus s’affiche.
 5. Cliquez sur la coche pour commencer la réplication vers le nouveau serveur de processus.
 
 ## <a name="control-network-bandwidth"></a>Contrôler la bande passante réseau
@@ -158,12 +157,11 @@ Vous pouvez également utiliser l’applet de commande [Set-OBMachineSetting](ht
 1. Dans le registre de la machine virtuelle, accédez à **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
    * Pour influer sur le trafic de la bande passante sur un disque de réplication, modifiez la valeur du paramètre **UploadThreadsPerVM**, ou créez la clé si elle n’existe pas.
    * Pour influer sur la bande passante utilisée pour le trafic lié à la restauration automatique à partir d’Azure, modifiez la valeur du paramètre **DownloadThreadsPerVM**.
-2. La valeur par défaut est 4. Dans un réseau surutilisé, ces clés de registre doivent être modifiées. La valeur maximale est de 32. Surveillez le trafic pour optimiser la valeur.
+2. La valeur par défaut est 4. Dans un réseau surapprovisionné, ces clés de Registre doivent être modifiées. La valeur maximale est de 32. Surveillez le trafic pour optimiser la valeur.
 
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Allez à [Étape 4 : planifier la mise en réseau](vmware-walkthrough-network.md).
-
+Aller à l’[Étape 4 : Planifier la mise en réseau](vmware-walkthrough-network.md).

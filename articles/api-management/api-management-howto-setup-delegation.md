@@ -1,6 +1,6 @@
 ---
-title: "Délégation de l&quot;inscription des utilisateurs et des abonnements aux produits"
-description: "Découvrez comment déléguer à un tiers l&quot;enregistrement de l&quot;utilisateur et la souscription à des produits dans la gestion des API Azure."
+title: "Délégation de l'inscription des utilisateurs et des abonnements aux produits"
+description: "Découvrez comment déléguer à un tiers l'enregistrement de l'utilisateur et la souscription à des produits dans la gestion des API Azure."
 services: api-management
 documentationcenter: 
 author: antonba
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 0be893406c6a20193b10b728fff2cec06f562069
-ms.lasthandoff: 12/20/2016
-
-
+ms.openlocfilehash: 2637ab6405f2d4ea1da84981295a144874dfa4f6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Délégation de l'inscription des utilisateurs et des abonnements aux produits
 La délégation vous permet d'utiliser votre site web existant pour gérer les connexions/inscriptions des développeurs et l'abonnement aux produits au lieu de faire appel aux fonctionnalités intégrées du portail des développeurs. Ceci permet à votre site web de conserver les données utilisateur et de valider ces étapes de façon personnalisée.
@@ -167,7 +166,7 @@ var signature = digest.toString('base64');
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la délégation, regardez la vidéo suivante.
 
-> [VIDÉO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]
 > 
 > 
 
@@ -180,4 +179,3 @@ Pour plus d’informations sur la délégation, regardez la vidéo suivante.
 [exemple de code ci-dessous]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
-

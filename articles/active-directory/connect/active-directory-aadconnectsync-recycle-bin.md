@@ -15,21 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9778db69e94e9f1d033cc8c16fdb9554df3eddcc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
-
+ms.openlocfilehash: eb455477547f3db8245cf3601576eba9c6fdc56f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-# Azure AD Connect Sync : Activer la Corbeille AD
-<a id="azure-ad-connect-sync-enable-ad-recycle-bin" class="xliff"></a>
+# <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect Sync : Activer la Corbeille AD
 Il est recommandé d’activer la fonctionnalité Corbeille d’AD pour vos annuaires Active Directory locaux, qui sont synchronisés avec Azure AD. 
 
 Si vous avez supprimé accidentellement un objet utilisateur AD local et le restaurez à l’aide de cette fonctionnalité, Azure AD restaure l’objet utilisateur Azure AD correspondant.  Pour plus d’informations sur la fonctionnalité Corbeille d’AD, reportez-vous à l’article [Présentation du scénario pour la restauration d’objets Active Directory supprimés](https://technet.microsoft.com/library/dd379542.aspx).
 
-## Avantages de l’activation de la Corbeille d’AD
-<a id="benefits-of-enabling-the-ad-recycle-bin" class="xliff"></a>
+## <a name="benefits-of-enabling-the-ad-recycle-bin"></a>Avantages de l’activation de la Corbeille d’AD
 Cette fonctionnalité vous aide à restaurer des objets utilisateur Azure AD en procédant comme suit :
 
 * Si vous avez supprimé accidentellement un objet utilisateur AD local, l’objet utilisateur Azure AD correspondant sera supprimé lors du prochain cycle de synchronisation. Par défaut, Azure AD conserve les objets utilisateur Azure AD supprimés en état de suppression temporaire pendant 30 jours.
@@ -43,11 +40,9 @@ Cette fonctionnalité vous aide à restaurer des objets utilisateur Azure AD en 
 
 
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 **Rubriques de présentation**
 
 * [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-

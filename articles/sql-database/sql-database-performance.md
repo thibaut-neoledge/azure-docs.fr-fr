@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/19/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 522b932ab055978c52f085dbaa36095bb6b77962
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-and-improve-performance"></a>Surveiller et améliorer les performances
 Azure SQL Database identifie les problèmes potentiels de votre base de données et recommande les actions susceptibles d’améliorer les performances de votre charge de travail en fournissant des recommandations et des actions de réglage intelligent.
@@ -77,5 +76,4 @@ Pour plus d’informations sur cette page, voir l’article **[How to use Query 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Guide des performances de base de données SQL Azure pour les bases de données uniques](sql-database-performance-guidance.md)
 * [Quand utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
-
 

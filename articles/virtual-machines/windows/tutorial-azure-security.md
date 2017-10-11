@@ -16,21 +16,20 @@ ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: ec4b06a341f74e021a8745bfb324358c0a12b6ec
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: adb00e28b0b204858a763f83836ee2ac96f8f9e4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Surveiller la sécurité des machines virtuelles à l’aide d’Azure Security Center
 
-Azure Security Center peut vous aider à acquérir une meilleure visibilité des pratiques de sécurité de vos ressources Azure. Azure Security Center assure une surveillance intégrée de la sécurité. Il peut détecter des menaces qui sans cela pourraient passer inaperçues. Ce didacticiel décrit Azure Security Center et comment :
+Azure Security Center peut vous aider à acquérir une meilleure visibilité des pratiques de sécurité de vos ressources Azure. Azure Security Center assure une surveillance intégrée de la sécurité. Il peut détecter des menaces qui sans cela pourraient passer inaperçues. Ce didacticiel décrit Azure Security Center et comment effectuer les opérations suivantes :
  
 > [!div class="checklist"]
 > * Configurer la collecte de données
-> * Configurer des stratégies de sécurité
-> * Voir et résoudre les problèmes d’intégrité de la configuration
+> * Définir des stratégies de sécurité
+> * Afficher et résoudre des problèmes d’intégrité de configuration
 > * Examiner les menaces détectées  
 
 ## <a name="security-center-overview"></a>Vue d’ensemble de Security Center
@@ -137,16 +136,15 @@ Sélectionnez une alerte pour afficher des informations la concernant. Par exemp
 ![Attaque RDP](./media/tutorial-azure-security/rdp-attack.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez configuré Azure Security Center, puis vous avez examiné des machines virtuelles dans Security Center. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous a montré comment configurer Azure Security Center, puis examiner les machines virtuelles dans Azure Security Center. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Configurer la collecte de données
-> * Configurer des stratégies de sécurité
-> * Voir et résoudre les problèmes d’intégrité de la configuration
+> * Définir des stratégies de sécurité
+> * Afficher et résoudre des problèmes d’intégrité de configuration
 > * Examiner les menaces détectées
 
 Passez au didacticiel suivant pour découvrir comment créer un pipeline CI/CD avec Visual Studio Team Services et une machine virtuelle Windows exécutant IIS.
 
 > [!div class="nextstepaction"]
 > [Pipeline CI/CD de Visual Studio Team Services](./tutorial-vsts-iis-cicd.md)
-

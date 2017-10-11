@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
 ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
-ms.lasthandoff: 03/30/2017
-
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Récupération des informations d’état d’un travail Import/Export
 Vous pouvez appeler l’opération [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) pour récupérer des informations sur les travaux d’importation et d’exportation. Les informations renvoyées incluent :
 
@@ -94,4 +92,3 @@ Lorsqu’un travail ou un disque rencontre un échec au cours de son cycle de vi
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
-

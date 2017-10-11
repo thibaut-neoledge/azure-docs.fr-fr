@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2420d31c73fcb43e680edf2a95995e4ed4969236
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f0a7b5ce61feaead608d457465f64813737fa112
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="elastic-database-tools-faq"></a>FAQ sur les outils de bases de données élastiques
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Si je possède un locataire unique par partition et aucune clé de partitionnement, comment remplir la clé de partitionnement pour les informations de schéma ?
@@ -34,7 +32,7 @@ Consultez **[Ajout d’une partition à une application à l’aide de la biblio
 L’utilisation de la bibliothèque cliente des bases de données élastiques est gratuite. Les coûts sont uniquement liés à l’utilisation des bases de données Azure SQL pour les partitions et le gestionnaire des mappages de partition, ainsi qu’aux rôles web/de travail configurés pour le service de fractionnement/fusion.
 
 #### <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Pourquoi mes informations d’identification ne fonctionnent pas quand j’ajoute une partition d’un autre serveur ?
-N’utilisez pas d’informations d’identification de type ID=username@servername”,« ID d’utilisateur = nom_utilisateur@nom_serveur » ; utilisez simplement « ID d’utilisateur = nom_utilisateur » à la place.  Par ailleurs, assurez-vous que l’ID de connexion « nom_utilisateur » dispose d’autorisations sur la partition.
+N’utilisez pas les informations d’identification sous la forme de « ID utilisateur =username@servername», à la place utiliser simplement « ID utilisateur = nom d’utilisateur ».  Par ailleurs, assurez-vous que l’ID de connexion « nom_utilisateur » dispose d’autorisations sur la partition.
 
 #### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Dois-je créer un gestionnaire de cartes de partition et remplir les partitions chaque fois que je démarre mes applications ?
 Non, la création du gestionnaire de mappages de partitions (par exemple, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) est une opération unique.  Votre application doit appeler **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** au démarrage de l’application.  Un seul appel de ce type n’est possible par domaine d’application.
@@ -52,5 +50,4 @@ Oui, une partition est une base de données individuelle, par conséquent, une p
 Non. Pour les opérations de **fractionnement** , la base de données cible doit exister avec le schéma approprié et être enregistrée dans le gestionnaire de mappages de partition.  Pour les opérations de **fusion** , vous devez supprimer la partition à partir du gestionnaire de mappages de partition, puis supprimer la base de données.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

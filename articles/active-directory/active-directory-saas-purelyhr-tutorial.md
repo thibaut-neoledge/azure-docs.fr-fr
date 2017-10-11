@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: a9075b1759ebd39f164bfe288fb0a365acdcc44c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Didacticiel : Intégration d’Azure Active Directory avec PurelyHR
 
@@ -250,5 +248,4 @@ Pour plus d’informations sur le volet d’accès, consultez [Présentation du 
 [201]: ./media/active-directory-saas-purelyhr-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-purelyhr-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-purelyhr-tutorial/tutorial_general_203.png
-
 

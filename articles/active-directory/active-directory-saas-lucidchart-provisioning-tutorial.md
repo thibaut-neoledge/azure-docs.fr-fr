@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 1f9344a5e750360e21ed7dc8e3ed013c2c2e1a45
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="tutorial-configuring-lucidchart-for-automatic-user-provisioning"></a>Didacticiel : configuration de LucidChart pour l’approvisionnement automatique d’utilisateurs
 
 
@@ -102,4 +100,3 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](active-directory-saas-provisioning-reporting.md)
-

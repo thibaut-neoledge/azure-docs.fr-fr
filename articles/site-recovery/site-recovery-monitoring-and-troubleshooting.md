@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 664a1bd9df9ace4993a8389dbeb049e721932082
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques
 Ce guide de surveillance et de résolution des problèmes présente des techniques de suivi de l’intégrité de la réplication et de résolution des problèmes pour Azure Site Recovery.
@@ -196,4 +194,3 @@ Les erreurs suivantes et leurs résolutions sont courantes. Chaque erreur est do
 Si le bouton **Connecter** du portail est grisé et si vous n’êtes pas connecté à Azure avec une connexion Express Route ou VPN virtuel de site à site, vous devez créer votre machine virtuelle et lui attribuer une adresse IP publique pour pouvoir utiliser Bureau à distance/Shared Shell. Vous pouvez ensuite ajouter une adresse IP publique sur l’interface réseau de la machine virtuelle.  
 
 ![Ajout d’une adresse IP publique sur l’interface réseau de la machine virtuelle basculée](media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)
-

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2b25ffd844507074a8467b1135b1331feb9d3ed7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
-
+ms.openlocfilehash: 59c4dfafc102b26e3b9873f433065715f4aec9ec
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Découvrez comment les clients utilisent votre application avec les entonnoirs Application Insights
 
 Comprendre l’expérience de vos utilisateurs est primordial pour votre entreprise. Si votre application implique plusieurs étapes, vous devrez savoir si la plupart des clients vont au bout du processus, ou s’ils arrêtent celui-ci à un moment donné. La progression via une série d’étapes dans une application web est appelée « entonnoir ». Vous pouvez utiliser les entonnoirs Application Insights pour obtenir des informations sur vos utilisateurs et suivre les taux de conversion étape par étape. 
@@ -50,4 +48,3 @@ L’illustration suivante montre les données générées par le panneau Entonno
   * [Rétention](app-insights-usage-retention.md)
   * [Classeurs](app-insights-usage-workbooks.md)
   * [Ajouter du contexte utilisateur](app-insights-usage-send-user-context.md)
-

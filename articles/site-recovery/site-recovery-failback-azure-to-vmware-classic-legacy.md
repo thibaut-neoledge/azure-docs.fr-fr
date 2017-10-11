@@ -14,13 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd@microsoft.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e6d0539c35d403c24ddd5e0b5d49f4d6116eead
-ms.openlocfilehash: 86f7e0565fe30af613f06764a494cbb996abcabe
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/30/2017
-
-
+ms.openlocfilehash: 3053fc622c6343898e2007b8aaafbe1fa8e6934e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-from-azure-to-vmware-with-azure-site-recovery-legacy"></a>Restaurer automatiquement des serveurs physiques et des machines virtuelles VMware à partir d’Azure vers VMware avec Azure Site Recovery (procédure héritée)
 > [!div class="op_single_selector"]
@@ -356,4 +354,3 @@ Une fois la restauration automatique effectuée, vous souhaiterez probablement r
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur](site-recovery-vmware-to-azure-classic.md) la réplication de machines virtuelles VMware et de serveurs physiques sur Azure à l’aide d’un déploiement amélioré.
-

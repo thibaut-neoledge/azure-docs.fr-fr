@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9964c3dff24ef8a3a6047fe18c0f36c12c1de33d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview"></a>Configurer des clusters HDInsight joints à un domaine (version préliminaire)
 
@@ -139,7 +137,7 @@ Suivez la même procédure pour créer deux utilisateurs supplémentaires avec 
 
 1. Dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Active Directory** > **contosoaaddirectory**. 
 2. Cliquez sur **Groupes** dans le menu supérieur.
-3. Cliquez sur **Ajouter un groupe** ou **Ajouter groupe**.
+3. Cliquez sur **Ajouter un groupe** ou ****.
 4. Entrez ou sélectionnez les valeurs suivantes :
    
    * **Nom** : AAD DC Administrators.  Ne modifiez pas le nom du groupe.
@@ -321,5 +319,4 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le c
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour configurer des stratégies Hive et exécuter des requêtes Hive, consultez [Configuration de stratégies Hive pour les clusters HDInsight joints à un domaine](hdinsight-domain-joined-run-hive.md).
 * Pour utiliser des clusters HDInsight joints à un domaine, consultez [Utilisation de SSH avec Hadoop sous Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
 

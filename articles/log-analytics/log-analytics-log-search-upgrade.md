@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte;bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 4a3ee3c4d1fa9b626a51f24997603adceed8311f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="upgrade-your-azure-log-analytics-workspace-to-new-log-search"></a>Mettre à niveau de votre espace de travail Azure Log Analytics pour la nouvelle fonctionnalité de recherche dans les journaux
 
 > [!NOTE]
@@ -84,4 +82,3 @@ Il vous suffit de taper votre requête dans l’ancien langage, puis de cliquer 
 - Consultez le [didacticiel sur le nouveau langage](https://go.microsoft.com/fwlink/?linkid=856078).
 - Suivez le [didacticiel sur l’utilisation du portail Recherche dans les journaux](log-analytics-log-search-log-search-portal.md) avec le nouveau langage de requête.
 - Lisez la présentation du nouveau [portail Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587).
-

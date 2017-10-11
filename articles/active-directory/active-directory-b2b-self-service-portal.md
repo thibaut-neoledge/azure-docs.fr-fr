@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/24/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 307373c75bbb87cec683f7a3097f8f159c9d5e61
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Portail d’inscription en libre-service pour Azure AD B2B Collaboration
 
 Les clients peuvent faire beaucoup d’opérations avec les fonctionnalités intégrées qui sont exposées par le biais de notre [portail Azure](https://portal.azure.com) d’administration utilisateur et notre [panneau d’accès aux applications](https://myapps.microsoft.com) pour les utilisateurs. Mais nous sommes également conscients que les entreprises ont besoin de personnaliser le flux de travail d’intégration pour les utilisateurs B2B en fonction des besoins de leur organisation. Elles le peuvent avec [nos API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).

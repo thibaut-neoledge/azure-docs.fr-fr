@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 25b5e377d8d0d504860ab9a8c4dac49c9ca5b104
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Didacticiel : Intégration d’Azure Active Directory dans Moxi Engage
 
@@ -112,7 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-moxiengage-tutorial/tutorial_moxiengage_url.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL selon le modèle suivant : `https://svc.<moxiworks-integration-domain>/service/v1/auth/inbound/saml/aad`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://svc.<moxiworks-integration-domain>/service/v1/auth/inbound/saml/aad`
 
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe de support technique Moxi Engage](mailto:support@moxiworks.com) pour obtenir cette valeur. 
@@ -223,5 +221,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-moxiengage-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-moxiengage-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-moxiengage-tutorial/tutorial_general_203.png
-
 

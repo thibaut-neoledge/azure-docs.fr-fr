@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d31ad53525ef75bdb61c42409dc07bba4138fc25
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 9da76bb5f649817cd2f027f3d0eb46d58a996b4f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Configurer des clusters HDInsight joints à un domaine (version préliminaire) à l’aide d’Azure PowerShell
 Apprenez à configurer un cluster Azure HDInsight avec Azure Active Directory (Azure AD) et [Apache Ranger](http://hortonworks.com/apache/ranger/) à l’aide d’Azure PowerShell. Un script Azure PowerShell est fourni pour rendre la configuration plus rapide et moins susceptible d’engendrer des erreurs. Le cluster HDInsight peut être configuré uniquement sur les clusters Linux. Pour plus d’informations, consultez [Introduire des clusters HDInsight joints à un domaine](hdinsight-domain-joined-introduction.md).
@@ -181,7 +180,7 @@ Pour créer le cluster HDInsight joint au domaine, vous pouvez également utili
    * **LDAPUrls** : ["ldaps://contoso.onmicrosoft.com:636"]
    * **DomainAdminUserName**: (saisissez le nom d’utilisateur de l’administrateur du domaine)
    * **DomainAdminPassword** : (saisissez le mot de passe utilisateur de l’administrateur du domaine)
-   * **J’accepte les termes et conditions mentionnés ci-dessus**: (vérification)
+   * **J’accepte les termes et conditions mentionnés ci-dessus** : (vérification)
    * **Épingler au tableau de bord** : (vérification)
 3. Cliquez sur **Achat**. Vous verrez une nouvelle vignette intitulée **Déploiement du déploiement de modèle**. La création d’un cluster prend environ 20 minutes. Une fois le cluster créé, vous pouvez cliquer sur le panneau du cluster dans le portail pour l’ouvrir.
 
@@ -191,5 +190,4 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le c
 
 * Pour configurer des stratégies Hive et exécuter des requêtes Hive, consultez [Configuration de stratégies Hive pour les clusters HDInsight joints à un domaine](hdinsight-domain-joined-run-hive.md).
 * Pour utiliser SSH et vous connecter aux clusters HDInsight joints au domaine, voir [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
 

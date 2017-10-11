@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d5e4a19ddb2b60a6796ba48c864d443164de86c1
 ms.openlocfilehash: 8a67d9a9d345682e9e6c8f5c7779204a038f5f6a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/23/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Fonctionnalités de Log Analytics pour les fournisseurs de services
 Log Analytics permet aux fournisseurs de services gérés (MSP), grandes entreprises, éditeurs de logiciels indépendants (ISV) et fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client. 
@@ -83,5 +82,4 @@ Pour les rapports exécutifs qui résument les données de plusieurs espaces de 
 * Automatiser la création des espaces de travail à l’aide de [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 * Utiliser [Alertes](log-analytics-alerts.md) pour intégrer les espaces de travail aux systèmes existants
 * Générer des rapports de synthèse à l’aide de [PowerBI](log-analytics-powerbi.md)
-
 

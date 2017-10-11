@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: ce63726d2406d2f1415d29786f0ef92ca95b9b90
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Didacticiel : Intégration d’Azure Active Directory à OpsGenie
 
@@ -263,5 +262,4 @@ Quand vous cliquez sur la vignette OpsGenie dans le volet d’accès, vous devez
 [201]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_203.png
-
 

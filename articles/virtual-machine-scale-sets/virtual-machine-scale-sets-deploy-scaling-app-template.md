@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/24/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>Déploiement d’une application de mise à l’échelle à l’aide d’un modèle
 
 Les [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituent un excellent moyen de déployer des groupes de ressources liées. Ce didacticiel se base sur [Déploiement d’un jeu de mise à l’échelle simple](virtual-machine-scale-sets-mvss-start.md) et décrit comment déployer une application de mise à l’échelle automatique simple sur un jeu de mise à l’échelle à l’aide d’un modèle Azure Resource Manager.  Vous pouvez également configurer la mise à l’échelle automatique en utilisant PowerShell, CLI ou le portail. Pour plus d’informations, consultez [Vue d’ensemble de la mise à l’échelle automatique](virtual-machine-scale-sets-autoscale-overview.md).
@@ -99,7 +97,7 @@ Dans le modèle *azuredeploy.json*, la propriété `extensionProfile` de la ress
 Le moyen le plus simple pour déployer le modèle [serveur HTTP Python sur Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) ou [application ASP.NET MVC sur Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) consiste à utiliser le bouton **Déployer dans Azure** qui se trouve dans les fichiers Lisez-moi dans GitHub.  Vous pouvez également utiliser PowerShell ou l’interface Azure CLI pour déployer les exemples de modèles.
 
 ### <a name="powershell"></a>PowerShell
-Copiez les fichiers de [serveur HTTP Python sur Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) ou [application ASP.NET MVC sur Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) du référentiel GitHub dans un dossier sur votre ordinateur local.  Ouvrez le fichier *azuredeploy.parameters.json* et mettez à jour les valeurs par défaut des paramètres `vmssName`, `adminUsername` et `adminPassword`. Enregistrez le script PowerShell suivant dans *deploy.ps1* dans le même dossier que le modèle *azuredeploy.json*. Pour déployer l’exemple de modèle, exécutez le script *deploy.ps1* à partir d’une fenêtre de commande PowerShell.
+Copiez les fichiers de [serveur HTTP Python sur Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) ou [application ASP.NET MVC sur Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) du référentiel GitHub dans un dossier sur votre ordinateur local.  Ouvrez le fichier *azuredeploy.parameters.json* et de mettez à jour les valeurs par défaut des paramètres `vmssName`, `adminUsername` et `adminPassword`. Enregistrez le script PowerShell suivant dans *deploy.ps1* dans le même dossier que le modèle *azuredeploy.json*. Pour déployer l’exemple de modèle, exécutez le script *deploy.ps1* à partir d’une fenêtre de commande PowerShell.
 
 ```powershell
 param(
@@ -309,4 +307,3 @@ fi
 ## <a name="next-steps"></a>Étapes suivantes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

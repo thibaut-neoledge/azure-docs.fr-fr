@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea47cba55c9689e23eb3592ae2559649d3377055
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: b28d525ab16487b963772e23fdecd11f94dcabd1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-apps-sdk-content"></a>Contenu du Kit de développement logiciel (SDK) des applications Windows Universal
 Ce document répertorie et décrit le contenu déployé par le Kit de développement dans votre application.
@@ -41,5 +40,4 @@ Ce dossier contient toutes les ressources dont Mobile Engagement a besoin. Vous
 
 ### <a name="overlay-folder"></a>Dossier /overlay
 * `EngagementPageOverlay.cs` : page de superposition responsable de l'ajout de l'interface utilisateur Engagement Reach dans l'application à son enfant.
-
 

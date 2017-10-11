@@ -14,24 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: TomShinder
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 62c7b6706268e3c6e329f90651125fe299f61d67
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Sécurisation des applications mobiles et web PaaS à l’aide du stockage Azure
 Dans cet article, nous abordons un ensemble de bonnes pratiques de sécurité du stockage Azure pour protéger vos applications mobiles et web PaaS. Ces bonnes pratiques sont issues de notre expérience d’Azure, mais également de celle des clients, comme vous.
 
 Le [Guide de sécurité du Stockage Azure](../storage/common/storage-security-guide.md) constitue une source précieuse pour obtenir plus d’informations sur la sécurité et le Stockage Azure.  Cet article traite de façon générale certains concepts abordés dans le guide de sécurité et propose des liens vers ce dernier, ainsi que vers d’autres sources.
 
-## <a name="azure-storage"></a>Stockage Azure
+## <a name="azure-storage"></a>Azure Storage
 Azure permet de déployer et d’utiliser le stockage plus aisément que dans le cadre d’une configuration locale. Grâce au stockage Azure, vous pouvez atteindre des niveaux élevés de scalabilité et de disponibilité avec relativement peu d’effort. En plus de constituer la base des machines virtuelles Microsoft Azure et Linux, le stockage Azure peut prendre en charge de grandes applications distribuées.
 
-Stockage Azure propose les quatre services suivants : Stockage Blob, Stockage Table, Stockage File d’attente et Stockage Fichier. Pour en savoir plus, consultez [Présentation du stockage Microsoft Azure](../storage/storage-introduction.md).
+Les services Azure Storage assurent le stockage d’objets blob (Blob Storage), de tables (Table Storage), de files d’attente (Queue Storage) et de fichiers (File Storage). Pour en savoir plus, consultez [Présentation du stockage Microsoft Azure](../storage/storage-introduction.md).
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 Cet article traite les bonnes pratiques suivantes :
 
 - Protection de l’accès :
@@ -42,7 +41,7 @@ Cet article traite les bonnes pratiques suivantes :
 - Chiffrement du stockage :
    - Chiffrement côté client pour les données de valeur élevée
    - Azure Disk Encryption pour les machines virtuelles
-   - Chiffrement du service de stockage
+   - Storage Service Encryption
 
 ## <a name="access-protection"></a>Protection de l’accès
 ### <a name="use-shared-access-signature-instead-of-a-storage-account-key"></a>Utiliser la signature d’accès partagé au lieu d’une clé de compte de stockage
@@ -102,7 +101,7 @@ Azure Disk Encryption est une fonctionnalité qui vous permet de chiffrer vos di
 
 Consultez [Azure Disk Encryption pour des machines virtuelles Windows et Linux IaaS](azure-security-disk-encryption.md).
 
-### <a name="storage-service-encryption"></a>Chiffrement du service de stockage
+### <a name="storage-service-encryption"></a>Storage Service Encryption
 Quand le [chiffrement du service de stockage](../storage/storage-service-encryption.md) pour le stockage de fichiers est activé, les données sont chiffrées automatiquement à l’aide du chiffrement AES-256. Microsoft gère en totalité le chiffrement, le déchiffrement et la gestion des clés. Cette fonctionnalité est disponible pour les types de redondance LRS et GRS.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -111,4 +110,3 @@ Cet article vous a présenté un ensemble de bonnes pratiques de sécurité du s
 - [Sécurisation des déploiements PaaS](security-paas-deployments.md)
 - [Sécurisation des applications mobiles et web PaaS à l’aide d’Azure App Services](security-paas-applications-using-app-services.md)
 - [Sécurisation des bases de données PaaS dans Azure](security-paas-applications-using-sql.md)
-

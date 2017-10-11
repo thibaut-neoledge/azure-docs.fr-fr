@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 611f4222b5ab1530658f612de39dd2712f98c250
-ms.openlocfilehash: cbc622a959c402fe25ce9ab026c1ae05f194d884
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/03/2017
-
+ms.openlocfilehash: ceaeced414c9c302fba335b4578bcdcbfaef0410
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -29,11 +28,11 @@ Lorsque les données de mesure apparaissent sur le portail, elles sont renormali
 L’échantillonnage réduit les coûts du trafic et des données, et vous aide à éviter les limitations.
 
 ## <a name="in-brief"></a>En bref :
-* L’échantillonnage conserve 1 enregistrement sur *n* et ignore le reste. Par exemple, il peut conserver 1 événement sur 5, soit un taux d’échantillonnage de 20 %. 
+* Échantillonnage conserve 1 dans  *n*  enregistre et ignore le reste. Par exemple, il peut conserver 1 événement sur 5, soit un taux d’échantillonnage de 20 %. 
 * L’échantillonnage s’effectue automatiquement si votre application envoie de nombreuses données de télémétrie, dans les applications de serveur web ASP.NET.
 * Vous pouvez également définir l’échantillonnage manuellement, dans le portail sur la page de tarification ou dans le Kit de développement logiciel (SDK) ASP.NET dans le fichier .config, pour réduire également le trafic réseau.
 * Si vous consignez des événements personnalisés et que vous souhaitez vous assurer qu’un ensemble d’événements soit conservé ou ignoré conjointement, faites en sorte qu’ils aient la même valeur OperationId.
-* Le diviseur d’échantillonnage *n* est signalé dans chaque enregistrement de la propriété `itemCount`, qui dans la recherche s’affiche sous le nom convivial « nombre de demandes » ou « nombre d’événements ». Lorsque l’échantillonnage n’est pas en cours d’utilisation, `itemCount==1`.
+* Le diviseur d’échantillonnage  *n*  est signalée dans chaque enregistrement de la propriété `itemCount`, qui, dans la recherche s’affiche sous le nom convivial « nombre de demande » ou « nombre d’événements ». Lorsque l’échantillonnage n’est pas en cours d’utilisation, `itemCount==1`.
 * Si vous écrivez des requêtes Analytics, vous devez [tenir compte de l’échantillonnage](app-insights-analytics-tour.md#counting-sampled-data). En particulier, au lieu de compter simplement les enregistrements, vous devez utiliser `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Types d’échantillonnage
@@ -352,5 +351,4 @@ Le kit de développement logiciel (SDK) côté client (JavaScript) participe à 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [filtrage](app-insights-api-filtering-sampling.md) peut fournir un contrôle plus strict de ce que le Kit de développement logiciel (SDK) envoie.
-
 

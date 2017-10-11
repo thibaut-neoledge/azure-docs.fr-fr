@@ -1,7 +1,6 @@
 ---
-
-title: Utilisation d&quot;invitations Azure Active Directory B2B Collaboration | Microsoft Docs
-description: "Expérience d&quot;utilisation d&quot;invitations Azure Active Directory B2B Collaboration"
+title: Utilisation d'invitations Azure Active Directory B2B Collaboration | Microsoft Docs
+description: "Expérience d'utilisation d'invitations Azure Active Directory B2B Collaboration"
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -16,16 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/24/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: aea802af038786c58d9640333458ad88fe8f90bd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
 ## <a name="azure-ad-and-microsoft-account-users"></a>Utilisateurs Azure AD et de comptes Microsoft
@@ -52,4 +47,3 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 * [Authentification multifacteur pour les utilisateurs B2B Collaboration](active-directory-b2b-mfa-instructions.md)
 * [Ajouter des utilisateurs B2B Collaboration sans invitation](active-directory-b2b-add-user-without-invite.md)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-

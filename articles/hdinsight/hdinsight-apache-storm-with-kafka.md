@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/21/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: e8895ef3c11aea48513e4060a20f5f49b11fc961
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Utilisation d’Apache Kafka (version préliminaire) avec Storm sur HDInsight
 
@@ -175,7 +174,7 @@ Pour plus d’informations sur les topologies Flux, voir la page [https://storm.
     > [!IMPORTANT]
     > L’exemple de Bash suppose que `$CLUSTERNAME` contient le nom du cluster HDInsight. Il suppose également que [jq](https://stedolan.github.io/jq/) est installé. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion au cluster.
 
-    Les informations renvoyées sont similaires au texte suivant :
+    Les informations renvoyées sont similaire au texte suivant :
 
         wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
 
@@ -201,7 +200,7 @@ Pour plus d’informations sur les topologies Flux, voir la page [https://storm.
     > [!IMPORTANT]
     > L’exemple de Bash suppose que `$CLUSTERNAME` contient le nom du cluster HDInsight. Il suppose également que [jq](https://stedolan.github.io/jq/) est installé. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion au cluster.
 
-    Les informations renvoyées sont similaires au texte suivant :
+    Les informations renvoyées sont similaire au texte suivant :
 
         zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
 
@@ -342,6 +341,6 @@ Dans une session SSH sur le cluster Storm, utilisez la commande suivante pour ar
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’exemples de topologies qui peuvent être utilisés avec Storm sur HDInsight, consultez [Exemples de topologies et composants Storm](hdinsight-storm-example-topology.md).
+Pour plus d’exemples de topologies qui peuvent être utilisées avec Storm sur HDInsight, consultez [Exemples de topologies et composants Storm](hdinsight-storm-example-topology.md).
 
 Pour plus d’informations sur le déploiement et la surveillance des topologies sur HDInsight Linux, consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Linux](hdinsight-storm-deploy-monitor-topology-linux.md)

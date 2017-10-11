@@ -37,8 +37,8 @@ L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau s
 
    ![Ressource IP](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
-    <!-----------------------Je ne vois pas cette option sur SQL Server 2016
-    1. Désactivez NetBIOS pour cette adresse et cliquez sur **OK**. Répétez cette étape pour chaque ressource IP si votre solution couvre plusieurs réseaux virtuels Azure. 
+    <!-----------------------I don't see this option on server 2016
+    1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
 4. <a name = "dependencyGroup"></a>Créez une dépendance entre la ressource de groupe de disponibilité de SQL Server et le point d’accès client.

@@ -9,15 +9,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 0dcec61c03a84197e2c351761c743683caa98a06
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Accès conditionnel (MFA) avec Azure SQL Database et Data Warehouse  
 
 SQL Database et SQL Data Warehouse prennent tous deux en charge l’accès conditionnel Microsoft. Les étapes suivantes montrent comment configurer SQL Database pour appliquer une stratégie d’accès conditionnel.  
@@ -51,4 +48,3 @@ Pour toute question sur Azure SQL Database et Data Warehouse en ce qui concerne 
 ## <a name="next-steps"></a>Étapes suivantes  
 
 Pour obtenir un didacticiel, consultez [Sécuriser votre base de données Azure SQL Database](sql-database-security-tutorial.md).
-

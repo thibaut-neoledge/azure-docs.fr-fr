@@ -12,13 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: sergkanz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
 ms.openlocfilehash: d6a0cad8bda6ca68aa691867e84f540c5ac9f6f3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexte de télémétrie : modèle de données d’Application Insights
 
@@ -139,4 +137,3 @@ Longueur maximale : 256
 - Découvrez comment [étendre et filtrer la télémétrie](app-insights-api-filtering-sampling.md).
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](application-insights-data-model.md).
 - Découvrez la [configuration](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) de la collection de propriétés de contexte standard.
-

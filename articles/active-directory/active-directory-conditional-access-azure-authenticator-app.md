@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 5dd6701f25c69f5e870d3add79c312f9aeec6bf4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator pour Android
 Votre administrateur peut vous avoir recommandé d’utiliser Microsoft Azure Authenticator pour vous connecter de façon à accéder à vos ressources de travail. Cette application fournit ces deux options de connexion :
@@ -39,7 +37,7 @@ Les instructions suivantes sont applicables aux téléphones Samsung GS3 et sup�
 
 1. Dans l’écran d’accueil de l’application, acceptez le Contrat de Licence Utilisateur Final (CLUF).
 2. Dans l’écran Activer un compte, cliquez sur le menu contextuel sur la droite et sélectionnez **Compte professionnel**.
-3. Dans l’écran Ajouter un compte, sélectionnez** Compte professionnel**.
+3. Sur l’écran Ajouter un compte, sélectionnez ** travail compte **.
 4. Sur l’écran Activer l’administrateur de l’appareil, cliquez sur **Activer**.
 5. Dans l’écran Politique de confidentialité, cochez la case et cliquez sur **Confirmer**.
 6. Sur l’écran Jonction d’espace de travail, entrez l’ID utilisateur fourni par votre organisation et cliquez sur **Joindre**.
@@ -120,5 +118,4 @@ Sur un appareil Android Samsung, des privilèges d’administrateur d’applicat
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 Si vous voyez l’ **erreur Keystore**, la raison peut en être que votre écran de verrouillage n’est pas configuré avec un code confidentiel. Pour contourner ce problème, désinstallez l’application Azure Authentificator, configurez un code confidentiel pour votre écran de verrouillage et réinstallez l’application.
-
 

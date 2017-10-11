@@ -1,5 +1,4 @@
 ---
-
 title: "Affecter des licences à un groupe dans Azure Active Directory | Microsoft Docs"
 description: "Comment affecter des licences à l’aide d’une gestion des licences de groupe Azure Active Directory"
 services: active-directory
@@ -17,15 +16,12 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 42b18eab9cb419e6ada72ba72dc8be8d7f7b2eed
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Affecter des licences aux utilisateurs par appartenance aux groupes dans Azure Active Directory
 
 Cet article présente l’affectation de licences de produit à un groupe d’utilisateurs avec Azure Active Directory (Azure AD), puis la vérification que les licences ont été correctement reçues.
@@ -112,4 +108,3 @@ Pour plus d’informations sur l’ensemble de fonctionnalités de gestion des l
 * [Identification et résolution des problèmes de licence pour un groupe dans Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Migration des utilisateurs individuels sous licence vers les licences basées sur les groupes dans Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
 * [Autres scénarios de licences basées sur les groupes Azure Active Directory](active-directory-licensing-group-advanced.md)
-

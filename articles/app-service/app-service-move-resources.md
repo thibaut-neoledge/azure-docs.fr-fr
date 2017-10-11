@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: zarizvi
-translationtype: Human Translation
-ms.sourcegitcommit: 078833a21cd309087b842e21e3fc730695c254dd
-ms.openlocfilehash: 89fdeca4ffc1a36e8aff829b00483f208fa03e0f
-ms.lasthandoff: 12/21/2016
-
-
+ms.openlocfilehash: 1b5059dc052005b6079f70ecf6771a3771df8d87
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="supported-move-configurations"></a>Configurations de déplacement prises en charge
 Vous pouvez déplacer des ressources d’application web Azure à l’aide de l’[API de déplacement des ressources Azure Manager](../azure-resource-manager/resource-group-move-resources.md).
@@ -31,6 +30,5 @@ Les applications web Azure prennent actuellement en charge les scénarios de dé
    > Le groupe de ressources de destination ne peut pas contenir de ressources Microsoft.Web dans ce scénario.
 
 * Déplacez des applications web individuelles vers un groupe de ressources différent, tout en les hébergeant toujours dans leur plan de service d’application actuel (le plan de service d’application reste dans l’ancien groupe de ressources).
-
 
 

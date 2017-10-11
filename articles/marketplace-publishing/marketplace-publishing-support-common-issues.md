@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: dcd87ae977d5b4b4a2353e446ab89ac81b239195
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>Comment résoudre les problèmes courants de publication dans Azure Marketplace
 Cet article explique comment résoudre ou obtenir de l'aide pour résoudre certains scénarios Marketplace courants.
@@ -77,7 +75,7 @@ Si vous voulez mettre à jour votre profil d’éditeur, vous pouvez le faire pa
 
 ![inprivate][4]
 
-**2. Connectez-vous avec votre compte professionnel ou scolaire** (c’est-à-dire, AzureStore@yourcompany.com).
+**2. Connectez-vous à votre société compte professionnel ou scolaire** (autrement dit, AzureStore@yourcompany.com).
 
 ![signin][5]
 
@@ -123,4 +121,3 @@ Pour les problèmes suivants, créez une demande de support sur le site [http://
 [6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
-

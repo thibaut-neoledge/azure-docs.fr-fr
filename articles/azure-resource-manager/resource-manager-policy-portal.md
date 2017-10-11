@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 868b2cc1559053057d17b34c03e2e31347f399bf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-azure-portal-to-assign-and-manage-resource-policies"></a>Utiliser le portail Azure pour attribuer et gérer les stratégies de ressources
 Le portail vous permet d’affecter des stratégies de ressource pour les abonnements et les groupes de ressources. L’interface utilisateur facilite la sélection de la stratégie que vous souhaitez affecter, puis la spécification des valeurs de paramètre pour cette stratégie afin de personnaliser les paramètres de stratégie. 
@@ -84,5 +83,4 @@ Si vous avez défini des stratégies personnalisées dans votre abonnement, ces 
 * Pour en savoir plus sur la syntaxe JSON pour définir des stratégies, consultez la [Vue d’ensemble des stratégies de ressources](resource-manager-policy.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
 * Le schéma de stratégie est publié à l’adresse [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
-
 

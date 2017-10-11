@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/20/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 51ef04e1de3337bf3505124923b4774bfb6c07f0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 90ffd3dd1cf5068359afa1b60892cdee43ec0658
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="designing-your-network-for-disaster-recovery"></a>Conception de votre réseau pour la récupération d’urgence
 
@@ -167,4 +166,3 @@ Le billet de blog [Networking Infrastructure Setup for Microsoft Azure as a Disa
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Découvrir](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) comment Site Recovery mappe les réseaux source et cible quand un serveur VMM est utilisé pour gérer le site principal.
-

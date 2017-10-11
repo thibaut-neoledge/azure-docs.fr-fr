@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: a0e93881e0d75541fc04d7bc736459f8109d1c9f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.openlocfilehash: 3bba48d5425ae47c72aca893af7c11fe270c2929
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparaison d’encodeurs multimédia à la demande Azure
 
 Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Standard** et de **Media Encoder Premium Workflow**.
@@ -153,4 +151,3 @@ Le tableau suivant compare les fonctionnalités de Media Encoder Standard (MES) 
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-

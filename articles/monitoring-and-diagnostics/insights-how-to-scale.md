@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Mise à l'échelle manuelle ou automatique du nombre d’instances
 Dans le [portail Azure](https://portal.azure.com/), vous pouvez définir manuellement le nombre d'instances de votre service, ou définir les paramètres pour qu'il soit automatiquement mis à l'échelle en fonction de la demande. On parle alors généralement *d’extension* ou de *réduction des instances*.
@@ -128,5 +127,4 @@ Toutefois, vous souhaiterez peut-être définir des règles d’extension ou de 
 * [Surveillance des performances d'une application](../application-insights/app-insights-azure-web-apps.md) si vous voulez comprendre exactement comment votre code s'exécute dans le cloud.
 * [Affichage des événements et du journal d’activité](insights-debugging-with-events.md) pour découvrir tout ce qui s'est produit dans votre service.
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../application-insights/app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
-
 

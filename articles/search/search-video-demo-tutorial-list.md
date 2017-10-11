@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/06/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Azure Search : exemples de code, démonstrations, vidéos et didacticiels
 Familiarisez-vous rapidement avec les vidéos, démonstrations, didacticiels et exemples d’application qui suivent.
@@ -101,5 +100,4 @@ Démonstrations multisessions et laboratoires pour la Recherche Azure.
 | [Ajout de suggestions à vos applications de recherche](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/) |Apprenez à implémenter des suggestions, communément appelées requêtes avec saisie semi-automatique. Cette démo couvre plusieurs sujets, y compris la création d’une application MVC 4 qui utilise le traitement des suggestions par Azure Search, l’utilisation de la bibliothèque Twitter typeahead.js pour créer un composant de suggestion automatique efficace dans JavaScript, et l’utilisation de la correspondance approximative pour vous permettre d’obtenir des suggestions même si l’utilisateur a mal orthographié le mot. |
 | [Laboratoire virtuel TechNet : Création d'une application Microsoft Azure Search](http://go.microsoft.com/?linkid=9874663) |Laboratoire virtuel qui contient un environnement de développement, des outils, de la documentation et des données. Vous devez posséder un compte Azure, soit un abonnement d’évaluation soit votre abonnement Azure personnel, pour terminer l’atelier. |
 | [Synchroniser des données SQL Server avec Azure Search](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) |Billet de blog qui explique comment charger des données à partir des bases de données relationnelles SQL Server dans un index Azure Search. |
-
 

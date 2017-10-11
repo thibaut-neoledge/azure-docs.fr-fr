@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solution Azure Key Vault Analytics dans Log Analytics
 
@@ -153,4 +152,3 @@ Les données collectées avant la modification ne seront pas visibles dans la no
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez les [recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher les données détaillées de Azure Key Vault.
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 5f5cb4b9b6fcee6b56ccdcb6223afddd9de90fec
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-2-review-the-prerequisites-for-physical-server-to-azure-replication"></a>Étape 2 : Passer en revue la configuration requise des serveurs physiques en vue d’une réplication vers Azure
 
 La configuration requise est récapitulée dans le tableau ci-dessous.
@@ -53,4 +51,3 @@ Prenez note des limitations résumées dans le tableau avant d’effectuer le d�
 
 - Si vous effectuez un déploiement complet, accédez à [Étape 3 : Planifier la capacité](physical-walkthrough-capacity.md)
 - Si vous effectuez un déploiement test, accédez à [Étape 4 : Planifier la mise en réseau](physical-walkthrough-network.md).
-

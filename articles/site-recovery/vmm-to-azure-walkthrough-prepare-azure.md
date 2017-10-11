@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 63b005f37ab5e15e8a1b4645446d65f1529f1bbd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-5-prepare-azure-resources-for-hyper-v-replication-with-vmm-to-azure"></a>Étape 5 : Préparer les ressources Azure pour la réplication de Hyper-V (avec VMM) vers Azure
 
 Après avoir vérifié la [configuration réseau requise](vmm-to-azure-walkthrough-network.md), utilisez les instructions fournies dans cet article pour préparer les ressources Azure de manière à pouvoir répliquer des machines virtuelles Hyper-V locales dans les clouds System Center Virtual Machine Manager (VMM) vers Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md).
@@ -61,4 +59,3 @@ Après avoir lu cet article, envoyez vos commentaires en bas ou posez vos questi
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à [Étape 6 : Préparer VMM](vmm-to-azure-walkthrough-vmm-hyper-v.md)
-

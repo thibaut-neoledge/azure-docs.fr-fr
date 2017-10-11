@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2db8af1badf908ec69e4d994755bad87e8653dee
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 8450651528007b4527366b89a6ad7615169f93c0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement-concepts"></a>Concepts d’Azure Mobile Engagement
 Mobile Engagement définit quelques concepts communs à toutes les plateformes prises en charge. Cet article décrit brièvement ces concepts.
@@ -87,5 +86,4 @@ L'intégralité de l'arborescence de paires clé/valeur est stockée en tant qu'
 * [Vue d’ensemble du Kit de développement logiciel (SDK) Silverlight de Windows Phone pour Azure Engagement Mobile](mobile-engagement-windows-phone-sdk-overview.md)
 * [Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
 * [SDK Android pour Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: ankryach
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 1444b517664355e8e240ea181d707c464d7ec5bb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Interroger des données à partir de l’environnement Azure Time Series Insights en utilisant C#
 
@@ -304,4 +303,3 @@ namespace TimeSeriesInsightsQuerySample
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour la référence d’API de requête complète, voir le document sur l’[API de requête](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
-

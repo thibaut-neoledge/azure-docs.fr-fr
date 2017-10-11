@@ -14,14 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastructure et connectivité à SAP HANA (grandes instances) sur Azure 
 
 Quelques définitions avant de lire ce guide. Dans [Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), nous avons présenté deux classes différentes d’unités de grande instance HANA avec :
@@ -299,6 +297,5 @@ Pour vous assurer que tout est supprimé, supprimez les éléments suivants :
 Pour supprimer un circuit supplémentaire ExpressRoute de SAP HANA sur Azure (grandes instances), ouvrez une demande de support Azure avec SAP HANA sur Azure Service Management et demandez à ce que le circuit soit supprimé. Dans l’abonnement Azure, vous pouvez supprimer ou conserver le réseau virtuel, en fonction des besoins. Toutefois, vous devez supprimer la connexion entre le circuit ExpressRoute des grandes instances HANA et la passerelle de réseau virtuel liée.
 
 Si vous souhaitez également supprimer un réseau virtuel, suivez les instructions du paragraphe Suppression d’un réseau virtuel dans la section précédente.
-
 
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/19/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: b29a3299433e57709ea31de3c7849230ea09c09a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: b2578c837732ab05d538e9b896ed3a3035075a70
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="accessing-private-azure-clouds-with-visual-studio"></a>Accès à des clouds privés Azure avec Visual Studio
 Par défaut, Visual Studio prend en charge les points de terminaison REST du cloud public Azure. Cette rubrique explique comment utiliser votre certificat de cloud privé pour accéder au cloud privé et y interagir à partir de Visual Studio.
@@ -54,4 +53,3 @@ Par défaut, Visual Studio prend en charge les points de terminaison REST du clo
 ## <a name="next-steps"></a>Étapes suivantes
 - [Publication d’un service cloud Azure depuis Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 - [Téléchargement et importation des paramètres de publication et des informations d’abonnement](https://msdn.microsoft.com/library/dn385850\(v=nav.70\).aspx)
-

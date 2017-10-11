@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 777d5719cce505b55dfb61c91dcac7e713b077a9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="location-reporting-for-azure-mobile-engagement-android-sdk"></a>Génération de rapports d’emplacement pour le SDK Azure Mobile Engagement pour Android
 > [!div class="op_single_selector"]
@@ -160,4 +159,3 @@ Voici un exemple de code à utiliser dans une activité de votre application pou
       if (requestCode == 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
         getEngagementAgent().refreshPermissions();
     }
-

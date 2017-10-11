@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Utilisation de Notification Hubs pour diffuser les dernières nouvelles
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -29,7 +29,7 @@ Cette rubrique montre comment utiliser Azure Notification Hubs pour diffuser des
 Les scénarios de diffusion sont activés en incluant une ou plusieurs *balises* durant la création d’une inscription dans le hub de notification. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n’est pas nécessaire de les mettre en service à l’avance. Pour plus d’informations sur les balises, consultez [Routage et expressions de balise Notification Hubs](notification-hubs-tags-segment-push-message.md).
 
 ## <a name="prerequisites"></a>Composants requis
-Cette rubrique s’appuie sur l’application que vous avez créée dans [Prise en main de Notification Hubs][get-started]. Avant de commencer ce didacticiel, vous devez suivre celui intitulé [Prise en main de Notification Hubs][get-started].
+Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en main de Notification Hubs][get-started]. Avant de commencer ce didacticiel, vous devez suivre celui intitulé [Prise en main de Notification Hubs][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Ajout d’une sélection de catégories à l’application
 La première étape consiste à ajouter à votre storyboard existant les éléments d'interface utilisateur qui permettent à l'utilisateur de sélectionner les catégories à inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l’application démarre, une inscription d’appareil est créée dans votre hub de notification avec les catégories sélectionnées sous forme de balises.
@@ -149,16 +149,16 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
     À ce stade, il est à noter qu'il ne doit pas y avoir d'autre code dans la méthode **didRegisterForRemoteNotificationsWithDeviceToken** .
 
-1. Les méthodes suivantes doivent déjà être présentes dans AppDelegate.m depuis la fin du didacticiel [Prise en main de Notification Hubs][get-started].  Si ce n’est pas le cas, veuillez les ajouter.
+1. Les méthodes suivantes doivent être déjà présents dans AppDelegate.m à partir de la fin de la [prise en main des concentrateurs de Notification] [ get-started] didacticiel.  Si ce n’est pas le cas, veuillez les ajouter.
    
-    -(void)MessageBox:(NSString *)title message:(NSString *)messageText  {
+    -(void) MessageBox :(NSString *) titre message :(NSString *) messageText {}
    
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
             cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
    
-   * (void)application:(UIApplication *)application didReceiveRemoteNotification:   (NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]]; }
+   * application (void) :(UIApplication *) application didReceiveRemoteNotification : (NSDictionary *) userInfo {NSLog (@ « % @ », userInfo) ;   [message self MessageBox:@"Notification » : [valueForKey:@"alert [userInfo objectForKey:@"aps »] »]] ; }
    
    Cette méthode gère les notifications reçues lorsque l'application est en cours d'exécution en affichant tout simplement une **UIAlert**.
 2. Dans le fichier ViewController.m, ajoutez une instruction import pour AppDelegate.h et copiez le code suivant dans la méthode **subscribe** générée par le Xcode. Ce code met à jour l’inscription aux notifications pour utiliser les nouvelles balises de catégories choisies par l’utilisateur dans l’interface utilisateur.
@@ -212,7 +212,7 @@ Si vous n’avez pas accès à Visual Studio, vous pouvez passer à la section s
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="optional-send-notifications-from-the-device"></a>(Facultatif) Envoyer des notifications depuis l’appareil
-Normalement, les notifications doivent être envoyées par un service principal. Toutefois, vous pouvez envoyer des notifications de dernières nouvelles directement à partir de l’application. Pour cela, nous allons mettre à jour la méthode `SendNotificationRESTAPI` que nous avons définie dans le didacticiel [Prise en main de Notification Hubs][get-started].
+Normalement, les notifications doivent être envoyées par un service principal. Toutefois, vous pouvez envoyer des notifications de dernières nouvelles directement à partir de l’application. Pour cela, nous mettrons à jour le `SendNotificationRESTAPI` méthode que nous avons défini dans le [prise en main des concentrateurs de Notification] [ get-started] didacticiel.
 
 1. Dans ViewController.m, mettez à jour la méthode `SendNotificationRESTAPI` comme suit pour qu’elle accepte un paramètre pour la balise de catégorie et envoie une notification de [modèle](notification-hubs-templates-cross-platform-push-messages.md) adaptée.
    
@@ -324,17 +324,11 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
 
 <!-- URLs. -->
-[Guide pratique : Service Bus Notification Hubs (applications iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
 [Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Notification des utilisateurs avec Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/dn530749.aspx
-[Procédures Notification Hubs pour iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 [portail Azure Classic]: https://manage.windowsazure.com
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

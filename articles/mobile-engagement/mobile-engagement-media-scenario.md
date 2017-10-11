@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6f08f986e66e40211f60beef6ebd00bb041a8ada
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: c1591c3e436981e621830916cf0cdc4b7f395d7b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>Mise en œuvre de Mobile Engagement avec une application multimédia
 ## <a name="overview"></a>Vue d'ensemble
@@ -57,7 +56,7 @@ Selon les recommandations de l’équipe informatique, les indicateurs clés de 
 Pour chaque indicateur clé de performance, il classe les données requises et les enregistre à l’emplacement approprié de son manuel.
 
 ## <a name="engagement-program-and-integration"></a>Programme d’engagement et intégration
-Maintenant que John a terminé de définir ses indicateurs clés de performance, il entame la phase de stratégie d’engagement en définissant 4 programmes d’engagement et les objectifs associés :     ![][1]
+Maintenant que John a terminé de définir ses indicateurs clés de performance, il entame la phase de stratégie d’engagement en définissant 4 programmes d’engagement et les objectifs associés : ![][1]
 
 John approfondit ensuite en détaillant des notifications Push pour chaque programme. Les notifications Push sont définies par cinq éléments :
 
@@ -99,4 +98,3 @@ Après ces 4 premiers mois, les résultats concluent à de bonnes performances 
 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
-

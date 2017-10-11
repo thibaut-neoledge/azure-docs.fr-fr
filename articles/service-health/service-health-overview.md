@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Azure Service Health fournit en temps voulu des informations personnalisées lorsque des problèmes touchant les services Azure ont une incidence sur vos services.  Cette fonctionnalité vous aide également à vous préparer aux maintenances planifiées à venir.

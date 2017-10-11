@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: ed3417f69bb13043db0affc9249f3ff5e49d7c79
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
+ms.openlocfilehash: 5322b5f3231b067937b685c69b916ed74dfe9a6e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-media-services-concepts"></a>Concepts Azure Media Services
 Cette rubrique fournit une vue d'ensemble des concepts les plus importants liés à Media Services.
@@ -231,5 +230,4 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

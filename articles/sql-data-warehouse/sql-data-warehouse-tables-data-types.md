@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 06/02/2017
 ms.author: shigu;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
 ms.openlocfilehash: 5c24c71af16bd9851d9caf15fecfa4bb76f5f77e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/05/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Conseils relatifs à la définition des types de données pour tables dans SQL Data Warehouse
 Suivez ces recommandations pour définir des types de données de table compatibles avec SQL Data Warehouse. En plus de la compatibilité, en réduisant la taille des types de données, vous améliorerez les performances des requêtes.
@@ -130,4 +129,3 @@ Pour plus d'informations, consultez les rubriques suivantes :
 [varchar]: https://msdn.microsoft.com/library/ms186939.aspx
 [xml]: https://msdn.microsoft.com/library/ms187339.aspx
 [user defined types]: https://msdn.microsoft.com/library/ms131694.aspx
-

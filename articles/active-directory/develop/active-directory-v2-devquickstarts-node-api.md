@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: d42b96b0fb02b6c2df364d5e19f3345991ee03b1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
-
-
+ms.openlocfilehash: 94e945a52b9df7c495de1611baa08083357670c9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="secure-a-web-api-by-using-nodejs"></a>Sécuriser une API web à l’aide de Node.js
 > [!NOTE]
@@ -40,8 +38,8 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 
 Vous pouvez également obtenir l’application terminée à la fin de ce didacticiel.
 
-## <a name="1-register-an-app"></a>1 : Inscrire une application
-Créez une application sur [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md) pour inscrire une application. Effectuez ces actions :
+## <a name="1-register-an-app"></a>1 : Inscrire une application
+Créez une application sur [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md) pour inscrire une application. Assurez-vous d’effectuer les tâches suivantes :
 
 * Copiez l’**ID d’application** affecté à votre application. Vous en aurez besoin pour ce didacticiel.
 * ajouter la plateforme **Mobile** pour votre application ;
@@ -753,7 +751,7 @@ return done(null, user, token);
 passport.use(oidcStrategy);
 ```
 
-Passport utilise un modèle similaire pour toutes ses stratégies (Twitter, Facebook, etc.). Tous les enregistreurs de stratégie adhèrent au modèle. Passez à la stratégie une `function()` qui utilise un jeton et `done` comme paramètres. La stratégie est retournée une fois qu’elle a effectué tout son travail. Stockez l’utilisateur et mettez le jeton de côté pour ne pas avoir à le redemander.
+Passport utilise un modèle similaire pour toutes ses stratégies (Twitter, Facebook, etc.). Tous les enregistreurs de stratégie adhèrent au modèle. Transmettez à la stratégie une `function()` qui utilise un jeton et `done` comme paramètres. La stratégie est retournée une fois qu’elle a effectué tout son travail. Stockez l’utilisateur et mettez le jeton de côté pour ne pas avoir à le redemander.
 
 > [!IMPORTANT]
 > Le code précédent accepte n’importe quel utilisateur qui peut s’authentifier auprès de votre serveur. C’est ce qu’on appelle l’enregistrement automatique. Sur un serveur de production, vous n’allez laisser entrer personne sans d’abord lui imposer un processus d’inscription de votre choix. C’est généralement le modèle que vous voyez dans les applications consommateur. L’application peut permettre de vous inscrire sur Facebook, mais elle vous demande ensuite d’entrer des informations supplémentaires. Si vous n’utilisiez pas un programme de ligne de commande pour ce didacticiel, vous pouvez extraire l’e-mail de l’objet jeton qui est retourné. Ensuite, vous pouvez demander à l’utilisateur d’entrer des informations supplémentaires. Comme il s’agit d’un serveur de test, vous ajoutez l’utilisateur directement à la base de données en mémoire.
@@ -833,7 +831,7 @@ Une réponse 401 indique que la couche Passport tente de rediriger vers le point
 Vous êtes allé aussi loin que possible avec ce serveur sans utiliser un client compatible OAuth 2.0. Pour cela, vous devez consulter un autre didacticiel.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni sous forme de [fichier .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni en tant que [fichier .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
@@ -842,9 +840,8 @@ Vous pouvez maintenant aborder des rubriques plus avancées. Vous pouvez essayer
 Voici quelques ressources supplémentaires :
 
 * [Guide du développeur Azure AD v2.0](active-directory-appmodel-v2-overview.md)
-* [Étiquette « azure-active-directory » dans Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Balise « azure-active-directory » dans Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ### <a name="get-security-updates-for-our-products"></a>Obtenir les mises à jour de sécurité de nos produits
-Nous vous encourageons à vous inscrire pour être averti quand des incidents de sécurité se produisent. Dans la page [Microsoft Technical Security Notifications](https://technet.microsoft.com/security/dd252948), abonnez-vous aux alertes d’avis de sécurité.
-
+Nous vous encourageons à vous inscrire pour être averti quand des incidents de sécurité se produisent. Sur la page [Microsoft Technical Security Notifications](https://technet.microsoft.com/security/dd252948), abonnez-vous aux alertes d’avis de sécurité.
 

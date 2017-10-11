@@ -1,5 +1,5 @@
 ---
-title: "Création et publication d&quot;un produit dans Gestion des API Azure"
+title: "Création et publication d'un produit dans Gestion des API Azure"
 description: "Apprenez à créer et à publier des produits dans Gestion des API Azure."
 services: api-management
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 1568bbba999018e26493654e0286a6b8d93f3ae7
-
-
+ms.openlocfilehash: 73bf4451ba1b71807e22440beecc73a7e8045c5e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Création et publication d'un produit dans Gestion des API Azure
 Dans Gestion des API Azure, un produit contient une ou plusieurs API, ainsi qu’un quota et des conditions d’utilisation. Une fois le produit publié, les développeurs peuvent s'y abonner et commencer à utiliser ses API. Cette rubrique constitue un guide pour créer un produit, ajouter une API et le publier pour les développeurs.
@@ -151,9 +151,3 @@ Pour plus d’informations sur l’utilisation des produits, consultez la vidéo
 [Next steps]: #next-steps
 [How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
 [How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

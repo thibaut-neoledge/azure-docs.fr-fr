@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 23f2640bc71bc4eba0f3fc76014cce4a298bfcfa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Préparation des disques durs pour un travail d’importation
 
@@ -418,4 +417,3 @@ L’outil WAImportExport lit et écrit les fichiers par lots, un lot contenant a
 * [Réparation d’un travail d’importation](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Réparation d’un travail d’exportation](storage-import-export-tool-repairing-an-export-job-v1.md)
 * [Résolution des problèmes associés à l’outil Azure Import-Export](storage-import-export-tool-troubleshooting-v1.md)
-

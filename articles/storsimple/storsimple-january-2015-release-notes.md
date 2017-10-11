@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/16/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e9b5773f0152a8ff377169041b28fa1782288217
-
-
+ms.openlocfilehash: 2fc50f7faddb4b61ea5e7d328469fc3cc0eb6f3e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-8000-series-update-02-release-notes---january-2015"></a>Notes de publication de StorSimple série 8000 Update 0.2 - Janvier 2015
 ## <a name="overview"></a>Vue d'ensemble
@@ -71,10 +71,4 @@ Cette version ne contient aucune mise à jour pour le microprogramme ou le contr
 
 ## <a name="virtual-device-updates-in-the-january-release"></a>Mises à jour de l’appareil virtuel dans la version de janvier
 Cette version contient une image mise à jour pour l’appareil virtuel. Tous les appareils virtuels créés après le 20 janvier 2015 indiquent 6.3.9600.17361 comme numéro de version.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

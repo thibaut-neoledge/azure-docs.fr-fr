@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: a56a5af171eaca259db29f25fee4331a77313420
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Didacticiel : Intégration d'Azure Active Directory à Dropbox for Business
 
@@ -245,7 +244,7 @@ Lorsque vous cliquez sur la vignette Dropbox for Business dans le volet d’acc�
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-* [Configurer l’approvisionnement des utilisateurs](active-directory-saas-dropboxforbusiness-provisioning-tutorial.md)
+* [Configurer l’approvisionnement de l’utilisateur](active-directory-saas-dropboxforbusiness-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -260,5 +259,4 @@ Lorsque vous cliquez sur la vignette Dropbox for Business dans le volet d’acc�
 [201]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_203.png
-
 

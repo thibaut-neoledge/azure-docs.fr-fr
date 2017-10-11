@@ -13,20 +13,19 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 8ebc6f2dd7502fd75ffdd4d5d68338382cb1a46b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Bien démarrer avec l’authentification par certificat dans Azure Active Directory
 
 L’authentification par certificat vous permet d’être authentifié par Azure Active Directory avec un certificat client sur un appareil Windows, Android ou iOS lors de la connexion de votre compte Exchange Online à : 
 
-- Des applications mobiles Office, telles que Microsoft Outlook et Microsoft Word   
+- Des applications mobiles Office, telles que Microsoft Outlook et Microsoft Word ;   
 
-- Des clients Exchange ActiveSync (EAS) 
+- Des clients Exchange ActiveSync (EAS). 
 
 La configuration de cette fonctionnalité élimine le besoin d’entrer un nom d’utilisateur et un mot de passe dans certaines applications de messagerie et Microsoft Office sur votre appareil mobile. 
 
@@ -49,7 +48,7 @@ Pour configurer l’authentification par certificat, les éléments suivants doi
 
 - Vous devez disposer d’au moins une autorité de certification configurée dans Azure Active Directory. Vous trouverez les étapes associées dans la section [Configurer les autorités de certification](#step-2-configure-the-certificate-authorities).  
 
-- Pour les clients Exchange ActiveSync, le certificat client doit avoir l’adresse de messagerie routable de l’utilisateur dans Exchange Online, dans la valeur Nom du principal ou la valeur Nom RFC822 du champ Autre nom de l’objet. Azure Active Directory mappe la valeur RFC822 à l’attribut Adresse proxy dans l’annuaire.  
+- Pour les clients Exchange ActiveSync, le certificat client doit avoir l’adresse de messagerie routable de l’utilisateur dans Exchange Online, dans la valeur Nom du principal ou la valeur Nom RFC822 du champ Autre nom de l’objet. Azure Active Directory mappe la valeur RFC822 à l’attribut Adresse proxy dans le répertoire.  
 
 - Votre appareil client doit avoir accès à au moins une autorité de certification qui émet des certificats clients.  
 
@@ -109,7 +108,7 @@ Pour la configuration, vous pouvez utiliser [Azure Active Directory PowerShell V
    
         Install-Module -Name AzureAD –RequiredVersion 2.0.0.33 
 
-Comme première étape de configuration, vous devez établir une connexion avec votre client. Dès qu’il existe une connexion à votre client, vous pouvez examiner, ajouter, supprimer et modifier les autorités de certification approuvées qui sont définies dans votre annuaire. 
+Comme première étape de configuration, vous devez établir une connexion avec votre client. Dès qu’il existe une connexion à votre client, vous pouvez examiner, ajouter, supprimer et modifier les autorités de certification approuvées qui sont définies dans votre répertoire. 
 
 ### <a name="connect"></a>Connecter
 
@@ -120,7 +119,7 @@ Pour établir une connexion avec votre client, utilisez l’applet de commande [
 
 ### <a name="retrieve"></a>Récupération 
 
-Pour récupérer les autorités de certification approuvées qui sont définies dans votre annuaire, utilisez l’applet de commande [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0). 
+Pour récupérer les autorités de certification approuvées qui sont définies dans votre répertoire, utilisez l’applet de commande [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0). 
 
     Get-AzureADTrustedCertificateAuthority 
  
@@ -223,5 +222,4 @@ Un profil EAS peut être configuré et placé sur l’appareil via l’utilisati
 
 1. Configurez un profil EAS dans l’application qui respecte les spécifications citées ci-dessus.  
 2. Ouvrez l’application et vérifiez la synchronisation de la messagerie. 
-
 

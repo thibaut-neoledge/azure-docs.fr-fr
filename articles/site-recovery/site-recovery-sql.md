@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: a1e5461ef2188a42a3edd6cc35827874ddd6e3f3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.openlocfilehash: e53f60979e01a0eabe118d3ae6457a61bd4b0ded
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Protéger SQL Server à l’aide de la récupération d’urgence SQL Server et d’Azure Site Recovery
 
@@ -203,4 +202,3 @@ Pour les clusters SQL Server Standard, la restauration automatique après un bas
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus](site-recovery-components.md) sur l’architecture de Site Recovery.
-

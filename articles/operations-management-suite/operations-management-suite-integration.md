@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31291a9b0f452adeae42f744a976c14e61a4b303
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 7a24df6f2c3b2c091d1b66b8b9c0a61035ffde11
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="integrating-with-operations-management-suite-oms"></a>Intégration avec Operations Management Suite (OMS)
 Operations Management Suite est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et dans le cloud.  Outre l’utilisation des fonctionnalités standard d’OMS, vous pouvez intégrer celles-ci à d’autres applications et services de gestion pour fournir un environnement de gestion hybride, offrir des scénarios de gestion personnalisés propres à votre environnement ou fournir une gestion personnalisée pour vos clients.  Cet article fournit une vue d’ensemble des différentes options pour l’intégration avec les services OMS, ainsi que des liens vers des articles incluant des informations techniques détaillées. 
@@ -106,5 +105,4 @@ Par exemple, votre solution peut inclure un runbook Automation qui permet de col
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez le [Kit de développement logiciel (SDK) OMS](operations-management-suite-sdk.md) pour accéder à des informations techniques sur l’automatisation des services OMS.  
-
 

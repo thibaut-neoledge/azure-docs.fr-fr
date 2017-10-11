@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
 ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Intégration du SDK Android pour Azure Mobile Engagement
 > [!div class="op_single_selector"]
@@ -68,5 +67,4 @@ Pour toutes les versions, consultez les [notes de publication complètes](mobile
 
 ## <a name="upgrade-procedures"></a>Procédures de mise à niveau
 Si vous avez déjà intégré une version plus ancienne de notre kit de développement logiciel (SDK) dans votre application, consultez [Procédures de mise à niveau](mobile-engagement-android-upgrade-procedure.md).
-
 

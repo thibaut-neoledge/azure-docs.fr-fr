@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: bc520bd2ea54208889861a7a3b275e3008a05d53
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-10-install-the-mobility-service"></a>Étape 10 : installer le service Mobilité
 
 
@@ -35,7 +33,7 @@ Publiez des commentaires et des questions au bas de cet article, ou sur le [Foru
 
 ## <a name="install-manually"></a>Installer manuellement
 
-1. Vérifiez les [conditions préalables](site-recovery-vmware-to-azure-install-mob-svc.md#prerequisites) pour l’installation manuelle.
+1. Vérifiez les [prérequis](site-recovery-vmware-to-azure-install-mob-svc.md#prerequisites) pour l’installation manuelle.
 2. Suivez [ces instructions](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui) pour l’installation manuelle à l’aide du portail.
 3. Si vous préférez installer à partir de la ligne de commande, suivez [ces instructions](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-at-a-command-prompt).
 
@@ -53,4 +51,3 @@ En savoir plus sur comment [installer le service Mobilité à l’aide du Gestio
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à [Étape 11 : activer la réplication](vmware-walkthrough-enable-replication.md)
-

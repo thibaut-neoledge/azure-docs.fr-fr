@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: bfa8dbbd0b1d943a9eb7a042df0bac25189d9ac9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="overview-of-azure-iot-suite"></a>Vue d’ensemble de la suite Azure IoT
 
@@ -76,4 +75,3 @@ Vous pouvez déployer ces solutions sur votre abonnement Azure, puis exécuter u
 [iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-device-management]: ../iot-hub/iot-hub-device-management-overview.md
-

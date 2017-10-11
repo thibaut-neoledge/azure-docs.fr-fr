@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: a587f58fad2ec74c7633823c4d34f900e7c01f7e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Création d’un pipeline d’intégration continue avec Visual Studio Team Services et IIS
 Pour automatiser les phases de création, de test et de déploiement du développement de l’application, vous pouvez utiliser un pipeline d’intégration et de déploiement continus (CI/CD). Dans ce didacticiel, vous créez un pipeline CI/CD à l’aide de Visual Studio Team Services et d’une machine virtuelle Windows (VM) dans Azure qui exécute IIS. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -39,7 +37,7 @@ Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. 
 
 
 ## <a name="create-project-in-team-services"></a>Création d’un projet dans Team Services
-Visual Studio Team Services simplifie la collaboration et permet le développement sans recours à une solution de gestion de code en local. Team Services offre des fonctionnalités de test de code, de création et d’analyse de l’application dans le cloud. Vous pouvez choisir le dépôt de gestion des versions et l’IDE qui conviennent le mieux au développement de votre code. Pour ce didacticiel, vous pouvez utiliser un compte gratuit pour créer une application web ASP.NET de base et un pipeline CI/CD. Si vous n’avez pas encore de compte Team Services, [créez-en un](http://go.microsoft.com/fwlink/?LinkId=307137).
+Visual Studio Team Services simplifie la collaboration et permet le développement sans recours à une solution de gestion de code en local. Team Services offre des fonctionnalités de test de code, de création et d’analyse de l’application dans le cloud. Vous pouvez choisir le référentiel de contrôle de version et l’IDE qui conviennent le mieux au développement de votre code. Pour ce didacticiel, vous pouvez utiliser un compte gratuit pour créer une application web ASP.NET de base et un pipeline CI/CD. Si vous n’avez pas encore de compte Team Services, [créez-en un](http://go.microsoft.com/fwlink/?LinkId=307137).
 
 Pour gérer le processus de validation de code, de définition de build et de définition de version, créez un projet dans Team Services en procédant comme suit :
 
@@ -53,9 +51,9 @@ Pour gérer le processus de validation de code, de définition de build et de d�
 ## <a name="create-aspnet-web-application"></a>Création d’une application web ASP.NET
 À l’étape précédente, vous avez créé un projet dans Team Services. La dernière étape ouvre votre nouveau projet dans Visual Studio. Vous gérez vos validations de code dans la fenêtre **Team Explorer**. Créez une copie locale de votre nouveau projet, puis créez une application web ASP.NET à partir d’un modèle comme suit :
 
-1. Sélectionnez **Cloner** pour créer un dépôt git local de votre projet Team Services.
+1. Sélectionnez **Cloner** pour créer un référentiel git local de votre projet Team Services.
     
-    ![Clonage du dépôt à partir du projet Team Services](media/tutorial-vsts-iis-cicd/clone_repo.png)
+    ![Clonage du référentiel à partir du projet Team Services](media/tutorial-vsts-iis-cicd/clone_repo.png)
 
 2. Sous **Solutions**, sélectionnez **Nouveau**.
 
@@ -70,7 +68,7 @@ Pour gérer le processus de validation de code, de définition de build et de d�
     2. Sélectionnez **OK** pour créer votre solution.
 5. Dans la fenêtre **Team Explorer**, choisissez **Modifications**.
 
-    ![Validation des modifications locales dans le dépôt git Team Services](media/tutorial-vsts-iis-cicd/commit_changes.png)
+    ![Validation des modifications locales dans le référentiel git Team Services](media/tutorial-vsts-iis-cicd/commit_changes.png)
 
 6. Dans la zone de texte de validation, entrez un message tel que *Validation initiale*. Dans le menu déroulant, choisissez **Commit All and Sync** (Tout valider et synchroniser).
 
@@ -81,7 +79,7 @@ Dans Team Services, vous utilisez une définition de build pour montrer la mani�
 1. Dans votre projet Team Services, choisissez l’option **Build & Release** (Générer et publier) en haut, puis sélectionnez **Builds**.
 3. Sélectionnez **+ Nouvelle définition**.
 4. Choisissez le modèle **ASP.NET (préversion)** et sélectionnez **Appliquer**.
-5. Laissez les valeurs par défaut pour les tâches. Sous **Obtenir les sources**, assurez-vous que le dépôt *myWebApp* et la branche *master* sont sélectionnés.
+5. Laissez les valeurs par défaut pour les tâches. Sous **Obtenir les sources**, assurez-vous que le référentiel *myWebApp* et la branche *master* sont sélectionnés.
 
     ![Création d’une définition de build dans le projet Team Services](media/tutorial-vsts-iis-cicd/create_build_definition.png)
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: ea6b6651a32b9f259186991d9609301fd4dfa131
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 11e4bc7e71b4a94c3a0eda4275745b1beb44974d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Forum Aux Questions Azure Data Catalog
 Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Data Catalog.
@@ -29,7 +28,7 @@ Cet article fournit des réponses aux questions fréquemment posées sur le serv
 Data Catalog est un service entièrement géré, hébergé par Microsoft Azure, qui sert de système d’inscription et de détection des sources de données d’entreprise. Grâce à Data Catalog, les utilisateurs (analystes, scientifiques des données et développeurs) peuvent inscrire, découvrir, comprendre et consommer les sources de données.
 
 ## <a name="what-customer-challenges-does-it-solve"></a>Quels sont les défis clients que ce service permet de résoudre ?
-Data Catalog résout les problèmes de découverte des source de données et des « données cachées », de façon à ce que les utilisateurs puissent découvrir et comprendre les sources de données d’entreprise.
+Data Catalog résout les problèmes de découverte des sources de données et des « données cachées », de façon à ce que les utilisateurs puissent découvrir et comprendre les sources de données d’entreprise.
 
 ## <a name="what-are-its-target-audiences"></a>Quel est le public cible ?
 Data Catalog est conçu pour les utilisateurs, techniciens ou non, notamment :
@@ -129,4 +128,3 @@ Pour mettre à jour les métadonnées pour les ressources de données qui sont d
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>Il n’y a pas de réponse à ma question ici. Où puis-je en trouver une ?
 Rendez-vous dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
-

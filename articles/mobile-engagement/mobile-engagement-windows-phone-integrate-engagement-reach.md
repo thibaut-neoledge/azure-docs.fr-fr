@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 72f69e334172ad69bedb9c8fc4d270a607d1598f
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 0738f33df94d14fbb393bfaaf09e94c6560213cc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-phone-silverlight-reach-sdk-integration"></a>Intégration du Kit de développement logiciel (SDK) du module Couverture Windows Phone Silverlight
 Vous devez suivre la procédure d'intégration décrite dans la rubrique [Intégration du Kit de développement logiciel d’Engagement Windows Phone Silverlight  Engagement](mobile-engagement-windows-phone-integrate-engagement.md) avant de suivre ce guide.
@@ -283,5 +282,4 @@ Vous pouvez définir le rappel dans la méthode `Application_Launching` de votre
 [politiques d'applications]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [exigences supplémentaires pour les types d'application spécifiques]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
-
 

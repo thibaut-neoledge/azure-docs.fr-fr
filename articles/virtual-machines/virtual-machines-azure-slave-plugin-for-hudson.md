@@ -1,6 +1,6 @@
 ---
 title: "Utilisation du plug-in subordonné Azure avec la solution d’intégration continue Hudson | Microsoft Docs"
-description: "Décrit l’utilisation du plug-in subordonné Azure avec la solution d&quot;intégration continue Hudson"
+description: "Décrit l’utilisation du plug-in subordonné Azure avec la solution d'intégration continue Hudson"
 services: virtual-machines-linux
 documentationcenter: 
 author: rmcmurray
@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 0661f26e62a465ccd096773cbabd47268491f22d
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Utilisation du plug-in subordonné Azure avec la solution d'intégration continue Hudson
 Le plug-in subordonné Azure pour Hudson vous permet d’approvisionner des nœuds subordonnés sur Azure lors de l'exécution de builds distribués.
@@ -197,5 +196,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [add vm template]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-addnewvmtemplate.png
 [template config]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png
 [OS family list]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-oslist.png
-
 

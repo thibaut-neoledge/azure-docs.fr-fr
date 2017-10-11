@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: 522f440a0b3746e1101aed845678b3930e030fec
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Didacticiel : Intégration d’Azure Active Directory à Yonyx Interactive Guides
 
@@ -233,5 +232,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-yonyx-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-yonyx-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-yonyx-tutorial/tutorial_general_203.png
-
 

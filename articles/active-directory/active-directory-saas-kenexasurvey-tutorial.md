@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 5c276c23288292a1c54dd9d57177d5072b90c9e3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Didacticiel : intégration d’Azure Active Directory à IBM Kenexa Survey Enterprise
 
@@ -163,7 +162,7 @@ Dans cette section, vous allez créer un utilisateur de test nommé Britta Simon
 
     b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
 
-    c. Activez la case à cocher **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
     d. Cliquez sur **Create**.
  
@@ -229,4 +228,3 @@ Lorsque vous cliquez sur la vignette **IBM Kenexa Survey Enterprise** dans le pa
 [203]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_203.png
 
  
-

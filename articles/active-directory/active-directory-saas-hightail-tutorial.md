@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: ba55f9b62d274aa3eb91723c62b53f54de0891b5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Didacticiel : Intégration d’Azure Active Directory à Hightail
 
@@ -132,7 +131,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_attribute.png) 
 
-6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image et procédez comme suit :
+6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
     | Nom de l'attribut | Valeur de l’attribut |
     | ------------------- | -------------------- |
@@ -294,5 +293,4 @@ Quand vous cliquez sur la vignette Hightail dans le volet d’accès, vous devez
 [201]: ./media/active-directory-saas-hightail-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-hightail-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-hightail-tutorial/tutorial_general_203.png
-
 

@@ -13,13 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
---- 
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
+---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Guide de publication Cortana Intelligence AppSource
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -116,5 +115,4 @@ Tout d’abord, félicitations pour la publication de votre application.
 Le niveau de retours que vous obtenez à partir de la publication de votre application sur AppSource dépend fortement de la façon dont vous influencez le public cible. Consultez [Optimiser la croissance de votre application Cortana Intelligence sur AppSource](http://aka.ms/aagrowthhackguide) pour savoir comment vous pouvez optimiser les retours.
 
 Pour toute question ou suggestion, contactez-nous à l’adresse <appsourcecissupport@microsoft.com>.
-
 

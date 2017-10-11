@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: 934719868ab9968db352db2b440014d35dbc0274
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="operational-channel"></a>Canal opérationnel 
 
 Le canal opérationnel se compose des journaux provenant des principales actions effectuées par Service Fabric sur vos nœuds et votre cluster. Lorsque l’option « Diagnostics » est activée pour un cluster, l’agent Azure Diagnostics est déployé sur votre cluster et il est par défaut configuré pour lire les journaux à partir du canal opérationnel. Pour savoir comment modifier la configuration des diagnostics de votre cluster afin de sélectionner plus de journaux ou de compteurs de performances, consultez [Agent Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md). 
@@ -61,4 +59,3 @@ Voici une liste complète des journaux fournis par Service Fabric dans le canal 
 * En savoir plus sur la [génération d’événements au niveau de la plateforme](service-fabric-diagnostics-event-generation-infra.md) dans Service Fabric
 * Modification de votre configuration [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) pour collecter davantage de journaux
 * [Configuration d’Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) pour voir les journaux de votre canal opérationnel
-

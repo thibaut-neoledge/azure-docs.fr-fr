@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim;oldportal;it-pro;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5dde6b98f72306d6fe78f3c12377d3ce2ec5ddea
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: 3ac07bb7b070f44595c099a454b3d0dbc66126c9
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management : comment ajouter ou supprimer un rôle d’utilisateur
 Avec Azure Active Directory (AD), un administrateur général (ou un administrateur d’entreprise) peut mettre à jour les utilisateurs auxquels des rôles sont **définitivement** affectés dans Azure AD. Cette opération s’effectue avec les applets de commande PowerShell, telles que `Add-MsolRoleMember` et `Remove-MsolRoleMember`. Il peut également utiliser le portail Azure Classic comme décrit dans [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles.md).
@@ -48,7 +47,7 @@ Si vous souhaitez donner l’accès à PIM à un autre utilisateur, consultez [C
 
 > [!NOTE]
 > Les nouveaux utilisateurs d’un rôle sont uniquement éligibles pour le rôle par défaut. Si vous souhaitez conserver le rôle, cliquez sur l’utilisateur dans la liste. Les informations de l’utilisateur s’affichent dans un nouveau panneau. Sélectionnez **Rendre permanent** dans le menu des informations utilisateur.  
-> Si un utilisateur ne peut pas inscrire pour authentification multifacteur (MFA) Azure ou utilise un compte Microsoft (généralement @outlook.com),), vous devez le rendre permanent dans tous ses rôles. Les administrateurs éligibles sont invités à s’inscrire à MFA lors de l’activation.
+> Si un utilisateur ne peut pas inscrire pour Azure multi-Factor Authentication (MFA), ou qu’il utilise un compte Microsoft (généralement @outlook.com), vous devez les rendre permanentes dans leurs rôles. Les administrateurs éligibles sont invités à s’inscrire à MFA lors de l’activation.
 
 Maintenant que l’utilisateur est éligible à un rôle, indiquez-lui qu’il peut l’activer en suivant les instructions dans [Comment activer ou désactiver un rôle](active-directory-privileged-identity-management-how-to-activate-role.md).
 
@@ -66,5 +65,4 @@ Si vous ne savez pas quels utilisateurs ont toujours besoin de leurs attribution
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
 

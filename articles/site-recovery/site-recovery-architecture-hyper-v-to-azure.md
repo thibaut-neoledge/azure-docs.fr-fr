@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 552794a2c7bba6f551ada5f431cacc236e7732a4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 28f775afaf72b11eec0c22f755e4dbd6a485c895
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Fonctionnement de la réplication Hyper-V sur Azure dans Site Recovery
 
 
@@ -68,8 +65,7 @@ En savoir plus sur les conditions préalables au déploiement et la configuratio
 2. Le travail vérifie que la machine est conforme à la configuration requise, puis appelle la méthode [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), laquelle configure la réplication avec les paramètres que vous avez configurés.
 3. Le travail démarre la réplication initiale en appelant la méthode [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) pour initialiser une réplication complète de la machine virtuelle et envoyer les disques virtuels de la machine virtuelle sur Azure.
 4. Vous pouvez surveiller le travail dans l'onglet **Travaux**.
-        ![Liste des travaux](media/site-recovery-hyper-v-azure-architecture/image1.png)
-        ![Activer l’exploration de la protection](media/site-recovery-hyper-v-azure-architecture/image2.png)
+        ![Liste des travaux](media/site-recovery-hyper-v-azure-architecture/image1.png) ![Activer l’exploration de la protection](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Répliquer les données initiales
 
@@ -125,5 +121,4 @@ Si une erreur de réplication se produit, une nouvelle tentative intégrée est 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Examiner la [matrice de prise en charge](site-recovery-support-matrix-to-azure.md)
-
+Examen de la [matrice de prise en charge](site-recovery-support-matrix-to-azure.md)

@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-
-
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>Étape 1 : examen de l’architecture pour la réplication de Hyper-V sur Azure
 
 
@@ -116,4 +113,3 @@ Si une erreur de réplication se produit, une nouvelle tentative intégrée est 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Accédez à l’[Étape 2 : passer en revue les conditions préalables au déploiement](hyper-v-site-walkthrough-prerequisites.md)
-

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: e15784a662b1691774eb3d9cc8b3fbe66ac67385
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 44e344095352f2bc6b27e389fc8be2cdf3e368d8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD
 
 La configuration de [l’approvisionnement automatique des utilisateurs](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) pour une application (lorsqu’il est pris en charge) implique de respecter des instructions spécifiques pour la préparation de l’application. Vous pouvez ensuite utiliser le Portail Azure afin de configurer le service d’approvisionnement pour synchroniser les comptes d’utilisateur avec l’application.
@@ -70,4 +68,3 @@ Lorsqu’un utilisateur apparaît comme « ignoré » dans les journaux d’au
 
 #<a name="next-steps"></a>Étapes suivantes
 [Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](active-directory-saas-app-provisioning.md)
-

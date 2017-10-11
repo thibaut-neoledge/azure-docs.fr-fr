@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 978dde5857344704ce14e2dd090895f1fe541863
 ms.openlocfilehash: c2d081604c0ca01f47c3ff2aab7477859d280963
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Installation de mises à jour sur votre instance StorSimple Virtual Array - Portail Azure
 
@@ -110,5 +109,4 @@ Une fois l’installation terminée (lorsque l’état du travail atteint 100 %
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur la [gestion de votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
 

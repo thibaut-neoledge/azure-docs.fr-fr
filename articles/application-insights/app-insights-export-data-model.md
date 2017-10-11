@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 3084bb344976bc542e78a55a1c27c4dedc111af0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: a485ddd555f65473d81896effc4a3562bda71410
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-export-data-model"></a>Modèle d’exportation de données Application Insights
 Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits SDK [Application Insights](app-insights-overview.md) au portail.
@@ -351,4 +350,3 @@ Sauf mention contraire, les durées sont indiquées en dixièmes de microseconde
 * [Application Insights](app-insights-overview.md)
 * [Exportation continue](app-insights-export-telemetry.md)
 * [Exemples de code](app-insights-export-telemetry.md#code-samples)
-

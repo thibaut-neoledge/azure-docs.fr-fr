@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6c5fa51bdaad808d90cac6c8b8adeafe7d1cafc9
 ms.openlocfilehash: 989e7b697f9b527df549fb32be18edd1d3c8d224
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/01/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Utiliser l'interface utilisateur web pour gérer votre StorSimple Virtual Array
 ![flux du processus d'installation](./media/storsimple-ova-web-ui-admin/manage4.png)
@@ -111,5 +110,4 @@ Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interf
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil](storsimple-virtual-array-manager-service-administration.md).
-
 

@@ -1,4 +1,3 @@
-
 ---
 title: "Vue d’ensemble de l'API d’exportation Mobile Engagement"
 description: "Apprenez les principes de base de l'exportation de vos données brutes générées par les appareils de vos utilisateurs de façon à en tirer parti dans vos propres outils"
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1e2ddb613e713972820621d0fa836c41eb61f91
 ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/19/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="mobile-engagement-export-api-overview"></a>Vue d’ensemble de l'API d’exportation Mobile Engagement
 ## <a name="introduction"></a>Introduction
@@ -74,5 +72,4 @@ Veuillez noter que le démarrage de votre tâche peut prendre quelques minutes e
 Une fois la tâche créée, il est possible de vérifier son état pour voir si elle est toujours en cours d'exécution ou si elle est terminée.
 
 Une fois la tâche RÉUSSIE, le fichier de données qui en résulte est disponible sur le conteneur de stockage fourni.
-
 

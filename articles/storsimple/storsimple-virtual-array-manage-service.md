@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Déployer le service StorSimple Device Manager pour StorSimple Virtual Array
 ## <a name="overview"></a>Vue d'ensemble
@@ -122,5 +121,4 @@ Procédez comme suit pour régénérer une clé d’inscription du service.
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [prendre en main](storsimple-virtual-array-deploy1-portal-prep.md) une solution StorSimple Virtual Array.
 * Découvrez comment [gérer votre appareil StorSimple](storsimple-ova-web-ui-admin.md).
-
 

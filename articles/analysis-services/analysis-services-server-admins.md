@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 25c8b49401486edfad0a1a60fe2258a586f6adc2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
-
+ms.openlocfilehash: a1b58125dafdf73f245b6a8cd0f4917513b22ea9
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-server-administrators"></a>Gérer des administrateurs de serveur
 Un administrateur de serveur doit être un utilisateur ou un groupe valide présent dans Azure Active Directory (Azure AD) pour le client disposant du serveur. Vous pouvez utiliser les **Administrateurs Analysis Services** dans le panneau de commande de votre serveur dans le portail ou Propriétés du serveur dans SSMS pour gérer les administrateurs de serveur. 
@@ -43,5 +42,4 @@ Un administrateur de serveur doit être un utilisateur ou un groupe valide prés
 [Authentification et autorisations utilisateur](analysis-services-manage-users.md)  
 [Gérer les utilisateurs et rôles de base de données](analysis-services-database-users.md)  
 [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md)  
-
 

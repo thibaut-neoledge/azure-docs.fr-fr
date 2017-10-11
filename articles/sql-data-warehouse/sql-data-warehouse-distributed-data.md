@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 07/12/2017
 ms.author: jrj;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 3c166acb17193caae32d7bad133ec510ff679353
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>Données et tables distribuées pour le traitement massivement parallèle (MPP)
 Découvrez comment les données utilisateur sont distribuées dans Azure SQL Data Warehouse et Parallel Data Warehouse, qui sont des systèmes de traitement massivement parallèle (MPP) de Microsoft. En concevant votre entrepôt de données pour qu’il utilise les données distribuées, vous bénéficiez des avantages de l’architecture MPP en termes de traitement des requêtes. Certains choix de conception de base de données peuvent avoir un impact significatif sur l’amélioration des performances des requêtes.  
@@ -73,5 +72,4 @@ Le diagramme suivant illustre une table répliquée stockée sur chaque nœud de
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour utiliser efficacement les tables distribuées, consultez [Distributing tables in SQL Data Warehouse (Distribution de tables dans SQL Data Warehouse)](sql-data-warehouse-tables-distribute.md).  
-
 

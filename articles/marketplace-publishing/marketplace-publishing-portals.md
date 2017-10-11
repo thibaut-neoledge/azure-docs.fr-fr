@@ -1,6 +1,6 @@
 ---
 title: "Vue d’ensemble des divers portails nécessaires pour créer une offre sur la Place de marché | Microsoft Docs"
-description: "Vue d&quot;ensemble des divers portails nécessaires pour créer une offre sur Marketplace"
+description: "Vue d'ensemble des divers portails nécessaires pour créer une offre sur Marketplace"
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8087f27a692e1e2d0f2d9434b065ddb902de0d57
-
-
+ms.openlocfilehash: 093d3ee3ecce89c86a12e7e216072ece57f82f9d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="portals-you-will-need"></a>Portails dont vous aurez besoin
 Avant le lancement du processus de publication d’une offre, nous allons vous présenter les différents portails dont vous aurez besoin. Vous trouverez ci-dessous un résumé des portails (Centre de développement, portail de publication Azure et portail Azure) avec lesquels vous pourrez interagir.                                                                            
@@ -35,7 +35,7 @@ La création d’un compte auprès du Centre de développement Microsoft est une
 > 
 
 ### <a name="identityaccount-used"></a>Identité/compte utilisé
-Dans l’idéal, une liste de distribution ou un groupe de sécurité (par exemple, azurepublishing@*entreprisepartenaire*.com). Cette liste de distribution ou ce groupe de sécurité **doit** être enregistré en tant que compte Microsoft.
+Dans l’idéal, il s’agit d’une liste de distribution ou un groupe de sécurité (par exemple, azurepublishing @*partnercompany*.com). Cette liste de distribution ou ce groupe de sécurité **doit** être enregistré en tant que compte Microsoft.
 
 > [!TIP]
 > Nous recommandons l'utilisation d'une liste de distribution ou d'un groupe de sécurité, car elle permet de supprimer la dépendance vis-à-vis de toute personne (même si un compte individuel peut également être utilisé).
@@ -62,10 +62,4 @@ Un ID d’abonnement figurant dans la liste approuvée est nécessaire lors de l
 
 ## <a name="see-also"></a>Voir aussi
 * [Mise en route : publication d'une offre pour Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

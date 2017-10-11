@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/29/2017
 ---
-
-
 # <a name="step-1-review-the-architecture"></a>Étape 1 : examen de l’architecture
 
 
@@ -121,4 +118,3 @@ Si une erreur de réplication se produit, une nouvelle tentative intégrée est 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Accédez à l’[Étape 2 : passer en revue les conditions préalables au déploiement](vmm-to-azure-walkthrough-prerequisites.md)
-

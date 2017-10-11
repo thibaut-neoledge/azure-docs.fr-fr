@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: d2dd84007832c56f5893f0ea9f5effcf5ec5816b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Inscrire votre application avec un client Azure Active Directory
 
 Vous pouvez utiliser le portail Azure pour inscrire votre application avec votre client Azure Active Directory (Azure AD). Cela crée un ID d’application pour l’application et lui permet de recevoir des jetons.
@@ -64,4 +62,3 @@ Vous pouvez utiliser l’éditeur de manifeste en ligne pour modifier certaines 
 
 1. Pour des procédures pas à pas détaillées des applications exécutant l’authentification à l’aide d’Azure AD, consultez les [Démarrages rapides](active-directory-developers-guide.md).
 2. Consultez notre liste complète d’exemples de code dans [GitHub](https://github.com/azure-samples).
-

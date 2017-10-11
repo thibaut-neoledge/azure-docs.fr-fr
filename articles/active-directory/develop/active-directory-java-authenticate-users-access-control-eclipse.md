@@ -1,6 +1,6 @@
 ---
 title: Comment utiliser Access Control (Java) | Microsoft Docs
-description: "Apprenez à développer et à utiliser le contrôle d&quot;accès avec Java dans Azure."
+description: "Apprenez à développer et à utiliser le contrôle d'accès avec Java dans Azure."
 services: active-directory
 documentationcenter: java
 author: rmcmurray
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3e0f8d92495c976040113f8edc0d4c789920c549
-ms.openlocfilehash: e22dca7b666720edfcbfd1b871d98b9468441fbd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 698403d181e1fee09bb4692290c92203ded97ba4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse
 Ce guide vous indique comment utiliser Azure Access Control Service (ou ACS) au sein du Kit de ressources Azure pour Eclipse. Pour plus d'informations sur ACS, consultez la section [Étapes suivantes](#next_steps) .
@@ -171,7 +169,7 @@ Dans la page **Login Page Integration : Azure Web App**, l'URL répertoriée da
    
     ![Ajouter un fichier JSP pour l'exemple ACS][add_jsp_file_acs]
    
-    Cliquez sur **Next**.
+    Cliquez sur **Suivant**.
 4. Dans la boîte de dialogue **Select JSP Template**, sélectionnez **New JSP File (html)**, puis cliquez sur **Terminer**.
 5. Quand le fichier index.jsp s’ouvre dans Eclipse, ajoutez du texte pour que **Hello ACS World!** s’affiche dans l’élément `<body>` existant. Le contenu `<body>` mis à jour doit se présenter de la façon suivante :
    
@@ -299,5 +297,4 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
-
 

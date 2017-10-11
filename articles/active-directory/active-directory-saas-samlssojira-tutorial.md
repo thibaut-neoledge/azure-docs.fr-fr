@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Didacticiel : Intégration d’Azure Active Directory avec SSO SAML pour Jira par résolution GmbH
 
@@ -153,7 +151,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon9.png)
 
-12.    Cliquez sur **Gérer**.
+12. Cliquez sur **Gérer**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon10.png)
     
@@ -177,7 +175,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     d. Cliquez sur le bouton **Charger**.
 
-    e. Les métadonnées d’IdP sont lues et les champs sont renseignés de la manière mise en évidence dans la capture d’écran.    
+    e. Les métadonnées d’IdP sont lues et les champs sont renseignés de la manière mise en évidence dans la capture d’écran. 
 
 16. Cliquez sur le bouton **Enregistrer les paramètres** pour enregistrer les paramètres.
 
@@ -251,7 +249,7 @@ Dans SSO SAML pour Jira de resolution GmbH, cette configuration est une tâche m
 
     d. Dans la zone de texte **Password** (Mot de passe), tapez le mot de passe de l’utilisateur.
 
-    e. Cliquez sur **Create User** (Créer un utilisateur).    
+    e. Cliquez sur **Create User** (Créer un utilisateur).   
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
@@ -310,5 +308,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_203.png
-
 

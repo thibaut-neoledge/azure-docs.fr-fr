@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-activity-log-alerts"></a>Créer des alertes de journal d’activité
 
@@ -92,7 +91,7 @@ Pour en savoir plus sur les notifications d’intégrité du service, consultez 
 
     b. **Type d’action** : sélectionnez SMS, e-mail ou webhook.
 
-    c. **Détails** : selon le type d’actions, entrez un numéro de téléphone, une adresse e-mail ou une URI Webhook.
+    c. **Détails** : selon le type d’action, entrez un numéro de téléphone, une adresse e-mail ou une URI de Webhook.
 
 10. Sélectionnez **OK** pour créer l’alerte.
 
@@ -130,4 +129,3 @@ Une fois l’alerte créée, elle apparaît dans la section Alertes du panneau S
 - En savoir plus sur les [notifications sur l’intégrité du service](monitoring-service-notifications.md).
 - Créer une [alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
 - Créer une [alerte de journal d’activité pour surveiller tous les échecs d’opérations de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
-

@@ -15,12 +15,11 @@ ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: bd9066c251188c0f18fe1a9403baa2beaeeb987c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-the-access-panel"></a>Présentation du volet d’accès
 
@@ -157,7 +156,7 @@ Si vos informations d’identification ont changé dans l’application tierce c
 
 ### <a name="password-based-sso-with-identity-provisioning"></a>Authentification unique avec mot de passe avec approvisionnement d’identité
 
-Vous pouvez ajouter des applications à la section **Active Directory** du portail Azure avec le mode d’authentification unique (SSO) défini sur **Authentification unique avec mot de passe**, ainsi que l’approvisionnement d’identité.
+Vous pouvez ajouter des applications à la section ****Active Directory du portail Azure avec le mode d’authentification unique (SSO) défini sur **Authentification unique avec mot de passe**, ainsi que l’approvisionnement d’identité.
 
 La première fois que vous cliquez sur la vignette de l’une de ces applications, vous êtes invité à installer le **plug-in d’authentification unique (SSO) avec mot de passe pour Internet Explorer ou Chrome**. L’installation peut nécessiter le redémarrage de votre navigateur web.  
 Quand vous revenez au volet d’accès et que vous recliquez sur la vignette de l’application, vous êtes connecté automatiquement à l’application.
@@ -193,4 +192,3 @@ Par exemple, si une application est configurée pour authentifier les utilisateu
 [3]: ./media/active-directory-saas-access-panel-introduction/03.png
 [4]: ./media/active-directory-saas-access-panel-introduction/04.png
 [5]: ./media/active-directory-saas-access-panel-introduction/05.png
-

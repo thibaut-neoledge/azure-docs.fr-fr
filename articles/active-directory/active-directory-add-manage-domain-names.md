@@ -16,19 +16,18 @@ ms.date: 07/26/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: 5ae19bb370064de96cf466ca09b13d02563d65a4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
 Un nom de domaine peut être un identificateur important pour de nombreuses ressources de répertoire, lorsqu’il est compris dans :
 
-* un nom d’utilisateur ou une adresse e-mail d’un utilisateur ;
-* l’adresse d’un groupe ;
-* l’URI ID d’application pour une application.
+* Un nom d’utilisateur ou une adresse e-mail d’un utilisateur
+* L’adresse d’un groupe
+* L’URI ID d’application pour une application
 
 Une ressource dans Azure Active Directory (Azure AD) peut inclure un nom de domaine déjà vérifié comme appartenant au répertoire qui contient la ressource. Seul un administrateur général peut effectuer des tâches de gestion de domaine dans Azure AD.
 
@@ -78,5 +77,4 @@ La plupart des tâches de gestion des noms de domaine dans Azure Active Director
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les noms de domaine dans Azure AD](active-directory-add-domain-concepts.md)
 * [Gérer les noms de domaine personnalisés](active-directory-add-manage-domain-names.md)
-
 

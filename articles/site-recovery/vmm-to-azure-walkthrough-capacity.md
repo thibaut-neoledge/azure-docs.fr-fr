@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: ab1dc21a829140f8cd2e57837d83a05b0d71bcdf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="step-3-plan-capacity-and-scaling-for-hyper-v-with-vmm-to-azure-replication"></a>Étape 3 : Planifier la capacité et la mise à l’échelle pour la réplication d’Hyper-V (avec VMM) vers Azure
 
 Après avoir vérifié les [prérequis pour le déploiement](site-recovery-overview.md), utilisez cet article pour déterminer la planification de la capacité et de la mise à l’échelle pendant la réplication vers Azure de machines virtuelles Hyper-V locales dans les clouds System Center Virtual Machine Manager (VMM) avec [Azure Site Recovery](vmm-to-azure-walkthrough-prerequisites.md).
@@ -85,4 +83,3 @@ Vous pouvez également utiliser l’applet de commande [Set-OBMachineSetting](ht
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à l’[Étape 4 : Planifier la mise en réseau](vmm-to-azure-walkthrough-network.md).
-

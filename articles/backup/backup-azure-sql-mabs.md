@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 2af9ebaa8f52690ed63406cbd85b77544d2d900d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Sauvegarder des données SQL Server vers Azure à l’aide du serveur de sauvegarde Azure
 Cet article vous guide tout au long des étapes de configuration de la sauvegarde des bases de données SQL Server à l’aide du serveur de sauvegarde Microsoft Azure.
@@ -42,7 +41,7 @@ Avant de commencer, assurez-vous d’avoir [installé et préparé le serveur de
 4. Sélectionnez **Serveurs**.
 
     ![Sélectionner le type de groupe de protection - « Servers »](./media/backup-azure-backup-sql/pg-servers.png)
-5. Développez l'ordinateur SQL Server sur lequel se trouvent les bases de données à sauvegarder. Le serveur de sauvegarde Microsoft Azure affiche diverses sources de données pouvant être sauvegardées à partir de ce serveur. Développez **Tous les partages SQL** et sélectionnez les bases de données (dans ce cas, nous avons sélectionné ReportServer$ MSDPM2012 et ReportServer$ MSDPM2012TempDB) à sauvegarder. Cliquez sur **Next**.
+5. Développez l'ordinateur SQL Server sur lequel se trouvent les bases de données à sauvegarder. Le serveur de sauvegarde Microsoft Azure affiche diverses sources de données pouvant être sauvegardées à partir de ce serveur. Développez **Tous les partages SQL** et sélectionnez les bases de données (dans ce cas, nous avons sélectionné ReportServer$ MSDPM2012 et ReportServer$ MSDPM2012TempDB) à sauvegarder. Cliquez sur **Suivant**.
 
     ![Sélectionner la base de données SQL](./media/backup-azure-backup-sql/pg-databases.png)
 6. Donnez un nom au groupe de protection, puis cochez la case **Je souhaite une protection en ligne** .
@@ -68,7 +67,7 @@ Avant de commencer, assurez-vous d’avoir [installé et préparé le serveur de
     Par défaut, le serveur de sauvegarde Microsoft Azure crée un volume par source de données (base de données SQL Server) utilisée pour la copie de sauvegarde initiale. Suivant cette approche, le Gestionnaire de disque logique (LDM) limite la protection du serveur de sauvegarde Microsoft Azure à 300 sources de données (bases de données SQL Server). Pour contourner cette limitation, sélectionnez l’option **Colocaliser les données dans le pool de stockage DPM**. Si vous choisissez cette option, le serveur de sauvegarde Microsoft Azure utilise un même volume pour plusieurs sources de données, ce qui lui permet de protéger jusqu’à 2 000 bases de données SQL.
 
     Si l’option **Augmenter automatiquement les volumes** est sélectionnée, le serveur de sauvegarde Microsoft Azure peut gérer l’augmentation du volume de sauvegarde à mesure que les données de production augmentent. Si l’option **Augmenter automatiquement les volumes** n’est pas sélectionnée, le serveur de sauvegarde Microsoft Azure limite le stockage de sauvegarde utilisé pour les sources de données dans le groupe de protection.
-9. Les administrateurs peuvent opter pour le transfert manuel de cette sauvegarde initiale manuellement (hors réseau) pour éviter l’encombrement de la bande passante ou sur le réseau. Ils peuvent également configurer l’heure à laquelle le transfert initial peut se produire. Cliquez sur **Next**.
+9. Les administrateurs peuvent opter pour le transfert manuel de cette sauvegarde initiale manuellement (hors réseau) pour éviter l’encombrement de la bande passante ou sur le réseau. Ils peuvent également configurer l’heure à laquelle le transfert initial peut se produire. Cliquez sur **Suivant**.
 
     ![Méthode de réplication initiale](./media/backup-azure-backup-sql/pg-manual.png)
 
@@ -141,12 +140,12 @@ Les étapes suivantes sont nécessaires pour récupérer une entité protégée 
 2. Cliquez avec le bouton droit sur le nom de base de données et cliquez sur **Récupérer**.
 
     ![Récupérer depuis Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM affiche les détails du point de récupération. Cliquez sur **Next**. Pour remplacer la base de données, sélectionnez le type de récupération **Récupérer l’instance d’origine de SQL Server**. Cliquez sur **Next**.
+3. DPM affiche les détails du point de récupération. Cliquez sur **Suivant**. Pour remplacer la base de données, sélectionnez le type de récupération **Récupérer l’instance d’origine de SQL Server**. Cliquez sur **Suivant**.
 
     ![Récupérer à l’emplacement d’origine](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     Dans cet exemple, DPM permet la récupération de la base de données vers une autre instance SQL Server ou dans un dossier de réseau autonome.
-4. Dans l'écran **Spécifier des options de récupération** , vous pouvez sélectionner les options de récupération telles que la limitation de bande passante réseau pour limiter la bande passante utilisée par la récupération. Cliquez sur **Next**.
+4. Dans l'écran **Spécifier des options de récupération** , vous pouvez sélectionner les options de récupération telles que la limitation de bande passante réseau pour limiter la bande passante utilisée par la récupération. Cliquez sur **Suivant**.
 5. Dans l’écran **Résumé** , vous voyez toutes les configurations de récupération fournies jusqu’à présent. Cliquez sur **Restaurer**.
 
     L’état de récupération indique la base de données en cours de récupération. Vous pouvez cliquer sur **Fermer** pour fermer l’Assistant et afficher la progression dans l’espace de travail **Surveillance**.
@@ -157,4 +156,3 @@ Les étapes suivantes sont nécessaires pour récupérer une entité protégée 
 
 ### <a name="next-steps"></a>Étapes suivantes :
 •    [Sauvegarde Azure - FAQ](backup-azure-backup-faq.md)
-

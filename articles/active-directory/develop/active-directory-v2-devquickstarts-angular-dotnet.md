@@ -15,16 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: 0ab6506e14997c0c6d58afa22db63f928d7cceb9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/03/2017
-
-
+ms.openlocfilehash: c68180c0ecabf5c0732f0db77ef1f3cc93be965b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-<a id="add-sign-in-to-an-angularjs-single-page-app---net" class="xliff"></a>
-# Ajouter une connexion à une application AngularJS à une seule page - .NET
+# <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Ajouter une connexion à une application AngularJS à une seule page - .NET
 Dans cet article, nous ajouterons la connexion avec des comptes Microsoft à une application AngularJS, à l’aide du point de terminaison v2.0 d’Azure Active Directory.  Le point de terminaison v2.0 vous permet d’effectuer une intégration unique dans votre application et d’authentifier les utilisateurs avec des comptes personnels et des comptes professionnels ou scolaires.
 
 Cet exemple est une application à page unique de liste de tâches qui stocke les tâches dans une API REST du serveur principal, écrite à l’aide de .NET 4.5 MVC et sécurisée à l’aide des jetons du porteur OAuth d’Azure AD.  L’application AngularJS utilisera notre bibliothèque d’authentification open source JavaScript [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) afin de gérer l’intégralité du processus de connexion et d’acquérir les jetons utilisés pour appeler l’API REST.  Le même modèle peut être appliqué pour l’authentification d’autres API REST, comme les API [Microsoft Graph](https://graph.microsoft.com).
@@ -34,8 +31,7 @@ Cet exemple est une application à page unique de liste de tâches qui stocke le
 > 
 > 
 
-<a id="download" class="xliff"></a>
-## Télécharger
+## <a name="download"></a>Télécharger
 Pour commencer, vous devez télécharger et installer Visual Studio.  Vous pouvez ensuite cloner ou [télécharger](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) une application squelette :
 
 ```
@@ -48,8 +44,7 @@ L’application squelette comprend l’ensemble du code réutilisable associé �
 git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet.git
 ```
 
-<a id="register-an-app" class="xliff"></a>
-## Inscription d’une application
+## <a name="register-an-app"></a>Inscription d’une application
 Dans un premier temps, créez une application dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md).  Veillez à respecter les points suivants :
 
 * ajouter la plateforme **web** pour votre application ;
@@ -58,8 +53,7 @@ Dans un premier temps, créez une application dans le [portail d’inscription d
 
 Copiez l’ **ID d’application** affecté à votre application ; vous en aurez besoin rapidement. 
 
-<a id="install-adaljs" class="xliff"></a>
-## Installer adal.js
+## <a name="install-adaljs"></a>Installer adal.js
 Pour commencer, accédez au projet téléchargé, puis installez adal.js.  Si [bower](http://bower.io/) est installé, il vous suffit d’exécuter cette commande.  En cas d’incompatibilité de versions de dépendance, sélectionnez la version la plus élevée.
 
 ```
@@ -81,8 +75,7 @@ Ouvrez maintenant le projet dans Visual Studio, puis chargez adal.js à la fin d
 ...
 ```
 
-<a id="set-up-the-rest-api" class="xliff"></a>
-## Configurer l’API REST
+## <a name="set-up-the-rest-api"></a>Configurer l’API REST
 Pendant la configuration, tentons de lancer l’API REST du serveur principal.  À la racine du projet, ouvrez `web.config` et remplacez la valeur `audience`.  L’API REST utilise cette valeur pour valider les jetons reçus de l’application Angular, dans les requêtes AJAX.
 
 ```xml
@@ -99,8 +92,7 @@ Pendant la configuration, tentons de lancer l’API REST du serveur principal. 
 
 Nous n’évoquerons pas plus en avant le fonctionnement de l’API REST.  N’hésitez pas à examiner le code, mais si vous souhaitez en savoir plus sur la sécurisation des API web à l’aide d’Azure AD, consultez [cet article](active-directory-v2-devquickstarts-dotnet-api.md). 
 
-<a id="sign-users-in" class="xliff"></a>
-## Connecter les utilisateurs
+## <a name="sign-users-in"></a>Connecter les utilisateurs
 Il est temps d’écrire du code d’identité.  Vous avez peut-être remarqué que adal.js contient un fournisseur AngularJS, qui se combine parfaitement aux mécanismes de routage Angular.  Commencez par ajouter le module adal à l’application :
 
 ```js
@@ -176,8 +168,7 @@ angular.module('todoApp')
 ...
 ```
 
-<a id="display-user-info" class="xliff"></a>
-## Afficher les informations utilisateur
+## <a name="display-user-info"></a>Afficher les informations utilisateur
 Maintenant que l’utilisateur est connecté, il vous faudra probablement accéder à ses données d’authentification dans votre application.  Adal.js expose ces informations pour vous dans l’objet `userInfo` .  Pour accéder à cet objet dans une vue, ajoutez adal.js sur l’étendue racine du contrôleur correspondant :
 
 ```js
@@ -218,8 +209,7 @@ Vous pouvez également utiliser l’objet `userInfo` afin de déterminer si l’
 ...
 ```
 
-<a id="call-the-rest-api" class="xliff"></a>
-## Appeler l’API REST
+## <a name="call-the-rest-api"></a>Appeler l’API REST
 Enfin, il est temps d’obtenir certains jetons et d’appeler l’API REST afin de créer, de lire, de mettre à jour et de supprimer les tâches.  Devinez quoi ?  Vous n’avez *rien*à faire.  Adal.js se charge automatiquement d’obtenir, de mettre en cache et d’actualiser les jetons.  Il joint également ces jetons aux requêtes AJAX sortantes que vous envoyez à l’API REST.  
 
 Comment ceci fonctionne-t-il ? Ces résultats sont obtenus à l’aide des [intercepteurs AngularJS](https://docs.angularjs.org/api/ng/service/$http) magiques, grâce auxquels adal.js peut transformer les messages http entrants et sortants.  En outre, adal.js suppose que l’ensemble des requêtes envoyées sur le domaine de la fenêtre doivent utiliser les jetons destinés à l’ID d’application de l’application AngularJS.  Dès lors, nous avons utilisé un ID d’application identique dans l’application Angular et dans l’API REST NodeJS.  Cela va de soi, vous pouvez ignorer ce comportement et demander à adal.js d’obtenir des jetons pour d’autres API REST, si nécessaire. Toutefois, pour ce scénario simple, les valeurs par défaut sont suffisantes.
@@ -242,8 +232,6 @@ Pour en savoir plus sur le point de terminaison v2.0, consultez de nouveau notre
 * [Azure AD sur Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 * Documentation Azure AD sur [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<a id="get-security-updates-for-our-products" class="xliff"></a>
-## Obtenir les mises à jour de sécurité de nos produits
+## <a name="get-security-updates-for-our-products"></a>Obtenir les mises à jour de sécurité de nos produits
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [cette page](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
-
 

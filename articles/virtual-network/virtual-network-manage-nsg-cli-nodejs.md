@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
 ms.openlocfilehash: 2e53c3ff2ffbef95d6b72ca6afb3b4de377f0389
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli-10"></a>Gérer les groupes de sécurité réseau avec Azure CLI 1.0
 
@@ -29,7 +28,7 @@ ms.lasthandoff: 02/28/2017
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) : 
 
 - [Azure CLI 1.0](#View-existing-NSGs) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager 
-- [Azure CLI 2.0 ](virtual-network-manage-nsg-arm-cli.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager (cet article)
+- [Azure CLI 2.0 ](virtual-network-manage-nsg-arm-cli.md) : notre interface Azure CLI nouvelle génération pour le modèle de déploiement Resource Manager (cet article)
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -367,5 +366,4 @@ Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est asso
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Activez la journalisation](virtual-network-nsg-manage-log.md) des groupes de sécurité réseau.
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Comment administrer le Cache Redis Azure
 Cette rubrique décrit comment effectuer des tâches d’administration telles que le [redémarrage](#reboot) et la [planification des mises à jour](#schedule-updates) de vos instances du Cache Redis Azure.
@@ -122,5 +121,4 @@ La fonction **Planifier les mises à jour** n’est disponible que dans le nivea
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez plus de fonctionnalités de [niveau Premium du cache Redis Azure](cache-premium-tier-intro.md) .
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 08dfdb54db0655bc025f8c268988804b069f70c6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: ec8c1da633374ba684f6a0a895c542ee76ef73b8
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Charger des fichiers dans un compte Media Services à l’aide de .NET
 > [!div class="op_single_selector"]
@@ -299,5 +298,4 @@ Vous pouvez également utiliser les fonctions Azure pour déclencher une tâche 
 Après avoir chargé un élément multimédia dans Media Services, consultez la rubrique [Obtention d’un processeur multimédia][How to Get a Media Processor].
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-
 

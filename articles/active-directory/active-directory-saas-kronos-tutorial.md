@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: eb61ec0a7d3e992a285b1af3d4a7fbe1feb8d991
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kronos"></a>Didacticiel : Intégration d’Azure Active Directory à Kronos
 
@@ -236,5 +235,4 @@ Lorsque vous cliquez sur la mosaïque Kronos dans le volet d’accès, vous deve
 [201]: ./media/active-directory-saas-kronos-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kronos-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kronos-tutorial/tutorial_general_203.png
-
 

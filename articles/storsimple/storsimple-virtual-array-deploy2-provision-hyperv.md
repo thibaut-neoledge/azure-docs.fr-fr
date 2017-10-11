@@ -15,12 +15,11 @@ ms.workload: NA
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
 ms.openlocfilehash: bad431c8958f7d381bb9c0410caa3a57c6e75c19
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Déploiement de StorSimple Virtual Array - Configuration dans Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
@@ -94,7 +93,7 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image2.png)
 4. Dans la page **Avant de commencer** de l’Assistant Nouvel ordinateur virtuel, cliquez sur **Suivant**.
-5. Sur la page **Spécifier le nom et l’emplacement**, indiquez le **Nom** de votre tableau virtuel. Cliquez sur **Next**.
+5. Sur la page **Spécifier le nom et l’emplacement**, indiquez le **Nom** de votre tableau virtuel. Cliquez sur **Suivant**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image4.png)
 6. Dans la plage **Spécifier la génération**, choisissez le type d’image d’appareil, puis cliquez sur **Suivant**. Cette page ne s’affiche pas si vous utilisez Windows Server 2008 R2.
@@ -131,13 +130,13 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image13.png)
 15. Dans la page **Avant de commencer** de l’Assistant Nouveau disque dur virtuel, cliquez sur **Suivant**.
-16. Dans la page **Choisir le format de disque**, acceptez le format **VHDX** par défaut. Cliquez sur **Next**. Cet écran ne s’affiche pas si vous exécutez Windows Server 2008 R2.
+16. Dans la page **Choisir le format de disque**, acceptez le format **VHDX** par défaut. Cliquez sur **Suivant**. Cet écran ne s’affiche pas si vous exécutez Windows Server 2008 R2.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image15.png)
-17. Dans la page **Choisir le type de disque**, définissez le type de disque dur virtuel sur **Extension dynamique** (recommandé). Si vous choisissez un disque de **taille fixe**, il fonctionnera également, mais vous devrez peut-être patienter plus longtemps. Nous vous recommandons de ne pas utiliser l’option de **différenciation** . Cliquez sur **Next**. Dans Windows Server 2012 R2 et Windows Server 2012, **taille dynamique** est l’option par défaut, tandis que dans Windows Server 2008 R2, l’option par défaut est **Taille fixe**.
+17. Dans la page **Choisir le type de disque**, définissez le type de disque dur virtuel sur **Extension dynamique** (recommandé). Si vous choisissez un disque de **taille fixe**, il fonctionnera également, mais vous devrez peut-être patienter plus longtemps. Nous vous recommandons de ne pas utiliser l’option de **différenciation** . Cliquez sur **Suivant**. Dans Windows Server 2012 R2 et Windows Server 2012, **taille dynamique** est l’option par défaut, tandis que dans Windows Server 2008 R2, l’option par défaut est **Taille fixe**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image16.png)
-18. Dans la page **Spécifier le nom et l’emplacement**, indiquez le **nom** et **l’emplacement** (vous pouvez naviguer vers cet emplacement) du disque de données. Cliquez sur **Next**.
+18. Dans la page **Spécifier le nom et l’emplacement**, indiquez le **nom** et **l’emplacement** (vous pouvez naviguer vers cet emplacement) du disque de données. Cliquez sur **Suivant**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
 19. Dans la page **Configurer un disque**, sélectionnez l’option **Créer un disque dur virtuel vierge** et spécifiez une taille de **500 Go** (ou plus). Bien que 500 Go soit la configuration minimale requise, vous pouvez toujours configurer un disque plus volumineux. Notez que vous ne pouvez pas développer ou réduire le disque une fois mis en service. Pour plus d’informations sur la taille du disque à approvisionner, consultez la section sur le dimensionnement dans le document [Meilleures pratiques](storsimple-ova-best-practices.md). Cliquez sur **Suivant**.
@@ -217,4 +216,3 @@ SI vous rencontrez une autre erreur durant la configuration initiale effectuée 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configurer StorSimple Virtual Array comme un serveur de fichiers](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Configurer StorSimple Virtual Array comme un serveur iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
-

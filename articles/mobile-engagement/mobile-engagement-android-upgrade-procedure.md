@@ -1,5 +1,5 @@
 ---
-title: "Intégration du SDK Android d&quot;Azure Mobile Engagement"
+title: "Intégration du SDK Android d'Azure Mobile Engagement"
 description: "Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97ce7f4d682ec12470db4248d046a8367840f0bd
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 1f047f93fa8bc852b28c86e91d0c007a94fb4299
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrade-procedures"></a>Procédures de mise à niveau
 Si vous avez déjà intégré une ancienne version de notre SDK à votre application, tenez compte des points suivants avant de procéder à la mise à niveau du SDK.
@@ -414,5 +413,4 @@ La configuration de Proguard peut être affectée par le changement de nom, les 
             -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
               <methods>;
             }
-
 

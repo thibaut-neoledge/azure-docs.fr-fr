@@ -15,21 +15,18 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b034bf99351c5b33c51d9a8401434160bddb15be
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
-
+ms.openlocfilehash: c09937582118ebcc5b8cbc1f43a0a2019f2f7a89
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Ajouter les informations d’inscription de l’application à votre application
 
 Dans cette étape, vous devez ajouter l’ID client à votre projet.
 
-1.    Ouvrez `MainActivity` (sous `app` > `java` > *`{host}.{namespace}`*).
-2.    Remplacez la ligne commençant par `final static String CLIENT_ID` par :
+1.  Ouvrez `MainActivity` (sous `app` > `java` > *`{host}.{namespace}`*).
+2.  Remplacez la ligne commençant par `final static String CLIENT_ID` par :
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
@@ -56,4 +53,3 @@ final static String CLIENT_ID = "[Enter the application Id here]";
 ### <a name="what-is-next"></a>Étapes suivantes
 
 [Test et validation](active-directory-mobileanddesktopapp-android-test.md)
-

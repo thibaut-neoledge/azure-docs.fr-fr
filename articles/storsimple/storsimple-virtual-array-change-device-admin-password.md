@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f37fd4de0d6895f55508d1a51d981a047be15031
 ms.openlocfilehash: 260a23003d705e6598da8c51bb5a96f2539a0014
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array via StorSimple Device Manager
 
@@ -79,5 +78,4 @@ Procédez comme suit pour modifier le mot de passe d’administrateur de l’app
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: 2fd9b346cb6d838069ef94ee9c2a8d113f22779c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/24/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>Didacticiel : Intégration d’Azure Active Directory à Kiteworks
 
@@ -259,5 +258,4 @@ Lorsque vous cliquez sur la vignette Kiteworks dans le volet d’accès, vous de
 [201]: ./media/active-directory-saas-kiteworks-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kiteworks-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kiteworks-tutorial/tutorial_general_203.png
-
 

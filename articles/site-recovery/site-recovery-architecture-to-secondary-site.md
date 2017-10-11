@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: fca95c63964b955db7ddfbe53250702cc8af122e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery"></a>Comment fonctionne la réplication de machines locales vers un site secondaire dans Site Recovery ?
 
@@ -105,4 +104,3 @@ Vous répliquez les machines virtuelles ou les serveurs physiques VMware vers un
 ## <a name="next-steps"></a>Étapes suivantes
 
 Examen de la [matrice de prise en charge](site-recovery-support-matrix-to-sec-site.md)
-

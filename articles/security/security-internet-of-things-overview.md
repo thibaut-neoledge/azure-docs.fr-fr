@@ -1,6 +1,6 @@
 ---
 title: "Sécuriser votre Internet des objets dans Azure | Microsoft Docs"
-description: " Les services Azure IoT (Internet des objets) offrent un large éventail de fonctionnalités. Cet article vous aidera à comprendre comment sécuriser vos solutions IoT dans Azure.. "
+description: " Les services Azure IoT (Internet des objets) offrent un large éventail de fonctionnalités. Cet article vous aidera à comprendre comment sécuriser vos solutions IoT dans Azure. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
 ms.openlocfilehash: 3793f5453b74b6c06d9e58b426d89099298e1288
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="internet-of-things-security-overview"></a>Présentation de la sécurité de l’Internet des objets
 Les services Azure IoT (Internet des objets) offrent un large éventail de fonctionnalités. Ces services de niveau professionnel vous permettent d’effectuer les tâches suivantes :
@@ -67,9 +67,3 @@ L’article aborde les thèmes suivants :
 * [Développeur de solutions IoT](../iot-suite/iot-security-best-practices.md#iot-solution-developer)
 * [Responsable du déploiement de solutions IoT](../iot-suite/iot-security-best-practices.md#iot-solution-deployer)
 * [Opérateur de solutions IoT](../iot-suite/iot-security-best-practices.md#iot-solution-operator)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

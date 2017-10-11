@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: b78cd0d5a5395873afaddc8856004775f447e8ea
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-a-secondary-site"></a>Étape 1 : présentation de l’architecture utilisée pour la réplication Hyper-V sur un site secondaire
 
@@ -65,4 +64,3 @@ Voici ce dont vous avez besoin pour la réplication des machines virtuelles Hype
 ## <a name="next-steps"></a>Étapes suivantes
 
 Allez à [Step 2: Review the prerequisites and limitations for Hyper-V VM replication to a secondary VMM site](vmm-to-vmm-walkthrough-prerequisites.md) (Étape 2 : vérifier les conditions préalables et les limitations pour la réplication de machine virtuelle Hyper-V sur un site VMM secondaire).
-

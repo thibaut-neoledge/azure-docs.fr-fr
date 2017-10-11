@@ -1,5 +1,5 @@
 ---
-title: "Mises à jour de schéma du&1;er août&2015; (version préliminaire) - Azure Logic Apps | Microsoft Docs"
+title: "Mises à jour de schéma du 1er août 2015 (version préliminaire) - Azure Logic Apps | Microsoft Docs"
 description: "Créer des définitions JSON pour Azure Logic Apps avec la version de schéma 2015-08-01 (version préliminaire)"
 author: stepsic-microsoft-com
 manager: anneta
@@ -15,22 +15,20 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
 ms.author: LADocs; stepsic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ae5ce7d16ac9ed3a06c313ff3c48e8cbf79c54
-ms.openlocfilehash: f1bf19e6dfbcf187635730a53c93162244c17c6a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 35d7a56d5607dcc18a4407c65b92962d3d0dcd1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Mises à jour de schéma pour Azure Logic Apps - Version préliminaire du 1er août 2015
 
 Cette nouvelle version de schéma et d’API intègre différentes améliorations clés destinées à accroître la fiabilité et la simplicité d’utilisation des applications logiques :
 
-*    Le type d’action **APIApp** est remplacé par un nouveau type d’action [**APIConnection**](#api-connections).
-*    **Repeat** est renommée [**Foreach**](#foreach).
-*    L’application API de [**l’Écouteur HTTP**](#http-listener)n’est plus requise.
-*    L’appel des flux de travail enfants utilise un [nouveau schéma](#child-workflows).
+*   Le type d’action **APIApp** est remplacé par un nouveau type d’action [**APIConnection**](#api-connections).
+*   **Repeat** est renommée [**Foreach**](#foreach).
+*   L’application API de [**l’Écouteur HTTP**](#http-listener)n’est plus requise.
+*   L’appel des flux de travail enfants utilise un [nouveau schéma](#child-workflows).
 
 <a name="api-connections"></a>
 ## <a name="move-to-api-connections"></a>Déplacement vers les connexions d’API
@@ -480,4 +478,3 @@ Nous procédons actuellement à l’ajout d’autres types de contenu, c’est p
 ## <a name="coming-soon-enterprise-integration-apis"></a>Bientôt disponibles : API d’intégration d’entreprise
 
 Nous ne disposons pas actuellement de versions gérées des API d’intégration d’entreprise, du type AS2. En attendant, vous pouvez utiliser vos API BizTalk existantes via l’action HTTP. Pour plus d’informations, consultez la rubrique dédiée à l’utilisation de vos applications API déjà déployées dans le [calendrier d’intégration](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
-

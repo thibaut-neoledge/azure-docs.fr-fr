@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Création d’une application dans Visual Studio à l’aide de Logic Apps et Functions
 
@@ -47,8 +46,7 @@ La gestion des ressources dans Azure est effectuée au sein d’un groupe de res
 1. Dans la catégorie **Cloud**, sélectionnez l’option permettant de créer un projet **Groupe de ressources** Azure.  
  * Si la catégorie ou le projet n’apparaissent pas dans la liste, assurez-vous que le Kit de développement logiciel Azure est installé pour Visual Studio.
 1. Nommez le projet et choisissez un emplacement, puis sélectionnez **Ok** afin de créer des invites Visual Studio pour sélectionner un modèle.  Vous pouvez sélectionner l’option permettant de démarrer à partir de l’espace vide, démarrer avec une application logique ou une autre ressource.  Toutefois, dans ce cas nous utilisons un modèle de démarrage rapide Azure pour commencer avec une application sans serveur.
-1. Sélectionnez l’option permettant d’afficher les modèles de **démarrage rapide Azure**
-    ![Sélection de modèle de démarrage rapide Azure][1]
+1. Sélectionnez cette option pour afficher les modèles de **Azure Quickstart** ![les modèles en sélectionnant le démarrage rapide Azure][1]
 1. Sélectionnez le modèle de démarrage rapide sans serveur : **101-logic-app-and-function-app** et cliquez sur **Ok**
 
 Le modèle de démarrage rapide crée un modèle de déploiement dans votre projet de groupe de ressources.  Le modèle comprend une application logique simple qui appelle une fonction Azure et renvoie le résultat.  Si vous ouvrez le fichier `azuredeploy.json` dans l’explorateur de solutions, vous pouvez voir les ressources de l’application sans serveur.
@@ -57,7 +55,7 @@ Le modèle de démarrage rapide crée un modèle de déploiement dans votre proj
 
 Pour pouvoir ouvrir le concepteur visuel d’application logique dans Visual Studio, un groupe de ressources Azure doit être pré-déployé.  Le concepteur peut ainsi créer et utiliser des connexions aux services et aux ressources dans l’application logique.  Pour commencer, nous devons simplement déployer la solution créée.
 
-1. Cliquez avec le bouton droit de la souris sur le projet dans Visual Studio, sélectionnez **Déployer** et créez un **nouveau** déploiement en cliquant sur  ![Sélection d’un nouveau déploiement de ressources][2]
+1. Cliquez sur le projet dans Visual Studio, sélectionnez **déployer**et créer un **nouveau** déploiement ![en sélectionnant le nouveau déploiement de ressources][2]
 1. Sélectionnez un abonnement Azure et un groupe de ressources valides
 1. Sélectionnez l’option permettant de **Déployer** la solution.
 1. Entrez le nom de l’application logique et de l’application Azure Function.  Le nom de la fonction Azure Function doit être unique à l’échelle mondiale.
@@ -94,4 +92,3 @@ Si vous utilisez JavaScript, Python, F#, Bash, Batch ou PowerShell, suivez les [
 <!-- Image references -->
 [1]: ./media/logic-apps-serverless-get-started-vs/select-template.png
 [2]: ./media/logic-apps-serverless-get-started-vs/deploy.png
-

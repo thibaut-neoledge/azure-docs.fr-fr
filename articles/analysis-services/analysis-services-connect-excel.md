@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: ff96602642c56a3cd02aeada056c059573707731
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: d51b6980120f1cf9bc8d053d463a73ac600b915f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="connect-with-excel"></a>Connexion avec Excel
 
@@ -47,6 +46,5 @@ La connexion à un serveur dans Excel est prise en charge grâce à la fonction 
 ## <a name="see-also"></a>Voir aussi
 [Bibliothèques clientes](analysis-services-data-providers.md)   
 [Gérer votre serveur](analysis-services-manage.md)     
-
 
 

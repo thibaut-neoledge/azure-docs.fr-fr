@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 629c7db04b0f9c880da6dfa8eac7fe14ecd8a215
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Didacticiel : Intégration d’Azure Active Directory à 360 Online
 
@@ -112,7 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-360online-tutorial/tutorial_360online_url.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL selon le modèle suivant : `https://<company name>.public360online.com`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.public360online.com`
 
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir ces valeurs, contactez l’[équipe de support technique 360 Online](mailto:360online@software-innovation.com). 
@@ -220,5 +218,4 @@ Quand vous cliquez sur la mosaïque 360 Online dans le volet d’accès, vous de
 [201]: ./media/active-directory-saas-360online-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-360online-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-360online-tutorial/tutorial_general_203.png
-
 

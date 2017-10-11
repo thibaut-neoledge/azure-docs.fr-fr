@@ -5,10 +5,10 @@ En plus des exemples présentés ici, Twilio offre des API Web que vous pouvez u
 Maintenant que vous avez appris les bases du service Twilio, consultez ces liens pour en savoir plus :
 
 * [Conseils de sécurité Twilio][twilio_security_guidelines]
-* [Procédures et exemple de code de Twilio][twilio_howtos]
-* [Didacticiels de démarrage rapide de Twilio][twilio_quickstarts] 
+* [Procédures et exemples de code Twilio][twilio_howtos]
+* [Didacticiels de démarrage rapide Twilio][twilio_quickstarts] 
 * [Twilio sur GitHub][twilio_on_github]
-* [Contact de l’assistance Twilio][twilio_support]
+* [Support Twilio][twilio_support]
 
 [twilio_api_documentation]: http://www.twilio.com/api
 [twilio_security_guidelines]: http://www.twilio.com/docs/security

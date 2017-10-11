@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: 777bddea6b1cb325a6f8ede00196b18e1746d80c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site-using-the-azure-portal"></a>Répliquer des machines virtuelles Hyper-V dans des clouds VMM sur un site VMM secondaire avec le portail Azure
 > [!div class="op_single_selector"]
@@ -444,4 +443,3 @@ Le tableau suivant résume la façon dont les données sont stockées dans ce sc
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que vous avez testé le déploiement, apprenez-en davantage sur les autres types de [basculement](site-recovery-failover.md).
-

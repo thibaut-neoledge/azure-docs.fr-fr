@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1206d7444f32216597a6f546c71131b2de0ec3f8
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f62254b2a7df50aa55a2a49009702848a9aecebd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-virtual-network-for-expressroute-in-the-classic-portal"></a>Créer un réseau virtuel pour ExpressRoute dans le portail Classic
 Cet article vous explique pas à pas comment configurer un réseau virtuel et une passerelle de réseau virtuel à utiliser avec ExpressRoute à l’aide du modèle de déploiement classique et du portail Classic.
@@ -76,5 +75,4 @@ Si vous disposez déjà d’un réseau virtuel classique, vous pouvez le configu
 ## <a name="next-steps"></a>Étapes suivantes
 * Si vous souhaitez ajouter des machines virtuelles à votre réseau virtuel, consultez [Parcours d’apprentissage de Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/).
 * Pour plus d’informations sur ExpressRoute, consultez [Vue d’ensemble d’ExpressRoute](expressroute-introduction.md).
-
 

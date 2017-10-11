@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/01/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: b73ab6914bad3d08e1833338634abf62aa3e9c05
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
-
+ms.openlocfilehash: 245bee7c1dbb0236afdc2506e7ab84b5573cbc85
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Se connecter à Kafka sur HDInsight (version préliminaire) via un réseau virtuel Azure
 
 Découvrez comment vous connecter directement à Kafka sur HDInsight à l’aide de réseaux virtuels Azure. Ce document fournit des informations sur la connexion à Kafka en utilisant les configurations suivantes :
@@ -350,7 +348,7 @@ Pour valider la connectivité à Kafka, procédez comme suit pour créer et exé
 
     Remplacez les entrées `'kafka_broker'` par les adresses renvoyées à partir de l’étape 1 de cette section :
 
-    * Si vous utilisez un __client logiciel VPN__, remplacez le `kafka_broker` entrées avec l’adresse IP de vos nœuds de travail.
+    * Si vous utilisez un __client logiciel VPN__, remplacez les entrées `kafka_broker` avec l’adresse IP de vos nœuds de travail.
 
     * Si vous avez __activé la résolution de noms via un serveur DNS personnalisé__, remplacez les entrées `kafka_broker` avec le nom de domaine complet des nœuds de travail.
 
@@ -391,4 +389,3 @@ Pour plus d’informations sur l’utilisation de Kafka sur HDInsight, consultez
 
 * [Prise en main de Kafka sur HDInsight](hdinsight-apache-kafka-get-started.md)
 * [MirrorMaker permet de créer un réplica Kafka sur un cluster HDInsight (version préliminaire)](hdinsight-apache-kafka-mirroring.md)
-

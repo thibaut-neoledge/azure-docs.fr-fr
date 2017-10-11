@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c9bdd0862397dcac0a48375476002b42e6a8e331
-
-
+ms.openlocfilehash: 3793df974175a5c41b83800f73748c52c8223572
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>Notes de publication de StorSimple série 8000 Update 2.2
 ## <a name="overview"></a>Vue d'ensemble
@@ -95,10 +95,4 @@ Cette mise à jour ne peut pas être appliquée à l’appareil virtuel. De nouv
 
 ## <a name="next-step"></a>Étape suivante
 Découvrez comment [installer Update 2.2](storsimple-install-update-21.md) sur votre appareil StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

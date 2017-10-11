@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 8005be7ded6ea005af086aeaf594963a5f2d4ac2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-domain-services"></a>Services de domaine Azure AD
 ## <a name="features"></a>Caractéristiques
@@ -40,4 +39,3 @@ Les fonctionnalités suivantes sont disponibles dans les domaines gérés des se
 * **Disponibilité dans plusieurs régions Azure** : consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles.
 * **Haute disponibilité :** les services de domaine Azure AD offrent une haute disponibilité pour votre domaine. Vous bénéficiez ainsi d’une disponibilité de service et d’une tolérance aux pannes plus élevées. La surveillance intégrée de l’intégrité permet de corriger automatiquement les défaillances en configurant de nouvelles instances pour remplacer les instances défectueuses et fournir un service continu pour votre domaine.
 * **Utilisation d’outils de gestion familiers :** vous pouvez utiliser les outils de gestion Windows Server Active Directory familiers tels que le Centre d’administration Active Directory ou Active Directory PowerShell pour administrer des domaines gérés.
-

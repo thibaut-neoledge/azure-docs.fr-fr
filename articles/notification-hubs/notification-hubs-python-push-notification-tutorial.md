@@ -1,6 +1,6 @@
 ---
 title: Utilisation de Notification Hubs avec Python
-description: "Découvrez comment utiliser Azure Notification Hubs à partir d&quot;un serveur principal Python."
+description: "Découvrez comment utiliser Azure Notification Hubs à partir d'un serveur principal Python."
 services: notification-hubs
 documentationcenter: 
 author: ysxu
@@ -14,11 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9ceedb9940759427fc8cec74a1307e42472563a6
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Utilisation de Notification Hubs à partir de Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -266,7 +266,7 @@ L’activation de la propriété debug lors de l’initialisation du hub de noti
 
 L’URL HTTP de demande d’envoi de hub de notification est ajoutée avec une chaîne de requête « test ». 
 
-## <a name="a-namecomplete-tutorialacomplete-the-tutorial"></a><a name="complete-tutorial"></a>Suivi du didacticiel
+## <a name="complete-tutorial"></a>Suivi du didacticiel
 Vous pouvez à présent terminer le didacticiel de prise en main en envoyant la notification à partir d’un serveur principal Python.
 
 Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du hub comme indiqué dans le [didacticiel de prise en main]) :
@@ -322,7 +322,7 @@ L’exécution de votre code Python produit normalement une notification qui app
 
 ## <a name="examples"></a>Exemples :
 ### <a name="enabling-debug-property"></a>Activation de la propriété debug
-Quand vous activez l'indicateur de débogage pendant l'initialisation de la classe NotificationHub, vous voyez un vidage détaillé des requêtes et réponses HTTP, ainsi que NotificationOutcome, comme suit, où vous pouvez comprendre quels en-têtes HTTP sont transmis dans la demande et quelle réponse HTTP a été reçue à partir du hub de notification :        ![][1]
+Quand vous activez l'indicateur de débogage pendant l'initialisation de la classe NotificationHub, vous voyez un vidage détaillé des requêtes et réponses HTTP, ainsi que NotificationOutcome, comme suit, où vous pouvez comprendre quels en-têtes HTTP sont transmis dans la demande et quelle réponse HTTP a été reçue à partir du hub de notification : ![][1]
 
 Vous verrez un résultat détaillé de hub de notification, par exemple 
 
@@ -389,10 +389,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Pytho
 [3]: ./media/notification-hubs-python-backend-how-to/SendWithOneTag.png
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

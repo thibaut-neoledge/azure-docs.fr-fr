@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ad88288056956ab29d446efbe105157f6b732d5f
 ms.openlocfilehash: 4883e5689a639259ec1c0bcd31e1016f85af5d66
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/19/2017
 ---
 # <a name="scheduler-documentation"></a>Documentation Scheduler
 
@@ -109,6 +108,5 @@ Découvrez comment utiliser Scheduler pour planifier et appeler automatiquement 
         </div>
     </li>
 </ul>
-
 
 

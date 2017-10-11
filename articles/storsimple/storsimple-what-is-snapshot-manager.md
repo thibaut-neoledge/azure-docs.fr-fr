@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: v-sharos
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43eb76f2d51c586f3cd44d4d34b307257a655182
 ms.openlocfilehash: 38c197c7bc57110b29b1d8cb789d5b7310823da2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Présentation de StorSimple Snapshot Manager
 
@@ -140,5 +139,4 @@ Pour plus d’informations sur l’analyse des tâches de sauvegarde, accédez a
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur [l’utilisation du Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 * [Télécharger le Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
-
 

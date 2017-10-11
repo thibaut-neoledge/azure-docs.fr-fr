@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 5e83171846517496e221f0a84565cdf7b77514df
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Ajouter les informations d’inscription de l’application à votre application
 Dans cette étape, vous devez ajouter l’ID d’application à votre projet.
 
@@ -35,4 +33,3 @@ private static string ClientId = "[Enter the application Id here]";
 ### <a name="what-is-next"></a>Étapes suivantes
 
 [Test et validation](active-directory-mobileanddesktopapp-windowsdesktop-test.md)
-

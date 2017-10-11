@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 00c5d3781455c80b33bdbb4c872ae354531baf3e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C : Proposer l’inscription et la connexion à des consommateurs disposant de comptes Weibo
 
@@ -64,5 +63,4 @@ Pour utiliser Weibo en tant que fournisseur d’identité dans Azure Active Dire
 7. Entrez la **clé d’application** que vous avez copiée précédemment dans **ID client**.
 8. Entrez le **secret d’application** que vous avez copié précédemment dans **Secret client**.
 9. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration Weibo.
-
 
