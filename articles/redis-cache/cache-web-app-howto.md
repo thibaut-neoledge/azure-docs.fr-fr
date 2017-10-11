@@ -687,7 +687,7 @@ Le code de génération de modèles automatique qui a été généré dans le ca
     ```
 
 
-1. Faites défiler le fichier **Index.cshtml`tr` vers le bas pour visualiser la fin du fichier, puis ajoutez l’élément ** suivant, de sorte qu’il représente la dernière ligne de la dernière table du fichier.
+1. Faites défiler le fichier **Index.cshtml** `tr` vers le bas pour visualiser la fin du fichier, puis ajoutez l’élément suivant, de sorte qu’il représente la dernière ligne de la dernière table du fichier.
    
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
