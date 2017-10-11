@@ -75,8 +75,9 @@ Cette section décrit les étapes à suivre pour migrer un réseau virtuel, une 
 4. Effectuez la validation, la préparation et la migration. Pour déplacer le réseau virtuel, utilisez l’extrait de code PowerShell suivant :
 
   ```powershell
-  Move-AzureVirtualNetwork -Prepare $vnetName  
-  Move-AzureVirtualNetwork -Commit $vnetName
+  Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
   ```
 
   Vous pouvez également abandonner la migration en exécutant l’applet de commande PowerShell suivante :
