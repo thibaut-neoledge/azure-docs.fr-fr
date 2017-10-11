@@ -69,7 +69,7 @@ Le tableau suivant répertorie les algorithmes de chiffrement et les forces de c
 | Chiffrement IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Aucun    |
 | Intégrité IPsec  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
 | Groupe PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Aucun 
-| Durée de vie de l’AS en mode rapide   | (**Facultatif** : les valeurs par défaut sont utilisées si aucun valeur n’est indiquée)<br>Secondes (entier ; **min 300 ** /par défaut 27 000 secondes)<br>Kilo-octets (entier ; **min 1 024 ** /par défaut 102 400 000 Ko)   |
+| Durée de vie de l’AS en mode rapide   | (**Facultatif** : les valeurs par défaut sont utilisées si aucun valeur n’est indiquée)<br>Secondes (entier ; **min 300** /par défaut 27 000 secondes)<br>Kilo-octets (entier ; **min 1024** /par défaut 102 400 000 Ko)   |
 | Sélecteur de trafic | UsePolicyBasedTrafficSelectors** ($True/$False ; **facultatif**, $False par défaut si aucune valeur n’est indiquée)    |
 |  |  |
 
