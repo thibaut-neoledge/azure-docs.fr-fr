@@ -16,10 +16,10 @@ ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 3a4d6f23bd8824636b3babe208add92db6aab537
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 196bf4351ebd2bf977102571de385edae6f9612b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -27,14 +27,15 @@ ms.lasthandoff: 09/25/2017
 
 Azure CLI permet de créer et de gérer des ressources Azure Stack à partir de la ligne de commande. Ce guide explique de manière détaillée comment utiliser Azure CLI pour créer une machine virtuelle Windows Server 2016 dans Azure Stack. Une fois la machine virtuelle créée, vous vous connecterez avec le Bureau à distance, installerez IIS, puis afficherez le site web par défaut. 
 
-Avant de commencer, vérifiez que votre opérateur Azure Stack a ajouté l’image « Windows Server 2016 » à la Place de Marché Azure Stack.  
+## <a name="prerequisites"></a>Composants requis 
 
-Azure Stack nécessite une version spécifique d’Azure CLI pour créer et gérer les ressources. Si Azure CLI n’est pas configuré pour Azure Stack, suivez les étapes permettant [d’installer et de configurer Azure CLI](azure-stack-connect-cli.md).
+* Vérifiez que votre opérateur Azure Stack a ajouté l’image « Windows Server 2016 » à la Place de Marché Azure Stack.  
 
+* Azure Stack nécessite une version spécifique d’Azure CLI pour créer et gérer les ressources. Si Azure CLI n’est pas configuré pour Azure Stack, suivez les étapes permettant [d’installer et de configurer Azure CLI](azure-stack-connect-cli.md).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est un conteneur logique dans lequel les ressources Azure Stack sont déployées et gérées. Utilisez la commande [az group create](/cli/azure/group#create) pour créer un groupe de ressources. Nous avons affecté des valeurs à toutes les variables de ce document. Vous pouvez les utiliser en l’état ou affecter une valeur différente. L’exemple suivant crée un groupe de ressources nommé myResourceGroup à l’emplacement local.
+Un groupe de ressources est un conteneur logique dans lequel les ressources Azure Stack sont déployées et gérées. À partir de votre kit de développement ou du système intégré Azure Stack, exécutez la commande [az group create](/cli/azure/group#create) pour créer un groupe de ressources. Nous avons affecté des valeurs à toutes les variables de ce document. Vous pouvez les utiliser en l’état ou affecter une valeur différente. L’exemple suivant crée un groupe de ressources nommé myResourceGroup à l’emplacement local.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -65,7 +66,7 @@ Par défaut, seules les connexions RDP à une machine virtuelle Windows déploy�
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
+## <a name="connect-to-the-virtual-machine"></a>Connectez-vous à la machine virtuelle.
 
 Utilisez la commande suivante pour créer une session Bureau à distance avec la machine virtuelle. Remplacez l’adresse IP par l’adresse IP publique de votre machine virtuelle. À l'invite, saisissez les informations d’identification que vous avez utilisées lors de la création de la machine virtuelle.
 
@@ -97,7 +98,5 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer une machine virtuelle à l’aide d’un mot de passe stocké dans un coffre de clés](azure-stack-kv-deploy-vm-with-secret.md)
-
-[En savoir plus sur le stockage dans Azure Stack](azure-stack-storage-overview.md)
+Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle Windows simple. Pour en savoir plus sur les machines virtuelles Azure Stack, continuez avec [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md).
 

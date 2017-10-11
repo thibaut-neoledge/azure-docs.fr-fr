@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: hero-article
 ms.date: 09/20/2017
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 91d2f47a528050f644973044f96c0354b91dba25
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: bb3ac21d2e8b8efd7b4f6943fcc3256f18cbdd68
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -27,7 +27,13 @@ Ce guide de démarrage rapide vous montre comment créer des comptes Expériment
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Composants requis
-Actuellement, Azure Machine Learning Workbench peut être installé sur les systèmes d’exploitation suivants uniquement : Windows 10, Windows Server 2016 et macOS Sierra.
+Actuellement, l’application de bureau Azure Machine Learning Workbench peut uniquement être installée sur les systèmes d’exploitation suivants : 
+- Windows 10
+- Windows Server 2016
+- macOS Sierra
+
+>[!NOTE]
+>macOS High Sierra n’est pas encore pris en charge.
 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 Connectez-vous au [portail Azure](https://portal.azure.com/).
@@ -118,7 +124,7 @@ Installez Azure Machine Learning Workbench sur votre ordinateur exécutant macOS
 
 5. Azure Machine Learning Workbench est maintenant installé dans le répertoire suivant : 
 
-   _/Applications/AmlWorkbench.app_
+   `/Applications/AmlWorkbench.app`
 
 ## <a name="run-azure-machine-learning-workbench-to-log-in-the-first-time"></a>Exécuter Azure Machine Learning Workbench pour la première connexion
 1. Cliquez sur le bouton **Launch Workbench** (Lancer Workbench) sur le dernier écran du programme d’installation une fois le processus d’installation terminé. Si vous avez fermé le programme d’installation, recherchez le raccourci vers Machine Learning Workbench sur votre bureau et démarrez le menu nommé **Azure Machine Learning Workbench** pour lancer l’application.

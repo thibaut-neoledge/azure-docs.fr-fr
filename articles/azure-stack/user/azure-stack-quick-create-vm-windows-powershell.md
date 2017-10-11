@@ -16,10 +16,10 @@ ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 97ada8795ff0200c487062c6ec3347c7421ba91d
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 42e126ffefd75669d90ea3ff1d3939028f71159c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -29,14 +29,15 @@ ms.lasthandoff: 09/25/2017
 
 Ce guide explique comment utiliser PowerShell pour créer une machine virtuelle Windows Server 2016 dans Azure Stack. Vous pouvez exécuter les étapes décrites dans cet article à partir du Kit de développement Azure Stack ou à partir d’un client externe Windows si vous êtes connecté par le biais d’un VPN. 
 
-Avant de commencer, vérifiez que votre opérateur Azure Stack a ajouté l’image « Windows Server 2016 » à la Place de Marché Azure Stack.  
+## <a name="prerequisites"></a>Composants requis 
 
-Azure Stack nécessite une version spécifique d’Azure PowerShell pour créer et gérer les ressources. Si PowerShell n’est pas configuré pour Azure Stack, suivez les étapes permettant [d’installer et de configurer PowerShell](azure-stack-powershell-install.md).    
+* Vérifiez que votre opérateur Azure Stack a ajouté l’image « Windows Server 2016 » à la Place de Marché Azure Stack.  
 
+* Azure Stack nécessite une version spécifique d’Azure PowerShell pour créer et gérer les ressources. Si PowerShell n’est pas configuré pour Azure Stack, suivez les étapes permettant d’[installer](azure-stack-powershell-install.md) et de [configurer](azure-stack-powershell-configure-user.md) PowerShell.    
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est un conteneur logique dans lequel les ressources Azure Stack sont déployées et gérées. Utilisez le bloc de code suivant pour créer un groupe de ressources. Nous avons affecté des valeurs à toutes les variables de ce document. Vous pouvez les utiliser en l’état ou affecter une valeur différente.  
+Un groupe de ressources est un conteneur logique dans lequel les ressources Azure Stack sont déployées et gérées. À partir de votre kit de développement ou du système intégré Azure Stack, exécutez le bloc de code suivant pour créer un groupe de ressources. Nous avons affecté des valeurs à toutes les variables de ce document. Vous pouvez les utiliser en l’état ou affecter une valeur différente.  
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -246,6 +247,6 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le stockage dans Azure Stack, reportez-vous à la rubrique [Vue d’ensemble du stockage](azure-stack-storage-overview.md).
+Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle Windows simple. Pour en savoir plus sur les machines virtuelles Azure Stack, continuez avec [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md).
 
 

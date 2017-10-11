@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/17/2017
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 68958dd42ef2382caaa740c52fc4f20c1cd3eff0
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: e1356439385cc7fe66985bd2b84e4121386ec23d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -113,7 +113,7 @@ packages:
 ## <a name="run-configuration"></a>Configuration de série de tests
 Pour spécifier une configuration de série de tests particulière, une paire de fichiers est nécessaire. Ceux-ci sont généralement générés à l’aide d’une commande d’interface de ligne de commande. Mais vous pouvez également cloner des fichiers existants, les renommer, puis les modifier.
 
-```shell
+```azurecli
 # create a compute target pointing to a VM via SSH
 $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password> --type remotedocker
 
@@ -126,8 +126,8 @@ Cette commande crée une paire de fichiers en fonction de la cible de calcul sp�
 >[!NOTE]
 > Les noms _local_ ou _docker_ des fichiers de configuration de série de tests sont arbitraires. Azure Machine Learning Workbench ajoute ces deux configurations de série de tests lorsque vous créez un projet vide par commodité. Vous pouvez renommer les fichiers « <run configuration name>.runconfig » accompagnant le modèle de projet, ou créer de nouveaux sous le nom de votre choix.
 
-### <a name="compute-target-namecompute"></a><compute target name>.compute
-Un fichier _<compute target name>.compute_ spécifie les informations de connexion et de configuration de la cible de calcul. Il s’agit d’une liste de paires nom-valeur. Voici les paramètres pris en charge.
+### <a name="compute-target-namecompute"></a>\<nom de cible de calcul>.compute
+Un fichier _\<compute target name>.compute_ spécifie les informations de connexion et de configuration de la cible de calcul. Il s’agit d’une liste de paires nom-valeur. Voici les paramètres pris en charge.
 
 **type** : type de l’environnement de calcul. Les valeurs prises en charge sont les suivantes :
   - local
@@ -135,7 +135,7 @@ Un fichier _<compute target name>.compute_ spécifie les informations de connexi
   - remotedocker
   - cluster
 
-**baseDockerImage** : image Docker utilisée pour exécuter le script Python/PySpark. La valeur par défaut est _microsoft/mmlspark:plus-0.7.dev7_2.gcfbc920_. Nous prenons également en charge une autre image, _microsoft/mmlspark:plus-gpu-0.7.dev7_2.gcfbc920_, qui donne un accès GPU à l’ordinateur hôte (si GPU est présent).
+**baseDockerImage** : image Docker utilisée pour exécuter le script Python/PySpark. La valeur par défaut est _microsoft/mmlspark:plus-0.7.91_. Nous prenons également en charge une autre image, _microsoft/mmlspark:plus-gpu-0.7.91_, qui donne un accès GPU à l’ordinateur hôte (si GPU est présent).
 
 **address** : adresse IP ou nom de domaine complet (FQDN) de la machine virtuelle ou nœud principal de cluster HDInsight.
 
@@ -149,8 +149,8 @@ Un fichier _<compute target name>.compute_ spécifie les informations de connexi
 
 **nativeSharedDirectory** : cette propriété spécifie le répertoire de base (par exemple, _~/.azureml/share/_) dans lequel les fichiers peuvent être enregistrés pour être partagés entre les séries de tests sur la même cible de calcul. Si ce paramètre est utilisé lors de l’exécution sur un conteneur Docker, _sharedVolumes_ doit être défini sur true. Autrement, l’exécution échoue.
 
-### <a name="run-configuration-namerunconfig"></a><run configuration name>.runconfig
-_<run configuration name>.runconfig_ spécifie le comportement d’exécution d’Azure Machine Learning Workbench. Il spécifie le comportement de configuration de série de tests, tel que le suivi de l’historique des exécutions ou la cible de calcul à utiliser, entre autres. Les noms des fichiers de configuration de série de tests sont utilisés pour remplir la liste déroulante des contextes d’exécution dans l’application de bureau Azure Machine Learning Workbench.
+### <a name="run-configuration-namerunconfig"></a>\<nom de configuration de série de tests>.runconfig
+_\<run configuration name>.runconfig_ spécifie le comportement d’exécution d’Azure Machine Learning Workbench. Vous pouvez configurer des comportements d’exécution, comme le suivi de l’historique des exécutions ou la cible de calcul à utiliser, entre autres. Les noms des fichiers de configuration de série de tests sont utilisés pour remplir la liste déroulante des contextes d’exécution dans l’application de bureau Azure Machine Learning Workbench.
 
 **ArgumentVector** : cette section spécifie le script à exécuter dans le cadre de cette exécution, ainsi que les paramètres du script. Par exemple, si vous avez dans votre fichier « <run configuration name>.runconfig » l’extrait de code suivant 
 
@@ -212,4 +212,6 @@ Suite à cette substitution, l’exemple de code suivant lit la source de donné
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
+## <a name="next-steps"></a>Étapes suivantes
+En savoir plus sur [configuration de l’environnement d’exécution](experiment-execution-configuration.md)
 

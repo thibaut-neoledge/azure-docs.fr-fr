@@ -14,27 +14,27 @@ ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: jingwang
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ebd2520813cd27280171c0e05637eb5a8bd58a29
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: d78176eca6bdbf32d6b4400ad2812dea98703d67
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Créer une fabrique de données et un pipeline avec le kit .NET SDK
-Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. Avec Azure Data Factory, vous pouvez créer et planifier des flux de travail orientés données (appelés pipelines) capables d’ingérer des données provenant de différents magasins de données, de traiter/transformer les données à l’aide de services de calcul comme Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning, et de publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser. 
+Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. Grâce à Azure Data Factory, vous pouvez créer et planifier des flux de travail orientés données (appelés pipelines) capables d’ingérer des données provenant de différents magasins de données, de traiter/transformer les données à l’aide de services de calcul comme Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning, et de publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser. 
 
 Ce guide de démarrage rapide explique comment utiliser le kit SDK .NET pour créer une fabrique de données Azure. Le pipeline dans cette fabrique de données copie les données d’un dossier vers un autre dossier dans un stockage Blob Azure.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
-* **Compte Stockage Azure**. Vous utilisez le stockage Blob à la fois comme magasins de données **source** et **récepteur**. Si vous n’avez pas de compte de stockage Azure, consultez [Créer un compte de stockage] pour en créer un. article (../storage/common/storage-create-storage-account.md#create-a-storage-account) pour la procédure à suivre afin d’en créer un. 
-* Créez un **conteneur d’objets blob** dans le stockage Blob, créez un **dossier** d’entrée dans le conteneur et chargez des fichiers sur le dossier. 
-* **Visual Studio** 2013, 2015 ou 2017. La procédure pas à pas de cet article utilise Visual Studio 2017.
+## <a name="prerequisites"></a>Composants requis
+* **Compte Stockage Azure**. Vous utilisez le stockage Blob à la fois comme magasins de données **source** et **récepteur**. Si vous ne possédez pas de compte de stockage Azure, consultez [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) pour en créer un. 
+* Créez un **conteneur d’objets blob** dans le stockage Blob, créez un **dossier** d’entrée dans le conteneur et chargez des fichiers sur le dossier. Vous pouvez utiliser des outils tels que l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vous connecter au stockage Blob Azure, créer un conteneur d’objets blob, charger le fichier d’entrée et vérifier le fichier de sortie.
+* **Visual Studio** 2013, 2015 ou 2017. La procédure pas à pas de cet article utilise Visual Studio 2017.
 * **Téléchargez et installez le kit [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
 * **Créez une application dans Azure Active Directory** en suivant [ces instructions](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Notez les valeurs suivantes que vous utiliserez plus tard : **ID d’application**, **clé d’authentification** et **ID de locataire**. Affectez l’application au rôle « **Contributeur**  » en suivant les instructions dans le même article. 
-* [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/). Vous pouvez utiliser cet outil pour vous connecter au stockage Blob Azure, créer un conteneur d’objets blob, charger le fichier d’entrée et vérifier le fichier de sortie. 
+*  
 
 ## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
 
@@ -55,6 +55,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
     Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+
     ```
 
 ## <a name="create-a-data-factory-client"></a>Créer un client de fabrique de données
@@ -83,7 +84,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     string resourceGroup = "<your resource group where the data factory resides>";
     // Currently, Data Factory V2 allows you to create data factories only in the East US and East US2 regions. 
     // Note that the data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions
-    string region = "East US";
+    string region = "East US 2";
     string dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
     string storageAccount = "<your storage account name to copy data>";
     string storageKey = "<your storage account key>";
@@ -274,18 +275,15 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
    
     List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
     resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
- 
-
     if (pipelineRun.Status == "Succeeded")
         Console.WriteLine(activityRuns.First().Output);
     else
         Console.WriteLine(activityRuns.First().Error);
-
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```
 
-## <a name="run-the-code"></a>Exécuter le code
+## <a name="run-the-code"></a>Exécution du code
 
 Créez et démarrez l’application, puis vérifiez l’exécution du pipeline.
 
@@ -408,5 +406,5 @@ Pour supprimer par programmation la fabrique de données, ajoutez les lignes de 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Le pipeline dans cet exemple copie les données d’un emplacement vers un autre emplacement dans un stockage Blob Azure. Consultez les [didacticiels](tutorial-copy-data-dot-net.md) pour en savoir plus sur l’utilisation de Data Factory dans d’autres scénarios. 
+Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Consultez les [didacticiels](tutorial-copy-data-dot-net.md) pour en savoir plus sur l’utilisation de Data Factory dans d’autres scénarios. 
 

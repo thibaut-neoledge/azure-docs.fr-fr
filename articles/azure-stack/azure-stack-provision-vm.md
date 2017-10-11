@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 98770945d5cccc27bfce971491e6ea30fee2460a
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 233cf4df53af6a49e5fe4c5d51e112d8196a7530
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="create-a-test-virtual-machine-in-azure-stack"></a>Créer une machine virtuelle de test dans Azure Stack
 
-*S’applique au kit de développement Azure Stack*
+*S’applique à : Kit de développement Azure Stack*
 
-En tant qu’opérateur cloud, vous pouvez créer une machine virtuelle de test pour valider votre déploiement [Azure Stack](azure-stack-poc.md).
+En tant qu’opérateur Azure Stack, vous pouvez créer une machine virtuelle de test pour valider votre déploiement du kit de développeur [Azure Stack](azure-stack-poc.md).
 
 > [!NOTE]
 > Avant de pouvoir approvisionner des machines virtuelles, vous devez [ajouter l’image d’évaluation de Windows Server 2016 à la Place de marché Azure Stack](azure-stack-add-default-image.md).

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 09/26/2017
 ms.author: jingwang
 robots: noindex
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 042b81cd2228ac87bcb6c654776a9c235920b77e
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: d2681e629d478208301091571d77a3c283a8e774
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Déplacement de données à partir d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
@@ -69,6 +69,10 @@ Un service lié lie un magasin de données à une fabrique de données. Pour lie
 | --- | --- | --- | --- |
 | accessKeyID |ID de la clé d’accès secrète. |string |Oui |
 | secretAccessKey |La clé d’accès secrète elle-même. |Chaîne secrète chiffrée |Oui |
+
+>[!NOTE]
+>Ce connecteur nécessite des clés d’accès pour le compte IAM pour copier des données à partir d’Amazon S3. Les [informations d’identification de sécurité temporaires](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) ne sont pas prises en charge.
+>
 
 Voici un exemple :
 

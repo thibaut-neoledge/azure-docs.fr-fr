@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 09/26/2017
 ms.author: marsma
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 0cc6612a91532774a2645676e36f617ddc5de12c
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 8b499bbbe5f30e5bf0f0cde5882ae17d5ade3cc9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -47,7 +47,7 @@ Login-AzureRmAccount
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources Azure avec [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
+Créez un groupe de ressources Azure avec [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -55,13 +55,13 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-Vous pouvez créer un conteneur en attribuant un nom, une image Docker ainsi qu’un groupe de ressources Azure. Si vous le souhaitez, vous pouvez exposer le conteneur sur internet avec une adresse IP publique. Dans ce cas, nous allons utiliser un conteneur Nano Server Windows exécutant les Services d'informations Internet (IIS).
+Vous pouvez créer un conteneur en attribuant un nom, une image Docker, ainsi qu’un groupe de ressources Azure à l’applet de commande [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Si vous le souhaitez, vous pouvez exposer le conteneur sur internet avec une adresse IP publique. Dans ce cas, nous allons utiliser un conteneur Nano Server Windows exécutant les Services d'informations Internet (IIS).
 
 ```powershell
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
 ```
 
-Après quelques secondes, vous obtenez une réponse à votre demande. Au début, le conteneur présente l’état **En cours de création**, puis il démarre après une minute ou deux. Vous pouvez vérifier l’état à l’aide de l’applet de commande `Get-AzureRmContainerGroup`:
+Après quelques secondes, vous obtenez une réponse à votre demande. Au début, le conteneur présente l’état **En cours de création**, puis il démarre après une minute ou deux. Vous pouvez vérifier l’état à l’aide de l’applet de commande [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] :
 
 ```powershell
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -92,7 +92,7 @@ Lorsque la valeur **ProvisioningState** du conteneur passe à `Succeeded`, vous 
 
 ## <a name="delete-the-container"></a>Supprimer un conteneur
 
-Lorsque vous avez fini d’utiliser le conteneur, vous pouvez le supprimer à l’aide de l’applet de commande `Remove-AzureRmContainerGroup`:
+Lorsque vous avez fini d’utiliser le conteneur, vous pouvez le supprimer à l’aide de l’applet de commande [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] :
 
 ```powershell
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -104,6 +104,12 @@ Dans le cadre de ce démarrage rapide, vous avez démarré un conteneur Windows 
 
 > [!div class="nextstepaction"]
 > [Didacticiels Azure Container Instances](./container-instances-tutorial-prepare-app.md)
+
+<!-- LINKS -->
+[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
+[New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
+[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
+[Remove-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/remove-azurermcontainergroup
 
 <!-- IMAGES -->
 [qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png

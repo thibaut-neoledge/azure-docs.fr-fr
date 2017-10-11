@@ -16,10 +16,10 @@ ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 63dbb9a4aadfce92346c84cf6d0df8c860e68a3b
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 579246a2f5aefda0d48cea235d74f196cd814331
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -29,16 +29,17 @@ ms.lasthandoff: 09/25/2017
 
 Azure PowerShell est utilisé pour créer et gérer une ressource dans Azure Stack à partir d’une ligne de commande ou dans des scripts.  Ce guide explique de manière détaillée comment utiliser PowerShell pour créer une machine virtuelle exécutant le serveur Ubuntu dans Azure Stack.
 
-Avant de commencer, vérifiez que votre opérateur Azure Stack a ajouté l’image « Ubuntu Server 16.04 LTS » à la Place de Marché Azure Stack.  
+## <a name="prerequisites"></a>Composants requis 
 
-Azure Stack nécessite une version spécifique d’Azure PowerShell pour créer et gérer les ressources. Si PowerShell n’est pas configuré pour Azure Stack, suivez les étapes permettant [d’installer et de configurer PowerShell](azure-stack-powershell-install.md).    
+* Vérifiez que votre opérateur Azure Stack a ajouté l’image « Ubuntu Server 16.04 LTS » à la Place de Marché Azure Stack.  
 
-Pour finir, vous devez créer une clé SSH publique nommée id_rsa.pub dans le répertoire .ssh de votre profil utilisateur Windows. Pour plus d’informations sur la création de clés SSH, consultez [Création de clés SSH sur Windows](../../virtual-machines/linux/ssh-from-windows.md).  
+* Azure Stack nécessite une version spécifique d’Azure PowerShell pour créer et gérer les ressources. Si PowerShell n’est pas configuré pour Azure Stack, connectez-vous au [kit de développement](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ou à un client externe basé sur Windows si vous êtes [connectés via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) et suivez les étapes pour [installer](azure-stack-powershell-install.md) et [configurer](azure-stack-powershell-configure-user.md) PowerShell.    
 
+* Une clé SSH publique nommée id_rsa.pub doit être créée dans le répertoire .ssh de votre profil utilisateur Windows. Pour plus d’informations sur la création de clés SSH, consultez [Création de clés SSH sur Windows](../../virtual-machines/linux/ssh-from-windows.md).  
 
-## <a name="create-resource-group"></a>Créer un groupe de ressources
+## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est un conteneur logique dans lequel les ressources Azure Stack sont déployées et gérées. Utilisez le bloc de code suivant pour créer un groupe de ressources. Nous avons affecté des valeurs à toutes les variables de ce document. Vous pouvez les utiliser en l’état ou affecter une valeur différente.
+Un groupe de ressources est un conteneur logique dans lequel les ressources Azure Stack sont déployées et gérées. À partir de votre kit de développement ou du système intégré Azure Stack, exécutez le bloc de code suivant pour créer un groupe de ressources. Nous avons affecté des valeurs à toutes les variables de ce document. Vous pouvez les utiliser en l’état ou affecter une valeur différente.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -139,7 +140,7 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id 
 ```
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 Créez une configuration de machine virtuelle. Cette configuration inclut les paramètres qui sont utilisés lors du déploiement de la machine virtuelle, comme une image de machine virtuelle, la taille et la configuration de l’authentification.
 
 ```powershell
@@ -197,7 +198,7 @@ New-AzureRmVM `
   -VM $VirtualMachine 
 ```
 
-## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
+## <a name="connect-to-the-virtual-machine"></a>Connectez-vous à la machine virtuelle.
 
 Une fois le déploiement terminé, créez une connexion SSH avec la machine virtuelle. Utilisez la commande [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) pour renvoyer l’adresse IP publique de la machine virtuelle.
 
@@ -222,7 +223,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer une machine virtuelle à l’aide d’un mot de passe stocké dans un coffre de clés](azure-stack-kv-deploy-vm-with-secret.md)
-
-[En savoir plus sur le stockage dans Azure Stack](azure-stack-storage-overview.md)
+Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle Linux simple. Pour en savoir plus sur les machines virtuelles Azure Stack, continuez avec [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md).
 

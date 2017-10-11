@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 8/22/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bfed4c557a420eda14cafe5b1cf8ad11476e2d79
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Vue d’ensemble des plans, des offres, des quotas et des abonnements
 
-*S’applique au kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-[Azure Stack](azure-stack-poc.md) permet de fournir un large éventail de services, comme des machines virtuelles, des bases de données SQL Server, SharePoint, Exchange et même des [articles de la Place de marché Azure](azure-stack-marketplace-azure-items.md). En tant qu’opérateur cloud, vous configurez et fournissez ces services dans Azure Stack avec des plans, des offres et des quotas.
+[Azure Stack](azure-stack-poc.md) permet de fournir un large éventail de services, comme des machines virtuelles, des bases de données SQL Server, SharePoint, Exchange et même des [articles de la Place de marché Azure](azure-stack-marketplace-azure-items.md). En tant qu’opérateur Azure Stack, vous configurez et fournissez ces services dans Azure Stack avec des plans, des offres et des quotas.
 
 Les offres contiennent un ou plusieurs plans, et chaque plan inclut un ou plusieurs services. En créant des plans et en les regroupant dans différentes offres, on peut contrôler :
 - les services et ressources auxquels les utilisateurs ont accès ;
@@ -44,7 +44,7 @@ Une fois l’offre créée, vos utilisateurs peuvent s’y abonner pour accéder
 
 ## <a name="plans"></a>Abonnements
 
-Les plans regroupent un ou plusieurs services. En tant qu’opérateur cloud, vous [créez des plans](azure-stack-create-plan.md) à proposer à vos utilisateurs. En retour, ceux-ci s’abonnent à vos offres pour utiliser les plans et les services qu’elles comprennent. Lors de la création des plans, veillez à définir vos quotas et vos plans de base et à envisager d’inclure des plans d’extension facultatifs.
+Les plans regroupent un ou plusieurs services. En tant qu’opérateur Azure Stack, vous [créez des plans](azure-stack-create-plan.md) à proposer à vos utilisateurs. En retour, ceux-ci s’abonnent à vos offres pour utiliser les plans et les services qu’elles comprennent. Lors de la création des plans, veillez à définir vos quotas et vos plans de base et à envisager d’inclure des plans d’extension facultatifs.
 
 ### <a name="quotas"></a>Quotas
 
@@ -69,7 +69,7 @@ Lorsque vous [créez une offre](azure-stack-create-offer.md), vous devez inclure
 
 ## <a name="subscriptions"></a>Abonnements
 
-L’abonnement est la forme sous laquelle les utilisateurs accèdent aux offres. Si vous êtes un opérateur cloud chez un fournisseur de services, vos utilisateurs (clients) achètent vos services en s’abonnant à vos offres. Si vous êtes un opérateur cloud au sein d’une organisation, vos utilisateurs (employés) peuvent s’abonner gratuitement aux services que vous proposez. Chaque combinaison entre un utilisateur et une offre correspond à un abonnement unique. Par conséquent, un utilisateur peut avoir des abonnements à plusieurs offres, mais chaque abonnement s’applique à une seule offre. Les plans, les offres et les quotas s’appliquent uniquement à un abonnement donné ; ils ne sont pas partageables entre différents abonnements. Chaque ressource créée par un utilisateur est associée à un seul abonnement.
+L’abonnement est la forme sous laquelle les utilisateurs accèdent aux offres. Si vous êtes un opérateur Azure Stack chez un fournisseur de services, vos utilisateurs (clients) achètent vos services en s’abonnant à vos offres. Si vous êtes un opérateur Azure Stack au sein d’une organisation, vos utilisateurs (employés) peuvent s’abonner gratuitement aux services que vous proposez. Chaque combinaison entre un utilisateur et une offre correspond à un abonnement unique. Par conséquent, un utilisateur peut avoir des abonnements à plusieurs offres, mais chaque abonnement s’applique à une seule offre. Les plans, les offres et les quotas s’appliquent uniquement à un abonnement donné ; ils ne sont pas partageables entre différents abonnements. Chaque ressource créée par un utilisateur est associée à un seul abonnement.
 
 
 ### <a name="default-provider-subscription"></a>Abonnement au fournisseur par défaut

@@ -15,24 +15,24 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ddd69acaed4d56211092866571350d855b14e8b3
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 30759dca746fd7fd02653556cb105f419f5bf854
 ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Créer un plan dans Azure Stack
 
-*S’applique aux systèmes intégrés Azure Stack et au kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Les [plans](azure-stack-key-features.md) regroupent un ou plusieurs services. En tant que fournisseur, vous pouvez créer des plans à proposer à vos locataires. En retour, les clients s’abonnent à vos offres pour utiliser les plans et les services inclus. Cet exemple montre comment créer un plan comprenant les fournisseurs de ressources de stockage, réseau et de calcul. Ce plan donne aux abonnés la possibilité d’approvisionner des machines virtuelles.
+Les [plans](azure-stack-key-features.md) regroupent un ou plusieurs services. En tant que fournisseur, vous pouvez créer des plans à proposer à vos utilisateurs. En retour, ceux-ci s’abonnent à vos offres pour utiliser les plans et les services qu’elles comprennent. Cet exemple montre comment créer un plan comprenant les fournisseurs de ressources de stockage, réseau et de calcul. Ce plan donne aux abonnés la possibilité d’approvisionner des machines virtuelles.
 
 1. Connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external). Entrez les informations d’identification du compte que vous avez créé à l’étape 5 de la section [Exécuter le script PowerShell](azure-stack-run-powershell-script.md).
 
-2. Pour créer un plan et une offre auxquels les clients peuvent s’abonner, cliquez sur **Nouveau** > **Plans + offres clients** > **Plan**.
+2. Pour créer un plan et une offre auxquels les utilisateurs peuvent s’abonner, cliquez sur **Nouveau** > **Plans + offres clients** > **Plan**.
 
    ![](media/azure-stack-create-plan/image01.png)
-3. Sur le panneau **Nouveau plan**, renseignez le **Nom d’affichage** et le **Nom de la ressource**. Le nom d’affichage correspond au nom convivial du plan, que les clients voient. Seul l’administrateur peut voir le nom de la ressource. Il s’agit du nom que les administrateurs utilisent pour gérer le plan en tant que ressource Azure Resource Manager.
+3. Sur le panneau **Nouveau plan**, renseignez le **Nom d’affichage** et le **Nom de la ressource**. Le nom d’affichage correspond au nom convivial du plan, que les locataires voient. Seul l’administrateur peut voir le nom de la ressource. Il s’agit du nom que les administrateurs utilisent pour gérer le plan en tant que ressource Azure Resource Manager.
 
    ![](media/azure-stack-create-plan/image02.png)
 4. Créez un **Groupe de ressources** ou sélectionnez-en un qui servira de conteneur pour le plan.
