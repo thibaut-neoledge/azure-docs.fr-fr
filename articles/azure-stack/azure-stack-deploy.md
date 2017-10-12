@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/11/2017
 ms.author: erikje
+ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4a53065f76cef7b711f4a656b437cbefaf47c5d0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Prérequis pour le déploiement Azure Stack
 
-*S’applique au kit de développement Azure Stack*
+*S’applique à : Kit de développement Azure Stack*
 
 Avant de déployer le [Kit de développement](azure-stack-poc.md) Azure Stack, assurez-vous que votre ordinateur présente la configuration suivante :
 
@@ -183,5 +182,4 @@ Les données d’utilisation sont mises en forme comme cela est décrit dans [En
 [Télécharger le package de déploiement du Kit de développement Azure Stack](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Déployer le Kit de développement Azure Stack](azure-stack-run-powershell-script.md)
-
 

@@ -15,12 +15,11 @@ ms.date: 07/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 463946256f9e335fa6d98fc904835e5c3dc2725e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>Utilisation de l’accès conditionnel dans le proxy d’application Azure AD
 
@@ -72,4 +71,3 @@ En plus de définir cet indicateur, vous devez configurer l’instance AD FS du 
 * [Publier des applications avec votre propre nom de domaine](active-directory-application-proxy-custom-domains.md)
 
 Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-

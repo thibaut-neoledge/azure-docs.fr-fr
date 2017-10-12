@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2cad56caa182a9abdca02944000b1506953af3f4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-users-in-the-azure-stack-development-kit"></a>Ajouter des utilisateurs dans le Kit de développement Azure Stack
 
@@ -31,6 +30,5 @@ Pour ajouter des utilisateurs supplémentaires dans le déploiement du Kit de d�
 4.  Cliquez sur **Action** > **Nouveau** > **Utilisateur**.
 5.  Dans la fenêtre Nouvel objet – Utilisateur, entrez et confirmez un mot de passe
 6.  Cliquez sur **Suivant** pour finaliser les valeurs et cliquez sur Terminer pour créer l’utilisateur.
-
 
 

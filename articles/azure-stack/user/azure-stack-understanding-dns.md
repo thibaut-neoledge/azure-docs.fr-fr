@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Présentation d’iDNS pour Azure Stack
 
-*S’applique aux systèmes intégrés Azure Stack et au kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 iDNS est une fonctionnalité d’Azure Stack qui vous permet de résoudre les noms DNS externes (par exemple, http://www.bing.com).
 Elle vous permet également d’enregistrer des noms de réseau virtuel interne. De cette façon, vous pouvez résoudre des machines virtuelles sur le même réseau virtuel par nom plutôt que par adresse IP, sans avoir à fournir des entrées de serveur DNS personnalisées.
@@ -54,5 +53,4 @@ Azure Stack prend en charge iDNS uniquement pour l’enregistrement de noms inte
 * Créer une zone DNS (par exemple, Contoso.com).
 * Créer un enregistrement dans votre propre zone DNS personnalisée.
 * Prendre en charge l’achat de noms de domaine.
-
 

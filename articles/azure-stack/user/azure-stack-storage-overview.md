@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8777aa486a627cf8b2d8ba443e115638354d10da
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Présentation du stockage Azure Stack
 
-*S’applique aux systèmes intégrés Azure Stack et au kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 ## <a name="overview"></a>Vue d'ensemble
 Le stockage Azure Stack est un ensemble de services de stockage cloud, y compris des objets blob, des tables et des files d’attente, qui sont compatibles avec les services de stockage Azure.
@@ -89,5 +88,4 @@ Un compte de stockage peut contenir un nombre quelconque de files d’attente, e
 * [Stockage Azure : Différences et considérations](azure-stack-acs-differences.md)
 
 * Pour en savoir plus sur le stockage Azure, consultez [Présentation du stockage Microsoft Azure](../../storage/common/storage-introduction.md)
-
 

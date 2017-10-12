@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 7/14/2017
 ms.author: helaw
 ms.openlocfilehash: 5b2c04d2cbc06e1572dc2e40712f6cf9d886aa1e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Ajouter des éléments de Place de Marché à l’aide de l’outil de publication
 L’ajout de votre contenu à la [Place de Marché Azure Stack](azure-stack-marketplace.md) met vos solutions à disposition de vos locataires (et de vous-même) pour le déploiement.  La boîte à outils Place de Marché crée des fichiers de packages Place de Marché Azure (.azpkg) basés sur vos extensions de machine virtuelle ou vos modèles IaaS Azure Resource Manager.  Vous pouvez également utiliser la boîte à outils Place de Marché pour publier des fichiers .azpkg créés avec l’outil ou par le biais d’étapes [manuelles](azure-stack-create-and-publish-marketplace-item.md).  Cette rubrique vous montre comment télécharger l’outil, créer un élément de Place de Marché basé sur un modèle de machine virtuelle, puis publier cet élément sur la Place de Marché Azure Stack.     

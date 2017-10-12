@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de8540397b63093457382cf427a65ea0e48b93e0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Mettre une image de machine virtuelle personnalisée à la disposition des utilisateurs dans Azure Stack
 
-*S’applique aux systèmes intégrés Azure Stack et au kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Azure Stack permet aux opérateurs de mettre des images de machine virtuelle personnalisées à la disposition de leurs utilisateurs. Ces images peuvent être référencées par des modèles Azure Resource Manager ou être ajoutées à l’interface utilisateur de la Place de marché Azure au moment de la création d’un élément sur la Place de marché. 
 
@@ -158,7 +157,7 @@ Remove-AzsVMImage `
 | **CreateGalleryItem** |Indicateur booléen qui détermine s’il faut créer un élément sur la Place de marché. Par défaut, il est défini sur true. |
 | **title** |Nom d’affichage de l’élément de la Place de marché. Par défaut, il se compose des segments Éditeur-Offre-SKU de l’image de machine virtuelle. |
 | **description** |Description de l’élément de la Place de marché. |
-| **emplacement** |Emplacement de publication de l’image de machine virtuelle. Par défaut, cette valeur est définie sur «local ».|
+| **location** |Emplacement de publication de l’image de machine virtuelle. Par défaut, cette valeur est définie sur «local ».|
 | **osDiskBlobURI** |(Facultatif) Ce script accepte également un URI de stockage Blob pour osDisk. |
 | **dataDiskBlobURIs** |(Facultatif) Ce script accepte également un tableau d’URI de stockage Blob pour l’ajout de disques de données à l’image. |
 

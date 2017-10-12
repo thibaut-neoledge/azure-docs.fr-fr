@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3a1be7a08fab8ad0253f26e6a0683617bff4b7c9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Utilisation du portail administrateur dans Azure Stack
 
@@ -67,7 +66,7 @@ Les portails administrateur et utilisateur sont secondés par des instances dist
 
 ### <a name="customize-the-dashboard"></a>Personnaliser le tableau de bord
 
-Le tableau de bord contient un ensemble de vignettes par défaut. Vous pouvez cliquer sur **Modifier le tableau de bord** pour modifier le tableau de bord par défaut, ou cliquer sur **Nouveau tableau de bord** pour ajouter des tableaux de bord personnalisés. Vous pouvez facilement ajouter des vignettes au tableau de bord. Par exemple, vous pouvez cliquer sur **Nouveau**, cliquer avec le bouton droit sur **Offres + plans**, puis cliquer sur **Épingler au tableau de bord**.
+Le tableau de bord contient une série de vignettes par défaut. Vous pouvez cliquer sur **Modifier le tableau de bord** pour modifier le tableau de bord par défaut, ou sur **Nouveau tableau de bord** pour ajouter des tableaux de bord personnalisés. Vous pouvez facilement ajouter des vignettes au tableau de bord. Par exemple, vous pouvez cliquer sur **Nouveau**, cliquer avec le bouton droit sur **Offres + plans**, puis cliquer sur **Épingler au tableau de bord**.
 
 ### <a name="quick-access-to-online-documentation"></a>Accès rapide à la documentation en ligne
 
@@ -83,4 +82,3 @@ Si vous cliquez sur l’icône d’aide et de support (point d’interrogation) 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Gestion des régions dans Azure Stack](azure-stack-region-management.md)
-

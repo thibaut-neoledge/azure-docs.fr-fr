@@ -15,12 +15,11 @@ ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-stack-development-kit-deployment-quickstart"></a>Démarrage rapide du déploiement du Kit de développement Azure Stack
 
@@ -39,4 +38,3 @@ Le [Kit de développement Azure Stack](azure-stack-poc.md) est un environnement 
 5. Si votre déploiement Azure Stack utilise Azure Active Directory, vous devez [inscrire Azure Stack auprès d’Azure](azure-stack-register.md) pour pouvoir ensuite [télécharger des éléments de la Place de marché Azure](azure-stack-download-azure-marketplace-item.md) dans Azure Stack.
 
 Après toutes ces étapes, l’environnement pour le Kit de développement est prêt, avec les portails de l’administrateur et de l’utilisateur. Vous pouvez maintenant [vous connecter et ouvrir une session](azure-stack-connect-azure-stack.md) sur le portail. Vous pouvez ensuite commencer à déployer des fournisseurs de ressources, créer des [offres](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions)et ajouter des éléments sur la [Place de marché](azure-stack-marketplace.md) Azure Stack.
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ea7510c239ee07a9a27f3e682e61a6b08eb5694d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Utilisation et facturation dans Azure Stack
 
@@ -72,5 +71,4 @@ Pour générer les données d’utilisation, vous devez disposer de ressources e
 [API Utilisation des ressources de client](azure-stack-tenant-resource-usage-api.md)
 
 [Questions fréquentes (FAQ) relatives à l’utilisation](azure-stack-usage-related-faq.md)
-
 

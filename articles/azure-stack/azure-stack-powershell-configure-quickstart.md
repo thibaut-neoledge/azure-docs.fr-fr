@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6e5c420ed80127213e38849ac1999bba199e36c2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Devenez rapidement opérationnel avec PowerShell dans Azure Stack.
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
@@ -199,7 +197,6 @@ Quand le groupe de ressources est créé, la sortie de l’applet de commande in
 * [Installer et configurer l’interface de ligne de commande](azure-stack-connect-cli.md)
 
 * [Développer des modèles](user/azure-stack-develop-templates.md)
-
 
 
 
