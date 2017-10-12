@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 1d69c361b609a2f50ce11432bc422acd0d8cb178
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gérer les ressources du cluster Apache Spark dans Azure HDInsight 
 
@@ -172,4 +171,3 @@ Lancez l’interface utilisateur web Yarn comme indiqué ci-dessus. Dans la tabl
 * [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-

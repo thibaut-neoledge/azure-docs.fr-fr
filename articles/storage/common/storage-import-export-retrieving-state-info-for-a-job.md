@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Récupération des informations d’état d’un travail Import/Export
 Vous pouvez appeler l’opération [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) pour récupérer des informations sur les travaux d’importation et d’exportation. Les informations renvoyées incluent :

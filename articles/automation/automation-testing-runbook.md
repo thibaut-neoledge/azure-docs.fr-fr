@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5186eb8f1732d533cbceb397b4d8b5224ad773cd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 2c811cc8c8277e9840babcf1043cde44238b8661
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Test d’un runbook dans Azure Automation
 Lorsque vous testez un runbook, la [version Brouillon](automation-creating-importing-runbook.md#publishing-a-runbook) est exécutée et toutes les actions qu’il effectue sont finalisées. Aucun historique des tâches n’est créé, mais les flux [Résultat](automation-runbook-output-and-messages.md#output-stream) et [Avertissement et Erreur](automation-runbook-output-and-messages.md#message-streams) s’affichent dans le panneau de sortie du test. Les messages dirigés vers le [flux de messages](automation-runbook-output-and-messages.md#message-streams) s’affiche dans le panneau de résultat uniquement si la variable [$VerbosePreference variable](automation-runbook-output-and-messages.md#preference-variables) a pour valeur Continue.
@@ -44,5 +43,4 @@ Vous pouvez utiliser n’importe quel [type de runbook](automation-runbook-types
 * Pour en savoir plus sur la création graphique, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
 * Pour une prise en main des Runbooks de flux de travail PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md)
 * Pour en savoir plus sur la configuration de Runbooks pour renvoyer des messages d’état et des erreurs, y compris sur les pratiques recommandées, consultez [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
-
 

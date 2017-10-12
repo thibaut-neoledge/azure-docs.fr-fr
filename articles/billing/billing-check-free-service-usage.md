@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
+ms.openlocfilehash: 27ff6c92904a0b32cd4a37c8b1930adc121a7231
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e70a2378d1eda6aac01d5f5e5e449bb88f359dc6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Vérifier l’utilisation des services gratuits inclus avec votre compte gratuit Azure 
 
@@ -72,4 +71,3 @@ Le fichier d’utilisation contient des informations sur l’utilisation pour le
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 
 Si vous avez toujours besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-

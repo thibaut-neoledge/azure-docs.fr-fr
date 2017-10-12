@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e505c52a5e1897d5626ee2cacce9fa3eff12fbbd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Gérer la stratégie Azure à l’aide du module de stratégie Azure Stack
 
@@ -72,4 +71,3 @@ Une fois que vous avez déployé la stratégie Azure, vous recevez une erreur qu
 [Déployer des modèles avec l’interface de ligne de commande Azure](azure-stack-deploy-template-command-line.md)
 
 [Déployer des modèles avec Visual Studio](azure-stack-deploy-template-visual-studio.md)
-

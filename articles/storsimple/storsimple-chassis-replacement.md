@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 5295c5dd039b1d4746ebaaf90372932e4c3e7c26
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Remplacer le châssis sur votre appareil StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -60,5 +59,4 @@ Procédez comme suit pour installer le châssis sur votre appareil StorSimple.
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
-
 

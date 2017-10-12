@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2adce61f8185bd86a6a870bb5752fe936701b0af
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="business-understanding"></a>Présentation de l’entreprise
 
-Cette rubrique présente les objectifs, les tâches et les livrables associés à la **phase de présentation de l’entreprise** du processus TDSP (Team Data Science Process). Ce processus indique un cycle de vie recommandé que vous pouvez utiliser pour structurer vos projets de science des données. Le cycle de vie présente les étapes majeures que les projets déroulent habituellement, souvent de manière itérative :
+Cette rubrique présente les objectifs, les tâches et les livrables associés à la **phase de présentation de l’entreprise** du processus TDSP (Team Data Science Process). Ce processus indique un cycle de vie recommandé que vous pouvez utiliser pour structurer vos projets de science des données. Le cycle de vie expose les principales phases que les projets exécutent généralement, souvent de manière itérative :
 
 * **Présentation de l’entreprise**
 * **Acquisition de données et compréhension**
@@ -81,12 +80,12 @@ Il n’est pas rare, par exemple, de constater que les systèmes existants doive
 Voici les livrables de cette phase :
 
 * [**Charte**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md) : un modèle standard est fourni dans la définition de la structure de projet TDSP. Il s’agit d’un document actif qui est mis à jour tout au long du projet en fonction des nouvelles découvertes et de l’évolution des exigences pour l’entreprise. Il est important que vous vous référiez à ce document, en ajoutant des détails, à mesure que vous progressez dans le processus de découverte. Veillez à ce que les clients et autres parties prenantes demeurent impliqués dans la réalisation des modifications et communiquez-leur clairement les raisons des modifications.  
-* [**Sources de données**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources) : il s’agit de la section **Raw Data Sources (Sources de données brutes)** du rapport **Data Definitions (Définitions des données)** qui figure dans le dossier **Data Report (Rapport de données)** du projet TDSP. Elle spécifie les emplacements d’origine et de destination des données brutes. Au cours de phases ultérieures, vous renseignez des détails supplémentaires, tels que des scripts permettant de déplacer les données vers votre environnement analytique.  
+* [**Sources de données**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources) : il s’agit de la section **Raw Data Sources (Sources de données brutes)** du rapport **Data Definitions (Définitions des données)** qui figure dans le dossier **Data Report (Rapport de données)** du projet TDSP. Elle spécifie les emplacements d’origine et de destination des données brutes. Au cours de phases ultérieures, vous renseignez des détails supplémentaires, tels que des scripts permettant de déplacer les données vers votre environnement d’analyse.  
 * [**Dictionnaires de données**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/DataDictionaries) : ce document fournit des descriptions des données fournies par le client. Ces descriptions incluent des informations sur le schéma (types de données, informations sur les règles de validation, le cas échéant) et les diagrammes entité-relation s’ils sont disponibles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Voici des liens vers chaque étape du cycle de vie du processus TDSP :
+Voici les liens vers chaque étape du cycle de vie du processus TDSP :
 
 * [1. Présentation de l’entreprise](lifecycle-business-understanding.md)
 * [2. Acquisition de données et compréhension](lifecycle-data.md)
@@ -94,6 +93,6 @@ Voici des liens vers chaque étape du cycle de vie du processus TDSP :
 * [4. Déploiement](lifecycle-deployment.md)
 * [5. Acceptation du client](lifecycle-acceptance.md)
 
-Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. La rubrique [Exemples de procédures pas à pas](walkthroughs.md) les répertorie et les décrit brièvement, en les accompagnant de liens. Elles illustrent comment combiner les outils et services dans le cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente. 
+Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. La rubrique [Exemples de procédures pas à pas](walkthroughs.md) les répertorie et les décrit brièvement, en les accompagnant de liens. Ces procédures illustrent comment combiner des outils et services locaux ou cloud dans un flux de travail ou un pipeline pour créer une application intelligente. 
 
-Par obtenir des exemples d’exécution des étapes du processus TDSP qui utilisent Azure Machine Learning Studio, consultez le parcours de formation [Avec Azure ML](http://aka.ms/datascienceprocess).
+Pour obtenir des exemples d’exécution des étapes du processus TDSP qui utilisent Azure Machine Learning Studio, consultez le parcours d’apprentissage [Avec Azure ML](http://aka.ms/datascienceprocess).

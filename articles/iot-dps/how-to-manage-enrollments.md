@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: c230e73f83d8acd0f142e037f70a80c9e0e4107e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-manage-device-enrollments-in-the-iot-hub-device-provisioning-service"></a>Guide pratique pour gérer les inscriptions d’appareil dans le service IoT Hub Device Provisioning
 
 Une *inscription d’appareil* crée un enregistrement d’un appareil ou d’un groupe d’appareils susceptibles d’être inscrits au service Azure IoT Hub Device Provisioning à un moment donné. L’enregistrement contient la configuration initiale souhaitée pour le ou les appareils dans le cadre de cette inscription, y compris le hub IoT souhaité. Cet article explique comment gérer les inscriptions d’appareil dans votre service d’approvisionnement.
@@ -76,7 +74,6 @@ Si votre ou vos appareils n’ont pas besoin d’être approvisionnés sur un hu
 5. Lorsque l’opération est terminée, votre entrée a été supprimée de la liste des inscriptions d’appareil. 
  
     ![Supprimer une inscription dans le portail](./media/how-to-manage-enrollments/remove-enrollment.png)
-
 
 
 

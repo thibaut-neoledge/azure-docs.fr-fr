@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: robb
 ms.openlocfilehash: 3f9ebb0f5737714dd685f0dcc1ff4b1c0c89528f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Vue d’ensemble des mesures dans Microsoft Azure
 Tous les services Azure assurent le suivi des mesures clés qui vous permettent de surveiller l’intégrité, les performances, la disponibilité et l'utilisation de vos services. Vous pouvez afficher ces mesures dans le portail Azure, et utiliser [l’API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) ou le [Kit de développement logiciel (SDK) .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) pour accéder à l'ensemble des mesures par programmation.

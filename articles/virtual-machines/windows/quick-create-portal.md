@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Créer une machine virtuelle Windows avec le portail Azure
 
 Les machines virtuelles Azure peuvent être créées via le portail Azure. Cette méthode fournit une interface utilisateur basée sur navigateur pour créer et configurer des machines virtuelles et toutes les ressources liées. Ce démarrage rapide décrit les étapes permettant de créer une machine virtuelle et d’installer un serveur web sur celle-ci.
@@ -52,7 +50,7 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
 6. Sur la page Résumé, cliquez sur **OK** pour lancer le déploiement de machine virtuelle.
 
-7. La machine virtuelle sera épinglée au tableau de bord du portail Azure. Une fois le déploiement terminé, le volet de résumé de la machine virtuelle s’ouvre automatiquement.
+7. La machine virtuelle sera épinglée au tableau de bord du portail Azure. Une fois le déploiement terminé, le récapitulatif de la machine virtuelle s’ouvre automatiquement.
 
 
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
@@ -108,4 +106,3 @@ Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle si
 
 > [!div class="nextstepaction"]
 > [Didacticiels sur les machines virtuelles Azure Windows](./tutorial-manage-vm.md)
-

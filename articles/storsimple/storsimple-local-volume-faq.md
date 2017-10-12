@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/11/2017
 ms.author: manuaery
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a437ef2ba20970e2dd9a06fbc9e39fff2bb82da7
 ms.openlocfilehash: 22eb95bf0e3a20893acbb860ad10cfe6a3bcf088
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Volumes StorSimple épinglés localement : forum aux questions (FAQ)
 ## <a name="overview"></a>Vue d'ensemble
@@ -215,5 +214,4 @@ Plus d’informations sur [le basculement et la récupération d’urgence de vo
 **Q.** Puis-je basculer un conteneur de volumes avec les volumes épinglés localement pour l’appliance cloud ?
 
 **A.** Oui, vous pouvez. Les volumes épinglés localement sont basculés sous forme de volumes à plusieurs niveaux. Plus d’informations sur [le basculement et la récupération d’urgence de volumes épinglés localement en fonction des versions](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
-
 

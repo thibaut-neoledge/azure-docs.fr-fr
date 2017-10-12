@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: d61da54fc3172a730740e2b94a89fe787c4f121d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 59942e989d622c2486edf181d76e13344c71e6f9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Activer les dumps de tas pour les services Hadoop sur HDInsight sur Linux
 
@@ -132,5 +131,4 @@ Pour modifier la configuration d’un service, procédez comme suit :
    > les entrées du bouton **Redémarrer** peuvent être différentes pour d’autres services.
 
 8. Une fois que les services ont été redémarrés, utilisez le bouton **Actions de service** pour **Désactiver le mode de maintenance**. Ambari reprend la surveillance des alertes du service.
-
 

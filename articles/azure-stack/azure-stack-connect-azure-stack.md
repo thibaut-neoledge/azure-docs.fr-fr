@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 09c626e97832821009ce2da360ceea2b54273ffa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-azure-stack"></a>Se connecter à Azure Stack
 
-*S’applique au kit de développement Azure Stack*
+*S’applique à : Kit de développement Azure Stack*
 
 Pour pouvoir gérer des ressources, vous devez vous connecter au Kit de développement Azure Stack. Cette rubrique explique en détail les étapes à suivre pour vous connecter à ce kit de développement. Vous avez le choix entre ces deux options de connexion :
 
@@ -110,5 +109,4 @@ Pour tester la connexion au portail, ouvrez un navigateur Internet et accédez a
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Mettre des machines virtuelles à la disposition de vos utilisateurs Azure Stack](azure-stack-tutorial-tenant-vm.md)
-
 

@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
+ms.openlocfilehash: 802658b50d8e398451507ad11c76fedd0db697df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: ca62bea581acb59d3c3c0b8a204cc9d42de2b27f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Vérifier la connectivité avec Azure Network Watcher à l’aide du portail Azure
 
 > [!div class="op_single_selector"]
@@ -86,7 +84,7 @@ Exécutez le script suivant pour renvoyer une machine virtuelle. Ces information
 Les codes suivants ont besoin de valeurs pour les variables suivantes :
 
 - **subscriptionId** : l’ID d’abonnement à utiliser.
-- **resourceGroupName** : le nom d’un groupe de ressources qui contient les machines virtuelles.
+- **resourceGroupName** - Le nom d’un groupe de ressources qui contient les machines virtuelles.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -503,7 +501,6 @@ Découvrez comment automatiser les captures de paquets avec des alertes de machi
 Recherchez si certains types de trafic sont autorisés au sein ou en dehors de votre machine virtuelle en consultant [Check IP flow verify (Vérifier les flux IP)](network-watcher-check-ip-flow-verify-portal.md)
 
 <!-- Image references -->
-
 
 
 

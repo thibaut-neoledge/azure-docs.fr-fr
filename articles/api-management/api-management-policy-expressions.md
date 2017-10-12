@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 33bcc51466fa0918bf4484c58fac813d07ae14da
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
 La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.  
@@ -203,4 +202,3 @@ La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation des stratégies, consultez la page [Stratégies dans la Gestion des API](api-management-howto-policies.md).  
-

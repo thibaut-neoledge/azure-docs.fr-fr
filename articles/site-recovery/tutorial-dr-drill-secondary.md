@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8737c2a22bd729cfc15d5448e1ec0becef643fd5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Exécuter une simulation de récupération d’urgence pour des machines virtuelles Hyper-V sur votre site local secondaire
 
@@ -46,7 +45,7 @@ Ce didacticiel montre comment exécuter une simulation de récupération d’urg
 ## <a name="run-a-test-failover-for-a-vm"></a>Exécuter un test de basculement pour une machine virtuelle
 
 1. Dans **Éléments répliqués**, cliquez sur la machine virtuelle, puis sur **Test de basculement**.
-2. Dans **Test de basculement**, indiquez le mode de connexion des machines virtuelles aux réseaux après le test de basculement. Pour les besoins de ce didacticiel, nous vous recommandons de laisser Site Recovery créer automatiquement un réseau de test. [Plus d’informations](site-recovery-test-failover-vmm-to-vmm.md#network-options-in-site-recovery)
+2. Dans **Test de basculement**, indiquez le mode de connexion des machines virtuelles aux réseaux après le test de basculement. Pour les besoins de ce didacticiel, nous vous recommandons de laisser Site Recovery créer automatiquement un réseau de test. [En savoir plus](site-recovery-test-failover-vmm-to-vmm.md#network-options-in-site-recovery).
 3. Cliquez sur **OK** pour commencer le basculement. Effectuez un suivi de l’opération dans l’onglet **Tâches** .
 4. Une fois le basculement terminé, vérifiez que les machines virtuelles démarrent correctement.
 5. Une fois que vous avez terminé, cliquez sur **Nettoyer le test de basculement**. Cette opération supprime les machines virtuelles de test et les réseaux créés pendant le test de basculement.
@@ -56,7 +55,6 @@ Ce didacticiel montre comment exécuter une simulation de récupération d’urg
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Exécuter un basculement de production](tutorial-vmm-to-vmm-failover-failback.md)
-
 
 
 

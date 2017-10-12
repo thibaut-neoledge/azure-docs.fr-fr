@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0660e68f83b3fcfa55135e5bd5175a423ad246e2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infographie téléchargeable : Principes de base de l’apprentissage automatique avec exemples d’algorithmes
 Téléchargez cette vue d’ensemble infographique présentant de manière simple les concepts de base de l’apprentissage automatique pour en savoir plus sur les algorithmes populaires utilisés pour répondre aux questions les plus courantes concernant l’apprentissage automatique. Des exemples d’algorithmes aident les débutants à mieux comprendre quels algorithmes utiliser et à quoi ils servent.
@@ -47,4 +46,3 @@ Téléchargez cette vue d’ensemble infographique présentant de manière simpl
 [initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
-

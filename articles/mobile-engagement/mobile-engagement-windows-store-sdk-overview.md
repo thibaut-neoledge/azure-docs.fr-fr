@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-sdk-integration-for-azure-mobile-engagement"></a>Intégration du Kit de développement logiciel (SDK) Windows Universal pour Azure Engagement Mobile
 Ce document décrit toutes les options d’intégration et de configuration disponibles pour le Kit de développement logiciel (SDK) Windows Universal pour Azure Engagement Mobile.
@@ -74,5 +73,4 @@ Lors de la mise à niveau vers la nouvelle version du Kit de développement logi
 
 ### <a name="upgrade-from-older-versions"></a>Mise à niveau à partir de versions antérieures
 Consultez la rubrique [Procédures de mise à niveau](mobile-engagement-windows-store-upgrade-procedure.md)
-
 

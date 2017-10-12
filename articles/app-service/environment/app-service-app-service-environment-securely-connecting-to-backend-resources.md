@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a43d88d64710b95dd753c19f02582f22accac8b6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Connexion sécurisée à des ressources de backend à partir d'un environnement App Service
 ## <a name="overview"></a>Vue d'ensemble
-Étant donné qu’un environnement App Service est toujours créé **soit** dans un réseau virtuel Azure Resource Manager **ou** un [réseau virtuel][virtualnetwork] de modèle de déploiement classique, les connexions sortantes d’un environnement App Service à destination d’autres ressources backend peuvent passer exclusivement sur le réseau virtuel.  Suite à une modification récente effectuée en juin 2016, les environnements ASE peuvent également être déployés dans les réseaux virtuels qui utilisent soit des plages d’adresses publiques soit des espaces d’adressage RFC1918 (par exemple, des adresses privées).  
+Étant donné qu’un environnement App Service est toujours créé **soit** dans un réseau virtuel Azure Resource Manager **ou** un [réseau virtuel][virtualnetwork] de modèle de déploiement classique, les connexions sortantes d’un environnement App Service à destination d’autres ressources de back-end peuvent passer exclusivement sur le réseau virtuel.  Suite à une modification récente effectuée en juin 2016, les environnements ASE peuvent également être déployés dans les réseaux virtuels qui utilisent soit des plages d’adresses publiques soit des espaces d’adressage RFC1918 (par exemple, des adresses privées).  
 
 Par exemple, un serveur SQL Server peut être en cours d'exécution sur un cluster de machines virtuelles dont le port 1433 est verrouillé.  Le point de terminaison peut être placé dans une liste de contrôle d'accès pour autoriser uniquement l'accès à partir d'autres ressources se trouvant sur le même réseau virtuel.  
 
@@ -105,4 +104,3 @@ Pour plus d'informations sur le contrôle du trafic entrant vers votre environne
 [SqlServerEndpoint]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/SqlServerEndpoint01.png
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png 
-

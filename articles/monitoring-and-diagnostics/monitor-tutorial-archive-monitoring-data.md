@@ -10,14 +10,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="archive-azure-monitoring-data"></a>Archiver les données de surveillance d’Azure
 
 Plusieurs couches de votre environnement Azure génèrent des données de journal et de métrique qui peuvent être archivées sur un compte de stockage Azure. Vous pouvez effectuer cette opération pour conserver un historique des données de surveillance au fil du temps dans un magasin non interrogeable peu coûteux après que les données ont dépassé leur période de rétention dans Log Analytics ou Azure Monitor. Ce didacticiel décrit le processus de configuration de votre environnement Azure pour archiver des données sur un compte de stockage.
@@ -164,4 +162,3 @@ Dans ce didacticiel, vous avez appris à configurer les données de surveillance
 
 > [!div class="nextstepaction"]
 > [Prise en main d’un espace de travail Log Analytics](../log-analytics/log-analytics-get-started.md)
-

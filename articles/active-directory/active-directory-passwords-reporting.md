@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 4d7f05d626e6f718ca3597dff00715af4055f046
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 10963ab0b84b48c35df3022649363bbc8fc112a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -267,13 +266,12 @@ La liste suivante explique cette activité en détail :
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD
 
 * [Raccourci vers les journaux d’audit de gestion utilisateur](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Audit) : accédez directement aux journaux d’audit de la gestion des utilisateurs de votre client
-* [**Démarrage rapide** ](active-directory-passwords-getting-started.md) - soyez rapidement opérationnel avec la gestion de mots de passe en libre-service d’Azure AD 
-* [**Licences** ](active-directory-passwords-licensing.md) - configurez vos licences Azure AD
-* [**Données** ](active-directory-passwords-data.md) : comprenez les données requises et comment elles sont utilisées pour la gestion des mots de passe
-* [**Déploiement** ](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation de mot de passe en libre-service sur vos utilisateurs grâce aux conseils figurant ici
-* [**Personnalisation** ](active-directory-passwords-customize.md) : personnalisez l’apparence de l’interface de réinitialisation de mot de passe en libre-service de votre société.
-* [**Présentation technique approfondie** ](active-directory-passwords-how-it-works.md) : découvrez ce qu’il se passe sous le capot pour comprendre le fonctionnement
-* [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) - Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours
-* [**Résolution des problèmes** ](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants que nous observons avec la réinitialisation de mot de passe en libre-service
-* [**Stratégie** ](active-directory-passwords-policy.md) : comprenez et définissez les stratégies de mot de passe d’Azure AD
-
+* [**Démarrage rapide**](active-directory-passwords-getting-started.md) - soyez rapidement opérationnel avec la gestion de mots de passe en libre-service d’Azure AD 
+* [**Licences**](active-directory-passwords-licensing.md) : configurez vos licences Azure AD.
+* [**Données**](active-directory-passwords-data.md) : comprenez mieux les données requises et leur utilisation dans la gestion des mots de passe.
+* [**Déploiement**](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation de mot de passe en libre-service pour vos utilisateurs grâce aux conseils figurant ici.
+* [**Personnalisation**](active-directory-passwords-customize.md) : personnalisez l’apparence de l’interface de réinitialisation de mot de passe en libre-service de votre société.
+* [**Présentation technique approfondie**](active-directory-passwords-how-it-works.md) : découvrez ce qu’il se passe sous le capot pour comprendre le fonctionnement
+* [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) : Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours.
+* [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants que nous observons avec la réinitialisation de mot de passe en libre-service
+* [**Stratégie**](active-directory-passwords-policy.md) : comprenez et définissez les stratégies de mot de passe d’Azure AD

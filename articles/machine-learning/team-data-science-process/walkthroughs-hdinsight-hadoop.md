@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5dbfd043f1809f407baf6aa4ca5c5272af425012
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Guides de la science des données HDInsight Hadoop avec Hive sur Azure 
 
 Ces guides utilisent Hive avec un cluster HDInsight Hadoop pour effectuer des analyses prédictives. Ils suivent les étapes décrites dans le processus TDSP (Team Data Science Process). Vous trouverez une vue d’ensemble du processus TDSP sur la page [Processus de science des données](overview.md) Vous trouverez une présentation d’Azure HDInsight sur la page [Présentation d’Azure HDInsight, la pile de technologies Hadoop, et des clusters Hadoop](../../hdinsight/hdinsight-hadoop-introduction.md).
@@ -48,5 +46,4 @@ Le guide [Utiliser des clusters Azure HDInsight Hadoop sur un jeu de données de
 Pour en savoir plus sur les composants clés qui constituent le processus TDSP (Team Data Science Process), consultez la page [Vue d’ensemble du processus TDSP (Team Data Science Process)](overview.md).
 
 Pour en savoir plus sur le cycle de vie du processus TDSP (Team Data Science Process), qui permet de structurer les projets de science des données, consultez la page [Cycle de vie du processus TDSP (Team Data Science Process)](lifecycle.md). Le cycle de vie présente les étapes, du début à la fin, que les projets suivent généralement quand ils sont exécutés. 
-
 

@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 06630096383601e48e8f69f8553314cee42f5f3e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>Corrélation des événements au fil du temps avec Storm et HBase
 
@@ -219,4 +218,3 @@ Quand vous êtes prêt à arrêter la topologie, revenez au projet **Correlation
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’exemples Storm, consultez la page [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md).
-

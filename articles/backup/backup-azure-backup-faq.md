@@ -1,4 +1,3 @@
-
 ---
 title: Sauvegarde Azure - Forum aux questions | Microsoft Docs
 description: "Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. "
@@ -16,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Questions sur le service de sauvegarde Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de la sauvegarde Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez poser des questions sur la sauvegarde Microsoft Azure en cliquant sur **Commentaires** (à droite). Les commentaires sont regroupés à la fin de cet article. Un compte Livefyre est nécessaire pour pouvoir déposer un commentaire. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -185,4 +183,3 @@ La clé de chiffrement doit comporter au moins 16 caractères lorsque vous utili
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>Que se passe-t-il si j’ai égaré la clé de chiffrement ? Puis-je récupérer des données (ou) Microsoft peut-il récupérer les données ? <br/>
 La clé utilisée pour chiffrer les données de sauvegarde est présente uniquement localement chez le client. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si le client égare la clé, Microsoft ne peut pas récupérer les données de sauvegarde.
-

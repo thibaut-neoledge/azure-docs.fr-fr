@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/04/2017
 ms.author: haining;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f4e53fa46a6b7f8811e4fee67b1466786b81cdc9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio
 Le diagramme **Vue d’ensemble des capacités de Microsoft Azure Machine Learning Studio** offre une vue générale des possibilités de Machine Learning Studio pour développer un modèle d’analyse prédictive et l’utiliser dans le cloud Azure.
@@ -51,5 +50,4 @@ Téléchargez le diagramme **Vue d’ensemble des capacités de Microsoft Azure 
 * Pour consulter une présentation détaillée des algorithmes d’apprentissage automatique disponibles dans Machine Learning Studio, consultez [Comment choisir les algorithmes dans Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 48b75233e1a485e8fb3fbce9776a6ef398c4e99c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="delegating-offers-in-azure-stack"></a>Délégation des offres dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 En tant qu’opérateur Azure Stack, vous souhaitez souvent placer d’autres personnes en charge de la création d’offres et de l’inscription des utilisateurs. Par exemple, si vous êtes un fournisseur de services et souhaitez que les revendeurs inscrivent les clients et les gèrent à votre place. Cela peut également être le cas dans une entreprise si vous faites partie d’un groupe informatique centralisé et souhaitez que des départements ou des filiales inscrivent les utilisateurs sans votre intervention.
 
@@ -144,5 +143,4 @@ Pour créer plusieurs niveaux de délégation de l’offre, le fournisseur dél�
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Approvisionner une machine virtuelle](azure-stack-provision-vm.md)
-
 

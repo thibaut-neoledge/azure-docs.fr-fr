@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e69fff29be5b12c3c0004b4101eba69c7da87d3d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="installing-python-and-the-sdk"></a>Installation de Python et du kit SDK
 La configuration de Python sous Windows s’effectue en toute simplicité. La solution est préinstallée sous Mac, Linux et [Bash pour Windows](https://msdn.microsoft.com/commandline/wsl/about). Ce guide décrit les étapes d'installation et de préparation de votre système à l'utilisation d'Azure.
@@ -92,7 +91,7 @@ ou directement
 [Python Package Index][Python Package Index] (PyPI) comporte une sélection étoffée de bibliothèques Python.  Si vous avez installé une version fournie par un distributeur, vous disposez déjà de la plupart des éléments nécessaires pour différents scénarios, du développement web au calcul technique.
 
 ## <a name="python-tools-for-visual-studio"></a>Python Tools for Visual Studio
-[Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS) est un plug-in gratuit/OSS de Microsoft, qui transforme Visual Studio en un environnement de développement intégré (IDE) Python à part entière :
+[Python Tools for Visual Studio][Python Tools pour Visual Studio] (PTVS) est un plug-in gratuit/OSS de Microsoft, qui transforme Visual Studio en un environnement de développement intégré (IDE) Python à part entière :
 
 ![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 
@@ -145,10 +144,9 @@ Pour plus d’informations sur l’utilisation de n’importe quelle infrastruct
 [Django Project - A mature web framework/CMS]: http://www.djangoproject.com
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 [IPython]: http://ipython.org
-[Python Tools pour Visual Studio]: http://aka.ms/ptvs
+[Python Tools pour Visual Studio]: http://aka.ms/ptvs
 [Python Tools for Visual Studio on GitHub]: https://github.com/microsoft/ptvs
 [Python Package Index]: http://pypi.python.org/pypi
 [Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
 [Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
 [blob storage]:storage/blobs/storage-python-how-to-use-blob-storage.md
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
 ms.author: chackdan
+ms.openlocfilehash: 2bd3053d645d9acd4850fddf7f27237ff954e8c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 6cc3be57ed283cafa686d46d4b376c69f06301ea
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Types de nœuds Azure Service Fabric et groupes de machines virtuelles identiques
 Les groupes de machines virtuelles identiques représentent une ressource de calcul Azure. Vous pouvez utiliser des groupes identiques pour déployer et gérer une collection de machines virtuelles comme un groupe. Configurez un groupe identique distinct pour chaque type de nœud que vous définissez dans un cluster Azure Service Fabric. Vous pouvez faire monter ou descendre en puissance chaque type de nœud de manière indépendante, avoir différents ensembles de ports ouverts et utiliser différentes métriques de capacité.
@@ -48,7 +47,7 @@ Dans un premier temps, obtenez les valeurs des règles NAT de trafic entrant qui
 
 Dans le portail Azure, dans la page de l’équilibreur de charge, sélectionnez **Paramètres** > **Règles NAT de trafic entrant**. Cela vous donne l’adresse IP et le port qui vous permettent de vous connecter à distance à la première instance de groupe identique. 
 
-![Équilibreur de charge][LBBlade]
+![Équilibrage de charge][LBBlade]
 
 Dans la figure suivante, l’adresse IP et le port sont **104.42.106.156** et **3389**.
 
@@ -150,4 +149,3 @@ Pour changer le mot de passe de tous les nœuds d’un type de nœud donné, eff
 [LBBlade]: ./media/service-fabric-cluster-nodetypes/LBBlade.png
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
-

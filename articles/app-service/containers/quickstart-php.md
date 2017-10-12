@@ -15,12 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Créer une application web PHP dans un conteneur Linux dans Azure
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 09/20/2017
 
 Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windows ou Linux. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour effectuer ce démarrage rapide :
 
@@ -56,7 +55,7 @@ Exécutez l’application localement en ouvrant une fenêtre de terminal et en u
 php -S localhost:8080
 ```
 
-Ouvrez un navigateur web et accédez à l’exemple d’application à l’adresse `http://localhost:8080`.
+Ouvrez un navigateur web et accédez à l’application exemple à l’adresse `http://localhost:8080`.
 
 Vous voyez apparaître sur la page le message **Hello World !** de l’exemple d’application.
 
@@ -166,4 +165,3 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 
 > [!div class="nextstepaction"]
 > [PHP avec MySQL](tutorial-php-mysql-app.md)
-

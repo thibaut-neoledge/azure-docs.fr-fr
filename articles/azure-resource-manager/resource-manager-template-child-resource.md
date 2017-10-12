@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: tomfitz
 ms.openlocfilehash: 5b6ce5526f354008eb4a697deec737876f22391f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-name-and-type-for-child-resource-in-resource-manager-template"></a>Définir le nom et le type d’une ressource enfant dans un modèle Resource Manager
 Quand vous créez un modèle, vous devez souvent inclure une ressource enfant liée à une ressource parent. Par exemple, votre modèle peut inclure un serveur SQL et une base de données. Le serveur SQL est la ressource parent, tandis que la base de données est la ressource enfant. 

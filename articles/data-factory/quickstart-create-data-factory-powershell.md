@@ -13,12 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 1e9109581a1943a77e91e7fa034873dc2a15a5e6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-powershell"></a>Créer une fabrique de données et un pipeline à l’aide de PowerShell
 Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. Grâce à Azure Data Factory, vous pouvez créer et planifier des flux de travail orientés données (appelés pipelines) capables d’ingérer des données provenant de différents magasins de données, de traiter/transformer les données à l’aide de services de calcul comme Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning, et de publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser. 

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c2c5aee3db11255be5a6fe405424c2cbb92c5b95
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Créer une révision d’accès des membres du groupe ou un accès aux applications avec Azure AD
 
 Les attributions d’accès deviennent « obsolètes » lorsque les utilisateurs bénéficient d’un accès dont ils n’ont plus besoin.  Afin de réduire les risques associés aux affectations d’accès par état, les administrateurs peuvent demander une révision des membres du groupe ou des utilisateurs affectés à une application en créant une révision d’accès. Les guides relatifs à la [gestion des accès utilisateur](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md) et à la [gestion des accès invité](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md) fournissent davantage d’informations sur ces scénarios.  
@@ -51,6 +49,5 @@ Vous pouvez suivre la progression des révisions des réviseurs dans le tableau 
 Lorsqu’une révision d’accès a démarré, Azure AD envoie automatiquement aux réviseurs un e-mail les invitant à réviser l’accès. Si un utilisateur n’a pas reçu d’e-mail, vous pouvez lui envoyer les instructions sur la [façon de réviser un accès](active-directory-azure-ad-controls-perform-access-review.md).  
 
 Une fois la période de révision d’accès terminée ou si l’administrateur a arrêté la révision d’accès, suivez les étapes décrivant la [réalisation d’une révision d’accès](active-directory-azure-ad-controls-complete-access-review.md) pour voir et appliquer les résultats.
-
 
 

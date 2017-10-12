@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
 ms.openlocfilehash: fa91baf7c494941fccf0e6ca38b930f3c2a521ce
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guide de dépannage de la vidéo en flux continu
 Cette rubrique fournit des suggestions sur la façon de résoudre certains problèmes de vidéo en flux continu.

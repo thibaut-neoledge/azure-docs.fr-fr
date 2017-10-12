@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 3719e037f1564411a8f94d1ca962ba1ef6b5d435
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Mise en service et déploiement de microservices de manière prévisible dans Azure
 Ce didacticiel explique comment mettre en service et déployer une application composée de [microservices](https://en.wikipedia.org/wiki/Microservices) dans [Azure App Service](/services/app-service/) sous la forme d'une unité unique et de manière prévisible, à l'aide de modèles de groupe de ressources JSON et des scripts PowerShell. 
@@ -269,5 +268,4 @@ Dans DevOps, la répétition et la prévisibilité jouent un rôle majeur pour 
 * [Déploiement d’une application avec un modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 * [Utilisation d’Azure PowerShell avec Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
-
 

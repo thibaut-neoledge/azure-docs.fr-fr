@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: sdanie
 ms.openlocfilehash: 59d46990e02c0719d2b4df01e216a97fd649c509
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Comment configurer la prise en charge de réseau virtuel pour un Cache Redis Azure Premium
 Le Cache Redis Azure offre différents types de caches permettant de choisir en toute flexibilité parmi plusieurs tailles et fonctionnalités de caches, notamment les fonctionnalités de couche Premium telles que le clustering, la persistance et la prise en charge du réseau virtuel. Un réseau VNet est un réseau privé dans le cloud. Lorsqu’une instance de Cache Redis Azure est configurée avec un réseau virtuel, elle n’est pas adressable publiquement et est accessible uniquement à partir de machines virtuelles et d’applications sur le réseau virtuel. Cet article décrit comment configurer la prise en charge de réseau virtuel pour une instance Premium de Cache Redis Azure.

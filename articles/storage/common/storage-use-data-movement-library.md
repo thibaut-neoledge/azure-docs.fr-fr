@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transférer des données avec la bibliothèque de déplacement des données du Stockage Microsoft Azure
 
@@ -570,7 +569,6 @@ Notre application de déplacement des données est à présent terminée. [L’e
 Dans ce guide de prise en main, nous avons créé une application qui interagit avec le Stockage Azure et s’exécute sur Windows, Linux et macOS. Il se concentre sur le Stockage Blob. Toutefois, ces mêmes connaissances peuvent s’appliquer au Stockage Fichier. Pour plus d’informations, consultez la [Documentation de référence de la bibliothèque de déplacement des données du Stockage Azure](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
 
 
 

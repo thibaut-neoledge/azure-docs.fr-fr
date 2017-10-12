@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 715ea008b84c1a503661394da14e8af167327941
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Utilisation des paramètres de service Web Azure Machine Learning
 Un service Web Azure Machine Learning est créé en publiant une expérience qui contient des modules avec des paramètres configurables. Il se peut que, dans certains cas, vous souhaitiez modifier le comportement du module lorsque le service Web est en cours d'exécution. Vous pouvez effectuer cette tâche grâce aux *paramètres de service Web*. 
@@ -89,5 +88,4 @@ Pour plus d’informations sur l’accès à un service web Machine Learning, co
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
-
 

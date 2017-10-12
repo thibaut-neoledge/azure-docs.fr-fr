@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/05/2017
 ms.author: betorres
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-search-traffic-analytics"></a>Présentation de la recherche de l’analyse du trafic
 La recherche de l’analyse du trafic est un modèle qui implémente une boucle de rétroaction pour votre service de recherche. Ce modèle décrit les données nécessaires et la manière de les collecter à l’aide d’Application Insights, l’un des leaders du secteur dans le domaine de la surveillance de services multi-plateforme.
 
@@ -197,4 +195,3 @@ En savoir plus sur la création de rapports exceptionnels. Pour plus d’informa
 [1]: ./media/search-traffic-analytics/AzureSearch-TrafficAnalytics.png
 [2]: ./media/search-traffic-analytics/AzureSearch-AppInsightsData.png
 [3]: ./media/search-traffic-analytics/AzureSearch-PBITemplate.png
-

@@ -12,14 +12,12 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e16866501fd34f0b998ba929771a423866759b55
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Envoyer des ID de contexte utilisateur pour activer les expériences d’utilisation dans Azure Application Insights
 
 ## <a name="tracking-users"></a>Suivi des utilisateurs
@@ -97,4 +95,3 @@ Cet exemple configure l’ID d’utilisateur en tant qu’identificateur expiran
     * [Entonnoirs](usage-funnels.md)
     * [Rétention](app-insights-usage-retention.md)
     * [Classeurs](app-insights-usage-workbooks.md)
-

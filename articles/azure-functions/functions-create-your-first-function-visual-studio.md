@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 09/06/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
+ms.openlocfilehash: 3d9e7a4eb6d94067af6b5c64e71910694d5a6077
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 8baa8e950164de64d1cd91c0c5bb51d324bbc807
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Créer votre première fonction à l’aide de Visual Studio
 
@@ -108,5 +107,4 @@ Vous avez utilisé Visual Studio pour créer une application de fonction C# à 
 + Pour savoir comment configurer votre projet de façon qu’il prenne en charge d’autres types de déclencheurs et liaisons, consultez la section [Configurer le projet pour un développement local](functions-develop-vs.md#configure-the-project-for-local-development) de [Azure Functions Tools pour Visual Studio](functions-develop-vs.md).
 + Pour en savoir plus sur le test et le débogage local à l’aide d’Azure Functions Core Tools, consultez la page [Procédure locale de codage et de test d’Azure Functions](functions-run-local.md). 
 + Pour en savoir plus sur le développement de fonctions en tant que bibliothèques de classes .NET, consultez [Utilisation de bibliothèques de classes .NET avec Azure Functions](functions-dotnet-class-library.md). 
-
 

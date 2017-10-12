@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrer un nom DNS actif vers Azure App Service
 
@@ -55,9 +54,9 @@ L’enregistrement TXT dont vous avez besoin dépend de l’enregistrement DNS q
 
 | Exemple d’enregistrement DNS | Hôte TXT | Valeur TXT |
 | - | - | - |
-| @ (racine) | _awverify_ | _&lt;nomapplication>.azurewebsites.net_ |
-| www (sous-domaine) | _awverify.www_ | _&lt;nomapplication>.azurewebsites.net_ |
-| \* (caractère générique) | _awverify.\*_ | _&lt;nomapplication>.azurewebsites.net_ |
+| @ (racine) | _awverify_ | _&lt;nomapplication&gt;.azurewebsites.net_ |
+| www (sous-domaine) | _awverify.www_ | _&lt;nomapplication&gt;.azurewebsites.net_ |
+| \* (caractère générique) | _awverify.\*_ | _&lt;nomapplication&gt;.azurewebsites.net_ |
 
 Dans la page des enregistrements DNS, notez le type d’enregistrement du nom DNS que vous souhaitez migrer. App Service prend en charge les mappages d’enregistrements CNAME et A.
 
@@ -116,8 +115,8 @@ Pour l’exemple de domaine racine `contoso.com`, remappez l’enregistrement A 
 | Exemple de nom de domaine complet | Type d’enregistrement | Host | Valeur |
 | - | - | - | - |
 | contoso.com (racine) | A | `@` | Adresse IP de [Copier l’adresse IP de l’application](#info) |
-| www.contoso.com (sous-domaine) | CNAME | `www` | _&lt;nomapplication>.azurewebsites.net_ |
-| \*.contoso.com (caractère générique) | CNAME | _\*_ | _&lt;nomapplication>.azurewebsites.net_ |
+| www.contoso.com (sous-domaine) | CNAME | `www` | _&lt;nomapplication&gt;.azurewebsites.net_ |
+| \*.contoso.com (caractère générique) | CNAME | _\*_ | _&lt;nomapplication&gt;.azurewebsites.net_ |
 
 Enregistrez vos paramètres.
 
@@ -129,4 +128,3 @@ Découvrez comment lier un certificat SSL personnalisé à App Service.
 
 > [!div class="nextstepaction"]
 > [Lier un certificat SSL existant à des applications web Azure](app-service-web-tutorial-custom-ssl.md)
-

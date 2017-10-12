@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ebf35877dcd6f980af75f46b437070a6a29b7c54
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-a-kubernetes-cluster-with-operations-management-suite"></a>Surveiller un cluster Kubernetes à l’aide d’Operations Management Suite
 
 La surveillance de votre cluster Kubernetes et des conteneurs est cruciale, particulièrement lorsque vous gérez un cluster de production à grande échelle avec plusieurs applications. 
@@ -156,4 +154,3 @@ Suivez ce lien pour consulter des exemples de scripts prédéfinis pour Containe
 
 > [!div class="nextstepaction"]
 > [Exemples de scripts Azure Container Service](cli-samples.md)
-

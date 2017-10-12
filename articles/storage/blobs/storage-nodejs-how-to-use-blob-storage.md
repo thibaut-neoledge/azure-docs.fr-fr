@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
+ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 2858d916e935de618e1b0d5078218aa725275aeb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Utilisation du stockage d'objets blob à partir de Node.js
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -414,7 +413,7 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 Pour plus d'informations, consultez les ressources suivantes.
 
 * [Kit de développement logiciel (SDK) Stockage Azure pour la référence de l’API Node][Kit de développement logiciel (SDK) Stockage Azure pour la référence de l'API Node]  
-* [Blog de l’équipe Stockage Azure][Blog de l’équipe Stockage Azure]  
+* [Blog de l’équipe Stockage Azure] [Blog de l’équipe Stockage Azure]  
 * Référentiel [Kit de développement logiciel (SDK) Stockage Azure pour Node][Azure Storage SDK for Node] sur GitHub  
 * [Centre de développement Node.js](https://azure.microsoft.com/develop/nodejs/)  
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)  
@@ -425,6 +424,5 @@ Pour plus d'informations, consultez les ressources suivantes.
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
 [Création et déploiement d’une application Node.js dans un service cloud Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
-[Blog de l’équipe Stockage Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
+[Blog de l’équipe Stockage Azure] : http://blogs.msdn.com/b/windowsazurestorage/  
 [SDK Stockage Azure pour les références de l’API de nœud] : http://dl.windowsazure.com/nodestoragedocs/index.html  
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1e0ced4b2d65456034ba3f8543152702c089a0b0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-role-based-access-control"></a>Gérer le contrôle d’accès en fonction du rôle
 
@@ -38,6 +37,5 @@ Un utilisateur Azure Stack peut être un lecteur, un propriétaire ou un collabo
 4. Dans le panneau **Rôles**, cliquez sur **Ajouter** pour ajouter des autorisations pour l’utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 
 

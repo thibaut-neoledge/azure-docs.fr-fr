@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7e912dcbfd1c745df2a0fc8717a075c0476e8d60
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-the-azure-stack-operators-powershell-environment"></a>Configurer l’environnement PowerShell de l’opérateur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*

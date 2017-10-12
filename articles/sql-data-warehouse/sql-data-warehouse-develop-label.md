@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 9e75bbe528a427724a623305fbd45e2277e9d0af
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-labels-to-instrument-queries-in-sql-data-warehouse"></a>Utiliser des libellés pour instrumenter des requêtes dans SQL Data Warehouse
 SQL Data Warehouse prend en charge le concept de « libellé de requête ». Avant de l’étudier plus avant, voici un exemple parlant :
@@ -61,4 +60,3 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 <!--MSDN references-->
 
 <!--Other Web references-->
-

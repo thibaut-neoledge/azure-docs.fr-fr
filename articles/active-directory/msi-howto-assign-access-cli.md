@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
 ms.author: bryanla
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: e77915c1d982ccf6262ffcbc09dc91dfd986dac5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Attribuer à une identité de service administré (MSI) un accès à une ressource à l’aide d’Azure CLI
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -76,5 +74,4 @@ En cas d’inexactitude, vous devez redéployer l’identité du service adminis
 - Pour activer l’identité du service administré sur une machine virtuelle Azure, consultez [Configurer l’Identité du service administré (MSI) d’une machine virtuelle Azure à l’aide d’Azure CLI](msi-qs-configure-cli-windows-vm.md).
 
 Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
-
 

@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 95962833f853886476630d703c8959bad1852e50
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: 90439d792eac618671a9de9938302d8930c986d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Déployer une solution d’équilibrage de charge sur Internet avec IPv6, à l’aide d’un modèle
 
 > [!div class="op_single_selector"]
@@ -136,4 +134,3 @@ L’exemple de modèle utilisé dans cet article comprend les variables et les p
 | lbName |Spécifiez le nom de l’équilibrage de charge. Le nom est affiché dans le portail ou utilisé lors d’une référence à l’aide d’une commande CLI ou PowerShell. |
 
 Les variables restantes du modèle contiennent des valeurs dérivées qui sont affectées lorsqu’Azure crée les ressources. Ne modifiez pas ces variables.
-

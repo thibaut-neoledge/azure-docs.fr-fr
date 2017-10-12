@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte;sngun
+ms.openlocfilehash: 2645d149df1f337700fb627aaff99e869fc8b8e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: a0e802d931f017c986eba0b64eebfb27c288c8c2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="my-first-powershell-runbook"></a>Mon premier Runbook PowerShell
 
@@ -151,5 +150,4 @@ Les runbooks PowerShell ont les mêmes cycle de vie, fonctionnalités et mode de
 * Pour une prise en main des runbooks de workflow PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md)
 * Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [Types de Runbooks Azure Automation](automation-runbook-types.md)
 * Pour plus d’informations sur la fonctionnalité de prise en charge de script PowerShell, consultez [Prise en charge de script PowerShell natif dans Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-
 

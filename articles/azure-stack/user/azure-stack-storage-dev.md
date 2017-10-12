@@ -7,17 +7,15 @@ ms.author: xiaofmao
 ms.date: 9/25/2017
 ms.topic: get-started-article
 ms.service: azure-stack
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5b2898c64c0f1b5d804e63fa4e4e1218fa7a672c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Bien démarrer avec les outils de développement du stockage Azure Stack
 
-*S’applique aux systèmes intégrés Azure Stack et au kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 
 Microsoft Azure Stack fournit un ensemble de services de stockage, notamment le stockage Blob, Table et File d’attente Azure.
@@ -177,4 +175,4 @@ Les didacticiels du stockage Table Azure suivants sont applicables à Azure Stac
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Introduction à Stockage Microsoft Azure](../../storage/common/storage-introduction.md)
+* [Introduction à Microsoft Azure Storage](../../storage/common/storage-introduction.md)

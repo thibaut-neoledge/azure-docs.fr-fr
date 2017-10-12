@@ -3,7 +3,7 @@ title: "Créer un équilibrage de charge Azure accessible sur Internet avec IPv6
 description: "Découvrez comment créer un équilibrage de charge accessible sur Internet avec IPv6 à l’aide de PowerShell pour Resource Manager"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 keywords: "IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot"
@@ -13,30 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 5eff828095cd58732c78d4af43b5ff5420dfe8fd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: a84fd69c568e26bbd1ff06b699b804c70e0e9c09
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-<a id="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager" class="xliff"></a>
-
-# Création d’un équilibrage de charge accessible sur Internet avec IPv6 à l’aide de PowerShell pour Resource Manager
+# <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Création d’un équilibrage de charge accessible sur Internet avec IPv6 à l’aide de PowerShell pour Resource Manager
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
 > * [Interface de ligne de commande Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modèle](load-balancer-ipv6-internet-template.md)
 
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 Un équilibrage de charge Azure est de type Couche 4 (TCP, UDP). L’équilibrage de charge offre une disponibilité élevée en distribuant le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles dans un jeu d’équilibrage de la charge. Azure Load Balancer peut également présenter ces services sur plusieurs ports, plusieurs adresses IP ou les deux.
 
-<a id="example-deployment-scenario" class="xliff"></a>
-
-## Exemple de scénario de déploiement
+## <a name="example-deployment-scenario"></a>Exemple de scénario de déploiement
 
 Le diagramme suivant illustre la solution d’équilibrage de charge déployée dans cet article.
 
@@ -50,9 +47,7 @@ Dans ce scénario, vous allez créer les ressources Azure suivantes :
 * deux machines virtuelles ;
 * une interface de réseau virtuel pour chaque machine virtuelle avec des adresses IPv4 et IPv6 affectées ;
 
-<a id="deploying-the-solution-using-the-azure-powershell" class="xliff"></a>
-
-## Déploiement de la solution à l’aide de Microsoft Azure PowerShell
+## <a name="deploying-the-solution-using-the-azure-powershell"></a>Déploiement de la solution à l’aide de Microsoft Azure PowerShell
 
 Les étapes suivantes expliquent comment créer un équilibrage de charge accessible sur Internet à l’aide d’Azure Resource Manager avec PowerShell. Avec Microsoft Azure Resource Manager, chaque ressource est créée et configurée individuellement, puis rassemblées pour créer une ressource.
 
@@ -66,9 +61,7 @@ Pour déployer un équilibrage de charge, vous devez créer et configurer les ob
 
 Pour plus d’informations, consultez [Prise en charge d’un équilibreur de charge par Azure Resource Manager](load-balancer-arm.md).
 
-<a id="set-up-powershell-to-use-resource-manager" class="xliff"></a>
-
-## Configurer PowerShell pour utiliser Resource Manager
+## <a name="set-up-powershell-to-use-resource-manager"></a>Configurer PowerShell pour utiliser Resource Manager
 
 Assurez-vous que vous disposez de la dernière version de production du module Microsoft Azure Resource Manager pour PowerShell.
 
@@ -98,9 +91,7 @@ Assurez-vous que vous disposez de la dernière version de production du module M
     New-AzureRmResourceGroup -Name NRP-RG -location "West US"
     ```
 
-<a id="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool" class="xliff"></a>
-
-## Créez un réseau virtuel et une adresse IP publique pour le pool d’adresses IP frontales
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Créez un réseau virtuel et une adresse IP publique pour le pool d’adresses IP frontales
 
 1. Créez un réseau virtuel avec un sous-réseau.
 
@@ -119,9 +110,7 @@ Assurez-vous que vous disposez de la dernière version de production du module M
     > [!IMPORTANT]
     > L’équilibreur de charge utilise l’étiquette du domaine de l’adresse IP publique en tant que préfixe du nom de domaine complet. Dans cet exemple, les noms de domaine complets (FQDN) sont *lbnrpipv4.westus.cloudapp.azure.com* et *lbnrpipv6.westus.cloudapp.azure.com*.
 
-<a id="create-a-front-end-ip-configurations-and-a-back-end-address-pool" class="xliff"></a>
-
-## Créer des configurations d’IP frontales et un pool d’adresses principales
+## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Créer des configurations d’IP frontales et un pool d’adresses principales
 
 1. Créez la configuration d’adresses frontales qui utilise les adresses IP publiques créées.
 
@@ -137,9 +126,7 @@ Assurez-vous que vous disposez de la dernière version de production du module M
     $backendpoolipv6 = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "BackendPoolIPv6"
     ```
 
-<a id="create-lb-rules-nat-rules-a-probe-and-a-load-balancer" class="xliff"></a>
-
-## Créer des règles d’équilibreur de charge, des règles NAT, une sonde et un équilibreur de charge
+## <a name="create-lb-rules-nat-rules-a-probe-and-a-load-balancer"></a>Créer des règles d’équilibreur de charge, des règles NAT, une sonde et un équilibreur de charge
 
 Cet exemple crée les éléments suivants :
 
@@ -187,9 +174,7 @@ Cet exemple crée les éléments suivants :
     $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe,$RDPprobe -LoadBalancingRule $lbrule1v4,$lbrule1v6,$RDPrule
     ```
 
-<a id="create-nics-for-the-back-end-vms" class="xliff"></a>
-
-## Créez des cartes réseaux pour les machines virtuelles principales.
+## <a name="create-nics-for-the-back-end-vms"></a>Créez des cartes réseaux pour les machines virtuelles principales.
 
 1. Obtenez le réseau virtuel et le sous-réseau du réseau virtuel où les cartes réseau doivent être créées.
 
@@ -210,9 +195,7 @@ Cet exemple crée les éléments suivants :
     $nic2 = New-AzureRmNetworkInterface -Name 'myNrpIPv6Nic1' -IpConfiguration $nic2IPv4,$nic2IPv6 -ResourceGroupName NRP-RG -Location 'West US'
     ```
 
-<a id="create-virtual-machines-and-assign-the-newly-created-nics" class="xliff"></a>
-
-## Créez des machines virtuelles et affectez-leur les cartes réseau nouvellement créées.
+## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Créez des machines virtuelles et affectez-leur les cartes réseau nouvellement créées.
 
 Pour plus d’informations sur la création d’une machine virtuelle, consultez la section [Création d’une machine virtuelle Windows à l’aide de Resource Manager et de PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 
@@ -247,13 +230,10 @@ Pour plus d’informations sur la création d’une machine virtuelle, consultez
     New-AzureRmVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm2
     ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
-

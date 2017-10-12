@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 2ee0871752dc2a3da345339fb826340d44ae48d7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debug-stream-analytics-jobs-using-service-and-operation-logs"></a>Débogage des travaux Stream Analytics à l’aide des journaux des opérations et de service
 Tous les services Azure fournissent des messages de journalisation opérationnelle aux utilisateurs pour enregistrer les détails relatifs aux opérations de gestion. Dans Azure Stream Analytics, ces informations peuvent être utilisées à des fins de débogage, comme les messages sur l'affichage de l'état d'une tâche, la progression de la tâche et l'échec pour suivre la progression d'une tâche au fil du temps, depuis son démarrage, jusqu'à son traitement et sa sortie.
@@ -92,5 +91,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 * [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 7b5f976eb2d51eb86761a2bd0be6adb45ca87681
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Vue d’ensemble de Place de Marché Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Place de Marché est une collection de services, d’applications et de ressources personnalisés pour Azure Stack, tels que des réseaux, des machines virtuelles, du stockage, et ainsi de suite. Les utilisateurs s’y rendent pour créer des ressources et déployer de nouvelles applications. Il s’agit en quelque sorte d’un catalogue où les utilisateurs peuvent choisir les éléments qu’ils souhaitent utiliser. Pour utiliser un élément de Place de Marché, les utilisateurs doivent s’abonner à une offre qui leur accorde l’accès à l’élément.
 
@@ -46,5 +45,4 @@ Chaque élément publié sur Marketplace utilise un format appelé Azure Gallery
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créer et publier un élément de Place de Marché](azure-stack-create-and-publish-marketplace-item.md)
-
 

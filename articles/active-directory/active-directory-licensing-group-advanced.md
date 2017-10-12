@@ -16,14 +16,12 @@ ms.workload: identity
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 75cafa6868d54f9d8a7e0dbe9f2a9e85ed43f16f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
 Utilisez les informations et exemples suivants pour approfondir vos connaissances sur la gestion des licences par groupe Azure Active Directory (Azure AD).
@@ -240,4 +238,3 @@ Pour plus d’informations sur d’autres scénarios de gestion des licences par
 * [Affectation de licences à un groupe dans Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
 * [Identification et résolution des problèmes de licence pour un groupe dans Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Migration des utilisateurs individuels sous licence vers une licence basée sur le groupe dans Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
-

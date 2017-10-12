@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/06/2017
 ms.author: sethm
+ms.openlocfilehash: e2d190dddc3b84eb07eaf2ffea1af48bba0ea13a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 0aeb02c8a07728cd17aa937614c5c20dd0bf102b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Prise en charge d’AMQP 1.0 dans Service Bus
 Le service cloud Azure Service Bus et le [Service Bus pour Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) local prennent en charge le protocole AMQP (Advanced Message Queueing Protocol) 1.0. Le protocole AMQP vous permet de développer des applications hybrides interplateforme à l’aide d’un protocole open standard. Vous pouvez générer des applications à l’aide de composants créés avec plusieurs langages et infrastructures, exécutées sur différents systèmes d’exploitation. Tous ces composants peuvent se connecter à Service Bus et échanger efficacement et sans difficulté des messages professionnels d’une fidélité optimale.
@@ -98,4 +97,3 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [Utilisation de Service Bus à partir de Java avec AMQP]: service-bus-amqp-java.md
 [Installation d’Apache Qpid Proton-C sur une machine virtuelle Linux Azure]: service-bus-amqp-apache.md
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
-

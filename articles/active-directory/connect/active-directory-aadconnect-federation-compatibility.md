@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Liste de compatibilité de fédération Azure AD
 Azure Active Directory fournit l’authentification unique et une sécurité de l’accès aux applications améliorée pour Office 365 et d’autres ressources de Microsoft Online Services pour des implémentations hybrides et uniquement dans le cloud ne nécessitant aucune solution non-Microsoft. À l’instar de la plupart des services Microsoft Online, Office 365 est intégré à Azure Active Directory pour les services de répertoire, l’authentification et l’autorisation. En outre, Azure Active Directory fournit l’authentification unique à des milliers d’applications SaaS et à des applications web locales. Consultez la galerie d’applications Azure Active Directory pour connaître les applications SaaS prises en charge.
@@ -57,7 +57,7 @@ Pour plus d’informations sur la façon dont votre fournisseur d’identité ti
 * [RadiantOne CFS 3.0](#radiantone-cfs-30) 
 * [Sailpoint IdentityNow](#sailpoint-identitynow)
 * [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
-* [Sign&go 5.3](#signgo-53) 
+* [Sign&amp;go 5.3](#signgo-53) 
 * [Portail du service en ligne SoftBank Technology](#softbank)
 * [VMware Workspace One](#vmware-workspace-one)
 

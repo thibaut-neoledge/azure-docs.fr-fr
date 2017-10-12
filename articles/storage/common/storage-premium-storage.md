@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: ramankum
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 559753d7ff3da7e8b5dc8f976368a1d35dd6258b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Stockage Premium hautes performances et disques gérés pour machines virtuelles
 Le stockage Premium Azure offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles avec des charges de travail qui utilisent beaucoup d’entrée/sortie (E/S). Les disques de machine virtuelle qui utilisent le stockage Premium stockent les données sur des disques SSD. Pour tirer parti de la vitesse et des performances des disques de stockage Premium, vous pouvez migrer les disques de machines virtuelles existantes vers le stockage Premium.
@@ -329,4 +328,3 @@ Pour plus d’informations sur le stockage Premium, voir les articles suivants.
 ### <a name="blog-posts"></a>Billets de blog :
 * [Mise à la disposition générale du stockage Premium Azure](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [Annonce de la série GS : ajout de prise en charge du stockage Premium pour les machines virtuelles les plus grandes dans le cloud Public](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 592e1c3f647e5b1f1d9aa776657e8f89b60349e1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-10-set-up-a-replication-policy-for-hyper-v-vm-replication-with-vmm-to-azure"></a>Étape 10 : Configurer une stratégie de réplication pour la réplication de machines virtuelles Hyper-V (avec VMM) vers Azure
 
@@ -56,4 +55,3 @@ Après avoir lu cet article, publiez des commentaires au bas de ce dernier ou su
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à [Étape 11 : activer la réplication](vmm-to-azure-walkthrough-enable-replication.md)
-

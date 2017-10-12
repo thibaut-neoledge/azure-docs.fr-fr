@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/13/2017
 ms.author: tedway
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9a8b39853e1a90815758af1d8fd772db7cc18ac5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Utilisation d’un service web Microsoft Azure Machine Learning à partir de Microsoft Excel.
  Microsoft Azure Machine Learning Studio permet d’appeler facilement des services web directement à partir de Microsoft Excel sans qu’il soit nécessaire d’écrire du code.
@@ -74,4 +73,3 @@ Un appel RRS est initié dans les deux cas suivants :
 [2]: ./media/consuming-from-excel/enableeditting.png
 [3]: ./media/consuming-from-excel/enablecontent.png
 [4]: ./media/consuming-from-excel/sampletable.png
-

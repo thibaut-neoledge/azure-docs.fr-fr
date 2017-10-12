@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: a6394b1b02ebfe518dc2f2b7f65eb677bb0ba5f2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Intégration d’Azure Security Center Standard pour une sécurité renforcée
 Effectuez la mise à niveau vers Security Center Standard pour tirer profit d’une gestion de la sécurité et d’une protection contre les menaces renforcées pour vos charges de travail cloud hybrides.  Vous pouvez essayer gratuitement le niveau Standard pendant 60 jours. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -140,4 +139,3 @@ Dans cet article, vous avez appris à intégrer des ressources Azure et autres q
 [6]: ./media/security-center-onboarding/compute-blade.png
 [7]: ./media/security-center-onboarding/add-non-azure-computer.png
 [8]: ./media/security-center-onboarding/onboard-workspace.png
-

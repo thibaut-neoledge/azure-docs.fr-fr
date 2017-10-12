@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27.017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 2bbab5f1ac0efe9632ad6c818504584e2503cf15
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-1-review-the-architecture-for-vmware-replication-to-azure"></a>Étape 1 : examen de l’architecture pour la réplication de VMware sur Azure
 
 Cet article décrit les composants et les processus impliqués dans la réplication des machines virtuelles VMware locales sur Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md).
@@ -87,4 +85,3 @@ La restauration automatique doit répondre à plusieurs conditions requises :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à [Étape 2 : vérifier les conditions préalables et les limitations](vmware-walkthrough-prerequisites.md)
-

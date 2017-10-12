@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Affichage et gestion des graphiques de données relatifs à votre application
 La section Tableau de bord de l'interface utilisateur permet aux clients de créer des graphiques personnalisés afin d'optimiser leur temps en fournissant les informations exactes qu'ils souhaitent au lieu de les rechercher dans la section Analyse. Un tableau de bord affiche les tendances de votre application et le nombre d'utilisateurs actifs pour les différentes versions de votre application pendant une période donnée (heure/jour/semaine/mois/personnalisé). Les tendances présentées sont basées sur les 7 derniers jours.

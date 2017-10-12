@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 33c65bf2eecff3914f3227c76f7d638a4507e1f6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Changement du mode de votre appareil StorSimple
 Cet article fournit une brève description des modes avec lesquels votre appareil StorSimple peut fonctionner. Votre appareil StorSimple peut fonctionner dans trois modes : Normal, Maintenance et Récupération. 
@@ -91,5 +90,4 @@ Vous pouvez mettre l’appareil StorSimple en mode Maintenance (à partir du mod
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [appliquer les mises à jour des modes Normal et Maintenance](storsimple-update-device.md) sur votre appareil StorSimple.
-
 

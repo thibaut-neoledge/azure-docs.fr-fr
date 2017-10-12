@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: f8cf8ceabcb3fea7c22f08ec86155f60527297eb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Didacticiel : Intégration d’Azure Active Directory à Benefitsolver
 
@@ -33,7 +32,7 @@ L’intégration de Benefitsolver à Azure AD vous offre les avantages suivants�
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour configurer l’intégration d’Azure AD avec Benefitsolver, vous avez besoin des éléments suivants :
 
@@ -190,7 +189,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-a-benefitsolver-test-user"></a>Créer un utilisateur de test Benefitsolver
 
@@ -254,5 +253,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_203.png
-
 

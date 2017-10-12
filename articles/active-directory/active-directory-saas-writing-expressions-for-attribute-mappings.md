@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: d2d7f5b00039cd1beab009b78b273ec4dffaab47
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: c944a355c07b96c27dcdd477f625638284eabdf3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -28,8 +26,8 @@ Quand vous configurez l’approvisionnement pour une application SaaS, l’un de
 La syntaxe des expressions pour les mappages d’attributs rappelle celle des fonctions Visual Basic pour Applications (VBA).
 
 * L’expression entière doit être définie en termes de fonctions, qui sont constituées d’un nom suivi d’arguments entre parenthèses : <br>
-  *NomDeFonction(<<argument 1>>,<<argument N>>)*
-* Vous pouvez imbriquer des fonctions dans d’autres. Par exemple : <br> *FonctionUne(FonctionDeux(<<argument1>>))*
+  *NomDeFonction(&lt;&lt;argument 1&gt;&gt;,&lt;<argument N>&gt;)*
+* Vous pouvez imbriquer des fonctions dans d’autres. Par exemple : <br> *FonctionUne(FonctionDeux(&lt;<argument1>&gt;))*
 * Vous pouvez passer trois différents types d’arguments dans des fonctions :
   
   1. Des attributs, qui doivent être placés entre crochets. Par exemple : [nom_attribut]
@@ -38,7 +36,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 * Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple : « Nom de la société : \"Contoso\" »
 
 ## <a name="list-of-functions"></a>Liste des fonctions
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append)&nbsp;&nbsp;&nbsp;&nbsp;[FormatDateTime](#formatdatetime)&nbsp;&nbsp;&nbsp;&nbsp;[Join](#join)&nbsp;&nbsp;&nbsp;&nbsp;[Mid](#mid)&nbsp;&nbsp;&nbsp;&nbsp;[Not](#not)&nbsp;&nbsp;&nbsp;&nbsp;[Replace](#replace)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces)&nbsp;&nbsp;&nbsp;&nbsp;[Switch](#switch)
 
 - - -
 ### <a name="append"></a>Append
@@ -232,11 +230,10 @@ Si le code d’état ne correspond à aucune des options prédéfinies, utilisez
 
 ## <a name="related-articles"></a>Articles connexes
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-* [Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
+* [Automatiser l’approvisionnement/le déprovisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
 * [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](active-directory-saas-customizing-attribute-mappings.md)
 * [Filtres d’étendue pour l’approvisionnement des utilisateurs](active-directory-saas-scoping-filters.md)
 * [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md)
 * [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
 * [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
-
 

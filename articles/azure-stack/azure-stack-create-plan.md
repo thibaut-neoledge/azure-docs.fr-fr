@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 30759dca746fd7fd02653556cb105f419f5bf854
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Créer un plan dans Azure Stack
 
@@ -68,4 +67,3 @@ Les [plans](azure-stack-key-features.md) regroupent un ou plusieurs services. En
 
 ### <a name="next-steps"></a>Étapes suivantes
 [Créer une offre](azure-stack-create-offer.md)
-

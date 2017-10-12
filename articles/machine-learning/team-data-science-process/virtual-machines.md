@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 88fe9673176cdade92faad4bbdcb2e1bd11f4a55
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-azure-data-science-virtual-machines-as-ipython-notebook-servers"></a>Approvisionner des machines virtuelles pour la science des données Azure en tant que serveurs de bloc-notes IPython
 Les instructions fournies ici décrivent la procédure de configuration d'une machine virtuelle Azure et d'une machine virtuelle Azure équipée du service SQL en tant que serveurs Notebook IPython. Le machine virtuelle Windows est configurée avec des outils connexes, tels que Notebook IPython, l’Explorateur de stockage Azure et AzCopy, ainsi que d’autres utilitaires utiles pour les projets de science des données. Par exemple, l’Explorateur de stockage Azure et AzCopy facilitent le chargement de données dans le stockage Azure depuis votre ordinateur local ou le téléchargement de ces données vers votre ordinateur local à partir du stockage. 
@@ -44,5 +43,4 @@ Une fois approvisionnées et configurées, ces machines virtuelles sont utilisab
 > Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer de ne pas être facturé lorsque vous n’utilisez pas votre machine virtuelle, elle doit être définie sur l’état **Arrêté (désalloué)** à partir du [Portail Azure Classic](http://manage.windowsazure.com/). Pour obtenir des instructions détaillées sur la libération de votre machine virtuelle, consultez la page [Arrêter et libérer une machine virtuelle inutilisée](../data-science-virtual-machine/setup-virtual-machine.md#shutdown)
 > 
 > 
-
 

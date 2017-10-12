@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: e30c9ac0a8421ffcf4fc3e2548cfd7ac49701900
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-analytics-monitoring-segmentation-and-dashboard-issues"></a>Guide de dépannage pour les problèmes d’analyse, de surveillance, de segmentation et de tableau de bord
 Les éléments suivants sont des problèmes potentiels liés à la façon dont Azure Mobile Engagement rassemble des informations sur vos applications, périphériques et utilisateurs.

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 04964175f06675a486fcf252f194f0d790acea4a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -149,7 +148,7 @@ Voici la recommandation sur le choix du niveau de fiabilité.
 
 Voici nos recommandations pour planifier la capacité du type de nœud principal :
 
-1. **Nombre d’instances de machine virtuelle pour exécuter une charge de travail de production dans Azure:** vous devez définir la taille minimale du type de nœud principal sur 5. 
+1. **Nombre d’instances de machine virtuelle pour exécuter une charge de travail de production dans Azure :**  vous devez définir la taille minimale du type de nœud principal sur 5. 
 2. **Nombre d’instances de machine virtuelle pour exécuter des charges de travail de test dans Azure :** vous devez définir la taille minimale du type de nœud principal sur 1 ou 3. Le cluster à un nœud s’exécute avec une configuration spéciale. Par conséquent, l’augmentation de la taille des instances de ce cluster n’est pas prise en charge. Le cluster à un nœud n’est pas fiable. Par conséquent, dans votre modèle Resource Manager, vous devez supprimer / ne pas spécifier cette configuration (ne pas définir la valeur de configuration ne suffit pas). Si vous configurez le cluster à un nœud via le portail, la configuration est automatiquement prise en charge. Les clusters à 1 et 3 nœuds ne sont pas pris en charge pour l’exécution des charges de travail de production. 
 3. **Référence de machine virtuelle :** comme les services système s’exécutent sur le type de nœud principal, votre choix de référence de machine virtuelle pour celui-ci doit prendre en compte la charge maximale globale que vous prévoyez de placer dans le cluster. Voici une analogie pour illustrer mon propos ici : considérez le type de nœud principal comme vos « poumons », qui alimentent votre cerveau en oxygène ; si le cerveau ne reçoit pas assez d’oxygène, votre corps souffre. 
 
@@ -219,4 +218,3 @@ Une fois que vous avez terminé la planification de votre capacité et que vous 
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
-

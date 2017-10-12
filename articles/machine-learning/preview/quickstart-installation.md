@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: bb3ac21d2e8b8efd7b4f6943fcc3256f18cbdd68
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Créer des comptes en préversion Azure Machine Learning et installer Azure Machine Learning Workbench
 Azure Machine Learning constitue une solution d’analytique avancée et de science des données de bout en bout intégrée, destinée aux chercheurs de données professionnels pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
 
@@ -190,4 +188,3 @@ Pour obtenir une expérience plus approfondie de ce flux de travail, notamment l
 
 > [!div class="nextstepaction"]
 > [Didacticiel Classifying Iris](tutorial-classifying-iris-part-1.md) (Classification d’iris)
-

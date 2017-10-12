@@ -15,14 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 98b07bfabf2d01c7ae3db7365cfbab3639c6f026
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="load-balance-multiple-websites"></a>Équilibrer la charge de plusieurs sites web
 
 Cet exemple de script crée un réseau virtuel avec deux machines virtuelles qui sont membres d’un groupe à haute disponibilité. Un équilibrage de charge dirige le trafic pour les deux adresses IP distinctes vers les deux machines virtuelles. Après avoir exécuté le script, vous pouvez déployer le logiciel de serveur web pour les machines virtuelles et héberger plusieurs sites web, chacun avec sa propre adresse IP.
@@ -34,7 +32,7 @@ Cet exemple de script crée un réseau virtuel avec deux machines virtuelles qui
 ## <a name="sample-script"></a>Exemple de script
 
 
-[!code-azurecli-interactive[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "Équilibrer la charge de plusieurs sites web")]
+[!code-azurecli-interactive[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "Load balance multiple web sites")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
@@ -69,4 +67,3 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Vous pouvez trouver des exemples supplémentaires de scripts CLI de mise en réseau dans la [documentation Vue d’ensemble de la mise en réseau Azure](../cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
-

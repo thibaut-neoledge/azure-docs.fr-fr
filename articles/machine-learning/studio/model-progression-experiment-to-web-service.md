@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 383f0a466f92a230e49c3d1e96d306a0b7d67da2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Comment faire évoluer un modèle d’apprentissage automatique d’une simple expérience en service web opérationnel
 Azure Machine Learning Studio fournit un canevas interactif qui permet de développer, d’exécuter, de tester et d’itérer une ***expérience*** représentant un modèle d’analyse prédictive. Il existe un large éventail de modules capables d’effectuer les opérations suivantes :
@@ -119,5 +118,4 @@ Pour obtenir des exemples de l’ensemble du processus, consultez :
 
 * [Didacticiel sur l'apprentissage automatique : création de votre première expérience dans Azure Machine Learning Studio](create-experiment.md)
 * [Guide pas à pas : développer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning](walkthrough-develop-predictive-solution.md)
-
 

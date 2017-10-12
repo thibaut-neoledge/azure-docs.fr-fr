@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: fe0446b986ff73cce66a961c1c8aa1b01ef493a3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure
 Ces étapes vous montrent comment utiliser les commandes de l’interface de ligne de commande Azure (CLI) pour migrer des ressources d’infrastructure en tant que service (IaaS) à partir du modèle de déploiement Classic vers le modèle de déploiement Azure Resource Manager. Cet article nécessite [Azure CLI 1.0](../../cli-install-nodejs.md). Étant donné qu’Azure CLI 2.0 est uniquement applicable pour les ressources Azure Resource Manager, il ne peut pas être utilisé pour cette migration.
@@ -190,4 +189,3 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
 * [Outils de la communauté pour aider à la migration de ressources IaaS de Classic vers Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Passer en revue les erreurs courantes de migration](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Passez en revue les questions fréquemment posées sur la migration des ressources IaaS de Classic vers Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

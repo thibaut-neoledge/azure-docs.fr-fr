@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 ms.openlocfilehash: 6e2fea882c248fa095a9d450ed54a7b4e64b45e1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-a-split-merge-service"></a>Déployer un service de fractionnement et de fusion
 L’outil de fractionnement et de fusion vous permet de déplacer les données entre les différentes bases de données partitionnées. Consultez [Déplacement de données entre des bases de données cloud montées en charge](sql-database-elastic-scale-overview-split-and-merge.md)

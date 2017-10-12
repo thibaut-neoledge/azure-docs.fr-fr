@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: eamono
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 4649e42a628307e15f8b067503e4e8e13f16f1af
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-azure-storage-using-azure-automation"></a>Gestion d'Azure Storage à l'aide d'Azure Automation
 Ce guide vous présente le service Azure Automation et la manière de l'utiliser pour gérer plus simplement vos objets blob, vos tables et vos files d'attente Azure Storage.
@@ -44,5 +43,4 @@ La [galerie de Runbooks d’Azure Automation](https://azure.microsoft.com/blog/
 Maintenant que vous avez appris les bases d'Azure Automation et la manière de l'utiliser pour gérer les objets blobs, les tables et les files d'attente Azure Storage, cliquez sur ces liens pour en savoir plus sur Azure Automation.
 
 Consultez le didacticiel Azure Automation [Création ou importation d’un runbook dans Azure Automation](../../automation/automation-creating-importing-runbook.md).
-
 

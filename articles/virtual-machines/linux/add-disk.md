@@ -17,12 +17,11 @@ ms.devlang: azurecli
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 9d16d16f0e57fab9f1827c37f181e579c627b3d9
 ms.openlocfilehash: 9db7d300b745001906bdc38769dcbe6e4d7c7b83
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Ajouter un disque à une machine virtuelle Linux
 Cet article vous explique comment attacher un disque persistant à votre machine virtuelle afin de conserver vos données, et ce, même si votre machine virtuelle est remise en service en raison d’une opération de maintenance ou de redimensionnement. 
@@ -269,5 +268,4 @@ Il existe deux façons d’activer la prise en charge de TRIM sur votre machine 
 * N’oubliez pas que votre nouveau disque n’est pas disponible sur votre machine virtuelle en cas de redémarrage, sauf si vous écrivez les informations sur votre fichier [fstab](http://en.wikipedia.org/wiki/Fstab) .
 * Pour vous assurer que votre machine virtuelle Linux est correctement configurée, passez en revue les recommandations visant à [optimiser les performances de votre machine virtuelle Linux](optimization.md) .
 * Développez votre capacité de stockage en ajoutant des disques supplémentaires et [configurez RAID](configure-raid.md) pour augmenter les performances.
-
 

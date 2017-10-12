@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
+ms.openlocfilehash: a2c4062db821e39e1af4fa1d54da0121d3993db4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 032a514ddab625e4f7c5ef23a1da03a0162f43e3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a>Configurer une passerelle d’application pour le déchargement SSL en utilisant Azure CLI 2.0
 
@@ -36,9 +35,9 @@ Pour exécuter la procédure indiquée dans cet article, vous devez [installer l
 
 ## <a name="required-components"></a>Composants requis
 
-* **Pool de serveurs principaux** : liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou doivent correspondre à une adresse IP ou une adresse IP virtuelle publique (VIP).
+* **Pool de serveurs principaux :** la liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou doivent correspondre à une adresse IP ou une adresse IP virtuelle publique (VIP).
 * **Paramètres du pool de serveurs principaux** : chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
-* **Port frontal** : il s’agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
+* **Port frontal** : il s’agit du port public ouvert sur la passerelle d’application. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
 * **Écouteur** : l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
 * **Règle** : la règle lie l’écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle *de base* est prise en charge. La règle de *base* est la distribution de charge par tourniquet.
 
@@ -193,4 +192,3 @@ Pour plus d'informations sur les options d'équilibrage de charge en général, 
 
 * [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

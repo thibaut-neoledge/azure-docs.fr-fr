@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-your-key-vault"></a>Sécuriser votre coffre de clés
 Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement (tels que les certificats, les chaînes de connexion et les mots de passe) de vos applications cloud. Comme il s’agit de données sensibles et stratégiques, il est préférable de sécuriser l’accès à vos coffres de clés afin que seuls les applications et les utilisateurs autorisés puissent accéder à ces derniers. Cet article propose une vue d’ensemble du modèle d’accès à un coffre de clés, explique l’authentification et l’autorisation, et détaille la procédure de sécurisation de l’accès au coffre de clés pour vos applications cloud à l’aide d’un exemple.
@@ -250,5 +249,4 @@ Pour plus d’informations sur l’utilisation de la journalisation du coffre de
 Pour plus d’informations sur l’utilisation des clés et des secrets avec un coffre de clés Azure, consultez la page [À propos des clés et des clés secrètes](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 
 Pour toute question concernant les coffres de clés, rendez-vous sur les [forums Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
-
 

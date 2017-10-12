@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: elkuzmen
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 09d4f81b190329421fc9fd2ebf98b941cb033a08
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage"></a>Utiliser une identité du service administré de machine virtuelle Windows pour accéder au stockage Azure
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -77,7 +75,7 @@ Si vous n’en avez pas déjà un, vous allez maintenant créer un compte de sto
 3. Saisissez un nom pour le compte de stockage, vous l’utiliserez ultérieurement.  
 4. **Modèle de déploiement** et **Type de compte** doivent être respectivement définis sur « Gestionnaire de ressources » et « Usage général ». 
 5. Assurez-vous que les champs **Abonnement** et **Groupe de ressources** correspondent à ceux que vous avez spécifiés lorsque vous avez créé votre machine virtuelle à l’étape précédente.
-6. Cliquez sur **Create**.
+6. Cliquez sur **Créer**.
 
     ![Créer un nouveau compte de stockage](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -197,7 +195,6 @@ ContinuationToken :
 Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
-
 
 
 

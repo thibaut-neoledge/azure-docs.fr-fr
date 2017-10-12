@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: anandy
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 87807a203d71b3abfe3e93132eb7d0b82b14b4ee
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
-
----    
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
+---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Mettre à jour le certificat SSL pour une batterie de serveurs Active Directory Federation Services (AD FS)
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -108,4 +106,3 @@ Après avoir terminé la configuration, Azure AD Connect affiche le message qui 
 
 - [Fédération avec Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 - [Gestion des services AD FS (Active Directory Federation Services) et personnalisation avec Azure AD Connect](active-directory-aadconnect-federation-management.md)
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: milanga;juliako;
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: a55a0c2ef8c1c065b39fce9dc6ef2f806b60dfdc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Détection des visages et des émotions avec Azure Media Analytics
 ## <a name="overview"></a>Vue d'ensemble
@@ -504,5 +503,4 @@ Configurez votre environnement de développement et ajoutez des informations de 
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Démonstrations Azure Media Analytics](http://amslabs.azurewebsites.net/demos/Analytics.html)
-
 

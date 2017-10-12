@@ -10,14 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 58ac7665abf7e75a43bb0b92bdf6f41005c3efe8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applications gérées Azure sur la Place de marché
 
  Les fournisseurs de services gérés, éditeurs de logiciels indépendants et les intégrateurs système (SI) peuvent utiliser les applications gérées Azure pour offrir leurs solutions à tous les clients d’Azure Marketplace. Ces solutions réduisent les opérations de maintenance et de mise à jour côté clients. Les éditeurs peuvent vendre des infrastructures et des logiciels via le Marketplace. Ils peuvent joindre des services et le support opérationnel pour les applications gérées. Pour plus d’informations, consultez [Vue d’ensemble des applications gérées](managed-application-overview.md).
@@ -279,4 +277,3 @@ Après avoir rempli toutes les sections, sélectionnez **Publish** (Publier) pou
 * Pour plus d’informations sur l’utilisation d’applications gérées de la Place de marché, consultez l’article [Utilisation des applications gérées de la Place de marché Azure](managed-application-consume-marketplace.md).
 * Pour plus d’informations sur la publication d’une application gérée de catalogue de services, consultez l’article [Créer et publier une application gérée de catalogue de services](managed-application-publishing.md).
 * Pour plus d’informations sur l’utilisation d’une application gérée de catalogue de services, consultez l’article [Utiliser une application gérée du catalogue de services](managed-application-consumption.md).
-

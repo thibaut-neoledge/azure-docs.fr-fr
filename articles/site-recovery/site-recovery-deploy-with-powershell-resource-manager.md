@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/31/2017
 ms.author: bsiva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
-ms.openlocfilehash: 3df4aaa018d31e9ee9526679ac1febbe5b75bb7e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: dbd562b73b0caecd0feb993bd6fb796dddb0438c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-between-on-premises-hyper-v-virtual-machines-and-azure-by-using-powershell-and-azure-resource-manager"></a>Réplication de machines virtuelles Hyper-V en local dans Azure avec PowerShell et Azure Resource Manager.
 > [!div class="op_single_selector"]
@@ -246,4 +244,3 @@ Cet article explique comment utiliser Azure PowerShell avec Azure Resource Manag
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus](https://msdn.microsoft.com/library/azure/mt637930.aspx) sur Azure Site Recovery avec les applets de commande PowerShell Azure Resource Manager.
-

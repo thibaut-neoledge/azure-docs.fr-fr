@@ -17,12 +17,11 @@ ms.topic: troubleshooting
 ms.date: 04/25/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 01057dd7832cab6121a22e3bb7d0dc4cd7e9b35d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 4160b9ef6cda1efd6c76ce1b283c78b4d43a5187
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne
 Vous pouvez télécharger votre facture à partir du [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou la faire envoyer par courrier électronique. Pour télécharger votre utilisation quotidienne, accédez au [Centre des comptes Azure](https://account.azure.com/Subscriptions). Seuls certains rôles (l’administrateur de compte par exemple) sont autorisés à obtenir les informations de facturation et d’utilisation. Pour en savoir plus sur l’accès aux informations de facturation, consultez [Manage access to Azure billing using roles](billing-manage-access.md) (Utiliser des rôles pour gérer l’accès à la facturation Azure).
@@ -105,5 +104,4 @@ Si vous ne voyez pas de facture, cela peut être pour plusieurs raisons :
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez d’autres questions, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-
 

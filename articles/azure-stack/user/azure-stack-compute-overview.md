@@ -7,16 +7,15 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Présentation des machines virtuelles Azure Stack
 
-*S’applique aux systèmes intégrés Azure Stack et au kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 ## <a name="overview"></a>Vue d'ensemble
 Une machine virtuelle Azure Stack est un type de ressource informatique évolutive à la demande proposé par Azure Stack. En règle générale, une machine virtuelle est mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique. Cet article vous informe sur les points à prendre en compte avant de créer une machine virtuelle, sur sa création et sur sa gestion.
@@ -131,5 +130,4 @@ Vous pouvez utiliser le bouton **Se connecter** dans le portail Azure Stack pour
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md)
-
 

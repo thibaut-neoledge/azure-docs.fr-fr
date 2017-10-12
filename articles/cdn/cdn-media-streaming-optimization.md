@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Optimisation de la diffusion multimédia en continu via le réseau Azure Content Delivery Network 
  
@@ -98,5 +97,4 @@ Le partage de cache partiel permet au CDN de servir du contenu partiellement mis
 ### <a name="cache-fill-wait-time"></a>Temps d’attente de remplissage du cache
 
  La fonctionnalité de temps d’attente de remplissage du cache oblige le serveur de périphérie à mettre en attente toutes les demandes suivantes pour la même ressource jusqu'à ce que les en-têtes de réponse HTTP arrivent en provenance du serveur d’origine. Si les en-têtes de réponse HTTP en provenance de l’origine arrivent avant l’expiration du minuteur, toutes les demandes mises en attente sont servies à partir du cache croissant. En même temps, le cache est rempli par des données en provenance de l’origine. Par défaut, le temps d’attente de remplissage du cache est défini sur 3 000 millisecondes. 
-
 

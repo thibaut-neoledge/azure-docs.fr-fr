@@ -15,12 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.openlocfilehash: 5ff4184a6147c367c64b5c90c090e1abe59edb90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 79f7ccabb3900acfba7216823cecc7fc7bddd4b3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importer un fichier BACPAC dans une nouvelle base de données SQL Azure
 
@@ -47,7 +46,7 @@ Pour surveiller la progression de l’opération d’importation, ouvrez la page
 
 Pour surveiller la progression de l’opération d’importation, ouvrez la page du serveur logique dans laquelle la base de données est en cours d’importation. Faites défiler jusqu'à **Operations**, puis cliquez sur l’historique **Import/Export**.
    
-   ![importer](./media/sql-database-import/import-history.png) ![état d’importation](./media/sql-database-import/import-status.png)
+   ![importer](./media/sql-database-import/import-history.png)![état d’importation](./media/sql-database-import/import-status.png)
 
 Pour vérifier que la base de données est en ligne sur le serveur, cliquez sur **Bases de données SQL** et assurez-vous que la nouvelle base de données est définie sur **En ligne**.
 
@@ -114,7 +113,6 @@ Pour un autre exemple de script, consultez [Importation d’une base de données
 * Pour vous connecter et interroger une base de données SQL importée, consultez [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
 * Pour consulter le billet du blog SQL Server Customer Advisory Team sur la migration de SQL Server vers Azure SQL Database à l’aide de fichiers BACPAC (en anglais), rendez-vous [ici](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * Pour une description du processus complet de migration d’une base de données SQL Server, y compris les recommandations relatives aux performances, consultez [Migration de base de données SQL Server vers SQL Database dans le cloud](sql-database-cloud-migrate.md).
-
 
 
 

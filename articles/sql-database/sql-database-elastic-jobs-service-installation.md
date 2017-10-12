@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
+ms.openlocfilehash: 71a5aa4da32e76ff02e4a4dae0d47cf03e323688
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 960e5e311571d1054a2ef5c15c33291de27b0878
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Vue d’ensemble de l’installation de Tâches de bases de données élastiques
 Une [**tâche de base de données élastique**](sql-database-elastic-jobs-overview.md) peut être installée à l’aide de PowerShell ou du portail Azure Classic. Vous pouvez y accéder pour créer et gérer des tâches à l’aide de l’API PowerShell uniquement si vous installez le package PowerShell. En outre, les API PowerShell fournissent, à ce stade, beaucoup plus de fonctionnalités que le portail.
 
 Si vous avez déjà installé **Tâche de base de données élastique** via le portail à partir d’un **pool élastique** existant, la dernière version préliminaire de Powershell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l'API PowerShell.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 * Un abonnement Azure. Pour un essai gratuit, consultez [Version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Installez la dernière version via [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 * [utilitaire de ligne de commande NuGet](https://nuget.org/nuget.exe) est utilisé pour installer le package Tâches de bases de données élastiques. Pour plus d’informations, consultez http://docs.nuget.org/docs/start-here/installing-nuget.
@@ -183,4 +182,3 @@ Pour plus d’informations, consultez [Création et gestion de Tâches de bases 
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 787f729732accd74c212b3be9520af50a2f04261
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utiliser le portail pour attacher un disque de données à une machine virtuelle Linux 
 Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Linux par le biais du portail Azure. Vous pouvez également [attacher un disque de données à une machine virtuelle Windows dans le Portail Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -76,4 +75,3 @@ Avant d’attacher des disques à votre machine virtuelle, lisez les conseils su
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez également [attacher un disque de données](add-disk.md) à l’aide d’Azure CLI.
-

@@ -15,14 +15,12 @@ ms.date: 08/15/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
+ms.openlocfilehash: e1e979319e53d222be33032acd0a79697dd09ab6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 6bcb6d9f7a1e9b241fa70690016b03d6eb5887ab
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Prise en main de l’application Microsoft Authenticator
 L’application Microsoft Authenticator fournit un niveau supplémentaire de sécurité dans votre compte professionnel ou scolaire (p. ex. bsimon@contoso.com) ou votre compte Microsoft (p. ex. bsimon@outlook.com).
 
@@ -109,4 +107,3 @@ La configuration de Touch ID avec Microsoft Authenticator est simple. Vous effec
 Une fois que votre compte est ajouté à l’application, vous pouvez être invité à effectuer une vérification du test pour vous assurer que tout a été correctement configuré. Après cela, vous avez terminé ! Vous n’avez rien d’autre à faire avant la prochaine connexion.
 
 Si vous avez choisi d’utiliser des codes de vérification dans l’application, ils s’affichent sur la page d’accueil. Ils changent toutes les 30 secondes, de sorte que vous ayez toujours un nouveau code lorsque vous en avez besoin. Mais vous n’avez rien à faire tant que vous n’êtes pas connecté et invité à saisir un code de vérification.  
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b43d5d867d6245a807f6eff5ed3a0c3df10c0dd7
-
-
+ms.openlocfilehash: c1e9d5d0450bab5d371aafb40fd7c5920d39dfdb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-backup-policies"></a>Utiliser le service StorSimple Manager pour gérer les stratégies de sauvegarde
 [!INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
@@ -53,7 +53,7 @@ Ajoutez une stratégie de sauvegarde pour planifier automatiquement vos sauvegar
 
 [!INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
-![Vidéo disponible](./media/storsimple-manage-backup-policies/Video_icon.png) **Vidéo disponible**
+![Vidéo disponible](./media/storsimple-manage-backup-policies/Video_icon.png)**Vidéo disponible**
 
 Pour visionner une vidéo expliquant comment créer une stratégie de sauvegarde locale ou dans le cloud, cliquez [ici](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
@@ -79,10 +79,4 @@ Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs vo
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

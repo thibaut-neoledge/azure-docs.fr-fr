@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/26/2017
 ms.author: jejiang
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: fdf1911f4f5b515592b6197ea738d808104cb43e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-hdinsight-tool-for-visual-studio-code"></a>Utiliser Azure HDInsight Tools pour Visual Studio Code
 
 Découvrez comment utiliser Azure HDInsight Tools pour Visual Studio Code (VSCode) pour créer et envoyer des travaux Hive de traitement par lots, des requêtes Hive interactives et des scripts pySpark. Azure HDInsight Tools peut être installé sur les plateformes prises en charge par VSCode, notamment sur Windows, Linux et MacOS. Renseignez-vous sur les prérequis pour les différentes plateformes.
@@ -246,12 +244,11 @@ HDInsight Tools pour VSCode prend en charge les fonctionnalités suivantes :
 
 ### <a name="creating-and-running-applications"></a>Création et exécution d’applications
 * [Créer une application autonome avec Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
+* [Exécution de travaux à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="managing-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight](hdinsight-apache-spark-job-debugging.md)
-
 
 
 

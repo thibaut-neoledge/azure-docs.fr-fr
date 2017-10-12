@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: ae7eab97c1da1113b0248b74a9dd67de8ce49e36
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="managing-azure-batch-pools-with-azure-cli"></a>Gérer des pools Azure Batch avec l’interface CLI Azure
 
 Ces scripts montrent certains des outils disponibles dans l’interface CLI Azure pour créer et gérer des pools de nœuds de calcul dans le service Azure Batch.
@@ -39,11 +37,11 @@ Les pools Batch peuvent être configurés de deux manières, soit via une config
 
 ## <a name="pool-with-cloud-service-configuration-sample-script"></a>Pool avec exemple de script pour la configuration du service cloud
 
-[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-windows.sh "Gérer les pools de services cloud")]
+[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-windows.sh "Manage Cloud Services Pools")]
 
 ## <a name="pool-with-virtual-machine-configuration-sample-script"></a>Pool avec exemple de script pour la configuration de machine virtuelle
 
-[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "Gérer les pools de machines virtuelles")]
+[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "Manage Virtual Machine Pools")]
 
 ## <a name="clean-up-pools"></a>Nettoyer les pools
 
@@ -79,5 +77,4 @@ Chaque commande du tableau renvoie à une documentation spécifique.
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Vous trouverez des exemples supplémentaires de scripts CLI Batch dans la [documentation relative à la CLI Azure Batch](../batch-cli-samples.md).
-
 

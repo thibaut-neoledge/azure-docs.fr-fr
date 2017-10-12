@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: v-jeana; hascipio; v-dabosl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 4bf5b2c53b91199e446836e76cefee6cd2878e25
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 54e9bb9e8917bcdb6bb4aef964e971d588feeeda
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="accessing-publisher-support-for-the-azure-marketplace"></a>Accès au support d'éditeur pour Azure Marketplace
 Microsoft prend en charge un large éventail de produits et services. S'assurer que votre requête soit traitée par l'équipe de support appropriée est primordial pour garantir une réponse appropriée et en temps voulu. Veuillez prendre les scénarios suivants en compte. Ils devraient vous aider à acheminer votre demande vers l'équipe appropriée :
@@ -88,4 +87,3 @@ Pour savoir comment résoudre des problèmes de support spécifiques, visitez le
 [4]: ./media/marketplace-publishing-get-publisher-support/step4.png
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
-

@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a20179c72b227deb14df442bea7b80cf31728aa7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="specifying-a-nodejs-version-in-an-azure-application"></a>Spécification d'une version Node.js dans une application Azure
 Pendant l'hébergement d'une application Node.js, vous pouvez vous assurer que votre application utilise une version spécifique de Node.js. Il existe diverses façons d'accomplir cela pour les applications hébergées sur Azure.
@@ -98,4 +97,3 @@ Pour plus d’informations, consultez le [Centre pour développeurs Node.js](htt
 [outils en ligne de commande Azure]:cli-install-nodejs.md
 [utiliser des modules]: nodejs-use-node-modules-azure-apps.md
 [build and deploy a Node.js Web Site]: app-service/app-service-web-get-started-nodejs.md
-

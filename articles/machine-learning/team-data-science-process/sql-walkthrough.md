@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d42377a55b1decc0918932b3ecc13cf575f934a9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server
 Dans ce didacticiel, vous allez explorer le processus de création et de déploiement d’un modèle d’apprentissage automatique à l’aide de SQL Server et d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
@@ -139,7 +138,7 @@ Les performances de chargement et de transfert de grandes quantités de données
 11. Dans **SQL Server Management Studio**, explorez l’exemple de script **sample\_queries.sql** fourni. Pour exécuter l’un des exemples de requêtes, mettez en surbrillance les lignes de la requête concernées, puis cliquez sur **!Exécuter** dans la barre d’outils.
 12. Les données NYC Taxi Trips sont chargées dans deux tables distinctes. Pour améliorer les opérations de jointure, il est vivement recommandé d’indexer les tables. L’exemple de script **create\_partitioned\_index.sql** crée des index partitionnés sur la clé de jointure composite **medallion, hack\_license et pickup\_datetime**.
 
-## <a name="dbexplore"></a>Exploration des données et ingénierie de caractéristiques dans SQL Server
+## <a name="dbexplore"></a>Exploration des données et conception de fonctionnalités dans SQL Server
 Dans cette section, nous allons effectuer des tâches d’exploration des données et de génération de fonctionnalités en exécutant des requêtes SQL directement dans **SQL Server Management Studio** à l’aide de la base de données SQL Server créée précédemment. Le dossier **Exemples de scripts** comporte un exemple de script nommé **sample\_queries.sql**. Modifiez ce script de façon à changer le nom de la base de données s’il est différent du nom par défaut : **TaxiNYC**.
 
 Dans cet exercice, nous allons :
@@ -581,7 +580,7 @@ Dans cet exercice, nous avons déjà exploré et généré les données dans SQL
 2. Dans le panneau **Propriétés**, sélectionnez **Azure SQL Database** dans le champ **Source de données**.
 3. Dans le champ **Nom du serveur de base de données** , entrez le nom DNS de la base de données. Format : `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Dans le champ **Nom de la base de données** , entrez le nom de la base de données.
-5. Entrez le **nom d’utilisateur SQL** dans le champ **Nom de compte d’utilisateur du serveur et le mot de passe dans le champ** Mot de passe de compte d’utilisateur du serveur.
+5. Entrez le **nom d’utilisateur SQL** dans le champ ****Nom de compte d’utilisateur du serveur et le mot de passe dans le champ** Mot de passe de compte d’utilisateur du serveur.
 6. Activez l’option **Accepter tout certificat de serveur** .
 7. Dans la zone de texte **Requête de base de données** , collez la requête qui extrait les champs de base de données nécessaires (y compris les champs calculés tels que les étiquettes) et qui sous-échantillonne les données pour obtenir la taille d’échantillon souhaitée.
 
@@ -654,4 +653,3 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-

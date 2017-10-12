@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/25/2017
 ms.author: kgremban
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 564e98a4b6b9bd8bf9b58f06cee0027bfdf84458
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Prise en main d’Azure Multi-Factor Authentication et des services de fédération Active Directory (AD FS)
 <center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
@@ -48,4 +47,3 @@ Pour plus d’informations sur la configuration d’Azure Multi-Factor Authentic
 * [Sécuriser les ressources cloud à l’aide d’Azure Multi-Factor Authentication et AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
 * [Sécuriser les ressources de cloud et locales à l'aide du serveur Azure Multi-Factor Authentication avec Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
 * [Sécuriser les ressources de cloud et locales à l'aide du serveur Azure Multi-Factor Authentication avec AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
-

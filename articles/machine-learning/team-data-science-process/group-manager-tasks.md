@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cd73aed14f672351b72e09d682909a47c63b9026
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="group-manager-tasks"></a>Tâches du responsable de groupe
 
 Cette rubrique dresse la liste des tâches qui incombent à un responsable de groupe chargé d’une organisation de science des données. L’objectif est d’établir un environnement de collaboration en groupe standard conforme au processus [TDSP](overview.md) (Team Data Science Process). Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
@@ -55,9 +52,9 @@ Dans ce didacticiel, les noms des référentiels et des répertoires sont abrég
 
 ### <a name="pre-requisites-for-cloning-repositories-and-checking-code-in-and-out"></a>Prérequis pour le clonage des référentiels et l’archivage et l’extraction de code
  
-- GIT doit être installé sur votre ordinateur. Si vous utilisez une instance DSVM (Data Science Virtual Machine), Git a été préinstallé et vous êtes prêt à commencer. Dans le cas contraire, consultez [l’annexe Plateformes et outils](platforms-and-tools.md#appendix).  
-- Si vous utilisez une **instance DSVM Windows**, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) doit être installé sur votre machine. Dans le fichier README.md, accédez à la section **Dowload and Install**, puis cliquez sur *latest installer*. Vous accédez alors à la page du programme d’installation le plus récent. Téléchargez le programme d’installation .exe et exécutez-le. 
-- Si vous utilisez une **instance DSVM Linux**, créez une clé publique SSH sur votre instance DSVM et ajoutez-la à votre serveur VSTS de groupe. Pour plus d’informations sur SSH, consultez la section **Créer une clé publique SSH** de [l’annexe Plateformes et outils](platforms-and-tools.md#appendix). 
+- GIT doit être installé sur votre ordinateur. Si vous utilisez une image Data Science Virtual Machine (DSVM), Git a été préinstallé et vous êtes prêt à commencer. Dans le cas contraire, consultez l’[annexe Plateformes et outils](platforms-and-tools.md#appendix).  
+- Si vous utilisez une image **DSVM Windows**, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) doit être installé sur votre machine. Dans le fichier README.md, accédez à la section **Dowload and Install**, puis cliquez sur *latest installer*. Vous accédez alors à la page du programme d’installation le plus récent. Téléchargez le programme d’installation .exe et exécutez-le. 
+- Si vous utilisez une image **DSVM Linux**, créez une clé publique SSH sur votre image DSVM et ajoutez-la à votre serveur VSTS de groupe. Pour plus d’informations sur SSH, consultez la section **Créer une clé publique SSH** de l’[annexe Plateformes et outils](platforms-and-tools.md#appendix). 
 
 
 ## <a name="1-create-account-on-vsts-server"></a>1. Créer un compte sur le serveur VSTS
@@ -190,7 +187,7 @@ Dans cette étape, vous clonez les référentiels ProjectTemplate (G1) et Utilit
         
 ![14](./media/group-manager-tasks/two-folder-cloned-from-TDSP-windows.PNG)
 
-- Ces scripts ont effectué les opérations suivantes (les référentiels apparaissent sous leurs noms abrégés) : 
+- Ces scripts ont effectué les opérations suivantes (les dépôts apparaissent sous leurs noms abrégés) : 
     - Clonage de G1 vers LG1
     - Clonage de G2 vers LG2
 - Une fois le clonage terminé, deux répertoires (_ProjectTemplate_ et _Utilities_), doivent apparaître sous le répertoire **GitRepos\TDSPCommon**. 
@@ -261,7 +258,7 @@ Comme vous pouvez le constater, les fichiers des dossiers (sauf les fichiers du 
     
 ![21](./media/group-manager-tasks/copy-two-folder-to-group-folder-linux.PNG)
 
-- Ces scripts ont effectué les opérations suivantes (les référentiels apparaissent sous leurs noms abrégés) :
+- Ces scripts ont effectué les opérations suivantes (les dépôts apparaissent sous leurs noms abrégés) :
     - Copie des fichiers de LG1 dans LR1
     - Copie des fichiers de LG2 dans LR2
 
@@ -316,7 +313,7 @@ Enfin, accédez au répertoire **GitRepos\GroupCommon\GroupUtilities** et exécu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les liens ci-dessous donnent accès à des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
+Les liens ci-dessous donnent accès à des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
 
 - [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md)
 - [Tâches du responsable d’une équipe de science des données](team-lead-tasks.md)

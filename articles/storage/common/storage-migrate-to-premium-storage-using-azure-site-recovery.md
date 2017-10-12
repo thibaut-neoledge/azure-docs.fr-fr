@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 45d89cb9b51e7091f8921d3f58d3a4594851ca7f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrer vers le stockage Premium à l’aide d’Azure Site Recovery
 
@@ -69,7 +68,7 @@ Voici les prérequis Azure pour ce scénario de migration :
 * Un réseau virtuel Azure auquel les machines virtuelles se connectent quand elles sont créées au moment du basculement. Le réseau virtuel Azure doit se trouver dans la même région que celle dans laquelle s’exécute Site Recovery.
 * Un compte de stockage Azure standard pour stocker les journaux de réplication. Il peut s'agir du même compte de stockage que celui des disques de machine virtuelle en cours de migration.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 * Identifiez les composants de scénario de migration pertinents de la section précédente.
 * Planifiez votre temps d’arrêt en vous familiarisant avec le [basculement dans Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -242,4 +241,3 @@ Consultez également les ressources suivantes pour en savoir plus sur Azure Stor
 [13]:./media/storage-migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-13.png
 [14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png
 [15]:./media/storage-migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-14.png
-

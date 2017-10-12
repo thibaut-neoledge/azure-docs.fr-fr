@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: cbee070c6bfe17135f37a82c545bf8ee7db2db43
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-redirection-on-application-gateway-with-powershell"></a>Configurer la redirection sur Application Gateway avec PowerShell
 
 La passerelle d’application prend en charge la possibilité de rediriger le trafic en fonction d’une configuration définie. Pour en savoir plus sur la redirection, voir [Application Gateway redirect overview (Vue d’ensemble de la redirection d’Application Gateway)](application-gateway-redirect-overview.md). Cet article contient des exemples de redirections de protocole HTTP en protocole HTTPS, des redirections de chemin d’accès, multisites ainsi que des redirections vers des sites externes.

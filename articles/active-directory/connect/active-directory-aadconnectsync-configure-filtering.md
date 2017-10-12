@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect Sync : Configurer le filtrage
 L’utilisation du filtrage vous permet de contrôler les objets de votre annuaire local qui doivent apparaître dans Azure Active Directory (Azure AD). La configuration par défaut concerne l’ensemble des objets présents dans tous les domaines des forêts configurées. En général, il s’agit de la configuration recommandée. Les utilisateurs qui utilisent les charges de travail Office 365, telles qu’Exchange Online et Skype Entreprise, peuvent tirer parti d’une liste d’adresses globale complète pour envoyer des courriers électroniques et appeler tout le monde. La configuration par défaut leur offre la même expérience qu’une implémentation locale d’Exchange ou de Lync.
 
@@ -303,4 +301,3 @@ Lors de la synchronisation de plusieurs forêts Active Directory, vous pouvez co
 ## <a name="next-steps"></a>Étapes suivantes
 - Apprenez-en davantage sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 - Apprenez-en davantage sur [l’intégration de vos identités locales à Azure AD](active-directory-aadconnect.md).
-

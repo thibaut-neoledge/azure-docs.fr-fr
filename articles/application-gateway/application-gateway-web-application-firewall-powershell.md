@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
+ms.openlocfilehash: e8106805d21b325e33fb3ab376db75cd783b9042
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 3d01763709e58d25047a6dec4361bcf6553d54e0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configurer un pare-feu d’application web sur une passerelle Application Gateway nouvelle ou existante
 
@@ -236,4 +235,3 @@ DnsSettings              : {
 Pour savoir comment configurer la journalisation des diagnostics et consigner les événements détectés ou bloqués par un pare-feu WAF, consultez [Diagnostics de la passerelle Application Gateway](application-gateway-diagnostics.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: 9b39c949e33dfbcc75ba8c09d6b38e4bdb243766
 ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Exemple d’application qui utilise des clés et des secrets stockés dans un coffre de clés
 
 Dans cet article, vous découvrez comment exécuter un exemple d’application (HelloKeyVault) qui récupère les clés et les secrets d’un coffre de clés dans Azure Stack.
@@ -147,7 +145,6 @@ L’application se connecte à Azure AD, puis utilise ce jeton pour s’authenti
 [Déployer une machine virtuelle avec un mot de passe Key Vault](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Déployer une machine virtuelle avec un certificat Key Vault](azure-stack-kv-push-secret-into-vm.md)
-
 
 
 

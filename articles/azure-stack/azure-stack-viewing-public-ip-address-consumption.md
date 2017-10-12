@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7651565eebf6272f307a4ce4790ca19b41bfa826
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Afficher la consommation d’adresses IP publiques dans Azure Stack
 
-*S’applique aux systèmes intégrés Azure Stack et au kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Si vous êtes un administrateur cloud, vous pouvez afficher le nombre d’adresses IP publiques qui ont été allouées aux locataires, le nombre d’adresses IP publiques qui sont encore disponibles pour l’allocation et le pourcentage d’adresses IP publiques qui ont été allouées à cet emplacement.
 

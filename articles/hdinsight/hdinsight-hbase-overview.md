@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
+ms.openlocfilehash: 62b2700c368c4b0c66df140e8961408840beb626
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: c8857076faa37f5b0d7c70f40b494465b3b99af2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>Présentation de HBase dans HDInsight : une base de données NoSQL fournissant des fonctionnalités similaires à BigTable pour Hadoop
 Apache HBase est une base de données NoSQL open source, basée sur Hadoop et modélisée d'après Google BigTable. HBase fournit un accès aléatoire et une forte cohérence pour de vastes quantités de données non structurées et semi-structurées, dans une base de données sans schéma, organisée par familles de colonnes.
@@ -61,7 +60,6 @@ Les recherches Web sont le cas d'utilisation canonique pour lequel BigTable, et 
 * [Prise en main de HBase avec Hadoop dans HDInsight][hbase-get-started]
 * [Création de clusters HBase sur Azure Virtual Network][hbase-provision-vnet]
 * [Configuration de la géo-réplication HBase dans HDInsigtht](hdinsight-hbase-replication.md)
-* [Analyse de sentiments Twitter avec HBase dans HDInsight][hbase-twitter-sentiment]
 * [Utilisation de Maven pour créer des applications Java utilisant HBase avec HDInsight (Hadoop)][hbase-build-java-maven]
 
 ## <a name="see-also"></a>Voir aussi
@@ -69,8 +67,6 @@ Les recherches Web sont le cas d'utilisation canonique pour lequel BigTable, et 
 * [Bigtable : un système de stockage distribué pour les données structurées](http://research.google.com/archive/bigtable.html)
 
 [hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
 [hbase-build-java-maven]: hdinsight-hbase-build-java-maven.md
 
@@ -87,4 +83,3 @@ Les recherches Web sont le cas d'utilisation canonique pour lequel BigTable, et 
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
-

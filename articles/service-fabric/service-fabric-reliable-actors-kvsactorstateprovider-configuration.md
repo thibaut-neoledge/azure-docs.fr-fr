@@ -12,18 +12,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/29/2017
+ms.date: 10/2/2017
 ms.author: sumukhs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 9610c37111bf8fd36c1eaea4f48e46953661aacf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: d3424aa7a8e0f6011bbef4aa61274c1f598f5c86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-<a id="configuring-reliable-actors--kvsactorstateprovider" class="xliff"></a>
-# Configuration de Reliable Actors - KVSActorStateProvider
+# <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configuration de Reliable Actors - KVSActorStateProvider
 Vous pouvez modifier la configuration par défaut de KVSActorStateProvider en modifiant le fichier settings.xml généré dans la racine du package Microsoft Visual Studio sous le dossier Config de l’acteur spécifié.
 
 Le runtime Azure Service Fabric recherche des noms de sections prédéfinis dans le fichier settings.xml et utilise les valeurs de configuration pendant la création des composants runtime sous-jacents.
@@ -33,26 +30,21 @@ Le runtime Azure Service Fabric recherche des noms de sections prédéfinis dans
 > 
 > 
 
-<a id="replicator-security-configuration" class="xliff"></a>
-## Configuration de la sécurité du réplicateur
+## <a name="replicator-security-configuration"></a>Configuration de la sécurité du réplicateur
 Les configurations de sécurité du réplicateur sont utilisées pour sécuriser le canal de communication utilisé pendant la réplication. Un service ne peut donc pas afficher le trafic de réplication d’un autre service, ce qui garantit la sécurité des données rendues hautement disponibles.
 Par défaut, une section de configuration de sécurité vide empêche de sécuriser la réplication.
 
-<a id="section-name" class="xliff"></a>
-### Nom de la section
+### <a name="section-name"></a>Nom de la section
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-<a id="replicator-configuration" class="xliff"></a>
-## Configuration du réplicateur
+## <a name="replicator-configuration"></a>Configuration du réplicateur
 Les configurations de réplicateur servent à configurer le réplicateur responsable de la haute fiabilité de l’état du fournisseur d’état d’acteur.
 La configuration par défaut est générée par le modèle Visual Studio et devrait suffire. Cette section décrit les configurations supplémentaires disponibles pour paramétrer le réplicateur.
 
-<a id="section-name" class="xliff"></a>
-### Nom de la section
+### <a name="section-name"></a>Nom de la section
 &lt;ActorName&gt;ServiceReplicatorConfig
 
-<a id="configuration-names" class="xliff"></a>
-### Noms des configurations
+### <a name="configuration-names"></a>Noms des configurations
 | Nom | Unité | Valeur par défaut | Remarques |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondes |0.015 |Durée d'attente du réplicateur secondaire après la réception d'une opération et avant de renvoyer un accusé de réception au réplicateur principal. Tous les autres accusés de réception à envoyer pour les opérations traitées durant cet intervalle sont envoyés sous la forme d'une réponse. |
@@ -62,24 +54,20 @@ La configuration par défaut est générée par le modèle Visual Studio et devr
 | MaxPrimaryReplicationQueueSize |Nombre d'opérations |1 024 |Nombre maximal d'opérations dans la file d'attente principale. Une opération est libérée quand le réplicateur principal reçoit un accusé de réception de tous les réplicateurs secondaires. Cette valeur doit être supérieure à 64 et être une puissance de 2. |
 | MaxSecondaryReplicationQueueSize |Nombre d'opérations |2 048 |Nombre maximal d'opérations dans la file d'attente secondaire. Une opération est libérée une fois son état devenu hautement disponible grâce à la persistance. Cette valeur doit être supérieure à 64 et être une puissance de 2. |
 
-<a id="store-configuration" class="xliff"></a>
-## Configuration du magasin
+## <a name="store-configuration"></a>Configuration du magasin
 Les configurations de magasin permettent de configurer le magasin local utilisé pour conserver l’état en cours de réplication.
 La configuration par défaut est générée par le modèle Visual Studio et devrait suffire. Cette section décrit les configurations supplémentaires disponibles pour paramétrer le magasin local.
 
-<a id="section-name" class="xliff"></a>
-### Nom de la section
+### <a name="section-name"></a>Nom de la section
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
-<a id="configuration-names" class="xliff"></a>
-### Noms des configurations
+### <a name="configuration-names"></a>Noms des configurations
 | Nom | Unité | Valeur par défaut | Remarques |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Millisecondes |200 |Définit l'intervalle maximal de traitement par lot pour les validations de magasin local durables. |
 | MaxVerPages |Nombre de pages |16 384 |Nombre maximal de pages de version dans la base de données du magasin local. Il détermine le nombre maximal de transactions en attente. |
 
-<a id="sample-configuration-file" class="xliff"></a>
-## Exemple de fichier de configuration
+## <a name="sample-configuration-file"></a>Exemple de fichier de configuration
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -101,9 +89,7 @@ La configuration par défaut est générée par le modèle Visual Studio et devr
    </Section>
 </Settings>
 ```
-<a id="remarks" class="xliff"></a>
-## Remarques
+## <a name="remarks"></a>Remarques
 Le paramètre BatchAcknowledgementInterval contrôle la latence de la réplication. La valeur « 0 » entraîne la latence la plus faible possible, au détriment du débit (car davantage de messages d'accusé de réception doivent être envoyés et traités, chacun contenant moins d'accusés de réception).
 Plus la valeur de BatchAcknowledgementInterval est élevée, plus le débit de réplication général est élevé, au détriment d'une plus grande latence de l'opération. Cela se traduit directement par une latence dans la validation des transactions.
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 03/24/2017
 ms.author: bradsev;ankarlof
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cf3f0e79a9f873a57ef6b7f5233d324faee3e017
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Création de modules R personnalisés dans Azure Machine Learning
 Cette rubrique explique comment créer et déployer un module R personnalisé dans Azure Machine Learning. Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir. Par ailleurs, elle illustre la construction de ces fichiers et l’inscription du module à des fins de déploiement dans un espace de travail Machine Learning. Les éléments et attributs utilisés dans la définition du module personnalisé sont ensuite décrits plus en détail. Par ailleurs, nous allons découvrir comment utiliser les fichiers et la fonctionnalité auxiliaires, ainsi que les sorties multiples. 
@@ -371,5 +370,4 @@ L’environnement d’exécution du script R utilise la même version de R que l
 
 * Système de fichiers non persistant : les fichiers écrits lorsque le module personnalisé est exécuté ne sont pas persistants sur plusieurs exécutions du même module.
 * Pas d’accès réseau.
-
 

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: chrande
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 1cb2ec7aa927eceafdf91c35c1184fceecddc49a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Guide de développement Azure Functions
 Dans Azure Functions, des fonctions spécifiques partagent quelques concepts techniques et composants de base, quels que soient le langage et la liaison que vous utilisez. Avant de passer à l'apprentissage des détails propres à un langage ou une liaison donnés, veillez à lire cette présentation qui s'applique à l’ensemble d’entre eux.
@@ -134,5 +133,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](functions-reference-node.md)
 * [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
 * [Azure Functions : The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Découverte d’Azure Functions) sur le blog d’Azure App Service. Un historique sur le développement d’Azure Functions.
-
 

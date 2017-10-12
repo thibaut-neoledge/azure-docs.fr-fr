@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: 51fe2ab891e86ae4bd7402622231af47f35aa01d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Annuler votre abonnement Azure
 
@@ -61,4 +60,3 @@ Si votre abonnement n’est pas un abonnement de paiement à l’utilisation, co
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 
 Si vous avez d’autres questions, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 7eea3621a52bf13dc44e89c342c503905ff24a0d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Résoudre les problèmes d’authentification unique transparente Azure Active Directory
 
 Cet article fournit des informations sur les problèmes courants liés à l’authentification unique transparente Azure AD.
@@ -43,9 +41,9 @@ Assurez-vous que la fonctionnalité Authentification unique transparente est tou
 
 ![Centre d’administration Azure Active Directory - panneau Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
 
-## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory (licence Premium requise)
+## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory (licence Premium requise)
 
-Si votre locataire dispose d’une licence Azure AD Premium, vous pouvez également consulter le [rapport d’activité de connexion](../active-directory-reporting-activity-sign-ins.md) du [centre d’administration Active Directory de Microsoft Azure](https://aad.portal.azure.com/).
+Si votre locataire dispose d’une licence Azure AD Premium, vous pouvez également consulter le [rapport d’activité de connexion](../active-directory-reporting-activity-sign-ins.md) dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Centre d’administration Azure Active Directory - rapport de connexions](./media/active-directory-aadconnect-sso/sso9.png)
 
@@ -122,4 +120,3 @@ Si vous n’avez pas réussi à résoudre le problème, vous pouvez réinitialis
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Étape 5. Activer la fonctionnalité pour votre locataire
 
 Appelez `Enable-AzureADSSO`, puis tapez « true » à l’invite `Enable: ` pour activer la fonctionnalité dans votre locataire.
-

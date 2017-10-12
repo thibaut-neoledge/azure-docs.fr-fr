@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Options de connexion de l’utilisateur via Azure AD Connect
 Azure Active Directory (Azure AD) Connect permet à vos utilisateurs de se connecter aux ressources cloud et locales à l’aide des mêmes mots de passe. Cet article décrit les concepts clés pour chaque modèle d’identité afin de vous aider à choisir l’identité que vous souhaitez utiliser pour vous connecter à Azure AD.
@@ -176,4 +175,3 @@ Dans la page **Connexion de l’utilisateur**, sélectionnez la connexion d’ut
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur [l’intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 - En savoir plus sur [Azure AD Connect : principes de conception](active-directory-aadconnect-design-concepts.md).
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: bwren
+ms.openlocfilehash: f203b2a532ea721d9797c67a4750896e3ab2b9f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 66c4a82153dccd82977cf42c5bb9de2a8a8d6255
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="smart-detection-in-application-insights"></a>Détection intelligente dans Application Insights
  La détection intelligente vous informe automatiquement des éventuels problèmes de performances dans votre application web. Elle effectue une analyse proactive des données de télémétrie que votre application envoie à [Application Insights](app-insights-overview.md). S’ils détectent une augmentation soudaine du taux d’échec, ou des modèles anormaux de performances client ou serveur, vous recevez une alerte. Cette fonctionnalité ne nécessite aucune configuration. Elle fonctionne si votre application envoie suffisamment de données de télémétrie.
@@ -63,5 +62,4 @@ La détection intelligente est entièrement automatique. Mais vous souhaitez peu
 
 * [Alertes de mesures configurées manuellement](app-insights-alerts.md)
 * [Tests web de disponibilité](app-insights-monitor-web-app-availability.md) 
-
 

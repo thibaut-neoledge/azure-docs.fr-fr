@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 09/01/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 8206cba416df4d43594678428632ff161a9564d6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrer votre base de données SQL Server vers Azure SQL Database
 
 Le déplacement de votre base de données SQL Server vers une base de données SQL Azure est simple. Il vous suffit de créer une base de données SQL vide dans Azure, puis d’utiliser l’outil [DMA](https://www.microsoft.com/download/details.aspx?id=53595) (Data Migration Assistant) pour importer la base de données dans Azure. Ce didacticiel vous apprend à effectuer les opérations suivantes :
@@ -40,7 +38,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
 
-- La dernière version de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) est installée.  
+- La dernière version de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).  
 - La dernière version de l’outil [DMA](https://www.microsoft.com/download/details.aspx?id=53595) (Data Migration Assistant) est installée.
 - Vous avez identifié une base de données à migrer, à laquelle vous avez accès. Ce didacticiel utilise la [base de données OLTP AdventureWorks SQL Server 2008 R2](https://msftdbprodsamples.codeplex.com/releases/view/59211) sur une instance de SQL Server 2008 R2 ou version ultérieure, mais vous pouvez utiliser une base de données de votre choix. Pour résoudre des problèmes de compatibilité, utilisez [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
 
@@ -91,9 +89,9 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 8. Acceptez les conditions d’utilisation de la préversion pour pouvoir utiliser l’option **Stockage de composants additionnels**. 
 
    > [!IMPORTANT]
-   > \* Les tailles de stockage supérieures à la quantité de stockage incluse sont en préversion et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+   > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Dans le niveau Premium, plus de 1 To de stockage sont actuellement disponibles dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie, Centre du Canada et Est du Canada. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Dans le niveau Premium, plus de 1 To de stockage sont actuellement disponibles dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie et Canada Est. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  
@@ -280,6 +278,5 @@ Passez au didacticiel suivant pour apprendre à sécuriser votre base de donnée
 
 > [!div class="nextstepaction"]
 > [Sécuriser votre base de données SQL Azure](sql-database-security-tutorial.md).
-
 
 

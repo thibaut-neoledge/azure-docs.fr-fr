@@ -3,7 +3,7 @@ title: "Créer un équilibrage de charge accessible sur Internet avec IPv6 - int
 description: "Découvrir comment créer un équilibrage de charge accessible sur Internet avec IPv6 dans Azure Resource Manager, à l’aide de l’interface de ligne de commande Azure"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 keywords: "IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot"
@@ -13,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d009cf50be1f597c266fd565c9ff4799c9df6dbb
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 3ae62ddd350204d801012b9810aec669abe55817
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-internet-facing-load-balancer-with-ipv6-in-azure-resource-manager-using-the-azure-cli"></a>Créer un équilibrage de charge accessible sur Internet avec IPv6 dans Azure Resource Manager, à l’aide de l’interface de ligne de commande Azure
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
 > * [Interface de ligne de commande Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modèle](load-balancer-ipv6-internet-template.md)
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Un équilibrage de charge Azure est de type Couche 4 (TCP, UDP). L’équilibrage de charge offre une disponibilité élevée en distribuant le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles dans un jeu d’équilibrage de la charge. Azure Load Balancer peut également présenter ces services sur plusieurs ports, plusieurs adresses IP ou les deux.
 
@@ -343,4 +344,3 @@ Pour créer des machines virtuelles, vous devez disposer d’un compte de stocka
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Configuration de Cache Redis Azure
 Cette rubrique montre comment consulter et mettre à jour la configuration de vos instances de Cache Redis Azure et présente la configuration du serveur Redis par défaut pour les instances de Cache Redis Azure.
@@ -403,7 +402,7 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 | `maxmemory-samples` |3 |Pour économiser de la mémoire, les algorithmes LRU et TTL sont des algorithmes approximatifs et non des algorithmes précis. Par défaut, Redis vérifie trois clés et choisit celle qui a été utilisée le moins récemment. |
 | `lua-time-limit` |5 000 |Temps d’exécution maximal d’un script Lua en millisecondes. Si la durée d’exécution maximale est atteinte, Redis consigne qu’un script est toujours en cours d’exécution après la durée maximale autorisée et commence à répondre aux requêtes avec une erreur. |
 | `lua-event-limit` |500 |Taille maximale de la file d’attente des événements de script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Les limites de mémoire tampon de sortie client peuvent servir à forcer la déconnexion des clients qui ne lisent pas les données à partir du serveur suffisamment rapidement pour une raison quelconque (une raison courante est qu’un client Pub/Sub ne peut pas consommer les messages aussi rapidement que le serveur de publication les génère). Pour plus d’informations, consultez [http://redis.io/topics/clients](http://redis.io/topics/clients). |
+| `client-output-buffer-limit``normalclient-output-buffer-limit``pubsub` |0 0 032mb 8mb 60 |Les limites de mémoire tampon de sortie client peuvent servir à forcer la déconnexion des clients qui ne lisent pas les données à partir du serveur suffisamment rapidement pour une raison quelconque (une raison courante est qu’un client Pub/Sub ne peut pas consommer les messages aussi rapidement que le serveur de publication les génère). Pour plus d’informations, consultez [http://redis.io/topics/clients](http://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>La limite de `databases` est différente pour chaque niveau tarifaire du cache Redis Azure, et peut être définie lors de la création du cache. Si aucun paramètre `databases` n’est spécifié lors de la création du cache, la valeur par défaut est 16.
@@ -515,5 +514,4 @@ Pour plus d’informations sur le déplacement des ressources d’un groupe de r
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur l’utilisation des commandes Redis, voir [Exécution des commandes Redis](cache-faq.md#how-can-i-run-redis-commands).
-
 

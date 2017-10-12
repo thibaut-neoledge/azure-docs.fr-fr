@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: xibingao;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b32aa2325a507f18ffc8b47cddde8637a0a8aabf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-an-azure-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>Configurer une machine virtuelle Azure comme serveur IPython Notebook pour des analyses avancées
 Cette rubrique explique comment approvisionner et configurer une machine virtuelle Azure pour l’analyse avancée utilisable au sein d’un environnement de science des données. La machine virtuelle Windows est configurée avec des outils connexes, tels que Notebook IPython, l’Explorateur de stockage Azure, AzCopy, ainsi que d’autres utilitaires utiles pour les projets d’analyse avancée. Par exemple, l’Explorateur de stockage Azure et AzCopy facilitent le chargement de données dans le stockage d’objets blob Azure depuis votre ordinateur local ou le téléchargement de ces données vers votre ordinateur local à partir du stockage d’objets blob.
@@ -135,4 +134,3 @@ Les étapes suivantes du processus TDSP (Team Data Science Process) sont présen
 [27]: ./media/setup-virtual-machine/create-virtual-machine-4.png
 [28]: ./media/setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/setup-virtual-machine/create-virtual-machine-6.png
-

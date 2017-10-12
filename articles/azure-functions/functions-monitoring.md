@@ -15,14 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
+ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 90720774f956149dc159de1d5457e556a52ddc82
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
 ## <a name="overview"></a>Vue d'ensemble 
@@ -456,7 +454,7 @@ Le paramètre `tagOverrides` définit `operation_Id` sur l’identificateur d’
 
 ### <a name="dependencies"></a>Dépendances
 
-Les dépendances n’apparaissent pas automatiquement, mais vous pouvez écrire du code personnalisé pour les afficher. L’exemple de code dans la [section relative aux données de télémétrie personnalisées C#](#create-custom-telemetry-data-in-c-function-code) montre comment faire. L’exemple de code entraîne un *mappage d’application* dans Application Insights, qui ressemble à ceci :
+Les dépendances n’apparaissent pas automatiquement, mais vous pouvez écrire du code personnalisé pour les afficher. L’exemple de code dans la [section relative aux données de télémétrie personnalisées C#](#custom-telemetry-in-c-functions) montre comment faire. L’exemple de code entraîne un *mappage d’application* dans Application Insights, qui ressemble à ceci :
 
 ![Mise en correspondance d’applications](media/functions-monitoring/app-map.png)
 
@@ -521,4 +519,3 @@ Pour plus d’informations, consultez [Diffusion en continu des journaux](../app
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur le framework de journalisation utilisé par Azure Functions](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
-

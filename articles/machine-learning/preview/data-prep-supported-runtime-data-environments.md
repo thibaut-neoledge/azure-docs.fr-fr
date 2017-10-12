@@ -12,19 +12,18 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 02e0ca96bff7781c242b4c5e965b229065e71725
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>Matrice de prise en charge pour cette version 
 Quand votre code charge des données à l’aide de Sources de données ou obtient un cadre de données Pandas ou Spark avec la Préparation des données, les combinaisons suivantes d’emplacements de données et d’environnements de calcul d’expérimentation sont prises en charge :
 
 |     |Fichiers locaux  |Stockage Blob Azure  |Base de données SQL Server***  |
 |---------|---------|---------|---------|---------|
-|Python local    |     Pris en charge    |Non pris en charge         | Non pris en charge        |         |
+|Python local ;    |     Pris en charge    |Non pris en charge         | Non pris en charge        |         |
 |Python Docker (machine virtuelle Linux)     |Pris en charge dans les fichiers projet uniquement*         | Non pris en charge        |        Non pris en charge |         |
 |PySpark Docker (machine virtuelle Linux)     |Pris en charge dans les fichiers projet uniquement*     |Pris en charge         | Pris en charge**        |         |
 |Azure Data Science Virtual Machine Python     |Pris en charge dans les fichiers projet uniquement*         |Non pris en charge         |Non pris en charge         |         |
@@ -39,4 +38,3 @@ Quand votre code charge des données à l’aide de Sources de données ou obtie
 **Utilise le pilote SQL Server JDBC Maven 6.2.1. Vous devez vérifier que ce package (ou un package compatible) est inclus dans votre fichier spark_dependencies.yml pour l’environnement de calcul.
 
 **Prend en charge Azure SQL Database, Azure SQL Data Warehouse ou Microsoft SQL Server à condition que la base de données soit accessible à partir de l’environnement de calcul. 
-

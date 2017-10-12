@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 66649bb6ae317eb227dcdf45aa084905967c117f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-service"></a>sfctl service
 Permet de créer, de supprimer et de gérer le service, les types de service et les packages de services.
@@ -185,7 +184,7 @@ Retourne les informations sur le service spécifique faisant partie de l’appli
 | --- | --- |
 | --debug                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h               | Affiche ce message d’aide et quitte.|
-| --output -o             | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
+| --output -o             | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut :             json.|
 | --query                 | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
 | --verbose               | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
@@ -209,7 +208,7 @@ Retourne les informations sur tous les services faisant partie de l’applicatio
 | --- | --- |
 | --debug                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h               | Affiche ce message d’aide et quitte.|
-| --output -o             | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
+| --output -o             | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut :             json.|
 | --query                 | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
 | --verbose               | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 

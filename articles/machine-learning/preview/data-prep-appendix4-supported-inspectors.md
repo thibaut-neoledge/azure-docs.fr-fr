@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bc14c051fb0f518b1cff2236a61d24cb052700f0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-inspectors-for-this-preview"></a>Inspecteurs pris en charge pour cette version d’évaluation
 Ce document décrit le jeu d’inspecteurs disponibles dans cette version d’évaluation.
 
@@ -113,4 +111,3 @@ Mappage avec des points tracés en supposant que la latitude et la longitude ont
 ### <a name="actions"></a>Actions
 Cet inspecteur prend en charge le filtrage par sélection de point sur le mappage. Appuyez sur la touche Contrôle, puis cliquez et faites glisser la souris pour former un carré autour des points. Ensuite, appliquez les filtres comme indiqué précédemment.
 Vous pouvez redimensionner rapidement le mappage afin d’afficher uniquement tous les points possibles en appuyant sur **E** sur le côté gauche du mappage.
-

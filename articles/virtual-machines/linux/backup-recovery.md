@@ -15,15 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/13/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 427776eb4fff33d3534f7b18c6ec7999eb5ed509
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Options de sauvegarde et de restauration pour les machines virtuelles Linux dans Azure
 
 Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. Il existe plusieurs options de sauvegarde disponibles pour les machines virtuelles, en fonction de votre cas d’utilisation.

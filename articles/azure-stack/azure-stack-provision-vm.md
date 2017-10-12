@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 233cf4df53af6a49e5fe4c5d51e112d8196a7530
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-test-virtual-machine-in-azure-stack"></a>Créer une machine virtuelle de test dans Azure Stack
 
@@ -44,4 +43,3 @@ En tant qu’opérateur Azure Stack, vous pouvez créer une machine virtuelle de
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Utilisation des portails administrateur et utilisateur dans Azure Stack](azure-stack-manage-portals.md)
-

@@ -14,14 +14,12 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 11b141617bea5962c45e1b91cf6629c2edd26c3d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Sécuriser l’accès aux données d’une application dans le cloud
 
 Ce didacticiel est le troisième volet d’une série. Vous apprenez à sécuriser l’accès au compte de stockage. 
@@ -35,7 +33,7 @@ Dans ce troisième volet, vous apprenez à :
 
 Le [stockage Blob Azure](../common/storage-introduction.md#blob-storage) fournit un service fiable pour stocker les fichiers des applications. Ce didacticiel est un prolongement de [la rubrique précédente][previous-tutorial] et décrit comment sécuriser l’accès à votre compte de stockage à partir d’une application web. À la fin de ce didacticiel, les images sont chiffrées et l’application web utilise des jetons SAS sécurisés pour accéder aux images miniatures.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour effectuer ce didacticiel, vous devez avoir terminé le didacticiel précédent sur le stockage : [Automatiser le redimensionnement des images chargées à l’aide d’Event Grid][previous-tutorial]. 
 
@@ -146,7 +144,7 @@ Les classes, propriétés et méthodes suivantes sont utilisées dans la tâche 
 |[BlobContinuationToken](/dotnet/api/microsoft.windowsazure.storage.blob.blobcontinuationtoken?view=azure-dotnet)     |         |
 |[BlobResultSegment](/dotnet/api/microsoft.windowsazure.storage.blob.blobresultsegment?view=azure-dotnet)    | [Résultats](/dotnet/api/microsoft.windowsazure.storage.blob.blobresultsegment.results?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobResultSegment_Results)         |
 |[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)    |         | [GetSharedAccessSignature](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.getsharedaccesssignature?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_GetSharedAccessSignature_Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_)
-|[SharedAccessBlobPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy?view=azure-dotnet)     | [SharedAccessStartTime](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy.sharedaccessstarttime?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_SharedAccessStartTime)<br>[SharedAccessExpiryTime](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy.sharedaccessexpirytime?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_SharedAccessExpiryTime)<br>[Autorisations](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy.permissions?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_Permissions) |        |
+|[SharedAccessBlobPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy?view=azure-dotnet)     | [SharedAccessStartTime](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy.sharedaccessstarttime?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_SharedAccessStartTime)<br>[SharedAccessExpiryTime](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy.sharedaccessexpirytime?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_SharedAccessExpiryTime)<br>[autorisations](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy.permissions?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_Permissions) |        |
 
 ## <a name="server-side-encryption"></a>Chiffrement côté serveur
 

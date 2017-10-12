@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 69ca030d1b7601df424fa9446e1d194a3f6bd50a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="download-azure-stack-tools-from-github"></a>Télécharger les outils Azure Stack à partir de GitHub
 
 AzureStack-Tools est un dépôt GitHub qui héberge des modules PowerShell que vous pouvez utiliser pour gérer et déployer des ressources sur Azure Stack. Vous pouvez télécharger et utiliser ces modules PowerShell avec le Kit de développement Azure Stack, ou sur un client externe Windows si vous prévoyez d’établir la connectivité VPN. Pour obtenir ces outils, clonez le dépôt GitHub ou téléchargez le dossier AzureStack-Tools. 
@@ -73,6 +71,5 @@ Le dépôt AzureStack-Tools contient des modules PowerShell qui prennent en char
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Configurer l’environnement PowerShell de l’utilisateur Azure Stack](azure-stack-powershell-configure-user.md)   
+* [Configurez l’environnement PowerShell de l’utilisateur Azure Stack.](azure-stack-powershell-configure-user.md)   
 * [Se connecter au Kit de développement Azure Stack par le biais d’un réseau privé virtuel](azure-stack-connect-azure-stack.md)  
-

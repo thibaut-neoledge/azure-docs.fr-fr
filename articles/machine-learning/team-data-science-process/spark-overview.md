@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d9964ace6b59fa65f0f5d4caff28a4291047c8a5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -187,5 +186,4 @@ Maintenant que vous avez configuré un cluster HDInsight Spark et téléchargé 
 **Consommation de modèles :** pour apprendre à noter les modèles de classification et de régression créés dans cette rubrique, consultez [Noter et évaluer des modèles Machine Learning créés avec Spark](spark-model-consumption.md).
 
 **Validation croisée et balayage hyperparamétrique**: consultez [Exploration et modélisation avancées des données avec Spark](spark-advanced-data-exploration-modeling.md) pour savoir comment effectuer la formation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique
-
 

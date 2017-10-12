@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: a5083a5216efbfd76fd912ec48c2f0ec3b30c4a1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configuration de Key Vault pour des machines virtuelles dans Azure Resource Manager
 
@@ -68,4 +67,3 @@ Quand vous utilisez un modèle, vous devez définir la propriété `enabledForDe
     }
 
 Pour les autres options que vous pouvez configurer lorsque vous créez un coffre de clés à l’aide de modèles, consultez la rubrique [Création d’un coffre de clés](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
-

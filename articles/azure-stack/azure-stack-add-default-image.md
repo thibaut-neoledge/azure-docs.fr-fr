@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: sngun
+ms.openlocfilehash: 43781cb025865df1d228376f57412f3d482d3ad0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 62f467f1dae5a2cb04e5230ed43b77ec3ec8c1a1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Ajouter l’image de machine virtuelle Windows Server 2016 sur la Place de marché Azure Stack
 
@@ -141,7 +140,7 @@ Pour vous assurer que l’image de machine virtuelle Windows Server 2016 contie
 |Paramètres New-AzsServer2016VMImage|Requis ?|Description|
 |-----|-----|------|
 |ISOPath|Oui|Spécifie le chemin d’accès complet à l’image ISO Windows Server 2016 téléchargée.|
-|Net35|Non|Ce paramètre vous permet d’installer le Runtime .NET 3.5 sur l’image Windows Server 2016. Par défaut, cette valeur est définie sur true. L’image doit obligatoirement contenir le Runtime .NET 3.5 pour permettre l’installation des fournisseurs de ressources SQL et MYSQL. |
+|Net35|Non|Ce paramètre vous permet d’installer le Runtime .NET 3.5 sur l’image Windows Server 2016. Par défaut, cette valeur est définie sur true.|
 |Version|Non|Ce paramètre vous permet de choisir l’option d’installation des images Windows Server 2016 : **Base**, **Complète** ou **Les deux**. Par défaut, cette valeur est définie sur Complète.|
 |VHDSizeInMB|Non|Définit la taille (en Mo) de l’image VHD à ajouter à votre environnement Azure Stack. Par défaut, cette valeur est définie sur 40 960 Mo.|
 |CreateGalleryItem|Non|Spécifie si un élément de la Place de marché doit être créé pour l’image Windows Server 2016. Par défaut, cette valeur est définie sur true.|
@@ -153,4 +152,3 @@ Pour vous assurer que l’image de machine virtuelle Windows Server 2016 contie
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Approvisionner une machine virtuelle](azure-stack-provision-vm.md)
-

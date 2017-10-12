@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 014aa646459cd64fca7c697419324caa3edaeeea
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-the-performance-traffic-routing-method"></a>Configurer la méthode de routage en fonction des performances
 
 La méthode de routage du trafic en fonction des performances vous permet de diriger le trafic vers le point de terminaison dont la latence est la plus faible dans le réseau du client. En règle générale, le centre de données dont la latence est la plus faible est géographiquement le plus proche. Cette méthode de routage du trafic ne peut pas prendre en compte des modifications en temps réel de la configuration ou de la charge du réseau.

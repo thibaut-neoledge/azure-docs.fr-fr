@@ -14,20 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: bc10d7a1f3b7f26389b49af21f9553e83b5e078d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/29/2016
-
+ms.openlocfilehash: 629ef7690f25dc6de1773a83cf967544cdf16682
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="h264-single-bitrate-720p-audio-51"></a>H264 – Vitesse de transmission unique – 720 pixels – Audio 5.1
-`Media Encoder Standard` définit un ensemble de présélections d’encodage à utiliser lors de la création des travaux d’encodage. Vous pouvez utiliser un `preset name` afin de spécifier le format dans lequel vous souhaitez encoder votre fichier multimédia. Sinon, vous pouvez créer vos propres présélections basées sur JSON ou XML (à l’aide de l’encodage UTF-8 ou UTF-16). Vous pouvez ensuite transmettre la présélection personnalisée à l’encodeur. Pour obtenir la liste de tous les noms de présélections pris en charge par cet encodeur `Media Encoder Standard`, consultez la section [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Présélection de travaux pour Media Encoder Standard).  
+`Media Encoder Standard` définit un ensemble de présélections d’encodage à utiliser lors de la création des travaux d’encodage. Vous pouvez utiliser un `preset name` afin de spécifier le format dans lequel vous souhaitez encoder votre fichier multimédia. Sinon, vous pouvez créer vos propres présélections basées sur JSON ou XML (à l’aide de l’encodage UTF-8 ou UTF-16). Vous pouvez ensuite transmettre la présélection personnalisée à l’encodeur. Pour obtenir la liste de tous les noms de présélections pris en charge par cet encodeur `Media Encoder Standard`, consultez [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Cette rubrique présente la présélection `H264 Single Bitrate 720p Audio 5.1` aux formats XML et JSON.  
   
- Cette présélection produit un fichier MP4 unique avec une vitesse de transmission de 4 500 kbit/s, et de l’audio AAC 5.1. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le format XML ou JSON défini ci-dessous. Pour consulter une explication de la signification des éléments et les valeurs valides pour chaque élément, consultez la rubrique [Media Encoder Standard schema](media-services-mes-schema.md) (Schéma Media Encoder Standard).  
+ Cette présélection produit un fichier MP4 unique avec une vitesse de transmission de 4 500 kbit/s, et de l’audio AAC 5.1. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le format XML ou JSON défini ci-dessous. Pour connaître la signification des différents éléments et les valeurs valides pour chaque élément, consultez [Schéma Media Encoder Standard](media-services-mes-schema.md).  
   
  XML  
   
@@ -117,4 +115,3 @@ ms.lasthandoff: 11/29/2016
   ]  
 }  
 ```
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: alkohli;
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 4b5a14237ce79100f980b2186b2c3c887abaa296
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="contact-microsoft-support"></a>Contacter le support Microsoft
 
@@ -117,4 +116,3 @@ Procédez comme suit pour démarrer une session de support :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment [diagnostiquer et résoudre les problèmes liés à votre appareil de la gamme StorSimple 8000](storsimple-troubleshoot-deployment.md).
-

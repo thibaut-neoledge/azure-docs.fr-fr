@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3b40a657ee8eb391d14a38cb95acc0729a8dda21
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Résolution des problèmes de Microsoft Azure Stack
 
@@ -97,7 +96,6 @@ Vous remarquerez que les fournisseurs de ressources ne sont pas automatiquement 
     * Un utilisateur ne peut voir le tableau de bord qu’après avoir réinitialisé les paramètres du portail. (Sur le portail utilisateur, cliquez sur l’icône Paramètres de portail - l’icône d’engrenage dans le coin supérieur droit. Sous **Restaurer les paramètres par défaut**, cliquez sur **Appliquer**.)
     * Il est possible que les titres du tableau de bord n’apparaissent pas. Si ce problème se produit, vous devez les rajouter manuellement.
     * Il est possible que certaines vignettes ne s’affichent pas correctement dès l’ajout au tableau de bord. Pour résoudre ce problème, actualisez le navigateur.
-
 
 
 

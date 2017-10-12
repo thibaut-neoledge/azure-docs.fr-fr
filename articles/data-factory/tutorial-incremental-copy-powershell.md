@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
+ms.openlocfilehash: 91b632b6d2c2917acf17e9d89c1b5a4b0f8b1c33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 6a73e7818edfb796b7294f6794d2652c5feedf5c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données Azure SQL Database dans un stockage Blob Azure
-Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. Avec Azure Data Factory, vous pouvez créer et planifier des flux de travail orientés données (appelés pipelines) capables d’ingérer des données provenant de différents magasins de données, de traiter/transformer les données à l’aide de services de calcul comme Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning, et de publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser. 
+Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. Grâce à Azure Data Factory, vous pouvez créer et planifier des flux de travail orientés données (appelés pipelines) capables d’ingérer des données provenant de différents magasins de données, de traiter/transformer les données à l’aide de services de calcul comme Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning, et de publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser. 
 
 En matière d’intégration de données, l’un des scénarios très répandu est celui qui consiste à charger les données de façon incrémentielle et périodique pour actualiser le résultat de l’analyse après les chargements de données et l’analyse de départ. Dans ce didacticiel, vous allez pour l’essentiel charger uniquement des enregistrements nouveaux ou mis à jour dans des récepteurs de données à partir de sources de données. Cette solution s’avère plus efficace que les chargements complets, surtout en présence de jeux de données volumineux.    
 
@@ -33,7 +31,7 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > [!div class="checklist"]
 > * Préparer le magasin de données pour y stocker la valeur de limite.   
 > * Créer une fabrique de données.
-> * Créer des services liés. 
+> * créez des services liés. 
 > * Créer des jeux de données source, récepteur et limite.
 > * Créer un pipeline.
 > * Exécuter le pipeline.
@@ -61,9 +59,9 @@ Voici les étapes importantes à suivre pour créer cette solution :
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
-* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données **sources**. Si vous n’avez pas de base de données Azure SQL Database, consultez l’article [Création d’une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md) pour savoir comme en créer une.
-* **Compte de stockage Azure**. Vous utilisez le stockage Blob comme magasin de données **récepteur**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) pour savoir comment en créer un. Créez un conteneur sous le nom **adftutorial**. 
+## <a name="prerequisites"></a>Composants requis
+* **Base de données SQL Azure**. Vous utilisez la base de données comme magasin de données **sources**. Si vous n’avez pas de base de données Azure SQL Database, consultez l’article [Création d’une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md) pour savoir comme en créer une.
+* **Compte Stockage Azure**. Vous utilisez le stockage Blob comme magasin de données **récepteur**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) pour savoir comment en créer un. Créez un conteneur sous le nom **adftutorial**. 
 * **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Créer une table de source de données dans votre base de données Azure SQL Database
@@ -121,7 +119,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     ```sql
     Select * from watermarktable
     ```
-    Sortie : 
+    Output: 
 
     ```
     TableName  | WatermarkValue
@@ -165,7 +163,7 @@ END
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
     ```
-2. Exécutez l’applet de commande **Set-AzureRmDataFactoryV2** pour créer une fabrique de données. Remplacez les espaces réservés par vos propres valeurs avant d’exécuter la commande.
+2. Exécutez l’applet de commande **Set-AzureRmDataFactoryV2** pour créer une fabrique de données. Avant d’exécuter la commande, remplacez les espaces réservés par vos propres valeurs.
 
     ```powershell
     Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
@@ -183,7 +181,7 @@ END
     * Actuellement, Data Factory V2 vous permet de créer une fabrique de données uniquement dans la région Est des États-Unis. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
 
-## <a name="create-linked-services"></a>Créer des services liés
+## <a name="create-linked-services"></a>Créez des services liés
 Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans cette section, vous allez créer des services liés à votre compte de stockage Azure et à la base de données Azure SQL Database. 
 
 ### <a name="create-azure-storage-linked-service"></a>Créer un service lié Stockage Azure.
@@ -253,7 +251,7 @@ Vous allez créer des services liés dans une fabrique de données pour lier vos
     ProvisioningState :
     ```
 
-## <a name="create-datasets"></a>Créer des jeux de données
+## <a name="create-datasets"></a>Créez les jeux de données
 Dans cette étape, vous allez créer des jeux de données pour représenter les données sources et de réception. 
 
 ### <a name="create-a-source-dataset"></a>Créer un jeu de données source
@@ -716,7 +714,7 @@ Dans ce didacticiel, vous avez effectué les étapes suivantes :
 
 > [!div class="checklist"]
 > * Définition d’une colonne de **limite** et stockage de celle-ci dans la base de données Azure SQL Database.  
-> * Création d’une fabrique de données.
+> * Créer une fabrique de données.
 > * Création de services liés pour SQL Database et le stockage Blob. 
 > * Création de jeux de données source et récepteur.
 > * Créer un pipeline.
@@ -727,7 +725,6 @@ Passez au didacticiel suivant pour en savoir plus sur la transformation des donn
 
 > [!div class="nextstepaction"]
 >[Transformer des données en utilisant un cluster Spark dans le cloud](tutorial-transform-data-spark-powershell.md)
-
 
 
 

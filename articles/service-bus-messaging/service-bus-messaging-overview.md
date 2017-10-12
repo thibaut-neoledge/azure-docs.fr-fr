@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 08/30/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 462fa0a6e86237b8c9d9ba97aa377f8d112a8b8e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-messaging-flexible-data-delivery-in-the-cloud"></a>Messagerie Service Bus : service flexible de distribution de données dans le cloud
 
@@ -35,7 +34,7 @@ Service Bus prend en charge deux modèles de messagerie distincts : *Azure Rela
 
 Le composant [Relais WCF](../service-bus-relay/relay-what-is-it.md) d’Azure Relay est un service centralisé (mais très équilibré au niveau de la charge) qui prend en charge différents protocoles de transport et normes de services web. Cela inclut SOAP, WS-* et même REST. Le [service de relais](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) fournit une gamme d’options de connectivité relais différentes et aide à négocier des connexions directes peer-to-peer quand c’est possible. Service Bus est optimisé pour les développeurs .NET qui utilisent Windows Communication Foundation (WCF), en ce qui concerne à la fois les performances et la convivialité, et fournit un accès complet à son service de relais via des interfaces SOAP et REST. Cela rend possible l’intégration de n'importe quel environnement de programmation SOAP ou REST à Service Bus.
 
-Le service de relais prend en charge la messagerie unidirectionnelle standard, la messagerie demande/réponse et la messagerie d’homologue à homologue. Il prend également en charge la distribution des événements sur Internet pour activer les scénarios de publication/abonnement et la communication par socket bidirectionnelle pour une efficacité accrue de point à point. Dans le modèle de messagerie par relais, un service local se connecte au service de relais via un port sortant et crée un socket bidirectionnel lié à des adresses de rendez-vous spécifiques. Le client peut ensuite communiquer avec le service local en envoyant des messages au service de relais en ciblant l'adresse de rendez-vous. Le service de relais « relayera » ensuite les messages au service local via le socket bidirectionnel déjà en place. Le client n’a pas besoin d’une connexion directe au service local ni de savoir où se trouve le service, et le service local n’a pas besoin d’ouvrir de ports entrants sur le pare-feu.
+Le service de relais prend en charge la messagerie unidirectionnelle standard, la messagerie demande/réponse et la messagerie d’homologue à homologue. Il prend également en charge la distribution des événements sur Internet pour activer les scénarios de publication/abonnement et la communication par socket bidirectionnelle pour une efficacité accrue de point à point. Dans le modèle de messagerie par relais, un service local se connecte au service de relais via un port sortant et crée un socket bidirectionnel lié à des adresses de rendez-vous spécifiques. Le client peut ensuite communiquer avec le service local en envoyant des messages au service de relais en ciblant l'adresse de rendezvous. Le service de relais « relayera » ensuite les messages au service local via le socket bidirectionnel déjà en place. Le client n’a pas besoin d’une connexion directe au service local ni de savoir où se trouve le service, et le service local n’a pas besoin d’ouvrir de ports entrants sur le pare-feu.
 
 Vous lancez la connexion entre votre service local et le service de relais à l’aide d’une suite de liaisons de « relais » WCF. En coulisses, les liaisons de relais se mappent à des éléments de liaison de transport destinés à créer des composants de canal WCF qui s’intègrent à Service Bus dans le cloud.
 
@@ -57,5 +56,4 @@ Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 * [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Utilisation des rubriques et abonnements Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-
 

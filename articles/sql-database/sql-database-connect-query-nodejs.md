@@ -15,12 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 07/05/2017
 ms.author: carlrab
+ms.openlocfilehash: d2765d4606bf6f926def15788ab23efd2a000ad4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 1907a95df9132c059d7985b6d5cd913536bf3403
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Utilisation de Node.js pour interroger une base de données SQL Azure
 
@@ -145,6 +144,5 @@ Ouvrez une invite de commandes et créez un dossier nommé *sqltest*. Accédez a
 - Découvrez comment [concevoir votre première base de données SQL Azure à l’aide de SSMS](sql-database-design-first-database.md) ou [concevoir votre première base de données SQL Azure à l’aide de .NET](sql-database-design-first-database-csharp.md).
 - Découvrez comment [se connecter et effectuer des requêtes avec SSMS](sql-database-connect-query-ssms.md)
 - Découvrez comment [se connecter et effectuer des requêtes avec Visual Studio Code](sql-database-connect-query-vscode.md).
-
 
 

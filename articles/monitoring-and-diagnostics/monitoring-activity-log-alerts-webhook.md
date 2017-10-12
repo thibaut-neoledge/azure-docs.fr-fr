@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.openlocfilehash: 75c71bcd16573d4f4dd3377c623aa9b414aa3906
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook des alertes du journal d’activité Azure
 Dans le cadre de la définition d’un groupe d’actions, vous pouvez configurer des points de terminaison Webhook pour qu’ils reçoivent des notifications d’alerte du journal d’activité. Grâce aux Webhooks, vous pouvez acheminer ces notifications vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Cet article montre également à quoi ressemble la charge utile d’une requête HTTP POST pour un webhook.

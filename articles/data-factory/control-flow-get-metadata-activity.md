@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 99182b2ed91f6d60f499be0078077bf52fe8b366
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
 L’activité d’obtention des métadonnées peut être utilisée pour récupérer les métadonnées de n’importe quelle donnée dans Azure Data Factory. Cette activité est prise en charge uniquement pour les fabriques de données version 2. Elle peut être utilisée dans les scénarios suivants :
@@ -92,7 +91,7 @@ Dans l’exemple suivant, l’activité d’obtention des métadonnées renvoie 
 }
 ```
 
-## <a name="type-properties"></a>Propriétés de type
+## <a name="type-properties"></a>Propriétés type
 Actuellement, l’activité d’obtention des métadonnées peut extraire les types d’informations de métadonnées suivants à partir d’un jeu de données de stockage Azure.
 
 Propriété | Description | Valeurs autorisées | Requis

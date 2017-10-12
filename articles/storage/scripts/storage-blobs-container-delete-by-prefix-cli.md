@@ -15,14 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ff30037c7aba4e0e9c6b4a1829a0769093dce0ac
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="delete-containers-based-on-container-name-prefix"></a>Supprimer des conteneurs selon un préfixe de nom de conteneur
 
 Ce script crée d’abord quelques exemples de conteneurs dans le stockage d’objets blob Azure, puis supprime certains des conteneurs selon un préfixe dans le nom du conteneur.
@@ -45,7 +43,7 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes pour supprimer des conteneurs selon un préfixe de nom de conteneur. Chaque élément du tableau renvoie à une documentation spécifique.
+Ce script utilise les commandes suivantes pour supprimer des conteneurs selon un préfixe de nom de conteneur. Chaque élément du tableau renvoie à une documentation spécifique de la commande.
 
 | Commande | Remarques |
 |---|---|
@@ -60,4 +58,3 @@ Ce script utilise les commandes suivantes pour supprimer des conteneurs selon un
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure/overview).
 
 Vous trouverez des exemples supplémentaires de scripts CLI de stockage dans les [exemples Azure CLI pour Stockage Azure](../blobs/storage-samples-blobs-cli.md).
-

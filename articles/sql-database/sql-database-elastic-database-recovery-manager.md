@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: ce043e53d64a79c0ba37b500f8af9231e5372044
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: e60e2295484873ea15d52108b7d619319a57827f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Utilisation de la classe RecoveryManager pour résoudre les problèmes de correspondance de partitionnement
 La classe [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) permet aux applications ADO.Net de détecter et corriger facilement les incohérences entre le mappage de partitions global (GSM) et le mappage de partitions local (LSM) dans un environnement de base de données partitionné. 
@@ -170,5 +168,4 @@ Cet exemple effectue les étapes suivantes :
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
-
 

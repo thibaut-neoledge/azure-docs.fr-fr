@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
 ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Services et technologies de sécurité Azure
 Dans nos discussions avec les clients Azure actuels et futurs, une question revient souvent : « Avez-vous une liste de tous les services et technologies de sécurité proposés par Azure ? ».
@@ -61,14 +61,14 @@ Ce document fournit une première version de cette liste. Au fil du temps, cette
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 ## <a name="backup-and-disaster-recovery"></a>Sauvegarde et récupération d’urgence
-* [Sauvegarde Azure](https://azure.microsoft.com/documentation/services/backup/)
+* [Azure Backup](https://azure.microsoft.com/documentation/services/backup/)
 * [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery/)
 
 ## <a name="azure-networking"></a>Mise en réseau Azure
 * [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
 * [Passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [Application Gateway Azure](../application-gateway/application-gateway-introduction.md)
-* [Azure Load Balancer](../load-balancer/load-balancer-overview.md)
+* [Équilibrage de charge Azure](../load-balancer/load-balancer-overview.md)
 * [Azure ExpressRoute](../expressroute/expressroute-introduction.md)
 * [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 * [Proxy d’application Azure](../active-directory/active-directory-application-proxy-enable.md)

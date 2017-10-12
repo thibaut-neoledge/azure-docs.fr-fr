@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7a54771d99f2719fcc345496b152a5d3acc02121
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Vue d’ensemble de l’offre de services dans Azure Stack
 
@@ -45,5 +44,4 @@ Quand vous planifiez vos offres, gardez à l’esprit les points suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur les offres, les plans, les quotas et les abonnements](azure-stack-plan-offer-quota-overview.md)
-
 

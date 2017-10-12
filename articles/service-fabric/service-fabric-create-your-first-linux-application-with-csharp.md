@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/19/2017
 ms.author: subramar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Créer votre première application Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -129,9 +128,8 @@ Pour ajouter un autre service à une application déjà créée à l’aide de `
 
 * [Interaction avec les clusters Service Fabric à l’aide de l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
 * En savoir plus sur les [options de prise en charge de Service Fabric](service-fabric-support.md)
-* [Bien démarrer avec l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
+* [Prise en main de l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-csharp/sfx-primary.png
-

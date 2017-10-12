@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
+ms.openlocfilehash: e5a2afdc0dbe6171b27c11400f460eac46147f37
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 6486f3963b18edee8490446cad1f6f2697db699b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="runbook-input-parameters"></a>Paramètres d’entrée de Runbook
 
@@ -286,5 +285,4 @@ Lorsque vous exécutez un Runbook à l’aide d’un WebHook, un paramètre d’
 * Pour plus d’informations sur les différentes façons de démarrer un Runbook, voir [Démarrage d’un Runbook](automation-starting-a-runbook.md).
 * Pour modifier un Runbook textuel, voir [Modification des Runbooks textuels](automation-edit-textual-runbook.md).
 * Pour modifier un Runbook graphique, voir [Création graphique dans Azure Automation](automation-graphical-authoring-intro.md).
-
 

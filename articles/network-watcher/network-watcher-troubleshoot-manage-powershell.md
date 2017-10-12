@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
+ms.openlocfilehash: d7ae5599b3fa1876e2b5af79f56548cd17c1c8ed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0bdffbac18d1d236b7674feed4dbc784e50e0ea8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions par le biais de PowerShell d’Azure Network Watcher
 
 > [!div class="op_single_selector"]
@@ -92,4 +90,3 @@ Pour obtenir des instructions de téléchargement des fichiers à partir des com
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si les paramètres ont été modifiés et arrêtent la connectivité VPN, consultez la page [Gérer les groupes de sécurité réseau à partir du portail](../virtual-network/virtual-network-manage-nsg-arm-portal.md) afin d’effectuer le suivi du groupe de sécurité réseau et des règles de sécurité pouvant être concernés.
-

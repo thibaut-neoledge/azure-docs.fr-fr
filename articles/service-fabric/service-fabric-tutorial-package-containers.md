@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
+ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8274d48db034c8a2634ab28bd634c024b8ea055c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Empaqueter et déployer des conteneurs en tant qu’application Service Fabric
 
 Ce didacticiel est le deuxième de la série. Dans ce didacticiel, un outil de génération de modèles (Yeoman) est utilisé pour générer une définition d’application Service Fabric. Cette application peut ensuite servir à déployer des conteneurs sur Service Fabric. Ce didacticiel vous explique comment effectuer les opérations suivantes : 
@@ -32,11 +30,11 @@ Ce didacticiel est le deuxième de la série. Dans ce didacticiel, un outil de g
 > * Installer Yeoman  
 > * Créer un package d’application à l’aide de Yeoman
 > * Configurer les paramètres du package d’application pour une utilisation avec des conteneurs
-> * Créer l’application  
+> * Création de l'application  
 > * Déployer et exécuter l’application 
 > * Nettoyer l’application
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 - Les images conteneur, créées et transmises à Azure Container Registry dans la [Partie 1](service-fabric-tutorial-create-container-images.md) de cette série de didacticiels, sont utilisées.
 - L’environnement de développement Linux est [configuré](service-fabric-tutorial-create-container-images.md).
@@ -60,7 +58,7 @@ Service Fabric fournit des outils de génération de modèles automatique qui vo
     sudo npm install -g generator-azuresfcontainer
     ```
 
-## <a name="package-a-docker-image-container-with-yeoman"></a>Empaqueter un conteneur d’images Docker avec Yeoman
+## <a name="package-a-docker-image-container-with-yeoman"></a>Placer un conteneur d’images Docker avec Yeoman dans un package
 
 1. Pour créer une application conteneur Service Fabric, dans le répertoire 'container-tutorial' du dépôt cloné, exécutez la commande suivante.
 
@@ -364,7 +362,7 @@ Dans ce didacticiel, plusieurs conteneurs ont été mis en package dans une appl
 > * Installer Yeoman  
 > * Créer un package d’application à l’aide de Yeoman
 > * Configurer les paramètres du package d’application pour une utilisation avec des conteneurs
-> * Créer l’application  
+> * Création de l'application  
 > * Déployer et exécuter l’application 
 > * Nettoyer l’application
 
@@ -375,6 +373,5 @@ Passez au didacticiel suivant pour en savoir plus sur le basculement et la mise 
 
 [votingapp]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
 [sfx]: ./media/service-fabric-tutorial-deploy-run-containers/containerspackagetutorialsfx.png
-
 
 

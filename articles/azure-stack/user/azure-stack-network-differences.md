@@ -8,14 +8,12 @@ ms.author: victorh
 ms.date: 9/25/2017
 ms.topic: article
 ms.service: azure-stack
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7b7bac508a759a1367ac7328840848efe17ea3c5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="considerations-for-azure-stack-networking"></a>Considérations relatives à la mise en réseau Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
@@ -50,4 +48,3 @@ Cet article fournit une vue d’ensemble des considérations uniques pour la mis
 ## <a name="next-steps"></a>Étapes suivantes
 
 [DNS dans Azure Stack](azure-stack-dns.md)
-

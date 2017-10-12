@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 ms.openlocfilehash: c158c67a82e12501386179e19bc75fd852d7e308
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Déployer le proxy d'application sur un domaine managé par les Azure Active Directory Domain Services
 Le service Proxy d’application Azure Active Directory (AD) vous aide à prendre en charge les personnes qui travaillent à distance en publiant des applications locales afin de les rendre accessibles sur Internet. Avec les Azure AD Domain Services, vous pouvez désormais transférer des applications héritées vers des services d’infrastructure Azure. Vous pouvez ensuite publier ces applications à l’aide du proxy d’application Azure AD pour fournir un accès à distance sécurisé aux utilisateurs de votre organisation.

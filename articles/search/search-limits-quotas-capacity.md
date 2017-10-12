@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/07/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
 Les limites maximales de stockage, de charges de travail et de quantités d’index, de documents et d’autres objets dépendent du niveau tarifaire (**Gratuit**, **De base** ou **Standard**) de la [Recherche Azure](search-create-service-portal.md).
@@ -96,4 +95,3 @@ Les clés API sont utilisées pour l'authentification de service. Il existe deux
 
 * 2 clés administrateur maximum par service
 * 50 clés de requête maximum par service
-

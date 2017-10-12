@@ -1,6 +1,6 @@
 ---
 title: Provisionner la machine virtuelle DSVM Windows sur Azure | Microsoft Docs
-description: "Configurez et créez une machine virtuelle DSVM sur Microsoft Azure pour vos besoins d’analytique et d’apprentissage automatique."
+description: "Configurez et créez une machine virtuelle pour la science des données sur Microsoft Azure pour vos besoins d’analyse et d’apprentissage automatique."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a438a0d83ad4749953297b6481cba9cec5900140
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Provisionner la machine virtuelle DSVM Windows sur Azure
-La machine virtuelle DSVM de Microsoft est une image de machine virtuelle Windows Azure préalablement installée et configurée avec plusieurs outils couramment utilisés dans le cadre de l’analytique de données et de l’apprentissage automatique. Elle intègre les outils suivants :
+La machine virtuelle pour la science des données Microsoft est une image de machine virtuelle Windows Azure préalablement installée et configurée avec plusieurs outils populaires couramment utilisés dans le cadre de l’analyse de données et de l’apprentissage automatique. Elle intègre les outils suivants :
 
 * Microsoft R Server Developer Edition
 * Distribution Anaconda Python
@@ -29,13 +28,13 @@ La machine virtuelle DSVM de Microsoft est une image de machine virtuelle Window
 * Visual Studio Community Edition
 * Power BI Desktop
 * SQL Server 2016 Developer Edition
-* Outils d’apprentissage automatique et d’analytique des données
+* Outils Machine Learning et Analyse des données
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) : kit de ressources logicielles d’apprentissage profond de Microsoft Research.
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): système d’apprentissage automatique rapide prenant en charge des techniques (apprentissage en ligne, hachage, allreduce, réductions, learning2search, actif et interactif).
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): système de Machine Learning rapide prenant en charge des techniques (apprentissage en ligne, hachage, allreduce, réductions, learning2search, actif et interactif).
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): outil offrant une implémentation rapide et précise des arborescences optimisées.
-  * [Rattle (R Analytical Tool To Learn Easily)](http://rattle.togaware.com/) : outil qui vous permet de démarrer facilement avec l’analytique des données et l’apprentissage automatique dans R avec une exploration des données basée sur une interface graphique utilisateur et une modélisation utilisant la génération automatique de code R.
-  * [mxnet](https://github.com/dmlc/mxnet): framework d’apprentissage profond conçu pour offrir efficacité et flexibilité.
-  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : logiciel d’apprentissage automatique et d’exploration des données visuelle dans Java.
+  * [Rattle (R Analytical Tool To Learn Easily)](http://rattle.togaware.com/) : outil qui facilite la prise en main de l’analyse des données et du Machine Learning dans R avec une exploration des données basée sur une interface graphique utilisateur et une modélisation utilisant la génération automatique de code R.
+  * [mxnet](https://github.com/dmlc/mxnet): infrastructure de formation approfondie conçue pour offrir efficacité et flexibilité.
+  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : logiciel Machine Learning et d’exploration des données visuelle dans Java.
   * [Apache Drill](https://drill.apache.org/) : moteur de requêtes SQL sans schéma pour Hadoop, NoSQL et le stockage cloud.  Prend en charge les interfaces ODBC et JDBC pour activer l’interrogation de NoSQL et des fichiers à partir d’outils décisionnels standard tels que Power BI, Excel, Tableau.
 * Bibliothèques dans les langages R et Python à utiliser dans Azure Machine Learning et d’autres services Azure
 * Git incluant Git Bash pour travailler avec les référentiels de code source, notamment GitHub, Visual Studio Team Services
@@ -54,9 +53,9 @@ Le renvoi de la machine virtuelle pour la science des données démarre votre pr
 Cette image de machine virtuelle de science des données ne génère pas de frais. Vous payez uniquement les frais d’utilisation Azure en fonction de la taille de la machine virtuelle approvisionnée. Vous trouverez plus d’informations sur les frais de calcul dans la section sur les détails de tarification de la page [Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) (Machine virtuelle pour la science des données). 
 
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Autres versions de la machine virtuelle pour la science des données
-Une image [CentOS](linux-dsvm-intro.md) est également disponible avec la plupart des même outils que l’image Windows. Une image [Ubuntu](dsvm-ubuntu-intro.md) est également disponible, avec de nombreux outils similaires et des frameworks d’apprentissage profond.
+Une image [CentOS](linux-dsvm-intro.md) est également disponible avec la plupart des même outils que l’image Windows. Une image [Ubuntu](dsvm-ubuntu-intro.md) est également disponible, avec de nombreux outils similaires et des cadres de formation approfondis.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Avant de pouvoir créer une machine virtuelle de science des données Microsoft, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**: pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -111,7 +110,7 @@ En outre, le script active et exécute le serveur Jupyter en arrière-plan. Le s
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Outils installés sur la machine virtuelle de science des données
 
 ### <a name="microsoft-r-server-developer-edition"></a>Microsoft R Server Developer Edition
-Si vous souhaitez utiliser R pour votre analyse, Microsoft R Server Developer Edition est installé sur la machine virtuelle. Microsoft R Server est une plateforme d’analyse d’entreprise basée sur R, prise en charge, extensible et sécurisée, que vous pouvez largement déployer. Prenant en charge les statistiques du Big Data et les fonctionnalités de modélisation prédictive et d’apprentissage automatique, R Server prend en charge la totalité de l’analytique : exploration, analyse, visualisation et modélisation. En utilisant et en étendant R Open Source, Microsoft R Server est entièrement compatible avec les scripts, les fonctions et les packages CRAN R pour analyser les données à l'échelle de l'entreprise. Il traite également les limitations en mémoire de R Open Source en ajoutant le traitement des données en parallèle et mémorisé en bloc. Cela vous permet d’exécuter des analyses de données plus volumineuses que ce que peut contenir la mémoire principale.  Visual Studio Community Edition inclus sur la machine virtuelle contient les outils R pour l’extension Visual Studio qui fournit un IDE complet pour travailler avec R. Vous pouvez également télécharger et utiliser d’autres IDE, comme par exemple [RStudio](http://www.rstudio.com). 
+Si vous souhaitez utiliser R pour votre analyse, Microsoft R Server Developer Edition est installé sur la machine virtuelle. Microsoft R Server est une plateforme d’analyse d’entreprise basée sur R, prise en charge, extensible et sécurisée, que vous pouvez largement déployer. Prenant en charge les statistiques Big Data, la modélisation prédictive et des fonctionnalités Machine Learning, R Server prend en charge la totalité de l’analyse : exploration, analyse, visualisation et modélisation. En utilisant et en étendant R Open Source, Microsoft R Server est entièrement compatible avec les scripts, les fonctions et les packages CRAN R pour analyser les données à l'échelle de l'entreprise. Il traite également les limitations en mémoire de R Open Source en ajoutant le traitement des données en parallèle et mémorisé en bloc. Cela vous permet d’exécuter des analyses de données plus volumineuses que ce que peut contenir la mémoire principale.  Visual Studio Community Edition inclus sur la machine virtuelle contient les outils R pour l’extension Visual Studio qui fournit un IDE complet pour travailler avec R. Vous pouvez également télécharger et utiliser d’autres IDE, comme par exemple [RStudio](http://www.rstudio.com). 
 
 ### <a name="python"></a>Python
 Pour un développement basé sur Python, les versions 2.7 et 3.5 de la distribution Anaconda Python ont été installées. Cette distribution contient le langage Python de base avec environ 300 packages de mathématiques, d’ingénierie et d’analyse de données figurant parmi les plus populaires. Vous pouvez utiliser les outils Python pour Visual Studio (PTVS) installés dans l’édition Visual Studio 2015 Community ou l’un des IDE fournis avec Anaconda comme IDLE ou Spyder. Pour lancer l’un de ces IDE, vous pouvez effectuer une recherche dans la barre de recherche (**Win** + **S**).
@@ -205,6 +204,5 @@ Voici quelques étapes supplémentaires pour poursuivre votre travail d'apprenti
 * Accédez à **C:\Program Files\Microsoft SQL Server\130\R_SERVER\library\RevoScaleR\demoScripts** pour obtenir des exemples utilisant la bibliothèque RevoScaleR dans R qui prend en charge l’analyse des données à l’échelle de l’entreprise.  
 * Lisez l’article intitulé [Dix choses que vous pouvez effectuer sur la machine virtuelle pour la science des données](http://aka.ms/dsvmtenthings)
 * Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Visitez la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com) pour obtenir des exemples d’apprentissage automatique et d’analytique des données utilisant Cortana Intelligence Suite. Nous avons également inclus une icône dans le menu **Démarrer** et sur le bureau de la machine virtuelle pour accéder à cette galerie.
-
+* Visitez la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com) pour obtenir des exemples Machine Learning et d’analyse des données utilisant Cortana Intelligence Suite. Nous avons également inclus une icône dans le menu **Démarrer** et sur le bureau de la machine virtuelle pour accéder à cette galerie.
 

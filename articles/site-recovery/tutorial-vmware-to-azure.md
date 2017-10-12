@@ -11,12 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ee445c8af2fc6620385d9c462d4c6551da3d7367
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
@@ -42,14 +41,14 @@ Avant de commencer, il est utile [d’examiner l’architecture](concepts-vmware
 
    **Tâche** | **Rôle/Autorisations** | **Détails**
    --- | --- | ---
-   **Découverte des machines virtuelles** | Objet de centre de données -> Propager vers l’objet enfant, rôle = lecture seule | Au moins un utilisateur en lecture seule.<br/><br/> L’utilisateur est affecté au niveau du centre de données et a accès à tous les objets dans le centre de données.<br/><br/> Pour restreindre l’accès, attribuez le rôle **Aucun accès** avec l’objet **Propager vers enfant** aux objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).
+   **Détection des machines virtuelles** | Objet de centre de données -> Propager vers l’objet enfant, rôle = lecture seule | Au moins un utilisateur en lecture seule.<br/><br/> L’utilisateur est affecté au niveau du centre de données et a accès à tous les objets dans le centre de données.<br/><br/> Pour restreindre l’accès, attribuez le rôle **Aucun accès** avec l’objet **Propager vers enfant** aux objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).
    **Réplication complète, basculement, restauration automatique** |  Objet de centre de données -> Propager vers l’objet enfant, rôle = Azure_Site_Recovery<br/><br/> Banque de données -> Allouer de l’espace, parcourir la banque de données, opérations de fichier de bas niveau, supprimer le fichier, mettre à jour les fichiers de machine virtuelle<br/><br/> Réseau -> Attribution de réseau<br/><br/> Ressource -> Affecter les machines virtuelles au pool de ressources, migrer des machines virtuelles hors tension, migrer des machines virtuelles sous tension<br/><br/> Tâches -> Créer une tâche, Mettre à jour une tâche<br/><br/> Machine virtuelle -> Configuration<br/><br/> Machine virtuelle -> Interagir -> répondre à la question, connexion d’appareil, configurer un support de CD, configurer une disquette, mettre hors tension, mettre sous tension, installation des outils VMware<br/><br/> Machine virtuelle -> Stock -> Créer, inscrire, désinscrire<br/><br/> Machine virtuelle -> Approvisionnement -> Autoriser le téléchargement de machines virtuelles, autoriser le chargement de fichiers de machine virtuelle<br/><br/> Machine virtuelle -> Instantanés -> Supprimer les instantanés | L’utilisateur est affecté au niveau du centre de données et a accès à tous les objets dans le centre de données.<br/><br/> Pour restreindre l’accès, attribuez le rôle **Aucun accès** avec l’objet **Propager vers enfant** aux objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).
 
 3. Créez un utilisateur sur le serveur vCenter ou sur l’hôte vSphere. Affectez le rôle à l’utilisateur.
 
 ## <a name="specify-what-you-want-to-replicate"></a>Spécifier ce que vous voulez répliquer
 
-Le service Mobilité doit être installé sur chaque machine que vous souhaitez répliquer. Site Recovery installe ce service automatiquement quand vous activez la réplication pour la machine virtuelle. Pour une installation automatique, vous devez préparer un compte qui sera utilisé par Site Recovery pour accéder à la machine virtuelle.
+Le service Mobility doit être installé sur chaque machine que vous souhaitez répliquer. Site Recovery installe ce service automatiquement quand vous activez la réplication pour la machine virtuelle. Pour une installation automatique, vous devez préparer un compte qui sera utilisé par Site Recovery pour accéder à la machine virtuelle.
 
 Vous pouvez utiliser un compte local ou de domaine. Pour les machines virtuelles Linux, le compte doit être root sur le serveur Linux source. Pour les machines virtuelles Windows, si vous n’utilisez pas un compte de domaine, désactivez le contrôle d’accès des utilisateurs distants sur la machine locale :
 
@@ -62,7 +61,7 @@ La configuration de l’environnement source consiste à télécharger le progra
 Le serveur de configuration est une machine virtuelle VMware locale qui héberge tous les composants de Site Recovery. Cette machine virtuelle exécute le serveur de configuration, le serveur de processus et le serveur cible maître.
 
 - Le serveur de configuration coordonne la communication entre les ordinateurs locaux et Azure.et gère la réplication des données.
-- Le serveur de processus fait office de passerelle de réplication. Reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement et les envoie vers le stockage Azure. Le serveur de processus installe aussi le service Mobilité sur les machines virtuelles que vous voulez répliquer et effectue la détection automatique des machines virtuelles sur les serveurs VMware locaux.
+- Le serveur de processus fait office de passerelle de réplication. Reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement et les envoie vers le stockage Azure. En outre, le serveur de traitement installe le service Mobilité sur les machines virtuelles que vous voulez répliquer et effectue la découverte automatique des machines virtuelles sur les serveurs VMware locaux.
 - Le serveur cible maître gère les données de réplication pendant la restauration automatique à partir d’Azure.
 
 La machine virtuelle du serveur de configuration doit être une machine virtuelle VMware à haute disponibilité répondant aux spécifications suivantes :
@@ -72,7 +71,7 @@ La machine virtuelle du serveur de configuration doit être une machine virtuell
 | Nombre de cœurs de processeur| 8 |
 | RAM | 12 Go |
 | Nombre de disques | 3 - disque du système d’exploitation, disque de cache du serveur de processus, lecteur de conservation (pour la restauration automatique) |
-| Espace disque disponible (cache du serveur de processus) | 600 Go |
+| Espace disque disponible (cache du serveur de traitement) | 600 Go |
 | Espace disque disponible (disque de rétention) | 600 Go |
 | Version de système d’exploitation | Windows Server 2012 R2 |
 | Paramètres régionaux du système d’exploitation | Anglais (en-us) |
@@ -134,7 +133,7 @@ Toutes les règles de pare-feu basées sur une adresse IP doivent autoriser la c
 
 6. Dans **Vérification de la configuration requise**, le programme d’installation procède à une vérification afin de garantir le bon déroulement de l’installation. Si un avertissement s’affiche à propos de la **vérification de la synchronisation globale**, vérifiez que l’heure de l’horloge système (paramètres **Date et heure**) est identique à celle du fuseau horaire.
 
-   ![Prérequis](./media/tutorial-vmware-to-azure/combined-wiz5.png)
+   ![Composants requis](./media/tutorial-vmware-to-azure/combined-wiz5.png)
 
 7. Dans **Configuration MySQL**, créez des informations d’identification pour vous connecter à l’instance de serveur MySQL installée.
 
@@ -185,7 +184,7 @@ Sélectionnez et vérifiez les ressources cibles.
 
 1. Cliquez sur **Préparer l’infrastructure** > **Cible** et sélectionnez l’abonnement Azure à utiliser.
 2. Spécifiez si votre modèle de déploiement cible est basé sur Resource Manager ou est de type classique.
-3. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes de stockage Azure compatibles.
+3. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles.
 
    ![Cible](./media/tutorial-vmware-to-azure/storage-network.png)
 
@@ -231,5 +230,4 @@ Pour surveiller les machines virtuelles que vous ajoutez, vous pouvez consulter 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Effectuer un test de récupération d’urgence](site-recovery-test-failover-to-azure.md)
-
+> [Exécuter une simulation de récupération d'urgence](site-recovery-test-failover-to-azure.md)

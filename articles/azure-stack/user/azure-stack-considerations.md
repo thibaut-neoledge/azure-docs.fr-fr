@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 1e170f320292e3dbe920907a4ed81ab0d1eb388b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Considérations importantes : utilisation de services ou génération d’applications pour Azure Stack
 
@@ -94,4 +93,3 @@ Pour plus d’informations sur les différences au niveau du service, consultez�
 * [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md)
 * [Considérations relatives au stockage dans Azure Stack](azure-stack-acs-differences.md)
 * [Considérations relatives à la mise en réseau Azure Stack](azure-stack-network-differences.md)
-

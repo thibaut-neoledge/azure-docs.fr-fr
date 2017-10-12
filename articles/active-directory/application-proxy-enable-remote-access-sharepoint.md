@@ -15,23 +15,21 @@ ms.date: 09/06/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 2b4ad3e7bda1346e606b2c185c204154b8f19f87
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Activer l’accès distant à SharePoint avec le proxy d’application Azure AD
 
 Cet article explique comment intégrer un serveur SharePoint local au proxy d’application Azure Active Directory (Azure AD).
 
 Pour activer l’accès à distance à SharePoint avec le proxy d’application Azure AD, suivez les sections de cet article étape par étape.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
-Cet article suppose que vous avez déjà SharePoint 2013 ou une version plus récente dans votre environnement. En outre, prenez en compte les prérequis suivants :
+Cet article suppose que vous avez déjà SharePoint 2013 ou une version plus récente dans votre environnement. En outre, prenez en compte les conditions préalables suivantes :
 
 * SharePoint comprend la prise en charge native de Kerberos. Ainsi, les utilisateurs qui accèdent à des sites internes à distance à l’aide du proxy d’application Azure AD peuvent s’attendre à une expérience d’authentification unique (SSO).
 
@@ -170,7 +168,7 @@ Maintenant que vous avez activé SharePoint pour Kerberos et configuré la dél�
    - **Traduire des URL dans les en-têtes** : NON
 
    >[!TIP]
-   >SharePoint utilise la valeur _En-tête d’hôte_ pour rechercher le site. Il génère également des liens en fonction de cette valeur. L’effet immédiat est que tout lien généré par SharePoint est une URL publiée correctement définie pour utiliser l’URL externe. Définir la valeur sur **OUI** permet également au connecteur de transférer la demande à l’application backend. Toutefois, la valeur **NON** signifie que le connecteur n’envoie pas le nom d’hôte interne. Au lieu de cela, il envoie l’en-tête d’hôte comme URL publiée à l’application backend.
+   >SharePoint utilise la valeur _En-tête d’hôte_ pour rechercher le site. Il génère également des liens en fonction de cette valeur. L’effet immédiat est que tout lien généré par SharePoint est une URL publiée correctement définie pour utiliser l’URL externe. Définir la valeur sur **OUI** permet également au connecteur de transférer la demande à l’application principale. Toutefois, la valeur **NON** signifie que le connecteur n’envoie pas le nom d’hôte interne. Au lieu de cela, il envoie l’en-tête d’hôte comme URL publiée à l’application principale.
 
    ![Publier SharePoint en tant qu’application](./media/application-proxy-remote-sharepoint/publish-app.png)
 
@@ -208,5 +206,4 @@ Vous pouvez maintenant accéder au site SharePoint en externe par l’intermédi
 
 - [Utilisation des domaines personnalisés dans le proxy d’application Azure AD](active-directory-application-proxy-custom-domains.md)
 - [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md)
-
 

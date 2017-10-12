@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: fe276fe802eceb1f062ed8bda685dd44a1e3d175
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-a-vm-managed-service-identity-msi-using-azure-cli"></a>Configurer l’identité du service administré (MSI) de la machine virtuelle à l’aide d’Azure CLI
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -104,7 +102,6 @@ Si vous disposez d’une machine virtuelle qui ne nécessite plus d’identité 
   - [Créer une machine virtuelle Linux avec Azure CLI](../virtual-machines/linux/quick-create-cli.md) 
 
 Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
-
 
 
 

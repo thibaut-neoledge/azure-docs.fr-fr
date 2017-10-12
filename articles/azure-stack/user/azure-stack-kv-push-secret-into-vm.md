@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/03/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 29ccdc9eca9911b2f550f9e09da83d0b1d30f9db
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Créer une machine virtuelle et inclure un certificat récupéré à partir d’un coffre de clés
 
@@ -28,7 +27,7 @@ Cet article aide à créer une machine virtuelle dans Azure Stack et à y placer
 ## <a name="prerequisites"></a>Composants requis
 
 * Les utilisateurs doivent s’abonner à une offre qui inclut le service Key Vault. 
-* [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).  
+* [Installer PowerShell pour Azure Stack.](azure-stack-powershell-install.md)  
 * [Configurez l’environnement PowerShell de l’utilisateur Azure Stack](azure-stack-powershell-configure-user.md).
 
 Un coffre de clés dans Azure Stack est utilisé pour stocker les certificats. Les certificats sont utiles dans de nombreux scénarios différents. Prenons l’exemple d’un scénario selon lequel une machine virtuelle dans Azure Stack exécute une application qui a besoin d’un certificat. Ce certificat peut être utilisé pour le chiffrement, l’authentification auprès d’Active Directory ou le protocole SSL sur un site web. Conserver le certificat dans un coffre de clés permet d’assurer sa sécurité.
@@ -178,6 +177,5 @@ Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Vers
 
 * [Déployer une machine virtuelle avec un mot de passe Key Vault](azure-stack-kv-deploy-vm-with-secret.md)
 * [Autoriser une application à accéder à Key Vault](azure-stack-kv-sample-app.md)
-
 
 

@@ -11,35 +11,33 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c2a3b9702afd99c29b64133a05515a1b5f395130
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Didacticiel : Classification Iris à l’aide de l’interface de ligne de commande
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée complète qui permet aux scientifiques des données professionnels de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
 
 Dans ce didacticiel, vous allez apprendre à utiliser les outils de l’interface de ligne de commande (CLI) dans les fonctionnalités Azure Machine Learning en préversion pour : 
 > [!div class="checklist"]
 > * Configurer un compte d’expérimentation et créer un espace de travail
-> * Créer un projet
+> * Création d’un projet
 > * Soumettre une expérimentation à plusieurs cibles de calcul
 > * Promouvoir et inscrire un modèle formé
 > * Déployer un service web pour évaluer de nouvelles données
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 - Vous avez besoin d’un accès à un abonnement Azure et des autorisations adéquates pour créer des ressources dans cet abonnement. 
 - Vous devez installer l’application Azure Machine Learning Workbench en suivant la procédure indiquée dans [Guide de démarrage rapide sur l’installation et la création](quickstart-installation.md). 
 
   >[!NOTE]
   >Vous devez uniquement installer Azure Machine Learning Workbench localement. Il vous suffit de suivre les étapes décrites dans les sections intitulées Installer Azure Machine Learning Workbench, puisque vous allez effectuer les étapes de création du compte et de création d’un projet en utilisant la ligne de commande, comme indiqué dans cet article.
  
-## <a name="getting-started"></a>Démarrer
+## <a name="getting-started"></a>Prise en main
 L’interface de ligne de commande (CLI) Azure Machine Learning vous permet d’effectuer toutes les tâches nécessaires à un flux de travail de science des données complet. Vous pouvez accéder à des outils CLI des manières suivantes :
 
 ### <a name="option-1-launch-azure-ml-cli-from-azure-ml-workbench-log-in-dialog-box"></a>Option 1. Lancer l’interface de ligne de commande Azure ML à partir de la boîte de dialogue de connexion Azure Machine Learning Workbench
@@ -70,7 +68,7 @@ Pour rendre la modification permanente, vous pouvez utiliser `SETX` sur Windows.
 >[!TIP]
 >Vous pouvez activer l’interface de ligne de commande Azure dans votre fenêtre de terminal préférée en définissant les variables d’environnement ci-dessus.
 
-## <a name="step-1-log-in-to-azure"></a>Étape 1. Se connecter à Azure
+## <a name="step-1-log-in-to-azure"></a>Étape 1. Connexion à Azure
 La première étape consiste à ouvrir l’interface de ligne de commande à partir de l’application AMLWorkbench (Fichier > Ouvrir l’invite de commandes). Ainsi, nous sommes sûrs d’utiliser l’environnement python approprié et de disposer des commandes de l’interface de ligne de commande (CLI) ML. 
 
 Ensuite, nous devons définir le bon contexte dans votre CLI pour accéder à des ressources Azure et les gérer.
@@ -110,7 +108,7 @@ az role assignment create --assignee ahgyger@microsoft.com --role owner --scope 
 > [!TIP]
 > Vous devez utiliser la véritable adresse e-mail du collaborateur, et non un alias. 
 
-## <a name="step-3-create-a-new-project"></a>Étape 3. Créer un projet
+## <a name="step-3-create-a-new-project"></a>Étape 3. Création d'un projet
 Notre prochaine étape consiste à créer un projet. Il existe plusieurs façons de démarrer un nouveau projet.
 
 ### <a name="create-a-new-blank-project"></a>Créer un projet vide
@@ -159,7 +157,7 @@ cd c:\Users\ahgyger\Documents\AMLworkbench_Demo\9_25\9_25_1
 ## <a name="step-4-run-the-training-experiment"></a>Étape 4. Exécuter l’expérimentation de formation 
 Les étapes ci-dessous partent du principe que vous avez un projet qui utilise l’exemple Iris (consultez [Créer un projet à partir d’un exemple en ligne](#sample_create)).
 
-### <a name="prepare-your-environment"></a>Préparer votre environnement 
+### <a name="prepare-your-environment"></a>Préparation de votre environnement 
 Pour l’exemple Iris, nous devons installer matplotlib.
 
 ```bash
@@ -235,7 +233,7 @@ Un compte de gestion des modèles est exigé pour déployer et suivre vos modèl
 az ml account modelmanagement create -n amlsamplesacct -g amlsamplesenvrg -l eastus2
 ```
 
-## <a name="step-10-create-a-web-service"></a>Étape 10. Créer un service web
+## <a name="step-10-create-a-web-service"></a>Étape 10. Création d’un service web
 Ensuite, nous créons un service web qui retourne une prédiction en utilisant le modèle que nous avons déployé. 
 
 ```bash
@@ -273,5 +271,4 @@ Dans ce didacticiel, vous avez appris à utiliser les fonctionnalités Azure Mac
 > * Créer un compte de gestion des modèles pour la gestion des modèles
 > * Créer un environnement pour déployer un service web
 > * Déployer un service web et l’évaluer avec de nouvelles données
-
 

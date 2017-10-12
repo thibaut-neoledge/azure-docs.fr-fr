@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 63c270affca31d3db7e03116f5e287d8569b0dae
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-stack-portal"></a>Utilisation du portail Azure Stack
 
@@ -74,4 +73,3 @@ Si vous utilisez le Kit de développement Azure Stack, le [Forum sur Azure Stack
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Considérations importantes : utilisation de services ou création d’applications pour Azure Stack](azure-stack-considerations.md)
-

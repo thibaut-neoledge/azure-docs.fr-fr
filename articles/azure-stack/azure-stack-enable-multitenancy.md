@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3a90057b43e3f2074e72f3d0f896b35b4884368b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Activer l’architecture multilocataire dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
@@ -95,4 +93,3 @@ Marie invitera les [principaux étrangers](../active-directory/active-directory-
 
 - [Gérer les fournisseurs délégués](azure-stack-delegated-provider.md)
 - [Concepts clés d’Azure Stack](azure-stack-key-features.md)
-

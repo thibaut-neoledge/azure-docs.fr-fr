@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 415ceba02eb3c8da3de5ab3aa6980fbe5bae2db9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-data-exports-for-this-preview"></a>Exportations de données prises en charge pour cette version d’évaluation 
 Il est possible d’exporter vers différents formats. Ces formats peuvent être utilisés pour conserver les résultats intermédiaires de la préparation des données avant leur intégration au reste du flux de travail Machine Learning.
 
@@ -56,7 +54,6 @@ Le format Parquet est relativement récent et son implémentation comporte certa
 ### <a name="local"></a>Local 
 Emplacement de stockage réseau mappé ou disque dur local
 
-### <a name="azure-blob"></a>Objets BLOB Azure 
+### <a name="azure-blob"></a>Objet blob Azure 
 Stockage Azure (BLOB), nécessite un abonnement Azure
-
 

@@ -14,17 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7d841dba798c2b706c26dcf51361ce0447710b12
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considérations relatives aux machines virtuelles dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack intégré systèmes et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Les machines virtuelles sont des ressources de calcul évolutives et à la demande qui sont mises à la disposition des utilisateurs dans Azure Stack. Quand vous utilisez des machines virtuelles, sachez qu’il existe des différences entre les fonctionnalités disponibles dans Azure et dans Azure Stack. Cet article offre une vue d’ensemble des considérations propres aux machines virtuelles et à leurs fonctionnalités dans Azure Stack. Pour connaître les différences majeures entre Azure Stack et Azure, consultez la rubrique [Principales considérations](azure-stack-considerations.md).
 
@@ -93,4 +91,3 @@ La liste des types de ressources et des versions d’API pris en charge peut var
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Créer une machine virtuelle Windows à l’aide de PowerShell dans Azure Stack](azure-stack-quick-create-vm-windows-powershell.md)
-

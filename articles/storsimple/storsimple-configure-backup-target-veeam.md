@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
+ms.openlocfilehash: cc1c7a3f77af76c451bb6e97a081a01c119333b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 38cc3ae906f75e75c9e44ac7e4b7098935a56cf2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple comme cible de sauvegarde avec Veeam
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -519,4 +517,3 @@ Les documents référencés dans cet article sont les suivants :
 
 - En savoir plus sur la [restauration à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set-u2.md).
 - En savoir plus sur l’exécution [d’un basculement et d’une récupération d’urgence pour un appareil](storsimple-device-failover-disaster-recovery.md).
-

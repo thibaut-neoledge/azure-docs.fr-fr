@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Création d’une application web avec le Cache Redis
 > [!div class="op_single_selector"]
@@ -687,7 +686,7 @@ Le code de génération de modèles automatique qui a été généré dans le ca
     ```
 
 
-1. Faites défiler le fichier **Index.cshtml** `tr` vers le bas pour visualiser la fin du fichier, puis ajoutez l’élément suivant, de sorte qu’il représente la dernière ligne de la dernière table du fichier.
+1. Faites défiler le fichier **Index.cshtml`tr` vers le bas pour visualiser la fin du fichier, puis ajoutez l’élément**  suivant, de sorte qu’il représente la dernière ligne de la dernière table du fichier.
    
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
@@ -707,7 +706,7 @@ Pour héberger votre application dans Azure, vous devez d’abord approvisionner
 
 Pour déployer ces services vers un groupe de ressources de votre choix, nouveau ou existant, cliquez sur le bouton **Déployer dans Azure** ci-dessous.
 
-[![Deploy to Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
+[![Déploiement sur Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
 Le bouton **Déployer dans Azure** utilise le modèle de [démarrage rapide Microsoft Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) [Création d’une application web, du Cache Redis et d’une base de données SQL](https://github.com/Azure/azure-quickstart-templates) pour approvisionner ces services et définir la chaîne de connexion pour la base de données SQL et le paramètre d’application de la chaîne de connexion du Cache Redis Azure.
 
@@ -867,5 +866,4 @@ Une fois que vous avez sélectionné ou créé le cache à utiliser, accédez au
 [cache-publish]: ./media/cache-web-app-howto/cache-publish.png
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
-
 

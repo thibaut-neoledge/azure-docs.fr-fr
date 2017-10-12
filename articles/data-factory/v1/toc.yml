@@ -51,7 +51,7 @@
   items:
     - name: Transfert de données
       items:
-        - name: Vue d’ensemble des activités de copie
+        - name: Présentation de l’activité de copie
           href: data-factory-data-movement-activities.md
         - name: Assistant Data Factory Copy
           href: data-factory-azure-copy-wizard.md

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Connexion d’Azure Stack à Azure à l’aide d’ExpressRoute
 
@@ -102,7 +101,7 @@ Suivez les procédures ci-dessous pour créer les ressources réseau nécessaire
 
     c. Cliquez sur **Épingler au tableau de bord**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
 
 
 
@@ -129,7 +128,7 @@ Suivez les procédures ci-dessous pour créer les ressources réseau nécessaire
 7. Dans le champ **Nom**, entrez **GW1-PiP**, puis cliquez sur **OK**.
 8. Par défaut, le **type de VPN** doit être défini sur **Basé sur un itinéraire**.
     Conservez ce paramètre.
-9. Vérifiez que l’**abonnement** et l’**emplacement** sont corrects. Vous pouvez épingler la ressource au tableau de bord si vous le souhaitez. Cliquez sur **Create**.
+9. Vérifiez que l’**abonnement** et l’**emplacement** sont corrects. Vous pouvez épingler la ressource au tableau de bord si vous le souhaitez. Cliquez sur **Créer**.
 
 #### <a name="create-the-local-network-gateway"></a>Créer la passerelle de réseau local
 

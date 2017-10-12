@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f2670be1af310ecd57952465fdf7ebd21513eb63
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copier des données de PostgreSQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +36,7 @@ Vous pouvez copier des données d’une base de données PostgreSQL vers toute b
 
 Plus précisément, ce connecteur PostgreSQL prend en charge PostgreSQL **version 7.4 et versions ultérieures**.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 Pour utiliser ce connecteur PostgreSQL, vous devez :
 
@@ -61,7 +60,7 @@ Les propriétés prises en charge pour le service lié PostgreSQL sont les suiva
 | schema | Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non |
 | username | Spécifiez le nom d’utilisateur à utiliser pour la connexion à la base de données PostgreSQL. |Oui |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ comme SecureString. |Oui |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un runtime d’intégration auto-hébergé est nécessaire, comme indiqué dans [Conditions préalables](#prerequisites). |Oui |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
 
 **Exemple :**
 
@@ -96,7 +95,7 @@ Pour copier des données de PostgreSQL, affectez la valeur **RelationalTable** �
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
 | type | La propriété type du jeu de données doit être définie sur **RelationalTable** | Oui |
-| TableName | Nom de la table dans la base de données PostgreSQL. | Non (si « query » est spécifié dans la source de l’activité) |
+| TableName | Nom de la table dans la base de données PostgreSQL. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 

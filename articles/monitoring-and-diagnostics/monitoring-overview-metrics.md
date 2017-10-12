@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
+ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fbfb3d026540b45a28751d6c3ab0f8dce444e0cd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Vue d’ensemble des mesures dans Microsoft Azure
 Cet article décrit ce que sont les mesures dans Microsoft Azure ainsi que leurs avantages, et comment commencer à les utiliser.  
 
@@ -127,23 +125,6 @@ Certaines ressources Azure prennent en l’augmentation ou la diminution de la t
  ![Mesures et règles de mise à l’échelle automatique dans Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## <a name="learn-about-supported-services-and-metrics"></a>Découvrez les services et mesures pris en charge
-Azure Monitor est une nouvelle infrastructure de mesures. Il prend en charge les services Azure suivants dans le portail Azure et la nouvelle version de l’API Azure Monitor :
-
-* Machines virtuelles (basées sur Azure Resource Manager)
-* jeux de mise à l’échelle de machine virtuelle
-* Batch
-* Espace de noms Event Hubs
-* Espace de noms Service Bus (référence SKU premium uniquement)
-* SQL Database (version 12)
-* Pool élastique SQL
-* Sites web
-* Batteries de serveurs web
-* Logic Apps
-* IoT Hubs
-* Cache Redis
-* Réseau : Passerelles d’application
-* Search
-
 Vous pouvez voir une liste détaillée de tous les services pris en charge et leurs mesures dans [Mesures d’Azure Monitor - Mesures prises en charge par type de ressource](monitoring-supported-metrics.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -152,4 +133,3 @@ Consultez les liens dans cet article. De plus, consultez :
 * [Mesures courantes pour la mise à l’échelle automatique](insights-autoscale-common-metrics.md)
 * [Guide de création de règles d’alertes](insights-alerts-portal.md)
 * [Analyser les journaux du stockage Azure avec Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f2c99f19b30d2cdfdf65dea6dd3909b88ffc15dd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-stack-servicing-policy"></a>Stratégie de maintenance Azure Stack
 
@@ -52,7 +51,7 @@ Les packages de mise à jour logicielle Microsoft sont non cumulatifs et nécess
 
 Le tableau suivant présente des exemples de versions de package de mise à jour, leur prérequis et la version minimale prise en charge dont votre système doit disposer pour bénéficier de la prise en charge. Ce tableau est basé sur la version initiale des systèmes intégrés Azure Stack (build 1708), avec la première publication de package de mise à jour (1709) en septembre 2017. 
 
-| Package de mise à jour le plus récent (*exemple*) | Prérequis | Version minimale prise en charge |
+| Package de mise à jour le plus récent (*exemple*) | Configuration requise | Version minimale prise en charge |
 | -- | -- | -- |
 | 1709 | Build 1708 | N/A |
 | 1710 | 1709 | N/A |
@@ -67,6 +66,5 @@ Le tableau suivant présente des exemples de versions de package de mise à jour
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Gérer les mises à jour dans Azure Stack](azure-stack-updates.md)
-
 
 

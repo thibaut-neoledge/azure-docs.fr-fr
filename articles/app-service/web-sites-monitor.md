@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
 ms.openlocfilehash: 25d3776920d683fffedcd8ac6ed0e84dfe875974
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Surveillance des applications dans Azure App Service
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de surveillance intégrées dans le [Portail Azure](https://portal.azure.com).
@@ -138,7 +138,7 @@ Les métriques d’une application et d’un plan App Service sont journalisées
 Vous pouvez examiner l’état des différents **quotas** et **métriques** en affectant une application dans le [Portail Azure](https://portal.azure.com).
 
 ![][quotas]
-Les **quotas** sont accessibles sous Paramètres > **Quotas**. L’expérience utilisateur vous permet de consulter : (1) le nom du quota, (2) son intervalle de réinitialisation, (3) sa limite actuelle et (4) sa valeur actuelle.
+Les **quotas** sont accessibles sous Paramètres &gt; **Quotas**. L’expérience utilisateur vous permet de consulter : (1) le nom du quota, (2) son intervalle de réinitialisation, (3) sa limite actuelle et (4) sa valeur actuelle.
 
 ![][metrics]
 Les **mesures** sont directement accessibles à partir du panneau de ressources. Vous pouvez également personnaliser le graphique en : (1) **cliquant** sur ce dernier, puis en sélectionnant (2) **Modifier le graphique**.

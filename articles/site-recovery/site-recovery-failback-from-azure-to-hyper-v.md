@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Restauration automatique dans Site Recovery pour les machines virtuelles Hyper-V
 
 Cet article explique comment restaurer automatiquement des machines virtuelles protégées par Site Recovery.
@@ -98,4 +96,3 @@ Pour accélérer le téléchargement des données, vous pouvez configurer votre 
 Une fois la tâche de restauration automatique terminée, **validez** la machine virtuelle. La validation supprime la machine virtuelle et ses disques, et prépare la machine virtuelle à protéger à nouveau.
 
 Après la **validation**, vous pouvez lancer la *réplication inverse*. Cela démarrera la reprotection de la machine virtuelle du site local vers Azure. Notez que cette opération réplique uniquement les modifications apportées depuis que la machine virtuelle a été désactivée dans Azure et n’envoie donc que les modifications d’ordre différentiel.
-

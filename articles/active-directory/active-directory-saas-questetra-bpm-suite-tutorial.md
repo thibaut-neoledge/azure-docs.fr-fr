@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 89d1ebc090a7b667885f5dcbab14312efd767f0b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Didacticiel : Intégration d'Azure Active Directory avec Questetra BPM Suite
 
@@ -194,7 +193,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-a-questetra-bpm-suite-test-user"></a>Créer un utilisateur de test Questetra BPM Suite
 
@@ -277,5 +276,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [202]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_203.png
 [300]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/questera_bpm_suite_11.png 
-
 

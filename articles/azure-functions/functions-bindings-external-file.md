@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 7e3b396d290212d3875385521bd7ae92da196b95
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-external-file-bindings-preview"></a>Liaisons de fichiers externes Azure Functions (version préliminaire)
 Cet article montre comment manipuler les fichiers à partir de différents fournisseurs SaaS (par exemple, OneDrive, Dropbox) au sein de votre fonction en utilisant des liaisons intégrées. Azure Functions prend en charge les liaisons de déclencheur, d’entrée et de sortie pour les fichiers externes.
@@ -364,4 +363,3 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
