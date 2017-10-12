@@ -1,6 +1,6 @@
 ---
 title: "Administration du service StorSimple Manager | Microsoft Docs"
-description: "Découvrez comment gérer votre appareil StorSimple à l&quot;aide du service StorSimple Manager dans le portail Azure Classic."
+description: "Découvrez comment gérer votre appareil StorSimple à l'aide du service StorSimple Manager dans le portail Azure Classic."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d5d5aa67d14d2344c58e67ee78ea3f2b5d8fd415
-
-
+ms.openlocfilehash: 22924da07434a06f4c822d97a2afd02ea982e0e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-administer-your-storsimple-device"></a>Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -55,7 +55,7 @@ La hiérarchie de navigation de l’interface utilisateur du service StorSimple 
 | Travaux |Configurer (Appareil) | | |
 | Alertes |Maintenance | | |
 
-![Vidéo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vidéo disponible**
+![Vidéo disponible](./media/storsimple-manager-service-administration/Video_icon.png)**Vidéo disponible**
 
 Pour visionner une vidéo qui vous guide à travers l’interface utilisateur du service StorSimple Manager, cliquez [ici](https://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
@@ -102,10 +102,4 @@ Si vous rencontrez des problèmes de fonctionnement quotidien de votre appareil 
 * [Utilisation des indicateurs de surveillance de StorSimple](storsimple-monitoring-indicators.md)
 
 Si vous ne parvenez pas à résoudre les problèmes et vous devez générer une demande d’intervention, consultez [Contacter le support technique Microsoft](storsimple-contact-microsoft-support.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: LADocs; klam
 ms.openlocfilehash: 63784c5e3af360b2f3f8cb330a9df8b27a85d859
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="logic-apps-pricing-model"></a>Modèle de tarification de Logic Apps
 Azure Logic Apps vous permet de mettre à l’échelle et d’exécuter les flux de travail d’intégration dans le cloud.  Vous trouverez ci-après plus d’informations sur les plans de facturation et les niveaux de tarification de Logic Apps.

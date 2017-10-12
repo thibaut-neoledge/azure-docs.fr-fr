@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
 ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Créer des alertes de métrique dans Azure Monitor pour les services Azure - Interface CLI multiplateforme
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Vous pouvez toujours obtenir une aide sur les commandes en tapant une commande e
      *PT1M* est la précision de la mesure disponible (intervalles d’une minute). L’utilisation de différentes précisions vous offre différentes options de métriques.
 4. Pour créer une règle d’alerte basée sur une métrique, utilisez une commande de la forme suivante :
 
-    **azure insights alerts rule metric set** *[options] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;windowSize&gt; &lt;operator&gt; &lt;threshold&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
+    **azure insights alerts rule metric set***[options] &lt;ruleName&gt;&lt;location&gt;&lt;resourceGroup&gt;&lt;windowSize&gt;&lt;operator&gt;&lt;threshold&gt;&lt;targetResourceId&gt;&lt;metricName&gt;&lt;timeAggregationOperator&gt;*
 
     L’exemple suivant configure une alerte sur une ressource de site web. L’alerte se déclenche chaque fois qu’il reçoit constamment du trafic pendant cinq minutes, et à nouveau lorsqu’il ne reçoit aucun trafic pendant cinq minutes.
 
@@ -124,7 +124,7 @@ Vous pouvez toujours obtenir une aide sur les commandes en tapant une commande e
     ```
 7. Pour supprimer des règles, utilisez une commande de la forme :
 
-    **insights alerts rule delete** [options] &lt;resourceGroup&gt; &lt;ruleName&gt;
+    **insights alerts rule delete** [options] &lt;resourceGroup&gt;&lt;ruleName&gt;
 
     Ces commandes suppriment les règles créées précédemment dans cet article.
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: DavidBosland
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 97cd45563dbd2341620658e05dbbd9ff0519b1aa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 5ac1f509ca90a09d8bd8e67a04df99516a6da072
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-the-azure-marketplace"></a>Affichage et modification de « l'offre incitative revendeurs » des fournisseurs de solutions Cloud dans Azure Marketplace
 Le 15 mars 2016, nous allons rendre « l'offre incitative revendeurs » des fournisseurs de solutions Cloud accessible aux éditeurs Marketplace.  Le paramètre par défaut de la valeur de cette offre incitative est **Oui**.  En tant qu'éditeur, vous pouvez décider de désactiver le programme incitatif.  Cet article montre comment modifier le paramètre dans votre profil d'éditeur afin de le désactiver.
@@ -46,4 +45,3 @@ Pour afficher ou modifier votre statut « d'offre incitative revendeurs », pr
 [2]: ./media/marketplace-publishing-csp-incentive/profile-boxes.png
 [3]: ./media/marketplace-publishing-csp-incentive/profile-publishers-boxes.png
 [4]: ./media/marketplace-publishing-csp-incentive/profile-publishers-change-boxes.png
-

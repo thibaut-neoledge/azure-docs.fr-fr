@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 04c402709560775592e5500362b0d9a4ccbf5a6f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 L’audit de bases de données SQL Azure suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure. Par ailleurs, l’audit :
@@ -67,7 +66,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Accédez au panneau **Paramètres** de la base de données/du serveur SQL que vous voulez auditer. Dans le panneau **Paramètres**, sélectionnez **Audit et détection des menaces**.
 
-    <a id="auditing-screenshot"></a> ![Volet de navigation][1]
+    <a id="auditing-screenshot"></a>![Volet de navigation][1]
 3. Si vous préférez définir une stratégie d’audit de serveur, vous pouvez sélectionner le lien **Afficher les paramètres du serveur** dans le panneau d’audit de la base de données. Vous pouvez alors afficher ou modifier les paramètres d’audit du serveur. Les stratégies d’audit de serveur s’appliquent aux bases de données existantes et à celles qui sont nouvellement créées sur le serveur.
 
     ![Volet de navigation][2]
@@ -80,7 +79,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
    >[!TIP]
    >Pour tirer le meilleur parti des modèles des rapports d’audit, utilisez le même compte de stockage pour toutes les bases de données auditées.
 
-    <a id="storage-screenshot"></a> ![Volet de navigation][4]
+    <a id="storage-screenshot"></a>![Volet de navigation][4]
 6. Si vous souhaitez personnaliser les événements audités, vous pouvez le faire avec PowerShell ou l’API REST. 
 7. Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité de détection des menaces et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Pour plus d’informations, consultez [Bien démarrer avec la détection des menaces](sql-database-threat-detection-get-started.md).
 8. Cliquez sur **Enregistrer**.
@@ -221,4 +220,3 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 [104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
 [105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
 [106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing
-

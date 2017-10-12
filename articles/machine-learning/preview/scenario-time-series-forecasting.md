@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="energy-demand-time-series-forecasting"></a>Prévision de séries chronologiques sur la demande d’énergie
 
 
@@ -195,4 +193,3 @@ Dans cet exemple, un service web est déployé sur un ordinateur Windows 10. Ass
 Cet exemple montre comment générer une solution de prévision de séries chronologiques de bout en bout à des fins de prévision de la demande d’énergie. La plupart des principes explorés dans cet exemple peuvent être étendus à d’autres scénarios de prévision et d’autres secteurs d’activité.
 
 Ce scénario montre comment Azure Machine Learning Workbench peut aider un expert en mégadonnées à développer des solutions réelles avec des fonctionnalités utiles comme l’environnement de bloc-notes Jupyter et les fonctionnalités de journalisation de métriques. L’exemple présente également au lecteur comment un modèle peut être mis en place et déployé à l’aide d’Azure Machine Learning Operationalization CLI. Une fois déployé, l’API de service web permet aux développeurs ou aux ingénieurs de données d’intégrer le modèle de prévision dans un pipeline de données plus large.
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ccf0bd57b7f54b1d8d57b460df9bb381b29ee381
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="respond-to-events-with-log-analytics-alerts"></a>Répondre aux événements avec les alertes Log Analytics
 Les alertes identifient des informations importantes dans votre référentiel Log Analytics.  Elles sont créées par des règles d’alerte qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers. Si les résultats de la recherche dans les journaux correspondent à des critères particuliers, un enregistrement d’alerte est créé et peut être configuré pour exécuter une réponse automatisée.  Ce didacticiel est la suite du didacticiel [Créer et partager des tableaux de bord de données Log Analytics](log-analytics-tutorial-dashboards.md).   
@@ -27,21 +26,21 @@ Les alertes identifient des informations importantes dans votre référentiel Lo
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Créer une règle d’alerte
+> * Création d'une règle d'alerte
 > * Configurer une règle d’alerte qui envoie une notification par e-mail
 
 Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machine virtuelle [connectée à l’espace de travail Log Analytics](log-analytics-quick-collect-azurevm.md).  
 
-## <a name="log-in-to-azure-portal"></a>Se connecter au portail Azure
+## <a name="log-in-to-azure-portal"></a>Connexion au portail Azure
 Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). 
 
-## <a name="create-alerts"></a>Créer des alertes
+## <a name="create-alerts"></a>Créez des alertes
 
 Les alertes sont créées par des règles dédiées qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers.  Vous pouvez créer des alertes sur la base de métriques de performances spécifiques ou quand certains événements sont créés, quand un événement fait défaut ou quand un certain nombre d’événements sont créés dans une fenêtre de temps donnée.  Par exemple, les alertes peuvent servir à vous avertir que l’utilisation moyenne du processeur dépasse un certain seuil ou qu’un événement est généré pour cause de non exécution d’un service Windows spécifique ou du démon Linux.   Si les résultats de la recherche répondent à des critères particuliers, un enregistrement d’alerte est généré. La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus de façon proactive. 
 
 Dans l’exemple suivant, nous allons créer une règle d’alerte de mesure de métrique qui va créer une alerte pour chaque objet ordinateur de la requête dont la valeur dépasse un seuil de 90 %.
 
-1. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, tapez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
+1. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Lancez le portail OMS en sélectionnant Portail OMS puis, dans la page **Vue d’ensemble**, sélectionnez **Recherche dans les journaux**.  
 3. Sélectionnez **Favoris** dans la partie supérieure du portail puis, dans le volet **Recherches enregistrées** à droite, sélectionnez la requête *Machines virtuelles Azure - Utilisation des processeurs*.  
 4. Cliquez sur **Alerte** en haut de la page pour ouvrir l’écran **Ajouter une règle d’alerte**.  

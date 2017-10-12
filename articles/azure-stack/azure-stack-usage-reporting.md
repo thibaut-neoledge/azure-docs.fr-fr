@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: sngun;AlfredoPizzirani
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 695b93a818d3c0e615bb79e0a2861e134b2f5c89
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="report-azure-stack-usage-data-to-azure"></a>Signaler les données d’utilisation Azure Stack à Azure 
 
 Les données d’utilisation, également appelées « données de consommation », représentent la quantité de ressources utilisées. Les systèmes intégrés Azure Stack qui utilisent un modèle de facturation basé sur la consommation doivent signaler les données d’utilisation à Azure. Ces données d’utilisation sont utilisées à des fins de facturation. Il incombe à l’opérateur Azure Stack de configurer son environnement Azure Stack avec la génération de rapports de données d’utilisation.

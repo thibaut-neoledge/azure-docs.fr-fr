@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory (préversion)
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux.  Cela permet de garantir qu’ils se voient présenter les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité.
 
@@ -38,7 +36,7 @@ Vous pouvez utiliser la fonctionnalité Conditions d’utilisation d’Azure Act
 -   Conditions d’utilisation spécifiques en fonction de l’accès aux applications à fort impact commercial, comme Salesforce.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Pour configurer les conditions d’utilisation d’Azure AD, effectuez les étapes suivantes :
 
 1. Connectez-vous à Azure AD en tant qu’administrateur général, administrateur de la sécurité ou administrateur à accès conditionnel de l’annuaire pour lequel vous souhaitez configurer les conditions d’utilisation d’Azure AD.
@@ -106,7 +104,7 @@ Cela vient du fait que les stratégies d’accès conditionnel prennent effet im
 
 
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum Aux Questions
 
 **Q : Comment déterminer si un utilisateur a accepté les conditions d’utilisation et quand ?**</br>
 R : Un utilisateur qui accepte les conditions d’utilisation est consigné dans le journal d’audit. Vous pouvez rechercher le journal d’audit Azure AD pour voir les résultats.  

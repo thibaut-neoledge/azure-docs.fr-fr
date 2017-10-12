@@ -8,14 +8,12 @@ ms.author: markgal
 ms.date: 09/16/2017
 ms.topic: article
 ms.service: backup
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f144db921a8b2d01dbfe883a48574c4fabdae6f7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utiliser le portail Azure pour sauvegarder plusieurs machines virtuelles
 
 Lorsque vous sauvegardez des données dans Azure, vous stockez celles-ci dans une ressource Azure que l’on appelle coffre Recovery Services. La ressource coffre Recovery Services est disponible dans le menu Paramètres de la plupart des services Azure. L’avantage de disposer du coffre Recovery Services intégré dans le menu Paramètres de la plupart des services Azure est que cela facilite considérablement la sauvegarde de données. Toutefois, il est fastidieux de manipuler individuellement chaque base de données ou machine virtuelle disponible dans votre entreprise. Que se passe-t-il si vous souhaitez sauvegarder les données de toutes les machines virtuelles d’un service ou d’un emplacement ? Il est facile de sauvegarder plusieurs machines virtuelles en créant une stratégie de sauvegarde et en appliquant celle-ci aux machines virtuelles de votre choix. Ce didacticiel explique comment :
@@ -187,4 +185,3 @@ Passez au didacticiel suivant pour restaurer une machine virtuelle Azure à part
 
 > [!div class="nextstepaction"]
 > [Restaurer des machines virtuelles à l’aide d’Azure](./tutorial-restore-disk.md)
-

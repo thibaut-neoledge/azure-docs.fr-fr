@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aa378c167c81617bc13baa65335335a749d13516
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -40,7 +39,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Vous devez disposer de quelques ressources prêtes dans Azure, que les instances EC2 migrées vont utiliser. Il s’agit d’un compte de stockage, d’un coffre et d’un réseau virtuel.
 
-### <a name="create-a-storage-account"></a>Créer un compte de stockage
+### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
 Les images des machines répliquées sont conservées dans le stockage Azure. Les machines virtuelles Azure sont créées à partir du stockage quand vous basculez du site local vers Azure.
 
@@ -53,7 +52,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 8. Sélectionnez l’emplacement **Europe de l’Ouest**. 
 9. Cliquez sur **Créer** pour créer le compte de stockage.
 
-### <a name="create-a-vault"></a>Créer un coffre
+### <a name="create-a-vault"></a>création d'un coffre
 
 1. Dans le [portail Azure](https://portal.azure.com), dans le volet de navigation de gauche, cliquez sur **Autres services**, puis recherchez et sélectionnez **Coffres Recovery Services**.
 2. Dans la page Coffres Recovery Services, cliquez sur **+ Ajouter** en haut à gauche de la page.
@@ -86,7 +85,7 @@ Quand les machines virtuelles Azure sont créées après la migration (basculeme
 
 Vous avez besoin d’une ou plusieurs machines virtuelles à migrer. Ces instances EC2 doivent exécuter la version 64 bits de Windows Server 2008 R2 SP1 ou ultérieur, Windows Server 2012, Windows Server 2012 R2 ou Red Hat Enterprise Linux 6.7 (uniquement pour les instances HVM virtualisées). Le serveur doit avoir seulement les pilotes Citrix PV ou AWS PV. Les instances exécutant des pilotes RedHat PV ne sont pas prises en charge.
 
-Le service Mobilité doit être installé sur chaque machine que vous souhaitez répliquer. Site Recovery installe ce service automatiquement quand vous activez la réplication pour la machine virtuelle. Pour une installation automatique, vous devez préparer un compte sur les instances EC2 qui sera utilisé par Site Recovery pour accéder à la machine virtuelle.
+Le service Mobility doit être installé sur chaque machine que vous souhaitez répliquer. Site Recovery installe ce service automatiquement quand vous activez la réplication pour la machine virtuelle. Pour une installation automatique, vous devez préparer un compte sur les instances EC2 qui sera utilisé par Site Recovery pour accéder à la machine virtuelle.
 
 Vous pouvez utiliser un compte local ou de domaine. Pour les machines virtuelles Linux, le compte doit être root sur le serveur Linux source. Pour les machines virtuelles Windows, si vous n’utilisez pas un compte de domaine, désactivez le contrôle d’accès des utilisateurs distants sur la machine locale :
 
@@ -147,7 +146,7 @@ Dans cette section, vous entrez des informations sur les ressources que vous ave
 
 1. Dans **Abonnement**, sélectionnez l’abonnement Azure que vous avez utilisé pour le didacticiel [Préparer Azure](tutorial-prepare-azure.md).
 2. Sélectionnez **Resource Manager** comme modèle de déploiement.
-3. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes de stockage Azure compatibles. Il doit s’agir des ressources que vous avez créées quand vous avez effectué les actions de la section [Préparer les ressources Azure](#prepare-azure-resources), plus tôt dans ce didacticiel.
+3. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles. Il doit s’agir des ressources que vous avez créées quand vous avez effectué les actions de la section [Préparer les ressources Azure](#prepare-azure-resources), plus tôt dans ce didacticiel.
 4. Une fois ces opérations effectuées, cliquez sur **OK**.
 
 
@@ -264,4 +263,3 @@ Dans cette rubrique, vous avez découvert comment migrer des instances AWS EC2 v
 
 > [!div class="nextstepaction"]
 > [Didacticiels sur les machines virtuelles Azure Windows](../virtual-machines/windows/tutorial-manage-vm.md)
-

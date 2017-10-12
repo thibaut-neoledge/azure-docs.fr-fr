@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 3ad1bfe2c45fd087f094aad5b2028ab488dbb2a9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fb00711c762aa67c632d1cc582741970e3df0ef2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Créer des tableaux de bord d’indicateur de performance clé à l’aide d’Azure Application Insights
 
 Vous pouvez créer dans le portail Azure plusieurs tableaux de bord incluant des vignettes présentant des données de plusieurs ressources Azure dans différents groupes de ressources et abonnements.  Vous pouvez épingler différents graphiques et affichages d’Azure Application Insights pour créer des tableaux de bord personnalisés qui donnent une image complète de l’intégrité et des performances de votre application.  Ce didacticiel vous guide dans la création d’un tableau de bord personnalisé incluant plusieurs types de données et visualisations d’Azure Application Insights.  Vous allez apprendre à effectuer les actions suivantes :
@@ -31,11 +29,11 @@ Vous pouvez créer dans le portail Azure plusieurs tableaux de bord incluant des
 
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 Pour suivre ce didacticiel :
 
-- Déployez une application .NET sur Azure et [activez le Kit de développement logiciel (SDK) Application Insights](app-insights-asp-net.md). 
+- Déployez une application .NET pour Azure et [activez le Kit SDK Application Insights](app-insights-asp-net.md). 
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com).

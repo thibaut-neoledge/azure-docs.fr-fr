@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
+ms.openlocfilehash: 1b26d7925fe5bd39905d9f51d22433b1eea43af6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 25520a447a9f2c459fd073779e4922377b6d1d4d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-media-services-telemetry"></a>Télémétrie Azure Media Services
 
 Azure Media Services (AMS) vous permet d’accéder aux données de télémétrie/mesure pour ses services. La version actuelle de AMS vous permet de collecter les données de télémétrie pour les entités en temps réel **Channel**, **StreamingEndpoint** et **Archive**. 
@@ -220,4 +218,3 @@ Le système de télémétrie ne fournit pas de gestion de rétention des donnée
 ## <a name="provide-feedback"></a>Fournir des commentaires
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

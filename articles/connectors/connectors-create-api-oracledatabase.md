@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Prise en main du connecteur de base de données Oracle
 
@@ -136,4 +135,3 @@ Vous pouvez améliorer Logic Apps et les connecteurs en votant et en soumettant 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créez une application logique](apis-list.md) et explorez les connecteurs disponibles dans Logic Apps en consultant notre [liste d’API](../logic-apps/logic-apps-create-a-logic-app.md).
-

@@ -1,7 +1,7 @@
 ---
 title: Langages pour la machine virtuelle DSVM sur Azure | Microsoft Docs
 description: Langages pour la machine virtuelle DSVM sur Azure
-keywords: "outils de science des données, machine virtuelle dsvm, outils pour la science des données, science des données linux"
+keywords: "outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2f2125e739b738847e03ce429d65801969611685
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Langages pris en charge sur la machine virtuelle DSVM 
 
 La machine virtuelle DSVM (Data Science Virtual Machine) est fournie avec plusieurs langages et outils de développement prédéfinis qui permettent de créer vos applications d’intelligence artificielle. En voici une liste non exhaustive. 
@@ -199,6 +197,5 @@ L’emplacement Julia par défaut est un environnement général lisible par tou
 **node.js** : node.js est disponible sur les éditions Linux et Windows de la machine virtuelle DSVM, et défini sur le chemin. Vous pouvez taper la commande `node` ou `npm` à l’invite de commandes dans Windows ou dans l’interpréteur de commandes Bash sur Linux pour accéder à node.js. Sur Windows, l’extension Node.js Tools pour Visual Studio est installée afin de fournir un IDE graphique pour le développement de votre application node.js. 
 
 **F#** : disponible sur Windows et accessible par le biais de Visual Studio Community Edition ou à une `Developer Command Prompt for Visual Studio` où il suffit d’exécuter la commande `fsc`. 
-
 
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/01/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Créer un service web frontal pour votre application à l’aide d’ASP.NET Core
 Par défaut, les services Azure Service Fabric ne fournissent pas une interface publique sur le web. Pour exposer les fonctionnalités de votre application pour les clients HTTP, vous devez créer un projet web qui agit comme point d'entrée et ensuite établir la communication avec vos services individuels.
@@ -33,8 +32,8 @@ Pour suivre ce didacticiel, vous avez besoin de Visual Studio 2017. N’importe
  - [Installer Visual Studio 2017](https://www.visualstudio.com/)
 
 Pour développer des applications ASP.NET Core Service Fabric, les charges de travail suivantes doivent être installées :
- - **Développement Azure** (sous *Web & Cloud*)
- - **Développement web et ASP.NET** (sous *Web & Cloud*)
+ - **Développement Azure** (sous *Web &amp; Cloud*)
+ - **Développement web et ASP.NET** (sous *Web &amp; Cloud*)
  - **Développement multiplateforme .NET Core** (sous *Autres jeux d’outils*)
 
 >[!Note] 
@@ -252,4 +251,3 @@ Une fois que vous avez une bonne compréhension du fonctionnement des communicat
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
-

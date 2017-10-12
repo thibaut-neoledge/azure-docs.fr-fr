@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/21/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
+ms.openlocfilehash: 3be46c8c02ad136edb1936fbb39560d479b27277
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: c303235ead2af7cfaa368a5b5f00567ae44cfb86
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-new-azvm-preview-in-cloud-shell"></a>Créer une machine virtuelle Windows avec New-AzVM (préversion) dans Cloud Shell 
 
 L’applet de commande New-AzVM (préversion) offre un moyen simplifié de créer une nouvelle machine virtuelle avec PowerShell. Ce guide décrit en détail comment utiliser PowerShell dans Azure Cloud Shell, avec l’applet de commande New-AzVM préinstallée, pour créer une nouvelle machine virtuelle Azure exécutant Windows Server 2016. Une fois le déploiement effectué, nous nous connectons au serveur avec RDP.  
@@ -33,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]
 
-## <a name="create-the-vm"></a>Créer la machine virtuelle
+## <a name="create-the-vm"></a>Création de la machine virtuelle
 
 Vous pouvez utiliser l’applet de commande **New-AzVM** pour créer une machine virtuelle avec les valeurs par défaut, ce qui implique l’utilisation de l’image Windows Server 2016 Datacenter de la Place de marché Azure. Vous pouvez utiliser New-AzVM seul, auquel cas les valeurs par défaut des noms de ressources seront utilisées. Dans cet exemple, nous définissons le paramètre **-Name** en tant que *myVM*. L’applet de commande crée les ressources nécessaires en utilisant *myVM* comme préfixe pour le nom de ressource. 
 
@@ -56,7 +54,7 @@ Find-AzureRmResource `
 
 Une fois le déploiement terminé, créez une connexion Bureau à distance avec la machine virtuelle.
 
-Utilisez la commande [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) pour retourner l’adresse IP publique de la machine virtuelle. Notez cette adresse IP.
+Utilisez la commande [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) pour renvoyer l’adresse IP publique de la machine virtuelle. Notez cette adresse IP.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -71,7 +69,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Vous pouvez utiliser la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées, si vous n’en avez plus besoin.
+Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myVMResourceGroup
@@ -83,4 +81,3 @@ Dans cette rubrique, vous avez déployé une machine virtuelle simple avec New-A
 
 > [!div class="nextstepaction"]
 > [Didacticiels sur les machines virtuelles Azure Windows](./tutorial-manage-vm.md)
-

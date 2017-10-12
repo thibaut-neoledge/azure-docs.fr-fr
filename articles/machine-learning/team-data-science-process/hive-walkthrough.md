@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processus TDSP (Team Data Science Process) en action : utiliser des clusters Hadoop Azure HDInsight
 Dans cette procédure pas à pas, nous allons utiliser le [processus TDSP (Team Data Science Process)](overview.md) avec un scénario complet au moyen d’un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Les modèles de données sont créés avec Azure Machine Learning pour gérer les tâches prédictives de classification et de régression binaires et multiclasses.
@@ -110,10 +109,10 @@ Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers conten
 
 Dans les commandes AzCopy suivantes, remplacez les paramètres suivants par les valeurs réelles que vous avez spécifiées lors de la création du cluster Hadoop et lors de la décompression des fichiers de données.
 
-* ***&#60;path_to_data_folder>*** le répertoire (ainsi que le chemin d’accès) sur votre ordinateur qui contiennent les fichiers de données décompressés  
-* ***&#60;storage account name of Hadoop cluster>*** le compte de stockage associé à votre cluster HDInsight
-* ***&#60;default container of Hadoop cluster>*** le conteneur par défaut utilisé par votre cluster. Notez que le nom du conteneur par défaut est généralement le même nom que celui du cluster. Par exemple, si le cluster est appelé « abc123.azurehdinsight.net », le conteneur par défaut est abc123.
-* ***&#60;storage account key>*** la clé du compte de stockage utilisé par votre cluster
+* ***&amp;#60;path_to_data_folder&gt;*** le répertoire (ainsi que le chemin d’accès) sur votre ordinateur qui contiennent les fichiers de données décompressés  
+* ***&amp;#60;storage account name of Hadoop cluster&gt;*** le compte de stockage associé à votre cluster HDInsight
+* ***&amp;#60;default container of Hadoop cluster&gt;*** le conteneur par défaut utilisé par votre cluster. Notez que le nom du conteneur par défaut est généralement le même nom que celui du cluster. Par exemple, si le cluster est appelé « abc123.azurehdinsight.net », le conteneur par défaut est abc123.
+* ***&amp;#60;storage account key&gt;*** la clé du compte de stockage utilisé par votre cluster
 
 À partir d'une invite de commandes ou d’une fenêtre Windows PowerShell sur votre ordinateur, exécutez les deux commandes AzCopy suivantes.
 
@@ -837,4 +836,3 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-

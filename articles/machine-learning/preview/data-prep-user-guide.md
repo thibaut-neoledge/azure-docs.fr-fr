@@ -12,12 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 22389ba85edb119acdd21b63f2deae2d71f31373
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-preparation-user-guide"></a>Guide de l’utilisateur de préparation des données 
 L’expérience de préparation des données fournit un grand nombre de fonctionnalités enrichies. Cet article les examine de manière détaillée.
@@ -41,7 +40,7 @@ Les valeurs d’erreur sont faciles à identifier. Elles sont mises en surbrilla
 
 Les valeurs d’erreur se propagent. Une fois qu’une valeur d’erreur s’est produite, elle se propage dans la plupart des cas en tant qu’erreur dans la plupart des opérations. Toutefois, il existe actuellement trois façons de les supprimer ou de les remplacer :
 
-1) Remplacer
+1) Replace
     -  Cliquez avec le bouton droit sur une colonne et sélectionnez *Replace Error Values* (Remplacer les valeurs d’erreur). Vous pouvez ensuite choisir une valeur de remplacement pour chaque valeur d’erreur figurant dans la colonne.
 
 2) Supprimer
@@ -50,20 +49,20 @@ Les valeurs d’erreur se propagent. Une fois qu’une valeur d’erreur s’est
 
 3) Utilisez une expression Python pour opérer de manière conditionnelle sur des valeurs d’erreur. Pour plus d’informations, consultez la [section sur les extensions Python](data-prep-python-extensibility-overview.md).
 
-### <a name="sampling"></a>Échantillonnage
+### <a name="sampling"></a>échantillonnage
 Un fichier Source de données accepte des données brutes à partir d’une ou plusieurs sources, à partir du système de fichiers local ou d’un emplacement distant. Le bloc Échantillon vous permet de spécifier s’il faut utiliser un sous-ensemble des données en générant des échantillons. Le fait d’opérer sur un échantillon de données plutôt que sur un jeu de données volumineux entraîne souvent une amélioration des performances lors de l’exécution des opérations des étapes ultérieures.
 
 Pour chaque fichier Source de données, plusieurs échantillons peuvent être générés et stockés. Cependant, un seul échantillon peut être défini comme échantillon actif. Vous pouvez créer, modifier ou supprimer des échantillons dans l’Assistant Source de données ou en modifiant le bloc Échantillon. Tout fichier de données Préparation des données qui référence une Source de données utilise implicitement l’échantillon spécifié dans le fichier Source de données.
 
 Plusieurs stratégies d’échantillonnage sont disponibles, chacune avec différents paramètres configurables.
 
-#### <a name="top"></a>Top
+#### <a name="top"></a>Top (Premiers)
 Vous pouvez appliquer cette stratégie à des fichiers locaux ou distants. Elle prend les N premières lignes (spécifiées par Count) dans la Source de données.
 
 #### <a name="random-n"></a>Random N 
 Vous pouvez appliquer cette stratégie uniquement à des fichiers locaux. Elle prend N lignes aléatoires (spécifiées par Count) dans la Source de données. Vous pouvez fournir une valeur de départ spécifique pour être certain que le même échantillon est généré si la valeur Count est identique.
 
-#### <a name="random-"></a>Random % 
+#### <a name="random-"></a>% aléatoire 
 Vous pouvez appliquer cette stratégie à des fichiers locaux ou distants. Dans les deux cas, vous devez fournir une probabilité et une valeur de départ, comme avec la stratégie Random N.
 
 Pour les échantillons de fichiers distants, vous devez fournir des paramètres supplémentaires.
@@ -110,4 +109,3 @@ Toute opération sur le flux de données référencé exige que le flux de donn�
 [Annexe 8 - Exemples de sources de données dans Python](data-prep-appendix8-sample-source-connections-python.md)  
 [Annexe 9 - Exemples de connexions de destination dans Python](data-prep-appendix9-sample-destination-connections-python.md)  
 [Annexe 10 - Exemples de transformations de colonnes dans Python](data-prep-appendix10-sample-custom-column-transforms-python.md)  
-

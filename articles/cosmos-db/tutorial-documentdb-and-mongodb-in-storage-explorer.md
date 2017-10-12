@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2cd3656156b77c71be85a1a18567232f4466fc68
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Gérer Azure Cosmos DB dans l’Explorateur Stockage Azure (préversion)
 
@@ -31,12 +30,12 @@ L’utilisation d’Azure Cosmos DB dans l’Explorateur Stockage Azure permet a
 Dans cet article, vous apprenez à utiliser l’Explorateur Stockage pour gérer Azure Cosmos DB.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 - Un compte Azure Cosmos DB pour une base de données MongoDB ou SQL (DocumentDB). Si vous n’avez pas de compte, vous pouvez en créer un dans le portail Azure, comme décrit dans [Azure Cosmos DB : Développer une application web API DocumentDB avec .NET et le portail Azure](create-documentdb-dotnet.md).
 - Installez la version la plus récente de l’Explorateur Stockage Azure. Vous pouvez l’installer en utilisant les liens suivants : [Linux](https://go.microsoft.com/fwlink/?linkid=858559), [Mac](https://go.microsoft.com/fwlink/?linkid=858561), [Windows](https://go.microsoft.com/fwlink/?linkid=858562).
 
-## <a name="connect-to-an-azure-subscription"></a>Se connecter à un abonnement Azure
+## <a name="connect-to-an-azure-subscription"></a>Connexion à un abonnement Azure
 
 1. Après avoir installé l’**Explorateur Stockage Azure**, cliquez sur l’icône de **plug-in** à gauche, comme illustré dans l’image suivante.
        
@@ -48,7 +47,7 @@ Dans cet article, vous apprenez à utiliser l’Explorateur Stockage pour gérer
 
 2. Dans la boîte de dialogue **Connexion à Azure**, sélectionnez **Se connecter** et entrez vos informations d’identification Azure.
 
-    ![Se connecter](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/sign-in.png)
+    ![de connexion](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/sign-in.png)
 
 3. Sélectionnez votre abonnement dans la liste, puis cliquez sur **Appliquer**.
 
@@ -100,7 +99,7 @@ En cliquant avec le bouton droit sur un abonnement dans le volet Explorateur, vo
 #### <a name="create-a-database"></a>Créer une base de données 
 Cliquez avec le bouton droit sur le compte Azure Cosmos DB, choisissez **Créer une base de données**, entrez le nom de la base de données, puis appuyez sur **Entrée** pour terminer.
 
-![Créer une base de données](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/create-database.png) 
+![Création d’une base de données](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/create-database.png) 
 
 #### <a name="delete-a-database"></a>Supprimer une base de données
 Cliquez avec le bouton droit sur la base de données, cliquez sur **Supprimer la base de données**, puis sur **Oui** dans la fenêtre contextuelle. Le nœud de base de données est supprimé et le compte Azure Cosmos DB s’actualise automatiquement.
@@ -109,7 +108,7 @@ Cliquez avec le bouton droit sur la base de données, cliquez sur **Supprimer la
 
 ![Supprimer database2](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/delete-database2.png) 
 
-#### <a name="create-a-collection"></a>Créer une collection
+#### <a name="create-a-collection"></a>Création d'une collection
 Cliquez avec le bouton droit sur votre base de données, choisissez **Créer une collection**, puis fournissez les informations suivantes de type **ID de collection**, **Capacité de stockage**, etc. Cliquez sur **OK** pour terminer. Pour plus d’informations sur les paramètres de clé de partition, consultez [Conception axée sur le partitionnement](partition-data.md#designing-for-partitioning).
 
 Si une clé de partition est utilisée pendant la création d’une collection, une fois la création terminée, la valeur de la clé de partition ne peut pas être changée sur la collection.
@@ -153,5 +152,4 @@ Modifiez le filtre de document en entrant une [requête SQL](documentdb-sql-quer
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez connecté l’Explorateur Stockage Azure à votre compte Azure Cosmos DB, découvrez plus d’informations sur l’Explorateur Stockage et connectez plus de services dans [Bien démarrer avec l’Explorateur Stockage (préversion)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-
 

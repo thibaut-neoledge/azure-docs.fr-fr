@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 06/26/2017
 ms.author: bwren
+ms.openlocfilehash: 05362ab6567d8dbc44f4015c77203eb1abfc2914
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: afcfc6bb27506dbcc44217680e779318107b33d9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Vue d’ensemble d’Application Insights pour DevOps
 
@@ -54,7 +53,7 @@ Marcela Markova est développeur senior de l'équipe OBS et elle est responsable
 
 Une fois ces tests configurés, Marcela sait que l'équipe sera rapidement avertie en cas d'interruption.  
 
-Les défaillances sont indiquées par des points rouges dans le graphique de test web :
+Les défaillances sont indiquées par des points rouge dans le graphique de test web :
 
 ![Affichage des tests web exécutés sur la période précédente](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
@@ -214,7 +213,7 @@ Par exemple, le parcours typique d’un utilisateur sur un site web s’effectue
 
 En regardant à quel moment le plus grand nombre de clients s’est désintéressé, l’entreprise peut réfléchir à un moyen pour encourager davantage d’utilisateurs à aller plus loin dans leur exploration du site. Dans certains cas, il peut y avoir une défaillance de l'expérience utilisateur : par exemple, le bouton « suivant » est difficile de trouver ou les instructions ne sont pas claires. Toutefois, il est plus probable que ce désintéressement soit lié à des raisons commerciales : le taux du prêt est peut-être trop élevé.
 
-Quelque soit les raisons, les données permettent à l’équipe de comprendre ce que font les utilisateurs. Plusieurs appels de suivi peuvent être insérés afin d’obtenir davantage de détails. TrackEvent() peut être utilisé pour compter toutes les actions d’un utilisateur, des moindres détails relatifs aux clics sur un bouton aux résultats les plus significatifs tels que le remboursement d’un prêt.
+Quelque soit les raisons, les données permettent à l’équipe de comprendre ce que font les utilisateurs. Plusieurs appels de suivi peuvent être insérées afin d’obtenir davantage de détails. TrackEvent() peut être utilisé pour compter toutes les actions d’un utilisateur, des moindres détails relatifs aux clics sur un bouton aux résultats les plus significatifs tels que le remboursement d’un prêt.
 
 L'équipe est habituée à recevoir des informations sur l’activité d’un utilisateur. Aujourd'hui, chaque fois qu'ils conçoivent une nouvelle fonctionnalité, ils anticipent les avis qu’ils pourraient obtenir sur celle-ci. Ils conçoivent de zéro des appels de suivi dans la fonctionnalité. Ils exploitent les avis afin d’améliorer la fonctionnalité pour chaque cycle de développement.
 
@@ -236,4 +235,3 @@ Vous pouvez commencer de plusieurs façons, selon les caractéristiques de votre
 * Applications déjà déployées, hébergées sur [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) ou [Azure](app-insights-azure.md).
 * [Pages web](app-insights-javascript.md) (application à page unique ou page web ordinaire) : utilisez cette option seule ou en plus des options de serveur.
 * [Tests de disponibilité](app-insights-monitor-web-app-availability.md) pour tester votre application à partir de l’Internet public.
-

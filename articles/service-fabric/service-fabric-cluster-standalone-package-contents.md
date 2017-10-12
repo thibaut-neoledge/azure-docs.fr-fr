@@ -13,14 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: chackdan;maburlik
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 6a6bacedde04419449a061554d5ce9ad37259a2f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Contenu du package autonome Service Fabric pour Windows Server
 Dans le package autonome Service Fabric [téléchargé](http://go.microsoft.com/fwlink/?LinkId=730690), vous trouverez les fichiers suivants :
 
@@ -60,4 +58,3 @@ Le package de runtime le plus récent est téléchargé automatiquement lors du 
 ## <a name="related"></a>Rubriques connexes
 * [Créer un cluster Azure Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md)
 * [Scénarios de sécurité d’un cluster Service Fabric](service-fabric-windows-cluster-windows-security.md)
-

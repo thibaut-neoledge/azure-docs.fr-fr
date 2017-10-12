@@ -17,10 +17,10 @@ ms.date: 04/28/2017
 ms.author: viviali
 ms.custom: aaddev
 ms.openlocfilehash: fad5c315a247673b7a2ad52b4a78b49c567a997a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Démarrage rapide pour l'API Graph Azure AD
 L’API Graph Azure Active Directory (AD) donne accès par programme à Azure AD via les points de terminaison de l’API REST OData. Les applications peuvent utiliser l'API Graph pour effectuer des opérations de création, de lecture, de mise à jour et de suppression (CRUD) sur les données et objets d'annuaire. Par exemple, vous pouvez utiliser l’API Graph pour créer un utilisateur, afficher ou mettre à jour ses propriétés, modifier son mot de passe, vérifier que l’appartenance à un groupe offre un accès en fonction du rôle, et désactiver ou supprimer l’utilisateur. Pour plus d’informations sur les fonctionnalités de l’API Graph et les scénarios d’application, consultez [Azure AD Graph API reference (Référence sur l’API Graph Azure AD)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) et [Prerequisites for Using the Graph API in an App (Conditions préalables à l’utilisation de l’API Graph dans une application)](https://msdn.microsoft.com/library/hh974476.aspx). 

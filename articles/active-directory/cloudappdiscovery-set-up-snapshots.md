@@ -16,14 +16,12 @@ ms.date: 09/22/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.custom: it-pro
+ms.openlocfilehash: dd4cf725689739ce4c8b86a4d8203ffc5aff016b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 38e3f71fb4817de7aa95b99e662856f586e72530
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>Créer des rapports d’instantané Cloud App Discovery
 
 Avant de configurer le collecteur de journaux automatique, chargez un journal manuellement afin que Cloud App Security l’analyse. Si vous ne disposez pas encore d’un journal et que vous souhaitez voir un exemple de ce à quoi il doit ressembler, utilisez la procédure ci-dessous pour télécharger un exemple de fichier journal.
@@ -45,7 +43,7 @@ Avant de configurer le collecteur de journaux automatique, chargez un journal ma
   > L’exemple de format FTP est pris en charge dans les instantanés et dans le chargement automatique, tandis que syslog n’est pris en charge que dans le chargement automatique. Télécharger un exemple de journal télécharge un exemple de journal FTP.
 6. **Choisissez les journaux de trafic** que vous souhaitez charger. Vous pouvez charger jusqu’à 20 fichiers à la fois. Les fichiers compressés et zippés sont également pris en charge.
   
-7. Cliquez sur **Create**. Une fois le chargement effectué, leur analyse peut prendre un certain temps. Dans ce cas, Cloud App Discovery envoie une notification par e-mail quand ils sont prêts.
+7. Cliquez sur **Créer**. Une fois le chargement effectué, leur analyse peut prendre un certain temps. Dans ce cas, Cloud App Discovery envoie une notification par e-mail quand ils sont prêts.
 
 8. Sélectionnez **Gérer des rapports d’instantanés**, puis sélectionnez votre rapport d’instantané.
   
@@ -56,4 +54,3 @@ Avant de configurer le collecteur de journaux automatique, chargez un journal ma
 * [Bien démarrer avec Cloud App Discovery dans Azure AD](cloudappdiscovery-get-started.md)
 * [Configurer le chargement automatique des journaux pour des rapports continus](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [Utiliser un analyseur de journal personnalisé](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-

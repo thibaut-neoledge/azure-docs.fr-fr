@@ -14,14 +14,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: helaw
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 83bb401d5d65cd2c34015a1a14673363aeee81d7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Déployer des applications sur Azure et Azure Stack
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -212,6 +210,5 @@ Maintenant que vous avez un pipeline CI/CD hybride, poursuivez en apprenant à d
 
 > [!div class="nextstepaction"]
 > [Développer pour Azure Stack](azure-stack-developer.md)
-
 
 

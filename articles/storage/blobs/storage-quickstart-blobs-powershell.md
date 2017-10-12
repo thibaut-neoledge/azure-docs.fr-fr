@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: robinsh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1a9941b21b92c70dd0a46ce2e4c75142e1786650
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Transférer des objets à destination/à partir du Stockage Blob Azure à l’aide d’Azure PowerShell
 
 Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande PowerShell ou dans des scripts. Ce guide décrit en détail l’utilisation de PowerShell pour transférer des fichiers entre un disque local et le Stockage Blob Azure.
@@ -98,7 +96,7 @@ Get-AzureStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>Transfert de données avec AzCopy
 
-L’utilitaire [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une autre option pour transférer des données par script hautes performances pour le stockage Azure. Vous pouvez utiliser AzCopy pour transférer des données à destination et à partir du stockage Blob, Table et Fichier.
+L’utilitaire [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une autre option hautes performances pour transférer des données par script avec le stockage Azure. Vous pouvez utiliser AzCopy pour transférer des données à destination et à partir du stockage Blob, Table et Fichier.
 
 Exemple rapide : voici la commande AzCopy qui permet de charger un fichier appelé *myfile.txt* dans le conteneur *mystoragecontainer* à partir de la fenêtre de PowerShell.
 
@@ -126,7 +124,7 @@ Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers
 > [Guide pratique des opérations de stockage Blob](storage-how-to-use-blobs-powershell.md)
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Référence des applets de commande de stockage Microsoft Azure PowerShell
-* [Applets de commande PowerShell de stockage](/powershell/module/azurerm.storage#storage)
+* [Applets de commande PowerShell - Stockage](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Explorateur Microsoft Azure Storage
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.

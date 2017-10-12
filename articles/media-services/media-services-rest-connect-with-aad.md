@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: willzhan;juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: a4531b69c44337c4863016810123f7f89bf7f98f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 1c62857699fb29b3583363e1c6f2dc7874635f40
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec REST
 
 L’équipe Azure Media Services a publié le support de l’authentification Azure Active Directory (Azure AD) pour accéder à Azure Media Services. Elle a également annoncé des plans visant à déconseiller l’authentification du service Azure Access Control pour l’accès à Media Services. Étant donné tous les abonnements Azure et comptes Media Services sont joints à un locataire Azure AD, le support de l’authentification Azure AD apporte de nombreux avantages en termes de sécurité. Pour plus d’informations sur cette modification et la migration (si vous utilisez le Kit de développement logiciel (SDK) Media Services .NET pour votre application), consultez les billets de blog et articles suivants :
@@ -147,4 +145,3 @@ Si vous utilisez le flux d’octroi d’autorisation OAuth 2.0 (nom d’utilisa
 ## <a name="next-steps"></a>Étapes suivantes
 
 Commencez le [chargement de fichiers sur votre compte](media-services-dotnet-upload-files.md).
-

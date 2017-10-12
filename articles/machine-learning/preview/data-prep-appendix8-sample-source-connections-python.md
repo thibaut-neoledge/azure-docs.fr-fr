@@ -12,19 +12,18 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 550cca100314009f63eec2136e8c65426d8bf07f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Exemple de connexions sources personnalisées (Python) 
 Avant de lire cette annexe, consultez [Vue d’ensemble de l’extensibilité Python](data-prep-python-extensibility-overview.md).
 
 ## <a name="loading-data-from-dataworld"></a>Chargement de données à partir de data.world
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Composants requis
 
 #### <a name="register-yourself-at-dataworld"></a>Vous inscrire auprès de data.world
 Un jeton d’API, que vous obtenez à partir du site web de data.world, est nécessaire.
@@ -91,4 +90,3 @@ docs = client.ReadDocuments(coll['_self'])
 
 df = pd.DataFrame(list(docs))
 ```
-

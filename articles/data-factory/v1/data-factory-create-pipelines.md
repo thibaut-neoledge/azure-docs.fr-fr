@@ -15,16 +15,15 @@ ms.topic: article
 ms.date: 08/12/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 94c820b23a91f3493a0fbc8e1fd38c86d371e985
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-create-pipelines.md)
+> * [Version 1 - Disponibilité générale](data-factory-create-pipelines.md)
 > * [Version 2 - Préversion](../concepts-pipelines-activities.md)
 
 > [!NOTE]
@@ -362,5 +361,4 @@ Notez les points suivants :
 - Pour plus d’informations sur les jeux de données, consultez l’article [Créer des jeux de données](data-factory-create-datasets.md). 
 - Pour plus d’informations sur la façon dont les pipelines sont planifiés et exécutés, consultez l’article [Planification et exécution dans Azure Data Factory](data-factory-scheduling-and-execution.md). 
   
-
 

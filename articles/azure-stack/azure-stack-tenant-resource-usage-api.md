@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2016
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f2eaf1c766d6c86741cf0fd561c131eacb34d782
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tenant-resource-usage-api"></a>API d’utilisation des ressources de locataire
 Un locataire peut utiliser l’API locataire pour afficher ses propres données d’utilisation des ressources. Cette API est cohérente avec l’API d’utilisation Azure (actuellement en préversion limitée).
@@ -89,5 +88,4 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 [API Utilisation des ressources de fournisseur](azure-stack-provider-resource-api.md)
 
 [Questions fréquentes (FAQ) relatives à l’utilisation](azure-stack-usage-related-faq.md)
-
 

@@ -14,22 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d1ce9f81006809aa3c3c07744298a8194971e0b3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Gérer Key Vault dans Azure Stack à l’aide de PowerShell
 
 Cet article montre comment créer et gérer Key Vault dans Azure Stack à l’aide de PowerShell. Les applets de commande PowerShell Key Vault décrites dans cet article sont disponibles dans le cadre du SDK Azure PowerShell. Les sections suivantes décrivent les applets de commande PowerShell nécessaires pour créer un coffre, stocker et gérer les clés de chiffrement et les secrets, et autoriser des utilisateurs ou des applications à appeler des opérations dans le coffre. 
 
 ## <a name="prerequisites"></a>Composants requis
-* Vous devez vous abonner à une offre qui inclut le service Key Vault. 
-* [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).  
-* [Configurer l’environnement PowerShell de l’utilisateur Azure Stack](azure-stack-powershell-configure-user.md)
+* Les utilisateurs doivent s’abonner à une offre qui inclut le service Key Vault. 
+* [Installer PowerShell pour Azure Stack.](azure-stack-powershell-install.md)  
+* [Configurez l’environnement PowerShell de l’utilisateur Azure Stack.](azure-stack-powershell-configure-user.md)
 
 ## <a name="enable-your-tenant-subscription-for-vault-operations"></a>Activer votre abonnement de locataire pour les opérations de coffre
 
@@ -166,4 +164,3 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 ## <a name="next-steps"></a>Étapes suivantes
 * [Déployer une machine virtuelle avec un mot de passe stocké dans un coffre de clés](azure-stack-kv-deploy-vm-with-secret.md)  
 * [Déployer une machine virtuelle avec un certificat stocké dans un coffre de clés](azure-stack-kv-push-secret-into-vm.md) 
-

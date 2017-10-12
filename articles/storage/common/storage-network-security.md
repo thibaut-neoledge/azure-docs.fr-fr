@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/25/2017
 ms.author: cbrooks
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de52e9cb32e28d2f40a56743ed759b5d5d0a63f0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurer Pare-feu et réseaux virtuels dans Stockage Azure (préversion)
 Le service Stockage Azure fournit un modèle de sécurité en couche qui vous permet de sécuriser vos comptes de stockage sur un ensemble spécifique de réseaux autorisés.  Quand des règles de réseau sont configurées, seules les applications des réseaux autorisés peuvent accéder à un compte de stockage.  En cas d’appel à partir d’un réseau autorisé, les applications continuent à demander une autorisation appropriée (une clé d’accès ou un jeton SAS valide) pour accéder au compte de stockage.
@@ -300,12 +299,12 @@ Quand l’exception « Services Microsoft approuvés » est activée, les serv
 
 |Service|Nom du fournisseur de ressources|Objectif|
 |:------|:---------------------|:------|
-|Azure DevTest Labs|Microsoft.DevTestLab|Création d’une image personnalisée et installation de l’artefact.  [Plus d’informations](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-overview)|
-|Azure Event Grid|Microsoft.EventGrid|Activation de la publication d’événements Stockage Blob.  [Plus d’informations](https://docs.microsoft.com/en-us/azure/event-grid/overview)|
-|Azure Event Hubs|Microsoft.EventHub|Archivage des données avec Event Hubs Capture.  [En savoir plus](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview)|
-|Azure HDInsight|Microsoft.HDInsight|Approvisionnement et installation de cluster.  [Plus d’informations](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage)|
-|Mise en réseau Azure|Microsoft.Networking|Stockage et analyse des journaux du trafic réseau.  [Plus d’informations](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview)|
-|Azure SQL Data Warehouse|Microsoft.Sql|Importation et exportation de données.  [Plus d’informations](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage)|
+|Azure DevTest Labs|Microsoft.DevTestLab|Création d’une image personnalisée et installation de l’artefact.  [En savoir plus](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-overview).|
+|Azure Event Grid|Microsoft.EventGrid|Activation de la publication d’événements Stockage Blob.  [En savoir plus](https://docs.microsoft.com/en-us/azure/event-grid/overview).|
+|Hubs d'événements Azure|Microsoft.EventHub|Archivage des données avec Event Hubs Capture.  [En savoir plus](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview)|
+|Azure HDInsight|Microsoft.HDInsight|Approvisionnement et installation de cluster.  [En savoir plus](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
+|Mise en réseau Azure|Microsoft.Networking|Stockage et analyse des journaux du trafic réseau.  [En savoir plus](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Azure SQL Data Warehouse|Microsoft.Sql|Importation et exportation de données.  [En savoir plus](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Accès aux données Storage Analytics
@@ -367,4 +366,3 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 Découvrez plus d’informations sur les points de terminaison de service du réseau Azure dans [Points de terminaison de service](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 Explorez en détail la sécurité de Stockage Azure dans [Guide de sécurité de Stockage Azure](storage-security-guide.md).
-

@@ -104,14 +104,18 @@
       href: /cli/azure/storage
     - name: .NET
       items:
-        - name: Gestionnaire de ressources
-          href: /dotnet/api/microsoft.azure.management.storage
-        - name: Déplacement des données
-          href: /dotnet/api/microsoft.windowsazure.storage.datamovement
         - name: 'Objets blob, files d’attente, tables et fichiers'
-          href: 'https://docs.microsoft.com/en-us/dotnet/api/overview/azure/storage?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet'
+        - name: Déplacement des données
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet'
+        - name: Gestionnaire de ressources
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet'
     - name: Java
-      href: 'http://azure.github.io/azure-storage-java/'
+      items:
+        - name: 'Objets blob, files d’attente, tables et fichiers'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/clientlibrary'
+        - name: Gestionnaire de ressources
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/managementapi'
     - name: Node.js
       href: 'http://azure.github.io/azure-storage-node'
     - name: Ruby

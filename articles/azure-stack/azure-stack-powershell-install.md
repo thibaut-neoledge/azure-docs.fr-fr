@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5555ee022e74b5d4791c5826ef80b166c4990a61
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-powershell-for-azure-stack"></a>Installer PowerShell pour Azure Stack  
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
@@ -136,4 +134,3 @@ Dans un scénario déconnecté, vous devez tout d’abord télécharger les modu
 * [Configurer l’environnement PowerShell de l’utilisateur Azure Stack](user/azure-stack-powershell-configure-user.md)  
 * [Configurer l’environnement PowerShell de l’opérateur Azure Stack](azure-stack-powershell-configure-admin.md) 
 * [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md)  
-

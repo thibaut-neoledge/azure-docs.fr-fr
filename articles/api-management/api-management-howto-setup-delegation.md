@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 2637ab6405f2d4ea1da84981295a144874dfa4f6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Délégation de l'inscription des utilisateurs et des abonnements aux produits
 La délégation vous permet d'utiliser votre site web existant pour gérer les connexions/inscriptions des développeurs et l'abonnement aux produits au lieu de faire appel aux fonctionnalités intégrées du portail des développeurs. Ceci permet à votre site web de conserver les données utilisateur et de valider ces étapes de façon personnalisée.
 
-## <a name="delegate-signin-up"> </a>Délégation de la connexion et de l’inscription des développeurs
+## <a name="delegate-signin-up"></a>Délégation de la connexion et de l’inscription des développeurs
 Pour déléguer les connexions et inscriptions des développeurs à votre site web existant, vous devez créer un point de terminaison de délégation spécifique sur votre site qui agit en tant que point d'entrée pour toutes les demandes de ce type émanant du portail des développeurs Gestion des API.
 
 Le processus final se présente comme suit :
@@ -44,7 +44,7 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
 
 1. Recevoir une demande au format suivant :
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&amp;returnUrl={URL of source page}&amp;salt={string}&amp;sig={string}*
    > 
    > 
    
@@ -88,7 +88,7 @@ Vous devez transmettre les paramètres de requête suivants pour les opérations
 * **salt**: chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité.
 * **sig**: code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé.
 
-## <a name="delegate-product-subscription"> </a>Délégation de l’abonnement aux produits
+## <a name="delegate-product-subscription"></a>Délégation de l’abonnement aux produits
 La délégation de l'abonnement aux produits fonctionne de la même manière que la délégation de la connexion/inscription. Le processus final se présente comme suit :
 
 1. Le développeur sélectionne un produit dans le portail des développeurs Gestion des API, puis clique sur le bouton d'abonnement.
@@ -101,7 +101,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 
 1. Recevoir une demande au format suivant :
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={opération}&productId={produit auquel s’abonner}&userId={utilisateur faisant la demande}&salt={chaîne}&sig={chaîne}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={opération}&amp;productId={produit auquel s’abonner}&amp;userId={utilisateur faisant la demande}&amp;salt={chaîne}&amp;sig={chaîne}*
    > 
    > 
    
@@ -126,7 +126,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 3. Effectuez le traitement de l'abonnement au produit en fonction du type de l'opération demandée dans **operation** , par exemple facturation, autres questions, etc.
 4. Après avoir correctement abonné l'utilisateur au produit de votre côté, abonnez l'utilisateur au produit Gestion des API en [appelant l'API REST pour l'abonnement au produit].
 
-## <a name="delegate-example-code"> </a> Exemple de Code
+## <a name="delegate-example-code"></a> Exemple de Code
 Ces exemples de code montrent comment prendre la *clé de validation de délégation*, définie dans l’écran Délégation du portail de publication, pour créer un HMAC qui permet ensuite de valider la signature, et fournit la preuve de la validité de l’élément returnUrl transmis. Le même code fonctionne pour productId et userId avec de légères modifications.
 
 ****Code C# pour générer le hachage de returnUrl****

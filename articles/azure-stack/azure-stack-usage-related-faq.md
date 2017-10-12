@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 166147c8cb4949be1b23e0a06868e66c8a5844f4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Forum aux questions sur l’API d’utilisation d’Azure Stack 
 Cet article répond à certaines questions fréquentes sur l’API d’utilisation d’Azure Stack.
@@ -81,5 +80,4 @@ Actuellement, vous pouvez interroger *uniquement par Heure du rapport*.
 [API d’utilisation des ressources de fournisseur](azure-stack-provider-resource-api.md)
 
 [API d’utilisation des ressources de locataire](azure-stack-tenant-resource-usage-api.md)
-
 

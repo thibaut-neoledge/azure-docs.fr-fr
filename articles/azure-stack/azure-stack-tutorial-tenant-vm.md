@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 9/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: afeec92c40262903e6cfd3c6d75a595fead616e3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Mettre des machines virtuelles à la disposition de vos utilisateurs Azure Stack
 
@@ -101,7 +100,7 @@ Il est maintenant possible d’effectuer toutes les étapes de préparation pour
 
 ## <a name="add-an-image"></a>Ajouter une image
 
-Avant de pouvoir provisionner des machines virtuelles, vous devez ajouter une image à la Place de marché Azure Stack. Vous pouvez ajouter l’image de votre choix, notamment des images Linux, à partir de la Place de marché Azure.
+Avant de pouvoir approvisionner des machines virtuelles, vous devez ajouter une image à la Place de marché Azure Stack. Vous pouvez ajouter l’image de votre choix, notamment des images Linux, à partir de la Place de marché Azure.
 
 Si vous êtes dans un scénario connecté et que vous avez inscrit votre instance Azure Stack auprès d’Azure, vous pouvez télécharger l’image de machine virtuelle Windows Server 2016 à partir de la Place de marché Azure en suivant la procédure décrite dans la rubrique [Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack](azure-stack-download-azure-marketplace-item.md).
 
@@ -129,9 +128,9 @@ Maintenant que vous avez créé une offre, vous pouvez le tester. Connectez-vous
 
    Une fois que vous êtes abonné à une offre, actualisez le portail pour voir les services qui font partie du nouvel abonnement.
 
-2. **Provisionner une machine virtuelle**
+2. **Approvisionner une machine virtuelle**
 
-   Vous pouvez maintenant vous connecter au portail en tant qu’utilisateur pour provisionner une machine virtuelle à l’aide de l’abonnement. 
+   Vous pouvez maintenant vous connecter au portail en tant qu’utilisateur pour approvisionner une machine virtuelle à l’aide de l’abonnement. 
 
    a. Connectez-vous au portail utilisateur en tant qu’utilisateur, puis cliquez sur **Nouveau** > **Calcul** > **Version d’évaluation du centre de données Windows Server 2016**.
       - Pour un système intégré, l’URL varie en fonction de la région et du nom de domaine externe de votre opérateur, et son format est le suivant : https://portal.&lt;*région*&gt;.&lt;*FQDN*&gt;.

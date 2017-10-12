@@ -9,12 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4b3720019ba396d90be5586fa8fff4fa7e7d6e46
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Forum aux questions sur Azure Machine Learning
 
@@ -156,7 +155,7 @@ Les outils de préparation des données dans Workbench prennent actuellement en 
 - Fichiers dans lesquels les valeurs dont délimitées, tels que CSV, TSV, etc.  
 - Fichiers de type largeur fixe
 - Fichiers de texte brut
-- Fichiers Excel (.xls/xlsx)
+- Excel (.xls/xlsx)
 - Fichiers JSON
 - Fichiers Parquet 
 - Fichiers personnalisés (scripts) Si votre solution requiert l’ingestion de données provenant d’autres sources, un code Python peut être utilisé pour... 
@@ -230,4 +229,3 @@ Le [Centre de documentation Azure Machine Learning](./overview-what-is-azure-ml.
 **Comment puis-je bénéficier d’un support pour Azure Machine Learning ?**
 
 Pour une assistance technique, accédez au support Azure, puis sélectionnez Machine Learning. Azure Machine Learning dispose également d’une communauté active sur [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning), balisée avec « Azure-Machine-Learning », et contrôlée par l’équipe.  Les suggestions et demandes de fonctionnalités peuvent être soumises via le site dédié aux [Commentaires sur Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). 
-

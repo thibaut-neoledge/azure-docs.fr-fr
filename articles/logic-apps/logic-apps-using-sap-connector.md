@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 3fea93f558d5a4ef62550fd1f6486903cb812930
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-to-an-on-premises-sap-system-from-logic-apps-with-the-sap-connector"></a>Se connecter à un système SAP local à partir de Logic Apps avec le connecteur SAP 
 
 La passerelle de données locale vous permet de gérer les données et d’accéder en toute sécurité aux ressources locales. Cette rubrique vous montre comment vous pouvez connecter des applications logiques à un système SAP local. Dans cet exemple, votre application logique demande un IDOC via HTTP et renvoie la réponse.    
@@ -92,4 +90,3 @@ Afin d’améliorer Azure Logic Apps ainsi que les connecteurs, votez pour des
 
 - Découvrez comment valider, transformer et utiliser d’autres fonctions BizTalk dans [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). 
 - [Connexion à des données locales](../logic-apps/logic-apps-gateway-connection.md) à partir d’applications logiques
-

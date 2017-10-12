@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 1ef3903bc4c401988c0f8b27dc9f9f0f3ec99466
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: d6867c73bc6ea3c238cceef8a68466d451f3365c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Sources de données prises en charge dans Azure Data Catalog
 
 Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un outil d’inscription par simple clic, ou en entrant manuellement les informations directement dans le portail web Azure Data Catalog. Le tableau ci-dessous récapitule toutes les sources de données actuellement prises en charge par le catalogue, ainsi que les fonctionnalités de publication disponibles pour chacune d’elles. Sont également répertoriés les outils de données externes que chaque source de données peut initier à partir du portail. Le deuxième tableau contient une spécification plus technique de chaque propriété de connexion de source de données.
@@ -980,4 +978,3 @@ Si vous avez besoin d’une prise en charge de sources supplémentaires, envoyez
       </td>
     </tr>
 </table>
-

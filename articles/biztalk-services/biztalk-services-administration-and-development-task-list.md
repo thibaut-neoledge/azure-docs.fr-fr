@@ -1,6 +1,6 @@
 ---
 title: "Liste des tâches d’administration et de développement dans BizTalk Services | Microsoft Docs"
-description: "Documentation de travail et de planification pour le déploiement d&quot;Azure BizTalk Services."
+description: "Documentation de travail et de planification pour le déploiement d'Azure BizTalk Services."
 services: biztalk-services
 documentationcenter: 
 author: msftman
@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1013419f9283c3e81a6a6e8ed56a34d6ee5937ea
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 7d4532daf5e4b8f45de94bbec230633978814a6e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>Liste des tâches d'administration et de développement dans BizTalk Services
 
@@ -58,5 +56,4 @@ Lorsque vous utilisez Microsoft Azure BizTalk Services, il existe plusieurs comp
 [Découvrir et créer des tables et des transformations de messages](https://msdn.microsoft.com/library/azure/hh689905.aspx)  
 [Utilisation de BizTalk Adapter Service (BAS)](https://msdn.microsoft.com/library/azure/hh689889.aspx)  
 [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)
-
 

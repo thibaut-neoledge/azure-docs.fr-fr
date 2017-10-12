@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/16/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d45bb37c8417785db0ea38be4375a998b6d9f109
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-your-storsimple-device"></a>Utilisation du service StorSimple Manager pour surveiller votre appareil StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -116,5 +115,4 @@ Les graphiques suivants montrent le débit du réseau pour Data 0 et Data 4, d
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [utiliser le tableau de bord de l’appareil du service StorSimple Manager](storsimple-device-dashboard.md).
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
 

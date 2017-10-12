@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit de bout en bout
 ## <a name="introduction"></a>Introduction
@@ -417,7 +416,7 @@ Ajoutez une sortie de type *Stockage Blob Azure*. Elle pointe vers le fichier sy
 ### <a name="azure-logic-app"></a>Application logique Azure
 Vous devez ensuite créer une application logique Azure qui sélectionne les événements que la fonction place dans la file d’attente Service Bus, analyse le contenu et envoie un e-mail lorsqu’une condition est remplie.
 
-[Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md) en accédant à **Nouveau > Application logique**.
+[Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md) en accédant à **Nouveau &gt; Application logique**.
 
 Une fois l’application logique créée, accédez à celle-ci et choisissez **Modifier**. Dans l’éditeur d’application logique, choisissez la **File d’attente Service Bus** et entrez vos informations d’identification Service Bus pour la connecter à la file d’attente.
 
@@ -438,4 +437,3 @@ Créez maintenant une action sous **Si non, ne rien faire**.
 Pour l’action, choisissez **Office 365 - Envoyer un message électronique**. Renseignez les champs pour créer un e-mail à envoyer lorsque la condition définie retourne **false**. Si vous n’avez pas Office 365, vous pouvez rechercher des alternatives pour parvenir aux mêmes résultats.
 
 À ce stade, vous disposez d’un pipeline de bout en bout qui recherche les nouveaux journaux d’audit de coffre de clés une fois par minute. Il place les nouveaux journaux qu’il trouve dans une file d’attente Service Bus. L’application logique est déclenchée lorsqu’un nouveau message arrive dans la file d’attente. Si *l’appid* au sein de l’événement ne correspond pas à l’ID d’application de l’application appelante, il envoie un e-mail.
-

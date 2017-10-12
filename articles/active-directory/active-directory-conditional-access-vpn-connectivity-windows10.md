@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 540d8974ee2c02f80bccf28764b4d0d243e98d85
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-conditional-access-for-virtual-private-network-connectivity-preview"></a>Accès conditionnel Azure Active Directory pour la connectivité de réseau privé virtuel (préversion)
 
@@ -44,7 +43,7 @@ Cette rubrique part du principe que vous connaissez les sujets suivants :
 Vous souhaiterez peut-être aussi jeter un coup d’œil à l’article [Enhancing remote access in Windows 10 with an automatic VPN profile](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile) (Amélioration de l’accès à distance dans Windows 10 avec un profil VPN automatique) pour découvrir comment Microsoft a implémenté cette fonctionnalité.   
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour configurer l’accès conditionnel Azure Active Directory pour la connectivité de réseau privé virtuel, vous devez disposer d’un serveur VPN configuré. 
 
@@ -180,5 +179,4 @@ Cette section explique comment configurer votre stratégie d’accès conditionn
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour découvrir comment Microsoft a implémenté cette fonctionnalité, consultez [Enhancing remote access in Windows 10 with an automatic VPN profile (Amélioration de l’accès à distance dans Windows 10 avec un profil VPN automatique)](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile).    
-
 

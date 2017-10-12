@@ -9,14 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 669fc7a9ec5dfb446ef2755919c498fe6f60c9df
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="document-collection-analysis"></a>Analyse d’une collection de documents
 
 Ce scénario montre comment effectuer la synthèse et l’analyse d’une grande collection de documents, en utilisant des techniques telles que l’apprentissage des expressions, la modélisation des thèmes et l’analyse du modèle thématique à l’aide d’Azure ML Workbench. Azure Machine Learning Workbench facilite la mise à l’échelle de grandes collections de documents et fournit les mécanismes nécessaires pour former et optimiser des modèles dans divers contextes de calcul, allant du calcul local aux machines virtuelles DSVM et au cluster Spark. Le développement s’effectue simplement par le biais des notebooks Jupyter dans Azure Machine Learning Workbench.
@@ -49,15 +47,15 @@ Ce scénario utilise les techniques et algorithmes d’apprentissage automatique
 
 1. Apprentissage des expressions
 
-1. Modélisation des thèmes
+1. Modélisation de rubrique
 
 1. Synthèse du corpus
 
 1. Détection d’anomalie et des tendances thématiques
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
-Cet exemple nécessite les prérequis suivants :
+Cet exemple nécessite les prérequis suivants :
 
 * Vérifiez que vous avez correctement installé [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) selon les instructions du [Guide de démarrage rapide Installer et créer](quickstart-installation.md).
 
@@ -65,7 +63,7 @@ Cet exemple nécessite les prérequis suivants :
 
 ## <a name="create-a-new-workbench-project"></a>Créer un projet Workbench
 
-Créez un projet en utilisant cet exemple comme modèle :
+Créez un projet en utilisant cet exemple comme modèle :
 1.  Ouvrez Azure Machine Learning Workbench
 2.  Dans la page **Projets**, cliquez sur le signe **+**, puis sélectionnez **Nouveau projet**
 3.  Dans le volet **Créer un projet**, entrez les informations relatives à votre nouveau projet
@@ -173,7 +171,7 @@ phraseLearner.RunConfiguration(textData,
 > L’étape d’apprentissage des expressions est implémentée avec le traitement multiprocesseur. Toutefois, le fait d’avoir davantage de cœurs de processeur ne signifie **PAS** forcément que l’exécution sera plus rapide. Nos tests ont montré que les performances ne s’améliorent pas avec l’utilisation de plus de huit cœurs en raison de la surcharge du traitement multiprocesseur. L’apprentissage de 25 000 expressions sur une machine à huit cœurs (3,6 GHz) a pris environ deux heures et demie.
 >
 
-### <a name="topic-modeling"></a>Modélisation des thèmes
+### <a name="topic-modeling"></a>Modélisation de rubrique
 
 L’apprentissage d’un modèle de thèmes latents LDA est la troisième étape de ce scénario. Le package Python [gensim](https://radimrehurek.com/gensim/) est nécessaire dans cette étape d’apprentissage d’un [modèle de thèmes LDA](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation). Cette étape est décrite dans le notebook `3_Topic_Model_Training.ipynb`. Vous pouvez également consulter `step3.py` pour savoir comment utiliser le package d’analyse de document.
 
@@ -246,4 +244,3 @@ Ce scénario réel met en évidence l’utilisation de techniques d’analyse de
 * **Timothy J. Hazen**, [_Latent Topic Modeling for Audio Corpus Summarization_](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf). 12e conférence annuelle de l’International Speech Communication Association. 2011.
 
 * **Michael Roder, Andreas Both, Alexander Hinneburg**, [_Exploring the Space of Topic Coherence Measures_](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf). Rapport de la 8e conférence internationale ACM sur l’exploration de données et la recherche web. ACM, 2015.
-

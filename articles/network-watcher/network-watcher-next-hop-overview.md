@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 864185e62fb6c3cef4116824b36ee7e5d3447662
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/04/2017
-
+ms.openlocfilehash: bb2ca0486b3b3d27a77b70927cb3cbfbeac12c7c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-next-hop-in-azure-network-watcher"></a>Présentation du tronçon suivant dans Azure Network Watcher
 
 Le trafic d’une machine virtuelle est envoyé vers une destination en fonction des itinéraires effectifs associés à une carte réseau. Le tronçon suivant obtient le type de tronçon suivant et l’adresse IP d’un paquet à partir d’une machine virtuelle et d’une carte réseau spécifiques. Cela permet de déterminer si le paquet est dirigé vers la destination ou si le trafic est dirigé vers un trou noir. Une mauvaise configuration des itinéraires par l’utilisateur, où le trafic est dirigé vers un emplacement local ou une appliance virtuelle, peut provoquer des problèmes de connectivité. Le tronçon suivant renvoie également la table d’itinéraires associée au tronçon suivant. Lorsque vous interrogez un tronçon suivant pour savoir si l’itinéraire est défini comme un itinéraire défini par l’utilisateur, celui-ci est renvoyé. Sinon, le tronçon suivant renvoie « Itinéraire du système ».
@@ -44,7 +42,6 @@ Découvrez comment utiliser le tronçon suivant pour repérer les problèmes de 
 
 <!--Image references-->
 [1]: ./media/network-watcher-next-hop-overview/figure1.png
-
 
 
 

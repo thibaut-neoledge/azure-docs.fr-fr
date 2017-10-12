@@ -14,13 +14,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
-ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/14/2017
-
-
+ms.openlocfilehash: 2315f5d0ebb142561c65224cd9d06299466a7ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C : sécuriser une API web à l’aide de Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -37,7 +35,7 @@ Avec Azure Active Directory (Azure AD) B2C, vous pouvez sécuriser une API web 
 Pour effectuer cet exemple, vous devez procéder comme suit :
 
 1. inscrivez une application auprès d’Azure AD ;
-2. configurez votre application pour utiliser le plug-in `azure-ad-passport` de Passport ;
+2. configurez votre application pour utiliser le plug-in `passport-azure-ad` de Passport ;
 3. configurez une application cliente pour appeler l’API web to-do list.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obtention d'un répertoire Azure AD B2C
@@ -762,4 +760,3 @@ Vous avez implémenté une API REST à l’aide de Restify et d’OAuth. Vous di
 Vous pouvez maintenant aborder des rubriques plus avancées, telles que :
 
 [Se connecter à une API web en utilisant iOS avec B2C](active-directory-b2c-devquickstarts-ios.md)
-

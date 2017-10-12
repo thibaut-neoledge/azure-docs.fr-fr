@@ -14,19 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 100f75c5d21d5723bd7438b49e982ff116b75908
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Guides de la science des données Azure Data Lake avec U-SQL
 
 Ces guides utilisent U-SQL avec Azure Data Lake pour effectuer des analyses prédictives. Ils suivent les étapes décrites dans le processus TDSP (Team Data Science Process). Vous trouverez une vue d’ensemble du processus TDSP sur la page [Processus de science des données](overview.md) et une présentation de Data Lake Store sur la page [Vue d’ensemble d’Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md).
 
-D’autres procédures pas à pas de la science des données qui appliquent le processus TDSP sont regroupées en fonction de la **plateforme** qu’elles utilisent. Consultez [Procédures pas à pas du processus TDSP (Team Data Science Process)](walkthroughs.md) pour connaître les détails de ces exemples.
+D’autres guides de la science des données qui appliquent le processus TDSP sont regroupés en fonction de la **plateforme** qu’ils utilisent. Consultez [Procédures pas à pas du processus TDSP (Team Data Science Process)](walkthroughs.md) pour connaître les détails de ces exemples.
 
 
 ## <a name="predict-taxi-tips-using-u-sql-with-azure-data-lake"></a>Prédire les pourboires laissés aux taxis avec U-SQL et Azure Data Lake

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 06/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: 5fc5c74c7671f64bd1312ad6939e629c0277110c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approche et processus d’adoption d’Azure Data Catalog
 Cet article va vous aider dans la prise en main de l’adoption **d’Azure Data Catalog** dans votre organisation. Pour mener à bien l’adoption d’**Azure Data Catalog**, vous pouvez vous concentrer sur trois éléments clés : définition de votre vision du projet, identification des principaux cas d’utilisation métier au sein de votre organisation et choix d’un projet pilote.
@@ -97,9 +96,9 @@ Lorsque vous choisissez votre projet pilote, sélectionnez une équipe avec les 
 ### <a name="identify-data-heroes"></a>Identifier les personnes clés en termes de données
 Votre premier projet pilote doit être associé à quelques personnes, qui produisent et consomment des données de telle sorte que l’équipe possède une représentation équilibrée.
 
-Les **producteurs de données** sont des personnes disposant de connaissances sur les sources de données. Par exemple, David, membre d’une autre équipe a beaucoup travaillé sur les principales sources de données Adventure Works. Avant l’adoption **d’Azure Data Catalog**, David a créé un classeur Excel pour capturer des informations sur les sources de données Adventure Works.
+**producteurs de données** sont des personnes disposant de connaissances sur les sources de données. Par exemple, David, membre d’une autre équipe a beaucoup travaillé sur les principales sources de données Adventure Works. Avant l’adoption **d’Azure Data Catalog**, David a créé un classeur Excel pour capturer des informations sur les sources de données Adventure Works.
 
-Les **consommateurs de données** sont des personnes disposant de connaissances sur l’utilisation de données pour résoudre les problèmes d’entreprise. Par exemple, Nancy est une analyste d’entreprise, qui utilise des sources de données SQL Server Adventure Works pour analyser les données.
+**consommateurs de données** sont des personnes disposant de connaissances sur l’utilisation de données pour résoudre les problèmes d’entreprise. Par exemple, Nancy est une analyste d’entreprise, qui utilise des sources de données SQL Server Adventure Works pour analyser les données.
 
 L’un des problèmes d’entreprise traités par **Azure Data Catalog** est de connecter les **producteurs de données** aux **consommateurs de données**. Pour ce faire, il fait office de référentiel central pour les informations sur les sources de données d’entreprise. À l’aide de Data Catalog, David inscrit les sources de données SQL Server Adventure Works. À l’aide du crowdsourcing, tout utilisateur qui découvre cette source de données peut partager son avis sur les données, en plus d’utiliser les données qu’il a découvertes. Par exemple, Nancy découvre les sources de données en effectuant une recherche dans le catalogue, puis partage ses connaissances approfondies relatives aux données.  À présent, les autres utilisateurs de l’organisation tirent parti des connaissances partagées par une recherche dans le catalogue de données.
 
@@ -167,4 +166,3 @@ Cet article concernait la prise en main **d’Azure Data Catalog** dans votre or
 * [Rechercher des sources de données](data-catalog-get-started.md)
 * [Annoter des sources de données](data-catalog-get-started.md)
 * [Métadonnées en crowdsourcing](data-catalog-get-started.md)
-

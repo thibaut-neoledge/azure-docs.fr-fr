@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: d6e3ea06106463367eb03498ef8d9bc47d83c694
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/13/2017
-
+ms.openlocfilehash: 3f6569d32708c42247e0ffec70389f2e0f07389e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming en direct avec des encodeurs locaux qui créent des flux multidébits
 ## <a name="overview"></a>Vue d’ensemble
@@ -228,4 +227,3 @@ Voici d’autres considérations liées à l’utilisation des canaux et des com
 [Concepts Media Services](media-services-concepts.md)
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
-

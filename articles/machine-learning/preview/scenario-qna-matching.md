@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
 ms.manager: tihazen
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Mise en correspondance des questions et réponses à l’aide d’Azure Machine Learning Workbench
 Répondre à des questions ouvertes est difficile et oblige souvent les experts techniques (SME) à effectuer des opérations manuelles. Pour alléger le travail des SME internes, les entreprises créent couramment des listes de questions fréquentes (FAQ) destinées à aider les utilisateurs. Cet exemple présente différentes méthodes d’apprentissage automatique performantes pour mettre en correspondance les questions ouvertes avec des paires Questions et réponses FAQ préexistantes. Il montre un processus de développement simple pour créer une solution d’apprentissage automatique à l’aide d’Azure Machine Learning Workbench. 
 
@@ -40,9 +38,9 @@ Les principales étapes à prévoir pour cette solution sont les suivantes :
 4. Former des modèles de classification du texte et évaluer les performances du modèle.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
-Cet exemple nécessite les prérequis suivants :
+Cet exemple nécessite les prérequis suivants :
 
 1. Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 2. Une copie [d’Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installée selon les instructions du [guide d’installation et de démarrage rapide](./quickstart-installation.md) pour installer le programme et créer un espace de travail.
@@ -50,7 +48,7 @@ Cet exemple nécessite les prérequis suivants :
 
 ## <a name="create-a-new-workbench-project"></a>Créer un projet workbench
 
-Créez un projet en utilisant cet exemple comme modèle :
+Créez un projet en utilisant cet exemple comme modèle :
 1.  Ouvrez Azure Machine Learning Workbench
 2.  Dans la page **Projets**, cliquez sur le signe **+**, puis sélectionnez **Nouveau projet**
 3.  Dans le volet **Créer un projet**, entrez les informations relatives à votre nouveau projet
@@ -162,4 +160,3 @@ Voici quelques points à retenir de cet exemple :
 Timothy J. Hazen, Fred Richardson, [_Modeling Multiword Phrases with Constrained Phrases Tree for Improved Topic Modeling of Conversational Speech_](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf). Spoken Language Technology Workshop (SLT), 2012 IEEE. IEEE, 2012.
 
 Timothy J. Hazen, [_MCE Training Techniques for Topic Identification of Spoken Audio Documents_](http://ieeexplore.ieee.org/abstract/document/5742980/) dans l’IEEE Transactions on Audio, Speech, et Language Processing, vol. 19, no. 8, pp. 2451-2460, nov. 2011.
-

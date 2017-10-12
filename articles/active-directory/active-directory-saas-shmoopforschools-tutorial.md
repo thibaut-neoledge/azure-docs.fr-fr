@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 667c8fc840a918635dcd5e6838afbadb50cc1b97
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Didacticiel : Intégration d’Azure Active Directory à Shmoop For Schools
 
@@ -33,7 +32,7 @@ L’intégration de Shmoop For Schools à Azure AD vous offre les avantages suiv
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour configurer l’intégration d’Azure AD à Shmoop For Schools, vous avez besoin des éléments suivants :
 
@@ -143,7 +142,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     e. Cliquez sur **OK**.
 
-6. Cliquez sur le bouton **Enregistrer**.
+6. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l’authentification unique](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_general_400.png)
 
@@ -216,13 +215,13 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Shmoop For Schools.
 
-![Affecter le rôle utilisateur][200] 
+![Attribuer le rôle utilisateur][200] 
 
 **Pour affecter Britta Simon à Shmoop For Schools, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
-    ![Affecter l’utilisateur][201] 
+    ![Affecter des utilisateurs][201] 
 
 2. Dans la liste des applications, sélectionnez **Shmoop For Schools**.
 
@@ -267,5 +266,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-shmoopforschools-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-shmoopforschools-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-shmoopforschools-tutorial/tutorial_general_203.png
-
 

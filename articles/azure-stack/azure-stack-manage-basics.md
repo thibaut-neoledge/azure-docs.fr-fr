@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 04dea8f055eb562455b568c43553a6fefe749467
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-stack-administration-basics"></a>Principes de bases de l’administration d’Azure Stack
 
@@ -136,6 +135,5 @@ Pour le Kit de développement, vous pouvez poser des questions relatives au supp
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Gestion des régions dans Azure Stack](azure-stack-region-management.md)
-
 
 

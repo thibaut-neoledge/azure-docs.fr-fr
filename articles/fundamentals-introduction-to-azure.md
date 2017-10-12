@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Présentation de Microsoft Azure
 Microsoft Azure est la plateforme d'applications de Microsoft pour le cloud public.  L'objectif de cet article est de vous donner les bases pour comprendre les principes essentiels d'Azure, même si vous ne disposez d'absolument aucune connaissance en matière de cloud computing.
@@ -456,7 +455,7 @@ Les performances sont toujours déterminantes pour une application. Les applicat
 
 ### <a name="azure-caching"></a>Azure Caching
 ![Azure Caching](./media/fundamentals-introduction-to-azure/AzureCacheIntroNew.png)   
- **Figure : une application Azure peut mettre des données en cache dans la mémoire, voire les fractionner entre différents rôles de travail.**
+ **Figure : une application Azure peut mettre des données en cache dans la mémoire, voire les fractionner entre différents rôles de travail.**
 
 L’accès aux données stockées dans un des services de gestion de données Azure (base de données SQL, tables ou objets blob) est relativement rapide. Mais accéder à des données stockées en mémoire l’est encore plus. C’est pour cela que conserver une copie en mémoire des données fréquemment utilisées peut améliorer les performances des applications. La mise en cache en mémoire proposée par Azure vous permet cela.
 
@@ -470,7 +469,7 @@ Par exemple, une application qui lit de façon répétée un catalogue produits 
 
 ### <a name="content-delivery-network"></a>Réseau de distribution de contenu
 ![Azure CDN](./media/fundamentals-introduction-to-azure/CDNIntroNew.png)   
- **Figure : les copies d’un objet blob peuvent être mises en cache sur des sites du monde entier.**
+ **Figure : les copies d’un objet blob peuvent être mises en cache sur des sites du monde entier.**
 
 Supposons que vous devez mettre à disposition d’utilisateurs du monde entier des données sous forme d’objets blob. Il peut s’agir d’une vidéo du dernier match de la Coupe du monde comme d’une mise à jour de pilote ou d’un livre électronique populaire. Stocker une copie des données dans plusieurs centres de données Azure va vous aider, mais ce ne sera probablement pas suffisant si de nombreux utilisateurs sont impliqués. Pour renforcer les performances, vous pouvez utiliser Azure CDN.
 
@@ -538,4 +537,3 @@ SendGrid est une application de l'Azure Store qui vous permet d'envoyer des cour
 Maintenant que vous connaissez les grandes lignes, la prochaine étape est de créer votre première application Azure. Choisissez votre langage, [téléchargez le Kit de développement logiciel (SDK) approprié](/downloads/) et vous n’avez plus qu’à vous lancer. Le cloud computing est la nouvelle norme. Adoptez-le dès maintenant.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
-

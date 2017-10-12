@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 1906425c6657fb6232a9dc306b05f9171c9c7bef
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="logging-api-reference"></a>Informations de référence sur l’API de journalisation
 
 La bibliothèque de journalisation d’Azure ML permet au programme d’émettre des métriques et des fichiers dont le suivi est assuré par le service d’historique à des fins d’analyse. Actuellement, quelques types de métriques et de fichiers de base sont pris en charge. Ce nombre augmentera dans les futures versions du package Python.
@@ -88,4 +86,3 @@ $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to cr
 ## <a name="next-steps"></a>Étapes suivantes
 - Parcourez le [didacticiel Classifying Iris, part 2](tutorial-classifying-iris-part-2.md) (Classification d’Iris, partie 2) pour voir les API de journalisation à l’œuvre.
 - Lisez [How to Use Run History and Model Metrics in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) (Comment utiliser les métriques de l’historique d’exécution et des modèles dans Azure Machine Learning Workbench) pour comprendre plus exactement l’utilisation des API de journalisation dans l’historique d’exécution.
-

@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>Mettre des applications web, mobiles et API à la disposition de vos utilisateurs Azure Stack
 
@@ -71,7 +70,7 @@ Maintenant que vous avez déployé le fournisseur de ressources App Service et 
     - **Groupe de ressources** : DNN-RG
 3. Cliquez sur **Paramètres de connexion**, entrez les informations d’identification pour la base de données, puis cliquez sur **OK**. Vous allez utiliser ces informations d’identification plus tard dans cette procédure.
 4. Cliquez sur **Référence** > sélectionnez le SKU SQL que vous avez créé pour le serveur d’hébergement SQL > **OK**.
-5. Cliquez sur **Create**.
+5. Cliquez sur **Créer**.
 
 ### <a name="create-a-dnn-app"></a>Créer une application DNN    
 
@@ -80,7 +79,7 @@ Maintenant que vous avez déployé le fournisseur de ressources App Service et 
 3. Cliquez sur **Configurer les paramètres obligatoires** > **Créer** > tapez un nom de**Plan App Service**.
 4. Cliquez sur **Niveau tarifaire** > **F1 Gratuit** > **Sélectionner** > **OK**.
 5. Cliquez sur **Base de données**, puis entrez les informations relatives à la base de données SQL créée précédemment.
-6. Cliquez sur **Create**.
+6. Cliquez sur **Créer**.
 
 Dans ce didacticiel, vous avez appris à :
 
@@ -93,4 +92,3 @@ Passez au didacticiel suivant pour savoir comment :
 
 > [!div class="nextstepaction"]
 > [Déployer des applications sur Azure et Azure Stack](user/azure-stack-solution-pipeline.md)
-
