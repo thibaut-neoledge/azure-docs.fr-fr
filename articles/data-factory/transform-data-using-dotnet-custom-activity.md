@@ -13,17 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 24f15168fd716cf317087b8a2ad19b66574ce569
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-use-custom-activities.md)
-> * [Version 2 - Préversion](transform-data-using-dotnet-custom-activity.md)
+> * [Version 1 - Disponibilité générale](v1/data-factory-use-custom-activities.md)
+> * [Version 2 - Préversion](transform-data-using-dotnet-custom-activity.md)
 
 Vous pouvez utiliser deux types d’activités dans un pipeline Azure Data Factory.
 
@@ -261,4 +260,3 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 * [Activité Spark](transform-data-using-spark.md)
 * [Activité d’exécution du lot Machine Learning](transform-data-using-machine-learning.md)
 * [Activité de procédure stockée](transform-data-using-stored-procedure.md)
-

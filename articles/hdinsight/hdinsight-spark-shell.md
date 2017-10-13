@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/01/2017
 ms.author: maxluk
+ms.openlocfilehash: 48c6a24f6c820eaf09da6fa3a0a496ddbef1e7a0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 108b2e25dee63a15ac703d2a9b617bfb155f95da
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-spark-from-the-spark-shell"></a>Exécuter Spark depuis l’interpréteur de commandes Spark
 
@@ -79,5 +78,4 @@ La commande d’interpréteur de commandes Spark (`spark-shell`, `pyspark` ou `s
 - Consultez [Présentation de Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md) pour obtenir une vue d’ensemble.
 - Consultez [Créer un cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) pour utiliser des clusters Spark et SparkSQL.
 - Consultez [Vue d’ensemble de Spark Streaming](hdinsight-spark-streaming-overview.md) pour écrire des applications traitant des données de diffusion en continu avec Spark.
-
 

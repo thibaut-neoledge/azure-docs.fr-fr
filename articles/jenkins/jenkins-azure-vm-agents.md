@@ -11,14 +11,12 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
+ms.openlocfilehash: c6cfca299dabba253757d959411c0cac8f90fa2e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: a3bfa3a17f0d7300f9d1ceb529410bbbb7bb2fee
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Mettre à l’échelle vos déploiements Jenkins pour répondre à la demande avec des agents de machines virtuelles Azure
 
 Ce didacticiel montre comment utiliser le [plug-in Jenkins Azure VM Agents](https://plugins.jenkins.io/azure-vm-agents) pour ajouter de la capacité à la demande avec des machines virtuelles Linux qui s’exécutent dans Azure.
@@ -35,14 +33,14 @@ Ce didacticiel présente les procédures suivantes :
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 * Un abonnement Azure
 * Un serveur maître Jenkins. Si vous n’en possédez pas, consultez le [guide de démarrage rapide](install-jenkins-solution-template.md) pour en configurer un dans Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="install-azure-vm-agents-plugin"></a>Installer le plug-in Azure VM Agents
+## <a name="install-azure-vm-agents-plugin"></a>Installer le plug-in Agents de machine virtuelle Azure
 
 > [!TIP]
 > Si vous avez déployé Jenkins dans Azure en utilisant le [modèle de solution](install-jenkins-solution-template.md), le plug-in Azure VM Agents est déjà installé.
@@ -128,7 +126,7 @@ Sélectionnez **Verify Template** (Vérifier le modèle) pour vérifier la confi
 
 ## <a name="create-a-job-in-jenkins"></a>Créer un travail dans Jenkins
 
-1. Dans le tableau de bord Jenkins, cliquez sur **New Item** (Nouvel élément). 
+1. Dans le tableau de bord Jenkins, cliquez sur **Nouvel élément**. 
 2. Entrez `demoproject1` en guise de nom et sélectionnez **Freestyle projet** (Projet libre), puis **OK**.
 3. Sous l’onglet **General** (Général), choisissez **Restrict where project can be run** (Restreindre les emplacements d’exécution du projet), puis tapez `ubuntu` dans le champ **Label Expression** (Expression d’étiquette). Vous obtenez un message confirmant que l’étiquette est prise en charge par la configuration cloud créée à l’étape précédente. 
    ![Configurer un travail](./media/jenkins-azure-vm-agents/job-config.png)
@@ -147,5 +145,4 @@ Sélectionnez **Verify Template** (Vérifier le modèle) pour vérifier la confi
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [CI/CD vers Azure App Service](deploy-jenkins-app-service-plugin.md)
-
+> [CI/CD vers Azure App Service](java-deploy-webapp-tutorial.md)

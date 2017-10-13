@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/13/2017
 ms.author: mimig
+ms.openlocfilehash: 0a05f4ee86d2dcca40dc0b5ec2c503ba0b8bfe8c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 63b2d20c74df4fd6173994ee1a727594ba8afba3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>API DocumentDB Azure Cosmos DB : référence de syntaxe SQL
 
 L’API DocumentDB Azure Cosmos DB prend en charge l’interrogation de documents à l’aide d’une grammaire familière de type SQL (Structured Query Language) sur des documents JSON hiérarchiques sans nécessiter de schéma explicite ou de création d’index secondaires. Cette rubrique fournit la documentation de référence pour le langage de requête SQL de l’API DocumentDB.
@@ -505,8 +503,8 @@ ORDER BY <sort_specification>
 |**Opérateurs arithmétiques**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addition.<br /><br /> Soustraction.<br /><br /> Multiplication.<br /><br /> Division.<br /><br /> Modulation.|  
 |**Opérateurs au niveau du bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Opérateur OR au niveau du bit.<br /><br /> Opérateur AND au niveau du bit.<br /><br /> XOR au niveau du bit.<br /><br /> Décalage vers la gauche.<br /><br /> Décalage vers la droite.<br /><br /> Décalage vers la droite avec remplissage de zéros.|  
 |**Opérateurs logiques**|**AND**<br /><br /> **OR**|Conjonction logique. Retourne **true** si les deux arguments sont **true**, retourne **false** dans le cas contraire.<br /><br /> Conjonction logique. Retourne **true** si les deux arguments sont **true**, retourne **false** dans le cas contraire.|  
-|**Opérateurs de comparaison**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Égal à. Retourne **true** si les arguments sont égaux, **false** dans le cas contraire.<br /><br /> Non égal à. Retourne **true** si les arguments ne sont pas égaux, **false** dans le cas contraire.<br /><br /> Supérieur à. Retourne **true** si le premier argument est supérieur au second, **false** dans le cas contraire.<br /><br /> Supérieur ou égal à. Retourne **true** si le premier argument est supérieur ou égal au second, **false** dans le cas contraire.<br /><br /> Inférieur à. Retourne **true** si le premier argument est inférieur au second, **false** dans le cas contraire.<br /><br /> Inférieur ou égal à. Retourne **true** si le premier argument est inférieur ou égal au second, **false** dans le cas contraire.<br /><br /> Coalesce. Retourne le deuxième argument si le premier argument est une valeur **Undefined**.|  
-|**Chaîne**|**&#124;&#124;**|Concaténation. Renvoie une concaténation de deux arguments.|  
+|**Opérateurs de comparaison**|**=**<br /><br /> **!=, &lt;&gt;**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Égal à. Retourne **true** si les arguments sont égaux, **false** dans le cas contraire.<br /><br /> Non égal à. Retourne **true** si les arguments ne sont pas égaux, **false** dans le cas contraire.<br /><br /> Supérieur à. Retourne **true** si le premier argument est supérieur au second, **false** dans le cas contraire.<br /><br /> Supérieur ou égal à. Retourne **true** si le premier argument est supérieur ou égal au second, **false** dans le cas contraire.<br /><br /> Inférieur à. Retourne **true** si le premier argument est inférieur au second, **false** dans le cas contraire.<br /><br /> Inférieur ou égal à. Retourne **true** si le premier argument est inférieur ou égal au second, **false** dans le cas contraire.<br /><br /> Coalesce. Retourne le deuxième argument si le premier argument est une valeur **Undefined**.|  
+|**Chaîne**|**&amp;#124;&amp;#124;**|Concaténation. Renvoie une concaténation de deux arguments.|  
   
  **Opérateurs ternaires :**  
   
@@ -671,8 +669,8 @@ ORDER BY <sort_specification>
     |-|-|    
     |MAJUSCULES|Mots-clés non sensibles à la casse.|  
     |minuscules|Mots-clés sensibles à la casse.|  
-    |\<nonterminal>|Non terminal, défini séparément.|  
-    |\<nonterminal> ::=|Définition de la syntaxe de l’élément nonterminal.|  
+    |\<nonterminal&gt;|Non terminal, défini séparément.|  
+    |\<nonterminal&gt; ::=|Définition de la syntaxe de l’élément nonterminal.|  
     |other_terminal|Terminal (jeton), décrit en détail par des mots.|  
     |identificateur|Identificateur. Autorise uniquement les caractères suivants : a-z A-Z 0-9 _ Le premier caractère ne peut pas être un chiffre.|  
     |"chaîne"|Chaîne entre guillemets. Autorise n’importe quelle chaîne valide. Consultez la description de string_literal.|  
@@ -2773,4 +2771,3 @@ SELECT ST_ISVALIDDETAILED({
  [Documentation Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
   
   
-

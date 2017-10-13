@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 062d82d1bb2126a5b135796a2b5fa00ccf02511d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Mettre à jour des modèles Azure Machine Learning à l’aide de l’activité des ressources de mise à jour
 Cet article vient s’ajouter à l’article principal sur l’intégration Azure Data Factory - Azure Machine Learning : [Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning](transform-data-using-machine-learning.md). Si vous ne l’avez pas encore fait, consultez l’article principal avant de lire cet article. 
@@ -32,7 +31,7 @@ Il peut être très fréquent d’avoir à effectuer à nouveau l’apprentissag
 
 L’image suivante illustre la relation entre les services web d’apprentissage et de prévision. 
 
-![Services web](./media/update-machine-learning-models/web-services.png)
+![SERVICES WEB](./media/update-machine-learning-models/web-services.png)
 
 ## <a name="azure-machine-learning-update-resource-activity"></a>Activité des ressources de mise à jour Azure Machine Learning 
 
@@ -301,7 +300,7 @@ Le pipeline a deux activités : **AzureMLBatchExecution** et **AzureMLUpdateRes
 }
 ```
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants qui expliquent comment transformer des données d’autres manières : 
+Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)
 * [Activité Hive](transform-data-using-hadoop-hive.md)
@@ -311,4 +310,3 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 * [Activité Spark](transform-data-using-spark.md)
 * [Activité personnalisée .NET](transform-data-using-dotnet-custom-activity.md)
 * [Activité de procédure stockée](transform-data-using-stored-procedure.md)
-

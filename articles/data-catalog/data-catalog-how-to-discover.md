@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 1cefc0341789a4751d4e3ee687048ccd291559e3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/21/2017
-
+ms.openlocfilehash: 9ff67dcb5ecb00440f73f979fd8d2b79a570c674
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Comment détecter les sources de données dans Azure Data Catalog
 ## <a name="introduction"></a>Introduction
@@ -67,4 +66,3 @@ L’inscription des sources de données dans Data Catalog facilite leur détecti
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir des informations détaillées sur la détection des sources de données, consultez [Bien démarrer avec Azure Data Catalog](data-catalog-get-started.md).
-

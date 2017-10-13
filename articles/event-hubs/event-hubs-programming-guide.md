@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/17/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: f65b992297c429eda2090f744b9b88b1ede39533
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 405ec2b27b488b570c4a5c86e4950ff98233360e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-programming-guide"></a>Guide de programmation de concentrateurs d’événements
 
@@ -197,4 +196,3 @@ Pour en savoir plus sur les scénarios des concentrateurs d’événements, cons
 [CreateEventHubIfNotExists]: /dotnet/api/microsoft.servicebus.namespacemanager.createeventhubifnotexists
 [PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.eventdata#Microsoft_ServiceBus_Messaging_EventData_PartitionKey
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
-

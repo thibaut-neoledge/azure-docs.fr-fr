@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
+ms.openlocfilehash: 39f687a4de9a79e88d11e246cd0097dd9346c0ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 81d631291c5b375cf7425b0089caf6a97ec3b598
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Activité d’exécution du pipeline dans Azure Data Factory
 L’activité d’exécution du pipeline permet à un pipeline Data Factory d’appeler un autre pipeline.
@@ -62,7 +61,7 @@ L’activité d’exécution du pipeline permet à un pipeline Data Factory d’
 }
 ```
 
-## <a name="type-properties"></a>Propriétés de type
+## <a name="type-properties"></a>Propriétés type
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | --------
 name | Nom de l’activité d’exécution du pipeline. | String | Oui

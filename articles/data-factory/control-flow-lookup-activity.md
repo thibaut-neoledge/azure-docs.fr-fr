@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 30173f8eea2ccbbcd44018596cf34b3769a64b50
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 L’activité de recherche peut être utilisée pour lire ou rechercher un enregistrement, un nom de la table ou une valeur à partir de n’importe quelle source externe. Cette sortie peut être référencée par des activités complémentaires. 
@@ -230,7 +229,7 @@ Cette base de données SQL Azure contient les données à copier dans le stockag
 
 
 
-## <a name="type-properties"></a>Propriétés de type
+## <a name="type-properties"></a>Propriétés type
 Nom | Description | Type | Requis
 ---- | ----------- | ---- | --------
 dataset | L’attribut dataset doit fournir la référence de jeu de données pour la recherche. Actuellement, les types de jeu de données pris en charge sont :<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | paire clé/valeur | Oui
@@ -244,4 +243,3 @@ Consultez les autres activités de flux de contrôle prises en charge par Data F
 - [Pour chaque activité](control-flow-for-each-activity.md)
 - [Activité d’obtention des métadonnées](control-flow-get-metadata-activity.md)
 - [Activité Web](control-flow-web-activity.md)
-

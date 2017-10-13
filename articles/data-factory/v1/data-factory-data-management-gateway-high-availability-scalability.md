@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1aac856d154724e3dcd282e2d34c27571cd1cb02
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 Cet article vous aide à configurer la solution Haute disponibilité et scalabilité avec la passerelle de gestion des données.    
@@ -250,4 +249,3 @@ Après la suppression, cliquez sur **Fonctionnalités de préversion** dans la m
 Consultez les articles suivants :
 - [Passerelle de gestion des données](data-factory-data-management-gateway.md) - fournit une vue d’ensemble descriptive de la passerelle.
 - [Déplacer des données entre des magasins de données locaux et dans le cloud](data-factory-move-data-between-onprem-and-cloud.md) - contient une procédure pas à pas donnant des instructions sur l’utilisation d’une passerelle à nœud unique. 
-

@@ -15,12 +15,11 @@ ms.devlang: rest-api
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
+ms.openlocfilehash: 16bd85065f77612ac342ae4a8b500e0c7fa2a078
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 160fbc98e0f3dcc7d17cbe0c7f7425811596a896
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Utilisation du support de flux de modification dans Azure Cosmos DB
 [Azure Cosmos DB](../cosmos-db/introduction.md) est un service de base de données répliqué mondialement, rapide et flexible utilisé pour le stockage d’importants volumes de données transactionnelles et opérationnelles avec une latence prévisible en quelques millisecondes pour les lectures et les écritures. Il est ainsi parfait pour les applications d’IoT, de jeux, de vente au détail et de journalisation des compteurs. Un modèle de conception courant dans ces applications consiste à suivre les modifications apportées aux données Azure Cosmos DB et mettre à jour les vues matérialisées, effectuer des analyses en temps réel, archiver les données vers le stockage à froid et déclencher des notifications pour certains événements en fonction de ces modifications. Le **support de flux de modification** d’Azure Cosmos DB vous permet de créer des solutions efficaces et évolutives pour chacun de ces modèles.
@@ -532,4 +531,3 @@ Au fil du temps, un équilibre est établi. Cette fonctionnalité dynamique perm
 ## <a name="next-steps"></a>Étapes suivantes
 * Essayez les [exemples de code de flux de modification Azure Cosmos DB sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 * Commencez à coder avec les [SDK Azure Cosmos DB](documentdb-sdk-dotnet.md) ou l’[API REST](/rest/api/documentdb/).
-

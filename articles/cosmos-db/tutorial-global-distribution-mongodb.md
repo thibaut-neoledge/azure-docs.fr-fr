@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 119ebb3f4966de08934c7d1fbd139229bda1d060
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 1689374d180e9c806516812d6d4b51df3b06cb21
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>Comment configurer la diffusion mondiale d’Azure Cosmos DB à l’aide de l’API MongoDB
 
@@ -107,4 +106,3 @@ Vous pouvez maintenant passer au didacticiel suivant pour apprendre à développ
 
 > [!div class="nextstepaction"]
 > [Développer en local avec l’émulateur](local-emulator.md)
-

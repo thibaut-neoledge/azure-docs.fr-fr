@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/27/2017
-ms.author: sethm;babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: bcc8427d57a001f73d321fbf35c5226a047b68d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Journaux de diagnostic d’Event Hubs
 
@@ -29,6 +28,7 @@ Vous pouvez afficher deux types de journaux pour Azure Event Hubs :
 * **[Journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Vous pouvez configurer les journaux de diagnostic pour obtenir des informations plus détaillées sur tous les événements associés à un travail. Les journaux de diagnostic couvrent les activités qui se déroulent entre la création du travail et sa suppression, notamment les mises à jour et les activités durant l’exécution du travail.
 
 ## <a name="turn-on-diagnostic-logs"></a>Activer les journaux de diagnostic
+
 Les journaux de diagnostic sont désactivés par défaut. Pour activer les journaux de diagnostic, procédez comme suit :
 
 1.  Dans le [portail Azure](https://portal.azure.com), sous **Surveillance + gestion**, cliquez sur **Journaux de diagnostic**.
@@ -136,5 +136,4 @@ Example:
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Vue d’ensemble de l'API Event Hubs](event-hubs-api-overview.md)
-* [Prise en main des hubs d’événements](event-hubs-csharp-ephcs-getstarted.md)
-
+* [Prise en main des hubs d’événements](event-hubs-dotnet-standard-getstarted-send.md)

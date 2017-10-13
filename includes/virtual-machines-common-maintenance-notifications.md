@@ -18,8 +18,8 @@ Vous pouvez utiliser le portail Azure et rechercher les machines virtuelles sur 
       | Valeur | Description |
       |-------|-------------|
       | Démarrer maintenant | La machine virtuelle étant dans la fenêtre de maintenance libre-service, vous pouvez lancer la maintenance vous-même. Consultez la procédure ci-dessous pour démarrer la maintenance sur votre machine virtuelle. | 
-      | Planifié | Une maintenance est planifiée sur la machine virtuelle, mais aucune option de lancement ne vous est proposée. Pour déterminer la fenêtre de maintenance, sélectionnez la fenêtre Planifiée automatiquement dans cet affichage ou cliquez sur la machine virtuelle. | 
-      | Terminé | Vous avez lancé et terminé la maintenance sur votre machine virtuelle. | 
+      | Planifiée | Une maintenance est planifiée sur la machine virtuelle, mais aucune option de lancement ne vous est proposée. Pour déterminer la fenêtre de maintenance, sélectionnez la fenêtre Planifiée automatiquement dans cet affichage ou cliquez sur la machine virtuelle. | 
+      | Completed | Vous avez lancé et terminé la maintenance sur votre machine virtuelle. | 
       | Ignoré| Vous avez choisi de lancer la maintenance, mais sans succès. Azure a annulé la maintenance de votre machine virtuelle et va la replanifier à une date ultérieure. | 
       | Réessayer plus tard| Vous avez choisi de lancer la maintenance, mais Azure n’a pas pu répondre à votre demande. Dans ce cas, vous pouvez réessayer plus tard. | 
    
