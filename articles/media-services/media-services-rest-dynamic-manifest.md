@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako;cenkdin
+ms.openlocfilehash: 76d2721138668d9f0a908af3fa42840309b068ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 0cf8031e0b103c05f12157e76727c698163f1193
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Création de filtres avec l’API REST Media Services Azure
 > [!div class="op_single_selector"]
@@ -340,5 +339,4 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 
 ## <a name="see-also"></a>Voir aussi
 [Vue d'ensemble des manifestes dynamiques](media-services-dynamic-manifest-overview.md)
-
 

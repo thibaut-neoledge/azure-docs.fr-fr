@@ -16,7 +16,7 @@
 
 ## Proposer la vidéo à la demande
 ### [Portail Azure](media-services-portal-vod-get-started.md)
-### [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](media-services-dotnet-get-started.md)
+### [Kit SDK .NET](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Exécuter la vidéo en flux continu

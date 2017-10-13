@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 537dd6d64fe49093dd73d8040cde5a9153a7bd5c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
 Cette procédure décrit l’expérience de traçage de graphiques de métriques de nouvelle génération d’Azure Monitor, actuellement en préversion publique. La nouvelle expérience prend en charge le rendu des graphiques tant pour les métriques multidimensionnelles que pour les métriques de base sans dimensions. Vous pouvez tracer des graphiques qui superposent des métriques de différents types de ressources, de plusieurs groupes de ressources et d’abonnements. Les graphiques de métriques multidimensionnelles peuvent être personnalisés par l’application de filtres de dimension, ainsi que par regroupement. Tout graphique, y compris personnalisé, peut être épinglé à des tableaux de bord.

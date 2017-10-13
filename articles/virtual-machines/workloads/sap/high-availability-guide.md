@@ -17,14 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 65236f527b62b4990b062fb6a54ce13b3c182e93
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -703,9 +701,9 @@ _**Figure 11 :** Définir les paramètres Azure Resource Manager de haute dispon
     * Cluster SGBD : <*SIDSystèmeSAP*>-db-<*Numéro*>
 
   * **Des cartes réseau pour toutes les machines virtuelles, avec une adresse IP associée** :
-    * <*SIDSystèmeSAP*>-nic-di-<*Numéro*>
-    * <*SIDSystèmeSAP*>-nic-ascs-<*Numéro*>
-    * <*SIDSystèmeSAP*>-nic-db-<*Numéro*>
+    * <*SIDSystèmeSAP*&gt;-nic-di-&lt;*Numéro*>
+    * <*SIDSystèmeSAP*&gt;-nic-ascs-&lt;*Numéro*>
+    * <*SIDSystèmeSAP*&gt;-nic-db-&lt;*Numéro*>
 
   * **Des comptes de stockage Azure**
 
@@ -718,7 +716,7 @@ _**Figure 11 :** Définir les paramètres Azure Resource Manager de haute dispon
     * Avec tous les ports pour l’instance ASCS/SCS et l’adresse IP <*SIDSystèmeSAP*>-lb-ascs
     * Avec tous les ports pour l’instance SGBD et l’adresse IP <*SIDSystèmeSAP*>-lb-db
 
-  * **Un groupe de sécurité réseau** : <*SIDSystèmeSAP*>-nsg-ascs-0  
+  * **Un groupe de sécurité réseau** : &lt;*SIDSystèmeSAP*&gt;-nsg-ascs-0  
     * Avec un port RDP (Remote Desktop Protocol) ouvert vers la machine virtuelle <*SAPSystemSID*>-ascs-0
 
 > [!NOTE]
@@ -1437,9 +1435,9 @@ L’installation de SAP avec une instance ASCS/SCS à haute disponibilité impli
 1.  Exécutez l’option du premier nœud de cluster sur le nœud A du cluster, par exemple l’hôte **pr1-ascs-0**.
 2.  Pour conserver les ports par défaut pour l’équilibrage de charge interne Azure, sélectionnez :
 
-  * **Système ABAP** : numéro d’instance **ASCS** **00**
-  * **Système Java** : numéro d’instance **SCS** **01**
-  * **Système ABAP+Java** : numéro d’instance **ASCS****00** et numéro d’instance **SCS** **01**
+  * **Système ABAP** : numéro d’instance **ASCS****00**
+  * **Système Java** : numéro d’instance **SCS****01**
+  * **Système ABAP+Java** : numéro d’instance **ASCS****00** et numéro d’instance **SCS****01**
 
   Pour utiliser des numéros autres que 00 et 01 respectivement pour les instances ASCS ABAP et SCS Java, vous devez d’abord modifier les règles d’équilibrage de charge interne Azure par défaut, comme indiqué dans [Modifier les règles d’équilibrage de charge ASCS/SCS par défaut pour l’équilibrage de charge interne Azure][sap-ha-guide-8.9].
 
@@ -1616,7 +1614,7 @@ Le groupe de clusters **SAP PR1**s’exécute sur le nœud de cluster A, par exe
 
 ![Figure 61 : Gestionnaire du cluster de basculement : le groupe de clusters SAP <SID> s’exécute sur le nœud de cluster A][sap-ha-guide-figure-5000]
 
-_**Figure 61 :** Gestionnaire du cluster de basculement : le groupe de clusters SAP <*SID*> s’exécute sur le nœud de cluster A_
+_**Figure 61 :** Gestionnaire du cluster de basculement : le groupe de clusters SAP &lt;*SID*&gt; s’exécute sur le nœud de cluster A_
 
 Dans l’outil de configuration et de gestion de SIOS DataKeeper, vous pouvez constater que les données du disque partagé sont répliquées de manière synchrone à partir du lecteur du volume source S sur le nœud de cluster A vers le lecteur du volume cible S sur le nœud de cluster B. Par exemple, il est répliqué de **pr1-ascs-0 [10.0.0.40]** vers **pr1-ascs-1 [10.0.0.41]**.
 
@@ -1645,11 +1643,10 @@ _**Figure 62 :** Dans SIOS DataKeeper, répliquer le volume local du nœud de cl
 
   ![Figure 63 : Dans le Gestionnaire du cluster de basculement, le groupe de clusters SAP <SID> s’exécute sur le nœud de cluster B][sap-ha-guide-figure-5002]
 
-  _**Figure 63 :** Dans le Gestionnaire du cluster de basculement, le groupe de clusters SAP <*SID*> s’exécute sur le nœud de cluster B_
+  _**Figure 63 :** Dans le Gestionnaire du cluster de basculement, le groupe de clusters SAP &lt;*SID*&gt; s’exécute sur le nœud de cluster B_
 
   Le disque partagé est maintenant monté sur le nœud de cluster B. SIOS DataKeeper réplique les données du lecteur du volume source S sur le nœud de cluster B vers le lecteur du volume cible sur le nœud de cluster A. Par exemple, il est répliqué de **pr1-ascs-1 [10.0.0.41]** vers **pr1-ascs-0 [10.0.0.40]**.
 
   ![Figure 64 : SIOS DataKeeper réplique le volume local du nœud de cluster B vers le nœud de cluster A][sap-ha-guide-figure-5003]
 
   _**Figure 64 :** SIOS DataKeeper réplique le volume local du nœud de cluster B vers le nœud de cluster A_
-

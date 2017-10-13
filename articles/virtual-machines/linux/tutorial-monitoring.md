@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Comment surveiller et mettre à jour une machine virtuelle Linux dans Azure
 
@@ -249,7 +248,7 @@ Cliquez sur **Tous les journaux** pour voir toutes les entrées de journal cré�
 
 Cliquez sur la vignette **Sortie** pour voir le flux des tâches du runbook chargé de gérer le déploiement des mises à jour sur la machine virtuelle cible.
 
-Cliquez sur **Erreurs** pour voir des informations détaillées sur les erreurs du déploiement.
+Cliquez sur **Erreurs** pour afficher les informations détaillées sur les erreurs du déploiement.
 
 ## <a name="advanced-monitoring"></a>Surveillance avancée 
 
@@ -290,4 +289,3 @@ Passez au didacticiel suivant pour découvrir plus d’informations sur Azure Se
 
 > [!div class="nextstepaction"]
 > [Gérer la sécurité des machines virtuelles](./tutorial-azure-security.md)
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
 ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-activity-log-alerts"></a>Créer des alertes de journal d’activité
 
@@ -91,7 +91,7 @@ Pour en savoir plus sur les notifications d’intégrité du service, consultez 
 
     b. **Type d’action** : sélectionnez SMS, e-mail ou webhook.
 
-    c. **Détails** : selon le type d’action, entrez un numéro de téléphone, une adresse e-mail ou une URI de Webhook.
+    c. **Détails** : selon le type d’actions, entrez un numéro de téléphone, une adresse e-mail ou une URI Webhook.
 
 10. Sélectionnez **OK** pour créer l’alerte.
 

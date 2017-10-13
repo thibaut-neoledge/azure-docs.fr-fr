@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
 ms.openlocfilehash: 3ab24f193c74449ae7414b4ea0675c0aae0211f4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-user-defined-routes-udr-using-powershell"></a>Créer des itinéraires définis par l’utilisateur à l’aide de PowerShell
 
@@ -273,5 +272,4 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez
         EnableIPForwarding   : True
         NetworkSecurityGroup : null
         Primary              : True
-
 

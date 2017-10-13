@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 23c30c954875598ce3e01db137b0ef8cda9779f4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux
 > [!IMPORTANT] 
@@ -41,7 +40,7 @@ Cet article part du principe que vous disposez des éléments suivants :
 
 * **Interface de ligne de commande Azure** : installez [l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) la plus récente pour charger le disque dur virtuel.
 
-<a id="prepimage"> </a>
+<a id="prepimage"></a>
 
 ## <a name="step-1-prepare-the-image-to-be-uploaded"></a>Étape 1 : préparation de l'image pour le téléchargement
 Azure prend en charge diverses distributions de Linux (voir [Distributions Linux approuvées](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Les articles suivants indiquent comment préparer les diverses distributions de Linux prises en charge dans Azure. Après avoir suivi toutes les étapes décrites dans les guides suivants, revenez ici une fois que vous disposez d’un fichier VHD prêt pour le chargement sur Azure :
@@ -61,7 +60,7 @@ Azure prend en charge diverses distributions de Linux (voir [Distributions Lin
 
 Consultez également les **[notes d’installation Linux](../create-upload-generic.md#general-linux-installation-notes)** pour obtenir d’autres conseils généraux sur la préparation d’images Linux pour Azure.
 
-<a id="connect"> </a>
+<a id="connect"></a>
 
 ## <a name="step-2-prepare-the-connection-to-azure"></a>Étape 2 : préparation de la connexion à Azure
 Assurez-vous que vous utilisez l’interface de ligne de commande Azure dans le modèle de déploiement Classic (`azure config mode asm`), puis connectez-vous à votre compte :
@@ -71,7 +70,7 @@ azure login
 ```
 
 
-<a id="upload"> </a>
+<a id="upload"></a>
 
 ## <a name="step-3-upload-the-image-to-azure"></a>Étape 3 : chargement de l’image dans Azure
 Vous avez besoin d’un compte de stockage vers lequel charger votre fichier de disque dur virtuel. Vous pouvez choisir un compte de stockage existant ou [en créer un](../../../storage/common/storage-create-storage-account.md).
@@ -115,4 +114,3 @@ Pour plus d’informations, voir [référence CLI Azure pour le modèle de dépl
 [Step 1: Prepare the image to be uploaded]:#prepimage
 [Step 2: Prepare the connection to Azure]:#connect
 [Step 3: Upload the image to Azure]:#upload
-

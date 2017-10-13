@@ -1,6 +1,6 @@
 ---
 title: "Procédures pas à pas sur la science des données SQL Data Warehouse à l’aide de T-SQL et de Python sur Azure | Microsoft Docs"
-description: "Exemples qui montrent comment utiliser SQL Data Warehouse pour effectuer une analytique prédictive."
+description: "Exemples qui montrent comment utiliser SQL Data Warehouse pour effectuer une analyse prédictive."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,19 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 745701b571a6cfa93798d7536ddb9d28ab45ea73
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Procédures pas à pas sur la science des données SQL Data Warehouse à l’aide de T-SQL et de Python sur Azure
 
-Ces procédures pas à pas utilisent SQL Data Warehouse pour effectuer une analytique prédictive. Elles suivent les étapes décrites dans le processus TDSP (Team Data Science Process). Pour une vue d’ensemble du processus TDSP, consultez [Processus de science des données](overview.md). Pour une présentation de SQL Data Warehouse, consultez [En quoi consiste Azure SQL Data Warehouse ?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Ces procédures pas à pas utilisent SQL Data Warehouse pour effectuer une analyse prédictive. Elles suivent les étapes décrites dans le processus TDSP (Team Data Science Process). Pour une vue d’ensemble du processus TDSP, consultez [Processus de science des données](overview.md). Pour une présentation de SQL Data Warehouse, consultez [En quoi consiste Azure SQL Data Warehouse ?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-D’autres procédures pas à pas de la science des données qui appliquent le processus TDSP sont regroupées en fonction de la **plateforme** qu’elles utilisent. Consultez [Procédures pas à pas du processus TDSP (Team Data Science Process)](walkthroughs.md) pour connaître les détails de ces exemples.
+D’autres guides de la science des données qui appliquent le processus TDSP sont regroupés en fonction de la **plateforme** qu’ils utilisent. Consultez [Procédures pas à pas du processus TDSP (Team Data Science Process)](walkthroughs.md) pour connaître les détails de ces exemples.
 
 
 ## <a name="predict-taxi-tips-using-t-sql-and-ipython-notebooks-with-sql-data-warehouse"></a>Prédire les pourboires de taxi à l’aide de Notebooks T-SQL et IPython avec SQL Data Warehouse

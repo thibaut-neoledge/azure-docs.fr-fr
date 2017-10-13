@@ -14,14 +14,14 @@
 | Web Sockets par instance<sup>7</sup> |5 |35 |350 |Illimité |Illimité |
 | [Connexions simultanées du débogueur](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) par application |1 |1 |1 |5 |5 |
 | [Sous-domaine azurewebsites.net avec FTP/S et SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |X |X |X |X |X |
-| [domaines personnalisés](../articles/app-service/app-service-web-tutorial-custom-domain.md)  | |X |X |X |X |
+| [domaines personnalisés](../articles/app-service/app-service-web-tutorial-custom-domain.md) | |X |X |X |X |
 | domaines personnalisés [Prise en charge SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Illimité |Illimité, 5 connexions SSL SNI et 1 connexion SSL IP incluses |Illimité, 5 connexions SSL SNI et 1 connexion SSL IP incluses |
 | Équilibrage de charge intégré | |X |X |X |X |
 | [Toujours actif](../articles/app-service/web-sites-configure.md) | | |X |X |X |
 | [Sauvegardes planifiées](../articles/app-service/web-sites-backup.md) | | | |Une fois par jour |Toutes les 5 minutes<sup>8</sup> |
 | [Mise à l'échelle automatique](../articles/app-service/web-sites-scale.md) | | |X |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
-| [Azure Scheduler](https://azure.microsoft.com/services/scheduler/)  | |X |X |X |X |
+| [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |
 | [Surveillance de point de terminaison](../articles/app-service/web-sites-monitor.md) | | |X |X |X |
 | [Emplacements intermédiaires](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |
 | Domaines personnalisés par application</a> | |500 |500 |500 |500 |

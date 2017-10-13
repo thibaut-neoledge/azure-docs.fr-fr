@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0c855faa96d7feb9f762ecaed7654669a5a8a5b7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="modeling"></a>Modélisation
 
 Cette rubrique présente les objectifs, les tâches et les livrables associés à la **phase de modélisation** du processus TDSP (Team Data Science Process). Ce processus correspond à un cycle de vie que nous vous recommandons d’utiliser pour structurer vos projets de science des données. Le cycle de vie expose les principales phases que les projets exécutent généralement, souvent de manière itérative :
 
 * **Présentation de l’entreprise**
-* **Acquisition et compréhension des données**
+* **Acquisition de données et compréhension**
 * **Modélisation**
 * **Déploiement**
 * **Acceptation du client**
@@ -72,7 +71,7 @@ Nous fournissons avec le processus TDSP un [outil de modélisation et de créati
 Les artefacts générés au cours de cette phase sont les suivants :
 
 * [**Jeux de caractéristiques**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets) : les caractéristiques développées pour la modélisation sont décrites dans la section **Feature Sets (Jeux de caractéristiques)** du rapport **Data Definition (Définition des données)**. Elle contient des pointeurs vers le code permettant de générer les caractéristiques et indique comment la caractéristique a été générée.
-* [**Modèle de rapport**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): pour chaque modèle tenté, un rapport standard basé sur le modèle fournissant des détails sur chaque expérimentation est produit.
+* [**Modèle de rapport**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): pour chaque modèle tenté, un rapport standard basé sur le modèle fournissant des détails sur chaque expérience est produit.
 * **Décision de point de contrôle** : déterminez si le modèle est suffisamment performant pour être déployé sur un système de production. Voici certaines questions clés que vous devez vous poser :
   * Le modèle répond-il à la question avec une fiabilité suffisante compte tenu des données de test ? 
   * Est-il nécessaire d’essayer d’autres approches : collecter des données supplémentaires, poursuivre l’ingénierie des caractéristiques ou faire des essais avec d’autres algorithmes ?
@@ -82,7 +81,7 @@ Les artefacts générés au cours de cette phase sont les suivants :
 Voici les liens vers chaque étape du cycle de vie du processus TDSP :
 
 * [1. Présentation de l’entreprise](lifecycle-business-understanding.md)
-* [2. Acquisition et compréhension des données](lifecycle-data.md)
+* [2. Acquisition de données et compréhension](lifecycle-data.md)
 * [3. Modélisation](lifecycle-modeling.md)
 * [4. Déploiement](lifecycle-deployment.md)
 * [5. Acceptation du client](lifecycle-acceptance.md)

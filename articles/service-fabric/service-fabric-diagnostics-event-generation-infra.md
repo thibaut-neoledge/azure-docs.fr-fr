@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="platform-level-event-and-log-generation"></a>Événement au niveau de la plateforme et génération de journal
 
 ## <a name="monitoring-the-cluster"></a>Surveillance du cluster
@@ -113,4 +111,3 @@ Voici deux manières fréquentes de configurer la collecte des compteurs de perf
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vos journaux et événements doivent être regroupés avant de pouvoir être envoyés à n’importe quelle plateforme d’analyse. Pour mieux comprendre certaines des options recommandées, consultez les informations relatives à [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) et [WAD](service-fabric-diagnostics-event-aggregation-wad.md).
-

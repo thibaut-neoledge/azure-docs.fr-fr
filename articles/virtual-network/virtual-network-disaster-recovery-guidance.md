@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dbb749b056c36f16e921933fb8345211e3eaa697
-
-
+ms.openlocfilehash: 4e125406d2e798138c45e3fbbf61a610afab69fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-network--business-continuity"></a>Réseau virtuel – Continuité des activités
 ## <a name="overview"></a>Vue d'ensemble
@@ -46,10 +46,4 @@ Vous trouverez [ici](virtual-networks-create-vnet-arm-pportal.md)des instruction
 R : oui, vous pouvez créer deux réseaux virtuels utilisant les mêmes espaces d’adressage IP privé et ressources dans deux régions différentes à l’avance. Si un client hébergeait des services Internet dans le réseau virtuel, il aurait pu configurer Traffic Manager de manière à router géographiquement le trafic vers la région active. Toutefois, un client ne peut pas connecter deux réseaux virtuels avec le même espace d’adressage à son réseau local sous peine de causer des problèmes de routage. En cas d’incident et de perte d’un réseau virtuel dans une région, un client peut connecter à son réseau local l’autre réseau virtuel dans la région disponible avec l’espace d’adressage correspondant.
 
 Vous trouverez [ici](virtual-networks-create-vnet-arm-pportal.md)des instructions pour la création d’un réseau virtuel.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

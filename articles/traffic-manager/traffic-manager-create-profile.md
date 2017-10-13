@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-traffic-manager-profile"></a>Créer un profil Traffic Manager
 
 Cet article décrit comment un profil avec le type de routage **Priorité** peut être créé pour diriger les utilisateurs vers deux points de terminaison Azure Web Apps. Avec le type de routage **Priorité**, tout le trafic est acheminé vers le premier point de terminaison tandis que le deuxième est conservé en tant que sauvegarde. Par conséquent, les utilisateurs peuvent être dirigés vers le deuxième point de terminaison si le premier point de terminaison devient défaillant.
@@ -73,7 +71,6 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources et le pr
 - En savoir plus sur les [types de routage](traffic-manager-routing-methods.md).
 - En savoir plus sur les [types de point de terminaison](traffic-manager-endpoint-types.md).
 - En savoir plus sur la [surveillance du point de terminaison](traffic-manager-monitoring.md).
-
 
 
 

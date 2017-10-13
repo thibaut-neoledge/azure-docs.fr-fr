@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4890baa4ead3323834a82b3f9340cf751bf0c755
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utiliser le journal de diagnostic du niveau de performance d’Azure SQL Database Intelligent Insights
 
 Cette page fournit des informations sur l’utilisation du journal de diagnostic du niveau de performances d’Azure SQL Database généré par [Insights Intelligent](sql-database-intelligent-insights.md), son format et les données qu’il contient pour vos besoins de développement personnalisés. Ce journal de diagnostic peut être envoyé à [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-azure-storage) ou une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
@@ -147,7 +145,6 @@ Le journal de performances Intelligent Insights peut être utilisé avec [Azure 
 - Apprendre à [résoudre les problèmes de performances liés à Azure SQL Database avec Intelligence Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
 - Apprendre à [surveiller Azure SQL Database à l’aide d’Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)
 - [Collecter et utiliser des données de journaux à partir de vos ressources Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-
 
 
 

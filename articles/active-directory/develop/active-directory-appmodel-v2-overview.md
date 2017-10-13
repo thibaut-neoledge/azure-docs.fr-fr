@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 4a9bf4193017313f532b398880a84966367f0b58
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
-
+ms.openlocfilehash: 1e286044fb1a1b367fcac2dc14c47f68d5ed120d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Connecter les utilisateurs de compte Microsoft et d’Azure AD dans une même application
 Auparavant, un développeur d’application qui souhaitait prendre en charge à la fois les comptes Microsoft personnels et les comptes professionnels d’Azure Active Directory devait opérer une intégration avec deux systèmes distincts.  Le **point de terminaison Azure Active Directory v2.0** met en place une nouvelle version d’API d’authentification qui vous permet de connecter les deux types de comptes en utilisant une seule intégration.  Les applications qui utilisent le point de terminaison v2.0 peuvent également consommer des API REST à partir de [Microsoft Graph](https://graph.microsoft.io) à l’aide d’un des deux types de compte.
@@ -40,7 +38,7 @@ Les informations ici seront utiles pour comprendre ce qui est et ce qui n’est 
 * Familiarisez-vous avec les [limites, restrictions et contraintes](active-directory-v2-limitations.md) du point de terminaison v2.0.
 * Consultez cette présentation vidéo du point de terminaison v2.0 :
 
->[!VIDÉO https://channel9.msdn.com/Events/Build/2017/P4031/player]
+>[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
 ## <a name="reference"></a>Référence
 Les liens ci-dessous vous seront utiles pour explorer la plateforme en profondeur :
@@ -60,5 +58,4 @@ Ce sont les ressources les plus pertinentes pour obtenir de l’aide concernant 
 
 > [!NOTE]
 > Si vous ne devez connecter que des comptes professionnels et scolaires à partir d’Azure Active Directory, commencez par notre [Guide du développeur Azure AD](active-directory-developers-guide.md).  Le point de terminaison v2.0 est destiné aux développeurs qui doivent explicitement connecter des comptes personnels Microsoft.
-
 

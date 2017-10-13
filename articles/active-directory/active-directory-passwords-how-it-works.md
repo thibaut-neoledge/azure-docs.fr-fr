@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: cbb33988f5db47e35db406c037caa9133616d191
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 0fa05ee6a2df13845024e770a82f50ab7f75bafd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Découverte approfondie de la réinitialisation de mot de passe libre-service dans Azure AD
 
@@ -52,8 +51,8 @@ Lisez les étapes ci-dessous pour en savoir plus sur la logique sous-jacente à 
      * Si la stratégie exige deux tests, AAD vérifie que l’utilisateur a défini les données appropriées pour au moins deux des tests activés par la stratégie de l’administrateur.
        * Si l’utilisateur n’est pas configuré, il est invité à contacter son administrateur pour réinitialiser son mot de passe.
    * Vérifie si le mot de passe de l’utilisateur est géré localement (fédération ou synchronisation de hachage de mot de passe).
-     * Si la réécriture est déployée et que le mot de passe est géré localement, l’utilisateur est autorisé à s’authentifier et à réinitialiser son mot de passe.
-     * Si la réécriture n’est pas déployée et que le mot de passe est géré localement, l’utilisateur est invité à contacter son administrateur pour réinitialiser son mot de passe.
+     * Si l’écriture différée est déployée et que le mot de passe est géré localement, l’utilisateur est autorisé à s’authentifier et à réinitialiser son mot de passe.
+     * Si l’écriture différée n’est pas déployée et que le mot de passe est géré localement, l’utilisateur est invité à contacter son administrateur pour réinitialiser son mot de passe.
 5. S’il est établi que l’utilisateur est en mesure de réinitialiser son mot de passe, il reçoit alors des instructions pour mener à bien le processus de réinitialisation.
 
 ## <a name="authentication-methods"></a>Méthodes d’authentification
@@ -191,12 +190,12 @@ Exemple : quatre administrateurs font partie d’un environnement. L’administ
 
 Si vous avez installé, configuré et activé Azure AD Connect, vous disposerez d’options supplémentaires pour les intégrations locales.
 
-### <a name="write-back-passwords-to-your-on-premises-directory"></a>Réécriture du mot de passe dans votre répertoire local
+### <a name="write-back-passwords-to-your-on-premises-directory"></a>Écriture différée des mots de passe dans votre répertoire local
 
 Contrôle si la réécriture du mot de passe est activée ou non pour ce répertoire. Si elle l’est, indique l’état du service de réécriture local. Cela peut être utile si vous voulez désactiver temporairement la réécriture du mot de passe sans reconfigurer Azure AD Connect.
 
 * Si le commutateur est défini sur Oui, la réécriture est activée et les utilisateurs fédérés et synchronisés par hachage du mot de passe pourront réinitialiser leur mot de passe.
-* Si le commutateur est défini sur Non, la réécriture est désactivée et les utilisateurs fédérés et synchronisés par hachage du mot de passe ne pourront pas réinitialiser leur mot de passe.
+* Si le commutateur est défini sur Non, l’écriture différée est désactivée et les utilisateurs fédérés et synchronisés par hachage du mot de passe ne pourront pas réinitialiser leur mot de passe.
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Autoriser les utilisateurs à déverrouiller les comptes sans réinitialiser leur mot de passe
 
@@ -227,13 +226,13 @@ Le compte spécifié dans l’utilitaire Azure AD Connect doit avoir des autoris
 
 Si vous ignorez de quel compte il s’agit exactement, ouvrez l’interface utilisateur de configuration d’Azure Active Directory Connect, puis cliquez sur l’option Afficher la configuration actuelle. Le compte auquel vous devez ajouter l’autorisation est répertorié sous « Annuaires synchronisés ».
 
-La définition de ces autorisations permet au compte de service de l’agent de gestion de chaque forêt de gérer les mots de passe pour les comptes d’utilisateur de cette forêt. **Sans ces autorisations, même si la réécriture semble configurée correctement, les utilisateurs rencontreront des erreurs en essayant de gérer leurs mots de passe locaux à partir du cloud.**
+La définition de ces autorisations permet au compte de service de l’agent de gestion de chaque forêt de gérer les mots de passe pour les comptes d’utilisateur de cette forêt. **Sans ces autorisations, même si l’écriture différée semble configurée correctement, les utilisateurs rencontreront des erreurs en essayant de gérer leurs mots de passe locaux à partir du cloud.**
 
 > [!NOTE]
 > La réplication de ces autorisations pour tous les objets peut durer plusieurs heures.
 >
 
-Pour configurer les autorisations appropriées pour que la réécriture du mot de passe ait lieu :
+Pour configurer les autorisations appropriées pour que l’écriture différée du mot de passe ait lieu :
 
 1. Ouvrez Utilisateurs et ordinateurs Active Directory avec un compte ayant les autorisations d’administration de domaine appropriées.
 2. Dans le menu Affichage, assurez-vous que l’option Fonctionnalités avancées est activée.
@@ -269,10 +268,9 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [**Données**](active-directory-passwords-data.md) : comprenez mieux les données requises et leur utilisation dans la gestion des mots de passe.
 * [**Déploiement**](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation du mot de passe libre-service sur vos utilisateurs grâce aux conseils figurant ici.
 * [**Stratégie**](active-directory-passwords-policy.md) : comprenez et définissez les stratégies de mot de passe d’Azure AD.
-* [**Réécriture du mot de passe**](active-directory-passwords-writeback.md) : fonctionnement de la réécriture du mot de passe avec votre répertoire local.
+* [**Écriture différée du mot de passe**](active-directory-passwords-writeback.md) : fonctionnement de l’écriture différée du mot de passe avec votre répertoire local.
 * [**Personnalisation**](active-directory-passwords-customize.md) : personnalisez l’apparence de l’interface de réinitialisation du mot de passe libre-service de votre société.
 * [**Rapports**](active-directory-passwords-reporting.md) : découvrez si, quand et où vos utilisateurs accèdent aux fonctionnalités de réinitialisation du mot de passe libre-service.
 * [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) - Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours.
 * [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec la réinitialisation de mot de passe en libre-service.
-
 

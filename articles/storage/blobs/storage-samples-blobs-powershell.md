@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: robinsh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 74f6e8eb6dd29633fbf518831b446a149fbbddc5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Exemples Azure PowerShell pour Stockage Blob Azure
 
@@ -33,4 +32,3 @@ Le tableau suivant contient des liens vers des exemples de scripts PowerShell qu
 |**Stockage d’objets blob**||
 | [Calculer la taille totale d’un conteneur de stockage d’objets blob](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fcli%2fazure%2ftoc.json) | Calcule la taille totale de tous les objets blob figurant dans un conteneur. |
 | [Supprimer les conteneurs avec un préfixe spécifique](../scripts/storage-blobs-container-delete-by-prefix-powershell.md?toc=%2fcli%2fazure%2ftoc.json) | Supprime les conteneurs commençant par une chaîne spécifiée. |
-

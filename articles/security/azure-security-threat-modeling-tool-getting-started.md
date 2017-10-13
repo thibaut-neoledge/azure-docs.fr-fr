@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Bien démarrer avec l’outil de modélisation des menaces
 
 L’équipe des Outils de sécurité de cloud et d’entreprise a publié l’aperçu des outils de modélisation des menaces cette année en tant que fonction **[cliquer pour télécharger](https://aka.ms/tmtpreview)** gratuite. La modification du mécanisme de livraison nous permet de transmettre les dernières améliorations et correctifs de bogues pour les clients chaque fois qu’ils ouvrent l’outil, rendant ainsi la gestion et l’utilisation plus facile.

@@ -16,12 +16,11 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
+ms.openlocfilehash: fb0bacac346445e6bde9df22f3355419e3162a3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 5a663bc8290d056b89a929c17722e3c233cdbad7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Installation d’un contrôleur de domaine Active Directory de réplication dans un réseau virtuel Azure
 Cette rubrique montre comment installer des contrôleurs de domaine supplémentaires (également connus sous le nom de contrôleurs de domaine de réplication) pour un domaine Active Directory local sur des machines virtuelles Azure dans un réseau virtuel Azure.
@@ -104,7 +103,7 @@ Pour créer les machines virtuelles à l’aide de Windows PowerShell au lieu d
 Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Bien démarrer avec les applets de commande Azure](/powershell/azure/overview) et le [Guide de référence des applets de commande Azure](/powershell/azure/get-started-azureps).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Instructions pour le déploiement de Windows Server Active Directory sur Machines virtuelles Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+* [Instructions pour le déploiement de Windows Server Active Directory sur Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 * [Comment télécharger des contrôleurs de domaine Hyper-V locaux existants vers Azure à l’aide de PowerShell Azure](http://support.microsoft.com/kb/2904015)
 * [Installer une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md)
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
@@ -115,4 +114,3 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Bi
 
 <!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
-

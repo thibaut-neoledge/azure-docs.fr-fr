@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/22/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 99b76e3bc2939c65654cbf606fda6f8a45e0c44b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set-update-2"></a>Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde (Mise à jour 2)
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
@@ -108,7 +107,7 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre vo
 7. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png). Un travail de restauration commence. Vous pouvez afficher le travail en accédant à la page **Travaux**. 
 8. Une fois la restauration terminée, vous pouvez vérifier que le contenu de vos volumes a été remplacé par les volumes provenant de la sauvegarde.
 
-![Vidéo disponible](./media/storsimple-restore-from-backup-set-u2/Video_icon.png) **Vidéo disponible**
+![Vidéo disponible](./media/storsimple-restore-from-backup-set-u2/Video_icon.png)**Vidéo disponible**
 
 Pour visionner une vidéo expliquant comment utiliser les fonctionnalités de clonage et de restauration dans StorSimple pour récupérer des fichiers supprimés, cliquez [ici](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
@@ -120,5 +119,4 @@ Pour terminer l’opération de restauration, mettez le volume hors connexion su
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [gérer des volumes StorSimple](storsimple-manage-volumes-u2.md).
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
 

@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 06/06/2017
 ms.author: heidist
 ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Azure Search : exemples de code, démonstrations, vidéos et didacticiels
 Familiarisez-vous rapidement avec les vidéos, démonstrations, didacticiels et exemples d’application qui suivent.
@@ -73,9 +73,9 @@ Démonstrations multisessions et laboratoires pour la Recherche Azure.
 
 | Lien | Publication | Détails |
 | --- | --- | --- |
-| [Build 2016 sur Channel9 : « Applications That Learn & Adapt: Azure Machine Learning + Search »](https://channel9.msdn.com/Events/Build/2016/P458) |Mai 2016 |17 minutes. Liam Cavanagh explique les avantages de l’ajout de fonctionnalités « nos recommandations personnalisées » à votre application Azure Search, et comment obtenir des informations sur les préférences utilisateur à partir de la fonctionnalité Machine Learning. |
+| [Build 2016 sur Channel9 : « Applications That Learn &amp; Adapt: Azure Machine Learning + Search »](https://channel9.msdn.com/Events/Build/2016/P458) |Mai 2016 |17 minutes. Liam Cavanagh explique les avantages de l’ajout de fonctionnalités « nos recommandations personnalisées » à votre application Azure Search, et comment obtenir des informations sur les préférences utilisateur à partir de la fonctionnalité Machine Learning. |
 | [Build 2016 Channel9 : « Intelligent Data Driven Applications that Learn and Adapt » (Applications intelligentes pilotées par les données qui apprennent et s’adaptent)](https://channel9.msdn.com/Events/Build/2016/B857) |Mai 2016 |1 heure. Découvrez comment Machine Learning et Azure Search peuvent être utilisés ensemble pour créer des applications perfectionnées pilotées par les données. |
-| [Data Exposed sur Channel9 : « Custom Analyzers, Search Analytics, & Portal Querying in Azure Search »](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search) |Janvier 2016 |15 minutes. Les analyseurs personnalisés permettent de configurer des générateurs et des filtres de jetons. L'analyse de recherche fournit des informations sur les termes de recherche entrés par les utilisateurs et l'efficacité de votre index de recherche. L'Explorateur de recherche est un outil de requête intégré qui vous permet d'exécuter des requêtes à partir du portail. |
+| [Data Exposed sur Channel9 : « Custom Analyzers, Search Analytics, &amp; Portal Querying in Azure Search »](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search) |Janvier 2016 |15 minutes. Les analyseurs personnalisés permettent de configurer des générateurs et des filtres de jetons. L'analyse de recherche fournit des informations sur les termes de recherche entrés par les utilisateurs et l'efficacité de votre index de recherche. L'Explorateur de recherche est un outil de requête intégré qui vous permet d'exécuter des requêtes à partir du portail. |
 | [Channel9 Data Exposed : « Améliorations d'Azure Search »](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-Enhancements) |Novembre 2015 |17 minutes. Ingestion de données des données StackExchange. Créer un index dans le portail Azure. Découvrir comment les indexeurs analysent les sources de données prises en charge pour extraire des données dans un index Azure Search. Analyseurs de langage. Expressions de requête Lucene. |
 | [AzureCon 2015 : Meilleures pratiques pour Azure Search](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) |Septembre 2015 |Des conseils pratiques, présentés par Pablo Castro, sur la mise à l'échelle, l'optimisation des performances et comment améliorer l'efficacité du codage lors de la création d'applications pour des scénarios web ou mobiles. |
 | [Build 2015 : Données modernes](http://channel9.msdn.com/Events/Build/2015/2-663) |Juin 2015 |À la 29ème minute de la session, découvrez comment Azure Search s’intègre dans la révolution des données modernes, présentation de Shawn Bice et Pablo Castro. |

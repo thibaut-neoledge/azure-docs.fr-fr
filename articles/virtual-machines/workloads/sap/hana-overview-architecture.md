@@ -11,25 +11,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 63e1820033e051b72601291c5206772192e68769
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 0fa1ac4f9e9711332c568e84f86d132508eb185f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure
 
 ## <a name="what-is-sap-hana-on-azure-large-instances"></a>Qu’est-ce que SAP HANA sur Azure (grandes instances) ?
 
-SAP HANA sur Azure (grandes instances) est une solution unique d’Azure. En plus de fournir des machines virtuelles Azure à des fins de déploiement et d’exécution de SAP HANA, Azure vous offre la possibilité d’exécuter et de déployer SAP HANA sur des serveurs nus qui vous sont dédiés en tant que client. La solution SAP HANA sur Azure (grandes instances) s’appuie sur un matériel nu de type serveur/hôte non partagé, qui vous est assigné en tant que client. Le matériel de serveur est incorporé dans des tampons plus volumineux qui contiennent l’infrastructure de calcul/serveur, de réseau et de stockage. Cette combinaison est certifiée HANA TDI. L’offre de service SAP HANA sur Azure (grandes instances) propose plusieurs références SKU ou tailles de serveur, d’unités dotées de 72 processeurs et 768 Go de mémoire à des unités dotées de 960 processeurs et 20 To de mémoire.
+SAP HANA sur Azure (grandes instances) est une solution Azure unique. En plus de fournir des machines virtuelles Azure à des fins de déploiement et d’exécution de SAP HANA, Azure vous offre la possibilité d’exécuter et de déployer SAP HANA sur des serveurs nus qui vous sont dédiés en tant que client. La solution SAP HANA sur Azure (grandes instances) s’appuie sur un matériel nu de type serveur/hôte non partagé, qui vous est assigné en tant que client. Le matériel de serveur est incorporé dans des tampons plus volumineux qui contiennent l’infrastructure de calcul/serveur, de réseau et de stockage. Cette combinaison est certifiée HANA TDI. L’offre de service SAP HANA sur Azure (grandes instances) propose plusieurs références SKU ou tailles de serveur, d’unités dotées de 72 processeurs et 768 Go de mémoire à des unités dotées de 960 processeurs et 20 To de mémoire.
 
 L’isolation du client dans le tampon de l’infrastructure s’effectue dans les locataires de la manière suivante :
 
-- Mise en réseau : isolation des clients au sein de la pile d’infrastructure au travers de réseaux virtuels par locataire assigné à un client. Un locataire est assigné à un seul client. Un client peut avoir plusieurs locataires. L’isolement réseau des locataires interdit la communication réseau entre les locataires au niveau du tampon d’infrastructure. Et ce, même si les locataires appartiennent au même client.
+- Mise en réseau : isolation des clients au sein de la pile d’infrastructure au travers de réseaux virtuels par locataire assigné à un client. Un locataire est assigné à un seul client. Un client peut avoir plusieurs locataires. L’isolation réseau des locataires interdit la communication réseau entre les locataires au niveau du tampon d’infrastructure. Et ce, même si les locataires appartiennent au même client.
 - Composants de stockage : isolation par le biais de machines virtuelles auxquelles des volumes de stockage sont assignés. Les volumes de stockage ne peuvent être assignés qu’à une seule machine virtuelle de stockage. Une machine virtuelle de stockage est assignée exclusivement à un seul locataire dans la pile d’infrastructure certifiée SAP HANA TDI. Par conséquent, les volumes de stockage assignés à une machine virtuelle de stockage sont accessibles dans un seul locataire associé. Et ils ne sont pas visibles entre les différents locataires déployés.
 - Serveur ou hôte : unité de serveur ou hôte qui n’est pas partagée entre les clients ou les locataires. Un serveur ou un hôte déployé pour un client constitue une unité de calcul nue atomique qui est assignée à un seul locataire. **Aucun** partitionnement matériel ou logiciel utilisé ne peut vous conduire, en tant que client, à partager un hôte ou un serveur avec un autre client. Les volumes de stockage qui sont assignés à la machine virtuelle de stockage du locataire spécifique sont montés sur ce type de serveur. Une ou plusieurs unités de serveur de différentes références SKU peuvent être exclusivement assignées à un seul locataire.
 - Au sein d’une solution SAP HANA sur le tampon d’infrastructure Azure (grandes instances), plusieurs locataires sont déployés et isolés les uns par rapport aux autres, au travers des concepts de locataire sur les niveaux de mise en réseau, de stockage et de calcul. 
@@ -183,7 +182,7 @@ Voici quelques exemples de ce à quoi pourrait ressembler l’exécution de plus
 | SKU | Taille de la mémoire | Taille de stockage | Tailles avec plusieurs bases de données |
 | --- | --- | --- | --- |
 | S72 | 768 Go | 3 To | 1 x instance HANA de 768 Go<br /> ou 1 x instance de 512 Go + 1 x instance de 256 Go<br /> ou 3 x instances de 256 Go | 
-| S72m | 768 Go | 3 To | 3 x instances HANA de 512 Go<br />ou 1 x instance de 512 Go + 1 x instance de 1 To<br />ou 6 x instances de 256 Go<br />ou 1 x instance de 1,5 To | 
+| S72m | 1,5 To | 6 To | 3 x instances HANA de 512 Go<br />ou 1 x instance de 512 Go + 1 x instance de 1 To<br />ou 6 x instances de 256 Go<br />ou 1 x instance de 1,5 To | 
 | S192m | 4 To | 16 TO | 8 x instances de 512 Go<br />ou 4 x instances de 1 To<br />ou 4 x instances de 512 Go + 2 x instances de 1 To<br />ou 4 x instances de 768 Go + 2 x instances de 512 Go<br />ou 1 x instance de 4 To |
 | S384xm | 8 To | 22 To | 4 x instances de 2 To<br />ou 2 x instances de 4 To<br />ou 2 x instances de 3 To + 1 x instance de 2 To<br />ou 2 x instances de 2,5 To + 1 x instance de 3 To<br />ou 1 x instance de 8 To |
 
@@ -483,6 +482,5 @@ La figure ci-dessus illustre comment les différents réseaux virtuels Azure dan
 
 > [!IMPORTANT] 
 > Si plusieurs circuits ExpressRoute sont utilisés, les paramètres de BGP Local Preference et du préfixe AS Path doivent être utilisés pour garantir le routage correct du trafic.
-
 
 

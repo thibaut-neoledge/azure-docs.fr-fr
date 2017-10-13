@@ -7,4 +7,4 @@
 
    ![Nouveau coffre](./media/site-recovery-create-vault/new-vault-settings.png)
 
-   Le nouveau coffre apparaît sur le **tableau de bord** > **Toutes les ressources** et sur la page principale **Coffres Recovery Services**.
+   Le nouveau coffre apparaît sur le **Tableau de bord** > **Toutes les ressources** et dans la page principale **Coffres Recovery Services**.

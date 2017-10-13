@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: b23624fc7e82af1cb593a1aedd138ae0d6637ae7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: 4ac79df703de00ac009d9845772d8be740e74f29
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Répliquer une application web multiniveau basée sur IIS à l’aide d’Azure Site Recovery
 
@@ -141,7 +140,7 @@ Le certificat SSL peut être émis sur :
 a) Le nom de domaine complet du site web<br>
 b) Le nom du serveur<br>
 c) Un certificat générique pour le nom de domaine<br>
-d) Une adresse IP : si le certificat SSL est émis sur l’adresse IP du serveur IIS, un autre certificat SSL doit être émis sur l’adresse IP du serveur IIS sur le site Azure, et une autre liaison SSL pour ce certificat doit être créée. Il est donc conseillé de ne pas utiliser un certificat SSL émis sur l’adresse IP. C’est une option moins couramment utilisée, qui sera bientôt déconseillée conformément aux nouvelles modifications du forum sur l’autorité de certification/navigateur.
+d) Une adresse IP : si le certificat SSL est émis sur l’adresse IP du serveur IIS, un autre certificat SSL doit être émis sur l’adresse IP du serveur IIS sur le site Azure, et une autre liaison SSL pour ce certificat doit être créée. Il est donc conseillé de ne pas utiliser un certificat SSL émis sur l’adresse IP. C’est une option moins couramment utilisée, qui sera bientôt dépréciée conformément aux nouvelles modifications du forum sur l’autorité de certification/navigateur.
 
 #### <a name="update-the-dependency-between-the-web-and-the-application-tier"></a>Mettre à jour la dépendance entre la couche web et la couche Application
 Si une dépendance propre à une application est basée sur l’adresse IP des machines virtuelles, vous devez la mettre à jour après le basculement.
@@ -166,4 +165,3 @@ Suivez [ce guide](site-recovery-failover.md) lorsque vous effectuez un basculeme
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en savoir plus sur la [réplication d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery.
-

@@ -19,10 +19,11 @@
 # Procédures
 
 ## Stratégie de sécurité
+### [Vue d'ensemble](security-center-policies-overview.md)
 ### [Collecte de données](security-center-enable-data-collection.md)
 ### [Stratégie de sécurité](security-center-policies.md)
 ### [Notifications par e-mail](security-center-provide-security-contact-details.md)
-### [Niveau de tarification](security-center-pricing.md)
+### [Niveau tarifaire](security-center-pricing.md)
 
 ## [intégration](security-center-onboarding.md)
 ## [Événements](security-center-events-dashboard.md)
@@ -53,7 +54,6 @@
 #### [Installer Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Redémarrage après des mises à jour système](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Corriger des vulnérabilités du système d’exploitation](security-center-remediate-os-vulnerabilities.md)
-#### [Résoudre les alertes d’intégrité Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Mettre à jour la version du système d’exploitation](security-center-update-os-version.md)
 #### [Évaluation des vulnérabilités non installée](security-center-vulnerability-assessment-recommendations.md)
 ### [Surveiller l’intégrité de la sécurité](security-center-monitoring.md)

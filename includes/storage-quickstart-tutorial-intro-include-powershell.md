@@ -6,7 +6,7 @@ Connectez-vous à votre abonnement Azure avec la commande `Login-AzureRmAccount`
 Login-AzureRmAccount
 ```
 
-Si vous ne savez pas quelle région utiliser, listez celles qui sont disponibles. Dans la liste qui s’affiche, trouvez celle que vous souhaitez utiliser. Cet exemple utilise la localisation **eastus**. Stockez-la dans une variable et utilisez cette variable. Vous pourrez ainsi changer son contenu à un seul endroit.
+Si vous ne savez pas quelle localisation utiliser, affichez la liste des localisations disponibles. Dans la liste, trouvez celle que vous souhaitez utiliser. Cet exemple utilise la localisation **eastus**. Stockez-la dans une variable et utilisez cette variable. Vous pourrez ainsi changer son contenu dans un seul emplacement.
 
 ```powershell
 Get-AzureRmLocation | select Location 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.translationtype: HT
-ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
 ms.openlocfilehash: a4a418a3b277d41b62aa049941a4c65e3bb82808
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Créer une infrastructure de machine virtuelle Linux complète dans Azure avec Terraform
 Terraform vous permet de définir et de créer des déploiements d’infrastructures complètes dans Azure. Vous générez des modèles Terraform dans un format lisible pour créer et configurer des ressources Azure de manière cohérente et reproductible. Cet article vous explique comment créer un environnement Linux complet et des ressources de support avec Terraform. Vous pouvez également apprendre à [installer et configurer Terraform](terraform-install-configure.md).
 
@@ -57,7 +55,7 @@ resource "azurerm_resource_group" "myResourceGroup" {
 Dans d’autres sections, vous référencez le groupe de ressources avec *${azurerm_resource_group.myterraform.name}*.
 
 
-## <a name="create-virtual-network"></a>Créer un réseau virtuel
+## <a name="create-virtual-network"></a>Création d’un réseau virtuel
 La section suivante crée un réseau virtuel nommé *myVnet* dans l’espace d’adressage *10.0.0.0/16* :
 
 ```tf
@@ -85,7 +83,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 ```
 
 
-## <a name="create-public-ip-address"></a>Créer une adresse IP publique
+## <a name="create-public-ip-address"></a>Création d’une adresse IP publique
 Pour pouvoir accéder à des ressources via Internet, créez et attribuez une adresse IP publique à votre machine virtuelle. La section suivante crée une adresse IP publique nommée *myPublicIP* :
 
 ```tf
@@ -183,7 +181,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 ```
 
 
-## <a name="create-virtual-machine"></a>Créer une machine virtuelle
+## <a name="create-virtual-machine"></a>Create virtual machine
 La dernière étape consiste à créer une machine virtuelle et à utiliser toutes les ressources créées. La section suivante crée une machine virtuelle nommée *myVM* et attache la carte réseau virtuelle nommée *myNIC*. La dernière image *Ubuntu 16.04-LTS* est utilisée et un utilisateur nommé *azureuser* est créé avec l’authentification par mot de passe désactivée. Les données de clé SSH sont fournies dans la section *ssh_keys*.
 
 ```tf

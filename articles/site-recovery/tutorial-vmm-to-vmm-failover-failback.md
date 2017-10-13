@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/16/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8f139070de99c4249207d048d445e86dd41e9060
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur votre site local secondaire
 
 Le service [Azure Site Recovery](site-recovery-overview.md) gère et orchestre la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.
 
-Ce didacticiel explique comment basculer une machine virtuelle Hyper-V managée dans un cloud System Center Virtual Machine Manager (VMM) vers un site VMM secondaire. Après avoir procédé au basculement, vous restaurez automatiquement sur votre site local quand il est disponible. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel explique comment basculer une machine virtuelle Hyper-V managée dans un cloud System Center Virtual Machine Manager (VMM) vers un site VMM secondaire. Une fois que vous avez procédé au basculement, vous restaurez automatiquement sur votre site local quand il est disponible. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Basculer une machine virtuelle Hyper-V d’un cloud VMM principal vers un cloud VMM secondaire
@@ -54,9 +52,9 @@ Veillez à effectuer un [test de récupération d’urgence](tutorial-dr-drill-s
 Vous pouvez effectuer un basculement régulier ou planifié pour des machines virtuelles Hyper-V.
 
 - Utilisez un basculement régulier pour les interruptions inattendues. Quand vous effectuez ce basculement, Site Recovery crée une machine virtuelle sur le site secondaire et la démarre. Vous effectuez le basculement pour un point de récupération spécifique. Des pertes de données peuvent se produire en fonction du point de récupération que vous utilisez.
-- Un basculement planifié peut être utilisé pour la maintenance ou durant une interruption prévue. Cette option permet de ne perdre aucune donnée. Quand un basculement planifié est déclenché, les machines virtuelles sources sont arrêtées. Les données non synchronisées sont synchronisées, et le basculement est déclenché. 
+- Un basculement planifié peut être utilisé pour la maintenance ou lors d’une interruption prévue. Cette option permet de ne perdre aucune donnée. Quand un basculement planifié est déclenché, les machines virtuelles sources sont arrêtées. Les données non synchronisées sont synchronisées et le basculement est déclenché. 
 - 
-Cette procédure explique comment effectuer un basculement régulier.
+Cette procédure explique comment effectuer régulièrement un basculement.
 
 
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle > **Basculer**.
@@ -102,5 +100,4 @@ Démarrez la réplication du site secondaire sur le site principal et effectuez 
 
 > [!NOTE]
 > La réplication inverse réplique seulement les modifications qui se sont produites depuis que la machine virtuelle de réplica a été arrêtée, et seules les modifications d’ordre différentiel sont envoyées.
-
 

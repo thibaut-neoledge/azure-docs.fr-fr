@@ -14,14 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
+ms.openlocfilehash: feaced0d0784b5724fb1e30be5e66cb7c808d77f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: a40e26a8681df31fad664e4d1df4c1513311900d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-your-app-to-linux-vms-using-jenkins-and-team-services"></a>Déployer votre application sur des machines virtuelles Linux à l’aide de Jenkins et Team Services
 
 L’intégration continue (CI) et le déploiement continu (CD) constituent un pipeline via lequel vous pouvez générer, mettre en production et déployer votre code. Team Services fournit un ensemble complet d’outils d’automatisation CI/CD pour le déploiement sur Azure. Jenkins est un outil serveur CI/CD tiers populaire qui propose également l’automatisation CI/CD. Vous pouvez les utiliser ensemble pour personnaliser la façon dont vous proposez votre service ou application cloud.
@@ -51,7 +49,7 @@ Vous allez :
 
 ## <a name="get-the-sample-app"></a>Obtenir l’exemple d’application
 
-Vous devez déployer une application stockée dans un dépôt Git.
+Vous devez déployer une application stockée dans un référentiel Git.
 Pour ce didacticiel, nous vous recommandons d’utiliser [cet exemple d’application disponible sur GitHub](https://github.com/azooinmyluggage/fabrikam-node).
 
 1. Dupliquez cette application et notez son emplacement (URL) pour pouvoir l’utiliser ultérieurement dans ce didacticiel.
@@ -59,7 +57,7 @@ Pour ce didacticiel, nous vous recommandons d’utiliser [cet exemple d’applic
 1. La duplication de l’application doit être **publique** pour simplifier la connexion à GitHub plus tard.
 
 > [!NOTE]
-> Pour plus d’informations, consultez [Fork A Repo](https://help.github.com/articles/fork-a-repo/) (Dupliquer un dépôt) et [Making a private repository public](https://help.github.com/articles/making-a-private-repository-public/) (Rendre public un dépôt privé).
+> Pour plus d’informations, consultez [Fork A Repo](https://help.github.com/articles/fork-a-repo/) (Dupliquer un référentiel)et [Making a private repository public](https://help.github.com/articles/making-a-private-repository-public/) (Rendre public un référentiel privé).
 
 > [!NOTE]
 > L’application a été générée à l’aide de [Yeoman](http://yeoman.io/learning/index.html) ; elle utilise **Express**, **bower** et **grunt** et comprend certains packages **npm** en tant que dépendances.
@@ -88,14 +86,14 @@ Dans Jenkins, créez un projet de génération et configurez-le comme suit :
 
 1. Dans l’onglet **Général**, entrez un nom pour votre projet de génération.
 
-1. Dans l’onglet **Gestion du code source**, sélectionnez **Git** et entrez les détails du dépôt et la branche qui contient le code de votre application.
+1. Dans l’onglet **Gestion du code source**, sélectionnez **Git** et entrez les détails du référentiel et la branche qui contient le code de votre application.
 
-   ![Ajouter un dépôt à votre génération](media/tutorial-build-deploy-jenkins/jenkins-git.png)
+   ![Ajouter un référentiel à votre génération](media/tutorial-build-deploy-jenkins/jenkins-git.png)
 
    > [!NOTE]
-   > Si votre dépôt n’est pas public, choisissez **Ajouter** et fournissez des informations d’identification pour la connexion.
+   > Si votre référentiel n’est pas public, choisissez **Ajouter** et fournissez des informations d’identification pour la connexion.
 
-1. Dans l’onglet **Build Triggers** (Générer des déclencheurs), sélectionnez **Poll SCM** (Interroger SCM) et entrez la planification `H/03 * * * *` pour interroger le dépôt Git pour les modifications toutes les trois minutes. 
+1. Dans l’onglet **Build Triggers** (Générer des déclencheurs), sélectionnez **Poll SCM** (Interroger SCM) et entrez la planification `H/03 * * * *` pour interroger le référentiel Git pour les modifications toutes les trois minutes. 
 
 1. Dans l’onglet **Build Environment** (Générer un environnement), sélectionnez **Provide Node &amp; npm bin/ folder PATH** (Fournir le CHEMIN D’ACCÈS au dossier npm bin/ et à Node) et saisissez `NodeJS` pour la valeur d’installation de Node JS. Laissez **npmrc file** (fichier npmrc) défini sur « utiliser les valeurs par défaut du système ».
 
@@ -105,7 +103,7 @@ Dans Jenkins, créez un projet de génération et configurez-le comme suit :
 
 1. Dans l’onglet **Post-build Actions** (Actions post-génération), pour **Files to archive** (Fichiers à archiver), entrez `**/*` pour inclure tous les fichiers.
 
-1. Pour **Trigger release in TFS/Team Services** (Déclencher la mise en production dans TFS/Team Services), entrez l’URL complète de votre compte (tel que `https://your-account-name.visualstudio.com`), le nom du projet, un nom pour la définition de mise en production (créée ultérieurement) et les informations d’identification pour se connecter à votre compte.
+1. Pour **Trigger release in TFS/Team Services** (Déclencher la mise en production dans TFS/Team Services), entrez l’URL complète de votre compte (tel que `https://your-account-name.visualstudio.com`), le nom du projet, un nom pour la définition de mise en production (créée ultérieurement) et les informations d’identification pour vous connecter à votre compte.
    Vous avez besoin de votre nom d’utilisateur et du jeton d’accès personnel créé précédemment. 
 
    ![Configuration des actions post-génération Jenkins](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
@@ -216,7 +214,7 @@ La tâche **Script Shell** est utilisée pour fournir la configuration d’un sc
    
 ## <a name="rename-and-save-the-release-definition"></a>Renommer et enregistrer la définition de mise en production
 
-1. Modifiez le nom de la définition de mise en production pour le remplacer par le nom que vous avez spécifié dans l’onglet **Actions post-génération** de la génération dans Jenkins. Jenkins exige que ce nom soit en mesure de déclencher une nouvelle mise en production lorsque les artefacts source sont mis à jour.
+1. Modifiez le nom de la définition de mise en production pour le remplacer par le nom que vous avez spécifié dans l’onglet **Actions post-génération** de la build dans Jenkins. Jenkins exige que ce nom soit en mesure de déclencher une nouvelle mise en production lorsque les artefacts source sont mis à jour.
 
 1. Si vous le souhaitez, modifiez le nom de l’environnement en cliquant sur dessus. 
 
@@ -239,7 +237,7 @@ La tâche **Script Shell** est utilisée pour fournir la configuration d’un sc
 1. Dans la définition de mise en production, décochez la case **Activé** dans la section **Options de contrôle** des paramètres de la tâche Déploiement de groupe de ressources Azure.
    Pour les futurs déploiements sur le groupe de déploiement existant, vous n’avez pas besoin de réexécuter cette tâche.
 
-1. Accédez au dépôt Git source et modifiez le contenu du titre **h1** dans le fichier [app/views/index.jade](https://github.com/azooinmyluggage/fabrikam-node/blob/master/app/views/index.jade).
+1. Accédez au référentiel Git source et modifiez le contenu du titre **h1** dans le fichier [app/views/index.jade](https://github.com/azooinmyluggage/fabrikam-node/blob/master/app/views/index.jade).
 
 1. Validez votre modification.
 
@@ -247,7 +245,7 @@ La tâche **Script Shell** est utilisée pour fournir la configuration d’un sc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez automatisé le déploiement d’une application Azure à l’aide d’une génération Jenkins et de Team Services pour la mise en production. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez automatisé le déploiement d’une application Azure à l’aide d’une build Jenkins et de Team Services pour la mise en production. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Générer votre application dans Jenkins

@@ -169,8 +169,6 @@
           href: sql-database-operate-query-store.md
         - name: Événements étendus
           href: sql-database-xevent-db-diff-from-svr.md
-        - name: Niveaux de compatibilité
-          href: sql-database-compatibility-level-query-performance-130.md
         - name: Surveiller en mémoire
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Montée en charge
@@ -266,6 +264,12 @@
         - name: Règles de réseau virtuel par PowerShell
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Continuité de l’activité
+      items:
+        - name: Configuration du coffre - sauvegardes
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: Géoréplication - Portail
+          href: sql-database-geo-replication-portal.md
+    - name: Chargement et transfert de données
       items:
         - name: Chargement des données avec BCP
           href: sql-database-load-from-csv-with-bcp.md

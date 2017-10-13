@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4c4391cecaf10428b5d4cacf3b39e6a08d417053
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Informations de référence sur l’API de compte de gestion des services Azure Machine Learning
 
@@ -31,7 +30,7 @@ L’API Gestion des modèles Azure Machine Learning implémente les opérations 
 
 Vous pouvez utiliser cette image pour créer un service web localement ou sur un cluster ACS distant ou dans un autre environnement compatible avec Docker.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Veillez à parcourir les étapes d’installation dans le document [Guide de démarrage rapide d’installation et de création](quickstart-installation.md).
 
 Avant de poursuivre, vous devez disposer des éléments suivants :
@@ -79,12 +78,12 @@ Inscrit un modèle
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
-| model | corps | Charge utile utilisée pour inscrire un modèle | Oui | [Model](#model) |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
+| model | body | Charge utile utilisée pour inscrire un modèle | Oui | [Modèle](#model) |
 
 
 ### <a name="responses"></a>Réponses
@@ -105,15 +104,15 @@ Interroge la liste des modèles dans un compte. La liste de résultats peut êtr
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
-| name | requête | Nom d’objet | Non | chaîne |
-| tag | requête | Balise Model | Non | chaîne |
-| count | requête | Nombre d’éléments à récupérer dans une page | Non | chaîne |
-| $skipToken | Jeton de continuation pour récupérer la page suivante | Non | chaîne |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
+| name | query | Nom d’objet | Non | string |
+| tag | query | Balise Model | Non | string |
+| count | query | Nombre d’éléments à récupérer dans une page | Non | string |
+| $skipToken | Jeton de continuation pour récupérer la page suivante | Non | string |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -134,12 +133,12 @@ Obtient le modèle par ID
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| id | chemin | ID de l’objet | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| id | path | ID de l’objet | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -160,12 +159,12 @@ Inscrit un manifeste auprès du modèle inscrit et de toutes ses dépendances
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
-| manifestRequest | corps | Charge utile utilisée pour inscrire un manifeste | Oui | [Manifest](#manifest) |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
+| manifestRequest | body | Charge utile utilisée pour inscrire un manifeste | Oui | [Manifest](#manifest) |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -186,15 +185,15 @@ Interroge la liste des manifestes dans un compte. La liste de résultats peut ê
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
-| modelId | requête | ID du modèle | Non | chaîne |
-| manifestName | requête | Nom du manifeste | Non | chaîne |
-| count | requête | Nombre d’éléments à récupérer dans une page | Non | chaîne |
-| $skipToken | requête | Jeton de continuation pour récupérer la page suivante | Non | chaîne |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
+| modelId | query | ID du modèle | Non | string |
+| manifestName | query | Nom du manifeste | Non | string |
+| count | query | Nombre d’éléments à récupérer dans une page | Non | string |
+| $skipToken | query | Jeton de continuation pour récupérer la page suivante | Non | string |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -215,12 +214,12 @@ Obtient le manifeste par ID
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| id | chemin | ID de l’objet | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| id | path | ID de l’objet | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -241,15 +240,15 @@ Crée une image en tant qu’image Docker dans l’enregistrement de contrôle d
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
-| imageRequest | corps | Charge utile utilisée pour créer une image | Oui | [ImageRequest](#imagerequest) |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
+| imageRequest | body | Charge utile utilisée pour créer une image | Oui | [ImageRequest](#imagerequest) |
 
 ### <a name="responses"></a>Réponses
-| Code | Description | En-têtes | Schéma |
+| Code | Description | headers | Schéma |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | URL de l’emplacement de l’opération asynchrone. Un appel GET vous indiquera l’état de la tâche de création d’image. | Operation-Location |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse) |
@@ -267,15 +266,15 @@ Interroge la liste d’images dans un compte. La liste de résultats peut être 
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
-| manifestId | requête | ID du manifeste | Non | chaîne |
-| manifestName | requête | Nom du manifeste | Non | chaîne |
-| count | requête | Nombre d’éléments à récupérer dans une page | Non | chaîne |
-| $skipToken | requête | Jeton de continuation pour récupérer la page suivante | Non | chaîne |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
+| manifestId | query | ID du manifeste | Non | string |
+| manifestName | query | Nom du manifeste | Non | string |
+| count | query | Nombre d’éléments à récupérer dans une page | Non | string |
+| $skipToken | query | Jeton de continuation pour récupérer la page suivante | Non | string |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -296,12 +295,12 @@ Obtient l’image par ID
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| id | chemin | ID de l’image | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| id | path | ID de l’image | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -323,15 +322,15 @@ Crée un service à partir d’une image
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
-| serviceRequest | corps | Charge utile utilisée pour créer un service | Oui | [ServiceCreateRequest](#servicecreaterequest) |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
+| serviceRequest | body | Charge utile utilisée pour créer un service | Oui | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### <a name="responses"></a>Réponses
-| Code | Description | En-têtes | Schéma |
+| Code | Description | headers | Schéma |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | URL de l’emplacement de l’opération asynchrone. Un appel GET indiquera l’état de la tâche de création de service. | Operation-Location |
 | 409 | Un service existe déjà sous le nom spécifié. |
@@ -350,20 +349,20 @@ Interroge la liste de services dans un compte. La liste de résultats peut être
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
-| serviceName | requête | Nom du service | Non | chaîne |
-| modelId | requête | Nom du modèle | Non | chaîne |
-| modelName | requête | ID du modèle | Non | chaîne |
-| manifestId | requête | ID du manifeste | Non | requête |
-| manifestName | requête | Nom du manifeste | Non | chaîne |
-| imageId | requête | ID de l’image | Non | chaîne |
-| computeResourceId | requête | ID de ressource Compute Machine Learning | Non | chaîne |
-| count | requête | Nombre d’éléments à récupérer dans une page | Non | chaîne |
-| $skipToken | requête | Jeton de continuation pour récupérer la page suivante | Non | chaîne |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
+| serviceName | query | Nom du service | Non | string |
+| modelId | query | Nom du modèle | Non | string |
+| modelName | query | ID du modèle | Non | string |
+| manifestId | query | ID du manifeste | Non | string |
+| manifestName | query | Nom du manifeste | Non | string |
+| imageId | query | ID de l’image | Non | string |
+| computeResourceId | query | ID de ressource Compute Machine Learning | Non | string |
+| count | query | Nombre d’éléments à récupérer dans une page | Non | string |
+| $skipToken | query | Jeton de continuation pour récupérer la page suivante | Non | string |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -384,12 +383,12 @@ Obtient le service par ID
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| id | chemin | ID de l’objet | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| id | path | ID de l’objet | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -410,16 +409,16 @@ Met à jour un service existant
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| id | chemin | ID de l’objet | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
-| serviceUpdateRequest | corps | Charge utile utilisée pour mettre à jour un service existant | Oui |  [ServiceUpdateRequest](#serviceupdaterequest) |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| id | path | ID de l’objet | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
+| serviceUpdateRequest | body | Charge utile utilisée pour mettre à jour un service existant | Oui |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### <a name="responses"></a>Réponses
-| Code | Description | En-têtes | Schéma |
+| Code | Description | headers | Schéma |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | URL de l’emplacement de l’opération asynchrone. Un appel GET indiquera l’état de la tâche de mise à jour de service. | Operation-Location |
 | 404 | Le service associé à l’ID spécifié n’existe pas |
@@ -438,12 +437,12 @@ Supprime un service
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| id | chemin | ID de l’objet | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| id | path | ID de l’objet | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -465,12 +464,12 @@ Obtient les clés du service
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| id | chemin | ID du service | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| id | path | ID du service | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -491,13 +490,13 @@ Régénère les clés du service, puis les retourne
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| id | chemin | ID du service | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
-| regenerateKeyRequest | corps | Charge utile utilisée pour mettre à jour un service existant | Oui | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| id | path | ID du service | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
+| regenerateKeyRequest | body | Charge utile utilisée pour mettre à jour un service existant | Oui | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -518,12 +517,12 @@ Interroger la liste des déploiements dans un compte La liste de résultats peut
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
-| serviceId | requête | ID du service | Non | chaîne |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
+| serviceId | query | ID du service | Non | string |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -544,12 +543,12 @@ Obtient le déploiement par ID
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| id | chemin | ID du déploiement | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| id | path | ID du déploiement | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -570,12 +569,12 @@ Obtient l’état de l’opération asynchrone par ID d’opération
 ### <a name="parameters"></a>Paramètres
 | Nom | Emplacement | Description | Requis | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin | ID d’abonnement Azure | Oui | chaîne |
-| resourceGroupName | chemin | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
-| accountName | chemin | Nom du compte de gestion des modèles | Oui | chaîne |
-| id | chemin | ID de l’opération | Oui | chaîne |
-| api-version | requête | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| subscriptionId | path | ID d’abonnement Azure | Oui | string |
+| resourceGroupName | path | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | string |
+| accountName | path | Nom du compte de gestion des modèles | Oui | string |
+| id | path | ID de l’opération | Oui | string |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | string |
+| Autorisation | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | string |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -595,10 +594,10 @@ Objet de ressource qui sera nécessaire pendant la création d’images Docker
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**id**  <br>*facultatif*|ID de la ressource|chaîne|
-|**mimeType**  <br>*facultatif*|Type MIME du contenu du modèle. Pour plus d’informations sur le type MIME, accédez à https://www.iana.org/assignments/media-types/media-types.xhtml|chaîne|
-|**unpack**  <br>*facultatif*|Indique l’emplacement où le contenu doit être décompressé pendant la création d’images Docker|booléen|
-|**url**  <br>*facultatif*|URL de l’emplacement de la ressource|chaîne|
+|**id**  <br>*facultatif*|ID de la ressource|string|
+|**mimeType**  <br>*facultatif*|Type MIME du contenu du modèle. Pour plus d’informations sur le type MIME, accédez à https://www.iana.org/assignments/media-types/media-types.xhtml|string|
+|**unpack**  <br>*facultatif*|Indique l’emplacement où le contenu doit être décompressé pendant la création d’images Docker|booléenne|
+|**url**  <br>*facultatif*|URL de l’emplacement de la ressource|string|
 
 
 <a name="asyncoperationstate"></a>
@@ -618,9 +617,9 @@ Objet de ressource qui sera nécessaire pendant la création d’images Docker
 |**createdTime**  <br>*facultatif*  <br>*en lecture seule*|Heure de création (UTC) de l’opération asynchrone|chaîne (date-heure)|
 |**endTime**  <br>*facultatif*  <br>*en lecture seule*|Heure de fin (UTC) de l’opération asynchrone|chaîne (date-heure)|
 |**error**  <br>*facultatif*||[ErrorResponse](#errorresponse)|
-|**id**  <br>*facultatif*|ID de l’opération asynchrone|chaîne|
+|**id**  <br>*facultatif*|ID de l’opération asynchrone|string|
 |**operationType**  <br>*facultatif*|Type de l’opération asynchrone|enum (Image, Service)|
-|**resourceLocation**  <br>*facultatif*|Ressource créée/mise à jour par l’opération asynchrone|chaîne|
+|**resourceLocation**  <br>*facultatif*|Ressource créée/mise à jour par l’opération asynchrone|string|
 |**state**  <br>*facultatif*||[AsyncOperationState](#asyncoperationstate)|
 
 
@@ -631,8 +630,8 @@ Clés d’authentification d’un service
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**primaryKey**  <br>*facultatif*|Clé primaire|chaîne|
-|**secondaryKey**  <br>*facultatif*|Clé secondaire|chaîne|
+|**primaryKey**  <br>*facultatif*|Clé primaire|string|
+|**secondaryKey**  <br>*facultatif*|Clé secondaire|string|
 
 
 <a name="autoscaler"></a>
@@ -642,11 +641,11 @@ Paramètres pour l’outil de mise à l’échelle automatique
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**autoscaleEnabled**  <br>*facultatif*|Active ou désactive l’outil de mise à l’échelle automatique|booléen|
-|**maxReplicas**  <br>*facultatif*|Nombre maximal de réplicas pod prévus pour la montée en puissance.  <br>**Valeur minimale** : `1`|entier|
-|**minReplicas**  <br>*facultatif*|Nombre minimal de réplicas pod prévus pour la descente en puissance.  <br>**Valeur minimale** : `0`|entier|
-|**refreshPeriodInSeconds**  <br>*facultatif*|Durée d’actualisation pour le déclencheur de la mise à l’échelle automatique.  <br>**Valeur minimale** : `1`|entier|
-|**targetUtilization**  <br>*facultatif*|Pourcentage d’utilisation à partir duquel la mise à l’échelle se déclenche.  <br>**Valeur minimale** : `0`  <br>**Valeur maximale** : `100`|entier|
+|**autoscaleEnabled**  <br>*facultatif*|Active ou désactive l’outil de mise à l’échelle automatique|booléenne|
+|**maxReplicas**  <br>*facultatif*|Nombre maximal de réplicas pod prévus pour la montée en puissance.  <br>**Valeur minimale** : `1`|integer|
+|**minReplicas**  <br>*facultatif*|Nombre minimal de réplicas pod prévus pour la descente en puissance.  <br>**Valeur minimale** : `0`|integer|
+|**refreshPeriodInSeconds**  <br>*facultatif*|Durée d’actualisation pour le déclencheur de la mise à l’échelle automatique.  <br>**Valeur minimale** : `1`|integer|
+|**targetUtilization**  <br>*facultatif*|Pourcentage d’utilisation à partir duquel la mise à l’échelle se déclenche.  <br>**Valeur minimale** : `0`  <br>**Valeur maximale** : `100`|integer|
 
 
 <a name="computeresource"></a>
@@ -656,7 +655,7 @@ Ressource Compute Machine Learning
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**id**  <br>*facultatif*|ID de la ressource|chaîne|
+|**id**  <br>*facultatif*|ID de la ressource|string|
 |**type**  <br>*facultatif*|Type de ressource|enum (Cluster)|
 
 
@@ -667,12 +666,12 @@ Configuration de la réservation de ressources pour le conteneur du cluster
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**cpu**  <br>*facultatif*|Spécifie la réservation du processeur. Format pour Kubernetes : https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu|chaîne|
-|**memory**  <br>*facultatif*|Spécifie la réservation de mémoire. Format pour Kubernetes : https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory|chaîne|
+|**cpu**  <br>*facultatif*|Spécifie la réservation du processeur. Format pour Kubernetes : https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu|string|
+|**memory**  <br>*facultatif*|Spécifie la réservation de mémoire. Format pour Kubernetes : https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory|string|
 
 
 <a name="deployment"></a>
-### <a name="deployment"></a>Deployment
+### <a name="deployment"></a>Déploiement
 Instance d’un déploiement Azure Machine Learning
 
 
@@ -680,10 +679,10 @@ Instance d’un déploiement Azure Machine Learning
 |---|---|---|
 |**createdAt**  <br>*facultatif*  <br>*en lecture seule*|Heure de création (UTC) du déploiement|chaîne (date-heure)|
 |**expiredAt**  <br>*facultatif*  <br>*en lecture seule*|Heure d’expiration (UTC) du déploiement|chaîne (date-heure)|
-|**id**  <br>*facultatif*|ID du déploiement|chaîne|
-|**imageId**  <br>*facultatif*|ID d’image associé à ce déploiement|chaîne|
-|**serviceName**  <br>*facultatif*|Nom du service|chaîne|
-|**statut**  <br>*facultatif*|État du déploiement actuel|chaîne|
+|**id**  <br>*facultatif*|ID du déploiement|string|
+|**imageId**  <br>*facultatif*|ID d’image associé à ce déploiement|string|
+|**serviceName**  <br>*facultatif*|Nom du service|string|
+|**statut**  <br>*facultatif*|État du déploiement actuel|string|
 
 
 <a name="deploymentlist"></a>
@@ -700,8 +699,8 @@ Détail de l’erreur du service de gestion des modèles.
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**code**  <br>*obligatoire*|code d’erreur|chaîne|
-|**message**  <br>*obligatoire*|message d’erreur|chaîne|
+|**code**  <br>*obligatoire*|code d’erreur|string|
+|**message**  <br>*obligatoire*|message d’erreur|string|
 
 
 <a name="errorresponse"></a>
@@ -711,10 +710,10 @@ Objet d’erreur du service de gestion des modèles.
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**code**  <br>*obligatoire*|code d’erreur|chaîne|
+|**code**  <br>*obligatoire*|code d’erreur|string|
 |**details**  <br>*facultatif*|Tableau d’objets de détail d’erreur.|tableau < [ErrorDetail](#errordetail) >|
-|**message**  <br>*obligatoire*|Message d’erreur|chaîne|
-|**statusCode**  <br>*facultatif*|Code d'état HTTP|entier|
+|**message**  <br>*obligatoire*|Message d’erreur|string|
+|**statusCode**  <br>*facultatif*|Code d'état HTTP|integer|
 
 
 <a name="image"></a>
@@ -724,18 +723,18 @@ Image Azure Machine Learning
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**computeResourceId**  <br>*facultatif*|ID de l’environnement créé dans la ressource Compute Machine Learning|chaîne|
+|**computeResourceId**  <br>*facultatif*|ID de l’environnement créé dans la ressource Compute Machine Learning|string|
 |**createdTime**  <br>*facultatif*|Heure de création (UTC) de l’image|chaîne (date-heure)|
 |**creationState**  <br>*facultatif*||[AsyncOperationState](#asyncoperationstate)|
-|**description**  <br>*facultatif*|Texte de description de l’image|chaîne|
+|**description**  <br>*facultatif*|Texte de description de l’image|string|
 |**error**  <br>*facultatif*||[ErrorResponse](#errorresponse)|
-|**id**  <br>*facultatif*|ID de l’image|chaîne|
-|**imageBuildLogUri**  <br>*facultatif*|URI des journaux chargés à partir de la génération de l’image|chaîne|
-|**imageLocation**  <br>*facultatif*|Chaîne d’emplacement Azure Container Registry pour l’image créée|chaîne|
+|**id**  <br>*facultatif*|ID de l’image|string|
+|**imageBuildLogUri**  <br>*facultatif*|URI des journaux chargés à partir de la génération de l’image|string|
+|**imageLocation**  <br>*facultatif*|Chaîne d’emplacement Azure Container Registry pour l’image créée|string|
 |**imageType**  <br>*facultatif*||[ImageType](#imagetype)|
 |**manifest**  <br>*facultatif*||[Manifest](#manifest)|
-|**name**  <br>*facultatif*|Nom de l’image|chaîne|
-|**version**  <br>*facultatif*|Version de l’image définie par le service de gestion des modèles|entier|
+|**name**  <br>*facultatif*|Nom de l’image|string|
+|**version**  <br>*facultatif*|Version de l’image définie par le service de gestion des modèles|integer|
 
 
 <a name="imagerequest"></a>
@@ -745,11 +744,11 @@ Demande de création d’une image Azure Machine Learning
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**computeResourceId**  <br>*obligatoire*|ID de l’environnement créé dans la ressource Compute Machine Learning|chaîne|
-|**description**  <br>*facultatif*|Texte de description de l’image|chaîne|
+|**computeResourceId**  <br>*obligatoire*|ID de l’environnement créé dans la ressource Compute Machine Learning|string|
+|**description**  <br>*facultatif*|Texte de description de l’image|string|
 |**imageType**  <br>*obligatoire*||[ImageType](#imagetype)|
-|**manifestId**  <br>*obligatoire*|ID du manifeste à partir duquel l’image sera créée|chaîne|
-|**name**  <br>*obligatoire*|Nom de l’image|chaîne|
+|**manifestId**  <br>*obligatoire*|ID du manifeste à partir duquel l’image sera créée|string|
+|**name**  <br>*obligatoire*|Nom de l’image|string|
 
 
 <a name="imagetype"></a>
@@ -760,7 +759,7 @@ Spécifie le type de l’image
 
 
 <a name="manifest"></a>
-### <a name="manifest"></a>Manifest
+### <a name="manifest"></a>Manifeste
 Manifeste Azure Machine Learning
 
 
@@ -768,33 +767,33 @@ Manifeste Azure Machine Learning
 |---|---|---|
 |**assets**  <br>*obligatoire*|Liste de ressources|tableau < [Asset](#asset) >|
 |**createdTime**  <br>*facultatif*  <br>*en lecture seule*|Heure de création (UTC) du manifeste|chaîne (date-heure)|
-|**description**  <br>*facultatif*|Texte de description du manifeste|chaîne|
-|**driverProgram**  <br>*obligatoire*|Programme pilote du manifeste|chaîne|
-|**id**  <br>*facultatif*|ID du manifeste|chaîne|
+|**description**  <br>*facultatif*|Texte de description du manifeste|string|
+|**driverProgram**  <br>*obligatoire*|Programme pilote du manifeste|string|
+|**id**  <br>*facultatif*|ID du manifeste|string|
 |**modelIds**  <br>*facultatif*|Liste d’ID des modèles inscrits. La demande échoue si l’un des modèles inclus n’est pas inscrit|tableau < string >|
 |**modelType**  <br>*facultatif*|Indique que les modèles sont déjà inscrits auprès du service de gestion des modèles|enum (Registered)|
-|**name**  <br>*obligatoire*|Nom du manifeste|chaîne|
+|**name**  <br>*obligatoire*|Nom du manifeste|string|
 |**targetRuntime**  <br>*obligatoire*||[TargetRuntime](#targetruntime)|
-|**version**  <br>*facultatif*  <br>*en lecture seule*|Version du manifeste affectée par le service de gestion des modèles|entier|
+|**version**  <br>*facultatif*  <br>*en lecture seule*|Version du manifeste affectée par le service de gestion des modèles|integer|
 |**webserviceType**  <br>*facultatif*|Spécifie le type souhaité du service web qui sera créé à partir du manifeste|enum (Realtime)|
 
 
 <a name="model"></a>
-### <a name="model"></a>Model
+### <a name="model"></a>Modèle
 Instance d’un modèle Azure Machine Learning
 
 
 |Nom|Description|Schéma|
 |---|---|---|
 |**createdAt**  <br>*facultatif*  <br>*en lecture seule*|Heure de création (UTC) du modèle|chaîne (date-heure)|
-|**description**  <br>*facultatif*|Texte de description du modèle|chaîne|
-|**id**  <br>*facultatif*  <br>*en lecture seule*|ID du modèle|chaîne|
-|**mimeType**  <br>*obligatoire*|Type MIME du contenu du modèle. Pour plus d’informations sur le type MIME, accédez à https://www.iana.org/assignments/media-types/media-types.xhtml|chaîne|
-|**name**  <br>*obligatoire*|Nom du modèle|chaîne|
+|**description**  <br>*facultatif*|Texte de description du modèle|string|
+|**id**  <br>*facultatif*  <br>*en lecture seule*|ID du modèle|string|
+|**mimeType**  <br>*obligatoire*|Type MIME du contenu du modèle. Pour plus d’informations sur le type MIME, accédez à https://www.iana.org/assignments/media-types/media-types.xhtml|string|
+|**name**  <br>*obligatoire*|Nom du modèle|string|
 |**balises**  <br>*facultatif*|Liste de balises du modèle|tableau < string >|
-|**unpack**  <br>*facultatif*|Indique si le modèle doit être décompressé pendant la création d’images Docker.|booléen|
-|**url**  <br>*obligatoire*|URL du modèle. En général, une URL SAS prend place ici.|chaîne|
-|**version**  <br>*facultatif*  <br>*en lecture seule*|Version du modèle affectée par le service de gestion des modèles|entier|
+|**unpack**  <br>*facultatif*|Indique si le modèle doit être décompressé pendant la création d’images Docker.|booléenne|
+|**url**  <br>*obligatoire*|URL du modèle. En général, une URL SAS prend place ici.|string|
+|**version**  <br>*facultatif*  <br>*en lecture seule*|Version du modèle affectée par le service de gestion des modèles|integer|
 
 
 <a name="modeldatacollection"></a>
@@ -804,8 +803,8 @@ Informations sur la collecte de données du modèle
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**eventHubEnabled**  <br>*facultatif*|Active le concentrateur d’événements pour un service|booléen|
-|**storageEnabled**  <br>*facultatif*|Active le stockage pour un service|booléen|
+|**eventHubEnabled**  <br>*facultatif*|Active le concentrateur d’événements pour un service|booléenne|
+|**storageEnabled**  <br>*facultatif*|Active le stockage pour un service|booléenne|
 
 
 <a name="paginatedimagelist"></a>
@@ -815,7 +814,7 @@ Liste paginée d’images
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**nextLink**  <br>*facultatif*|Lien de continuation (URI absolu) vers la page suivante de résultats de la liste.|chaîne|
+|**nextLink**  <br>*facultatif*|Lien de continuation (URI absolu) vers la page suivante de résultats de la liste.|string|
 |**value**  <br>*facultatif*|Tableau d’objets de modèle|tableau < [Image](#image) >|
 
 
@@ -826,7 +825,7 @@ Liste paginée de manifestes.
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**nextLink**  <br>*facultatif*|Lien de continuation (URI absolu) vers la page suivante de résultats de la liste.|chaîne|
+|**nextLink**  <br>*facultatif*|Lien de continuation (URI absolu) vers la page suivante de résultats de la liste.|string|
 |**value**  <br>*facultatif*|Tableau d’objets de manifeste.|tableau < [Manifest](#manifest) >|
 
 
@@ -837,7 +836,7 @@ Liste paginée de modèles.
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**nextLink**  <br>*facultatif*|Lien de continuation (URI absolu) vers la page suivante de résultats de la liste.|chaîne|
+|**nextLink**  <br>*facultatif*|Lien de continuation (URI absolu) vers la page suivante de résultats de la liste.|string|
 |**value**  <br>*facultatif*|Tableau d’objets de modèle.|tableau < [Model](#model) >|
 
 
@@ -848,7 +847,7 @@ Liste paginée de services.
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**nextLink**  <br>*facultatif*|Lien de continuation (URI absolu) vers la page suivante de résultats de la liste.|chaîne|
+|**nextLink**  <br>*facultatif*|Lien de continuation (URI absolu) vers la page suivante de résultats de la liste.|string|
 |**value**  <br>*facultatif*|Tableau d’objets de service.|tableau < [ServiceResponse](#serviceresponse) >|
 
 
@@ -859,15 +858,15 @@ Demande de création d’un service
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**appInsightsEnabled**  <br>*facultatif*|Active les insights d’application pour un service|booléen|
+|**appInsightsEnabled**  <br>*facultatif*|Active les insights d’application pour un service|booléenne|
 |**autoScaler**  <br>*facultatif*||[AutoScaler](#autoscaler)|
 |**computeResource**  <br>*obligatoire*||[ComputeResource](#computeresource)|
 |**containerResourceReservation**  <br>*facultatif*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*facultatif*||[ModelDataCollection](#modeldatacollection)|
-|**imageId**  <br>*obligatoire*|Image pour créer le service|chaîne|
-|**maxConcurrentRequestsPerContainer**  <br>*facultatif*|Nombre maximal de demandes simultanées  <br>**Valeur minimale** : `1`|entier|
-|**name**  <br>*obligatoire*|Nom du service|chaîne|
-|**numReplicas**  <br>*facultatif*|Nombre de réplicas pod s’exécutant à un moment donné. Ne peut pas être spécifié si Autoscaler est activé.  <br>**Valeur minimale** : `0`|entier|
+|**imageId**  <br>*obligatoire*|Image pour créer le service|string|
+|**maxConcurrentRequestsPerContainer**  <br>*facultatif*|Nombre maximal de demandes simultanées  <br>**Valeur minimale** : `1`|integer|
+|**name**  <br>*obligatoire*|Nom du service|string|
+|**numReplicas**  <br>*facultatif*|Nombre de réplicas pod s’exécutant à un moment donné. Ne peut pas être spécifié si Autoscaler est activé.  <br>**Valeur minimale** : `0`|integer|
 
 
 <a name="serviceregeneratekeyrequest"></a>
@@ -888,21 +887,21 @@ Demande de régénération de clé pour un service
 |Nom|Description|Schéma|
 |---|---|---|
 |**createdAt**  <br>*facultatif*|Heure de création (UTC) du service|chaîne (date-heure)|
-|**id**  <br>*facultatif*|ID du service|chaîne|
+|**id**  <br>*facultatif*|ID du service|string|
 |**image**  <br>*facultatif*||[Image](#image)|
 |**manifest**  <br>*facultatif*||[Manifest](#manifest)|
 |**models**  <br>*facultatif*|Liste de modèles|tableau < [Model](#model) >|
-|**name**  <br>*facultatif*|Nom du service|chaîne|
-|**scoringUri**  <br>*facultatif*|URI pour la notation du service|chaîne|
+|**name**  <br>*facultatif*|Nom du service|string|
+|**scoringUri**  <br>*facultatif*|URI pour la notation du service|string|
 |**state**  <br>*facultatif*||[AsyncOperationState](#asyncoperationstate)|
 |**updatedAt**  <br>*facultatif*|Heure (UTC) de la dernière mise à jour|chaîne (date-heure)|
-|**appInsightsEnabled**  <br>*facultatif*|Active les insights d’application pour un service|booléen|
+|**appInsightsEnabled**  <br>*facultatif*|Active les insights d’application pour un service|booléenne|
 |**autoScaler**  <br>*facultatif*||[AutoScaler](#autoscaler)|
 |**computeResource**  <br>*obligatoire*||[ComputeResource](#computeresource)|
 |**containerResourceReservation**  <br>*facultatif*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*facultatif*||[ModelDataCollection](#modeldatacollection)|
-|**maxConcurrentRequestsPerContainer**  <br>*facultatif*|Nombre maximal de demandes simultanées  <br>**Valeur minimale** : `1`|entier|
-|**numReplicas**  <br>*facultatif*|Nombre de réplicas pod s’exécutant à un moment donné. Ne peut pas être spécifié si Autoscaler est activé.  <br>**Valeur minimale** : `0`|entier|
+|**maxConcurrentRequestsPerContainer**  <br>*facultatif*|Nombre maximal de demandes simultanées  <br>**Valeur minimale** : `1`|integer|
+|**numReplicas**  <br>*facultatif*|Nombre de réplicas pod s’exécutant à un moment donné. Ne peut pas être spécifié si Autoscaler est activé.  <br>**Valeur minimale** : `0`|integer|
 |**error**  <br>*facultatif*||[ErrorResponse](#errorresponse)|
 
 
@@ -913,13 +912,13 @@ Demande de mise à jour d’un service
 
 |Nom|Description|Schéma|
 |---|---|---|
-|**appInsightsEnabled**  <br>*facultatif*|Active les insights d’application pour un service|booléen|
+|**appInsightsEnabled**  <br>*facultatif*|Active les insights d’application pour un service|booléenne|
 |**autoScaler**  <br>*facultatif*||[AutoScaler](#autoscaler)|
 |**containerResourceReservation**  <br>*facultatif*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*facultatif*||[ModelDataCollection](#modeldatacollection)|
-|**imageId**  <br>*facultatif*|Image pour créer le service|chaîne|
-|**maxConcurrentRequestsPerContainer**  <br>*facultatif*|Nombre maximal de demandes simultanées  <br>**Valeur minimale** : `1`|entier|
-|**numReplicas**  <br>*facultatif*|Nombre de réplicas pod s’exécutant à un moment donné. Ne peut pas être spécifié si Autoscaler est activé.  <br>**Valeur minimale** : `0`|entier|
+|**imageId**  <br>*facultatif*|Image pour créer le service|string|
+|**maxConcurrentRequestsPerContainer**  <br>*facultatif*|Nombre maximal de demandes simultanées  <br>**Valeur minimale** : `1`|integer|
+|**numReplicas**  <br>*facultatif*|Nombre de réplicas pod s’exécutant à un moment donné. Ne peut pas être spécifié si Autoscaler est activé.  <br>**Valeur minimale** : `0`|integer|
 
 
 <a name="targetruntime"></a>
@@ -931,5 +930,4 @@ Type du runtime cible.
 |---|---|---|
 |**properties**  <br>*obligatoire*||mappage < chaîne, chaîne >|
 |**runtimeType**  <br>*obligatoire*|Spécifie le runtime|enum (SparkPython, Python)|
-
 

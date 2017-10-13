@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 1bdeebd34f811aee1f3bc2f7767db3263d8e3273
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="planned-maintenance-for-linux-virtual-machines"></a>Maintenance planifiée pour les machines virtuelles Linux 
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
@@ -30,6 +28,5 @@ ms.lasthandoff: 09/20/2017
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la gestion de la maintenance planifiée, consultez [Gestion des notifications de maintenance planifiée](maintenance-notifications.md).
-
 
 

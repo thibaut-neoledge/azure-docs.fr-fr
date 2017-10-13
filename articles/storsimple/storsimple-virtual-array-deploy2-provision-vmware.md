@@ -1,6 +1,6 @@
 ---
 title: Approvisionner StorSimple Virtual Array dans VMware | Microsoft Docs
-description: "Ce deuxième didacticiel de déploiement de StorSimple Virtual Array implique la configuration d&quot;un appareil virtuel dans VMware."
+description: "Ce deuxième didacticiel de déploiement de StorSimple Virtual Array implique la configuration d'un appareil virtuel dans VMware."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
 ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.lasthandoff: 03/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Déploiement de StorSimple Virtual Array - Configuration dans VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -119,7 +119,7 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 14. Revenez à la fenêtre du client vSphere. Sélectionnez le serveur ESXi, cliquez avec le bouton droit et choisissez **Nouvelle machine virtuelle**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image15.png)
-15. Une fenêtre **Créer une machine virtuelle** s'affiche. Sur la page **Configuration**, sélectionnez l’option **Personnalisé**. Cliquez sur **Next**.
+15. Une fenêtre **Créer une machine virtuelle** s'affiche. Sur la page **Configuration**, sélectionnez l’option **Personnalisé**. Cliquez sur **Suivant**.
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image16.png)
 16. Sur la page **Nom et emplacement** , spécifiez le nom de votre machine virtuelle. Ce nom doit correspondre au nom du dossier (recommandé) que vous avez spécifié à l'étape 8.
 
@@ -145,10 +145,10 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 23. Sur la page **Contrôleur SCSI**, acceptez la valeur par défaut **Contrôleur LSI Logic SAS**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image24.png)
-24. Sur la page **Sélectionner un disque**, choisissez **Utiliser un disque virtuel existant**. Cliquez sur **Next**.
+24. Sur la page **Sélectionner un disque**, choisissez **Utiliser un disque virtuel existant**. Cliquez sur **Suivant**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image25.png)
-25. Sur la page **Sélectionner un disque existant** sous **Chemin d’accès du fichier de disque**, cliquez sur **Parcourir**. Cette opération ouvre une boîte de dialogue **Parcourir les magasins de données** . Naviguez jusqu'à l'emplacement où vous avez téléchargé le fichier VMDK. Le magasin de données inclut désormais un seul fichier, car les deux fichiers que vous avez téléchargés au départ ont été fusionnés. Sélectionnez le fichier et cliquez sur **OK**. Cliquez sur **Next**.
+25. Sur la page **Sélectionner un disque existant** sous **Chemin d’accès du fichier de disque**, cliquez sur **Parcourir**. Cette opération ouvre une boîte de dialogue **Parcourir les magasins de données** . Naviguez jusqu'à l'emplacement où vous avez téléchargé le fichier VMDK. Le magasin de données inclut désormais un seul fichier, car les deux fichiers que vous avez téléchargés au départ ont été fusionnés. Sélectionnez le fichier et cliquez sur **OK**. Cliquez sur **Suivant**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image26.png)
 26. Sur la page **Options avancées**, acceptez la valeur par défaut et cliquez sur **Suivant**.
@@ -163,7 +163,7 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 29. Une fenêtre **Ajout de matériel** apparaît. Sur la page **Type d’appareil**, sous **Choisir le type d’appareil à ajouter**, sélectionnez **Disque**, puis cliquez sur **Suivant**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
-30. Sur la page **Sélectionner un disque**, choisissez **Créer un disque virtuel**. Cliquez sur **Next**.
+30. Sur la page **Sélectionner un disque**, choisissez **Créer un disque virtuel**. Cliquez sur **Suivant**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
 31. Sur la page **Créer un disque**, définissez la **taille du disque** sur 500 Go (ou plus). Bien que 500 Go soit la configuration minimale requise, vous pouvez toujours configurer un disque plus volumineux. Notez que vous ne pouvez pas développer ou réduire le disque une fois mis en service. Pour plus d’informations sur la taille du disque à approvisionner, consultez la section sur le dimensionnement dans le document [Meilleures pratiques](storsimple-ova-best-practices.md). Sous **Configuration du disque**, sélectionnez **Allocation dynamique**. Cliquez sur **Suivant**.
@@ -243,4 +243,3 @@ SI vous rencontrez une autre erreur durant la configuration initiale effectuée 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configurer StorSimple Virtual Array comme un serveur de fichiers](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Configurer StorSimple Virtual Array comme un serveur iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c7d2333c90f6ceca93b3eb702c3a010c37a0f70b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement et abonnements différents
 
@@ -37,7 +36,7 @@ Les étapes de création d’une homologation de réseaux virtuels sont différe
 Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux réseaux virtuels déployés par le biais du modèle de déploiement classique. Une homologation de réseaux virtuels ne peut être créée qu’entre deux réseaux virtuels qui existent dans la même région Azure. 
 
   > [!WARNING]
-  > La création d’une homologation de réseaux virtuels entre des réseaux virtuels situés dans des régions différentes est actuellement une fonctionnalité en préversion. Vous pouvez inscrire votre abonnement pour la préversion ci-dessous. Les homologations de réseaux virtuels créées dans ce scénario peuvent ne pas avoir le même niveau de disponibilité et de fiabilité que celles créées dans les scénarios applicables lors de la disponibilité générale. Les homologations de réseaux virtuels créées dans ce scénario ne sont pas prises en charge, peuvent avoir des fonctionnalités limitées et peuvent ne pas être disponibles dans toutes les régions Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+  > La création d’un appairage entre des réseaux virtuels situés dans des régions différentes est actuellement une fonctionnalité en préversion. Vous pouvez inscrire votre abonnement pour la préversion ci-dessous. Les homologations de réseaux virtuels créées dans ce scénario peuvent ne pas avoir le même niveau de disponibilité et de fiabilité que celles créées dans les scénarios applicables lors de la disponibilité générale. Les homologations de réseaux virtuels créées dans ce scénario ne sont pas prises en charge, peuvent avoir des fonctionnalités limitées et peuvent ne pas être disponibles dans toutes les régions Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 Lors de la création d’une homologation de réseaux virtuels entre des réseaux virtuels dans différents abonnements, les abonnements doivent tous deux être associés au même locataire Active Directory. Si vous n’avez pas encore de locataire Azure Active Directory, vous pouvez rapidement en [créer un](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). Si vous avez besoin de connecter des réseaux virtuels tous deux créés par le biais du modèle de déploiement classique, qui existent dans différentes régions Azure ou qui existent dans abonnements associés à des locataires Active Directory différents, vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.
 
@@ -45,7 +44,7 @@ Vous pouvez utiliser le [portail Azure](#portal), l’[interface de ligne de com
 
 ## <a name="register"></a>Inscrire votre abonnement pour la préversion de Global VNet Peering
 
-Pour créer une homologation entre des réseaux virtuels situés dans des régions différentes, inscrivez votre abonnement pour la préversion, en suivant les étapes ci-dessous pour les deux abonnements qui contiennent les réseaux virtuels à homologuer. Le seul outil que vous pouvez utiliser pour vous inscrire pour la préversion est PowerShell.
+Pour créer un appairage entre des réseaux virtuels situés dans des régions différentes, inscrivez votre abonnement pour la préversion, en suivant les étapes ci-dessous pour les deux abonnements qui contiennent les réseaux virtuels à appairer. Le seul outil que vous pouvez utiliser pour vous inscrire pour la préversion est PowerShell.
 
 1. Installez la dernière version du module PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/). Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Démarrez une session PowerShell et connectez-vous à Azure à l’aide de la commande `Login-AzureRmAccount`.
@@ -75,7 +74,7 @@ Pour créer une homologation entre des réseaux virtuels situés dans des régio
       -ProviderNamespace Microsoft.Network
     ```
   > [!WARNING]
-  > La création d’une homologation de réseaux virtuels entre des réseaux virtuels situés dans des régions différentes est actuellement une fonctionnalité en préversion. Les homologations de réseaux virtuels créées dans ce scénario peuvent avoir des fonctionnalités limitées et peuvent ne pas être disponibles dans toutes les régions Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+  > La création d’un appairage entre des réseaux virtuels situés dans des régions différentes est actuellement une fonctionnalité en préversion. Les appairages de réseaux virtuels créés dans ce scénario peuvent avoir des fonctionnalités limitées et peuvent ne pas être disponibles dans toutes les régions Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="portal"></a>Créer une homologation - portail Azure
 

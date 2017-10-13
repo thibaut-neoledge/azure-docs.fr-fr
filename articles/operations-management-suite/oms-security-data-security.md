@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 6af6c10cef317453131197db74a9380518afadf0
-ms.lasthandoff: 12/02/2016
-
-
+ms.openlocfilehash: 3b6327b1f5150f32afd71639f32c55d823f1d1f0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="operations-management-suite-security-and-audit-solution-data-security"></a>Solution de sécurité et d’audit d’Operations Management Suite - Sécurité des données
 Pour aider les clients à empêcher, détecter et répondre aux menaces, [la solution de sécurité et d’audit d’Operations Management Suite](operations-management-suite-overview.md) collecte et traite les données concernant vos ressources, ce qui inclut :
@@ -59,5 +58,4 @@ Ce document explique comment les données sont gérées et protégées dans OMS
 * [Présentation - Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Surveiller et répondre aux alertes de sécurité dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-responding-alerts.md)
 * [Surveillance des ressources dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-monitoring-resources.md)
-
 

@@ -26,12 +26,12 @@ Dans cette solution IoT, les appareils envoient les données de télémétrie, c
 
 L’une des plus grandes difficultés dans les projets IoT consiste à pouvoir connecter de manière fiable et sécurisée des appareils au serveur principal de la solution. Les appareils IoT ont des caractéristiques différentes de celles d’autres clients tels que des navigateurs et des applications mobiles. Les appareils IoT :
 
-* sont souvent des systèmes embarqués, qui ne font appel à aucun opérateur humain ;
+* sont souvent des systèmes intégrés, qui ne font appel à aucun opérateur humain ;
 * peuvent être déployés sur des sites distants avec un accès physique coûteux ;
 * sont accessibles uniquement via le serveur principal de la solution ; Il n’existe aucun autre moyen d’interagir avec l’appareil.
 * peuvent avoir des performances et/ou des ressources de traitement limitées ;
 * peuvent avoir une connectivité réseau intermittente, lente ou coûteuse ;
-* peuvent nécessiter l’utilisation des protocoles d’application personnalisés, propriétaires ou spécifiques à un secteur ;
+* peuvent nécessiter l’utilisation des protocoles d’application personnalisés, propriétaires ou spécifiques à un secteur.
 * peuvent être créés à l’aide d’un large éventail de plateformes matérielles et logicielles populaires.
 
 Outre les exigences ci-dessus, n’importe quelle solution IoT doit également offrir des possibilités d’évolution, la sécurité et la fiabilité. Il en résulte un ensemble d’exigences de connectivité complexe, long à mettre en place avec des technologies traditionnelles telles que des conteneurs web et des courtiers de messagerie. Azure IoT Hub et les Kits Azure IoT device SDK facilitent l’implémentation de solutions qui répondent à ces exigences.

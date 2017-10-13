@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 5297bc57729d9e983d63244c71eb21995cf73f0e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Concepts d’appareil du service IoT Hub Device Provisioning
 
 Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui vous permet de configurer l’approvisionnement sans contact des appareils dans un hub IoT spécifié. Avec le service Device Provisioning, vous pouvez approvisionner des millions d’appareils de manière sécurisée et scalable.
@@ -53,7 +51,7 @@ L’ID d’enregistrement est utilisé pour identifier de manière unique un app
 * Dans le cas d’un module TPM, l’ID d’enregistrement est fourni par le TPM lui-même.
 * Dans le cas d’une attestation X.509, l’ID d’enregistrement est le nom de sujet du certificat.
 
-## <a name="device-id"></a>ID d’appareil
+## <a name="device-id"></a>ID de périphérique
 
 L’ID d’appareil est l’ID tel qu’il apparaît dans IoT Hub. L’ID d’appareil de votre choix peut être défini dans l’entrée d’inscription, mais ce n’est pas obligatoire. Si aucun ID d’appareil souhaité n’est spécifié dans la liste d’inscriptions, l’ID d’inscription est utilisé comme ID d’appareil durant l’enregistrement de l’appareil. Découvrez plus d’informations sur les [ID d’appareil dans IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
 
@@ -63,4 +61,3 @@ L’étendue de l’ID est affectée à un service Device Provisioning quand cel
 
 > [!NOTE]
 > L’unicité est importante pour les opérations de déploiement longues et les scénarios de fusion et acquisition.
-

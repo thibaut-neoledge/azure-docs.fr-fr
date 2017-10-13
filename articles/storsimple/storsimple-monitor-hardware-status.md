@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0544cb9aaf9ec03c16cc07f2974b6b8d90b3c61d
-
-
+ms.openlocfilehash: 93df79c9d349c294b692148a19c9d881c4de4f7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>Utiliser le service StorSimple Manager pour surveiller les composants et l’état du matériel
 ## <a name="overview"></a>Vue d'ensemble
@@ -87,7 +87,7 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 | Pool de stockage SSD |N/A |Opérateurs logiques |Partagé |N/A |Affiche l'état du pool de stockage logique créé à partir de SSD de périphérique. |
 | Contrôleur [0-1] [état] |E/S |Physique |Controller |Oui |Affiche l'état du contrôleur, et s'il est en mode actif ou attente au sein du châssis. |
 | Capteurs de température du contrôleur |E/S |Physique |Controller |Non |L’état de plusieurs capteurs de température, tels que les capteurs du module E/S, de température du processeur, ainsi que les capteurs DIMM et PCIe, est affiché et indique si la température se situe dans la plage de tolérance. |
-| ﻿Expander SAS |E/S |Physique |Controller |Non |Indique l'état de l'expandeur SAS (serial attached SCSI), qui est utilisé pour connecter le stockage intégré au contrôleur. |
+| Expander SAS |E/S |Physique |Controller |Non |Indique l'état de l'expandeur SAS (serial attached SCSI), qui est utilisé pour connecter le stockage intégré au contrôleur. |
 | Connecteur SAS [0-1] |E/S |Physique |Controller |Non |Indique l'état de chaque connecteur SAS utilisé pour connecter le stockage intégré à l’expander SAS. |
 | Interconnexion de plan médian SBB |E/S |Physique |Controller |Non |Indique l'état du connecteur de plan médian, qui est utilisé pour connecter chaque contrôleur au plan médian. |
 | Cœur de processeur |E/S |Physique |Controller |Non |Indique l'état des cœurs de processeurs dans chaque contrôleur. |
@@ -116,7 +116,7 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 | Stockage local [HDD] |N/A |Opérateurs logiques |Partagé |N/A |Affiche l'état du pool de stockage logique créé à partir de disques durs de périphérique. |
 | Contrôleur [0-1] [état] |E/S |Physique |Controller |Oui |Affiche l'état des contrôleurs du module EBOD. |
 | Capteurs de température dans EBOD |E/S |Physique |Controller |Non |L’état de plusieurs capteurs de température de chaque contrôleur s’affiche et indique si la température mesurée se trouve dans la plage de tolérance. |
-| ﻿Expander SAS |E/S |Physique |Controller |Non |Indique l'état de l'expandeur SAS, qui est utilisé pour connecter le stockage intégré au contrôleur. |
+| Expander SAS |E/S |Physique |Controller |Non |Indique l'état de l'expandeur SAS, qui est utilisé pour connecter le stockage intégré au contrôleur. |
 | Connecteur SAS [0-2] |E/S |Physique |Controller |Non |Indique l'état de chaque connecteur SAS utilisé pour connecter le stockage intégré à l’expander SAS. |
 | Interconnexion de plan médian SBB |E/S |Physique |Controller |Non |Indique l'état du connecteur de plan médian, qui est utilisé pour connecter chaque contrôleur au plan médian. |
 | Puissance électronique du boîtier |E/S |Physique |Controller |Non |Indique l'état du système d'alimentation utilisé par le boîtier. |
@@ -128,10 +128,4 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 * Si vous devez résoudre les problèmes d’un composant de l’appareil dont l’état est détérioré ou en échec, consultez [Indicateurs de surveillance StorSimple](storsimple-monitoring-indicators.md). 
 * Pour remplacer un composant matériel défectueux, consultez [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 * Si les problèmes persistent, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

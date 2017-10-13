@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a37aed8b3321d3518ffd73e09f5bb21266a7e577
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Surveiller et mettre à jour une machine virtuelle Windows avec Azure PowerShell
 
 Surveillance Azure utilise des agents pour collecter des données de performances et de démarrage à partir des machines virtuelles Azure, stocker ces données dans le stockage Azure et les rendre accessibles via le portail, le module Azure PowerShell et l’interface CLI Azure. La gestion des mises à jour vous permet de gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure.
@@ -120,7 +118,7 @@ Si ces prérequis ne sont pas satisfaits, une bannière apparaît et vous donne 
 
 ![Bannière de configuration intégrée de la gestion des mises à jour](./media/tutorial-monitoring/manageupdates-onboard-solution-banner.png)
 
-Cliquez sur la bannière pour activer la solution. Si un des prérequis suivants est trouvé non satisfait après la validation, il est automatiquement ajouté :
+Cliquez sur la bannière pour activer la solution. Si un des prérequis suivants est trouvé non satisfait après la validation, il est automatiquement ajouté :
 
 * Espace de travail [Log Analytics](../../log-analytics/log-analytics-overview.md)
 * [Automation](../../automation/automation-offering-get-started.md)
@@ -144,7 +142,7 @@ Une fois la **gestion des mises à jour** activée, l’écran **Gestion des mis
 Pour installer les mises à jour, planifiez un déploiement qui suit votre fenêtre de planification et de maintenance des versions.
 Vous pouvez choisir les types de mises à jour à inclure dans le déploiement. Par exemple, vous pouvez inclure des mises à jour critiques ou de sécurité et exclure des correctifs cumulatifs.
 
-Planifier un nouveau déploiement de mises à jour pour la machine virtuelle en cliquant sur **Planifier le déploiement de la mise à jour** en haut de l’écran **Gestion des mises à jour**. Dans l’écran **Nouveau déploiement de mises à jour**, spécifiez les informations suivantes :
+Planifier un nouveau déploiement de mises à jour pour la machine virtuelle en cliquant sur **Planifier le déploiement de la mise à jour** en haut de l’écran **Gestion des mises à jour**. Dans l’écran **Nouveau déploiement de mises à jour**, spécifiez les informations suivantes :
 
 * **Nom** : spécifiez un nom unique pour identifier le déploiement de mises à jour.
 * **Classification de mise à jour** : sélectionnez les types de logiciels que le déploiement de mises à jour incluait dans le déploiement. Les types de classification sont :
@@ -180,7 +178,7 @@ Cliquez sur le déploiement des mises à jour terminé pour voir le tableau de b
    ![Tableau de bord des états de déploiement des mises à jour pour un déploiement spécifique](./media/tutorial-monitoring/manageupdates-view-results.png)
 
 Dans la vignette **Résultats des mises à jour**, vous pouvez voir un récapitulatif du nombre total de mises à jour et les résultats du déploiement sur la machine virtuelle.
-Dans le tableau de droite se trouve une répartition détaillée de chaque mise à jour et les résultats de l’installation, qui peut être une des valeurs suivantes :
+Dans le tableau de droite se trouve une répartition détaillée de chaque mise à jour et les résultats de l’installation, qui peut être une des valeurs suivantes :
 
 * **Aucune tentative effectuée** : la mise à jour n’a pas été installée, car le temps disponible était insuffisant d’après la durée définie pour la fenêtre de maintenance.
 * **Réussi** : la mise à jour a réussi
@@ -190,7 +188,7 @@ Cliquez sur **Tous les journaux** pour voir toutes les entrées de journal cré�
 
 Cliquez sur la vignette **Sortie** pour voir le flux des tâches du runbook chargé de gérer le déploiement des mises à jour sur la machine virtuelle cible.
 
-Cliquez sur **Erreurs** pour voir des informations détaillées sur les erreurs du déploiement.
+Cliquez sur **Erreurs** pour afficher les informations détaillées sur les erreurs du déploiement.
 
 ## <a name="advanced-monitoring"></a>Surveillance avancée 
 

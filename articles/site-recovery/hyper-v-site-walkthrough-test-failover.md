@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0974b9eda2cb7e3ba54a4a0fad0a768db644caf9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-11-run-a-test-failover-for-hyper-v-replication-to-azure"></a>Étape 11 : Exécuter un test de basculement pour la réplication Hyper-V vers Azure
 
 Cet article explique comment exécuter un test de basculement de machines virtuelles Hyper-V locales (non gérées par System Center VMM) à l’aide du service [Azure Site Recovery](site-recovery-overview.md) dans le portail Azure.
@@ -100,5 +98,4 @@ Nous vous recommandons de vérifier les propriétés de la machine source avant 
 
 - [En savoir plus](site-recovery-failover.md) sur les différents types de basculement et leur exécution.
 - [En savoir plus sur la restauration automatique](site-recovery-failback-from-azure-to-hyper-v.md) pour restaurer et répliquer des machines virtuelles Azure vers le site Hyper-V local principal.
-
 

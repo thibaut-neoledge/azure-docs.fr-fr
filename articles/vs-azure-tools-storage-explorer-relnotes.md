@@ -1,6 +1,6 @@
 ---
-title: "Notes de publication pour l’explorateur de stockage Microsoft Azure (aperçu) | Documents Microsoft"
-description: "Notes de publication pour l’explorateur de stockage Microsoft Azure (aperçu)"
+title: "Notes de publication pour Microsoft Azure Storage Explorer (préversion) | Microsoft Docs"
+description: "Notes de publication pour Microsoft Azure Storage Explorer (préversion)"
 services: storage
 documentationcenter: na
 author: cawa
@@ -14,14 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
+ms.openlocfilehash: 6010c0ef002730fd4a0020e0e2d61a6176a11cba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 63a24f6b153390533bba0888fd1051508c65bf6e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notes de publication pour l’explorateur de stockage Microsoft Azure (aperçu)
+# <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notes de publication pour Microsoft Azure Storage Explorer (préversion)
 
 Cet article contient les notes de publication pour l’explorateur de stockage Azure 0.8.16 (préversion), ainsi que les notes de publication des versions précédentes.
 
@@ -75,22 +74,22 @@ Problèmes connus
 ## <a name="version-0814-preview"></a>Version 0.8.14 (aperçu)
 06/22/2017
 
-### <a name="download-azure-storage-explorer-0814-preview"></a>Télécharger l’explorateur de stockage Azure 0.8.14 (aperçu)
+### <a name="download-azure-storage-explorer-0814-preview"></a>Télécharger Azure Storage Explorer 0.8.14 (préversion)
 * [Télécharger l’explorateur de stockage Azure 0.8.14 (aperçu) pour Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Télécharger l’explorateur de stockage Azure 0.8.14 (aperçu) pour Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Télécharger Azure Storage Explorer 0.8.14 (préversion) pour Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
 * [Télécharger l’explorateur de stockage Azure 0.8.14 (aperçu) pour Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>Nouveau
 
-* Mise à jour de la version Électron sur 1.7.2 afin de tirer parti de plusieurs mises à jour critiques
+* Mise à jour vers la version Électron 1.7.2 afin de bénéficier de plusieurs mises à jour de sécurité critiques
 * Vous pouvez maintenant accéder rapidement au guide de dépannage en ligne depuis le menu d’aide
-* [Guide][2] de dépannage de l’explorateur de stockage
+* [Guide][2] de dépannage de Storage Explorer
 * [Instructions][3] sur la connexion à un abonnement Azure Stack
 
 ### <a name="known-issues"></a>Problèmes connus
 
 * Les boutons de la boîte de dialogue de confirmation de la suppression des dossiers ne sont pas référencés par des clics de souris sur Linux. Une solution de contournement consiste à utiliser la touche Entrée
-* Si vous choisissez un certificat de code PIN/carte à puce incorrect vous devrez redémarrer afin que l’explorateur de stockage oublie cette décision
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect vous devrez redémarrer afin que Storage Explorer oublie cette décision
 * Des erreurs peuvent survenir si vous chargez plus de trois groupes d’objets blob ou fichiers simultanément
 * Le panneau des paramètres de compte peut indiquer que vous devez entrer à nouveau vos informations d’identification pour filtrer les abonnements
 * Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
@@ -131,7 +130,7 @@ Problèmes connus
 
 #### <a name="new"></a>Nouveau
 
-* [Guide][2] de dépannage de l’explorateur de stockage
+* [Guide][2] de dépannage de Storage Explorer
 * [Instructions][3] sur la connexion à un abonnement Azure Stack
 
 #### <a name="fixes"></a>Correctifs
@@ -145,7 +144,7 @@ Problèmes connus
 
 #### <a name="known-issues"></a>Problèmes connus
 
-* Si vous choisissez un certificat de code PIN/carte à puce incorrect vous devrez redémarrer afin que l’explorateur de stockage oublie cette décision
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect vous devrez redémarrer afin que Storage Explorer oublie cette décision
 * En mode zoom avant ou arrière, le niveau de zoom peut être momentanément rétabli sur le niveau par défaut
 * Des erreurs peuvent survenir si vous chargez plus de trois groupes d’objets blob ou fichiers simultanément
 * Le panneau des paramètres de compte peut indiquer que vous devez entrer à nouveau vos informations d’identification pour filtrer les abonnements
@@ -166,7 +165,7 @@ Problèmes connus
 
 #### <a name="new"></a>Nouveau
 
-* L’explorateur de stockage se ferme désormais automatiquement lorsque vous installez une mise à jour depuis la notification de mise à jour
+* Storage Explorer se ferme désormais automatiquement lorsque vous installez une mise à jour depuis la notification de mise à jour
 * L’accès rapide sur place fournit une expérience améliorée pour utiliser vos ressources fréquemment sollicitées
 * Dans l’éditeur de conteneur d’objets Blob, vous pouvez maintenant voir à quelle machine virtuelle appartient un objet blob loué
 * Vous pouvez réduire maintenant le panneau de gauche
@@ -214,7 +213,7 @@ Problèmes connus
 
 #### <a name="new"></a>Nouveau
 
-* L’explorateur de stockage 0.8.9 télécharge automatiquement la dernière version des mises à jour.
+* Storage Explorer 0.8.9 télécharge automatiquement la dernière version des mises à jour.
 * Correctif : l’utilisation d’un portail URI SAP généré pour attacher un compte de stockage entraîne une erreur.
 * Vous pouvez désormais créer, gérer et promouvoir des instantanés d’objets blob.
 * Vous pouvez désormais vous connecter aux comptes Azure Chine, Azure Allemagne et Azure US Government.
@@ -250,7 +249,7 @@ Problèmes connus
 
 #### <a name="fixes"></a>Correctifs
 
-* Problème résolu : l’explorateur de stockage est désormais une application approuvée sur Mac
+* Problème résolu : Storage Explorer est désormais une application approuvée sur Mac
 * Problème résolu : Ubuntu 14.04 est de nouveau pris en charge
 * Problème résolu : l’interface utilisateur de compte d’ajout clignote parfois lors du chargement des abonnements
 * Problème résolu : certaines ressources de stockage ne sont pas répertoriées dans le volet de navigation de gauche
@@ -264,7 +263,7 @@ Problèmes connus
 * L’Accès rapide peut prendre quelques secondes pour accéder à la ressource cible, selon le nombre de ressources dont vous disposez
 * Des erreurs peuvent survenir si vous chargez plus de trois groupes d’objets blob ou fichiers simultanément
 * Les recherches peuvent porter sur 50 000 nœuds environ. Au-delà, elles affectent les performances ou peuvent entraîner des exceptions non prises en charge
-* Lorsque vous utilisez l’explorateur de stockage sur macOS pour la première fois, il se peut que plusieurs invites vous demandent l’autorisation de l’utilisateur pour accéder au trousseau. Nous vous suggérons de sélectionner Toujours autoriser, de sorte que l’invite cesse de s’afficher
+* Lorsque vous utilisez Storage Explorer sur macOS pour la première fois, il se peut que plusieurs invites vous demandent l’autorisation de l’utilisateur pour accéder au trousseau. Nous vous suggérons de sélectionner Toujours autoriser, de sorte que l’invite cesse de s’afficher
 
 11/18/2016
 ### <a name="version-086"></a>Version 0.8.6
@@ -297,7 +296,7 @@ Problèmes connus
 
 #### <a name="known-issues"></a>Problèmes connus
 
-* Cette version de l’explorateur de stockage ne fonctionne pas sur Ubuntu 14.04
+* Cette version de Storage Explorer ne fonctionne pas sur Ubuntu 14.04
 * Pour ouvrir plusieurs onglets pour la même ressource, ne cliquez pas toujours sur la même ressource. Cliquez sur une autre ressource, puis revenez en arrière et cliquez sur la ressource d’origine pour l’ouvrir dans un autre onglet 
 * L’Accès rapide fonctionne uniquement avec les éléments basés sur l’abonnement. Les ressources locales ou attachées par le biais d’une clé ou d’un jeton SAP ne sont pas prises en charge dans cette version
 * L’Accès rapide peut prendre quelques secondes pour accéder à la ressource cible, selon le nombre de ressources dont vous disposez
@@ -454,7 +453,7 @@ Problèmes connus
 * Prise en charge de la file d’attente : affichage, ajout, retrait de la file d’attente des messages
 * Génération d’URI SAP pour les comptes de stockage
 * Connexion à des comptes de stockage avec des URI SAP
-* Mettre à jour des notifications pour les futures mises à jour de l’explorateur de stockage
+* Mettre à jour des notifications pour les futures mises à jour de Storage Explorer
 * Apparence mise à jour
 
 #### <a name="fixes"></a>Correctifs

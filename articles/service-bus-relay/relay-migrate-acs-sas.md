@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: fb331bf6e11ac8378004c6da73b589130f9a8ddf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé
 
 Les applications Azure Relay avaient historiquement la possibilité d’utiliser deux modèles d’autorisation différents : le modèle de jeton de la [Signature d’accès partagé (SAP)](../service-bus-messaging/service-bus-sas.md) fourni directement par le service Relay et un modèle fédéré où la gestion des règles d’autorisation se fait en interne par le service Access Control Service (ACS) d’[Azure Active Directory](/azure/active-directory/) et où les jetons obtenus à partir d’Access Control Service sont passés à Relay pour autoriser l’accès aux fonctionnalités souhaitées.
@@ -67,6 +65,5 @@ Pour en savoir plus sur l’authentification Azure Relay, consultez les sujets s
 
 * [Authentification et autorisation Azure Relay](relay-authentication-and-authorization.md)
 * [Authentification Service Bus avec les signatures d’accès partagé](../service-bus-messaging/service-bus-sas.md)
-
 
 

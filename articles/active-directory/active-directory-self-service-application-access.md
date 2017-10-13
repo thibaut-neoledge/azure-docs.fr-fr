@@ -16,12 +16,11 @@ ms.date: 09/06/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
 ms.openlocfilehash: 39c62461c9659b0cb4422de88686283ba462c53b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Accès à l’application en libre-service et gestion déléguée avec Azure Active Directory
 L’activation des fonctionnalités de libre-service pour les utilisateurs finaux est un scénario courant pour l’informatique d’entreprise. Un grand nombre d’utilisateurs, d’applications, et la personne la mieux informée pour prendre des décisions d’autorisation d’accès n’est pas nécessairement l’administrateur de l’annuaire. Souvent, la personne la mieux à même de décider de qui peut accéder à une application est le responsable d’équipe ou un autre administrateur délégué. Toutefois, c’est l’utilisateur qui se sert de l’application et qui sait ce dont il a besoin pour faire le travail.
@@ -109,4 +108,3 @@ La vignette **Configurer** apparaît uniquement si l’application a été confi
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
-

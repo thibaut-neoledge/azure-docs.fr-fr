@@ -15,20 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/18/2017
 ms.author: iainfou
+ms.openlocfilehash: 1752d2e0a497bf94309a744562cf4462866d6f99
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 49a74648bd3953647d581c4e7c548985c5000f17
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Comment utiliser Packer pour créer des images de machines virtuelles Linux dans Azure
 Chaque machine virtuelle dans Azure est créée à partir d’une image qui définit la distribution Linux et la version du système d’exploitation. Les images peuvent inclure des configurations et des applications pré-installées. La Place de marché Microsoft Azure fournit de nombreuses images internes et de tiers pour les distributions et environnements d’application les plus courants. Vous pouvez également créer vos propres images personnalisées selon vos besoins. Cet article explique comment utiliser l’outil open source [Packer](https://www.packer.io/) pour définir et générer des images personnalisées dans Azure.
 
 
-## <a name="create-azure-resource-group"></a>Création d’un groupe de ressources Azure
-Pendant le processus de génération, Packer crée des ressources Azure temporaires lorsqu’il génère la machine virtuelle source. Pour capturer cette machine virtuelle source afin de l’utiliser en tant qu’image, vous devez définir un groupe de ressources. La sortie du processus de génération de Packer est stockée dans ce groupe de ressources.
+## <a name="create-azure-resource-group"></a>Créer un groupe de ressources Azure
+Pendant le processus de génération, Packer crée des ressources Azure temporaires lorsqu’il génère la machine virtuelle source. Pour capturer cette machine virtuelle source afin de l’utiliser en tant qu’image, vous devez définir un groupe de ressources. La sortie du processus de génération Packer est stockée dans ce groupe de ressources.
 
 Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
@@ -76,8 +74,8 @@ Créez un fichier nommé *ubuntu.json* et collez le contenu suivant : Saisissez
 | *client_secret*                     | Deuxième ligne de la sortie de la commande create `az ad sp` - *password* |
 | *tenant_id*                         | Troisième ligne de la sortie de la commande create `az ad sp` - *tenant* |
 | *subscription_id*                   | Sortie de la commande `az account show` |
-| *managed_image_resource_group_name* | Nom du groupe de ressources que vous avez créé lors de la première étape |
-| *managed_image_name*                | Nom de l’image de disque géré qui est créée |
+| *managed_image_resource_group_name* | Nom du groupe de ressources créé lors de la première étape |
+| *managed_image_name*                | Nom de l’image de disque géré créée |
 
 
 ```json

@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 10/11/2017
 ms.author: sashan
+ms.openlocfilehash: 0725d5747ab343dcf99ad8f2dc0e47d7304c9f1e
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 290d672146765b9273697ba35e99231a5b854679
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Vue d’ensemble : groupes de basculement et géo-réplication active
 La géo-réplication active vous permet de configurer jusqu'à quatre bases de données secondaires accessibles en lecture dans des emplacements de centres de données identiques ou différents (régions). Les bases de données secondaires sont disponibles pour l’interrogation et le basculement en cas d’indisponibilité d’un centre de données ou l’incapacité à se connecter à la base de données primaire. Le basculement doit être lancé manuellement par l’application de l’utilisateur. Après le basculement, la nouvelle base de données primaire présente un point de terminaison de connexion différent. 
@@ -35,7 +34,7 @@ Si vous utilisez la géo-réplication active et que, pour une raison quelconque,
 
 Vous pouvez gérer la réplication et le basculement d’une base de données individuelle ou d’un ensemble de bases de données sur un serveur ou dans un pool élastique à l’aide de la géo-réplication active. Pour ce faire, vous pouvez utiliser les éléments suivants : 
 
-- Le [portail Azure](sql-database-geo-replication-portal.md)
+- [Portail Azure](sql-database-geo-replication-portal.md)
 - [PowerShell : base de données unique](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 - [PowerShell : pool de bases de données élastique](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - [PowerShell : groupe de basculement](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
@@ -110,7 +109,7 @@ La fonction de groupes de basculement automatique fournit une abstraction puissa
 Pour créer un service hautement disponible qui utilise Azure SQL Database, vous devez suivre ces instructions :
 
 - **Utiliser un groupe de basculement** : un ou plusieurs groupes de basculement peuvent être créés entre deux serveurs situés dans des régions différentes (serveurs primaires et secondaires). Chaque groupe peut inclure une ou plusieurs bases de données qui sont récupérées ensemble dans le cas où une partie ou la totalité des bases de données primaires deviennent indisponibles en raison d’une panne dans la région principale. Le groupe de basculement crée une base de données géo-secondaire avec le même objectif de service que la base de données primaire. Si vous ajoutez une relation de géo-réplication existante au groupe de basculement, vérifiez que la base de données géo-secondaire est configurée au même niveau d’objectif de service que la base de données primaire.
-- **Utiliser l’écouteur de lecture-écriture pour les charges de travail OLTP**: lorsque vous effectuez des opérations OLTP, utilisez **&lt;failover-group-name&gt;.database.windows.net** étant donné que le serveur d’URL et les connexions seront automatiquement dirigées vers le serveur principal. L’URL ne change pas après le basculement.  
+- **Utiliser l’écouteur de lecture-écriture pour les charges de travail OLTP** : lorsque vous effectuez des opérations OLTP, utilisez **&lt;failover-group-name&gt;.database.windows.net** étant donné que le serveur d’URL et les connexions seront automatiquement dirigées vers le serveur principal. L’URL ne change pas après le basculement.  
 Notez que le basculement implique la mise à jour de l’enregistrement DNS de façon à ce que les connexions clients soient redirigées vers le nouveau serveur primaire seulement après l’actualisation du cache DNS.
 - **Utilisez l’écouteur en lecture seule pour les charges de travail en lecture seule** : si vous avez une charge de travail en lecture seule isolée logiquement et qui est tolérante à une certaine obsolescence des données, vous pouvez utiliser la base de données secondaire dans l’application. Pour les sessions en lecture seule utilisez **&lt;failover-group-name&gt;.secondary.database.windows.net** en tant qu’URL du serveur et la connexion sera automatiquement dirigée vers la base de données secondaire. Il est également recommandé d’indiquer dans la tentative de lecture de la chaîne de connexion à l’aide de **ApplicationIntent = ReadOnly**. 
 - **Attendez-vous à une dégradation des performances** : la décision de basculement SQL est indépendante du reste de l’application ou des autres services utilisés. L’application peut être mélangée à certains composants dans une région et d’autres composants dans une région différente. Afin d’éviter la dégradation, assurez le déploiement redondant d’applications dans la région de récupération d’urgence et suivez les instructions de cet article.  
@@ -176,7 +175,7 @@ Comme indiqué précédemment, les groupes de basculement automatique (en préve
 | [.Créer ou mettre à jour la base de données (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Crée, met à jour ou restaure une base de données principale ou secondaire. |
 | [Créer ou mettre à jour l’état de la base de données](/rest/api/sql/Databases/CreateOrUpdate) |Retourne l’état durant une opération de création. |
 | [Définir la base de données secondaire comme principale (basculement planifié)](/rest/api/sql/replicationlinks/failover) |Définit la base de données réplica principale en basculant à partir de la base de données réplica principale actuelle. |
-| [Définir la base de données secondaire comme principale (basculement non planifié)](https://docs.microsoft.com/rest/api/sql/replicationlinks#failoverallowdataloss) |Définit la base de données réplica principale en basculant à partir de la base de données réplica principale actuelle. Cette opération peut entraîner une perte de données. |
+| [Définir la base de données secondaire comme principale (basculement non planifié)](/rest/api/sql/replicationlinks/failoverallowdataloss) |Définit la base de données réplica principale en basculant à partir de la base de données réplica principale actuelle. Cette opération peut entraîner une perte de données. |
 | [Obtenir un lien de réplication](/rest/api/sql/replicationlinks/get) |Obtient un liens de réplication spécifique pour une base de données SQL particulière dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
 | [Liens de réplication - Liste par base de données](/rest/api/sql/replicationlinks/listbydatabase) | Obtient tous les liens de réplication pour une base de données SQL donnée dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
 | [Supprimer un lien de réplication](/rest/api/sql/databases/delete) | Supprime un lien de réplication de base de données. Opération impossible pendant le basculement. |
@@ -198,5 +197,4 @@ Comme indiqué précédemment, les groupes de basculement automatique (en préve
 * Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md).
 * Pour en savoir plus sur les exigences d’authentification pour de nouveaux serveurs et bases de données primaires, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
-
 

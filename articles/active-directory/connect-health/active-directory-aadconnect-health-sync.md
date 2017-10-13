@@ -14,12 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: f5d5f238f8f57c8dcf7a3759274f9d565e73ecce
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Surveiller la synchronisation Azure AD Connect avec Azure AD Connect Health
 La documentation suivante s’applique à la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health.  Pour plus d’informations sur la surveillance AD FS avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](active-directory-aadconnect-health-adds.md).
@@ -68,8 +67,7 @@ Cette fonctionnalité fournit un rapport sur les erreurs de synchronisation qui 
 * Le rapport répertorie les erreurs consignées par le client de synchronisation (Azure AD Connect 1.1.281.0 ou version ultérieure)
 * Il inclut les erreurs qui se sont produites dans la dernière opération de synchronisation sur le moteur de synchronisation. (« Exportation » sur le connecteur Azure AD.)
 * L’agent Azure AD Connect Health pour la synchronisation doit avoir une connexion sortante vers les points de terminaison requis pour permettre au rapport d’inclure les données les plus récentes.
-* Le rapport est **mis à jour toutes les 30 minutes** à l’aide des données téléchargées par l’agent Azure AD Connect Health pour la synchronisation.
-  Il offre les fonctionnalités suivantes
+* Le rapport est **mis à jour toutes les 30 minutes** à l’aide des données téléchargées par l’agent Azure AD Connect Health pour la synchronisation. Il offre les fonctionnalités suivantes
 
   * Catégorisation des erreurs
   * Liste d’objets avec erreur par catégorie

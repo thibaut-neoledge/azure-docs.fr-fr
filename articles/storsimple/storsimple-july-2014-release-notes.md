@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 303cdffa15fdfe9b83d0612edecafc6943d218f3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-release-version-release-notes---july-2014"></a>Notes de publication de StorSimple série 8000 Release Version - Juillet 2014
 ## <a name="overview"></a>Vue d'ensemble
@@ -42,5 +41,4 @@ Le tableau suivant récapitule les problèmes connus de cette version.
 | 8 |Basculement de l’appareil |Le basculement multiple d’un conteneur de volumes d’un même appareil source vers différents appareils cibles n’est pas pris en charge. Si un appareil inactif est basculé vers plusieurs appareils, les conteneurs de volumes du premier appareil basculé perdent la propriété des données. Après un basculement de ce type, les conteneurs de volumes concernés apparaissent ou se comportent différemment lorsque vous les affichez dans le portail Azure Classic. | |Oui |Non |
 | 9 |Installation |Lors de l’installation de l’adaptateur StorSimple pour SharePoint, vous devez fournir une adresse IP d’appareil pour que l’installation s’effectue correctement. | |Oui |Non |
 | 10 |Interfaces réseau |Les interfaces réseau DATA 2 et DATA 3 ont été échangées dans le logiciel. |Contactez le support technique Microsoft si vous devez configurer ces interfaces. |Oui |Non |
-
 

@@ -1,31 +1,31 @@
 
-1. Cliquez sur le **des Services d’application** bouton, sélectionnez votre serveur d’applications mobiles principal, sélectionnez **Quickstart**, puis sélectionnez votre plateforme de client (iOS, Android, Xamarin, Cordova).
+1. Cliquez sur le bouton **App Services**, sélectionnez les back end Mobile Apps, choisissez **Démarrage rapide** et sélectionnez votre plateforme client (iOS, Android, Xamarin, Cordova).
 
-    ![Portail Azure avec Mobile Apps Quickstart mis en surbrillance][quickstart]
+    ![Portail Azure avec Démarrage rapide Mobile Apps en surbrillance][quickstart]
 
-2. Si une connexion de base de données n’est pas configurée, créez-en un en procédant comme suit :
+2. Si une connexion à une base de données n’est pas configurée, créez-en une en procédant comme suit :
 
-    ![Portail Azure à connecter des applications mobiles pour la base de données][connect]
+    ![Portail Azure avec connexion de Mobile Apps à la base de données][connect]
 
-    a. Créer une nouvelle base de données SQL et le serveur.
+    a. Créez une base de données SQL Database et un serveur.
 
-    ![Portail Azure avec des applications mobiles créer le serveur et la nouvelle base de données][server]
+    ![Portail Azure avec Mobile Apps créant une base de données et un serveur][server]
 
     b. Attendez que la connexion de données soit créée.
 
-    ![Notification du portail Azure de création réussie d’une connexion de données][notification]
+    ![Notification du portail Azure pour la création réussie d’une connexion de données][notification]
 
     c. La connexion de données doit être réussie.
 
-    ![Notification du portail Azure, « vous avez déjà une connexion de données »][already-connection]
+    ![Notification du portail Azure, « Vous avez déjà créé une connexion de données »][already-connection]
 
 3. Sous **2. Créer une API de table**, sélectionnez Node.js pour **Langage du serveur principal**. 
  
-4. Accepter l’accusé de réception, puis sélectionnez **table TodoItem de créer**.  
-    Cette action crée une nouvelle table d’élément de tâches dans votre base de données. 
+4. Acceptez l’accusé de réception, puis sélectionnez **Créer une table TodoItem**.  
+    Cette action crée une table d’éléments de tâche dans votre base de données. 
 
     >[!IMPORTANT]
-    > Basculement d’un serveur principal existant pour Node.js remplace tout le contenu. Pour créer un serveur principal de .NET au lieu de cela, consultez [fonctionne avec le serveur principal de .NET SDK pour applications mobiles][instructions].
+    > Basculer un back end existant vers Node.js remplace tout le contenu. Pour créer un back end .NET, consultez l’article [Travailler avec le SDK d’un serveur principal .NET pour Mobile Apps][instructions].
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png

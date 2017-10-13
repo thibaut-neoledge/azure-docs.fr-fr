@@ -2,7 +2,7 @@
 Ce didacticiel requiert les éléments suivants :
 
 * Visual Studio 2015 ou 2017
-* [MicrosoftAzure.MobileEngagement](http://go.microsoft.com/?linkid=9864592) 
+* [MicrosoftAzure.MobileEngagement](http://go.microsoft.com/?linkid=9864592)
 
 
 > [!NOTE]

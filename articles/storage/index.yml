@@ -39,7 +39,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/storage/blobs/storage-upload-process-images">Charger et récupérer des données d’image dans le cloud</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Déclencher Azure Functions pour traiter les objets blob</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Déclencher Azure Functions pour traiter les objets blob</a>
           - html: <a href="/azure/storage/blobs/storage-secure-access-application">Sécuriser les données d’application</a>
           - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Surveiller et résoudre les problèmes de stockage</a>
   - title: Exemples

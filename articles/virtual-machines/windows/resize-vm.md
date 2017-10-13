@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 742efd1496de9ce76b1e5636297ef30f546bd108
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionner une machine virtuelle Windows
 Cet article vous montre comment redimensionner une machine virtuelle Windows créée avec le modèle de déploiement Resource Manager à l’aide d’Azure PowerShell.
@@ -104,5 +103,4 @@ Si la nouvelle taille d’une machine virtuelle se trouvant dans un groupe à ha
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour une évolutivité supplémentaire, exécutez plusieurs instances de machine virtuelle et augmentez leur taille. Pour plus d’informations, consultez [Mise à l’échelle automatique des machines Windows dans un groupe de machines virtuelles identiques](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
-
 

@@ -10,7 +10,7 @@
  
 5. Dans **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un (en utilisant le même nom que votre application).
 
-6. Cliquez sur **Create**. Patientez quelques minutes jusqu’au déploiement du service, puis continuez.
+6. Cliquez sur **Créer**. Patientez quelques minutes jusqu’au déploiement du service, puis continuez.
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png

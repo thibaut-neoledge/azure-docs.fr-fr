@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/17/2017
+ms.date: 10/10/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 4a2c86cee40dbd1dc2c37d58e69bdf35b0046c4d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 178bdfd7bf2eb162e7a94f3eef9c44c5ff646fb9
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
 ## <a name="overview"></a>Vue d’ensemble
@@ -42,7 +41,7 @@ La configuration logicielle requise inclut les informations sur les navigateurs 
 | **Hyperviseur** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 et versions ultérieures |
-| VMware ESXi |5.5 et versions ultérieures |
+| VMware ESXi |5.5 et 6.0 |
 
 ### <a name="virtual-device-requirements"></a>Configuration requise de l'appareil virtuel
 | **Composant** | **Prérequis** |
@@ -131,5 +130,4 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 ## <a name="next-step"></a>Étape suivante
 * [Préparation du portail pour déployer StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
-
 

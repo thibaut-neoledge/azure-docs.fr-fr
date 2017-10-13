@@ -24,7 +24,7 @@
    Vous revenez à la page **Démarrage rapide** de l'appareil.
    
    > [!NOTE]
-   > Vous pouvez modifier tous les autres paramètres de l’appareil à tout moment en accédant à la page **Configurer** .
+   > Vous pouvez modifier tous les autres paramètres de l’appareil à tout moment en accédant à la page **Configurer** de l'appareil.
    > 
    > 
 

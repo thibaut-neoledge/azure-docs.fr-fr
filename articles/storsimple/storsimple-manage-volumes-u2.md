@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/28/2016
 ms.author: alkohli
 ms.openlocfilehash: a61c57cd74a0df8363648dd8df40e433b0e6489d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-volumes-update-2"></a>Utilisez le service StorSimple Manager pour gérer les volumes (Mise à jour 2)
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
@@ -164,7 +164,7 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
       > 
       > 
 
-![Vidéo disponible](./media/storsimple-manage-volumes-u2/Video_icon.png) **Vidéo disponible**
+![Vidéo disponible](./media/storsimple-manage-volumes-u2/Video_icon.png)**Vidéo disponible**
 
 Pour visionner une vidéo expliquant comment développer un volume, cliquez [ici](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 

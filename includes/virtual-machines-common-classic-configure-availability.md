@@ -15,7 +15,7 @@ Vous pouvez ajouter des machines virtuelles classiques dans un groupe à haute d
 > 
 > 
 
-## <a id="createset"> </a>Option 1 : Créer simultanément une machine virtuelle et un groupe à haute disponibilité.
+## <a id="createset"></a>Option 1 : Créer simultanément une machine virtuelle et un groupe à haute disponibilité.
 Pour cela, vous pouvez utiliser le portail Azure ou des commandes Azure PowerShell.
 
 Pour utiliser le portail Azure :
@@ -38,7 +38,7 @@ Pour utiliser le portail Azure :
 
 Pour plus d’informations sur l’utilisation des commandes Azure PowerShell pour créer une machine virtuelle Azure et l’ajouter à un groupe à haute disponibilité nouveau ou existant, consultez l’article [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a id="addmachine"> </a>Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité
+## <a id="addmachine"></a>Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité
 Dans le portail Azure, vous pouvez ajouter des machines virtuelles classiques existantes à un groupe à haute disponibilité existant, ou en créer un pour ces machines. (N’oubliez pas que les machines virtuelles dans un même groupe à haute disponibilité doivent appartenir au même service cloud). Les opérations à effectuer sont pratiquement identiques. Avec Azure PowerShell, vous pouvez ajouter la machine virtuelle à un groupe à haute disponibilité existant.
 
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com).

@@ -14,25 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: 357d8db329a6a3c782753804d681029fdb07b5f7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage File d’attente Azure avec Azure PowerShell
 
 Stockage File d’attente Azure est un service permettant de stocker un grand nombre de messages accessibles n’importe où dans le monde au moyen d’appels authentifiés avec HTTP ou HTTPS. Pour plus d’informations, consultez [Présentation des files d’attente Azure](storage-queues-introduction.md). Ce didacticiel décrit les opérations courantes liées au stockage de files d’attente. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer une file d’attente
+> * Création d’une file d’attente
 > * Récupérer une file d’attente
 > * Ajouter un message
 > * Lire un message
 > * Supprimer un message 
-> * Supprimer une file d'attente
+> * Suppression d'une file d'attente
 
 Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -79,16 +77,16 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-queue"></a>Créer une file d’attente
+## <a name="create-a-queue"></a>Création d’une file d’attente
 
-L'exemple suivant établit d’abord une connexion à Stockage Azure avec le contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d’accès. Ensuite, il appelle l’applet de commande [New-AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) pour créer une file d’attente appelée « queuename ».
+L'exemple suivant établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il appelle l’applet de commande [New-AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) pour créer une file d’attente appelée « queuename ».
 
 ```powershell
 $queueName = "howtoqueue"
 $queue = New-AzureStorageQueue –Name $queueName -Context $ctx
 ```
 
-Pour plus d’informations sur les conventions de nommage du service File d’attente Azure, consultez la page [Affectation de noms pour les files d’attente et les métadonnées](http://msdn.microsoft.com/library/azure/dd179349.aspx).
+Pour plus d’informations sur les conventions d’affectation de noms pour le service de File d’attente Azure, consultez la page [Affectation de noms pour les files d’attente et les métadonnées](http://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 ## <a name="retrieve-a-queue"></a>Récupérer une file d’attente
 
@@ -104,7 +102,7 @@ $queue
 Get-AzureStorageQueue -Context $ctx | select Name
 ```
 
-## <a name="add-a-message-to-a-queue"></a>Ajouter un message à une file d'attente
+## <a name="add-a-message-to-a-queue"></a>Ajout d'un message à une file d'attente
 
 Pour ajouter un message à une file d’attente, créez d’abord une instance de la classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Appelez ensuite la méthode [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) . Un CloudQueueMessage peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets.
 
@@ -162,7 +160,7 @@ $ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
 $ queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
-## <a name="delete-a-queue"></a>Supprimer une file d'attente
+## <a name="delete-a-queue"></a>Suppression d'une file d'attente
 Pour supprimer une file d'attente et tous les messages qu'elle contient, exécutez l'applet de commande Remove-AzureStorageQueue. L’exemple suivant montre comment supprimer la file d’attente utilisée dans cet exercice à l’aide de l’applet de commande Remove-AzureStorageQueue.
 
 ```powershell
@@ -183,15 +181,15 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 Ce didacticiel vous a présenté les bases de la gestion de Stockage File d’attente avec PowerShell. Vous avez notamment appris à effectuer les tâches suivantes :
 
 > [!div class="checklist"]
-> * Créer une file d’attente
+> * Création d’une file d’attente
 > * Récupérer une file d’attente
 > * Ajouter un message
 > * Lire le message suivant
 > * Supprimer un message 
-> * Supprimer une file d’attente
+> * Suppression d'une file d'attente
 
-### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Applets de commande de stockage Microsoft Azure PowerShell
-* [Applets de commande de stockage PowerShell](/powershell/module/azurerm.storage#storage)
+### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Applets de commande Microsoft Azure PowerShell - Stockage
+* [Applets de commande PowerShell - Stockage](/powershell/module/azurerm.storage#storage)
 
-### <a name="microsoft-azure-storage-explorer"></a>Explorateur Stockage Microsoft Azure
-* L’[Explorateur Stockage Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
+### <a name="microsoft-azure-storage-explorer"></a>Explorateur Microsoft Azure Storage
+* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.

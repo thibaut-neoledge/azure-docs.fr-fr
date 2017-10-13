@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 40641910f904aa0c0516f96d84d0ebbbbe8e5501
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Service Azure Batch pour les travaux Machine Learning
 
@@ -112,4 +111,3 @@ Nous vous recommandons d’interroger l’état des travaux pour déterminer leu
 | **Utilisez le traitement par pool Batch si**    | **Utilisez le traitement par lots classique si**  |
 |---|---|
 |Vous devez exécuter un grand nombre de travaux<br>Ou<br/>Vos travaux doivent s’exécuter immédiatement<br/>Ou<br/>Vous avez besoin d’un débit garanti. Par exemple, vous devez exécuter plusieurs travaux dans un laps de temps donné et souhaitez augmenter la taille des instances de vos ressources de calcul pour satisfaire à vos besoins.    | Vous exécutez quelques travaux<br/>and<br/> Vous n’avez pas besoin que les travaux s’exécutent immédiatement |
-

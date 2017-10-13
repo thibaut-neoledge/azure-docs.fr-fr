@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 8babb0d016729f318442af93596d206c38d91206
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-6-run-a-test-failover-for-azure-vm-replication"></a>Étape 6 : Exécuter un test de basculement pour la réplication des machines virtuelles Azure
 
 Une fois que vous avez activé la réplication pour les machines virtuelles Azure, suivez les étapes de cet article pour exécuter un test de basculement depuis une région Azure vers une autre à l’aide du service [Azure Site Recovery](site-recovery-overview.md) dans le portail Azure.
@@ -66,5 +64,4 @@ Une fois que vous avez testé le basculement, cette procédure pas à pas est te
 - En savoir plus sur le basculement de plusieurs machines virtuelles [à l’aide d’un plan de récupération](site-recovery-create-recovery-plans.md).
 - En savoir plus sur [l’utilisation des plans de récupération](site-recovery-create-recovery-plans.md).
 - En savoir plus sur la [reprotection des machines virtuelles Azure](site-recovery-how-to-reprotect.md) après le basculement.
-
 

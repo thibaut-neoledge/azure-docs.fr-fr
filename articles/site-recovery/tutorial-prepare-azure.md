@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 506b625905abf52963230a787af66f956bc292b5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Préparer des ressources Azure pour la réplication de machines locales
 
@@ -65,7 +64,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 
 9. Cliquez sur **Créer** pour créer le compte de stockage.
 
-## <a name="create-a-vault"></a>Créer un coffre
+## <a name="create-a-vault"></a>création d'un coffre
 
 1. Dans le menu Portail Azure, cliquez sur **Nouveau** > **Surveillance et gestion** >
    **Backup and Site Recovery**.
@@ -101,4 +100,3 @@ Quand les machines virtuelles Azure sont créées à partir du stockage après l
 
 > [!div class="nextstepaction"]
 > [Préparer l’infrastructure VMware locale pour la récupération d’urgence dans Azure](tutorial-prepare-on-premises-vmware.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Choix d’une plateforme d’analyse de flux : comparaison d’Apache Storm et d’Azure Stream Analytics
 Azure fournit plusieurs solutions pour analyser les données de flux : [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) et [Apache Storm sur Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-storm/). Les deux plateformes d’analyse offrent les avantages d’une solution PaaS, mais leurs fonctionnalités sont sensiblement différentes, tout comme la façon de les configurer et de les gérer. 
@@ -34,7 +33,7 @@ Cet article contient un tableau comparatif des fonctionnalités pour vous aider 
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong> </strong>
+                    <strong></strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -146,7 +145,7 @@ Pour plus d’informations, voir <a href="http://azure.microsoft.com/pricing/det
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong> </strong>
+                    <strong></strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -255,7 +254,7 @@ Oui. Les utilisateurs peuvent écrire du code personnalisé en C#, Java ou dans 
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong> </strong>
+                    <strong></strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -345,7 +344,7 @@ Les utilisateurs peuvent implémenter tout format d’encodage des données à l
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong> </strong>
+                    <strong></strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -493,7 +492,7 @@ Apache Storm est une plateforme de diffusion en continu à tolérance de panne.
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong> </strong>
+                    <strong></strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -560,4 +559,3 @@ Disponible via Storm Bolts.
         </tr>
     </tbody>
 </table>
-

@@ -16,16 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 01983ac7b60f7fdb237fba27f22cb31fcb3c1b7b
-ms.openlocfilehash: cd1e67ce89a856f325b66087f003b1a9a1ac6f6a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/08/2017
-
-
+ms.openlocfilehash: 2f5cb85703888c5056611d466f508547ee72e44b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Convertir un modèle de groupe identique pour utiliser modèle de jeu de mise à l’échelle de disque géré
 
 Les clients utilisant un modèle Resource Manager pour créer un jeu de mise à l’échelle sans utiliser de disque géré devront le modifier pour utiliser un disque géré. Cet article explique comment procéder, avec l’exemple d’une requête d’extraction à partir des [Modèles de démarrage rapide Microsoft Azure](https://github.com/Azure/azure-quickstart-templates), un référentiel communautaire contenant des exemples de modèles Resource Manager. Voici la requête d’extraction complète : [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), et les parties pertinentes de la comparaison, ainsi que des explications :
@@ -150,5 +146,4 @@ Pour en savoir plus sur l’utilisation de disques de données avec des jeux de 
 Pour les modèles Resource Manager utilisant des jeux de mise à l’échelle, recherchez « vmss » dans le [dépôt Github de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).
 
 Pour plus d’informations, consultez la [page d’accueil principale pour les jeux de mise à l’échelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
-
 

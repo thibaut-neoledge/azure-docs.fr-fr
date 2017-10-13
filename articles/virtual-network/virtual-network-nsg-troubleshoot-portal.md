@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Résoudre les problèmes relatifs aux groupes de sécurité réseau à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -65,7 +64,7 @@ Vous pouvez afficher la liste complète des règles de sécurité effectives sur
     Observez les sections suivantes de l’image :
    
    * **Étendue :** définie sur *VM1*, la machine virtuelle sélectionnée à l’étape 3.
-   * **Interface réseau :** *VM1-NIC1* est sélectionné. Une machine virtuelle peut avoir plusieurs interfaces réseau. Chaque carte réseau peut avoir des règles de sécurité effectives uniques. En cours de dépannage, vous devrez peut-être afficher les règles de sécurité effectives pour chaque carte réseau.
+   * **Interface réseau :***VM1-NIC1* est sélectionné. Une machine virtuelle peut avoir plusieurs interfaces réseau. Chaque carte réseau peut avoir des règles de sécurité effectives uniques. En cours de dépannage, vous devrez peut-être afficher les règles de sécurité effectives pour chaque carte réseau.
    * **Groupes de sécurité réseau associés :** des groupes de sécurité réseau peuvent être appliqués à la carte réseau et au sous-réseau auquel elle est connectée. Dans l’image, un groupe de sécurité réseau a été appliqué à la carte réseau et au sous-réseau auquel elle est connectée. Vous pouvez cliquer sur les noms des groupes de sécurité réseau pour en modifier directement les règles.
    * **Onglet VM1-nsg :** la liste de règles affichée dans l’image a trait au groupe de sécurité réseau appliqué à la carte réseau. Azure crée plusieurs règles par défaut à chaque création d’un groupe de sécurité réseau. Vous ne pouvez pas supprimer les règles par défaut, mais vous pouvez les remplacer par des règles de priorité plus élevée. Pour en savoir plus sur les règles par défaut, consultez [Vue d’ensemble d’un groupe de sécurité réseau](virtual-networks-nsg.md#default-rules) .
    * **Colonne DESTINATION :** certaines règles contiennent du texte dans la colonne, tandis que d’autres contiennent des préfixes d’adresse. Le texte est le nom des balises par défaut appliquées à la règle de sécurité lors de sa création. Les balises sont des identificateurs fournis par le système, qui représentent plusieurs préfixes. La sélection d’une règle avec une balise, telle que *AllowInternetOutBound*, répertorie les préfixes dans le panneau **Préfixes d’adresse** .
@@ -149,5 +148,4 @@ Lors de la résolution de problèmes de connectivité, considérez les points su
 * Si vous avez des réseaux virtuels homologues, par défaut, la balise VIRTUAL_NETWORK s’étend automatiquement pour inclure les préfixes des réseaux virtuels homologues. Pour résoudre des problèmes liés à la connectivité d’homologation de réseau virtuel, vous pouvez consulter ces préfixes dans la liste **ExpandedAddressPrefix** . 
 * Les règles de sécurité effectives sont affichées uniquement s’il existe un groupe de sécurité réseau associé à la carte réseau et au sous-réseau de la machine virtuelle. 
 * Si aucun groupe de sécurité réseau n’est associé à la carte réseau ou au sous-réseau, et si une adresse IP publique est affectée à votre machine virtuelle, tous les ports sont ouverts pour les accès entrants et sortants. Si la machine virtuelle a une adresse IP publique, l’application de groupes de sécurité réseau à la carte réseau ou au sous-réseau est vivement recommandée.
-
 

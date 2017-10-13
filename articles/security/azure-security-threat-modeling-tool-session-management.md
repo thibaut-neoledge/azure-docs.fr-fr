@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 56471d8ef68eacacb3ecebad5056d7e7a9f3ca40
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-frame-session-management--articles"></a>Infrastructure de sécurité : gestion des sessions | Articles 
 | Produit/service | Article |
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/29/2017
 | Appareil IoT | <ul><li>[Utiliser des durées de vie limitées pour les jetons SaS générés](#finite-tokens)</li></ul> |
 | **Azure Document DB** | <ul><li>[Utiliser des durées de vie de jeton minimales pour les jetons de ressource générés](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[Implémenter une déconnexion appropriée à l’aide de méthodes WsFederation lors de l’utilisation d’ADFS](#wsfederation-logout)</li></ul> |
-| **Serveur d’identité** | <ul><li>[Implémenter une déconnexion appropriée lors de l’utilisation d’IdentityServer](#proper-logout)</li></ul> |
+| **IdentityServer** | <ul><li>[Implémenter une déconnexion appropriée lors de l’utilisation d’IdentityServer](#proper-logout)</li></ul> |
 | **Application web** | <ul><li>[Utilisation requise de cookies sécurisés par les applications disponibles par le biais de HTTPS](#https-secure-cookies)</li><li>[Élément httpOnly requis dans la définition des cookies pour toutes les applications basées sur HTTP](#cookie-definition)</li><li>[Prévenir les attaques de falsification de requête intersites (CSRF, Cross Site Request Forgery) sur les pages web ASP.NET](#csrf-asp)</li><li>[Configurer la durée de vie d’inactivité d’une session](#inactivity-lifetime)</li><li>[Implémenter une déconnexion appropriée de l’application](#proper-app-logout)</li></ul> |
 | **API Web** | <ul><li>[Prévenir les attaques de falsification de requête intersites (CSRF, Cross Site Request Forgery) sur les API Web ASP.NET](#csrf-api)</li></ul> |
 

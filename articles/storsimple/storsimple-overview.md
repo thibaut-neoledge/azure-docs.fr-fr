@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 86b8300553caa0741e8aca3c0e7621ec80cc5b21
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple série 8000 : une solution de stockage de cloud hybride
 ## <a name="overview"></a>Vue d'ensemble
@@ -217,7 +216,7 @@ Voici un tableau résumant les charges de travail StorSimple prises en charge.
 | Backup  |Sauvegarde de la cible principale |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
 | Backup  |Sauvegarde de la cible secondaire |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
 
-*Oui&#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
+*Oui&amp;#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
 
 Les charges de travail suivantes ne sont pas prises en charge par les appareils StorSimple série 8000. En cas de déploiement sur StorSimple, ces charges de travail entraîneront une configuration non prise en charge.
 
@@ -240,7 +239,7 @@ Voici une liste des composants d’infrastructure pris en charge par StorSimple.
 | Généralités |Indexation |Oui* |Pour les volumes hiérarchisés, seule l’indexation des métadonnées est prise en charge (aucune donnée).<br>Pour les volumes épinglés localement, l’indexation complète est prise en charge. |Toutes les versions |
 | Généralités |Protection contre les virus |Oui* |Pour les volumes hiérarchisés, seule l’analyse des ouvertures et des fermetures est prise en charge.<br> Pour les volumes épinglés localement, l’analyse complète est prise en charge. |Toutes les versions |
 
-*Oui&#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
+*Oui&amp;#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
 
 Voici une liste d’autres logiciels utilisés avec StorSimple pour concevoir des solutions.
 
@@ -312,5 +311,4 @@ Avant de déployer votre solution Microsoft Azure StorSimple, nous vous recomman
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la [sécurité StorSimple](storsimple-8000-security.md).
-
 

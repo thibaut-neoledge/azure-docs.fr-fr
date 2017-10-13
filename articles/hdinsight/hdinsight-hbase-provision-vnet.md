@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/17/2017
 ms.author: jgao
+ms.openlocfilehash: 77ddfc0210fdbd6aea44bc50e18406e4d9c285c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: c78f1b16328c5b3a92f530ca06e6f5aeaeefca78
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Création de clusters HBase sur HDInsight dans un réseau virtuel Microsoft Azure
 Découvrez comment créer des clusters Azure HDInsight sur [Azure Virtual Network][1].
@@ -48,7 +47,7 @@ Dans cette section, vous allez créer un cluster HBase basé sur Linux avec un c
 > * **Version de cluster** : 3.5
 > * **Nombre de nœuds de travail du cluster** : 2
 > * **Compte de stockage par défaut** : une chaîne unique
-> * **Nom du réseau virtuel** : &lt;Nom du cluster>-réseau virtuel
+> * **Nom du réseau virtuel** : &lt;Nom du cluster&gt;-réseau virtuel
 > * **Espace d’adressage du réseau virtuel** : 10.0.0.0/16
 > * **Nom du sous-réseau** : subnet1
 > * **Plage d’adresses de sous-réseau** : 10.0.0.0/24
@@ -78,7 +77,7 @@ Pour commencer à utiliser votre nouveau cluster HBase, vous pouvez utiliser les
 ## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>Connexion au cluster HBase avec les API RPC Java HBase
 1. Créez une machine virtuelle IaaS dans le même réseau virtuel Azure et le même sous-réseau. Pour plus d’informations sur la création d’une machine virtuelle IaaS, consultez [Création d’une machine virtuelle exécutant Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). Lors des étapes décrites dans ce document, vous devez utiliser les valeurs suivantes pour la configuration du réseau :
 
-   * **Réseau virtuel** : &lt;Nom du cluster>-réseau virtuel
+   * **Réseau virtuel** : &lt;Nom du cluster&gt;-réseau virtuel
    * **Sous-réseau** : subnet1
 
    > [!IMPORTANT]
@@ -252,7 +251,6 @@ Dans ce didacticiel, vous avez appris à créer un cluster HBase. Pour plus d'in
 * [Configuration de la géo-réplication HBase dans HDInsigtht](hdinsight-hbase-replication.md)
 * [Créer des clusters Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Prise en main de HBase avec Hadoop dans HDInsight](hdinsight-hbase-tutorial-get-started.md)
-* [Analyse de sentiments Twitter avec HBase dans HDInsight](hdinsight-hbase-analyze-twitter-sentiment.md)
 * [Présentation du réseau virtuel][vnet-overview]
 
 [1]: http://azure.microsoft.com/services/virtual-network/
@@ -260,7 +258,6 @@ Dans ce didacticiel, vous avez appris à créer un cluster HBase. Pour plus d'in
 [3]: http://technet.microsoft.com/library/hh847889.aspx
 
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [vnet-overview]: ../virtual-network/virtual-networks-overview.md
 [vm-create]: ../virtual-machines/virtual-machines-windows-hero-tutorial.md
 
@@ -300,4 +297,3 @@ Dans ce didacticiel, vous avez appris à créer un cluster HBase. Pour plus d'in
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Utilisation de l’action de script pour personnaliser un cluster HBase"
 
 [azure-preview-portal]: https://portal.azure.com
-

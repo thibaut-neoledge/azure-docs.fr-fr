@@ -12,12 +12,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 614193fd61f976c61ef0de8be14c7bc55d7c28da
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>Répliquer une machine virtuelle Azure vers une autre région Azure (préversion)
 
@@ -74,4 +73,3 @@ Dans ce démarrage rapide, vous avez répliqué une seule machine virtuelle vers
 
 > [!div class="nextstepaction"]
 > [Configurer la récupération d’urgence pour des machines virtuelles Azure](azure-to-azure-tutorial-enable-replication.md)
-

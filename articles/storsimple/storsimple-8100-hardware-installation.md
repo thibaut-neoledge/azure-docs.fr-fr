@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8100
 ## <a name="overview"></a>Vue d'ensemble
@@ -31,7 +30,7 @@ La procédure suivante explique de façon claire et détaillée comment déballe
 ### <a name="prepare-to-unpack-your-device"></a>Préparation du déballage de votre appareil
 Avant de déballer l’appareil, lisez les informations suivantes.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png)![icône de poids lourd](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![icône de poids lourd](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)**AVERTISSEMENT !**
 
 1. Compte tenu du poids du boîtier, deux personnes doivent être disponibles pour vous aider à le porter et à le manipuler. En effet, un boîtier complet peut peser jusqu’à 32 kg.
 2. Placez le carton sur une surface plane et droite.
@@ -87,7 +86,7 @@ L’appareil doit être installé dans un rack standard de 19 pouces équipé d
 2. Vérifiez que le site où vous envisagez de monter l’appareil dispose d’une alimentation secteur standard provenant d’une source indépendante ou d’une unité de distribution de l’alimentation (PDU) en rack avec un onduleur (UPS).
 3. Assurez-vous qu’un emplacement de 2U est disponible sur le rack dans lequel vous avez l’intention de monter l’appareil.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png)![icône de poids lourd](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![icône de poids lourd](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)**AVERTISSEMENT !**
 
 Compte tenu du poids de l’appareil, deux personnes doivent être disponibles pour vous aider à le porter et à le manipuler. En effet, un boîtier complet peut peser jusqu’à 32 kg.
 
@@ -190,8 +189,8 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
    
    | Étiquette | Description |
    | --- | --- |
-   |   0/1/4/5 |Interfaces réseau de&1; Gigabit Ethernet |
-   |   2/3 |Interfaces réseau de&10; Gigabit Ethernet |
+   |   0/1/4/5 |Interfaces réseau de 1 Gigabit Ethernet |
+   |   2/3 |Interfaces réseau de 10 Gigabit Ethernet |
    |   6 |Ports série |
 2. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. La configuration supplémentaire requise pour une disponibilité et des performances élevées est représentée par des lignes en pointillés.)
 
@@ -248,5 +247,4 @@ Votre appareil est désormais branché à l’alimentation, au réseau et au por
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [déployer et configurer votre appareil StorSimple local](storsimple-deployment-walkthrough-u2.md).
-
 

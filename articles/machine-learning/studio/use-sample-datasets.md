@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 55cec0c711836360c173a67d575f042d0fe86bef
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -92,7 +91,7 @@ Critiques de livres sur Amazon, extraites du site web amazon.com par les cherche
 <tr>
   <td valign=top>Données sur le cancer du sein</td>
   <td valign=top>
-Un des trois jeux de données sur le cancer fournis par l’Oncology Institute, fréquemment cité dans la littérature sur l’apprentissage automatique. Combine des informations de diagnostic et des caractéristiques d'analyse de laboratoire sur environ 300 échantillons de tissu.<p> </p><b>Utilisation :</b> classifier le type de cancer en se basant sur 9 attributs, certains étant linéaires, d’autres de catégorie. <p> </p><b>Recherche associée :</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+Un des trois jeux de données sur le cancer fournis par l’Oncology Institute, fréquemment cité dans la littérature sur l’apprentissage automatique. Combine des informations de diagnostic et des caractéristiques d'analyse de laboratoire sur environ 300 échantillons de tissu.<p> </p><b>Utilisation :</b> classifier le type de cancer en se basant sur 9 attributs, certains étant linéaires, d’autres de catégorie. <p> </p><b>Recherche associée :</b> Wohlberg, W.H., Street, W.N., &amp; Mangasarian, O.L. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=breast-cancer-features>
@@ -139,7 +138,7 @@ Ces données proviennent du KDD Cup 2009 Customer Relationship Prediction Chal
 <tr>
   <td valign=top>Données sur la régression de l'efficacité énergétique</td>
   <td valign=top>
-Collection de profils d'énergie simulés, basée sur 12 formes différentes de bâtiments. Les bâtiments diffèrent sur 8 caractéristiques, comme la zone de vitrage, la distribution des zones de vitrage et l’orientation.<p> </p><b>Utilisation :</b> utiliser la régression ou la classification pour prédire la notation de l’efficacité énergétique sous la forme de l’une des deux réponses en valeur réelle. Pour la classification multiclasse, arrondit la variable de la réponse à l’entier le plus proche. <p> </p><b>Recherche associée :</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+Collection de profils d'énergie simulés, basée sur 12 formes différentes de bâtiments. Les bâtiments diffèrent sur 8 caractéristiques, comme la zone de vitrage, la distribution des zones de vitrage et l’orientation.<p> </p><b>Utilisation :</b> utiliser la régression ou la classification pour prédire la notation de l’efficacité énergétique sous la forme de l’une des deux réponses en valeur réelle. Pour la classification multiclasse, arrondit la variable de la réponse à l’entier le plus proche. <p> </p><b>Recherche associée :</b> Xifara, A. &amp; Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=flight-delays-data>
@@ -152,14 +151,14 @@ Données de ponctualité des vols passagers provenant de la collection de donné
 <tr>
   <td valign=top>Performance concernant les vols à l'heure (brutes)</td>
   <td valign=top>
-Enregistrements des arrivées et départs de vols aux États-Unis à compter d’octobre 2011.<p> </p><b>Utilisation :</b> prédire les retards des vols. <p> </p><b>Recherche associée :</b> ministère du transport des États-Unis <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+Enregistrements des arrivées et départs de vols aux États-Unis à compter d’octobre 2011.<p> </p><b>Utilisation :</b> prédire les retards des vols. <p> </p><b>Recherche associée :</b> ministère du transport des États-Unis <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Données sur les feux de forêt</td>
   <td valign=top>
-Contient des données sur la météo, comme les indices de température et d'humidité et la vitesse du vent, pour une zone du nord-est du Portugal, combinées aux enregistrements des feux de forêt.<p> </p><b>Utilisation :</b> il s’agit d’une tâche difficile de régression dont l’objectif est de prédire la zone brûlée par des feux de forêt. <p> </p><b>Recherche associée :</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  <p> </p>[Cortez et Morais, 2007] P. Cortez et A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. Aux éditions J. Neves, M. F. Santos and J. Machado, « New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence », December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponible à l’adresse <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+Contient des données sur la météo, comme les indices de température et d'humidité et la vitesse du vent, pour une zone du nord-est du Portugal, combinées aux enregistrements des feux de forêt.<p> </p><b>Utilisation :</b> il s’agit d’une tâche difficile de régression dont l’objectif est de prédire la zone brûlée par des feux de forêt. <p> </p><b>Recherche associée :</b> Cortez, P., &amp; Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  <p> </p>[Cortez et Morais, 2007] P. Cortez et A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. Aux éditions J. Neves, M. F. Santos and J. Machado, « New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence », December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponible à l’adresse <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
@@ -226,7 +225,7 @@ Contient les notes attribuées par les consommateurs à des restaurants sur une 
 <tr>
   <td valign=top>Jeu de données multiclasse de recuit d'acier</td>
   <td valign=top>
-Ce jeu de données contient un ensemble d'enregistrements d'essais de recuits d'acier avec les attributs physiques (largeur, épaisseur, type – rouleau, feuille, etc.) des résultats des types d'acier.<p> </p><b>Utilisation :</b> prédire un des deux attributs de classe numérique : robustesse ou force. Vous pouvez également analyser les corrélations entre attributs.<p> </p>Les qualités d'acier répondent à un standard défini par la SAE et d'autres organisations. Vous recherchez une qualité d’acier spécifique (variable de classe) et vous cherchez à comprendre les valeurs nécessaires. <p> </p><b>Recherche associée :</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  <p> </p>Retrouvez un guide sur la qualité de l’acier à la page <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+Ce jeu de données contient un ensemble d'enregistrements d'essais de recuits d'acier avec les attributs physiques (largeur, épaisseur, type – rouleau, feuille, etc.) des résultats des types d'acier.<p> </p><b>Utilisation :</b> prédire un des deux attributs de classe numérique : robustesse ou force. Vous pouvez également analyser les corrélations entre attributs.<p> </p>Les qualités d'acier répondent à un standard défini par la SAE et d'autres organisations. Vous recherchez une qualité d’acier spécifique (variable de classe) et vous cherchez à comprendre les valeurs nécessaires. <p> </p><b>Recherche associée :</b> Sterling, D. &amp; Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  <p> </p>Retrouvez un guide sur la qualité de l’acier à la page <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -306,4 +305,3 @@ Ces données proviennent du KDD Cup 2010 Student Performance Evaluation Challen
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-

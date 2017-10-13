@@ -15,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: b3806d16d3b78347e183ecbd2ab5a463a2142110
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Vue d’ensemble des configurations d’appareils VPN partenaires
 Cet article fournit une vue d’ensemble de la configuration des appareils VPN locaux pour une connexion à des passerelles VPN Azure. Un exemple de configuration de réseau virtuel Azure et de passerelle VPN est utilisé pour vous montrer comment établir une connexion à différentes configurations d’appareils VPN locaux en utilisant les mêmes paramètres.
 
-## <a name="device-requirements"></a>Configuration requise des appareils
+## <a name="device-requirements"></a>Configuration requise du périphérique
 Les passerelles VPN Azure utilisent des suites de protocoles IPsec/IKE standard pour les tunnels VPN de site à site (S2S). Pour obtenir la liste des paramètres et algorithmes de chiffrement IPsec/IKE pour les passerelles VPN Azure, consultez [À propos des appareils VPN](vpn-gateway-about-vpn-devices.md). Vous pouvez aussi spécifier les algorithmes et les forces de clé exacts d’une connexion spécifique, comme décrit dans [À propos des exigences de chiffrement](vpn-gateway-about-compliance-crypto.md).
 
 ## <a name ="singletunnel"></a>Tunnel VPN unique
@@ -43,7 +42,7 @@ Cette section répertorie les paramètres des exemples décrits dans les section
 | Préfixes d’adresse de réseau virtuel        | 10.11.0.0/16<br>10.12.0.0/16 |
 | IP de la passerelle VPN Azure         | IP de la passerelle VPN Azure         |
 | Préfixes d’adresse locale | 10.51.0.0/16<br>10.52.0.0/16 |
-| IP de l’appareil VPN local    | IP de l’appareil VPN local    |
+| IP du périphérique VPN local    | IP du périphérique VPN local    |
 | * ASN BGP du réseau virtuel                | 65010                        |
 | * IP d’homologue BGP Azure           | 10.12.255.30                 |
 | * ASN BGP local         | 65050                        |
@@ -156,5 +155,4 @@ Quand vous créez la connexion VPN S2S, vous pouvez éventuellement utiliser le 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des instructions pas à pas pour configurer des passerelles VPN en mode actif/actif, consultez [Configuration de passerelles VPN en mode actif/actif pour des connexions entre différents locaux et entre deux réseaux virtuels](vpn-gateway-activeactive-rm-powershell.md).
-
 

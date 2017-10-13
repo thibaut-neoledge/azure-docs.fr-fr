@@ -97,7 +97,7 @@ Une désallocation complète signifie que vous avez arrêté (désalloué) toute
 S’il est possible d’utiliser une autre adresse IP virtuelle, supprimez les machines virtuelles d’origine qui ont été arrêtées (désallouées) tout en conservant les disques associés, puis supprimez le service cloud correspondant (les ressources de calcul associées ont déjà été libérées quand vous avez arrêté (désalloué) les machines virtuelles). Créez un service cloud pour ajouter les machines virtuelles.
 
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Scénario d’allocation : déploiements en environnement intermédiaire ou de production (PaaS uniquement)
-**Error**
+**Erreur**
 
 New_General* ou New_VMSizeNotSupported*
 
@@ -110,7 +110,7 @@ Les déploiements d’un service cloud en environnement intermédiaire et en env
 Supprimez le premier déploiement et le service cloud d’origine, puis redéployez le service cloud. Cette action peut avoir pour effet de réaffecter le premier déploiement dans un cluster qui dispose de suffisamment de ressources pour les deux déploiements ou dans un cluster qui prend en charge les tailles de machine virtuelle demandées.
 
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Scénario d’allocation : groupe d’affinités (proximité entre la machine virtuelle et le service)
-**Error**
+**Erreur**
 
 New_General* ou New_VMSizeNotSupported*
 
@@ -123,7 +123,7 @@ Les ressources de calcul affectées à un groupe d’affinités sont liées à u
 Si un groupe d’affinités n’est pas nécessaire, n’utilisez pas de groupe d’affinités ou regroupez vos ressources de calcul dans plusieurs groupes d’affinités.
 
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Scénario d’allocation : réseau virtuel par groupe d’affinités
-**Error**
+**Erreur**
 
 New_General* ou New_VMSizeNotSupported*
 
@@ -149,7 +149,7 @@ Quand vous recevez une erreur d’allocation, voyez si l’un des scénarios dé
 En règle générale, tant que l’erreur n’indique pas que la taille de machine virtuelle demandée n’est pas prise en charge, vous pouvez toujours réessayer ultérieurement, car il est possible que des ressources suffisantes aient été libérées dans le cluster pour prendre en charge votre demande. Si le problème est lié à la non-prise en charge de la taille de machine virtuelle demandée, reportez-vous aux solutions de contournement ci-dessous.
 
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Scénario d’allocation : redimensionner une machine virtuelle ou ajouter des machines virtuelles à un groupe à haute disponibilité existant
-**Error**
+**Erreur**
 
 Upgrade_VMSizeNotSupported* ou GeneralError*
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 6d6afd2b9b956138ed400fbd6cabd3b480fde0f0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-network"></a>Réseau virtuel Azure
 
@@ -29,13 +28,13 @@ Le service Réseau virtuel Azure vous permet de connecter en toute sécurité de
 ![Diagramme du réseau](./media/virtual-networks-overview/virtual-network-overview.png)
 
 Pour en savoir plus sur les fonctionnalités suivantes du réseau virtuel Azure, cliquez sur la fonctionnalité :
-- **[Isolement :](#isolation)**  les réseaux virtuels sont isolés les uns des autres. Vous pouvez créer des réseaux virtuels distincts pour le développement, le test et la production, qui utilisent les mêmes blocs d’adresses CIDR. À l’inverse, vous pouvez créer plusieurs réseaux virtuels qui utilisent différents blocs d’adresses CIDR et connecter les réseaux entre eux. Vous pouvez segmenter un réseau virtuel en plusieurs sous-réseaux. Azure fournit une résolution de noms interne pour les machines virtuelles et les instances de rôle Services cloud connectées à un réseau virtuel. Vous pouvez également configurer un réseau virtuel afin d’utiliser vos propres serveurs DNS au lieu d’utiliser la résolution de noms interne Azure.
-- **[Connectivité Internet :](#internet)** tous les machines virtuelles Azure et instances de rôle Services cloud connectées à un réseau virtuel ont accès à Internet, par défaut. Vous pouvez également activer l’accès entrant à des ressources spécifiques, en fonction de vos besoins.
+- **[Isolement :](#isolation)** les réseaux virtuels sont isolés les uns des autres. Vous pouvez créer des réseaux virtuels distincts pour le développement, le test et la production, qui utilisent les mêmes blocs d’adresses CIDR. À l’inverse, vous pouvez créer plusieurs réseaux virtuels qui utilisent différents blocs d’adresses CIDR et connecter les réseaux entre eux. Vous pouvez segmenter un réseau virtuel en plusieurs sous-réseaux. Azure fournit une résolution de noms interne pour les machines virtuelles et les instances de rôle Services cloud connectées à un réseau virtuel. Vous pouvez également configurer un réseau virtuel afin d’utiliser vos propres serveurs DNS au lieu d’utiliser la résolution de noms interne Azure.
+- **[Connectivité Internet :](#internet)** toutes les machines virtuelles Azure et instances de rôle Services cloud connectées à un réseau virtuel ont accès à Internet, par défaut. Vous pouvez également activer l’accès entrant à des ressources spécifiques, en fonction de vos besoins.
 - **[Connectivité des ressources Azure :](#within-vnet)** les ressources Azure telles que les Services cloud et les machines virtuelles peuvent être connectées au même réseau virtuel. Les ressources peuvent se connecter entre elles à l’aide d’adresses IP privées, même si elles se trouvent dans des sous-réseaux différents. Azure fournit un routage par défaut entre les sous-réseaux, les réseaux virtuels et les réseaux locaux, sans que vous ayez à configurer et gérer ces itinéraires.
 - **[Connectivité de réseau virtuel :](#connect-vnets)** les réseaux virtuels peuvent être connectés entre eux, permettant aux ressources connectées à un réseau virtuel de communiquer avec n’importe quelle ressource sur n’importe quel autre réseau virtuel.
 - **[Connectivité locale :](#connect-on-premises)** les réseaux virtuels peuvent être connectés à des réseaux locaux via des connexions réseau privées entre votre réseau et Azure, ou via une connexion VPN de site à site sur Internet.
 - **[Filtrage du trafic :](#filtering)** le trafic réseau entrant et sortant des machines virtuelles et des instances de rôle Services cloud peut être filtré par adresse IP source et de port, adresse IP de destination et port, et protocole.
-- **[Routage :](#routing)** vous pouvez également remplacer le routage Azure par défaut en configurant votre propre routage ou en utilisant des itinéraires BGP via une passerelle réseau.
+- **[Routage :](#routing)** vous pouvez également remplacer le routage Azure par défaut en configurant votre propre routage ou en utilisant des routes BGP via une passerelle réseau.
 
 ## <a name = "isolation"></a>Isolement et segmentation du réseau
 
@@ -76,7 +75,7 @@ Vous pouvez filtrer le trafic réseau entre les sous-réseaux à l’aide d’un
 
 Azure crée des tables de routage qui permettent aux ressources connectées à un sous-réseau d’un réseau virtuel de communiquer entre elles, par défaut. Vous pouvez implémenter une ou les deux options suivantes pour remplacer les itinéraires par défaut créés par Azure :
 - **Itinéraires définis par l’utilisateur :** vous pouvez créer des tables de routage personnalisées avec des itinéraires qui contrôlent où le trafic est acheminé pour chaque sous-réseau. Pour en savoir plus sur les itinéraires définis par l’utilisateur, consultez l’article [Itinéraires définis par l’utilisateur](virtual-networks-udr-overview.md).
-- **Itinéraires BGP :** si vous connectez votre réseau virtuel à votre réseau local via une connexion ExpressRoute ou la passerelle VPN Azure, vous pouvez propager les itinéraires BGP à vos réseaux virtuels.
+- **Routes BGP :** si vous connectez votre réseau virtuel à votre réseau local via une connexion ExpressRoute ou la passerelle VPN Azure, vous pouvez propager les routes BGP à vos réseaux virtuels.
 
 ## <a name="pricing"></a>Tarification
 
@@ -92,4 +91,3 @@ Pour consulter les questions fréquentes concernant le réseau virtuel, consulte
 - Créez votre premier réseau virtuel et connectez-y plusieurs machines virtuelles en effectuant les étapes décrites dans l’article [Créer votre premier réseau virtuel](virtual-network-get-started-vnet-subnet.md).
 - Créez une connexion de point à site vers un réseau virtuel en effectuant les étapes décrites dans l’article [Configurer une connexion de point à site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - En savoir plus sur les autres [fonctionnalités réseau](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) clés d’Azure.
-

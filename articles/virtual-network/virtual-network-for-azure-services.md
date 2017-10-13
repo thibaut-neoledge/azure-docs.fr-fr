@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 2c3ffb8432fae41b376cc71bb600a0b1c490f345
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-network-integration-for-azure-services"></a>Intégration d’un réseau virtuel pour les services Azure
 
 L’intégration de services Azure dans un réseau virtuel Azure vous permet de bénéficier d’un accès privé à partir des instances d’un service déployé dans ce réseau.
@@ -76,7 +74,6 @@ Les points de terminaison fournisseur sont actuellement pris en charge par les s
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>Intégration d’un réseau virtuel à plusieurs services Azure
 
 Vous pouvez déployer un service Azure sur un sous-réseau d’un réseau virtuel et sécuriser les ressources de service critiques sur ce sous-réseau. Par exemple, vous pouvez déployer HDInsight sur votre réseau virtuel et sécuriser un compte de stockage sur le sous-réseau HDInsight.
-
 
 
 

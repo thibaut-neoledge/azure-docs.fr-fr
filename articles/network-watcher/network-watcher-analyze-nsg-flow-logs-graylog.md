@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gérer et analyser les journaux de flux des groupes de sécurité réseau à l’aide de Network Watcher et de Graylog
 
 Les [journaux de flux des groupes de sécurité réseau ](network-watcher-nsg-flow-logging-overview.md) fournissent des informations permettant de comprendre le trafic IP entrant et sortant des interfaces réseau Azure. Les journaux de flux affichent les flux entrants et sortants en fonction de la règle du groupe de sécurité réseau, l’interface réseau à laquelle le flux s’applique, des informations à 5 tuples (adresse IP source/de destination, port source/de destination, protocole) relatives au flux, et l’autorisation ou le refus du trafic.
@@ -249,4 +247,3 @@ L’intégration de Network Watcher à Graylog vous permet de visualiser et de g
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment visualiser vos journaux de flux des groupes de sécurité réseau avec Power BI en consultant la page [Visualiser les journaux de flux des groupes de sécurité réseau avec Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
-

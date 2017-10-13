@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Détails sur l'implémentation de l'espace de noms associé et implications en termes de coût
 La méthode [PairNamespaceAsync][PairNamespaceAsync], à l’aide d’une instance [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], effectue des tâches visibles à votre place. Étant donné qu'il existe des considérations relatives aux coûts lors de l'utilisation de la fonctionnalité, il est utile de comprendre ces tâches afin que vous vous attendiez au comportement lorsque celui-ci se produit. L'API engage le comportement automatique suivant à votre place :
@@ -120,4 +119,3 @@ Consultez [Modèles de messagerie asynchrone et haute disponibilité][Asynchrono
 [0]: ./media/service-bus-paired-namespaces/IC673405.png
 [1]: ./media/service-bus-paired-namespaces/IC673406.png
 [2]: ./media/service-bus-paired-namespaces/IC673407.png
-

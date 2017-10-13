@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.translationtype: HT
-ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
 ms.openlocfilehash: f7dd532e96540fa297cac8fa3736f9f4a6ccd82f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Exécution de SAP NetWeaver sur des machines virtuelles Microsoft Azure SUSE Linux
 Cet article décrit les divers éléments à prendre en compte lorsque vous exécutez SAP NetWeaver sur des machines virtuelles Microsoft Azure SUSE Linux. À compter du 19 mai 2016, SAP NetWeaver est officiellement pris en charge sur les machines virtuelles SUSE Linux dans Azure. Vous trouverez tous les détails concernant les versions de Linux et les versions du noyau SAP, ainsi que d’autres prérequis, dans la note SAP 1928533 « SAP Applications on Azure: Supported Products and Azure VM types » (Applications SAP sur Azure : produits et types de machines virtuelles pris en charge).
@@ -68,7 +67,7 @@ Bien qu’il soit toujours possible d’utiliser les images SLES standard pour l
    ```
 
 ## <a name="installing-walinuxagent-in-a-suse-vm"></a>Installation de WALinuxAgent dans une machine virtuelle SUSE
-L’agent appelé WALinuxAgent fait partie des images SLES dans la Place de marché Azure. Pour plus d’informations sur son installation manuelle (par exemple, lors du chargement d’un disque dur virtuel (VHD) du système d’exploitation SLES à partir d’un emplacement local), voir les articles suivants :
+L’agent appelé WALinuxAgent fait partie des images SLES dans Azure Marketplace. Pour plus d’informations sur son installation manuelle (par exemple, lors du chargement d’un disque dur virtuel (VHD) du système d’exploitation SLES à partir d’un emplacement local), voir les articles suivants :
 
 * [OpenSUSE](http://software.opensuse.org/package/WALinuxAgent)
 * [Microsoft Azure](../../linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -140,7 +139,7 @@ Si vous disposez d’une installation distribuée, par exemple lorsque vous souh
 Auparavant, si un gros volume logique était nécessaire sur plusieurs disques de données Azure (par exemple, pour la base de données SAP), il était recommandé d’utiliser l’outil de gestion Raid MDADM, car LVM (Logical Volume Manager) de Linux n’était pas encore entièrement validé sur Azure. Pour en savoir plus sur la procédure de configuration de RAID Linux sur Azure à l’aide de mdadm, consultez la rubrique [Configuration d’un RAID logiciel sur Linux](../../linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). En attendant, depuis début mai 2016, LVM de Linux est entièrement pris en charge sur Azure et peut être utilisé comme alternative à MDADM. Pour plus d’informations concernant LVM sur Azure, consultez :  
 [Configurer LVM sur une machine virtuelle Linux dans Azure](../../linux/configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="azure-suse-repository"></a>Référentiel SUSE Azure
+## <a name="azure-suse-repository"></a>Dépôt SUSE Azure
 Si vous rencontrez un problème d’accès au référentiel Azure SUSE standard, vous pouvez réinitialiser ce dernier à l’aide d’une commande. Ces problèmes peuvent se produire si vous créez une image de système d’exploitation privée dans une région Azure, puis que vous la copiez dans une autre région Azure pour déployer de nouvelles machines virtuelles basées sur cette image. Exécutez la commande suivante à l’intérieur de la machine virtuelle :
 
    ```
@@ -164,5 +163,4 @@ Si vous souhaitez utiliser le bureau Gnome pour installer un système complet de
 
 ## <a name="sap-support-for-oracle-on-linux-in-the-cloud"></a>Prise en charge par SAP d’Oracle sur Linux dans le cloud
 Il existe une restriction de prise en charge d’Oracle sur Linux dans les environnements virtualisés. Bien que cette restriction de prise en charge ne soit pas spécifique à Azure, il est important de bien la comprendre. SAP ne prend pas en charge Oracle sur SUSE ni Red Hat dans un cloud public comme Azure. Pour discuter de ce sujet, contactez directement Oracle.
-
 

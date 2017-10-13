@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: e5d9519998346619093f443b740c8904283f76e8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>Créer des routages définis par l’utilisateur avec Azure CLI 2.0
 
@@ -227,5 +226,4 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, procé
     Paramètres :
 
     **--ip-forwarding** : *true* ou *false*.
-
 
