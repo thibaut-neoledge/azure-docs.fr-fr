@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e5dcc6bf5d8c2cdbfadbbe5170b57c8e9a611b2e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Pig dans Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -221,5 +220,4 @@ Pour utiliser le script pig paramétré, procédez comme suit :
 * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Appeler des programmes Spark](data-factory-spark.md)
 * [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
 

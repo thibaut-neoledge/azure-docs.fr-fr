@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 826ba0a00b26993d4f37f0a8ce587d7bb77e7eb4
-ms.contentlocale: fr-fr
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utiliser la bibliothèque d’authentification Microsoft (MSAL) afin d’obtenir un jeton pour l’API Graph de Microsoft
 
 Cette section montre comment utiliser MSAL afin d’obtenir un jeton pour l’API Graph de Microsoft.
@@ -202,5 +201,4 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 Les jetons acquis via *OpenID Connect* contiennent également un petit sous-ensemble d’informations qui sont pertinentes pour l’utilisateur. `DisplayBasicTokenInfo` affiche les informations de base du jeton : par exemple, le nom affiché et l’ID de l’utilisateur, ainsi que la date d’expiration du jeton et la chaîne qui représente le jeton d’accès lui-même. Ces informations sont affichées. Vous pouvez cliquer sur le bouton *Call Microsoft Graph API (Appeler l’API Graph de Microsoft)* plusieurs fois et voir que le même jeton a été réutilisé pour les demandes suivantes. Vous constatez également que la date d’expiration est différée lorsque MSAL détermine qu’il est temps de renouveler le jeton.
 <!--end-collapse-->
-
 

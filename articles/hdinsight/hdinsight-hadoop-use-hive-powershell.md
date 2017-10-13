@@ -1,5 +1,5 @@
 ---
-title: "Utiliser Hadoop Hive avec PowerShell dans HDInsight - Azure | Microsoft Docs"
+title: "Utiliser Hadoop Hive avec PowerShell dans HDInsight - Azure | Documents Microsoft"
 description: "Utilisez PowerShell pour exécuter des requêtes Hive dans Hadoop sur HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 74571fc6e1a0b2d6a903cdd992a247f4d5dfa700
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-hive-queries-using-powershell"></a>Exécution de requêtes Hive avec PowerShell
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
@@ -31,7 +30,7 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell dans le mod
 > [!NOTE]
 > Ce document ne fournit pas de description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d’informations sur le langage HiveQL utilisé dans cet exemple, consultez la page [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md).
 
-**Prérequis**
+**Configuration requise**
 
 * **Un cluster Azure HDInsight** : peu importe si le cluster est basé sur Windows ou Linux.
 
@@ -44,7 +43,7 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell dans le mod
 
 ## <a name="run-hive-queries-using-azure-powershell"></a>Exécution de requêtes Hive avec Azure PowerShell
 
-Azure PowerShell fournit des *applets de commande* qui vous permettent d'exécuter à distance des requêtes Hive sur HDInsight. En interne, les applets de commande effectuent des appels REST à [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) sur le cluster HDInsight.
+Azure PowerShell fournit des *cmdlets* qui vous permettent d'exécuter à distance des requêtes Hive sur HDInsight. En interne, les applets de commande effectuent des appels REST à [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) sur le cluster HDInsight.
 
 Les applets de commande suivants sont utilisés lors de l'exécution de requêtes Hive sur un cluster à distance HDInsight :
 
@@ -56,7 +55,7 @@ Les applets de commande suivants sont utilisés lors de l'exécution de requête
 * **Invoke-AzureRmHDInsightHiveJob**: utilisé pour exécuter des instructions HiveQL. Cette applet de commande bloque la fin de la requête, puis retourne les résultats.
 * **Use-AzureRmHDInsightCluster** : configure le cluster actuel à utiliser pour la commande **Invoke-AzureRmHDInsightHiveJob**.
 
-Les étapes suivantes montrent comment utiliser ces applets de commande pour exécuter une tâche sur votre cluster HDInsight :
+Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une tâche sur votre cluster HDInsight :
 
 1. À l'aide d'un éditeur, enregistrez le code suivant en tant que **hivejob.ps1**.
 
@@ -86,7 +85,7 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
    > [!NOTE]
-   > Pour les requêtes HiveQL plus longues, vous pouvez utiliser les fichiers de script HiveQL de PowerShell ou l’applet de commande **Here-Strings** Azure PowerShell. L'extrait suivant montre comment utiliser l’applet de commande **Invoke-Hive** pour exécuter un fichier de script HiveQL. Ce dernier doit être chargé dans wasb://.
+   > Pour les requêtes HiveQL plus longues, vous pouvez utiliser les fichiers de script HiveQL de PowerShell ou la cmdlet **Here-Strings** Azure PowerShell. L'extrait suivant montre comment utiliser la cmdlet **Invoke-Hive** pour exécuter un fichier de script HiveQL. Ce dernier doit être chargé dans wasb://.
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
@@ -121,4 +120,3 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
-

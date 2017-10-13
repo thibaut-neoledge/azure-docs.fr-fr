@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: e0d41d1933531c2c633613bcbc1bbcbf075d6a69
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Comment choisir le type d’application à utiliser lors de l’ajout d’une application
 
@@ -71,9 +71,9 @@ Les modes d’**authentification unique** pris en charge pour les applications A
 
 -   **Authentification unique Azure AD désactivée** : choisissez le **mode d’authentification unique** Authentification unique Azure AD désactivée si vous n’êtes pas encore prêt à intégrer cette application à l’authentification unique avec Azure AD, ou si vous êtes uniquement en train de la tester.
 
--   **Authentification liée** : choisissez le **mode d’authentification unique** [Authentification liée](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) si vous disposez d’une application qui est déjà connectée à une solution d’authentification unique, ou si vous voulez publier un lien simple dans le [panneau d’accès aux applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) de vos utilisateurs ou dans le [lanceur d’applications Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none).
+-   **Authentification liée** : choisissez le **mode d’authentification unique**[Authentification liée](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) si vous disposez d’une application qui est déjà connectée à une solution d’authentification unique, ou si vous voulez publier un lien simple dans le [panneau d’accès aux applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) de vos utilisateurs ou dans le [lanceur d’applications Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none).
 
--   **Authentification par mot de passe** : choisissez le **mode d’authentification unique** [Authentification par mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) si votre application affiche un champ de nom d’utilisateur et de mot de passe HTML et que vous souhaitez stocker ce nom d’utilisateur et ce mot de passe en toute sécurité pour vous reconnecter ultérieurement à l’application.
+-   **Authentification par mot de passe** : choisissez le **mode d’authentification unique**[Authentification par mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) si votre application affiche un champ de nom d’utilisateur et de mot de passe HTML et que vous souhaitez stocker ce nom d’utilisateur et ce mot de passe en toute sécurité pour vous reconnecter ultérieurement à l’application.
 
 -   **SAML-based Sign-on** (Authentification SAML) : choisissez le mode d’authentification unique [SAML-based Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) (Authentification SAML) si votre application prend en charge les protocoles SAML ou OpenID Connect, ou si vous souhaitez être en mesure de mapper les utilisateurs à des rôles d’application spécifiques en fonction de règles que vous définissez dans vos demandes SAML *.
 
@@ -134,7 +134,7 @@ Pour définir le mode d’**authentification unique** d’une application, proc�
 
 -   **Approvisionnement manuel** : choisissez le mode d’approvisionnement [Manuel](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) si vous avez des comptes existants, ou si vous souhaitez gérer les comptes pour cette application hors d’Azure AD.
 
--   **Approvisionnement automatique** : choisissez le **mode d’approvisionnement** [automatique](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) si vous souhaitez activer l’approvisionnement automatique basé sur les API et/ou l’annulation d’approvisionnement des comptes utilisateur pour cette application. 
+-   **Approvisionnement automatique** : choisissez le **mode d’approvisionnement**[automatique](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) si vous souhaitez activer l’approvisionnement automatique basé sur les API et/ou l’annulation d’approvisionnement des comptes utilisateur pour cette application. 
 
    >[!NOTE]
    >Cette option est disponible uniquement pour les applications de la catégorie **Applications à la une** de la [galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#the-new-and-improved-application-gallery).

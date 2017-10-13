@@ -1,6 +1,6 @@
 ---
 title: FAQ sur IoT Azure Suite | Microsoft Docs
-description: "Questions fréquentes (FAQ) sur IoT Suite"
+description: "Forum Aux Questions (FAQ) relatives à IoT Suite"
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,20 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: corywink
+ms.openlocfilehash: 5039dd30f85278b4e3bbba938ef40077af2c5c75
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 85867fb8d18377637b3aa848555831a8d9b53512
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="frequently-asked-questions-for-iot-suite"></a>Questions fréquentes (FAQ) sur IoT Suite
+# <a name="frequently-asked-questions-for-iot-suite"></a>Forum Aux Questions (FAQ) relatives à IoT Suite
 
 Voir aussi les [questions fréquentes (FAQ)](iot-suite-faq-cf.md) spécifiques sur l’usine connectée.
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Où trouver le code source des solutions préconfigurées ?
 
-Le code source est stocké dans les dépôts GitHub suivants :
+Le code source est stocké dans les référentiels GitHub suivants :
 * [Solution préconfigurée de surveillance à distance][lnk-remote-monitoring-github]
 * [Solution préconfigurée de maintenance prédictive][lnk-predictive-maintenance-github]
 * [Solution préconfigurée d’usine connectée](https://github.com/Azure/azure-iot-connected-factory)
@@ -38,7 +37,7 @@ Le code source est stocké dans les dépôts GitHub suivants :
 * Si vous déployez une solution préconfigurée à partir du site https://www.azureiotsuite.com/, elle déploie toujours une nouvelle instance de la version la plus récente de la solution.
 * Si vous déployez une solution préconfigurée à l’aide de la ligne de commande, vous pouvez mettre à jour un déploiement existant avec le nouveau code. Consultez la page [Cloud deployment (Déploiement cloud)][lnk-cloud-deployment] dans le [référentiel][lnk-remote-monitoring-github] GitHub.
 
-### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Comment ajouter la prise en charge d’une nouvelle méthode d’appareil à la solution préconfigurée de surveillance à distance ?
+### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Comment ajouter la prise en charge d’une nouvelle méthode de périphérique à la solution préconfigurée de surveillance à distance ?
 
 Consultez la section [Add support for a new method to the simulator (Ajouter la prise en charge d’une nouvelle méthode au simulateur)][lnk-add-method] de l’article [Personnaliser une solution préconfigurée][lnk-customize].
 
@@ -122,4 +121,3 @@ Vous pouvez également explorer certaines des autres fonctionnalités et capacit
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-predictive-maintenance-github]: https://github.com/Azure/azure-iot-predictive-maintenance
-

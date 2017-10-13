@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
+ms.openlocfilehash: 13297eafd957d926dfd311a14c4ba9351e55e2bc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ac51126fa1f71b2efc1d3054b2cee328bae94bca
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,9 +38,9 @@ Plus précisément, ce connecteur SQL Server prend en charge :
 - SQL Server version 2016, 2014, 2012, 2008 R2, 2008 et 2005
 - La copie des données à l’aide de l’authentification **SQL** ou **Windows**
 - En tant que source, la récupération de données à l’aide d’une procédure stockée ou d’une requête SQL
-- En tant que récepteur, l’ajout de données à une table de destination ou l’appel d’une procédure stockée avec une logique personnalisée pendant la copie
+- En tant que récepteur, l’ajout de données à une table de destination ou l’appel d’une procédure stockée avec une logique personnalisée pendant la copie.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour copier des données à partir d’une base de données SQL Server qui n’est pas accessible publiquement, vous devez configurer un Runtime d’intégration autohébergé. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md). Le Runtime d’intégration fournit un pilote de base de données SQL Server intégré. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote lors de la copie des données vers/depuis une base de données SQL Server.
 
@@ -59,8 +58,8 @@ Les propriétés suivantes sont prises en charge pour le service lié SQL Server
 | type | La propriété de type doit être définie sur **SqlServer** | Oui |
 | connectionString |Spécifiez les informations connectionString nécessaires pour établir une connexion à la base de données SQL Server à l’aide de l’authentification SQL ou de l’authentification Windows. Marquez ce champ comme SecureString. |Oui |
 | userName |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non |
-| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour userName. Marquez ce champ comme SecureString. |Non |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter au magasin de données. Vous pouvez utiliser le Runtime d’intégration autohébergé ou le Runtime d’intégration Azure (si votre magasin de données est accessible publiquement). Si vous ne spécifiez pas cette propriété, le Runtime d’intégration Azure par défaut est utilisé. |Non |
+| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ comme SecureString. |Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 **Exemple 1 : utilisation de l’authentification SQL**
 
@@ -113,7 +112,7 @@ Les propriétés suivantes sont prises en charge pour le service lié SQL Server
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les jeux de données. Cette section fournit une liste des propriétés prises en charge par le jeu de données SQL Server.
 
-Pour copier des données vers/depuis une base de données SQL Server, affectez la valeur **SqlServerTable** à la propriété de type du jeu de données. Les propriétés suivantes sont prises en charge :
+Pour copier des données vers/depuis une base de données SQL Server, affectez la valeur **SqlServerTable** à la propriété de type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
@@ -145,14 +144,14 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="sql-server-as-source"></a>SQL Server en tant que source
 
-Pour copier des données à partir de SQL Server, définissez **SqlSource** comme type source dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+Pour copier des données à partir de SQL Server, définissez **SqlSource** comme type source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
-| type | La propriété de type de la source d’activité de copie doit être **SqlSource**. | Oui |
-| SqlReaderQuery |Utiliser la requête SQL personnalisée pour lire des données. Exemple : `select * from MyTable`. |Non |
+| type | La propriété type de la source d’activité de copie doit être définie sur **SqlSource** | Oui |
+| SqlReaderQuery |Utiliser la requête SQL personnalisée pour lire les données. Exemple : `select * from MyTable`. |Non |
 | sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non |
-| storedProcedureParameters |Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont : paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non |
+| storedProcedureParameters |Paramètres de la procédure stockée.<br/>Valeurs autorisées : paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non |
 
 **Points à noter :**
 
@@ -249,17 +248,17 @@ GO
 
 ### <a name="sql-server-as-sink"></a>SQL Server en tant que récepteur
 
-Pour copier des données vers SQL Server, définissez **SqlSink** comme type de récepteur dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **sink** de l’activité de copie :
+Pour copier des données vers SQL Server, définissez **SqlSink** comme type de récepteur dans l’activité de copie. Les propriétés prises en charge dans la section **sink** (récepteur) de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
-| type | La propriété de type de la source d’activité de copie doit être **SqlSink**. | Oui |
-| writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Les valeurs autorisées sont : entier (nombre de lignes). |Non (valeur par défaut : 10000) |
-| writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Les valeurs autorisées sont : intervalle de temps. Exemple : « 00:30:00 » (30 minutes). |Non |
+| type | La propriété type de la source d’activité de copie doit être définie sur **SqlSink** | Oui |
+| writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10000) |
+| writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : « 00:30:00 » (30 minutes). |Non |
 | sqlWriterStoredProcedureName |Nom de la procédure stockée qui met à jour/insère les données dans la table cible. |Non |
-| storedProcedureParameters |Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont : paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non |
+| storedProcedureParameters |Paramètres de la procédure stockée.<br/>Valeurs autorisées : paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non |
 | sqlWriterTableType |Spécifiez le nom du type de table à utiliser dans la procédure stockée. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Non |
-| preCopyScript |Spécifiez une requête SQL que l’activité de copie doit exécuter avant l’écriture des données dans SQL Server lors de chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer les données préchargées. |Non |
+| preCopyScript |Spécifiez une requête SQL que l’activité de copie doit exécuter avant l’écriture des données dans SQL Server lors de chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non |
 
 > [!TIP]
 > Lors de la copie de données vers SQL Server, l’activité de copie ajoute les données à la table réceptrice par défaut. Pour effectuer un UPSERT ou une logique métier supplémentaire, utilisez la procédure stockée dans SqlSink. Pour en savoir plus, consultez [Appel d’une procédure stockée pour un récepteur SQL](#invoking-stored-procedure-for-sql-sink).
@@ -463,7 +462,7 @@ BEGIN
 END
 ```
 
-Dans votre base de données, définissez le type de table avec le même nom que sqlWriterTableType. Notez que le schéma du type de table doit être identique au schéma retourné par vos données d'entrée.
+Dans votre base de données, définissez le type de table portant le même nom que SqlWriterTableType. Notez que le schéma du type de table doit être identique au schéma retourné par vos données d'entrée.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -479,7 +478,7 @@ La fonction de procédure stockée tire parti des [paramètres Table-Valued](htt
 
 Lors de la copie des données vers/à partir de SQL Server, les mappages suivants sont utilisés entre les types de données SQL Server et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma source et le type de données au récepteur, consultez [Mappages de types de données et de schémas](copy-activity-schema-and-type-mapping.md).
 
-| Type de données SQL Server | Type de données intermédiaire de Data factory |
+| Type de données SQL Server | Type de données intermédiaires de Data Factory |
 |:--- |:--- |
 | bigint |Int64 |
 | binaire |Byte[] |
@@ -535,4 +534,4 @@ Lors de la copie des données vers/à partir de SQL Server, les mappages suivant
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md##supported-data-stores-and-formats).
+Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 95b088d2fdc331dc33e973172d32892693fcb648
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory : Forum aux Questions
 Cet article s’applique à la version 2 du service Azure Data Factory. Il contient une liste de questions fréquemment posées (FAQ) ainsi que leurs réponses.  
@@ -33,40 +32,40 @@ Azure Data Factory version 2 est fondé sur le service de déplacement et de 
 - Flux de contrôle et mise à l’échelle
 - Déploiement et exécution de packages SSIS dans Azure
 
-Après la sortie de la version 1, nous nous sommes rendu compte que les clients cherchaient à concevoir des scénarios d’intégration de données hybrides complexes nécessitant le déplacement et le traitement des données dans le cloud, localement et sur des machines virtuelles dans le cloud. Ces besoins ont mis en évidence la nécessité de transférer et de traiter les données dans des environnements VNET sécurisés et de permettre une montée en charge en fournissant une puissance de traitement à la demande.
+Après la sortie de la version 1, nous nous sommes rendu compte que les clients cherchaient à concevoir des scénarios d’intégration de données hybrides complexes nécessitant le déplacement et le traitement des données dans le cloud, localement et sur des machines virtuelles dans le cloud. Ces exigences ont mis en évidence la nécessité de transférer et de traiter les données dans des environnements de réseau virtuel sécurisés et de permettre une montée en charge en fournissant une puissance de traitement à la demande.
 
 Puisque les pipelines de données deviennent des éléments essentiels de la stratégie d’analyse commerciale, nous avons constaté que ces activités de données cruciales avaient besoin d’une planification flexible pour prendre en charge les charges de données incrémentielles et les exécutions déclenchées par des événements. Enfin, à mesure que ces orchestrations gagnent en complexité, le service est également dans l’obligation de prendre en charge des paradigmes de flux de travail communs, tels que la création de branches, le bouclage et le traitement conditionnel.
 
-Avec la version 2, vous pouvez également faire migrer des packages SQL Server Integration Services (SSIS) existants vers le cloud afin de promouvoir et d’insérer SSIS en tant que service Azure géré au sein d’ADF au moyen de la nouvelle fonctionnalité « Integration Runtime » (IR). L’ajout d’un IR SSIS dans la version 2 vous permet d’exécuter, de gérer, de surveiller et de générer des packages SSIS dans le cloud.
+Avec la version 2, vous pouvez également faire migrer des packages SSIS (SQL Server Integration Services) existants vers le cloud afin de promouvoir et d’insérer SSIS en tant que service Azure géré au sein d’ADF au moyen de la nouvelle fonctionnalité de « runtimes d’intégration ». L’ajout d’un runtime d’intégration SSIS dans la version 2, vous permet d’exécuter, de gérer, de surveiller et de générer des packages SSIS dans le cloud.
 
 ### <a name="control-flow-and-scale"></a>Flux de contrôle et mise à l’échelle 
-Pour prendre en charge les divers flux d’intégration et modèles dans l’entrepôt de données moderne, Data Factory a mis en œuvre un nouveau modèle flexible de pipeline de données qui n’est plus lié à des données de série chronologique. Avec cette version, vous pouvez modéliser des instructions conditionnelles et créer une branche dans le flux de contrôle d’un pipeline de données afin de transmettre explicitement des paramètres au sein et entre ces flux.
+Pour prendre en charge les divers flux d’intégration et modèles dans l’entrepôt de données moderne, Data Factory a mis en œuvre un nouveau modèle flexible de pipeline de données qui n’est plus lié à des données de série chronologique. Avec cette version, vous pouvez modéliser des instructions conditionnelles et créer une branche dans le flux de contrôle d’un pipeline de données afin de transmettre explicitement des paramètres dans et entre ces flux.
 
-Vous avez désormais la liberté de modéliser n’importe quel style de flux requis pour l’intégration des données et de le distribuer à la demande ou de façon répétée à certaines heures spécifiques. Quelques flux courants qui n’étaient pas possibles auparavant sont désormais activés :   
+Vous avez désormais la liberté de modéliser n’importe quel style de flux requis pour l’intégration des données et de le distribuer à la demande ou de façon répétée selon une planification d’horloge. Quelques flux courants qui n’étaient pas possibles auparavant sont désormais activés :   
 
 - Flux de contrôle :
-    - Chaînage des activités d’une séquence au sein d’un pipeline
+    - Chaînage des activités en une séquence au sein d’un pipeline
     - Création d’une branche d’activités au sein d’un pipeline
     - Paramètres
-        - Les paramètres peuvent être définis au niveau du Pipeline et les arguments transmis lors de l’appel du pipeline à la demande ou à partir d’un déclencheur
-        - Les activités peuvent consommer les arguments transmis au pipeline
+        - Les paramètres peuvent être définis au niveau du pipeline et les arguments transmis lors de l’appel du pipeline à la demande ou à partir d’un déclencheur.
+        - Les activités peuvent utiliser les arguments transmis au pipeline.
     - Transmission d’un état personnalisé
-        - Les sorties de l’activité, notamment l’état, peuvent être consommées par une activité suivante du pipeline
+        - Les sorties de l’activité, notamment l’état, peuvent être utilisées par une activité suivante du pipeline.
     - Bouclage des conteneurs
         - ForEach 
 - Flux basés sur déclencheur
-    - Les pipelines peuvent être déclenchés à la demande ou selon un temps horloge
+    - Les pipelines peuvent être déclenchés à la demande ou selon une durée chronométrée.
 - Flux delta
-    - Utilisez des paramètres et définissez la borne haute pour la copie delta lors du déplacement des tables de dimension ou de référence à partir d’un magasin relationnel, localement ou dans le cloud pour charger les données dans le lac 
+    - Utilisez des paramètres et définissez la marque de borne haute pour la copie delta lors du déplacement des tables de dimension ou de référence à partir d’un magasin relationnel, localement, ou dans le cloud pour charger les données dans le lac 
 
-Pour plus d’informations, consultez le [didacticiel portant sur le flux de contrôle](tutorial-control-flow.md).
+Pour plus d’informations, consultez l’article [Didacticiel : flux de contrôle](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Déployer des packages SSIS vers Azure 
 Si vous souhaitez déplacer vos charges de travail SSIS, vous pouvez créer une fabrique de données version 2 et approvisionner un runtime Azure-SSIS IR. Le runtime Azure-SSIS IR est un cluster entièrement géré de machines virtuelles Azure (nœuds) dédié à l’exécution de vos packages SSIS dans le cloud. Pour obtenir des instructions pas à pas, consultez le didacticiel : [Déployer des packages SSIS vers Azure](tutorial-deploy-ssis-packages-azure.md). 
  
 
 ### <a name="sdks"></a>Kits de développement logiciel (SDK)
-Si vous êtes un utilisateur expérimenté et recherchez une interface de programmation, la version 2 offre un ensemble enrichi de Kits de développement logiciel (SDK) qui peut être utilisé pour créer, gérer et surveiller les pipelines à l’aide de votre environnement de développement intégré (IDE) favori.
+Si vous êtes un utilisateur expérimenté et recherchez une interface de programmation, la version 2 offre un ensemble enrichi de kits de développement logiciel (SDK) qui peut être utilisé pour créer, gérer et surveiller les pipelines à l’aide de votre IDE favori.
 
 - SDK .NET : le Kit de développement logiciel (SDK) .NET est mis à jour pour la version 2. 
 - PowerShell : les cmdlets PowerShell sont mises à jour pour la version 2. Les noms des cmdlets version 2 contiennent **DataFactoryV2**. Exemple : Get-AzureRmDataFactoryV2. 
@@ -105,7 +104,7 @@ Un abonnement Azure peut contenir une ou plusieurs instances Azure Data Factory 
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline est un regroupement logique des activités nécessaires pour effectuer une unité de travail. Ensemble, les activités d’un pipeline effectuent une tâche. Par exemple, un pipeline peut contenir un groupe d’activités qui ingère des données à partir d’un objet Blob Azure, puis exécute une requête Hive sur un cluster HDInsight pour partitionner les données. L’avantage de cette opération, c’est que le pipeline vous permet de gérer les activités en tant que groupe et non pas individuellement. Les activités d’un pipeline peuvent être chaînées pour fonctionner de manière séquentielle ou peuvent fonctionner en parallèle de façon indépendante.
 
 ### <a name="activity"></a>Activité
-Les activités représentent une étape de traitement dans un pipeline. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’une banque de données vers une autre. De même, vous pouvez utiliser une activité Hive qui exécute une requête Hive sur un cluster Azure HDInsight afin de convertir ou d’analyser vos données. Data Factory prend en charge trois types d’activités : les activités de déplacement des données, les activités de transformation des données et les activités de contrôle.
+Les activités représentent une étape de traitement dans un pipeline. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’une banque de données vers une autre. De même, vous pouvez utiliser une activité Hive qui exécute une requête Hive sur un cluster Azure HDInsight afin de convertir ou d’analyser vos données. Data Factory prend en charge trois types d’activités : les activités de déplacement des données, les activités de transformation des données et les activités de contrôle
 
 ### <a name="datasets"></a>JEUX DE DONNÉES
 Les jeux de données représentent les structures des données dans les magasins. Ils pointent ou référencent simplement en tant qu’entrées ou sorties les données que vous voulez utiliser dans vos activités. 
@@ -123,19 +122,19 @@ Les déclencheurs correspondent à l’unité de traitement qui détermine le mo
 
 
 ### <a name="pipeline-runs"></a>Exécutions de pipeline
-Une exécution du pipeline est une instance de l’exécution du pipeline. Les exécutions de pipeline sont généralement instanciées par la transmission des arguments aux paramètres définis dans les pipelines. Les arguments peuvent être transmis manuellement ou inclus dans la définition du déclencheur.
+Une exécution du pipeline est une instance de l’exécution du pipeline. Les exécutions de pipeline sont généralement instanciées par la transmission des arguments aux paramètres définis dans les pipelines. Les arguments peuvent être transmis manuellement ou être inclus dans la définition du déclencheur.
 
 ### <a name="parameters"></a>Paramètres
-Les paramètres sont des paires clé-valeur de configuration en lecture seule.  Ils sont définis dans le pipeline, et les arguments des paramètres définis sont transmis au cours de l’exécution à partir du contexte d’exécution créé par un déclencheur ou un pipeline exécuté manuellement. Les activités contenues dans le pipeline consomment les valeurs des paramètres.
-Un jeu de données est un paramètre fortement typé et une entité réutilisable/pouvant être référencée. Une activité peut faire référence à des jeux de données et peut consommer les propriétés définies dans la définition du jeu de données.
+Les paramètres sont des paires clé-valeur de configuration en lecture seule.  Ils sont définis dans le pipeline, et les arguments des paramètres définis sont transmis au cours de l’exécution à partir du contexte d’exécution créé par un déclencheur ou un pipeline exécuté manuellement. Les activités contenues dans le pipeline utilisent les valeurs des paramètres.
+Un jeu de données est un paramètre fortement typé et une entité réutilisable/pouvant être référencée. Une activité peut faire référence à des jeux de données et peut utiliser les propriétés définies dans la définition du jeu de données
 
 Un service lié est également un paramètre fortement typé qui contient les informations de connexion à une banque de données ou à un environnement Compute. C’est également une entité réutilisable/pouvant être référencée.
 
 ### <a name="control-flow"></a>Flux de contrôle
-Orchestration des activités du pipeline, qui inclut le chaînage des activités en une séquence, la création de branche et des paramètres. Ces éléments peuvent être définis au niveau du pipeline, et les arguments sont transmis lors de l’appel du pipeline à la demande ou à partir d’un déclencheur. L’orchestration inclut également la transmission d’états personnalisés et le bouclage des conteneurs, autrement dit, des itérateurs ForEach.
+Orchestration des activités du pipeline, qui inclut le chaînage des activités en une séquence, la création de branche et des paramètres. Ces éléments peuvent être définis au niveau du pipeline et les arguments sont transmis lors de l’appel du pipeline à la demande ou à partir d’un déclencheur. L’orchestration inclut également la transmission d’états personnalisés et le bouclage des conteneurs, autrement dit, des itérateurs ForEach.
 
 
-Pour plus d’informations sur les concepts de Data Factory, consultez les articles suivants :
+Pour plus d’informations sur les concepts de Data Factory, consultez les articles suivants :
 
 - [Jeux de données et services liés](concepts-datasets-linked-services.md)
 - [Pipelines et activités](concepts-pipelines-activities.md)
@@ -194,5 +193,4 @@ Pour obtenir des instructions pas à pas pour créer une fabrique de données de
 
 - [Quickstart : create a data factory](quickstart-create-data-factory-dot-net.md) (Démarrage rapide : créer une fabrique de données et un pipeline à l’aide du Kit de développement logiciel (SDK) .NET)
 - [Didacticiel : copier des données dans le cloud](tutorial-copy-data-dot-net.md)
-
 

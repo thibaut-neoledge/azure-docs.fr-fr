@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3c9642e5c2da92203be2bc23820e5b6f544de660
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/04/2017
-
+ms.openlocfilehash: 491a920ceeaac62dd37b1def3f02234056aebfb0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Dépanner un objet qui bloque la synchronisation avec Azure AD
 
@@ -145,4 +144,3 @@ Cet onglet permet également d’accéder à l’[objet CS (Connector Space)](#c
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-

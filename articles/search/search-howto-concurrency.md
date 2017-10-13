@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/21/2017
 ms.author: heidist
 ms.openlocfilehash: aee1b7376d4829e3e2f5a232525e3c3cb4df9d8e
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Gestion de l’accès concurrentiel dans Recherche Azure
 
@@ -223,4 +223,4 @@ Essayez de modifier l’un des exemples suivants pour inclure des ETags ou des o
 ## <a name="see-also"></a>Voir aussi
 
   [En-têtes de requête et de réponse HTTP courants](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)    
-  [Codes d’état HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) [Opérations d’index (API REST)](https://docs.microsoft.com/\rest/api/searchservice/index-operations)
+  [Codes d’état HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)[Opérations d’index (API REST)](https://docs.microsoft.com/\rest/api/searchservice/index-operations)

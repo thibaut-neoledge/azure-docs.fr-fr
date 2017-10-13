@@ -13,26 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 413f12d301a0e2c47048d23b2d4fb7de6423256d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 : disponibilité générale](v1/data-factory-azure-ml-batch-execution-activity.md)
-> * [Version 2 : préversion](transform-data-using-machine-learning.md)
+> * [Version 1 - Disponibilité générale](v1/data-factory-azure-ml-batch-execution-activity.md)
+> * [Version 2 - Préversion](transform-data-using-machine-learning.md)
 
 [AZURE MACHINE LEARNING](https://azure.microsoft.com/documentation/services/machine-learning/) vous permet de générer, tester et déployer des solutions d’analyse prédictive. D’un point de vue très général, cela s’effectue en trois étapes :
 
-1. **Créez une expérience de formation**. Vous effectuez cette étape à l’aide d’Azure ML Studio. ML Studio est un environnement de développement visuel collaboratif qui vous permet de former et de tester un modèle d’analytique prédictive à l’aide de données d’apprentissage.
+1. **Créez une expérience de formation**. Vous effectuez cette étape à l’aide d’Azure ML Studio. ML Studio est un environnement de développement visuel collaboratif qui vous permet de former et de tester un modèle d’analyse prédictive à l’aide de données d’apprentissage.
 2. **Convertissez-la en une expérience prédictive**. Une fois que votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience de notation.
 3. **Déployez-la en tant que service web**. Vous pouvez publier votre expérience de notation comme un service web Azure. Vous pouvez envoyer des données à votre modèle via ce point de terminaison de service web et recevoir des prédictions de résultats pour le modèle.  
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, qui est actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez [Activité d’exécution par lot Machine Learning dans V1](v1/data-factory-azure-ml-batch-execution-activity.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez [Activité d’exécution par lot Machine Learning dans V1](v1/data-factory-azure-ml-batch-execution-activity.md).
 
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory et Machine Learning
@@ -229,7 +228,7 @@ Une fois que vous avez fini la reformation, mettez à jour le service web de not
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants qui expliquent comment transformer des données d’autres manières : 
+Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)
 * [Activité Hive](transform-data-using-hadoop-hive.md)
@@ -239,4 +238,3 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 * [Activité Spark](transform-data-using-spark.md)
 * [Activité personnalisée .NET](transform-data-using-dotnet-custom-activity.md)
 * [Activité de procédure stockée](transform-data-using-stored-procedure.md)
-

@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
 ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporter les certificats de l’émulateur Azure Cosmos DB pour une utilisation avec Java, Python et Node.js
 
 [**Téléchargement de l'émulateur**](https://aka.ms/cosmosdb-emulator)
@@ -108,4 +106,3 @@ Vous pouvez maintenant passer au didacticiel Créer un déclencheur HTTP Azure F
 
 > [!div class="nextstepaction"]
 > [Créer une fonction Azure Function avec une entrée Azure Cosmos DB](tutorial-functions-http-trigger.md) 
-

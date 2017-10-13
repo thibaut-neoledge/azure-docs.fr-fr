@@ -1,7 +1,7 @@
 ---
 title: "Vue d’ensemble des outils de la machine virtuelle DSVM - Azure | Microsoft Docs"
 description: "Vue d’ensemble des outils de la machine virtuelle DSVM"
-keywords: "outils de science des données, machine virtuelle dsvm, outils pour la science des données, science des données linux"
+keywords: "outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c6948447ea7bfa6219bf70d46d14f82724fa0c60
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Découvrir votre machine virtuelle DSVM
 
@@ -38,4 +37,3 @@ Les outils, plateformes, utilitaires et exemples compris dans la machine virtuel
 6. **[Outils d’exploration et de visualisation de données](dsvm-tools-explore-and-visualize.md)**
 7. **[Plateformes de données](dsvm-data-platforms.md)**
 8. **[Exemples et procédures pas à pas](dsvm-samples-and-walkthroughs.md)**
-

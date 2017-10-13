@@ -25,7 +25,7 @@ Usage:
 |-|-|-|-|
 |-r |Obligatoire|Spécifie si le service Mobilité (MS) doit être installé ou si MasterTarget(MT) doit être installé|MS </br> MT|
 |-d |Facultatif|Emplacement où sera installé le service Mobilité|/usr/local/ASR|
-|-v|Obligatoire|Spécifie la plateforme sur laquelle le service Mobilité est installé </br> </br>- **VMware** : utilisez cette valeur si vous installez le service Mobilité sur une machine virtuelle exécutée sur des *hôtes VMware vSphere ESXi*, des *hôtes Hyper-V* et des *serveurs physiques* </br> - **Azure** : utilisez cette valeur si vous installez l’agent sur une machine virtuelle Azure IaaS| VMware </br> Les tables Azure|
+|-v|Obligatoire|Spécifie la plateforme sur laquelle le service Mobilité est installé </br> </br>- **VMware** : utilisez cette valeur si vous installez le service Mobilité sur une machine virtuelle exécutée sur des *hôtes VMware vSphere ESXi*, des *hôtes Hyper-V* et des *serveurs physiques* </br> - **Azure** : utilisez cette valeur si vous installez l’agent sur une machine virtuelle Azure IaaS| VMware </br> Les tables Azure|
 |-q|Facultatif|Spécifie d’exécuter le programme d’installation en mode silencieux| N/A |
 
 

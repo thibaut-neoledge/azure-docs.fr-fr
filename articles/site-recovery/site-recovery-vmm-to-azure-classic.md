@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ac0931a71a2814723380256fc5326fc431c82f2c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Réplication vers Azure de machines virtuelles Hyper-V hébergées dans des clouds VMM
 > [!div class="op_single_selector"]
@@ -348,4 +347,3 @@ Pour exécuter un test de basculement, procédez comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la [configuration des plans de récupération](site-recovery-create-recovery-plans.md) et sur le [basculement](site-recovery-failover.md).
-

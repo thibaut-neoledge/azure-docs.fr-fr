@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: 43087ab83b931f9bcafdffb5a7355045b9577e61
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: aab705688079601bbce93455f7dda80cdd733110
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Exemples d’API d’audit de création de rapports Azure Active Directory
 Cette rubrique fait partie d’un ensemble de rubriques relatives à l’API de création de rapports Azure Active Directory.  
@@ -152,7 +151,7 @@ Le script renvoie la sortie du rapport d’audit au format JSON. Il crée égale
     yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
     header_params = {'Authorization': token_type + ' ' + access_token}
-    request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
+    request_string = 'https://graph.windows.net/' + tenant_domain + '/activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
     response = requests.get(request_string, headers = header_params)
 
     if response.status_code is 200:
@@ -168,5 +167,4 @@ Le script renvoie la sortie du rapport d’audit au format JSON. Il crée égale
 * Vous souhaitez personnaliser les exemples de cette rubrique ? Consultez la [référence d’API d’audit Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
 * Si vous souhaitez obtenir une présentation complète de l’utilisation de l’API de création de rapports Azure Active Directory, consultez [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Si vous souhaitez en savoir plus sur la création de rapports Azure Active Directory, consultez le [Guide Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
-
 

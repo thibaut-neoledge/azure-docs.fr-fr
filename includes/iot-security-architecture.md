@@ -154,7 +154,7 @@ Usurpation d’identité : une personne malveillante peut extraire les élément
 
 **Déni de service**  : un appareil peut être dans l’incapacité de fonctionner ou de communiquer en raison d’interférences avec des fréquences radio ou d’une rupture de câbles. Par exemple, une caméra de surveillance dont l’alimentation ou la connexion réseau ont été intentionnellement mises hors-service ne signalera pas de données du tout.
 
-**Falsification**  : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
+**Falsification** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
 
 **Falsification** : une caméra de surveillance qui affiche une image (en spectre visible) d’un couloir vide peut être forcée à afficher une photo de ce couloir. Un capteur de détection de fumée ou d’incendie peut signaler la présence d’une personne utilisant un briquet. Dans les deux cas, le périphérique peut s’avérer techniquement tout à fait fiable pour le système, alors qu’il rapporte des informations manipulées.
 

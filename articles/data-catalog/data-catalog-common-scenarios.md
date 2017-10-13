@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 63f951fbfc9ab5adad8f9225c2827abcbdb7f784
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: e01e6fa3b9871541bf9573963ced05848a3726e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Scénarios courants avec Azure Data Catalog
 Cet article présente des scénarios courants dans lesquels Azure Data Catalog peut aider votre organisation à mieux exploiter ses sources de données existantes.
@@ -68,4 +67,3 @@ Ce transfert continu de connaissances tribales fait partie du processus de déco
 Les experts en données font normalement l’effort de documenter leurs connaissances en les partageant par e-mail ou par le biais de documents Word sur un site d’équipe SharePoint. Bien que cette approche puisse se révéler utile, elle introduit également un nouveau problème de découverte : comment savoir quelle documentation existe et où la trouver...
 
 Avec Azure Data Catalog, votre organisation dispose d’un emplacement unique et centralisé pour le stockage et le partage de ces connaissances tribales, et pour leur mise à disposition sans difficulté. Dans Data Catalog, vos experts en données peuvent annoter directement les ressources de données et fournir des liens vers la documentation existante. Quand les membres de l’organisation utilisent le catalogue pour découvrir une source de données, ils trouvent non seulement la source proprement dite, mais également la base de connaissances qui existait précédemment uniquement dans l’esprit des experts de votre organisation.
-

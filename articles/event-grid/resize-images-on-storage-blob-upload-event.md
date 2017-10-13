@@ -12,12 +12,11 @@ ms.topic: article
 ms.date: 09/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 358015d6cfd9961508b209f628b2d648a75e3c2c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatiser le redimensionnement des images chargées à l’aide d’Event Grid
 
@@ -38,7 +37,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Déployer du code sans serveur à l’aide d’Azure Functions
 > * Créer un abonnement d’événement Stockage Blob dans Event Grid
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour suivre ce didacticiel :
 
@@ -79,7 +78,7 @@ Une fois que vous avez obtenu l’accès à la fonctionnalité d’événements 
  
 Une fois inscrit, vous pouvez poursuivre le didacticiel.
 
-## <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
+## <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
 
 Azure Functions nécessite un compte de stockage général. Créez un compte de stockage général distinct dans le groupe de ressources à l’aide de la commande [az storage account create](/cli/azure/storage/account#create).
 
@@ -93,11 +92,11 @@ az storage account create --name <general_storage_account> \
 --sku Standard_LRS --kind storage
 ```
 
-## <a name="create-a-function-app"></a>Créer une application de fonction  
+## <a name="create-a-function-app"></a>Créer une Function App  
 
-Vous devez disposer d’une application de fonction pour héberger l’exécution de votre fonction. L’application de fonction fournit un environnement d’exécution sans serveur de votre code de fonction. Créez une application de fonction à l’aide de la commande [az functionapp create](/cli/azure/functionapp#create). 
+Vous devez disposer d’une application de fonction pour héberger l’exécution de votre fonction. La Function App fournit un environnement d’exécution sans serveur de votre code de fonction. Créez une Function App à l’aide de la commande [az functionapp create](/cli/azure/functionapp#create). 
 
-Dans la commande suivante, indiquez le nom unique de votre application de fonction dans l’espace réservé `<function_app>`. La valeur `<function_app>` est utilisée en tant que domaine DNS par défaut pour l’application de fonction. Pour cette raison, ce nom doit être unique sur l’ensemble des applications dans Azure. Dans ce cas, `<general_storage_account>` est le nom du compte de stockage général que vous avez créé.  
+Dans la commande suivante, indiquez le nom unique de votre application de fonction dans l’espace réservé `<function_app>`. La valeur `<function_app>` est utilisée en tant que domaine DNS par défaut pour la Function App. Pour cette raison, ce nom doit être unique sur l’ensemble des applications dans Azure. Dans ce cas, `<general_storage_account>` est le nom du compte de stockage général que vous avez créé.  
 
 ```azurecli-interactive
 az functionapp create --name <function_app> --storage-account  <general_storage_account>  \
@@ -157,7 +156,7 @@ Un abonnement d’événement indique les événements générés par le fournis
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nom** | imageresizersub | Nom du nouvel abonnement d’événement. | 
+    | **Name** | imageresizersub | Nom du nouvel abonnement d’événement. | 
     | **Type de rubrique** |  Comptes de stockage | Choisissez le fournisseur d’événements de compte de stockage. | 
     | **Abonnement** | Votre abonnement | Par défaut, votre abonnement actuel doit être sélectionné.   |
     | **Groupe de ressources** | myResourceGroup | Sélectionnez **Utiliser l’existant**, puis choisissez le groupe de ressources que vous avez utilisé dans cette rubrique.  |

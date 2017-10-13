@@ -12,7 +12,7 @@ Le Raspberry Pi prend désormais en charge l’envoi de données de télémétr
 
 À partir du tableau de bord de la solution, vous pouvez appeler des méthodes sur votre Raspberry Pi. Lorsque le Raspberry Pi se connecte à la solution de surveillance à distance, il envoie des informations sur les méthodes qu’il prend en charge.
 
-- Dans le tableau de bord de la solution, cliquez sur **Appareils** pour accéder à la page **Appareils**. Sélectionnez votre Raspberry Pi dans la **Liste des appareils**. Choisissez ensuite **Méthodes** :
+- Dans le tableau de bord de la solution, cliquez sur **Appareils** pour accéder à la page **Appareils**. Sélectionnez votre Raspberry Pi dans la **Liste des appareils**. Ensuite, choisissez **Méthodes** :
 
     ![Répertorier les appareils dans le tableau de bord][img-list-devices]
 

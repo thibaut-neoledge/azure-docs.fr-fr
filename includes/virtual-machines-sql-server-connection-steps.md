@@ -1,5 +1,5 @@
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Ouverture de ports TCP dans le pare-feu Windows pour l'instance par défaut du moteur de base de données
-1. Connectez-vous à la machine virtuelle avec le Bureau à distance. Pour obtenir des instructions détaillées sur la connexion à la machine virtuelle, consultez [Ouvrir la machine virtuelle à l’aide du Bureau à distance](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
+1. Connectez-vous à la machine virtuelle avec le Bureau à distance. Pour obtenir des instructions détaillées sur la connexion à la machine virtuelle, consultez [Ouvrir la machine virtuelle à l’aide du Bureau à distance](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
 2. Une fois connecté, sur l’écran d’accueil, tapez **WF.msc**, puis appuyez sur ENTRÉE.
    
     ![Démarrer le programme du pare-feu](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
