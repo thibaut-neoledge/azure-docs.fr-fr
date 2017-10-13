@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
+ms.openlocfilehash: f1c0052862dd2b97dbea500615f7ac4eabc97217
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f1a6df56a2bb0094d972d2e659057cc124156b88
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-12-run-a-test-failover-to-azure-for-vmware-vms"></a>Étape 12 : Exécuter un test de basculement vers Azure pour les machines virtuelles VMware
 
@@ -114,4 +113,3 @@ Maintenant, exécutez un basculement :
 - [En savoir plus](site-recovery-failover.md) sur les différents types de basculement et leur exécution.
 - Si vous migrez des ordinateurs au lieu de procéder à une réplication et une restauration automatique, [lisez cet article pour en savoir plus](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers).
 - [En savoir plus sur la restauration automatique](site-recovery-failback-azure-to-vmware.md) pour restaurer et répliquer des machines virtuelles Azure vers le site local principal.
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c9b7e7a1fbc6b67821183ce31bdf2527de490c92
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Transférer des objets vers/à partir du stockage Blob Azure à l’aide d’Azure CLI
 
 L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide de démarrage rapide décrit en détail l’utilisation d’Azure CLI pour charger et télécharger des données vers et à partir du stockage Blob Azure.
@@ -62,7 +60,7 @@ Cette opération crée l’objet blob s’il n’existe pas déjà, et le rempla
 
 ## <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
 
-Répertoriez les objets blob dans un conteneur à l’aide de la commande [az storage blob list](/cli/azure/storage/blob#list).
+Listez les objets blob d’un conteneur avec la commande [az storage blob list](/cli/azure/storage/blob#list).
 
 ```azurecli-interactive
 az storage blob list \
@@ -109,4 +107,3 @@ Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers
 
 > [!div class="nextstepaction"]
 > [Guide pratique des opérations de stockage Blob avec Azure CLI](storage-how-to-use-blobs-cli.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6b76403ba5fc4d00a625057549c85db59a473898
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 9d015678dbd99b8d978c2c8200b36bf51cac8893
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # Protocole de connexions hybrides Azure Relay
 Azure Relay est l’une des fonctionnalités clés de la plateforme Azure Service Bus. La nouvelle fonctionnalité *Connexions hybrides* de Relay est une évolution sécurisée, à protocole ouvert, sur HTTP et WebSocket. Elle remplace l’ancienne fonctionnalité, nommée *BizTalk Services*, conçue sur un protocole propriétaire. L’intégration des connexions hybrides dans Azure App Services continue de fonctionner telle quelle.
@@ -268,5 +267,4 @@ Si la connexion du WebSocket est intentionnellement arrêtée par le service apr
 * [Créer un espace de noms](relay-create-namespace-portal.md)
 * [Prise en main de .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Prise en main de Node](relay-hybrid-connections-node-get-started.md)
-
 

@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
+ms.openlocfilehash: 792e8c7efb2a627fbc1abde1389015949d5931e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4db7552a1b76c89151405c55c8682abbb5326bb6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-queues"></a>Présentation des files d’attente
 
-Le Stockage File d’attente Azure est un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un simple message de file d’attente peut avoir une taille de 64 Ko et une file d’attente peut contenir des millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage.
+Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un simple message de file d’attente peut avoir une taille de 64 Ko et une file d’attente peut contenir des millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage.
 
 ## <a name="common-uses"></a>Utilisations courantes
 
@@ -34,7 +33,7 @@ Voici quelques utilisations courantes des files d’attente de stockage :
 
 ## <a name="queue-service-concepts"></a>Concepts du service File d’attente
 
-Le service File d’attente contient les composants suivants :
+Le service de file d’attente contient les composants suivants :
 
 ![Concepts de File d’attente](./media/storage-queues-introduction/queue1.png)
 
@@ -55,4 +54,3 @@ Le service File d’attente contient les composants suivants :
 
 * [Créer un compte de stockage](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 * [Bien démarrer avec les files d’attente en utilisant .NET](storage-dotnet-how-to-use-queues.md)
-

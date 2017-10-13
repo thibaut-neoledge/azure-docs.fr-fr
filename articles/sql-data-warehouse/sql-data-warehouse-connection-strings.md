@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: cfdec6b621267d642371104c328f9b5e6fd19c59
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: e71ea1d23f68ed41c03bbce88b08863d2831c1bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="drivers-for-azure-sql-data-warehouse"></a>Pilotes pour Azure SQL Data Warehouse
 Vous pouvez vous connecter à SQL Data Warehouse avec plusieurs protocoles d’application différents, comme [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] et [JDBC][JDBC]. Voici quelques exemples de chaînes de connexion pour chaque protocole.  Vous pouvez également utiliser le portail Azure pour créer votre chaîne de connexion.  Pour créer votre chaîne de connexion avec le portail Azure, accédez au panneau de votre base de données, sous *Éléments principaux*, cliquez sur *Afficher les chaînes de connexion de la base de données*.
@@ -66,4 +64,3 @@ Pour commencer à interroger votre entrepôt de données avec Visual Studio et d
 [JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
 
 <!--Other references-->
-

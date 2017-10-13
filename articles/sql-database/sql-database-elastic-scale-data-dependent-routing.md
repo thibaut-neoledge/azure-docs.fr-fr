@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: ff9f3ee4e44f7d0b51a6724304b0ec0f967f7d88
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 6b68bbb0133afd1493acdb58f79f3eeaf6a8d7cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-dependent-routing"></a>Routage dépendant des données
 **Le routage dépendant des données** correspond à la capacité d’utiliser les données dans une requête pour acheminer la demande vers une base de données appropriée. Il s’agit d’un modèle fondamental quand vous travaillez avec des bases de données partitionnées. Le contexte de la demande peut également servir à acheminer la demande, particulièrement si la clé de partitionnement ne fait pas partie de la requête. Chaque requête ou transaction spécifique d’une application utilisant le routage dépendant des données est limitée à l’accès à une seule base de données par demande. Pour les outils élastiques de base de données SQL Azure, ce routage s’effectue avec la classe **[ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)** dans les applications ADO.NET.
@@ -128,5 +126,4 @@ Les propriétés transactionnelles sont garanties pour toutes les opérations lo
 Pour détacher une partition ou la rattacher, consultez [Utilisation de la classe RecoveryManager pour résoudre les problèmes de carte de partitions](sql-database-elastic-database-recovery-manager.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

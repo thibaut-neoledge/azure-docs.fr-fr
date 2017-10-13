@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Reprotection d’Azure vers un site local
 
@@ -271,5 +270,4 @@ Pour reprotéger une machine virtuelle basculée sur un emplacement local, la ma
 *La banque de données n’est pas accessible à partir de l’hôte ESXi*.
 
 Consultez les sections relatives à la [configuration requise du serveur cible maître](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) et aux [banques de données prises en charge](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) pour procéder à la restauration automatique.
-
 

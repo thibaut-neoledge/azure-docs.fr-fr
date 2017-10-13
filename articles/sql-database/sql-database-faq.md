@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 6ed02ead07c50b9a49e8868756b6f957d7b49b99
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-database-faq"></a>Forum Aux Questions de base de données SQL
 
@@ -124,4 +123,3 @@ Nous exposons le décalage de réplication en temps réel entre la base de donn�
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Pour déplacer une base de données entre des abonnements
 * Dans le [portail Azure](https://portal.azure.com), cliquez sur **Serveurs SQL**, puis sélectionnez le serveur qui héberge votre base de données dans la liste. Cliquez sur **Déplacer**, puis sélectionnez les ressources à déplacer et l’abonnement cible.
-

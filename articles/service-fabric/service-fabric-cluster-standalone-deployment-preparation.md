@@ -13,14 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/12/2017
 ms.author: dekapur;maburlik;chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 67d47739c27081c4e10bf11988ed121ff02d8bb0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 <a id="preparemachines"></a>
 
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planifier et préparer votre déploiement de cluster Service Fabric autonome
@@ -169,4 +167,3 @@ Actuellement, ce module de test de configuration ne valide pas la configuration 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Créer un cluster autonome s’exécutant sur Windows Server](service-fabric-cluster-creation-for-windows-server.md)
-

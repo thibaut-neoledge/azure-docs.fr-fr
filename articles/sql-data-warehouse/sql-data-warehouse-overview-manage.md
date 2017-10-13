@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: b14d0aad5a1f50c225391dbab27ec6240423a65a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Gestion de bases de données dans Azure SQL Data Warehouse
 SQL Data Warehouse automatise de nombreux aspects de la gestion de vos bases de données. Par exemple, pour mettre les performances à l’échelle, vous n’avez qu’à ajuster le niveau de ressources de calcul en fonction de vos besoins et ne payer que pour ces ressources. SQL Data Warehouse effectue ensuite tout le travail de montée en charge et de réduction.

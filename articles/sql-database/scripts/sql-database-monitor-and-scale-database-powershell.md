@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
+ms.openlocfilehash: f88f7aaf71ff35875a13b33230abd5536c021201
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 0d0bceb32902a4ae506919f48302471543dd5162
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL
 
 Cet exemple de script PowerShell surveille les mesures de performance d’une base de données, l’adapte à un niveau de performance supérieur et crée une règle d’alerte sur l’une des mesures de performance. 
@@ -32,7 +30,7 @@ Cet exemple de script PowerShell surveille les mesures de performance d’une ba
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Surveillance et mise à l’échelle d’une instance SQL Database unique")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
@@ -61,4 +59,3 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/azure/overview).
 
 Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell sur la page [Scripts PowerShell Azure SQL Database](../sql-database-powershell-samples.md).
-

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 ms.openlocfilehash: 5bb6d17ffd047ae91476c52750f293414d1dfdd5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Montée en charge avec la base de données SQL Azure
 Vous pouvez facilement faire évoluer les bases de données SQL Azure à l’aide des outils de **base de données élastique** . Ces outils et fonctionnalités vous permettent d’utiliser les ressources quasi illimitées de la **base de données SQL Azure** pour créer des solutions pour les charges de travail transactionnelles et notamment les applications Software as a Service (SaaS). Les fonctionnalités de base de données élastique se composent des éléments suivants :

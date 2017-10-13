@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 40abff72278c9f8d9f701023fd473fe52c17b421
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-5-prepare-azure-resources-for-vmware-replication-to-azure"></a>Étape 5 : préparer les ressources Azure pour la réplication VMware sur Azure
 
@@ -62,4 +61,3 @@ Prenez connaissance des [conditions préalables](vmware-walkthrough-prerequisite
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à [Étape 6 : préparer les ressources VMware](vmware-walkthrough-prepare-vmware.md)
-
