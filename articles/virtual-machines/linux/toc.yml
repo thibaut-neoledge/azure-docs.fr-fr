@@ -247,6 +247,7 @@
             - name: Installer les pilotes GPU NVIDIA
               href: n-series-driver-setup.md
     - name: Gérer le stockage
+      href: about-disks-and-vhds.md
       items:
         - name: En savoir plus sur les disques managés
           href: managed-disks-overview.md
