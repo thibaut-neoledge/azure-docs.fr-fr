@@ -15,12 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
 ms.openlocfilehash: 12079f8dbc409afe5acc274fa08bda878c90b76e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Basculement d'appareil et récupération d'urgence pour votre StorSimple Virtual Array via le portail Azure
 
@@ -181,5 +180,4 @@ S'il existe des appareils StorSimple inscrits juste avant un incident, ces appar
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur la [gestion de StorSimple Virtual Array à l’aide de l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
-
 

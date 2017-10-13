@@ -15,14 +15,12 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 6/2/2017
 ms.author: shigu;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: f0e0b839b4a0c216eee2eb5134d43b91d8f83289
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Optimiser la qualité du rowgroup pour columnstore
 
 La qualité du rowgroup est déterminée par le nombre de lignes d’un rowgroup. Réduisez les besoins de mémoire ou augmentez la mémoire disponible afin d’optimiser le nombre de lignes qu’un index columnstore compresse dans chaque rowgroup.  Utilisez ces méthodes pour améliorer les taux de compression et les performances de requête pour les index columnstore.
@@ -86,8 +84,8 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 La mémoire maximale requise pour compresser un rowgroup est d’environ
 
 - 72 Mo +
-- \#lignes \* \#colonnes \* 8 octets +
-- \#lignes \* \#colonnes de chaîne courte \* 32 octets +
+- \#lignes \*\#colonnes \* 8 octets +
+- \#lignes \*\#colonnes de chaîne courte \* 32 octets +
 - \#colonnes de chaîne longue \* 16 Mo pour le dictionnaire de compression
 
 où les colonnes de chaîne courte utilisent des données de type chaîne <= 32 octets, et les colonnes de chaîne longueur utilisent des données de type chaîne > 32 octets.
@@ -164,4 +162,3 @@ Pour découvrir d’autres façons d’améliorer les performances dans SQL Data
 <!--MSDN references-->
 
 <!--Other Web references-->
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 7cee4f8d68062dcfd2b6f61d55319160a2a80a98
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Déployer un cluster Windows Service Fabric dans un réseau virtuel Azure
 Ce didacticiel est la première partie d’une série d’étapes. Vous découvrirez comment déployer un cluster Windows Service Fabric dans un réseau virtuel et sous-réseau Azure existant à l’aide de PowerShell. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications.  Pour créer un cluster Linux à l’aide de l’interface de ligne de commande Azure, consultez la page [Créer un cluster Linux sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -51,7 +49,7 @@ Les procédures suivantes créent un cluster Service Fabric à cinq nœuds. Pour
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Se connecter à Azure et sélectionner un abonnement
 Ce guide utilise Azure PowerShell. Lorsque vous démarrez une nouvelle session PowerShell, connectez-vous à votre compte Azure et sélectionnez votre abonnement avant d’exécuter des commandes Azure.
  
-Exécutez le script suivant pour vous connecter à votre compte Azure et sélectionner votre abonnement :
+Exécutez le script suivant pour vous connecter à votre compte Azure et sélectionner votre abonnement :
 
 ```powershell
 Login-AzureRmAccount
@@ -60,7 +58,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 ```
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-Créez un groupe de ressources pour votre déploiement, et donnez-lui un nom et un emplacement.
+Créez un groupe de ressources pour votre déploiement, puis donnez-lui un nom et un emplacement.
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"
@@ -68,9 +66,9 @@ New-AzureRmResourceGroup -Name $ResourceGroupName -Location centralus
 ```
 
 ## <a name="deploy-the-network-topology"></a>Déploiement de la topologie du réseau
-Maintenant, configurez la topologie du réseau sur lequel la Gestion des API et le cluster Service Fabric sont déployés. Le modèle Resource Manager [network.json][network-arm] est configuré pour créer un réseau virtuel (VNET) ainsi qu’un Groupe de sécurité réseau (NSG) et un sous-réseau pour Service Fabric et un NSG et un sous-réseau pour la Gestion des API. Pour en savoir plus sur les réseaux virtuels, les sous-réseaux et les Groupes de sécurité réseau, cliquez [ici](../virtual-network/virtual-networks-overview.md).
+Maintenant, configurez la topologie du réseau sur laquelle il est prévu de déployer la Gestion des API et le cluster Service Fabric. Le modèle Resource Manager [network.json][network-arm] est configuré pour créer un réseau virtuel (VNET) ainsi qu’un Groupe de sécurité réseau (NSG) et un sous-réseau pour Service Fabric et un NSG et un sous-réseau pour la Gestion des API. Pour en savoir plus sur les réseaux virtuels, les sous-réseaux et les Groupes de sécurité réseau, cliquez [ici](../virtual-network/virtual-networks-overview.md).
 
-Le fichier de paramètres [network.parameters.json][network-parameters-arm] contient les noms des sous-réseaux et des Groupes de sécurité réseau sur lesquels Service Fabric et la Gestion des API sont déployés.  La Gestion des API est déployée dans le [didacticiel suivant](service-fabric-tutorial-deploy-api-management.md). Pour ce guide, il est inutile de changer les valeurs des paramètres. Les modèles Resource Manager Service Fabric les utilisent.  Si vous les modifiez ici, vous devrez faire de même dans les autres modèles Resource Manager utilisés dans ce didacticiel et le [didacticiel Déployer la Gestion des API](service-fabric-tutorial-deploy-api-management.md). 
+Le fichier de paramètres [network.parameters.json][network-parameters-arm] contient les noms des sous-réseaux et des groupes de sécurité réseau sur lesquels Service Fabric et la Gestion des API sont déployés.  La Gestion des API est déployée dans le [didacticiel suivant](service-fabric-tutorial-deploy-api-management.md). Pour ce guide, il est inutile de changer les valeurs des paramètres. Les modèles Resource Manager pour Service Fabric utilisent ces valeurs.  Si vous les modifiez ici, vous devez en faire de même dans les autres modèles Resource Manager utilisés dans ce didacticiel et le [didacticiel Déployer la Gestion des API](service-fabric-tutorial-deploy-api-management.md). 
 
 Téléchargez le modèle Resource Manager et le fichier de paramètres suivants :
 - [network.json][network-arm]
@@ -252,4 +250,3 @@ Ensuite, passez au didacticiel suivant pour apprendre à déployer la Gestion de
 
 [cluster-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
 [cluster-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
-

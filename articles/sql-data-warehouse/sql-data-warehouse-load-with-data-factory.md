@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Chargement de données dans SQL Data Warehouse avec Data Factory
 
 Vous pouvez utiliser Azure Data Factory pour charger des données dans Azure SQL Data Warehouse à partir d’un des [magasins de données sources pris en charge](../data-factory/copy-activity-overview.md). Par exemple, vous pouvez charger des données dans un entrepôt de données SQL à partir d’une base de données SQL Azure ou d’une base de données Oracle à l’aide de Data Factory. Le didacticiel de cet article vous montre comment charger des données dans un entrepôt de données SQL à partir d’une base de données SQL Server locale.
@@ -164,5 +162,4 @@ Pour explorer vos données dans SQL Data Warehouse, consultez les articles suiva
 - [Données visuelles avec Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 
 <!-- Azure references -->
-[Portail Azure]: https://portal.azure.com
-
+[portail Azure]: https://portal.azure.com

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: db2d6dbdec80e8c443014c72c80172ad3effb82c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/10/2017
-
-
+ms.openlocfilehash: 50eed9aed417778bd497f55e20c8e732fdae9cf9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Utilisation de l’OLTP en mémoire pour améliorer les performances de votre SQL Database
 [L’OLTP en mémoire](sql-database-in-memory.md) peut être utilisé pour améliorer les performances de traitement des transactions, l’ingestion des données et des scénarios de données temporaires, dans des bases de données SQL Azure [Premium](sql-database-service-tiers.md) sans augmenter le niveau tarifaire. 
@@ -175,5 +173,4 @@ Veillez à surveiller les effets des performances de vos implémentations In-Mem
 * [In-Memory OLTP (optimisation en mémoire)](http://msdn.microsoft.com/library/dn133186.aspx)
 * [Présentation des procédures stockées compilées en mode natif](http://msdn.microsoft.com/library/dn133184.aspx)
 * [Conseil d’optimisation par mémoire](http://msdn.microsoft.com/library/dn284308.aspx)
-
 

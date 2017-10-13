@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Protection des données personnelles dans les documents avec les outils de rapport Azure
 
@@ -247,7 +246,7 @@ Des problèmes de sécurité dans une de ces catégories peuvent constituer une 
 
 #### <a name="how-do-i-view-the-security-state-of-my-azure-resources"></a>Comment afficher l’état de sécurité de mes ressources Azure ?
 
-Security Center analyse l’état de sécurité de vos ressources Azure à intervalles réguliers. Vous pouvez afficher toutes les éventuelles failles de sécurité qu’il identifie dans la section **Prévention** du tableau de bord.
+Le Centre de sécurité analyse l’état de sécurité de vos ressources Azure à intervalles réguliers. Vous pouvez afficher toutes les éventuelles failles de sécurité qu’il identifie dans la section **Prévention** du tableau de bord.
 
    ![](media/protection-personal-data-azure-reporting-tools/image014.png)
 
@@ -255,7 +254,7 @@ Security Center analyse l’état de sécurité de vos ressources Azure à inte
 
 2. Sous l’onglet **Vue d’ensemble**, sélectionnez une recommandation pour afficher plus d’informations.
 
-3. Sous l’onglet **Machines virtuelles**, sélectionnez une machine virtuelle pour afficher des détails supplémentaires.
+3. Dans l’onglet **Machines virtuelles**, sélectionnez une machine virtuelle pour afficher des détails supplémentaires.
 
 Une fois la collecte de données activée dans Azure Security Center, Microsoft Monitoring Agent est automatiquement configuré sur toutes les machines virtuelles existantes et nouvelles prises en charge qui sont déployées. Les données collectées à partir de cet agent sont stockées dans un espace de travail [Log Analytics](https://azure.microsoft.com/services/log-analytics/) existant associé à votre abonnement ou dans un nouvel espace de travail.
 
@@ -276,4 +275,3 @@ Pour plus d’informations sur la façon d’afficher et d’utiliser le rapport
 [Vue d’ensemble de l’analyse dans Microsoft Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
 
 [Présentation du journal d’activité Azure (vidéo)](https://azure.microsoft.com/resources/videos/intro-activity-log/)
-

@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 991c72352eaa4c3b12fcdc1e4112063fb698e772
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="hyper-v-to-azure-replication-architecture"></a>Architecture de la réplication Hyper-V sur Azure
 
 
@@ -79,7 +76,7 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 1. Une fois que vous activez la protection d’une machine virtuelle Hyper-V, dans le portail Azure ou en local, **l’activation de la protection** démarre.
 2. Le travail vérifie que la machine est conforme à la configuration requise, puis appelle la méthode [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), laquelle configure la réplication avec les paramètres que vous avez configurés.
 3. Le travail démarre la réplication initiale en appelant la méthode [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) pour initialiser une réplication complète de la machine virtuelle et envoyer les disques virtuels de la machine virtuelle sur Azure.
-4. Vous pouvez surveiller le travail dans l'onglet **Travaux**.      ![Liste des travaux](media/concepts-hyper-v-to-azure-architecture/image1.png) ![Activer l’exploration de la protection](media/concepts-hyper-v-to-azure-architecture/image2.png)
+4. Vous pouvez surveiller le travail dans l'onglet **Travaux**.      ![Liste des travaux](media/concepts-hyper-v-to-azure-architecture/image1.png)![Activer l’exploration de la protection](media/concepts-hyper-v-to-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Réplication initiale des données
@@ -154,5 +151,4 @@ Une fois votre infrastructure locale à nouveau opérationnelle, vous pouvez eff
 
 Passer en revue la matrice de prise en charge Suivre le didacticiel montrant comment activer la réplication Hyper-V vers Azure
 Exécuter un basculement et une restauration automatique.
-
 

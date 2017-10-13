@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: krnese
+ms.openlocfilehash: bcc5f11afbecac8fe63935f3401dd3e2d767e8aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: cdb88505427cdea05f594277170633183dbe6d3e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Déployer le service Mobilité avec Azure Automation DSC pour la réplication de machines virtuelles
 Dans Operations Management Suite, nous fournissons une solution complète de sauvegarde et de récupération d’urgence que vous pouvez exploiter dans le cadre de votre plan de continuité d’activité.
@@ -511,4 +510,3 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 
 ## <a name="next-steps"></a>Étapes suivantes
 Après avoir déployé les agents du Service Mobilité, vous pouvez [activer la réplication](site-recovery-vmware-to-azure.md) des machines virtuelles.
-

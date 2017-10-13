@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 792476849e796695dde3f2ec80b56431a17e8fc0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Restaurer la base de données SQL Azure d’un locataire unique dans une application SaaS multilocataire
 
@@ -103,7 +102,7 @@ Cet exercice restaure la base de données Contoso Concert Hall à un point dans 
 
 1. Terminez la section [simuler une suppression accidentelle de données par l’utilisateur](#simulate-a-tenant-accidentally-deleting-data).
 1. Ouvrez …\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_ dans *PowerShell ISE*.
-1. **$DemoScenario** = **2**. Donnez-lui la valeur **2** *Restore tenant in parallel*.
+1. **$DemoScenario** = **2**. Donnez-lui la valeur **2***Restore tenant in parallel*.
 1. Appuyez sur **F5** pour exécuter le script.
 
 Le script restaure la base de données client (dans une base de données parallèle) à un point dans le temps, avant la suppression de l’événement dans la section précédente. Il crée une deuxième base de données, supprime toutes les métadonnées de catalogue existantes dans cette base de données, puis ajoute la base de données au catalogue sous l’entrée *ContosoConcertHall\_old*.
@@ -117,7 +116,7 @@ Notez que le fait d’exposer le client restauré en tant que client supplément
 En réalité, mieux vaudrait probablement conserver cette base de données restaurée pendant une période définie uniquement. Vous pouvez supprimer l’entrée de client restauré une fois que vous avez terminé. Pour cela, appelez le script *Remove-RestoredTenant.ps1*.
 
 1. Définissez **$DemoScenario** sur **4** pour sélectionner le scénario *remove restored tenant*.
-1. **Appuyez** **sur** **F5** pour exécuter le script.
+1. **Appuyez****sur****F5** pour exécuter le script.
 1. L’entrée *ContosoConcertHall\_old* est maintenant supprimée du catalogue. Poursuivez et fermez la page des événements pour ce client dans votre navigateur.
 
 
@@ -150,4 +149,3 @@ Dans ce didacticiel, vous avez appris à :
 * Autres [didacticiels reposant sur l’application SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL](sql-database-business-continuity.md)
 * [En savoir plus sur les sauvegardes SQL Database](sql-database-automated-backups.md)
-
