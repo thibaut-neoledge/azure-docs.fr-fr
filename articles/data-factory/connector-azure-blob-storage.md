@@ -7,7 +7,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/13/2017
 ms.author: jingwang
 ms.translationtype: HT
 ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
@@ -66,6 +66,7 @@ Vous pouvez créer un service lié Stockage Azure à l’aide de la clé de comp
             "connectionString": {
                 "type": "SecureString",
                 "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
