@@ -91,9 +91,9 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Créer des modèles Resource Manager](../../../resource-group-authoring-templates.md)
 ## [Modèles fournis par la communauté](https://azure.microsoft.com/documentation/templates)
-## [REST Compute](/rest/api/compute)
-## [REST Réseau](/rest/api)
-## [REST Stockage](/rest/api/storageservices)
+## [REST Compute](https://msdn.microsoft.com/library/jj157206.aspx)
+## [REST Réseau](https://msdn.microsoft.com/library/jj157182.aspx)
+## [REST Stockage](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=compute)

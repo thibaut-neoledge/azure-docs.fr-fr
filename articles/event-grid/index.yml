@@ -27,6 +27,14 @@ sections:
               src: /azure/event-grid/media/index/cli.svg
             text: Interface de ligne de commande Azure
             href: /azure/event-grid/custom-event-quickstart
+          - image:
+              src: /azure/event-grid/media/index/logo_powershell.svg
+            text: "Azure\_PowerShell"
+            href: /azure/event-grid/custom-event-quickstart-powershell
+          - image:
+              src: /azure/event-grid/media/index/portal.svg
+            text: Portail Azure
+            href: /azure/event-grid/custom-event-quickstart-portal
   - title: Didacticiels pas à pas
     items:
       - type: paragraph
