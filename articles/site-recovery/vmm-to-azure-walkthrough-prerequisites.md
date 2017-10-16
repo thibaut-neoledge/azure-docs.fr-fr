@@ -14,16 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 47c178c66ec98fe5d333edd725b64465026e73ed
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
-
 # <a name="step-2-review-the-prerequisites-for-hyper-v-with-vmm-to-azure-replication"></a>Étape 2 : Passer en revue les conditions préalables pour la réplication Hyper-V vers Azure (avec VMM)
 
 Une fois l’[architecture du scénario](vmm-to-azure-walkthrough-architecture.md) passé en revue, lisez cet article pour être sûr de comprendre les conditions préalables du déploiement. 
@@ -45,4 +41,3 @@ Une fois l’[architecture du scénario](vmm-to-azure-walkthrough-architecture.m
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à [Étape 3 : Planifier la capacité](vmm-to-azure-walkthrough-capacity.md)
-

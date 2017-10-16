@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: df74d9cbdcf4916c24955e491767589e72389155
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: b6b5bcd1d766376bd0af71e1fa91f8f2f96b9605
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-10-create-partitions"></a>Leçon 10 : Créer des partitions
 
@@ -119,4 +118,3 @@ Dans le Gestionnaire de partition, notez que la colonne **Dernier traitement** d
   
  ## <a name="whats-next"></a>Et ensuite ?
 Accédez à la leçon suivante : [Leçon 11 : Créer des rôles](../tutorials/aas-lesson-11-create-roles.md). 
-

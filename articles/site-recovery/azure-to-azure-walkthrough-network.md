@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: sujayt
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 7b37e853f6b97ba313111f9201f877846a28fae9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-3-plan-networking-for-azure-vm-replication"></a>Étape 3 : planifier la mise en réseau pour la réplication de machines virtuelles Azure
 
@@ -153,5 +152,4 @@ Si vous avez une connexion ExpressRoute ou VPN entre votre site local et l’emp
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à l’[Étape 4 : créer un coffre](azure-to-azure-walkthrough-vault.md)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 7b0e76f86ec6443fcb394f7be1e6b417de99d4b7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configuration de SSL pour une application dans Azure
 > [!div class="op_single_selector"]
@@ -51,7 +50,7 @@ Dans le cadre d’un test, vous pouvez [créer](cloud-services-certs-create.md) 
 
 Ensuite, vous devez ajouter des informations sur le certificat dans votre définition de service et dans les fichiers de configuration de service.
 
-<a name="modify"> </a>
+<a name="modify"></a>
 
 ## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Étape 2 : modification des fichiers de définition de service et de configuration
 Votre application doit être configurée pour utiliser le certificat, et un point de terminaison HTTPS doit être ajouté. Suite à cette opération, les fichiers de définition de service et de configuration de service doivent être mis à jour.
@@ -186,4 +185,3 @@ Maintenant que votre déploiement est opérationnel dans Azure, vous pouvez vous
 * Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
-

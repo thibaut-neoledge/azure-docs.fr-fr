@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
 ms.openlocfilehash: dfc4f2e84704307ccbea6141c0dbc8d089733b22
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C : flux de code d’autorisation OAuth 2.0
 Vous pouvez utiliser l’octroi de code d’autorisation OAuth 2.0 dans les applications qui sont installées sur un appareil pour accéder à des ressources protégées, comme des API web. Grâce à l’implémentation Azure Active Directory B2C (Azure AD B2C) d’OAuth 2.0, vous pouvez ajouter l’inscription, la connexion et d’autres tâches de gestion d’identité à vos applications mobiles et applications de bureau. Cet article est indépendant du langage. Il décrit comment envoyer et recevoir des messages HTTP sans utiliser de bibliothèque open source.

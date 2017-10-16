@@ -14,24 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e5787bed43d8e327774d2cbea7e8875b56903cf6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="collect-data-about-azure-virtual-machines"></a>Collecter des données sur les machines virtuelles Azure
 [Azure Log Analytics](log-analytics-overview.md) est capable de collecter des données directement à partir de vos machines virtuelles Azure et des autres ressources de votre environnement dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide vous montre comment configurer et collecter des données à partir de vos machines virtuelles Azure Linux ou Windows en quelques étapes simples.  
  
 En suivant ce guide, vous êtes censé disposer d’une machine virtuelle Azure. Dans le cas contraire, vous pouvez [créer une machine virtuelle Windows](../virtual-machines/windows/quick-create-portal.md) ou [créer une machine virtuelle Linux](../virtual-machines/linux/quick-create-cli.md) en suivant nos guides de démarrage rapide consacrés aux machines virtuelles.
 
-## <a name="log-in-to-azure-portal"></a>Se connecter au portail Azure
+## <a name="log-in-to-azure-portal"></a>Connexion au portail Azure
 Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
-1. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, tapez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.<br> ![Portail Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+1. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.<br> ![Portail Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 2. Cliquez sur **Créer**, puis sélectionnez des options pour les éléments suivants :
 
   * Attribuez un nom au nouvel **Espace de travail OMS**, en l’occurrence *DefaultLAWorkspace*. 
@@ -51,7 +49,7 @@ Pour les machines virtuelles Windows et Linux déjà déployées dans Azure, vou
 Vous noterez peut-être la présence de la bannière en haut de votre page de ressource Log Analytics du portail vous invitant à effectuer une mise à niveau.  La mise à niveau n’est pas nécessaire dans le cadre de ce guide de démarrage rapide.<br>
 
 ![Avis de mise à niveau Log Analytics dans le portail Azure](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
-1. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, tapez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
+1. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Dans votre liste d’espaces de travail Log Analytics, sélectionnez *DefaultLAWorkspace* créé précédemment.
 3. Dans le menu de gauche, sous Sources de données de l’espace de travail, cliquez sur **Machines virtuelles**.  
 4. Dans la liste des **Machines virtuelles**, sélectionnez la machine virtuelle sur laquelle vous voulez installer l’agent. Notez que l’**État de la connexion OMS** de la machine virtuelle indique **Non connecté**.
@@ -97,4 +95,3 @@ Pour savoir comment consulter et analyser les données, passez au didacticiel su
 
 > [!div class="nextstepaction"]
 > [Consulter ou analyser les données dans Log Analytics](log-analytics-tutorial-viewdata.md)
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 70ee752c5639c90f77dde104ce85eec0a1062300
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Surveiller vos API avec gestion des API Azure, les hubs d’événements et Runscope
 Le [service de gestion des API](api-management-key-concepts.md) fournit de nombreuses fonctionnalités pour améliorer le traitement des requêtes HTTP envoyées à votre API HTTP. Toutefois, l’existence des demandes et réponses est temporaire. La demande est effectuée et elle transite par le service de gestion des API vers le serveur principal de votre API. Votre API traite la requête et une réponse retourne vers le consommateur d’API. Le service de gestion des API conserve certaines statistiques importantes sur les API pour affichage dans le tableau de bord de portail de publication, mais au-delà, les détails ont disparu.
@@ -283,4 +282,3 @@ Le service de gestion des API Azure fournit un emplacement idéal pour capturer 
   * [Comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure](api-management-howto-log-event-hubs.md)
   * [Référence d’entité d’enregistreur](https://msdn.microsoft.com/library/azure/mt592020.aspx)
   * [Référence de stratégie log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-

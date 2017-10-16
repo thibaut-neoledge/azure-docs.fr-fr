@@ -1,29 +1,27 @@
 ---
 title: Restaurer un disque de machine virtuelle avec Sauvegarde Azure | Microsoft Docs
 description: "Découvrez comment restaurer un disque et créer une machine virtuelle récupérée dans Azure avec le service Sauvegarde et Recovery Services."
-services: virtual-machines, azure-backup
+services: backup, virtual-machines
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: virtual-machines, azure-backup
+ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 09/28/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: 01c266fcede8e4783cdea529bd1e7e9301bb23e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a704d3f9e37951e38fb395612e001501f322d754
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurer un disque et créer une machine virtuelle récupérée dans Azure
 Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers individuels. Cet article explique comment restaurer une machine virtuelle entière. Ce didacticiel vous explique comment effectuer les opérations suivantes :
 
@@ -52,7 +50,7 @@ Une fois le transfert de données terminé, l’instantané est supprimé et un 
 ## <a name="list-available-recovery-points"></a>Obtenir la liste des points de récupération disponibles
 Pour restaurer un disque, vous sélectionnez un point de récupération en tant que source pour les données de récupération. Étant donné que la stratégie par défaut crée un point de récupération chaque jour et conserve ces derniers pendant 30 jours, vous pouvez conserver un ensemble de points de récupération qui vous permet de sélectionner un point particulier dans le temps pour la récupération. 
 
-Pour afficher la liste des points de récupération disponibles, utilisez **az backup recoverypoint list**. Le point de récupération **name** est utilisé pour récupérer des disques. Dans ce didacticiel, nous voulons le point de récupération le plus récent disponible. Le paramètre `--query [0].name` sélectionne le nom du point de récupération le plus récent comme suit :
+Pour afficher la liste des points de récupération disponibles, utilisez [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). Le point de récupération **name** est utilisé pour récupérer des disques. Dans ce didacticiel, nous voulons le point de récupération le plus récent disponible. Le paramètre `--query [0].name` sélectionne le nom du point de récupération le plus récent comme suit :
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -68,7 +66,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>Restaurer un disque de machine virtuelle
 Pour restaurer votre disque à partir du point de récupération, vous créez tout d’abord un compte de stockage Azure. Ce compte de stockage permet de stocker le disque restauré. À travers des étapes supplémentaires, le disque restauré est utilisé pour créer une machine virtuelle.
 
-1. Pour créer un compte de stockage, utilisez la commande [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create). Le nom du compte de stockage doit être écrit entièrement en minuscules et être unique. Remplacez *mystorageaccount* par un nom unique :
+1. Pour créer un compte de stockage, utilisez la commande [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create). Le nom du compte de stockage doit être écrit entièrement en minuscules et être unique. Remplacez *mystorageaccount* par un nom unique :
 
     ```azurecli-interactive
     az storage account create \
@@ -77,7 +75,7 @@ Pour restaurer votre disque à partir du point de récupération, vous créez to
         --sku Standard_LRS
     ```
 
-2. Restaurez le disque à partir de votre point de récupération avec **az backup restore restore-disks**. Remplacez *mystorageaccount* par le nom du compte de stockage que vous avez créé à l’aide de la commande précédente. Remplacez *myRecoveryPointName* par le nom du point de récupération que vous avez obtenu dans la sortie de la commande **az backup recoverypoint list** précédente :
+2. Restaurez le disque à partir de votre point de récupération avec [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks). Remplacez *mystorageaccount* par le nom du compte de stockage que vous avez créé à l’aide de la commande précédente. Remplacez *myRecoveryPointName* par le nom du point de récupération que vous avez obtenu dans la sortie de la commande [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) précédente :
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -91,7 +89,7 @@ Pour restaurer votre disque à partir du point de récupération, vous créez to
 
 
 ## <a name="monitor-the-restore-job"></a>Effectuer le monitoring de la tâche de restauration
-Pour effectuer le monitoring de l’état de la tâche de restauration, utilisez **az backup job list** :
+Pour effectuer le monitoring de l’état de la tâche de restauration, utilisez [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az_backup_job_list) :
 
 ```azurecli-interactive 
 az backup job list \
@@ -116,7 +114,7 @@ Quand les rapports de la tâche de restauration sont à l’*état* *Terminé*, 
 ## <a name="convert-the-restored-disk-to-a-managed-disk"></a>Convertir le disque restauré en disque managé
 La tâche de restauration crée un disque non managé. Pour créer une machine virtuelle à partir du disque, celui-ci doit d’abord être converti en disque managé.
 
-1. Obtenez les informations de connexion pour votre compte de stockage avec [az storage account show-connection-string](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string). Remplacez *mystorageaccount* par le nom de votre compte de stockage comme suit :
+1. Obtenez les informations de connexion pour votre compte de stockage avec [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string). Remplacez *mystorageaccount* par le nom de votre compte de stockage comme suit :
     
     ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
@@ -133,7 +131,7 @@ La tâche de restauration crée un disque non managé. Pour créer une machine v
     uri=$(az storage blob url --container-name $container --name $blob -o tsv)
     ```
 
-3. Vous pouvez à présent créer un disque managé à partir du disque récupéré avec [az disk create](/cli/azure/disk?view=azure-cli-latest#az_disk_create). La variable *uri* de l’étape précédente est utilisée en tant que source pour votre disque managé.
+3. Vous pouvez à présent créer un disque managé à partir du disque récupéré avec [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az_disk_create). La variable *uri* de l’étape précédente est utilisée en tant que source pour votre disque managé.
 
     ```azurecli-interactive
     az disk create \
@@ -183,5 +181,4 @@ Passez au didacticiel suivant pour en savoir plus sur la restauration de fichier
 
 > [!div class="nextstepaction"]
 > [Restaurer des fichiers sur une machine virtuelle dans Azure](tutorial-restore-files.md)
-
 

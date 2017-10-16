@@ -8,19 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/02/2017
 ms.author: mimig
+ms.openlocfilehash: f4bf1992b1f13c61f44695f641b3cb3248b5672b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: df1a25d703a7b8082bdabb4f7d593cb005d416fe
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB : créer une base de données de documents à l’aide de Java et du portail Azure
 
@@ -202,6 +201,5 @@ Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure C
 
 > [!div class="nextstepaction"]
 > [Importer des données dans Azure Cosmos DB](import-data.md)
-
 
 

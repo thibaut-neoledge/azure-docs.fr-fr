@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 05476e35488c104a483f52f88540d33c55e5bc3c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Déployer un cluster Kubernetes dans Azure Container Service
 
 Kubernetes fournit une plateforme distribuée destinée aux applications en conteneur. Avec Azure Container Service, l’approvisionnement d’un cluster Kubernetes prêt pour la production est une opération simple et rapide. Dans ce didacticiel (le troisième d’une série de sept), un cluster Azure Container Service Kubernetes est déployé. Les étapes terminées sont les suivantes :
@@ -107,4 +105,3 @@ Passez au didacticiel suivant pour en savoir plus sur l’exécution de l’appl
 
 > [!div class="nextstepaction"]
 > [Déployer une application dans Kubernetes](./container-service-tutorial-kubernetes-deploy-application.md)
-

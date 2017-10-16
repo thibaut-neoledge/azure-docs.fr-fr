@@ -15,14 +15,12 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 811adc81424b8e53a740ec34f77a7610fc2a72a8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Définir une page d’accueil personnalisée pour les applications publiées à l’aide du proxy d’application Azure AD
 
 Cet article explique comment configurer des applications pour diriger les utilisateurs vers une page d’accueil personnalisée. Lorsque vous publiez une application avec le proxy d’application, vous définissez une URL interne, mais parfois, ce n’est pas la page que vos utilisateurs doivent d’abord voir. Définissez une page d’accueil personnalisée afin que les utilisateurs tombent sur la page adéquate quand ils accèdent aux applications. Les utilisateurs voient la page d’accueil personnalisée que vous avez définie, qu’ils accèdent à l’application à partir du volet d’accès Azure Active Directory ou du lanceur d’applications Office 365.
@@ -144,4 +142,3 @@ Créez l’URL de la page d’accueil et mettez à jour votre application avec c
 
 - [Activer l’accès distant pour SharePoint avec le proxy d’application Azure AD](application-proxy-enable-remote-access-sharepoint.md)
 - [Activer le proxy d’application dans le portail Azure](active-directory-application-proxy-enable.md)
-

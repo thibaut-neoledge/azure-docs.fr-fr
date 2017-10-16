@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 59d35852d6c703f3c96089a8bf426b57660441a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-logic-apps"></a>Qu'est-ce qu'une application logique ?
 Logic Apps offre un moyen de simplifier et d’implémenter des intégrations et des workflows évolutifs dans le cloud. Son concepteur visuel modélise et automatise votre processus sous la forme d’une série d’étapes appelée workflow.  De [nombreux connecteurs](../connectors/apis-list.md) sont disponibles dans le cloud et sur site pour accélérer l’intégration dans différents services et protocoles.  Une application logique commence par un déclencheur (tel que « Lorsqu’un compte est ajouté à Dynamics CRM »). Après le déclenchement, cette application peut initialiser de nombreuses combinaisons d’actions, de conversions et de conditions logiques.
@@ -78,4 +77,3 @@ Voici quelques-uns des éléments clés qui composent l'expérience d'applicatio
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-

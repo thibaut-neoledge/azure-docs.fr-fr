@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 02/08/2017
 ms.author: heidist
 ms.openlocfilehash: 26f5e71f3d00161a92de702209e224008ec8a5ae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Mettre à l’échelle les niveaux de ressources pour interroger et indexer les charges de travail dans Azure Search
 Une fois que vous avez [choisi un niveau tarifaire](search-sku-tier.md) et [approvisionné un service de recherche](search-create-service-portal.md), l’étape suivante, facultative, consiste à augmenter le nombre de réplicas ou de partitions utilisés par votre service. Chaque niveau propose un nombre fixe d’unités de facturation. Cet article explique comment allouer ces unités pour obtenir une configuration optimale par rapport à vos exigences pour l’exécution des requêtes, l’indexation et le stockage.

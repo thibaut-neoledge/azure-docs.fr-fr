@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 411d6103852cbf534d3c420d5ea7b2146df5164e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)
 
@@ -27,7 +26,7 @@ ms.lasthandoff: 09/25/2017
 
 IT Service Management Connector assure une intégration bidirectionnelle entre un produit/service ITSM (IT Service Management) et Log Analytics.  À travers cette connexion, vous pouvez créer des incidents, des alertes ou des événements dans un produit ITSM sur la base des alertes Log Analytics ou d’enregistrements de journal. Le connecteur importe aussi des données telles que des incidents et des demandes de modification du produit ITSM dans OMS Log Analytics.
 
-Avec IT Service Management Connector, vous pouvez :
+IT Service Management Connector vous offre de nombreuses possibilités :
 
   - Intégrer des alertes opérationnelles à vos méthodes de gestion des incidents dans l’outil ITSM de votre choix.
     - Créez des éléments de travail (tels que des alertes, des événements et des incidents) dans ITSM à partir des alertes OMS et via la fonctionnalité de recherche dans les journaux.
@@ -83,7 +82,7 @@ Les incidents et les demandes de modification sont synchronisés entre votre pro
 > [!NOTE]
 > Selon le type d’élément de travail importé dans Log Analytics, l’événement **ServiceDesk_CL** contient les champs suivants :
 
-**Élément de travail :** **Incidents**  
+**Élément de travail :****Incidents**  
 ServiceDeskWorkItemType_s="Incident"
 
 **Champs**
@@ -110,7 +109,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Ordinateur
 
 
-**Élément de travail :** **Demandes de modification**
+**Élément de travail :****Demandes de modification**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
@@ -198,7 +197,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 IT Service Management Connector prend actuellement en charge l’intégration avec la solution Service Map.
 
-La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Elle vous permet d’afficher les serveurs comme des systèmes interconnectés qui fournissent des services critiques. Service Map affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée à TCP, sans configuration requise autre que l’installation d’un agent. Pour en savoir plus : [Carte de service](../operations-management-suite/operations-management-suite-service-map.md).
+La solution Carte de service détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Elle vous permet d’afficher les serveurs comme des systèmes interconnectés qui fournissent des services critiques. Carte de service affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée à TCP, sans configuration requise autre que l’installation d’un agent. Pour en savoir plus : [Carte de service](../operations-management-suite/operations-management-suite-service-map.md).
 
 Si vous utilisez aussi la solution Service Map, vous pouvez afficher les éléments de service d’assistance créés dans les solutions ITSM comme dans l’exemple suivant :
 
@@ -307,4 +306,3 @@ Pour toute question ou tout commentaire à propos de la solution IT Service Mana
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Ajouter des produits/services ITSM à IT Service Management Connector](log-analytics-itsmc-connections.md).
-

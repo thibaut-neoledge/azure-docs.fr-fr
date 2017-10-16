@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 01369360fa10ae39e2f9b435d877de0171574286
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: f0efd37a39c1a60eee7b47304483c27727ca8833
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper
 Ce document est destiné aux développeurs qui utilisent Dapper pour construire des applications, mais veulent également adopter les [outils de base de données élastique](sql-database-elastic-scale-introduction.md) pour créer des applications implémentant le partitionnement pour la montée en puissance parallèle de la couche Données.  Ce document présente les modifications devant être appliquées aux applications basées sur Dapper pour intégrer des outils de base de données élastique. Nous nous concentrerons sur la composition de la gestion de partition de base de données élastique et du routage dépendant des données avec Dapper. 
@@ -169,4 +167,3 @@ Les applications utilisant Dapper et DapperExtensions peuvent facilement tirer p
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
-

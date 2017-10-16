@@ -1,6 +1,6 @@
 ---
 title: "Ajout de Recherche Azure à Stockage Blob | Microsoft Docs"
-description: "Créer un index dans le code à l’aide de l’API REST HTTP de la Recherche Azure."
+description: "Créer un index dans le code à l’aide de l’API REST HTTP d’Azure Search."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -9,19 +9,17 @@ ms.service: search
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 15469e8a2d28bdf00d6e8d8c9f823c51975ee90e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="searching-blob-storage-with-azure-search"></a>Recherche dans le Stockage Blob avec la Recherche Azure
 
-La recherche dans les différents types de contenu enregistrés dans le Stockage Blob Azure peut constituer un problème difficile à résoudre. Toutefois, vous pouvez indexer et rechercher le contenu de vos objets blob en quelques clics à l’aide de la Recherche Azure. La recherche dans le Stockage Blob nécessite d’approvisionner un service Recherche Azure. Les différentes limites de service et les niveaux tarifaires de Recherche Azure sont indiqués sur la [page de tarification](https://aka.ms/azspricing).
+La recherche dans les différents types de contenu enregistrés dans le Stockage Blob Azure peut constituer un problème difficile à résoudre. Toutefois, vous pouvez indexer et rechercher le contenu de vos objets blob en quelques clics à l’aide de la Recherche Azure. La recherche dans le Stockage Blob nécessite d’approvisionner un service Recherche Azure. Les différentes limites de service et les niveaux de tarification de Recherche Azure sont indiqués sur la [page de tarification](https://aka.ms/azspricing).
 
-## <a name="what-is-azure-search"></a>Présentation de Recherche Azure
+## <a name="what-is-azure-search"></a>Présentation d’Azure Search
 [Recherche Azure](https://aka.ms/whatisazsearch) est un service de recherche qui permet facilement aux développeurs d’ajouter des expériences de recherche de texte intégral fiables aux applications web et mobiles. En tant que service, Recherche Azure élimine la nécessité de gérer une infrastructure de recherche, tout en offrant un [SLA garantissant un temps d’activité de 99,9 %](https://aka.ms/azuresearchsla).
 
 ## <a name="index-and-search-enterprise-document-formats"></a>Indexation et recherche : formats de documents d’entreprise pris en charge
@@ -55,4 +53,3 @@ Cliquez sur **Ajouter Recherche Azure** pour lancer un flux dans lequel vous pou
 
 ### <a name="next-steps"></a>Étapes suivantes
 Consultez la [documentation](https://aka.ms/azsblobindexer) pour en savoir plus sur l’indexeur d’objets blob Recherche Azure.
-

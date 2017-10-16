@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ac8b5372aa06eac8c9a701f0621dbb675fbb565c
-ms.openlocfilehash: 20ecbc270e61d234e026e6ba2634c7aad63b3355
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 534ea7e3f2f8e5640db4d351c2bb3245f29b6eec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="runbook-settings"></a>Paramètres du Runbook
 Chaque Runbook dans Azure Automation a plusieurs paramètres qui lui permettent d'être identifié et de modifier son comportement de journalisation. Chacun de ces paramètres est décrit ci-dessous, suivi des procédures sur la façon de les modifier.
@@ -59,5 +58,4 @@ Les exemples de commandes suivants montrent comment définir les propriétés d'
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour découvrir comment créer et récupérer la sortie et les messages d’erreur à partir des Runbooks, consultez [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md) 
 * Pour découvrir comment ajouter un Runbook qui a déjà été développé par la Communauté ou une autre source, ou pour créer votre propre Runbook, consultez [Création ou importation d’un runbook](automation-creating-importing-runbook.md) 
-
 

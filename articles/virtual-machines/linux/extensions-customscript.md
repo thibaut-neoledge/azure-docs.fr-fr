@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 89001404fa7255efc656b98983502d1f1d84fd73
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 1dde64aac72c11ccfccf4fdb676279692befaadd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Utilisation de l’extension de script personnalisé Azure avec des machines virtuelles Linux
 L’extension de script personnalisé télécharge et exécute des scripts sur des machines virtuelles Azure. Cette extension est utile pour la configuration post-déploiement, l’installation de logiciels ou toute autre tâche de configuration ou de gestion. Des scripts peuvent être téléchargés à partir de Stockage Azure ou de tout autre emplacement Internet accessible, ou fournis lors de l’exécution de l’extension. L’extension de script personnalisé s’intègre aux modèles Azure Resource Manager et peut être exécutée à l’aide de l’interface de ligne de commande Azure, de PowerShell, du portail Azure ou de l’API REST de machine virtuelle Azure.
@@ -235,5 +234,4 @@ info:    vm extension get command OK
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les autres extensions de script de machine virtuelle, consultez [Vue d’ensemble de l’extension de script Azure pour Linux](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 

@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 03c4b6d225dce99d79ef6c1ba2af43af8dea3eae
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-ad-with-a-windows-phone-app"></a>Intégration d’Azure AD avec une application Windows Phone
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -180,7 +180,7 @@ La bibliothèque ADAL facilite l’intégration de toutes ces fonctionnalités d
 
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni [ici](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip).  Vous pouvez à présent aborder d’autres scénarios d’identité.  Par exemple :
 
-[Sécurisation d’une API web .NET avec Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Sécurisation d’une API web .NET avec Azure AD &gt;&gt;](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 

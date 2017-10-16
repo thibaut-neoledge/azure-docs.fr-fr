@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b2eb87a88721a3fd1ecdfa573c6a6d49ed02d344
 ms.openlocfilehash: 84b707668dc45e92e6151f422f1c919f638533b1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Didacticiel : Intégration d’Azure Active Directory avec SciQuest Spend Director
 L’objectif de ce didacticiel est de vous montrer comment intégrer SciQuest Spend Director à Azure Active Directory (Azure AD).  
@@ -120,7 +119,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
    
      b. Dans la zone de texte **URL de réponse**, tapez la valeur que vous venez de taper dans la zone de texte **URL d’authentification**. 
    
-     c. Cliquez sur **Next**.
+     c. Cliquez sur **Suivant**.
 
 4. Dans la page **Configurer l’authentification unique sur SciQuest Spend Director**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées localement sur votre ordinateur.
    
@@ -161,7 +160,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
-    c. Cliquez sur **Next**.
+    c. Cliquez sur **Suivant**.
 
 6. Sur la page **Profil utilisateur** , procédez comme suit : 
    
@@ -175,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
-    e. Cliquez sur **Next**.
+    e. Cliquez sur **Suivant**.
 
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **Créer**.
    
@@ -260,5 +259,4 @@ Lorsque vous cliquez sur la vignette SciQuest Spend Director dans le volet d’a
 [203]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_18.png
 [204]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_20.png
-
 

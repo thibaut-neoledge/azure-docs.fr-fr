@@ -15,14 +15,12 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 173353d67772c2549aa1b8ec9f2a471bd1c65677
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Résoudre les messages d’erreur liés à l’extension NPS pour Azure Multi-Factor Authentication
 
 Si vous rencontrez des erreurs au niveau de l’extension NPS pour Azure Multi-Factor Authentication, utilisez cet article pour les résoudre plus rapidement. 
@@ -134,6 +132,5 @@ Pour collecter les journaux de débogage pour les diagnostics de support, procé
    ```
 
 4. Compressez le contenu du dossier C:\NPS et joignez le fichier compressé au dossier de support.
-
 
 

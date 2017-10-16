@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: 1b6e368df4914e58eb3f8d6481132f25d27312b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: ee58d0c6703d7e6688ba9959a7f75c3b52a9411c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>Personnaliser les fonctionnalités d’Azure AD pour la réinitialisation de mot en passe libre-service
 
@@ -104,10 +103,9 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [**Données**](active-directory-passwords-data.md) : comprenez mieux les données requises et leur utilisation dans la gestion des mots de passe.
 * [**Déploiement**](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation du mot de passe libre-service sur vos utilisateurs grâce aux conseils figurant ici.
 * [**Stratégie**](active-directory-passwords-policy.md) : comprenez et définissez les stratégies de mot de passe d’Azure AD.
-* [**Réécriture du mot de passe**](active-directory-passwords-writeback.md) : fonctionnement de la réécriture du mot de passe avec votre répertoire local.
+* [**Écriture différée du mot de passe**](active-directory-passwords-writeback.md) : fonctionnement de l’écriture différée du mot de passe avec votre répertoire local.
 * [**Rapports**](active-directory-passwords-reporting.md) : découvrez si, quand et où vos utilisateurs accèdent aux fonctionnalités de réinitialisation de mot de passe en libre-service.
 * [**Présentation technique approfondie**](active-directory-passwords-how-it-works.md) : découvrez ce qui se passe sous le capot pour mieux comprendre le fonctionnement.
 * [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) : Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours.
 * [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec la réinitialisation de mot de passe en libre-service.
-
 

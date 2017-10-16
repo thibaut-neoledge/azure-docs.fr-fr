@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
+ms.openlocfilehash: 21e4ae78653977efc7a47f984bc309afac870a59
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 91ffe6fa182f0d5e4294031787b853c33ea460df
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Exploration des journaux .NET dans Application Insights
 Si vous utilisez NLog, log4Net ou System.Diagnostics.Trace pour le suivi de diagnostic dans votre application ASP.NET, les journaux peuvent être envoyés à [Azure Application Insights][start], où vous pouvez les explorer et les rechercher. Les journaux sont fusionnés avec la télémétrie provenant de votre application, afin que vous puissiez identifier les traces associées au traitement des demandes de l’utilisateur et les mettre en corrélation avec d’autres événements et des rapports d’exception.
@@ -213,4 +212,3 @@ Si votre application envoie des données en grand nombre et si vous utilisez le 
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-

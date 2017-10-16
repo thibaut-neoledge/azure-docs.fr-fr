@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d1c328ec609cc27a42fb6b30897d7f0b466134e7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 14783f0464764a11d7f03a5db1c2d63728a4cb50
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Utiliser Azure Stream Analytics avec SQL Data Warehouse
 Azure Stream Analytics est un service entièrement géré permettant de traiter des événements avec une latence faible, une haute disponibilité et de façon évolutive via des données de diffusion dans le cloud. Vous pouvez découvrir les principes de base en lisant [Présentation d’Azure Stream Analytics][Introduction to Azure Stream Analytics]. Vous pouvez ensuite apprendre à créer une solution de bout en bout avec Stream Analytics en suivant le didacticiel [Bien démarrer avec Azure Stream Analytics][Get started using Azure Stream Analytics].
@@ -95,4 +93,3 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
-

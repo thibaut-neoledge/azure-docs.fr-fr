@@ -14,17 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Comment le service Reliable Actors utilise la plateforme Service Fabric
 Cet article décrit le fonctionnement du service Reliable Actors sur la plateforme Azure Service Fabric. La solution Reliable Actors s’exécute dans une infrastructure hébergée dans une implémentation d’un service fiable avec état nommé *service d’acteur*. Le service d’acteur contient tous les composants nécessaires pour gérer le cycle de vie et la distribution des messages destinés à vos acteurs :
 
-* Le runtime de l’acteur gère le cycle de vie et le nettoyage de la mémoire, et applique un accès monothread.
+* Le runtime de l’acteur gère le cycle de vie et le nettoyage de la mémoire, et applique une accès monothread.
 * Un écouteur de communication à distance du service d’acteur accepte les appels d’accès à distance adressés aux acteurs, et les transmet à un répartiteur qui les route vers l’instance d’acteur appropriée.
 * Le fournisseur d’état de l’acteur encapsule des fournisseurs d’état (par exemple, le fournisseur d’état Collections fiables), et fournit un adaptateur pour la gestion de l’état de l’acteur.
 
@@ -415,4 +414,3 @@ Cette étape permet de s’assurer de qu’Actor Proxy utilise la pile Remoting 
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
-

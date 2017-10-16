@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 05b25ffad4a91859932cd53475d82b11bf3e43e5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>Gestion des API dans les stratégies de domaine
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -61,7 +60,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |inter-domaines|Élément racine. Les éléments enfants doivent être conformes à la [spécification de fichier de stratégie inter-domaines Adobe](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Oui|  
   
 ### <a name="usage"></a>Usage  
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) suivantes.  
+ Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound (entrant)  
   
@@ -145,7 +144,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |preflight-result-max-age|L’en-tête `Access-Control-Max-Age` dans la réponse en amont est défini sur la valeur de cet attribut et affecte la capacité de l’agent utilisateur à mettre en cache la réponse en amont.|Non|0|  
   
 ### <a name="usage"></a>Usage  
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) suivantes.  
+ Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound (entrant)  
   
@@ -190,4 +189,4 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   **Étendues de la stratégie :** global, product, API, operation (global, produit, API, opération)  
   
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’utilisation des stratégies, consultez [Stratégies dans Gestion des API](api-management-howto-policies.md).  
+Pour plus d’informations sur l’utilisation des stratégies, consultez la page [Stratégies dans la Gestion des API](api-management-howto-policies.md).  

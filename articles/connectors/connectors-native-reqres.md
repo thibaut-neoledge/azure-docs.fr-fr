@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Familiarisation avec les composants de requête et de réponse
 Avec les composants de requête et réponse dans une application logique, vous pouvez répondre en temps réel aux événements.
@@ -111,5 +110,4 @@ Les éléments suivants sont des champs d’entrée pour l’action Réponse HTT
 
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
-
 

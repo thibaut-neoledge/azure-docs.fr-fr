@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
+ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: b1ed7d5693ff7e6730255462411d462694b730e1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>Créer une passerelle Application Gateway à l’aide du routage basé sur le chemin
 
@@ -48,7 +47,7 @@ Les demandes pour http://contoso.com/image* sont routées vers le pool de serveu
 
 ## <a name="requirements-to-create-an-application-gateway"></a>Configuration requise pour créer une Application Gateway
 
-* **Pool de serveurs principaux** : liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
+* **Pool de serveurs principaux :** la liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
 * **Paramètres du pool de serveurs principaux** : tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
 * **Port frontal** : port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
 * **Écouteur** : l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
@@ -221,7 +220,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 Configurez les chemins de règles d’URL pour les pools principaux. Cette étape configure le chemin d’accès relatif utilisé par la passerelle Application Gateway et définit le mappage entre le chemin d’URL et le pool principal qui est assigné pour gérer le trafic entrant.
 
 > [!IMPORTANT]
-> Chaque chemin doit commencer par une barre oblique « / ». L’astérisque n’est autorisé qu’à la fin. Exemples valides : /xyz, /xyz* ou /xyz/*. La chaîne transmise à l’outil de correspondance de chemin n’inclut pas de texte après le premier signe « ? » ou « # ». De plus, ces caractères ne sont pas autorisés. 
+> Chaque chemin doit commencer par une barre oblique « / ». L’astérisque n’est autorisé qu’à la fin. Exemples valides /xyz, /xyz*, ou /xyz/*. La chaîne transmise à l’outil de correspondance de chemin n’inclut pas de texte après le premier signe « ? » ou « # ». De plus, ces caractères ne sont pas autorisés. 
 
 L’exemple suivant crée deux règles : une pour un chemin « /image/ » qui achemine le trafic vers le pool principal **pool1** et une autre pour un chemin « /video/ » qui achemine le trafic vers le pool principal **pool2**. Ces règles garantissent que le trafic de chaque jeu d’URL est routé vers le serveur principal. Par exemple, http://contoso.com/image/figure1.jpg accède à **pool1** et http://contoso.com/video/example.mp4 à **pool2**.
 
@@ -296,5 +295,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur le déchargement SSL (Secure Sockets Layer), consultez [Configurer une passerelle d’application pour le déchargement SSL à l’aide d’Azure Resource Manager](application-gateway-ssl-arm.md).
-
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 21b474e37ef0a6037e05ee1fe8e5088cb3e3601d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-hdinsight-cluster-management-solutions-to-log-analytics-preview"></a>Ajouter des solutions de gestion de clusters HDInsight à Log Analytics (préversion)
 
@@ -36,7 +35,7 @@ Dans cet article, vous découvrirez comment ajouter des solutions de gestion de 
 
 Dans cette section, vous apprendrez à ajouter une solution de gestion de clusters HBase à un espace de travail OMS existant. Des solutions similaires pour les autres types de cluster HDInsight seront bientôt disponibles.
 
-1. Ouvrez le tableau de bord OMS. Dans le portail Azure, ouvrez le panneau de cluster HDInsight que vous avez associé à Azure Log Analytics, cliquez sur l’onglet Surveillance, puis sur **Ouvrir le tableau de bord OMS**.
+1. Ouvrez le tableau de bord OMS. Dans le portail Azure, ouvrez le panneau de cluster HDInsight que vous avez associé à Azure Log Analytics, cliquez sur l’onglet Analyse, puis sur **Ouvrir le tableau de bord OMS**.
 
     ![Ouvrir le tableau de bord OMS](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-log-analytics-open-oms-dashboard.png "Ouvrir le tableau de bord OMS")
 
@@ -64,4 +63,3 @@ Dans cette section, vous apprendrez à ajouter une solution de gestion de cluste
 
 * [Utilisation d’OMS Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Création de règles d’alerte dans Log Analytics](../log-analytics/log-analytics-alerts-creating.md)
-

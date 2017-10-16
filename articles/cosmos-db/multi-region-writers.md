@@ -16,10 +16,10 @@ ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cf1482ae7b1070023703f5dbe861d151f5d64fd8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Architectures de base de données à multiples maîtres répliquées de façon globale avec Azure Cosmos DB
 Azure Cosmos DB prend en charge la [réplication globale](distribute-data-globally.md) clé en main, qui vous permet de distribuer les données dans plusieurs régions avec accès à faible latence n’importe où dans la charge de travail. Ce modèle est généralement utilisé pour les charges de travail éditeur/consommateur, où un enregistreur existe dans une région géographique unique et des lecteurs sont distribués mondialement dans d’autres régions (lecture). 

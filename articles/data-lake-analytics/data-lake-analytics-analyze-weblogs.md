@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: 52d19297ae5c34f9daf5e42250a53a78e0168192
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analyser les journaux des sites web à l’aide d’Azure Data Lake Analytics
 Découvrez comment analyser les journaux des sites web à l'aide de Data Lake Analytics, en particulier pour découvrir quels points d'accès ont rencontré des erreurs lorsqu'ils ont essayé de visiter le site web.
@@ -31,7 +30,7 @@ Découvrez comment analyser les journaux des sites web à l'aide de Data Lake An
     Une fois Data Lake Tools pour Visual Studio installé, un élément **Data Lake** figure dans le menu **Outils** de Visual Studio :
 
     ![Menu U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
-* **Connaissances de base de Data Lake Analytics et de Data Lake Tools pour Visual Studio**. Pour commencer, consultez :
+* **Connaissances de base de Data Lake Analytics et des Data Lake Tools pour Visual Studio**. Pour commencer, consultez :
 
   * [Développer des scripts U-SQL à l'aide de Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * **Un compte Data Lake Analytics.**  Consultez [Créer un compte Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
@@ -179,4 +178,3 @@ Pour commencer à utiliser Data Lake Analytics à l'aide de différents outils, 
 * [Prendre en main Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-get-started-portal.md)
 * [Prise en main de Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Prise en main de Data Lake Analytics à l'aide du Kit de développement logiciel (SDK) .NET](data-lake-analytics-get-started-net-sdk.md)
-

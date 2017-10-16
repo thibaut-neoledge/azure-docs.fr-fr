@@ -14,25 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage File d’attente Azure avec Azure PowerShell
 
-Le stockage Blob Azure est un service permettant de stocker de gros volumes de données d’objets non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cet article décrit les opérations de base dans Stockage Blob Azure, comme le chargement, le téléchargement et la suppression d’objets blob. Vous allez apprendre à effectuer les actions suivantes :
+Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données d’objets non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cet article décrit les opérations de base dans Stockage Blob Azure, comme le chargement, le téléchargement et la suppression d’objets blob. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer un conteneur 
+> * Créez un conteneur. 
 > * Charger des objets blob
-> * Créer la liste des objets blob d’un conteneur 
+> * Création d'une liste d'objets blob dans un conteneur 
 > * Télécharger des objets blob
 > * Copier des objets blob
-> * Supprimer des objets blob
+> * Suppression d’objets blob
 > * Afficher et définir les métadonnées et les propriétés d’un objet blob
 > * Gérer la sécurité à l’aide de signatures d’accès partagé
 
@@ -40,7 +38,7 @@ Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. 
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
-## <a name="create-a-container"></a>Créer un conteneur
+## <a name="create-a-container"></a>Créez un conteneur.
 
 Les objets blob sont toujours chargés dans un conteneur. À l’instar des répertoires de votre ordinateur dans lesquels vous pouvez organiser des fichiers, les conteneurs vous permettent d’organiser des groupes d’objets blob. Un compte de stockage peut avoir un nombre illimité de conteneurs ; sa seule limite est la quantité d’espace qu’il occupe dans le compte de stockage (jusqu’à 500 To). 
 
@@ -91,7 +89,7 @@ Set-AzureStorageBlobContent -File $localFile `
 
 Chargez autant de fichiers que vous le souhaitez avant de continuer.
 
-## <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
+## <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
 
 Utilisez [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) pour obtenir la liste des objets blob dans le conteneur, puis sélectionnez le nom de l’objet blob à afficher.
 
@@ -221,7 +219,7 @@ while ($status.Status -eq "Pending") {
 Get-AzureStorageBlob -Container $containerName2 -Context $ctx2 | select Name 
 ```
 
-## <a name="delete-blobs"></a>Supprimer des objets blob
+## <a name="delete-blobs"></a>Suppression d’objets blob
 
 Pour supprimer des objets blob d’un compte de stockage, utilisez [Remove-AzureStorageBlob](/powershell/module/azure.storage/Remove-AzureStorageBlob). 
 
@@ -298,7 +296,7 @@ $cloudBlockBlob.SetMetadata()
 $cloudBlockBlob.Metadata
 ```
 
-## <a name="managing-security-for-blobs"></a>Gestion de la sécurité des objets blob 
+## <a name="managing-security-for-blobs"></a>Gestion de la sécurité pour les objets blob 
 
 Par défaut, Stockage Azure préserve la sécurité de vos données en limitant l’accès au propriétaire du compte, qui est en possession des clés d’accès au compte de stockage. Lorsque vous avez besoin de partager des données d’objets blob de votre compte de stockage, il est important de le faire sans compromettre la sécurité de vos clés d’accès au compte. Pour ce faire, vous pouvez utiliser l’URL d’une signature d’accès partagé. Celle-ci se compose d’une URL à la ressource qui inclut des paramètres de requête et d’un jeton de sécurité qui accorde un niveau spécifique d’autorisation pour une durée spécifique. Par exemple, vous pouvez autoriser l’accès en lecture à un objet blob privé pendant 5 minutes pour permettre à quelqu’un de l’afficher. 
 
@@ -372,17 +370,17 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 Ce didacticiel vous a présenté les bases de la gestion de stockage d’objets blob. Vous avez notamment appris à effectuer les tâches suivantes :
 
 > [!div class="checklist"]
-> * Créer un conteneur 
+> * Créez un conteneur. 
 > * Charger des objets blob
-> * Créer la liste des objets blob d’un conteneur 
+> * Création d'une liste d'objets blob dans un conteneur 
 > * Télécharger des objets blob
 > * Copier des objets blob
-> * Supprimer des objets blob
+> * Suppression d’objets blob
 > * Lire et écrire les métadonnées et les propriétés d’un objet blob
 > * Gérer la sécurité à l’aide de signatures d’accès partagé
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Applets de commande Microsoft Azure PowerShell - Stockage
 * [Applets de commande PowerShell - Stockage](/powershell/module/azurerm.storage#storage)
 
-### <a name="microsoft-azure-storage-explorer"></a>Explorateur Stockage Microsoft Azure
-* L’[Explorateur Stockage Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
+### <a name="microsoft-azure-storage-explorer"></a>Explorateur Microsoft Azure Storage
+* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.

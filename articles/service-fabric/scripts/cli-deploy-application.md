@@ -15,14 +15,12 @@ ms.topic: sample
 ms.date: 08/22/2017
 ms.author: adegeo
 ms.custom: mvc
+ms.openlocfilehash: 2bbf689820a92cfa01b26fdbacb4526ade8956ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 74d54b314e81dc260e800e32d6c3edd5215c82b4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Déployer une application sur un cluster Service Fabric
 
 Cet exemple de script copie un package d’application dans le magasin d’images d’un cluster, inscrit le type d’application dans le cluster et crée une instance d’application à partir du type d’application. Tous les services par défaut sont également créés à ce stade.
@@ -31,7 +29,7 @@ Si nécessaire, installez l’[interface CLI Service Fabric](../service-fabric-c
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-sh[main](../../../cli_scripts/service-fabric/deploy-application/deploy-application.sh "Déployer une application sur un cluster")]
+[!code-sh[main](../../../cli_scripts/service-fabric/deploy-application/deploy-application.sh "Deploy an application to a cluster")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
@@ -42,4 +40,3 @@ Lorsque vous avez terminé, vous pouvez utiliser le script [remove](cli-remove-a
 Pour plus d’informations, consultez la [documentation relative à Service Fabric CLI](../service-fabric-cli.md).
 
 Vous trouverez des exemples Service Fabric CLI supplémentaires pour Azure Service Fabric dans la rubrique [Exemples Service Fabric CLI](../samples-cli.md).
-

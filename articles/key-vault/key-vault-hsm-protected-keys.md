@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: ambapat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f481de9d7eb23531b4be82c3b61e4f3850bed72e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 5dbee1221f64045c64fecb344de1e03b2183dfb1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Génération et transfert de clés HSM protégées pour Azure clé de coffre
 ## <a name="introduction"></a>Introduction
@@ -448,4 +447,3 @@ Si le téléchargement réussit, les propriétés de la clé que vous venez de c
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez maintenant utiliser cette clé protégée HSM dans votre coffre de clés. Pour plus d’informations, voir la section **Utiliser un module de sécurité matériel (HSM)** dans le didacticiel [Prise en main du coffre de clés Azure](key-vault-get-started.md) .
-

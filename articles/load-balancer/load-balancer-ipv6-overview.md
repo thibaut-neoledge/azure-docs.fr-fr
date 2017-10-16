@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
+ms.openlocfilehash: 1902475c81c4f83f8ba69a05f9564bc65a5de833
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 8cca857314ecf37ef51700fd25aef228515ecd0a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Vue d’ensemble du protocole IPv6 pour Azure Load Balancer
 
 
@@ -88,4 +86,3 @@ Découvrez comment déployer un équilibreur de charge avec IPv6.
 * [Déployer un équilibreur de charge avec IPv6 à l’aide d’un modèle](load-balancer-ipv6-internet-template.md)
 * [Déployer un équilibreur de charge avec IPv6 à l’aide d’Azure PowerShell](load-balancer-ipv6-internet-ps.md)
 * [Déployer un équilibreur de charge avec IPv6 à l’aide de l’interface de ligne de commande Azure](load-balancer-ipv6-internet-cli.md)
-

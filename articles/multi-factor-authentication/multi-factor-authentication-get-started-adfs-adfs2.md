@@ -15,12 +15,11 @@ ms.date: 06/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017, it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: ea0853929cd8670b6458a546e7fb1b3a229c09d7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: a05219398aefa158321ae63934743dd43841e33f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configuration du serveur Azure Multi-Factor Authentication pour travailler avec AD FS 2.0
 Cet article s’adresse aux organisations qui sont fédérées avec Azure Active Directory et qui souhaitent sécuriser leurs ressources locales ou dans le cloud. Protégez vos ressources en utilisant le serveur Azure Multi-Factor Authentication et en le configurant de manière à ce qu’il fonctionne avec AD FS afin que la vérification en deux étapes se déclenche pour les points de terminaison de valeur élevée.
@@ -117,4 +116,3 @@ Les adresses IP approuvées permettent aux utilisateurs de contourner l’authen
 4. Entrez l’adresse IP, la plage d’adresses IP ou le sous-réseau à ajouter à la liste blanche. Si vous entrez un sous-réseau, sélectionnez le masque réseau approprié et cliquez sur **OK**. L'adresse IP de confiance a été ajoutée.
 
 <center>![Configuration](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
-

@@ -41,7 +41,7 @@
 #### [Activer la synchronisation hors connexion](app-service-mobile-ios-get-started-offline-data.md)
 #### [Ajout de l’authentification](app-service-mobile-ios-get-started-users.md)
 #### [Ajout de notifications Push](app-service-mobile-ios-get-started-push.md)
-#### [Travailler avec le Kit de développement logiciel SDK client](app-service-mobile-ios-how-to-use-client-library.md)
+#### [Travailler avec le Kit de développement logiciel (SDK) client](app-service-mobile-ios-how-to-use-client-library.md)
 
 ### Windows
 #### [Activer la synchronisation hors connexion](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)

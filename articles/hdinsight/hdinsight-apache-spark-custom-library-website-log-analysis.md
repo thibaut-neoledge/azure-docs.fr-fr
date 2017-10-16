@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 41275f8264353e7158ca42e5cfc089b2fbaa556d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 96d897d4e4eb50abae2b145abd4f794523da6a2b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Analyser des journaux de site web en utilisant une bibliothèque Python personnalisée avec un cluster Spark sur HDInsight
 
@@ -228,5 +227,4 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
 ### <a name="manage-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
-
+* [Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight](hdinsight-apache-spark-job-debugging.md)

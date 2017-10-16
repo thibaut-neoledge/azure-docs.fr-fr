@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: mvc
 ms.date: 09/25/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 86a660309fd3fd80f10f706ff460af2309c12174
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Créer un déclencheur HTTP Azure Functions avec une liaison d’entrée Azure Cosmos DB
 
 Azure Cosmos DB est un service de base de données multimodèle mondialement distribué sans schéma ni serveur. Une Azure Function est un service de calcul sans serveur qui vous permet d’exécuter du code à la demande. Associez ces deux services Azure pour disposer d’une base pour une architecture sans serveur qui vous permet de vous concentrer sur la création de superbes applications sans vous soucier de l’approvisionnement et de la maintenance des serveurs pour répondre à vos besoins de calcul et de base de données.
@@ -277,4 +275,3 @@ Vous pouvez maintenant passer à la section Concepts pour plus d’informations 
 > [Diffusion mondiale](distribute-data-globally.md) 
 
 Cet article est basé sur un blog de la série de blogs [Brady Gaster’s Schemaless & Serverless](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless). Consultez son blog pour des publications supplémentaires de la série.
-

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: asteen
 ms.openlocfilehash: 30db71c0706de1dcc0d48fb72fa5d62475a14ba7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Aucun utilisateur n’est approvisionné dans une application de la galerie Azure AD
 
@@ -55,7 +55,7 @@ Si vous définissez le paramètre **État de la configuration** sur **Activé** 
 
 Lorsqu’un utilisateur apparaît comme « ignoré » dans les journaux d’audit, il est essentiel de consulter les détails du message du journal pour en déterminer la raison. Voici les raisons les plus courantes et les solutions correspondantes :
 
--   **Un filtre d’étendue a été configuré** **et exclut l’utilisateur en fonction d’une valeur d’attribut**. Pour plus d’informations sur les filtres d’étendue, consultez <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
+-   **Un filtre d’étendue a été configuré****et exclut l’utilisateur en fonction d’une valeur d’attribut**. Pour plus d’informations sur les filtres d’étendue, consultez <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
 
 -   **L’utilisateur n’est pas « autorisé de manière effective ».** Ce message d’erreur indique un problème concernant l’enregistrement d’affectation d’utilisateurs stocké dans Azure AD. Pour résoudre ce problème, supprimez l’affectation de l’utilisateur (ou du groupe) à partir de l’application, puis réaffectez l’utilisateur. Pour plus d’informations sur l’affectation, consultez <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
 

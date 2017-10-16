@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: a769e14efbae928b811fa1f1b1c2d4fba3c7692b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 56f6990569f464fcfe6317e9f13f5d2c49340a67
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="microsoftcommondropdown-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.DropDown
 Contrôle de sélection avec liste déroulante. Vous utilisez cet élément lors de la [création d’une application gérée Azure](managed-application-publishing.md).
 
@@ -66,4 +64,3 @@ Contrôle de sélection avec liste déroulante. Vous utilisez cet élément lors
 * Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées Azure](managed-application-overview.md).
 * Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Pour obtenir une description des propriétés communes des éléments d’interface utilisateur, consultez la page [Éléments de CreateUiDefinition](managed-application-createuidefinition-elements.md).
-

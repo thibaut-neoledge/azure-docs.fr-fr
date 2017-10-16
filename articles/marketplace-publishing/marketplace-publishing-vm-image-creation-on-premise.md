@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
 ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Développer une image de machine virtuelle locale pour Azure Marketplace
 Nous vous recommandons fortement de développer les disques durs virtuels (VHD) Azure directement dans le cloud à l’aide du protocole RDP. Toutefois, si nécessaire, vous pouvez télécharger un disque dur virtuel et le développer à l’aide d’une infrastructure locale.  

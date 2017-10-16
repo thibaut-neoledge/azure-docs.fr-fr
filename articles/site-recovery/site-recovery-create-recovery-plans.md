@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 81d8a6e3015ddc4241cce8e888d51d6e2b2cb173
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-recovery-plans"></a>Créer des plans de récupération
 
@@ -80,7 +79,7 @@ Si vous utilisez VMM dans votre déploiement :
       * Modifiez la valeur de **ScriptLibraryPath** et placez-la comme \\libserver2.contoso.com\share\. Spécifiez le nom de domaine complet. Fournissez des autorisations d’accès à l’emplacement de partage. Notez qu’il s’agit du nœud racine du partage. **Pour vérifier ce point, vous pouvez ouvrir la bibliothèque au niveau du nœud racine dans VMM. Le chemin d’accès qui s’ouvre correspond à la racine du chemin d’accès, celui que vous devez utiliser dans la variable**.
       * Veillez à tester le script avec un compte d’utilisateur qui dispose des mêmes autorisations que le compte de service VMM. Cela permet de vérifier que les scripts testés autonomes s’exécuteront de la même manière dans les plans de récupération. Sur le serveur VMM, définissez le mode de contournement suivant de la stratégie d’exécution :
         * Ouvrez la console **Windows PowerShell 64 bits** à l’aide des privilèges élevés.
-        * Entrez : **Set-executionpolicy bypass**. [Plus d’informations](https://technet.microsoft.com/library/ee176961.aspx)
+        * Entrez : **Set-executionpolicy bypass**. [En savoir plus](https://technet.microsoft.com/library/ee176961.aspx).
 
 > [!IMPORTANT]
 > Vous devez définir la stratégie d’exécution sur Contournement uniquement dans les consoles PowerShell 64 bits. Si vous l’avez définie dans la console PowerShell 32 bits, les scripts ne s’exécuteront pas.
@@ -109,4 +108,3 @@ Si vous possédez un site source VMM, libre à vous de créer un script sur le 
 ## <a name="next-steps"></a>Étapes suivantes
 
 [En savoir plus](site-recovery-failover.md) sur l’exécution des basculements.
-

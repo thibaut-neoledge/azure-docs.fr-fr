@@ -15,14 +15,12 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: davidmu
+ms.openlocfilehash: 406e491aa54806b3534ef0f500d6aea03434e2c2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: cdcbadbc3765dfc583c26e1b1453863d421c9a72
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personnaliser les règles de pare-feu d’applications web via le portail Azure
 
 > [!div class="op_single_selector"]
@@ -72,4 +70,3 @@ Après avoir configuré vos règles désactivées, vous pouvez apprendre à affi
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
-

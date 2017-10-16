@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/14/2017
 ms.author: nepeters
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 876135d62d548e155f4ebefd8bbd9d9cca8b87d6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-docker-swarm-cluster"></a>Déployer le cluster Docker Swarm
 
 Dans ce guide de démarrage rapide, un cluster Docker Swarm est déployé à l’aide d’Azure CLI. Une application à plusieurs conteneurs composée d’un serveur web frontal et d’une instance Redis est ensuite déployée, puis exécutée sur le cluster. Ceci fait, l’application est accessible via internet.

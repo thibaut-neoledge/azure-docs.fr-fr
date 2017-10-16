@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 0feb6e4862f643c35a58c0321181bdda22b032e9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Mise à l’échelle automatique et environnement App Service v1
 
@@ -195,7 +194,7 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente après que les fro
 
 ![Paramètres de mise à l’échelle automatique du pool frontend.][Front-End-Scale]
 
-| **Profil de l’échelle automatique : frontends** |
+| **Profil de l’échelle automatique : serveurs frontaux** |
 | --- |
 | **Nom :** Mise à l’échelle automatique – Frontends |
 | **Mise à l’échelle selon :** Planification et règles de performances |
@@ -207,7 +206,7 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente après que les fro
 | **Fuseau horaire :** UTC-08 |
 |  |
 | **Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |
-| **Ressource :** Pool frontend |
+| **Ressource :** Pool frontal |
 | **Mesure :** % d’utilisation de l’unité centrale |
 | **Fonctionnement :** supérieur à 60 % |
 | **Durée :** 20 minutes |
@@ -240,4 +239,3 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente après que les fro
 [ASP-Total-Inflation]: ./media/app-service-environment-auto-scale/asp-total-inflation-rate.png
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
-

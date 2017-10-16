@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: d75163ea5eb3fa811e07861f06e6c4d5c758b898
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Didacticiel : Intégration d’Azure Active Directory avec Five9 Plus Adapter(CTI, agents de centre de contacts)
 
@@ -45,7 +44,7 @@ Pour configurer l’intégration d’Azure AD avec Five9 Plus Adapter (CTI, agen
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -89,7 +88,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Five9 Plus A
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Five9 Plus Adapter (CTI, agents de centre de contacts)](#creating-a-five9-plus-adapter-cti-contact-center-agents-test-user)**  pour avoir un équivalent de Britta Simon dans Five9 Plus Adapter (CTI, agents de centre de contacts) lié à la représentation Azure AD de l’utilisateur.
+3. **[Création d’un utilisateur de test Five9 Plus Adapter (CTI, agents de centre de contacts)](#creating-a-five9-plus-adapter-cti-contact-center-agents-test-user)** pour avoir un équivalent de Britta Simon dans Five9 Plus Adapter (CTI, agents de centre de contacts) lié à la représentation Azure AD de l’utilisateur.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
@@ -242,5 +241,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-five9-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-five9-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-five9-tutorial/tutorial_general_203.png
-
 

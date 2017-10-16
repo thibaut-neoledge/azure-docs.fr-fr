@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Référence des composants de visualisation du Concepteur de vues de Log Analytics
 Le Concepteur de vues de Log Analytics permet de créer dans la console OMS des vues personnalisées contenant différentes visualisations de données du référentiel OMS. Cet article fournit une référence relative aux paramètres de chacun des composants de visualisation disponibles dans vos vues personnalisées.
@@ -83,10 +83,10 @@ L’en-tête affiche une valeur indiquant le nombre d’enregistrements obtenus 
 | Couleur |Couleur des barres ou sparklines. |
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique si vous souhaitez analyser la propriété de texte en plusieurs valeurs.  Consultez [Paramètres communs](#name-value-separator) pour plus d’informations. |
 | Requête de navigation |Requête à exécuter lorsque l’utilisateur sélectionne un élément dans la liste.  Consultez [Paramètres communs](#navigation-query) pour plus d’informations. |
-| **Liste** |**> Titres des colonnes** |
+| **Liste** |**&gt; Titres des colonnes** |
 | Nom |Texte à afficher en haut de la première colonne de la liste. |
 | Valeur |Texte à afficher en haut de la deuxième colonne de la liste. |
-| **Liste** |**> Seuils** |
+| **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez cette option pour activer les seuils.  Consultez [Paramètres communs](#thresholds) pour plus d’informations. |
 
 ## <a name="two-numbers--list-part"></a>Deux nombres et composant de liste
@@ -112,10 +112,10 @@ L’en-tête affiche deux valeurs indiquant les nombres d’enregistrements obte
 | Opération |Opération à effectuer pour la sparkline.  Consultez [Paramètres communs](#sparklines) pour plus d’informations. |
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique si vous souhaitez analyser la propriété de texte en plusieurs valeurs.  Consultez [Paramètres communs](#name-value-separator) pour plus d’informations. |
 | Requête de navigation |Requête à exécuter lorsque l’utilisateur sélectionne un élément dans la liste.  Consultez [Paramètres communs](#navigation-query) pour plus d’informations. |
-| **Liste** |**> Titres des colonnes** |
+| **Liste** |**&gt; Titres des colonnes** |
 | Nom |Texte à afficher en haut de la première colonne de la liste. |
 | Valeur |Texte à afficher en haut de la deuxième colonne de la liste. |
-| **Liste** |**> Seuils** |
+| **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez cette option pour activer les seuils.  Consultez [Paramètres communs](#thresholds) pour plus d’informations. |
 
 ## <a name="donut--list-part"></a>Anneau et composant de liste
@@ -135,13 +135,13 @@ L’en-tête affiche un nombre résumé à partir d’une colonne de valeur dans
 | Sous-titre |Texte à afficher sous le titre en haut de l’en-tête. |
 | **Anneau** | |
 | Requête |Requête à exécuter pour obtenir l’anneau.  La première propriété doit être une valeur de texte et la seconde une valeur numérique. |
-| **Anneau** |**> Centrer** |
+| **Anneau** |**&gt; Centrer** |
 | Texte |Texte à afficher sous la valeur contenue dans l’anneau. |
 | Opération |Opération à effectuer sur la valeur de propriété à résumer en une valeur unique.<br><br>- Sum : addition des valeurs de tous les enregistrements.<br>- Percentage : pourcentage des enregistrements retournés par les valeurs figurant dans **Valeurs de résultat utilisées dans l’opération relative au centre** pour le nombre total d’enregistrements dans la requête. |
 | Valeurs de résultat utilisées dans l’opération relative au centre |Vous pouvez cliquer sur le signe plus (+) pour ajouter une ou plusieurs valeurs.  Les résultats de la requête sont alors limités aux enregistrements dont vous avez spécifié les valeurs de propriété.  Si aucune valeur n’est ajoutée, tous les enregistrements sont inclus dans la requête. |
-| **Options supplémentaires** |**> Couleurs** |
+| **Options supplémentaires** |**&gt; Couleurs** |
 | Couleur 1<br>Couleur 2<br>Couleur 3 |Sélectionnez la couleur pour chacune des valeurs affichées dans l’anneau. |
-| **Options supplémentaires** |**> Mappage avancé des couleurs** |
+| **Options supplémentaires** |**&gt; Mappage avancé des couleurs** |
 | Valeur du champ |Saisissez le nom d’un champ pour l’afficher dans une couleur différente s’il est inclus dans l’anneau. |
 | Couleur |Sélectionnez la couleur pour le champ unique. |
 | **Liste** | |
@@ -152,10 +152,10 @@ L’en-tête affiche un nombre résumé à partir d’une colonne de valeur dans
 | Opération |Opération à effectuer pour la sparkline.  Consultez [Paramètres communs](#sparklines) pour plus d’informations. |
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique si vous souhaitez analyser la propriété de texte en plusieurs valeurs.  Consultez [Paramètres communs](#name-value-separator) pour plus d’informations. |
 | Requête de navigation |Requête à exécuter lorsque l’utilisateur sélectionne un élément dans la liste.  Consultez [Paramètres communs](#navigation-query) pour plus d’informations. |
-| **Liste** |**> Titres des colonnes** |
+| **Liste** |**&gt; Titres des colonnes** |
 | Nom |Texte à afficher en haut de la première colonne de la liste. |
 | Valeur |Texte à afficher en haut de la deuxième colonne de la liste. |
-| **Liste** |**> Seuils** |
+| **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez cette option pour activer les seuils.  Consultez [Paramètres communs](#thresholds) pour plus d’informations. |
 
 ## <a name="two-timelines--list-part"></a>Deux chronologies et composant de liste
@@ -182,10 +182,10 @@ L’en-tête affiche les résultats de deux requêtes de journal dans le temps, 
 | Couleur |Couleur des barres ou sparklines. |
 | Opération |Opération à effectuer pour la sparkline.  Consultez [Paramètres communs](#sparklines) pour plus d’informations. |
 | Requête de navigation |Requête à exécuter lorsque l’utilisateur sélectionne un élément dans la liste.  Consultez [Paramètres communs](#navigation-query) pour plus d’informations. |
-| **Liste** |**> Titres des colonnes** |
+| **Liste** |**&gt; Titres des colonnes** |
 | Nom |Texte à afficher en haut de la première colonne de la liste. |
 | Valeur |Texte à afficher en haut de la deuxième colonne de la liste. |
-| **Liste** |**> Seuils** |
+| **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez cette option pour activer les seuils.  Consultez [Paramètres communs](#thresholds) pour plus d’informations. |
 
 ## <a name="information-part"></a>Partie des informations
@@ -202,7 +202,7 @@ L’en-tête affiche un texte statique et un lien facultatif.  La liste affiche 
 | **En-tête** | |
 | Image |Fichier image à afficher dans l’en-tête. |
 | Étiquette |Texte à afficher dans l’en-tête. |
-| **En-tête** |**> Lien** |
+| **En-tête** |**&gt; Lien** |
 | Étiquette |Texte du lien. |
 | Url |URL du lien. |
 | **Éléments d’information** | |
@@ -226,11 +226,11 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | Sous-titre |Texte à afficher sous le titre en haut de l’en-tête. |
 | **Graphique en courbes** | |
 | Requête |Requête à exécuter pour obtenir le graphique en courbes.  La première propriété doit être une valeur de texte et la seconde une valeur numérique.  Il s’agit généralement d’une requête qui utilise le mot clé **measure** pour résumer les résultats.  Si la requête utilise le mot clé **interval**, l’axe des abscisses (X) du graphique utilise cet intervalle de temps.  Si la requête n’inclut pas le mot clé **interval**, des intervalles horaires sont utilisés pour l’axe des abscisses (X). |
-| **Graphique en courbes** |**> Légende** |
+| **Graphique en courbes** |**&gt; Légende** |
 | Titre de la légende |Texte à afficher au-dessus de la valeur de la légende. |
 | Nom de la série |Valeur de propriété pour la série à utiliser pour la valeur de la légende.  Si aucune série n’est fournie, tous les enregistrements de la requête sont utilisés. |
 | Opération |Opération à effectuer sur la valeur de propriété à résumer en une valeur unique pour la légende.<br><br>- Average : moyenne des valeurs de tous les enregistrements.<br>- Count : nombre de tous les enregistrements retournés par la requête.<br>- Last Sample : valeur du dernier intervalle inclus dans le graphique.<br>- Max : valeur maximale des intervalles inclus dans le graphique.<br>-Min : valeur minimale des intervalles inclus dans le graphique.<br>-Sum : somme des valeurs de tous les enregistrements. |
-| **Graphique en courbes** |**> Axe des Y** |
+| **Graphique en courbes** |**&gt; Axe des Y** |
 | Utiliser l’échelle logarithmique |Sélectionnez cette option pour utiliser une échelle logarithmique pour l’axe des ordonnées (Y). |
 | Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête.  Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir des valeurs.  Le type d’unité spécifie la catégorie de l’unité, et définit les valeurs de type Unité actuelle disponibles.  Si vous sélectionnez une valeur pour l’option Convertir en, les valeurs numériques sont converties du type Unité actuelle au type Convertir en. |
 | Étiquette personnalisée |Texte à afficher pour l’axe des X en regard de l’étiquette du type d’unité.  Si aucune étiquette n’est spécifiée, le type d’unité s’affiche. |
@@ -242,10 +242,10 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | Opération |Opération à effectuer pour la sparkline.  Consultez [Paramètres communs](#sparklines) pour plus d’informations. |
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique si vous souhaitez analyser la propriété de texte en plusieurs valeurs.  Consultez [Paramètres communs](#name-value-separator) pour plus d’informations. |
 | Requête de navigation |Requête à exécuter lorsque l’utilisateur sélectionne un élément dans la liste.  Consultez [Paramètres communs](#navigation-query) pour plus d’informations. |
-| **Liste** |**> Titres des colonnes** |
+| **Liste** |**&gt; Titres des colonnes** |
 | Nom |Texte à afficher en haut de la première colonne de la liste. |
 | Valeur |Texte à afficher en haut de la deuxième colonne de la liste. |
-| **Liste** |**> Seuils** |
+| **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez cette option pour activer les seuils.  Consultez [Paramètres communs](#thresholds) pour plus d’informations. |
 
 ## <a name="line-chart--list-part"></a>Graphique en courbes et composant de liste
@@ -265,7 +265,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | Sous-titre |Texte à afficher sous le titre en haut de l’en-tête. |
 | **Graphique en courbes** | |
 | Requête |Requête à exécuter pour obtenir le graphique en courbes.  La première propriété doit être une valeur de texte et la seconde une valeur numérique.  Il s’agit généralement d’une requête qui utilise le mot clé **measure** pour résumer les résultats.  Si la requête utilise le mot clé **interval**, l’axe des abscisses (X) du graphique utilise cet intervalle de temps.  Si la requête n’inclut pas le mot clé **interval**, des intervalles horaires sont utilisés pour l’axe des abscisses (X). |
-| **Graphique en courbes** |**> Axe des Y** |
+| **Graphique en courbes** |**&gt; Axe des Y** |
 | Utiliser l’échelle logarithmique |Sélectionnez cette option pour utiliser une échelle logarithmique pour l’axe des ordonnées (Y). |
 | Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête.  Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir des valeurs.  Le type d’unité spécifie la catégorie de l’unité, et définit les valeurs de type Unité actuelle disponibles.  Si vous sélectionnez une valeur pour l’option Convertir en, les valeurs numériques sont converties du type Unité actuelle au type Convertir en. |
 | Étiquette personnalisée |Texte à afficher pour l’axe des X en regard de l’étiquette du type d’unité.  Si aucune étiquette n’est spécifiée, le type d’unité s’affiche. |
@@ -277,10 +277,10 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | Opération |Opération à effectuer pour la sparkline.  Consultez [Paramètres communs](#sparklines) pour plus d’informations. |
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique si vous souhaitez analyser la propriété de texte en plusieurs valeurs.  Consultez [Paramètres communs](#name-value-separator) pour plus d’informations. |
 | Requête de navigation |Requête à exécuter lorsque l’utilisateur sélectionne un élément dans la liste.  Consultez [Paramètres communs](#navigation-query) pour plus d’informations. |
-| **Liste** |**> Titres des colonnes** |
+| **Liste** |**&gt; Titres des colonnes** |
 | Nom |Texte à afficher en haut de la première colonne de la liste. |
 | Valeur |Texte à afficher en haut de la deuxième colonne de la liste. |
-| **Liste** |**> Seuils** |
+| **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez cette option pour activer les seuils.  Consultez [Paramètres communs](#thresholds) pour plus d’informations. |
 
 ## <a name="stack-of-line-charts-part"></a>Partie de pile de graphiques de courbes
@@ -294,12 +294,12 @@ Affiche trois graphiques en courbes distincts avec plusieurs séries à partir d
 | Titre du groupe |Texte à afficher en haut de la vignette. |
 | Nouveau groupe |Sélectionnez cette option pour créer un groupe dans la vue commençant à la vue actuelle. |
 | Icône |Fichier image à afficher à côté du résultat dans l’en-tête. |
-| **Graphique 1<br>Graphique 2<br>Graphique 3** |**> En-tête** |
+| **Graphique 1<br>Graphique 2<br>Graphique 3** |**&gt; En-tête** |
 | Intitulé |Texte à afficher en haut du graphique. |
 | Sous-titre |Texte à afficher sous le titre en haut du graphique. |
 | **Graphique 1<br>Graphique 2<br>Graphique 3** |**Graphique en courbes** |
 | Requête |Requête à exécuter pour obtenir le graphique en courbes.  La première propriété doit être une valeur de texte et la seconde une valeur numérique.  Il s’agit généralement d’une requête qui utilise le mot clé **measure** pour résumer les résultats.  Si la requête utilise le mot clé **interval**, l’axe des abscisses (X) du graphique utilise cet intervalle de temps.  Si la requête n’inclut pas le mot clé **interval**, des intervalles horaires sont utilisés pour l’axe des abscisses (X). |
-| **Graphique** |**> Axe des Y** |
+| **Graphique** |**&gt; Axe des Y** |
 | Utiliser l’échelle logarithmique |Sélectionnez cette option pour utiliser une échelle logarithmique pour l’axe des ordonnées (Y). |
 | Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête.  Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir des valeurs.  Le type d’unité spécifie la catégorie de l’unité, et définit les valeurs de type Unité actuelle disponibles.  Si vous sélectionnez une valeur pour l’option Convertir en, les valeurs numériques sont converties du type Unité actuelle au type Convertir en. |
 | Étiquette personnalisée |Texte à afficher pour l’axe des X en regard de l’étiquette du type d’unité.  Si aucune étiquette n’est spécifiée, le type d’unité s’affiche. |

@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f97e41b9ee614da7ca852a15f101da1c91c86efb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapper des colonnes d’un jeu de données source sur des colonnes d’un jeu de données de destination
 Le mappage de colonnes peut être utilisé pour spécifier la façon dont les colonnes spécifiées dans la « structure » de la table source sont mappées vers les colonnes spécifiées dans la « structure » de la table du récepteur. La propriété **columnMapping** est disponible dans la section **typeProperties** de l’activité de copie.
 
@@ -183,4 +181,3 @@ Dans ce cas, les résultats de la requête sont d’abord mappés vers les colon
 Suivez le didacticiel sur l’activité de copie dans l’article suivant : 
 
 - [Copie de données à partir du Stockage Blob vers une base de données SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-

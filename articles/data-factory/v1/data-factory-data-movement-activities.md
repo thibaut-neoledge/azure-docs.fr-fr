@@ -15,16 +15,15 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3334230097c3c0932fd732ff3f4e9c0aa35dbcc0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-by-using-copy-activity"></a>Déplacer des données à l’aide de l’activité de copie
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-data-movement-activities.md)
+> * [Version 1 - Disponibilité générale](data-factory-data-movement-activities.md)
 > * [Version 2 - Préversion](../copy-activity-overview.md)
 
 > [!NOTE]
@@ -216,4 +215,3 @@ Le mappage d’un système de type natif donné en .NET pour une banque de donn�
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur l’activité de copie, consultez [Copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md)pour en savoir plus sur le déplacement des données depuis une banque de données locale vers une banque de données cloud.
-

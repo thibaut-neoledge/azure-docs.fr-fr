@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
 ms.openlocfilehash: ab49e78ef17b093d2bbe4e3276a1ece3a4247f91
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Créer un réseau pour les applications multiniveau
 
@@ -32,7 +32,7 @@ Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant
 ## <a name="sample-script"></a>Exemple de script
 
 
-[!code-powershell[principal](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Créer un réseau virtuel pour les applications multiniveau")]
+[!code-powershell[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 

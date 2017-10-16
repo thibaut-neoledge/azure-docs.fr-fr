@@ -15,12 +15,11 @@ ms.date: 08/12/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 9fb25f9f26a220c90f82add02fa5bdb954a926c3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Connectez-vous avec votre téléphone, et non votre mot de passe
 
@@ -92,4 +91,3 @@ Pour l’instant, cette fonctionnalité n’est pas encore développée pour Mic
 Si vous n’avez pas téléchargé l’application Microsoft Authenticator, découvrez-la par vous-même. Cette application est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), et la connexion par téléphone est disponible sur l’application Microsoft Authenticator pour [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 Si vous avez des questions concernant l’application en général, consultez le [Forum aux questions sur l’application Microsoft Authenticator](microsoft-authenticator-app-faq.md).
-

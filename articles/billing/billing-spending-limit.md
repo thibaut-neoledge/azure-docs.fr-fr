@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli
+ms.openlocfilehash: 9313f3bd09b24db8e33b1f89eb5aebea871605b8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 311a1af35b7fecb5f0d4fac7f38af705c945d714
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprendre la limite de dépense d’Azure et comment la désactiver
 
@@ -86,4 +85,3 @@ Certains [services Microsoft et services de marque tierce](billing-understand-yo
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-

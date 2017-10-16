@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/08/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Prise en main d’Azure Scheduler dans le portail Azure
 Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce didacticiel vous guide dans la création d’un travail. Vous y découvrirez également les fonctionnalités de gestion et de surveillance de Scheduler.
@@ -31,14 +30,14 @@ Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce d
     ![][marketplace-create]
 3. Nous allons créer un travail qui accède simplement à http://www.microsoft.com/ avec une demande GET. Dans l’écran **Tâche du planificateur** , entrez les informations suivantes :
    
-   1. **Nom :** `getmicrosoft`  
+   1. **Nom :**`getmicrosoft`  
    2. **Abonnement :** votre abonnement Azure.   
    3. **Collection de tâches :** sélectionnez une collection de tâches existante, ou cliquez sur **Créer** et entrez un nom.
 4. Ensuite, dans **Paramètres d’action**, définissez les valeurs suivantes :
    
-   1. **Type d’action :** ` HTTP`  
-   2. **Méthode :** `GET`  
-   3. **URL :** ` http://www.microsoft.com`  
+   1. **Type d’action :**` HTTP`  
+   2. **Méthode :**`GET`  
+   3. **URL :**` http://www.microsoft.com`  
       
       ![][action-settings]
 5. Pour finir, nous allons définir une planification. Il est possible de définir un travail ponctuel, mais nous allons ici sélectionner une planification périodique :
@@ -153,4 +152,3 @@ Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion pr�
 [13]: ./media/scheduler-get-started-portal/scheduler-get-started-portal013.png
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
-

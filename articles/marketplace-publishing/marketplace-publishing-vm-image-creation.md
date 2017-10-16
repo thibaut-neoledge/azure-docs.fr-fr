@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
 ms.openlocfilehash: 046ce7af40301014746c6aef07d08d81ab4adcc2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide à la création d’une image de machine virtuelle pour Azure Marketplace
 Cet article, **étape 2**, vous guide dans la préparation des disques durs virtuels (VHD) que vous allez déployer dans Azure Marketplace. Vos disques durs virtuels constituent le fondement de votre référence SKU. Le processus varie selon que vous fournissez une référence SKU Linux ou Windows. Cet article aborde ces deux scénarios. Ce processus peut être exécuté parallèlement à la procédure de [création de compte et d’enregistrement][link-acct-creation].

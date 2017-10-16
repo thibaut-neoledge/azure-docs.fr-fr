@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: ashishtha
+ms.openlocfilehash: d08a9a7cc82095b0a90abd98bd4f6d13cdadb671
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 54e53c98390b44ee5f298d5f61c13a4d299e5ae1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure
 
@@ -78,7 +77,7 @@ Si l’erreur NoRegisteredProviderFound ou MissingSubscriptionRegistration s’a
 3. Cliquez sur le nom du cluster. Si la liste de clusters est longue, vous pouvez utiliser le filtre en haut de la page.
 4. Double-cliquez sur un cluster dans la liste pour afficher la page de la vue d’ensemble :
 
-    ![Éléments principaux du cluster HDInsight du portail Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **Menu Vue d’ensemble :**
+    ![Éléments principaux du cluster HDInsight du portail Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)**Menu Vue d’ensemble :**
     * **Tableau de bord** : ouvre le tableau de bord du cluster, qui est Ambari Web pour les clusters basés sur Linux.
     * **Secure Shell**: affiche les instructions pour se connecter au cluster à l’aide d’une connexion Secure Shell (SSH).
     * **Mise à l’échelle du cluster**: permet de modifier le nombre de nœuds de travail pour ce cluster.
@@ -362,4 +361,3 @@ Dans cet article, vous avez découvert certaines fonctions d’administration de
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Ligne de commande Hadoop"
-

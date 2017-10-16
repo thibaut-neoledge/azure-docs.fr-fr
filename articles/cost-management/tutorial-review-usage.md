@@ -10,15 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 4440ca81545978ab7438f1684ce71ded24c326e9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="review-usage-and-costs"></a>Réviser l’utilisation et les coûts
 
 La Gestion des coûts Azure par Cloudyn vous indique l’utilisation et les coûts pour que vous puissiez effectuer le suivi des tendances, détecter le manque d’efficacité et créer des alertes. Toutes les données d’utilisation et de coût sont affichées dans les rapports et tableaux de bord Cloudyn. Les exemples de ce didacticiel vous montrent comment réviser l’utilisation et les coûts à l’aide de tableaux de bord et rapports. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -101,4 +98,3 @@ Passez au didacticiel suivant pour en savoir plus sur le contrôle de l’accès
 
 > [!div class="nextstepaction"]
 > [Contrôler l'accès aux données](tutorial-user-access.md)
-

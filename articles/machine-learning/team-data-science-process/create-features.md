@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: zhangya;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c0933fec67bbcfc2a8c450c1e2472440cf38f338
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingénierie des caractéristiques dans la science des données
 Cette rubrique explique les finalités de la conception de fonctionnalités et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique. Les exemples utilisés pour illustrer ce processus sont tirés d’Azure Machine Learning Studio. 
@@ -90,5 +89,4 @@ La figure suivante montre à quoi ressemblent ces nouvelles caractéristiques.
 L'ingénierie et la sélection de caractéristiques augmentent l'efficacité du processus d'apprentissage qui tend à extraire les informations essentielles contenues dans les données. Ces processus améliorent également les performances de ces modèles pour classifier les données d'entrée avec précision et prédire les résultats pertinents de façon plus consistante. L'ingénierie et la sélection de caractéristiques peuvent également être combinées afin de rendre l'apprentissage plus souple d'un point de vue informatique. Cela se fait grâce à l'amélioration puis à la réduction du nombre de caractéristiques nécessaires à l'étalonnage ou l'apprentissage d'un modèle. D'un point de vue mathématique, les caractéristiques sélectionnées pour effectuer l'apprentissage du modèle sont un ensemble minimum de variables indépendantes qui expliquent les modèles des données puis prédisent correctement les résultats.
 
 Notez qu'il n'est pas toujours nécessaire d'effectuer l'ingénierie de caractéristiques ou la sélection des caractéristiques. Que cela soit nécessaire ou non dépend des données que l'on a à disposition ou qui sont collectées, de l'algorithme choisi et des objectifs de l'expérience.
-
 

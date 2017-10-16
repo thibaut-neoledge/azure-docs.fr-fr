@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeannt
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 54bef3e257363300ee1a13f7f45fc983e465ddbf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning
 ## <a name="overview"></a>Vue d'ensemble
@@ -182,7 +181,7 @@ Les faisceaux convolutionnels prennent en charge les attributs suivants :
 Pour définir la forme et les emplacements des noyaux, utilisez les attributs **KernelShape**, **Stride**, **Padding**, **LowerPad** et **UpperPad** :   
 
 * **KernelShape** : (obligatoire) définit la dimensionnalité de chaque noyau du faisceau convolutionnel. Cette valeur doit être un tuple d’entiers positifs, dont la longueur est égale à l’arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l’élément **InputShape**. 
-* **Stride** : (facultatif) définit les tailles d’incrément ajustables de la convolution (une par dimension), soit la distance entre les nœuds centraux. Cette valeur doit être un tuple d'entiers positifs, dont la longueur correspond à l'arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l’élément **KernelShape**. La valeur par défaut est un tuple dont tous les éléments sont égaux à un. 
+* **Stride** : (facultatif) définit les tailles d'incrément ajustables de la convolution (une par dimension), soit la distance entre les nœuds centraux. Cette valeur doit être un tuple d'entiers positifs, dont la longueur correspond à l'arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l’élément **KernelShape**. La valeur par défaut est un tuple dont tous les éléments sont égaux à un. 
 * **Sharing** : (facultatif) définit le partage des poids pour chaque dimension de la convolution. La valeur peut être une valeur booléenne unique ou un tuple de valeurs booléennes, dont la longueur est égale à l'arité du faisceau. Une valeur booléenne unique est étendue de façon à devenir un tuple de la bonne longueur dont tous les éléments sont égaux à la valeur spécifiée. La valeur par défaut est un tuple composé uniquement de valeurs True. 
 * **MapCount** : (facultatif) définit le nombre de signatures pour le faisceau convolutionnel. Cette valeur peut être un entier positif unique ou un tuple d’entiers positifs dont la longueur est égale à l’arité du faisceau. Une valeur d'entier unique est étendue de façon à devenir un tuple de la bonne longueur dont les premiers éléments sont égaux à la valeur spécifiée et dont tous les éléments restants sont égaux à un. La valeur par défaut est 1. Le nombre total de signatures est le produit des éléments du tuple. La factorisation de ce nombre total sur les éléments détermine la façon dont les valeurs de signature sont regroupées dans les nœuds de destination. 
 * **Weights** : (facultatif) définit les poids initiaux du faisceau. La valeur doit être un tuple de valeurs à virgule flottante dont la longueur correspond au nombre de noyaux, multiplié par le nombre de poids par noyau, tel que défini plus loin dans cet article. Les poids par défaut sont générés de façon aléatoire.  
@@ -415,5 +414,4 @@ La définition du réseau ci-après, conçu pour reconnaître les chiffres, illu
 Le langage Net # pour la personnalisation de l'architecture des réseaux neuronaux a été développée chez Microsoft par Shon Katzenberger (architecte, Machine Learning) et Alexey Kamenev (ingénieur logiciel, Microsoft Research). Il est utilisé en interne pour l'apprentissage de projets et d'applications allant de la détection d'images à l'analyse de texte. Pour plus d’informations, consultez [Neural Nets in Azure ML - Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Réseaux neuronaux dans Azure ML - présentation de Net #).
 
 [1]:./media/azure-ml-netsharp-reference-guide/formula_large.gif
-
 

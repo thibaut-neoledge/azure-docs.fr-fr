@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 0807ab367b91be5acd261f2b58ca2112b2c9e380
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-a-virtual-machines-azure-resource-manager-template"></a>Utiliser un modèle Azure Resource Manager de machine virtuelle
 
 Lorsque vous créez une machine virtuelle dans DevTest Labs via le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), vous pouvez voir le modèle Azure Resource Manager avant d’enregistrer la machine virtuelle. Le modèle peut alors être utilisé comme base pour créer d’autres machines virtuelles lab avec les mêmes paramètres.
@@ -70,4 +68,3 @@ Après avoir enregistré un modèle Resource Manager et l’avoir personnalisé 
 ### <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [Créer des environnements à plusieurs machines virtuelles avec les modèles Resource Manager](devtest-lab-create-environment-from-arm.md).
 * Découvrez les autres modèles Resource Manager à démarrage rapide pour l’automatisation de DevTest Labs à partir du [référentiel DevTest Labs GitHub public](https://github.com/Azure/azure-quickstart-templates).
-

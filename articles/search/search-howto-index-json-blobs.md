@@ -1,6 +1,6 @@
 ---
-title: "Indexation d’objets blob JSON avec l’indexeur d’objets blob Recherche Azure"
-description: "Indexation d’objets blob JSON avec l’indexeur d’objets blob Recherche Azure"
+title: "Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search"
+description: "Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search"
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -14,19 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/07/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: bf4d3a517e1308a142d21cffff64f3c6e104eb62
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexation d’objets blob JSON avec l’indexeur d’objets blob Recherche Azure
-Cet article explique comment configurer l’indexeur d’objets blob Recherche Azure pour extraire le contenu structuré à partir d’objets blob contenant JSON.
+# <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search
+Cet article explique comment configurer l’indexeur d’objets blob Azure Search pour extraire le contenu structuré à partir d’objets blob contenant JSON.
 
 ## <a name="scenarios"></a>Scénarios
-Par défaut, [l’indexeur d’objets blob Recherche Azure](search-howto-indexing-azure-blob-storage.md) analyse les objets blob JSON comme un bloc de texte unique. Vous souhaitez généralement conserver la structure de vos documents JSON. Par exemple, dans le document JSON
+Par défaut, [l’indexeur d’objets blob Azure Search](search-howto-indexing-azure-blob-storage.md) analyse les objets blob JSON comme un bloc de texte unique. Vous souhaitez généralement conserver la structure de vos documents JSON. Par exemple, dans le document JSON
 
     {
         "article" : {
@@ -36,9 +34,9 @@ Par défaut, [l’indexeur d’objets blob Recherche Azure](search-howto-indexin
         }
     }
 
-vous pouvez analyser les champs « text », « datePublished » et « tags » dans un document Recherche Azure.
+vous pouvez analyser les champs « text », « datePublished » et « tags » dans un document Azure Search.
 
-Vous pouvez également, lorsque vos objets blob contiennent un **tableau d’objets JSON**, séparer chaque élément du tableau en un document Recherche Azure. Par exemple, un objet blob avec ce JSON :  
+Vous pouvez également, lorsque vos objets blob contiennent un **tableau d’objets JSON**, séparer chaque élément du tableau en un document Azure Search. Par exemple, un objet blob avec ce JSON :  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -91,7 +89,7 @@ Si nécessaire, utilisez les **mappages de champ** pour sélectionner les propri
 >
 
 ## <a name="using-field-mappings-to-build-search-documents"></a>Utilisation des mappages de champ pour créer des documents de recherche
-Actuellement, Recherche Azure ne peut pas indexer des documents JSON arbitraires directement, car il ne prend en charge que les types de données primitifs, les tableaux de chaînes et les points GeoJSON. Toutefois, vous pouvez utiliser les **mappages de champ** pour sélectionner des parties de votre document JSON et les intégrer dans les champs de niveau supérieur du document de recherche. Pour découvrir les bases des mappages de champs, consultez [Les mappages de champs de l’indexeur Recherche Azure comblent les différences entre les sources de données et les index de recherche](search-indexer-field-mappings.md).
+Actuellement, Azure Search ne peut pas indexer des documents JSON arbitraires directement, car il ne prend en charge que les types de données primitifs, les tableaux de chaînes et les points GeoJSON. Toutefois, vous pouvez utiliser les **mappages de champ** pour sélectionner des parties de votre document JSON et les intégrer dans les champs de niveau supérieur du document de recherche. Pour découvrir les bases des mappages de champs, consultez [Les mappages de champs de l’indexeur Azure Search comblent les différences entre les sources de données et les index de recherche](search-indexer-field-mappings.md).
 
 Revenons à notre exemple de document JSON :
 
@@ -170,6 +168,5 @@ Utilisez cette configuration pour indexer le tableau contenu dans la propriété
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
 
-## <a name="help-us-make-azure-search-better"></a>Aidez-nous à améliorer Recherche Azure
+## <a name="help-us-make-azure-search-better"></a>Aidez-nous à améliorer Azure Search
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-

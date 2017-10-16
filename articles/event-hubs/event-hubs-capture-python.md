@@ -12,19 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
-ms.author: darosa;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 6ef92be812bb0adcb2c817926eeeebbc8e55a5a7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/01/2017
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: 5fb691ec53fed20e5df4f581da10b964c07e09b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-capture-walkthrough-python"></a>Procédure pas à pas d’Event Hubs Capture : Python
 
-Event Hubs Capture est une fonctionnalité d’Event Hubs qui vous permet de fournir automatiquement les données de diffusion en continu de votre concentrateur d’événements à un compte de stockage Blob Azure de votre choix. Cette fonctionnalité facilite le traitement par lots des données de flux en temps réel. Cet article décrit comment utiliser Event Hubs Capture avec Python. Pour plus d’informations sur Event Hubs Capture, consultez [l’article sur la vue d’ensemble](event-hubs-archive-overview.md).
+Event Hubs Capture est une fonctionnalité d’Event Hubs qui vous permet de fournir automatiquement les données de diffusion en continu de votre concentrateur d’événements à un compte de stockage Blob Azure de votre choix. Cette fonctionnalité facilite le traitement par lots des données de flux en temps réel. Cet article décrit comment utiliser Event Hubs Capture avec Python. Pour plus d’informations sur Event Hubs Capture, consultez [l’article sur la vue d’ensemble](event-hubs-capture-overview.md).
 
 Cet exemple utilise le [Kit de développement logiciel (SDK) Azure Python](https://azure.microsoft.com/develop/python/) pour illustrer la fonctionnalité Capture. Le programme sender.py envoie la télémétrie de l’environnement simulé à Event Hubs au format JSON. Le concentrateur d’événements est configuré pour utiliser la fonctionnalité Capture afin d’écrire ces données dans le stockage Blob en lots. L’application capturereader.py lit ensuite ces objets blob et crée un fichier Append par appareil, puis écrit les données dans des fichiers .csv.
 
@@ -165,16 +163,12 @@ Cet exemple utilise le [Kit de développement logiciel (SDK) Azure Python](https
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Présentation d’Event Hubs Capture][Overview of Event Hubs Capture]
-* Un [exemple d'application complet qui utilise des hubs d’événements][sample application that uses Event Hubs].
-* L’exemple de [montée en puissance du traitement des événements avec Event Hubs][Scale out Event Processing with Event Hubs].
+* [Exemples d’application complets qui utilisent des concentrateurs d’événements](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 * [Vue d’ensemble des hubs d’événements][Event Hubs overview]
 
 [Azure portal]: https://portal.azure.com/
-[Overview of Event Hubs Capture]: event-hubs-archive-overview.md
+[Overview of Event Hubs Capture]: event-hubs-capture-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md

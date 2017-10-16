@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 41c1649bfff035bc641d7c1f5d7803cd105e8297
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure
 
 DNS Azure fournit un DNS pour un domaine personnalisé, pour toutes vos ressources Azure prenant en charge les domaines personnalisés ou ayant un nom de domaine complet (FQDN). C’est le cas, par exemple, si vous avez une application web Azure et souhaitez que vos utilisateurs y accèdent en utilisant soit contoso.com, soit www.contoso.com en tant que FQDN.utilisateur. Cet article vous guide tout au long de la configuration de votre service Azure avec DNS Azure pour l’utilisation de domaines personnalisés.

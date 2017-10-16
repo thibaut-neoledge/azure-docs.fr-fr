@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: c19860c6b5b1c15d1e29ddc67f9cf9ad4618725b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Utilisation de Microsoft Azure Machine Learning avec SQL Data Warehouse
 Azure Machine Learning est un service d’analyse prédictive entièrement géré qui vous permet de développer des modèles d’analyse prédictive de vos données dans SQL Data Warehouse et de les publier en tant que services Web prêts à l’emploi. Pour découvrir les principes de base de l’analyse prédictive et de Machine Learning, consultez l’[Introduction à Machine Learning sur Microsoft Azure][Introduction to Machine Learning on Azure].  Vous pouvez ensuite apprendre à créer, former, évaluer et tester un modèle Machine Learning à l’aide du [didacticiel consacré à la création d’une expérience][Create experiment tutorial].

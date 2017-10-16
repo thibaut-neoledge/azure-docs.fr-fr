@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: bwren
+ms.openlocfilehash: c1b0614bc9ab0e816e7d28da6a6497dfa8004976
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: e26186f7dfc81563d72478bf3cf1d306f0203fa5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Débogage d’applications à l’aide d’Azure Application Insights dans Visual Studio
 Visual Studio 2015 (et versions ultérieures) vous permet d’analyser les performances et de diagnostiquer les problèmes au niveau de votre application web ASP.NET aussi bien en phase de débogage qu’en production, à l’aide des données de télémétrie [d’Azure Application Insights](app-insights-overview.md).
@@ -104,5 +103,4 @@ Cela est également utile si vous disposez de [données de télémétrie personn
 | --- | --- |
 | **[Ajouter des données](app-insights-asp-net-more.md)**<br/>Analysez l’utilisation, la disponibilité, les dépendances et les exceptions. Intégrer des traces à partir des frameworks de journalisation. Écrire des données de télémétrie personnalisées. |![Visual Studio](./media/app-insights-visual-studio/64.png) |
 | **[Utilisation du portail Application Insights](app-insights-dashboards.md)**<br/>Affichez les tableaux de bord, les puissants outils de diagnostic et d’analyse, les alertes, le mappage direct des dépendances de votre application et les données de télémétrie exportées. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
-
 

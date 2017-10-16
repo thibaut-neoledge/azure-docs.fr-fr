@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Résolution des problèmes de synchronisation de mot de passe avec Azure AD Connect Sync
 Cette rubrique explique comment résoudre les problèmes de synchronisation de mot de passe. Si les mots de passe ne se synchronisent pas comme prévu, il peut s’agir d’un sous-ensemble d’utilisateurs ou de tous les utilisateurs. Pour un déploiement d’Azure Active Directory (Azure AD) Connect avec la version 1.1.524.0 ou ultérieure, il existe désormais une applet de commande de diagnostic que vous pouvez utiliser pour résoudre les problèmes de synchronisation de mot de passe :
@@ -354,4 +353,3 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 * [Implémentation de la synchronisation de mot de passe avec Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md)
 * [Azure AD Connect Sync : Personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
-

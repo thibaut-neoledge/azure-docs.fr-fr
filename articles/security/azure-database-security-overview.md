@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-security-overview"></a>Vue d’ensemble de la sécurité des bases de données Azure
 
 La sécurité est une préoccupation majeure lors de la gestion de bases de données, et elle a toujours été une priorité pour Azure SQL Database. Azure SQL Database prend en charge la sécurité de connexion avec des règles de pare-feu et un chiffrement de connexion. Il prend en charge l’authentification avec nom d’utilisateur et mot de passe, ainsi que l’authentification Azure Active Directory qui utilise des identités gérées par Azure Active Directory. L’autorisation utilise le contrôle d’accès en fonction du rôle.
@@ -219,4 +217,3 @@ La Place de marché Azure rassemble en une seule plateforme les écosystèmes pa
 - En savoir plus sur [Azure Security Center et SQL Database](https://docs.microsoft.com/azure/security-center/security-center-sql-database).
 - En savoir plus sur la [Détection de menaces pour les bases de données SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 - En savoir plus sur la manière de [Résoudre les problèmes de performances et optimiser votre base de données](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial). 
-

@@ -16,10 +16,10 @@ ms.custom: reference
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: 7a20cd8f3c2f304d12a49755dbe6e04f9b1d36df
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="language-elements"></a>Éléments de langage
 ## <a name="core-elements"></a>Éléments fondamentaux
@@ -59,11 +59,11 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="wildcard-characters-to-match"></a>Caractères génériques à comparer
 * [= (Est égal à)](https://msdn.microsoft.com/library/ms175118.aspx)
-* [> (Supérieur à)](https://msdn.microsoft.com/library/ms178590.aspx)
-* [< (Inférieur à)](https://msdn.microsoft.com/library/ms179873.aspx)
-* [>= (Supérieur ou égal à)](https://msdn.microsoft.com/library/ms181567.aspx)
-* [<= (Inférieur ou égal à)](https://msdn.microsoft.com/library/ms174978.aspx)
-* [<> (Non égal à)](https://msdn.microsoft.com/library/ms176020.aspx)
+* [&gt; (Supérieur à)](https://msdn.microsoft.com/library/ms178590.aspx)
+* [&lt; (Inférieur à)](https://msdn.microsoft.com/library/ms179873.aspx)
+* [&gt;= (Supérieur ou égal à)](https://msdn.microsoft.com/library/ms181567.aspx)
+* [&lt;= (Inférieur ou égal à)](https://msdn.microsoft.com/library/ms174978.aspx)
+* [&lt;&gt; (Non égal à)](https://msdn.microsoft.com/library/ms176020.aspx)
 * [!= (Non égal à)](https://msdn.microsoft.com/library/ms190296.aspx)
 * [AND](https://msdn.microsoft.com/library/ms188372.aspx)
 * [BETWEEN](https://msdn.microsoft.com/library/ms187922.aspx)
@@ -75,13 +75,13 @@ ms.lasthandoff: 07/11/2017
 * [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>Opérateurs au niveau du bit
-* [& (Opérateur AND au niveau du bit)](https://msdn.microsoft.com/library/ms174965.aspx)
+* [&amp; (Opérateur AND au niveau du bit)](https://msdn.microsoft.com/library/ms174965.aspx)
 * [| (Opérateur OR au niveau du bit)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (Opérateur OR exclusif au niveau du bit)](https://msdn.microsoft.com/library/ms190277.aspx)
 * [~ (Opérateur NOT au niveau du bit)](https://msdn.microsoft.com/library/ms173468.aspx)
 * [^= (Opérateur OR EQUALS exclusif au niveau du bit)](https://msdn.microsoft.com/library/cc627413.aspx)
 * [|= (Opérateur OR EQUALS au niveau du bit)](https://msdn.microsoft.com/library/cc627409.aspx)
-* [&= (Opérateur AND EQUALS au niveau du bit)](https://msdn.microsoft.com/library/cc627427.aspx)
+* [&amp;= (Opérateur AND EQUALS au niveau du bit)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## <a name="functions"></a>Fonctions
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)

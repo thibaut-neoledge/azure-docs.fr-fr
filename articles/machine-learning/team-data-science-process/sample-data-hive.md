@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 357307a034b277e8c37e99bda1ed6a9a76e13f41
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Échantillonner des données dans des tables Hive Azure HDInsight
 Dans cet article, nous décrivons à présent la procédure de sous-échantillonnage des données stockées dans des tables Hive Azure HDInsight à l'aide de requêtes Hive. Nous abordons trois méthodes d’échantillonnage communément utilisées :
@@ -108,5 +107,4 @@ Voici un exemple de requête :
 
 
 Pour plus d’informations sur les méthodes d’échantillonnage plus élaborées qui sont disponibles dans Hive, consultez la page consacrée aux [méthodes d’échantillonnage dans le manuel du langage](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
-
 

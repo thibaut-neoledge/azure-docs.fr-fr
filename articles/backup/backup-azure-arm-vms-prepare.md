@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
 ms.openlocfilehash: 3fa6f4f850fc67d41f619d46bd61a19fe890b0fb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
 > [!div class="op_single_selector"]
@@ -38,7 +37,7 @@ Le service Azure Backup comprend deux types de coffres (coffres de sauvegarde et
 >
 >
 
-Avant de pouvoir protéger ou sauvegarder une machine virtuelle déployée à l’aide du modèle Resource Manager, vérifiez que ces prérequis sont respectés :
+Avant de pouvoir protéger ou sauvegarder une machine virtuelle déployée à l’aide du modèle Resource Manager, vérifiez que ces les conditions préalables suivantes sont remplies :
 
 * Créez un coffre Recovery Services (ou identifiez un coffre Recovery Services existant) *dans le même emplacement que votre machine virtuelle*.
 * Sélectionnez un scénario, définissez la stratégie de sauvegarde et définissez les éléments à protéger.
@@ -315,4 +314,3 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 * [Sauvegarde de machines virtuelles](backup-azure-vms.md)
 * [Planification de votre infrastructure de sauvegarde de machines virtuelles](backup-azure-vms-introduction.md)
 * [Gestion des sauvegardes de machines virtuelles](backup-azure-manage-vms.md)
-

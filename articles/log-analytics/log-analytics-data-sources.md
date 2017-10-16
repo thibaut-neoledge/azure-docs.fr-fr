@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2017
 ms.author: bwren
 ms.openlocfilehash: 00d030a502cf70ea9a5dea767f560cdf2919573e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-sources-in-log-analytics"></a>Sources de données dans Log Analytics
 Log Analytics collecte les données à partir des sources connectées de votre espace de travail OMS et les stocke dans le référentiel OMS.  Les données collectées à partir de chacune de ces sources dépendent des sources de données que vous configurez.  Les données dans le référentiel OMS sont stockées sous forme d’un jeu d'enregistrements.  Chaque source de données crée des enregistrements d'un type particulier, chaque type ayant son propre ensemble de propriétés.

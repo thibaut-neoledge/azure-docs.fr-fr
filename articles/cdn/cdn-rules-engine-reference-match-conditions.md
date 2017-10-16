@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
 ms.openlocfilehash: f4886b1d78dfa87cf25737fb46c12b5963034f27
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Conditions de correspondance du moteur de règles Azure CDN
 Cette rubrique répertorie les descriptions détaillées des conditions de correspondance disponibles pour le [moteur de règles](cdn-rules-engine.md)Azure Content Delivery Network (CDN).

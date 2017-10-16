@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 336d4f80f0357796fb29eb9314c11edfce831a69
-ms.openlocfilehash: bd08eb476a4bd7298c5650977b88ba0b24deddec
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/23/2017
-
+ms.openlocfilehash: 89baf60d0204a1701e93309f09b90bc94c4ca57b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>Personnaliser le style du portail des développeurs dans Gestion des API Azure
 Il existe trois manières principales pour personnaliser le portail des développeurs dans Gestion des API Azure :
@@ -28,7 +27,7 @@ Il existe trois manières principales pour personnaliser le portail des dévelop
 * [Mettre à jour les styles utilisés pour les éléments de page dans le portail des développeurs][customize-styles] (procédure expliquée dans ce guide)
 * [Modifier les modèles utilisés pour les pages générées par le portail][portal-templates] (par exemple, documents API, produits, authentification des utilisateurs, etc.)
 
-## <a name="change-headers-styling"> </a>Modifier le style des éléments de page
+## <a name="change-headers-styling"></a>Modifier le style des éléments de page
 
 Les couleurs, polices, tailles, espacements et autres éléments liés au style de chaque page sur le portail sont définis par des règles de style. 
 
@@ -67,7 +66,7 @@ Un aperçu des modifications apportées est disponible en temps réel. Toutefois
 > 
 
 
-## <a name="next-steps"> </a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment personnaliser le contenu des pages du portail des développeurs à l’aide de [modèles](api-management-developer-portal-templates.md).
 
 [Change the styling of the headers]: #change-headers-styling
@@ -88,4 +87,3 @@ Un aperçu des modifications apportées est disponible en temps réel. Toutefois
 
 [bootstrap]: http://getbootstrap.com/
 [LESS variables]: http://getbootstrap.com/css/
-

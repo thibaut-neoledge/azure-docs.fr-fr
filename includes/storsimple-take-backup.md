@@ -24,7 +24,7 @@
 
 Vous avez terminé la configuration de l’appareil. 
 
-![Vidéo disponible](./media/storsimple-take-backup/Video_icon.png) **Vidéo disponible**
+![Vidéo disponible](./media/storsimple-take-backup/Video_icon.png)**Vidéo disponible**
 
 Pour visionner une vidéo qui montre comment exécuter une sauvegarde StorSimple, cliquez [ici](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 

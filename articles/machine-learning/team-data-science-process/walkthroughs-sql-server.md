@@ -1,6 +1,6 @@
 ---
 title: "Guides de la science des données SQL Server avec R, Python et T-SQL | Microsoft Docs"
-description: "Exemples qui montrent comment utiliser R, Python et T-SQL dans SQL Server pour effectuer des analytiques prédictives."
+description: "Exemples qui montrent comment utiliser R, Python et T-SQL dans SQL Server pour effectuer des analyses prédictives."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,24 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8a8a400b87bacae7f0c34ad5643f66c078053f7a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Guides de la science des données SQL Server avec R, Python et T-SQL
 
-Ces guides utilisent SQL Server, SQL Server R Services et SQL Server Python Services pour effectuer des analytiques prédictives. Le code R et Python est déployé dans des procédures stockées. Ils suivent les étapes décrites dans le processus TDSP (Team Data Science Process). Vous trouverez une vue d’ensemble du processus TDSP sur la page [Processus de science des données](overview.md) 
+Ces guides utilisent SQL Server, SQL Server R Services et SQL Server Python Services pour effectuer des analyses prédictives. Le code R et Python est déployé dans des procédures stockées. Ils suivent les étapes décrites dans le processus TDSP (Team Data Science Process). Vous trouverez une vue d’ensemble du processus TDSP sur la page [Processus de science des données](overview.md) 
 
-D’autres procédures pas à pas de la science des données qui appliquent le processus TDSP sont regroupées en fonction de la **plateforme** qu’elles utilisent. Consultez [Procédures pas à pas du processus TDSP (Team Data Science Process)](walkthroughs.md) pour connaître les détails de ces exemples.
+D’autres guides de la science des données qui appliquent le processus TDSP sont regroupés en fonction de la **plateforme** qu’ils utilisent. Consultez [Procédures pas à pas du processus TDSP (Team Data Science Process)](walkthroughs.md) pour connaître les détails de ces exemples.
 
 
 ## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>Prédire les pourboires laissés aux taxis avec Python, des requêtes SQL et SQL Server 
 
-Le guide [Utiliser SQL Server](sql-walkthrough.md) explique comment générer et déployer des modèles d’apprentissage automatique de classification et de régression avec SQL Server et un jeu de données public de courses et de tarifs des taxis new-yorkais.
+Le guide [Utiliser SQL Server](sql-walkthrough.md) explique comment générer et déployer des modèles Machine Learning de classification et de régression avec SQL Server et un jeu de données public de courses et de tarifs des taxi new-yorkais.
 
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Prédire les pourboires laissés aux taxis avec Microsoft R et SQL Server 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
-ms.openlocfilehash: 82d5e525859ebe03b152c63e4debbae469049c12
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Détecter les intrusions dans un réseau avec Azure Network Watcher et des outils open source
 
 Les captures de paquets sont essentielles pour implémenter des systèmes de détection d’intrusions dans un réseau et surveiller la sécurité du réseau. Il existe plusieurs outils open source de systèmes de détection d’intrusions qui traitent des captures de paquets et recherchent les signatures des activités malveillantes et des intrusions dans un réseau éventuelles. Les captures de paquets proposées par Network Watcher vous permettent d’analyser votre réseau et de détecter toute vulnérabilité ou intrusion dangereuse.
@@ -82,7 +80,7 @@ Même si les journaux créés par Suricata contiennent des informations importan
 
 #### <a name="install-elasticsearch"></a>Installer Elasticsearch
 
-1. La pile élastique à partir de la version 5.0 et versions ultérieures requiert Java 8. Exécutez la commande `java -version` pour vérifier quelle version vous utilisez. Si Java n’est pas installé sur votre ordinateur, reportez-vous à la documentation sur le [site web d’Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
+1. La Suite Elastic à partir de la version 5.0 et pour les versions ultérieures requiert Java 8. Exécutez la commande `java -version` pour vérifier la version que vous utilisez. Si Java n’est pas installé sur votre ordinateur, reportez-vous à la documentation sur le [site web d’Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
 1. Téléchargez le package binaire approprié pour votre système :
 
     ```
@@ -297,4 +295,3 @@ Découvrez comment visualiser vos journaux de flux de groupe de sécurité rése
 [5]: ./media/network-watcher-intrusion-detection-open-source-tools/figure5.png
 [6]: ./media/network-watcher-intrusion-detection-open-source-tools/figure6.png
 [7]: ./media/network-watcher-intrusion-detection-open-source-tools/figure7.png
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
 ms.openlocfilehash: d8e740e969f68c85842f42c109328423da1b4414
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Fourniture d’un élément multimédia par téléchargement
 Cette rubrique présente les options disponibles pour fournir des éléments multimédias chargés sur Media Services. De nombreux scénarios d'application permettent de fournir du contenu Media Services. Il est possible de télécharger des éléments multimédias ou d'y accéder en utilisant un localisateur. Vous pouvez envoyer du contenu multimédia vers une autre application ou un autre fournisseur de contenu. Pour améliorer les performances et l’évolutivité, vous pouvez également fournir du contenu en utilisant un réseau de distribution de contenu (CDN).

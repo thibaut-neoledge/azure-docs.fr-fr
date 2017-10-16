@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 768c2598beccba885dd5e43a59ec4684818ccca3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site"></a>Répliquer des machines virtuelles Hyper-V dans des clouds VMM vers un site VMM secondaire
 > [!div class="op_single_selector"]
@@ -34,7 +33,7 @@ Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de co
 ## <a name="overview"></a>Vue d'ensemble
 Cet article décrit comment répliquer des machines virtuelles Hyper-V sur des serveurs hôtes Hyper-V gérés dans des clouds VMM vers un site VMM secondaire à l’aide d’Azure Site Recovery.
 
-L’article décrit les prérequis et vous montre comment configurer un coffre Site Recovery, installer le fournisseur Azure Site Recovery sur les serveurs VMM source et cible, inscrire les serveurs dans le coffre, configurer les paramètres de protection des clouds VMM, puis activer la protection des machines virtuelles Hyper-V. Pour finir, vous pourrez tester le basculement pour vous assurer que tout fonctionne comme prévu.
+L’article décrit les conditions préalables et vous montre comment configurer un coffre Site Recovery, installer le fournisseur Azure Site Recovery sur les serveurs VMM source et cible, inscrire les serveurs dans le coffre, configurer les paramètres de protection des clouds VMM, puis activer la protection des machines virtuelles Hyper-V. Pour finir, vous pourrez tester le basculement pour vous assurer que tout fonctionne comme prévu.
 
 Publier des commentaires ou des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -44,9 +43,9 @@ L'illustration ci-dessous montre les différents canaux et ports de communicatio
 ![Topologie E2E](./media/site-recovery-vmm-to-vmm-classic/e2e-topology.png)
 
 ## <a name="before-you-start"></a>Avant de commencer
-Assurez-vous que les prérequis sont respectés :
+Assurez-vous que les conditions préalables sont remplies :
 
-| **Prérequis** | **Détails** |
+| **Configuration requise** | **Détails** |
 | --- | --- |
 | **Microsoft Azure** |Vous avez besoin d’un compte [Microsoft Azure](https://azure.microsoft.com/) . Vous pouvez commencer par une version d’ [essai gratuit](https://azure.microsoft.com/pricing/free-trial/). [En savoir plus](https://azure.microsoft.com/pricing/details/site-recovery/) sur la tarification Site Recovery. |
 | **VMM** |Vous avez besoin d’au moins un serveur VMM.<br/><br/>Le serveur VMM doit exécuter au moins System Center 2012 SP1 avec les dernières mises à jour cumulatives.<br/><br/>Si vous voulez configurer la protection avec un seul serveur VMM, vous aurez besoin d’au moins deux clouds configurés sur le serveur.<br/><br/>Si vous souhaitez déployer la protection avec deux serveurs VMM, chaque serveur doit avoir au moins un cloud configuré sur le serveur VMM principal que vous souhaitez protéger et un cloud configuré sur le serveur VMM secondaire que vous souhaitez utiliser pour la protection et la récupération.<br/><br/>Tous les clouds VMM doivent avoir le profil de capacité Hyper-V défini.<br/><br/>Le cloud source à protéger doit comporter un ou plusieurs groupes hôtes VMM. |
@@ -333,4 +332,3 @@ Le fournisseur du serveur VMM est averti de l'événement par le Service et exé
 
 ## <a name="next-steps"></a>Étapes suivantes
 Après avoir exécuté un test de basculement pour vérifier que votre environnement fonctionne comme prévu, [découvrez](site-recovery-failover.md) les différents types de basculement.
-

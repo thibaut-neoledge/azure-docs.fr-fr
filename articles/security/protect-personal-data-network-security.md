@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
+ms.openlocfilehash: d61b29f1327f57bc32b2c53de3fe58e53fcf3cac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 81aec340d595371a314ec0c1361f77a37c406a1e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Protéger les données personnelles avec les fonctionnalités de sécurité réseau : Azure Application Gateway et groupes de sécurité réseau
 
@@ -107,7 +106,7 @@ Remarque : si l’abonnement déjà sélectionné a plusieurs ressources, vous 
 
 Pour plus d’informations sur la création d’une passerelle d’application avec WAF et sur la manière d’ajouter WAF à une passerelle d’application existante, consultez [Créer une passerelle d’application avec le pare-feu d’application web à l’aide du portail.](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal)
 
-### <a name="network-security-groups"></a>Groupe de sécurité réseau
+### <a name="network-security-groups"></a>Network Security Group
 
 Un [groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) contient la liste des règles de sécurité qui autorisent ou rejettent le trafic réseau vers les ressources connectées aux [réseaux virtuels Azure](https://docs.microsoft.com/azure/virtual-network/) (VNet). Les NSG peuvent être associés à des sous-réseaux ou à des machines virtuelles individuelles. Lorsqu’un NSG est associé à un sous-réseau, les règles s’appliquent à toutes les ressources connectées au sous-réseau. Vous pouvez restreindre davantage le trafic en associant également un NSG à une machine virtuelle ou à une NIC.
 
@@ -150,4 +149,3 @@ Pour obtenir des instructions sur la manière de créer des NSG dans des sous-r�
 [Obtenir des informations sur un groupe de sécurité réseau](https://docs.microsoft.com/rest/api/network/virtualnetwork/get-information-about-a-network-security-group)
 
 [Pare-feu d’application web (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview)
-

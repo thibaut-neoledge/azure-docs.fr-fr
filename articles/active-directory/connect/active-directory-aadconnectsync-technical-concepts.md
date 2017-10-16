@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi;andkjell
 ms.openlocfilehash: 6cf8debc6443bb60fc5f601ea4aa392eb2f13a8f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync : Concepts techniques
 Cet article est un résumé de la rubrique [Présentation de l’architecture](active-directory-aadconnectsync-technical-concepts.md).
@@ -40,8 +40,7 @@ Les sections suivantes fournissent plus de détails sur les aspects suivants du 
 ## <a name="connector"></a>Connecteur
 Les modules de code utilisés pour communiquer avec un annuaire connecté sont appelés connecteurs (anciennement agents de gestion).
 
-Ils sont installés sur l’ordinateur exécutant Azure AD Connect Sync.
-Les connecteurs permettent de converser sans agent à l’aide de protocoles système distants, au lieu de reposer sur le déploiement d’agents spécialisés. Cela se traduit par une réduction des risques et de la durée de déploiement, en particulier quand il s’agit de systèmes et d’applications critiques.
+Ils sont installés sur l’ordinateur exécutant Azure AD Connect Sync. Les connecteurs permettent de converser sans agent à l’aide de protocoles système distants, au lieu de reposer sur le déploiement d’agents spécialisés. Cela se traduit par une réduction des risques et de la durée de déploiement, en particulier quand il s’agit de systèmes et d’applications critiques.
 
 Dans l’illustration ci-dessus, le connecteur est synonyme de l’espace de connecteur mais il englobe toutes les communications avec le système externe.
 

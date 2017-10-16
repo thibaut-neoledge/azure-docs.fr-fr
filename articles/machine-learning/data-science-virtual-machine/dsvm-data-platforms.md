@@ -1,7 +1,7 @@
 ---
 title: "Plateformes de données pour la machine virtuelle DSVM - Azure | Microsoft Docs"
 description: "Plateformes de données pour la machine virtuelle DSVM."
-keywords: "outils de science des données, machine virtuelle dsvm, outils pour la science des données, science des données linux"
+keywords: "outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9b8beb51c555c6125fa3b0abbad892d627a180b9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-platforms"></a>Plateformes de données
 
 La machine virtuelle DSVM (Data Science Virtual Machine) vous permet de générer votre analytique sur un large éventail de plateformes de données. En plus des interfaces sur les plateformes de données distantes, la machine virtuelle DSVM fournit une instance locale pour le développement et le prototypage rapides. 
@@ -43,7 +41,7 @@ Les outils de plateforme de données pris en charge sur la machine virtuelle DSV
 > L’édition développeur de SQL Server 2016 peut uniquement être utilisée à des fins de test et de développement. Vous avez besoin d’une licence ou de l’une des machines virtuelles SQL Server pour l’exécuter en production. 
 
 
-### <a name="setup"></a>Configuration
+### <a name="setup"></a>Paramétrage
 
 Le serveur de base de données est déjà préconfiguré et les services Windows associés à SQL Server (comme `SQL Server (MSSQLSERVER)`) sont définis pour s’exécuter automatiquement. La seule étape manuelle à exécuter consiste à activer l’analytique en base de données à l’aide de Microsoft R. Vous pouvez pour cela exécuter la commande suivante dans SQL Server Management Studio (SSMS) après vous être connecté  en tant qu’administrateur de l’ordinateur, ouvrir une « Nouvelle requête » dans SSMS, vérifier que la base de données sélectionnée est `master`, puis exécuter : 
 
@@ -84,8 +82,8 @@ Vous pouvez utiliser Spark à partir de R à l’aide de bibliothèques telles q
 
 
 
-### <a name="setup"></a>Configuration
-Avant toute exécution dans le contexte Spark dans Microsoft R Server sur l’édition DSVM Ubuntu Linux, vous devez effectuer une opération de configuration unique pour activer une instance Yarn et HDFS Hadoop à nœud unique locale. Par défaut, les services Hadoop sont installés mais désactivés sur la machine virtuelle DSVM. Pour les activer, vous devez exécuter les commandes suivantes en tant que racine la première fois :
+### <a name="setup"></a>Paramétrage
+Avant toute exécution dans le contexte Spark dans Microsoft R Server sur l’édition DSVM Ubuntu Linux, vous devez effectuer une opération de configuration unique pour activer une instance Yarn et HDFS Hadoop à nœud unique locale. Par défaut, les services Hadoop sont installés mais désactivés sur la DSVM. Pour les activer, vous devez exécuter les commandes suivantes en tant que racine la première fois :
 
     echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
     cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
@@ -106,5 +104,4 @@ Vous pouvez arrêter les services liés à Hadoop quand vous n’en avez pas bes
 
 
 Les bibliothèques pour l’accès aux données à partir du Stockage Blob Azure ou Azure Data Lake Storage (ADLS) et l’utilisation des bibliothèques d’apprentissage automatique MMLSpark de Microsoft sont préinstallées dans $SPARK_HOME/jars. Ces fichiers JAR sont automatiquement chargés au démarrage de Spark. Par défaut, Spark utilise des données sur le disque local. Pour que l’instance de Spark sur la machine virtuelle DSVM puisse accéder aux données stockées dans le Stockage Blob Azure ou dans ADLS, vous devez créer/configurer le fichier `core-site.xml` basé sur le modèle qui se trouve dans $SPARK_HOME/conf/core-site.xml.template (où il existe des espaces réservés pour les configurations du Stockage Blob Azure et ADLS) avec les informations d’identification appropriées pour le Stockage Blob Azure et Azure Data Lake Storage. Vous trouverez des étapes de création d’informations d’identification de service ADLS plus détaillées [ici](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). Une fois que les informations d’identification pour le Stockage Blob Azure ou ADLS ont été entrées dans le fichier core-site.XML, vous pouvez référencer les données stockées dans ces sources, avec le préfixe d’URI wasb:// ou adl://. 
-
 

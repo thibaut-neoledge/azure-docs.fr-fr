@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 7a252e0e5243c7b7489373845531cb913ca1f6aa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-ad-into-a-windows-desktop-wpf-app"></a>Intégration d’Azure AD dans une application WPF de bureau Windows
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -166,7 +166,7 @@ La bibliothèque ADAL facilite l’intégration de toutes ces fonctionnalités d
 
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni [ici](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).  Vous pouvez à présent aborder d’autres scénarios.  Par exemple :
 
-[Sécurisation d’une API web .NET avec Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Sécurisation d’une API web .NET avec Azure AD &gt;&gt;](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 

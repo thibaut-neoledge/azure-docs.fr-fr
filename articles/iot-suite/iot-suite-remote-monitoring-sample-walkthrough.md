@@ -15,16 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: c6d76cc741a6d932a506017781e45bc9b8f8c640
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
-
+ms.openlocfilehash: b28105f300723b542fa6d1aebc569439d5c73dc4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Présentation de la solution préconfigurée de surveillance à distance
 
-La [solution préconfigurée][lnk-preconfigured-solutions] de surveillance à distance IoT Suite est une implémentation d’une solution de surveillance de bout en bout destinée à plusieurs ordinateurs distants. Combinant les principaux services Azure pour fournir une implémentation générique du scénario d’entreprise. Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser][lnk-customize] pour répondre à vos propres exigences professionnelles.
+La [solution préconfigurée][lnk-preconfigured-solutions] de surveillance à distance IoT Suite est une implémentation d’une solution de surveillance de bout en bout destinée à plusieurs ordinateurs distants. Combinant les principaux services Azure pour fournir une implémentation générique du scénario d’entreprise. Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser] [ lnk-customize] pour répondre à vos propres exigences professionnelles.
 
 Cet article vous familiarise avec les éléments clés de la solution de surveillance à distance pour vous permettre de comprendre son fonctionnement. Ces connaissances vous aident à :
 
@@ -283,4 +282,3 @@ Vous pouvez poursuivre la prise en main d’IoT Suite en lisant les articles sui
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-

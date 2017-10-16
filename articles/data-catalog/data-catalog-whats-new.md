@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/06/2017
 ms.author: maroche
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Nouveautés d'Azure Data Catalog
 Des mises à jour **d’Azure Data Catalog** sont publiées régulièrement. Comme certaines versions portent sur les fonctionnalités du service principal, toutes les versions ne contiennent pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Cette page présente les nouvelles fonctionnalités orientées utilisateur ajoutées au service Azure Data Catalog.
@@ -264,5 +263,4 @@ Depuis août 2015, les fonctionnalités suivantes ont été ajoutées à Azure D
 * Nous avons ajouté un nouveau bouton « Utilisateur » et un menu à notre barre de navigation supérieure. Ce menu indique à l’utilisateur le compte avec lequel il se connecte à Azure Data Catalog (et éventuellement s’en déconnecte). Ce menu affiche aussi le nom du catalogue, qui est une information utile pour les développeurs qui utilisent l’API REST Azure Data Catalog.
 * Édition Standard uniquement : quand vous ajoutez des propriétaires à des ressources de données, Azure Data Catalog prend désormais en charge les comptes d’utilisateurs et les groupes de sécurité en tant que propriétaires. Pour ajouter un groupe de sécurité en tant que propriétaire pour des ressources de données sélectionnées, vous pouvez entrer le nom d’affichage du groupe ou l’adresse de messagerie UPN du groupe, le cas échéant.
 * Prise en charge des sources de données de stockage d’objets blob Azure. Les utilisateurs peuvent désormais s’inscrire et découvrir des objets blob Azure Storage et des répertoires.
-
 

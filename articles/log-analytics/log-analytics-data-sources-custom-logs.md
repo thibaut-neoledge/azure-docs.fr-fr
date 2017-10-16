@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2017
 ms.author: bwren
 ms.openlocfilehash: b7f28868e3ffdf95dbe39872f382e7c97eae692c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Journaux personnalisés dans Log Analytics
 La source de données Journaux personnalisés de Log Analytics vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog.  Une fois collectés, vous pouvez analyser chaque enregistrement du journal dans des champs individuels à l’aide de la fonctionnalité [Champs Personnalisés](log-analytics-custom-fields.md) de Log Analytics.

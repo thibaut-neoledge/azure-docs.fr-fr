@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 96e5027adfb443aba18895213e8d83894e3f060a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -28,12 +27,12 @@ Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre s
 Ce didacticiel vous montre comment configurer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure. Le didacticiel s’applique aux machines virtuelles Hyper-V qui sont gérées dans des clouds System Center Virtual Machine Manager (VMM) et à celles qui ne le sont pas. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Définir les conditions préalables Azure et locales
+> * Configurer les prérequis Azure et locaux
 > * Créer un coffre Recovery Services pour Site Recovery 
 > * Configurer les environnements de réplication source et cible 
 > * Configurer le mappage réseau (si Hyper-V est géré par System Center VMM)
 > * Créer une stratégie de réplication
-> * Activer la réplication d’une machine virtuelle
+> * Activer la réplication pour une machine virtuelle
 
 
 ## <a name="prerequisites"></a>Composants requis
@@ -58,7 +57,7 @@ Pour suivre ce didacticiel :
 Procurez-vous un [compte Microsoft Azure](http://azure.microsoft.com/).
 
 - Vous pouvez commencer par une version d’ [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
-- Lisez les informations relatives à la [tarification de Site Recovery](site-recovery-faq.md#pricing) et prenez connaissance de la [tarification appliquée](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Lisez les informations relatives aux [prix de Site Recovery](site-recovery-faq.md#pricing) et prenez connaissance des [prix appliqués](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Identifiez les [régions prises en charge](https://azure.microsoft.com/pricing/details/site-recovery/) pour Site Recovery.
 
 ### <a name="verify-azure-account-permissions"></a>Vérifier les autorisations de compte Azure
@@ -130,7 +129,7 @@ Préparez VMM pour le mappage réseau comme suit :
 
 ## <a name="select-a-protection-goal"></a>Sélectionner un objectif de protection
 
-Sélectionnez l’élément à répliquer et l’emplacement où il doit être répliqué.
+Sélectionnez ce qui doit être répliqué et où.
 
 1. Dans le coffre, cliquez sur **Site Recovery** > **Préparer l’infrastructure** > **Objectif de protection**.
 2. Dans **Objectif de protection**, sélectionnez **To Azure (Vers Azure)**> **, puis Oui, avec Hyper-V**. 
@@ -252,7 +251,7 @@ Si vous utilisez VMM, configurez le mappage de réseau.
 3. Dans **Fréquence de copie**, spécifiez la fréquence selon laquelle répliquer les données delta après la réplication initiale (toutes les 30 secondes ou toutes les 5 ou 15 minutes).
 
     > [!NOTE]
-    >  Une fréquence de 30 secondes n’est pas prise en charge lors de la réplication sur un Stockage Premium. La limitation est déterminée par le nombre de captures instantanées par objet blob (100) pris en charge par le Stockage Premium. [Plus d’informations](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)
+    >  Une fréquence de 30 secondes n’est pas prise en charge lors de la réplication sur un Stockage Premium. La limitation est déterminée par le nombre de captures instantanées par objet blob (100) pris en charge par le Stockage Premium. [En savoir plus](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob).
 
 4. Dans **Rétention des points de récupération**, spécifiez la durée (en heures) de la fenêtre de rétention pour chaque point de récupération. Les machines protégées peuvent être récupérées à tout moment pendant cette fenêtre temporelle.
 5. Dans **Fréquence des captures instantanées cohérentes de l’application**, spécifiez la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications (entre 1 et 12 heures). Hyper-V utilise deux types de captures instantanées :
@@ -279,4 +278,3 @@ Lorsque vous créez une stratégie, elle est automatiquement associée au cloud 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Exécuter une simulation de récupération d'urgence](tutorial-dr-drill-azure.md)
-

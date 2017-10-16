@@ -14,14 +14,12 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
+ms.openlocfilehash: 97c3fe6f0b7a4d9b967b44bf819a6f25598febc9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 681625e40035b05c593c6161236cb80b7db576b9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>Personnaliser les règles de pare-feu d’applications web par le biais de PowerShell
 
 > [!div class="op_single_selector"]
@@ -43,7 +41,7 @@ L’exemple suivant montre comment afficher les groupes de règles :
 Get-AzureRmApplicationGatewayAvailableWafRuleSets
 ```
 
-Voici un extrait de réponse issu de l’exemple précédent :
+Voici un extrait de réponse issu de l’exemple précédent :
 
 ```
 OWASP (Ver. 3.0):
@@ -97,4 +95,3 @@ Après avoir configuré vos règles désactivées, vous pouvez apprendre à affi
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
-

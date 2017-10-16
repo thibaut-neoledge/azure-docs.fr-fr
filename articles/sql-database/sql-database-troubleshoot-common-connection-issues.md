@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: daleche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: b8abf1285318e491d51aadf90f921103d84ce1a4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 2748768e88c046c39232492396872e1c7ed590a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Résoudre des problèmes de connexion à la base de données SQL Azure
 En cas d’échec de la connexion à la base de données SQL Azure, vous recevez des [messages d’erreur](sql-database-develop-error-messages.md). Cet article est une rubrique centralisée qui vous permet de résoudre les problèmes de connectivité des bases de données SQL Azure. Il présente les [causes courantes](#cause) des problèmes de connexion, vous recommande un [outil de dépannage](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) qui vous permet d’identifier le problème, et fournit les étapes de dépannage permettant de résoudre les [erreurs temporaires](#troubleshoot-transient-errors) et les [erreurs persistantes ou non temporaires](#troubleshoot-persistent-errors). 
@@ -90,5 +89,4 @@ Si l’application échoue de façon permanente à se connecter à la base de do
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * [Aide générale sur le traitement des erreurs temporaires](../best-practices-retry-general.md)
 * [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
-
 

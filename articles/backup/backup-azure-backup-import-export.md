@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 4/20/2017
 ms.author: saurse;nkolli;trinadhk
 ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure
 La sauvegarde Azure offre plusieurs fonctionnalités intégrées pour réduire les coûts de stockage et de réseau pendant les sauvegardes complètes initiales des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. La sauvegarde Azure compresse les sauvegardes initiales. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde initiale compressées hors connexion dans Azure.  
@@ -93,7 +93,7 @@ Les informations de cette section vous permettent d’effectuer le flux de trava
 ### <a name="prepare-a-sata-drive-and-create-an-azure-import-job-by-using-the-azure-disk-preparation-tool"></a>Préparer un disque SATA et créer un travail d’importation Azure à l’aide de l’outil de préparation des disques Azure
 L’outil de préparation des disques Azure est disponible dans le répertoire d’installation de l’agent Recovery Services (mise à jour d’août 2016 et ultérieure) via le chemin d’accès suivant.
 
-   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
+   *\Microsoft**Azure**Recovery**Services* *Agent\Utils\*
 
 1. Accédez au répertoire et copiez le répertoire **AzureOfflineBackupDiskPrep** sur un ordinateur de copie sur lequel les disques à préparer ont été montés. Vérifiez les éléments suivants concernant l’ordinateur de copie :
 

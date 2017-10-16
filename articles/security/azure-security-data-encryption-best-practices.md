@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 ms.openlocfilehash: 81136e53756adfdba2f07c103b042499fe2967db
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Meilleures pratiques en matière de chiffrement et de sécurité des données - Azure
 Pour assurer la protection des données dans le cloud, l’un des facteurs clés consiste à tenir compte des états que les données peuvent présenter, mais aussi des contrôles disponibles pour ces états. Dans le cadre des meilleures pratiques en termes de chiffrement et de sécurité des données d’Azure, les recommandations que nous proposons s’articulent autour des états suivants des données :

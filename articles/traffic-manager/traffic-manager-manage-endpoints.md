@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-disable-enable-or-delete-endpoints"></a>Ajouter, désactiver, activer ou supprimer des points de terminaison
 
 La fonction Web Apps d’Azure App Service fournit déjà des fonctionnalités de routage du trafic par basculement et tourniquet pour les sites web d’un centre de données, indépendamment du mode de site Web. Azure Traffic Manager vous permet de spécifier le routage du trafic par basculement et tourniquet pour des sites web et des services cloud de différents centres de données. La première étape nécessaire pour fournir cette fonctionnalité consiste à ajouter le point de terminaison de service cloud ou de site web à Traffic Manager.
@@ -85,5 +83,4 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 * [Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 * [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
 * [Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
 

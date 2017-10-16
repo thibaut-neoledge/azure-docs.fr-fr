@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-diagnostics"></a>Que sont les diagnostics Azure ?
 Azure Diagnostics est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et les rôles de travail Azure Cloud Service, Azure Virtual Machines sous Microsoft Windows et Service Fabric. Les autres services Azure ont leurs propres diagnostics distincts.
@@ -79,4 +78,3 @@ Commencez avec [Surveillance d’une application Service Fabric](../service-fabr
 * Apprenez à [utiliser les compteurs de performances dans les diagnostics Azure](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
 * Apprenez à [acheminer les informations des diagnostics Azure vers Application Insights](azure-diagnostics-configure-application-insights.md)
 * Si vous rencontrez des difficultés avec le lancement des diagnostics ou la recherche des données dans les tables de stockage Azure, consultez [Résolution des problèmes des diagnostics Azure](azure-diagnostics-troubleshooting.md)
-

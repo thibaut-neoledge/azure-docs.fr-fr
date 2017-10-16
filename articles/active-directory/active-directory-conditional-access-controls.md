@@ -16,14 +16,12 @@ ms.workload: identity
 ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: be3631db20ae744965f9f6677c536ade45e34c49
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Contrôles dans l’accès conditionnel Azure Active Directory 
 
 Avec l’[accès conditionnel Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), vous pouvez contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Dans une stratégie d’accès conditionnel, vous définissez la réponse (« faire ») à une condition spécifique (« quand cela se produit »). Dans le contexte de l’accès conditionnel, 
@@ -168,4 +166,3 @@ Pour savoir plus en détails comment exiger un accès limité avec SharePoint, c
 - Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 - Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md). 
-

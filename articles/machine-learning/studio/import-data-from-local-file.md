@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 67f66f9b8703f2cab93a2274a90c161a55848c34
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>Importer des données d’apprentissage à partir d’un fichier situé sur votre disque dur dans Machine Learning Studio
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
@@ -44,4 +43,3 @@ Pendant le téléchargement, vous verrez un message indiquant que votre fichier 
 Une fois que vos données sont téléchargées, elles sont stockées dans un module de jeu de données et sont disponibles pour n'importe quelle expérience dans votre espace de travail.
 
 Quand vous éditez une expérimentation, les jeux de données que vous avez créés apparaissent sous **Mes jeux de données** dans la liste **Jeux de données enregistrés** de la palette des modules. Vous pouvez glisser-déplacer le jeu de données dans le canevas de l’expérience en vue d’affiner l’analyse et Machine Learning.
-

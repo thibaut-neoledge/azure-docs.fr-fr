@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 94b629a62c3a54eee69ee397b2f27e3f20b753d5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-8-set-up-the-source-and-target-for-vmware-replication-to-azure"></a>Étape 8 : configurer la source et la cible pour la réplication VMware sur Azure
 
@@ -88,7 +87,7 @@ Connectez-vous aux serveurs comme suit :
 
 ## <a name="set-up-the-target-environment"></a>Configurer l’environnement cible
 
-Avant de configurer l’environnement cible, assurez-vous de disposer d’un compte de stockage et d’un réseau virtuel déjà configuré.
+Avant de configurer l’environnement cible, assurez-vous de disposer d’un compte de stockage Azure et d’un réseau virtuel déjà configuré.
 
 1. Cliquez sur **Préparer l’infrastructure** > **Cible** et sélectionnez l’abonnement Azure à utiliser.
 2. Spécifiez si votre modèle de déploiement cible est basé sur Resource Manager ou est de type classique.
@@ -100,4 +99,3 @@ Avant de configurer l’environnement cible, assurez-vous de disposer d’un com
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à [Étape 9 : configurer une stratégie de réplication](vmware-walkthrough-replication.md)
-

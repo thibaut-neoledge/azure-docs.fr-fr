@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6d7e9be25badbd83ee613518ba768d98334a5f4d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Variables système et fonctions
 Cet article fournit des informations sur les fonctions et variables prises en charge par Azure Data Factory.
@@ -229,5 +228,4 @@ Pour lire les données de la veille au lieu du jour représenté par SliceStart,
 ```
 
 Consultez la rubrique [Chaînes de format de date et d’heure personnalisées](https://msdn.microsoft.com/library/8kb3ddd4.aspx) , qui décrit les différentes options de formatage que vous pouvez utiliser (par exemple : aa et aaaa). 
-
 

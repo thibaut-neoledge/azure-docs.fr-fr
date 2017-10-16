@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: c6a3da88f574d775b20ccbc2a3206d916d0be7a5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utiliser le kit de ressources Azure pour IntelliJ pour déboguer des applications Spark à distance dans HDInsight via VPN
 
@@ -35,7 +34,7 @@ Cet article fournit des instructions pas à pas sur l’utilisation d’HDInsigh
 4. Créer une application Scala dans IntelliJ IDEA, puis la configurer pour le débogage à distance.
 5. Exécuter et déboguer l’application.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 * **Un abonnement Azure**. Pour plus d’informations, consultez [Get a free trial of Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Obtenir un essai gratuit d’Azure).
 * **Un cluster Apache Spark dans HDInsight**. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * **SDK Oracle Java**. Vous pouvez l’installer à partir du [site web Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
@@ -51,7 +50,7 @@ Suivez les instructions contenues dans les liens suivants pour créer un réseau
 * [Créer un réseau virtuel avec une connexion VPN de site à site à l’aide de PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Configurer une connexion point à site à un réseau virtuel à l’aide de PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-## <a name="step-2-create-an-hdinsight-spark-cluster"></a>Étape 2 : Créer un cluster Spark HDInsight
+## <a name="step-2-create-an-hdinsight-spark-cluster"></a>Étape 2 : créer un cluster Spark HDInsight
 Nous vous recommandons également de créer dans Azure HDInsight un cluster Apache Spark faisant partie du réseau virtuel Azure que vous avez créé. Utilisez les informations disponibles dans l’article [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Dans le cadre de la configuration facultative, sélectionnez le réseau virtuel Azure que vous avez créé à l’étape précédente.
 
 ## <a name="step-3-verify-the-connectivity-between-the-cluster-head-node-and-your-desktop"></a>Étape 3 : Vérifier la connectivité entre le nœud principal du cluster et votre poste de travail
@@ -161,7 +160,7 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
                  <name>net.topology.script.file.name</name>
                  <value>/etc/hadoop/conf/topology_script.py</value>
            </property>
-   c. Enregistrez le fichier.
+   c. Enregistrez le fichier .
 7. Ajoutez la classe principale pour votre application. Dans **l’Explorateur de projets**, cliquez avec le bouton droit sur **src**, pointez sur **Nouveau**, puis sélectionnez **Scala class** (Classe Scala).
 
     ![Sélectionner la classe principale](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely-through-vpn/hdi-spark-scala-code.png)
@@ -239,7 +238,7 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 
     ![Liste déroulante Remote run (Exécution à distance)](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely-through-vpn/config-run.png)
 
-## <a name="step-5-run-the-application-in-debug-mode"></a>Étape 5 : Exécuter l’application en mode débogage
+## <a name="step-5-run-the-application-in-debug-mode"></a>Étape 5 : exécuter l’application en mode débogage
 1. Dans votre projet IntelliJ IDEA, ouvrez `SparkSample.scala` et créez un point d’arrêt en regard de `val rdd1`. Dans le menu contextuel **Create Breakpoint for** (Créer un point d’arrêt pour), sélectionnez **line in function executeJob** (ligne dans la fonction executeJob).
 
     ![Ajouter un point d’arrêt](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely-through-vpn/create-breakpoint.png)
@@ -296,4 +295,3 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 ### <a name="manage-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Suivi et débogage des tâches qui s’exécutent sur un cluster Apache Spark dans HDInsight](hdinsight-apache-spark-job-debugging.md)
-

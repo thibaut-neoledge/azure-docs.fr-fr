@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: cbdc964b16cbc6cf291dbc4b6f60b20d67d9fc41
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="streaming-endpoints-overview"></a>Vue d’ensemble des points de terminaison de streaming 
 
@@ -112,5 +111,4 @@ Consultez les parcours d’apprentissage de Media Services.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

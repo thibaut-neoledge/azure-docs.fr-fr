@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c819b3e3e715427632e793ce77d31554914d248e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-salesforce-using-azure-data-factory"></a>Copier des données de Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +35,7 @@ Vous pouvez copier des données d’une base de données Salesforce vers toute b
 
 Plus précisément, ce connecteur Salesforce prend en charge les éditions suivantes de Salesforce : **Developer Edition, Professional Edition, Enterprise Edition et Unlimited Edition**. Et il prend en charge la copie de données de **production, de bac à sable (sandbox) et de domaine personnalisé** Salesforce.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 * L’autorisation de l’API doit être activée dans Salesforce. Consultez l’article [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 
@@ -97,7 +96,7 @@ Pour copier des données de Salesforce, affectez la valeur **RelationalTable** �
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
 | type | La propriété type du jeu de données doit être définie sur **RelationalTable** | Oui |
-| TableName | Nom de la table dans la base de données Salesforce. | Non (si « query » est spécifié dans la source de l’activité) |
+| TableName | Nom de la table dans la base de données Salesforce. | Non (si « query » dans la source de l’activité est spécifié) |
 
 > [!IMPORTANT]
 > La partie « __c » du nom de l’API est requise pour tout objet personnalisé.

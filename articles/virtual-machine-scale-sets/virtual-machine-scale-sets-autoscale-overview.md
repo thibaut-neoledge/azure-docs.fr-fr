@@ -17,10 +17,10 @@ ms.date: 06/05/2017
 ms.author: adegeo
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Mise à l’échelle automatique et groupes identiques de machines virtuelles
 La mise à l’échelle automatique de machines virtuelles dans un jeu de mise à l’échelle consiste à créer ou à supprimer des machines dans l’ensemble en fonction des exigences de performances. Au fur et à mesure de l’évolution du volume de travail, une application peut nécessiter des ressources supplémentaires afin d’exécuter les tâches de manière efficace.
@@ -228,7 +228,7 @@ Vous pouvez obtenir une quantité limitée d’informations par le biais du port
 
 * **Azure Resource Explorer**  
 Cet outil est le meilleur qui soit pour déterminer l’état actuel de votre groupe identique. Suivez ce chemin d’accès. Vous devriez voir la vue de l’instance du groupe à échelle identique que vous avez créée :  
-**Abonnements > {votre abonnement} > resourceGroups > {votre groupe de ressources} > fournisseurs > Microsoft.Compute > virtualMachineScaleSets > {votre groupe identique} > virtualMachines**
+**Abonnements &gt; {votre abonnement} &gt; resourceGroups &gt; {votre groupe de ressources} &gt; fournisseurs &gt; Microsoft.Compute &gt; virtualMachineScaleSets &gt; {votre groupe identique} &gt; virtualMachines**
 
 * **Azure PowerShell**  
 Utilisez cette commande pour obtenir des informations :

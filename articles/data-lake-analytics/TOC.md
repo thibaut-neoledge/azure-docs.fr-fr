@@ -13,7 +13,7 @@
 ### [Portail Azure](data-lake-analytics-manage-use-portal.md)
 ### [Interface de ligne de commande Azure](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+### [Kit SDK .NET](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [Kit de développement logiciel (SDK) Python](data-lake-analytics-manage-use-python-sdk.md)
 ### [Kit de développement logiciel (SDK) Java](data-lake-analytics-manage-use-java-sdk.md)
 ### [Node.JS](data-lake-analytics-manage-use-nodejs.md)

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 116eaa59eb60833036ad4d3c975c0b86e525f625
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="team-lead-tasks"></a>Tâches du responsable d’équipe
 
 Cette rubrique dresse la liste des tâches qui incombent au responsable d’une équipe chargée d’un projet de science des données. L’objectif est d’établir un environnement de collaboration en équipe standard conforme au processus [TDSP](overview.md) (Team Data Science Process). Le processus TDSP est une méthodologie de science des données agile et itérative permettant de fournir des solutions d’analytique prédictive et des applications intelligentes de manière efficace. Il est conçu pour aider à améliorer la collaboration et l’apprentissage au sein de l’équipe. Ce processus rassemble les bonnes pratiques et les structures issues de Microsoft et de l’ensemble du secteur, qui sont nécessaires pour implémenter les initiatives en science des données destinées à aider les entreprises à tirer pleinement parti de leurs programmes d’analytique. Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
@@ -66,16 +64,16 @@ Dans ce didacticiel, les noms spécifiés pour les dépôts et les répertoires 
 Dans tous les cas, les responsables d’équipe doivent indiquer aux membres de leur équipe les dépôts de modèles et d’utilitaires à utiliser lors de la configuration et du clonage des dépôts du projet et des dépôts d’utilitaires. Les coordinateurs de projet doivent suivre la rubrique [Tâches du coordinateur de projet pour une équipe de science des données](project-lead-tasks.md) pour créer des dépôts de projet, que ce soit sous un ou plusieurs projets d’équipe. 
 
 
-## <a name="0-prerequisites"></a>0. Prérequis
+## <a name="0-prerequisites"></a>0. Composants requis
 
-Pour répondre aux prérequis, le responsable de groupe doit effectuer les tâches décrites dans [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md). Pour résumer, avant de commencer les tâches du responsable d’équipe, voici les conditions qui doivent être remplies : 
+Pour satisfaire aux prérequis, les tâches attribuées à votre responsable de groupe et décrites dans [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md) doivent être effectuées. Pour résumer, avant de commencer les tâches du responsable d’équipe, voici les conditions qui doivent être remplies : 
 
 - Votre **serveur de groupe VSTS** (ou compte de groupe situé sur une autre plateforme d’hébergement de code) a été configuré par votre responsable de groupe.
 - Votre responsable de groupe a configuré votre **dépôt GroupProjectTemplate** (R1) sous votre compte de groupe sur la plateforme d’hébergement de code que vous prévoyez d’utiliser.
 - Vous avez été **autorisé** à créer des dépôts dans votre compte de groupe pour votre équipe.
-- Git doit être installé sur votre machine. Si vous utilisez une instance DSVM (Data Science Virtual Machine), Git a été préinstallé et vous êtes prêt à commencer. Dans le cas contraire, consultez [l’annexe Plateformes et outils](platforms-and-tools.md#appendix).  
-- Si vous utilisez une **instance DSVM Windows**, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) doit être installé sur votre machine. Dans le fichier README.md, accédez à la section **Download and Install**, puis cliquez sur *latest installer*. Vous accédez alors à la page du programme d’installation le plus récent. Téléchargez le programme d’installation .exe et exécutez-le. 
-- Si vous utilisez une **instance DSVM Linux**, créez une clé publique SSH sur votre instance DSVM et ajoutez-la à votre serveur VSTS de groupe. Pour plus d’informations sur SSH, consultez la section **Créer une clé publique SSH** de [l’annexe Plateformes et outils](platforms-and-tools.md#appendix). 
+- Git doit être installé sur votre machine. Si vous utilisez une image Data Science Virtual Machine (DSVM), Git a été préinstallé et vous êtes prêt à commencer. Dans le cas contraire, consultez l’[annexe Plateformes et outils](platforms-and-tools.md#appendix).  
+- Si vous utilisez une image **DSVM Windows**, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) doit être installé sur votre machine. Dans le fichier README.md, accédez à la section **Dowload and Install** (Téléchargement et installation), puis cliquez sur *latest installer* (programme d’installation le plus récent). Vous accédez à la page du programme d’installation le plus récent. Téléchargez le programme d’installation .exe et exécutez-le. 
+- Si vous utilisez une image **DSVM Linux**, créez une clé publique SSH sur votre image DSVM et ajoutez-la à votre serveur VSTS de groupe. Pour plus d’informations sur SSH, consultez la section **Créer une clé publique SSH** de l’[annexe Plateformes et outils](platforms-and-tools.md#appendix). 
     
 ## <a name="1-create-a-team-project-and-repositories"></a>1. Créer un projet d’équipe et des dépôts
 
@@ -412,7 +410,7 @@ Vérifiez que le nouveau lecteur F a été monté correctement sur votre machine
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les liens ci-dessous donnent accès à des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
+Les liens ci-dessous donnent accès à des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
 
 - [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md)
 - [Tâches du responsable d’une équipe de science des données](team-lead-tasks.md)

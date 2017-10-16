@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 6b4b0e3ab126e70e4b27b971b15127aae0486bed
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP Cloud Platform
 
@@ -273,7 +272,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-a-sap-cloud-platform-test-user"></a>Créer un utilisateur test SAP Cloud Platform
 
@@ -354,5 +353,4 @@ Lorsque vous cliquez sur la vignette SAP Cloud Platform dans le volet d’accès
 [201]: ./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_general_203.png
-
 

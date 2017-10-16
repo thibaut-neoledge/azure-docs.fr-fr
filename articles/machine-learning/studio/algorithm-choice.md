@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/25/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 822bed8ffc43459dd053fda5b68f62f839b7d94b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Comment choisir les algorithmes dans Microsoft Azure Machine Learning
 La réponse à la question « Quel algorithme d’apprentissage automatique dois-je utiliser ? » est toujours « Cela dépend. ». Cela dépend de la taille, de la qualité et de la nature des données. Cela dépend de ce que vous voulez faire avec la réponse. Cela dépend de la conversion des calculs de l'algorithme en instructions pour l'ordinateur que vous utilisez. Et cela dépend du temps que vous avez. Même les scientifiques de données les plus expérimentés ne peuvent pas savoir quel algorithme fonctionnera le mieux avant d’en essayer.
@@ -82,11 +81,11 @@ Les algorithmes de régression linéaire supposent que les tendances des donnée
 
 ![Frontière de classe non linéaire][1]
 
-***Limite de classe non linéaire***  *: utiliser un algorithme de classification linéaire entraînerait une faible précision*
+***Limite de classe non linéaire*** *: utiliser un algorithme de classification linéaire entraînerait une faible précision*
 
 ![Données avec une tendance non linéaire][2]
 
-***Données avec une tendance non linéaire*** *: une méthode de régression linéaire entraînerait plus d’erreurs*
+***Données avec une tendance non linéaire****: une méthode de régression linéaire entraînerait plus d’erreurs*
 
 Malgré leurs limitations, les algorithmes linéaires sont très populaires comme première ligne d'attaque. Ils ont tendance à être des algorithmes simples et à apprentissage rapide.
 
@@ -155,7 +154,7 @@ En dépit du terme « régression », la régression logique est en fait un puis
 
 ![Régression logique pour les données à deux classes avec une seule caractéristique][4]
 
-***Une régression logique pour les données à deux classes avec une seule caractéristique***  *: la limite de classe est le point auquel la courbe logistique est aussi proche des deux classes*
+***Une régression logique pour les données à deux classes avec une seule caractéristique*** *: la limite de classe est le point auquel la courbe logistique est aussi proche des deux classes*
 
 ### <a name="trees-forests-and-jungles"></a>Arbres, forêts et jungles
 Les forêts de décision ([régression](https://msdn.microsoft.com/library/azure/dn905862.aspx), [deux classes](https://msdn.microsoft.com/library/azure/dn906008.aspx) et [classes multiples](https://msdn.microsoft.com/library/azure/dn906015.aspx)), les jungles de décision ([deux classes](https://msdn.microsoft.com/library/azure/dn905976.aspx) et [classes multiples](https://msdn.microsoft.com/library/azure/dn905963.aspx)) et les arbres de décision renforcés ([régression](https://msdn.microsoft.com/library/azure/dn905801.aspx) et [deux classes](https://msdn.microsoft.com/library/azure/dn906025.aspx)) sont tous basés sur les arbres de décision, un concept fondamental pour l’apprentissage automatique. Il existe de nombreuses variantes d'arbres de décision, mais tous font la même chose : subdiviser l'espace de la fonctionnalité en régions avec la même étiquette. Il peut s'agir des régions de catégorie ou de valeur constante, si vous effectuez une classification ou une régression.
@@ -208,7 +207,7 @@ Avoir un objectif très spécifique peut être bénéfique. La collection Azure 
 
 ![Détection des anomalies reposant sur le PCA][8]
 
-***Détection des anomalies reposant sur le PCA*** *: la grande majorité des données correspond à une distribution typique ; les points déviant considérablement de cette distribution sont suspects*
+***Détection des anomalies reposant sur le PCA****: la grande majorité des données correspond à une distribution typique ; les points déviant considérablement de cette distribution sont suspects*
 
 ![Jeu de données regroupé à l'aide de K-moyennes][9]
 
@@ -247,4 +246,3 @@ Lancée et dirigée par John Langford de Microsoft Research, VW est une Formul
 [8]: ./media/algorithm-choice/image8.png
 [9]: ./media/algorithm-choice/image9.png
 [10]: ./media/algorithm-choice/image10.png
-

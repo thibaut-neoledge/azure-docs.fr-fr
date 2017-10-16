@@ -74,7 +74,7 @@ sections:
         className: cardsD
         items:
           - title: Langues
-            html: '<p><a href="https://docs.loganalytics.io/">Analytics</a></p><p><a href="/dotnet/api/microsoft.applicationinsights">.NET</a></p><p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p><p><a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">JavaScript</a></p><p><a href="https://dev.applicationinsights.io/">API d’accès aux données</a></p>'
+            html: '<p><a href="https://docs.loganalytics.io/">Analyse</a></p><p><a href="/dotnet/api/microsoft.applicationinsights">.NET</a></p><p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p><p><a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">JavaScript</a></p><p><a href="https://dev.applicationinsights.io/">API d’accès aux données</a></p>'
           - title: Modèle de données
             html: <p><a href="application-insights-data-model-request-telemetry">Requête</a></p><p><a href="application-insights-data-model-dependency-telemetry">Dépendance</a></p><p><a href="application-insights-data-model-exception-telemetry">Exception</a></p><p><a href="application-insights-data-model-trace-telemetry">Trace</a></p><p><a href="application-insights-data-model-event-telemetry">Event</a></p><p><a href="application-insights-data-model-metric-telemetry">Mesure</a></p><p><a href="application-insights-data-model-context">Contexte</a></p>
           - title: Corrélation des données de télémétrie

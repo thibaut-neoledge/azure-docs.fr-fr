@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ios-sdk-for-azure-mobile-engagement"></a>Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement
 Cliquez ici pour obtenir tous les détails de l'intégration d'Azure Mobile Engagement dans une application iOS. Si vous souhaitez d’abord faire un essai, pensez à suivre notre [didacticiel de 15 minutes](mobile-engagement-ios-get-started.md).
@@ -34,9 +33,9 @@ Cliquez pour voir le [contenu du Kit de développement logiciel (SDK)](mobile-en
 ## <a name="release-notes"></a>Notes de publication
 ### <a name="410-07172017"></a>4.1.0 (07/17/2017)
 * Correction des badges effacés en arrière-plan.
-* Correction des avertissements sur XCode 9 à propos des API qui ne sont pas appelées dans la file d’attente principale.
+* Correction des avertissements sur XCode 9 à propos des API qui ne sont pas appelées dans la file d’attente principale.
 * Correction d’une fuite de mémoire dans les sondages Reach.
-* Fin de la prise en charge d’iOS 6.X. À partir de cette version, la cible de déploiement de votre application doit être au moins iOS 7.
+* Fin de la prise en charge d’iOS 6.X. À partir de cette version, la cible de déploiement de votre application doit être au moins iOS 7.
 
 Pour les versions antérieures, consultez les [notes de publication complètes](mobile-engagement-ios-release-notes.md)
 
@@ -184,4 +183,3 @@ Par exemple, si vous avez implémenté la méthode 1 ci-dessus :
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
-

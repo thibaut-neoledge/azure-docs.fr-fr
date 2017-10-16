@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/07/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 218e818f48adee0b4e7ecb0b184098a9e3273afd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Déploiement et gestion des topologies Apache Storm sur HDInsight
 
@@ -245,4 +244,3 @@ Les informations renvoyées depuis l’API REST peuvent être uniquement utilisa
 Découvrez comment [développer des topologies basées sur Java à l’aide de Maven](hdinsight-storm-develop-java-topology.md).
 
 Pour accéder à une liste d’exemples supplémentaires de topologies, consultez la rubrique [Exemples de topologies Storm sur HDInsight](hdinsight-storm-example-topology.md).
-

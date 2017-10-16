@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: ed6f73d8baea5af0d2aa5f0ae885f305911ccc82
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-9-configure-network-mapping-for-hyper-v-replication-with-vmm-to-azure"></a>Étape 9 : Configurer le mappage réseau pour la réplication Hyper-V (avec VMM) vers Azure
 
@@ -59,4 +58,3 @@ Voici le processus exécuté lorsque le mappage réseau démarre :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à [Étape 10 : Créer une stratégie de réplication](vmm-to-azure-walkthrough-replication.md)
-

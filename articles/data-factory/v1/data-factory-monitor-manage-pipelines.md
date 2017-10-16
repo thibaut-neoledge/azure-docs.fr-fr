@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c473d4adf3b87fe6dc9fa89e0bae112bf27d47ed
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide du portail Azure et de PowerShell
 > [!div class="op_single_selector"]
@@ -541,7 +540,7 @@ Cliquez sur la mosaïque **Mesures de fabrique de données** :
 ![Vignette Mesures de fabrique de données](./media/data-factory-monitor-manage-pipelines/data-factory-metrics-tile.png)
 
 Dans le panneau **Mesures**, dans la barre d’outils, cliquez sur **+ Ajouter une alerte**.
-![Panneau Mesures de fabrique de données > Ajouter une alerte](./media/data-factory-monitor-manage-pipelines/add-alert.png)
+![Panneau Mesures de fabrique de données &gt; Ajouter une alerte](./media/data-factory-monitor-manage-pipelines/add-alert.png)
 
 Dans la page **Ajouter une règle d’alerte**, procédez comme suit, puis cliquez sur **OK**.
 
@@ -659,4 +658,3 @@ Vous pouvez déplacer une fabrique de données vers un autre groupe de ressource
 Vous pouvez également déplacer toutes les ressources associées (notamment les alertes associées à la fabrique de données) en même temps que la fabrique de données.
 
 ![Boîte de dialogue Déplacer des ressources](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
-

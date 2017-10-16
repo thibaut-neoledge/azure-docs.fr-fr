@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Afficher des données analytiques pour des métriques sur toutes les ressources de votre application Azure Web
 
 ![Symbole Web Apps](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
@@ -46,7 +44,7 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Stockage Azure](log-analytics-azure-storage.md) | Non | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 - Pour accéder aux informations de mesure de ressources Azure Web App, vous devez posséder un abonnement Azure.
 
@@ -144,4 +142,3 @@ La **Liste de requêtes de recherche Azure Web Apps populaires** vous montre tou
 
 - Créez une [alerte](log-analytics-alerts-creating.md) pour une mesure spécifique.
 - Utilisez la fonction [Recherche dans les journaux](log-analytics-log-searches.md) pour afficher des informations détaillées provenant de vos journaux d’activité.
-

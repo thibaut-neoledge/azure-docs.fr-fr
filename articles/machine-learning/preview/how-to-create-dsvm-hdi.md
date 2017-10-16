@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
+ms.openlocfilehash: 7325d15cc4bec5f0df50be222e1f0988775ded2c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 049478baa108b94c042575a5e29bdc513e527542
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Créer une machine DSVM et un cluster HDI Spark en tant que cibles de calcul
 
 Vous pouvez facilement faire monter en puissance votre expérience Machine Learning ou encore augmenter la taille des instances. Pour cela, il vous suffit d’ajouter des cibles de calcul, par exemple une machine DSVM (Data Science Virtual Machine) basée sur Ubuntu et un cluster Apache Spark pour Azure HDInsight. Cet article aborde les étapes nécessaires à la création de ces cibles de calcul dans Azure. Pour plus d’informations sur les cibles de calcul Azure ML, voir [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md) (Présentation du service d’exécution d’expérience Azure Machine Learning).
@@ -187,4 +185,3 @@ Pour en savoir plus :
 - [Azure Machine Learning Workbench execution configuration files](experiment-execution-configuration-reference.md) (Fichiers de configuration de l’exécution Azure Machine Learning Workbench)
 - [Cluster Apache Spark pour Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 - [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) (Machine virtuelle Science des données)
-

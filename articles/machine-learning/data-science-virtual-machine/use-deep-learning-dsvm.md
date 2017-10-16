@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9bc56d242abde919f6150b88c81921d409e1d94c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Utilisation de Deep Learning Virtual Machine
 
@@ -36,7 +35,6 @@ Outre les exemples basés sur les frameworks, nous fournissons un ensemble de pr
 2. [Guide pratique pour créer une solution de bout en bout afin de détecter des produits dans des images](https://github.com/Azure/cortana-intelligence-product-detection-from-images) : la détection d’image est une technique qui peut localiser des objets dans les images et les classer. Les retombées concrètes de cette technologie semblent très prometteuses dans de nombreux domaines professionnels. Par exemple, un détaillant peut utiliser cette technique pour déterminer quel produit un client a choisi dans un rayon. Il peut ensuite utiliser ces informations pour gérer le stock des produits. 
 
 3. [Classification de documents de texte](https://github.com/anargyri/lstm_han) : cette procédure pas à pas montre comment créer et former deux architectures de réseau neuronal différentes (réseau d’attention hiérarchisée et réseau à mémoire à long ou court terme) pour la classification de documents de texte à l’aide de l’API Keras pour l’apprentissage profond. Keras facilite l’utilisation de trois des frameworks d’apprentissage profond les plus populaires, à savoir Microsoft Cognitive Toolkit, TensorFlow et Theano.
-
 
 
 

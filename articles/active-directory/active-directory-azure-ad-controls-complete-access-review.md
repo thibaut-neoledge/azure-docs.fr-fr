@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e83bc42d658c4d6304f98b99d0e0942595bd65d2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Complete an access review of members of a group or user access to an application in Azure AD (Effectuer une révision d’accès des membres d’un groupe ou des accès des utilisateurs à une application dans Azure AD)
 
 Les administrateurs peuvent demander une révision des membres du groupe ou des utilisateurs assignés à une application en [créant une révision d’accès](active-directory-azure-ad-controls-create-access-review.md). Azure AD envoie automatiquement aux réviseurs un e-mail les invitant à réviser l’accès. Si un utilisateur n'a pas reçu d’e-mail, vous pouvez lui envoyer les instructions dans [Comment réviser un accès](active-directory-azure-ad-controls-perform-access-review.md).  Une fois la période de révision d’accès terminée ou si l’administrateur a arrêté la révision d’accès, suivez les étapes décrites dans cet article pour voir et appliquer les résultats.
@@ -59,4 +57,3 @@ Si vous n'êtes plus intéressé par la révision, supprimez-la. Le bouton **Sup
 - [Manage programs and controls for Azure AD access reviews](active-directory-azure-ad-controls-manage-programs-controls.md) (Gérer les programmes et les contrôles pour la révision d’accès Azure AD)
 - [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md) (Créer une révision de l’accès des membres d’un groupe ou de l’accès à une application)
 - [Create an access review of users in an Azure AD administrative role](active-directory-privileged-identity-management-how-to-start-security-review.md) (Créer une révision d’accès pour les utilisateurs dans un rôle administratif d’Azure AD)
-

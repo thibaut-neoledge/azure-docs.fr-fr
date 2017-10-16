@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: dc57c813a6aecabc21ac3931b7294bce909778d6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sfctl-application"></a>sfctl application
 Permet de créer, de supprimer et de gérer les applications et les types d’application.
 
@@ -255,7 +253,7 @@ Permet d’obtenir le manifeste qui décrit un type d’application. La réponse
 
 |Argument|Description|
 | --- | --- |
-| --application-type-name    [Requis]| Nom du type d’application.|
+| --application-type-name [Requis]| Nom du type d’application.|
 | --application-type-version [Requis]| Version du type d’application.|
 | --timeout -t                      | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
@@ -326,7 +324,7 @@ Permet de supprimer ou d’annuler l’inscription d’un type d’application S
 
 |Argument|Description|
 | --- | --- |
-| --application-type-name    [Requis]| Nom du type d’application.|
+| --application-type-name [Requis]| Nom du type d’application.|
 | --application-type-version [Requis]| Version du type d’application.|
 | --timeout -t                      | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 

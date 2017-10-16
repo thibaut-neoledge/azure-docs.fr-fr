@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 459c792028d3eede059814324597811b24e65ac2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mappage de schéma dans l’activité de copie
 Cet article décrit la manière dont l’activité de copie d’Azure Data Factory effectue un mappage de schéma et de type de données, des données de la source au données du récepteur lors de la copie.
@@ -193,4 +192,3 @@ Voir les autres articles relatifs à l’activité de copie :
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)
 - [Tolérance de panne de l’activité de copie](copy-activity-fault-tolerance.md)
 - [Performances de l’activité de copie](copy-activity-performance.md)
-

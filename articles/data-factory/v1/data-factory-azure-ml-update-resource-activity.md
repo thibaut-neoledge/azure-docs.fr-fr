@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a236df1f13666bc8aa1a957e1718b686cdbd240e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Mettre à jour les modèles Azure Machine Learning à l’aide de l’activité des ressources de mise à jour
 
@@ -325,4 +324,3 @@ Le pipeline a deux activités : **AzureMLBatchExecution** et **AzureMLUpdateRes
     }
 }
 ```
-

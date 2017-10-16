@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 2b83dfe2f3e2645713ff7e1acfb4d7f26fe0d0cd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Utilisation du client géré pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -68,7 +67,7 @@ Pour savoir comment créer des tables dans votre backend Mobile Apps, consultez 
 Utilisez l’une des méthodes suivantes pour installer le package du Kit de développement logiciel (SDK) client géré pour Mobile Apps à partir de [NuGet][9] :
 
 * **Visual Studio** Cliquez avec le bouton droit sur votre projet, puis cliquez sur **Gérer les packages NuGet**, recherchez le package `Microsoft.Azure.Mobile.Client` et cliquez sur **Installer**.
-* **Xamarin Studio** Cliquez avec le bouton droit sur votre projet, cliquez sur **Ajouter** > **Ajouter des packages NuGet**, recherchez le package `Microsoft.Azure.Mobile.Client `, puis cliquez sur **Ajouter un package**.
+* **Xamarin Studio** Cliquez avec le bouton droit sur votre projet, cliquez sur **Ajouter**>**Ajouter des packages NuGet**, recherchez le package `Microsoft.Azure.Mobile.Client `, puis cliquez sur **Ajouter un package**.
 
 Dans votre fichier d’activité principal, pensez à ajouter l’instruction **using** suivante :
 
@@ -1143,4 +1142,3 @@ public class MyHandler : DelegatingHandler
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
 [AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments
-

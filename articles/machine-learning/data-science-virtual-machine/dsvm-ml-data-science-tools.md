@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c772fa16b94d09e0fc0450ce86503553c26f8a24
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="machine-learning-and-data-science-tools"></a>Outils de science des données et d’apprentissage automatique
 La machine virtuelle DSVM (Data Science Virtual Machine) offre un ensemble complet d’outils et de bibliothèques d’apprentissage automatique disponibles dans des langages courants tels que Python, R et Julia. 
 
@@ -95,4 +93,3 @@ Voici quelques-uns des outils et bibliothèques d’apprentissage automatique di
 | Outils connexes sur la machine virtuelle DSVM      | Apache Spark, MXNet, XGBoost, Sparkling Water, Deep Water    |
 
 Il existe plusieurs autres bibliothèques ML sur la machine virtuelle DSVM, comme le package `scikit-learn` fourni dans le cadre de la distribution Anaconda Python installée sur la machine virtuelle DSVM. Veillez à consulter la liste des packages disponibles dans Julia, Python et R en exécutant les gestionnaires de package correspondants. 
-

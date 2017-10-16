@@ -1,4 +1,3 @@
-
 ---
 title: Agent et extensions de machine virtuelle Linux dans Azure | Microsoft Docs
 description: "Propose une vue d’ensemble de l’agent et des extensions et indique comment installer l’agent, à l’aide du modèle de déploiement classique sur une machine virtuelle Linux."
@@ -17,16 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 06b802c408ea5d1b2b40d05321e1a0014e99ca8b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>À propos de l'agent de machine virtuelle et des extensions pour Linux
 > [!IMPORTANT]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur les agents et les extensions de machines virtuelles avec Resource Manager, suivez [ce lien](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
-

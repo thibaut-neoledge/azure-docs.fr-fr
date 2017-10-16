@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: tarcher
 ms.openlocfilehash: 449bffb040dafc8edd0b8b0afd80dbea35cd28ac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Ajouter une machine virtuelle à un laboratoire dans Azure DevTest Labs
 Si vous avez déjà [créé votre première machine virtuelle](devtest-lab-create-first-vm.md), vous l’avez probablement fait à partir d’une [image de la Place de marché](devtest-lab-configure-marketplace-images.md) préchargée. Maintenant, si vous souhaitez ajouter d’autres machines virtuelles à votre laboratoire, vous pouvez également choisir une *base* qui est soit une [image personnalisée](devtest-lab-create-template.md) soit une [formule](devtest-lab-manage-formulas.md). Ce didacticiel vous guide tout au long de l’utilisation du Portail Azure pour ajouter une machine virtuelle à un laboratoire dans DevTest Labs.

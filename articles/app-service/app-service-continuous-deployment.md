@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: ef5924607868bcb3dc35e279539b78d5a0e17c1a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 Ce didacticiel vous montre comment configurer un flux de travail de déploiement continu pour votre application [Azure Web Apps](app-service-web-overview.md) . L’intégration d’App Service à BitBucket, GitHub et [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) permet un flux de travail de déploiement continu au cours duquel Azure extrait les mises à jour les plus récentes de votre projet publié sur l’un de ces services. Le déploiement continu est une option intéressante pour les projets auxquels plusieurs contributions fréquentes sont intégrées.
@@ -96,4 +95,3 @@ Pour désactiver le déploiement continu :
 [Création d’un dépôt (GitHub)]: https://help.github.com/articles/create-a-repo
 [Création d’un dépôt (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Prise en main de VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
-

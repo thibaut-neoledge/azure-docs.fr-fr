@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: venkatja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 23444297b5231e6a026bcd9ce3ee9f943bf05867
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 574f3c5b3a889733f47d729c795ec39009f2ef4a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Créer un jeu de données de référence pour votre environnement Time Series Insights à l’aide du portail Ibiza
 
 Un jeu de données de référence est une collection d’éléments à laquelle s’ajoutent les événements issus de votre source d’événements. Le moteur d’entrée Time Series Insights joint un événement à partir de votre source d’événements à un élément dans votre jeu de données de référence. Cet événement ajouté est ensuite disponible pour la requête. Ce type de jointure repose sur les clés définies dans votre jeu de données de référence.

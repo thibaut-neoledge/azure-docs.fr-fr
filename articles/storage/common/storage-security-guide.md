@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
+ms.openlocfilehash: 592a8716dd15b25b14fed145c11e5f5714cdd41c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4a0b047ce5c6706b51e96e8cc160c610625869e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 ## <a name="overview"></a>Vue d'ensemble
@@ -275,7 +274,7 @@ Vous pouvez appliquer l’utilisation du chiffrement avec le service Azure Files
 
   Cet article offre une vue d’ensemble des partages de fichiers Azure et décrit comment les monter et les utiliser sur Windows.
 
-* [Guide pratique pour utiliser Azure Files avec Linux](../files/storage-how-to-use-files-linux.md)
+* [Comment utiliser Azure Files avec Linux](../files/storage-how-to-use-files-linux.md)
 
   Cet article montre comment monter un partage de fichiers Azure sur un système Linux et comment charger/télécharger des fichiers.
 
@@ -518,7 +517,7 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
 
    **Ressources**
 
-* [Why We’re Not Recommending “FIPS Mode” Anymore (Pourquoi nous ne recommandons plus le « mode FIPS »)](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx)
+* [Why We’re Not Recommending “FIPS Mode” Anymore (Pourquoi nous ne recommandons plus le « mode FIPS »)](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   Cet article de blog donne une vue d’ensemble des normes FIPS et explique pourquoi le mode FIPS n’est plus activé par défaut.
 * [FIPS 140 Validation (Validation de la norme FIPS 140)](https://technet.microsoft.com/library/cc750357.aspx)
@@ -527,4 +526,3 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
 * [Effets des paramètres de sécurité « Chiffrement système : utilisez des algorithmes compatibles FIPS pour le chiffrement, le hachage et la signature » dans Windows XP et les versions ultérieures de Windows](https://support.microsoft.com/kb/811833)
 
   Cet article traite de l’utilisation du mode FIPS sur des ordinateurs Windows anciens.
-

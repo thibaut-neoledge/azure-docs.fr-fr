@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: cdae291b546fef4d7fdb8b067c8e4f4c9708d43f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-azure-virtual-machines-to-log-analytics-with-a-log-analytics-agent"></a>Connecter des machines virtuelles Azure à Log Analytics avec un agent Log Analytics
 
@@ -423,4 +422,3 @@ Pour des ordinateurs qui ne sont pas dans Azure, vous pouvez installer l’agent
 
 * [Connecter des ordinateurs Windows à Log Analytics](log-analytics-windows-agents.md)
 * [Connecter des ordinateurs Linux à Log Analytics](log-analytics-linux-agents.md)
-

@@ -1,6 +1,6 @@
 ---
 title: "Vue d’ensemble du processus Azure TDSP (Team Data Science Process) | Microsoft Docs"
-description: "Propose une méthodologie de science des données permettant de fournir des solutions d’analytique prédictive et des applications intelligentes."
+description: "Propose une méthodologie de science des données permettant de fournir des solutions d’analyse prédictive et des applications intelligentes."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d92c8df7ad8cf522079bdea86e7b33d8441452ab
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="team-data-science-process-overview"></a>Vue d’ensemble du processus TDSP (Team Data Science Process)
 
-Le processus TDSP (Team Data Science Process) est une méthodologie de science des données agile et itérative permettant de fournir des solutions d’analytique prédictive et des applications intelligentes avec efficacité. Le processus TDSP permet d’améliorer la collaboration et l’apprentissage au sein des équipes. Il distille les meilleures pratiques et structures de Microsoft et d’autres acteurs du secteur qui facilitent l’implémentation d’initiatives de science des données. L’objectif est d’aider les entreprises à exploiter pleinement les avantages de leur programme d’analytique.
+Le processus TDSP (Team Data Science Process) est une méthodologie de science des données agile et itérative permettant de fournir des solutions d’analyse prédictive et des applications intelligentes avec efficacité. Le processus TDSP permet d’améliorer la collaboration et l’apprentissage au sein des équipes. Il distille les meilleures pratiques et structures de Microsoft et d’autres acteurs du secteur qui facilitent l’implémentation d’initiatives de science des données. L’objectif est d’aider les entreprises à exploiter pleinement les avantages de leur programme d’analytique.
 
 Cet article fournit une vue d’ensemble du processus TDSP et de ses principaux éléments. Nous proposons ici une description générique du processus, qui peut être implémentée avec un large éventail d’outils. Une description plus détaillée des tâches du projet et des rôles impliqués dans le cycle de vie du processus est accessible dans les liens vers des rubriques complémentaires. Cet article fournit également une aide à l’implémentation du processus TDSP grâce à un ensemble spécifique d’outils et d’infrastructure Microsoft, que nous utilisons dans nos équipes.
 
@@ -45,7 +44,7 @@ Si vous utilisez un autre cycle de vie de sciences des données, tel que [CRISP-
 
 Ce cycle de vie a été conçu pour les projets de sciences des données intégrés à des applications intelligentes. Ces applications déploient des modèles d’apprentissage automatique ou d’intelligence artificielle pour l’analytique prédictive. Les projets de sciences des données exploratoires et les projets d’analytique ad hoc peuvent également tirer parti de ce processus. Mais, dans ce cas, certaines des étapes décrites peuvent s’avérer superflues.    
 
-Le cycle de vie décrit les étapes majeures que les projets exécutent généralement, souvent de manière itérative :
+Le cycle de vie expose les principales phases que les projets exécutent généralement, souvent de manière itérative :
 
 * **Présentation de l’entreprise**
 * **Acquisition de données et compréhension**
@@ -88,12 +87,12 @@ La structure de répertoires peut être clonée à partir de [GitHub](https://gi
 
 Le processus TDSP fournit des recommandations sur la gestion de l’infrastructure partagée d’analytique et de stockage, notamment :
 
-- Systèmes de fichiers cloud pour le stockage des jeux de données 
-- Bases de données
-- Clusters Big Data (Hadoop ou Spark) 
-- Services d’apprentissage automatique 
+- systèmes de fichiers cloud pour le stockage des jeux de données ; 
+- bases de données
+- clusters Big Data (Hadoop ou Spark) ; 
+- services de Machine Learning. 
 
-L’infrastructure de stockage et d’analytique peut se trouver sur le cloud ou sur site. C’est à cet endroit que sont stockés les jeux de données bruts et traités. Cette infrastructure permet de reproduire les analyses. Elle évite également la duplication, susceptible de provoquer des incohérences et d’entraîner des coûts d’infrastructure inutiles. Des outils sont fournis pour configurer les ressources partagées, les suivre et permettre à chacun des membres de l’équipe de se connecter à ces ressources en toute sécurité. Il est également recommandé que les participants au projet créent un environnement de calcul homogène. Différents membres de l’équipe pourront alors répliquer et valider les expérimentations.
+L’infrastructure de stockage et d’analytique peut se trouver sur le cloud ou sur site. C’est à cet endroit que sont stockés les jeux de données bruts et traités. Cette infrastructure permet de reproduire les analyses. Elle évite également la duplication, susceptible de provoquer des incohérences et d’entraîner des coûts d’infrastructure inutiles. Des outils sont fournis pour configurer les ressources partagées, les suivre et permettre à chacun des membres de l’équipe de se connecter à ces ressources en toute sécurité. Il est également recommandé que les participants au projet créent un environnement de calcul homogène. Différents membres de l’équipe pourront alors répliquer et valider les expériences.
 
 Voici l’exemple d’une équipe qui travaille sur plusieurs projets et partage différents composants de l’infrastructure d’analytique cloud.
 
@@ -108,4 +107,3 @@ Dans la plupart des organisations, il est difficile d’introduire des processus
 ## <a name="next-steps"></a>Étapes suivantes
 
 La rubrique [Processus TDSP (Team Data Science Process) : rôles et tâches](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) présente les rôles clés du personnel et les tâches associées pour une équipe de science des données qui se standardise sur ce processus. 
-

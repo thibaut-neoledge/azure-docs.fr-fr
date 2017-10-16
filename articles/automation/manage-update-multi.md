@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 89bf87f27fdf276068cba261fc6ae1660307e0b7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gérer les mises à jour pour plusieurs machines virtuelles Azure
 
 La gestion des mises à jour vous permet de gérer les mises à jour et les correctifs pour vos machines virtuelles Azure.
@@ -73,12 +71,12 @@ Planifiez un nouveau déploiement de mises à jour pour une ou plusieurs machine
   * Mises à jour de définitions
   * Outils
   * Mises à jour
-* **Paramètres de planification** : vous pouvez accepter la date et l’heure par défaut, qui est de 30 minutes après l’heure actuelle, ou spécifier un moment différent.
+* **Paramètres de planification** : vous pouvez accepter la date et l’heure par défaut, qui est de 30 minutes après l’heure actuelle, ou spécifier un moment différent.
    Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique. Cliquez sur l’option Périodique sous Périodicité pour définir une planification périodique.
 
    ![Écran Paramètres de planification des mises à jour](./media/manage-update-multi/update-set-schedule.png)
 
-* **Fenêtre de maintenance (en minutes)** : spécifiez la période pendant laquelle le déploiement des mises à jour doit se produire.  Cela permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
+* **Fenêtre de maintenance (en minutes)** : spécifiez la période de temps pendant laquelle le déploiement des mises à jour doit se produire.  Cela permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
 
 Une fois que vous avez terminé la configuration de la planification, cliquez sur le bouton **Créer**. Vous revenez ensuite au tableau de bord des états.
 Notez que le tableau **Planifié** indique la planification de déploiement que vous avez créée.

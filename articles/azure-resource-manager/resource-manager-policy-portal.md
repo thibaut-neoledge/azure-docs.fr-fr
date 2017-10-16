@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: tomfitz
 ms.openlocfilehash: 868b2cc1559053057d17b34c03e2e31347f399bf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-portal-to-assign-and-manage-resource-policies"></a>Utiliser le portail Azure pour attribuer et gérer les stratégies de ressources
 Le portail vous permet d’affecter des stratégies de ressource pour les abonnements et les groupes de ressources. L’interface utilisateur facilite la sélection de la stratégie que vous souhaitez affecter, puis la spécification des valeurs de paramètre pour cette stratégie afin de personnaliser les paramètres de stratégie. 

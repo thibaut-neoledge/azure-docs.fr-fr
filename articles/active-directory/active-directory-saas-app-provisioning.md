@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 3fe57e9c22d04a3557978093ce3fe86613c5c1d6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Qu’est-ce que l’attribution automatique des utilisateurs dans les applications SaaS ?
@@ -99,7 +98,7 @@ Dans l’écran de gestion des applications, la configuration de l’approvision
 
 * **Filter on attribute values** (Filtrer sur les valeurs d’attribut) : le menu Source Object Scope (Portée de l’objet source) dans les mappages d’attributs permet de filtrer sur des valeurs d’attribut spécifiques. Par exemple, vous pouvez spécifier que seuls les utilisateurs dont l’attribut « Service » est défini sur « Ventes » seront concernés par l’approvisionnement.
 
-* **Filter on assignments** (Filtrer sur les affectations) : le menu Étendue dans la section Approvisionnement > Paramètres du portail permet de spécifier si seuls les utilisateurs et les groupes « affectés » ou tous les utilisateurs du répertoire Azure AD seront concernés par l’approvisionnement. Pour plus d’informations sur l’affectation d’utilisateurs et de groupes, consultez [Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
+* **Filter on assignments** (Filtrer sur les affectations) : le menu Étendue dans la section Approvisionnement &gt; Paramètres du portail permet de spécifier si seuls les utilisateurs et les groupes « affectés » ou tous les utilisateurs du répertoire Azure AD seront concernés par l’approvisionnement. Pour plus d’informations sur l’affectation d’utilisateurs et de groupes, consultez [Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
     
 * Les **paramètres** contrôlent le fonctionnement du service d’approvisionnement pour une application, qu’elle soit ou non en cours d’exécution.
 
@@ -162,5 +161,4 @@ Contactez-nous via le [forum des commentaires sur Azure Active Directory](https:
 * [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md)
 * [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
 * [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
-
 

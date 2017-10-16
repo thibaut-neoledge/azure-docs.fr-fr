@@ -3,7 +3,7 @@ title: "Sondes personnalisées de l’équilibreur de charge et surveillance de 
 description: "Découvrez comment utiliser les sondes personnalisées pour l’équilibreur de charge Azure afin de surveiller les instances situées derrière un équilibreur de charge"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: ce2550ca8301fd12d61cca143b2851b84f1a0f50
-ms.openlocfilehash: 01afa3a08bbb56d4c6b8b18c5eb07f49706c6482
-
+ms.openlocfilehash: 102c07ff0994b3b411f2a13d7a43c5398d5dfd42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-load-balancer-probes"></a>Comprendre les sondes de l’équilibrage de charge
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 L’équilibreur de charge Azure permet de surveiller l’intégrité des instances de serveur à l’aide de sondes. Quand une sonde ne répond pas, l’équilibreur de charge n’envoie plus de nouvelles connexions à l’instance défectueuse. Les connexions existantes ne sont pas affectées et les nouvelles connexions sont envoyées aux instances saines.
 
@@ -94,9 +96,3 @@ Les sondes TCP et HTTP sont considérées comme saines et marquent l’instance 
 ## <a name="use-log-analytics-for-load-balancer"></a>Utiliser l’analytique des journaux pour l’équilibreur de charge
 
 Vous pouvez utiliser l’ [analytique des journaux pour l’équilibreur de charge](load-balancer-monitor-log.md) pour vérifier le nombre et l’état d’intégrité des sondes. La journalisation peut être utilisée avec Power BI ou Operational Insights pour fournir des statistiques sur l’état d’intégrité de l’équilibreur de charge.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

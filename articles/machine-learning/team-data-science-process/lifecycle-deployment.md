@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b49b3ab696c22928c5f5a4566e059345fd810588
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment"></a>Déploiement
 
-Cette rubrique présente les objectifs, les tâches et les livrables associés au **déploiement** du processus TDSP (Team Data Science Process). Ce processus indique un cycle de vie recommandé que vous pouvez utiliser pour structurer vos projets de science des données. Le cycle de vie présente les étapes majeures que les projets exécutent généralement, souvent de manière itérative :
+Cette rubrique présente les objectifs, les tâches et les livrables associés au **déploiement** du processus TDSP (Team Data Science Process). Ce processus indique un cycle de vie recommandé que vous pouvez utiliser pour structurer vos projets de science des données. Le cycle de vie expose les principales phases que les projets exécutent généralement, souvent de manière itérative :
 
 * **Présentation de l’entreprise**
 * **Acquisition de données et compréhension**
@@ -55,14 +54,14 @@ Une fois que votre ensemble de modèles fonctionne correctement, il peut être m
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Voici des liens vers chaque étape du cycle de vie du processus TDSP :
+Voici les liens vers chaque étape du cycle de vie du processus TDSP :
 
-* [1. Compréhension de l’activité](lifecycle-business-understanding.md)
-* [2. Acquisition et compréhension des données](lifecycle-data.md)
+* [1. Présentation de l’entreprise](lifecycle-business-understanding.md)
+* [2. Acquisition de données et compréhension](lifecycle-data.md)
 * [3. Modélisation](lifecycle-modeling.md)
 * [4. Déploiement](lifecycle-deployment.md)
 * [5. Acceptation du client](lifecycle-acceptance.md)
 
-Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. La rubrique [Exemples de procédures pas à pas](walkthroughs.md) les répertorie et les décrit brièvement, en les accompagnant de liens. Les procédures illustrent comment combiner les outils et services dans le cloud et localement dans un flux de travail ou un pipeline pour créer une application intelligente. 
+Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. La rubrique [Exemples de procédures pas à pas](walkthroughs.md) les répertorie et les décrit brièvement, en les accompagnant de liens. Ces procédures illustrent comment combiner des outils et services locaux ou cloud dans un flux de travail ou un pipeline pour créer une application intelligente. 
 
 Pour obtenir des exemples d’exécution des étapes du processus TDSP qui utilisent Azure Machine Learning Studio, consultez le parcours d’apprentissage [Avec Azure ML](http://aka.ms/datascienceprocess).

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9764e48e04eb0c83afea09934ce64d2485ab15d5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Configurer la récupération d’urgence pour les machines virtuelles Hyper-V vers votre site local secondaire
 
@@ -33,7 +32,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence vers
 > * Configurer les environnements de réplication source et cible 
 > * Configurer le mappage réseau (si Hyper-V est géré par System Center VMM)
 > * Créer une stratégie de réplication
-> * Activer la réplication d’une machine virtuelle
+> * Activer la réplication pour une machine virtuelle
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -139,8 +138,8 @@ Avant de commencer, assurez-vous que tous les hôtes qui utilisent la stratégie
 1. Dans **Fréquence de copie**, spécifiez la fréquence selon laquelle répliquer les données delta après la réplication initiale (toutes les 30 secondes ou toutes les 5 ou 15 minutes).
 2. Dans **Rétention des points de récupération**, spécifiez la durée (en heures) de la fenêtre de rétention pour chaque point de récupération. Les machines répliquées peuvent être récupérées à tout moment pendant cette fenêtre temporelle.
 3. Dans **Fréquence des captures instantanées cohérentes de l’application**, spécifiez la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications (entre 1 et 12 heures). Hyper-V utilise deux types de captures instantanées :
-    - **Instantané standard** : fournit un instantané incrémentiel de toute la machine virtuelle.
-    - **Instantané de cohérence des applications** : prend un instantané à un point dans le temps des données d’application à l’intérieur de la machine virtuelle. Le service VSS (Volume Shadow Copy Service) s'assure que les applications sont dans un état cohérent au moment de la prise des captures instantanées. L’activation d’instantanés cohérents au niveau applicatif affecte la performance de l’application sur les machines virtuelles sources. Définissez une valeur inférieure au nombre de points de récupération supplémentaires que vous configurez.
+    - **Instantané standard** : fournit un instantané incrémentiel de toute la machine virtuelle.
+    - **Instantané de cohérence des applications** : prend un instantané à un point dans le temps des données d’application à l’intérieur de la machine virtuelle. Le service VSS (Volume Shadow Copy Service) s'assure que les applications sont dans un état cohérent au moment de la prise des captures instantanées. L’activation d’instantanés cohérents au niveau applicatif affecte la performance de l’application sur les machines virtuelles sources. Définissez une valeur inférieure au nombre de points de récupération supplémentaires que vous configurez.
 4. Dans **Compression du transfert de données**, indiquez si les données de réplication transférées doivent être compressées.
 5. Sélectionnez **Supprimer une machine virtuelle de réplica** pour spécifier que la machine virtuelle doit être supprimée si vous désactivez la protection de la machine virtuelle source. Si vous activez ce paramètre et que vous désactivez la protection de la machine virtuelle source, elle est supprimée de la console Site Recovery, les paramètres Site Recovery de VMM sont supprimés de la console VMM et le réplica est supprimé.
 6. Dans **Méthode de réplication initiale**, si vous effectuez une réplication sur le réseau, indiquez si vous souhaitez lancer la réplication initiale ou la planifier. Pour économiser de la bande passante réseau, il peut être intéressant de la planifier en dehors des heures de pointe. Cliquez ensuite sur **OK**.
@@ -163,4 +162,3 @@ Vous pouvez suivre la progression de l’action **Activer la protection** dans *
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Exécuter une simulation de récupération d'urgence](tutorial-dr-drill-secondary.md)
-

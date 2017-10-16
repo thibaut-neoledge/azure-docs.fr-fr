@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0a77b31e07f118155094fab4d3393ffdb37c9c6f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-data-sources-for-this-release"></a>Sources de données prises en charge pour cette version 
 Le document suivant présente la liste des sources de données actuellement prises en charge dans la préparation des données.
 
@@ -41,7 +39,7 @@ Lire un fichier de valeurs séparées par des virgules à partir du stockage
 #### <a name="options"></a>Options
 - Séparateur
 - Commentaire
-- En-têtes
+- headers
 - Symbole décimal
 - Encodage de fichier
 - Lignes à ignorer
@@ -51,7 +49,7 @@ Lire un fichier de valeurs séparées par des tabulations à partir du stockage
 
 #### <a name="options"></a>Options
 - Commentaire
-- En-têtes
+- headers
 - Encodage de fichier
 - Lignes à ignorer
 
@@ -60,14 +58,14 @@ Lire un fichier Excel, une feuille à la fois, en spécifiant le nom ou le numé
 
 #### <a name="options"></a>Options
 - Nom/numéro de la feuille
-- En-têtes
+- headers
 - Lignes à ignorer
 
 ### <a name="json-file"></a>Fichier JSON
 Lire un fichier JSON à partir du stockage (notez que le fichier est « aplati » lors de la lecture)
 
 #### <a name="options"></a>Options
-- Aucune
+- Aucun
 
 ### <a name="parquet"></a>Parquet
 Lire un jeu de données Parquet, fichier ou dossier unique.
@@ -86,9 +84,8 @@ L’exécution avec montée en puissance repose sur les capacités de lecture Pa
 
 ## <a name="locations"></a>Emplacements
 ### <a name="local"></a>Local
-Disque dur local ou emplacement de stockage réseau mappé
+Emplacement de stockage réseau mappé ou disque dur local
 
 ### <a name="azure-blob"></a>Objet blob Azure
-Azure Storage (BLOB) nécessite un abonnement Azure
-
+Stockage Azure (BLOB), nécessite un abonnement Azure
 

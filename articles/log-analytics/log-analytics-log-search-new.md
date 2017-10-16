@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: db271f5157fee29a5cc0c4534768bdb3c769ba74
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Présentation des recherches dans les journaux dans Log Analytics
 
@@ -91,4 +90,3 @@ Pour obtenir une documentation complète sur le langage de requête Azure Log An
 
 - En savoir plus sur les [portails que vous utilisez pour créer et modifier des recherches dans les journaux](log-analytics-log-search-portals.md).
 - Consultez un [didacticiel sur l’écriture de requêtes](log-analytics-tutorial-viewdata.md) à l’aide du nouveau langage de requête.
-

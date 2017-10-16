@@ -15,17 +15,16 @@ ms.topic: get-started-article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8d4d574dee4b993d8a464482b244e1f63ade8a57
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d'Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 (disponibilité générale)](data-factory-introduction.md)
-> * [Version 2 (aperçu)](../introduction.md)
+> * [Version 1 - Disponibilité générale](data-factory-introduction.md)
+> * [Version 2 - Préversion](../introduction.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de la fabrique de données, mise à la disposition générale (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif à la [présentation de Data Factory V2](../introduction.md).
@@ -130,4 +129,3 @@ Pour découvrir comment créer des fabriques de données avec des pipelines de d
 | [Déplacer des données entre deux magasins de données cloud](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Dans ce didacticiel, vous créez une fabrique de données avec un pipeline qui **déplace des données** de Blob Storage vers la base de données SQL. |
 | [Transformer des données à l’aide du cluster Hadoop](data-factory-build-your-first-pipeline.md) |Dans ce didacticiel, vous devez générer votre première fabrique de données Azure avec un pipeline de données qui **traite les données** en exécutant le script Hive sur un cluster Azure HDInsight (Hadoop). |
 | [Déplacer des données entre une banque de données locale et une banque de données cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) |Dans ce didacticiel, vous créez une fabrique de données avec un pipeline qui **déplace des données** d’une base de données SQL Server **locale** vers un objet blob Azure. Dans le cadre de la procédure pas à pas, vous installez et configurez la passerelle de gestion des données sur votre ordinateur. |
-

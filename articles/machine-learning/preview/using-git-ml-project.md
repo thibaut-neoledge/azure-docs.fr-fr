@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 59b07c9834904e01256b75344ba2e6892e56438c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Utilisation d’un référentiel Git avec un projet Azure Machine Learning Workbench
 Ce document fournit des informations sur la façon dont Azure Machine Learning Workbench utilise Git pour garantir la reproductibilité dans votre expérience de science des données. Des instructions sur la façon d’associer votre projet à un référentiel Git cloud sont également fournies.
@@ -51,7 +50,7 @@ Si ce n’est pas déjà fait, créez un compte Azure ML Experimentation et inst
     - Gestion de version : **Git**
     - Abonnement : un abonnement incluant un compte Azure Machine Learning Experimentation.
     - Emplacement : idéalement, restez dans une région proche de vos ressources Azure Machine Learning Experimentation.
-4. Cliquez sur **Create**. 
+4. Cliquez sur **Créer**. 
 
 ![Créer un projet d’équipe à partir du portail Azure](media/using-git-ml-project/create_vsts_team.png)
 
@@ -174,4 +173,3 @@ Suivez ces deux articles (les deux approches fonctionnent) pour plus d’informa
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour savoir comment utiliser le processus Team Data Science Process (TDSP) afin d’organiser votre structure de projet, consultez [Structurer un projet avec TDSP](how-to-use-tdsp-in-azure-ml.md)
-

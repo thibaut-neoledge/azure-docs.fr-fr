@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 155e29e467b9752d491f62973ffccc986041fcab
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 L’activité de copie Azure Data Factory offre une solution de chargement de données de premier ordre, sécurisée, fiable et hautes performances. Elle vous permet de copier des dizaines de téraoctets de données tous les jours entre une grande variété de banques de données cloud et locales. Les performances de chargement des données très rapides constituent la clé pour vous permettre de vous concentrer sur le problème « big data » principal : créer des solutions d’analyse avancées et obtenir des informations approfondies à l’aide de toutes ces données.
@@ -409,4 +408,3 @@ Voici des références relatives à la surveillance et au réglage des performan
 * Azure Cosmos DB : [Niveaux de performances d’Azure Cosmos DB](../../cosmos-db/performance-levels.md)
 * SQL Server local : [Surveillance et réglage des performances](https://msdn.microsoft.com/library/ms189081.aspx)
 * Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx)
-

@@ -15,16 +15,15 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f2af15189a7c8643d51e8567b4366726b4b8051c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="datasets-in-azure-data-factory"></a>Jeux de données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-create-datasets.md)
+> * [Version 1 - Disponibilité générale](data-factory-create-datasets.md)
 > * [Version 2 - Préversion](../concepts-datasets-linked-services.md)
 
 > [!NOTE]
@@ -452,4 +451,3 @@ Vous pouvez créer des jeux de données étendus jusqu’à un pipeline à l’a
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour plus d’informations sur les pipelines, voir [Créer des pipelines](data-factory-create-pipelines.md). 
 - Pour plus d’informations sur la façon dont les pipelines sont planifiés et exécutés, voir [Planification et exécution dans Azure Data Factory](data-factory-scheduling-and-execution.md). 
-

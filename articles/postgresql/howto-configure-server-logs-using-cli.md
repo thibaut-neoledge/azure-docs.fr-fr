@@ -11,10 +11,10 @@ ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017
 ms.openlocfilehash: 26f8e12c493904f722cad5191ee053feff20f7fc
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Configuration et accès aux journaux du serveur à l’aide de la ligne de commande Azure
 Vous pouvez télécharger les journaux d’erreurs du serveur PostgreSQL à l’aide de l’interface de ligne de commande Azure. Toutefois, l’accès aux journaux des transactions n’est pas pris en charge. 

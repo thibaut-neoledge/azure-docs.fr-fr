@@ -16,12 +16,11 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
+ms.openlocfilehash: 30dbd21c6d21aa55c2c7e84c315fba098674ddd8
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Ajouter des utilisateurs à partir d’autres répertoires ou entreprises partenaires dans Azure Active Directory
 
@@ -47,7 +46,7 @@ Par défaut, les utilisateurs ajoutés ne reçoivent pas d’autorisations d’a
 > Si votre organisation utilise plusieurs domaines, vous devez avoir connaissance des problèmes suivants lorsque vous ajoutez un compte d’utilisateur :
 >
 > * Pour ajouter des comptes d’utilisateurs avec le même nom d’utilisateur principal (UPN) sur plusieurs domaines, ajoutez **d’abord**, par exemple, geoffgrisso@contoso.onmicrosoft.com, **suivi de** geoffgrisso@contoso.com.
-> * **N’ajoutez pas** geoffgrisso@contoso.com avant d’avoir ajouté geoffgrisso@contoso.onmicrosoft.com.
+> * **N’ajoutez pas**geoffgrisso@contoso.com avant d’avoir ajouté geoffgrisso@contoso.onmicrosoft.com.
 >
 
 Si vous modifiez les informations d’un utilisateur dont l’identité est synchronisée avec votre service Active Directory local, vous ne pouvez pas modifier les informations utilisateur dans le portail Azure Classic. Pour modifier les informations d’un utilisateur, servez-vous de vos outils de gestion Active Directory locaux.
@@ -80,4 +79,3 @@ Si un utilisateur est supprimé de son annuaire de base ou s’il annule son com
 * [Administration d’Azure AD](active-directory-administer.md)
 * [Gestion des mots de passe dans Azure AD](active-directory-manage-passwords.md)
 * [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
-

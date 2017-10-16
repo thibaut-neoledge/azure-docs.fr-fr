@@ -14,17 +14,16 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 48c56e2de40a3166f22db88850c6df2489a35e8e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Déplacer des données depuis un serveur SFTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 (disponibilité générale)](data-factory-sftp-connector.md)
-> * [Version 2 (aperçu)](../connector-sftp.md)
+> * [Version 1 - Disponibilité générale](data-factory-sftp-connector.md)
+> * [Version 2 - Préversion](../connector-sftp.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de la fabrique de données, mise à la disposition générale (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif au [connecteur SFTP dans V2](../connector-sftp.md).
@@ -417,4 +416,3 @@ Consultez l’article [Guide sur les performances et le réglage de l’activit�
 Consultez les articles suivants :
 
 * [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec Activité de copie.
-

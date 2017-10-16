@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
 ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="pen-testing"></a>Test de pénétration
 Un des grands avantages de l’utilisation de Microsoft Azure pour le test et le déploiement d’applications est que vous n’êtes pas obligé d’assembler une infrastructure locale pour développer, tester et déployer vos applications. L’ensemble de l’infrastructure est prise en charge par les services de la plateforme Microsoft Azure. Vous n’avez pas à vous soucier des aspects liés à la demande, à l’acquisition, à la mise en rack et à l’empilage de votre propre matériel en local.

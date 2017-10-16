@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: 3e263b88bf6afe652e06bd8cc109c98a17269cae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: d51f0fab9cd7904071c70f23aa6e424682b4b667
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Introduction aux solutions d’hébergement de conteneur Docker solutions avec Azure Container Service 
 Azure Container Service simplifie la création, la configuration et la gestion d’un cluster de machines virtuelles préconfigurées pour exécuter des applications en conteneur. Ce service utilise une configuration optimisée d’outils de planification et d’orchestration open source bien connus. Il vous permet d’exploiter vos compétences existantes ou de faire appel à une large communauté d’experts toujours plus nombreux pour déployer et gérer des applications en conteneur sur Microsoft Azure.

@@ -1,5 +1,5 @@
 ---
-title: "Utiliser Hadoop Pig avec PowerShell dans HDInsight - Azure | Microsoft Docs"
+title: "Utiliser Hadoop Pig avec PowerShell dans HDInsight - Azure | Documents Microsoft"
 description: "Découvrez comment soumettre des tâches Pig vers un cluster Hadoop sur HDInsight à l’aide d’Azure Powershell."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: ce088b22ca45bc40252c909697153ce9e847592e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Utilisation d’Azure PowerShell pour exécuter des tâches Pig avec HDInsight
 
@@ -32,7 +31,7 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell pour soumett
 > [!NOTE]
 > Ce document ne fournit pas une description détaillée de ce que font les instructions Pig Latin utilisées dans les exemples. Pour plus d’informations sur le langage Pig Latin utilisé dans cet exemple, consultez la rubrique [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md).
 
-## <a id="prereq"></a>Prérequis
+## <a id="prereq"></a>Configuration requise
 
 * **Un cluster Azure HDInsight**
 
@@ -55,7 +54,7 @@ Les applets de commande suivantes sont utilisées lors de l’exécution des tâ
 * **Wait-AzureRmHDInsightJob**: utilise l’objet de la tâche pour vérifier le statut de la tâche. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
 * **Get-AzureRmHDInsightJobOutput** : permet de récupérer la sortie de la tâche.
 
-Les étapes suivantes montrent comment utiliser ces applets de commande pour exécuter une tâche sur votre cluster HDInsight.
+Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une tâche sur votre cluster HDInsight.
 
 1. À l’aide d’un éditeur, enregistrez le code suivant sous **pigjob.ps1**.
 
@@ -105,4 +104,3 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
-

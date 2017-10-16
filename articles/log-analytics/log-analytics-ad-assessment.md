@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 97368f0b9e89ffd0cd982b6e8670d5a1f62ad42c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Optimisez votre environnement Active Directory avec la solution d’évaluation Active Directory dans Log Analytics
 
@@ -110,7 +109,7 @@ Consultez le résumé des évaluations de conformité pour votre infrastructure,
 1. Dans la page **Vue d’ensemble**, cliquez sur la vignette **Évaluation** de votre infrastructure de serveur.
 2. Sur la page **Évaluation** , passez en revue les informations de résumé dans l’un des panneaux relatifs à un domaine, puis cliquez sur l’un d’entre eux pour afficher les recommandations y afférentes.
 3. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.  
-    ![Image des recommandations d’évaluation](./media/log-analytics-ad-assessment/ad-focus.png)
+    ![image des recommandations d'évaluation](./media/log-analytics-ad-assessment/ad-focus.png)
 4. Vous pouvez effectuer les actions correctives suggérées dans **Actions suggérées**. Une fois l’élément traité, les évaluations ultérieures indiquent que des mesures ont été prises et votre score de conformité augmente. Les éléments corrigés apparaissent comme **objets passés**.
 
 ## <a name="ignore-recommendations"></a>Ignorer les recommandations
@@ -191,4 +190,3 @@ Une fois les prochaines évaluations planifiées exécutées, par défaut tous l
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez [Recherches de journal dans Log Analytics](log-analytics-log-searches.md) pour afficher les données d’évaluation AD détaillées ainsi que les recommandations.
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Aide-mémoire pour les requêtes SQL API DocumentDB Azure Cosmos DB au format PDF
 **L’aide-mémoire pour les requêtes SQL API DocumentDB Azure Cosmos DB au format PDF** vous permet d’écrire rapidement des requêtes pour les données API DocumentDB en affichant des requêtes de base de données courantes, des mots-clés, des fonctions intégrées et des opérateurs dans une feuille de référence au format PDF facile à imprimer. 
@@ -43,5 +42,4 @@ Cosmos DB prend en charge les interrogations relationnelles, hiérarchiques et s
 
 ## <a name="release-notes"></a>Notes de publication
 Mise à jour du 29/07/2016 à inclure en haut.
-
 

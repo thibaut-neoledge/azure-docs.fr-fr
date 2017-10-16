@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 795857b0670628b105a59ce5a802620881d30425
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transactions distribuées entre bases de données cloud
 Les transactions de bases de données élastiques pour la base de données SQL Azure (SQL DB) vous permettent d’exécuter des transactions qui s’étendent sur plusieurs bases de données dans SQL DB. Ces transactions sont disponibles pour les applications .NET utilisant ADO .NET et s’intègrent à une expérience de programmation familière basée sur les classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Pour obtenir la bibliothèque, consultez [.NET Framework 4.6.1 (programme d’installation web)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -150,7 +149,6 @@ Pour toute question, contactez-nous sur le [forum SQL Database](http://social.ms
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
-
 
 
 

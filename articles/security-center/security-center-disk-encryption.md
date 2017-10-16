@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Chiffrement d’une machine virtuelle Azure
 Le Centre de sécurité Azure émet une alerte si certaines de vos machines virtuelles ne sont pas chiffrées. Ces alertes indiquant un niveau de gravité élevé, il est recommandé de chiffrer ces machines virtuelles.
@@ -115,7 +115,7 @@ Le script doit générer un résultat semblable à ce qui suit :
 ## <a name="encrypt-the-azure-virtual-machine"></a>Chiffrer la machine virtuelle Azure
 Vous êtes maintenant prêt à chiffrer votre machine virtuelle. Si votre machine virtuelle se trouve dans le même groupe de ressources que le coffre de clés, vous pouvez passer directement aux étapes du chiffrement. Dans le cas contraire, vous devez saisir la commande suivante dans la console de PowerShell ISE :
 
-**$resourceGroupName = <’Virtual_Machine_RG’>**
+**$resourceGroupName = &lt;’Virtual_Machine_RG’&gt;**
 
 Remplacez**< Virtual_Machine_RG >** par le nom du groupe de ressources dans lequel se trouvent vos machines virtuelles, en conservant les guillemets simples. Appuyez sur **Entrée**.
 Pour vérifier que le nom du groupe de ressources que vous avez saisi est correct, entrez la commande suivante dans la console PowerShell ISE :
@@ -129,7 +129,7 @@ Appuyez sur **ENTRÉE**. Le nom du groupe de ressources dans lequel se trouvent 
 ### <a name="encryption-steps"></a>Étapes du chiffrement
 Vous devez tout d’abord indiquer à PowerShell le nom de la machine virtuelle que vous souhaitez chiffrer. Dans la console, entrez la commande suivante :
 
-**$vmName = <’your_vm_name’>**
+**$vmName = &lt;’your_vm_name’&gt;**
 
 Remplacez **<’your_vm_name’>** par le nom de votre machine virtuelle (en veillant à bien conserver les guillemets simples), puis appuyez sur **ENTRÉE**.
 

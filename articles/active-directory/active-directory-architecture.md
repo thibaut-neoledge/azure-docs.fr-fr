@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: markvi
 ms.openlocfilehash: 50dad848cfbdab7f5b1fff0fcec3b5f754e6ae74
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Comprendre l’architecture Azure Active Directory
 Azure Active Directory (Azure AD) vous permet de gérer en toute sécurité l’accès aux ressources et aux services Azure pour vos utilisateurs. Azure AD comprend une suite complète de fonctionnalités de gestion des identités. Pour plus d’informations sur les fonctionnalités d’Azure AD, voir [Qu’est Azure Active Directory ?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)

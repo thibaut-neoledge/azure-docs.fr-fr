@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bae6cf7f5025936deba301dc4fd05f6fd5fd8fa6
 ms.openlocfilehash: 1d9bb681a864bdc3e5a2f9c9a531d9566b16ada4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-dns-troubleshooting-guide"></a>Guide de résolution des problèmes d’Azure DNS
 
 Cette page fournit des informations de résolution des problèmes pour les questions Azure DNS les plus fréquentes.
@@ -51,7 +49,7 @@ Pour résoudre les problèmes courants, essayez une ou plusieurs des étapes sui
 
 1.  Consultez les journaux d’audit Azure DNS pour déterminer la cause de l’échec.
 2.  Le jeu d’enregistrements existe-t-il déjà ?  Azure DNS gère les enregistrements à l’aide de *jeux* d’enregistrement, qui sont une collection d’enregistrements ayant le même nom et le même type. Si un enregistrement ayant le même nom et le même type existe déjà, pour ajouter un autre enregistrement vous devez modifier le jeu d’enregistrements existant.
-3.  Essayez-vous de créer un enregistrement à l’extrémité de la zone DNS (la « racine » de la zone) ? Si c’est le cas, la convention DNS exige d’utiliser le caractère ‘@’ comme nom d’enregistrement. Notez également que les normes DNS n’autorisent pas les enregistrements CNAME au niveau de l’extrémité de la zone.
+3.  Essayez-vous de créer un enregistrement à l’extrémité de la zone DNS (la « racine » de la zone) ? Si c’est le cas, la convention DNS exige d’utiliser le caractère ’@’ comme nom d’enregistrement. Notez également que les normes DNS n’autorisent pas les enregistrements CNAME au niveau de l’extrémité de la zone.
 4.  Constatez-vous un conflit d’enregistrement CNAME ?  Les normes DNS n’autorisent pas un enregistrement CNAME ayant le même nom qu’un enregistrement d’un autre type. Si vous avez un enregistrement CNAME existant, la création d’un enregistrement ayant le même nom mais de type différent échoue.  De même, la création d’un enregistrement CNAME échoue si le nom correspond à un enregistrement existant d’un autre type. Supprimez le conflit en supprimant l’autre enregistrement ou en choisissant un nom d’enregistrement différent.
 5.  Vous avez atteint la limite du nombre de jeux d’enregistrements autorisé dans une zone DNS ? Le nombre actuel de jeux d’enregistrement et le nombre maximal de jeux d’enregistrements sont affichés dans le portail Azure, sous les « Propriétés » de la zone. Si vous avez atteint cette limite, supprimez des jeux d’enregistrements ou contactez le Support Azure pour augmenter votre limite de jeux d’enregistrements pour cette zone, puis réessayez. 
 
@@ -106,5 +104,4 @@ Exemples de noms d’enregistrement SRV (nom de service « sip », protocole �
 * En savoir plus sur les [Enregistrements et zones DNS](dns-zones-records.md)
 * Pour commencer à utiliser le DNS Azure, découvrez comment [créer une zone DNS](dns-getstarted-create-dnszone-portal.md) et [créer des enregistrements DNS](dns-getstarted-create-recordset-portal.md).
 * Pour migrer une zone DNS, découvrez comment [importer et exporter un fichier de zone DNS](dns-import-export.md).
-
 

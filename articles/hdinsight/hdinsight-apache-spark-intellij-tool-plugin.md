@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 19cb8f436fa4d86f323013a5d4b3b50bf6c80a1a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Utiliser le kit de ressources Azure pour IntelliJ pour créer des applications Spark pour un cluster HDInsight
 
@@ -37,7 +36,7 @@ Pour créer votre projet, consultez la vidéo [Create Spark Applications with th
 > Vous pouvez utiliser ce plug-in pour créer des applications et les envoyer à un cluster HDInsight Spark sur Linux uniquement.
 > 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 - Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 - Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer à partir du [site web Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
@@ -184,7 +183,7 @@ Vous pouvez effectuer diverses opérations à l’aide du kit de ressources Azur
 
     ![Détails de l’application](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
 
-3. Pour afficher des informations de base sur les travaux en cours d’exécution, passez le curseur sur le graphe du travail. Pour afficher le graphique des étapes et les informations que chaque travail génère, sélectionnez un nœud sur le graphe du travail.
+3. Pour afficher des informations de base sur les travaux en cours d’exécution, passez le curseur sur le graphique du travail. Pour afficher le graphique des étapes et les informations que chaque travail génère, sélectionnez un nœud sur le graphique du travail.
 
     ![Détails des étapes du travail](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
 
@@ -216,7 +215,7 @@ Par défaut, le kit de ressources Azure pour IntelliJ répertorie les clusters S
 ## <a name="run-a-spark-scala-application-locally"></a>Exécuter une application Spark Scala localement
 Vous pouvez utiliser le kit de ressources Azure pour IntelliJ afin d’exécuter des applications Spark Scala localement sur votre poste de travail. En règle générale, ces applications n’ont pas besoin d’accéder aux ressources de cluster telles que les conteneurs de stockage, et elles peuvent être exécutées et testées localement.
 
-### <a name="prerequisite"></a>Prérequis
+### <a name="prerequisite"></a>Configuration requise
 Quand vous exécutez l’application Spark Scala locale sur un ordinateur Windows, vous pouvez obtenir une exception, comme l’explique le document [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Cette exception est liée à l’absence du fichier WinUtils.exe sur Windows. 
 
 Pour résoudre cette erreur, [téléchargez le fichier exécutable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) vers un emplacement tel que **C:\WinUtils\bin**. Ajoutez ensuite la variable d’environnement **HADOOP_HOME** et définissez la valeur de la variable sur **C\WinUtils**.
@@ -341,5 +340,4 @@ Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des pro
 ### <a name="managing-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight](hdinsight-apache-spark-job-debugging.md)
-
 

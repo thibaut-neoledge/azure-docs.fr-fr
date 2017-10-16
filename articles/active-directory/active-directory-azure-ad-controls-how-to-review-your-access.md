@@ -11,14 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 7029eb7e4af3bb22dff3d841e28c5b348944cd17
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-review-your-access"></a>Exécuter une révision d’accès
 
 Azure Active Directory simplifie la manière dont les entreprises gèrent l’accès aux applications et aux membres des groupes dans Azure AD et d’autres services en ligne Microsoft, avec une fonction appelée révision d’accès.  Vous avez peut-être reçu un e-mail de la part de Microsoft vous invitant à réviser l’accès, les membres d’un groupe ou les utilisateurs ayant accès à une application. 
@@ -40,7 +38,6 @@ Le réviseur peut demander que vous fournissiez une justification en cas d’acc
 ## <a name="next-steps"></a>Étapes suivantes
 
 Notez qu’un accès refusé n’est pas supprimé immédiatement, alors si vous souhaitez modifier votre réponse et accepter, réinitialisez la réponse et choisissez une nouvelle réponse.  Vous pouvez effectuer cela jusqu'à la fin de la révision d’accès.
-
 
 
 

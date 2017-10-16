@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
+ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 12c6bdf6986d57f20df9ce84a8b12a5e4c93b6ed
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licence du kit de portage du client de diffusion en continu lisse Microsoft®
 ## <a name="overview"></a>Vue d'ensemble
@@ -165,5 +164,4 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

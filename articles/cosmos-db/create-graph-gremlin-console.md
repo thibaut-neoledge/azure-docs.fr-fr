@@ -13,12 +13,11 @@ ms.devlang: terminal
 ms.topic: quickstart
 ms.date: 07/27/2017
 ms.author: denlee
+ms.openlocfilehash: ef1a54b6b9245ad091171d5c9b2966f8596edbab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: fd5cc93ce1ed2a8c7da090666ef539b338ac61c3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB : Créer, interroger et parcourir la console Gremlin
 
@@ -28,7 +27,7 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du portail Az
 
 ![Azure Cosmos DB à partir de la console Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
-La console Gremlin est basée sur Groovy/Java et s’exécute sous Linux, Mac et Windows. Vous pouvez la télécharger à partir du [site Apache TinkerPop](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip).
+La console Gremlin est basée sur Groovy/Java et s’exécute sous Linux, Mac et Windows. Vous pouvez la télécharger à partir du [site Apache TinkerPop](http://tinkerpop.apache.org/downloads.html).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -307,4 +306,3 @@ Dans ce démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB,
 
 > [!div class="nextstepaction"]
 > [Interroger à l’aide de Gremlin](tutorial-query-graph.md)
-

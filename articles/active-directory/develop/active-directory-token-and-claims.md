@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-token-reference"></a>Référence de jeton Azure AD
 Azure Active Directory (Azure AD) émet plusieurs types de jetons de sécurité lors du traitement de chaque flux d’authentification. Ce document décrit le format, les caractéristiques en matière de sécurité et le contenu de chaque type de jeton.
@@ -304,4 +303,3 @@ Outre les revendications, le jeton inclut un numéro de version dans **ver** et 
 ## <a name="related-content"></a>Contenu connexe
 * Consultez les [opérations de stratégie](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) Azure AD Graph et [l’entité de stratégie](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) pour en savoir plus sur la gestion des stratégies de durée de vie des jetons par le biais de l’API Azure AD Graph.
 * Pour plus d’informations et des exemples sur la gestion des stratégies par le biais des applets de commande PowerShell, consultez [Durées de vie de jeton configurables dans Azure AD](../active-directory-configurable-token-lifetimes.md) (en anglais). 
-

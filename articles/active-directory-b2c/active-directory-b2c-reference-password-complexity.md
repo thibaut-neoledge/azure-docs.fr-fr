@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: ab5547ef76121aa395168844bd69759613ffc045
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C : configurer les exigences de complexité des mots de passe
 
 Azure Active Directory B2C (Azure AD B2C) prend en charge la modification des exigences de complexité des mots de passe fournis par un utilisateur final à la création d’un compte.  Par défaut, Azure AD B2C utilise des mots de passe `Strong`.  Azure AD B2C prend également en charge les options de configuration permettant de contrôler la complexité des mots de passe utilisables par les clients.
@@ -80,4 +78,3 @@ Permet de contrôler les différents types de caractères utilisés dans le mot 
 
     > [!NOTE]
     > La condition **4 sur 4** peut contrarier l’utilisateur final. Des études ont montré qu’elle n’améliore pas l’entropie du mot de passe. Consultez les [Recommandations du NIST en matière de mots de passe](https://pages.nist.gov/800-63-3/sp800-63b.html#appA).
-

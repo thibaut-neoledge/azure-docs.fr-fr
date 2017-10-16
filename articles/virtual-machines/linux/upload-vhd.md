@@ -15,12 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 7c297725c26ea6c44403a10ecdcc3542f89f10b4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI 2.0
 
@@ -61,7 +60,7 @@ Pour effectuer les étapes suivantes, vous avez besoin des éléments suivants 
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *mystorageaccount* et *mydisks*.
 
-<a id="prepimage"> </a>
+<a id="prepimage"></a>
 
 ## <a name="prepare-the-vm"></a>Préparation de la machine virtuelle
 
@@ -226,5 +225,4 @@ Vous devriez pouvoir utiliser SSH pour vous connecter à la machine virtuelle en
 
 ## <a name="next-steps"></a>Étapes suivantes
 Après avoir préparé et chargé votre disque virtuel personnalisé, vous pouvez découvrir plus d’informations sur [l’utilisation de Resource Manager et des modèles](../../azure-resource-manager/resource-group-overview.md). Vous pouvez également [ajouter un disque de données](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) à vos nouvelles machines virtuelles. Si vous avez besoin d’accéder à des applications qui s’exécutent sur vos machines virtuelles, veillez à [ouvrir les ports et points de terminaison](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 

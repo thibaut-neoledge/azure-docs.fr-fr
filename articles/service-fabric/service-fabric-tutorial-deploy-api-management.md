@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
+ms.openlocfilehash: 705212675fc0a869a4374f621d5f2d7e035294dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 1cadb543660b636ce7f0285973e6fb4141841b99
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-api-management-with-service-fabric"></a>Déployer la Gestion des API avec Service Fabric
 Ce didacticiel est le deuxième d’une série. Il vous montre comment configurer la [Gestion des API Azure](../api-management/api-management-key-concepts.md) avec Service Fabric pour acheminer le trafic vers un service principal dans Service Fabric.  Lorsque vous aurez terminé, vous aurez déployé la Gestion des API sur un réseau virtuel et configuré une opération d’API pour qu’elle envoie le trafic aux services sans état principaux. Pour en savoir plus sur les scénarios de gestion des API Azure avec Service Fabric, consultez l’article [Vue d’ensemble](service-fabric-api-management-overview.md).
 
@@ -32,7 +30,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Configuration de Gestion des API
 > * Création d’une opération d’API
 > * Configuration d’une stratégie de principal
-> * Ajout de l’API à un produit
+> * Ajouter l’API à un produit
 
 Cette série de didacticiels vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]

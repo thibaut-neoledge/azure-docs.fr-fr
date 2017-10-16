@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: febf9d9f8a32a95ae61734cc2d3632bb74f6c8f5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="learn-how-to-provision-and-catalog-new-tenants-and-register-them-in-the-catalog"></a>Découvrez comment approvisionner et cataloguer de nouveaux locataires, et les inscrire dans le catalogue.
 
@@ -71,7 +70,7 @@ L’application SaaS Wingtip approvisionne les nouveaux clients en copiant une b
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
 
-Les scripts et le code source de l’application SaaS Wingtip sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Étapes de téléchargement des scripts SaaS Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+Les scripts et le code source de l’application SaaS Wingtip sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procédure de téléchargement des scripts SaaS Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Procédure pas à pas détaillée sur l’approvisionnement et l’inscription dans le catalogue
@@ -176,4 +175,3 @@ Essayez le [didacticiel Surveillance des performances](sql-database-saas-tutoria
 * Autres [didacticiels reposant sur l’application SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Bibliothèque cliente de base de données élastique](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
 * [Déboguer les scripts dans l’ISE Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
-

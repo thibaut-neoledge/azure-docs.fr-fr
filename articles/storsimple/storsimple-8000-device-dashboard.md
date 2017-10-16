@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 784d3ce9d8f926b00ac1c6fbf48a05c0b04f900a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Utiliser le panneau de synthèse de l’appareil dans le service StorSimple Device Manager
 
@@ -96,5 +95,4 @@ La zone des éléments principaux comporte quelques-unes des propriétés import
 ## <a name="next-steps"></a>Étapes suivantes
 * Accédez à des informations supplémentaires sur le [panneau de synthèse du service StorSimple](storsimple-8000-service-dashboard.md).
 * Découvrez plus en détail comment [utiliser le service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 899f20b3642612386f2513c9c8649cd845be826e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importer des données en parallèle et en bloc à l’aide de tables de partition SQL
 Ce document décrit comment créer une ou plusieurs tables partitionnées pour importer des données rapidement, en parallèle et en bloc dans une base de données SQL Server. Dans le cas d’un chargement ou d’un transfert volumineux dans une base de données SQL, les *vues et tables partitionnées*permettent d’améliorer l’importation des données et le traitement des requêtes. 
@@ -180,5 +179,4 @@ Le script PowerShell suivant est un exemple de chargement de données en parall�
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Exemple de processus d’analyse avancé et technologie en action
 Pour obtenir un exemple de procédure pas à pas complet utilisant le processus Cortana Analytics avec un jeu de données public, consultez [Processus Cortana Analytics en action : utilisation de SQL Server](sql-walkthrough.md).
-
 

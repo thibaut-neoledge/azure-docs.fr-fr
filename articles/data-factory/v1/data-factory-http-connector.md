@@ -14,17 +14,16 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6765939785f73b44d136fe4ed9d1a35e67fe4111
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Déplacer des données à partir d’une source HTTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 (disponibilité générale)](data-factory-http-connector.md)
-> * [Version 2 (aperçu)](../connector-http.md)
+> * [Version 1 - Disponibilité générale](data-factory-http-connector.md)
+> * [Version 2 - Préversion](../connector-http.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de la fabrique de données, mise à la disposition générale (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif au [connecteur HTTP dans V2](../connector-http.md).
@@ -368,4 +367,3 @@ Pour obtenir la liste des propriétés prises en charge par le type HttpSource, 
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
-

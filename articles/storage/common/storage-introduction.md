@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: tamram
+ms.openlocfilehash: e7b32aa2de5d6501e8d7894a936e9ab8b2f4f42f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a854a0033c365336c5ab13fb65524d84da92618c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduction à Microsoft Azure Storage
 
 Le stockage Microsoft Azure est un service cloud géré par Microsoft qui fournit un stockage hautement disponible, sécurisé, durable, évolutif et redondant. Microsoft prend en charge la maintenance et gère les problèmes critiques pour vous. 

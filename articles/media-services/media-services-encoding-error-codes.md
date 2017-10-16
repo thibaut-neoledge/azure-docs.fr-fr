@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b341416f837d03e0532b4f8c0a3f3f85641a8995
-ms.openlocfilehash: d1e6421404d9c8845eb3ccd30d84c0c8cf5930b8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: f4fd2212d19f89148dde08c75c5a48cdd322d029
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="encoding-error-codes"></a>Codes d’erreur d’encodage
 
 Le tableau suivant répertorie les codes d’erreur susceptibles d’être renvoyés à la suite d’une erreur d’exécution d’une tâche de codage.  Pour obtenir les détails de l’erreur dans votre code .NET, utilisez la classe [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) . Pour obtenir les détails de l’erreur dans votre code REST, utilisez l’API REST [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) .
@@ -53,4 +51,3 @@ Pour obtenir de l’aide de la part de l’équipe **Media Services** , ouvrez u
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1170ee7232e1046e194f5223f7b7bf582ef18dfe
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copier des données à partir de Sybase à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +38,7 @@ Plus précisément, ce connecteur Sybase prend en charge :
 - Sybase **version 16 et ultérieures**
 - Copie des données avec l’authentification **De base** ou **Windows**.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour utiliser ce connecteur Sybase, vous devez :
 
@@ -64,7 +63,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Sybase :
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données Sybase.<br/>Les valeurs autorisées sont **De base** et **Windows**. |Oui |
 | username | Spécifiez le nom d’utilisateur associé à la connexion à la base de données Sybase. |Oui |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ comme SecureString. |Oui |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter au magasin de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
 
 **Exemple :**
 
@@ -95,11 +94,11 @@ Les propriétés suivantes sont prises en charge pour le service lié Sybase :
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les jeux de données. Cette section fournit une liste des propriétés prises en charge par le jeu de données Sybase.
 
-Pour copier des données à partir de Sybase, affectez la valeur **RelationalTable** à la propriété de type du jeu de données. Les propriétés suivantes sont prises en charge :
+Pour copier des données à partir de Sybase, affectez la valeur **RelationalTable** à la propriété de type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
-| type | La propriété de type du jeu de données doit être définie sur **RelationalTable** | Oui |
+| type | La propriété type du jeu de données doit être définie sur **RelationalTable** | Oui |
 | TableName | Nom de la table dans la base de données Sybase. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -125,12 +124,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="sybase-as-source"></a>Sybase en tant que source
 
-Pour copier des données à partir de Sybase, définissez **RelationalSource** comme type source de l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+Pour copier des données à partir de Sybase, définissez **RelationalSource** comme type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
-| type | La propriété de type de la source d’activité de copie doit être **RelationalSource**. | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire des données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » dans dataset est spécifié) |
+| type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 
@@ -172,4 +171,4 @@ Sybase prend en charge les types T-SQL. Pour obtenir une table de mappage entre 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md##supported-data-stores-and-formats).
+Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

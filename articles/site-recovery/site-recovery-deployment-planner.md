@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
 ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery deployment planner
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
@@ -271,7 +271,7 @@ Le rapport Microsoft Excel généré contient les informations suivantes :
 * [Input](site-recovery-deployment-planner.md#input)
 * [Recommandations](site-recovery-deployment-planner.md#recommendations-with-desired-rpo-as-input)
 * [Recommandations : entrée de bande passante](site-recovery-deployment-planner.md#recommendations-with-available-bandwidth-as-input)
-* [VM<->Storage Placement](site-recovery-deployment-planner.md#vm-storage-placement)
+* [VM&lt;-&gt;Storage Placement](site-recovery-deployment-planner.md#vm-storage-placement)
 * [Compatible VMs](site-recovery-deployment-planner.md#compatible-vms)
 * [Incompatible VMs](site-recovery-deployment-planner.md#incompatible-vms)
 

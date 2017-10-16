@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ed3dc8d441989239f02e12231f06d22fbef9d3dd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="project-lead-tasks"></a>Tâches du coordinateur de projet
 
 Ce didacticiel décrit de façon succincte les tâches qu’un coordinateur de projet est censé effectuer pour son équipe de projet. L’objectif est d’établir un environnement d’équipe collaborative standard conforme à [TDSP](overview.md) (Team Data Science Process). TDSP est un cadre élaboré par Microsoft qui propose une succession structurée d’activités visant à exécuter des solutions d’analytique prédictive basées sur le cloud avec efficacité. Pour obtenir une description sommaire des différents rôles au sein de l’équipe de science des données et des tâches qui incombent à ses membres dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
@@ -31,7 +29,7 @@ Un **coordinateur de projet** gère les activités quotidiennes des différents 
 
 Cette rubrique couvre actuellement les tâches 1, 2 et 6 de ce flux de travail pour coordinateurs de projet.
 
->[AZURE.NOTE] Dans les instructions suivantes, nous décrivons brièvement les étapes à suivre pour configurer un environnement d’équipe TDSP pour un projet utilisant Visual Studio Team Services (VSTS). Nous indiquons comment effectuer ces tâches avec VSTS, car c’est ainsi que nous implémentons TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches qui incombent au responsable d’équipe sont généralement identiques. En revanche, c’est la façon de les effectuer qui va être différente.
+>[AZURE.NOTE] Dans les instructions suivantes, nous décrivons brièvement les étapes à suivre pour configurer un environnement d’équipe TDSP pour un projet utilisant Visual Studio Team Services (VSTS). Nous indiquons comment effectuer ces tâches avec VSTS, car c’est ainsi que nous implémentons TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui va être différente.
 
 
 ## <a name="repositories-and-directories"></a>Dépôts et répertoires
@@ -41,10 +39,10 @@ Dans ce didacticiel, les noms des dépôts et des répertoires sont abrégés. C
 - **R3** : dépôt Git **ProjectTemplate** de l’équipe que votre responsable d’équipe a configuré.
 - **R5** : dépôt Git du projet que vous avez configuré pour votre projet.
 - **D3** : répertoire local cloné à partir de R3.
-- **D5** : répertoire local cloné à partir de R5.
+- **D5** : le répertoire local cloné à partir de R5.
 
 
-## <a name="0-prerequisites"></a>0. Prérequis
+## <a name="0-prerequisites"></a>0. Composants requis
 
 Pour satisfaire les prérequis, il convient de mener à bien les tâches affectées à votre responsable de groupe décrites dans [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md), de même que celles affectées à votre responsable d’équipe décrites dans [Coordinateur d’équipe pour une équipe de science des données](team-lead-tasks.md). 
 
@@ -53,9 +51,9 @@ Pour résumer, avant de commencer les tâches du responsable d’équipe, voici 
 - Votre **serveur de groupe VSTS** (ou compte de groupe sur une autre plateforme d’hébergement de code) a été configuré par votre responsable de groupe.
 - Votre responsable d’équipe a configuré votre **dépôt TeamProjectTemplate** (R3) sous votre compte de groupe sur la plateforme d’hébergement de code que vous prévoyez d’utiliser.
 - Votre responsable d’équipe vous a **autorisé** à créer des dépôts sur votre compte de groupe pour votre équipe.
-- Git doit être installé sur votre ordinateur. Si vous utilisez une instance DSVM (Data Science Virtual Machine), Git a été préinstallé et vous êtes prêt à commencer. Dans le cas contraire, consultez l’[annexe Plateformes et outils](platforms-and-tools.md#appendix).  
-- Si vous utilisez une instance **DSVM Windows**, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) doit être installé sur votre ordinateur. Dans le fichier README.md, accédez à la section **Download and Install**, puis cliquez sur *latest installer*. Vous accédez alors à la page du programme d’installation le plus récent. Téléchargez-le et exécutez le fichier.exe. 
-- Si vous utilisez une instance **DSVM Linux**, créez une clé publique SSH sur votre DSVM et ajoutez-la au serveur VSTS de votre groupe. Pour plus d’informations sur SSH, consultez la section **Créer une clé publique SSH** dans l’[annexe Plateformes et outils](platforms-and-tools.md#appendix). 
+- Git doit être installé sur votre ordinateur. Si vous utilisez une image Data Science Virtual Machine (DSVM), Git a été préinstallé et vous êtes prêt à commencer. Dans le cas contraire, consultez l’[annexe Plateformes et outils](platforms-and-tools.md#appendix).  
+- Si vous utilisez une image **DSVM Windows**, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) doit être installé sur votre machine. Dans le fichier README.md, accédez à la section **Dowload and Install** (Téléchargement et installation), puis cliquez sur *latest installer* (programme d’installation le plus récent). Vous accédez à la page du programme d’installation le plus récent. Téléchargez le programme d’installation .exe et exécutez-le. 
+- Si vous utilisez une image **DSVM Linux**, créez une clé publique SSH sur votre image DSVM et ajoutez-la à votre serveur VSTS de groupe. Pour plus d’informations sur SSH, consultez la section **Créer une clé publique SSH** de l’[annexe Plateformes et outils](platforms-and-tools.md#appendix). 
 
 
 ## <a name="1-create-a-project-repository-r5"></a>1. Créer un dépôt de projet (R5)

@@ -15,16 +15,15 @@ ms.topic: article
 ms.date: 08/27/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: b07386eeb0d3e05a0b4545be39030066fbdafd3d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Joindre un nouvel appareil Windows 10 à Azure AD lors de la première utilisation
 
-La gestion des appareils d’Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos standards de conformité et de sécurité. Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
+La fonction de gestion des appareils intégrée à Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
 
 Dans Windows 10, vous pouvez joindre un nouvel appareil à Azure AD dès la première utilisation.  
 Ainsi, vous pouvez distribuer des appareils neufs à vos employés ou étudiants.
@@ -44,7 +43,7 @@ Pour joindre un appareil Windows 10, le service d’inscription des appareils do
 **Pour joindre un appareil Windows 10 à Azure AD lors de la première utilisation :**
 
 
-1. Lorsque vous allumez votre nouvel appareil et démarrez le processus d'installation, vous voyez apparaître le message **Préparation**. Suivez les invites pour configurer votre appareil.
+1. Lorsque vous mettez sous tension votre nouveau périphérique et démarrez le processus d'installation, le message **Préparation** s’affiche. Suivez les invites pour configurer votre appareil.
 
 2. Commencez par personnaliser votre région et votre langue. Ensuite, acceptez les termes du contrat de licence du logiciel Microsoft.
  
@@ -87,4 +86,3 @@ Pour vérifier si un appareil est joint à Azure AD, consultez la boîte de dial
 - Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
 
 - Pour plus d’informations sur la gestion des appareils dans le portail Azure AD, consultez [Gestion des appareils via le portail Azure](device-management-azure-portal.md).
-

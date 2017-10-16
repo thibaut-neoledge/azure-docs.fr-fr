@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : configuration de Google Apps pour l’attribution automatique d’utilisateurs dans Azure | Microsoft Docs"
+title: "Didacticiel : configuration de Google Apps pour l’approvisionnement automatique d’utilisateurs dans Azure | Documents Microsoft"
 description: "Découvrez comment approvisionner et déprovisionner automatiquement des comptes utilisateur d’Azure AD vers Google Apps."
 services: active-directory
 documentationCenter: na
@@ -13,28 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: e8ca7fdacf8361570d88260b3c359ee6e2fd3e17
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Didacticiel : configurer Google Apps pour l’approvisionnement automatique des utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer comment approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure Active Directory (Azure AD) vers Google Apps.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-*   Un locataire Azure Active Directory
+*   Un locataire Azure Active Directory.
 *   Un locataire valide pour Google Apps for Work ou Google Apps for Education Vous pouvez utiliser un compte d’essai gratuit pour chaque service.
 *   Un compte utilisateur dans Google Apps avec les autorisations d’administrateur d’équipe.
 
 ## <a name="assign-users-to-google-apps"></a>Affecter des utilisateurs à Google Apps
 
-Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique de comptes d’utilisateur, seuls les utilisateurs et les groupes qui ont été « affectés » à une application dans Azure AD sont synchronisés.
+Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique de comptes utilisateur, seuls les utilisateurs et les groupes qui ont été « assignés » à une application dans Azure AD sont synchronisés.
 
 Avant de configurer et d’activer le service d’approvisionnement, vous devez déterminer quels utilisateurs ou groupes dans Azure AD ont besoin d’accéder à votre application Google Apps. Une fois cette décision prise, vous pouvez affecter ces utilisateurs à votre application Google Apps en suivant les instructions fournies dans [affecter un utilisateur ou un groupe à une application d’entreprise](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
@@ -48,7 +47,7 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 Cette section vous guide tout au long du processus de connexion de votre annuaire Azure AD à l’API d’approvisionnement de comptes d’utilisateur de Google Apps. Elle vous aide également à configurer le service d’approvisionnement pour créer, mettre à jour et désactiver les comptes d’utilisateur affectés dans Google Apps en fonction de l’affectation d’utilisateurs et de groupes dans Azure AD.
 
 >[!TIP]
->Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Google Apps, en suivant les instructions fournies dans le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que chacune de ces deux fonctionnalités complète l’autre.
+>Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Google Apps, en suivant les instructions fournies dans le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que chacune de ces deux fonctionnalités compléte l’autre.
 
 ### <a name="configure-automatic-user-account-provisioning"></a>Configurer l’approvisionnement automatique d’un compte utilisateur
 
@@ -179,4 +178,3 @@ Vous pouvez utiliser la section **Détails de la synchronisation** pour surveill
 [26]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-admin.png
 [27]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-admin-privileges.png
 [28]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-auth.png
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 5f02b6be1fde4026057000bed4e8014cb56ccf9a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bonnes pratiques pour la sécurité Azure Service Fabric
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer votre application cloud dans l’environnement de production, passez en revue la liste des bonnes pratiques essentielles et recommandées pour l’implémentation de clusters sécurisés dans votre application.
@@ -28,7 +27,7 @@ Azure Service Fabric est une plateforme de systèmes distribués qui facilite le
 
 Pour chaque bonne pratique, nous détaillons les éléments suivants :
 
--   La nature de la bonne pratique
+-   la nature de la meilleure pratique ;
 -   La raison pour laquelle vous devez l’implémenter
 -   Ce qui peut se produire si vous ne l’implémentez pas
 -   La façon d’apprendre à l’utiliser
@@ -37,7 +36,7 @@ Nous recommandons les bonnes pratiques suivantes pour la sécurité Azure Servic
 
 -   Utiliser des modèles Azure Resource Manager et le module PowerShell Service Fabric pour créer les clusters sécurisés.
 -   Utiliser des certificats X.509.
--   Configurer des stratégies de sécurité.
+-   configurer des stratégies de sécurité ;
 -   Implémenter la configuration de la sécurité de Reliable Actors.
 -   Configurer SSL pour Azure Service Fabric.
 -   Utiliser la sécurité et l’isolement réseau avec Azure Service Fabric.
@@ -186,4 +185,3 @@ Azure Service Fabric prend en charge deux types de contrôle d’accès pour les
 ## <a name="next-steps"></a>Étapes suivantes
 - Configurez votre [environnement de développement](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) Service Fabric.
 - Découvrez les [options de support de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
-

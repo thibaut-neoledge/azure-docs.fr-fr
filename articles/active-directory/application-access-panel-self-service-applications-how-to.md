@@ -15,10 +15,10 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
 ms.openlocfilehash: 08a05a70d976104d4e0a37b0a0dd15042b0212d8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-self-service-application-access"></a>Guide pratique pour utiliser l’accès aux applications en libre-service
 
@@ -74,7 +74,7 @@ Pour activer l’accès en libre-service à une application, procédez comme sui
 
    * Les groupes ne sont pas pris en charge.
 
-13. **Facultatif :** **pour les applications qui exposent des rôles**, si vous souhaitez attribuer un rôle à des utilisateurs approuvés en libre-service, cliquez sur le sélecteur en regard de l’option  **À quel rôle attribuer des utilisateurs dans cette application ?** pour sélectionner le rôle à affecter à ces utilisateurs.
+13. **Facultatif :****pour les applications qui exposent des rôles**, si vous souhaitez attribuer un rôle à des utilisateurs approuvés en libre-service, cliquez sur le sélecteur en regard de l’option  **À quel rôle attribuer des utilisateurs dans cette application ?** pour sélectionner le rôle à affecter à ces utilisateurs.
 
 14. Cliquez sur le bouton **Enregistrer** en haut du volet pour terminer.
 

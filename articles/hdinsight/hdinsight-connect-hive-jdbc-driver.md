@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: c57684133ac7e5dfd2cc273db0e1ceca78679178
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Requête Hive via le pilote JDBC dans HDInsight
 
@@ -207,4 +206,3 @@ Maintenant que vous avez vu comment utiliser JDBC avec Hive, utilisez les liens
 * [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
-

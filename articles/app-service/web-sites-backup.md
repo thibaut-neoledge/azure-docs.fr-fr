@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 041847f2f341528c742d127f5d624e60c26e01fe
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
 La fonctionnalité de sauvegarde et de restauration d’[Azure App Service](app-service-web-overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application. 
@@ -172,5 +171,4 @@ Pour plus d’informations sur la restauration d’une application à partir d�
 [LogsFolder]: ./media/web-sites-backup/12Logs.png
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
 [kudu-portal]:./media/web-sites-backup/kudu-portal.PNG
-
 

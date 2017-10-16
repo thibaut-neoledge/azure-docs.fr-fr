@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 158b0b65ba53630050275c910f2a7acfc39b8759
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Fonctionnalités et outils pour Bash dans Azure Cloud Shell
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
@@ -77,4 +75,3 @@ Les fichiers en dehors de `$Home` et de l’état de la machine ne sont pas cons
 ## <a name="next-steps"></a>Étapes suivantes
 [Démarrage rapide de Bash dans Cloud Shell](quickstart.md) <br>
 [En savoir plus sur Azure CLI 2.0](https://docs.microsoft.com/cli/azure/)
-

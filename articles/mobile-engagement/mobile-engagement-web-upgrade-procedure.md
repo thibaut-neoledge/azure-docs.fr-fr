@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
 ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Procédures de mise à niveau du SDK web Azure Mobile Engagement
 Si vous avez déjà intégré une version antérieure du Kit de développement logiciel (SDK) web Azure Mobile Engagement à votre application web, vous devez considérer les points suivants lorsque vous mettez à niveau le Kit de développement logiciel (SDK).

@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 2af6dff4ffcdf295731f2d61b5f9e35af40615e5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-store"></a>sfctl store
-Effectue des opérations élémentaire au niveau des fichiers dans le magasin d’images de cluster.
+Effectue des opérations élémentaires au niveau des fichiers dans le magasin d’images de cluster.
 
 ## <a name="commands"></a>Commandes
 
@@ -78,5 +77,5 @@ Retourne les informations sur le contenu du magasin d’images dans le chemin d�
 | --verbose             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Configurez](service-fabric-cli.md) l’interface de ligne de commande Service Fabric.
+- [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

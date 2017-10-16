@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: afc4790d5714ce7145c8f4291a05acc2e9882a9b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="test-failover-vmm-to-vmm-in-site-recovery"></a>Test de basculement (VMM vers VMM) dans Site Recovery
 
@@ -118,4 +117,3 @@ Lorsque vous effectuez un test de basculement, nous vous conseillons de choisir 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois que votre test de basculement a réussi, vous pouvez essayer d’effectuer un [basculement](site-recovery-failover.md).
-

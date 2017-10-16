@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e5f04f3b9135167c0f339c58323ebd931b260109
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Connecter des ordinateurs Windows au service Log Analytics dans Azure
 
@@ -320,4 +319,3 @@ Si vous utilisez Operations Manager dans votre infrastructure informatique, vous
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Ajoutez des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md) pour ajouter des fonctionnalités et collecter des données.
-

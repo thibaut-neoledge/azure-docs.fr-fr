@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
-ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
 ms.openlocfilehash: 3d032593b8eba89479829121a9745692e0f1f456
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Attribuer à une identité de service administré (MSI) un accès à une ressource à l’aide de PowerShell
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -64,5 +62,4 @@ En cas d’inexactitude, vous devez redéployer l’identité du service adminis
 - Pour activer l’identité du service administré sur une machine virtuelle Azure, consultez [Configurer l’Identité du service administré (MSI) d’une machine virtuelle Azure à l’aide de PowerShell](msi-qs-configure-powershell-windows-vm.md).
 
 Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
-
 

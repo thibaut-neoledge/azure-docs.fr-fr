@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: jgao
 ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Utilisation de l’Explorateur de travaux et la Vue des travaux pour les travaux Azure Data Lake Analytics
 Le service Azure Data Lake Analytics archive les travaux soumis dans un [magasin de requêtes](#query-store). Dans cet article, vous allez apprendre à utiliser l’Explorateur de travaux et la Vue des travaux dans Azure Data Lake Tools pour Visual Studio pour trouver les informations d’historique des travaux. 

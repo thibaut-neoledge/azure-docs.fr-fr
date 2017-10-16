@@ -15,14 +15,12 @@ ms.date: 09/06/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: fa8f63c8da5019ed42ea8ec067d3d3d174976dd8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publier le Bureau à distance avec le proxy d’application Azure AD
 
 Les Services Bureau à distance et le proxy d’application Azure AD fonctionnent ensemble pour améliorer la productivité des employés qui sont à l’extérieur du réseau d’entreprise. 
@@ -133,4 +131,3 @@ Pour utiliser l’authentification PassThrough, seulement deux modifications doi
 
 [Activer l’accès distant pour SharePoint avec le proxy d’application Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
 [Considérations de sécurité pour l’accès aux applications à distance à l’aide du proxy d’application Azure AD](application-proxy-security-considerations.md)
-

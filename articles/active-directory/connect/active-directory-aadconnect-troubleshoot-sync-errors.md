@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: 5a319de69c4e142414ab8f2be980a6576acbf8bb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Résolution des erreurs lors de la synchronisation
 Des erreurs peuvent se produire lorsque les données d’identité sont synchronisées à partir de Windows Server Active Directory (AD DS) vers Azure Active Directory (Azure AD). Cet article fournit une vue d’ensemble des différents types d’erreurs de synchronisation, certains des scénarios qui provoquent ces erreurs et les méthodes possibles pour les résoudre. Cet article inclut les types d’erreur courants et peut ne pas couvrir toutes les erreurs possibles.
@@ -223,4 +222,3 @@ Lorsqu’un attribut dépasse la limite de taille autorisée, la longueur maxima
 ## <a name="related-links"></a>Liens connexes
 * [Recherche d’objets Active Directory dans le centre d’administration Active Directory](https://technet.microsoft.com/library/dd560661.aspx)
 * [Comment faire pour interroger Azure Active Directory pour un objet à l’aide d’Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
-

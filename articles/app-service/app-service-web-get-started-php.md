@@ -15,12 +15,11 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a91f9b6693476f68ef0e64fb0283ded2cedec29f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Créer une application web PHP dans Azure
 
@@ -56,7 +55,7 @@ Exécutez l’application localement en ouvrant une fenêtre de terminal et en u
 php -S localhost:8080
 ```
 
-Ouvrez un navigateur web et accédez à l’exemple disponible à l’adresse `http://localhost:8080`.
+Ouvrez un navigateur web et accédez à l’application exemple à l’adresse `http://localhost:8080`.
 
 Vous voyez apparaître sur la page le message **Hello World !** de l’exemple d’application.
 
@@ -160,4 +159,3 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 
 > [!div class="nextstepaction"]
 > [PHP avec MySQL](app-service-web-tutorial-php-mysql.md)
-

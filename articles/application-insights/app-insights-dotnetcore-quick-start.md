@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
+ms.openlocfilehash: 558c3c65a811a228f9d8ecae7ce41798ac8178c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 44296c282f60a98b22dfd59265876645ccef092b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Démarrer l’analyse de votre application web ASP.NET Core
 
 Azure Application Insights vous permet d’analyser facilement la disponibilité, les performances et l’utilisation de votre application web. De plus, vous pouvez rapidement identifier et diagnostiquer les erreurs dans votre application sans attendre qu’un utilisateur ne les signale. 
@@ -59,7 +57,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
    | **Emplacement** | Est des États-Unis | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
 
-2. Cliquez sur **Create**.
+2. Cliquez sur **Créer**.
 
 ## <a name="configure-app-insights-sdk"></a>Configurer le Kit de développement logiciel (SDK) Application Insights
 
@@ -128,5 +126,4 @@ Si vous envisagez d’utiliser ces autres guides de démarrage rapide ou les did
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Rechercher et diagnostiquer des problèmes de performances](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
-
+> [Rechercher et diagnostiquer des exceptions runtime](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-tutorial-runtime-exceptions)

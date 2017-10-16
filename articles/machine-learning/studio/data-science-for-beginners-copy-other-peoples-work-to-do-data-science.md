@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1c767a3fc6605c3e2400bda637d91031393360a5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copier le travail d’autres personnes pour des projets de science des données
 ## <a name="video-5-data-science-for-beginners-series"></a>Vidéo 5 : série Science des données pour les débutants
@@ -95,4 +94,3 @@ Nous vous invitons à consulter les autres vidéos de la série « Science des d
 ## <a name="next-steps"></a>Étapes suivantes
 * [Menez votre première expérience de science des données avec Azure Machine Learning](create-experiment.md)
 * [Consultez la présentation de Machine Learning sur Microsoft Azure](what-is-machine-learning.md)
-

@@ -17,10 +17,10 @@ ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.openlocfilehash: ec95b6d66c71b4278dd1e16807fcc75f5e8b1c36
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Personnalisation de clusters HDInsight basés sur Windows à l'aide d'une action de script
 **action de script** peut être utilisée pour appeler des [scripts personnalisés](hdinsight-hadoop-script-actions.md) pendant le processus de création de cluster pour l’installation de logiciels supplémentaires sur un cluster.

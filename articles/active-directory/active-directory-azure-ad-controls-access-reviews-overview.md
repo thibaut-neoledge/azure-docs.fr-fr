@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: d803e814828132aa5c8355de6192e45cd9e902b0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-access-reviews-preview"></a>Révisions d’accès Azure AD (préversion)
 
 Les révisions d’accès permettent aux organisations de gérer efficacement les appartenances à des groupes et les accès aux applications d’entreprise. 
@@ -36,9 +34,8 @@ Les révisions d’accès permettent aux organisations de gérer efficacement le
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Gérer les accès des utilisateurs avec les révisions d’accès Azure AD](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-- [Gérer les accès des invités avec les révisions d’accès Azure AD](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-- [Gérer les programmes et les contrôles pour les révisions d’accès Azure AD](active-directory-azure-ad-controls-manage-programs-controls.md)
+- [Manage user access with Azure AD access reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md) (Gérer l’accès des utilisateurs avec les révisions d’accès Azure AD)
+- [Manage guest access with Azure AD access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md) (Gérer l’accès des invités avec les révisions d’accès Azure AD)
+- [Manage programs and controls for Azure AD access reviews](active-directory-azure-ad-controls-manage-programs-controls.md) (Gérer les programmes et les contrôles pour la révision d’accès Azure AD)
 - [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md) (Créer une révision de l’accès des membres d’un groupe ou de l’accès à une application)
-- [Créer une révision d’accès des utilisateurs dans un rôle d’administrateur Azure AD](active-directory-privileged-identity-management-how-to-start-security-review.md)
-
+- [Create an access review of users in an Azure AD administrative role](active-directory-privileged-identity-management-how-to-start-security-review.md) (Créer une révision d’accès pour les utilisateurs dans un rôle administratif d’Azure AD)

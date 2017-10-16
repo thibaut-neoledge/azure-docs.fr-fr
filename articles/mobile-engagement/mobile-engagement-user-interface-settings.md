@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-the-global-settings-of-your-application"></a>Comment gérer les paramètres globaux de votre application
 Les options de menu **Paramètres** disponibles pour une application dépendent de la plateforme de l’application et des autorisations qui vous ont été accordées pour cette application. Les paramètres suivants sont inclus : Détails, Projets, Native Push, Push Speed, Balise (Information sur l’application) et Pression commerciale. L’option de menu Balise (Informations sur l’application) peut être gérée par votre application (à l’aide du Kit de développement logiciel (SDK)) ou par votre backend (à l’aide de l’API d’appareil). 

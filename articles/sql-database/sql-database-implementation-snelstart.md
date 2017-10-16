@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 ms.openlocfilehash: 3861814974b95f0c65879158cb02ec727a25c99f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Avec Azure, SnelStart a rapidement développé ses services d’entreprise au rythme de 1 000 nouvelles bases de données Azure SQL Database par mois
 ![Logo SnelStart](./media/sql-database-implementation-snelstart/snelstartlogo.png)

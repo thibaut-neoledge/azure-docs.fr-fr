@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6d7eeaf460674c3ab98425a5412ffa465b9ffd1d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitation des requêtes de Resource Manager
 Pour chaque abonnement et locataire, Resource Manager limite les requêtes de lecture à 15 000 par heure et les requêtes d’écriture à 1 200 par heure. Ces limites s’appliquent à chaque instance Azure Resource Manager. Chaque région Azure comporte plusieurs instances, et Azure Resource Manager est déployé dans toutes les régions Azure.  Par conséquent, dans la pratique, les limites sont effectivement beaucoup plus importantes que celles répertoriées ci-dessus, car les requêtes utilisateur sont généralement prises en charge par de nombreuses instances différentes.

@@ -14,12 +14,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: richrund
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 6807ab67e3593da82c147669b29bfdae3b6c967c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gérer Log Analytics à l’aide de PowerShell
 Vous pouvez utiliser les [applets de commande PowerShell Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) pour exécuter diverses fonctions dans Log Analytics à partir d’une ligne de commande ou via un script.  Voici quelques exemples des tâches que vous pouvez effectuer avec PowerShell :
@@ -266,5 +265,4 @@ Vous pouvez également utiliser le script précédent pour collecter les journau
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Passez en revue les applets de commande PowerShell de Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) pour obtenir plus d’informations sur l’utilisation de PowerShell pour configurer Log Analytics.
-
 

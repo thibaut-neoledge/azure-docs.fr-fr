@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 9a17c984f5ca801dfa017f1d6fc8fa5ccdeaf39b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-hive-data-with-microsoft-power-bi-in-azure-hdinsight"></a>Visualiser des données Hive à l’aide de Microsoft Power BI dans Azure HDInsight
 
@@ -72,4 +71,3 @@ Dans cet article, vous avez appris à visualiser des données de HDInsight à l�
 * [Se connecter à Azure HDInsight et exécuter des requêtes Hive avec Data Lake Tools pour Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
 * [Utiliser Azure HDInsight Tools pour Visual Studio Code](hdinsight-for-vscode.md).
 * [Charger des données dans HDInsight](./hdinsight-upload-data.md).
-

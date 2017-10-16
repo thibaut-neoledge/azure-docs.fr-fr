@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 6cc61144b9e2f776c9039022d32300fd06b67bbd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Vérifier la connectivité avec Azure Network Watcher à l’aide de PowerShell
 
 > [!div class="op_single_selector"]
@@ -339,7 +337,6 @@ Recherchez si certains types de trafic sont autorisés au sein ou en dehors de v
 Si le trafic est bloqué alors qu’il ne devrait pas l’être, consultez [Gérer les groupes de sécurité réseau à partir du portail](../virtual-network/virtual-network-manage-nsg-arm-portal.md) afin de surveiller le groupe de sécurité réseau et les règles de sécurité définis.
 
 <!-- Image references -->
-
 
 
 

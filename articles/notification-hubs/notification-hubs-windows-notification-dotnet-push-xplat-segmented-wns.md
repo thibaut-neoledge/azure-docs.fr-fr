@@ -14,14 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: d510e7e665adec9607aeee80802c466b363d5d5b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-notification-hubs-to-send-breaking-news"></a>Utiliser Notification Hubs pour diffuser les dernières nouvelles
+# <a name="use-notification-hubs-to-send-breaking-news"></a>Utilisation de Notification Hubs pour diffuser les dernières nouvelles
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -37,7 +36,7 @@ Vous pouvez rendre possible les scénarios de diffusion en incluant une ou plusi
 ## <a name="prerequisites"></a>Composants requis
 Cette rubrique s’appuie sur l’application que vous avez créée dans [Prise en main de Notification Hubs][get-started]. Avant de commencer, vous devez parcourir entièrement [Prise en main de Notification Hubs][get-started].
 
-## <a name="add-category-selection-to-the-app"></a>Ajouter une sélection de catégories à l’application
+## <a name="add-category-selection-to-the-app"></a>Ajout d’une sélection de catégories à l’application
 La première étape consiste à ajouter des éléments d’interface utilisateur à votre page principale existante pour permettre aux utilisateurs de sélectionner les catégories auxquelles s’inscrire. Les catégories sélectionnées sont stockées sur l’appareil. Quand l’application démarre, une inscription d’appareil est créée dans votre hub de notification, avec les catégories sélectionnées se présentant sous forme de balises.
 
 1. Ouvrez le fichier projet MainPage.xaml, puis copiez le code suivant dans l’élément **Grid** :
@@ -199,7 +198,7 @@ L’application est maintenant terminée. Elle peut stocker un ensemble de caté
 ## <a name="send-tagged-notifications"></a>Envoyer des notifications avec balises
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="run-the-app-and-generate-notifications"></a>Exécuter l’application et générer des notifications
+## <a name="run-the-app-and-generate-notifications"></a>Exécution de l’application et génération de notifications
 1. Dans Visual Studio, sélectionnez **F5** pour compiler et démarrer l’application.  
     L’interface utilisateur de l’application fournit un ensemble de bascules qui vous permet de choisir les catégories auxquelles vous abonner. 
    
@@ -252,4 +251,3 @@ Dans cet article, vous avez appris à diffuser les dernières nouvelles par cat�
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 ms.openlocfilehash: b3ad1ead522908d4b41b7cca98d20ac91664998e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Affichage des tendances de coût de laboratoire mensuelles estimées dans Azure DevTest Labs
 La fonctionnalité de gestion des coûts de DevTest Labs vous permet de suivre le coût de votre labo. Cet article explique comment utiliser le graphique **Tendance des coûts mensuels estimés** pour afficher le coût estimé à ce jour pour le mois civil en cours, ainsi que le coût projeté pour la fin du mois civil en cours. Dans cet article, vous allez apprendre à afficher le graphique de tendances de coût mensuelles estimées dans le portail Azure.

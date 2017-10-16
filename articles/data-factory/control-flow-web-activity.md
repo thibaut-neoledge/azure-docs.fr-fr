@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: dec7a446251545461f32cddea4d8c3e433dc21e2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Activité Web dans Azure Data Factory
-Une activité web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut consommer et auxquels elle peut accéder. 
+Une activité web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder. 
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -224,7 +223,6 @@ public HttpResponseMessage Execute(JObject payload)
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)
-- [Activité ForEach](control-flow-for-each-activity.md)
+- [Pour chaque activité](control-flow-for-each-activity.md)
 - [Activité d’obtention des métadonnées](control-flow-get-metadata-activity.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
-

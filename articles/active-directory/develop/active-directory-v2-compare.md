@@ -16,10 +16,10 @@ ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>Quelles sont les particularités du point de terminaison v2.0 ?
 Si vous connaissez bien le service Azure Active Directory ou si vous avez déjà intégré des applications à Azure AD dans le passé, il peut exister des différences dans le point de terminaison v2.0 auxquelles vous ne vous attendiez pas.  Pour votre bonne compréhension, ce document énumère ces différences.

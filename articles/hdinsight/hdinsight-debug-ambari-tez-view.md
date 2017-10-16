@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: c0ea91ae6e03429b197eeb3767b709fb03aa0dc8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 65d89309b9eea8544b85d16687baa90d49688d77
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Utiliser les vues Ambari pour déboguer les travaux Tez dans HDInsight
 
@@ -112,4 +111,3 @@ Maintenant que vous avez appris à utiliser la vue Tez, obtenez plus d’informa
 Pour plus d’informations techniques sur Tez, consultez la [page Tez sur Hortonworks](http://hortonworks.com/hadoop/tez/)(en anglais).
 
 Pour plus d’informations sur l’utilisation d’Ambari avec HDInsight, consultez la page [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
-

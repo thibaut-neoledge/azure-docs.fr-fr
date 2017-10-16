@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes de diagnostics Azure
 Cet article contient des informations de dépannage pour les diagnostics Microsoft Azure. Pour plus d’informations sur les diagnostics Microsoft Azure, voir [Vue d’ensemble des diagnostics Azure](azure-diagnostics.md).
@@ -300,4 +299,3 @@ Par défaut, le portail des machines virtuelles affiche certains compteurs de pe
 - Si vous utilisez des caractères génériques (\*) dans les noms de compteur de performances, le portail ne peut pas établir de corrélation entre le compteur configuré et le compteur collecté.
 
 **Atténuation** : modifiez la langue de la machine pour la définir sur l’anglais pour les comptes système. Pour ce faire, sélectionnez **Panneau de configuration** > **Région** > **Administrative** > **Copier les paramètres**. Ensuite, désactivez l’option **Écran d’accueil et comptes système** afin que la langue personnalisée ne soit pas appliquée au compte système. Veillez également à ne pas utiliser de caractères génériques si vous voulez que le portail reflète votre expérience de consommation principale.
-

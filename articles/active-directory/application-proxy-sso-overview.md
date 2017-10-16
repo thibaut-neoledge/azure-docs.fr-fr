@@ -15,14 +15,12 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 1deb3d91049d45fe26791783e13bd23e0a7d9f95
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Comment le proxy d’application Azure AD fournit-il l’authentification unique ?
 
 L’authentification unique est un élément clé du proxy d’application Azure AD.  Elle optimise l’expérience des utilisateurs, car ces derniers ne doivent se connecter à Azure Active Directory que dans le cloud. Après leur authentification dans Azure Active Directory, le connecteur du proxy d’application gère l’authentification à l’application locale. L’application principale ne fait pas la différence entre un utilisateur distant se connectant via le proxy d’application et une utilisation normale sur un appareil joint au domaine. 
@@ -81,4 +79,3 @@ Pour plus d’informations sur la configuration de l’authentification basée s
 - [Authentification unique avec le proxy d’application](application-proxy-sso-azure-portal.md)
 - [Délégation contrainte Kerberos pour l’authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
 - [Authentification basée sur l’en-tête pour une authentification unique avec le Proxy d’application et PingAccess](application-proxy-ping-access.md) 
-

@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: eacecb9f084ead76633cf802751d3a603cb2f0d8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Déplacer des données depuis DB2 à l’aide de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 (disponibilité générale)](data-factory-onprem-db2-connector.md)
-> * [Version 2 (aperçu)](../connector-db2.md)
+> * [Version 1 - Disponibilité générale](data-factory-onprem-db2-connector.md)
+> * [Version 2 - Préversion](../connector-db2.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de la fabrique de données, mise à la disposition générale (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif au [connecteur DB2 dans V2](../connector-db2.md).
@@ -196,7 +195,7 @@ La propriété **external** est définie sur « true ». Ce paramètre informe l
 }
 ```
 
-**Jeu de données de sortie Azure Blob**
+**Jeu de données de sortie d’objet Blob Azure**
 
 Les données sont écrites dans un nouvel objet blob toutes les heures en configurant la propriété **frequency** sur « Hour » et la propriété **interval** sur 1. La propriété **folderPath** de l’objet blob est évaluée dynamiquement en fonction de l’heure de début de la section en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
 
@@ -363,4 +362,3 @@ Lorsque vous copiez des données à partir d’un magasin de données relationne
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Pour en savoir plus sur les facteurs clés affectant les performances de l’activité de copie et les différentes manières de les optimiser, consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md).
-

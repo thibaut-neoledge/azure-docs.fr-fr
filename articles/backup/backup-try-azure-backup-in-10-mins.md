@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Premier aperçu : sauvegarder des fichiers et des dossiers dans un déploiement de Resource Manager
 Cet article explique comment sauvegarder vos fichiers et dossiers Windows Server (ou d’un ordinateur Windows) sur Azure avec un déploiement de Resource Manager. Il s’agit d’un didacticiel destiné à vous présenter les notions de base. Vous verrez qu’il est extrêmement simple d’utiliser Azure Backup.
@@ -229,4 +228,3 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 * Approfondissez vos connaissances sur la [sauvegarde de machines Windows](backup-configure-vault.md).
 * Maintenant que vous avez sauvegardé vos fichiers et vos dossiers, vous pouvez [gérer vos archivages et vos serveurs](backup-azure-manage-windows-server.md).
 * Si vous avez besoin de restaurer une sauvegarde, utilisez cet article pour [restaurer des fichiers sur un ordinateur Windows](backup-azure-restore-windows-server.md).
-

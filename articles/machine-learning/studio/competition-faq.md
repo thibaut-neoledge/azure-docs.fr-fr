@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: haining;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 809df66042f6c765ed56836db40f72a5cd8ca7f6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>FAQ sur les concours Microsoft Cortana Intelligence
 **Que sont les concours Cortana Intelligence ?**
@@ -114,5 +113,4 @@ La plateforme de concours ne prend actuellement en charge que les contributions 
 **Conservons-nous les solutions/contributions des concours des utilisateurs ?**
 
 Les contributions d’utilisateur sont conservées uniquement à des fins d’évaluation pour identifier les solutions gagnantes. Reportez-vous à nos [Conditions générales](http://aka.ms/comptermsandconditions) pour les détails.
-
 

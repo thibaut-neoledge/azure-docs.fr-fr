@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2f90234bdd5c917a502d24cd16256bc11c7fbed0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Gestion d'un espace de travail Azure Machine Learning
 
@@ -136,5 +135,4 @@ Dans la page Configurer, vous pouvez mettre à jour les propriétés suivantes 
 * **Description** pour entrer une description du service web. Le champ Description est obligatoire.
 * **Journalisation** pour activer ou désactiver la journalisation des erreurs sur le point de terminaison. Pour plus d’informations sur la journalisation, voir [Activation de la journalisation pour les services web Machine Learning](web-services-logging.md).
 * **Activer l’exemple de données** pour fournir des exemples de données que vous pouvez utiliser pour tester votre service de demande-réponse. Si vous avez créé le service web dans Machine Learning Studio, les exemples de données proviennent des données utilisées dans votre modèle. Si vous avez créé le service par programme, les données proviennent des exemples de données que vous avez fournis dans le cadre du package JSON.
-
 

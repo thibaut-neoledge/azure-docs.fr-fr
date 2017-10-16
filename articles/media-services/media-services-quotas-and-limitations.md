@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/09/2017
 ms.author: juliako
 ms.openlocfilehash: 16bebdda823869f5e98c16c3859543632fb07240
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quotas-and-limitations"></a>Quotas et limitations
 Cette rubrique décrit les quotas et les limitations associées à Microsoft Azure Media Services.

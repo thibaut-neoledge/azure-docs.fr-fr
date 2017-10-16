@@ -7,14 +7,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-source-wizard"></a>Assistant Source de données #
 
 L’Assistant Source de données est un moyen simple et rapide d’importer un jeu de données dans Azure Machine Learning Workbench sans code. Il vous permet également de sélectionner un exemple de stratégie pour le jeu de données. 
@@ -74,4 +72,3 @@ Si le chemin inclut des données importantes, vous pouvez choisir de l’inclure
 ![étape 7](media/data-source-wizard/step6.png)
 
 Après avoir cliqué sur Terminer, une nouvelle source de données est ajoutée au projet. Vous pouvez la retrouver sous le groupe Sources de données dans la vue de données, ou en tant que fichier .dsource dans **l’affichage des fichiers**.
-

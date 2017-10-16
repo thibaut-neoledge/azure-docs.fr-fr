@@ -1,5 +1,5 @@
 ---
-title: "Qu'est-ce qu’Azure Machine Learning ? | Microsoft Docs"
+title: "Qu'est-ce que Azure Machine Learning ? | Microsoft Docs"
 description: "Vue d’ensemble des services Expérimentation et Gestion des modèles Azure Machine Learning, une solution de science des données de bout en bout intégrée et destinée aux chercheurs de données professionnels pour développer, tester et déployer des applications d’analytique avancée à l’échelle du cloud."
 services: machine-learning
 author: haining
@@ -10,15 +10,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
+ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4919fb679eeb4d25eb0066b9bf617b057d44354
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="what-is-azure-machine-learning"></a>Qu'est-ce qu’Azure Machine Learning ?
+# <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
 Azure Machine Learning est une solution d’analytique avancée et de science des données de bout en bout intégrée. Cette solution permet aux scientifiques des données de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
 
@@ -151,7 +149,7 @@ Visual Studio Code Tools pour IA est une extension dans Visual Studio Code perme
 En dehors d’Azure Machine Learning, il existe une grande variété d’options dans Azure pour générer, déployer et gérer des modèles d’apprentissage automatique. 
 * Microsoft Machine Learning Services dans SQL Server
 * Microsoft Machine Learning Server
-* Machine virtuelle DSVM
+* Machine virtuelle de science des données
 * Spark MLLib dans HDInsight
 * Service Batch AI Training
 * Microsoft Cognitive Toolkit
@@ -178,8 +176,8 @@ Utilisez Microsoft Machine Learning Server quand vous devez :
 - Générer et déployer des modèles créés avec R et Python sur un serveur
 - Distribuer une formation R et Python à l’échelle sur un cluster Hadoop ou Spark.
 
-### <a name="data-science-virtual-machine"></a>Machine virtuelle DSVM
-La machine virtuelle [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) est une image de machine virtuelle personnalisée sur le cloud Microsoft Azure spécialement conçue pour la science des données. Elle inclut de nombreux outils de science des données populaires et d’autres outils sont préinstallés et préconfigurés afin d’accélérer la création d’applications intelligentes à des fins d’analytique avancée. Elle est disponible sur Windows Server et sur Linux. Nous vous proposons l’édition Windows de la DSVM sous Server 2016 et Server 2012. Nous vous proposons l’édition Linux de la DSVM sous Ubuntu 16.04 LTS et sous des versions Linux basées sur OpenLogic 7.2 CentOS. 
+### <a name="data-science-virtual-machine"></a>Machine virtuelle de science des données
+La machine virtuelle [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) est une image de machine virtuelle personnalisée sur le cloud Microsoft Azure spécialement conçue pour la science des données. Elle inclut de nombreux outils de science des données populaires et d’autres outils sont préinstallés et préconfigurés afin d’accélérer la création d’applications intelligentes à des fins d’analyse avancée. Elle est disponible sur Windows Server et sur Linux. Nous vous proposons l’édition Windows de la DSVM sous Server 2016 et Server 2012. Nous vous proposons l’édition Linux de la DSVM sous Ubuntu 16.04 LTS et sous des versions Linux basées sur OpenLogic 7.2 CentOS. 
 
 Utilisez l’image DSVM quand vous devez exécuter ou héberger vos tâches sur un nœud unique, ou si vous devez monter en puissance à distance le traitement sur un seul ordinateur. L’image DSVM est prise en charge en tant que cible pour les services Expérimentation Azure Machine Learning et Gestion des modèles Azure Machine Learning. 
 
@@ -219,4 +217,3 @@ Microsoft Cognitive Services peut être utilisé pour développer des applicatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Installer et créer Azure Machine Learning](quickstart-installation.md)
-

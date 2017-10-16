@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 4fdd007c2cfad7b42f26ab2cacfba06d95c8dad3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 152cc8fb61aa6115c7b5863e4d798db9e7aa5b7c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Présentation de la capture de paquets variable dans Azure Network Watcher
 
 La fonctionnalité de capture de paquets variable de Network Watcher vous permet de créer des sessions de capture de paquets afin d’effectuer le suivi du trafic en direction et en provenance d’une machine virtuelle. La capture de paquets aide à diagnostiquer les anomalies réseau de manière proactive et réactive. Elle permet aussi de collecter des statistiques réseau, d’obtenir des informations sur les intrusions, de déboguer des communications client-serveur, etc.
@@ -59,7 +57,6 @@ Apprenez à créer des captures de paquets proactives reposant sur des alertes d
 
 <!--Image references-->
 [1]: ./media/network-watcher-packet-capture-overview/figure1.png
-
 
 
 

@@ -14,21 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Intégrer System Center Configuration Manager avec OMS Update Management [Préversion]
 
 Les clients qui ont investi dans System Center Configuration Manager pour gérer des PC, serveurs et autres appareils mobiles s’appuient aussi sur sa puissance et sa maturité pour gérer les mises à jour logicielles dans le cadre de leur cycle de gestion des mises à jour logicielles.  
 
 En tirant parti de l’intégration existant aujourd'hui entre OMS et Configuration Manager, vous pouvez signaler et mettre à jour des serveurs Windows gérés en créant et prédéfinissant des déploiements de mises à jour logicielles dans Configuration Manager et obtenir un état détaillé des déploiements de mises à jour terminés à l’aide de la [solution Update Management](../operations-management-suite/oms-solution-update-management.md). Si vous utilisez Configuration Manager pour générer des rapports de conformité de mises à jour, mais pas pour gérer les déploiements de mises à jour avec vos serveurs Windows, vous pouvez continuer d’adresser des rapports à Configuration Manager tout en gérant les mises à jour de sécurité avec la solution OMS Update Management.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 * Vous devez ajouter la [solution Update Management](../operations-management-suite/oms-solution-update-management.md) à votre espace de travail Log Analytics et la lier à votre compte Automation dans le même groupe de ressources et la même région.   
 * Les serveurs Windows actuellement gérés par votre environnement System Center Configuration Manager doivent aussi adresser des rapports à l’espace de travail Log Analytics dans lequel la solution Update Management est aussi activée.  
@@ -56,5 +54,4 @@ Si vous avez l’intention de continuer à gérer les déploiements de mises à 
 Pour gérer les mises à jour de machines virtuelles Windows Server qui sont des clients Configuration Manager, vous devez configurer la stratégie de configuration des clients pour désactiver la fonctionnalité de gestion des mises à jour logicielles pour tous les clients gérés par cette solution.  Par défaut, les paramètres client ciblent tous les appareils de la hiérarchie.  Pour plus d’informations sur ce paramètre de stratégie et sur la façon de le configurer, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).  
 
 Après avoir apporté cette modification à la configuration, créez un déploiement en suivant les étapes décrites dans [Création d’un déploiement de mises à jour](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment), puis sélectionnez le regroupement Configuration Manager approprié représenté sous la forme d’un groupe d’ordinateurs OMS dans la liste déroulante. 
-
 

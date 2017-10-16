@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 59a453aab82d2f78bcc04774e26c8a557b8dbb26
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Développer et déployer des tâches web à l’aide de Visual Studio - Azure App Service
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -46,9 +44,9 @@ Vous pouvez déployer un projet sous forme de tâche web ou le lier à un projet
 
 ![Diagram showing WebJob project linking to web project](./media/websites-dotnet-deploy-webjobs/link.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
-Si vous utilisez Visual Studio 2015, installez le [Kit Azure .NET SDK (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
+Si vous utilisez Visual Studio 2015, installez le [Kit de développement logiciel (SDK) Azure .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
 Si vous utilisez Visual Studio 2017, installez la [charge de travail de développement Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
 
@@ -169,4 +167,3 @@ Pour déployer un projet WebJobs seul, cliquez avec le bouton droit sur le proje
 ![Publier sous forme de tâche web Azure](./media/websites-dotnet-deploy-webjobs/paw.png)
 
 Pour une tâche web indépendante, l'Assistant **Publier le site Web** utilisé pour les projets web s'affiche, mais avec moins de paramètres modifiables.
-

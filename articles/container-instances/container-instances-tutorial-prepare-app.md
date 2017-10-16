@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: ca4cd00b3e9e58fd1137b896e7aac96549bf6d05
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-container-for-deployment-to-azure-container-instances"></a>Créer un conteneur à déployer dans Azure Container Instances
 
 Azure Container Instances permet de déployer des conteneurs Docker sur l’infrastructure Azure sans configurer de machines virtuelles ni adopter de service de niveau supérieur. Dans ce didacticiel, vous allez voir comment générer une application web basique dans Node.js, et comment la placer comme package dans un conteneur pouvant être exécuté avec Azure Container Instances. Nous aborderons :

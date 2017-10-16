@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: 65964a322f0adab4f648fb350bedb77b46bf9054
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Utiliser les fonctions Azure pour créer une fonction qui se connecte à d’autres services Azure
 
@@ -192,5 +191,4 @@ Pour plus d’informations sur Azure Functions, consultez les rubriques suivante
   Présente les plans de service disponibles pour Azure Functions, dont le plan d’hébergement de consommation, et explique comment choisir le plan adapté à vos besoins. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
 

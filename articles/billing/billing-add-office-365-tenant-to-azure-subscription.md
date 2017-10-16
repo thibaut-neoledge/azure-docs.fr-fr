@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/13/2017
 ms.author: cjiang
+ms.openlocfilehash: e6300932d044ec9a4f88eb5bd5977220ed11d513
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: b7b3e4539110f68e1e6ef4a75110924a27b40c49
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="link-an-office-365-tenant-to-an-azure-subscription"></a>Liaison d’un client Office 365 à un abonnement Azure
 Liez vos abonnements Azure et Office 365 distincts afin que le client Office 365 soit accessible depuis votre abonnement Azure. Pour lier vos abonnements, connectez-vous à Azure avec le compte d’administrateur de service Azure, ajoutez un annuaire et ajoutez les comptes professionnels ou scolaires Office 365 au client Azure Active Directory.
@@ -94,5 +93,4 @@ Pour ajouter un administrateur à votre abonnement Azure, consultez [Ajouter ou 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-
 

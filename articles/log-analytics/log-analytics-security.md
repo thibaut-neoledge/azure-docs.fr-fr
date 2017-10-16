@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: magoedte
+ms.openlocfilehash: 91af774560860b35913e57b49fb7a1dd59f5640f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9ae1629462d375c1061d9c7b25975c789ee661c9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-data-security"></a>Sécurité des données Log Analytics
 Microsoft s'engage à protéger votre vie privée et à sécuriser vos données, tout en proposant des logiciels et des services favorisant la gestion de l'infrastructure informatique de votre organisation. Nous reconnaissons que lorsque vous confiez vos données à d'autres personnes, cette confiance exige une sécurité rigoureuse. Microsoft adhère aux recommandations strictes de conformité et de sécurité, du codage jusqu'à l'exploitation d'un service.
@@ -165,4 +164,3 @@ Le portail OMS vous permet d’exporter des données vers un fichier CSV, et vou
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Familiarisez-vous avec Log Analytics](log-analytics-get-started.md) pour en savoir plus sur Log Analytics et être opérationnel en quelques minutes.
-

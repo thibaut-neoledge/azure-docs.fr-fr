@@ -27,7 +27,7 @@
 #### [Inscrire l’utilisateur actuel à l’aide d’ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 ### [Envoyer des notifications interplateforme](notification-hubs-aspnet-cross-platform-notification.md)
 ### Utilisation des kits de développement logiciel (SDK) de serveur
-#### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)
+#### [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet)
 #### [Node.JS](notification-hubs-nodejs-push-notification-tutorial.md)
 #### [Java](notification-hubs-java-push-notification-tutorial.md)
 #### [PHP](notification-hubs-php-push-notification-tutorial.md)

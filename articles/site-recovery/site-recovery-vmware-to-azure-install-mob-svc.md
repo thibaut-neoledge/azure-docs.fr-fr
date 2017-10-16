@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
+ms.openlocfilehash: eb2fbd16980eadfce15227b6ba07f00c47b672ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 5a5fc9bac4f0ee54532f34fe957e3722123df178
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Installation du service Mobilité (VMware ou serveur physique vers Azure)
 Le service de mobilité Azure Site Recovery capture les écritures de données sur un ordinateur, puis les transfère au serveur de traitement. Déployez le service Mobilité sur chaque ordinateur (machine virtuelle VMware ou serveur physique) que vous souhaitez répliquer vers Azure. Vous pouvez déployer le service Mobilité pour les serveurs que vous souhaitez protéger à l’aide des méthodes suivantes :
 
@@ -91,7 +89,7 @@ Une fois le service Mobilité installé, dans le portail Azure, sélectionnez le
 ## <a name="update-mobility-service"></a>Mettre à jour le service Mobilité.
 
 > [!WARNING]
-> Vérifiez que le serveur de configuration, les serveurs de traitement de montée en puissance parallèle et les serveurs cibles maîtres qui font partie de votre déploiement sont mis à jour avant que vous ne mettiez à jour le service Mobilité sur les serveurs protégés. Pour en savoir plus, consultez les sections [Mise à jour d’un serveur de configuration](site-recovery-vmware-to-azure-manage-configuration-server.md#updating-a-configuration-server) et [Mise à niveau d’un serveur de traitement de montée en puissance parallèle](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server).
+> Vérifiez que le serveur de configuration, les serveurs de traitement de montée en puissance parallèle et les serveurs cibles maîtres qui font partie de votre déploiement sont mis à jour avant que vous ne mettiez à jour le service Mobilité sur les serveurs protégés. Pour en savoir plus, consultez les sections [Mise à jour d’un serveur de configuration](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) et [Mise à niveau d’un serveur de traitement de montée en puissance parallèle](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server).
 
 1. Sur le portail Azure, accédez à <Your Vault> -> vue Éléments répliqués.
 2. Si le **serveur de configuration** a déjà été mis à jour vers la dernière version, une notification doit s’afficher et indiquer *Une nouvelle mise à jour de l’agent de réplication Site Recovery est disponible. Cliquez pour installer*.
@@ -125,4 +123,3 @@ MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\
 ```
 uninstall.sh -Y
 ```
-

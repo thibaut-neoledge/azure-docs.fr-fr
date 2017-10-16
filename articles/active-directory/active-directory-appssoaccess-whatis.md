@@ -16,12 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: cb41fbd7ca931df52ba8e5304459bb04298a108c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: 97df68d446755414cbd427d59f399d6430580f42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?
 Avec l’authentification unique, vous pouvez accéder à toutes les applications et toutes les ressources dont vous avez besoin pour travailler, en vous connectant une seule fois avec un seul compte utilisateur. Une fois connecté, vous pouvez accéder à toutes les applications dont vous avez besoin sans devoir vous authentifier à nouveau (par exemple, taper un mot de passe).
@@ -207,4 +206,3 @@ Ces liens utilisent les mêmes mécanismes de contrôle d’accès que le pannea
 [4]: ./media/active-directory-appssoaccess-whatis/officeapphub.png
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
-

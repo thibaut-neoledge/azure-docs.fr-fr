@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
 ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Structure d’entreprise Azure : gouvernance normative de l’abonnement
 Les entreprises adoptent de plus en plus le cloud public en raison de son agilité et de la flexibilité. Elles utilisent les atouts du cloud pour générer des revenus ou optimiser les ressources de l’entreprise. Microsoft Azure offre une multitude de services que les entreprises peuvent combiner sous forme de blocs de construction pour traiter une large gamme de charges de travail et d’applications. 

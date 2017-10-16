@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 3a58c50d1187b9cca9490ad725b14617b4a98efe
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="design-your-first-azure-sql-database"></a>Concevoir votre première base de données SQL Azure
 
 Azure SQL Database est une solution DBaaS relationnelle gérée dans Microsoft Cloud (« Azure »). Dans ce didacticiel, vous allez apprendre à utiliser le portail Azure et [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) pour : 
@@ -57,7 +55,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
 
-2. Dans la page **Nouveau** , sélectionnez **Bases de données** , puis **Créer** sous **SQL Database** dans cette **même** page.
+2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans **cette même** page.
 
    ![créer une base de données vide](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -92,9 +90,9 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 8. Acceptez les conditions d’utilisation de la préversion pour pouvoir utiliser l’option **Stockage de composants additionnels**. 
 
    > [!IMPORTANT]
-   > \* Les tailles de stockage supérieures à la quantité de stockage incluse sont en préversion et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+   > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Dans le niveau Premium, plus de 1 To de stockage sont actuellement disponibles dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie, Centre du Canada et Est du Canada. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Dans le niveau Premium, plus de 1 To de stockage sont actuellement disponibles dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie et Canada Est. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  
@@ -341,4 +339,3 @@ Passez au didacticiel suivant pour en savoir plus sur la conception d’une base
 
 > [!div class="nextstepaction"]
 >[Concevoir une base de données SQL Azure et se connecter avec C# et ADO.NET](sql-database-design-first-database-csharp.md)
-

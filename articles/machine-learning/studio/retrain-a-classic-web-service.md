@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Reformer un service web Classic
 Le service web prédictif que vous avez déployé est le point de terminaison de notation par défaut. Les points de terminaison par défaut sont toujours synchronisés avec l’expérience originale d’apprentissage et de notation. Par conséquent, le modèle entraîné du point de terminaison par défaut ne peut pas être remplacé. Pour reformer le service web, vous devez ajouter un nouveau point de terminaison au service web. 
@@ -146,5 +145,4 @@ Lorsque le code a été exécuté avec succès, le nouveau point de terminaison 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Résolution des problèmes de reformation d’un service web Azure Machine Learning classique](troubleshooting-retraining-models.md)
-
 

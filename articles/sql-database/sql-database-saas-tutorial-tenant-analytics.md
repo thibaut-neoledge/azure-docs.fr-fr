@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: billgib; sstein
 ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Extraire des données à partir de bases de données du locataire dans une base de données d’analyse pour une analyse hors connexion
 
@@ -52,13 +52,13 @@ Les scripts et le code source de l’application SaaS Wingtip sont disponibles 
 Ce didacticiel nécessite que vous ayez déployé une base de données, afin de capturer les résultats de l’exécution du travail de scripts, qui contiennent les requêtes qui renvoient des résultats. À cet effet, nous allons créer une base de données appelée tenantanalytics.
 
 1. Ouvrez ...\\Modules d’apprentissage\\Operational Analytics\\Tenants Analytics\\*Demo-TenantAnalyticsDB.ps1* dans *PowerShell ISE* et définissez la valeur suivante :
-   * **$DemoScenario** = **2** *Déployer une base de données d’analyse opérationnelle*
+   * **$DemoScenario** = **2***Déployer une base de données d’analyse opérationnelle*
 1. Appuyez sur **F5** pour exécuter le script de démonstration (qui appelle le script *Deploy-TenantAnalyticsDB.ps1*), qui crée la base de données d’analyse du locataire.
 
 ## <a name="create-some-data-for-the-demo"></a>Créer des données pour la démonstration
 
 1. Ouvrez ...\\Modules d’apprentissage\\Operational Analytics\\Tenants Analytics\\*Demo-TenantAnalyticsDB.ps1* dans *PowerShell ISE* et définissez la valeur suivante :
-   * **$DemoScenario** = **1** *Acheter des tickets pour des événements dans tous les lieux*
+   * **$DemoScenario** = **1***Acheter des tickets pour des événements dans tous les lieux*
 1. Appuyez sur **F5** pour exécuter le script et créez un historique d’achat de tickets.
 
 

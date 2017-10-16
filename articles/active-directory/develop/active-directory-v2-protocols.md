@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 3750f975600575349e5ea9de249cf4521636fd2f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # Protocoles v2.0 - OAuth 2.0 et OpenID Connect
 Le point de terminaison v2.0 peut utiliser Azure AD pour l’identité en tant que service avec les protocoles standard, OpenID Connect et OAuth 2.0.  Bien que ce service soit conforme aux normes, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles.  Les informations fournies ici vous seront utiles si vous choisissez d’écrire votre code en envoyant ou en traitant directement des requêtes HTTP ou si vous utilisez une bibliothèque open source tierce, plutôt qu’en utilisant l’une de nos bibliothèques open source.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: kgremban
 ms.openlocfilehash: 8f4d5f9e84ad7bb4fff501370036e7f0da589bf3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Authentification LDAP et serveur Azure Multi-Factor Authentication
 Par défaut, le serveur Azure Multi-Factor Authentication est configuré pour importer ou synchroniser des utilisateurs à partir d'Active Directory. Toutefois, il peut être configuré pour être lié à d’autres répertoires LDAP, comme un répertoire ADAM ou un contrôleur de domaine Active Directory spécifique. Lorsqu’il est connecté à un annuaire par LDAP, le serveur Azure Multi-Factor Authentication peut servir de proxy LDAP pour effectuer les authentifications. Il permet également d’utiliser la liaison LDAP comme cible RADIUS, pour pré-authentifier les utilisateurs avec l’authentification IIS ou pour effectuer l’authentification principale dans le portail de l’utilisateur Azure MFA.

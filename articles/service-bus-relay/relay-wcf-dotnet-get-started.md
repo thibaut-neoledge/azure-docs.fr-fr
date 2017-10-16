@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/23/2017
 ms.author: sethm
 ms.openlocfilehash: 1af1ac78398d65e6a87f0d24d6198f3dfbc82ffd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Comment utiliser les relais WCF Azure Relay avec .NET
 Cet article explique comment utiliser le service Azure Relay. Les exemples sont écrits en C# et utilisent l’API WCF (Windows Communication Foundation) avec les extensions contenues dans l’assembly Service Bus. Pour plus d’informations sur Azure Relay, consultez la page [Vue d’ensemble d’Azure Relay](relay-what-is-it.md).

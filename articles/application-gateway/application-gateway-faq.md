@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
+ms.openlocfilehash: 2ae53d5aceab21b08ccdae5bf5192529cd7f09da
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 595d611aac4f57b7ab5b7ab4e46edf1eff796185
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
 ## <a name="general"></a>Généralités
@@ -329,4 +327,3 @@ La raison la plus courante est le blocage de l’accès au serveur principal par
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Application Gateway, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
-

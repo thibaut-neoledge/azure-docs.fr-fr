@@ -12,12 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6a66528bfeb7249add9f589830293760c238e7db
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Basculer et restaurer automatiquement des machines virtuelles Azure entre des régions Azure (préversion)
 
@@ -31,7 +30,7 @@ Ce didacticiel explique comment basculer une seule machine virtuelle Azure vers 
 > * Restaurer automatiquement la machine virtuelle secondaire
 > * Reprotéger la machine virtuelle principale vers la région secondaire
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 - Assurez-vous d’avoir effectué une [simulation de récupération d’urgence](azure-to-azure-tutorial-dr-drill.md) pour vérifier que tout fonctionne comme prévu.
 - Vérifiez les propriétés de la machine virtuelle avant d’exécuter le test de basculement. La machine virtuelle doit satisfaire aux [exigences Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
@@ -73,4 +72,3 @@ Après avoir basculé la machine virtuelle, vous devez la reprotéger afin qu’
 ## <a name="fail-back-to-the-primary-region"></a>Effectuer une restauration automatique vers la région primaire
 
 Une fois les machines virtuelles reprotégées, vous pouvez effectuer une restauration automatique vers la région primaire en fonction de vos besoins. Pour ce faire, suivez les instructions de [basculement](#run-a-failover).
-

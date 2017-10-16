@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 71820306716c6297085a29f3ceab89b55396bfe6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-portal-overview"></a>Présentation du portail Microsoft Azure
 Le portail Microsoft Azure permet de configurer et de gérer l’ensemble de vos ressources Azure.  Ce didacticiel va vous permettre de vous familiariser avec le portail et vous montrer comment utiliser certaines des fonctionnalités clés suivantes :
@@ -85,4 +84,3 @@ Le portail Microsoft Azure simplifie grandement la création et la gestion de vo
 [ManageResource]: ./media/azure-portal-how-to-use/azure_portal_4.png
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
-

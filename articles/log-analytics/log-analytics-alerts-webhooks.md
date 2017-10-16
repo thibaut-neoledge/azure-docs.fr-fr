@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c8e67f2dcd061e3cd92eec40d6e6bb3de5d73b67
 ms.openlocfilehash: 55b66132f7ec5c26c0a7cac1ec0a5c403dbd1082
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-alert-webhook-action-in-oms-log-analytics-to-send-message-to-slack"></a>Créer une action d’alerte webhook dans OMS Log Analytics pour envoyer un message à Slack
 Une des actions que vous pouvez exécuter en réponse à une [alerte Log Analytics](log-analytics-alerts.md) est un *webhook*, qui vous permet d’appeler un processus externe par le biais d’une requête HTTP unique.  Vous pouvez consulter les détails des alertes et des webhooks dans [Alertes dans Log Analytics](log-analytics-alerts.md)
 
@@ -112,6 +110,5 @@ Cela n’est qu’un exemple d’une action que vous pouvez créer en réponse �
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les autres [actions d’alerte dans Log Analytics](log-analytics-alerts-actions.md).
-
 
 

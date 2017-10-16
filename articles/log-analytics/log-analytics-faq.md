@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 0b27386cd0f9f3ae50314b8c5d7708aea3e3d028
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet de Log Analytics dans Microsoft Azure. Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
@@ -168,4 +167,3 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Familiarisez-vous avec Log Analytics](log-analytics-get-started.md) pour en savoir plus sur Log Analytics et être opérationnel en quelques minutes.
-

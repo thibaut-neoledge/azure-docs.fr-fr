@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a65b50a90a67b718f2a0cdd8657194d9740b3bd4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-azure-app-service"></a>Meilleures pratiques pour Azure App Service
 Cet article résume les meilleures pratiques dans l’utilisation de [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -50,5 +49,4 @@ Lorsque des échecs de sauvegarde se produisent, veuillez consulter les résulta
 
 ## <a name="nodejs"></a>Lorsque de nouvelles applications Node.js sont déployées sur Azure App Service
 La configuration Azure App Service par défaut pour les applications Node.js vise à mieux répondre aux besoins des applications courantes. Si la configuration de votre application Node.js peut bénéficier d’un paramétrage personnalisé pour améliorer les performances ou optimiser l’utilisation des ressources au niveau processeur/mémoire/réseau, vous pouvez consulter nos meilleures pratiques et les étapes de dépannage. Cette documentation décrit les paramètres iisnode, que vous devrez peut-être configurer pour votre application Node.js, présente les différents scénarios ou problèmes que votre application peut rencontrer, et indique comment résoudre ces problèmes : [Meilleures pratiques et guide de dépannage pour les applications Node sur Azure App service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md).   
-
 

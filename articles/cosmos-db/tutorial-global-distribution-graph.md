@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: denlee
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: c38b5345bd67008de0e15f9288b4016935837978
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: d05295f6b952209e6df88d9015153893fbbb9903
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Comment configurer la distribution mondiale Azure Cosmos DB à l’aide de l’API Graph
 
@@ -95,5 +94,4 @@ Vous pouvez maintenant passer au didacticiel suivant pour apprendre à développ
 > [Développer en local avec l’émulateur](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
-
 

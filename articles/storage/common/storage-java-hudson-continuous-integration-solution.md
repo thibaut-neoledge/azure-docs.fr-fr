@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.openlocfilehash: e54bedff5f744004288e132efbed8c3e7981f8a6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Utilisation d’Azure Storage avec une solution d’intégration continue Hudson
 ## <a name="overview"></a>Vue d'ensemble
@@ -166,6 +166,6 @@ La section suivante présente les composants du service BLOB.
 * [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
 * [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
 * [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog de l’équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 
 Pour plus d’informations, consultez [Azure pour les développeurs Java](/java/azure).

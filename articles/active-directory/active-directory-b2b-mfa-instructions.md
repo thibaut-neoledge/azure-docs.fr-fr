@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 09/11/2017
 ms.author: sasubram
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: d3917754069ad961ffd9233d852aab6fa172eaef
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accès conditionnel pour les utilisateurs de B2B Collaboration
 
 ## <a name="multi-factor-authentication-for-b2b-users"></a>Authentification MFA pour utilisateurs B2B
@@ -121,4 +119,3 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 * [API et personnalisation d’Azure Active Directory B2B Collaboration](active-directory-b2b-api.md)
 * [Ajouter des utilisateurs B2B Collaboration sans invitation](active-directory-b2b-add-user-without-invite.md)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-

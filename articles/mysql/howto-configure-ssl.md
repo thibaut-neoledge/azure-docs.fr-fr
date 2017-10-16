@@ -9,12 +9,11 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 38e68712699b3e89a10c3d44d8ec313f531fcbdc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configuration de la connectivité SSL dans votre application pour se connecter en toute sécurité à la base de données Azure pour MySQL
 La base de données Azure pour MySQL prend en charge la connexion de votre serveur Azure Database pour MySQL aux applications clientes à l’aide de Secure Sockets Layer (SSL). L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.
@@ -23,7 +22,7 @@ La base de données Azure pour MySQL prend en charge la connexion de votre serve
 Téléchargez le certificat nécessaire pour communiquer via le protocole SSL avec votre serveur Azure Database pour MySQL à partir de [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) et enregistrez le fichier de certificat sur votre disque local (dans ce didacticiel, nous avons utilisé c:\ssl).
 **Pour Microsoft Internet Explorer et Microsoft Edge :** une fois le téléchargement terminé, renommez le certificat BaltimoreCyberTrustRoot.crt.pem.
 
-## <a name="step-2-bind-ssl"></a>Étape 2 : créer une liaison SSL
+## <a name="step-2-bind-ssl"></a>Étape 2 : création d’une liaison SSL
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Connexion au serveur à l’aide de MySQL Workbench via le protocole SSL
 Configurez MySQL Workbench pour vous connecter en toute sécurité via le protocole SSL. Dans MySQL Workbench, dans la boîte de dialogue Configurer une nouvelle connexion, accédez à l’onglet **SSL**. Dans le champ **SSL CA File:**, entrez l’emplacement du fichier **BaltimoreCyberTrustRoot.crt.pem**.
 ![Enregistrement d’une mosaïque personnalisée](./media/howto-configure-ssl/mysql-workbench-ssl.png)
@@ -34,7 +33,7 @@ Configurez MySQL Workbench pour vous connecter en toute sécurité via le protoc
 mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4demo -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 
-## <a name="step-3--enforcing-ssl-connections-in-azure"></a>Étape 3 : applique les connexions SSL dans Azure 
+## <a name="step-3--enforcing-ssl-connections-in-azure"></a>Étape 3 : application des connexions SSL dans Azure 
 ### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 À partir du portail Azure, accédez à votre serveur de base de données Azure pour MySQL, puis cliquez sur **Sécurité de la connexion**. Utilisez le bouton bascule pour activer ou désactiver le paramètre **Appliquer une connexion SSL**, puis cliquez sur **Enregistrer**. Microsoft recommande de toujours activer le paramètre **Appliquer une connexion SSL** pour renforcer la sécurité.
 ![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
@@ -46,7 +45,7 @@ az mysql server update --resource-group myresource --name mysqlserver4demo --ssl
 ```
 
 ## <a name="step-4-verify-the-ssl-connection"></a>Étape 4 : vérifier votre connexion SSL
-Exécutez la commande mysql **status** pour vérifier que vous êtes connecté à votre serveur MySQL à l’aide de SSL :
+Exécuter la commande mysql **status** pour vérifier que vous êtes connecté à votre serveur MySQL à l’aide de SSL :
 ```dos
 mysql> status
 ```
@@ -72,4 +71,3 @@ except mysql.connector.Error as err:
 
 ## <a name="next-steps"></a>Étapes suivantes
 Passez en revue les différentes options de connectivité d’application de la rubrique [Bibliothèques de connexions pour Azure Database pour MySQL](concepts-connection-libraries.md)
-

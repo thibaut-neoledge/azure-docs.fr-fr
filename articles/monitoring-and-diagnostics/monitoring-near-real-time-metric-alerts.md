@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 09/16/2017
 ms.author: snmuvva
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="near-real-time-metric-alerts-preview"></a>Alertes Métrique en temps quasi réel (préversion)
 Azure Monitor prend désormais en charge un nouveau type d’alertes Métrique appelées alertes Métrique en temps quasi réel (préversion). Cette fonctionnalité est actuellement disponible en préversion publique.
 Ces alertes diffèrent des alertes Métrique régulières à plusieurs égards :
@@ -74,7 +72,7 @@ Actuellement, il n’est possible de créer des alertes Métrique en temps quasi
 4. **Nommez** votre règle d’alerte, puis choisissez une **Description** qui indique également les adresses électroniques de notification.
 5. Sélectionnez la **Métrique** à surveiller, puis choisissez une **Condition**, une **Agrégation du temps** et une valeur de **Seuil** pour la métrique. Sélectionnez éventuellement une autre **Métrique** à surveiller, puis choisissez une **Condition**, une **Agrégation du temps** et une valeur de **Seuil** valeur pour la deuxième métrique. 
 
-    ![Ajouter l’alerte Métrique en temps quasi réel1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png) ![Ajouter l’alerte Métrique en temps quasi réel2](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
+    ![Ajouter l’alerte Métrique en temps quasi réel1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png)![Ajouter l’alerte Métrique en temps quasi réel2](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
 6. Choisissez également la **Période** pendant laquelle les règles de métrique doivent être respectées avant que l’alerte se déclenche. Ainsi, par exemple, si vous utilisez la période « Au cours des 5 dernières minutes » et que votre alerte recherche une utilisation de l’UC supérieure à 80 % (et une valeur NetworkIn supérieure à 500 Mo), l’alerte se déclenche quand l’utilisation de l’UC dépasse 80 % pendant 5 minutes. Après le premier déclenchement, elle se déclenche à nouveau lorsque l’UC reste au-dessous de 80 % pendant cinq minutes. L’alerte est évaluée conformément à la **Fréquence d’évaluation**.
 
 
@@ -95,7 +93,6 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et :
 * Afficher un graphique indiquant le seuil de la métrique et les valeurs réelles du jour précédent.
 * La modifier ou la supprimer.
 * La **Désactiver** ou l’**Activer** si vous voulez arrêter temporairement ou reprendre l’envoi de notifications pour cette alerte.
-
 
 
 

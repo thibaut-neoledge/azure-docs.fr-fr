@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: bwren
 ms.openlocfilehash: f2f696a3bbe7893c1f521a3e5588f4f93805d6a2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Prise en main d’Application Insights avec Java dans Eclipse
 Le Kit de développement logiciel (SDK) Application Insights envoie la télémétrie de votre application web Java afin que vous puissiez en analyser les performances et l’utilisation. Le plug-in Eclipse pour Application Insights installe automatiquement le Kit de développement logiciel (SDK) dans votre projet pour pouvoir bénéficier de la télémétrie de base, plus une API avec laquelle vous pouvez écrire des éléments de télémétrie personnalisés.   

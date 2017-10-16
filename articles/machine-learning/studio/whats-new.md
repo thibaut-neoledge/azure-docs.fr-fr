@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1e3dc7e1375488ae9473cdd26f4d00871a091fbd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Nouveautés dans Azure Machine Learning
 
@@ -53,5 +52,4 @@ ms.lasthandoff: 09/25/2017
 * Fournit une nouvelle page de test de service d’exécution de lot avec des exemples de données et un historique des travaux soumis.
 
 En outre, Machine Learning Studio a été mis à jour afin que vous puissiez déployer vers le nouveau modèle de service web ou continuer à déployer vers le modèle de service web classique. 
-
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: bwren
 ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Trouver des données avec les recherches de journaux dans Log Analytics
 
@@ -169,7 +169,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 #### <a name="to-search-using-a-boolean-operator"></a>Pour effectuer une recherche à l'aide d'un opérateur booléen
 * Dans le champ de requête de recherche, tapez `EventLog=System TimeGenerated>NOW-24HOURS`  
-    ![Recherche avec des opérateurs booléens](./media/log-analytics-log-searches/oms-search-boolean.png)
+    ![Recherche avec des opérateurs boléens](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Bien que vous puissiez contrôler graphiquement l'intervalle de temps, et nous vous invitons à faire cela la plupart du temps, l’ajout d’un filtre de temps directement dans la requête présente certains avantages. Par exemple, cela fonctionne très bien avec les tableaux de bord qui vous permettent de remplacer le temps pour chaque vignette, quel que soit le sélecteur de temps *global* sur la page du tableau de bord. Pour plus d'informations, consultez [Questions relatives au temps dans le tableau de bord](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
 

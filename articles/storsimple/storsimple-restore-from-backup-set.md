@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 ms.openlocfilehash: 12484338f5b4d489604d70a657ef0992b6267297
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
@@ -80,7 +80,7 @@ Avant de lancer la restauration d’un volume, assurez-vous que celui-ci est hor
 6. Passez en revue les informations de restauration, puis cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png). Cette opération lance une tâche de restauration que vous pouvez afficher en accédant à la page **Tâches** . 
 7. Une fois la restauration terminée, vous pouvez vérifier que le contenu de vos volumes a été remplacé par les volumes provenant de la sauvegarde.
 
-![Vidéo disponible](./media/storsimple-restore-from-backup-set/Video_icon.png) **Vidéo disponible**
+![Vidéo disponible](./media/storsimple-restore-from-backup-set/Video_icon.png)**Vidéo disponible**
 
 Pour visionner une vidéo expliquant comment utiliser les fonctionnalités de clonage et de restauration dans StorSimple pour récupérer des fichiers supprimés, cliquez [ici](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 

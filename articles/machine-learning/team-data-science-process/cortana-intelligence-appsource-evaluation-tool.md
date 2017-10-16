@@ -13,13 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8340ae1231b7f40f739d7bbb63cee1bf0f095ab5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
---- 
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
+---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Outil d’évaluation de la solution Cortana Intelligence
 ## <a name="overview"></a>Vue d'ensemble
 Vous pouvez utiliser l’outil d’évaluation de la solution Cortana Intelligence pour évaluer la conformité de vos solutions d’analyse avancées aux meilleures pratiques recommandées par Microsoft. Microsoft est ravi de travailler avec ses partenaires (éditeurs de logiciels indépendants et intégrateurs de systèmes) pour fournir des solutions de haute qualité à ses clients et revendeurs, ainsi qu’à des fins d’implémentation. Ce guide explique comment utiliser l’outil d’évaluation de la solution avec votre solution et décrit les meilleures pratiques à appliquer pour les vérifications.
@@ -199,5 +198,4 @@ Pour plus d’informations sur l’automatisation du processus de formation de m
 [Microsoft Azure Certified permet de développer votre activité dans le cloud](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
 
 [Microsoft Azure Certified pour Cortana Intelligence](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
-
 

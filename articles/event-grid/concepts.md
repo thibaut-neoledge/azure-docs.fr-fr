@@ -1,6 +1,6 @@
 ---
 title: "Concept d’Azure Event Grid"
-description: "Détaille le service Azure Event Grid et ses concepts. Définit plusieurs composants clés Event Grid."
+description: "Détaille le service Azure Event Grid et ses concepts. Définit plusieurs composants clés de Event Grid."
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,14 +8,12 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="concepts-in-azure-event-grid"></a>Concepts utilisés dans Azure Event Grid
 
 Voici les principaux concepts utilisés dans Azure Event Grid :

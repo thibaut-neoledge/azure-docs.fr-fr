@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: ba5bdf7daba6086b70aec54ebe25d4445fa708c3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Ajouter une connexion à une application Web MVC .NET
 Avec le point de terminaison v2.0, vous pouvez rapidement ajouter une authentification à vos applications web, avec prise en charge des comptes Microsoft personnels et des comptes professionnels ou scolaires.  Dans les applications web ASP.NET, vous pouvez y parvenir en utilisant l’intergiciel OWIN de Microsoft inclus dans .NET Framework 4.5.
@@ -208,12 +208,12 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez maintenant aborder des rubriques plus sophistiquées.  Par exemple :
 
-[Sécuriser une API Web avec le point de terminaison v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Sécuriser une API Web avec le point de terminaison v2.0 &gt;&gt;](active-directory-devquickstarts-webapi-dotnet.md)
 
 Pour obtenir des ressources supplémentaires, consultez :
 
-* [Guide du développeur 2.0 >>](active-directory-appmodel-v2-overview.md)
-* [Balise StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Guide du développeur 2.0 &gt;&gt;](active-directory-appmodel-v2-overview.md)
+* [Balise StackOverflow "azure-active-directory" &gt;&gt;](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obtenir les mises à jour de sécurité de nos produits
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [cette page](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.

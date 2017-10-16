@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 877fb34d2fe5d4b85157a8338e180358d2226ef1
-
-
+ms.openlocfilehash: 9a69253129cdedc4f5d7e736d5bd8d6a68f95a1e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.7 et .NET 2.7.1
 ## <a name="overview"></a>Vue d’ensemble
@@ -63,7 +63,7 @@ Dans cette version, les mises à jour ci-après ont été apportées à Web Tool
 #### <a name="known-issues"></a>Problèmes connus
 Les nœuds d’emplacement de déploiement de Web App n’apparaissent pas sous le nœud Emplacements de l’Explorateur de serveurs, et les nœuds enfants d’emplacement de déploiement de Web App ne se chargent pas sous Cloud Explorer. Ce problème a été résolu et préparé pour la prochaine version du Kit de développement logiciel (SDK). 
 
-### <a name="a-namecloudexploreracloud-explorer-for-visual-studio-2015"></a><a name="cloud_explorer"></a>Cloud Explorer pour Visual Studio 2015
+### <a name="cloud_explorer"></a>Cloud Explorer pour Visual Studio 2015
 Le Kit de développement logiciel (SDK) Azure 2.7 intègre Cloud Explorer pour Visual Studio 2015 qui vous permet de visualiser vos ressources Azure, d’inspecter leurs propriétés et d’exécuter des actions de développeur essentielles à partir de Visual Studio. 
 
 Cloud Explorer prend en charge les fonctionnalités suivantes :
@@ -136,10 +136,4 @@ Les projets LightSwitch ne sont pas compatibles avec cette version. Ce problème
 [Billet d’annonce du Kit de développement logiciel (SDK) Azure 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
 [Informations relatives à la prise en charge et au retrait pour le Kit de développement logiciel Azure SDK pour .NET et les API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-box-connector"></a>Prise en main du connecteur Box
 Connectez-vous à Box pour créer des fichiers, supprimer des fichiers et bien plus encore. Avec Box, vous pouvez :

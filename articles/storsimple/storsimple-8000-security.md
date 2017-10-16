@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: e4980cdb77650f011d143ed9e86fbe0af6b29d5d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sécurité et protection des données StorSimple
 
@@ -272,5 +271,4 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Déploiement de votre appareil StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
-
 

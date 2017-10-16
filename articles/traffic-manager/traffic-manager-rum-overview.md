@@ -16,18 +16,16 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a7e8ae605b6234341d9ab8b790f4c54d8627f29f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="traffic-manager-real-user-measurements-overview"></a>Vue d’ensemble de la fonctionnalité Mesures des utilisateurs réels dans Traffic Manager
 
 >[!NOTE]
->La fonctionnalité Mesures des utilisateurs réels dans Traffic Manager est en préversion publique. Il se peut qu’elle n’offre pas les mêmes niveaux de disponibilité et de fiabilité que les fonctions de la version mise à la disposition générale. Cette fonctionnalité n’est pas prise en charge, est susceptible de disposer de possibilités limitées et peut ne pas être disponible à certains emplacements Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour d’Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager).
+>La fonctionnalité Mesures des utilisateurs réels dans Traffic Manager est en préversion publique. Il se peut qu’elle n’offre pas les mêmes niveaux de disponibilité et de fiabilité que les fonctionnalités de la version mise à la disposition générale. Cette fonctionnalité n’est pas prise en charge, est susceptible de disposer de possibilités limitées et peut ne pas être disponible à certains emplacements Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour d’Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager).
 
 Quand vous configurez un profil Traffic Manager pour utiliser la méthode de routage des performances, le service recherche la provenance des demandes de requête DNS et prend des décisions de routage pour diriger ces demandeurs vers la région Azure qui leur offre la latence la plus faible. Pour ce faire, il utilise l’intelligence de la latence réseau que Traffic Manager gère pour différents réseaux d’utilisateurs finaux.
 
@@ -41,7 +39,7 @@ Dans un premier temps, un code JavaScript fourni par Azure (et contenant une cl�
 
 Au fil du temps, l’exécution répétée de cette opération sur plusieurs réseaux permet à Traffic Manager d’obtenir des informations plus précises sur les caractéristiques de la latence des réseaux dans lesquels se trouvent vos utilisateurs finaux. Ces informations sont progressivement incluses dans les décisions de routage prises par Traffic Manager. Il en résulte une précision accrue des décisions basées sur les mesures des utilisateurs réels envoyées.
 
-Quand vous utilisez la fonctionnalité Mesures des utilisateurs réels, vous êtes facturé en fonction du nombre de mesures envoyées à Traffic Manager. Pour plus d’informations sur les prix, visitez la page [Tarification Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager/).
+Quand vous utilisez la fonctionnalité Mesures des utilisateurs réels, vous êtes facturé en fonction du nombre de mesures envoyées à Traffic Manager. Pour plus d’informations sur les prix, visitez la page [Tarifs Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment utiliser la [fonctionnalité Mesures des utilisateurs réels avec des pages web](traffic-manager-create-rum-web-pages.md).
@@ -49,5 +47,4 @@ Quand vous utilisez la fonctionnalité Mesures des utilisateurs réels, vous êt
 - En savoir plus sur [Mobile Center](https://docs.microsoft.com/mobile-center/)
 - En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md) prises en charge par Traffic Manager
 - En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-create-profile.md)
-
 

@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/20/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>Créer un index Azure Search à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -110,6 +109,5 @@ Sinon, vous pouvez étudier les index de manière plus approfondie. Outre la col
 ## <a name="see-also"></a>Voir aussi
 
  [Fonctionnement de la recherche en texte intégral](search-lucene-query-architecture.md)  
- [API REST du service de recherche](https://docs.microsoft.com/rest/api/searchservice/) [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)
-
+ [API REST du service de recherche](https://docs.microsoft.com/rest/api/searchservice/)[SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)
 

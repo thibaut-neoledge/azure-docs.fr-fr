@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 ms.openlocfilehash: f5d6bb7ccbf15424e9940ccda2fac668a2af5a57
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
 > 
@@ -218,10 +218,10 @@ Les quatre premiers paramètres (`RegistrationEnabled`, `UserRegistrationTerms`,
 
 | Paramètre d’identité | Correspond à |
 | --- | --- |
-| RegistrationEnabled |**Rediriger les utilisateurs anonymes vers la page de connexion**  |
-| UserRegistrationTerms |**Conditions d’utilisation liées à l’inscription de l’utilisateur**  |
-| UserRegistrationTermsEnabled |**Afficher les conditions d’utilisation dans la page d’abonnement**  |
-| UserRegistrationTermsConsentRequired |**Exiger le consentement**  |
+| RegistrationEnabled |**Rediriger les utilisateurs anonymes vers la page de connexion** |
+| UserRegistrationTerms |**Conditions d’utilisation liées à l’inscription de l’utilisateur** |
+| UserRegistrationTermsEnabled |**Afficher les conditions d’utilisation dans la page d’abonnement** |
+| UserRegistrationTermsConsentRequired |**Exiger le consentement** |
 
 ![Paramètres d’identité][api-management-identity-settings]
 
@@ -230,9 +230,9 @@ Les quatre paramètres qui suivent (`DelegationEnabled`, `DelegationUrl`, `Deleg
 | Paramètre de délégation | Correspond à |
 | --- | --- |
 | DelegationEnabled |Case à cocher **Déléguer la connexion et l’inscription** |
-| DelegationUrl |**URL de point de terminaison de la délégation**  |
-| DelegatedSubscriptionEnabled |**Déléguer l’abonnement au produit**  |
-| DelegationValidationKey |**Déléguer la clé de validation**  |
+| DelegationUrl |**URL de point de terminaison de la délégation** |
+| DelegatedSubscriptionEnabled |**Déléguer l’abonnement au produit** |
+| DelegationValidationKey |**Déléguer la clé de validation** |
 
 ![Paramètres de délégation][api-management-delegation-settings]
 

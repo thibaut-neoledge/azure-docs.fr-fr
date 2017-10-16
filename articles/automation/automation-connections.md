@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
+ms.openlocfilehash: f1746f4f6706835d43edc171b03d4ececfa3560c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 00f0b370a05b29c44d0df8f7e9db115ff998b710
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connection-assets-in-azure-automation"></a>Ressources de connexion dans Azure Automation
 
 Une ressource de connexion Automation contient les informations nécessaires pour se connecter à une application ou un service externe à partir d’un Runbook ou d’une configuration DSC. Cela peut inclure des informations requises pour l’authentification comme un nom d’utilisateur et un mot de passe en plus des informations de connexion telles qu’une URL ou un port. La valeur d’une connexion consiste à conserver toutes les propriétés de connexion à une application spécifique dans une seule ressource plutôt que de créer plusieurs variables. L’utilisateur peut modifier les valeurs pour une connexion à un seul endroit et vous pouvez transmettre le nom d’une connexion à un Runbook ou à une configuration DSC dans un seul paramètre. Les propriétés d’une connexion sont accessibles dans le Runbook ou la configuration DSC avec l’activité **Get-AutomationConnection** . 
@@ -161,4 +159,3 @@ L’exemple suivant montre comment s’authentifier à l’aide de la fonction d
 - Passez en revue la page relative aux [liens lors de la création de graphiques](automation-graphical-authoring-intro.md#links-and-workflow) pour comprendre comment diriger et contrôler le flux logique dans les runbooks.  
 
 - Pour plus d’informations sur l’utilisation des modules PowerShell dans Azure Automation et les meilleures pratiques pour créer vos propres modules PowerShell afin de garantir que ceux-ci fonctionnent en tant que modules d’intégration au sein d’Azure Automation, consultez [Modules d’intégration](automation-integration-modules.md).  
-

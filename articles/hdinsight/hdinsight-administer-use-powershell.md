@@ -16,19 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 3522cae228e92b47023cfca217e09c2e2104190b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Azure PowerShell permet de contrôler et d’automatiser le déploiement et la gestion de vos charges de travail dans Azure. Dans cet article, vous allez apprendre à gérer des clusters Hadoop dans Azure HDInsight à l’aide d’Azure PowerShell. Pour la liste des applets de commande PowerShell pour HDInsight, consultez la rubrique [Référence des applets de commande HDInsight][hdinsight-powershell-reference].
 
-****
+**Configuration requise**
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -268,4 +267,3 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
-

@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
 ms.openlocfilehash: 3674670e10500d2992539ab60fbdb31b666fcf9a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Mettre à niveau Microsoft Azure Active Directory Sync et Azure Active Directory Sync
 Azure AD Connect est la meilleure façon de connecter votre répertoire local avec Azure AD et Office 365. C’est l’occasion idéale d’effectuer la mise à niveau vers Azure AD Connect à partir de Microsoft Azure Active Directory Sync (DirSync) ou Azure AD Sync, car ces outils sont désormais déconseillés et ne seront plus pris en charge à partir du 13 avril 2017.
 
@@ -71,4 +69,3 @@ Le connecteur Azure AD pour FIM/MIM n’a **pas** été annoncé comme déconsei
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-

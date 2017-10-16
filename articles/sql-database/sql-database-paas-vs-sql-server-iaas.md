@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
+ms.openlocfilehash: 44546b423cd7f3a49d3699aa39f2437a42de86a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d136b71c9587d4035009a2ef2296fd93f9e984fe
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Choisir une option de SQL Server cloud : Base de données SQL Azure (PaaS) ou SQL Server sur des machines virtuelles Azure (IaaS)
 Azure propose deux options pour héberger des charges de travail SQL Server dans Microsoft Azure :
@@ -66,7 +65,6 @@ Le tableau suivant résume les principales caractéristiques de SQL Database et 
 |  | Équipes qui nécessitent une haute disponibilité, une récupération d’urgence et une mise à niveau pour la base de données. |Équipes qui peuvent configurer et gérer une haute disponibilité, une récupération d’urgence et une mise à jour corrective pour SQL Server. Certaines fonctionnalités automatisées simplifient considérablement cette procédure. | |
 |  | Équipes qui ne souhaitent pas gérer le système d’exploitation sous-jacent et les paramètres de configuration. |Vous avez besoin d’un environnement personnalisé avec des droits d’administration complets. | |
 |  | Bases de données de moins de 4 To ou bases de données plus volumineuses pouvant être [partitionnées horizontalement ou verticalement](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) à l’aide d’un modèle de scale-out. |Instances SQL Server avec 64 To de stockage maximum. L’instance peut prendre en charge autant de bases de données que nécessaire. | |
-|  | [Création d’applications SaaS (logiciel en tant que service)](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migration et création d’applications d’entreprise et hybrides. | |
 |  | | |
 | **Ressources :** |Vous ne souhaitez pas utiliser les ressources informatiques pour la configuration et la gestion de l’infrastructure sous-jacente, mais vous voulez vous concentrer sur la couche d’application. |Vous disposez de ressources informatiques pour la configuration et la gestion. Certaines fonctionnalités automatisées simplifient considérablement cette procédure. |
 | **Coût total de possession :** |Élimine les coûts matériels et réduit les coûts d’administration. |Élimine les coûts matériels. |
@@ -146,5 +144,4 @@ Choisissez **SQL Server sur les machines virtuelles Azure** dans les cas suivant
 * Pour prendre en main SQL Database, consultez la page [Votre première base de données Azure SQL Database](sql-database-get-started-portal.md).
 * Voir [Tarification de Base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 * Pour plus d’informations sur la prise en main de SQL Server sur Azure Virtual Machines, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) .
-
 

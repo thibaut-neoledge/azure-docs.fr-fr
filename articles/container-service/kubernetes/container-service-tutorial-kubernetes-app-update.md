@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 081f36c975c4a2d137fa20e346d6b6739b6997fe
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="update-an-application-in-kubernetes"></a>Mettre à jour une application dans Kubernetes
 
 Après avoir déployé une application dans Kubernetes, vous pouvez la mettre à jour en spécifiant une nouvelle image conteneur ou une nouvelle version de l’image. Cette mise à jour se fait alors étape par étape, afin que seulement une partie du déploiement soit mise à jour simultanément. Cette mise à jour progressive permet à l’application de poursuivre son exécution pendant la mise à jour. Elle fournit également un mécanisme de restauration en cas d’échec du déploiement. 

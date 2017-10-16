@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a9f61ec7c051ccdd867aec94121347db19b059b5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introduction à R Server et aux fonctionnalités Open Source R sur HDInsight
 
@@ -104,4 +103,3 @@ Pour plus d’informations sur l’utilisation de R Server avec des clusters HDI
 * [Ajouter RStudio Server à HDInsight (s’il n’est pas installé lors de la création du cluster)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Options de contexte de calcul pour R Server sur HDInsight (version préliminaire)](hdinsight-hadoop-r-server-compute-contexts.md)
 * [Options d’Azure Storage pour R Server sur HDInsight](hdinsight-hadoop-r-server-storage.md)
-

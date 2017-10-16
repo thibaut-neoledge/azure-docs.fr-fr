@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d96c89ed3650c09ac6465e30754ef1155b06d601
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +30,7 @@ Avec l’activité de copie dans Azure Data Factory, vous avez deux moyens de tr
 - Vous pouvez continuer à copier toutes les données en ajoutant une tolérance de panne et en ignorant les lignes de données incompatibles. Vous avez également la possibilité de journaliser les lignes incompatibles dans le stockage Blob Azure afin de pouvoir examiner la cause de l’échec dans le journal, corriger les données sur la source de données, puis effectuer une nouvelle tentative de copie.
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, disponible en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez [Tolérance de panne de l’activité de copie dans V1](v1/data-factory-copy-activity-fault-tolerance.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez [Tolérance de panne de l’activité de copie dans V1](v1/data-factory-copy-activity-fault-tolerance.md).
 
 
  ## <a name="supported-scenarios"></a>Scénarios pris en charge
@@ -97,10 +96,9 @@ data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewi
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les autres articles relatifs à l’activité de copie :
+Voir les autres articles relatifs à l’activité de copie :
 
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)
 - [Performances de l’activité de copie](copy-activity-performance.md)
-
 
 

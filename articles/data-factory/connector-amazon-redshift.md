@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e96e5649d5ffa2b136c767bc40b79196fe040d02
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copier des données d’Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +39,7 @@ Plus précisément, ce connecteur Amazon Redshift prend en charge la récupérat
 > [!TIP]
 > Pour obtenir de meilleures performances lors de la copie de grandes quantités de données à partir de Redshift, utilisez le mécanisme Redshift intégré UNLOAD via Amazon S3. Consultez la section [Utiliser UNLOAD pour copier des données à partir d’Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) pour plus d’informations.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 * Si vous copiez des données vers une banque de données locale à l’aide du [runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md), accordez au runtime d’intégration (en utilisant l’adresse IP de l’ordinateur) l’accès au cluster Amazon Redshift. Pour davantage d’instructions, consultez la rubrique [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autoriser l’accès au cluster).
 * Si vous copiez des données vers une banque de données Azure, consultez la page [Plages IP des centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) pour connaître les plages d’adresses IP de calcul et SQL utilisées par les centres de données Azure.
@@ -99,7 +98,7 @@ Pour copier des données d’Amazon Redshift, affectez la valeur **RelationalTab
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
 | type | La propriété type du jeu de données doit être définie sur **RelationalTable** | Oui |
-| TableName | Nom de la table dans Amazon Redshift. | Non (si « query » est spécifié dans la source de l’activité) |
+| TableName | Nom de la table dans Amazon Redshift. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 

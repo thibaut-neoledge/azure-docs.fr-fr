@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: vittorib
 ms.custom: aaddev
 ms.openlocfilehash: d9f53148787729d29a0a89cce1b8b2b83ba228f8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Intégration d’Azure AD avec une application Apache Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -75,7 +75,7 @@ Chaque plateforme cible présente une configuration requise différente :
   * Installez le [Kit de développement Java (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou ultérieur. Assurez-vous que la variable d’environnement `JAVA_HOME` est correctement définie en fonction du chemin d’installation du JDK (par exemple, C:\Program Files\Java\jdk1.7.0_75).
   * Installez le [Kit de développement logiciel (SDK) Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) et ajoutez l’emplacement `<android-sdk-location>\tools` (par exemple, C:\tools\Android\android-sdk\tools) pour votre variable d’environnement `PATH`.
   * Ouvrez Android SDK Manager (par exemple, via le terminal : `android`) et installez :
-    * *Android 5.0.1 (API 21)* 
+    * *Android 5.0.1 (API 21)*
     * *Android SDK Build Tools* version 19.1.0 ou ultérieure
     * *Android Support Repository* (modules complémentaires)
 

@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/29/2017
 ms.author: joeyong;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0d156bc2eecf8220bd5ff4eb811d91482f216837
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-data"></a>Migration de vos données
 Les données peuvent être déplacées à partir de différentes sources dans SQL Data Warehouse avec divers outils.  Les solutions ADF Copy, SSIS et bcp peuvent toutes être utilisées à cette fin. Toutefois, à mesure de l’augmentation du volume des données, vous avez tout intérêt à réfléchir à un moyen de diviser le processus de migration des données en étapes. Ce faisant, vous vous donnez les moyens d’optimiser chacune des phases en matière de performance et de résilience afin de garantir une migration sans heurts des données.
@@ -208,4 +207,3 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 [preview version]: http://aka.ms/downloadazcopypr/
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx
-

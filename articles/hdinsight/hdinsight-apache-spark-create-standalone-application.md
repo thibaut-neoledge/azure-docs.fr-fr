@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: nitinme
 ms.openlocfilehash: 95dba08744357f8800b05e3d4b892e3a363d5985
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Créer une application Scala Maven à exécuter sur un cluster Apache Spark sur HDInsight
 
@@ -151,5 +151,5 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 Dans cet article, vous avez appris comment créer une application Spark Scala. Passez à l’article suivant pour savoir comment exécuter cette application sur un cluster HDInsight Spark en utilisant Livy.
 
 > [!div class="nextstepaction"]
->[Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
+>[Exécution de travaux à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 

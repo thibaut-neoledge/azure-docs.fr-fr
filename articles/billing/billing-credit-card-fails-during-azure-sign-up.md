@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: cjiang
 ms.openlocfilehash: bad37f2447ac8de727326914b611f81effc9cf3f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="your-debit-card-or-credit-card-is-declined-at-azure-sign-up"></a>Votre carte bancaire est refusée lors de l’inscription à Azure
 Si votre carte bancaire est refusée lorsque vous vous inscrivez à Azure, vous devez peut-être résoudre l’un des problèmes suivants :

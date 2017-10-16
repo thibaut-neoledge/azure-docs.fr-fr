@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
 ms.openlocfilehash: 0c5d00b6cb9f68a1a0e474f81c969eb1b5654c67
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Personnalisation de clusters HDInsight basés sur Linux à l'aide d'une action de script
 
@@ -667,7 +667,7 @@ Si la création du cluster échoue en raison d’une erreur d’action de script
 
 * Vous pouvez créer plusieurs fois un cluster d'action de script portant le même nom. Dans ce cas, vous pouvez différencier les journaux correspondants selon le nom de dossier DATE. Par exemple, la structure de dossiers d’un cluster (mycluster) créé à différentes dates ressemble à aux entrées de journaux suivantes :
 
-    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
+    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04``\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 
 * Si vous créez un cluster d'action de script avec le même nom le même jour, vous pouvez utiliser le préfixe unique pour identifier les fichiers journaux correspondants.
 

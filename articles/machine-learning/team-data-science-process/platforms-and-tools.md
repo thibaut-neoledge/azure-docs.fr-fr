@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6e6e7a199547135bd9695ff0867e8d5a98341b12
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Plateformes et outils pour les projets d’équipe de science des données
 
 Microsoft fournit une gamme complète de services et ressources de données et d’analytique pour les plateformes cloud ou locales. Vous pouvez déployer ces services et ressources pour faciliter et faire évoluer l’exécution de vos projets de science des données. [Team Data Science Process](overview.md) (TDSP) fournit aux équipes des conseils pour implémenter les projets de science des données de façon collaborative, en garantissant la traçabilité et la gestion des versions.  Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).

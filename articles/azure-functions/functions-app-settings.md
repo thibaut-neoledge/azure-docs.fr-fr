@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
 ms.author: tdykstra
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: ce7bf2cf650b0df7e8998766b2d3f5a37c4a1b72
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
 Les paramètres d’une application de fonction contiennent les options de configuration globale qui affectent l’ensemble des fonctions de cette application de fonction. Lors d’une exécution locale, ces paramètres sont contenus dans des variables d’environnement. Cet article répertorie les paramètres d’application qui sont disponibles dans les applications de fonction.
@@ -162,4 +160,3 @@ La valeur par défaut est « 6.5.0 ».
 
 > [!div class="nextstepaction"]
 > [Consultez les paramètres globaux dans le fichier host.json](functions-host-json.md)
-

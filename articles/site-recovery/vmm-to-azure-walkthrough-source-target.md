@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: c72f839d0a1288dccb7deb3e44fc2b20d64818f0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-8-set-up-the-source-and-target-for-hyper-v-with-vmm-replication-to-azure"></a>Étape 8 : Configurer la source et la cible pour la réplication de Hyper-V (avec VMM) vers Azure
 
 Après avoir [créé un coffre](vmm-to-azure-walkthrough-create-vault.md) et avoir indiqué ce que vous voulez répliquer, utilisez cet article pour configurer les paramètres sources et cibles lors de la réplication de machines virtuelles Hyper-V locales gérées dans les clouds System Center Virtual Machine Manager (VMM) vers Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md) sur le portail Azure.
@@ -133,4 +131,3 @@ Spécifiez le compte Azure Storage à utiliser pour la réplication, ainsi que l
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à [Étape 9 : Configurer le mappage réseau](vmm-to-azure-walkthrough-network-mapping.md)
-

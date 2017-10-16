@@ -15,12 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 08/30/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 414fb9adaa1535d82b1bc385ff0864394efb837c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Utilisez les applets de commande AzureRM.RecoveryServices.Backup pour sauvegarder des machines virtuelles
 > [!div class="op_single_selector"]
@@ -488,4 +487,3 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous préférez utiliser PowerShell pour gérer vos ressources Azure, consultez l’article PowerShell [Déployer et gérer une sauvegarde pour Windows Server](backup-client-automation.md). Si vous gérez des sauvegardes DPM, consultez l’article [Déployer et gérer la sauvegarde pour DPM](backup-dpm-automation.md). Ces deux articles ont une version concernant les déploiements avec le modèle Resource Manager et le modèle Classic.  
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
+ms.openlocfilehash: 9a72e0b16db8e0bfe11398e7402c757ca50ff1ff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: dab2e54dedf55f0d9a0b0b4e66d101ed7df94bfa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="smart-detection---performance-anomalies"></a>Détection intelligente - anomalies de performances
 
@@ -191,4 +190,3 @@ Les détections intelligentes sont entièrement automatiques. Mais vous souhaite
 
 * [Alertes de mesures configurées manuellement](app-insights-alerts.md)
 * [Tests web de disponibilité](app-insights-monitor-web-app-availability.md)
-

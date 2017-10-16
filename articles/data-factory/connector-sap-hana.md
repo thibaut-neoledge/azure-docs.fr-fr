@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2e66edf63b4bdac1aacfedb64ca1edf207e46a84
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copier des données de SAP HANA à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,7 +42,7 @@ Plus précisément, ce connecteur SAP HANA prend en charge ce qui suit :
 > [!NOTE]
 > Pour copier des données **vers** une banque de données SAP HANA, utilisez le connecteur ODBC générique. Pour plus de détails, voir [Récepteur SAP HANA](connector-odbc.md#sap-hana-sink). Notez que les services liés pour les connecteurs SAP HANA et ODBC sont de types différents et qu’ils ne peuvent donc pas être réutilisées.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 Pour utiliser ce connecteur SAP HANA, vous devez :
 
@@ -66,7 +65,7 @@ Les propriétés prises en charge pour le service lié SAP HANA sont les suivant
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données SAP HANA.<br/>Valeurs autorisées : **De base** et **Windows** | Oui |
 | userName | Nom de l’utilisateur ayant accès au serveur SAP. | Oui |
 | password | Mot de passe pour l’utilisateur. Marquez ce champ comme SecureString. | Oui |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un runtime d’intégration auto-hébergé est nécessaire, comme indiqué dans [Conditions préalables](#prerequisites). |Oui |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
 
 **Exemple :**
 

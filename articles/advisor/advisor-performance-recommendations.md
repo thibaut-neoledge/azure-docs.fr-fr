@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5fb86c60b2d1f258dde5636ff8854b6f30f7f1c8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 995a1f37a3fd68b39c14a95d46109c0f7814018d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advisor-performance-recommendations"></a>Recommandations Azure Advisor en matière de performances
 
 Les recommandations d’Azure Advisor en matière de performances vous aident à optimiser la vitesse et la réactivité de vos applications stratégiques. Vous pouvez obtenir des recommandations en matière de performances à l’aide d’Advisor dans l’onglet **Performances** du tableau de bord d’Advisor.
@@ -78,5 +76,4 @@ Pour en savoir plus sur les recommandations d’Advisor, consultez les ressource
 * [Recommandations du conseiller en matière de coûts](advisor-performance-recommendations.md)
 * [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md)
 * [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)
-
 

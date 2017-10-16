@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 96a817e43a830e836f2faa4603fc88ed9c0b1828
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-11-enable-replication-to-azure-for-hyper-v-vms-in-vmm-clouds"></a>Étape 11 : Activer la réplication vers Azure de machines virtuelles Hyper-V dans les clouds VMM
 
@@ -82,4 +81,3 @@ Vous pouvez suivre la progression du travail **Activer la protection** dans **Tr
 ## <a name="next-steps"></a>Étapes suivantes
 
 Aller à [Étape 12 : exécution d’un test de basculement](vmm-to-azure-walkthrough-test-failover.md)
-

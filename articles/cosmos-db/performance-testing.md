@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test des performances et de la mise à l’échelle avec Azure Cosmos DB
 Le test des performances et de la mise à l’échelle est une étape essentielle du développement d’applications. Pour de nombreuses applications, la couche Base de données a un impact significatif sur les performances globales et la scalabilité. Il s’agit donc d’une composante essentielle des tests de performances. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) a été spécialement conçu pour offrir une mise à l’échelle élastique et des performances prévisibles. Ces capacités en font une solution de choix pour les applications qui ont besoin d’une couche Base de données hautement performante. 
@@ -106,6 +105,5 @@ Dans cet article, nous avons vu comment effectuer des tests de performances et d
 * [Exemple de test des performances Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Options de configuration côté client permettant d’améliorer les performances d’Azure Cosmos DB](performance-tips.md)
 * [Guide de partitionnement et de mise à l’échelle dans Azure Cosmos DB](partition-data.md)
-
 
 

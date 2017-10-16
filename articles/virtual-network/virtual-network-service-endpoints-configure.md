@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 9c953e697d5d1c6e53df8eaf72c4e4fbd83ca286
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurer des points de terminaison de service de réseau virtuel
 
@@ -397,4 +396,3 @@ Pour plus d’instructions sur la sécurisation d’une ressource de service dan
 [Sécurisation de comptes de Stockage Azure dans des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security)
 
 [Sécurisation d’Azure SQL dans des réseaux virtuels](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
-

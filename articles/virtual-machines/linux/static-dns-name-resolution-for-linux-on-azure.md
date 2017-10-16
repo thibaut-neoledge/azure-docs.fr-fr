@@ -15,14 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 992920adb1ae3736d43cc5f0bbb2081a20a1674d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Création de cartes d’interface réseau virtuelle et d’utilisation des DNS internes pour la résolution des noms de machine virtuelle sur Azure
 Cet article explique comment définir des noms DNS internes statiques pour les machines virtuelles Linux à l’aide de cartes réseau virtuelles (VNic) et de noms d’étiquette DNS avec Azure CLI 2.0. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les noms DNS statiques sont utilisés pour les services d’infrastructure permanents comme un serveur de builds Jenkins, qui est utilisé pour ce document, ou un serveur Git.
 
@@ -166,4 +164,3 @@ En utilisant les indicateurs CLI pour appeler les ressources existantes, nous i
 ## <a name="next-steps"></a>Étapes suivantes
 * [Créer votre propre environnement personnalisé pour une machine virtuelle Linux à l’aide des commandes de l’interface de ligne de commande Azure directement](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Création d’une machine virtuelle Linux sur Azure à l’aide de modèles](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

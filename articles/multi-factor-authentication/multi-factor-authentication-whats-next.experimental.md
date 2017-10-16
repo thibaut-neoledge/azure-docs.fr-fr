@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/21/2017
 ms.author: kgremban
 ms.openlocfilehash: 9d77b9329116afcf2fdde48d672c95020738138c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 Cet article vous aide à gérer Azure Multi-Factor Authentication, maintenant que vous êtes opérationnel.  Il aborde divers sujets qui vous permettent de tirer le meilleur parti d’Azure Multi-Factor Authentication.  Ces fonctionnalités ne sont pas disponibles dans toutes les versions d’Azure Multi-Factor Authentication.

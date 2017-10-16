@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: mblythe
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-a-function-from-powerapps"></a>Appeler une fonction dans PowerApps
 La plateforme [PowerApps](https://powerapps.microsoft.com) est conçue pour les experts d’entreprise qui souhaitent créer des applications sans code d’application traditionnel. Les développeurs professionnels peuvent utiliser Azure Functions pour étendre les fonctionnalités de PowerApps, tout en évitant les détails techniques liés à la création d’applications PowerApps.
 
@@ -44,7 +42,7 @@ Dans cette rubrique, vous allez apprendre à :
 > * Ajouter des contrôles pour appeler la fonction et afficher les données
 > * Exécuter l’application pour déterminer si une réparation est rentable
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 + Un [compte PowerApps](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) actif avec les mêmes informations d’identification que votre compte Azure. 
 + Excel, car vous allez l’utiliser comme source de données de votre application.

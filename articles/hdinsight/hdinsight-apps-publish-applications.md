@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: jgao
+ms.openlocfilehash: 34550ed33cd81bcbf5b405a5e5c09d25adf5e6ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: 9bda115455ff1e122ac2764cec612546c71365c4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publier une application HDInsight sur la Place de marché Microsoft Azure
 Vous pouvez installer une application Azure HDInsight sur un cluster HDInsight basé sur Linux. Cet article explique comment publier une application HDInsight sur la Place de marché Microsoft Azure. Pour obtenir des informations générales sur la publication sur la Place de marché Microsoft Azure, consultez [Publier une offre sur la Place de marché Microsoft Azure](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -33,7 +32,7 @@ Pour plus d’informations, consultez les articles suivants relatifs à l’appl
 * [Installer des applications HDInsight](hdinsight-apps-install-applications.md) : découvrez comment installer une application HDInsight sur vos clusters.
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment installer et tester des applications HDInsight personnalisées.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Pour envoyer votre application personnalisée à la Place de marché, vous devez d’abord [créer et tester votre application personnalisée](hdinsight-apps-install-custom-applications.md).
 
 Vous devez également enregistrer votre compte de développeur. Pour plus d’informations, consultez [Publier une offre sur la Place de marché Microsoft Azure](../marketplace-publishing/marketplace-publishing-getting-started.md) et [Créer un compte de développeur Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
@@ -113,5 +112,4 @@ Pour publier une application HDInsight :
 * Découvrez comment [utiliser une action de script pour personnaliser des clusters HDInsight basés sur Linux](hdinsight-hadoop-customize-cluster-linux.md) et ajouter d’autres applications. 
 * Découvrez comment [créer des clusters Hadoop basés sur Linux dans HDInsight à l’aide de modèles Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Découvrez comment [utiliser un nœud de périphérie vide dans HDInsight](hdinsight-apps-use-edge-node.md) pour accéder aux clusters HDInsight, tester des applications HDInsight et héberger des applications HDInsight.
-
 

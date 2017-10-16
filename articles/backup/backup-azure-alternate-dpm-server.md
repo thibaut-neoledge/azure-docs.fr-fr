@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/18/2017
 ms.author: adigan;giridham;trinadhk;markgal
 ms.openlocfilehash: 688d155b68bc2d76d53f78d251bc2f659582845f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Récupérer des données depuis Azure Backup Server
 Vous pouvez utiliser Azure Backup Server pour récupérer les données sauvegardées dans un coffre Recovery Services. Le processus pour cette opération est intégré dans la console de gestion Azure Backup Server et est similaire au flux de travail de récupération pour les autres composants Azure Backup.

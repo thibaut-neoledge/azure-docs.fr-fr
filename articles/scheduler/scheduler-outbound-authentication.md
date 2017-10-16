@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e345b2e22daae5b24c23645f7d2636f66df630ff
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-outbound-authentication"></a>Authentification sortante de Scheduler
 Les travaux de Scheduler peuvent avoir besoin de faire appel à des services qui requièrent une authentification. De cette façon, un service appelé peut déterminer si le travail de Scheduler peut accéder à ses ressources. Certains de ces services incluent d'autres services Azure, Salesforce.com, Facebook et des sites Web personnalisés sécurisés.
@@ -392,5 +391,4 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
  [Haute disponibilité et fiabilité d’Azure Scheluler](scheduler-high-availability-reliability.md)
 
  [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
-
 

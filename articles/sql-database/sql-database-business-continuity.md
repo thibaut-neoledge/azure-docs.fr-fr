@@ -16,12 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/25/2017
 ms.author: sashan
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 4963598837b71e812ad3750aad9d20c8460111d9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
@@ -158,4 +157,3 @@ Parfois, une application doit être déconnectée en raison d’une maintenance 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la conception d’applications pour des bases de données autonomes et des pools élastiques, consultez [Conception d’applications pour la récupération d’urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) et [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-

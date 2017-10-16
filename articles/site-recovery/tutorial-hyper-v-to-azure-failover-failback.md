@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/15/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e1cc21661450a983c25b24fe2a6228e26ceecec6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur Azure
 
 Le service [Azure Site Recovery](site-recovery-overview.md) gère et orchestre la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.
@@ -41,7 +39,7 @@ Le basculement et la restauration automatique comportent deux étapes :
 
 ## <a name="fail-over-to-azure"></a>Basculer vers Azure
 
-### <a name="failover-prerequisites"></a>Prérequis de basculement
+### <a name="failover-prerequisites"></a>Conditions préalables de basculement
 
 Pour effectuer un basculement :
 
@@ -56,7 +54,7 @@ Si vous voulez vous connecter à des machines virtuelles Azure à l’aide de RD
 ##### <a name="azure-vms-running-windows"></a>Machines virtuelles Azure exécutant Windows
 
 1. Pour accéder à des machines virtuelles Azure via Internet, activez RDP sur la machine virtuelle locale avant le basculement. Vérifiez que des règles TCP et UDP sont ajoutées pour le profil **Public** et que RDP est autorisé dans **Pare-feu Windows** > **Applications autorisées** pour tous les profils.
-2. Pour accéder via un VPN de site à site, activez RDP sur la machine locale. RDP doit être autorisé dans **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** pour les réseaux **Domaine et Privé**. Vérifiez que la stratégie SAN du système d’exploitation est définie sur **OnlineAll**. [Plus d’informations](https://support.microsoft.com/kb/3031135) Aucune mise à jour de Windows ne doit être en attente sur la machine virtuelle quand vous déclenchez un basculement. S’il y en a, vous ne pouvez pas vous connecter à la machine virtuelle avant la fin de la mise à jour. 
+2. Pour accéder via un VPN de site à site, activez RDP sur la machine locale. RDP doit être autorisé dans **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** pour les réseaux **Domaine et Privé**. Vérifiez que la stratégie SAN du système d’exploitation est définie sur **OnlineAll**. [En savoir plus](https://support.microsoft.com/kb/3031135). Aucune mise à jour de Windows ne doit être en attente sur la machine virtuelle quand vous déclenchez un basculement. S’il y en a, vous ne pouvez pas vous connecter à la machine virtuelle avant la fin de la mise à jour. 
 3. Sur la machine virtuelle Azure Windows, après le basculement, vérifiez les **Diagnostics de démarrage** pour afficher une capture d’écran de la machine virtuelle. Si vous ne pouvez pas vous connecter, vérifiez que la machine virtuelle est en cours d’exécution et lisez ces [conseils de résolution des problèmes](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 
@@ -90,7 +88,7 @@ Cette procédure explique comment effectuer régulièrement un basculement.
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle > **Basculer**.
 2. Dans **Basculer**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
     - **Dernier** (par défaut) : cette option traite d’abord toutes les données envoyées à Site Recovery. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle Azure créée après le basculement a toutes les données qui ont été répliquées vers Site Recovery quand le basculement a été déclenché.
-    - **Dernier point traité** : cette option bascule la machine virtuelle vers le dernier point de récupération traité par Site Recovery. Cette option fournit un objectif de délai de récupération faible, car aucun temps n’est consacré à traiter les données non traitées.
+    - **Dernier point traité** : cette option bascule la machine virtuelle vers le dernier point de récupération traité par Site Recovery. Cette option fournit un objectif de délai de récupération (RTO) faible, car aucun temps n’est consacré à traiter les données non traitées.
     - **Dernier point de cohérence des applications** : cette option bascule la machine virtuelle vers le dernier point de récupération de cohérence des applications traité par Site Recovery. 
     - **Personnalisé** : spécifiez un point de récupération.
 3. Si vous basculez des machines virtuelles Hyper-V dans des clouds System Center VMM vers Azure et que le chiffrement des données est activé pour le cloud, dans **Clé de chiffrement**, sélectionnez le certificat émis quand vous avez activé le chiffrement des données lors de l’installation du fournisseur sur le serveur VMM.
@@ -130,5 +128,4 @@ Basculez depuis Azure sur le site local et démarrez la réplication des machine
 
 > [!NOTE]
 > La réplication inverse réplique seulement les modifications qui se sont produites depuis que la machine virtuelle Azure a été arrêtée, et seules les modifications différentielles sont envoyées.
-
 

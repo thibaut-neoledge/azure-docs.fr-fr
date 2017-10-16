@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: tamram
+ms.openlocfilehash: 87594d2688e3cd01f5e7db8f5be8ca513969e774
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 7a432a22c5c2c2fc5e42cfe000dd34262ba4c85e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Prise en main du stockage d’objets blob Azure à l’aide de .NET
 
@@ -402,4 +401,3 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Prise en main du stockage de fichier pour .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki)
-

@@ -15,14 +15,12 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: ed14a5a762bab20a1ccde699504dd21f25009b52
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Prise en main du fournisseur Azure Multi-Factor Auth
 La vérification en deux étapes est disponible par défaut pour les administrateurs généraux disposant d’Azure Active Directory et les utilisateurs Office 365. Toutefois, si vous souhaitez tirer parti des [fonctionnalités avancées](multi-factor-authentication-whats-next.md), vous devez acheter la version complète d’Azure Multi-Factor Authentication (MFA).
 
@@ -88,4 +86,3 @@ Si votre fournisseur MFA n’est pas associé à un locataire Azure AD, ou si vo
 [Création de Multi-Factor Authentication dans des applications personnalisées (SDK)](multi-factor-authentication-sdk.md)
 
 [Configurer les paramètres d’Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md)
-

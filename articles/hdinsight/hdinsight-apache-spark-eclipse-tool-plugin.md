@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 79b3183171e3c28276c8e4e6d4fe3998e0109643
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Utiliser le kit de ressources Azure pour Eclipse pour créer des applications Spark pour un cluster HDInsight
 
@@ -36,7 +35,7 @@ Utilisez HDInsight Tools du kit de ressources Azure pour Eclipse pour développ
 > 
 > 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 * Cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit version 8, qui est utilisé pour l’exécution d’IDE Eclipse. Vous pouvez le télécharger à partir du [site web Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
@@ -84,7 +83,7 @@ Quand vous ouvrez Eclipse, HDInsight Tools détecte automatiquement si vous avez
 4. Dans la boîte de dialogue **New HDInsight Scala Project** (Nouveau projet HDInsight Scala), indiquez les valeurs suivantes, puis sélectionnez **Next** (Suivant) :
    * Entrez un nom pour le projet.
    * Dans la zone **JRE**, vérifiez que l’option **Use an execution environment JRE** (Utiliser un environnement d’exécution JRE) est définie sur **JavaSE-1.7** ou version ultérieure.
-   * Vérifiez que le SDK Spark est défini sur l’emplacement où vous l’avez téléchargé. Le lien vers l’emplacement de téléchargement est inclus dans la section [Prérequis](#prerequisites), plus haut dans cet article. Vous pouvez également télécharger le SDK à partir du lien dans la boîte de dialogue.
+   * Vérifiez que le SDK Spark est défini sur l’emplacement où vous l’avez téléchargé. Le lien vers l’emplacement de téléchargement est inclus dans la section [Composants requis](#prerequisites), plus haut dans cet article. Vous pouvez également télécharger le SDK à partir du lien dans la boîte de dialogue.
 
    ![Boîte de dialogue New HDInsight Scala Project (Nouveau projet HDInsight Scala)](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
 5. Dans la boîte de dialogue suivante, sélectionnez l’onglet **Libraries** (Bibliothèques), conservez les valeurs par défaut, puis sélectionnez **Finish** (Terminer). 
@@ -185,7 +184,7 @@ Par défaut, HDInsight Tools du kit de ressources Azure pour Eclipse répertori
 ## <a name="run-a-spark-scala-application-locally"></a>Exécuter une application Spark Scala localement
 Vous pouvez utiliser HDInsight Tools du kit de ressources Azure pour Eclipse pour exécuter des applications Spark Scala localement sur votre poste de travail. En règle générale, ces applications n’ont pas besoin d’accéder aux ressources de cluster telles que le conteneur de stockage, et elles peuvent être exécutées et testées localement.
 
-### <a name="prerequisite"></a>Prérequis
+### <a name="prerequisite"></a>Configuration requise
 Quand vous exécutez l’application Spark Scala locale sur un ordinateur Windows, vous pouvez obtenir une exception, comme l’explique le document [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Cette exception est liée à l’absence du fichier **WinUtils.exe** dans Windows. 
 
 Pour résoudre cette erreur, vous devez [télécharger le fichier exécutable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) vers un emplacement tel que **C:\WinUtils\bin**. Vous devez ensuite ajouter la variable d’environnement **HADOOP_HOME** et définir la valeur de la variable sur **C\WinUtils**.
@@ -247,5 +246,4 @@ Si vous avez des commentaires, ou que vous rencontrez d’autres problèmes pend
 ### <a name="managing-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight](hdinsight-apache-spark-job-debugging.md)
-
 

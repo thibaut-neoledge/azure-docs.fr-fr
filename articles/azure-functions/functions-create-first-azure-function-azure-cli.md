@@ -12,14 +12,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: ab35963dc9d10134799270e6ab3e6593be0e601a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-function-using-the-azure-cli"></a>Créer votre première fonction à l’aide d’Azure CLI
 
 Ce didacticiel de démarrage rapide vous guide dans l’utilisation des fonctions Azure en vue de créer votre première fonction. Utilisez Azure CLI afin de créer une Function App, qui correspond à l’infrastructure sans serveur qui héberge votre fonction. Le code de fonction est lui-même déployé à partir d’un référentiel d’exemples GitHub.    
@@ -170,4 +168,3 @@ Quand vous y êtes invité, tapez `y`.
 ## <a name="next-steps"></a>Étapes suivantes
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-

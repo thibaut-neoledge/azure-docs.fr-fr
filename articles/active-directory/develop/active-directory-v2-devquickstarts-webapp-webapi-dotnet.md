@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: dc3162ae8e6ce622139125c2e78fa45d2e90d534
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Appeler une API web à partir d’une application web .NET
 Avec le point de terminaison v2.0, vous pouvez rapidement ajouter une authentification à vos applications Web et à vos API Web, avec prise en charge pour les comptes Microsoft personnels, ainsi que pour les comptes professionnels ou scolaires.  Ici, nous allons créer une application web MVC qui connecte les utilisateurs à l’aide d’OpenID Connect, avec l’aide de l’intergiciel OWIN de Microsoft.  L’application web obtiendra des jetons d’accès OAuth 2.0 pour une API web sécurisée par OAuth 2.0 qui permet d’exécuter des opérations de création, lecture et suppression dans la « To Do List » (Liste des tâches) d’un utilisateur.
@@ -194,8 +194,8 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des ressources supplémentaires, consultez :
 
-* [Guide du développeur 2.0 >>](active-directory-appmodel-v2-overview.md)
-* [Balise StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Guide du développeur 2.0 &gt;&gt;](active-directory-appmodel-v2-overview.md)
+* [Balise StackOverflow "azure-active-directory" &gt;&gt;](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obtenir les mises à jour de sécurité de nos produits
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [cette page](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.

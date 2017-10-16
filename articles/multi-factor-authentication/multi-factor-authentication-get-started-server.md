@@ -16,12 +16,11 @@ ms.date: 08/30/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: df847c370817c0702163b5e22c35c7e4f1d3cfee
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Prise en main du serveur Azure Multi-Factor Authentication
 
@@ -201,4 +200,3 @@ Le nouveau serveur est maintenant en place, avec les données d’utilisateur et
 - Installez et configurez la [passerelle des services Bureau à distance et Azure Multi-Factor Authentication Server avec RADIUS](multi-factor-authentication-get-started-server-rdg.md).
 - [Déployez le service web de l’application mobile du serveur Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
 - [Scénarios avancés avec Azure Multi-Factor Authentication et des VPN tiers](multi-factor-authentication-advanced-vpn-configurations.md).
-

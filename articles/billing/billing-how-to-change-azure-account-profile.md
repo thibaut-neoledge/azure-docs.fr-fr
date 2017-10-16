@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 22d64ba9c9bdceda108b1160aef32ff3d38e4b03
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Modifiez les informations de profil de votre compte Azure, comme l'e-mail de contact, l'adresse et le numéro de téléphone
 
@@ -63,5 +62,4 @@ Vous recevez des notifications d’alerte à l’adresse de messagerie que vous 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème. 
-
 

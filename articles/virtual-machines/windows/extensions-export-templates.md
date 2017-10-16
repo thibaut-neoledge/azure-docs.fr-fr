@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: cc3c705f1c9123de75ced016a5b39eb1a86b0f73
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportation de groupes de ressources contenant des extensions de machine virtuelle
 
 Des groupes de ressources Azure peuvent être exportés dans un nouveau modèle Resource Manager qui peut alors être redéployé. Le processus d’exportation interprète les ressources existantes et crée un modèle Resource Manager qui, lorsqu’il est déployé, génère un groupe de ressources similaires. Lorsque vous utilisez l’option d’exportation de groupe de ressources pour un groupe de ressources contenant des extensions de machine virtuelle, plusieurs éléments doivent être pris en considération comme la compatibilité et les paramètres protégés d’extension.
@@ -166,4 +164,3 @@ Dans l’exemple de l’extension `IaasDiagnostic`, les paramètres suivants doi
 ```
 
 À ce stade, le modèle peut être déployé à l’aide de n’importe quelle méthode de déploiement de modèle.
-

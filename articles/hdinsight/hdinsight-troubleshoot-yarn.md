@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 63f2d88ad59661b7fbcffd0aaeb94c58d40bdb73
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Résoudre les problèmes YARN à l’aide d’Azure HDInsight
 
 Découvrez les principaux problèmes rencontrés lors de l’utilisation de charges utiles Apache Hadoop YARN dans Apache Ambari, et leur résolution.
@@ -35,7 +33,7 @@ Découvrez les principaux problèmes rencontrés lors de l’utilisation de char
 Effectuez les étapes suivantes via Ambari pour créer une file d’attente YARN, puis équilibrer l’allocation de capacité entre toutes les files d’attente. 
 
 Dans cet exemple, la capacité de deux files d’attente existantes (**default** et **thriftsvr**) est modifiée de 50 % à 25 %, ce qui permet à la nouvelle file d’attente (spark) de bénéficier d’une capacité de 50 %.
-| File d'attente | Capacité | Capacité maximale |
+| File d'attente | Capacity | Capacité maximale |
 | --- | --- | --- | --- |
 | default | 25% | 50% |
 | thrftsvr | 25% | 50% |
@@ -143,7 +141,6 @@ Ces modifications se répercutent immédiatement sur l’interface utilisateur d
 
 - [Se connecter à HDInsight (Hadoop) à l’aide de SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/) (Concepts et applications Apache Hadoop Yarn, en anglais)
-
 
 
 

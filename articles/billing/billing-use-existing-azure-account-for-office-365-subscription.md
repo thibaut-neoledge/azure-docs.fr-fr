@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/03/2017
 ms.author: cjiang
+ms.openlocfilehash: 6965765757d9a20dfb542bbb3cfae1c30276c238
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 1c6e277e321980aaf30f821dbb41c7eaf296b4cf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Souscrire un abonnement Office 365 avec un compte Azure
 Si vous êtes abonné à Azure, vous pouvez utiliser votre compte Azure pour souscrire un abonnement Office 365. Si vous faites partie d’une organisation qui a un abonnement Azure, vous pouvez créer des abonnements Office 365 pour les utilisateurs dans votre instance Azure Active Directory (Azure AD) existante. Inscrivez-vous à Office 365 avec un compte détenant les autorisations Administrateur général ou Administrateur de facturation dans votre locataire Azure Active Directory. Pour plus d’informations, consultez les pages [Vérifier mes autorisations de compte dans Azure AD](#RoleInAzureAD) et [Attribution de rôles d’administrateur dans Azure Active Directory](../active-directory/active-directory-assign-admin-roles.md).
@@ -71,4 +70,3 @@ Une fois que vous êtes inscrit, l’abonnement à Office 365 est ajouté à l�
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème. 
-

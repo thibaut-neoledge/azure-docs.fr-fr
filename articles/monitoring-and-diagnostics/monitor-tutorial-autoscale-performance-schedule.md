@@ -10,14 +10,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7e8d97657e03b0eaff76365d3988f51c773e3b55
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Créer un paramètre de mise à l’échelle automatique pour des ressources Azure basées sur les données de performances ou une planification
 
 Les paramètres de mise à l’échelle automatique vous permettent d’ajouter ou de supprimer des instances de service en fonction de conditions prédéfinies. Ces paramètres peuvent être créés via le portail. Cette méthode fournit une interface utilisateur basée sur navigateur pour créer et configurer un paramètre de mise à l’échelle automatique. Ce didacticiel décrit en détail les opérations suivantes :
@@ -174,4 +172,3 @@ Dans ce didacticiel, vous avez créé une application web simple et un plan App 
 
 > [!div class="nextstepaction"]
 > [Archiver vos données de monitorage](./monitor-tutorial-archive-monitoring-data.md)
-

@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e751e2f0ec812de43a03749e04ff165fa62ec649
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-collect-model-data-using-data-collection"></a>Guide pratique pour collecter les données de modèle à l’aide d’une collecte de données
 
 La fonctionnalité de collecte de données de modèle vous permet d’archiver des entrées et des prédictions de modèle à partir d’un service web d’apprentissage automatique. Ce document aborde les aspects suivants de la collection de données de modèle :
@@ -108,5 +106,4 @@ Les données peuvent être utilisées à partir d’objets blob Azure de différ
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
     ```
 - [Hive](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started) : charger les données csv dans une table Hive et effectuer des requêtes SQL directement sur un objet blob
-
 

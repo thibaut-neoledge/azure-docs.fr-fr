@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
+ms.openlocfilehash: b4d25f07349043da8cb745930fde3371c98f9960
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: ac35031290ec9ca6af3a8b05dc6fc82737fda0dd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personnalisation des présélections de tâches Media Encoder Standard
 
@@ -259,5 +258,4 @@ Configurez votre environnement de développement et ajoutez des informations de 
 
 ## <a name="see-also"></a>Voir aussi
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
-
 

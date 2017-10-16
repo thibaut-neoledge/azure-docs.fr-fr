@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/20/2017
 ms.author: sstein
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 53bfbd602c2c395d510529eacd5b8075b20437ab
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-recommendations"></a>Recommandations en matière de performances
 
@@ -81,6 +80,5 @@ Surveillez vos recommandations et continuez à les appliquer pour affiner les pe
 * Consultez [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) pour la surveillance automatique des performances de base de données avec des diagnostics automatiques et l’analyse des causes racine des problèmes de performance.
 * Consultez la page [Performance recommendations in the Azure portal](sql-database-advisor-portal.md) (Recommandations en matière de performances dans le portail Azure) afin d’obtenir des instructions sur l’utilisation des recommandations relatives aux performances dans le portail Azure.
 * Pour connaître l’impact de vos principales requêtes sur les performances, consultez [Query Performance Insights](sql-database-query-performance.md) (Analyse des performances des requêtes).
-
 
 

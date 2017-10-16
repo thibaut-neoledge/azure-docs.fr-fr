@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 419e489e4e99935dea49b2d3f9a405013b94048c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 141919ab4506b3de4c4a69670dcf54c60ee6409c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>Informations de référence sur les applets de commande PowerShell de Scheduler
 Le tableau suivant décrit chacune des principales applets de commande disponibles dans Azure Scheduler et établit un lien vers la page de référence correspondante.
@@ -76,5 +75,4 @@ Get-Help <cmdlet name> -Full
  [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
-
 

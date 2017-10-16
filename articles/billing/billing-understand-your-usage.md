@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 0d4f2e19ec3417b7ca111f777e34b1ce66ddb32d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Comprendre les termes figurant sur le fichier détaillant les frais d’utilisation Microsoft Azure 
 Le fichier CSV des frais d’utilisation détaillés contient les frais d’utilisation quotidienne et au niveau du compteur pour la période de facturation actuelle. 
@@ -90,4 +89,3 @@ Les services externes (également appelés commandes de la Place de marché) son
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?) pour obtenir une prise en charge rapide de votre problème.
-

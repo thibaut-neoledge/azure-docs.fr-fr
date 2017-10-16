@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bbe691174409202a8fd9602a69e764f0a8e2816b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="individual-contributor-tasks"></a>Tâches du contributeur individuel
 
 Cette rubrique dresse la liste des tâches dont un contributeur individuel doit s’acquitter pour son équipe de science des données. L’objectif est d’établir un environnement de collaboration en équipe standard conforme au processus [TDSP](overview.md) (Team Data Science Process). Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
@@ -113,5 +110,4 @@ Les liens ci-dessous donnent accès à des descriptions plus détaillées des r�
 - [Tâches du responsable d’une équipe de science des données](team-lead-tasks.md)
 - [Tâches du coordinateur de projet pour une équipe de science des données](project-lead-tasks.md)
 - [Contributeurs individuels de projet pour une équipe de science des données](project-ic-tasks.md)
-
 

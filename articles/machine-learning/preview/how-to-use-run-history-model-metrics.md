@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1a4f2d69907d220a8bbec5087ba431dc243c46d6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Guide pratique pour utiliser l’historique des exécutions et les métriques de modèles dans Azure Machine Learning Workbench
 
@@ -24,7 +23,7 @@ L’**historique des exécutions** offre un moyen de suivre les sorties de vos e
 Les **métriques de modèles** peuvent être enregistrées à partir de n’importe quel point de vos scripts, pour suivre toutes les valeurs les plus importantes dans vos expérimentations de science des données.
 Cet article décrit comment tirer parti de ces fonctionnalités pour augmenter la vitesse et la qualité de votre expérimentation de la science des données.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Pour parcourir ce guide pratique, vous devez :
 * [Créer et installer Azure Machine Learning](quickstart-installation.md)
 - [Créer un projet](quickstart-installation.md)
@@ -119,9 +118,9 @@ Ainsi, l’utilisation des ressources est optimale et n’exige pas que chaque t
 ## <a name="view-results-in-run-history"></a>Afficher les résultats dans l’historique des exécutions
 La progression et les résultats des exécutions suivies sont disponibles à des fins d’analyse dans l’**historique des exécutions** Azure Machine Learning Workbench.
 L’**historique des exécutions** fournit trois vues distinctes :
-- Tableau de bord
+- tableau de bord
 - Détails
-- Comparatif
+- Opérateurs de comparaison
 
 La vue **Tableau de bord** présente les données de toutes les exécutions d’un script donné, rendues sous forme à la fois graphique et tabulaire.
 La vue **Détails** présente toutes les données générées à partir d’une exécution spécifique d’un script donné, notamment les métriques journalisées et les fichiers de sortie (comme les tracés rendus). La vue **Comparaison** permet de présenter les résultats de deux ou trois exécutions côte à côte, en incluant également les métriques journalisées et les fichiers de sortie.
@@ -243,4 +242,3 @@ Ces fonctionnalités sont disponibles pour faciliter le processus d’expérimen
 Nous espérons que vous les trouverez utiles et serions ravis de recueillir vos commentaires à leur sujet.
 Cette implémentation n’est qu’un début et nous avons déjà planifié de nombreuses améliorations.
 Nous avons hâte de les appliquer progressivement à Azure Machine Learning Workbench. 
-

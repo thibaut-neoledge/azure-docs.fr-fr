@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: bwren
 ms.openlocfilehash: e82d35459110e122ec8438b406a52df61922b0fc
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="smart-detection---failure-anomalies"></a>Détection intelligente des anomalies de type échec
 [Application Insights](app-insights-overview.md) vous avertit automatiquement en temps quasi-réel si une augmentation anormale du taux des requêtes en échec est détectée dans votre application web. Il détecte une augmentation inhabituelle du nombre de demandes HTTP ou d’appels de dépendance signalés comme défaillants. Les demandes ayant échoué sont généralement celles dont le code de réponse est supérieur ou égal à 400. Pour vous aider à prioriser et à diagnostiquer le problème, la notification s’accompagne d’une analyse des caractéristiques des requêtes ayant échoué et de la télémétrie connexe. Elle fournit également des liens vers le portail Application Insights pour un diagnostic plus poussé. La fonctionnalité ne requiert ni installation ni configuration, puisqu’elle utilise des algorithmes d’apprentissage automatique pour prédire le taux d’échec normal.

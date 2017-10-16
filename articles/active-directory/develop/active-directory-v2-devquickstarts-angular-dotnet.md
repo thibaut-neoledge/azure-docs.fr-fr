@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: c68180c0ecabf5c0732f0db77ef1f3cc93be965b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Ajouter une connexion à une application AngularJS à une seule page - .NET
 Dans cet article, nous ajouterons la connexion avec des comptes Microsoft à une application AngularJS, à l’aide du point de terminaison v2.0 d’Azure Active Directory.  Le point de terminaison v2.0 vous permet d’effectuer une intégration unique dans votre application et d’authentifier les utilisateurs avec des comptes personnels et des comptes professionnels ou scolaires.
@@ -228,8 +228,8 @@ Félicitations !  Votre application intégrée Azure AD à page unique est dé
 
 Pour en savoir plus sur le point de terminaison v2.0, consultez de nouveau notre [guide du développeur v2.0](active-directory-appmodel-v2-overview.md).  Pour obtenir des ressources supplémentaires, consultez :
 
-* [Exemples Azure sur GitHub >>](https://github.com/Azure-Samples)
-* [Azure AD sur Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Exemples Azure sur GitHub &gt;&gt;](https://github.com/Azure-Samples)
+* [Azure AD sur Stack Overflow &gt;&gt;](http://stackoverflow.com/questions/tagged/azure-active-directory)
 * Documentation Azure AD sur [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
 ## <a name="get-security-updates-for-our-products"></a>Obtenir les mises à jour de sécurité de nos produits

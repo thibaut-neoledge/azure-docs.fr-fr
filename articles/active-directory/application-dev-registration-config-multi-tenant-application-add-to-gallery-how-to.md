@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9f3caff0e998d670ce82b847525a63f2a85572d3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 208f0d40bd7a8e8f35f16e1fcb09c305d833dbb2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-add-a-multi-tenant-application-to-the-azure-ad-application-gallery"></a>Ajouter une application mutualisée dans la galerie d’applications Azure AD
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Qu’est-ce que la galerie d’applications Azure AD ?
@@ -40,4 +38,3 @@ Même si votre application ne prend pas en charge un de ces modes, nous pouvons 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Affichage de votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)
-

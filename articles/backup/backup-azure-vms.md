@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: e1da8bce96078a43c656f84005cefc8bbe81c9e3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-azure-virtual-machines-classic-portal"></a>Sauvegarde des machines virtuelles Azure (portail classique)
 > [!div class="op_single_selector"]
@@ -72,7 +71,7 @@ Exécutez le processus de découverte pour vous assurer que les nouvelles machin
 
     ![Sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
 6. Cliquez sur **DÉCOUVRIR** en bas de la page.
-    ![Bouton Découvrir](./media/backup-azure-vms/discover-button-only.png)
+    ![Bouton découverte](./media/backup-azure-vms/discover-button-only.png)
 
     Le processus de découverte peut durer quelques minutes, le temps que les machines virtuelles soient affichées sous forme de tableau. Une notification affichée en bas de l’écran vous informe que le processus est en cours d’exécution.
 
@@ -200,4 +199,3 @@ Si vous rencontrez des problèmes pendant la sauvegarde de votre machine virtuel
 ## <a name="next-steps"></a>Étapes suivantes
 * [Gestion et surveillance de vos machines virtuelles](backup-azure-manage-vms.md)
 * [Restauration des machines virtuelles](backup-azure-restore-vms.md)
-

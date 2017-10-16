@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 2fa5c021d9f493004a5beab02529c70b600b9a0d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 > [!WARNING]
 > L’intégration d’Azure Active Directory est disponible uniquement avec les niveaux [Développeur et Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
 
@@ -245,5 +243,4 @@ Votre utilisateur est maintenant connecté au portail des développeurs pour vot
 [Next steps]: #next-steps
 
 [Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
-
 

@@ -16,14 +16,12 @@ ms.topic: quickstart
 ms.date: 09/05/2017
 ms.author: wesmc
 ms.custom: mvc
+ms.openlocfilehash: 28b0b50c68fa7c16a354fd16b7dfd930436c6b4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: da47bc9dd6fd980a37e2fdb57485858c2f1b2a73
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Exécuter une image Docker Hub personnalisée dans Azure Web App for Containers #
 
 App Service fournit des piles d’applications prédéfinies sur Linux avec la prise en charge de versions spécifiques, comme PHP 7.0 et Node.js 4.5. Vous pouvez également utiliser une image Docker personnalisée pour déployer votre application web sur une pile d’applications qui n’est pas encore définie dans Azure. Ce guide de démarrage rapide vous montre comment créer une application web et y déployer une image Python. Vous allez créer l’application web à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
@@ -79,4 +77,3 @@ http://<app_name>.azurewebsites.net
 
 > [!div class="nextstepaction"]
 > [Créer une application web Docker Python et PostgreSQL dans Azure](tutorial-docker-python-postgresql-app.md)
-

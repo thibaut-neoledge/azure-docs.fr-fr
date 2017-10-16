@@ -1,6 +1,6 @@
 ---
 title: "Déplacer des données d’Amazon Redshift à l’aide d’Azure Data Factory | Microsoft Docs"
-description: "Apprenez à déplacer des données à partir d’Amazon Redshift à l’aide de l’activité de copie d’Azure Data Factory."
+description: "Découvrez comment déplacer des données à partir d’Amazon Redshift à l’aide de l’activité de copie d’Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d423304c84bd03477f5e9ee2edb4763e2ae8d5b5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Déplacer des données depuis Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,8 +36,8 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 > [!TIP]
 > Pour obtenir de meilleures performances lors de la copie de grandes quantités de données d’Amazon Redshift, utilisez le mécanisme Redshift intégré **UNLOAD** via Amazon Simple Storage Service (Amazon S3). Pour plus d’informations, consultez la section [Utiliser UNLOAD pour copier des données à partir d’Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Conditions préalables
-* Si vous déplacez des données vers un magasin de données local, vous devez installer la [passerelle de gestion des données](data-factory-data-management-gateway.md) sur une machine locale. Accorder l’accès d’une passerelle au cluster Amazon Redshift à l’aide de l’adresse IP de l’ordinateur local. Pour obtenir des instructions, voir [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autoriser l’accès au cluster).
+## <a name="prerequisites"></a>Composants requis
+* Si vous déplacez des données vers un magasin de données local, vous devez installer la [passerelle de gestion des données](data-factory-data-management-gateway.md) sur une machine locale. Accordez l’accès d’une passerelle au cluster Amazon Redshift à l’aide de l’adresse IP de l’ordinateur local. Pour obtenir des instructions, consultez la rubrique relative à l’[autorisation d’accès au cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * Pour déplacer des données vers une banque de données Azure, procédez de la manière décrite dans [calcul de l’adresse IP et des plages SQL utilisés par les centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ## <a name="getting-started"></a>Prise en main
@@ -208,7 +207,7 @@ La propriété **external** est définie sur « true » pour informer le servi
 }
 ```
 
-**Jeu de données de sortie Azure Blob**
+**Jeu de données de sortie d’objet Blob Azure**
 
 Les données sont écrites dans un nouvel objet blob toutes les heures en configurant la propriété **frequency** sur « Hour » et la propriété **interval** sur 1. La propriété **folderPath** du blob est évaluée dynamiquement. La valeur de propriété est fondée sur l’heure de début de la tranche en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et la partie heure de l’heure de début.
 
@@ -355,5 +354,4 @@ Lorsque vous copiez des données à partir d’un magasin de données relationne
 Pour en savoir plus sur les facteurs clés affectant les performances de l’activité de copie et les différentes manières de les optimiser, consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, voir le [didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
+Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

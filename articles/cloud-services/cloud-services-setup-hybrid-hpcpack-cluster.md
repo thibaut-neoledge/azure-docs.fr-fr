@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: f6dc9657e64160be1e68a7356863b53131e9b3c3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Configuration d’un cluster de calcul haute performance (HPC) hybride avec Microsoft HPC Pack et les nœuds de calcul Azure à la demande
 Utilisez Microsoft HPC Pack 2012 R2 et Azure pour configurer un petit cluster de calcul haute performance (HPC) hybride. Le cluster illustré dans cet article se compose d'un nœud principal local HPC Pack et de plusieurs nœuds de calcul que vous déployez à la demande dans un service cloud Azure. Vous pouvez ensuite exécuter des tâches de calcul sur le cluster hybride.
@@ -299,4 +298,3 @@ Après avoir testé le cluster, arrêtez les nœuds Azure pour éviter toute fac
 [stop_node1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node1.png
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
-

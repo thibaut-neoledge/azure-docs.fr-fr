@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2b4d04af7fe7a40a1d907a06ab8772f20956bc19
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Forum Aux Questions Azure Machine Learning : facturation, fonctionnalités, limitations et support
 Voici quelques-unes des questions fréquemment posées et des réponses correspondantes sur Azure Machine Learning, un service cloud pour le développement de modèles prédictifs et la mise en œuvre de solutions via des services web. Ce FAQ aborde l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -561,4 +560,3 @@ L’accès invité offre une expérience d’évaluation limitée. Vous pouvez c
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
-

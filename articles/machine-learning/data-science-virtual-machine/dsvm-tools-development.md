@@ -1,7 +1,7 @@
 ---
 title: "Outils de développement de la machine virtuelle DSVM - Azure | Microsoft Docs"
 description: "Outils de développement de la machine virtuelle DSVM."
-keywords: "outils de science des données, machine virtuelle dsvm, outils pour la science des données, science des données linux"
+keywords: "outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b6a333d075e0391adca4f37bbff8918391a22fde
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Outils de développement sur la machine virtuelle DSVM
 
 La machine virtuelle DSVM fournit un environnement de développement productif en regroupant plusieurs IDE et outils courants. Voici quelques-uns des outils disponibles sur la machine virtuelle DSVM. 
@@ -83,5 +81,4 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 | Utilisations classiques      |  Visualisation des données et création de tableaux de bord   |
 | Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
-
 

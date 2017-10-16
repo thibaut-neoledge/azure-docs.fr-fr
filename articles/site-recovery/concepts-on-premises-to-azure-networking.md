@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/12/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 01c8e664465350b9dd382502c65cc3fda350797c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="networking-for-vm-connectivity-after-failover"></a>Mise en réseau pour la connectivité de la machine virtuelle après le basculement
 
@@ -91,7 +90,6 @@ Cet [article de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infr
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Exécuter un basculement](site-recovery-failover.md)
-
 
 
 

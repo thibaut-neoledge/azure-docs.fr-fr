@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a2b14dd39c0247c35ef006385eceebfa4fbe82d9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Aide-mémoire relatif au pipeline de données automatisé pour les prévisions Azure Machine Learning
 L’ **aide-mémoire relatif au pipeline de données automatisé pour les prévisions Microsoft Azure Machine Learning** vous permet d’accéder aux technologies que vous pouvez utiliser pour transférer vos données au service web Machine Learning où celles-ci peuvent être évaluées par votre modèle d’analyse prédictive.
@@ -43,5 +42,4 @@ Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format ta
 * Pour plus d’informations sur l’utilisation d’un service web d’évaluation, consultez [Utilisation d’un service web Azure Machine Learning](../studio/consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 38c9da0a6599bb66c452fdb8a8911338601155f9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler Two
 
@@ -45,7 +44,7 @@ Pour configurer l’intégration d’Azure AD à Zscaler Two, vous avez besoin d
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez bénéficier de [l’offre d’essai](https://azure.microsoft.com/pricing/free-trial/) d’une durée d’un mois.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -147,7 +146,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Cliquez sur **Configure SAML Single Sign-On Parameters**.
 
-11. Dans la boîte de dialogue **Configure SAML Single Sign-On Parameters** (Configurer les paramètres d’authentification unique SAML), effectuez les étapes suivantes, puis cliquez sur **Done** (Terminé).
+11. Sur la page de dialogue **Configurer les paramètres d’authentification unique SAML**, procédez comme suit, puis cliquez sur **Terminé**
 
     ![Authentification unique](./media/active-directory-saas-zscaler-two-tutorial/ic800209.png "Authentification unique")
     
@@ -319,5 +318,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-zscaler-two-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zscaler-two-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zscaler-two-tutorial/tutorial_general_203.png
-
 

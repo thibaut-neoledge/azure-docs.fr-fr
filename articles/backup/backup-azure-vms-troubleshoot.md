@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
+ms.openlocfilehash: 096c97f4cb41ff8df2e646f59dbc0bf845721ac7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
-ms.openlocfilehash: d555f7a93a980a35c6b50d480c43de6bdc5c86df
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Dépannage de la sauvegarde de machine virtuelle Azure
 > [!div class="op_single_selector"]
@@ -34,9 +33,9 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Erreur : La configuration de disque spécifiée n’est pas prise en charge
 
-Actuellement, Sauvegarde Azure ne prend en charge des tailles de disque [supérieures à 1 023 Go](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Si vous disposez de disques supérieurs à 1 To, [installez de nouveaux disques](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) disposant d’un espace inférieur à 1 To. <br>
-- Copiez ensuite les données du disque de plus de 1 To vers le(s) disque(s) plus petit(s). <br>
+Actuellement, Sauvegarde Azure ne prend pas en charge les tailles de disque [supérieures à 1 023 Go](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- Si vous disposez de disques supérieurs à 1 To, [attachez de nouveaux disques](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) inférieurs à 1 To. <br>
+- Copiez ensuite les données du disque de plus de 1 To dans le ou les disques plus petits. <br>
 - Vérifiez que toutes les données ont bien été copiées et retirez les disques supérieures à 1 To
 - Lancez la sauvegarde.
 
@@ -82,7 +81,7 @@ Actuellement, Sauvegarde Azure ne prend en charge des tailles de disque [supéri
 ## <a name="restore"></a>Restauration
 | Détails de l’erreur | Solution de contournement |
 | --- | --- |
-| Échec de la restauration avec une erreur interne du cloud |<ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier  <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si une adresse est configurée, cela signifie que les paramètres DNS sont configurés.<br> <li>Le service cloud sur lequel vous tentez d’effectuer la restauration est configuré avec une adresse IP réservée, et les machines virtuelles existantes dans le service cloud sont à l’état arrêté.<br>Vous pouvez vérifier qu’un service cloud a une adresse IP réservée à l’aide des applets de commande PowerShell suivantes :<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Vous essayez de restaurer une machine virtuelle avec les configurations réseau spéciales suivantes dans le même service cloud. <br>- Machines virtuelles avec configuration d’un équilibreur de charge (interne et externe)<br>- Machines virtuelles avec plusieurs adresses IP réservées<br>- Machines virtuelles avec plusieurs NIC<br>Sélectionnez un nouveau service cloud dans l’interface utilisateur ou consultez les [considérations relatives à la restauration](backup-azure-arm-restore-vms.md#restoring-vms-with-special-network-configurations) des machines virtuelles affichant des configurations de réseau spéciales.</ol> |
+| Échec de la restauration avec une erreur interne du cloud |<ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier  <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si une adresse est configurée, cela signifie que les paramètres DNS sont configurés.<br> <li>Le service cloud sur lequel vous tentez d’effectuer la restauration est configuré avec une adresse IP réservée, et les machines virtuelles existantes dans le service cloud sont à l’état arrêté.<br>Vous pouvez vérifier qu’un service cloud a une adresse IP réservée à l’aide des applets de commande PowerShell suivantes :<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Vous essayez de restaurer une machine virtuelle avec les configurations réseau spéciales suivantes dans le même service cloud. <br>- Machines virtuelles avec configuration d’un équilibreur de charge (interne et externe)<br>- Machines virtuelles avec plusieurs adresses IP réservées<br>- Machines virtuelles avec plusieurs NIC<br>Sélectionnez un nouveau service cloud dans l’interface utilisateur ou consultez les [considérations relatives à la restauration](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) des machines virtuelles affichant des configurations de réseau spéciales.</ol> |
 | Le nom DNS sélectionné est déjà utilisé. Veuillez spécifier un autre nom DNS et réessayez. |Le nom DNS fait référence au nom du service cloud (se termine généralement par .cloudapp.net). Il doit être unique. Si vous rencontrez cette erreur, vous devez choisir un autre nom de machine virtuelle pendant la restauration. <br><br> Cette erreur ne s’affiche que pour les utilisateurs du portail Azure. L’opération de restauration via PowerShell va réussir, car elle ne fait que restaurer les disques et ne crée pas de machine virtuelle. L’erreur se rencontre lorsque la machine virtuelle est explicitement créée par vos soins après l’opération de restauration du disque. |
 | La configuration de réseau virtuel spécifiée n’est pas correcte. Veuillez indiquer une autre configuration de réseau virtuel et réessayez. |Aucun |
 | Le service cloud spécifié utilise une adresse IP réservée, ce qui ne correspond pas à la configuration de machine virtuelle en cours de restauration. Veuillez spécifier un autre service cloud n’utilisant pas l’adresse IP réservée ou choisir un autre point de restauration. |Aucun |
@@ -92,7 +91,7 @@ Actuellement, Sauvegarde Azure ne prend en charge des tailles de disque [supéri
 | Le type de compte de stockage spécifié pour l’opération de restauration n’est pas en ligne. Assurez-vous que le compte de stockage spécifié dans l’opération de restauration est en ligne |Cela peut se produire cas d’erreur temporaire dans le stockage Azure ou en cas de panne. Veuillez choisir un autre compte de stockage. |
 | Le quota de groupe de ressources a été atteint. Veuillez supprimer certains groupes de ressources du portail Azure ou contactez le support Azure pour étendre les limites. |Aucun |
 | Le sous-réseau sélectionné n’existe pas. Veuillez sélectionner un sous-réseau qui existe |Aucun |
-| Le service de sauvegarde n’a pas l’autorisation d’accéder aux ressources dans votre abonnement. |Pour résoudre ce problème, commencez par restaurer les disques en suivant les étapes mentionnées dans la section **Restore backed up disks** (Restaurer les disques sauvegardés) dans [Choosing VM restore configuration](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration) (Choisir la configuration de restauration de la machine virtuelle). Après cela, suivez les étapes de PowerShell mentionnées dans [Create a VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) (Créer une machine virtuelle à partir de disques restaurés) pour créer une machine virtuelle complète à partir de disques restaurés. |
+| Le service de sauvegarde n’a pas l’autorisation d’accéder aux ressources dans votre abonnement. |Pour résoudre ce problème, commencez par restaurer les disques en suivant les étapes mentionnées dans la section **Restore backed up disks** (Restaurer les disques sauvegardés) dans [Choosing VM restore configuration](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration) (Choisir la configuration de restauration de la machine virtuelle). Après cela, suivez les étapes de PowerShell mentionnées dans [Create a VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) (Créer une machine virtuelle à partir de disques restaurés) pour créer une machine virtuelle complète à partir de disques restaurés. |
 
 ## <a name="backup-or-restore-taking-time"></a>Sauvegarde ou restauration qui prend du temps
 Si vous constatez que votre sauvegarde (>12 heures) ou votre restauration prend du temps (>6 heures) :
@@ -173,4 +172,3 @@ Une fois que la résolution de noms a été effectuée correctement, l’accès 
 > En savoir plus sur la [définition d’une adresse IP privée interne statique](../virtual-network/virtual-networks-reserved-private-ip.md).
 >
 >
-

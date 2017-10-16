@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Déploiement d’un service web Azure Machine Learning
 Microsoft Azure Machine Learning vous permet de générer, tester et déployer des solutions d’analyse prédictive.
@@ -191,4 +190,3 @@ Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’ai
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service
-

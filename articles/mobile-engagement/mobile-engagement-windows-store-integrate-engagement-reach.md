@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8fc1faac88cab0e3d3755fdf16fe3d7188169961
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Intégration du Kit de développement logiciel du module Couverture des applications Windows Universal
 Vous devez suivre la procédure d'intégration décrite dans la rubrique [Intégration du Kit de développement logiciel Windows Universal Engagement](mobile-engagement-windows-store-integrate-engagement.md) avant de suivre ce guide.
@@ -280,7 +279,7 @@ Vous pouvez définir le rappel dans la méthode « Public App(){} » du fichie
 > 
 > 
 
-## <a name="a-idpush-channel-sharinga-push-channel-sharing"></a><a id="push-channel-sharing"></a> Partage de canal Push
+## <a id="push-channel-sharing"></a> Partage de canal Push
 Si vous utilisez des notifications Push à d'autres fins dans votre application, alors vous devez utiliser la fonctionnalité de partage de canal Push du Kit de développement logiciel (SDK) Engagement. Cela évite les notifications Push manquées.
 
 * Vous pouvez fournir votre propre canal Push à l'initialisation d'Engagement Reach. Le Kit de développement logiciel (SDK) l'utilisera au lieu d'en demander un nouveau.
@@ -338,5 +337,4 @@ Pour utiliser ce protocole, modifiez `App.xaml.cs` à l'aide de la méthode `OnA
                 }
               }
               #endregion
-
 

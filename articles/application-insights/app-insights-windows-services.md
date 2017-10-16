@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
 ms.author: bwren
+ms.openlocfilehash: 4b9f8c618a69c4c157dafeb7f726aae24efad428
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: e7b78907fafcee99c807bfe8f7b311986ba7ffcc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurer manuellement Application Insights pour des applications .NET
 
@@ -90,14 +89,14 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
 * Définissez la clé d’instrumentation dans le code, par exemple dans `main()`: 
   
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *votre clé* `";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*votre clé*`";` 
 * [Écrivez vos propres données de télémétrie à l’aide de l’API](app-insights-api-custom-events-metrics.md#ikey).
 
 **Si vous avez installé d’autres packages Application Insights** , vous pouvez, si vous préférez, utiliser le fichier .config pour définir la clé d’instrumentation :
 
 * Modifiez ApplicationInsights.config (qui a été ajouté par l’installation NuGet). Insérez ceci juste avant la balise de fermeture :
   
-    `<InstrumentationKey>` *la clé d’instrumentation que vous avez copiée* `</InstrumentationKey>`
+    `<InstrumentationKey>`*la clé d’instrumentation que vous avez copiée*`</InstrumentationKey>`
 * Assurez-vous que les propriétés du fichier ApplicationInsights.config dans l’Explorateur de solutions sont définies sur **Build Action = Content, Copy to Output Directory = Copy**.
 
 Ile est utile de définir la clé d’instrumentation dans le code si vous voulez [changer la clé pour différentes configurations de build](app-insights-separate-resources.md). Si vous définissez la clé dans le code, vous n’êtes pas obligé de la définir dans le fichier `.config`.
@@ -149,5 +148,4 @@ Consultez cet article de [résolution des problèmes](app-insights-asp-net-troub
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Ajoutez des données de télémétrie](app-insights-asp-net-more.md) pour obtenir une vue à 360 degrés de votre application.
-
 

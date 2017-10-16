@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: b783f7e8cfef991e7028ba4b4c7b1d0935397580
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-app-service-web-app-for-containers-faq"></a>Forum aux questions sur Azure App Service Web App for Containers
 
@@ -138,4 +137,3 @@ Vous pouvez proposer votre idée sur le [Forum de commentaires pour Web Apps](ht
 * [Présentation d’Azure Web Apps for Containers](app-service-linux-intro.md)
 * [Configurer des environnements intermédiaires dans Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Déploiement continu avec Azure Web App for Containers](./app-service-linux-ci-cd.md)
-

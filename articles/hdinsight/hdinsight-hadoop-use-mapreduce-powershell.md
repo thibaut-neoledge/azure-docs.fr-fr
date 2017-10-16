@@ -1,5 +1,5 @@
 ---
-title: Utiliser MapReduce et PowerShell avec Hadoop - Azure | Microsoft Docs
+title: Utiliser MapReduce et PowerShell avec Hadoop - Azure | Documents Microsoft
 description: "Apprenez à utiliser PowerShell pour exécuter des tâches MapReduce à distance avec Hadoop sur HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: bc4e1b04e8f90e5713468ce38f6f05174affb261
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Exécution à distance des travaux MapReduce avec Hadoop sur HDInsight à l’aide de PowerShell
 
@@ -29,7 +28,7 @@ ms.lasthandoff: 09/07/2017
 
 Ce document fournit un exemple d’utilisation d’Azure PowerShell pour exécuter une tâche MapReduce sur un Hadoop sur un cluster HDInsight.
 
-## <a id="prereq"></a>Prérequis
+## <a id="prereq"></a>Configuration requise
 
 * **Un cluster Azure HDInsight (Hadoop sur HDInsight)**
 
@@ -122,4 +121,3 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="threat-modeling-tool-feature-overview"></a>Vue d’ensemble de la fonctionnalité Outil de modélisation des menaces
 
 L’outil de modélisation des menaces peut vous aider à résoudre vos besoins de modélisation des menaces. Pour une présentation de l’outil, consultez [Bien démarrer avec l’outil de modélisation des menaces](./azure-security-threat-modeling-tool-getting-started.md).
@@ -210,4 +208,3 @@ Après avoir changé les priorités et mis à jour l’état de chaque menace g�
 
 * Pour contribuer au modèle pour la communauté, accédez à notre page [GitHub](https://github.com/Microsoft/threat-modeling-templates). 
 * Pour commencer à utiliser l’outil, accédez à la page de [téléchargement](https://aka.ms/tmtpreview).
-

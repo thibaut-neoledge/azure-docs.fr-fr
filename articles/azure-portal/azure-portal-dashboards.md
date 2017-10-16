@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
 ms.openlocfilehash: 5429e68723448ff5db6ef0ed8da1b927e97e6dd9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Créer et partager des tableaux de bord dans le portail Azure
 Vous pouvez créer plusieurs tableaux de bord et les partager avec d’autres personnes ayant accès à vos abonnements Azure.  Cet article présente les principes fondamentaux de création, de modification, de publication et de gestion de l’accès aux tableaux de bord.

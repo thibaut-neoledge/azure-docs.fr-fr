@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/17/2017
 ms.author: andredm
 ms.reviewer: rqureshi
+ms.openlocfilehash: 9df7f7851ef1fc6b4ed03b981aa5062d6b0913ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure
 > [!div class="op_single_selector"]
@@ -80,5 +79,4 @@ Vous pouvez attribuer des rôles et gérer l’accès avec les commandes RBAC Az
 * [Créer un rapport d’historique des modifications d’accès](role-based-access-control-access-change-history-report.md)
 * Consulter les [rôles RBAC intégrés](role-based-access-built-in-roles.md)
 * Définissez vos propres [rôles personnalisés dans Azure RBAC](role-based-access-control-custom-roles.md)
-
 

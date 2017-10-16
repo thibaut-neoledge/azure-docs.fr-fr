@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/27/2017
 ms.author: sethm
 ms.openlocfilehash: cc62792dad0284f9514664795fdfb32e94a85943
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Bien démarrer avec la réception de messages à l’aide de l’hôte du processeur d’événements dans .NET Standard
 

@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 09db38cfb5fb4277d4ca259eb10e388af33f1773
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: d6c1707f67d986487e5a45e76ffc9a02ddf16eb1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Comment configurer votre application App Service de manière à utiliser la connexion via Google
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -28,7 +27,7 @@ Cette rubrique montre comment configurer Azure App Service pour utiliser Google 
 
 Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d'un compte Google avec une adresse électronique vérifiée. Pour créer un compte Google, accédez à [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-## <a name="register"> </a>Inscription de votre application avec Google
+## <a name="register"></a>Inscription de votre application avec Google
 1. Connectez-vous au [portail Azure]et accédez à votre application. Copiez votre **URL**, que vous utiliserez plus tard pour configurer votre application de Google.
 2. Rendez-vous sur le site Web [API Google](http://go.microsoft.com/fwlink/p/?LinkId=268303), connectez-vous avec votre compte Google, cliquez sur **Créer un projet**, saisissez un **Nom de projet**, puis cliquez sur **Créer**.
 3. Sous **API sociales**, cliquez sur **API Google+** puis **Activer**.
@@ -41,7 +40,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
     > La clé secrète client est une information d'identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
 
 
-## <a name="secrets"> </a>Ajout des informations Google à votre application
+## <a name="secrets"></a>Ajout des informations Google à votre application
 1. Revenez au [portail Azure]et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification/Autorisation**.
 2. Si la fonctionnalité Authentification / Autorisation n’est pas activée, positionnez le commutateur sur **On**.
 3. Cliquez sur **Google**. Collez les valeurs d’ID de l’application et App Secret que vous avez obtenues précédemment et activez éventuellement les étendues que votre application requiert. Cliquez ensuite sur **OK**.
@@ -54,7 +53,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 
 Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votre application.
 
-## <a name="related-content"> </a>Contenu connexe
+## <a name="related-content"></a>Contenu connexe
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Anchors. -->
@@ -69,5 +68,4 @@ Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votr
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [portail Azure]: https://portal.azure.com/
-
 

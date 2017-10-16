@@ -12,15 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 18541c68b02ae1b59ae4a6a85122dff614c9978c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure 
 
 Si vous avez plusieurs abonnements, vous pouvez les organiser en conteneurs appelés « groupes d’administration » pour vous aider à gérer l’accès, la stratégie, les coûts et la conformité sur l’ensemble de vos abonnements. Par exemple, vous pouvez appliquer des stratégies à un groupe d’administration qui limitent les types de ressources pouvant être créés.
@@ -93,6 +90,5 @@ Resource Manager vous permet de créer des stratégies personnalisées pour gér
 
 > [!Note]
 > La stratégie n’est pas appliquée aux annuaires. 
-
 
 

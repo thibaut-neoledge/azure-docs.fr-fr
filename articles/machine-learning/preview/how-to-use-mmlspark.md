@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 6714e8ad77693f0cdefe3e40c99153299e1c72d0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Guide pratique pour utiliser la bibliothèque Microsoft Machine Learning pour Apache Spark
 
@@ -88,4 +87,3 @@ Azure Machine Learning Workbench soumet le travail Spark au cluster. Vous pouvez
 Pour plus d’informations sur la bibliothèque MMLSpark et pour obtenir des exemples, consultez [Dépôt GitHub MMLSpark](https://github.com/Azure/mmlspark).
 
 *Apache®, Apache Spark et Spark® sont soit des marques déposées, soit des marques commerciales d’Apache Software Foundation aux États-Unis et/ou dans d’autres pays.*
-

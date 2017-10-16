@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 365747f9f9c765e8db1ab86946ba578c321ec732
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-app-for-containers"></a>Créer une application web .NET Core et SQL Database dans Azure Web App for Containers
 
@@ -38,7 +37,7 @@ Vous apprendrez à :
 > * Diffusion des journaux de diagnostic à partir d’Azure
 > * Gestion de l’application dans le portail Azure
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour suivre ce didacticiel :
 
@@ -55,7 +54,7 @@ Cette étape consiste à configurer le projet .NET Core local.
 
 Dans la fenêtre de terminal, `cd` vers un répertoire de travail.  
 
-Exécutez les commandes suivantes pour cloner l’exemple de dépôt et modifier son répertoire racine.
+Exécutez les commandes suivantes pour cloner l’exemple de référentiel et modifier son répertoire racine.
 
 ```bash
 git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
@@ -183,7 +182,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 ### <a name="connect-to-sql-database-in-production"></a>Connexion à SQL Database en production
 
-Dans votre dépôt local, ouvrez Startup.cs et recherchez le code suivant :
+Dans votre référentiel local, ouvrez Startup.cs et recherchez le code suivant :
 
 ```csharp
 services.AddDbContext<MyDatabaseContext>(options =>
@@ -382,4 +381,3 @@ Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personna
 
 > [!div class="nextstepaction"] 
 > [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service-web-tutorial-custom-domain.md)
-

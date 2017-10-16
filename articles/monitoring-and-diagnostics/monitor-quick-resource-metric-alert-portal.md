@@ -10,14 +10,12 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Recevoir une notification quand une valeur de métrique remplit une condition
 
 Azure Monitor propose des métriques pour un grand nombre de ressources Azure. Ces métriques traduisent les performances et l’intégrité de ces ressources. Dans bon nombre de cas, les valeurs des métriques peuvent indiquer un problème au niveau d’une ressource. Vous pouvez créer des alertes de métriques pour détecter un comportement anormal et être notifié, le cas échéant. Ce guide de démarrage rapide vous explique de façon détaillée comment créer une application logique, comment créer un travail et comment visualiser les métriques de l’application logique. Il décrit ensuite les étapes permettant de créer une alerte et de recevoir une notification pour une métrique de la ressource d’application logique.
@@ -34,7 +32,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
 
-2. Recherchez et sélectionnez **Application logique**. Créez un groupe de ressources sous le nom **myResourceGroup** en utilisant l’emplacement par défaut. Cliquez sur le bouton **Créer**.
+2. Recherchez et sélectionnez **Application logique**. Créez un groupe de ressources sous le nom **myResourceGroup** en utilisant l’emplacement par défaut. Cliquez sur le bouton **Créer** .
 
 3. Entrez les informations sur l’application logique et cochez l’option **Épingler au tableau de bord**. Lorsque vous avez terminé, cliquez sur **Créer**.
 
@@ -116,4 +114,3 @@ Dans ce guide de démarrage rapide, vous avez appris à créer une alerte de mé
 
 > [!div class="nextstepaction"]
 > [Alertes sur les actions dans l’abonnement Azure Monitor](./monitor-quick-audit-notify-action-in-subscription.md )
-

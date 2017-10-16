@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé
 
 Les applications Service Bus avaient historiquement la possibilité d’utiliser deux modèles d’autorisation différents : le modèle de jeton de [Signature d’accès partagé (SAP)](service-bus-sas.md) fourni directement par Service Bus et un modèle fédéré où la gestion des règles d’autorisation se fait en interne par le service Access Control Service (ACS) [Azure Active Directory](/azure/active-directory/). Les jetons obtenus à partir d’Access Control Service sont envoyés à Service Bus pour autoriser l’accès aux fonctionnalités souhaitées.
@@ -68,5 +66,4 @@ Pour en savoir plus sur l’authentification de Service Bus, consultez les sujet
 * [Authentification et de autorisation Service Bus](service-bus-authentication-and-authorization.md)
 * [Authentification Service Bus avec les signatures d’accès partagé](service-bus-sas.md)
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-
 

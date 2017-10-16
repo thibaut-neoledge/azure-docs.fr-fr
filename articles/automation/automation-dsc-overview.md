@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
 ms.openlocfilehash: 468321fa6863d78bc0d179fbe5c2ed6195040d50
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-dsc-overview"></a>Vue d'ensemble d'Azure Automation DSC
 
@@ -65,4 +65,4 @@ Lire de la documentation vous enchante moyennement ? Jetez un œil à la vidéo
 * Pour en savoir plus sur la compilation des configurations DSC pour les assigner à des nœuds cibles, consultez [Compilation de configurations dans Azure Automation DSC](automation-dsc-compile.md).
 * Pour la référence de cmdlet PowerShell pour Azure Automation DSC, consultez [AzureRM.Automation](/powershell/module/azurerm.automation/#automation).
 * Pour plus d’informations sur la tarification, consultez [Tarification de Automation](https://azure.microsoft.com/pricing/details/automation/).
-* Pour voir un exemple d’utilisation d’Azure Automation DSC dans un pipeline de déploiement continu, consultez [déploiement continu pour IaaS machines virtuelles à l’aide de Azure Automation DSC et Chocolatey](automation-dsc-cd-chocolatey.md)
+* Pour voir un exemple d’utilisation d’Azure Automation DSC dans un pipeline de déploiement continu, consultez [Exemple d’utilisation : Déploiement continu sur des machines virtuelles à l’aide d’Automation DSC et Chocolatey](automation-dsc-cd-chocolatey.md).

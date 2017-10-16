@@ -7,15 +7,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: faf6e557914a33454229b5830419b9ef6f200a8c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="getting-started-with-data-preparation"></a>Bien démarrer avec la Préparation des données
 
 Bienvenue dans le guide de prise en main de Préparation des données. 
@@ -97,7 +94,7 @@ Les transformations changent les données et autorisent leur exécution afin de 
 
 Une icône verte à gauche d’une étape donnée indique qu’elle a été exécutée et que les données reflètent l’exécution de la transformation. Une barre verticale à gauche de l’étape indique l’état actuel des données dans les inspecteurs.
 
-![étapes](media/data-prep-getting-started/steps.PNG)
+![steps](media/data-prep-getting-started/steps.PNG)
 
 Essayez d’apporter de petites modifications fréquentes aux données et de les valider (étape 4) après chaque modification à mesure que l’hypothèse évolue.
 

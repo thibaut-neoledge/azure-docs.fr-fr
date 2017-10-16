@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/06/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 43123486f21178a5ba657caa9d4b090922435913
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: c79603a11fa23ad775783157675c07ab67102057
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Serveurs de base de données Azure pour PostgreSQL
 Cette rubrique propose des considérations et des instructions relatives à l’utilisation des serveurs de base de données Azure pour PostgreSQL.
@@ -54,4 +53,3 @@ Vous pouvez gérer des serveurs de bases de données Azure pour PostgreSQL à l�
 - Vous trouverez une vue d’ensemble du service à la page [Vue d’ensemble de la base de données Azure pour PostgreSQL](overview.md).
 - Pour plus d’informations sur les quotas de ressources et les limitations associés à votre **niveau de service**, consultez la page [Niveaux de service](concepts-service-tiers.md).
 - Pour plus d’informations sur la connexion au service, consultez la page [Bibliothèques de connexions de la base de données Azure pour PostgreSQL](concepts-connection-libraries.md).
-

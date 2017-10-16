@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1d65d5292d51c58b92f68dd469bf1eb0ccdc47ca
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: d7bc694b05ed1eb3915ba913afdb3cc39e048ca7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossaire du développeur Azure Active Directory
 Cet article contient des définitions pour certains des principaux concepts de développeur Azure Active Directory (AD), qui s’avèrent utiles lors de l’apprentissage du développement d’applications pour Azure AD.
@@ -91,7 +90,7 @@ Une application cliente demande [l’autorisation](#authorization) à un propri�
 Processus par lequel un [propriétaire de ressources](#resource-owner) octroie à une [application cliente](#client-application) l’accès à des ressources protégées avec des [autorisations spécifiques](#permissions), en son nom. Selon les autorisations demandées par le client, un administrateur ou un utilisateur sera invité à donner son consentement pour autoriser l’accès aux données de l’entreprise ou à ses données individuelles respectivement. Notez que dans un scénario d’application [mutualisée](#multi-tenant-application), le [principal du service](#service-principal-object) de l’application est également enregistré dans le client de l’utilisateur donnant son consentement.
 
 ## <a name="id-token"></a>Jeton d’ID
-[Jeton de sécurité](#security-token) [OpenID Connect][OpenIDConnect-ID-Token] fourni par le [point de terminaison d’autorisation](#authorization-endpoint) d’un [serveur d’autorisation](#authorization-server) et contenant des [revendications](#claim) se rapportant à l’authentification d’un [propriétaire de ressources](#resource-owner) utilisateur final. Comme un jeton d’accès, un jeton d’ID est représenté sous forme de jeton [JSON Web Token (JWT)][JWT] signé numériquement. À la différence d’un jeton d’accès cependant, les revendications d’un jeton d’ID ne sont pas utilisés à des fins liées à l’accès aux ressources et plus particulièrement pour le contrôle d’accès.
+[Jeton de sécurité](#security-token)[OpenID Connect][OpenIDConnect-ID-Token] fourni par le [point de terminaison d’autorisation](#authorization-endpoint) d’un [serveur d’autorisation](#authorization-server) et contenant des [revendications](#claim) se rapportant à l’authentification d’un [propriétaire de ressources](#resource-owner) utilisateur final. Comme un jeton d’accès, un jeton d’ID est représenté sous forme de jeton [JSON Web Token (JWT)][JWT] signé numériquement. À la différence d’un jeton d’accès cependant, les revendications d’un jeton d’ID ne sont pas utilisés à des fins liées à l’accès aux ressources et plus particulièrement pour le contrôle d’accès.
 
 Pour plus d’informations, consultez [Azure AD token reference (Référence de jeton Azure AD)][AAD-Tokens-Claims].
 
@@ -210,4 +209,3 @@ Utilisez la section des commentaires suivante pour fournir des commentaires et n
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
-

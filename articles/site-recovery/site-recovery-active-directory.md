@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 7/20/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 197441fc24c178695d4eada6db59f503b21672ad
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>Protéger Active Directory et DNS avec Azure Site Recovery
 Les applications d'entreprise telles que SharePoint, Dynamics AX et SAP dépendent du bon fonctionnement d'Active Directory et de l'infrastructure DNS. Lorsque vous créez une solution de récupération d'urgence pour des applications, il est important de se rappeler que vous devez protéger et récupérer Active Directory et DNS avant les autres composants d'application, pour vous assurer que tout fonctionne correctement en cas de sinistre.
@@ -82,7 +81,7 @@ La plupart des applications requièrent également la présence d’un contrôle
 1. Créez un réseau isolé. Tout réseau virtuel créé dans Azure par défaut est isolé des autres réseaux. Il est recommandé que la plage d’adresses IP pour ce réseau soit identique à celle de votre réseau de production. N’activez pas la connectivité de site à site sur ce réseau.
 1. Fournissez une adresse IP DNS dans le réseau créé, comme l'adresse IP que vous attendez que la machine virtuelle du DNS obtienne. Si vous effectuez une réplication vers Azure, indiquez l’adresse IP de la machine virtuelle utilisée lors du basculement dans le champ **Adresse IP cible** des paramètres **Calcul et réseau**. 
 
-    ![Adresse IP cible](./media/site-recovery-active-directory/DNS-Target-IP.png) **Adresse IP cible**
+    ![Adresse IP cible](./media/site-recovery-active-directory/DNS-Target-IP.png)**Adresse IP cible**
 
     ![Réseau de test Azure](./media/site-recovery-active-directory/azure-test-network.png)
 
@@ -209,5 +208,4 @@ Vous pouvez utiliser un nouveau serveur DNS et créer toutes les zones requises
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la protection des charges de travail d’entreprise avec Azure Site Recovery, consultez [Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?](site-recovery-workload.md).
-
 

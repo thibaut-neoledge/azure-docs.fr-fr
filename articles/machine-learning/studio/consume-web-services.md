@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fc1152f1431474b6625f389a1290a121e86fbdac
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Utilisation d’un service web Azure Machine Learning
 
@@ -125,5 +124,4 @@ Pour vous connecter à un service web Machine Learning, utilisez la bibliothèqu
 1. Déployez l’expérience « Exemple 1 : Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 », inclus dans la collection d’exemples Machine Learning.
 2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez la section **Obtenir une clé d’autorisation Microsoft Azure Machine Learning** au début de cet article.
 3. Affectez l’élément serviceUri avec l’URI de requête.
-
 

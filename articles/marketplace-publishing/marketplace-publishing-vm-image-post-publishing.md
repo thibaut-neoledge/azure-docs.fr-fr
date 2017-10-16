@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
 ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guide de post-production pour les offres de machine virtuelle dans Azure Marketplace
 Cet article explique comment vous mettre à jour une offre de machine virtuelle active dans la Place de marché Azure. Il vous guide dans le processus d’ajout d’une ou plusieurs références (SKU) à une offre existante. Il vous guide également dans le processus de suppression d’une offre de machine virtuelle active ou d’une référence (SKU) de la Place de marché.
@@ -27,13 +27,13 @@ Une fois qu’une offre ou une référence (SKU) figure dans le [portail Azure](
 
 * **Identificateur de l’offre** : dans le Portail de publication, accédez à **Machines virtuelles**, puis sélectionnez votre offre. Cliquez ensuite sur **IMAGES DE MACHINE VIRTUELLE** > **Identificateur de l’offre**.
 * **Identificateur SKU** : dans le Portail de publication, accédez à **Machines virtuelles**, puis sélectionnez votre offre. Cliquez ensuite sur **Références (SKU)** > **Ajouter une référence (SKU)**.
-* **Espace de noms d’éditeur** : dans le Portail de publication, accédez à **Machines virtuelles** > **Procédure pas à pas** > **Parlez-nous de votre entreprise** (sous « Étape 2 Inscrire votre entreprise ») > **Espace de noms d’éditeur** > **Espace de noms**.
+* **Espace de noms d’éditeur** : dans le Portail de publication, accédez à **Machines virtuelles** > **Procédure pas à pas** > **Parlez-nous de votre entreprise** (sous « Étape 2 Inscrire votre entreprise ») &gt; **Espace de noms d’éditeur** > **Espace de noms**.
 
 Une fois qu’une offre ou une référence (SKU) figure sur la [Place de marché](http://azure.microsoft.com/marketplace), vous ne pouvez plus modifier les zones de texte suivantes :
 
 * **Identificateur de l’offre** : dans le Portail de publication, accédez à **Machines virtuelles**, puis sélectionnez votre offre. Cliquez ensuite sur **IMAGES DE MACHINE VIRTUELLE** > **Identificateur de l’offre**.
 * **Identificateur SKU** : dans le Portail de publication, accédez à **Machines virtuelles**, puis sélectionnez votre offre. Cliquez ensuite sur **Références (SKU)** > **Ajouter une référence (SKU)**.
-* **Espace de noms d’éditeur** : dans le Portail de publication, accédez à **Machines virtuelles** > **Procédure pas à pas** > **Parlez-nous de votre entreprise** (sous « Étape 2 S’inscrire ») > **Espace de noms d’éditeur** > **Espace de noms**.
+* **Espace de noms d’éditeur** : dans le Portail de publication, accédez à **Machines virtuelles** > **Procédure pas à pas** > **Parlez-nous de votre entreprise** (sous « Étape 2 S’inscrire ») &gt; **Espace de noms d’éditeur** > **Espace de noms**.
 * **Ports** : dans le Portail de publication, accédez à **Machines virtuelles**, puis sélectionnez votre offre. Cliquez ensuite sur **IMAGES DE MACHINE VIRTUELLE** > **Ports ouverts**.
 * **Modification de la tarification des références (SKU) répertoriées**
 * **Modification du modèle de facturation des références (SKU) répertoriées**

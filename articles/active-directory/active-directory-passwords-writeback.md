@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: e460e734973622fb0d5745adfc4c1aa0178dd22e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="password-writeback-overview"></a>Vue d’ensemble de la réécriture du mot de passe
 
@@ -29,7 +28,7 @@ La réécriture du mot de passe vous permet de configurer Azure AD pour la réé
 
 La réécriture du mot de passe fournit les fonctionnalités suivantes :
 
-* **Retour d’informations immédiat** : la réécriture du mot de passe est une opération synchrone. Vos utilisateurs sont informés immédiatement si leur mot de passe ne remplit pas les critères des stratégies ou s’il n’a pas pu être réinitialisé ou modifié pour une raison quelconque.
+* **Retour d’informations immédiat** : l’écriture différée de mot de passe est une opération synchrone. Vos utilisateurs sont informés immédiatement si leur mot de passe ne remplit pas les critères des stratégies ou s’il n’a pas pu être réinitialisé ou modifié pour une raison quelconque.
 * **Prend en charge la réinitialisation des mots de passe des utilisateurs se servant d’AD FS ou autres technologies de fédération** : avec l’écriture différée de mot de passe, tant que les comptes utilisateur fédérés sont synchronisés dans votre client Azure AD, ils sont en mesure de gérer leurs mots de passe AD locaux à partir du cloud.
 * **Prise en charge de la réinitialisation des mots de passe pour les utilisateurs qui ont recours à la [synchronisation de hachage de mot de passe](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)** : lorsque le service de réinitialisation des mots de passe détecte qu’un compte d’utilisateur synchronisé est activé pour la synchronisation de hachage de mot de passe, le mot de passe local de ce compte et le mot de passe du cloud sont tous deux réinitialisés simultanément.
 * **Prend en charge la modification des mots de passe à partir du panneau d’accès et Office 365** : lorsque des utilisateurs fédérés ou synchronisés par mot de passe viennent à modifier leurs mots de passe ayant expiré ou non, nous réécrivons ces mots de passe dans votre environnement AD local.
@@ -197,4 +196,3 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec la réinitialisation de mot de passe en libre-service.
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Activation de l’écriture différée du mot de passe dans Azure AD Connect"
-

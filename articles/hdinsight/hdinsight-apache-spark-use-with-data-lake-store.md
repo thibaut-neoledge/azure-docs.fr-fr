@@ -15,19 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: beafd2c65b0506844ff9ea152037ed6f2866e650
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Utiliser le cluster HDInsight Spark pour analyser les données dans Data Lake Store
 
 Dans ce didacticiel, vous utilisez le bloc-notes Jupyter disponible avec les clusters HDInsight Spark pour exécuter un travail qui lit les données à partir d’un compte Data Lake Store.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 * Compte Azure Data Lake Store. Suivez les instructions de [Prise en main d’Azure Data Lake Store avec le portail Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 
@@ -143,4 +141,3 @@ Si vous avez créé un cluster HDInsight avec Data Lake Store en tant que stock
 * [Créer une application Scala autonome à exécuter sur le cluster Apache Spark](hdinsight-apache-spark-create-standalone-application.md)
 * [Utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ afin de créer des applications Spark pour un cluster Linux HDInsight Spark](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Utiliser HDInsight Tools dans le kit de ressources Azure pour Eclipse afin de créer des applications Spark pour un cluster Linux HDInsight Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
-

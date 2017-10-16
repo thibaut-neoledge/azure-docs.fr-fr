@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 9ccb191335e8a0d2984599e822bc10db6dba9f2d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>Exécuter des tâches Sqoop avec Azure PowerShell pour Hadoop dans HDInsight
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
@@ -33,7 +32,7 @@ Découvrez comment utiliser Azure PowerShell pour exécuter des tâches Sqoop da
 > 
 > 
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Composants requis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * Une station de travail sur laquelle est installé Azure PowerShell.
@@ -179,4 +178,3 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 * [Téléchargement de données vers HDInsight](hdinsight-upload-data.md) : découvrez d’autres méthodes pour télécharger des données vers HDInsight ou le stockage Blob Azure.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
-

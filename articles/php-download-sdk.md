@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
 ms.openlocfilehash: fd3d28b133ef8e646f5c2f1c1127f654daa61b95
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="download-the-azure-sdk-for-php"></a>Téléchargement du Kit de développement logiciel (SDK) Azure pour PHP
 ## <a name="overview"></a>Vue d'ensemble

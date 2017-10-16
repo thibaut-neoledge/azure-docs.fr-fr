@@ -15,12 +15,11 @@ ms.date: 06/27/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 3b4181701c5df03a3df7e0446b313eac201ad99e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS
 Souvent, la passerelle du Bureau à distance (RD) utilise les services de stratégie réseau (NPS) locaux pour authentifier les utilisateurs. Cet article explique comment acheminer la demande RADIUS hors de la passerelle Bureau à distance (via le serveur NPS local) vers le serveur Multi-Factor Authentication. La combinaison d’Azure MFA et de la passerelle RD signifie que les utilisateurs peuvent accéder à leur environnement de travail à partir de n’importe quel emplacement, tout en exigeant une authentification forte. 
@@ -83,4 +82,3 @@ Le serveur Azure Multi-Factor Authentication est configuré en tant que proxy RA
 - Intégrer Azure MFA et les [applications web IIS](multi-factor-authentication-get-started-server-iis.md)
 
 - Obtenez des réponses en consultant le [Forum Aux Questions d’Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
-

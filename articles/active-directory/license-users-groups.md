@@ -16,10 +16,10 @@ ms.date: 08/22/2017
 ms.author: jeffgilb
 custom: it-pro
 ms.openlocfilehash: c4509cdb003687083d0456c1957b19cf35ee056a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Guide de démarrage rapide : Utilisateurs sous licence dans Azure Active Directory
 Les services Azure AD basés sur des licences reposent sur l’activation d’un abonnement Azure Active Directory (Azure AD) dans votre client Azure. Une fois l’abonnement actif, les fonctionnalités de service sont gérées par des administrateurs Azure AD et utilisées par des utilisateurs sous licence. Quand vous achetez Enterprise Mobility + Security, Azure AD Premium ou Azure AD Basic, votre locataire est mis à jour avec l’abonnement, notamment sa période de validité et les licences prépayées. Les informations de votre abonnement, notamment le nombre de licences attribuées ou disponibles, sont accessibles par l’intermédiaire du portail Azure sous **Azure Active Directory** en ouvrant la vignette **Licences**. Le panneau **Licences** constitue également l’emplacement idéal pour gérer vos attributions de licence.

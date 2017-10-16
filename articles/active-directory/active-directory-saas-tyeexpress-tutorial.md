@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 869e5284c71904fcc817ceee0f39d94fab1bc6f3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Didacticiel : Intégration d’Azure Active Directory à T&E Express
 
@@ -56,7 +55,7 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 ## <a name="adding-te-express-from-the-gallery"></a>Ajout de T&E Express à partir de la galerie
 Pour configurer l’intégration de T&E Express à Azure AD, vous devez ajouter T&E Express à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter T&E Express à partir de la galerie, procédez comme suit :**
+**Pour ajouter T&amp;E Express à partir de la galerie, procédez comme suit :**
 
 1. Dans le panneau de navigation gauche du **[Portail de gestion Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
@@ -89,7 +88,7 @@ Pour configurer et tester l’authentification unique Azure AD avec T&E Express
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test T&E Express](#creating-a-te-express-test-user)** : pour avoir un équivalent de Britta Simon dans T&E Express lié à la représentation Azure AD associée.
+3. **[Création d’un utilisateur de test T&amp;E Express](#creating-a-te-express-test-user)** : pour avoir un équivalent de Britta Simon dans T&amp;E Express lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
@@ -97,7 +96,7 @@ Pour configurer et tester l’authentification unique Azure AD avec T&E Express
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le Portail de gestion Azure et configurer l’authentification unique dans votre application T&E Express.
 
-**Pour configurer l’authentification unique Azure AD avec T&E Express, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec T&amp;E Express, procédez comme suit :**
 
 1. Dans le Portail de gestion Azure, sur la page d’intégration de l’application **T&E Express**, cliquez sur **Authentification unique**.
 
@@ -200,7 +199,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ![Affecter des utilisateurs][200] 
 
-**Pour affecter Britta Simon à T&E Express, procédez comme suit :**
+**Pour affecter Britta Simon à T&amp;E Express, procédez comme suit :**
 
 1. Dans le portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
@@ -250,5 +249,4 @@ Lorsque vous cliquez sur la mosaïque T&E Express dans le volet d’accès, vous
 [201]: ./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_203.png
-
 

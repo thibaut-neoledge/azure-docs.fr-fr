@@ -16,10 +16,10 @@ ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
 ms.openlocfilehash: 1ecc2bdef5ff7ef8ed8dded7dc12428ce9657821
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Que sont les mots de passe d’application dans Azure Multi-Factor Authentication ?
 Actuellement, certaines applications sans navigateur telles que le client de messagerie native Apple qui utilise Exchange Active Sync ne prennent pas en charge l’authentification multifacteur. L’authentification multifacteur est activée par l’utilisateur.  Cela signifie qu’un utilisateur ne peut pas utiliser l’authentification multifacteur dans les cas suivants :

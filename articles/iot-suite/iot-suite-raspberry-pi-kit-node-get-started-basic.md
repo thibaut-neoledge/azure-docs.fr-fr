@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 6d8e6ef070c3b9d9623f4b29ab97a5d20f69d499
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 91546157cc8eabf68706391ce706038d8dc5f82d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-telemetry-from-a-real-sensor-using-nodejs"></a>Connecter votre Raspberry Pi 3 à la solution de surveillance à distance et envoyer la télémétrie depuis un capteur réel à l’aide de Node.js
 
@@ -27,12 +26,12 @@ ms.lasthandoff: 05/03/2017
 
 Ce tutoriel vous montre comment utiliser le Kit de démarrage Microsoft Azure IoT pour Raspberry Pi 3 pour développer un lecteur de température et d’humidité capable de communiquer avec le cloud. Le tutoriel utilise :
 
-- le système d’exploitation Raspbian, le langage de programmation Node.js et le Kit de développement logiciel (SDK) d’appareil Microsoft Azure IoT pour Node.js pour implémenter un exemple d’appareil ;
-- la solution préconfigurée de surveillance à distance Azure IoT Suite comme serveur principal basé sur le cloud.
+- Le système d’exploitation Raspbian, le langage de programmation Node.js et le Kit SDK Microsoft Azure IoT pour Node.js en vue d’implémenter un exemple d’appareil.
+- La solution préconfigurée de surveillance à distance Azure IoT Suite comme backend basé sur le cloud.
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Dans ce tutoriel, vous allez effectuer les étapes suivantes :
+Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 
 - Déployer une instance de la solution préconfigurée de surveillance à distance dans votre abonnement Azure. Cette étape déploie et configure automatiquement plusieurs services Azure.
 - Configurer votre appareil pour qu’il communique avec votre ordinateur et avec la solution de surveillance à distance.
@@ -136,4 +135,3 @@ Visitez le [Centre de développement Azure IoT](https://azure.microsoft.com/deve
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-node-get-started-basic/app-output.png
 
 [lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md
-

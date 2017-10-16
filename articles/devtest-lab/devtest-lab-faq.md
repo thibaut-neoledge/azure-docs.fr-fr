@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ d’Azure DevTest Labs
 Obtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.
@@ -235,4 +234,3 @@ Les erreurs de déploiement de machine virtuelle sont capturées dans des journa
 Parfois, l’erreur de déploiement se produit avant que ne commence le déploiement de la machine virtuelle. C’est par exemple le cas quand la limite d’abonnement pour une ressource qui a été créée avec la machine virtuelle est dépassée. Dans ce cas, les détails de l’erreur sont capturés dans les journaux d’activité au niveau du laboratoire. Les journaux d’activité sont situés en bas des paramètres **Configuration et stratégies**. Pour plus d’informations sur l’utilisation des journaux d’activité dans Azure, consultez [Afficher les journaux d’activité pour auditer les actions sur les ressources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

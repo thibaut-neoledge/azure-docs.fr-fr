@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 082cd8a6cf50f76c89fe5995047396c734f83034
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
@@ -42,9 +41,9 @@ Voici quelques-uns des avantages de l’homologation de réseaux virtuels :
 
 ## <a name="requirements-constraints"></a>Exigences et contraintes
 
-* L’homologation de réseaux virtuels dans la même région est généralement disponible. L’homologation de réseaux virtuels dans différentes régions est actuellement en version préliminaire dans les régions États-Unis Centre-Ouest, Centre du Canada et Ouest des États-Unis 2. Vous pouvez [inscrire votre abonnement pour la version préliminaire](virtual-network-create-peering.md).
+* L’appairage de réseaux virtuels au sein d’une même région est généralement possible. L’appairage de réseaux virtuels appartenant à des régions différentes est actuellement en préversion dans les régions États-Unis Centre-Ouest, Centre du Canada et Ouest des États-Unis 2. Vous pouvez [inscrire votre abonnement pour la préversion](virtual-network-create-peering.md).
     > [!WARNING]
-    > Les homologations de réseaux virtuels créées dans ce scénario peuvent ne pas avoir le même niveau de disponibilité et de fiabilité que les scénarios applicables lors de la disponibilité générale. Les homologations de réseaux virtuels peuvent avoir des fonctionnalités limitées et peuvent ne pas être disponibles dans toutes les régions Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+    > Les appairages de réseaux virtuels créés dans ce scénario peuvent ne pas avoir le même niveau de disponibilité et de fiabilité qu’avec les scénarios utilisant la version publique. Les appairages de réseaux virtuels peuvent avoir des fonctionnalités limitées et peuvent ne pas être disponibles dans toutes les régions Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 * Les réseaux virtuels homologués doivent avoir des espaces d’adressage IP qui ne se chevauchent pas.
 * Il n’est pas possible d’ajouter ni de supprimer des espaces d’adressage dans un réseau virtuel une fois que celui-ci est homologué avec un autre réseau virtuel.
@@ -141,4 +140,3 @@ Un coût nominal s’applique pour le trafic entrant et sortant qui utilise une 
 
 * Découvrez comment créer une [topologie de réseau Hub and Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
 * En savoir plus sur tous les [paramètres d’homologation de réseaux virtuels et sur la façon de les modifier](virtual-network-manage-peering.md).
-

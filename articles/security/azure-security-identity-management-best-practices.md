@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
 ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 Beaucoup considèrent l’identité comme la nouvelle couche de sécurité assumant ce rôle du point classique du réseau. Les efforts en matière de gestion de la sécurité et les investissements ont changé de cible principale, car les périmètres réseau sont de plus en plus poreux et la défense du périmètre n’est plus aussi efficace qu’elle ne l’était avant l’explosion des appareils [BYOD](http://aka.ms/byodcg) et des applications cloud.

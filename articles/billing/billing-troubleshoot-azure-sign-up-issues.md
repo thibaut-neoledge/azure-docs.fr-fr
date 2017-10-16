@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 5f9d4e580b0d4d7c3ea39c53b1bf4067a59d4d52
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Résoudre les problèmes d’inscription pour Azure
 Si vous ne pouvez pas vous inscrire à Azure, utilisez les conseils de cet article pour résoudre les problèmes courants. Si vous rencontrez un problème avec votre carte de crédit lors de l’inscription, consultez la page [Votre carte bancaire est refusée lors de l’inscription à Azure](billing-credit-card-fails-during-azure-sign-up.md). Si vous disposez d’un compte Azure, mais ne parvenez pas à vous connecter, consultez la page [Impossible de me connecter pour gérer mon abonnement Azure](billing-cannot-login-subscription.md).
@@ -91,4 +90,3 @@ Pour pouvoir créer un nouvel abonnement Azure dans Open, vous devez disposer d�
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-

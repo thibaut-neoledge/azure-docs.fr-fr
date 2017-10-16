@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
 ms.openlocfilehash: bf4f0b64d1230395bf5dacc467d09debecdef559
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-management-in-azure"></a>Gestion de la sécurité dans Azure
 Les abonnés Azure peuvent gérer leurs environnements cloud à partir de différents périphériques, comme les stations de travail de gestion, les ordinateurs de développement ou encore les périphériques d’utilisateurs finaux privilégiés, qui disposent d’autorisations spécifiques. Dans certains cas, les fonctions d’administration sont effectuées par le biais de consoles Web, comme le [portail Azure](https://azure.microsoft.com/features/azure-portal/). Des connexions directes peuvent aussi être établies avec Azure à partir de systèmes locaux sur des réseaux privés virtuels (VPN), Terminal Services, des protocoles d’application cliente ou l’API de gestion des services Azure (SMAPI) (par programmation). Par ailleurs, les points de terminaison de client peuvent être joints au domaine ou isolés et non gérés, comme les tablettes ou les smartphones.
@@ -233,4 +232,3 @@ Les ressources suivantes fournissent des informations générales sur les servic
 [2]: ./media/azure-security-management/stand-alone-hardened-workstation-topology.png
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
-

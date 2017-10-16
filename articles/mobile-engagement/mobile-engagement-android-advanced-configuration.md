@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
 ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Configuration avancée pour le SDK Android pour Azure Mobile Engagement
 > [!div class="op_single_selector"]
@@ -118,4 +117,3 @@ Vous pouvez ensuite ajouter un `CheckBoxPreference` dans votre disposition préf
       android:title="Use Engagement"
       android:summaryOn="Engagement is enabled."
       android:summaryOff="Engagement is disabled." />
-

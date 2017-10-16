@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: e547469dc61eddd1d772571ab0919532ac91f128
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastructure de sécurité : Authentification | Mesures de correction 
 | Produit/Service | Article |
 | --------------- | ------- |
 | **Application web**    | <ul><li>[Envisager d’utiliser un mécanisme d’authentification standard pour l’application web](#standard-authn-web-app)</li><li>[Les applications doivent gérer les scénarios d’authentification ayant échoué en toute sécurité ](#handle-failed-authn)</li><li>[Activer l’authentification adaptative ou avancée](#step-up-adaptive-authn)</li><li>[Garantir que les interfaces d’administration sont correctement verrouillées](#admin-interface-lockdown)</li><li>[Implémenter des fonctionnalités de mot de passe oublié en toute sécurité](#forgot-pword-fxn)</li><li>[Garantir que la stratégie de compte et de mot de passe est implémentée](#pword-account-policy)</li><li>[Implémenter des contrôles pour empêcher l’énumération de nom d’utilisateur](#controls-username-enum)</li></ul> |
 | **Base de données** | <ul><li>[Si possible, utiliser l’authentification Windows pour la connexion à SQL Server](#win-authn-sql)</li><li>[Si possible, utiliser l’authentification Azure Active Directory pour la connexion à SQL Database](#aad-authn-sql)</li><li>[Lorsque le mode d’authentification SQL est utilisé, garantir que la stratégie de compte et de mot de passe est appliquée sur SQL Server](#authn-account-pword)</li><li>[Ne pas utiliser l’authentification SQL dans des bases de données à relation contenant-contenu](#autn-contained-db)</li></ul> |
-| **Hub d'événement d'Azure** | <ul><li>[Utiliser les informations d’authentification par appareil à l’aide des jetons SAP](#authn-sas-tokens)</li></ul> |
+| **Azure Event Hub** | <ul><li>[Utiliser les informations d’authentification par appareil à l’aide des jetons SAP](#authn-sas-tokens)</li></ul> |
 | **Délimitation d’approbation Azure** | <ul><li>[Activer Azure Multi-Factor Authentication pour les administrateurs Azure](#multi-factor-azure-admin)</li></ul> |
 | **Délimitation d’approbation Service Fabric** | <ul><li>[Restreindre l’accès anonyme au cluster Service Fabric](#anon-access-cluster)</li><li>[Garantir que le certificat client à nœud Service Fabric est différent du certificat nœud à nœud](#fabric-cn-nn)</li><li>[Utiliser AAD pour authentifier les clients sur les clusters Service Fabric](#aad-client-fabric)</li><li>[Garantir que les certificats Service Fabric proviennent d’une autorité de certification approuvée](#fabric-cert-ca)</li></ul> |
-| **Serveur d’identité** | <ul><li>[Utiliser des scénarios d’authentification standard pris en charge par IdentityServer](#standard-authn-id)</li><li>[Remplacer le cache de jetons IdentityServer par défaut par une solution évolutive](#override-token)</li></ul> |
+| **IdentityServer** | <ul><li>[Utiliser des scénarios d’authentification standard pris en charge par IdentityServer](#standard-authn-id)</li><li>[Remplacer le cache de jetons IdentityServer par défaut par une solution évolutive](#override-token)</li></ul> |
 | **Délimitation d’approbation machine** | <ul><li>[Garantir que les fichiers binaires de l’application déployée sont signés numériquement](#binaries-signed)</li></ul> |
 | **WCF** | <ul><li>[Activer l’authentification lors de la connexion aux files d’attente MSMQ dans WCF](#msmq-queues)</li><li>[WCF - Ne pas définir clientCredentialType du message sur la valeur « aucun »](#message-none)</li><li>[WCF - Ne pas définir clientCredentialType du transport sur la valeur « aucun »](#transport-none)</li></ul> |
 | **API Web** | <ul><li>[Garantir que les techniques d’authentification standard sont utilisées pour sécuriser les API Web](#authn-secure-api)</li></ul> |

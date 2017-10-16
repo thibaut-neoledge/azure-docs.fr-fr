@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 069457d7ef7855749f64e299e0db579e6bb2b590
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 42e55db4f932de85ee1a71c408b889e0ff9fe3e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Télémétrie des mesure : modèle de données Application Insights
 
@@ -74,4 +73,3 @@ Valeur maximale de la mesure agrégée. Ne doit pas être défini pour une mesur
 - Découvrez comment utiliser [l’API Application Insights pour les événements et les mesures personnalisés](app-insights-api-custom-events-metrics.md#trackmetric).
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](application-insights-data-model.md).
 - Découvrez quelles [plateformes](app-insights-platforms.md) sont prises en charge par Application Insights.
-

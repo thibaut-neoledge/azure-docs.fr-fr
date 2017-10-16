@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8f1d9b48e505bef0ebd622267705c3e7e26a3a47
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Sélection des paramètres permettant d’optimiser des algorithmes dans Microsoft Azure Machine Learning
 Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pour un algorithme dans Microsoft Azure Machine Learning. La plupart des algorithmes Machine Learning ont des paramètres qui doivent être définis. Lorsque vous gérez l’apprentissage d’un modèle, vous devez fournir des valeurs pour ces paramètres. L’efficacité du modèle formé dépend des paramètres de modèle choisis. Le processus de recherche de l’ensemble optimal de paramètres est connu sous le nom de *sélection du modèle*.
@@ -77,4 +76,3 @@ Vous pouvez voir les paramètres exacts choisis en visualisant le port de sortie
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
 [tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
-

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
 ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Utilisation des connecteurs dans une application logique
 Les connecteurs permettent d’accéder rapidement aux événements, aux données et aux actions à travers tous les services, protocoles et plates-formes.  La liste complète des connecteurs pris en charge par les applications logiques [est disponible ici](apis-list.md).  Les connecteurs peuvent être utilisés comme déclencheurs ou comme actions dans une application logique, et leur utilisation peut nécessiter une *connexion* configurée (par exemple : autoriser un compte Twitter pour accéder ou publier de votre part).

@@ -10,17 +10,16 @@ tags: top-support-issue
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
 ms.service: cloud-services
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fae727ec3496737fca37236b4f36b4accf0afc63
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 29529978a2f6a1454c7a97b5f5baac214a90d63b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Résoudre les problèmes de déploiement de service cloud
 Lorsque vous déployez un package d’application de service cloud sur Azure, vous pouvez obtenir des informations concernant le déploiement dans le volet **Propriétés** du portail Azure. Vous pouvez utiliser les détails figurant dans ce volet pour faciliter la résolution des problèmes du service cloud, et vous pouvez fournir ces informations au support Azure lors de l’ouverture d’une nouvelle demande de support.
@@ -84,7 +83,6 @@ Pour plus d’informations sur la résolution de ce problème, consultez les bil
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
-Affichez plus d’ [articles de résolution des problèmes](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) liés aux services cloud.
+Affichez plus d’ [articles de résolution des problèmes](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-allocation-failures) liés aux services cloud.
 
 Pour découvrir comment résoudre les problèmes liés aux rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure, consultez la [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
-

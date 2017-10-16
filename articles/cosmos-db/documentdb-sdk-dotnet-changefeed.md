@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: maquaran
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 239b590a1e3a83fe0205dd8169697db745d7f75e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>Kit SDK du processeur de flux de modification .NET DocumentDB : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -81,5 +80,4 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
 

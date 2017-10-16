@@ -10,12 +10,11 @@ ms.topic: how to
 ms.service: multiple
 ms.custom: accessibility
 manager: timlt
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 87ef9bf72f110ea3c27d0554e461d8c12132d422
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Activer le contraste élevé ou modifier le thème dans le portail Azure
 Si vous avez besoin de plus de contraste ou si vous souhaitez modifier le jeu de couleurs dans le portail Azure, accédez aux paramètres du portail pour effectuer la modification. 
@@ -41,4 +40,3 @@ Si vous avez besoin de plus de contraste ou si vous souhaitez modifier le jeu de
 ## <a name="next-steps"></a>Étapes suivantes
 - [Raccourcis clavier du portail Azure](azure-portal-keyboard-shortcuts.md)
 - [Navigateurs et appareils pris en charge](../azure-preview-portal-supported-browsers-devices.md)
-

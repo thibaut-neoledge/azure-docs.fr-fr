@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1d88c53784cec302f5e67b9d50f84780bbec37db
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-balancing-on-multiple-ip-configurations"></a>Équilibrage de charge sur plusieurs configurations IP
 
@@ -132,4 +131,3 @@ Pour accomplir le scénario décrit dans cet article, suivez les étapes ci-dess
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour en savoir plus sur la combinaison de services d’équilibrage de charge dans Azure, consultez [Utilisation des services d’équilibrage de charge dans Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Pour savoir comment gérer et dépanner l’équilibrage de charge à l’aide de différents types de journaux dans Azure, consultez [Log Analytics pour Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
-

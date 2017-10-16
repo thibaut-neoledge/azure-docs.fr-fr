@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
 ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-db2-connector"></a>Prise en main du connecteur DB2
 Le connecteur Microsoft pour DB2 connecte Logic Apps aux ressources stockées dans une base de données IBM DB2. Ce connecteur inclut un client Microsoft permettant de communiquer avec les ordinateurs serveurs DB2 distants via un réseau TCP/IP. Cela inclut les bases de données cloud, telles qu’IBM Bluemix dashDB ou IBM DB2 pour Windows en cours d’exécution dans la virtualisation Azure et les bases de données locales utilisant la passerelle de données locale. Consultez la [liste de prise en charge](connectors-create-api-db2.md#supported-db2-platforms-and-versions) des plates-formes et versions IBM DB2 (dans cette rubrique).

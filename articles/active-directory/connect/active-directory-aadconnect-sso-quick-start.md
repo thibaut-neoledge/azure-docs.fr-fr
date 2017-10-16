@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 9d91c59d3e4d73879d95ab193949d54f7b86d6cd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory - Démarrage rapide
 
 ## <a name="how-to-deploy-seamless-sso"></a>Déploiement de l’authentification unique transparente
@@ -157,4 +155,3 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
 - [**Forum aux questions**](active-directory-aadconnect-sso-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.
-

@@ -1,6 +1,6 @@
 ---
-title: "Mesures des requêtes SQL pour l’API DocumentDB dans Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez comment instrumenter et déboguer les performances de requêtes SQL des requêtes Azure Cosmos DB."
+title: "Métriques des requêtes SQL pour l’API DocumentDB dans Azure Cosmos DB | Microsoft Docs"
+description: "Découvrez comment instrumenter et déboguer les performances de requêtes SQL des demandes Azure Cosmos DB."
 keywords: "syntaxe sql, requête sql, requêtes sql, langage de requête json, concepts de bases de données, requêtes sql et fonctions agrégées"
 services: cosmos-db
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Réglage des performances de requête avec Azure Cosmos DB
 Azure Cosmos DB fournit une [API SQL pour interroger des données](documentdb-sql-query.md), sans nécessiter de schéma ou d’index secondaires. Cet article fournit les informations suivantes à l’attention des développeurs :
@@ -47,7 +46,7 @@ Les kits SDK offrent diverses options pour l’exécution de requêtes. Par exem
 
 | Option | Description |
 | ------ | ----------- |
-| `EnableCrossPartitionQuery` | Doit être définie sur true pour une requête qui impose son exécution sur plusieurs partitions. Il s’agit d’un indicateur explicite pour vous permettre de faire des compromis de performance conscients au moment du développement. |
+| `EnableCrossPartitionQuery` | Doit être définie sur true pour une requête qui exige son exécution sur plusieurs partitions. Il s’agit d’un indicateur explicite pour vous permettre de faire des compromis de performance conscients au moment du développement. |
 | `EnableScanInQuery` | Doit être définie sur true si vous avez refusé l’indexation, mais souhaitez quand même exécuter la requête via une analyse. Uniquement applicable si l’indexation pour le chemin du filtre demandé est désactivé. | 
 | `MaxItemCount` | Le nombre maximal d’éléments à retourner par aller-retour au serveur. Avec la valeur -1, vous pouvez laisser le serveur gérer le nombre d’éléments. Sinon, vous pouvez réduire cette valeur et récupérer uniquement un petit nombre d’éléments par aller-retour. 
 | `MaxBufferedItemCount` | C’est une option côté client qui permet de limiter la consommation de mémoire lors de l’exécution sur plusieurs partitions de ORDER BY. Une valeur plus élevée permet de réduire la latence de tri de partitions croisées. |
@@ -280,6 +279,5 @@ Voici quelques exemples de requête, et la façon d’interpréter certains mesu
 * Pour en savoir plus sur les opérateurs et les mots clés de requête SQL pris en charge, consultez [Requête SQL](documentdb-sql-query.md). 
 * Pour obtenir plus d’informations sur les unités de requête, consultez [Unités de requête](request-units.md).
 * Pour en savoir plus sur la stratégie d’indexation, consultez [Stratégie d’indexation](indexing-policies.md) 
-
 
 

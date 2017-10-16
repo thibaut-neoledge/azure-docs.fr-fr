@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f324f73b5b22e0a58736a2f9d431d5c79dd7e9ee
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory : Journal des modifications de l’API .NET
 > [!NOTE]
@@ -186,4 +185,3 @@ Les classes suivantes ont été renommées. Les nouveaux noms des classes sont l
 ### <a name="feature-additions"></a>Ajouts de fonctionnalités
 * La classe [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) prend en charge deux nouvelles propriétés, **SliceIdentifierColumnName** et **SqlWriterCleanupScript**, pour prendre en charge la copie idempotent vers Azure SQL Data Warehouse. Voir l’article [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) pour plus d’informations sur ces propriétés.
 * Nous prenons désormais en charge l'exécution d’une procédure stockée avec des sources Azure SQL Database et Azure SQL Data Warehouse dans le cadre de l'activité de copie. Les classes [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) et [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) comportent les propriétés suivantes : **SqlReaderStoredProcedureName** et **StoredProcedureParameters**. Pour plus d’informations sur ces propriétés, consultez les articles [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) et [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) sur Azure.com.  
-

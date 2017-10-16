@@ -16,21 +16,19 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
+ms.openlocfilehash: e86fcb4dbf170e5bc07553165e09d6fc3d3cf283
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c863dbdcb242bdea208f7e72f6c1f61b5ba04844
-ms.openlocfilehash: 0c81829e94f35025980216c1ce059c70a6cc7524
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Créer une machine virtuelle Windows dans une zone de disponibilité avec PowerShell
 
 Cet article explique en détail comment utiliser Azure PowerShell pour créer une machine virtuelle Azure exécutant Windows Server 2016 dans une zone de disponibilité Azure. Une [zone de disponibilité](../../availability-zones/az-overview.md) est une zone physiquement séparée dans une région Azure. Utilisez les zones de disponibilité pour protéger vos applications et vos données dans l’éventualité peu probable d’une défaillance ou d’une perte d’un centre de données entier.
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Veillez à installer le dernier module Azure PowerShell. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Veillez à installer le dernier module Azure PowerShell. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -48,7 +46,7 @@ Créez un groupe de ressources Azure avec [New-AzureRmResourceGroup](/powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location eastus2
 ```
 
-## <a name="create-networking-resources"></a>Créer des ressources de mise en réseau
+## <a name="create-networking-resources"></a>Création de ressources de mise en réseau
 
 ### <a name="create-a-virtual-network-subnet-and-a-public-ip-address"></a>Créer un réseau virtuel, un sous-réseau et une adresse IP publique 
 Ces ressources sont utilisées pour fournir une connectivité réseau à la machine virtuelle et la connecter à Internet. Créez l’adresse IP dans une zone de disponibilité, *2* dans cet exemple. Pour créer la machine virtuelle dans une zone de disponibilité (illustrée dans une étape ultérieure), vous spécifiez la même zone que celle utilisée pour créer l’adresse IP.
@@ -94,9 +92,9 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGrou
     -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-virtual-machine"></a>Créer une machine virtuelle
+## <a name="create-virtual-machine"></a>Create virtual machine
 
-Créez une configuration de machine virtuelle. Cette configuration inclut les paramètres qui sont utilisés lors du déploiement de la machine virtuelle, comme une image de machine virtuelle, la taille et la configuration de l’authentification. La taille *Standard_DS1_v2* de cet exemple est prise en charge dans les zones de disponibilité en préversion. Cette configuration spécifie également la zone de disponibilité que vous définissez lors de la création de l’adresse IP. Lors de l’exécution de cette étape, vous êtes invité à saisir vos informations d’identification. Les valeurs que vous entrez sont configurées comme le nom d’utilisateur et le mot de passe de la machine virtuelle.
+Créez une configuration de machine virtuelle. Cette configuration inclut les paramètres qui sont utilisés lors du déploiement de la machine virtuelle, comme une image de machine virtuelle, la taille et la configuration de l’authentification. La taille *Standard_DS1_v2* de cet exemple est prise en charge dans les zones de disponibilité en préversion. Cette configuration spécifie également la zone de disponibilité que vous définissez lors de la création de l’adresse IP. Lors de l’exécution de cette étape, vous êtes invité à saisir vos informations d’identification. Les valeurs que vous saisissez sont configurées comme le nom d’utilisateur et le mot de passe pour la machine virtuelle.
 
 ```powershell
 # Define a credential object
@@ -123,7 +121,7 @@ Vous avez créé la ressource d’adresse IP de la machine virtuelle dans la mê
 Get-AzureRmDisk -ResourceGroupName myResourceGroup
 ```
 
-La sortie montre que le disque managé se trouve dans la même zone de disponibilité que celle de la machine virtuelle :
+Le résultat montre que le disque géré se trouve dans la même zone de disponibilité que la machine virtuelle :
 
 ```powershell
 ResourceGroupName  : myResourceGroup

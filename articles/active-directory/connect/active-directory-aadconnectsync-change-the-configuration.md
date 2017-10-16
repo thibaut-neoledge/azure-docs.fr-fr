@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect Sync : comment modifier la configuration par défaut
 L’objectif de cette rubrique est de vous expliquer comment apporter des modifications à la configuration par défaut dans Azure AD Connect Sync. Elle explique pas à pas la procédure pour les scénarios courants. Après avoir lu cette page, vous devriez être en mesure d’apporter des modifications simples à votre configuration en fonction de vos propres règles d’entreprise.

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: e18a810bcdbd97c79418f53c647df8723ecb6076
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Prise en main de Notification Hubs pour les applications de plateforme Windows universelle
 
@@ -235,4 +234,3 @@ Pour plus d’informations générales sur Notification Hubs, consultez la secti
 [Catalogue de modèles de vignette]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [Vue d’ensemble des badges]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
  
-

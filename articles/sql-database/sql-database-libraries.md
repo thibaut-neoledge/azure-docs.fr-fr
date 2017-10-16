@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: genemi
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 082abf57b139b9f7d44774dce3a80e20b97f0e3b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Bibliothèques et infrastructures de connectivité pour Microsoft SQL Server
 
@@ -32,9 +31,9 @@ Le tableau ci-dessous répertorie les bibliothèques de connectivité ou *pilote
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET pour SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Télécharger](https://www.microsoft.com/net/download/) | [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Pilote JDBC Microsoft pour SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Télécharger](https://go.microsoft.com/fwlink/?linkid=852460) |  [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [Pilote PHP SQL pour SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Système d’exploitation : <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
+| PHP | Windows, Linux, macOS| [Pilote PHP SQL pour SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Système d’exploitation : <br/> \*[Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \*[Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \*[macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
 | Node.js | Windows, Linux, macOS | [Pilote Node.js pour SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Installer](https://msdn.microsoft.com/library/mt652094.aspx) |  [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, macOS | [Pilote SQL Python](http://msdn.microsoft.com/library/mt652092.aspx) | Choix d’installation : <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
+| Python | Windows, Linux, macOS | [Pilote SQL Python](http://msdn.microsoft.com/library/mt652092.aspx) | Choix d’installation : <br/> \*[pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \*[pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Windows, Linux, macOS | [Pilote Ruby pour SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Installer](https://msdn.microsoft.com/library/mt711041.aspx) | [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Pilote ODBC Microsoft pour SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Télécharger](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
 
@@ -57,4 +56,3 @@ Le tableau ci-dessous répertorie quelques infrastructures ORM (Object Relationa
 - [Connexion à la base de données SQL à l’aide de Java avec JDBC sous Windows](sql-database-connect-query-java.md)
 - [Connexion à SQL Database à l’aide de Python](sql-database-connect-query-python.md)
 - [Connexion à SQL Database à l’aide de Ruby](sql-database-connect-query-ruby.md)
-

@@ -15,10 +15,10 @@ ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 52fd9375c71c42feaf87f4a0f4220e1cb3889e63
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect : effectuer une mise à niveau vers la dernière version
 Cette rubrique décrit les différentes méthodes que vous pouvez utiliser pour mettre à niveau votre installation Azure Active Directory (Azure AD) Connect vers la dernière version. Nous vous recommandons d’utiliser systématiquement les dernières versions d’Azure AD Connect. Vous pouvez également suivre les étapes décrites dans la section [Migration « swing »](#swing-migration) lorsque vous appliquez une modification importante à la configuration.

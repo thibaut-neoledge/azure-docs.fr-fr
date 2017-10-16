@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
 ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-1-review-the-architecture"></a>Étape 1 : examen de l’architecture
 
@@ -60,8 +60,7 @@ En savoir plus sur les conditions préalables au déploiement et la configuratio
 1. Une fois que vous activez la protection d’une machine virtuelle Hyper-V, dans le portail Azure ou en local, **l’activation de la protection** démarre.
 2. Le travail vérifie que la machine est conforme à la configuration requise, puis appelle la méthode [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), laquelle configure la réplication avec les paramètres que vous avez configurés.
 3. Le travail démarre la réplication initiale en appelant la méthode [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) pour initialiser une réplication complète de la machine virtuelle et envoyer les disques virtuels de la machine virtuelle sur Azure.
-4. Vous pouvez surveiller le travail dans l'onglet **Travaux**.
-        ![Liste des travaux](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Activer l’exploration de la protection](media/vmm-to-azure-walkthrough-architecture/image2.png)
+4. Vous pouvez surveiller le travail dans l'onglet **Travaux**.      ![Liste des travaux](media/vmm-to-azure-walkthrough-architecture/image1.png)![Activer l’exploration de la protection](media/vmm-to-azure-walkthrough-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Répliquer les données initiales
 

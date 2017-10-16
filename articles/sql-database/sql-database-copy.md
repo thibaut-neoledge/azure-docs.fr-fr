@@ -15,13 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 67c42b8df2f1d12ceecd127ab24d359a6de8ef43
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: 8c1e3c80b9f24089dc99463d6ea8ae5d0ea7b19d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-an-azure-sql-database"></a>Copie d'une base de données SQL Azure
 
@@ -111,4 +109,3 @@ Pour en savoir plus sur la gestion des utilisateurs et des connexions lors de la
 
 * Pour plus d’informations sur les connexions, consultez [Gérer les connexions](sql-database-manage-logins.md) et [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
 * Pour exporter une base de données, consultez [Exporter la base de données vers un fichier BACPAC](sql-database-export.md).
-

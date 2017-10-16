@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
+ms.openlocfilehash: d86495eea467977f6c079de72e2b49a2a1da2b60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 43e9e864a11cd6601ca9599f5a193793d344e0e5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights pour ASP.NET Core
 [Application Insights](app-insights-overview.md) permet d’analyser la disponibilité, les performances et l’utilisation de votre application web. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
@@ -63,5 +62,4 @@ Les affichages dans le portail se répartissent en trois catégories principales
 * [Surveillez les dépendances](app-insights-asp-net-dependencies.md) pour voir si REST, SQL ou d’autres ressources externes vous ralentissent.
 * [Utilisez l’API](app-insights-api-custom-events-metrics.md) pour envoyer vos propres événements et mesures pour obtenir une vue plus détaillée des performances et de l’utilisation de votre application.
 * [Les tests de disponibilité](app-insights-monitor-web-app-availability.md) vérifient votre application en permanence dans le monde entier. 
-
 

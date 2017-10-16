@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 712b29a347e246ad5afbf842930b0e01749c1203
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
 Cet article présente l’intégration des données entre les magasins de données locaux et les magasins de données cloud à l’aide de Data Factory. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md) et d’autres articles sur les principaux concepts Data Factory : les [jeux de données](data-factory-create-datasets.md) et les [pipelines](data-factory-create-pipelines.md).
@@ -413,4 +412,3 @@ Dans cette étape, vous utilisez le portail Azure pour surveiller ce qui se pass
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez l’article [Data Management Gateway](data-factory-data-management-gateway.md) (Passerelle de gestion des données) pour obtenir des informations détaillées sur la passerelle de gestion des données.
 * Consultez l’article [Copie de données d’un objet blob vers Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour en savoir plus sur l’utilisation de l’activité de copie pour déplacer des données d’une banque de données source vers une banque de données récepteur.
-

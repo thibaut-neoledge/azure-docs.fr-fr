@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 ms.openlocfilehash: aa03c29c54d75538b1fdf987cac5f09d5d344f73
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur serializer
 Le [premier article](iot-hub-device-sdk-c-intro.md) de cette série a présenté le **Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C**. L’article suivant donne une description plus détaillée [**d’IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Dans cet article, nous terminerons sur le sujet du Kit de développement logiciel (SDK) avec une description plus détaillée du composant restant : la bibliothèque **sérialiseur** .

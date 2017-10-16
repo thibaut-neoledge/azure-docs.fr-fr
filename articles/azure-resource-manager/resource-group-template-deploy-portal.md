@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure
 
@@ -34,7 +33,7 @@ Cette rubrique montre comment utiliser le [portail Azure](https://portal.azure.c
 
    ![Ajouter un groupe de ressource](./media/resource-group-template-deploy-portal/add-resource-group.png)
 
-1. Spécifiez un nom et un emplacement, puis, si nécessaire, sélectionnez un abonnement. Vous devez fournir un emplacement pour le groupe de ressources, car celui-ci stocke des métadonnées sur les ressources. Pour des raisons de conformité, vous souhaiterez peut-être indiquer où sont stockées métadonnées. En règle générale, nous vous recommandons de spécifier l’emplacement où résident la plupart de vos ressources. L’utilisation du même emplacement permet de simplifier votre modèle.
+1. Spécifiez un nom et un emplacement, puis, si nécessaire, sélectionnez un abonnement. Vous devez fournir un emplacement pour le groupe de ressources, car celui-ci stocke des métadonnées sur les ressources. Pour des raisons de conformité, vous souhaiterez peut-être indiquer où sont stockées métadonnées. En règle générale, nous vous recommandons de spécifier l’emplacement où réside la plupart de vos ressources. L’utilisation du même emplacement permet de simplifier votre modèle.
 
    ![Définir les valeurs d’un groupe](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
@@ -137,4 +136,3 @@ Le portail vous permet d’enregistrer un modèle dans votre compte Azure et de 
 * Pour résoudre les erreurs de déploiement, consultez [Voir les opérations de déploiement](resource-manager-deployment-operations.md).
 * Pour récupérer un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
-

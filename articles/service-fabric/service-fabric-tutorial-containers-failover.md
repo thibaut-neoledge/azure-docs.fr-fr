@@ -16,23 +16,21 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 21dd9dfbc90c26236c43e2c334305ca97f63d361
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Présenter le basculement et la mise à l’échelle de services de conteneur avec Service Fabric
 
-Ce didacticiel est le troisième de la série. Dans ce didacticiel, vous découvrez la gestion du basculement au sein d’applications de conteneur dans Service Fabric. Vous apprenez également à mettre à l’échelle des conteneurs. Ce didacticiel vous aide dans les opérations suivantes :
+Ce didacticiel est le troisième de la série. Dans ce didacticiel, vous découvrez la gestion du basculement au sein d’applications de conteneur dans Service Fabric. Vous apprenez également à mettre à l’échelle des conteneurs. Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * En savoir plus sur le basculement de conteneur dans un cluster Service Fabric  
 > * Mettre à l’échelle les conteneurs web frontaux dans une application
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 À partir de la [Partie 2](service-fabric-tutorial-package-containers.md), l’application s’exécute dans un cluster Service Fabric actif.
 
 ## <a name="fail-over-a-container-in-a-cluster"></a>Basculer un conteneur dans un cluster
@@ -89,4 +87,3 @@ Dans cette série de didacticiels, vous avez appris à :
 [noderestart]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialnoderestart.png
 [sfxscale]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialscale.png
 [sfxscaledone]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialscaledone.png
-

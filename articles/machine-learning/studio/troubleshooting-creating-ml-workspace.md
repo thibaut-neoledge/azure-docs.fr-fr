@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cdccd4ce7b87f47d21578076653bde901748188b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Guide de résolution des problèmes : création d'un espace de travail Machine Learning et connexion à celui-ci
 Ce guide propose des solutions pour quelques-uns des défis qui se posent souvent quand vous configurez des espaces de travail Azure Machine Learning.
@@ -71,4 +70,3 @@ Notre objectif est de vous offrir une expérience de Machine Learning qui soit a
 [screen4]:media/troubleshooting-creating-ml-workspace/screen4.png
 [screen5]:media/troubleshooting-creating-ml-workspace/screen5.png
 [screen6]:media/troubleshooting-creating-ml-workspace/screen6.png
-

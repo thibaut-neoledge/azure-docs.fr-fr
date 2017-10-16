@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f58bd7206bb19328635b9834ca81bcdf692882c8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importation de vos données Azure Machine Learning Studio à partir de différentes sources de données en ligne avec le module Importer les données
 Cet article décrit le support pour l'importation en ligne de données provenant de plusieurs sources et les informations nécessaires au déplacement depuis ces sources vers l’expérience Azure Machine Learning.
@@ -81,4 +80,3 @@ Le module **Importer les données** d’Azure Machine Learning prend en charge l
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C/
-

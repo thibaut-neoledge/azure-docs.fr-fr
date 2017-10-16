@@ -16,12 +16,11 @@ ms.date: 09/12/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 992f4563064d7a292cf4fdd90a9a3c84cdec91c0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dedicated-groups-in-azure-active-directory"></a>Groupes dédiés dans Azure Active Directory
 Dans Azure Active Directory (Azure AD), la fonctionnalité des groupes dédiés crée et remplit automatiquement l’appartenance aux groupes Azure AD prédéfinis. Les membres des groupes dédiés ne peuvent pas être ajoutés, ni supprimés via le portail Azure Classic, les applets Windows PowerShell ou via un programme.
@@ -61,4 +60,3 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
-

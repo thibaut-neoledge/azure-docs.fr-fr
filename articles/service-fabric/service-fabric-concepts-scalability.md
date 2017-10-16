@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 680b996e370f66a5e22644ae1d1bf41d314bb4de
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scaling-in-service-fabric"></a>Mise à l’échelle dans Service Fabric
 Azure Service Fabric facilite la création d’applications évolutives en gérant les services, les partitions et les réplicas sur les nœuds d’un cluster. L’exécution de nombreuses charges de travail sur un même appareil permet une utilisation maximale des ressources, mais permet également de choisir la façon dont vous mettez à l’échelle vos charges de travail. 
@@ -151,4 +150,3 @@ Pour plus d’informations sur les concepts propres à Service Fabric, consultez
 
 * [Disponibilité des services Service Fabric](service-fabric-availability-services.md)
 * [Partitionnement des services Service Fabric](service-fabric-concepts-partitioning.md)
-

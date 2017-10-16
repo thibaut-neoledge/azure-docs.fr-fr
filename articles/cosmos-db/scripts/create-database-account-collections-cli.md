@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 06/06/2017
 ms.author: mimig
 ms.openlocfilehash: 28f99d56404e47adcd375d9f3106cc234469cbfd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-create-an-documentdb-api-account-using-cli"></a>Azure Cosmos DB : Créer un compte d’API DocumentDB avec l’interface de ligne de commande
 
@@ -32,7 +32,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Créer une collection, une base de données et un compte d’API DocumentDB Azure Cosmos DB")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB DocumentDB API account, database, and collection")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 

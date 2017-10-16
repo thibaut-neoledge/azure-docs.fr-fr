@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de7aff6b31d937576da65498c5fcce2ae9abdbf1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Intégration de Data Lake Store à d'autres services Azure
 Azure Data Lake Store peut être utilisé conjointement avec d'autres services Azure afin d'augmenter le nombre de scénarios. L'article suivant liste les services auxquels Data Lake Store peut être intégré.
@@ -71,5 +70,4 @@ Vous pouvez utiliser Azure Data Lake Store pour archiver et capturer les donnée
 * [Présentation d'Azure Data Lake Store](data-lake-store-overview.md)
 * [Prise en main de Data Lake Store avec le portail](data-lake-store-get-started-portal.md)
 * [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)  
-
 

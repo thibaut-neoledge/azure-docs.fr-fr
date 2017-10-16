@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: ca9ff29f5f91b8d796a29706ab49a82e417d1ecd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 118773be1f03701246051b8832695c591d76b1e5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Résoudre des erreurs d’annuaire incompatible pour des domaines managés Azure AD Domain Services existants
 Vous avez un domaine managé existant qui a été activé à l’aide du portail Azure Classic. Lorsque vous accédez au nouveau portail Azure et affichez le domaine managé, vous voyez le message d’erreur suivant :
@@ -64,4 +63,3 @@ Vous avez deux options pour résoudre l’erreur d’annuaire incompatible. Ces 
 ## <a name="related-content"></a>Contenu connexe
 * [Services de domaine Azure AD : guide de prise en main](active-directory-ds-getting-started.md)
 * [Azure AD Domain Services : guide de dépannage](active-directory-ds-troubleshooting.md)
-

@@ -13,23 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3f2b95e57e34905bf1128e9aee2862110a598f75
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-copy-activity-performance.md)
+> * [Version 1 - Disponibilité générale](v1/data-factory-copy-activity-performance.md)
 > * [Version 2 - Préversion](copy-activity-performance.md)
 
 
 L’activité de copie Azure Data Factory offre une solution de chargement de données de premier ordre, sécurisée, fiable et hautes performances. Elle vous permet de copier des dizaines de téraoctets de données tous les jours entre une grande variété de banques de données cloud et locales. Les performances de chargement des données très rapides constituent la clé pour vous permettre de vous concentrer sur le problème « big data » principal : créer des solutions d’analyse avancées et obtenir des informations approfondies à l’aide de toutes ces données.
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, qui est actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Performances de l’activité de copie dans Data Factory version 1](v1/data-factory-copy-activity-performance.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Performances de l’activité de copie dans Data Factory version 1](v1/data-factory-copy-activity-performance.md).
 
 Azure fournit un ensemble de solutions d’entrepôt de données et de stockage de données de niveau entreprise, et l’activité de copie offre une expérience de chargement des données hautement optimisée qui est facile à configurer et à mettre en œuvre. Avec une seule activité de copie, vous pouvez obtenir ce qui suit :
 
@@ -398,9 +397,8 @@ Voici des références relatives au monitoring et au réglage des performances p
 * Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les autres articles relatifs à l’activité de copie :
+Voir les autres articles relatifs à l’activité de copie :
 
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)
 - [Mappage de schéma de l’activité de copie](copy-activity-schema-and-type-mapping.md)
 - [Tolérance de panne de l’activité de copie](copy-activity-fault-tolerance.md)
-

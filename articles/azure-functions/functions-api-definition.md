@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Prise en charge des métadonnées OpenAPI 2.0 dans Azure Functions (préversion)
 La prise en charge des métadonnées OpenAPI 2.0 (anciennement Swagger) dans Azure Functions est une fonctionnalité en préversion que vous pouvez utiliser pour écrire une définition OpenAPI 2.0 dans une application de fonction. Vous pouvez ensuite héberger ce fichier à l’aide de l’application de fonction.
@@ -82,4 +81,3 @@ Désormais, les modifications apportées à swagger.json dans votre référentie
 * [Didacticiel de prise en main](functions-api-definition-getting-started.md). Essayez notre procédure détaillée pour voir une définition OpenAPI en action.
 * [Référentiel GitHub Azure Functions](https://github.com/Azure/Azure-Functions/). Consultez le référentiel Functions pour nous donner votre avis sur la préversion du support de définition d’API. Créez un ticket GitHub pour les mises à jour que vous souhaitez.
 * [Référence du développeur Azure Functions](functions-reference.md). Apprenez-en davantage sur le codage de fonctions et la définition de déclencheurs et de liaisons.
-

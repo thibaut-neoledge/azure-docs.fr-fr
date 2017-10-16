@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: cbfe8ab565ecf7f298a9a6c0f0c8298c675f178c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="adding-applications-to-azure-batch-with-azure-cli"></a>Ajout d’applications dans Azure Batch avec Azure CLI
 
 Ce script explique comment configurer une application à utiliser avec une tâche ou un pool Azure Batch. Pour configurer cette application, placez votre fichier exécutable et toutes ses éventuelles dépendances dans un fichier .zip. Dans cet exemple, le fichier .zip est appelé « my-application-exe.zip ».
@@ -33,7 +31,7 @@ Ce script explique comment configurer une application à utiliser avec une tâch
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-azurecli[principal](../../../cli_scripts/batch/add-application/add-application.sh "Ajouter une application")]
+[!code-azurecli[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
 
 ## <a name="clean-up-application"></a>Supprimer l’application
 
@@ -60,4 +58,3 @@ Chaque commande de la table renvoie à une documentation spécifique.
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Vous trouverez des exemples supplémentaires de scripts CLI Batch dans la [documentation relative à la CLI Azure Batch](../batch-cli-samples.md).
-

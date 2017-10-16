@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: elkuzmen
+ms.openlocfilehash: 783579eda204b44564abdcb3fee30c09b0e5c1a7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 1785b4da8c54354dbc48c514dbb8f969a1f997ca
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-managed-service-identity-msi-with-a-windows-vm-to-access-azure-key-vault"></a>Utiliser l’identité du service administré (MSI) avec une machine virtuelle Windows pour accéder à Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -38,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com).
+Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
 
@@ -143,4 +141,3 @@ Après avoir récupéré le secret à partir de Key Vault, vous pouvez l’utili
 - Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](../active-directory/msi-overview.md).
 
 Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
-

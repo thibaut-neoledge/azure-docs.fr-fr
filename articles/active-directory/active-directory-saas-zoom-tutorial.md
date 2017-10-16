@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: aab491f162fd4d24c6ff4d8858f2edd96dda30d4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Didacticiel : Intégration d’Azure Active Directory à Zoom
 
@@ -118,7 +117,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -269,5 +268,4 @@ Quand vous cliquez sur la vignette Zoom dans le volet d’accès, vous devez êt
 [201]: ./media/active-directory-saas-zoom-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zoom-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zoom-tutorial/tutorial_general_203.png
-
 

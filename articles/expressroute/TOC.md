@@ -35,6 +35,7 @@
 ## Configurer des filtres de routage pour l’homologation Microsoft
 ### [Portail Azure](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Interface de ligne de commande Azure](how-to-routefilter-cli.md)
 ## [Migrer un circuit d’un déploiement classique vers Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrer les réseaux virtuels associés du déploiement classique vers Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configurer un routeur pour ExpressRoute
@@ -45,7 +46,7 @@
 ### [Meilleures pratiques pour la sécurité réseau et les services cloud](../best-practices-network-security.md)
 ### [Optimiser le routage](expressroute-optimize-routing.md)
 ### [Routage asymétrique](expressroute-asymmetric-routing.md)
-### [NAT pour ExpressRoute](expressroute-routing-nat.md)
+### [NAT pour ExpressRoute](expressroute-nat.md)
 
 ## Résolution des problèmes
 ### [Vérification de la connectivité ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)

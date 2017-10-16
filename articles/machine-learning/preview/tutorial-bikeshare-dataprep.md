@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 722657c9bbae23a051a63972a8800d3cc40e7e40
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Didacticiel BikeShare : Préparation de données avancée avec Azure Machine Learning Workbench
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée complète qui permet aux scientifiques des données professionnels de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
 
@@ -35,7 +33,7 @@ Dans ce didacticiel, vous utilisez les services Azure Machine Learning (prévers
 >
 > Vous pouvez utiliser les données préparées pour former vos propres modèles de prévision. Par exemple, vous pouvez créer un modèle pour prévoir la demande de vélos pendant une période de 2 heures.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 * Azure Machine Learning Workbench doit être installé localement. Pour plus d’informations, suivez le [Guide de démarrage rapide sur l’installation](quickstart-installation.md).
 * Vous devez savoir créer un projet dans Workbench.
 
@@ -661,4 +659,3 @@ Vous avez terminé le didacticiel de préparation des données BikeShare. Dans c
 À présent, découvrez-en plus sur la préparation des données :
 > [!div class="nextstepaction"]
 > [Guide de l’utilisateur de préparation des données](data-prep-user-guide.md)
-

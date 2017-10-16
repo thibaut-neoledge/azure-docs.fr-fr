@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
+ms.openlocfilehash: e2c67bed2162773156ebf1f0f99593aeb2adf019
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: f9f7449fbfc6a1f2fe96e19dd2b13845e602946d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Ces limites seront étendues et mises à jour dans des prochaines versions pour couvrir une plus grande partie de la plateforme.
@@ -65,7 +64,7 @@ Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compt
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
-* [Hubs d'événements](#event-hubs-limits)
+* [Concentrateurs d'événements](#event-hubs-limits)
 * [IoT Hub](#iot-hub-limits)
 * [Service IoT Hub Device Provisioning](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)

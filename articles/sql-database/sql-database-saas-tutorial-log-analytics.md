@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: billgib; sstein
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: f9428871eab19f56e439ba529a9dcfde833d4fbf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="setup-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Configurer et utiliser Log Analytics (OMS) avec une application SaaS Azure SQL Database multilocataire
 
@@ -108,7 +107,7 @@ Dans cet exercice, ouvrez Log Analytics et le portail OMS pour examiner les donn
 
 1. Le portail OMS permet de configurer des alertes. Cliquez sur la partie des alertes de la vue des DTU de la base de données.
 
-1. Dans la vue Recherche dans les journaux qui s’affiche, vous pouvez voir un graphique à barres des mesures représentées.
+1. Dans la vue Recherche des journaux qui s’affiche, vous pouvez voir un graphique à barres des mesures représentées.
 
     ![recherche dans les journaux](media/sql-database-saas-tutorial-log-analytics/log-search.png)
 
@@ -136,4 +135,3 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 * [Autres didacticiels reposant sur le déploiement de l’application SaaS Wingtip initiale](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
 * [OMS](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)
-

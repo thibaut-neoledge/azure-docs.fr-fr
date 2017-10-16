@@ -1,4 +1,3 @@
-
 ---
 title: "Modifier les paramètres de cluster Azure Service Fabric | Microsoft Docs"
 description: "Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser."
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: cedfba78d8d1186618cf4f61154c5d88a00eb12b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
 Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
@@ -448,7 +446,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | InvokeInfrastructureCommand |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour les commandes de gestion des tâches d’infrastructure. |
 | FileContent |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour le transfert de fichiers clients du magasin d’images (externe vers le cluster). |
 | FileDownload |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour le lancement du téléchargement de fichiers clients du magasin d’images (externe vers le cluster). |
-| InternalList |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour l’opération de liste de fichiers clients du magasin d’images (interne). |
+| InternalList |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour l’opération de liste de fichiers clients deumagasin d’images (interne). |
 | Supprimer |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour l’opération de suppression de clients du magasin d’images (interne). |
 | Télécharger |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour l’opération de chargement de clients du magasin d’images. |
 | GetStagingLocation |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour récupérer l’emplacement intermédiaire du client du magasin d’images. |
@@ -615,5 +613,4 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 Lisez les articles suivants pour plus d’informations sur la gestion des clusters :
 
 [Ajouter, restaurer, supprimer des certificats de votre cluster Azure ](service-fabric-cluster-security-update-certs-azure.md) 
-
 

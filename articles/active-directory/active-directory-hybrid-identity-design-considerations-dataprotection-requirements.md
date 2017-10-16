@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 96bf9d4c26a22f718c29804c11681199e775f589
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Planifier l'amélioration de la sécurité des données grâce à une solution d'identité solide
 La première étape de protection des données consiste à identifier qui peut accéder à ces données et, dans le cadre de ce processus, vous devez avoir une solution d'identité pouvant être intégrée dans votre système pour fournir des fonctionnalités d'authentification et d'autorisation. Authentification et autorisation sont souvent confondues et leurs rôles mal compris. En réalité elles sont très différentes, comme l'illustre la figure ci-dessous :

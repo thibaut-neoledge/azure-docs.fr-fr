@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d34bb4a285f77f5c21a4af2d544bda3221d59e8d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: fb23b3ea41910687fd586f80e5dd327344991e0f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="update-automation-run-as-account-using-powershell"></a>Mise à jour d’un compte d’identification Automation à l’aide de PowerShell
 Vous pouvez utiliser PowerShell pour mettre à jour votre compte Automation existant si :
 
@@ -272,4 +270,3 @@ Une fois le script exécuté, notez les points suivants :
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur les principaux de service, consultez l’article [Objets Principal du service et Application](../active-directory/active-directory-application-objects.md).
 * Pour plus d’informations sur les certificats et les services Azure, consultez la page [Vue d’ensemble des certificats pour Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
-

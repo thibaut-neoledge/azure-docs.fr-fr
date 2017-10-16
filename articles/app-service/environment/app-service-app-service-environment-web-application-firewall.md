@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: naziml
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 4c0e2d649f71d7797efbfe2c8e93ea0c844152df
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service
 ## <a name="overview"></a>Vue d'ensemble
-Les pare-feu d’applications web comme le [WAF Barracuda pour Azure](https://www.barracuda.com/programs/azure) qui est disponible sur la [Place de marché Azure](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) permettent de sécuriser vos applications web en inspectant le trafic web entrant pour bloquer les injections SQL, l’exécution de scripts de site à site, les téléchargements de logiciels malveillants, les attaques DDoS d’application et d’autres attaques. Ce type de pare-feu inspecte également les réponses des serveurs Web principaux pour prévention de perte de données (DLP). En association avec l'isolement et la mise à l'échelle supplémentaire fournis par les environnements App Service, ceci fournit un environnement idéal pour héberger des applications Web professionnelles critiques qui doivent résister aux requêtes malveillantes et à un volume de trafic élevé.
+Les pare-feu d’applications web comme le [WAF Barracuda pour Azure](https://www.barracuda.com/programs/azure) qui est disponible sur [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) permettent de sécuriser vos applications web en inspectant le trafic web entrant pour bloquer les injections SQL, l’exécution de scripts de site à site, les téléchargements de logiciels malveillants, les attaques DDoS d’application et d’autres attaques. Ce type de pare-feu inspecte également les réponses des serveurs Web principaux pour prévention de perte de données (DLP). En association avec l'isolement et la mise à l'échelle supplémentaire fournis par les environnements App Service, ceci fournit un environnement idéal pour héberger des applications Web professionnelles critiques qui doivent résister aux requêtes malveillantes et à un volume de trafic élevé.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
@@ -110,4 +109,3 @@ Remplacez SourceAddressPrefix par l'adresse IP virtuelle (VIP) du service cloud 
 [TrafficManagerEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/TrafficManagerEndpoint.png
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
-

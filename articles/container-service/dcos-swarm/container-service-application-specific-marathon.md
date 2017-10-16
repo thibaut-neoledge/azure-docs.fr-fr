@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
+ms.openlocfilehash: b265763fb5dad240edd710cd8d0fb1079e3a7b51
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 3134872eb59f2f6219499f3d5a92673f680af04d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-or-user-specific-marathon-service"></a>Créer un service Marathon lié à une application ou à un utilisateur donnés
 Azure Container Service fournit un ensemble de serveurs maîtres sur lesquels nous préconfigurons Apache Mesos et Marathon. Ceux-ci peuvent être utilisés pour organiser vos applications sur le cluster, mais il est préférable de ne pas utiliser les serveurs maîtres à cet effet. Par exemple, l’ajustement de la configuration de Marathon nécessite la connexion aux serveurs maîtres et la manipulation au sein de ces derniers ; cela favorise les serveurs maîtres uniques qui diffèrent légèrement de la norme et doivent être traités et gérés indépendamment. En outre, la configuration requise par une équipe peut ne pas constituer la configuration optimale pour une autre équipe.
@@ -58,5 +57,4 @@ dcos config set marathon.url http://<hostname>/service/marathon-alice/
 ```
 
 Vous pouvez vérifier quelle instance de Marathon votre interface de ligne de commande utilise avec la commande `dcos config show` . Vous pouvez revenir à l’utilisation de votre service Marathon maître avec la commande `dcos config unset marathon.url`.
-
 

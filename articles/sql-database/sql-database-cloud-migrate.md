@@ -17,10 +17,10 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migration de base de données SQL Server vers SQL Database dans le cloud
 Cet article décrit les deux méthodes principales de migration d’une base de données SQL Server 2005 ou version ultérieure locale vers Azure SQL Database. La première méthode est plus simple, mais elle implique un temps d’arrêt potentiellement important pendant la migration. La seconde méthode est plus complexe, mais elle élimine en grande partie les temps d’arrêt lors de la migration.

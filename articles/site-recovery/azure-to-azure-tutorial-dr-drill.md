@@ -12,14 +12,12 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a3b453028b7fd32bd3ed22823a337f7a978d9aa7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Exécuter une simulation de récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire (préversion)
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, y compris la réplication, le basculement et la récupération.
@@ -30,7 +28,7 @@ Ce didacticiel vous montre comment exécuter une simulation de récupération d�
 > * Vérifier les prérequis
 > * Exécuter un test de basculement pour une seule machine virtuelle
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 - Avant que vous n’exécutiez un test de basculement, nous vous recommandons de vérifier les propriétés de la machine virtuelle pour vérifier que tout fonctionne comme prévu.  Accédez aux propriétés de la machine virtuelle dans les **éléments répliqués**. Le panneau **Bases** affiche des informations sur les paramètres et l’état des machines.
 - Pour le test de basculement, nous vous recommandons d’utiliser un réseau de machines virtuelles Azure distinct du réseau par défaut qui était configuré quand vous avez activé la réplication.
@@ -56,4 +54,3 @@ Ce didacticiel vous montre comment exécuter une simulation de récupération d�
 
 > [!div class="nextstepaction"]
 > [Exécuter un basculement de production](azure-to-azure-tutorial-failover-failback.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: mcoskun
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 8d81abec1c879ac6edbd4610dafdfd43ec7cf903
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Sauvegarder et restaurer Reliable Services et Reliable Actors
 Azure Service Fabric est une plateforme haute disponibilité qui réplique l’état sur plusieurs nœuds afin de conserver cette haute disponibilité.  Ainsi, même si un nœud du cluster échoue, les services continuent à être disponibles. Bien que cette redondance intégrée fournie par la plateforme suffise pour certains, dans d’autres cas, il est souhaitable que le service sauvegarde les données (dans un magasin externe).
@@ -243,7 +242,7 @@ Il est important de s’assurer que les données critiques soient sauvegardées 
 Voici des détails supplémentaires sur la sauvegarde et la restauration.
 
 ### <a name="backup"></a>Sauvegarde
-Le gestionnaire d’état fiable offre la possibilité de créer des sauvegardes cohérentes sans bloquer les opérations de lecture ou d’écriture. Pour ce faire, il utilise un point de contrôle et un mécanisme de persistance de journal.  Le gestionnaire d’état fiable prend des points de contrôle (légers) approximatifs à certains points pour soulager la pression dans le journal des transactions et améliorer les temps de récupération.  Lorsque `BackupAsync` est appelé, le gestionnaire d’état fiable demande à tous les objets fiables de copier leurs derniers fichiers de point de contrôle dans un dossier de sauvegarde local.  Ensuite, le gestionnaire d’état fiable copie tous les enregistrements de journal à partir du pointeur de démarrage vers le dernier enregistrement de journal dans le dossier de sauvegarde.  Comme tous les enregistrements, jusqu’au dernier, sont inclus dans la sauvegarde et que le gestionnaire d’état fiable conserve les journaux WAL (write-ahead log), il garantit que toutes les transactions validées (`CommitAsync` a réussi) sont incluses dans la sauvegarde.
+Le gestionnaire d’état fiable offre la possibilité de créer des sauvegardes cohérentes sans bloquer les opérations de lecture ou d’écriture. Pour ce faire, il utilise un point de contrôle et un mécanisme de persistance de journal.  Le gestionnaire d’état fiable prend des points de contrôle (légers) approximatifs à certains points pour soulager la pression dans le journal des transactions et améliorer les temps de récupération.  Lorsque `BackupAsync` est appelé, le gestionnaire d’état fiable demande à tous les objets fiables de copier leurs derniers fichiers de point de contrôle dans un dossier de sauvegarde local.  Ensuite, le gestionnaire d’état fiable copie tous les enregistrements de journal à partir du pointeur de démarrage vers le dernier enregistrement de journal dans le dossier de sauvegarde.  Comme tous les enregistrements sont inclus dans la sauvegarde et que le gestionnaire d’état fiable conserve les journaux WAL (write-ahead log), toutes les transactions validées (`CommitAsync` a réussi) sont incluses dans la sauvegarde.
 
 Une transaction validée après l’appel de `BackupAsync` peut figurer ou non dans la sauvegarde.  Une fois que le dossier de sauvegarde local a été rempli par la plateforme (c’est-à-dire que la sauvegarde locale est effectuée par le runtime), le rappel de sauvegarde du service est appelé.  Ce rappel est chargé de déplacer le dossier de sauvegarde vers un emplacement externe comme Azure Storage.
 
@@ -269,5 +268,4 @@ Cette étape garantit que l’état récupéré est cohérent.
   - [Notifications Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configuration de Reliable Services](service-fabric-reliable-services-configuration.md)
   - [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
 

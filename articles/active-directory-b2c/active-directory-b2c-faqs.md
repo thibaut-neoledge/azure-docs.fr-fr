@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
 ms.openlocfilehash: e8b28bc9ccc12b280b1746272519bd4c9ea9e4a4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum aux questions (FAQ) 
 Cette page répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) B2C. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
@@ -129,4 +128,3 @@ Non, Azure AD B2C est un service Azure avec paiement à l’utilisation et ne fa
 
 ### <a name="how-do-i-report-issues-with-azure-ad-b2c"></a>Comment signaler des problèmes avec Azure AD B2C ?
 Consultez [Azure Active Directory B2C : dépôt de demandes de support](active-directory-b2c-support.md).
-

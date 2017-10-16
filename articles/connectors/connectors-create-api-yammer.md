@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: c7a213343b4fb2b5a89a5052a459061b404a431c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-yammer-connector"></a>Prise en main du connecteur Yammer
 Connectez-vous à Yammer pour accéder aux conversations dans votre réseau d’entreprise. Avec Yammer, vous pouvez effectuer les opérations suivantes :

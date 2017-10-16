@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 4eaf86c9ac3e4dc2b51b88383626eda774cab0e9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Utiliser des jeux d'équilibrage de la charge pour regrouper MySQL sur Linux
 > [!IMPORTANT]
@@ -339,4 +338,3 @@ Les limites suivantes s'appliquent :
 * L’équilibrage de charge a besoin d’au moins 5 secondes pour répondre. Les applications doivent donc être conscientes des clusters et plus tolérantes en matière de délai. D’autres architectures peuvent également aider, par exemple les files d’attente intégrées et les intergiciels de requête.
 * Un réglage de MySQL est nécessaire pour veiller à ce que l’écriture soit effectuée à un rythme raisonnable et que les caches soient vidés le plus souvent possible afin de limiter la perte de mémoire.
 * Les performances d’écriture dépendent de l’interconnexion des machines virtuelles dans le commutateur virtuel, car il s’agit du mécanisme utilisé par DRBD pour répliquer l’appareil.
-

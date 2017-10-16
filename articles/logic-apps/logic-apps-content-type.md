@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: ac67838344bbd10384299c086ff096fbe5dec6a9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="handle-content-types-in-logic-apps"></a>Gérer les types de contenu dans les applications logiques
 
@@ -111,5 +110,4 @@ CustomerName=Frank&Address=123+Avenue
 ```
 
 Dans la mesure où il n’existe actuellement pas de fonction native pour les données de formulaire, vous pouvez toujours utiliser ces données dans un flux de travail en y accédant manuellement avec une fonction comme `@string(body('formdataAction'))`. Pour que la demande sortante ait également l’en-tête de type de contenu `application/x-www-url-formencoded`, vous pouvez l’ajouter au corps de l’action sans transtypage comme suit : `@body('formdataAction')`. Toutefois, cette méthode ne fonctionne que si le corps est le seul paramètre dans l’entrée `body`. Si vous essayez d’utiliser `@body('formdataAction')` dans une demande `application/json`, vous obtenez une erreur d’exécution, car le corps codé est envoyé.
-
 

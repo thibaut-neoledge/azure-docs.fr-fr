@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: b413772de1af1fbb128d29b81e5831cfd6a39ab4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Didacticiel : Intégration d’Azure Active Directory à Adobe Sign
 
@@ -91,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Adobe Sign,
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Adobe Sign](#creating-an-adobe-sign-test-user)** pour avoir dans Adobe Sign un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -275,5 +274,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_203.png
-
 

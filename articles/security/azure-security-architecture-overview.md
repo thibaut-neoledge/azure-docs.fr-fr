@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
 ms.openlocfilehash: efb0cfa4b7950a2d9418282965a23498a67cbffc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-architecture-overview"></a>Présentation de l’architecture de la sécurité
 Une base architecturale solide est une des clés du succès pour les déploiements sécurisés de solutions dans Azure. Sachant cela, vous êtes plus à même de comprendre les exigences, en sachant quelles questions poser, et êtes mieux équipés pour trouver les bonnes réponses à vos questions. Le fait de trouver les bonnes réponses aux bonnes questions est un grand pas en avant pour optimiser la sécurité de vos déploiements.

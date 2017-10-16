@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6d00c776da3be0f799b82160c45f4c47a965b4bb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion
 > [!div class="op_single_selector"]
@@ -334,4 +333,3 @@ Le tableau suivant dresse la liste des événements et des statuts (et états se
 Utilisez les boutons suivants (en rouge) pour modifier, supprimer ou désactiver une alerte.
 
 ![Boutons d’alertes](./media/data-factory-monitor-manage-app/AlertButtons.png)
-

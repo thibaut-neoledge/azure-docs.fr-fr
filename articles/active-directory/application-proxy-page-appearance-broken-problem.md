@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: d0b0ddba5ad9f8c584cd35c6f20edf76883b425d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: cac4c333e59ef9a0f28a2f93a7afee22eeafd54e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>La page d’application ne s’affiche pas correctement pour une application de proxy d’application
 
 Cet article vous aide à résoudre les problèmes liés aux applications de proxy d’application Azure Active Directory quand vous accédez à la page, mais qu’un élément de la page ne semble pas correct.
@@ -40,4 +38,3 @@ Pour ce faire, nous vous recommandons d’utiliser la solution des [domaines per
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Publier des applications avec le Proxy d’application Azure AD](application-proxy-publish-azure-portal.md)
-

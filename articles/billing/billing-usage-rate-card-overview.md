@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 04/18/2017
+ms.date: 10/9/2017
 ms.author: mobandyo;bryanla
+ms.openlocfilehash: 26217d6f4e14166a89fbb561cb12d0af78ae6f4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 85b53620a886625920e8e057a14e1ed5fa3e5333
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Utilisez les API de facturation Azure pour obtenir par programme des informations sur votre utilisation d’Azure
 Utilisez les API de facturation Azure pour extraire les données d’utilisation et de ressources dans vos outils d’analyse de données préférés. Les API d’utilisation des ressources Azure et RateCard peuvent vous aider à prévoir vos coûts avec précision et à les gérer. Les API sont implémentées en tant que fournisseur de ressources et font partie intégrante de la famille d’API exposées par Azure Resource Manager.  
 
@@ -63,8 +61,6 @@ Voici quelques-uns des scénarios autorisés par l’utilisation combinée des A
   * Vous pouvez également déterminer si un autre type d’offre Azure propose un meilleur tarif pour une ressource Azure.
   
 ## <a name="partner-solutions"></a>Solutions de partenaires
-L’article [Cloudyn assure des tâches de gestion financière informatique pour ses clients grâce aux API Microsoft Azure Usage et RateCard](billing-usage-rate-card-partner-solution-cloudyn.md) décrit l’expérience d’intégration offerte par [Cloudyn](https://www.cloudyn.com/microsoft-azure/), partenaire sur les API Azure Billing. Cet article explique leurs expériences et inclut une vidéo qui montre comment vous pouvez utiliser Cloudyn et les API de facturation Azure pour obtenir des informations à partir des données d’utilisation Azure.
-
 La section [Intégration des API Microsoft Azure Billing par Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md) décrit le fonctionnement de [Cloud Cruiser Express pour le pack Azure](http://www.cloudcruiser.com/partners/microsoft/) directement dans le portail Windows Azure Pack (WAP). Vous pouvez en toute transparence gérer les aspects opérationnels et financiers du cloud Microsoft Azure privé ou d’un cloud public hébergé à partir d’une seule interface utilisateur.   
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -78,5 +74,4 @@ La section [Intégration des API Microsoft Azure Billing par Cloud Cruiser](bi
 * Pour en savoir plus sur Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) . 
 
 * Pour plus d’informations sur la suite d’outils nécessaire pour acquérir une bonne compréhension de la dépense cloud, consultez l’article de Gartner [Guide de marché relatif aux outils de gestion financière informatique (ITFM)](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb) (en anglais).
-
 

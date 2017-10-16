@@ -14,15 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 5f76100007466f2baf4e067de963486f47fbf857
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 850fbc0c74811ec942292da64064dec867cd1b9e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Remplacement des API de démarrage et d’arrêt de nœud par l’API de transition de nœud
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>À quoi servent les API de démarrage et d’arrêt de nœud ?
@@ -290,4 +287,3 @@ Démarrer un nœud *arrêté* à l’aide de l’API de transition de nœud le f
 [nodequeryps]: https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode?redirectedfrom=msdn
 [snt]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartNodeTransitionAsync_System_Fabric_Description_NodeTransitionDescription_System_TimeSpan_System_Threading_CancellationToken_
 [gntp]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_GetNodeTransitionProgressAsync_System_Guid_System_TimeSpan_System_Threading_CancellationToken_
-

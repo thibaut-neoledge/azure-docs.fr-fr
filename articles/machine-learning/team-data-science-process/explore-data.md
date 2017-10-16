@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 983a3d22c73721c643b8283679040a0b6f7beedf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>Exploration des données dans le processus TDSP (Team Data Science Process)
 Ce document explique comment explorer les données dans quatre environnements de stockage différents généralement utilisés dans le processus de sciences des données :
@@ -32,5 +31,4 @@ Ce document explique comment explorer les données dans quatre environnements de
 Le **menu** suivant pointe vers les rubriques qui expliquent comment utiliser ces outils pour explorer des données dans différents environnements de stockage. 
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
-
 

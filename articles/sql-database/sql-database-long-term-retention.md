@@ -16,12 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: 25e651203f804fbf32d632b5f83145a3f3f72a7f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Stocker les sauvegardes Azure SQL Database pendant 10 ans
 De nombreuses applications sont dédiées à la réglementation, à la conformité ou à d’autres fins professionnelles qui vous obligent à conserver des sauvegardes de données au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](sql-database-automated-backups.md) Azure SQL Database. Avec la fonctionnalité de rétention de sauvegarde à long terme, vous pouvez stocker vos sauvegardes SQL Database dans un coffre Azure Recovery Services pendant 10 ans. Vous pouvez stocker jusqu’à 1 000 bases de données par coffre. Vous pouvez ensuite sélectionner n’importe quelle sauvegarde dans le coffre pour la restaurer en tant que nouvelle base de données.
@@ -167,4 +166,3 @@ Comme nous ne prenons pas en charge les sauvegardes sur des réplicas, il n’ex
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans la mesure où les sauvegardes de base de données protègent les données des corruptions et des suppressions accidentelles, elles sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence. Pour en savoir plus sur les autres solutions de continuité des activités SQL Database, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
-

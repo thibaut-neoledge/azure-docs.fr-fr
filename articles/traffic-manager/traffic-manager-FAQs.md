@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 868d3ee973a03aca82c9775371d9832b7a063e9a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
 ## <a name="traffic-manager-basics"></a>Concepts de base de Traffic Manager
@@ -126,7 +124,7 @@ Oui, seules les versions de l’API 2017-03-01 et plus récentes prennent en cha
 ## <a name="real-user-measurements"></a>Mesures des utilisateurs réels
 
 >[!NOTE]
->La fonctionnalité Mesures des utilisateurs réels dans Traffic Manager est en préversion publique. Il se peut qu’elle n’offre pas les mêmes niveaux de disponibilité et de fiabilité que les fonctions de la version mise à la disposition générale. Cette fonctionnalité n’est pas prise en charge, est susceptible de disposer de possibilités limitées et peut ne pas être disponible à certains emplacements Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour d’Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager).
+>La fonctionnalité Mesures des utilisateurs réels dans Traffic Manager est en préversion publique. Il se peut qu’elle n’offre pas les mêmes niveaux de disponibilité et de fiabilité que les fonctionnalités de la version mise à la disposition générale. Cette fonctionnalité n’est pas prise en charge, est susceptible de disposer de possibilités limitées et peut ne pas être disponible à certains emplacements Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour d’Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager).
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quels sont les avantages de l’utilisation des mesures des utilisateurs réels ?
 Quand vous utilisez la méthode de routage basé sur les performances, Traffic Manager sélectionne la meilleure région Azure à laquelle votre utilisateur final se connecte. Pour cela, Traffic Manager inspecte l’adresse IP source et le sous-réseau du client EDNS (s’il est passé), puis les compare aux informations sur la latence réseau que le service tient à jour. La fonctionnalité Mesures des utilisateurs réels optimise ce processus pour votre base d’utilisateurs finaux : d’une part, en prenant en compte l’expérience des utilisateurs finaux dans la table de latence et, d’autre part, en veillant à ce que cette table couvre de manière adéquate les réseaux des utilisateurs finaux à partir desquels ils se connectent à Azure. Il en résulte un routage plus précis des utilisateurs finaux.
@@ -189,7 +187,7 @@ Comme indiqué dans la réponse précédente, les composants côté serveur de l
 ## <a name="traffic-view"></a>Affichage du trafic
 
 >[!NOTE]
->La fonctionnalité Affichage du trafic dans Traffic Manager est en préversion publique. Il se peut qu’elle n’offre pas les mêmes niveaux de disponibilité et de fiabilité que les fonctions de la version mise à la disposition générale. Cette fonctionnalité n’est pas prise en charge, est susceptible de disposer de possibilités limitées et peut ne pas être disponible à certains emplacements Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour d’Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager).
+>La fonctionnalité d’affichage de trafic Traffic View dans Traffic Manager est en préversion publique. Il se peut qu’elle n’offre pas les mêmes niveaux de disponibilité et de fiabilité que les fonctions de la version mise à la disposition générale. Cette fonctionnalité n’est pas prise en charge, est susceptible de disposer de possibilités limitées et peut ne pas être disponible à certains emplacements Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour d’Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager).
 
 ### <a name="what-does-traffic-view-do"></a>À quoi sert la fonctionnalité Affichage du trafic ?
 Affichage du trafic est une fonctionnalité de Traffic Manager qui vous permet de découvrir plus en détail vos utilisateurs et leur expérience. Elle utilise les requêtes reçues par Traffic Manager et les tables de temps de réponse du réseau que le service tient à jour pour fournir les informations suivantes :

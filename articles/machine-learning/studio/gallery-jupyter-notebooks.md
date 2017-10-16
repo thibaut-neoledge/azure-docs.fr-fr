@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 10828d78f6e16b57c21f4d05b6d6116428ea4039
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="discover-jupyter-notebooks-in-the-cortana-intelligence-gallery"></a>Découvrir les blocs-notes Jupyter dans la galerie Cortana Intelligence
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -28,7 +27,7 @@ ms.lasthandoff: 09/25/2017
 Les **[Blocs-notes Jupyter](https://gallery.cortanaintelligence.com/notebooks)** incluent du code, des visualisations de données et de la documentation dans un seul canevas interactif.
 Les blocs-notes dans la galerie fournissent des didacticiels et des explications détaillées sur les solutions et les techniques avancées de Machine Learning.
 
-## <a name="discover"></a>Découvrir
+## <a name="discover"></a>Découvrez
   Pour rechercher des blocs-notes dans la galerie, ouvrez la [Galerie](http://gallery.cortanaintelligence.com), puis cliquez sur **Blocs-notes** en haut de la page d’accueil.
 
  La page **[Blocs-notes Jupyter](https://gallery.cortanaintelligence.com/notebooks)** affiche la liste des blocs-notes les plus populaires.
@@ -67,8 +66,7 @@ Vous pouvez également ouvrir tout blocs-notes de la même galerie lorsque vous 
 Une copie du bloc-notes est téléchargée et ouverte dans votre espace de travail dans la section Blocs-notes Jupyter de Machine Learning Studio.
 Le bloc-notes est répertorié, ainsi que vos autres blocs-notes, dans la page **Blocs-notes** de Studio (dans la [page d’accueil de Studio](https://studio.azureml.net/), cliquez sur **Blocs-notes** sur la gauche).
 
-**[ALLER À LA GALERIE >>](http://gallery.cortanaintelligence.com)**
+**[ALLER À LA GALERIE &gt;&gt;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

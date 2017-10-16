@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 61d62cde5311c8e447acf8890e0a32339585bb42
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 3e43494721f03ce8e56cb069638ad24df7222386
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI a utilisé Azure pour accélérer son cycle de développement et améliorer ses performances et ses services clients
 ![Logo Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -96,5 +94,4 @@ Azure SQL Database n’est pas une aubaine que pour les clients SpectrumNG, qui 
 * Pour plus d’informations sur les rôles Web et de travail, consultez [Rôles de travail](../fundamentals-introduction-to-azure.md#compute).    
 * Pour plus d’informations sur Azure Service Bus, consultez [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
 * Pour plus d’informations sur la mise à l’échelle automatique, consultez [Mise à l’échelle des services cloud](../cloud-services/cloud-services-how-to-scale.md).
-
 

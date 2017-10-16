@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3219df0e45d516ea332725b3e1955026cc1db231
-ms.openlocfilehash: 88fb93b8f3e196121b635d5ce7a21bf8f8c46be5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/05/2017
-
+ms.openlocfilehash: cee23da5b089b02bfc0ef10afd60f0f2272585b1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tâches courantes de démarrage dans le service cloud
 Cet article fournit des exemples courants de tâches de démarrage que vous pouvez effectuer dans votre service cloud. Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations avant le démarrage d’un rôle. Parmi les opérations que vous pouvez effectuer figurent l’installation d’un composant, l’enregistrement de composants COM, la définition des clés du Registre ou le démarrage d’un processus de longue durée. 
@@ -518,4 +517,3 @@ En savoir plus sur le fonctionnement des [tâches](cloud-services-startup-tasks.
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-

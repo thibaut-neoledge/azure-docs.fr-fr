@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: 9e5c929251259a86944121e504dc033bc99e3bc4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-logging-and-auditing"></a>Journalisation et audit Azure
 ## <a name="introduction"></a>Introduction
@@ -281,7 +280,7 @@ Application Insights est destiné à l’équipe de développement et permet de 
 
 -   **Taux de dépendance, temps de réponse et taux d’échec** : déterminez si des services externes vous ralentissent.
 
--   **Exceptions** - Analysez les statistiques agrégées, ou choisissez des instances en particulier et explorez l’arborescence des appels de procédure et les requêtes connexes. Les exceptions de serveur et de navigateur sont signalées.
+-   **Exceptions** : analysez les statistiques agrégées, ou choisissez des instances en particulier et explorez l’arborescence des appels de procédure et les requêtes connexes. Les exceptions de serveur et de navigateur sont signalées.
 
 -   **Consultations de pages et performances de chargement** : indiquées par le navigateur de vos utilisateurs.
 
@@ -355,8 +354,8 @@ Il existe quatre façons différentes de [collecter des journaux et des métriqu
 
 | Service | Type de ressource | Journaux | Mesures | Solution |
 | :------ | :------------ | :--- | :------ | :------- |
-|Passerelles d’application|  Microsoft.Network/<br>applicationGateways|  Diagnostics|Diagnostics|    [Azure Application](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
-|Application Insights||     Connecteur|  Connecteur|  [Connecteur](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Application Insights (version préliminaire)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
+|Passerelles d’application|  Microsoft.Network/<br>applicationGateways|  Diagnostics|Diagnostics|    [Azure Application](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)[Gateway Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Application Insights||     Connecteur|  Connecteur|  [Connecteur](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)[Application Insights (version préliminaire)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Comptes Automation|   Microsoft.Automation/<br>AutomationAccounts|    Diagnostics||       [Plus d’informations](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Comptes Batch|    Microsoft.Batch/<br>batchAccounts|  Diagnostics|    Diagnostics||
 |Services cloud classiques||       Storage||       [Plus d’informations](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage-iis-table)|
@@ -435,6 +434,5 @@ Les administrateurs de collection de sites peuvent récupérer l’historique de
 - [Effectuer des recherches dans le journal d’audit dans le Centre de conformité et sécurité Office 365](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US)
 
 Vous pouvez utiliser le Centre de conformité et sécurité Office 365 pour effectuer des recherches dans le journal d’audit unifié et afficher les activités utilisateur et administrateur de votre organisation Office 365.
-
 
 

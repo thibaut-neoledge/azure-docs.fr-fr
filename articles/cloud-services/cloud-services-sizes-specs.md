@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
 ms.openlocfilehash: 1ba56eb9539a4295fdaaab523cfd2a7e1587ef54
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sizes-for-cloud-services"></a>Tailles de services cloud
 Cette rubrique décrit les tailles et options disponibles pour les instances de rôle de Cloud Services (rôles web et rôles de travail). Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l'utilisation de ces ressources. Chaque taille a un identifiant que vous placez dans votre [fichier de définition de service](cloud-services-model-and-package.md#csdef). Les prix pour chaque taille sont disponibles sur la page de [tarification des Services Cloud](https://azure.microsoft.com/pricing/details/cloud-services/).

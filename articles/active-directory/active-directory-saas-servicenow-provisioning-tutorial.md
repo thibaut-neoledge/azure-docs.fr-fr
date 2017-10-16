@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: e338804a0c5fcb09dfdfd9bf18ae4d0466cd9a82
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configuring-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Didacticiel : Configuration de ServiceNow pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory
 
@@ -49,7 +48,7 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 Cette section vous guide à travers la connexion de votre Azure AD au compte d’utilisateur de ServiceNow fournissant l’API et la configuration du service d’approvisionnement pour créer, mettre à jour et désactiver les comptes utilisateur affectés dans ServiceNow en fonction des attributions d’utilisateurs et de groupes dans Azure AD.
 
 > [!TIP]
->Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour ServiceNow, grâce aux instructions disponibles dans le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que chacune de ces deux fonctionnalités complète l’autre.
+>Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour ServiceNow, grâce aux instructions disponibles dans le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que chacune de ces deux fonctionnalités compléte l’autre.
 
 ### <a name="configure-automatic-user-account-provisioning"></a>Configurer l’approvisionnement automatique d’un compte utilisateur
 
@@ -92,6 +91,5 @@ Cette commande démarre la synchronisation initiale des utilisateurs et/ou des g
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 * [Configurer l’authentification unique](active-directory-saas-servicenow-tutorial.md)
-
 
 

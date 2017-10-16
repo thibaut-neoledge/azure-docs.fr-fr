@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 ms.openlocfilehash: 54c0149a769e654139bbdf709802d49127f041ac
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-backups"></a>Sauvegardes de SQL Data Warehouse
 SQL Data Warehouse propose des sauvegardes locales et géographiques dans le cadre de ses fonctionnalités de sauvegarde d’entrepôt de données . Celles-ci incluent des captures instantanées Stockage Blob Azure et le stockage géoredondant. Utilisez des sauvegardes d’entrepôt de données pour restaurer votre entrepôt de données à un point de restauration dans la région primaire, ou pour restaurer dans une autre région géographique. Cet article explique les spécificités des sauvegardes dans SQL Data Warehouse.

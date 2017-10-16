@@ -13,12 +13,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 170f431525ffdc93a01fc085e48e69c3a774968e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Utilisation des files d’attente Service Bus avec Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -197,4 +196,3 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](https:
 [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-

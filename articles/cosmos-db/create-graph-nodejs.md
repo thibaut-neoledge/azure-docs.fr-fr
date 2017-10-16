@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: 228d739ac4505d9f16c43bb484dd8050631f084e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB : Créer une application Node.js à l’aide de l’API Graph
 
@@ -40,7 +39,7 @@ Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requ
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Ajout d’un graphe
+## <a name="add-a-graph"></a>Ajout d’un graphique
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -109,7 +108,7 @@ Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fich
 
    ![Panneau « Clés » du portail Azure](./media/create-graph-nodejs/keys.png)
 
-4. Entrez le nom de la base de données et le nom du graphe (conteneur) pour la valeur de config.database et de config.collection. 
+4. Entrez le nom de la base de données et le nom du graphique (conteneur) pour la valeur de config.database et de config.collection. 
 
 Voici un exemple de ce à quoi votre fichier config.js terminé doit ressembler :
 
@@ -135,7 +134,7 @@ module.exports = config;
 
 ## <a name="browse-with-data-explorer"></a>Navigation avec l’Explorateur de données
 
-Vous pouvez maintenant revenir à l’Explorateur de données, dans le portail Azure, pour afficher, modifier, interroger et manipuler vos nouvelles données de graphe.
+Vous pouvez maintenant revenir à l’Explorateur de données, dans le portail Azure, pour afficher, modifier, interroger et manipuler vos nouvelles données graphiques.
 
 Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet **Graphique**. Développez la base de données, suivie de la collection, puis sélectionnez **Graphe**.
 
@@ -157,8 +156,7 @@ Si vous n’envisagez pas de continuer à utiliser cette application, supprimez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à créer un compte Azure Cosmos DB, à créer un graphe à l’aide de l’Explorateur de données et à exécuter une application. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphes puissante, à l’aide de Gremlin. 
+Dans cet article, vous avez appris à créer un compte Azure Cosmos DB, à créer un graphe à l’aide de l’Explorateur de données et à exécuter une application. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphique puissante, à l’aide de Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Interroger à l’aide de Gremlin](tutorial-query-graph.md)
-

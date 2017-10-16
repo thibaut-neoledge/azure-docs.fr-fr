@@ -14,11 +14,11 @@ ms.devlang: swift
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 1011b9823333e79a52cd2d187df4f8d063b1f799
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-swift"></a>Prise en main d’Azure Mobile Engagement pour les applications iOS dans Swift
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -44,10 +44,10 @@ Vous devez suivre ce didacticiel pour avoir accès à tous les autres didacticie
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Configuration de Mobile Engagement pour votre application iOS
+## <a id="setup-azme"></a>Configuration de Mobile Engagement pour votre application iOS
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
+## <a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
 Ce didacticiel aborde l'intégration de base qui correspond aux éléments nécessaires à la collection de données et à l'envoi de notifications push. Vous trouverez la documentation complète d’intégration dans [Intégration du Kit de développement logiciel (SDK) iOS Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
 
 Nous allons créer une application de base à l’aide de XCode afin d’illustrer l’intégration :
@@ -96,17 +96,17 @@ Nous allons créer une application de base à l’aide de XCode afin d’illustr
               [...]
         }
 
-## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Activation de la surveillance en temps réel
+## <a id="monitor"></a>Activation de la surveillance en temps réel
 Pour commencer à envoyer des données et vous assurer que les utilisateurs sont actifs, vous devez envoyer au moins un écran (activité) au serveur principal Mobile Engagement.
 
 1. Ouvrez le fichier **ViewController.swift** et remplacez la classe de base **ViewController** par **EngagementViewController** :
    
     `class ViewController : EngagementViewController {`
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Connexion d’application avec l’analyse en temps réel
+## <a id="monitor"></a>Connexion d’application avec l’analyse en temps réel
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenabling-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Activation des notifications Push et de la messagerie intégrée à l’application
+## <a id="integrate-push"></a>Activation des notifications Push et de la messagerie intégrée à l’application
 Mobile Engagement vous permet d'interagir et d'atteindre vos utilisateurs à l'aide de notifications Push et de la messagerie dans l'application, dans le cadre d'une campagne. Ce module s'appelle Couverture dans le portail Mobile Engagement.
 Les sections suivantes vous permettront de configurer votre application pour la réception des notifications.
 
@@ -197,9 +197,3 @@ Les sections suivantes vous permettront de configurer votre application pour la 
 [4]: ./media/mobile-engagement-ios-swift-get-started/add-header-file.png
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

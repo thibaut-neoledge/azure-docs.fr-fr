@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: bd5e2fce31ae597f8ce48fb8f5492e280cbbf28f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente iOS pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -880,4 +879,3 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Google Sign-In pour
 [8]: ../active-directory/active-directory-devquickstarts-ios.md
 [9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [10]: https://developers.facebook.com/docs/ios/getting-started
-

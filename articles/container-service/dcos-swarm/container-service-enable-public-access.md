@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: c9ef5913859cf3a55a2de2107a9304f1d28a4829
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 25eb3b5d379f58022e9e516c51f67c52becf9087
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Autoriser l’accès public à une application Azure Container Service
 Tous les conteneurs DC/OS du [pool d’agent public](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) ACS sont automatiquement exposés à internet. Par défaut, les ports **80**, **443**, **8080** sont ouverts, et tous les conteneurs (publics) à l’écoute sur ces ports sont accessibles. Cet article vous explique comment ouvrir davantage de ports pour vos applications dans Azure Container Service.
@@ -88,5 +87,4 @@ Ensuite, il faut ajouter une règle de sécurité qui achemine le trafic à part
 En savoir plus sur la différence entre les [agents DC/OS publics et privés](container-service-dcos-agents.md).
 
 En savoir plus sur la [gestion de vos conteneurs DC/OS](container-service-mesos-marathon-ui.md).
-
 

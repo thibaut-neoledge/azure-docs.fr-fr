@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-container-to-azure-container-instances"></a>Déployer un conteneur sur Azure Container Instances
 
 Il s’agit de la dernière partie d’un didacticiel en trois parties. Dans les sections précédentes, [nous avons créé une image conteneur](container-instances-tutorial-prepare-app.md) et [nous l’avons transmise vers un Azure Container Registry](container-instances-tutorial-prepare-acr.md). Cette section termine le didacticiel en déployant le conteneur sur Azure Container Instances. Les étapes terminées sont les suivantes :
@@ -106,4 +104,3 @@ Dans ce didacticiel, vous avez terminé le processus de déploiement de vos cont
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
-

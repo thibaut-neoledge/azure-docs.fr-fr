@@ -10,14 +10,12 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 636dc0fcae1bc2647cd59add5957884971015ce2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Audit et réception de notifications relatives à des actions importantes dans votre abonnement Azure
 
 Le **journal d’activité Azure** fournit un historique des événements au niveau de l’abonnement dans Azure. Il fournit des informations indiquant *qui* a créé, mis à jour ou supprimé *quelles* ressources et *quand*. Vous pouvez créer une **alerte de journal d’activité** pour recevoir des notifications par e-mail, SMS ou webhook lorsqu’une activité correspondant à vos conditions d’alerte se produit. Cette procédure de démarrage rapide explore la création d’un groupe de sécurité réseau simple, la navigation dans le journal d’activité pour comprendre l’événement qui s’est produit et la création d’une alerte de journal d’activité pour vous avertir en cas de création d’un groupe de sécurité réseau.
@@ -101,4 +99,3 @@ Dans ce guide de démarrage rapide, vous avez effectué une opération pour gén
 
 > [!div class="nextstepaction"]
 > [Archiver les données de surveillance](./monitor-tutorial-archive-monitoring-data.md)
-

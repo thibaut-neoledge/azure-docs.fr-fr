@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/1/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 12303e4283de3d179590e599d4d2fe8f14167eda
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Utilisation de grands groupes de machines virtuelles identiques
 Vous pouvez désormais créer des [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure d’une capacité maximum de 1 000 machines virtuelles. Dans ce document, un _grand groupe de machines virtuelles identiques_ est défini comme un groupe identique pouvant contenir plus de 100 machines virtuelles. Cette fonctionnalité est définie par une propriété de groupe identique (_singlePlacementGroup=False_). 
@@ -85,6 +84,5 @@ Pour faire en sorte qu’un groupe de machines virtuelles identiques existant pu
 
 >[!NOTE] 
 Vous pouvez modifier un groupe identique afin qu’il prenne en charge plusieurs groupes de placement au lieu d’un seul (le comportement par défaut), mais l’inverse n’est pas possible. Par conséquent, assurez-vous de bien comprendre les propriétés des grands groupes identiques avant de procéder à la conversion. En particulier, assurez-vous de ne pas avoir besoin d’un équilibrage de charge de type Couche 4 avec Azure Load Balancer.
-
 
 

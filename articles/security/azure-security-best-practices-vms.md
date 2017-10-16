@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Meilleures pratiques pour la sécurité des machines virtuelles Azure
 
@@ -128,4 +127,3 @@ En analysant les [fichiers journaux de diagnostic Azure](https://azure.microsoft
 Vous pouvez également utiliser [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) pour obtenir plus de visibilité sur l’intégrité de votre ressource.
 
 Les organisations qui ne surveillent pas les performances des machines virtuelles ne peuvent pas déterminer si certaines variations des performances sont normales ou pas. Si la machine virtuelle consomme davantage de ressources que la normale, cela peut être le signe d’une attaque potentielle par une ressource externe ou un processus interne compromis.
-

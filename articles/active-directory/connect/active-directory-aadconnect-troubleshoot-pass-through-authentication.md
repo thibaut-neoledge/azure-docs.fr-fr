@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
 Cet article fournit des informations sur les problèmes courants liés à l’authentification directe Azure AD.
@@ -171,4 +169,3 @@ Un autre moyen de surveiller les agents d’authentification consiste à effectu
 
 >[!IMPORTANT]
 >L’authentification directe assure la haute disponibilité à l’aide de plusieurs agents d’authentification, et _non_ de l’équilibrage de charge. Selon votre configuration, les agents d’authentification ne reçoivent _pas_ tous le _même_ nombre exact de demandes. Il est possible qu’un agent d’authentification spécifique ne reçoive aucun trafic du tout.
-

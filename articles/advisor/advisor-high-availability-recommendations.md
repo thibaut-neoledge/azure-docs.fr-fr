@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 23c159471a6e5a7ad9cb545840e8afd3ac72ecba
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 7b63de2453180e562596c211d40cebe85b95bd54
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advisor-high-availability-recommendations"></a>Recommandations du conseiller en matière de haute disponibilité
 
 Azure Advisor vous aide à garantir et à améliorer la continuité de vos applications stratégiques. Vous pouvez obtenir des recommandations en matière de haute disponibilité auprès du conseiller à partir de l’onglet **Haute disponibilité** du tableau de bord du conseiller.
@@ -69,7 +67,7 @@ Advisor identifie les machines virtuelles sur lesquelles la sauvegarde n’est p
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le volet gauche, cliquez sur **Plus de services**.
+2. Dans le volet gauche, cliquez sur **Autres services**.
 
 3. Dans le volet du menu de services, sous **Surveillance et gestion**, cliquez sur **Azure Advisor**.  
  Le tableau de bord Advisor s’affiche.
@@ -77,7 +75,7 @@ Advisor identifie les machines virtuelles sur lesquelles la sauvegarde n’est p
 4. Dans le tableau de bord Advisor, cliquez sur l’onglet **Haute disponibilité**, et sélectionnez l’abonnement pour lequel vous souhaitez recevoir des recommandations.
 
 > [!NOTE]
-> Pour accéder aux recommandations d’Advisor, vous devez d’abord *enregistrer* votre abonnement avec auprès d’Advisor. Un abonnement est enregistré lorsque son *propriétaire* lance le tableau de bord d’Advisor puis clique sur le bouton **Obtenir des recommandations**. Cette opération ne doit être *exécutée qu’une seule fois*. Une fois l’abonnement enregistré, vous pouvez accéder aux recommandations d’Advisor en tant que *propriétaire*, *collaborateur*, ou *lecteur* d’un abonnement, d’un groupe de ressources ou d’une ressource spécifique.
+> Pour accéder aux recommandations d’Advisor, vous devez d’abord *enregistrer* votre abonnement avec auprès d’Advisor. L’abonnement est inscrit lorsque son *propriétaire* lance le tableau de bord Advisor, puis clique sur le bouton **Obtenir des recommandations**. Cette opération ne doit être *exécutée qu’une seule fois*. Une fois l’abonnement inscrit, vous pouvez accéder aux recommandations d’Advisor en tant que *propriétaire*, *collaborateur* ou *lecteur* d’un abonnement, d’un groupe de ressources ou d’une ressource spécifique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -87,5 +85,4 @@ Pour plus d’informations sur les recommandations d’Advisor, consultez :
 * [Recommandations du conseiller en matière de coûts](advisor-performance-recommendations.md)
 * [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md)
 * [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)
-
 

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
+ms.openlocfilehash: 6a73f7e83abc793eafcf762a592bd975d00eaf88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: e05d24655149dc03cfd435fbc07539d91f2e1502
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Déployer un cluster Azure Kubernetes pour des conteneurs Linux
 
 Dans ce guide de démarrage rapide, un cluster Kubernetes est déployé à l’aide de l’interface CLI d’Azure. Une application à plusieurs conteneurs composée d’un serveur web frontal et d’une instance Redis est ensuite déployée, puis exécutée sur le cluster. Ceci fait, l’application est accessible via internet. 
@@ -230,4 +228,3 @@ Pour en savoir plus sur Azure Container Service et parcourir le code complet de 
 
 > [!div class="nextstepaction"]
 > [Gérer un cluster Kubernetes ACS](./container-service-tutorial-kubernetes-prepare-app.md)
-

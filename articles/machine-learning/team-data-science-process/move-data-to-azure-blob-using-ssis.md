@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 53570d3bd92712e96090ee995bcb5f7483a6d498
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Déplacer des données vers ou depuis Stockage Blob Azure à l’aide de connecteurs SSIS
 Le [Feature Pack SQL Server Integration Services pour Azure](https://msdn.microsoft.com/library/mt146770.aspx) fournit des composants permettant de se connecter à Azure, de transférer des données entre des sources de données Azure et des sources de données sur site et de traiter les données stockées dans Azure.
@@ -89,5 +88,4 @@ Le pack de fonctionnalités SSIS permet de gérer des flux de données plus comp
 
 * Pour exécuter un script Hive sur un cluster Azure HDInsight avec SSIS, utilisez la [tâche Azure HDInsight Hive](https://msdn.microsoft.com/library/mt146771.aspx).
 * Pour exécuter un script Pig sur un cluster Azure HDInsight avec SSIS, utilisez la [tâche Azure HDInsight Pig](https://msdn.microsoft.com/library/mt146781.aspx).
-
 

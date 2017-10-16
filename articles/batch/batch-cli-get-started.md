@@ -3,7 +3,7 @@ title: "Prise en main des commandes Batch de la CLI Azure | Microsoft Docs"
 description: "Obtenez une brève introduction aux commandes Batch dans l’interface de ligne de commande Azure pour la gestion des ressources du service Azure Batch."
 services: batch
 documentationcenter: 
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 68a5493282fa4a0b54ba551c48ae963a42b94dca
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 45c611e1c429e8c17c0fb1537577a4cbd037c23a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
 
@@ -32,7 +31,7 @@ Microsoft recommande d’utiliser la dernière version d’Azure CLI, c’est-à
 
 ## <a name="set-up-the-azure-cli"></a>Configuration de l’interface de ligne de commande Azure
 
-Pour installer l’interface de ligne de commande Azure, suivez les instructions fournies dans la section [Installer l’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
+Pour installer l’interface de ligne de commande Azure, suivez les instructions fournies dans la section [Installer l’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!TIP]
 > Nous vous recommandons de mettre à jour fréquemment votre installation d’interface de ligne de commande Azure pour tirer parti des améliorations et des mises à jour de service.
@@ -97,9 +96,7 @@ Deux options s’offrent à vous pour l’authentification sur votre compte Batc
 
     L’avantage d’Azure AD est que le contrôle d’accès se fait en fonction du rôle (RBAC). Avec RBAC, l’accès dont bénéficie un utilisateur dépend de son rôle, et non du fait qu’il possède ou non les clés du compte. Au lieu de gérer les clés de compte, vous pouvez gérer les rôles RBAC et permettre à Azure AD de gérer l’accès et l’authentification.  
 
-    L’authentification avec Azure AD est requise si vous avez créé votre compte Azure Batch avec le mode d’allocation de pool défini sur « Abonnement utilisateur ». 
-
-    Pour vous connecter à votre compte Batch à l’aide d’Azure AD, appelez la commande [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) : 
+        To log in to your Batch account using Azure AD, call the [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) command: 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -196,4 +193,3 @@ Les conseils suivants peuvent vous aider lors de la résolution de problèmes su
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
-

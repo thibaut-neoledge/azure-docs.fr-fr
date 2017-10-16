@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
 ms.openlocfilehash: 1372a9e05cb47f6c68240bffccd46b0fbebb5464
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Questions sur le service de sauvegarde de machine virtuelle Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de la sauvegarde de machine virtuelle Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).

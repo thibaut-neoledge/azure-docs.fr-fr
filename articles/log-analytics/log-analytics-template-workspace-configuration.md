@@ -14,13 +14,11 @@ ms.devlang: json
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: richrund
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: f392b3c0ab6b4d2e133d59766732188ce97c2f3e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/03/2017
-
-
+ms.openlocfilehash: 37ecfe2762bd239a0abf6015ef6ffd6a5132bb7a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gérer Log Analytics à l’aide de modèles Azure Resource Manager
 Vous pouvez utiliser des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour créer et configurer des espaces de travail Log Analytics. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
@@ -420,9 +418,33 @@ L’exemple de modèle suivant illustre comment :
     }
   ],
   "outputs": {
-    "workspaceOutput": {
-      "value": "[reference(concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName')), '2015-11-01-preview')]",
-      "type": "object"
+    "workspaceName": {
+      "type": "string",
+      "value": "[parameters('workspaceName')]"
+    },
+    "provisioningState": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').provisioningState]"
+    },
+    "source": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').source]"
+    },
+    "customerId": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
+    },
+    "pricingTier": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
+    },
+    "retentionInDays": {
+      "type": "int",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
+    },
+    "portalUrl": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').portalUrl]"
     }
   }
 }
@@ -458,5 +480,4 @@ La galerie de modèles de démarrage rapide Azure comprend plusieurs modèles po
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Déployer des agents dans des machines virtuelles Azure en utilisant des modèles Resource Manager](log-analytics-azure-vm-extension.md)
-
 

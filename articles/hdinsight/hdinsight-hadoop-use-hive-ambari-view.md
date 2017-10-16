@@ -1,5 +1,5 @@
 ---
-title: Utiliser les vues Ambari pour travailler avec Hive sur HDInsight (Hadoop) - Azure | Microsoft Docs
+title: Utiliser les vues Ambari pour travailler avec Hive sur HDInsight (Hadoop) - Azure | Documents Microsoft
 description: "Découvrez comment utiliser la vue Hive à partir de votre navigateur web pour envoyer des requêtes Hive. La vue Hive fait partie de l’interface utilisateur web Ambari fournie avec votre cluster HDInsight sous Linux."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: b5bf9042921dfb2344c2c6e03990578fa9ce4f5b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Utiliser la vue Ambari Hive avec Hadoop dans HDInsight
 
@@ -32,7 +31,7 @@ Découvrez comment exécuter des requêtes Hive avec la vue Ambari Hive. Ambari 
 > [!NOTE]
 > Ambari offre de nombreuses fonctionnalités qui ne sont pas traitées dans ce document. Pour plus d’informations, consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Ambari](hdinsight-hadoop-manage-ambari.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un cluster HDInsight sous Linux Pour obtenir des informations sur la création de clusters, consultez [Bien démarrer avec Hadoop dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
@@ -47,7 +46,7 @@ Vous pouvez ouvrir les vues Ambari à partir du portail Azure. Sélectionnez vot
 
 Dans la liste des vues, sélectionnez __Affichage Hive__.
 
-![Affichage Hive sélectionné](./media/hdinsight-hadoop-use-hive-ambari-view/select-hive-view.png)
+![L’affichage Hive sélectionné](./media/hdinsight-hadoop-use-hive-ambari-view/select-hive-view.png)
 
 > [!NOTE]
 > En accédant à Ambari, vous êtes invité à vous authentifier sur le site. Indiquez le nom du compte et le mot de passe de l’administrateur (`admin` par défaut) que vous avez utilisés lorsque vous avez créé le cluster.
@@ -60,7 +59,7 @@ Une page similaire à celle ci-dessous doit s’afficher :
 
 Pour exécuter une requête Hive, utilisez les étapes suivantes à partir de l’affichage Hive.
 
-1. Sous l’onglet __Query__ (Requête), collez les instructions HiveQL suivantes dans la feuille de calcul :
+1. Dans l’onglet __Requête__ , collez les instructions HiveQL suivantes dans la feuille de calcul :
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -89,7 +88,7 @@ Pour exécuter une requête Hive, utilisez les étapes suivantes à partir de l�
     > [!IMPORTANT]
     > Conservez la sélection __Base de données__ par __défaut__. Les exemples de ce document utilisent la base de données par défaut incluse avec HDInsight.
 
-2. Pour démarrer la requête, utilisez le bouton **Execute** (Exécuter) sous la feuille de calcul. Ce bouton devient orange et le texte affiche **Stop** (Arrêter).
+2. Pour démarrer la requête, utilisez le bouton **Exécuter** situé sous la feuille de calcul. Ce bouton devient orange et le texte affiche **Stop** (Arrêter).
 
 3. Lorsque la requête est terminée, l’onglet **Results** (Résultats) affiche les résultats de l’opération. Le texte suivant est le résultat de la requête :
 
@@ -101,9 +100,9 @@ Pour exécuter une requête Hive, utilisez les étapes suivantes à partir de l�
    > [!TIP]
    > Téléchargez ou enregistrez les résultats à partir de la boîte de dialogue déroulante **Save results** (Enregistrer les résultats), dans le coin supérieur gauche de la section **Query Process Results** (Résultats du processus de requête).
 
-4. Sélectionnez les quatre premières lignes de cette requête, puis sélectionnez **Execute** (Exécuter). Notez qu’aucun résultat n’est retourné à la fin de la tâche. Si vous utilisez le bouton **Execute** (Exécuter) alors que vous avez sélectionné une partie de la requête, seules les instructions sélectionnées sont exécutées. Dans ce cas, la sélection n’inclut pas l’instruction finale qui consiste à extraire des lignes de la table. Si vous sélectionnez uniquement cette ligne et que vous utilisez le bouton **Execute** (Exécuter), vous devriez obtenir les résultats attendus.
+4. Sélectionnez les quatre premières lignes de cette requête, puis sélectionnez **Execute** (Exécuter). Notez qu’aucun résultat n’est retourné à la fin de la tâche. Si vous utilisez le bouton **Exécuter** alors que vous avez sélectionné une partie de la requête, seules les instructions sélectionnées sont exécutées. Dans ce cas, la sélection n’inclut pas l’instruction finale qui consiste à extraire des lignes de la table. Si vous sélectionnez uniquement cette ligne et que vous utilisez le bouton **Exécuter**, vous devriez obtenir les résultats attendus.
 
-5. Pour ajouter une feuille de calcul, utilisez le bouton **New Worksheet** (Nouvelle feuille de calcul) en bas de **Query Editor**. Dans la nouvelle feuille de calcul, entrez les instructions HiveQL suivantes :
+5. Pour ajouter une feuille de calcul, utilisez le bouton **Nouvelle feuille de calcul** au bas de l’ **Éditeur de requêtes**. Dans la nouvelle feuille de calcul, entrez les instructions HiveQL suivantes :
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -118,7 +117,7 @@ Pour exécuter une requête Hive, utilisez les étapes suivantes à partir de l�
 
    * **INSERT OVERWRITE ... SELECT** : sélectionne les lignes de la table **log4jLogs** qui contiennent `[ERROR]`, puis insère les données dans la table **errorLogs**.
 
-Utilisez le bouton **Execute** (Exécuter) pour exécuter cette requête. L’onglet **Results** (Résultats) ne contient pas d’informations lorsque la requête ne retourne aucune ligne. L’état doit être **SUCCEEDED** lorsque la requête est terminée.
+Utilisez le bouton **Exécuter** pour exécuter cette requête. L’onglet **Résultats** ne contient pas d’informations lorsque la requête ne retourne aucune ligne. L’état doit être **SUCCEEDED** lorsque la requête est terminée.
 
 ### <a name="visual-explain"></a>Visual Explain
 
@@ -137,15 +136,15 @@ Si Tez a été utilisé pour résoudre la requête, le graphe orienté acyclique
 
 ## <a name="view-job-history"></a>Afficher l’historique des tâches
 
-L’onglet __Jobs__ (Travaux) affiche un historique des requêtes Hive.
+L’onglet __Travaux__ affiche un historique des requêtes Hive.
 
 ![Image de l’historique des travaux](./media/hdinsight-hadoop-use-hive-ambari-view/job-history.png)
 
 ## <a name="database-tables"></a>Tables de base de données
 
-Vous pouvez utiliser l’onglet __Tables__ pour travailler avec des tables dans une base de données Hive.
+Vous pouvez utiliser l’onglet __Tables__ onglet pour travailler avec des tables dans une base de données Hive.
 
-![Image de l’onglet Tables](./media/hdinsight-hadoop-use-hive-ambari-view/tables.png)
+![Image de l’onglet tables](./media/hdinsight-hadoop-use-hive-ambari-view/tables.png)
 
 ## <a name="saved-queries"></a>Requêtes enregistrées
 
@@ -157,17 +156,17 @@ Vous pouvez utiliser l’onglet __Tables__ pour travailler avec des tables dans 
 
 Vous pouvez également étendre Hive par l’intermédiaire de fonctions définies par l’utilisateur (UDF). Utilisez une fonction définie par l’utilisateur pour implémenter une fonctionnalité ou une logique qui n’est pas facilement modélisée en HiveQL.
 
-Déclarez et enregistrez un ensemble de fonctions définies par l’utilisateur en utilisant l’onglet **UDF** en haut de l’affichage Hive. Ces fonctions UDF peuvent être utilisées avec **l’éditeur de requête**.
+Déclarez et enregistrez un ensemble de fonctions définies par l’utilisateur en utilisant l’onglet **UDF** en haut de l’affichage Hive. Ces UDF peuvent être utilisés avec les **l’éditeur de requête**.
 
 ![Image de l’onglet UDF](./media/hdinsight-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
-Lorsque vous avez ajouté une fonction définie par l’utilisateur à l’affichage Hive, un bouton **Insert udfs** (Insérer des fonctions définies par l’utilisateur) s’affiche au bas de **Query Editor** (l’éditeur de requête). La sélection de cette entrée affiche une liste déroulante des fonctions UDF définies dans l’affichage Hive. La sélection d’une fonction UDF ajoute des instructions HiveQL à votre requête pour activer l’UDF.
+Lorsque vous avez ajouté une fonction définie par l’utilisateur à l’affichage Hive, un bouton **Insert udfs** (Insérer des fonctions définies par l’utilisateur) s’affiche au bas de **Query Editor** (l’éditeur de requête). La sélection de cette entrée affiche une liste déroulante des UDF définis dans l’affichage Hive. La sélection d’une fonction UDF ajoute des instructions HiveQL à votre requête pour activer l’UDF.
 
 Par exemple, si vous avez défini une fonction UDF avec les propriétés suivantes :
 
 * Nom de ressource : myudfs
 
-* Chemin de la ressource : /myudfs.jar
+* Chemin d’accès à la ressource : /myudfs.jar
 
 * Nom de la fonction UDF : myawesomeudf
 
@@ -201,4 +200,3 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
-

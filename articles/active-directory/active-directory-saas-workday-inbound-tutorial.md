@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Didacticiel : Configuration de Workday pour l’approvisionnement automatique de l’utilisateur avec Active Directory et Azure Active Directory local
 L’objectif de ce didacticiel est de vous présenter les étapes à suivre pour importer des contacts à partir de Workday dans Active Directory et Azure Active Directory, avec écriture différée facultative de certains attributs dans Workday. 
@@ -342,7 +341,7 @@ Dans cette section, vous allez configurer le flux des données de l’utilisateu
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Créer + mettre à jour |
 | **PostalCode**  |   postalCode  |     | Créer + mettre à jour |
 | **LocalReference** |  preferredLanguage  |     |  Créer + mettre à jour |
-| **Remplacer(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\ \\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.) \*\$](file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Écrit lors de la création uniquement |
+| **Remplacer(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.) \*\$](file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Écrit lors de la création uniquement |
 | **LastName**   |   sn   |     |  Créer + mettre à jour |
 | **CountryRegionReference** |  st     |     | Créer + mettre à jour |
 | **AddressLineData**    |  streetAddress  |     |   Créer + mettre à jour |
@@ -652,4 +651,3 @@ Une fois les parties 1 à 2 terminées, vous pouvez démarrer le service d’app
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
-

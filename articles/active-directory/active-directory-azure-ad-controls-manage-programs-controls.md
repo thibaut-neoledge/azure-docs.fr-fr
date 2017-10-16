@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: f6d7c2a1a3e3bf78b568f2f6b079476e403b9911
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-programs-and-their-controls"></a>Gérer des programmes et leurs contrôles 
 
 Azure AD inclut des révisions d’accès des membres du groupe et d’accès à l’application, qui sont des exemples de contrôles garantissant une supervision des accès. Ces contrôles permettent aux organisations de gérer efficacement leur gouvernance, la gestion des risques et les exigences de conformité.  
@@ -37,5 +35,4 @@ Si vous n’avez plus besoin d’un programme et qu’il n’est lié à aucun c
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md) (Créer une révision de l’accès des membres d’un groupe ou de l’accès à une application)
-
 

@@ -8,19 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
+ms.openlocfilehash: 295d3b8983484b33c69ebb5d0d68c451211102a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 9bb863261da64c97f99757d4a0cb3474a7755591
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/22/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application web API DocumentDB avec .NET et le portail Azure
 
@@ -167,6 +166,5 @@ Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure 
 
 > [!div class="nextstepaction"]
 > [Importer des données dans Azure Cosmos DB](import-data.md)
-
 
 

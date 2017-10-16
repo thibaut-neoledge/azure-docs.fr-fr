@@ -11,15 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="derive-column-by-example-transformation"></a>Transformation Dériver des colonnes par exemple
 
 La transformation **Dériver des colonnes par exemple** permet aux utilisateurs de créer un dérivé d’une ou plusieurs colonnes existantes à l’aide d’exemples du résultat dérivé fournis par l’utilisateur. Le dérivé peut être n’importe quelle combinaison des transformations de Chaîne, Date et Nombre prise en charge. 
@@ -189,11 +186,11 @@ Nombre d’exemples qui ont été nécessaires pour ce cas : 3
 |:-----|:-----:|
 |Masculin|**0**|
 |Féminin|**1**|
-|Inconnu|**2**|
+|Unknown|**2**|
 |Féminin|1|
 |Féminin|1|
 |Masculin|0|
-|Inconnu|2|
+|Unknown|2|
 |Masculin|0|
 |Féminin|1|
 
@@ -289,18 +286,18 @@ Nombre d’exemples qui ont été nécessaires pour ce cas : 1
 
 Ces parties de date ont été extraites à l’aide de différentes transformations par exemple sur le même jeu de données. Les chaînes en gras représentent les exemples qui ont été donnés dans leur transformation respective.
 
-|DateHeure|Jour de la semaine|Date|Mois|Année|Heure|Minute|Seconde|
+|DateTime|Jour de la semaine|Date|Mois|Year|Hour|Minute|Seconde|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**Ven**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
-|17-Jan-1990 13:32:01|Mer|17|Jan|1990|13|32|01|
+|17-Jan-1990 13:32:01|Mer|17|Jan|1990|13.|32|01|
 |14-Fév-2034 05:36:07|Mars|14|Fév|2034|5|36|07|
-|14-Mars-2002 13:16:16|Jeu|14|Mars|2002|13|16|16|
+|14-Mars-2002 13:16:16|Jeu|14|Mars|2002|13.|16|16|
 |21-Jan-1985 05:44:43|Lun|21|Jan|1985|5|44|**43**|
 |16-Août-1985 01:11:56|Ven|16|Août|1985|1|11|56|
 |20-Déc-2033 18:36:29|Mars|20|Déc|2033|18|36|29|
 |16-Juil-1984 10:21:59|Lun|16|Juil|1984|10|21|59|
-|13-Jan-2038 10:59:36|Mer|13|Jan|2038|10|59|36|
-|14-Août-1982 15:13:54|Sam|14|Août|1982|15|13|54|
+|13-Jan-2038 10:59:36|Mer|13.|Jan|2038|10|59|36|
+|14-Août-1982 15:13:54|Sam|14|Août|1982|15|13.|54|
 |22-Nov-2030 08:18:08|Ven|22|Nov|2030|8|18|08|
 |21-Oct-1997 08:42:58|Mars|21|Oct|1997|8|42|58|
 |28-Nov-2006 14:19:15|Mars|28|Nov|2006|14|19|15|
@@ -310,13 +307,13 @@ Ces parties de date ont été extraites à l’aide de différentes transformati
 |15-Juil-1977 12:45:39|Ven|15|Juil|1977|12|45|39|
 |27-Jan-2029 05:55:41|Sam|27|Jan|2029|5|55|41|
 |03-Mars-2024 10:17:49|Dim|3|Mars|2024|10|17|49|
-|14-Avr-2010 00:23:13|Mer|14|Avr|2010|0|23|13|
+|14-Avr-2010 00:23:13|Mer|14|Avr|2010|0|23|13.|
 
 ### <a name="d2-formatting-dates"></a>D2. Mise en forme de dates
 
 Ces mises en forme de dates ont été effectuées à l’aide de différentes transformations par exemple sur le même jeu de données. Les chaînes en gras représentent les exemples qui ont été donnés dans leur transformation respective.
 
-|DateHeure|Format1|Format2|Format3|Format4|Format5|
+|DateTime|Format1|Format2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**1/31/2031**|**Vendredi 31 janvier 2031**|**01312031 5:54**|**31/1/2031 5:54 AM**|**Q1 2031**|
 |17-Jan-1990 13:32:01|1/17/1990|Mercredi 17 janvier 1990|01171990 13:32|17/1/1990 1:32 PM|Q1 1990|
@@ -344,7 +341,7 @@ Ces mises en forme de dates ont été effectuées à l’aide de différentes tr
 
 Ces mappages entre des dates/heures et des périodes ont été effectués à l’aide de différentes transformations par exemple sur le même jeu de données. Les chaînes en gras représentent les exemples qui ont été donnés dans leur transformation respective.
 
-|DateHeure|Période(secondes)|Période(minutes)|Période(deux heures)|Période(30 minutes)|
+|DateTime|Période(secondes)|Période(minutes)|Période(deux heures)|Période(30 minutes)|
 |-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
 |17-Jan-1990 13:32:01|**0-20**|30-45|1PM-3PM|13:30-14:00|
@@ -390,4 +387,3 @@ Dans certains cas, il est impossible de trouver une seule transformation qui sat
 
 ### <a name="reference"></a>Référence
 Vous trouverez plus d’informations sur la technologie de transformation de chaîne par exemple dans [cette publication](https://www.microsoft.com/en-us/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).
-

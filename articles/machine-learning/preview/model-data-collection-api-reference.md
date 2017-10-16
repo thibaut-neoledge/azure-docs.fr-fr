@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7a0fda8a44d13bcaba84b4124d9b693c05874154
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Informations de référence sur l’API de collecte de données de modèle Azure Machine Learning
 
@@ -64,7 +63,7 @@ La classe et les paramètres sont décrits ci-après :
 | Nom | Type | Description |
 |-------------|------------|-------------------------|
 | model_name | string | Nom du modèle pour lequel des données sont collectées |
-| identifier | string | Emplacement dans le code qui identifie ces données ( « RawInput » ou « Prediction ») |
+| identificateur | string | Emplacement dans le code qui identifie ces données ( « RawInput » ou « Prediction ») |
 | feature_names | liste de valeurs string | Liste des noms de caractéristiques qui forment l’en-tête csv fourni |
 | model_management_account_id | string | Identificateur du compte de gestion des modèles dans lequel ce modèle est stocké. Ce paramètre est renseigné automatiquement quand les modèles sont rendus opérationnels via AML |
 | webservice_name | string | Nom du service web dans lequel ce modèle est actuellement déployé. Ce paramètre est renseigné automatiquement quand les modèles sont rendus opérationnels via AML |
@@ -95,5 +94,4 @@ La méthode et les paramètres sont décrits ci-après :
 |-------------|------------|-------------------------|
 | input_data | plusieurs types | Données à collecter (types pris en charge : list, numpy.array, pandas.DataFrame, pyspark.sql.DataFrame). Pour les types dataframe, si un en-tête est fourni avec des noms de caractéristiques, ces informations sont incluses dans la destination des données (sans avoir à passer explicitement ces noms de caractéristiques au constructeur ModelDataCollector) |
 | user_correlation_id | string | ID de corrélation facultatif, qui peut être fourni par l’utilisateur pour mettre en corrélation cette prédiction |
-
 

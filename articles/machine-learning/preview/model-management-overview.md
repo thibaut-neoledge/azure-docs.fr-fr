@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 31b859d86e82c92839462280721c5f84f1d923cd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-model-management"></a>Gestion des modèles Azure Machine Learning
 
@@ -79,7 +78,7 @@ Autonomes, ces images en conteneur Docker contiennent toutes les dépendances n�
 Avec la gestion des modèles Azure Machine Learning, vous pouvez déployer des images de conteneur Docker avec une seule commande dans Azure Container Service, qui est géré par l’environnement Compute ML. Ces déploiements sont créés avec un serveur frontend qui offre les fonctionnalités suivantes :
 
 - Prédictions de faible latence à l’échelle
-- Équilibrage de charge
+- Équilibrage de la charge
 - Mise à l’échelle automatique des points de terminaison ML
 - Autorisation de clé API
 - Document Swagger d’API
@@ -99,7 +98,7 @@ Le flux de travail complet décrivant ces concepts est illustré dans le schéma
 
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
-## <a name="frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) 
+## <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) 
 - Quels types de données sont pris en charge ? Est-il possible de passer des tableaux NumPy directement comme entrée au service web ?
 
    Si vous indiquez le fichier de schéma qui a été créé à l’aide du Kit de développement logiciel (SDK) generate_schema, vous pouvez passer des tableaux NumPy et/ou des cadres de données Pandas. Vous pouvez aussi passer des entrées sérialisables JSON. Vous pouvez même passer une image sous forme de chaîne encodée binaire.
@@ -126,4 +125,3 @@ Le flux de travail complet décrivant ces concepts est illustré dans le schéma
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour bien commencer avec la gestion des modèles, consultez [Configuration de la gestion des modèles](model-management-configuration.md).
-

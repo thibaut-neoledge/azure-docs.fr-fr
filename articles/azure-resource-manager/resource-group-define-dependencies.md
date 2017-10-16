@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
 ms.openlocfilehash: 3d6a46116ae9d7d940bc10dfa832540f42c0af7e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Définir l’ordre de déploiement des ressources dans les modèles Azure Resource Manager
 Une ressource donnée peut comporter d'autres ressources qui doivent exister avant son déploiement. Par exemple, un serveur SQL doit exister avant une tentative de déploiement d'une base de données SQL. Vous définissez cette relation en marquant une seule ressource comme dépendante de l'autre ressource. Pour définir une dépendance, vous devez utiliser l’élément **dependsOn** ou la fonction **reference**. 

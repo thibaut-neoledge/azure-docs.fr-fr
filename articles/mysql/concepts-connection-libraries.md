@@ -9,14 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 06/08/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: e746f28829063f8437ad408c4681f90aec6c0e0a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>Bibliothèques de connexions pour Azure Database pour MySQL
 Cette rubrique répertorie chaque bibliothèque ou pilote que les programmes clients peuvent utiliser lors de la connexion à Azure Database pour MySQL.
 
@@ -39,4 +37,3 @@ MySQL offre une connectivité de pilote de base de données standard pour l’ut
 ## <a name="next-steps"></a>Étapes suivantes
 [Vue d’ensemble d’Azure Database pour MySQL](./overview.md)
 [Concepts serveur dans Azure Database pour MySQL](./concepts-servers.md)
-

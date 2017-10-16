@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: eca1ac9ed51e6c2243be451a074792fbec2840d2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-enterprise-cost-views"></a>Résoudre les problèmes liés aux vues des coûts d’entreprise 
 
 Dans les inscriptions d’entreprise, plusieurs paramètres peuvent empêcher les utilisateurs au sein de l’inscription d’afficher les coûts.  Ces paramètres sont gérés par l’administrateur en charge de l’inscription, ou par le partenaire si l’inscription n’a pas été achetée directement auprès de Microsoft.  Cet article vous aide à comprendre quels sont les paramètres et dans quelle mesure ils impactent l’inscription. Ces paramètres sont indépendants des [rôles RBAC Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
@@ -43,11 +41,10 @@ Cela peut être dû à l’une des raisons suivantes :
 
 
 ## <a name="asset-is-unavailable"></a>En cas d’indisponibilité d’une ressource 
-L’affichage du message d’erreur « La ressource n’est pas disponible » quand vous essayez d’accéder à un abonnement ou à un groupe d’administration signifie que vous n’avez pas le rôle approprié pour afficher cet élément.  
+L’affichage du message d’erreur « La ressource n'est pas disponible » quand vous essayez d’accéder à un abonnement ou à un groupe d’administration signifie que vous n’avez pas le rôle approprié pour afficher cet élément.  
 
 ![ressource introuvable](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
-Contactez l’administrateur de l’abonnement ou des groupes d’administration pour obtenir un accès.  
+Contactez l’administrateur de l’abonnement ou du groupe d’administration pour obtenir l’accès.  
 * Pour les abonnements, reportez-vous au document [Contrôle d’accès en fonction du rôle (RBAC) Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) afin de déterminer le rôle requis.
 * Pour les groupes d’administration, l’accès RBAC sera bientôt disponible. Contactez l’administrateur de votre portail d’entreprise pour obtenir un accès.   
-

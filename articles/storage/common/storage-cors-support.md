@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage
 Depuis la version 2013-08-15, les services Azure Storage prennent en charge le partage de ressources cross-origine (CORS) pour les services Blob Storage, Table Storage, Queue Storage et File Storage. CORS est une fonctionnalité HTTP qui permet à une application web exécutée dans un domaine d'accéder aux ressources d'un autre domaine. Les navigateurs web implémentent une restriction de sécurité appelée [stratégie de même origine](http://www.w3.org/Security/wiki/Same_Origin_Policy) qui empêche une page web d’appeler des API d’un autre domaine ; CORS constitue un moyen sûr pour autoriser un domaine (le domaine d’origine) à appeler des API d’un autre domaine. Pour plus d’informations sur CORS, consultez la [Spécification CORS](http://www.w3.org/TR/cors/) .

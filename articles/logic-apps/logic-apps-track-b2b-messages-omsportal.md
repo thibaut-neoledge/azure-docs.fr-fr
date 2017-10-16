@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Suivre la communication B2B Microsoft Operations Management Suite (OMS)
 
 Une fois la communication B2B configurée entre deux processus ou applications d’entreprise en cours d’exécution via votre compte d’intégration, ces entités peuvent échanger des messages entre elles. Pour vérifier si ces messages sont traités correctement, vous pouvez effectuer le suivi des messages AS2, X12, et EDIFACT avec [Azure Log Analytics](../log-analytics/log-analytics-overview.md) dans [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Par exemple, vous pouvez utiliser ces fonctionnalités de suivi basées sur le web pour suivre des messages :

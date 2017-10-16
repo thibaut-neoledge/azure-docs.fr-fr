@@ -15,12 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: bf758d1241f2a56eba4d5c92ace713d6e563df65
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Activation de l'authentification par application mobile avec le serveur Azure Multi-Factor Authentication
 
@@ -50,7 +49,7 @@ Pour utiliser l'application Microsoft Authenticator, les éléments suivants son
 Avant d'installer le service Web de l’application mobile, tenez compte des éléments suivants :
 
 * Il vous faut un compte de service faisant partie du groupe « PhoneFactor Admins ». Il peut s’agir du même compte utilisé lors de l’installation du portail utilisateur.
-* Il est utile d'ouvrir un navigateur web sur le serveur web sur Internet et d’accéder à l'URL du Kit de développement logiciel (SDK) Web Service qui a été saisie dans le fichier web.config. Si le navigateur peut accéder correctement au service Web, il vous invite à saisir des informations d'identification. Saisissez le nom d'utilisateur et le mot de passe qui ont été saisis dans le fichier web.config, exactement comme cela apparaît dans le fichier. Assurez-vous qu'aucun avertissement ou erreur de certificat n’est affiché.
+* Il est utile d'ouvrir un navigateur web sur le serveur web sur Internet et d’accéder à l'URL du Kit de développement logiciel (SDK) Web Service qui a été saisie dans le fichier web.config. Si le navigateur peut accéder correctement au service Web, il vous invite à saisir des informations d'identification. Saisissez le nom d'utilisateur et le mot de passe qui ont été saisis dans le fichier web.config, exactement comme cela apparaît dans le fichier. Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
 * Si un pare-feu ou un proxy inverse est assis devant le serveur Web du service Web de l’application mobile et effectue un déchargement SSL, vous pouvez modifier le fichier web.config du service Web de l’application mobile afin que le service Web de l’application mobile puisse utiliser http au lieu de https. SSL est toujours requis depuis l’application mobile vers le pare-feu/proxy inverse. Ajoutez la clé suivante à la section \<appSettings\> :
 
         <add key="SSL_REQUIRED" value="false"/>
@@ -64,7 +63,7 @@ Quel que soit le scénario, si le Kit de développement logiciel (SDK) Azure Mul
 3. À moins que vous n’ayez besoin de les modifier, terminez l’installation à l’aide des paramètres par défaut.
 4. Lier un certificat SSL personnalisé à un site avec IIS.
 
-Si vous avez des questions à propos de la configuration du certificat SSl personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Si vous avez des questions à propos de la configuration du certificat SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 Le Kit de développement logiciel (SDK) Web Service doit être sécurisé avec un certificat SSL. Un certificat auto-signé peut être ajouté à cet effet. Importez le certificat dans le magasin « Racine des autorités de certification approuvée » du compte Ordinateur local sur le serveur Web du portail de l’utilisateur afin qu’il approuve ce certificat lors de l’initialisation de la connexion SSL.
 

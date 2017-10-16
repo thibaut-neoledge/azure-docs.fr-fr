@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="failover-in-site-recovery"></a>Basculement via Microsoft Azure Site Recovery
 Cet article explique comment basculer des machines virtuelles et des serveurs physiques protégés par Site Recovery.
@@ -131,4 +130,3 @@ Si vous le souhaitez, vous pouvez automatiser certaines actions pendant l’exé
 Utilisez l’option [**Basculement planifié**](site-recovery-failback-from-azure-to-hyper-v.md) pour **restaurer automatiquement** les machines virtuelles Hyper-v en local à partir d’Azure.
 
 Si vous avez basculé une machine virtuelle Hyper-v vers un autre centre de données local géré par un serveur VMM et que le centre de données principal est disponible, utilisez l’option **Réplication inverse** pour redémarrer la réplication vers le centre de données principal.
-

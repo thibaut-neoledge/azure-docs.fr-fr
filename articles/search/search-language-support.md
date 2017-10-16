@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: jlembicz
 ms.openlocfilehash: dbbab31bac66ce73dbf9883992713a2c16581e19
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Création d’un index de documents dans plusieurs langues dans Azure Search
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Une fois que l'analyseur de langage est sélectionné pour un champ, il sera uti
 Plusieurs applications web et mobiles servent les utilisateurs dans le monde entier à l'aide de différentes langues. Il est possible de définir un index pour un scénario comme celui-ci en créant un champ pour chaque langue prise en charge.
 
 ![][3]
-*Définition d’index avec un champ de description pour chaque langue prise en charge*
+*Définition d'index avec un champ de description pour chaque langue prise en charge*
 
 Si la langue de l'agent d'émission d'une requête est connue, une demande de recherche peut être étendue à un champ spécifique à l'aide du paramètre de requête **searchFields** . La requête suivante sera émise uniquement sur la description en polonais :
 

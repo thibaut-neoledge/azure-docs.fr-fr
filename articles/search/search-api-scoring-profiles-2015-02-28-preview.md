@@ -1,6 +1,6 @@
 ---
 title: Profils de score (API REST Recherche Azure version 2015-02-28-Preview) | Microsoft Docs
-description: "Azure Search est un service de recherche cloud hébergé qui prend en charge le paramétrage des résultats classés en fonction des profils de score définis par l&quot;utilisateur."
+description: "Azure Search est un service de recherche cloud hébergé qui prend en charge le paramétrage des résultats classés en fonction des profils de score définis par l'utilisateur."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a67637d149a84313270c03d21acf8a9c1870be05
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="scoring-profiles-azure-search-rest-api-version-2015-02-28-preview"></a>Profils de score (API REST Azure Search Version 2015-02-28-Preview)
 > [!NOTE]
 > Cet article décrit des profils de calcul de score dans la version [2015-02-28-Preview](search-api-2015-02-28-preview.md). Il n’existe actuellement aucune différence entre la version `2016-09-01` documentée sur [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) et la version `2015-02-28-Preview` décrite ici, mais nous proposons quand même ce document en guise d’informations sur l’ensemble de l’API.
@@ -275,8 +274,7 @@ Les interpolations permettent de définir la pente pour laquelle le score augmen
 * `Quadratic`: par rapport à une interpolation de type Linear dont la valorisation décroît de façon constante, une interpolation de type Quadratic décroît initialement plus lentement, puis, lorsqu’elle approche de la plage de fin, beaucoup plus rapidement. Cette option d'interpolation n'est pas autorisée dans les fonctions de calcul de score de balises.
 * `Logarithmic`: par rapport à une interpolation de type Linear dont la valorisation décroît de façon constante, une interpolation de type Logarithmic décroît initialement plus rapidement, puis, lorsqu’elle approche de la plage de fin, beaucoup plus lentement. Cette option d'interpolation n'est pas autorisée dans les fonctions de calcul de score de balises.
 
-<a name="Figure1"></a>
- ![][1]
+<a name="Figure1"></a>![][1]
 
 <a name="bkmk_boostdur"></a>
 
@@ -303,4 +301,3 @@ Pour plus d'exemples, consultez [Schéma XML : types de données (site Web W3.o
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
-

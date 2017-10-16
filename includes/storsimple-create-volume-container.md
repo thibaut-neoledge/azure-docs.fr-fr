@@ -16,7 +16,7 @@
    
    Le nouveau conteneur de volumes apparaît sur la page **Conteneurs de volume** .
 
-![Vidéo disponible](./media/storsimple-create-volume-container/Video_icon.png) **Vidéo disponible**
+![Vidéo disponible](./media/storsimple-create-volume-container/Video_icon.png)**Vidéo disponible**
 
 Pour visionner une vidéo qui montre comment créer un conteneur de volumes dans votre solution StorSimple, cliquez [ici](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 

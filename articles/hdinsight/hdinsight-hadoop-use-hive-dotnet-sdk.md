@@ -1,6 +1,6 @@
 ---
-title: "Exécuter des requêtes Hive avec le kit HDInsight .NET SDK - Azure | Microsoft Docs"
-description: "Apprenez à envoyer des tâches Hadoop à Azure HDInsight Hadoop avec le kit HDInsight .NET SDK."
+title: "Exécuter des requêtes Hive avec le Kit de développement logiciel (SDK) .NET HDInsight - Azure | Microsoft Docs"
+description: "Apprenez à envoyer des tâches Hadoop à Azure HDInsight Hadoop à l’aide du Kit de développement logiciel (SDK) .NET HDInsight."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -16,22 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
 ms.openlocfilehash: eb83a681df1a1836dbf970c4de14937aaea6b2f5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Exécuter des requêtes Hive avec le kit HDInsight .NET SDK
+# <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Exécuter des requêtes Hive avec le Kit de développement logiciel (SDK) .NET HDInsight
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Découvrez comment envoyer des requêtes Hive avec le kit HDInsight .NET SDK. Vous écrivez un programme C# pour soumettre une requête Hive destinée à répertorier les tables Hive, et vous affichez les résultats.
+Découvrez comment envoyer des requêtes Hive avec le Kit de développement logiciel (SDK) .NET HDInsight. Vous écrivez un programme C# pour soumettre une requête Hive destinée à répertorier les tables Hive, et vous affichez les résultats.
 
 > [!NOTE]
 > Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d’informations sur l’utilisation d’un client Linux, OS X ou Unix pour utiliser Hive, utilisez le sélecteur d’onglet en haut de l’article.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Cluster Hadoop dans HDInsight**. Consultez [Prise en main de Hadoop sous Linux dans HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).
@@ -41,8 +40,8 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Visual Studio 2013/2015/2017**.
 
-## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>Envoyer des requêtes Hive avec le kit .NET HDInsight SDK
-Le kit HDInsight .NET SDK fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET. 
+## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>Envoyer des requêtes Hive avec le Kit de développement logiciel (SDK) .NET HDInsight
+Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET. 
 
 **Pour soumettre les travaux**
 
@@ -147,13 +146,12 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 * [Prise en main d’Azure HDInsight][hdinsight-get-started]
 * [Création de clusters Hadoop dans HDInsight][hdinsight-provision]
 * [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-management-portal.md)
-* [Informations de référence sur le kit HDInsight .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx)
+* [Référence du Kit de développement logiciel (SDK) .NET de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation de Sqoop avec HDInsight](hdinsight-use-sqoop-mac-linux.md)
 * [Créer des applications .NET HDInsight d’authentification non interactives](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-
 
 

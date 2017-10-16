@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>Création et gestion des campagnes de notification Push
 Vous pouvez utiliser la section Reach de l'interface utilisateur pour créer une nouvelle campagne Push à l'aide d'une formule complexe en indiquant toutes les informations dont vous avez besoin pour envoyer une notification Push. Les options d'une campagne Push varient quelque peu selon les quatre types de campagne : Annonces, Sondages, Push de données et Vignettes (Windows Phone uniquement).

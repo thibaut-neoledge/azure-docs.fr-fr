@@ -11,15 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/20/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: e11f19d518b22a7be4f8daf93304821b42e94a9b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Emplacements nommés dans Azure Active Directory
 
@@ -52,7 +51,7 @@ Pour configurer un emplacement nommé :
 
 6. Dans le panneau **Nouveau**, procédez comme suit :
 
-    ![Panneau Nouveau](./media/active-directory-named-locations/08.png)
+    ![Panneau Nouveau](./media/active-directory-named-locations/56.png)
 
     a. Dans la zone de texte **Nom**, tapez un nom pour votre emplacement nommé.
 
@@ -75,5 +74,4 @@ Pour configurer un emplacement nommé :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les événements à risque, consultez [Événements à risque dans Azure Active Directory](active-directory-reporting-risk-events.md).
-
 

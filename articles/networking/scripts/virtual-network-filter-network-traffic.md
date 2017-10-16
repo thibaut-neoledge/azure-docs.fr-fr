@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
 ms.openlocfilehash: 68ee013cff4e0be15af30239e0314f779f50177a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>Filtrer le trafic réseau de machine virtuelle entrant et sortant
 
@@ -32,7 +32,7 @@ Cet exemple de script permet de créer un réseau virtuel avec des sous-réseaux
 ## <a name="sample-script"></a>Exemple de script
 
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/filter-network-traffic/filter-network-traffic.sh  "Filtrer le trafic réseau de machine virtuelle")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/filter-network-traffic/filter-network-traffic.sh  "Filter VM network traffic")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 

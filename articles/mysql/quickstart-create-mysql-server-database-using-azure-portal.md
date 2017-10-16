@@ -10,14 +10,12 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 08/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 46aee37a00a923addc08dd185ce0326a64ccb48c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Création d’un serveur Azure Database pour MySQL à l’aide du portail Azure
 Azure Database pour MySQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. Ce guide de démarrage rapide vous montre comment créer en quelques minutes un serveur Azure Database pour MySQL à l’aide du portail Azure.  
 
@@ -49,7 +47,7 @@ Pour créer un serveur de base de données Azure pour MySQL, suivez les étapes 
     Confirmer le mot de passe | *Votre choix*| Le mot de passe confirmé du compte d’administrateur.
     Lieu | *La région la plus proche de vos utilisateurs*| L’emplacement le plus proche de vos utilisateurs ou d’autres applications Azure.
     Version | *La version la plus récente*| La version la plus récente (sauf si vous avez des exigences spécifiques).
-    Niveau tarifaire  | **De base**, **50 unités de calcul** **50 Go** | Le niveau de service et de performances de votre nouvelle base de données. Sélectionnez le **niveau De base** dans l’onglet figurant dans la partie supérieure. Sélectionnez l’extrémité gauche du curseur **Unités de calcul** pour reconfigurer la valeur sur le plus petit nombre d’unités disponible pour ce guide de démarrage rapide. Sélectionnez **OK** pour enregistrer la sélection du niveau tarifaire. Pour plus d’informations, consultez les captures d’écran suivantes.
+    Niveau tarifaire  | **De base**, **50 unités de calcul**, **50 Go** | Le niveau de service et de performances de votre nouvelle base de données. Sélectionnez le **niveau De base** dans l’onglet figurant dans la partie supérieure. Sélectionnez l’extrémité gauche du curseur **Unités de calcul** pour reconfigurer la valeur sur le plus petit nombre d’unités disponible pour ce guide de démarrage rapide. Sélectionnez **OK** pour enregistrer la sélection du niveau tarifaire. Pour plus d’informations, consultez la capture d’écran suivante.
     Épingler au tableau de bord | Vérification | Facilite le suivi de votre serveur sur la première page du tableau de bord de votre portail Azure.
 
     > [!IMPORTANT]
@@ -229,5 +227,4 @@ Pour supprimer uniquement le serveur que vous venez de créer, procédez comme s
 
 > [!div class="nextstepaction"]
 > [Concevoir votre première base de données Azure pour MySQL](./tutorial-design-database-using-portal.md)
-
 

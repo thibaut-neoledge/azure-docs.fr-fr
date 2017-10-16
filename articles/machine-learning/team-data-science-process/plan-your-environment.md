@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
+ms.openlocfilehash: 42d1de8a27f8979db5662094e8bd74a6f5ccac55
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: de46e5a6833809f8413d6a2de62a8cb9fe178130
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Comment identifier les scénarios et planifier le traitement des données d’analyse avancée
 Quelles ressources devez-vous inclure lors de la configuration d’un environnement à des fins de traitement des analyses avancées sur un jeu de données ? Cet article propose une série de questions qui permettront d’identifier les tâches et les ressources pertinentes pour votre scénario. L’ordre des étapes principales pour l’analyse prédictive est défini dans [Qu’est-ce que le processus TDSP (Team Data Science Process) ?](overview.md). Chacune de ces étapes nécessite des ressources spécifiques pour les tâches correspondant à votre scénario. Les principales questions pour identifier votre scénario concernent la logistique de données, leurs caractéristiques, la qualité des jeux de données, ainsi que les outils et les langues à utiliser pour effectuer l’analyse.
@@ -105,5 +104,4 @@ Il existe un grand nombre de possibilités en fonction des langues, des environn
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>Identification de votre scénario d’analyse avancée
 Une fois que vous avez répondu aux questions de la section précédente, vous êtes prêt à déterminer le scénario qui vous convient le mieux. Les exemples de scénarios sont présentés dans la rubrique [Scénarios d’analyses avancées dans Azure Machine Learning](plan-sample-scenarios.md).
-
 

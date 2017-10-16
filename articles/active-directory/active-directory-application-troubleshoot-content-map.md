@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: ced7e23dca2ea7a9222648a79c2d0afc7c15001d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>Résolution des problèmes liés à la gestion et au développement d’applications Azure Active Directory
 Cet article vous permet de trouver des documents utiles sur la résolution des problèmes courants liés à la gestion des **applications d’entreprise** et au développement de nouvelles applications avec le **Registre d’application**.

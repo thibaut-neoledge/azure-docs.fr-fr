@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 2a7229c9658cbbab676801f5c532a50bc0adedce
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/07/2017
-
-
+ms.openlocfilehash: 2f0bff394c1e11a270cb324be5a1a45e9e531d7f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Bibliothèque cliente de la base de données élastique avec Entity Framework
 Ce document présente les modifications d'une application Entity Framework requises pour l'intégration avec les [outils des bases de données élastiques](sql-database-elastic-scale-introduction.md). L’objectif est de composer une [gestion de carte de partitions](sql-database-elastic-scale-shard-map-management.md) et un [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) avec l’approche Entity Framework **Code First**. Le didacticiel [Code First pour une nouvelle base de données](http://msdn.microsoft.com/data/jj193542.aspx) pour EF nous sert d’exemple tout au long de ce document. L’exemple de code qui accompagne ce document fait partie de l’ensemble d’échantillons des outils de base de données élastique figurant parmi les exemples de code Visual Studio.
@@ -265,4 +263,3 @@ En suivant les procédures décrites dans ce document, les applications Entity F
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
-

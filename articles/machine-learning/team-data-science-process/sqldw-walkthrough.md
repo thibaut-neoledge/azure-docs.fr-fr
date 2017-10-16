@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;hangzh;weig
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9a913533074bfd9b077d66d133f0ad02319a53ad
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse
 Dans ce didacticiel, nous vous guidons dans la création et le déploiement d’un modèle d’apprentissage automatique utilisant SQL Data Warehouse (SQL DW) pour un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Le modèle de classification binaire établi prédit si un pourboire a été donné pour une course. Des modèles de classification multiclasse et de régression sont également présentés, qui prévoient la distribution des montants de pourboire réglés.
@@ -921,4 +920,3 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
 ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Fichiers multimédia hyperlapse avec Azure Media Hyperlapse
 Azure Media Hyperlapse est un processeur multimédia (MP) qui crée des vidéos exceptionnelles image par image accélérées (time-lapse) à partir d'un contenu de caméra à la première personne (first-person camera) ou d'action.  L'équivalent cloud du [bureau Microsoft Research Hyperlapse Pro et Hyperlapse Mobile pour les applications téléphoniques](http://aka.ms/hyperlapse), Microsoft Hyperlapse pour Azure Media Services, utilise la mise à l'échelle massive de traitement de supports multimédia Azure Media Services pour une évolutivité horizontale et une mise en parallèle du traitement en bloc d'Hyperlapse.

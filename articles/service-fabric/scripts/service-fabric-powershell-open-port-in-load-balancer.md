@@ -15,14 +15,12 @@ ms.topic: sample
 ms.date: 08/15/2017
 ms.author: ryanwi
 ms.custom: mvc
+ms.openlocfilehash: 76c1e44d7ad2325ce695dd134cf891727d385610
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 3adc7360b0b61ce69786a990c87f5a36f827ad2b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Ouvrir un port d’application dans l’équilibreur de charge Azure
 
 Une application Service Fabric s’exécutant dans Azure se trouve derrière l’équilibrage de charge Azure. Cet exemple de script ouvre un port dans un équilibreur de charge Azure pour qu’une application Service Fabric puisse communiquer avec des clients externes. Personnalisez les paramètres selon vos besoins. 
@@ -31,7 +29,7 @@ Si nécessaire, installez le module Service Fabric PowerShell avec le [Kit de d�
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/service-fabric/open-port-in-load-balancer/open-port-in-load-balancer.ps1 "Ouvrir un port dans l’équilibreur de charge")]
+[!code-powershell[main](../../../powershell_scripts/service-fabric/open-port-in-load-balancer/open-port-in-load-balancer.ps1 "Open a port in the load balancer")]
 
 ## <a name="script-explanation"></a>Explication du script
 
@@ -51,4 +49,3 @@ Ce script utilise les commandes suivantes. Chaque commande de la table renvoie �
 Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
 
 Vous trouverez des exemples supplémentaires de scripts PowerShell pour Azure Service Fabric sur la page [Exemples Azure PowerShell](../service-fabric-powershell-samples.md).
-

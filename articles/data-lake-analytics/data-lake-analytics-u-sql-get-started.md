@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
 ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-u-sql"></a>Bien démarrer avec U-SQL
 U-SQL est un langage qui combine le langage SQL déclaratif avec le langage C# impératif pour vous permettre de traiter des données quelle que soit l’échelle. La fonctionnalité évolutive de requête distribuée d’U-SQL vous permet d’analyser efficacement les données entre magasins relationnels comme Azure SQL Database. Avec U-SQL, vous pouvez traiter des données non structurées en appliquant des schémas de lecture et en insérant une logique personnalisée et des fonctions définies par l'utilisateur. En outre, U-SQL comprend l’extensibilité qui vous donne un contrôle précis sur l’exécution à l’échelle. 

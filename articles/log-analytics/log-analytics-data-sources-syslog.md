@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/12/2017
 ms.author: magoedte;bwren
 ms.openlocfilehash: 7513f405d5c7c05a8e6e2b7b0e6313f23a319c84
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Sources de données Syslog dans Log Analytics
 Syslog est un protocole de journalisation d’événements commun à Linux.  Les applications envoient les messages qui peuvent être stockés sur l’ordinateur local ou remis à un collecteur Syslog.  Lorsque l’agent OMS pour Linux est installé, il configure le démon Syslog local pour qu’il transfère des messages à l’agent.  L’agent envoie ensuite le message à Log Analytics où un enregistrement correspondant est créé dans le référentiel OMS.  

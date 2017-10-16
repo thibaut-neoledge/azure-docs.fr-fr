@@ -16,13 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: e2474b2f69ee0301ba00bd2a49afa90f83935cb6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: d1fdfc4f739e65ff532b159eefaffe1622ad0963
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Chiffrement intégral : protéger les données sensibles dans Base de données SQL et stocker vos clés de chiffrement dans le magasin de certificats Windows
 
@@ -109,7 +107,7 @@ Dans la page **Introduction**, cliquez sur **Suivant** pour ouvrir la page **Sé
 
 Chiffrez les informations **SSN** et **BirthDate** pour chaque patient. La colonne **SSN** utilise un chiffrement déterministe qui prend en charge les recherches d’égalité, les jointures et les regroupements. La colonne **BirthDate** utilise un chiffrement aléatoire, qui ne prend pas en charge ces opérations.
 
-Définissez le **Type de chiffrement** de la colonne **SSN** sur **Déterministe**, et celui de la colonne **BirthDate** sur **Lu aléatoirement**. Cliquez sur **Next**.
+Définissez le **Type de chiffrement** de la colonne **SSN** sur **Déterministe**, et celui de la colonne **BirthDate** sur **Lu aléatoirement**. Cliquez sur **Suivant**.
 
 ![Chiffrer les colonnes](./media/sql-database-always-encrypted/column-selection.png)
 
@@ -519,5 +517,4 @@ Après avoir créé une base de données utilisant le chiffrement intégral, vou
 * [Chiffrement SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Assistant Chiffrement intégral.](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Blog Chiffrement intégral.](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
 

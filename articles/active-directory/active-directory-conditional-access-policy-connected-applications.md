@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: a57edd30975ec0e943fd84b2c66137d328a89b8b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configurer les stratégies d’accès conditionnel basé sur les appareils dans Azure Active Directory
 
@@ -33,7 +32,7 @@ Cette rubrique fournit des informations sur la configuration des stratégies d�
 
 L’accès conditionnel basé sur les appareils fait le lien entre l’**accès conditionnel Azure AD** et la **gestion des appareils Azure AD**. Si l’un de ces aspects vous est inconnu, consultez d’abord les rubriques suivantes :
 
-- **[Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md)**  - Cette rubrique fournit une vue d’ensemble conceptuelle de l’accès conditionnel et explique la terminologie associée.
+- **[Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md)** - Cette rubrique fournit une vue d’ensemble conceptuelle de l’accès conditionnel et explique la terminologie associée.
 
 - **[Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md)** - Cette rubrique vous donne une vue d’ensemble des différentes options à votre disposition pour connecter des appareils avec Azure AD. 
 
@@ -77,5 +76,4 @@ Si vous avez une empreinte Active Directory (AD) locale, vous pouvez envisager d
 ## <a name="next-steps"></a>Étapes suivantes
 
 Avant de configurer une stratégie d’accès conditionnel basé sur les appareils dans votre environnement, consultez les [meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md).
-
 

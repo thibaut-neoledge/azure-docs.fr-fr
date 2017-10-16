@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: gokuma;weig;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9aafd6300bebbb5505aa4ed707cac9716c8e6aa1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Dix choses que vous pouvez effectuer sur la machine virtuelle pour la science des données
 
 La machine virtuelle pour la science des données (DSVM, « Data Science Virtual Machine ») Microsoft est un environnement puissant de développement de la science des données qui vous permet d'effectuer diverses tâches de modélisation et d'exploration des données. L’environnement est déjà généré et fourni avec plusieurs outils d’analyse de données courants qui facilitent la prise en main rapide de votre analyse pour les déploiements sur site, dans le cloud ou hybrides. La DSVM fonctionne en lien avec de nombreux services Azure et peut lire et traiter les données déjà stockées sur Azure, dans Azure SQL Data Warehouse, Azure Data Lake, Stockage Azure et Azure Cosmos DB. Elle peut également exploiter d’autres outils d’analyse tels qu’Azure Machine Learning et Azure Data Factory.
@@ -868,5 +866,4 @@ Vous pouvez tirer parti des autres services de données et d’analyse Azure pr�
 
 ## <a name="summary"></a>Résumé
 Ce sont quelques-unes des actions possibles sur la machine virtuelle pour la science des données Microsoft. Il existe bien d'autres actions que vous pouvez effectuer pour en faire un environnement d'analyse efficace.
-
 

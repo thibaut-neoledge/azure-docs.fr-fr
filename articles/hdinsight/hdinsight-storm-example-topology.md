@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/07/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 84cd9ff84eafae1498313008081f45c87a2eb817
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Exemples de topologies et de composants Storm pour Apache Storm sur HDInsight
 
@@ -61,5 +60,4 @@ Voici une liste d'exemples créés et gérés par Microsoft à utiliser avec Apa
 [d6c540e3]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/EventCountExample "Plusieurs topologies pour illustrer le débit lors de la lecture à partir d’Azure Event Hubs et du stockage dans SQL Database à l’aide d’Apache Storm sur HDInsight."
 [b4b68194]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample "Découvrez comment lire des données à partir d’Azure Event Hubs, les agréger et les transformer, puis les stocker dans HBase sur HDInsight."
 [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Ce projet contient des modèles de spouts, bolts et topologies permettant d’interagir avec divers services Azure tels que Event Hubs, Cosmos DB et SQL Database."
-
 

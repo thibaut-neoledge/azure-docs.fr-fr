@@ -1,6 +1,6 @@
 ---
-title: "Gestion des modèles Azure Machine Learning - Installation et configuration | Microsoft Docs"
-description: "Ce document décrit les concepts et les étapes impliqués dans l’installation et la configuration de la Gestion des modèles dans Azure Machine Learning."
+title: "Installation et configuration de la gestion des modèles Azure Machine Learning | Microsoft Docs"
+description: "Ce document décrit les procédures et les concepts relatifs à l’installation et à la configuration de la gestion des modèles dans Azure Machine Learning."
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
@@ -10,20 +10,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="model-management-setup"></a>Installation de la Gestion des modèles
+# <a name="model-management-setup"></a>Installation de la gestion des modèles
 
-Ce document montre comment utiliser la Gestion des modèles Azure ML pour déployer et gérer vos modèles d’apprentissage automatique en tant que services web. 
+Ce document montre comment utiliser la gestion des modèles Azure ML pour déployer et gérer vos modèles d’apprentissage automatique en tant que services web. 
 
 Avec la Gestion des modèles Azure ML, vous pouvez déployer et gérer efficacement des modèles d’apprentissage automatique générés avec différents frameworks, notamment SparkML, Keras, TensorFlow, Microsoft Cognitive Toolkit ou Python. 
 
-À la fin de ce document, votre environnement de Gestion des modèles devrait être configuré et prêt pour le déploiement de vos modèles d’apprentissage automatique.
+À la fin de ce document, votre environnement de gestion des modèles doit être configuré et prêt pour le déploiement de vos modèles d’apprentissage automatique.
 
 ## <a name="what-you-need-to-get-started"></a>Ce dont vous avez besoin pour commencer
 Pour tirer le meilleur parti de ce guide, vous devez avoir un accès propriétaire à un abonnement Azure sur lequel vous pouvez déployer vos modèles.
@@ -76,16 +75,16 @@ Pour configurer Docker sur Linux pour une utilisation par des utilisateurs non r
 ## <a name="deploying-your-model"></a>Déploiement de votre modèle
 Utilisez l’interface CLI pour déployer des modèles en tant que services web. Les services web peuvent être déployés localement ou sur un cluster.
 
-Commencez avec un déploiement local, vérifiez que votre modèle et le code fonctionnent, puis déployez sur un cluster pour une utilisation en production.
+Partez d’un déploiement local, vérifiez que votre modèle et votre code fonctionnent, puis déployez-le sur un cluster pour une utilisation en production.
 
-Pour commencer, vous devez configurer votre environnement de déploiement. La configuration de l’environnement est une tâche qui ne doit être effectuée qu’une seule fois. Une fois la configuration terminée, vous pouvez réutiliser l’environnement pour les déploiements ultérieurs. Pour plus d’informations, consultez la section suivante.
+Dans un premier temps, vous devez configurer votre environnement de déploiement. La configuration de l’environnement est une tâche qui ne doit être effectuée qu’une seule fois. Une fois la configuration terminée, vous pouvez réutiliser l’environnement pour les déploiements ultérieurs. Pour plus d’informations, consultez la section suivante.
 
-Lors de la configuration de l’environnement :
+Pendant la configuration de l’environnement :
 - Vous êtes invité à vous connecter à Azure. Pour vous connecter, ouvrez la page https://aka.ms/devicelogin dans un navigateur web et entrez le code fourni pour vous authentifier.
-- Pendant le processus d’authentification, vous êtes invité à spécifier un compte avec lequel vous authentifier. Important : Sélectionnez un compte qui dispose d’un abonnement Azure valide et des autorisations suffisantes pour créer des ressources dans le compte. Une fois la connexion établie, vos informations d’abonnement sont présentées et vous êtes invité à confirmer si vous souhaitez continuer avec le compte sélectionné.
+- Pendant le processus d’authentification, vous êtes invité à spécifier le compte avec lequel vous authentifier. Important : choisissez un compte qui est associé à un abonnement Azure valide et qui dispose d’autorisations suffisantes pour créer des ressources dans le compte. Une fois la connexion établie, vos informations d’abonnement sont présentées et vous êtes invité à confirmer si vous souhaitez continuer avec le compte sélectionné.
 
 ### <a name="environment-setup"></a>Configuration de l’environnement
-Pour démarrer le processus de configuration, vous devez inscrire le fournisseur d’environnement en entrant la commande suivante :
+Pour lancer le processus de configuration, vous devez inscrire le fournisseur d’environnement en entrant la commande suivante :
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
@@ -113,9 +112,9 @@ az ml env set -n [environment name] -g [resource group]
 ```
 
 #### <a name="cluster-deployment"></a>Déploiement de cluster
-Utilisez le déploiement de cluster pour les scénarios de production à grande échelle. Cela définit un cluster ACS (Azure Container Service) avec Kubernetes en tant qu’orchestrateur. Vous pouvez effectuer une montée en puissance du cluster ACS afin de gérer un débit supérieur pour vos appels de service web.
+Utilisez le déploiement de cluster pour des scénarios de production à grande échelle. Un cluster ACS est alors défini avec Kubernetes en tant qu’orchestrateur. Vous pouvez effectuer une montée en puissance du cluster ACS afin de gérer un débit supérieur pour vos appels de service web.
 
-Pour déployer votre service web sur un environnement de production, configurez tout d’abord l’environnement à l’aide de la commande suivante :
+Pour déployer votre service web dans un environnement de production, commencez par configurer l’environnement à l’aide de la commande suivante :
 
 ```azurecli
 az ml env setup --cluster -n [your environment name] -l [Azure region e.g. eastus2] [-g [resource group]]
@@ -124,7 +123,7 @@ az ml env setup --cluster -n [your environment name] -l [Azure region e.g. eastu
 La commande de configuration d’environnement de cluster crée les ressources suivantes dans votre abonnement :
 - Un groupe de ressource (si vous n’en spécifiez aucun ou si le nom fourni n’existe pas)
 - Un compte de stockage
-- Un Azure Container Registry
+- Un ACR (Azure Container Registry)
 - Un déploiement Kubernetes sur un cluster ACS
 - Un compte Application Insights
 
@@ -146,7 +145,7 @@ az ml env set -n [environment name] -g [resource group]
 ```
 
 >[!NOTE] 
-> Une fois l’environnement créé, pour les déploiements suivants il suffit d’exécuter la commande set ci-dessus pour le réutiliser.
+> Une fois l’environnement créé, pour les déploiements suivants, il suffit d’exécuter la commande set ci-dessus pour le réutiliser.
 >
 
 ### <a name="create-a-model-management-account"></a>Créer un compte de Gestion des modèles
@@ -172,4 +171,3 @@ az ml service create realtime --model-file [model file/folder path] -f [scoring 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez l’un des nombreux exemples de la galerie.
-

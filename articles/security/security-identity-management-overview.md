@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/09/2017
 ms.author: terrylan
 ms.openlocfilehash: 8d00882caf5411240c5f0a3533c78c3dbe361ef2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-identity-management-security-overview"></a>Vue d’ensemble de la sécurité et de la gestion des identités Azure
 Les solutions de gestion des identités et accès de Microsoft aident les services informatiques à protéger l’accès aux applications et ressources dans le centre de données d’entreprise comme dans le cloud, en activant des niveaux supplémentaires de validation telles que l’authentification multifacteur et les stratégies d’accès conditionnel. En surveillant les activités suspectes via les fonctions avancées de reporting, d’audit et d’alertes de sécurité, vous êtes en mesure de limiter les problèmes de sécurité potentiels. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) fournit une authentification unique à des milliers d’applications cloud (SaaS) et assure un accès aux applications web que vous exécutez en local.

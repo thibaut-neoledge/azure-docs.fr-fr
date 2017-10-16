@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 ms.openlocfilehash: 9964c3dff24ef8a3a6047fe18c0f36c12c1de33d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview"></a>Configurer des clusters HDInsight joints à un domaine (version préliminaire)
 
@@ -302,8 +302,8 @@ Pour créer le cluster HDInsight joint au domaine, vous pouvez également utili
    * **Cluster Worker Node count (Nombre de nœuds de travail du cluster)** : sélectionnez le nombre de nœuds de travail.
    * **Nom d’utilisateur et mot de passe de cluster** : le nom de connexion par défaut est **admin**.
    * **Nom d’utilisateur SSH et mot de passe** : le nom d’utilisateur par défaut est **sshuser**.  Vous pouvez le renommer. 
-   * **ID réseau virtuel** : /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>
-   * **Sous-réseau du réseau virtuel** : /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>/subnets/Subnet1
+   * **ID réseau virtuel** : /subscriptions/&lt;SubscriptionID&gt;/resourceGroups/&lt;ResourceGroupName&gt;/providers/Microsoft.Network/virtualNetworks/&lt;VNetName&gt;
+   * **Sous-réseau du réseau virtuel** : /subscriptions/&lt;SubscriptionID&gt;/resourceGroups/&lt;ResourceGroupName&gt;/providers/Microsoft.Network/virtualNetworks/&lt;VNetName&gt;/subnets/Subnet1
    * **Nom de domaine** : contoso.onmicrosoft.com
    * **Organization Unit DN (Nom de domaine de l’unité d’organisation)** : UO = HDInsightOU,CD = contoso, CD = onmicrosoft, CD = com
    * **Nom de domaine du groupe d’utilisateurs du cluster** : [\"HiveUsers\"]

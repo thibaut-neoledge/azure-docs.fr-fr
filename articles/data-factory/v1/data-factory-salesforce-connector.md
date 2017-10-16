@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d0b597cb734518ed8cc55d52e33f6f88917ec09d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Déplacer des données depuis Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 (disponibilité générale)](data-factory-salesforce-connector.md)
-> * [Version 2 (aperçu)](../connector-salesforce.md)
+> * [Version 1 - Disponibilité générale](data-factory-salesforce-connector.md)
+> * [Version 2 - Préversion](../connector-salesforce.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de la fabrique de données, mise à la disposition générale (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif au [connecteur Salesforce dans V2](../connector-salesforce.md).
@@ -315,4 +314,3 @@ Pour obtenir la liste des propriétés prises en charge par RelationalSource, vo
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
-

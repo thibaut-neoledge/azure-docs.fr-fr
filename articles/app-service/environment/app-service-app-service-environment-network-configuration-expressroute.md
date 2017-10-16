@@ -1,5 +1,5 @@
 ---
-title: "Détails de la configuration réseau pour utiliser ExpressRoute"
+title: "Détails de la configuration réseau pour travailler avec ExpressRoute"
 description: "Détails de la configuration réseau pour exécuter des environnements App Service sur des réseaux virtuels connectés à un circuit ExpressRoute."
 services: app-service
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: bb3e283e8a9327a9c66c8d8ded037cee5195ffc6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>Détails de la configuration réseau pour les environnements App Service avec ExpressRoute
 ## <a name="overview"></a>Vue d'ensemble
@@ -32,7 +31,7 @@ Un environnement App Service peut être créé **soit** dans un réseau virtuel 
 ## <a name="required-network-connectivity"></a>Connectivité réseau requise
 Il existe des exigences de connectivité réseau pour les environnements App Service qui peuvent ne pas être initialement satisfaites dans un réseau virtuel connecté à ExpressRoute.  Les environnements App Service requièrent tous les éléments suivants pour fonctionner correctement :
 
-* Connectivité réseau sortante à des points de terminaison Stockage Azure dans le monde entier sur les ports 80 et 443.  Cela inclut les points de terminaison situés dans la même région que l’environnement App Service, ainsi que les points de terminaison de stockage situés dans d’ **autres** régions Azure.  Les points de terminaison de Stockage Azure se résolvent dans les domaines DNS suivants : *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* et *file.core.windows.net*.  
+* Connectivité réseau sortante à des points de terminaison Azure Storage dans le monde entier sur les ports 80 et 443.  Cela inclut les points de terminaison situés dans la même région que l’environnement App Service, ainsi que les points de terminaison de stockage situés dans d’ **autres** régions Azure.  Les points de terminaison Azure Storage se résolvent dans les domaines DNS suivants : *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* et *file.core.windows.net*.  
 * Connectivité réseau sortante au service de fichiers Azure sur le port 445.
 * Connectivité réseau sortante à des points de terminaison BD SQL situés dans la même région que l'environnement App Service.  Les points de terminaison de base de données SQL se résolvent dans le domaine suivant : *database.windows.net*.  Cela suppose d’ouvrir l’accès aux ports 1433, 11000-11999 et 14000-14999.  Pour plus d’informations, consultez [cet article portant sur l’utilisation du port V12 de la base de données SQL](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
 * Connectivité réseau sortante vers des points de terminaison du plan gestion Azure (points de terminaison ASM et ARM).  Cela inclut la connexion sortante à *management.core.windows.net* et *management.azure.com*. 
@@ -73,7 +72,7 @@ Vous trouverez des informations générales sur les itinéraires définis par l'
 Pour plus d’informations sur la création et la configuration d’itinéraires définis par l’utilisateur, consultez ce [Guide pratique][UDRHowTo].
 
 ## <a name="example-udr-configuration-for-an-app-service-environment"></a>Exemple de configuration d'itinéraire défini par l'utilisateur pour un environnement App Service
-**Prérequis**
+**Conditions préalables**
 
 1. Installez Azure Powershell à partir de la [page Téléchargements Azure][AzureDownloads] (datant de juin 2015 ou plus récent).  Sous « Outils de ligne de commande », un lien « Installer » sous « Windows Powershell » permet d'installer les dernières applets de commande Powershell.
 2. Nous vous recommandons de créer un sous-réseau unique pour un usage exclusif par un environnement App Service.  Ceci garantit que les itinéraires définis par l'utilisateur appliqués au sous-réseau ouvriront uniquement le trafic sortant pour l'environnement App Service.
@@ -136,4 +135,3 @@ Pour bien démarrer avec les environnements App Service, consultez [Présentatio
 
 
 <!-- IMAGES -->
-

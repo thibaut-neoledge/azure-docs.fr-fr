@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 4a394ead09794c52e92dbd2db8be8166d1fab83b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>Solution de gestion des alertes dans Operations Management Suite (OMS)
 
@@ -136,4 +135,3 @@ Le tableau suivant fournit des exemples de recherches dans les journaux pour les
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez [Alertes dans Log Analytics](log-analytics-alerts.md) pour obtenir des informations sur la génération d’alertes à partir de Log Analytics.
-

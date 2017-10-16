@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 1d133430e0dcdcd0c24b44a2a7c452fbf16ecf29
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Considérations relatives à la conception d'identités hybrides Azure Active Directory - Suite
 Maintenant que vous avez défini vos exigences et examiné toutes les options pour votre solution de gestion des périphériques mobiles, vous êtes prêt à passer aux étapes suivantes et à déployer l'infrastructure sous-jacente qui vous est adaptée ainsi qu'à votre organisation.

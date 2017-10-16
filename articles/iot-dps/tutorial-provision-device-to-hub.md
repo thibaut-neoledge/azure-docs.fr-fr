@@ -12,24 +12,22 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: bf50699d2dc67294d554ba15713254a8b88d8ade
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Approvisionner l’appareil sur un hub IoT avec le service IoT Hub Device Provisioning
 
-Dans le didacticiel précédent, vous avez appris à configurer un appareil pour vous connecter à votre service Device Provisioning. Dans ce didacticiel, vous allez apprendre à utiliser ce service pour approvisionner votre appareil sur un seul hub IoT à l’aide de **_listes d’inscriptions_**. Ce didacticiel vous explique comment :
+Dans le didacticiel précédent, vous avez appris à configurer un appareil pour vous connecter à votre service Device Provisioning. Dans ce didacticiel, vous allez apprendre à utiliser ce service pour approvisionner votre appareil sur un seul hub IoT à l’aide de **_listes d’inscriptions_**. Ce didacticiel vous explique les procédures suivantes :
 
 > [!div class="checklist"]
 > * Inscrire l’appareil
 > * Démarrer l’appareil
 > * Vérifier que l’appareil est enregistré
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Avant de continuer, assurez-vous de configurer votre appareil et son *module de sécurité matériel* comme indiqué dans le didacticiel [Configurer un appareil à approvisionner à l’aide du service IoT Hub Device Provisioning](./tutorial-set-up-device.md).
 
@@ -57,7 +55,7 @@ Il existe deux façons d’inscrire l’appareil auprès du service Device Provi
 
     ![Groupes d’inscriptions pour X.509 dans le portail](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
 
-- **Inscription individuelle** : représente une entrée d’un seul appareil pouvant être enregistré auprès du service Device Provisioning. Les inscriptions individuelles peuvent utiliser des certificats x509 ou des jetons SAP (dans un module TPM réel ou virtuel) comme mécanismes d’attestation. Nous recommandons d’utiliser des inscriptions individuelles pour les appareils qui nécessitent une configuration initiale unique ou pour les appareils qui peuvent seulement utiliser des jetons SAP par le biais du module TPM ou du module TPM virtuel comme mécanisme d’attestation. Dans le cas des inscriptions individuelles, vous pouvez spécifier l’ID d’appareil de hub IoT de votre choix.
+- **Inscription individuelle** : représente une entrée d’un seul appareil pouvant être enregistré auprès du service Device Provisioning. Les inscriptions individuelles peuvent utiliser des certificats x509 ou des jetons SAP (dans un module TPM réel ou virtuel) comme mécanismes d’attestation. Nous recommandons d’utiliser les inscriptions individuelles pour les appareils qui nécessitent une configuration initiale unique, ou pour les appareils ne pouvant utiliser que des jetons SAP par le biais du module de plateforme sécurisée (TPM) ou du TPM virtuel comme mécanisme d’attestation. Dans le cas des inscriptions individuelles, vous pouvez spécifier l’ID d’appareil de hub IoT de votre choix.
 
 Voici les étapes à suivre pour inscrire l’appareil dans le portail :
 
@@ -106,4 +104,3 @@ Passez au didacticiel suivant pour apprendre à approvisionner plusieurs apparei
 
 > [!div class="nextstepaction"]
 > [Approvisionner des appareils sur des hubs IoT à charge équilibrée](./tutorial-provision-multiple-hubs.md)
-

@@ -8,14 +8,12 @@ ms.author: darosa
 ms.date: 08/15/2017
 ms.topic: hero-article
 ms.service: event-grid
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: cd285471196f75f6a8c8ead0e2895fd71414f223
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-route-custom-events-with-azure-event-grid"></a>Créer et acheminer des événements personnalisés avec Azure Event Grid
 
 Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez Azure CLI pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui répond à l’événement, comme un webhook ou une fonction Azure. Toutefois, pour simplifier cet article, vous envoyez les événements à une URL qui collecte seulement les messages. Vous créez cette URL à l’aide d’un outil tiers en open-source nommé [RequestBin](https://requestb.in/).
@@ -122,4 +120,3 @@ Maintenant que vous savez créer des rubriques et des abonnements d’événemen
 - [Acheminer des événements de stockage Blob vers un point de terminaison Web personnalisé (version préliminaire)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [Diffuser en continu des Big Data dans un entrepôt de données](event-grid-event-hubs-integration.md)
-

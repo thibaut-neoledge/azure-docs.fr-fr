@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: casoper
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: c92f1e20acf55b8bd791fad43f17e162a5cb3847
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-or-disable-https-on-an-azure-content-delivery-network-custom-domain"></a>Activer ou désactiver HTTPS sur un domaine personnalisé Microsoft Azure CDN (Content Delivery Network)
 
@@ -184,6 +183,5 @@ Le tableau suivant présente le déroulement de l’opération qui s’exécute 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment configurer un [domaine personnalisé sur votre point de terminaison Azure CDN](./cdn-map-content-to-custom-domain.md)
-
 
 

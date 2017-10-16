@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Copier des exemples d’expérience pour créer des expériences d’apprentissage automatique
 Découvrez comment démarrer avec des exemples d’expérience de la [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) au lieu de créer des expériences d’apprentissage automatique de toutes pièces. Vous pouvez utiliser les exemples pour créer votre propre solution d’apprentissage automatique.
@@ -69,4 +68,3 @@ Une expérience est créée dans votre espace de travail Machine Learning Studio
 * [Importer des données à partir de diverses sources](import-data.md)
 * [Didacticiel de démarrage rapide sur le langage R pour Machine Learning](r-quickstart.md)
 * [Déploiement d’un service web Machine Learning](publish-a-machine-learning-web-service.md)
-

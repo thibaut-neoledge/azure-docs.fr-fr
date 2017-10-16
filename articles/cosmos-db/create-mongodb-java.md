@@ -15,12 +15,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 1683afd842294b3b45ae4d0e53bbecdccadc1ed5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 81bf338d3be18905fd04e07a53284432b5feb491
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application console API MongoDB avec Java et le Portail Azure
 
@@ -128,6 +127,5 @@ Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure 
 
 > [!div class="nextstepaction"]
 > [Importer des données MongoDB dans Azure Cosmos DB](mongodb-migrate.md)
-
 
 

@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 8790bacecac0fa824189b5c212c2d803092ff4ed
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/30/2017
-
-
+ms.openlocfilehash: a41393730143b14e91318a61858d989fff3786c1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualiser des données avec Power BI
 > [!div class="op_single_selector"]
@@ -39,7 +37,7 @@ Ce didacticiel vous montre comment utiliser Power BI pour vous connecter SQL Dat
 > 
 > 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Configuration requise
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un SQL Data Warehouse préchargé avec la base de données AdventureWorksDW. Pour le configurer, consultez [Créer un Azure SQL Data Warehouse][Create a SQL Data Warehouse] et chargez les données d’exemple. Si vous disposez déjà d’un entrepôt de données, mais sans disposer d’exemples de données, vous pouvez [charger manuellement des exemples de données][load sample data manually].
@@ -119,4 +117,3 @@ Une fois que vous êtes familiarisé avec les exemples de données, vous pouvez 
 <!--Other-->
 [Azure portal]: https://portal.azure.com/
 [Power BI website]: http://www.powerbi.com/
-

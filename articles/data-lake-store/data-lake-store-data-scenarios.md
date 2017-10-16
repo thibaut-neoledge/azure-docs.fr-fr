@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5c3e4a4d98922533bcf901108d58329cb951b01c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Utilisation d’Azure Data Lake Store pour les données volumineuses
 Il existe quatre étapes principales dans traitement des données Big Data :
@@ -133,4 +132,3 @@ Vous pouvez utiliser une combinaison de services pour créer des représentation
 
 * Vous pouvez commencer par utiliser [Azure Data Factory pour déplacer les données de Data Lake Store vers Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
 * Ensuite, vous pouvez [intégrer Power BI à Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) pour créer une représentation visuelle des données.
-

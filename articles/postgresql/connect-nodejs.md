@@ -11,14 +11,12 @@ ms.custom: mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2017
+ms.openlocfilehash: e115a9a5f925dc038aca4e403d678cce06262ab0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: f6c98833c73b70bcf1f8ca53596a34f09807b276
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation de Node.js pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant [Node.js](https://nodejs.org/). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement via Node.js, et que vous ne savez pas utiliser la base de données Azure pour PostgreSQL.
 
@@ -254,4 +252,3 @@ function queryDatabase() {
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Migration de votre base de données PostgreSQL par exportation et importation](./howto-migrate-using-export-and-import.md)
-

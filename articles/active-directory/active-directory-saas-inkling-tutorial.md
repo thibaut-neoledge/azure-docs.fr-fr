@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a2beec313c0dfcd9cf7f7c1ad716223dcaf453b7
 ms.openlocfilehash: 7b0639c6515298731f88346c2e4ca82664653a2b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Didacticiel : Intégration d’Azure Active Directory avec Inkling
 

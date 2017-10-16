@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -1017,4 +1016,3 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
 -   [Stratégies dans Gestion des API](api-management-howto-policies.md) 
 -   [Expressions de stratégie](api-management-policy-expressions.md)
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 39a82e581d9b1eee19b5be9a5aa8a425c150dcdb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>Didacticiel : Intégration d’Azure Active Directory à Soonr Workplace
 
@@ -32,7 +31,7 @@ L’intégration de Soonr Workplace à Azure AD vous offre les avantages suivant
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour configurer l’intégration d’Azure AD à Soonr Workplace, vous avez besoin des éléments suivants :
 
@@ -91,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Soonr Workp
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Soonr Workplace](#creating-a-soonr-workplace-test-user)** : pour avoir un équivalent de Britta Simon dans Soonr Workplace qui soit associé à la représentation de l’utilisateur Azure AD.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -130,7 +129,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_certificate.png) 
 
-6. Cliquez sur le bouton **Enregistrer**.
+6. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l’authentification unique](./media/active-directory-saas-soonr-tutorial/tutorial_general_400.png)
 
@@ -186,13 +185,13 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Soonr Workplace.
 
-![Affecter l’utilisateur][200] 
+![Affecter des utilisateurs][200] 
 
 **Pour affecter Britta Simon à Soonr Workplace, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
-    ![Affecter l’utilisateur][201] 
+    ![Affecter des utilisateurs][201] 
 
 2. Dans la liste des applications, sélectionnez **Soonr Workplace**.
 
@@ -200,11 +199,11 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-    ![Affecter l’utilisateur][202] 
+    ![Affecter des utilisateurs][202] 
 
 4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
-    ![Affecter l’utilisateur][203]
+    ![Affecter des utilisateurs][203]
 
 5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
@@ -238,5 +237,4 @@ Quand vous cliquez sur la vignette Soonr Workplace dans le volet d’accès, vou
 [201]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_203.png
-
 

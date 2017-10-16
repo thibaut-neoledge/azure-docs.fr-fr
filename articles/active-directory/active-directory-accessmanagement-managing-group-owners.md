@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/12/2017
 ms.author: curtand
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e1b88f7d43ba29589e5f1f4a8036c716ae984ae4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-owners-for-a-group"></a>Gestion des propriétaires d’un groupe
 Une fois que le propriétaire d'une ressource a attribué l'accès à une ressource à un groupe Azure AD, l'appartenance au groupe est gérée par le propriétaire du groupe. Le propriétaire de la ressource délègue effectivement au propriétaire du groupe l’autorisation d’affecter des utilisateurs aux ressources.
@@ -47,4 +46,3 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
-

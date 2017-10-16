@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 8c013937f7d3d90ed687b5ca9585f0af450774db
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Traiter et analyser des documents JSON avec Apache Hive dans Azure HDInsight
 
@@ -86,7 +85,7 @@ Pour les méthodes listées dans la section suivante, le document JSON doit se c
 
 Le fichier JSON brut se trouve à l’emplacement suivant : **wasb://processjson@hditutorialdata.blob.core.windows.net/**. La table Hive **StudentsRaw** pointe vers le document JSON brut qui n’est pas aplati.
 
-La table Hive **StudentsOneLine** stocke les données dans le système de fichiers HDInsight par défaut sous le chemin **/json/students/**.
+La table Hive **StudentsOneLine** stocke les données dans le système de fichiers HDInsight par défaut sous le chemin d’accès **/json/students/**.
 
 L’instruction **INSERT** remplit la table **StudentOneLine** avec les données JSON aplaties.
 
@@ -126,7 +125,7 @@ La fonction UDF get_json_object présente des limitations :
 C’est pourquoi le wiki Hive vous recommande d’utiliser json_tuple.  
 
 ### <a name="use-the-jsontuple-udf"></a>Utiliser la fonction UDF json_tuple
-L’autre fonction UDF fournie par Hive, [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), est plus performante que [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Cette méthode, qui accepte un ensemble de clés et une chaîne JSON, retourne un tuple de valeurs en utilisant une seule fonction. La requête suivante retourne l’ID et la classe de l’étudiant du document JSON :
+L’autre fonction UDF fournie par Hive, intitulée [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), est plus performante que [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Cette méthode, qui accepte un ensemble de clés et une chaîne JSON, retourne un tuple de valeurs en utilisant une seule fonction. La requête suivante retourne l’ID et la classe de l’étudiant du document JSON :
 
     SELECT q1.StudentId, q1.Grade
       FROM StudentsOneLine jt
@@ -149,8 +148,8 @@ En conclusion, le type d'opérateur JSON que vous choisissez dans Hive dépend d
 
 Articles associés :
 
-* [Utiliser Hive et HiveQL avec Hadoop dans HDInsight pour analyser un exemple de fichier Apache log4j](hdinsight-use-hive.md)
-* [Analyser des données sur les retards de vol avec Hive dans HDInsight](hdinsight-analyze-flight-delay-data.md)
+* [Utilisation de Hive et HiveQL avec Hadoop dans HDInsight pour l’analyse d’un exemple de fichier Apache log4j](hdinsight-use-hive.md)
+* [Analyse des données sur les retards de vol avec Hive dans HDInsight](hdinsight-analyze-flight-delay-data.md)
 * [Analyser des données Twitter avec Hive dans HDInsight](hdinsight-analyze-twitter-data.md)
 * [Exécuter une tâche Hadoop avec Azure Cosmos DB et HDInsight](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
 
@@ -167,5 +166,4 @@ Articles associés :
 [image-hdi-hivejson-serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
 [image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
-
 

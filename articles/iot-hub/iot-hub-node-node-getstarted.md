@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: f3398e38cf7d3d28d9ca4edef5a9bca96aeaf2ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: ffc6cfaadae07cb019bc64954343dab21ed23638
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Connexion du périphérique simulé à votre hub IoT à l’aide du nœud
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 08/31/2017
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Node.js version 0.10.x ou ultérieure.
+* Node.js version 4.0.x ou version ultérieure.
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -103,7 +102,7 @@ Dans cette section, vous créez une application console Node.js qui crée une id
 
    [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
-7. Enregistrez et fermez le fichier **CreateDeviceIdentity.js**.
+7. Enregistrez et fermez le fichier **CreateDeviceIdentity.js** .
 
 8. Pour exécuter l’application `createdeviceidentity`, exécutez la commande suivante à l’aide de l’invite de commandes dans le dossier `createdeviceidentity` :
 
@@ -325,4 +324,3 @@ Pour découvrir comment étendre votre solution IoT et traiter les messages appa
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-

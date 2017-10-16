@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
-ms.openlocfilehash: 594760d5c52ac3724a0b8dd882e76ca3302ee8ba
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: 17158c4960e9ba9251524659c90af9aec1316774
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Prise en main des requêtes de bases de données croisées (partitionnement vertical) (version préliminaire)
 Les requêtes de bases de données élastiques (en version préliminaire) pour base de données SQL Azure vous permettent d’exécuter des requêtes T-SQL qui s’étendent sur plusieurs bases de données via un seul point de connexion. Cette rubrique s'applique aux [bases de données partitionnées verticalement](sql-database-elastic-query-vertical-partitioning.md).  

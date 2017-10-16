@@ -14,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3e2ad6b466ba4885ae14576b83d4c0f3010bab67
 ms.openlocfilehash: 9782454e3bfc697b63cde8aa28a14be0c393c36b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 3
 Si vous utilisez la version préliminaire 2.0 ou une version antérieure du [Kit de développement logiciel (SDK) .NET Azure Search](https://aka.ms/search-sdk), cet article vous aidera à mettre à niveau votre application pour utiliser la version 3.
@@ -483,5 +482,4 @@ Il ne s’agit pas d’une préoccupation hypothétique : imaginez un scénario 
 Pour cette raison, nous vous recommandons d’utiliser des types pour lesquels la valeur null est autorisée en tant que meilleure pratique.
 
 Pour plus d’informations sur ce bogue et le correctif, consultez [ce problème sur GitHub](https://github.com/Azure/azure-sdk-for-net/issues/1063).
-
 

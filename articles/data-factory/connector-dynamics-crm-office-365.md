@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 74a4fca2ff5a0f913b5cb195f42482339e6200cb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-dynamics-365dynamics-crm-using-azure-data-factory"></a>Copier des données de Dynamics 365/Dynamics CRM à l’aide d’Azure Data Factory
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de Dynamics 365/Dynamics CRM. Il s’appuie sur l’article [présentant une vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de Dynamics 365/Dynamics CRM. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 

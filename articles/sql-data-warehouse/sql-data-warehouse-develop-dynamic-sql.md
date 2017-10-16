@@ -16,10 +16,10 @@ ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: 29228676373aee8dbc7b1b2a7d92ffc978333804
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>Code SQL dynamique dans SQL Data Warehouse
 Quand vous développez le code d’une application pour SQL Data Warehouse, vous pouvez avoir besoin d’utiliser un code SQL dynamique de façon à offrir des solutions flexibles, génériques et modulaires. SQL Data Warehouse ne prend pas en charge les données de type objet blob pour l’instant. Cette restriction peut limiter la taille de vos chaînes, car les types d’objet blob comprennent les types varchar(max) et nvarchar(max). Si vous avez utilisé ces types dans votre code d’application pendant la création de chaînes de très grande taille, vous devez segmenter le code et utiliser plutôt l’instruction EXEC.

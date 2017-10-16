@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
+ms.openlocfilehash: ba0cd9c8aaa797e850827484c76103d1b829d6b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 49ec20802a252258d8493eb26510270b925e851a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Gérer les captures de paquets avec Azure Network Watcher à l’aide de l’API REST Azure
 
 > [!div class="op_single_selector"]
@@ -305,7 +303,6 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 Pour obtenir des instructions de téléchargement des fichiers à partir des comptes de stockage Azure, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). L’explorateur de stockage peut aussi être utilisé. Pour en savoir plus sur l’explorateur de stockage, cliquez sur le lien suivant : [Microsoft Azure Storage Explorer](http://storageexplorer.com/) (Explorateur de stockage Microsoft Azure).
 
 Découvrez comment automatiser les captures de paquets avec des alertes de machine virtuelle en consultant [Use packet capture to do proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md) (Utiliser la capture de paquets pour surveiller un réseau de manière proactive avec Azure Functions).
-
 
 
 

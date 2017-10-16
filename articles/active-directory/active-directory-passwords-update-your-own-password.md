@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6ee3d1319e7727b1134472a1b62a3de7a3571997
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 1a5e97e2a6aca440c9643569014ffce41a614324
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="help-i-forgot-my-azure-ad-password"></a>J’ai oublié mon mot de passe Azure AD
 
@@ -117,4 +116,3 @@ Utilisez cette méthode si vous accédez généralement à vos applications à p
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Vérifier vos données d’authentification"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Modifier votre mot de passe"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Votre mot de passe a été réinitialisé"
-

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cfowler
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 75f2dcb80514105ed663ba1fe5f7adccc05af1fc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
 Le contenu des applications web Azure est stocké sur Azure Storage et est exposé de manière durable en tant que partage de contenu. Destinée à fonctionner avec de nombreuses applications, cette conception présente les caractéristiques suivantes :  
@@ -115,4 +114,3 @@ En effet, le cache local contribue à limiter les redémarrages d’application 
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>Le cache local exclut-il des répertoires de la copie vers le disque local plus rapide ?
 Durant l’étape de copie du contenu du stockage, tous les dossiers étant des référentiels nommés sont exclus. Cela est utile pour les scénarios où le contenu de votre site peut contenir un dépôt de contrôle de code source qui n’est pas nécessaire dans une utilisation quotidienne de l’application web. 
-

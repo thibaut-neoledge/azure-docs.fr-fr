@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-an-azure-subscription-or-management-group"></a>Rechercher un abonnement ou un groupe d’administration Azure
 
 Si vous éprouvez des difficultés à trouver un abonnement ou un groupe d’administration dans Azure, il se peut que vous ne recherchiez pas dans le bon répertoire. Cette situation peut se produire lorsque votre compte existe dans plusieurs répertoires Azure Active Directory. Chaque [Active Directory est indépendant](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence) et l’accès n’est pas hérité entre les répertoires.      
@@ -55,7 +53,6 @@ Vous pouvez déplacer un abonnement vers le répertoire associé à vos groupes 
 
 
  
-
 
 
 

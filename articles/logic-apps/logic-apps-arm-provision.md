@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; mandia
 ms.openlocfilehash: 161adeacd6da2b15225c8a4ddae171e19e539967
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-logic-app-using-a-template"></a>Créer une application logique à l'aide d'un modèle
 Les modèles constituent un moyen rapide d’utiliser des connecteurs différents au sein d’une application logique. Les applications logiques comportent des modèles Azure Resource Manager qui vous permettent de créer une application logique à mettre à profit pour la définition de workflows professionnels. Vous pouvez définir les ressources à déployer et la méthode de définition des paramètres lors du déploiement de votre application logique. Vous pouvez utiliser ce modèle pour vos propres scénarios professionnels, ou le personnaliser selon vos besoins.

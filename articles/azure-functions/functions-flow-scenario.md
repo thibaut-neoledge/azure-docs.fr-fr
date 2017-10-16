@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 09/20/2017
 ms.author: mblythe
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-a-function-from-microsoft-flow"></a>Appeler une fonction à partir de Microsoft Flow
 
 [Microsoft Flow](https://flow.microsoft.com/) facilite l’automatisation des workflows et des processus métier entre vos services et applications préférés. Les développeurs professionnels peuvent utiliser Azure Functions pour étendre les fonctionnalités de Microsoft Flow, tout en évitant les détails techniques liés à la création de flux.
@@ -41,7 +39,7 @@ Dans cette rubrique, vous allez apprendre à :
 > * Créer un flux pour envoyer un e-mail si une réparation est rentable
 > * Exécuter le flux
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 + Un [compte Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) actif avec les mêmes informations d’identification que votre compte Azure. 
 + SharePoint, que vous utilisez comme source de données pour ce flux. Inscrivez-vous à un [essai gratuit d’Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) si vous n’avez pas encore SharePoint.

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 192680efe07368666c5a9d037549c7686189d0b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6c80c6814dacf90a0a50dab691899c3a8cc2bf82
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-files-with-linux"></a>Utiliser Azure Files avec Linux
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans des distributions Linux à l’aide du [package cifs-utils](https://wiki.samba.org/index.php/LinuxCIFS_utils) à partir du [projet Samba](https://www.samba.org/). Cet article présente deux méthodes de montage d’un partage de fichiers Azure : à la demande avec la commande `mount` et au démarrage en créant une entrée dans `/etc/fstab`.
@@ -111,10 +110,9 @@ Utilisateurs de Linux, nous attendons votre avis !
 Azure Files pour le groupe d’utilisateurs Linux propose un forum qui vous permet de partager vos commentaires quand vous évaluez et adoptez le stockage de fichiers sur Linux. Envoyez un e-mail aux [utilisateurs Linux d’Azure Files](mailto:azurefileslinuxusers@microsoft.com) pour rejoindre le groupe d’utilisateurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez ces liens pour plus d’informations sur Azure Files.
+Consultez ces liens pour en savoir plus sur Azure Files.
 * [Référence de l’API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 * [Transférer des données avec AzCopy sur Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Utilisation d’Azure CLI 2.0 avec le stockage Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [FAQ](../storage-files-faq.md)
 * [Dépannage](storage-troubleshoot-linux-file-connection-problems.md)
-

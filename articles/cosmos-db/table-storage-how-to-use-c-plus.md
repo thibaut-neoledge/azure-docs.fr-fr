@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: mimig
 ms.openlocfilehash: 8314292cdb9b7a3f464c60119ed10f6b06ed4d10
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-table-storage-from-c"></a>Utilisation du stockage de table à partir de C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -42,7 +42,7 @@ Dans ce guide, vous allez utiliser des fonctionnalités de stockage qui peuvent 
 Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez procéder comme suit :
 
 * **Linux :** suivez les instructions disponibles dans la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
-* **Windows :** dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur Entrée.  
+* **Windows :** dans Visual Studio, cliquez sur **Outils &gt; Gestionnaire de package NuGet &gt; Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur Entrée.  
   
      Install-Package wastorage
 

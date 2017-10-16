@@ -16,10 +16,10 @@ ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 427864fc4e494c19fcda4cfd454a9923499f6337
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Exécuter un travail Apache Hive, Pig ou Hadoop avec Azure Cosmos DB et HDInsight
 Ce didacticiel vous montre comment exécuter des travaux [Apache Hive][apache-hive], [Apache Pig][apache-pig] et [Apache Hadoop][apache-hadoop] MapReduce dans Azure HDInsight avec le connecteur Hadoop de Cosmos DB. Le connecteur Hadoop de Cosmos DB permet à Cosmos DB d’agir en tant que source et récepteur pour les travaux Hive, Pig et MapReduce. Ce didacticiel utilise Cosmos DB en tant que source de données et destination pour les travaux Hadoop.

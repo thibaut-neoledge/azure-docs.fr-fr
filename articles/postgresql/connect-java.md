@@ -12,10 +12,10 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/23/2017
 ms.openlocfilehash: 730a3f464b4437c260d09abc026a186a0e26293c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation de Java pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant une application Java. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Les étapes de cet article supposent que vous connaissez le développement avec Java et que vous ne savez pas utiliser la base de données Azure pour PostgreSQL.

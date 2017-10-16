@@ -16,12 +16,11 @@ ms.topic: get-started-article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: 8497c6c6d7cfc6c4457073783d20f48a722ea18e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 07c7f3ad066c735054cb339f6e09aa4d7d23f23a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-azure-ad-self-service-password-reset"></a>Démarrage rapide : Réinitialisation de mot de passe en libre-service Azure AD
 
@@ -73,7 +72,7 @@ Pour activer la synchronisation d’identité locale avec Azure AD, vous devez 
 
 * [Mise à niveau à partir de DirSync ou d’Azure AD Sync vers Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Prise en main d’Azure AD Connect à l’aide de paramètres express](./connect/active-directory-aadconnect-get-started-express.md)
-* [Configurez la réécriture du mot de passe](active-directory-passwords-writeback.md#configuring-password-writeback) pour réécrire des mots de passe à partir d’Azure AD dans votre répertoire local.
+* [Configurez l’écriture différée du mot de passe](active-directory-passwords-writeback.md#configuring-password-writeback) pour écrire des mots de passe en différé à partir d’Azure AD dans votre répertoire local.
 
 ## <a name="disabling-self-service-password-reset"></a>Désactivation de la réinitialisation de mot de passe en libre-service
 
@@ -98,5 +97,4 @@ Avec ce guide de démarrage rapide, vous avez appris à configurer la réinitial
 
 > [!div class="nextstepaction"]
 > [Activer la réinitialisation du mot de passe libre-service](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
-
 

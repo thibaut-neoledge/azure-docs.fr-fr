@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Utilisation de l'inspecteur d'API pour le suivi des appels dans Gestion des API Azure
 Gestion des API Azure fournit un outil Inspecteur d’API pour vous aider au débogage et à la résolution des problèmes de vos API. L'inspecteur d'API peut être utilisé par programme et directement depuis le portail des développeurs. 
@@ -32,7 +32,7 @@ Ce guide contient une procédure détaillée pour l'utilisation de l'inspecteur 
 > 
 > 
 
-## <a name="trace-call"> </a> Utilisation de l’inspecteur d’API pour suivre un appel
+## <a name="trace-call"></a> Utilisation de l’inspecteur d’API pour suivre un appel
 Pour utiliser l’inspecteur d’API, ajoutez un en-tête de demande **ocp-apim-trace: true** à l’appel de l’opération, puis téléchargez et inspectez le suivi avec l’URL indiquée par l’en-tête de réponse **ocp-apim-trace-location**. Cette opération peut se faire par programme ou directement depuis le portail des développeurs.
 
 Ce didacticiel montre comment utiliser l’inspecteur d’API pour suivre les opérations à l’aide de l’API Basic Calculator qui est configurée dans le didacticiel de prise en main [Gestion de votre première API](api-management-get-started.md). Si vous n'avez pas effectué ce didacticiel, prenez quelques minutes pour importer l'API Basic Calculator. Vous pouvez également utiliser une autre API, par exemple l'API Echo. Chaque instance du service Gestion des API est pré-configurée avec une API Echo qui peut être utilisée pour faire des expériences et en savoir plus sur la gestion des API. L'API Echo renvoie ce qui lui est fourni. Pour l'utiliser, vous pouvez appeler un verbe HTTP, et la valeur de retour sera simplement ce que vous avez envoyé. 
@@ -71,7 +71,7 @@ ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net
 
 Le suivi peut être téléchargé depuis l'emplacement spécifié et examiné, comme indiqué dans l'étape suivante. Notez que seules les 100 dernières entrées de journal sont stockées et que les emplacements de journal sont réutilisés en rotation. Par conséquent, si vous effectuez plus de 100 appels en gardant le suivi activé, vous finirez par remplacer les premières entrées.
 
-## <a name="inspect-trace"> </a>Inspection du suivi
+## <a name="inspect-trace"></a>Inspection du suivi
 Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir de l’URL **ocp-apim-trace-location**. Il s'agit d'un fichier texte au format JSON. Il se présente comme l'exemple ci-dessous.
 
 ```json
@@ -235,7 +235,7 @@ Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir 
 }
 ```
 
-## <a name="next-steps"> </a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour une démonstration du suivi des expressions de stratégie, regardez la vidéo [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avancez à la 21e minute pour voir la démonstration.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Cloud+Cover/Episode-177-More-API-Management-Features-with-Vlad-Vinogradsky/player]

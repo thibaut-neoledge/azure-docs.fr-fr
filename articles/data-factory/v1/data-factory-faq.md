@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
+ms.openlocfilehash: d64425d067df92998538c78d1ca3a1650502b77a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f45a9bd265991a3c2234f12af428b27b7659cb6b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Forum aux Questions
 ## <a name="general-questions"></a>Questions générales
@@ -143,7 +142,7 @@ L’une des erreurs les plus courantes est de ne pas définir la propriété **e
 
 Dans l’exemple suivant, vous devez uniquement définir **external** sur true pour **dataset1**.  
 
-**DataFactory1** Pipeline 1 : dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2 : dataset3-> activity3 -> dataset4
+**DataFactory1** Pipeline 1 : dataset1 -&gt; activity1 -&gt; dataset2 -&gt; activity2 -&gt; dataset3 Pipeline 2 : dataset3-&gt; activity3 -&gt; dataset4
 
 Si vous avez une autre fabrique de données avec un pipeline qui prend dataset4 (généré par le pipeline 2 dans DataFactory1), marquez dataset4 comme un jeu de données externe, car il a été généré par une autre fabrique de données (DataFactory1, et non DataFactory2).  
 
@@ -206,4 +205,3 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
 [hdinsight-alternate-storage]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/19/2017
 ms.author: subramar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: da9aff17c16e179be200677bfbfd1287fff269e3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -224,7 +223,7 @@ sudo apt-get install -f
 * [Prepare your development environment on OSX (Préparer votre environnement de développement sur OSX)](service-fabric-get-started-mac.md)
 * [Utilisez l’interface de ligne de commande Service Fabric pour gérer vos applications](service-fabric-application-lifecycle-sfctl.md)
 * [Différences entre Service Fabric Windows/Linux](service-fabric-linux-windows-differences.md)
-* [Bien démarrer avec l’interface CLI Service Fabric](service-fabric-cli.md)
+* [Prise en main de l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
 
 <!-- Links -->
 
@@ -236,4 +235,3 @@ sudo apt-get install -f
 
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
-

@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 57f461f9a39e8069654985d86bfe3ae23dd0855a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="expand-json-transformation"></a>Transformation Étendre JSON
 La transformation **Étendre JSON** permet aux utilisateurs d’étendre une colonne existante qui contient du texte JSON valide sur plusieurs colonnes.
 
@@ -39,5 +37,4 @@ La colonne source *Client* est étendue sur deux colonnes *Nom.Client* et *Tél�
 |---------------------------------------------------------|-----------------|----------------|
 | { "Nom" : "Carrie Dodson", "Téléphone" : "123-4567-890"}   | Carrie Dodson   | 123-4567-890   |
 | { "Nom" : "Leonard Robledo", "Téléphone" : "456-7890-123"} | Leonard Robledo | 456-7890-123   |
-
 

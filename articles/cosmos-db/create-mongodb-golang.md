@@ -9,14 +9,12 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: cb123107178f5e7c0207524c19331a6fa4658739
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application console API MongoDB avec Golang et le Portail Azure
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez rapidement créer et interroger des documents, des paires clé/valeur et des bases de données de graphiques, tous profitant de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
@@ -247,4 +245,3 @@ Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure 
 
 > [!div class="nextstepaction"]
 > [Importer des données dans Azure Cosmos DB pour l’API MongoDB](mongodb-migrate.md)
-

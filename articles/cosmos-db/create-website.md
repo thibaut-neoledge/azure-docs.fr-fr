@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 67c11277142d6616fe77179e03b55ed08993b818
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Déployer Azure Cosmos DB et Azure App Service Web Apps avec un modèle Azure Resource Manager
 Ce didacticiel vous montre comment utiliser un modèle Azure Resource Manager pour déployer et intégrer [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), une application web [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) et un exemple d’application web.
@@ -141,5 +140,4 @@ Félicitations ! Vous avez déployé Azure Cosmos DB, une application web App S
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
-
 

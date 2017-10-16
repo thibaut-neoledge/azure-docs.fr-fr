@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: sutalasi
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Répliquer une application SharePoint multiniveau pour la récupération d’urgence à l’aide d’Azure Site Recovery
 
@@ -214,4 +213,3 @@ Suivez [ce guide](site-recovery-failover.md) pour réaliser un basculement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en savoir plus sur la [réplication d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery.
-

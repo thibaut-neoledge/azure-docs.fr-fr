@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: ab08256fbc3caca05bf23a12016ad2acf4fc7412
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-apis-in-azure-api-management"></a>Création d'API dans Gestion des API Azure
 Une API du service Gestion des API représente un ensemble d'opérations qui peuvent être appelées par des applications clientes. Les nouvelles API sont créées dans le portail des éditeurs, puis les opérations souhaitées sont ajoutées. Une fois les opérations ajoutées, l'API est ajoutée à un produit et peut être publiée. Une fois l'API publiée, les développeurs peuvent s'y abonner et l'utiliser.
 
 Ce guide présente la première étape du processus : comment créer et configurer une nouvelle API dans Gestion des API. Pour plus d’informations sur l’ajout d’opérations et la publication d’un produit, consultez les rubriques [Ajout d’opérations à une API][How to add operations to an API] et [Création et publication d’un produit][How to create and publish a product].
 
-## <a name="create-new-api"> </a>Création d’une API
+## <a name="create-new-api"></a>Création d’une API
 Les API sont créées et configurées dans le portail des éditeurs. Pour accéder au portail des éditeurs, cliquez sur **Portail des éditeurs** dans le portail Azure de votre service Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
@@ -54,7 +54,7 @@ Une fois les valeurs de votre choix configurées, cliquez sur **Enregistrer**. U
 
 ![API summary][api-management-api-summary]
 
-## <a name="configure-api-settings"> </a>Configuration des paramètres de l’API
+## <a name="configure-api-settings"></a>Configuration des paramètres de l’API
 L’onglet **Paramètres** permet de vérifier et de modifier la configuration d’une API. Les options **Nom d’API web**, **URL du service web** et **Suffixe d’URL de l’API web** sont définis initialement lors de la création de l’API. Vous pouvez les modifier ici. **Description** contient une description facultative et **Schéma d’URL d’API web** détermine quels sont les protocoles qui peuvent être utilisés pour accéder à l’API.
 
 ![API settings][api-management-api-settings]
@@ -67,7 +67,7 @@ L’onglet **Sécurité** peut également être utilisé pour configurer **Autor
 
 Cliquez sur **Enregistrer** pour enregistrer les modifications apportées aux paramètres de l'API.
 
-## <a name="next-steps"> </a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois l'API créée et les paramètres configurés, l'étape suivante consiste à ajouter les opérations à l'API, à ajouter l'API à un produit et à la publier pour la mettre à disposition des développeurs. Pour plus d'informations, consultez les articles suivants.
 
 * [Ajout d’opérations à une API][How to add operations to an API]

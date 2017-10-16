@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/14/2017
 ms.author: jejiang
+ms.openlocfilehash: 4be6e2ef1cfba31dd3cf06f44e6a71ffd5900856
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 833d14af47454a01fa3c97ffa854d688dd35871f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utiliser Azure Data Lake Tools pour Visual Studio Code
 
 Découvrez comment utiliser Azure Data Lake Tools pour Visual Studio Code (VS Code) pour créer, tester et exécuter des scripts U-SQL. Ces informations sont également décrites dans la vidéo suivante :
@@ -91,7 +89,7 @@ Une liste des extensions de code Visual Studio s’affiche. L’une d’elles es
 ## <a name="activate-azure-data-lake-tools"></a>Activer Azure Data Lake Tools
 Créez un fichier .usql ou ouvrez un fichier .usql existant pour activer l’extension. 
 
-## <a name="connect-to-azure"></a>Se connecter à Azure
+## <a name="connect-to-azure"></a>Connexion à Azure
 
 Avant de pouvoir compiler et exécuter des scripts U-SQL dans Data Lake Analytics, vous devez vous connecter à votre compte Azure.
 
@@ -119,7 +117,7 @@ Pour tester la connexion, obtenez une liste de vos comptes Data Lake Analytics.
 **Pour répertorier les comptes Data Lake Analytics dans votre abonnement Azure**
 
 1. Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes.
-2. Entrez **ADL: List Accounts**. Les comptes s’affichent dans le volet **Output**.
+2. Entrez **ADL: List Accounts**. Les comptes s’affichent dans le panneau **Sortie**.
 
 ## <a name="open-the-sample-script"></a>Ouvrir l’exemple de script
 Ouvrez la palette de commandes (Ctrl+Maj+P) et entrez **ADL: Open Sample Script**. Une autre instance de cet exemple s’ouvre. Vous pouvez également modifier, configurer et envoyer un script sur cette instance.
@@ -321,7 +319,7 @@ Vous pouvez répertorier le chemin de stockage par le biais de la palette de com
 
     ![Data Lake Tools pour Visual Studio Code - Répertorier le chemin de stockage](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-storage.png)
 
-2.  Sélectionnez la façon dont vous voulez répertorier le chemin de stockage. Cette section utilise **Enter a path** comme exemple.
+2.  Sélectionnez la façon dont vous voulez répertorier le chemin de stockage. Cette section utilise **Entrer un chemin d’accès** comme exemple.
 
     ![Data Lake Tools pour Visual Studio Code - Une façon de répertorier le chemin de stockage](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
 
@@ -415,7 +413,7 @@ Vous pouvez charger des fichiers en entrant la commande **ADL: Upload File** ou 
 
     ![Data Lake Tools pour Visual Studio Code - Entrer un chemin local](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-input-local-path.png)
 
-3. Sélectionnez l’une des manières de répertorier le chemin de stockage. Cette section utilise **Enter a path** comme exemple.
+3. Sélectionnez l’une des manières de répertorier le chemin de stockage. Cette section utilise **Entrer un chemin d’accès** comme exemple.
 
     ![Data Lake Tools pour Visual Studio Code - Répertorier le chemin de stockage](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
     >[!NOTE]
@@ -431,7 +429,7 @@ Vous pouvez charger des fichiers en entrant la commande **ADL: Upload File** ou 
 
        ![Data Lake Tools for Visual Studio Code enter storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-preview-file.png)
 
-6. Recherchez votre chemin de stockage Azure. Sélectionnez **Choose current folder**.
+6. Recherchez votre chemin de stockage Azure. Sélectionnez **Choisir le dossier actuel**.
 
     ![Data Lake Tools pour Visual Studio Code - Sélectionner un dossier](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-choose-current-folder.png)
 
@@ -494,7 +492,7 @@ Data Lake Tools pour VS Code prend en charge les fonctionnalités suivantes :
 -   Marqueur d’erreur IntelliSense : Data Lake Tools souligne les erreurs d’édition pour U-SQL et C#. 
 -   Coloration syntaxique : Data Lake Tools utilise différentes couleurs pour différencier les éléments tels que les variables, les mots clés, les types de données et les fonctions. 
 
-    ![Data Lake Tools pour Visual Studio Code - Coloration syntaxique](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
+    ![Data Lake Tools pour Visual Studio Code - Points clés de la syntaxe](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -502,7 +500,6 @@ Data Lake Tools pour VS Code prend en charge les fonctionnalités suivantes :
 - Pour obtenir des informations sur la prise en main de Data Lake Analytics, consultez [Didacticiel : bien démarrer avec Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
 - Pour obtenir des informations sur l’utilisation de Data Lake Tools pour Visual Studio, consultez [Didacticiel : développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Pour plus d’informations sur le développement d’assemblys, consultez [Développement d’assemblys U-SQL pour les tâches d’Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
-
 
 
 

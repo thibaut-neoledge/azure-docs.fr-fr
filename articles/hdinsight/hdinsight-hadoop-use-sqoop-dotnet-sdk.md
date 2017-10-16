@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 2045cb714a6468d9d6fd054800c6e61a32bef390
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>Exécuter des tâches Sqoop à l’aide du Kit de développement logiciel (SDK) .NET pour Hadoop dans HDInsight
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
@@ -128,5 +127,4 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 * [Utilisation d'Oozie avec HDInsight](hdinsight-use-oozie.md): utilisez l’action Sqoop dans un flux de travail Oozie.
 * [Analyse des données sur les retards de vol avec HDInsight](hdinsight-analyze-flight-delay-data.md): utilisez Hive pour analyser des données sur les retards de vol, puis utilisez Sqoop pour exporter ces données vers une base de données SQL Azure.
 * [Téléchargement de données vers HDInsight](hdinsight-upload-data.md) : découvrez d’autres méthodes pour télécharger des données vers HDInsight ou le stockage Blob Azure.
-
 

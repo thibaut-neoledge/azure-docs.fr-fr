@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 07ef1fd3d81d795c9164741d22b5a689f86bd720
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Atténuations de l’outil Microsoft de modélisation des menaces
 
 L’outil de modélisation des menaces est un élément essentiel de Microsoft Security Development Lifecycle (SDL). Il permet aux architectes logiciels d’identifier et de corriger les problèmes de sécurité potentiels au plus tôt, lorsqu’ils sont relativement simples et peu coûteux à résoudre. Par conséquent, il réduit considérablement le coût total de développement. En outre, nous avons conçu cet outil en pensant aux personnes qui ne sont pas expertes en sécurité et nous avons facilité la modélisation des menaces pour tous les développeurs en fournissant des conseils éclairés sur la création et l’analyse des modèles de menace.

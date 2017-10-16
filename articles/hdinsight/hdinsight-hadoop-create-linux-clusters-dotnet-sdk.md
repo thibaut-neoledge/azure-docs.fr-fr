@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/17/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: ccd3a0c777510e0694170b2f9acc8da0e7dcde9b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET
 
@@ -35,7 +34,7 @@ Découvrez comment créer un cluster Hadoop dans le cluster Azure HDInsight à l
 >
 > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -405,5 +404,4 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 * [Exécuter des tâches Pig dans HDInsight avec le Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [Exécuter des tâches Sqoop dans HDInsight avec le Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [Exécuter des tâches Oozie dans HDInsight](hdinsight-use-oozie.md)
-
 

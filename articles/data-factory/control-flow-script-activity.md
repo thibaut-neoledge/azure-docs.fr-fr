@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 143e2a29be18771c6d4f7ce5d1711fa8c9b52e07
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="script-activity-in-azure-data-factory"></a>Activité de script dans Azure Data Factory
 
@@ -29,6 +28,6 @@ ms.lasthandoff: 09/25/2017
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)
-- [Activité ForEach](control-flow-for-each-activity.md)
+- [Pour chaque activité](control-flow-for-each-activity.md)
 - [Activité d’obtention des métadonnées](control-flow-get-metadata-activity.md)
 - [Activité de recherche](control-flow-lookup-activity.md)

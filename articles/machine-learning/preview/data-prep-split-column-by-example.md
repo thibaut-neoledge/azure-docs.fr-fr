@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 013c99045621e4651a44ab99c9f695fff6004654
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="split-column-by-example-transformation"></a>Transformation Fractionner des colonnes par exemple
 Cette transformation fractionne de manière prédictive le contenu d’une colonne sur des limites significatives sans nécessiter d’intervention de l’utilisateur. L’algorithme de fractionnement sélectionne les limites après avoir analysé le contenu de la colonne. Ces limites peuvent être définies par
 * Un délimiteur fixe
@@ -99,7 +97,7 @@ Les valeurs de la colonne *Horaires* suivante sont fractionnées de manière pr�
 
 |Horaires_1|Horaires_2|Horaires_3|Horaires_4|Horaires_5|Horaires_6|Horaires_7|Horaires_8|Horaires_9|
 |:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
-|Lundi|Vendredi|7:00|18:00|Samedi|9:00|17:00|Dimanche|Fermé|
+|Lundi|Vendredi|7:00|18:00|Samedi|9:00|17:00|Dimanche|Fermés|
 |Lundi|Vendredi|9:00|18:00|Samedi|4:00|16:00|Dimanche|Fermés|
 |Lundi|Vendredi|8:30|19:00|Samedi|3:00|14:30|Dimanche|Fermés|
 |Lundi|Vendredi|8:00|18:00|Samedi|2:00|15:00|Dimanche|Fermés|
@@ -166,9 +164,9 @@ Dans l’exemple suivant, nous souhaitons séparer les valeurs de poids des unit
 |:-----|:-----|:-----|
 |2,27KG|2,27|KG|
 |1L|1|L|
-|2,5KG|2,5|KG|
+|2,5KG|2.5|KG|
 |2KG|2|KG|
-|1,7KGA|1,7|KGA|
+|1,7KGA|1.7|KGA|
 |3KG|3|KG|
 |2KG|2|KG|
 |125G|125|G|
@@ -178,4 +176,3 @@ Dans l’exemple suivant, nous souhaitons séparer les valeurs de poids des unit
 ## <a name="technical-notes"></a>Notes techniques
 
 La fonctionnalité de transformation de fractionnement est basée sur la technique de **synthèse de programme prédictive**. Avec cette technique, les programmes de transformation de données sont appris automatiquement, en fonction des données d’entrée. Les programmes sont synthétisés dans un langage propre à un domaine. Ce langage est basé sur les délimiteurs et les champs qui se produisent dans des contextes d’expression régulière particuliers. Vous trouverez plus d’informations sur cette technologie dans une [publication récente](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 54bbd7dd1d0ecad79f86e0ab16be3a48854093ac
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-security"></a>Présentation d’Azure Security
 ## <a name="overview"></a>Vue d'ensemble
 Nous savons que la sécurité est la priorité dans le cloud et combien il est important que vous trouviez des informations précises et à jour sur la sécurité Azure. L’une des meilleures raisons d’utiliser Azure pour vos applications et services est de tirer parti de sa large gamme de fonctionnalités et outils de sécurité. Ces outils et fonctionnalités permettent de créer des solutions sécurisées sur la plateforme Azure sécurisée. Microsoft Azure assure la confidentialité, l’intégrité et la disponibilité des données client, tout en permettant la gestion transparente des responsabilités.
@@ -398,4 +396,3 @@ Anticipez, détectez et traitez les menaces avec une visibilité et un contrôle
 - [Surveillance de l’intégrité de la sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
 
 Fonctionnalités de surveillance d’Azure Security Center destinées à contrôler la conformité aux stratégies.
-
