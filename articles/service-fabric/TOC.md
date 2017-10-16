@@ -33,7 +33,7 @@
 # Exemples
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=service-fabric)
 ## [Azure PowerShell](service-fabric-powershell-samples.md)
-## [Interface de ligne de commande Service Fabric](samples-cli.md)
+## [Interface de ligne de commande de Service Fabric](samples-cli.md)
 
 # Concepts
 ## [Comprendre les microservices](service-fabric-overview-microservices.md)
@@ -240,8 +240,9 @@
 
 ### Déployer ou supprimer des applications
 #### [Déployer des applications sur un cluster local](service-fabric-get-started-with-a-local-cluster.md)
+#### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Interface de ligne de commande Service Fabric](service-fabric-application-lifecycle-sfctl.md)
+#### [Interface de ligne de commande de Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -341,8 +342,8 @@
 # Référence
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
-## [Interface de ligne de commande Azure](/cli/azure/sf)
-## [Interface de ligne de commande Service Fabric](service-fabric-sfctl.md)
+## [Azure CLI (az sf)](/cli/azure/sf)
+## [CLI Service Fabric (sfctl)](service-fabric-sfctl.md)
 ### [sfctl application](service-fabric-sfctl-application.md)
 ### [sfctl chaos](service-fabric-sfctl-chaos.md)
 ### [sfctl cluster](service-fabric-sfctl-cluster.md)

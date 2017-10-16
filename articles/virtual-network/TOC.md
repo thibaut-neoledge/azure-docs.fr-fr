@@ -24,22 +24,25 @@
 ## Déployer
 ### [Réseaux virtuels](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Interface de ligne de commande Azure](virtual-networks-create-vnet-arm-cli.md)
+#### [Azure CLI 2.0](virtual-networks-create-vnet-arm-cli.md)
+#### [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md)
 #### [Modèle](virtual-networks-create-vnet-arm-template-click.md)
 
 ### groupes de sécurité réseau ;
 #### [Portail Azure](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Interface de ligne de commande Azure](virtual-networks-create-nsg-arm-cli.md)
+#### [Azure CLI 2.0](virtual-networks-create-nsg-arm-cli.md)
+#### [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md)
 #### [Modèle](virtual-networks-create-nsg-arm-template.md)
 #### [Groupes de sécurité d’application](create-network-security-group-preview.md)
 #### Classique
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
-##### [Interface de ligne de commande Azure](virtual-networks-create-nsg-classic-cli.md)
+##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
 ### Itinéraires définis par l’utilisateur
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Interface de ligne de commande Azure](virtual-network-create-udr-arm-cli.md)
+#### [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md)
+#### [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md)
 #### [Modèle](virtual-network-create-udr-arm-template.md)
 #### Classique
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
@@ -62,7 +65,8 @@
 #### Créer une machine virtuelle avec une adresse IP publique statique
 ##### [Portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [Interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md)
+##### [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
+##### [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
 ##### [Modèle](virtual-network-deploy-static-pip-arm-template.md)
 ##### Classique
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
@@ -78,7 +82,10 @@
 
 #### Créer une machine virtuelle avec plusieurs interfaces réseau
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Interface de ligne de commande Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure CLI 2.0](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure CLI 1.0](../virtual-machines/linux/multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Modèle](virtual-network-deploy-multinic-arm-template.md)
+
 ##### Classique
 ###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
 ###### [Interface de ligne de commande Azure](virtual-network-deploy-multinic-classic-cli.md)
@@ -86,7 +93,8 @@
 #### Créer une machine virtuelle avec plusieurs adresses IP
 ##### [Portail Azure](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Interface de ligne de commande Azure](virtual-network-multiple-ip-addresses-cli.md)
+##### [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md)
+##### [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
 ##### [Modèle](virtual-network-multiple-ip-addresses-template.md)
 
 #### [Créer une machine virtuelle avec mise en réseau accélérée](virtual-network-create-vm-accelerated-networking.md)
@@ -102,9 +110,11 @@
 #### [Sécuriser les réseaux avec des appliances virtuelles](virtual-network-scenario-udr-gw-nva.md)
 #### [Zone DMZ entre Azure et Internet](../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [Service cloud et sécurité réseau](../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Zone DMZ simple avec groupes de sécurité réseau](virtual-networks-dmz-nsg-asm.md)
-##### [Zone DMZ avec pare-feu et groupes de sécurité réseau](virtual-networks-dmz-nsg-fw-asm.md)
-##### [Zone DMZ avec pare-feu, itinéraires définis par l’utilisateur et groupes de sécurité réseau](virtual-networks-dmz-nsg-fw-udr-asm.md)
+##### [Créer une zone DMZ avec groupes de sécurité réseau](virtual-networks-dmz-nsg.md)
+##### [Créer une zone DMZ avec groupes de sécurité réseau (classique)](virtual-networks-dmz-nsg-asm.md)
+##### [Créer une zone DMZ avec pare-feu et groupes de sécurité réseau (classique)](virtual-networks-dmz-nsg-fw-asm.md)
+##### [Zone DMZ avec pare-feu, itinéraires définis par l’utilisateur et groupes de sécurité réseau (classique)](virtual-networks-dmz-nsg-fw-udr-asm.md)
+
 ##### [Exemple d’application](virtual-networks-sample-app.md)
 
 ### Classique
@@ -112,13 +122,22 @@
 ##### [Portail Azure](virtual-networks-create-vnet-classic-pportal.md)
 ##### [Azure PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
 ##### [Interface de ligne de commande Azure](virtual-networks-create-vnet-classic-cli.md)
+#### [Définir des paramètres DNS dans un fichier de configuration de réseau virtuel](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
+#### [Spécifier les paramètres DNS dans un fichier de configuration de service](virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md)
 
 ## Configuration
 ### Machines virtuelles
 #### [Ajouter ou supprimer des interfaces réseau](virtual-network-network-interface-vm.md)
 #### [Résolution de noms pour les machines virtuelles et les services cloud](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+#### [Utiliser un DNS dynamique pour inscrire les noms d’hôte sur votre propre serveur DNS](virtual-networks-name-resolution-ddns.md)
 #### [Optimiser le débit du réseau](virtual-network-optimize-network-bandwidth.md)
 #### [Afficher et modifier les noms d’hôte](virtual-networks-viewing-and-modifying-hostnames.md)
+#### Classique
+##### Adresses IP statiques
+###### [PowerShell](virtual-networks-reserved-private-ip.md)
+###### [INTERFACE DE LIGNE DE COMMANDE](virtual-networks-static-private-ip-cli-nodejs.md)
+##### [Adresses IP publiques au niveau de l’instance](virtual-networks-instance-level-public-ip.md)
+
 ### Classique
 #### Listes de contrôle d'accès
 ##### [Portail Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -134,7 +153,9 @@
 ### groupes de sécurité réseau ;
 #### [Portail Azure](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [Interface de ligne de commande Azure](virtual-network-manage-nsg-arm-cli.md)
+#### [Azure CLI 2.0](virtual-network-manage-nsg-arm-cli.md)
+#### [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md)
+
 #### [Journaux](virtual-network-nsg-manage-log.md)
 ### Interfaces réseau (cartes réseau)
 #### [Créer, modifier ou supprimer des cartes réseau](virtual-network-network-interface.md)
@@ -160,7 +181,7 @@
 # Référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
-## [Azure PowerShell (Classic)](/powershell/module/azure/)
+## [Azure PowerShell (classic)](/powershell/module/azure/)
 ## [Interface de ligne de commande Azure](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
@@ -182,4 +203,5 @@
 ## [Forum sur la mise en réseau](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Tarification](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-virtual-network)
+## [Fournisseur de ressources réseau](resource-groups-networking.md)
