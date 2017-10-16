@@ -23,6 +23,8 @@
       href: tutorial-forecast-spending.md
 - name: Ressources
   items:
+    - name: Vidéos Gestion des coûts
+      href: ref-videos.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Tarification

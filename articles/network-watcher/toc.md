@@ -59,17 +59,20 @@
 # Procédures
 ## [Surveiller une passerelle VPN à l’aide d’Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnostiquer la connectivité locale via une passerelle VPN](network-watcher-diagnose-on-premises-connectivity.md)
-## [Analyser les captures de paquets pour identifier les anomalies](network-watcher-deep-packet-inspection.md)
-## [Utiliser une capture de paquets pour effectuer une surveillance proactive du réseau avec Azure Functions](network-watcher-alert-triggered-packet-capture.md)
-## [Visualiser les journaux de flux à l’aide de Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-## [Visualiser les journaux de flux à l’aide d’outils open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-## [Visualiser les journaux de flux dans Azure à l’aide de Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
-## [Visualiser les modèles de trafic réseau à l’aide d’outils open source](network-watcher-using-open-source-tools.md)
 ## [Effectuer des tâches de conformité et d’audit sur votre réseau à l’aide de PowerShell](network-watcher-nsg-auditing-powershell.md)
-## [Lire des journaux de flux NSG](network-watcher-read-nsg-flow-logs.md)
-## [Effectuer la détection d’intrusion à l’aide d’outils open source](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Analyser les journaux Application Gateway dans Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
-## [Analyser les journaux de flux à l’aide de Network Watcher et de Grafana](network-watcher-nsg-grafana.md)
+## Capture de paquet
+### [Rechercher des anomalies](network-watcher-deep-packet-inspection.md)
+### [Surveillance proactive du réseau avec Azure Functions](network-watcher-alert-triggered-packet-capture.md)
+### [Effectuer la détection d’intrusion à l’aide d’outils open source](network-watcher-intrusion-detection-open-source-tools.md)
+### [Visualiser les modèles de trafic réseau à l’aide d’outils open source](network-watcher-using-open-source-tools.md)
+## Analyser les journaux de flux NSG
+### [Lire des journaux de flux NSG](network-watcher-read-nsg-flow-logs.md)
+### [Utiliser Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+### [Utiliser la pile élastique](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+### [Utiliser Grafana](network-watcher-nsg-grafana.md)
+### [Utiliser Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+
 # Référence
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)

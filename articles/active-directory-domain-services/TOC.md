@@ -15,9 +15,9 @@
 
 # Procédures
 ## Joindre un domaine géré
-### [Joindre une ordinateur Virtuel de Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Créer une machine virtuelle Windows à l’aide de PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Machine virtuelle Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+### [Machine virtuelle Windows avec PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Serveur Ubuntu](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administrer un domaine géré
 ### [Administrer un domaine géré](active-directory-ds-admin-guide-administer-domain.md)

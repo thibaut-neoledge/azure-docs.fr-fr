@@ -7,6 +7,8 @@
 ## [Installation de SAP HANA](hana-installation.md)
 ## [Haute disponibilité et récupération d’urgence](hana-overview-high-availability-disaster-recovery.md)
 ## [Résolution des problèmes et surveillance](troubleshooting-monitoring.md)
+## Procédures
+### [Configuration de la haute disponibilité avec STONITH](ha-setup-with-stonith.md)
 # SAP HANA sur des machines virtuelles Azure
 ## [Instance SAP HANA unique](hana-get-started.md)
 ## [Guide de déploiement de S/4 HANA ou BW/4 HANA SAP CAL](cal-s4h.md)

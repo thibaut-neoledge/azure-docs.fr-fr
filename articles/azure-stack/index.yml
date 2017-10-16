@@ -4,7 +4,7 @@ title: Documentation pour opérateur Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: 'Documentation pour opérateur Azure Stack - Didacticiels, Informations de référence de l’API'
-  description: Apprenez à utiliser la version préliminaire d’Azure Stack pour fournir des services Azure à partir de votre centre de données. Apprenez et présentez des fonctionnalités à partir d’un environnement de validation technique.
+  description: Apprenez à utiliser Azure Stack pour fournir des services Azure à partir de votre centre de données. Découvrez et utilisez des fonctionnalités du kit de développement ou d’un environnement de systèmes intégrés.
   services: azure-stack
   author: czeumault
   manager: carolz
@@ -12,32 +12,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/23/2017
+  ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: Microsoft Azure Stack est une plateforme cloud hybride permettant de fournir des services Azure à partir de votre centre de données. Découvrez comment déployer Azure Stack et offrir des services avec notre guide de démarrage rapide et nos didacticiels.
+  description: 'Microsoft Azure Stack est une plateforme cloud hybride permettant de fournir des services Azure à partir de votre centre de données. Découvrez comment déployer un kit de développement Azure Stack, gérer l’infrastructure du kit de développement et des systèmes intégrés, et offrir des services avec nos guides de démarrage rapide et didacticiels.<br/><br/>Si vous êtes un utilisateur Azure Stack utilisant des services ou créant des applications pour Azure Stack, consultez notre <a href="/azure/azure-stack/user">documentation pour utilisateur</a>.'
 sections:
-  - title: "Démarrages en 5\_minutes"
+  - title: Démarrage rapide
     items:
       - type: paragraph
-        text: "Configurer votre matériel et déployer Azure Stack\_:"
+        text: Configurer votre matériel et déployer le kit de développement Azure Stack.
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            text: Déployer Azure Stack
+            text: Déployer le Kit de développement Azure Stack
             href: azure-stack-deploy-overview.md
   - title: Didacticiels pas à pas
     items:
       - type: paragraph
-        text: "Découvrez comment ajouter des services à votre déploiement Azure Stack\_:"
+        text: Découvrez comment ajouter des services à votre déploiement Azure Stack.
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Activer des machines virtuelles sur Azure Stack</a>
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Utiliser des bases de données SQL sur Azure Stack</a>
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Utiliser des applications web sur Azure Stack</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Offrir des machines virtuelles sur Azure Stack</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Offrir des bases de données SQL sur Azure Stack</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Offrir des applications web sur Azure Stack</a>
   - title: Formation vidéo gratuite Pluralsight
     items:
       - type: list
@@ -56,4 +56,4 @@ sections:
         className: cardsD
         items:
           - title: Ligne de commande
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p>

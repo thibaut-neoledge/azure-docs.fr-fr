@@ -4,7 +4,7 @@ title: Documentation sur les utilisateurs Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: 'Documentation sur Azure Stack - Didacticiels, Informations de référence de l’API'
-  description: Apprenez à utiliser la version préliminaire d’Azure Stack pour fournir des services Azure à partir de votre centre de données. Apprenez et présentez des fonctionnalités à partir d’un environnement de validation technique.
+  description: Découvrez comment utiliser les services Azure Stack et comment créer des applications pour Azure Stack.
   services: azure-stack
   author: carolz
   manager: carolz
@@ -12,12 +12,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/23/2017
+  ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: 'Azure Stack est une plateforme cloud hybride qui vous permet d’utiliser les services Azure à partir du centre de données de votre entreprise ou de votre fournisseur de services. En tant que développeur, vous pouvez générer des applications sur Azure Stack. Vous pouvez ensuite les déployer sur Azure Stack, sur Azure ou vous pouvez générer des applications réellement hybrides qui tirent parti de la connectivité entre un cloud Azure Stack et Azure.  Découvrez comment créer des ressources et déployer des applications avec nos didacticiels et nos guides de démarrage rapide.'
+  description: 'Azure Stack est une plateforme cloud hybride qui vous permet d’utiliser les services Azure à partir du centre de données de votre entreprise ou de votre fournisseur de services. En tant que développeur, vous pouvez générer des applications sur Azure Stack. Vous pouvez ensuite les déployer sur Azure Stack, sur Azure ou vous pouvez générer des applications réellement hybrides qui tirent parti de la connectivité entre un cloud Azure Stack et Azure. Découvrez comment créer des ressources et déployer des applications avec nos didacticiels et nos guides de démarrage rapide.<br/><br/>Si vous êtes un opérateur Azure Stack gérant les services d’infrastructure et d’offres, consultez la <a href="/azure/azure-stack/">documentation pour opérateur</a>.'
 sections:
-  - title: Démarrage rapide
+  - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph
         text: "Découvrez comment déployer une machine virtuelle Windows sur Azure Stack\_:"
@@ -56,7 +56,7 @@ sections:
   - title: Didacticiels pas à pas
     items:
       - type: paragraph
-        text: "Déployer des applications sur Azure et Azure Stack\_:"
+        text: Déployer des applications sur Azure et Azure Stack.
       - type: list
         style: ordered
         items:
@@ -68,4 +68,4 @@ sections:
         className: cardsD
         items:
           - title: Ligne de commande
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p>

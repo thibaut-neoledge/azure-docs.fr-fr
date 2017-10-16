@@ -114,6 +114,7 @@
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## Gérer
 ### Créer un hub IoT 
 #### [Utiliser le portail Azure](iot-hub-create-through-portal.md)
@@ -127,15 +128,24 @@
 #### [Utiliser le portail Azure](iot-hub-configure-file-upload.md)
 #### [Utilisation d'Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
 #### [Utiliser l’interface de ligne de commande Microsoft Azure](iot-hub-configure-file-upload-cli.md)
-### [Gestion en bloc des appareils IoT](iot-hub-bulk-identity-mgmt.md)
+### [Surveiller avec Diagnostics](iot-hub-monitor-resource-health.md)
+#### [Migrer vers les paramètres des diagnostics](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Surveillance des opérations](iot-hub-operations-monitoring.md)
 ### [Mesures d’utilisation](iot-hub-metrics.md)
-### [Surveillance des opérations](iot-hub-operations-monitoring.md)
+### [Gestion en bloc des appareils IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Configurer le filtrage d’adresse IP](iot-hub-ip-filtering.md)
+
 ## Sécuriser
 ### [Tout savoir sur la sécurité](iot-hub-security-ground-up.md)
 ### [Meilleures pratiques en matière de sécurité](iot-hub-security-best-practices.md)
 ### [Architecture de la sécurité](iot-hub-security-architecture.md)
 ### [Sécuriser votre déploiement IoT](iot-hub-security-deployment.md)
+### Sécurisation à l’aide de certificats d’autorité de certification X.509
+#### [Vue d’ensemble d’un certificat d’autorité de certification X.509](iot-hub-x509ca-overview.md)
+##### [Concepts d’un certificat d’autorité de certification X.509](iot-hub-x509ca-concept.md)
+#### [Prise en main de la sécurité d’un certificat d’autorité de certification X.509](iot-hub-security-x509-get-started.md)
+##### [Création de certificat - PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [Vue d'ensemble](iot-hub-iot-edge-overview.md)
 ### Prise en main

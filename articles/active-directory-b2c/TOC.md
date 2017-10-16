@@ -40,6 +40,9 @@
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
+## [Configurer la réinitialisation du mot de passe libre-service](active-directory-b2c-reference-sspr.md)
+## [Personnalisation de l’interface utilisateur](active-directory-b2c-reference-ui-customization.md)
+### [Outil d’assistance pour la personnalisation](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Utiliser l’API Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md)
 ## [Obtenir des jetons d’accès](active-directory-b2c-access-tokens.md)
 ## [Désactiver la vérification e-mail](active-directory-b2c-reference-disable-ev.md)
@@ -47,30 +50,34 @@
 ## [Activer l’authentification multifacteur](active-directory-b2c-reference-mfa.md)
 ## [Utiliser des attributs personnalisés](active-directory-b2c-reference-custom-attr.md)
 ## [Personnaliser le mot de passe](active-directory-b2c-reference-password-complexity.md)
-## [Personnalisation de l’interface utilisateur](active-directory-b2c-reference-ui-customization.md)
-### [Outil d’assistance pour la personnalisation](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Personnalisation de la langue](active-directory-b2c-reference-language-customization.md)
 ## [Utiliser l’API de création de rapports](active-directory-b2c-reference-usage-reporting-api.md)
-## [Configurer la réinitialisation du mot de passe libre-service](active-directory-b2c-reference-sspr.md)
+## [Migrer des utilisateurs](active-directory-b2c-user-migration.md)
 
 # Identity Experience Framework (Infrastructure d’expérience d’identité)
 ## [Stratégies personnalisées](active-directory-b2c-overview-custom.md)
 ## Guides
 ### [Prise en main](active-directory-b2c-get-started-custom.md)
-### Configurer les fournisseurs OIDC et OAUTH2
+### Configurer les fournisseurs OIDC et OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Compte Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
 #### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
+#### [LinkedIn](active-directory-b2c-custom-setup-li-idp.md)
+#### [Twitter](active-directory-b2c-custom-setup-twitter-idp.md)
 ### Configurer les fournisseurs SAML
 #### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Intégration des API RESTful
 #### [Valider les entrées utilisateur](active-directory-b2c-rest-api-validation-custom.md)
 #### [Obtenir des revendications supplémentaires](active-directory-b2c-rest-api-step-custom.md)
+#### [Ajouter votre API RESTful](active-directory-b2c-custom-rest-api-netfw.md)
+#### [Sécuriser les API RESTful avec une authentification de base](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+#### [Sécuriser les API RESTful avec une authentification par certificat](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 ### Flux d’utilisateurs
 #### [Configurer des entrées d’utilisateur](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Attributs personnalisés](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Personnaliser l’interface utilisateur](active-directory-b2c-ui-customization-custom.md)
+#### [Personnaliser l’interface utilisateur de façon dynamique](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Personnaliser les jetons](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Complexité du mot de passe](active-directory-b2c-reference-password-complexity-custom.md)
 

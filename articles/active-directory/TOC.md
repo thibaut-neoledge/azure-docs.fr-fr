@@ -7,6 +7,7 @@
 ## [FAQ](active-directory-faq.md)
 
 # Prise en main
+## [Prise en main d'Azure AD](get-started-azure-ad.md)
 ## [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md)
 ## [Ajouter un nom de domaine personnalisé](add-custom-domain.md)
 ## [Configurer la marque de la société](customize-branding.md)
@@ -130,7 +131,7 @@
 
 ## Gérer des appareils
 ### [Introduction](device-management-introduction.md)
-### [Utilisation du portail Azure](device-management-azure-portal.md)
+### [À l’aide du portail Azure](device-management-azure-portal.md)
 ### [Planifier l’exécution d’Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQ](device-management-faq.md)
 ### Tâches

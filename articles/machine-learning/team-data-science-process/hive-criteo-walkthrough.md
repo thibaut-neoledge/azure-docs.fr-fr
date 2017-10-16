@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 13dc1b516946aadc9c8a57a55768113bc925e63e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processus TDSP (Team Data Science Process) en action : utilisation d’un cluster Hadoop Azure HDInsight sur un jeu de données de 1 To
 
@@ -47,7 +46,7 @@ Voici un extrait des 20 premières colonnes de deux observations (lignes) prove
 
 Des valeurs sont manquantes dans les colonnes numériques et catégorielles de ce groupe de données. Nous détaillons une méthode simple pour gérer les valeurs manquantes. Des informations supplémentaires relatives aux données sont disponibles lorsque nous les stockons dans les tables Hive.
 
-**Définition  :** *Taux de clic :* pourcentage de clics effectués dans les données. Dans ce groupe de données Criteo, le taux de clic est d’environ 3,3 %, soit de 0,033.
+**Définition  :***Taux de clic :* pourcentage de clics effectués dans les données. Dans ce groupe de données Criteo, le taux de clic est d’environ 3,3 %, soit de 0,033.
 
 ## <a name="mltasks"></a>Exemples de tâches de prédiction
 Cette procédure pas à pas aborde deux exemples de problèmes de prédiction :
@@ -166,7 +165,7 @@ Nous remarquons que toutes ces tables sont externes puisque nous désignons simp
         hive
    
      Dans la ligne de commande REPL, coupez-collez la requête qu’elle exécute.
-2. **Enregistrement des requêtes dans un fichier et exécution de la commande** : la seconde consiste à enregistrer les requêtes dans un fichier .hql ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), puis à utiliser la commande suivante pour exécuter la requête :
+2. **Enregistrement des requêtes dans un fichier et exécution de la commande** : la seconde consiste à enregistrer les requêtes dans un fichier .hql ([sample&amp;#95;hive&amp;#95;create&amp;#95;criteo&amp;#95;database&amp;#95;and&amp;#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), puis à utiliser la commande suivante pour exécuter la requête :
    
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -288,7 +287,7 @@ Cela génère le résultat suivant :
 La combinaison LATERAL VIEW - explode dans Hive permet de générer une sortie similaire à SQL au lieu de la liste habituelle. Notez que dans ce tableau, la première colonne correspond au centre de l’emplacement et le second à la fréquence de l’emplacement.
 
 ### <a name="approximate-percentiles-of-some-numeric-variables-in-the-train-dataset"></a>Les centiles approximatifs de certaines variables numériques dans le groupe de données de formation
-Le calcul de centiles approximatifs avec des variables numériques est également intéressant. Le « percentile\_approx» natif de Hive le fait pour nous. [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) contient :
+Le calcul de centiles approximatifs avec des variables numériques est également intéressant. Le « percentile\_approx» natif de Hive le fait pour nous. [sample&amp;#95;hive&amp;#95;criteo&amp;#95;approximate&amp;#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) contient :
 
         SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -311,7 +310,7 @@ Cela donne :
 
 Nous constatons que Col15 possède des valeurs uniques 19M ! L’utilisation des techniques naïves, telles que « l’encodage à chaud » pour encoder des variables catégorielles de grande dimension, est tout bonnement impossible. Nous mentionnons notamment une technique puissante et robuste appelée [Apprentissage à l’aide de compteurs](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) pour résoudre ce problème de manière efficace.
 
-Nous terminons cette sous-rubrique en examinant le nombre de valeurs uniques pour d'autres colonnes catégorielles. [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) contient :
+Nous terminons cette sous-rubrique en examinant le nombre de valeurs uniques pour d'autres colonnes catégorielles. [sample&amp;#95;hive&amp;#95;criteo&amp;#95;unique&amp;#95;values&amp;#95;multiple&amp;#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) contient :
 
         SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
         COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))
@@ -631,5 +630,4 @@ Notez que nous avons remplacé la clé d'API par défaut par la clé d'API de no
 Nous remarquons que pour les deux exemples de test sur lesquels nous nous sommes penchés (dans l’infrastructure JSON du script python), nous obtenons des réponses sous forme d’« Étiquettes notées, de probabilités notées ». Notez que dans ce cas, nous choisissons les valeurs par défaut que le code prédéfini fournit (0 pour toutes les colonnes numériques et la chaîne « valeur » pour toutes les colonnes catégorielles).
 
 Ceci conclut notre procédure pas à pas expliquant comment gérer un jeu de données à grande échelle à l’aide d’Azure Machine Learning. Nous avons démarré avec un téraoctet de données, nous avons construit un modèle de prévision et l'avons déployé en tant que service Web dans le cloud.
-
 
