@@ -3,7 +3,7 @@ title: "Autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Ge
 description: "Apprenez à autoriser les utilisateurs à l'aide d'OAuth 2.0 dans Gestion des API."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 78c48247-64f0-4708-b2d0-98b61a821283
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: a19c453bb3271374b587f3d0b35adad55863b490
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: a19c453bb3271374b587f3d0b35adad55863b490
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
+
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Comment autoriser des comptes de développeurs à l'aide de OAuth 2.0 dans Gestion des API Azure
 De nombreuses API prennent en charge [OAuth 2.0](http://oauth.net/2/) pour sécuriser les API et assurer que seuls les utilisateurs valides y ont accès et peuvent accéder uniquement aux ressources pour lesquelles ils y sont autorisés. Pour utiliser la console de développement interactive de Gestion des API Azure avec ces API, le service vous permet de configurer votre instance de service pour travailler avec votre API compatible OAuth 2.0.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"> </a>Configuration requise
 Ce guide explique comment configurer votre instance de service Gestion des API pour utiliser l'autorisation OAuth 2.0 dans des comptes de développeur, mais n'explique pas comment configurer un fournisseur OAuth 2.0. La configuration de chaque fournisseur OAuth 2.0 est différente, bien que la procédure soit similaire et que les informations requises pour configurer OAuth 2.0 dans votre instance de service Gestion des API soient identiques. Cette rubrique inclut des exemples d'utilisation de Azure Active Directory en tant que fournisseur OAuth 2.0.
 
 > [!NOTE]
@@ -31,7 +32,7 @@ Ce guide explique comment configurer votre instance de service Gestion des API p
 > 
 > 
 
-## <a name="step1"></a>Configuration du serveur d’autorisation OAuth 2.0 dans Gestion des API
+## <a name="step1"> </a>Configuration du serveur d’autorisation OAuth 2.0 dans Gestion des API
 Pour commencer, cliquez sur **Portail des éditeurs** dans le portail Azure de votre service Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
@@ -90,7 +91,7 @@ Si le paramètre **Types d’accès accordés aux codes d’autorisation** est d
 
 Une fois le formulaire complété, cliquez sur **Enregistrer** pour enregistrer la configuration du serveur d'autorisation OAuth 2.0 de Gestion des API. Après l'enregistrement de la configuration du serveur, vous pouvez configurer les API pour utiliser cette configuration, tel qu'expliqué dans la section suivante.
 
-## <a name="step2"></a>Configuration d’une API pour utiliser l’autorisation utilisateur OAuth 2.0
+## <a name="step2"> </a>Configuration d’une API pour utiliser l’autorisation utilisateur OAuth 2.0
 Cliquez sur **API** dans le menu **Gestion des API** de gauche, cliquez sur le nom de l’API désirée, cliquez sur l’onglet **Sécurité**, puis cochez la case **OAuth 2.0**.
 
 ![Autorisation utilisateur][api-management-user-authorization]
@@ -99,7 +100,7 @@ Sélectionnez le **Serveur d’autorisation** souhaité dans la liste déroulant
 
 ![Autorisation utilisateur][api-management-user-authorization-save]
 
-## <a name="step3"></a>Tests de l’autorisation utilisateur OAuth 2.0 dans le portail de développement
+## <a name="step3"> </a>Tests de l’autorisation utilisateur OAuth 2.0 dans le portail de développement
 Une fois que vous avez configuré votre serveur d'autorisation OAuth 2.0 et votre API pour utiliser ce serveur, vous pouvez le tester en accédant au portail de développement et en appelant une API.  Cliquez sur **Portail de développement** dans le menu supérieur droit.
 
 ![Portail des développeurs][api-management-developer-portal-menu]
@@ -173,4 +174,5 @@ Pour plus d’informations sur l’utilisation d’OAuth 2.0 et la gestion des 
 [Configure an API to use OAuth 2.0 user authorization]: #step2
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
+
 
