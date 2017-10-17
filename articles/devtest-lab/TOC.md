@@ -16,6 +16,7 @@
 ### [Créer des machines virtuelles](devtest-lab-add-vm.md)
 ### [Créer des machines virtuelles exigibles](devtest-lab-add-claimable-vm.md)
 ### [Créer et gérer des machines virtuelles avec l’interface Azure CLI](devtest-lab-vmcli.md)
+### [Redémarrer une machine virtuelle](devtest-lab-restart-vm.md)
 
 ## Utiliser des environnements dans un laboratoire
 ### [Créer un environnement](devtest-lab-create-environment-from-arm.md)
@@ -57,8 +58,8 @@
 ## [Mettre à l’échelle votre laboratoire](devtest-lab-scale-lab.md)
 
 # Référence
-## [Interface de ligne de commande Azure](/cli/azure/lab)
-## [Azure PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Créer ou modifier des laboratoires automatiquement](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [API REST](https://docs.microsoft.com/rest/api/dtl/)
 ## [Modèles Microsoft Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples)

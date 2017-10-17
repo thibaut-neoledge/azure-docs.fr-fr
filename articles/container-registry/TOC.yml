@@ -21,6 +21,12 @@
       href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+- name: Concepts
+  items:
+    - name: Références SKU de registres de conteneurs
+      href: container-registry-skus.md
+    - name: Géoréplication (préversion)
+      href: container-registry-geo-replication.md
 - name: Procédures
   items:
     - name: Envoyer et extraire une image
@@ -43,8 +49,8 @@
       href: /powershell/module/azurerm.containerregistry
 - name: Ressources
   items:
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Feuille de route
+      href: 'https://aka.ms/acr/roadmap'
     - name: Tarification
       href: 'https://azure.microsoft.com/pricing/details/container-registry/'
     - name: Disponibilité des régions

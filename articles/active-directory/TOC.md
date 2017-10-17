@@ -44,6 +44,7 @@
 #### [Migrer des utilisateurs individuels titulaires d’une licence aux licences par groupe](active-directory-licensing-group-migration-azure-portal.md)
 #### [Scénarios supplémentaires pour la gestion des licences par groupe](active-directory-licensing-group-advanced.md)
 #### [Exemples Azure PowerShell pour les licences basées sur les groupes](active-directory-licensing-ps-examples.md)
+#### [Référence pour les produits et les plans de service dans Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
 ### [Réinitialiser un mot de passe](active-directory-users-reset-password-azure-portal.md)
 ### [Gérer les informations de travail utilisateur](active-directory-users-work-info-azure-portal.md)
@@ -65,6 +66,7 @@
 #### [Migrer des utilisateurs individuels titulaires d’une licence aux licences par groupe](active-directory-licensing-group-migration-azure-portal.md)
 #### [Scénarios supplémentaires pour la gestion des licences par groupe](active-directory-licensing-group-advanced.md)
 #### [Exemples Azure PowerShell pour les licences basées sur les groupes](active-directory-licensing-ps-examples.md)
+#### [Référence pour les produits et les plans de service dans Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Configurer l’expiration des groupes Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Afficher tous les groupes](active-directory-groups-view-azure-portal.md)
 ### [Activer les groupes dédiés](active-directory-accessmanagement-dedicated-groups.md)
@@ -137,7 +139,7 @@
 ### Tâches
 #### [Configurer les appareils Windows 10 inscrits dans Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Configurer les appareils joints Azure AD](device-management-azuread-joined-devices-setup.md)
-#### [Configurer les appareils joints Azure AD hybrides](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Configurer les appareils joints Azure AD hybrides](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Déployer en local](active-directory-device-registration-on-premises-setup.md)
 #### [Enregistrement dans Azure AD lors de la première exécution de Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Résolution des problèmes
@@ -204,6 +206,7 @@
 #### [Gérer l’approvisionnement de comptes d’utilisateurs](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Gérer l’authentification unique pour les applications d’entreprise](active-directory-enterprise-apps-manage-sso.md)
 #### [Signature de certificat avancée pour les applications SAML](active-directory-enterprise-apps-advance-certificate-options.md)
+####[Masquer l’expérience utilisateur dans Azure Active Directory](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Gérer l’accès aux applications](active-directory-managing-access-to-apps.md)
 #### [Accès libre-service](active-directory-self-service-application-access.md)

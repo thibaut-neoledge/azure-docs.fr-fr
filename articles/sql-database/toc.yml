@@ -135,12 +135,16 @@
           href: sql-database-disaster-recovery.md
         - name: Effectuer un exercice de récupération
           href: sql-database-disaster-recovery-drills.md
-    - name: Chargement et transfert de données
+    - name: Migrer vers SQL Database
       items:
         - name: Migrer une base de données SQL
           href: sql-database-cloud-migrate.md
         - name: Modifications de T-SQL
           href: sql-database-transact-sql-information.md
+        - name: Gérer une base de données après la migration
+          href: sql-database-manage-after-migration.md
+    - name: Chargement et transfert de données
+      items:
         - name: Copier une base de données
           href: sql-database-copy.md
         - name: Importer une base de données

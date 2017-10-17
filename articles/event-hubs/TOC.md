@@ -22,6 +22,7 @@
 
 # Procédures
 ## Planifier et concevoir
+### [Récupération d’urgence et géo-réplication](event-hubs-geo-dr.md)
 ### [Concentrateurs d’événements dédiés](event-hubs-dedicated-overview.md)
 ### [Présentation du modèle de sécurité et de l’authentification](event-hubs-authentication-and-security-model-overview.md)
 ### [Disponibilité et cohérence](event-hubs-availability-and-consistency.md)

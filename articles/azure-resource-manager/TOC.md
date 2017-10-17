@@ -65,7 +65,6 @@
 ### Créer un principal du service
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Interface de ligne de commande Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 #### [Portail Azure](resource-group-create-service-principal-portal.md)
 ### [API d’authentification pour l’accès aux abonnements](resource-manager-api-authentication.md)
 ### [Verrouiller des ressources](resource-group-lock-resources.md)
