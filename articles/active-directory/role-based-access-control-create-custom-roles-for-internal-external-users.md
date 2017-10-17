@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.openlocfilehash: cccd0af0c991efe330567c2459717798d116e68f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: cccd0af0c991efe330567c2459717798d116e68f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/20/2017
+
 ---
 ## <a name="intro-on-role-based-access-control"></a>Contrôle d’accès en fonction du rôle Azure
 
@@ -33,7 +34,7 @@ L’utilisation de la fonctionnalité RBAC dans l’environnement Windows Azure 
 * Avoir le rôle Propriétaire de l’abonnement Azure
 * Avoir accès au [portail Azure](https://portal.azure.com)
 * Avoir le fournisseur de ressources suivant inscrit pour l’abonnement de l’utilisateur : **Microsoft.Authorization**. Pour plus d’informations sur l’enregistrement des fournisseurs de ressources, voir [Fournisseurs, régions, schémas et versions d’API Resource Manager](/azure-resource-manager/resource-manager-supported-services.md).
-<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found--->
+<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found---->
 
 > [!NOTE]
 > Ni les abonnements Office 365 ni les licences Azure Active Directory (par exemple, Accès à Azure Active Directory) approvisionnées à partir du portail O365 ne sont éligibles pour l’utilisation de la fonctionnalité RBAC.
@@ -77,7 +78,7 @@ Après avoir sélectionné l’abonnement, l’utilisateur administrateur doit c
 ![ajouter un utilisateur dans la fonctionnalité de contrôle d’accès IAM dans le portail Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
 L’étape suivante consiste à sélectionner le rôle à attribuer et l’utilisateur à qui le rôle RBAC doit être attribué. Dans le menu déroulant **Rôle**, l’utilisateur administrateur voit uniquement les rôles RBAC intégrés disponibles dans Azure. Pour plus d’explications sur chaque rôle et les étendues qui peuvent lui être attribuées, voir [Rôles intégrés pour contrôle d’accès en fonction du rôle Azure](/active-directory/role-based-access-built-in-roles.md).
-<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found--->
+<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found---->
 
 L’utilisateur administrateur doit ensuite ajouter l’adresse de messagerie de l’utilisateur externe. Le comportement attendu est que l’utilisateur externe n'apparaisse pas dans le client existant. Une fois l’utilisateur externe invité, il est visible sous **Abonnements > Contrôle d’accès (IAM)** avec tous les utilisateurs auxquels un rôle RBAC est actuellement attribué dans l’étendue de l’abonnement.
 
@@ -349,3 +350,4 @@ Depuis la dernière build 2017, Azure Cloud Shell est généralement disponible.
 
 
 ![Azure Cloud Shell](./media/role-based-access-control-create-custom-roles-for-internal-external-users/27.png)
+

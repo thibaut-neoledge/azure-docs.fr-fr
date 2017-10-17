@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8276afd9593b46a08279e9c1d6fe1d07f04273dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 9331039cef4ef047820e088cc84b92655336d12c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/20/2017
+
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Créer une application web Python dans Azure
 
@@ -51,7 +52,7 @@ Vous utilisez cette fenêtre de terminal pour exécuter toutes les commandes de 
 Passez au répertoire qui contient l’exemple de code.
 
 ```bash
-cd Python-docs-hello-world
+cd python-docs-hello-world
 ```
 
 ## <a name="run-the-app-locally"></a>Exécutez l’application localement.
@@ -199,3 +200,4 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 
 > [!div class="nextstepaction"]
 > [Mapper un nom DNS personnalisé existant à des applications web Azure](app-service-web-tutorial-custom-domain.md)
+

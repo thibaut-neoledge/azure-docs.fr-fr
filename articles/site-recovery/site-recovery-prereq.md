@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/23/2017
-ms.author: rajanaki
-ms.openlocfilehash: 490833c14b6856cdaf6f6bfd2f67ce54fb0414a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: raynew
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 490833c14b6856cdaf6f6bfd2f67ce54fb0414a2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/19/2017
+
 ---
+
 #  <a name="prerequisites-for-replication-from-on-premises-to-azure-by-using-site-recovery"></a>Conditions préalables pour la réplication depuis un site local vers Azure avec Site Recovery
 
 > [!div class="op_single_selector"]
@@ -38,7 +40,7 @@ Vous pouvez laisser des commentaires au bas de cet article. Vous pouvez égaleme
 --- | ---
 **Compte Azure** | Un [compte Microsoft Azure](http://azure.microsoft.com/). Vous pouvez commencer par une version d’ [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 **Service Site Recovery** | Pour plus d’informations sur la tarification du service Azure Site Recovery, consultez [cette page](https://azure.microsoft.com/pricing/details/site-recovery/). |
-**Azure Storage** | Vous avez besoin d’un compte de stockage Azure pour stocker les données répliquées. Le compte de stockage doit se trouver dans la même région que le coffre Azure Recovery Services. Des machines virtuelles Azure sont créées en cas de basculement.<br/><br/> En fonction du modèle de ressource que vous souhaitez utiliser pour le basculement des machines virtuelles Azure, vous pouvez configurer un compte à l’aide du [modèle de déploiement Azure Resource Manager](../storage/common/storage-create-storage-account.md) ou du [modèle de déploiement classique](../storage/common/storage-create-storage-account.md).<br/><br/>Vous pouvez utiliser le [stockage géoredondant](../storage/common/storage-redundancy.md#geo-redundant-storage) ou le stockage localement redondant. Nous vous recommandons d’utiliser le stockage géo-redondant. Avec le stockage géo-redondant, les données sont résilientes si une panne se produit au niveau régional ou si la région principale ne peut pas être récupérée.<br/><br/> Vous pouvez utiliser un compte de stockage Azure standard ou Azure Premium. Le [stockage Premium](https://docs.microsoft.com/azure/storage/storage-premium-storage) est généralement utilisé pour les machines virtuelles nécessitant des performances d’E/S élevées et une faible latence. Avec le stockage Premium, une machine virtuelle peut héberger des charges de travail nécessitant beaucoup d’E/S. Si vous utilisez un stockage Premium pour les données répliquées, il vous faut également un compte de stockage standard. Un compte de stockage standard permet de stocker les journaux de réplication qui capturent les modifications apportées en continu aux données locales.<br/><br/>
+**Stockage Azure** | Vous avez besoin d’un compte de stockage Azure pour stocker les données répliquées. Le compte de stockage doit se trouver dans la même région que le coffre Azure Recovery Services. Des machines virtuelles Azure sont créées en cas de basculement.<br/><br/> En fonction du modèle de ressource que vous souhaitez utiliser pour le basculement des machines virtuelles Azure, vous pouvez configurer un compte à l’aide du [modèle de déploiement Azure Resource Manager](../storage/common/storage-create-storage-account.md) ou du [modèle de déploiement classique](../storage/common/storage-create-storage-account.md).<br/><br/>Vous pouvez utiliser le [stockage géoredondant](../storage/common/storage-redundancy.md#geo-redundant-storage) ou le stockage localement redondant. Nous vous recommandons d’utiliser le stockage géo-redondant. Avec le stockage géo-redondant, les données sont résilientes si une panne se produit au niveau régional ou si la région principale ne peut pas être récupérée.<br/><br/> Vous pouvez utiliser un compte de stockage Azure standard ou Azure Premium. Le [stockage Premium](https://docs.microsoft.com/azure/storage/storage-premium-storage) est généralement utilisé pour les machines virtuelles nécessitant des performances d’E/S élevées et une faible latence. Avec le stockage Premium, une machine virtuelle peut héberger des charges de travail nécessitant beaucoup d’E/S. Si vous utilisez un stockage Premium pour les données répliquées, il vous faut également un compte de stockage standard. Un compte de stockage standard permet de stocker les journaux de réplication qui capturent les modifications apportées en continu aux données locales.<br/><br/>
 **Limites de stockage** | Vous ne pouvez pas déplacer les comptes de stockage que vous utilisez dans Site Recovery vers un autre groupe de ressources ni changer d’abonnement.<br/><br/> La réplication vers des comptes de stockage Premium dans le centre et le sud de l’Inde n’est actuellement pas disponible.
 **Réseau Azure** | Vous devez avoir un réseau Azure auquel les machines virtuelles Azure se connectent après basculement. Le réseau Azure doit se trouver dans la même région que le coffre Recovery Services.<br/><br/> Dans le portail Azure, vous pouvez créer un réseau Azure à l’aide du [modèle de déploiement Resource Manager](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) ou du [modèle de déploiement classique](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).<br/><br/> Si vous effectuez une réplication à partir de System Center Virtual Machine Manager (VMM) vers Azure, vous devez configurer le mappage réseau entre les réseaux VMM VM et Azure. Cela garantit que les machines virtuelles Azure se connectent aux réseaux appropriés après le basculement.
 **Limitations du réseau** | Vous ne pouvez pas déplacer les comptes réseau que vous utilisez dans Site Recovery vers un autre groupe de ressources ni changer d’abonnement.
@@ -128,3 +130,4 @@ Ces URL doivent être disponibles depuis VMware, VMM et les serveurs hôtes Hype
 |``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | Non requis | Non requis | Non requis | Autoriser le téléchargement SQL |
 |``time.windows.com`` | AUTORISER | Autoriser | Autoriser | Autoriser|
 |``time.nist.gov`` | Autoriser | Autoriser | Autoriser | AUTORISER |
+

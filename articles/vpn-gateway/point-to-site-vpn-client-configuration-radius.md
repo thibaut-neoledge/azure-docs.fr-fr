@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: c56a9b06a11d25cf046a0faeb29af1d78d9a4a89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: c56a9b06a11d25cf046a0faeb29af1d78d9a4a89
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/25/2017
+
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Créer et installer les fichiers de configuration du client VPN pour une authentification P2S RADIUS (préversion)
 
@@ -49,7 +50,7 @@ Veillez à ce que tous les utilisateurs qui se connectent disposent d’informat
 Créez la configuration du client VPN à l’aide de la commande suivante :
 
 ```powershell 
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapMSChapv2"
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
 Après avoir exécuté la commande, un lien est retourné. Copiez et collez ce lien dans un navigateur web pour télécharger un fichier compressé, nommé « VpnClientConfiguration.zip ». Décompressez le fichier pour afficher les dossiers suivants : 
@@ -63,7 +64,7 @@ Vous pouvez récupérer les fichiers de configuration du client que vous avez d�
 Pour récupérer les fichiers de configuration du client générés précédemment, exécutez la commande suivante :
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
  
 ### <a name="adwincli"></a>Configurer un client VPN Windows
@@ -122,7 +123,7 @@ Vous pouvez créer les fichiers de configuration du client VPN pour une authenti
 Créez la configuration du client VPN à l’aide de la commande suivante :
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
 ```
 
 Le résultat de la cmdlet retourne un lien. Copiez et collez ce lien dans un navigateur web pour télécharger un fichier compressé, nommé « VpnClientConfiguration.zip ». Décompressez le fichier pour afficher les dossiers suivants :
@@ -135,7 +136,7 @@ Vous pouvez récupérer les fichiers de configuration du client que vous avez d�
 Pour récupérer les fichiers de configuration du client générés précédemment, exécutez la commande suivante :
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
  
 ### <a name="certwincli"></a>Configurer un client VPN Windows
@@ -203,3 +204,4 @@ Pour utiliser un type d’authentification différent (par mot de passe à usage
 ## <a name="next-steps"></a>Étapes suivantes
 
 Revenez à l’article pour [terminer la configuration P2S](point-to-site-how-to-radius-ps.md).
+
