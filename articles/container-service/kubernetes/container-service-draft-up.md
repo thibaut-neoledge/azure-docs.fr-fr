@@ -16,12 +16,14 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: b320581011c27a2efc49fa784f184a37bdb7f6fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b320581011c27a2efc49fa784f184a37bdb7f6fe
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/25/2017
+
 ---
+
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Utiliser Draft avec Azure Container Service et Azure Container Registry pour générer et déployer une application dans Kubernetes
 
 [Draft](https://aka.ms/draft) est un nouvel outil open source qui facilite le développement d’applications basées sur des conteneurs et leur déploiement dans des clusters Kubernetes sans nécessiter une connaissance approfondie de Docker et Kubernetes, ni même l’installation de ces outils. L’utilisation d’outils tels que Draft vous permet, à vous et votre équipe, de vous concentrer sur la génération de l’application avec Kubernetes sans avoir à accorder autant d’attention à l’infrastructure.
@@ -195,7 +197,7 @@ $ helm install stable/traefik --name ingress
 À présent, définissez un espion sur le contrôleur `ingress` pour capturer la valeur IP externe lors de son déploiement. Cette adresse IP correspondra à celle [mappée sur votre domaine de déploiement](#wire-up-deployment-domain) à la section suivante.
 
 ```bash
-kubectl get svc -w
+$ kubectl get svc -w
 NAME                          CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
 ingress-traefik               10.0.248.104   13.64.108.240   80:31046/TCP,443:32556/TCP   1h
 kubernetes                    10.0.0.1       <none>          443/TCP                      7h
@@ -288,6 +290,7 @@ Hello World, I'm Java!
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous disposez d’un cluster Kubernetes ACS, vous pouvez utiliser [Azure Container Registry](../../container-registry/container-registry-intro.md) pour découvrir comment créer d’autres déploiements distincts de ce scénario. Par exemple, vous pouvez créer un jeu d’enregistrements DNS de domaine draft._basedomain.toplevel_ qui contrôle les éléments d’un sous-domaine plus profond pour des déploiements ACS spécifiques.
+
 
 
 
