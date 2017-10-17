@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/13/2017
+ms.date: 10/11/2017
 ms.author: carlrab
+ms.openlocfilehash: dbc01dac6cf31916bef1cba9432e5653751dc625
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 2ad643d5f099457018d02a43252db4c259f5b613
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/12/2017
 ---
-
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Créer et gérer des serveurs et des bases de données Azure SQL Database
 
 Une base de données SQL Azure est une base de données gérée dans Microsoft Azure, créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md). Cette base de données possède un ensemble défini de [ressources de calcul et de stockage pour différentes charges de travail](sql-database-service-tiers.md). Une base de données SQL Azure est associée à un serveur logique Azure SQL Database. Ce serveur est créé dans une région Azure spécifique. 
@@ -146,25 +144,25 @@ Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Az
 
 | Applet de commande | Description |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#create) |Crée une base de données|
-|[az sql db list](/cli/azure/sql/db#list)|Répertorie toutes les bases de données et les entrepôts de données d’un serveur, ou toutes les bases de données d’un pool élastique|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|Répertorie les objectifs de service disponibles et les limites de stockage|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|Renvoie les données d’utilisation de la base de données|
-|[az sql db show](/cli/azure/sql/db#show)|Obtient une base de données ou un entrepôt de données|
-|[az sql db update](/cli/azure/sql/db#update)|Met à jour une base de données|
-|[az sql db delete](/cli/azure/sql/db#delete)|Supprime une base de données|
-|[az group create](/cli/azure/group#create)|Crée un groupe de ressources|
-|[az sql server create](/cli/azure/sql/server#create)|Crée un serveur|
-|[az sql server list](/cli/azure/sql/server#list)|Répertorie les serveurs|
-|[az sql server list-usages](/cli/azure/sql/server#list-usages)|Renvoie les données d’utilisation d’un serveur|
-|[az sql server show](/cli/azure/sql/server#show)|Obtient un serveur|
-|[az sql server update](/cli/azure/sql/server#update)|Met à jour un serveur|
-|[az sql server delete](/cli/azure/sql/server#delete)|Supprime un serveur.|
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#create)|Crée la règle de pare-feu d’un serveur|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#list)|Répertorie les règles de pare-feu sur un serveur|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#show)|Affiche les détails d’une règle de pare-feu|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule#update)|Met à jour une règle de pare-feu|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#delete)|Supprime une règle de pare-feu|
+|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Crée une base de données|
+|[az sql db list](/cli/azure/sql/db#az_sql_db_list)|Répertorie toutes les bases de données et les entrepôts de données d’un serveur, ou toutes les bases de données d’un pool élastique|
+|[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|Répertorie les objectifs de service disponibles et les limites de stockage|
+|[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Renvoie les données d’utilisation de la base de données|
+|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|Obtient une base de données ou un entrepôt de données|
+|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Met à jour une base de données|
+|[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Supprime une base de données|
+|[az group create](/cli/azure/group#az_group_create)|Crée un groupe de ressources|
+|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Crée un serveur|
+|[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Répertorie les serveurs|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|Renvoie les données d’utilisation d’un serveur|
+|[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Obtient un serveur|
+|[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Met à jour un serveur|
+|[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Supprime un serveur.|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Crée la règle de pare-feu d’un serveur|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Répertorie les règles de pare-feu sur un serveur|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Affiche les détails d’une règle de pare-feu|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Met à jour une règle de pare-feu|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Supprime une règle de pare-feu|
 
 > [!TIP]
 > Pour obtenir un didacticiel de démarrage rapide d’Azure CLI, consultez la page [Créer une base de données SQL Azure unique à l’aide d’Azure CLI](sql-database-get-started-cli.md). Pour obtenir des exemples de scripts Azure CLI, consultez [Utiliser CLI pour créer une seule base de données Azure SQL et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-cli.md) et [Utiliser CLI pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
