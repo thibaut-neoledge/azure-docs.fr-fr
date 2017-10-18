@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 09/29/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 88431377a36d5bc36220c630f0c8d4a46ab4a434
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 91a437345858cf3a9b00b6b4e8e72cd253f8f069
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Connexion à une machine virtuelle Azure exécutant Windows
 Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une session Bureau à distance (RDP) depuis un bureau Windows. Tout d’abord, connectez-vous à la machine virtuelle, puis ouvrez une session.
@@ -29,9 +28,9 @@ Si vous essayez de vous connecter à une machine virtuelle Windows à partir d�
 
 ## <a name="connect-to-the-virtual-machine"></a>Connectez-vous à la machine virtuelle.
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu hub, cliquez sur **Machines virtuelles**.
+2. Dans le menu de gauche, cliquez sur **Machines virtuelles**.
 3. Sélectionnez la machine virtuelle dans la liste.
-4. Dans le panneau de la machine virtuelle, cliquez sur **Se connecter**.
+4. Sur la page de la machine virtuelle, cliquez sur **Connecter**.
    
     ![Capture d'écran du portail Azure montrant comment se connecter à votre machine virtuelle.](./media/connect-logon/connect.png)
    
@@ -45,5 +44,4 @@ Si vous essayez de vous connecter à une machine virtuelle Windows à partir d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 En cas de problème de connexion, consultez [Résolution des problèmes de connexion Bureau à distance](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
-
 

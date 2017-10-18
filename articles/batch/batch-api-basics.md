@@ -3,7 +3,7 @@ title: "Vue d’ensemble d’Azure Batch pour développeurs | Microsoft Docs"
 description: "Découvrez les fonctionnalités du service Batch et de ses API du point de vue du développeur."
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 06/28/2017
-ms.author: tamram
+ms.date: 010/04/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: f182dff164b8baa7e2144231667adbd12fcc717d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
 
@@ -45,7 +45,7 @@ Le flux de travail de haut niveau suivant est caractéristique de la plupart des
 Les sections suivantes portent sur ces points ainsi que sur les autres ressources de Batch qui permettent l’exécution de votre scénario de calcul distribué.
 
 > [!NOTE]
-> Un [compte Batch](#account) est nécessaire pour utiliser le service Batch. La plupart des solutions Batch utilisent aussi un compte [Stockage Azure][azure_storage], afin de stocker et récupérer un fichier. Actuellement, le service Batch prend uniquement en charge le type de compte de stockage à **usage général**, comme décrit à l’étape 5 de la section [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) de l’article [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md).
+> Un [compte Batch](#account) est nécessaire pour utiliser le service Batch. La plupart des solutions Batch utilisent aussi un compte [Stockage Azure][azure_storage], afin de stocker et récupérer un fichier. 
 >
 >
 
@@ -70,46 +70,16 @@ Certaines des ressources suivantes (comptes, nœuds de calcul, pools, travaux et
 ## <a name="account"></a>Compte
 Un compte Batch est une entité identifiée de façon unique au sein du service Batch. Tout le traitement s’effectue via un compte Batch.
 
-Vous pouvez créer un compte Azure Batch à l’aide du [Portail Azure](batch-account-create-portal.md) ou par programme, par exemple avec la [bibliothèque .NET de gestion Batch](batch-management-dotnet.md). Au moment de la création du compte, vous pouvez associer un compte de Stockage Azure.
+Vous pouvez créer un compte Azure Batch à l’aide du [Portail Azure](batch-account-create-portal.md) ou par programme, par exemple avec la [bibliothèque .NET de gestion Batch](batch-management-dotnet.md). Lorsque vous créez le compte, vous pouvez associer un compte de stockage Azure pour le stockage des données d’entrée et de sortie ou des applications liées au travail.
 
-### <a name="pool-allocation-mode"></a>Mode d’allocation de pool
+Vous pouvez exécuter plusieurs charges de travail Batch dans un compte Batch ou répartir vos charges de travail entre plusieurs comptes Batch se trouvant dans le même abonnement mais dans différentes régions Azure.
 
-Lorsque vous créez un compte Batch, vous pouvez spécifier la manière dont les [pools](#pool) de nœuds de calcul sont alloués. Vous pouvez choisir d’allouer les pools de nœuds de calcul dans un abonnement géré par Azure Batch. Vous pouvez aussi les allouer dans votre propre abonnement. La propriété *mode d’allocation de pool* du compte détermine l’endroit où les pools sont alloués. 
+> [!NOTE]
+> Lorsque vous créez un compte Batch, vous devez généralement choisir le mode **Service Batch** par défaut. Les pools sont alloués en arrière-plan dans des abonnements gérés par Azure. Dans l’autre mode d’**abonnement utilisateur**, qui n’est plus recommandé, les machines virtuelles Batch et les autres ressources sont créées directement dans l’abonnement lors de la création d’un pool.
+>
 
-Pour déterminer le mode d’allocation de pool à utiliser, il convient de réfléchir au mode qui est le plus adapté à votre scénario :
 
-* **Service Batch** est le mode d’allocation de pool par défaut. Les pools sont alloués en arrière-plan dans des abonnements gérés par Azure. Gardez à l’esprit ces points clés concernant le mode d’allocation de pool Service Batch :
-
-    - Le mode d’allocation de pool Service Batch prend en charge les pools de service cloud et de machines virtuelles.
-    - Le mode d’allocation de pool Service Batch prend en charge l’authentification par clé partagée ou [l’authentification Azure Active Directory](batch-aad-auth.md) (Azure AD). 
-    - Grâce au mode d’allocation de pool Service Batch, vous pouvez utiliser des nœuds de calcul dédiés ou à faible priorité dans des pools alloués.
-    - N’utilisez pas ce mode d’allocation de pool si vous souhaitez créer des pools de machines virtuelles Azure à partir d’images de VM, ou si vous prévoyez d’utiliser un réseau virtuel. À la place, créez votre compte avec le mode d’allocation de pool Abonnement utilisateur.
-    - Les pools de machines virtuelles configurés dans un compte créé grâce au mode d’allocation de pool Service Batch doivent être créés à partir d’images de la [Place de marché de machines virtuelles Microsoft Azure][vm_marketplace].
-
-* Avec le mode d’allocation de pool **Abonnement utilisateur**, les pools Batch sont alloués dans l’abonnement Azure où le compte est créé. Gardez à l’esprit ces points clés concernant le mode d’allocation de pool Abonnement utilisateur :
-     
-    - Ce mode d’allocation de pool prend uniquement en charge les pools de machines virtuelles. elle ne gère pas les pools de services cloud.
-    - Pour créer des pools de machines virtuelles à partir d’images VM, ou pour utiliser un réseau virtuel avec des pools de machines virtuelles, vous devez utiliser le mode d’allocation de pool Abonnement utilisateur.  
-    - Vous devez utiliser [l’authentification Azure Active Directory](batch-aad-auth.md) avec les pools qui sont alloués dans l’abonnement de l’utilisateur. 
-    - Si le mode d’allocation de pool est défini sur Abonnement utilisateur, vous devez configurer un Azure Key Vault pour votre compte Batch. 
-    - Vous pouvez uniquement utiliser des nœuds de calcul dans des pools dont le compte est créé avec le mode d’allocation de pool Abonnement utilisateur. Les nœuds à faible priorité ne sont pas pris en charge.
-    - Les pools de machines virtuelles configurés dans un compte associé au mode d’allocation de pool Abonnement utilisateur peuvent être créés à partir d’images de la [Place de marché Microsoft Azure][vm_marketplace] ou d’images personnalisées fournies par vos soins.
-
-Le tableau suivant compare les modes d’allocation de pool Service Batch et d’Abonnement utilisateur.
-
-| **Mode d’allocation de pool**                 | **Service Batch**                                                                                       | **Abonnement utilisateur**                                                              |
-|-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Les pools sont alloués dans**               | Un abonnement Azure géré                                                                           | L’abonnement de l’utilisateur dans lequel le compte Batch est créé                        |
-| **Configurations prises en charge**             | <ul><li>Configuration service cloud</li><li>Configuration de machines virtuelles (Linux et Windows)</li></ul> | <ul><li>Configuration de machines virtuelles (Linux et Windows)</li></ul>                |
-| **Images de machine virtuelle prises en charge**                  | <ul><li>Images de la Place de marché Azure</li></ul>                                                              | <ul><li>Images de la Place de marché Azure</li><li>Images personnalisées</li></ul>                   |
-| **Types de nœuds de calcul pris en charge**         | <ul><li>Nœuds dédiés</li><li>Nœuds de faible priorité</li></ul>                                            | <ul><li>Nœuds dédiés</li></ul>                                                  |
-| **Authentification prise en charge**             | <ul><li>Clé partagée</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **Azure Key Vault requis**             | Non                                                                                                      | Oui                                                                                |
-| **Quota de cœurs**                           | Déterminé par le quota de cœurs Batch                                                                          | Déterminé par le quota de cœurs Batch                                              |
-| **Support réseau virtuel Azure (Vnet)** | Pools créés avec une configuration du service cloud                                                      | Pools créés avec une configuration de machines virtuelles                               |
-| **Modèle de déploiement de réseau virtuel pris en charge**      | Vnets créés avec un modèle de déploiement classique                                                             | Réseaux virtuels créés avec le modèle de déploiement classique ou Azure Resource Manager |
-
-## <a name="azure-storage-account"></a>un compte Azure Storage.
+## <a name="azure-storage-account"></a>Compte de Stockage Azure
 
 La plupart des solutions Batch utilisent Stockage Azure pour stocker les fichiers de ressources et les fichiers de sortie.  
 
@@ -134,7 +104,7 @@ Les pools Azure Batch sont créés en parallèle à la plate-forme de calcul Azu
 
 Chaque nœud ajouté à un pool se voit attribuer un nom unique et l’adresse IP. Lorsqu’un nœud est supprimé d’un pool, toutes les modifications apportées au système d’exploitation ou aux fichiers sont perdues, et son nom et son adresse IP sont libérés pour une utilisation ultérieure. Lorsqu’un nœud quitte un pool, sa durée de vie est terminée.
 
-Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants. Certains paramètres varient en fonction du mode d’allocation de pool associé au [compte](#account) Batch :
+Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants :
 
 - Système d’exploitation et version de nœud de calcul
 - Type de nœud de calcul et nombre cible de nœuds
@@ -149,11 +119,9 @@ Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants. Cert
 Chacun de ces paramètres est décrit plus en détail dans les sections suivantes.
 
 > [!IMPORTANT]
-> Les comptes Batch créés avec le mode d’allocation de pool Service Batch possèdent un quota par défaut. Ce quota limite le nombre de cœurs dans un compte Batch. Le nombre de cœurs correspond au nombre de nœuds de calcul. Pour en savoir plus sur les quotas par défaut et obtenir des instructions sur [l’augmentation d’un quota](batch-quota-limit.md#increase-a-quota), consultez l’article [Quotas et limites pour le service Azure Batch](batch-quota-limit.md). Si votre pool n’a pas obtenu son nombre cible de nœuds, cela peut être dû au quota principal.
+> Les comptes Batch ont un quota par défaut qui limite le nombre de cœurs dans un compte Batch. Le nombre de cœurs correspond au nombre de nœuds de calcul. Pour en savoir plus sur les quotas par défaut et obtenir des instructions sur [l’augmentation d’un quota](batch-quota-limit.md#increase-a-quota), consultez l’article [Quotas et limites pour le service Azure Batch](batch-quota-limit.md). Si votre pool n’a pas obtenu son nombre cible de nœuds, cela peut être dû au quota principal.
 >
->Les comptes Batch créés avec le mode d’allocation de pool Abonnement utilisateur ne tiennent pas compte des quotas relatifs aux services Batch. Au lieu de cela, ils partagent le quota principal de l’abonnement spécifié. Pour en savoir plus, consultez le paragraphe [Limites de machines virtuelles](../azure-subscription-service-limits.md#virtual-machines-limits) de la section [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md).
->
->
+
 
 ### <a name="compute-node-operating-system-and-version"></a>Système d’exploitation et version de nœud de calcul
 
@@ -173,41 +141,14 @@ Lorsque vous créez un pool Batch, vous pouvez spécifier la configuration de m
 
 Lorsque vous créez un pool, vous devez sélectionner la valeur **nodeAgentSkuId** appropriée, selon le système d’exploitation de l’image de base de votre VHD. Pour obtenir un mappage des ID de référence SKU d’agent de nœud disponible sur les références des images de système d’exploitation, appelez l’opération permettant de [répertorier les références SKU d’agent de nœud prises en charge](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
 
-Consultez la section relative au [compte](#account) pour en savoir plus sur la définition du mode d’allocation de pool lorsque vous créez un compte Batch.
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Images personnalisées pour les pools de machines virtuelles
 
-Pour pouvoir utiliser des images personnalisées pour vos pools de machines virtuelles, créez votre compte Batch avec le mode d’allocation de pool Abonnement utilisateur. Grâce à ce mode, les pools Batch sont alloués au sein de l’abonnement où se trouve le compte. Consultez la section relative au [compte](#account) pour en savoir plus sur la définition du mode d’allocation de pool lorsque vous créez un compte Batch.
+Pour utiliser une image personnalisée, vous devez préparer l’image en la généralisant. Pour plus d’informations sur la préparation d’images Linux personnalisées à partir de machines virtuelles Azure, consultez [Guide pratique pour créer une image d’une machine virtuelle ou d’un VHD](../virtual-machines/linux/capture-image.md). Pour plus d’informations sur la préparation d’images Windows personnalisées à partir de machines virtuelles Azure, consultez la section [Créer une image managée d’une machine virtuelle généralisée dans Azure](../virtual-machines/windows/capture-image-resource.md). 
 
-Pour utiliser une image personnalisée, vous devez préparer l’image en la généralisant. Pour en savoir plus sur la préparation d’images Linux personnalisées à partir de machines virtuelles Azure, consultez la section [Capturer une machine virtuelle Linux exécutée sur Azure](../virtual-machines/linux/capture-image-nodejs.md). Pour plus d’informations sur la préparation d’images Windows personnalisées à partir de machines virtuelles Azure, consultez la section [Créer une image personnalisée d’une machine virtuelle Azure à l’aide de PowerShell](../virtual-machines/windows/tutorial-custom-images.md). 
+Pour les configurations requises détaillées, consultez [Utiliser une image personnalisée pour créer un pool de machines virtuelles](batch-custom-images.md).
 
-> [!IMPORTANT]
-> Lors de la préparation de votre image personnalisée, gardez à l’esprit les points suivants :
-> - Vérifiez que l’image de base du système d’exploitation utilisée pour approvisionner les pools Batch ne comporte pas d’extensions Azure préinstallées, telle que l’extension Script personnalisé. Si l’image contient une extension préinstallée, Azure peut rencontrer des problèmes de déploiement de la machine virtuelle.
-> - Assurez-vous que l’image de base du système d’exploitation utilise le lecteur temporaire par défaut, puisque l’agent de nœud Batch attend actuellement ce lecteur.
->
->
 
-Pour créer un pool de configuration de machines virtuelles à l’aide d’une image personnalisée, vous devez disposer au minimum d’un compte de stockage Microsoft Azure standard, dans lequel stocker vos images VHD personnalisées. Les images personnalisées sont stockées en tant que blobs. Pour faire référence à vos images personnalisées lorsque vous créez un pool, spécifiez les URI des blobs VHD d’images personnalisées pour la propriété [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) de la propriété [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf).
-
-Assurez-vous que vos comptes de stockage répondent aux critères suivants :   
-
-- Les comptes de stockage contenant des blobs VHD d’images personnalisées doivent se trouver dans le même abonnement que le compte Batch (abonnement utilisateur).
-- Les comptes de stockage spécifiés doivent se trouver dans la même région que le compte Batch.
-- Actuellement, seuls les comptes de stockage standards sont pris en charge. Nous prendrons prochainement en charge le stockage Azure Premium.
-- Vous pouvez spécifier un compte de stockage avec plusieurs blobs VHD personnalisés, ou plusieurs comptes de stockage incluant un seul blob. Nous vous recommandons d’utiliser plusieurs comptes de stockage, afin d’optimiser les performances.
-- Un seul blob VHD d’images personnalisées peut gérer jusqu’à 40 instances de machines virtuelles Linux, ou 20 instances de machines virtuelles Windows. Vous devez créer des copies des blobs VHD pour pouvoir générer des pools incluant plusieurs machines virtuelles. Par exemple, un pool incluant 200 machines virtuelles Windows requiert la spécification de 10 blobs VHD uniques pour la propriété **osDisk**.
-
-Pour créer un pool à partir d’une image personnalisée, à l’aide du portail Azure, procédez comme suit :
-
-1. Accédez à votre compte  Batch dans le portail Azure.
-2. Dans le panneau **Paramètres**, sélectionnez l’élément de menu **Pools**.
-3. Sur le panneau **Pools**, sélectionnez la commande **Ajouter**. Le panneau **Ajouter un pool** s’affiche.
-4. Sélectionnez l’option **Image personnalisée (Linux/Windows)** dans la liste déroulante **Type d’image**. Le portail affiche le sélecteur **Image personnalisée**. Choisissez un ou plusieurs VHD dans le même conteneur et cliquez sur le bouton **Sélectionner**. 
-    La prise en charge de plusieurs VHD à partir de plusieurs comptes de stockage et conteneurs différents sera assurée prochainement.
-5. Sélectionnez les valeurs **d’éditeur/d’offre/de référence SKU** adéquates de vos VHD personnalisés, choisissez le mode de **mise en cache**, puis indiquez l’ensemble des autres paramètres du pool.
-6. Pour vérifier si un pool est basé sur une image personnalisée, consultez la propriété relative au **système d’exploitation** dans la section Récapitulatif des ressources du panneau **Pool**. La valeur de cette propriété doit être **Image de machine virtuelle personnalisée**.
-7. Tous les VHD associés à un pool sont affichés sur le panneau **Propriétés** de ce dernier.
 
 ### <a name="compute-node-type-and-target-number-of-nodes"></a>Type de nœud de calcul et nombre cible de nœuds
 
@@ -217,10 +158,9 @@ Lorsque vous créez un pool, vous pouvez spécifier les types de nœuds de calcu
 
 - **Nœuds de calcul à faible priorité.** Les nœuds à faible priorité tirent profit de la capacité excédentaire dans Azure pour exécuter vos charges de travail par lots. Le coût horaire des nœuds à faible priorité est moins élevé que celui des nœuds dédiés. Par ailleurs, ces nœuds activent des charges de travail nécessitant une importante puissance de calcul. Pour plus d’informations, consultez [Utiliser des machines virtuelles à faible priorité avec Batch](batch-low-pri-vms.md).
 
-    Les nœuds de calcul à faible priorité peuvent être reportés lorsque Azure n’a pas suffisamment de capacité excédentaire. Si un nœud est reporté lors de l’exécution de tâches, celles-ci sont remises dans la file d’attente et exécutées à nouveau dès qu’un nœud de calcul redevient disponible. Les nœuds à faible priorité sont intéressants pour les charges de travail pour lesquelles l’heure d’achèvement est flexible et le travail est réparti entre plusieurs nœuds. Avant de décider d’utiliser des nœuds à faible priorité pour votre scénario, assurez-vous que le nombre de tâches risquant d’être perdues sera peu élevé, et que ces tâches seront faciles à recréer, le cas échéant.
+    Les nœuds de calcul à faible priorité peuvent être reportés lorsqu’Azure n’a pas suffisamment de capacité excédentaire. Si un nœud est reporté lors de l’exécution de tâches, celles-ci sont remises dans la file d’attente et exécutées à nouveau dès qu’un nœud de calcul redevient disponible. Les nœuds à faible priorité sont intéressants pour les charges de travail pour lesquelles l’heure d’achèvement est flexible et le travail est réparti entre plusieurs nœuds. Avant de décider d’utiliser des nœuds à faible priorité pour votre scénario, assurez-vous que le nombre de tâches risquant d’être perdues sera peu élevé, et que ces tâches seront faciles à recréer, le cas échéant.
 
-    Les nœuds de calcul à faible priorité sont disponibles uniquement pour les comptes Batch créés avec le mode d’allocation de pool défini sur **Service Batch**.
-
+    
 Un même pool peut contenir des nœuds de calcul dédiés et à faible priorité. Chaque type de nœud &mdash; dédié et à faible priorité &mdash; a son propre paramètre de cible pour lequel vous pouvez spécifier le nombre de nœuds souhaité. 
     
 Le nombre de nœuds de calcul est appelé *cible* car, dans certaines situations, votre pool ne pourra peut-être pas atteindre le nombre de nœuds souhaité. Par exemple, un pool ne pourra peut-être pas atteindre la cible s’il atteint d’abord le [quota de base](batch-quota-limit.md) de votre compte Batch ou si vous avez appliqué au pool une formule de mise à l’échelle automatique qui limite le nombre maximal de nœuds.
@@ -446,34 +386,15 @@ Une approche combinée est généralement utilisée pour la gestion d’une char
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Configuration du pare-feu et du réseau virtuel (VNet) 
 
-Lorsque vous configurez un pool de nœuds de calcul dans Azure Batch, vous pouvez associer le pool au sous-réseau d’un [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) Azure. Pour en savoir plus sur la création d’un réseau virtuel avec des sous-réseaux, consultez la section [Créer un réseau virtuel Azure comprenant plusieurs sous-réseaux](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
+Lorsque vous configurez un pool de nœuds de calcul dans Batch, vous pouvez associer le pool au sous-réseau d’un [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) Azure. Pour en savoir plus sur la création d’un réseau virtuel avec des sous-réseaux, consultez la section [Créer un réseau virtuel Azure comprenant plusieurs sous-réseaux](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
 
- * Le réseau virtuel associé à un pool doit être :
+Configuration requise du réseau virtuel (VNet) :
 
-   * Dans la même **région** Azure que le compte Azure Batch.
-   * Dans le même **abonnement** que le compte Azure Batch.
+* Le réseau virtuel doit se trouver dans les mêmes **région** et **abonnement** Azure en tant que compte Azure Batch.
 
-* Le type de réseau virtuel pris en charge dépend de la façon dont les pools sont alloués pour le compte Batch :
+* Pour les pools créés avec une configuration de machine virtuelle, seuls les réseaux virtuels basés sur Azure Resource Manager ARM sont pris en charge. Pour les pools créés avec une configuration de services Cloud, les réseaux virtuels classiques et ARM sont pris en charge. 
 
-    - Si le mode d’allocation de pool de votre compte Batch est défini sur le mode Service Batch, vous pouvez alors assigner un réseau virtuel uniquement aux pools créés avec la **Configuration Cloud Services**. En outre, le réseau virtuel spécifié doit être créé suivant le modèle de déploiement classique. Les réseaux virtuels créés avec le modèle de déploiement Azure Resource Manager ne sont pas pris en charge.
- 
-    - Si le mode d’allocation de pool de votre compte Batch est défini sur le mode Abonnement utilisateur, vous pouvez alors assigner un réseau virtuel uniquement aux pools créés avec la **Configuration de machines virtuelles**. Les pools créés avec la **Configuration du service cloud** ne sont pas pris en charge. Un réseau virtuel associé peut être créé suivant le modèle de déploiement Azure Resource Manager ou le modèle de déploiement classique.
-
-    Pour obtenir un tableau résumant la prise en charge d’un réseau virtuel suivant le mode d’allocation de pool, consultez la section [Mode d’allocation de pool](#pool-allocation-mode).
-
-* Si le mode d’allocation de pool de votre compte Batch est défini sur le mode Service Batch, vous devez alors fournir les autorisations permettant au principal du service Batch d’accéder au réseau virtuel. Le réseau virtuel doit assigner au principal du service Batch le rôle de [contrôle d’accès en fonction du rôle (RBAC) Collaborateur de machine virtuelle classique](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor). Si le rôle RBAC spécifié n’est pas fourni, le service Batch renvoie une erreur 400 (Demande incorrecte). Pour ajouter le rôle à partir du portail Azure :
-
-    1. Sélectionnez le **réseau virtuel**, puis **Contrôle d’accès (IAM)** > **Rôles** > **Collaborateur de machine virtuelle classique** > **Ajouter**.
-    2. Sur le panneau **Ajouter des autorisations**, sélectionnez le rôle **Collaborateur de machine virtuelle**.
-    3. Dans le panneau **Ajouter des autorisations**, recherchez l’API Batch. Recherchez chacune de ces chaînes, jusqu’à ce que vous trouviez l’API :
-        1. **MicrosoftAzureBatch**.
-        2. **Microsoft Azure Batch**. Les locataires Azure AD les plus récents peuvent utiliser ce nom.
-        3. La chaîne **ddbf3205-c6bd-46ae-8127-60eb93363864** correspond à l’ID de l’API Batch. 
-    3. Sélectionnez le principal du service d’API Batch. 
-    4. Cliquez sur **Enregistrer**.
-
-        ![Assignez le rôle de collaborateur de machine virtuelle au principal du service Batch](./media/batch-api-basics/iam-add-role.png)
-
+* Pour utiliser un réseau ARM, l’API du client Batch doit utiliser l’[authentification Azure Active Directory](batch-aad-auth.md). Pour utiliser un réseau virtuel classique, le principal du service « MicrosoftAzureBatch » doit avoir le rôle de contrôle d’accès en fonction du rôle (RBAC) « Collaborateur de machine virtuelle classique » pour le réseau virtuel spécifié. 
 
 * Le sous-réseau spécifié doit avoir suffisamment **d’adresses IP** disponibles pour prendre en compte le nombre total de nœuds cibles ; autrement dit, la somme des propriétés `targetDedicatedNodes` et `targetLowPriorityNodes` du pool. Si le sous-réseau n’a pas suffisamment d’adresses IP disponibles, le service Batch alloue partiellement les nœuds de calcul dans le pool et renvoie une erreur de redimensionnement.
 

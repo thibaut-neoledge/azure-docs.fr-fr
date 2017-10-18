@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: osamam
+ms.openlocfilehash: ecb71e8cfc1d723521024ecb79665f4a3117bd4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: e6e2009717430a692528cd3ec3a2c6e46a12fe03
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -73,10 +72,18 @@ Vous pouvez choisir d’utiliser des adresses IPv4 publiques ou privées pour l�
 ### <a name="public-peering"></a>Homologation publique
 Le chemin d'homologation publique Azure vous permet de vous connecter à tous les services hébergés dans Azure en utilisant leurs adresses IP publiques. Cela inclut les services répertoriés dans le [FAQ sur ExpressRoute](expressroute-faqs.md) et tous les services hébergés par les éditeurs de logiciels sur Microsoft Azure. La connectivité aux services Microsoft Azure sur l’homologation publique est toujours lancée de votre réseau vers le réseau Microsoft. Vous devez utiliser des adresses IP publiques pour le trafic destiné au réseau Microsoft.
 
+> [!IMPORTANT]
+> Tous les services PaaS Azure sont également accessibles via l’homologation Microsoft. Nous vous recommandons de créer l’homologation Microsoft et de connecter les services PaaS Azure via cette dernière.  
+>   
+
+
+Un numéro AS privé est autorisé avec l’homologation publique.
+
 ### <a name="microsoft-peering"></a>Homologation Microsoft
-Le chemin d’homologation Microsoft vous permet de vous connecter aux services de cloud Microsoft non pris en charge via le chemin d'homologation publique Azure. La liste des services inclut les services Office 365, notamment Exchange Online, SharePoint Online, Skype Entreprise et Dynamics 365. Microsoft prend en charge la connectivité bidirectionnelle sur l’homologation Microsoft. Le trafic destiné aux services de cloud Microsoft doit utiliser des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft.
+Le chemin d’accès de l’homologation Microsoft vous permet de vous connecter à tous les services de Cloud Microsoft hébergés sur des adresses IP publiques. La liste des services inclut des services Office 365, Dynamics 365 et Microsoft Azure PaaS. Microsoft prend en charge la connectivité bidirectionnelle sur l’homologation Microsoft. Le trafic destiné aux services de cloud Microsoft doit utiliser des adresses IPv4/IPv6 publiques valides avant leur entrée sur le réseau Microsoft.
 
 Assurez-vous que votre adresse IP et votre numéro AS sont enregistrés à votre nom dans l’un des registres ci-dessous :
+
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -85,6 +92,10 @@ Assurez-vous que votre adresse IP et votre numéro AS sont enregistrés à votre
 * [RIPENCC](https://www.ripe.net/)
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
+
+Si vos préfixes et le numéro ASN ne vous sont pas affectés dans les registres ci-dessus, vous devez ouvrir un dossier de support pour valider manuellement vos préfixes et votre numéro ASN. La prise en charge requiert un document, tel qu’une lettre d’autorisation, qui prouve que vous êtes autorisé à utiliser les ressources.
+
+Un numéro ASN privé est autorisé avec l’homologation Microsoft, mais nécessite également une validation manuelle.
 
 > [!IMPORTANT]
 > Les adresses IP publiques proposées à Microsoft via ExpressRoute ne doivent pas être publiées sur Internet. Cela pourrait interrompre la connectivité avec d’autres services Microsoft. Toutefois, les adresses IP publiques utilisées par les serveurs de votre réseau qui communiquent avec les points de terminaison O365 au sein de Microsoft peuvent être publiées via ExpressRoute. 
@@ -129,44 +140,45 @@ Par exemple, si vous êtes connecté à Microsoft à Amsterdam via ExpressRoute,
 
 Reportez-vous à la page [Partenaires ExpressRoute et emplacements d’homologation](expressroute-locations.md) pour obtenir une liste détaillée des régions géopolitiques, des régions Azure associées et des emplacements d’homologation ExpressRoute correspondants.
 
-Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. Le fait de disposer de plusieurs connexions vous offre des avantages significatifs en termes de haute disponibilité en raison de la redondance géographique. Si vous avez plusieurs circuits ExpressRoute, vous recevrez le même jeu de préfixes publiés par Microsoft sur les chemins d'homologation publiques et Microsoft. Cela signifie que vous disposez de plusieurs chemins de votre réseau vers Microsoft. Vous risquez ainsi de prendre des décisions de routage non optimales au sein de votre réseau. Et par conséquent, vous risquez de rencontrer des problèmes de connectivité non optimale avec différents services. Vous pouvez compter sur les valeurs fournies par la communauté pour prendre les bonnes décisions en matière de routage et offrir un [routage optimal aux utilisateurs](expressroute-optimize-routing.md).
+Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. Le fait de disposer de plusieurs connexions vous offre des avantages significatifs en termes de haute disponibilité en raison de la redondance géographique. Si vous avez plusieurs circuits ExpressRoute, vous recevrez le même jeu de préfixes publiés par Microsoft sur les chemins d'homologation publique et Microsoft. Cela signifie que vous disposez de plusieurs chemins de votre réseau vers Microsoft. Vous risquez ainsi de prendre des décisions de routage non optimales au sein de votre réseau. Et par conséquent, vous risquez de rencontrer des problèmes de connectivité non optimale avec différents services. Vous pouvez compter sur les valeurs fournies par la communauté pour prendre les bonnes décisions en matière de routage et offrir un [routage optimal aux utilisateurs](expressroute-optimize-routing.md).
 
 | **Région Microsoft Azure** | **Valeur de communauté BGP** |
 | --- | --- |
 | **Amérique du Nord** | |
-| Est des États-Unis |12076:51004 |
-| Est des États-Unis 2 |12076:51005 |
-| Ouest des États-Unis |12076:51006 |
-| Ouest des États-Unis 2 |12076:51026 |
-| Centre-Ouest des États-Unis |12076:51027 |
-| États-Unis - partie centrale septentrionale |12076:51007 |
-| États-Unis - partie centrale méridionale |12076:51008 |
-| Centre des États-Unis |12076:51009 |
-| Centre du Canada |12076:51020 |
-| Est du Canada |12076:51021 |
+| Est des États-Unis | 12076:51004 |
+| Est des États-Unis 2 | 12076:51005 |
+| Ouest des États-Unis | 12076:51006 |
+| Ouest des États-Unis 2 | 12076:51026 |
+| Centre-Ouest des États-Unis | 12076:51027 |
+| États-Unis - partie centrale septentrionale | 12076:51007 |
+| États-Unis - partie centrale méridionale | 12076:51008 |
+| Centre des États-Unis | 12076:51009 |
+| Centre du Canada | 12076:51020 |
+| Est du Canada | 12076:51021 |
 | **Amérique du Sud** | |
-| Sud du Brésil |12076:51014 |
+| Sud du Brésil | 12076:51014 |
 | **Europe** | |
-| Europe du Nord |12076:51003 |
-| Europe de l’Ouest |12076:51002 |
+| Europe du Nord | 12076:51003 |
+| Europe de l’Ouest | 12076:51002 |
 | Sud du Royaume-Uni | 12076:51024 |
 | Ouest du Royaume-Uni | 12076:51025 |
 | **Asie-Pacifique** | |
-| Est de l’Asie |12076:51010 |
-| Asie du Sud-Est |12076:51011 |
+| Est de l’Asie | 12076:51010 |
+| Asie du Sud-Est | 12076:51011 |
 | **Japon** | |
-| Est du Japon |12076:51012 |
-| Ouest du Japon |12076:51013 |
+| Est du Japon | 12076:51012 |
+| Ouest du Japon | 12076:51013 |
 | **Australie** | |
-| Est de l’Australie |12076:51015 |
-| Sud-est de l’Australie |12076:51016 |
+| Est de l’Australie | 12076:51015 |
+| Sud-est de l’Australie | 12076:51016 |
 | **Inde** | |
-| Sud de l’Inde |12076:51019 |
-| Inde-Ouest |12076:51018 |
-| Inde-Centre |12076:51017 |
+| Sud de l’Inde | 12076:51019 |
+| Inde-Ouest | 12076:51018 |
+| Inde-Centre | 12076:51017 |
 | **Corée** | |
-| Corée du Sud |12076:51028 |
-| Centre de la Corée |12076:51029 |
+| Corée du Sud | 12076:51028 |
+| Centre de la Corée | 12076:51029 |
+
 
 Tous les routages publiés par Microsoft seront marqués avec la valeur de communauté appropriée. 
 
@@ -179,11 +191,11 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 
 | **Service** | **Valeur de communauté BGP** |
 | --- | --- |
-| Exchange Online |12076:5010 |
-| SharePoint Online |12076:5020 |
-| Skype Entreprise Online |12076:5030 |
-| Dynamics 365 |12076:5040 |
-| Autres services Office 365 en ligne |12076:5100 |
+| Exchange Online | 12076:5010 |
+| SharePoint Online | 12076:5020 |
+| Skype Entreprise Online | 12076:5030 |
+| Dynamics 365 | 12076:5040 |
+| Autres services Office 365 en ligne | 12076:5100 |
 
 > [!NOTE]
 > Microsoft ignore les valeurs de communauté BGP définies sur les itinéraires proposés à Microsoft.
@@ -218,5 +230,4 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
   * [Créer et modifier un circuit ExpressRoute à l’aide du modèle de déploiement classique](expressroute-howto-circuit-classic.md) ou [Créer et modifier un circuit ExpressRoute à l’aide d’Azure Resource Manager](expressroute-howto-circuit-arm.md)
   * [Configurer le routage à l’aide du modèle de déploiement classique](expressroute-howto-routing-classic.md) ou [Configurer le routage à l’aide du modèle de déploiement Resource Manager](expressroute-howto-routing-arm.md)
   * [Lier un réseau virtuel classique à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md) ou [Lier un réseau virtuel Resource Manager à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
 

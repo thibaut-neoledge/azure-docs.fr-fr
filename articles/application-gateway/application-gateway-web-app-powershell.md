@@ -3,7 +3,7 @@ title: "Protéger des applications web avec Azure Application Gateway - PowerShe
 description: "Cet article explique comment configurer des applications web en tant qu’hôtes de serveur principal sur une application de passerelle nouvelle ou existante."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 ms.service: application-gateway
@@ -12,18 +12,16 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
-ms.author: gwallace
+ms.author: davidmu
+ms.openlocfilehash: f00ad4c3f2cf08461d0258aa31fcedd7045934d1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 04b6efbfeccc6df006978d06dd8020495708550e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-app-service-web-apps-with-application-gateway"></a>Configurer App Service Web Apps avec Application Gateway 
 
-Application Gateway vous permet d’avoir une application web Azure ou autre service multilocataire en tant que membre d’un pool de serveurs principaux. Dans cet article, vous allez apprendre à configurer une application web Azure avec Application Gateway. Le premier exemple montre comment configurer une passerelle d’application existante pour qu’elle utilise une application web en tant que membre d’un pool de serveurs principaux. Le deuxième exemple montre comment créer une passerelle d’application avec une application web en tant que membre d’un pool de serveurs principaux.
+Application Gateway vous permet d’avoir une application web Azure ou autre service multilocataire en tant que membre d’un pool de serveurs principaux. Dans cet article, vous allez apprendre à configurer une application web Azure avec Application Gateway. Le premier exemple montre comment configurer une passerelle d’application existante pour qu’elle utilise une application web en tant que membre d’un pool de serveurs principaux. Le deuxième exemple montre comment créer une passerelle d’application avec une application web en tant que membre d’un pool de serveurs principaux.
 
 ## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a>Configurer une application web derrière une passerelle d’application existante
 
@@ -49,7 +47,7 @@ $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -Applicatio
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
 # Add the web app to the backend pool
-Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendIPAddresses $webappFQDN
+Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendFqdns $webappFQDN
 
 # Update the application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
@@ -99,7 +97,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName $rg.ResourceGroupName 
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 # Create a backend pool with the hostname of the web app
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -BackendIPAddresses $webapp.HostNames
+$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -BackendFqdns $webapp.HostNames
 
 # Define the status codes to match for the probe
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -162,4 +160,3 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment configurer la redirection en consultant : [Configurer la redirection sur Application Gateway avec PowerShell](application-gateway-configure-redirect-powershell.md).
-

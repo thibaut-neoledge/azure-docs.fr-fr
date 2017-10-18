@@ -16,13 +16,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 836d72e32e54ecef9691b55214766a1fc3ff9701
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Créer une base de données SQL Data Warehouse à l’aide de Transact-SQL (TSQL)
 > [!div class="op_single_selector"]
@@ -38,7 +36,7 @@ Cet article vous explique comment créer un entrepôt SQL Data Warehouse à l’
 Pour commencer, vous avez besoin des éléments suivants :
 
 * **Compte Azure** : consultez [Évaluation gratuite d’Azure][Azure Free Trial] ou [Crédits Azure MSDN][MSDN Azure Credits] pour créer un compte.
-* **Serveur Azure SQL Server** : consultez [Créer un serveur logique de base de données SQL Azure avec le Portail Azure][Create an Azure SQL Database logical server with the Azure Portal] ou [Créer un serveur logique de base de données SQL Azure avec PowerShell][Create an Azure SQL Database logical server with PowerShell] pour plus d’informations.
+* **Serveur SQL Azure** : pour plus de détails, consultez [Créer un serveur logique Azure SQL Database avec le portail Azure][Créer un serveur logique Azure SQL Database avec le portail Azure] ou [Créer un serveur logique Azure SQL Database avec PowerShell][Créer un serveur logique Azure SQL Database avec PowerShell].
 * **Groupe de ressources**: utilisez le même groupe de ressources que votre serveur Azure SQL Server ou consultez [Créer un groupe de ressources][how to create a resource group].
 * **Environnement d’exécution de T-SQL** : vous pouvez utiliser [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] ou [SSMS][SSMS] pour exécuter T-SQL.
 
@@ -89,4 +87,3 @@ Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

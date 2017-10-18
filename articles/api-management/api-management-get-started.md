@@ -15,16 +15,16 @@ ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 6e76d1ee08f804637999ef2ebf5d25becf6a0408
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>Gérer votre première API dans Gestion des API Azure
-## <a name="overview"> </a>Vue d’ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce guide décrit la prise en main rapide de la gestion des API Azure et la création de votre premier appel d’API.
 
-## <a name="concepts"> </a>Qu’est-ce que Gestion des API Azure ?
+## <a name="concepts"></a>Qu’est-ce que Gestion des API Azure ?
 Vous pouvez utiliser la gestion des API Azure pour prendre n’importe quel serveur principal et lancer un programme d’API à part entière qui repose sur ce dernier.
 
 Scénarios courants :
@@ -57,7 +57,7 @@ Le système est constitué des composants suivants :
   * créer un compte et s’abonner pour obtenir les clés d’une API ;
   * accéder aux analyses relatives à leur propre utilisation.
 
-## <a name="create-service-instance"> </a>Création d’une instance du service Gestion des API
+## <a name="create-service-instance"></a>Création d’une instance du service Gestion des API
 > [!NOTE]
 > Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d’informations, consultez la rubrique [Version d’évaluation gratuite d’Azure][Azure Free Trial].
 > 
@@ -71,7 +71,7 @@ Pour le **nom**, spécifiez un nom de sous-domaine unique à utiliser pour l’U
 
 Choisissez **l’abonnement**, le **groupe de ressources** et **l’emplacement** souhaités pour votre instance de service.
 
-Entrez **Contoso Ltd.** pour le **nom de l’organisation**, ainsi que votre adresse de messagerie dans le champ **Adresse de messagerie de l’administrateur**.
+Entrez **Contoso Ltd.** comme **nom de l’organisation**, ainsi que votre adresse de messagerie dans le champ **Adresse de messagerie de l’administrateur**.
 
 > [!NOTE]
 > Cette adresse de messagerie est utilisée pour les notifications provenant du système Gestion des API. Pour plus d’informations, consultez [Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure][How to configure notifications and email templates in Azure API Management].
@@ -93,7 +93,7 @@ Cliquez sur **Créer** pour démarrer la configuration de votre instance de serv
 
 Une fois l’instance de service créée, l’étape suivante consiste à créer ou à importer une API.
 
-## <a name="create-api"> </a>Importation d’une API
+## <a name="create-api"></a>Importation d’une API
 Une API se compose d’un ensemble d’opérations pouvant être appelées à partir d’une application cliente. Les opérations de l’API sont transmises par proxy aux services web existants.
 
 Il est possible de créer des API (et d’ajouter des opérations) manuellement ou de les importer. Dans ce didacticiel, nous allons importer l’API pour un exemple de service Web de calculatrice fourni par Microsoft et hébergé sur Azure.
@@ -140,7 +140,7 @@ Dans ce didacticiel, l’API de calculatrice de base a été ajoutée au produit
 
 Pour créer des appels à une API, les développeurs doivent commencer par s’abonner à un produit qui leur permet d’y accéder. Ils peuvent s’abonner aux produits dans le portail des développeurs,ou les administrateurs peuvent les y abonner dans le portail des éditeurs. Vous êtes considéré comme un administrateur puisque vous avez créé l’instance Gestion des API lors des étapes précédentes du didacticiel. Vous êtes également abonné à tous les produits par défaut.
 
-## <a name="call-operation"> </a>Appel d’une opération à partir du portail des développeurs
+## <a name="call-operation"></a>Appel d’une opération à partir du portail des développeurs
 Les opérations peuvent être directement appelées depuis le portail des développeurs, qui permet d’afficher et de tester les opérations d’une API. Dans cette étape du didacticiel, vous appellerez l’opération **Ajouter deux entiers** de l’API de calculatrice de base. Cliquez sur **Portail des développeurs** dans le menu en haut à droite du portail des éditeurs.
 
 ![Portail des développeurs][api-management-developer-portal-menu]
@@ -163,7 +163,7 @@ Après l’appel d’une opération, le portail des développeurs affiche le **s
 
 ![Réponse][api-management-invoke-get-response]
 
-## <a name="view-analytics"> </a>Affichage des analyses
+## <a name="view-analytics"></a>Affichage des analyses
 Pour afficher les analyses relatives à Calculatrice de base, revenez au portail des éditeurs en sélectionnant **Gérer** dans le menu en haut à droite du portail des développeurs.
 
 ![Gérer][api-management-manage-menu]
@@ -196,7 +196,7 @@ La section **Analyse** comporte les quatre onglets suivants :
 * **Intégrité** se concentre sur les codes d'état, les taux de réussite en cache, les temps de réponse et les temps de réponse d'API et de service.
 * **Activité** fournit des rapports qui présentent une analyse des activités spécifiques par développeur, produit, API et opération.
 
-## <a name="next-steps"> </a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [protéger votre API avec des limites de débit](api-management-howto-product-with-rules.md).
 
 [Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a

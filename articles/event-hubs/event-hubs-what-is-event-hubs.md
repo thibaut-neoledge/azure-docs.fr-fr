@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 10/05/2017
 ms.author: sethm; babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 1a6bf0a0352e6d9e3a22586ac825558d12e1307a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 236d49b7d8104b410e2a4c768820c3c9ebcdce96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-event-hubs"></a>Qu’est-ce qu’Event Hubs ?
 
-Azure Event Hubs est une plateforme de diffusion de données hautement évolutive et de service d’ingestion d’événement capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Grâce à leur capacité à fournir des [fonctionnalités publication-abonnement](https://msdn.microsoft.com/library/aa560414.aspx) avec une faible latence et à grande échelle, les concentrateurs d’événements constitue la « base » des données volumineuses (Big Data).
+Azure Event Hubs est une plateforme de diffusion de données hautement évolutive et de service d’ingestion d’événement capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Grâce à leur capacité à fournir des [fonctionnalités publication-abonnement](/biztalk/core/publish-and-subscribe-architecture) avec une faible latence et à grande échelle, les concentrateurs d’événements constitue la « base » des données volumineuses (Big Data).
 
 ## <a name="why-use-event-hubs"></a>Pourquoi utiliser Azure Event Hubs ?
 
@@ -33,7 +32,7 @@ Les fonctionnalités de traitement des événements et données de télémétrie
 * L’expérience de l'utilisateur ou le traitement du flux de travail
 * Des scénarios Internet des objets (IoT)
 
-Par exemple, les concentrateurs d’événements inclut une fonction de suivi du comportement dans les applications mobiles, des informations sur le trafic provenant de batteries de serveurs web, de capture d’événements de jeu dans les jeux de console ou des données de télémétrie collectées sur des machines industrielles, des véhicules connectés ou d’autres appareils.
+Par exemple, les concentrateurs d’événements incluent une fonction de suivi du comportement dans les applications mobiles, des informations sur le trafic provenant de batteries de serveurs web, de capture d’événements de jeu dans les jeux de console ou des données de télémétrie collectées sur des machines industrielles, des véhicules connectés ou d’autres appareils.
 
 ## <a name="azure-event-hubs-overview"></a>Vue d'ensemble des hubs d'événements Azure
 
@@ -68,5 +67,4 @@ Pour plus d’informations sur les concentrateurs d’événements, accédez aux
 * [Exemples d’applications qui utilisent des Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
  
  
-
 

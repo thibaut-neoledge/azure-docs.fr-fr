@@ -3,7 +3,7 @@ title: "Solution de gestion des mises à jour dans OMS | Microsoft Docs"
 description: "Cet article vise à vous aider à comprendre comment utiliser cette solution pour gérer les mises à jour de vos ordinateurs Windows et Linux."
 services: operations-management-suite
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
-ms.author: magoedte
+ms.author: eslesar
+ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Solution de gestion des mises à jour dans OMS
 
 ![Symbole de gestion des mises à jour](./media/oms-solution-update-management/update-management-symbol.png)
 
 La solution Update Management d’OMS vous permet de gérer les mises à jour de sécurité du système d’exploitation de vos ordinateurs Windows et Linux déployés dans Azure, des environnements locaux ou d’autres fournisseurs de cloud.  Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur tous les ordinateurs d’agent et gérer le processus d’installation des mises à jour requises pour les serveurs.
+
+## <a name="update-management-in-azure-automation"></a>Gestion de mise à jour dans Azure Automation
+
+Vous pouvez activer la gestion de mise à jour pour les machines virtuelles directement depuis votre compte [Azure Automation](../automation/automation-offering-get-started.md).
+Pour découvrir comment activer la gestion de mise à jour pour les machines virtuelles depuis votre compte Automation, consultez l’article [Gérer les mises à jour pour plusieurs machines virtuelles](../automation/manage-update-multi.md).
 
 
 ## <a name="solution-overview"></a>Vue d’ensemble de la solution
@@ -307,11 +311,17 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 | Type=Update  and OSType=Linux and UpdateState!="Non requis" and (Classification="Mises à jour critiques" OR Classification="Mises à jour de sécurité") |Liste de tous les packages pour lesquels une mise à jour de package corrigeant une vulnérabilité critique ou de sécurité est disponible | 
 | Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |Répertorier les déploiements de mises à jour ayant modifié des ordinateurs | 
 | Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Ordinateurs mis à jour dans cette mise à jour (remplacer la valeur par le nom de votre déploiement de mises à jour) | 
-| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Liste de tous les ordinateurs « Ubuntu » avec une mise à jour disponible | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Liste de tous les ordinateurs « Ubuntu » avec une mise à jour disponible |
+
+## <a name="integrate-with-system-center-configuration-manager"></a>Intégrer avec System Center Configuration Manager
+
+Les clients qui ont investi dans System Center Configuration Manager pour gérer des PC, serveurs et autres appareils mobiles s’appuient aussi sur sa puissance et sa maturité pour gérer les mises à jour logicielles dans le cadre de leur cycle de gestion des mises à jour logicielles.
+
+Pour découvrir comment intégrer la solution OMS Update Management avec System Center Configuration Manager, consultez l’article [Intégrer System Center Configuration Manager avec OMS Update Management](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 
-Cette section fournit des informations pour vous aider à résoudre les problèmes liés à la solution de gestion de mises à jour.  
+Cette section fournit des informations pour vous aider à résoudre les problèmes liés à la solution de gestion de mises à jour.
 
 ### <a name="how-do-i-troubleshoot-onboarding-issues"></a>Comment puis-je résoudre les problèmes d’intégration ?
 Si vous rencontrez des problèmes lorsque vous essayez d’intégrer la solution ou une machine virtuelle, recherchez dans le journal d’évènements **Journaux des applications et des services\Operations Manager** les événements avec l’ID d’événement 4502 et le message d’événement contenant **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  Le tableau suivant met en évidence des messages d’erreur spécifiques et une résolution possible pour chacun d’entre eux.  
@@ -333,4 +343,3 @@ Pour plus d’informations, consultez [Sortie et messages de runbook Automation]
 * Utilisez les recherches de journaux de [Log Analytics](../log-analytics/log-analytics-log-searches.md) pour afficher des données détaillées sur les mises à jour.
 * [Créez vos propres tableaux de bord](../log-analytics/log-analytics-dashboards.md) affichant la conformité des mises à jour de vos ordinateurs gérés.
 * [Créez des alertes](../log-analytics/log-analytics-alerts.md) lorsque des mises à jour critiques sont détectées comme manquantes sur des ordinateurs ou lorsque les mises à jour automatiques sont désactivées sur un ordinateur.  
-

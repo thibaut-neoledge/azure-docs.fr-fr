@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
+ms.openlocfilehash: 273b94e9a53e36d7e8c699d3b7fa4305b881a001
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f1f270b95a60e847ce7d29c2d7d60c57891924cc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="classifying-iris-part-2-build-a-model"></a>Classification d’Iris, partie 2 : générer un modèle
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée de bout en bout qui permet aux scientifiques des données professionnels de préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
 
@@ -36,8 +34,12 @@ Ce didacticiel est le deuxième d’une série de trois. Dans cette partie du di
 
 Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.org/wiki/Iris_flower_data_set) intemporel pour simplifier les choses. Les captures d’écran sont spécifiques à Windows, mais l’expérience macOS est presque identique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Vous devez effectuer la première partie de cette série de didacticiels. Suivez le [didacticiel Préparer les données](tutorial-classifying-iris-part-1.md) pour créer des ressources Azure Machine Learning et installer l’application Azure Machine Learning Workbench avant de commencer les étapes de ce didacticiel.
+
+Vous pouvez essayer d’exécuter des scripts dans un conteneur Docker local (facultatif). Pour ce faire, il vous faut un moteur Docker (l’édition Community est suffisante) installé et démarré en local sur votre machine Windows ou macOS. En savoir plus sur les [instructions d’installation Docker](https://docs.docker.com/engine/installation/).
+
+Si vous voulez essayer de répartir les scripts à exécuter dans un conteneur Docker d’une machine virtuelle Azure distante ou un cluster HDInsight Spark, vous pouvez suivre les [instructions pour créer une machine virtuelle de science des données Azure basée sur Ubuntu ou un cluster HDI](how-to-create-dsvm-hdi.md).
 
 ## <a name="review-irissklearnpy-and-configuration-files"></a>Examiner les fichiers de configuration et iris_sklearn.py
 1. Lancez l’application **Azure Machine Learning Workbench**, puis ouvrez le projet **myIris** que vous avez créé dans la partie précédente de la série de didacticiels.
@@ -102,7 +104,7 @@ Nous allons préparer l’exécution du script **iris_sklearn.py** pour la premi
 
 8. Cliquez sur le mot **Terminé** dans le texte d’état du travail dans le volet Travaux. Une fenêtre indépendante s’ouvre, puis affiche le texte de sortie standard (stdout) du script en cours d’exécution. Pour fermer le texte stdout, cliquez sur le bouton **X** dans le coin supérieur droit de la fenêtre indépendante.
 
-9. Dans le même état du travail dans le volet Travaux, cliquez sur le texte en bleu **iris_sklearn.py [1]** juste au-dessus de l’état **Terminé** et de l’heure de début. La page **Propriétés de l’exécution** s’ouvre et affiche les informations relatives aux propriétés de l’exécution, les fichiers de **Sorties**, les **Visualisations** éventuelles, et les **Journaux** issus de cette exécution. 
+9. Dans le même état du travail dans le volet Travaux, cliquez sur le texte en bleu **iris_sklearn.py [n]** (_n_ est le nombre d’exécution) juste au-dessus de l’état **Terminé** et de l’heure de début. La page **Propriétés de l’exécution** s’ouvre et affiche les informations relatives aux propriétés de l’exécution, les fichiers de **Sorties**, les **Visualisations** éventuelles, et les **Journaux** issus de cette exécution. 
 
    Quand l’exécution est terminée, la fenêtre indépendante affiche les résultats suivants :
 
@@ -367,4 +369,3 @@ Vous êtes prêt à passer à la troisième partie de la série. Le modèle de r
 
 > [!div class="nextstepaction"]
 > [Déployer un modèle](tutorial-classifying-iris-part-3.md)
-

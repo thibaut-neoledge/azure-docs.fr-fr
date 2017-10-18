@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 98e5964f4a2dffd728dae1c452facfa6ea488167
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-for-azure-files-with-net"></a>Développer pour Azure Files avec .NET 
 > [!NOTE]
 > Cet article explique comment gérer Azure Files avec du code .NET. Pour en savoir plus sur Azure Files, consultez la [présentation des fichiers Azure](storage-files-introduction.md).
@@ -32,7 +30,7 @@ ms.lasthandoff: 09/25/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>À propos de ce didacticiel
-Ce didacticiel décrit les principes fondamentaux de l’utilisation de .NET pour développer des applications ou services qui utilisent Azure Files pour stocker les données de fichiers. Dans ce tutoriel, vous allez créer une application console simple et effectuer des actions de base avec .NET et Azure Files :
+Ce didacticiel décrit les principes fondamentaux de l’utilisation de .NET pour développer des applications ou services qui utilisent Azure Files pour stocker les données de fichiers. Dans ce tutoriel, vous créez une application console simple et effectuez des actions de base avec .NET et Azure Files :
 
 * Obtenir le contenu d’un fichier
 * Définir le quota (taille maximale) pour le partage de fichiers
@@ -89,7 +87,7 @@ Enregistrez ensuite vos informations d’identification dans le fichier app.conf
 > La dernière version de l’émulateur de stockage Azure ne prend pas en charge Azure Files. Votre chaîne de connexion doit cibler un compte de stockage Azure dans le cloud pour fonctionner avec Azure Files.
 
 ## <a name="add-using-directives"></a>Ajouter des directives d’utilisation
-Ouvrez le fichier `Program.cs` à partir de l’Explorateur de solutions. puis ajoutez les directives d’utilisation suivantes en haut du fichier.
+Ouvrez le fichier `Program.cs` à partir de l’Explorateur de solutions. Puis ajoutez les directives d’utilisation suivantes en haut du fichier.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -138,7 +136,7 @@ if (share.Exists())
 Exécutez l’application console pour voir le résultat.
 
 ## <a name="set-the-maximum-size-for-a-file-share"></a>Définition de la taille maximale d’un partage de fichiers
-Depuis la version 5.x de la bibliothèque cliente Azure Storage, vous pouvez définir le quota (ou la taille maximale) pour un partage de fichier, en gigaoctets. Vous pouvez également vérifier la quantité de données actuellement stockée sur le partage.
+Depuis la version 5.x de la bibliothèque cliente du stockage Azure, vous pouvez définir le quota (ou la taille maximale) pour un partage de fichier, en gigaoctets. Vous pouvez également vérifier la quantité de données actuellement stockée sur le partage.
 
 En définissant le quota pour un partage, vous pouvez limiter la taille totale des fichiers stockés sur ce partage. Si la taille totale des fichiers sur le partage dépasse le quota défini sur celui-ci, les clients ne peuvent pas augmenter la taille des fichiers existants ou créer des fichiers, sauf si ces fichiers sont vides.
 
@@ -326,6 +324,80 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
 
 Vous pouvez copier un objet blob dans un fichier de la même façon. Si l’objet source est un objet blob, créez une SAP pour authentifier l’accès à cet objet blob pendant l’opération de copie.
+
+## <a name="share-snapshots-preview"></a>Instantanés de partage (préversion)
+Depuis la version 8.5 de la bibliothèque cliente de stockage Azure, vous pouvez créer un instantané de partage (préversion). Vous pouvez également répertorier ou parcourir des instantanés de partage et les supprimer. Les instantanés de partage sont en lecture seule. Aucune opération d’écriture n’est autorisée sur ceux-ci.
+
+**Créer des instantanés de partage**
+
+L’exemple suivant permet de créer un instantané de partage de fichier.
+
+```csharp
+storageAccount = CloudStorageAccount.Parse(ConnectionString); 
+fClient = storageAccount.CreateCloudFileClient(); 
+string baseShareName = "myazurefileshare"; 
+CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
+var snapshotShare = myShare.Snapshot();
+
+```
+**Répertorier les instantanés de partage**
+
+L’exemple suivant répertorie les instantanés de partage figurant sur un partage.
+
+```csharp
+var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
+```
+
+**Parcourir les fichiers et répertoires dans des instantanés de partage**
+
+L’exemple suivant permet de parcourir les fichiers et les répertoires au sein des instantanés de partage.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
+var rootDirectory = mySnapshot.GetRootDirectoryReference(); 
+var items = rootDirectory.ListFilesAndDirectories();
+```
+
+**Répertorier des partages et des instantanés de partage et restaurer des partages de fichiers ou des fichiers à partir d’instantanés de partage** 
+
+Prendre un instantané d’un partage de fichiers vous permet de récupérer des fichiers ou l’ensemble du partage de fichiers ultérieurement. 
+
+Vous pouvez restaurer un fichier à partir d’un instantané de partage de fichiers en interrogeant les instantanés de partage d’un partage de fichiers. Vous pouvez ensuite récupérer un fichier qui appartient à un instantané de partage spécifique et utiliser cette version à des fins de lecture directe et de comparaison ou de restauration.
+
+```csharp
+CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
+var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
+
+       var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
+var fileInliveShare = dirInliveShare.GetFileReference(fileName);
+
+           
+CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
+var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
+
+       var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
+var fileInSnapshot = dir1InSnapshot.GetFileReference(fileName);
+
+string sasContainerToken = string.Empty;
+       SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
+       sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+       sasConstraints.Permissions = SharedAccessFilePermissions.Read;
+       //Generate the shared access signature on the container, setting the constraints directly on the signature.
+sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
+
+string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
+fileInliveShare.StartCopyAsync(new Uri(sourceUri));
+
+```
+
+
+**Supprimer des instantanés de partage**
+
+L’exemple suivant permet de supprimer un instantané de partage de fichier.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
+```
 
 ## <a name="troubleshooting-azure-files-using-metrics"></a>Résolution des problèmes d’Azure Files à l’aide de métriques
 Azure Storage Analytics prend à présent en charge les métriques pour Azure Files. Avec les données de métriques, vous pouvez suivre les demandes et diagnostiquer les problèmes.

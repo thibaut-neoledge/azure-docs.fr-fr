@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
+ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 60641ddfef7846f0e8b5d850e716b2652bf62367
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="copy-data-between-on-premises-and-cloud"></a>Copier des données entre un emplacement local et le cloud
 Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. Grâce à Azure Data Factory, vous pouvez créer et planifier des flux de travail orientés données (appelés pipelines) capables d’ingérer des données provenant de différents magasins de données, de traiter/transformer les données à l’aide de services de calcul comme Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning, et de publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser. 
 
@@ -218,12 +216,12 @@ Dans cette section, vous pouvez créer un runtime d’intégration auto-héberg�
         "name": "SqlServerLinkedService"
     }
    ```
-2. Pour chiffrer les données sensibles de la charge utile JSON sur le runtime d’intégration auto-hébergé local, nous pouvons exécuter **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** et passer la charge utile JSON ci-dessus. Les informations d’identification sont alors chiffrées à l’aide de l’API de protection des données (DPAPI) avant d’être stockées localement sur le nœud du runtime d’intégration auto-hébergé. La charge utile de sortie peut être redirigée vers un autre fichier JSON (dans ce cas, « encryptedLinkedService.json ») qui contient les informations d’identification chiffrées. 
+2. Pour chiffrer les données sensibles de la charge utile JSON sur le runtime d’intégration auto-hébergé local, nous pouvons exécuter **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** et passer la charge utile JSON ci-dessus. Les informations d’identification sont alors chiffrées à l’aide de l’API de protection des données (DPAPI) avant d’être stockées localement sur le nœud du runtime d’intégration auto-hébergé. La charge utile de sortie peut être redirigée vers un autre fichier JSON (dans ce cas, « encryptedLinkedService.json ») qui contient les informations d’identification chiffrées. 
 
     Remplacez **&lt;integration runtime name&gt;** par le nom de votre runtime d’intégration avant d’exécuter la commande.
 
    ```powershell
-   New-AzureRmDataFactoryV2LinkedServiceEncryptCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+   New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
 3. Exécutez la commande suivante en utilisant le fichier JSON de l’étape précédente pour créer le service **SqlServerLinkedService** :

@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
+ms.openlocfilehash: 0a0fe6f0e353e33cec80a9e06a61e772931cdea6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: e2359bc6002bd5c823467a33a4660ebccd116374
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-network-service-endpoints-preview"></a>Points de terminaison de service de réseau virtuel (préversion)
 
 Les points de terminaison de service de réseau virtuel étendent votre espace d’adressage privé de réseau virtuel et l’identité de votre réseau virtuel aux services Azure, via une connexion directe. Les points de terminaison permettent de sécuriser vos ressources critiques du service Azure pour vos réseaux virtuels uniquement. Le trafic à partir de votre réseau virtuel vers le service Azure reste toujours sur le réseau principal de Microsoft Azure.
@@ -57,8 +55,11 @@ Les points de terminaison de service fournissent les avantages suivants :
 
 - Un point de terminaison de service de réseau virtuel fournit l’identité de votre réseau virtuel au service Azure. Une fois les points de terminaison de service activés dans votre réseau virtuel, vous pouvez sécuriser les ressources du service Azure pour votre réseau virtuel en ajoutant une règle de réseau virtuel aux ressources.
 - Aujourd’hui, le trafic du service Azure à partir d’un réseau virtuel utilise des adresses IP publiques en tant qu’adresses IP source. Avec les points de terminaison de service, le trafic de service change pour utiliser des adresses privées de réseau virtuel en tant qu’adresses IP source lors de l’accès au service Azure à partir d’un réseau virtuel. Ce changement permet d’accéder aux services sans avoir besoin d’adresses IP publiques réservées et utilisées dans les pare-feux IP.
-- Sécurisation de l’accès du service Azure localement : par défaut, les ressources du service Azure sécurisées pour des réseaux virtuels ne sont pas accessibles à partir des réseaux locaux. Si vous souhaitez autoriser le trafic depuis un réseau local, vous devez également autoriser les adresses IP NAT à partir de vos circuits locaux ou ExpressRoute. Les adresses IP NAT peuvent être ajoutées via la configuration du pare-feu IP des ressources du service Azure.
-- ExpressRoute : si vous utilisez [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) localement, chaque circuit ExpressRoute utilise deux adresses IP NAT qui sont appliquées au trafic de service Azure lorsque le trafic entre dans le réseau principal de Microsoft Azure. Pour autoriser l’accès aux ressources de votre service, vous devez autoriser ces deux adresses IP dans le paramètre de pare-feu IP de ressource. Afin de trouver les adresses IP de votre circuit ExpressRoute, [ouvrez un ticket de support avec ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via le portail Azure.
+- __Sécurisation de l’accès du service Azure localement__ :
+
+  Par défaut, les ressources du service Azure sécurisées pour des réseaux virtuels ne sont pas accessibles à partir des réseaux locaux. Si vous souhaitez autoriser le trafic depuis un réseau local, vous devez également autoriser les adresses IP publiques (généralement NAT) à partir de vos circuits locaux ou ExpressRoute. Ces adresses IP peuvent être ajoutées via la configuration du pare-feu IP des ressources du service Azure.
+
+  ExpressRoute : si vous utilisez [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) localement, pour l’homologation publique, chaque circuit ExpressRoute utilise deux adresses IP NAT qui sont appliquées au trafic de service Azure lorsque le trafic entre dans le réseau principal de Microsoft Azure. Pour autoriser l’accès aux ressources de votre service, vous devez autoriser ces deux adresses IP publiques dans le paramètre de pare-feu IP de ressource. Afin de trouver les adresses IP de votre circuit ExpressRoute, [ouvrez un ticket de support avec ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via le portail Azure. En savoir plus sur[NAT pour l’homologation publique ExpressRoute.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
 
 ![Sécurisation des services Azure pour des réseaux virtuels](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -76,9 +77,9 @@ Les points de terminaison de service fournissent les avantages suivants :
 
   Le changement d’adresse IP affecte uniquement le trafic de service à partir de votre réseau virtuel. L’impact sur tout autre trafic adressé vers ou depuis des adresses IPv4 publiques affectées à vos machines virtuelles est inexistant. Si vous possédez des règles de pare-feu existantes à l’aide d’adresses IP publiques Azure pour les services Azure, ces règles cessent de fonctionner avec le changement pour les adresses privées de réseau virtuel.
 - Avec les points de terminaison de service, les entrées DNS pour les services Azure ne sont pas modifiées et continuent de résoudre les adresses IP assignées au service Azure.
-- Les groupes de sécurité réseau avec points de terminaison de service :
-  - autorisent toujours le trafic Internet sortant vers Internet et par conséquent, autorisent également le trafic d’un réseau virtuel vers les adresses IP publiques des services Azure ;
-  - vous permettent de refuser le trafic vers des adresses IP publiques sauf pour les adresses des services Azure à l’aide de [balises de service](security-overview.md#service-tags) dans vos groupes de sécurité réseau. Vous pouvez spécifier les services Azure pris en charge en tant que destination dans les règles de groupe de sécurité réseau. La maintenance des adresses IP sous-tendant chaque balise est fournie par Azure.
+- Groupes de sécurité réseau (NSG) avec points de terminaison de service :
+  - Par défaut, les groupes de sécurité réseau autorisent le trafic Internet sortant. Ainsi, ils peuvent également autoriser le trafic à partir de votre réseau virtuel vers les services Azure. Ce processus continue de fonctionner ainsi, avec les points de terminaison de service. 
+  - Si vous souhaitez refuser tout trafic Internet sortant et autoriser le trafic uniquement vers des services Azure spécifiques, vous pouvez le faire avec __« Balises de service Azure »__ dans vos groupes de sécurité réseau. Vous pouvez spécifier les services Azure pris en charge en tant que destination dans vos règles de groupe de sécurité réseau. La maintenance des adresses IP sous-tendant chaque balise est fournie par Azure. Pour plus d’informations, voir [Balises de Service Azure pour les groupes de sécurité réseau.](https://aka.ms/servicetags) 
 
 ### <a name="scenarios"></a>Scénarios
 
@@ -89,7 +90,7 @@ Les points de terminaison de service fournissent les avantages suivants :
 ### <a name="logging-and-troubleshooting"></a>Journalisation et résolution des problèmes
 
 Une fois que les points de terminaison de service sont configurés pour un service spécifique, vérifiez que l’itinéraire de point de terminaison de service est activé en procédant comme suit : 
-
+ 
 - Validation de l’adresse IP source de toute demande de service dans les diagnostics du service. Toutes les nouvelles demandes avec les points de terminaison de service affichent l’adresse IP source de la demande en tant qu’adresse IP privée du réseau virtuel, attribuée au client qui effectue la demande à partir de votre réseau virtuel. Sans le point de terminaison, cette adresse est une adresse IP publique Azure.
 - Affichage des itinéraires effectifs sur n’importe quelle interface réseau d’un sous-réseau. L’itinéraire jusqu’au service :
   - affiche un itinéraire par défaut plus spécifique jusqu’aux plages de préfixes d’adresses de chaque service ;
@@ -121,5 +122,4 @@ Pour une ressource de service Azure (par exemple, un compte de stockage Azure), 
 - Découvrez comment [sécuriser un compte de stockage Azure pour un réseau virtuel](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Découvrez comment [sécuriser une base de données Azure SQL Database pour un réseau virtuel](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Découvrez [l’intégration des services Azure aux réseaux virtuels](virtual-network-for-azure-services.md).
-
 

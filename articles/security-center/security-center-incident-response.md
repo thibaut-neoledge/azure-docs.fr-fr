@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
 ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Utilisation d’Azure Security Center pour la réponse aux incidents
 De nombreuses organisations apprennent à répondre aux incidents uniquement après avoir subi une attaque. Pour réduire les coûts et les dommages, il est important de disposer d’un plan de réponse aux incidents avant qu’une attaque ne survienne. Vous pouvez utiliser Azure Security Center à différentes étapes de la réponse à un incident.
@@ -83,7 +83,7 @@ Judy s’est connectée au portail Azure et se trouve dans la console Azure Secu
    > Pour les besoins de ce scénario, Judy va procéder à une évaluation de l’alerte d’activité SQL malveillante signalée dans la figure précédente.
    >
    >
-2. Cliquez sur le **activité SQL malveillant** d’alerte et passez en revue les ressources attaqués dans le **activité SQL malveillant** panneau : ![détails de l’Incident](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. Cliquer sur l’alerte **Malicious SQL activity** (Activité SQL malveillante) et examiner les ressources attaquées dans le panneau **Malicious SQL Activity** (Activité SQL malveillante) : ![Détails de l’incident](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     Dans ce panneau, Judy peut prendre connaissance des ressources attaquées, du nombre de fois que cette attaque s’est produite et de l’heure à laquelle elle a été détectée.
 3. Cliquer sur la **ressource attaquée** pour obtenir des informations supplémentaires sur cette attaque.

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 6f4cfda6f367cb8a68d038fa0a3390442be034c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Évaluation de la base de référence dans la solution de sécurité et d’audit d’Operations Management Suite
 Ce document vous aide à utiliser les capacités d’évaluation de la base de référence de [la solution de sécurité et d’audit d’Operations Management Suite](operations-management-suite-overview.md) pour accéder à l’état de sécurité des ressources analysées.
@@ -40,7 +39,7 @@ Il existe trois types de règle :
 > 
 
 ## <a name="security-baseline-assessment"></a>Évaluation de la base de référence de la sécurité
-Vous pouvez consulter votre évaluation de la base de référence de la sécurité en cours pour tous les ordinateurs surveillés par la solution de sécurité et d’audit d’OMS, grâce au tableau de bord.  Procédez comme suit pour accéder au tableau de bord de la fonction d’évaluation de la base de référence de la sécurité :
+Vous pouvez consulter votre évaluation de la base de référence de la sécurité en cours pour tous les ordinateurs surveillés par la solution de sécurité et d’audit d’OMS, grâce au tableau de bord. Procédez comme suit pour accéder au tableau de bord de la fonction d’évaluation de la base de référence de la sécurité :
 
 1. Dans le tableau de bord principal de **Microsoft Operations Management Suite**, cliquez sur la mosaïque **Sécurité et audit**.
 2. Dans le tableau de bord **Sécurité et audit**, cliquez sur **Évaluation de la base de référence** sous **Domaines de sécurité**. Le tableau de bord **Évaluation de la base de référence de la sécurité** apparaît comme indiqué dans l’image suivante :
@@ -85,5 +84,4 @@ Dans ce document, vous avez découvert la fonction d’évaluation de la base de
 * [Présentation - Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Surveiller et répondre aux alertes de sécurité dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-responding-alerts.md)
 * [Surveillance des ressources dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-monitoring-resources.md)
-
 

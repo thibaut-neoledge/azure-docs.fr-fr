@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3c5a6ec70e1041d43b549c8e5a5416a9a65728bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 606e8d63c29b754261621e583652f8209efea0f5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
@@ -33,7 +31,7 @@ L’exécution d’une application existante dans un conteneur Linux sur un clus
 * Un ordinateur de développement exécutant :
   * [Outils et SDK Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE pour Linux](https://docs.docker.com/engine/installation/#prior-releases). 
-  * [Interface de ligne de commande Service Fabric](service-fabric-cli.md)
+  * [Interface de ligne de commande de Service Fabric](service-fabric-cli.md)
 
 * Un registre dans Azure Container Registry. [Créez un registre de conteneurs](../container-registry/container-registry-get-started-portal.md) dans votre abonnement Azure. 
 
@@ -164,11 +162,11 @@ Le Kit de développement logiciel (SDK) Service Fabric pour Linux comprend un g�
 
 Pour créer une application de conteneur Service Fabric, ouvrez une fenêtre de terminal et exécutez `yo azuresfcontainer`.  
 
-Nommez votre application (par exemple, « mycontainer »). 
+Nommez votre application (par exemple, « mycontainer » et le service d’application (par exemple, « myservice »).
 
-Fournissez l’URL de l’image de conteneurs dans un registre de conteneur (ex : « myregistry.azurecr.io/samples/helloworldapp »). 
+En guise de nom d’image, fournissez l’URL de l’image de conteneurs dans un registre de conteneur (ex : « myregistry.azurecr.io/samples/helloworldapp »). 
 
-Cette image possède un point d’entrée de charge de travail défini, vous devrez alors spécifier des commandes d’entrée explicitement (les commandes s’exécutent dans le conteneur et garderont le conteneur en exécution après le démarrage). 
+Cette image possède un point d’entrée de charge de travail défini, vous n’avez donc pas à spécifier des commandes d’entrée explicitement (les commandes s’exécutent dans le conteneur et garderont le conteneur en exécution après le démarrage). 
 
 Spécifiez un nombre d’instances de « 1 ».
 
@@ -391,4 +389,3 @@ Vous pouvez les spécifier les images qui ne doivent pas être supprimées à l�
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 78a165d831796bb6bb23e51f415383eb925115ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C : générer une API web .NET
 
@@ -40,7 +39,7 @@ Vous devez maintenant créer dans votre répertoire B2C une application API web.
 * Incluez une **application web** ou une **API web** dans l’application.
 * Utilisez **l’URI de redirection** `https://localhost:44332/` pour l’application web. Il s’agit de l’emplacement par défaut du client d’application web pour cet exemple de code.
 * Copiez l’ **ID d’application** affecté à votre application. Vous en aurez besoin ultérieurement.
-* Entrez un identificateur d’application dans **l’URI d’ID d’application**.
+* Entrez un identificateur d’application dans **l’URI d’ID d’application**. Copiez l’intégralité de **l’URI ID d’application**. Vous en aurez besoin ultérieurement.
 * Ajoutez des autorisations via le menu **Étendues publiées**.
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -82,7 +81,8 @@ Notre exemple est configuré pour utiliser les stratégies et l’ID client du c
     * `ida:ClientSecret` par votre clé secrète d’application web
     * `ida:SignUpSignInPolicyId` par votre nom de stratégie d’inscription ou de connexion
     * `ida:EditProfilePolicyId` par votre nom de stratégie « Modifier le profil »
-    * `ida:ResetPasswordPolicyId`avec votre nom de stratégie « Modifier le mot de passe »
+    * `ida:ResetPasswordPolicyId` par votre nom de stratégie « Réinitialiser le mot de passe »
+    * `api:ApiIdentifier` par « URI ID d’application »
 
 
 ## <a name="secure-the-api"></a>Sécuriser l’API
@@ -212,4 +212,3 @@ Pour finir, générez et exécutez `TaskWebApp` et `TaskService`. Créez des tâ
 ## <a name="edit-your-policies"></a>Modifier vos stratégies
 
 Une fois que vous avez sécurisé une API avec Azure AD B2C, vous pouvez tester votre stratégie de connexion/d’inscription et afficher le résultat (ou l’absence de résultat) sur l’API. Vous pouvez manipuler les revendications d’application dans les stratégies et modifier les informations utilisateur qui sont disponibles dans l’API web. Toutes les revendications que vous ajoutez seront accessibles par votre API web .NET MVC dans l’objet `ClaimsPrincipal` , comme décrit plus haut dans cet article.
-

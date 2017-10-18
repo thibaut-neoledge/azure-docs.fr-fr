@@ -9,8 +9,7 @@
   
 3. Cliquez sur **Créer** pour ouvrir le nouveau panneau Serveur SQL Server (serveur logique).
 
-   <kbd> ![ouvrir le panneau Serveur logique](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> 
-     <kbd> ![panneau Serveur logique](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png)</kbd>
+   <kbd> ![ouvrir le panneau Serveur logique](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> <kbd>![panneau Serveur logique](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
   
 3. Dans la zone de texte Nom du serveur du panneau Serveur SQL (serveur logique), indiquez un nom valide pour le nouveau serveur logique. Une coche verte indique que vous avez fourni un nom valide.
     

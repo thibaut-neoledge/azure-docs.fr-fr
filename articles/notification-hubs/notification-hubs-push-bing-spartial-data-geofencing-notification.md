@@ -13,14 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/13/2017
+ms.date: 09/15/2017
 ms.author: dendeli
+ms.openlocfilehash: a416edaded8aa04c3229a5788d648de0a6afe2b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 8db82ae9f37a89b6b7049208133949a7f49e9d92
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Notifications push avec clôture virtuelle avec Azure Notification Hubs et données spatiales Bing
 > [!NOTE]
@@ -119,11 +118,11 @@ Dans l’onglet de propriétés du package que vous venez d’ouvrir, sélection
 
 ![](./media/notification-hubs-geofence/vs-package-location.png)
 
-Après avoir déclaré la fonctionnalité de localisation, créez un dossier dans votre solution appelé `Core`, puis créez un fichier appelé `LocationHelper.cs` dans ce dernier :
+Après avoir déclaré la fonctionnalité de localisation, créez un dossier dans votre solution, appelez-le `Core`, puis créez le fichier `LocationHelper.cs` dans ce dernier :
 
 ![](./media/notification-hubs-geofence/vs-location-helper.png)
 
-La classe `LocationHelper` est assez basique à ce stade ; elle permet uniquement d’obtenir l’emplacement de l’utilisateur via l’API système :
+La classe `LocationHelper` est assez basique à ce stade ; elle permet uniquement d’obtenir l’emplacement de l’utilisateur via l’API système :
 
     using System;
     using System.Threading.Tasks;
@@ -179,9 +178,9 @@ L’implémentation du gestionnaire d’événements se fait de la manière suiv
         }
     }
 
-Notez que nous avons déclaré le gestionnaire asynchrone, car `GetCurrentLocation` peut être attendu et doit donc être exécuté dans un contexte asynchrone. En outre, un emplacement Null peut se présenter dans certains cas (par exemple lorsque les services de localisation sont désactivés ou lorsque l’application n’est pas autorisée à accéder à l’emplacement). Cela impose un traitement par validation de valeur Null.
+Notez que nous avons déclaré le gestionnaire asynchrone, car `GetCurrentLocation` peut être attendu et doit donc être exécuté dans un contexte asynchrone. En outre, un emplacement Null peut se présenter dans certains cas (par exemple, lorsque les services de localisation sont désactivés ou lorsque l’application n’est pas autorisée à accéder à l’emplacement). Cela impose un traitement par validation de valeur Null.
 
-Exécutez l'application. Assurez-vous d’avoir autorisé l’accès à l’emplacement :
+Exécutez l’application. Assurez-vous d’avoir autorisé l’accès à l’emplacement :
 
 ![](./media/notification-hubs-geofence/notification-hubs-location-access.png)
 
@@ -381,7 +380,7 @@ Dans `LocationHelper`, à l’intérieur du gestionnaire `Geolocator_PositionCha
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## <a name="whats-next"></a>Et ensuite ?
+## <a name="next-steps"></a>Étapes suivantes
 Vous devrez peut-être suivre quelques étapes supplémentaires outre celles présentées ci-dessus pour vous assurer que la solution est prête pour la production.
 
 Tout d’abord, assurez-vous que la clôture virtuelle est dynamique. Cette opération nécessite des actions supplémentaires avec l’API Bing pour pouvoir télécharger les nouvelles limites au sein de la source de données existante. Pour plus d’informations sur ce sujet, consultez la [documentation de l’API de Services de données spatiales Bing](https://msdn.microsoft.com/library/ff701734.aspx) .
@@ -391,5 +390,4 @@ Ensuite, vous pouvez cibler les participants appropriés par [balisage](notifica
 La solution ci-dessus décrit un scénario dans lequel vous disposez d’un large choix de plateformes cibles. La clôture virtuelle n’a donc pas été limitée à des fonctionnalités spécifiques du système. Ceci dit, la plateforme Windows universelle offre des fonctionnalités [prêtes à l’emploi pouvant détecter les clôtures virtuelles](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 Pour plus de détails concernant les fonctionnalités de Notification Hubs, consultez le [portail documentaire](https://azure.microsoft.com/documentation/services/notification-hubs/).
-
 

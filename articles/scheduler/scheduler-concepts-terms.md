@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
 ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Concepts, terminologie et hiérarchie d’entités de Scheduler
 ## <a name="scheduler-entity-hierarchy"></a>Hiérarchie d’entités de Scheduler
@@ -176,7 +176,7 @@ En cas d'échec d'un travail de Scheduler, il est possible de spécifier une str
 
 Pour définir une stratégie de nouvelle tentative, deux paramètres supplémentaires peuvent être spécifiés : un intervalle de nouvelle tentative (**retryInterval**) et le nombre de nouvelles tentatives (**retryCount**).
 
-L’intervalle de nouvelle tentative, spécifié avec l’objet **retryInterval**, est l’intervalle entre les nouvelles tentatives. Sa valeur par défaut est de 30 secondes. Elle peut varier de 15 secondes à 18 mois. Les travaux des collections de tâches gratuites ont une valeur minimale configurable de 1 heure.  Il est défini dans le format ISO-8601. De même, la valeur du nombre de nouvelles tentatives est spécifiée avec l’objet **retryCount**. Il s’agit du nombre de nouvelles tentatives. Sa valeur par défaut est 4, et sa valeur maximale est 20\. Les deux **retryInterval** et **retryCount** sont facultatifs. Ils reçoivent leur valeur par défaut si **retryType** est défini sur **fixed** et si aucune valeur n’est spécifiée explicitement.
+L’intervalle de nouvelle tentative, spécifié avec l’objet **retryInterval**, est l’intervalle entre les nouvelles tentatives. Sa valeur par défaut est de 30 secondes. Elle peut varier de 15 secondes à 18 mois. Les travaux des collections de tâches gratuites ont une valeur minimale configurable de 1 heure.  Il est défini dans le format ISO-8601. De même, la valeur du nombre de nouvelles tentatives est spécifiée avec l’objet **retryCount**. Il s’agit du nombre de nouvelles tentatives. Sa valeur par défaut est 4, et sa valeur maximale est 20. Les objets **retryInterval** et **retryCount** sont facultatifs. Ils reçoivent leur valeur par défaut si **retryType** est défini sur **fixed** et si aucune valeur n’est spécifiée explicitement.
 
 ## <a name="see-also"></a>Voir aussi
  [Présentation d'Azure Scheduler](scheduler-intro.md)

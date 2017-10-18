@@ -16,12 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: bdd0fd0d1919f61fe586f495adadaf4eabde2dae
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>À quoi correspondent les groupes de machines virtuelles identiques dans Azure ?
 Les groupes de machines virtuelles identiques sont des ressources Azure Compute que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques. Toutes les machines virtuelles étant configurées de la même façon, les groupes identiques sont conçus pour prendre en charge une véritable mise à l’échelle automatique (aucun pré-approvisionnement de machine virtuelle n’est nécessaire). Ainsi, il est plus facile de créer des services à grande échelle pour le Big Compute, le Big Data et les charges de travail en conteneurs.
@@ -34,7 +33,12 @@ Regardez ces vidéos pour en savoir plus sur les groupes identiques :
 * [Jeux de mise à l’échelle de machine virtuelle, avec Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Création et gestion des groupes identiques
-Vous pouvez créer un groupe identique sur le [Portail Azure](https://portal.azure.com) en sélectionnant **Nouveau** et en tapant **identique** dans la barre de recherche. **Groupe de machines virtuelles identiques** apparaîtra dans les résultats. À partir de là, vous pourrez renseigner les champs obligatoires pour personnaliser et déployer votre groupe identique. Vous pouvez également configurer les règles de mise à l’échelle automatique de base en fonction de l’utilisation du processeur.
+Vous pouvez créer un groupe identique sur le [Portail Azure](https://portal.azure.com) en sélectionnant **Nouveau** et en tapant **identique** dans la barre de recherche. **Groupe de machines virtuelles identiques** apparaîtra dans les résultats. À partir de là, vous pourrez renseigner les champs obligatoires pour personnaliser et déployer votre groupe identique. Vous pouvez également configurer les règles de mise à l’échelle automatique de base en fonction de l’utilisation du processeur. 
+
+Les groupes identiques peuvent être déployés dans une [zone de disponibilité](../availability-zones/az-overview.md).
+
+> [!NOTE]
+> Actuellement, les groupes de machines virtuelles identiques ne prennent en charge que le déploiement dans une seule zone de disponibilité. Le déploiement dans plusieurs zones sera pris en charge prochainement.
 
 Vous pouvez définir et déployer des groupes identiques à l’aide de modèles JSON et d’[API REST](https://msdn.microsoft.com/library/mt589023.aspx), tout comme des machines virtuelles Azure Resource Manager individuelles. Par conséquent, vous pouvez utiliser toute méthode de déploiement standard d’Azure Resource Manager. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -89,7 +93,7 @@ Le [portail Azure](https://portal.azure.com) répertorie les groupes identiques 
 
 Si vous souhaitez afficher ou modifier la définition JSON sous-jacente d’une ressource Azure, vous pouvez également utiliser l’[Explorateur de ressources Azure](https://resources.azure.com). Les groupes identiques sont pourvus par le fournisseur de ressources Azure Microsoft.Compute. À partir de ce site, vous pouvez les voir en développant les liens suivants :
 
-**Abonnements** > **votre abonnement** > **resourceGroups** > **fournisseurs** > **Microsoft.Compute** > **virtualMachineScaleSets** > **votre groupe identique** > etc.
+**Abonnements** > **votre abonnement** > **resourceGroups** > **fournisseurs** > **Microsoft.Compute** > **virtualMachineScaleSets** > **votre groupe identique** &gt; etc.
 
 ## <a name="scale-set-scenarios"></a>Scénarios de groupe identique
 Cette section répertorie quelques scénarios de groupe identique classiques. Certains services Azure de niveau supérieur (comme Batch, Service Fabric, Container Service) utilisent également ces scénarios.
@@ -167,4 +171,3 @@ Cette section répertorie quelques scénarios de groupe identique classiques. Ce
 **A.** Oui. Un groupe identique est un ensemble de disponibilité implicite comprenant 5 domaines d’erreur et 5 domaines de mise à jour. Les groupes identiques de plus de 100 machines virtuelles couvrent plusieurs *groupes de placement* qui équivalent à plusieurs groupes à haute disponibilité. Pour plus d’informations sur les groupes de placement, voir [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md) (Utilisation de grands groupes de machines virtuelles identiques). Un groupe de machines virtuelles à haute disponibilité peut figurer dans le même réseau virtuel qu’un groupe identique de machines virtuelles. Une configuration courante consiste à placer les machines virtuelles du nœud de contrôle qui nécessitent souvent une configuration unique dans un groupe à haute disponibilité, et les nœuds de données dans le groupe identique.
 
 Vous trouverez plus de réponses aux questions relatives aux groupes identiques, dans les [FAQ sur les groupes de machines virtuelles identiques Azure](virtual-machine-scale-sets-faq.md).
-

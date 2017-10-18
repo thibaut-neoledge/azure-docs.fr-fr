@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute pour les fournisseurs de solutions Cloud (CSP)
 Microsoft fournit des services à très grande échelle afin que les revendeurs et les distributeurs traditionnels puissent configurer rapidement de nouveaux services et solutions pour vos clients sans avoir à investir dans le développement de ces nouveaux services. Pour permettre au fournisseur de solutions Cloud (CSP) de gérer directement ces nouveaux services, Microsoft fournit des programmes et des API lui permettant de gérer les ressources Microsoft Azure pour le compte de vos clients. L’une de ces ressources est ExpressRoute. ExpressRoute permet au fournisseur de solutions Cloud de connecter les ressources client existantes aux services Azure. ExpressRoute est une liaison de communication privée haut débit vers les services d’Azure. 
@@ -135,8 +134,6 @@ Le service du fournisseur de solutions Cloud vous permet d’augmenter la valeur
 
 Vous trouverez des informations supplémentaires en cliquant sur les liens suivants :
 
-[Programme des fournisseurs de solutions Cloud Microsoft](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview).  
+[Azure et le programme des fournisseurs de solutions cloud](https://docs.microsoft.com/azure/cloud-solution-provider).  
 [Préparez-vous à opérer en tant que fournisseur de solutions cloud](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Ressources des fournisseurs de solutions cloud Microsoft](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
-
-

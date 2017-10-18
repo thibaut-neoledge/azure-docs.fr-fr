@@ -11,18 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: shlo
+ms.openlocfilehash: ef7055342a04057acfba9dad350f654aa4de6096
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 09e514aee503b7cb045c81d8ddcb855ced9b072b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d'Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-introduction.md)
+> * [Version 1 - Disponibilité générale](v1/data-factory-introduction.md)
 > * [Version 2 - Préversion](introduction.md)
 
 Dans le monde du Big Data, les données brutes, désorganisées sont souvent stockées dans des systèmes de stockage relationnels, non relationnels, et dans d’autres encore. Toutefois, lorsqu’elles sont isolées, les données brutes n’ont pas le contexte ou la signification appropriés pour fournir des informations significatives aux analystes, aux « scientifiques des données » ou aux décideurs en entreprise. Ce qu’il faut, c’est un service qui permette à des processus d’orchestration et d’opérationnalisation d’affiner ces gigantesques banques de données brutes pour les transformer en informations exploitables. Azure Data Factory est un service cloud géré créé pour ces projets complexes d’extraction, de transformation et de chargement (ETL), d’extraction, de chargement et de transformation (ELT), et d’intégration des données.
@@ -58,17 +57,17 @@ Une fois que les données sont présentes dans un magasin de données centralis�
 Maintenant que les données brutes ont été affinées sous une forme utilisable par l’entreprise, vous pouvez les charger dans Azure Data Warehouse, Azure SQL DB, Azure CosmosDB ou n’importe quel moteur d’analyse auquel vos utilisateurs peuvent accéder à partir de leurs outils d’analyse décisionnelle.
 
 ### <a name="monitor"></a>Surveiller
-Une fois que vous avez créé et déployé votre pipeline d’intégration de données afin de bénéficier de la valeur commerciale fournie par les données affinées, vous pouvez surveiller les activités planifiées et les pipelines pour connaître les taux de réussite et d’échec. Azure Data Factory intègre une prise en charge de la surveillance des pipelines via Azure Monitor, les API, PowerShell, OMS et les panneaux de contrôle d’intégrité du portail Azure.
+Une fois que vous avez créé et déployé votre pipeline d’intégration de données afin de bénéficier de la valeur commerciale fournie par les données affinées, vous pouvez surveiller les activités planifiées et les pipelines pour connaître les taux de réussite et d’échec. Azure Data Factory intègre une prise en charge de la surveillance des pipelines via Azure Monitor, les API, PowerShell, Microsoft Operations Management Suite (OMS) et les panneaux de contrôle d’intégrité du portail Azure.
 
 ## <a name="whats-different-in-version-2"></a>En quoi diffère la version 2 ?
-Azure Data Factory version 2 est fondé sur le service de déplacement et transformation Azure Data Factory d’origine, mais a été développé pour offrir un ensemble plus vaste de scénarios d’intégration de données issues du cloud. Azure Data Factory V2 offre les fonctionnalités suivantes :
+Azure Data Factory version 2 est fondé sur le service de déplacement et de transformation de données Azure Data Factory d’origine, mais a été développé pour offrir un ensemble plus vaste de scénarios d’intégration de données au cloud. Azure Data Factory version 2 présente les fonctionnalités suivantes :
 
 - Flux de contrôle et mise à l’échelle
-- Déploiement et exécution de packages SSIS dans Azure
+- Déploiement et exécution de packages SSIS dans Azure
 
-Après la sortie de la version 1, nous nous sommes rendu compte que les clients avaient besoin de concevoir des scénarios d’intégration de données hybrides complexes nécessitant le déplacement et le traitement des données dans le cloud, localement et sur des machines virtuelles dans le cloud. Ces exigences ont mis en évidence la nécessité de transférer et de traiter les données dans des environnements de réseau virtuel sécurisés et de permettre une montée en charge en fournissant une puissance de traitement à la demande.
+Après la sortie de la version 1, nous nous sommes rendu compte que les clients cherchaient à concevoir des scénarios d’intégration de données hybrides complexes nécessitant le déplacement et le traitement des données dans le cloud, localement et sur des machines virtuelles dans le cloud. Ces exigences ont mis en évidence la nécessité de transférer et de traiter les données dans des environnements de réseau virtuel sécurisés et de permettre une montée en charge en fournissant une puissance de traitement à la demande.
 
-Puisque les pipelines de données deviennent des éléments essentiels de la stratégie d’analyse commerciale, nous avons constaté que ces activités de données cruciales avaient besoin de la flexibilité nécessaire pour prendre en charge les charges de données incrémentielles et les exécutions déclenchées par des événements. Enfin, à mesure que ces orchestrations gagnent en complexité, le service est également dans l’obligation de prendre en charge des paradigmes de flux de travail communs, tels que la création de branches, le bouclage et le traitement conditionnel.
+Puisque les pipelines de données deviennent des éléments essentiels de la stratégie d’analyse commerciale, nous avons constaté que ces activités de données cruciales avaient besoin d’une planification flexible pour prendre en charge les charges de données incrémentielles et les exécutions déclenchées par des événements. Enfin, à mesure que ces orchestrations gagnent en complexité, le service est également dans l’obligation de prendre en charge des paradigmes de flux de travail communs, tels que la création de branches, le bouclage et le traitement conditionnel.
 
 Avec la version 2, vous pouvez également faire migrer des packages SSIS (SQL Server Integration Services) existants vers le cloud afin de promouvoir et d’insérer SSIS en tant que service Azure géré au sein d’ADF au moyen de la nouvelle fonctionnalité de « runtimes d’intégration ». L’ajout d’un runtime d’intégration SSIS dans la version 2, vous permet d’exécuter, de gérer, de surveiller et de générer des packages SSIS dans le cloud.
 
@@ -85,8 +84,8 @@ Vous avez désormais la liberté de modéliser n’importe quel style de flux re
         - Les activités peuvent utiliser les arguments transmis au pipeline.
     - Transmission d’un état personnalisé
         - Les sorties de l’activité, notamment l’état, peuvent être utilisées par une activité suivante du pipeline.
-    - Mise en boucle des conteneurs
-        - Pour chaque 
+    - Bouclage des conteneurs
+        - ForEach 
 - Flux basés sur déclencheur
     - Les pipelines peuvent être déclenchés à la demande ou selon une durée chronométrée.
 - Flux delta
@@ -95,26 +94,30 @@ Vous avez désormais la liberté de modéliser n’importe quel style de flux re
 Pour plus d’informations, consultez l’article [Didacticiel : flux de contrôle](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Déployer des packages SSIS vers Azure 
-Si vous souhaitez déplacer vos charges de travail SSIS, vous pouvez créer une fabrique de données version 2 et approvisionner un runtime d’intégration Azure-SSIS (IR). Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de machines virtuelles Azure (nœuds) dédié à l’exécution de vos packages SSIS dans le cloud. Pour obtenir des instructions pas à pas, consultez le didacticiel : [Déployer des packages SSIS vers Azure](tutorial-deploy-ssis-packages-azure.md). 
+Si vous souhaitez déplacer vos charges de travail SSIS, vous pouvez créer une fabrique de données version 2 et approvisionner un runtime Azure-SSIS IR. Le runtime Azure-SSIS IR est un cluster entièrement géré de machines virtuelles Azure (nœuds) dédié à l’exécution de vos packages SSIS dans le cloud. Pour obtenir des instructions pas à pas, consultez le didacticiel : [Déployer des packages SSIS vers Azure](tutorial-deploy-ssis-packages-azure.md). 
  
 
-## <a name="rich-cross-platform-sdks"></a>Kits de développement logiciel (SDK) enrichis inter-plateformes
+### <a name="sdks"></a>Kits de développement logiciel (SDK)
 Si vous êtes un utilisateur expérimenté et recherchez une interface de programmation, la version 2 offre un ensemble enrichi de kits de développement logiciel (SDK) qui peut être utilisé pour créer, gérer et surveiller les pipelines à l’aide de votre IDE favori.
 
-- Kit de développement logiciel (SDK) .NET
-- PowerShell
-- Kit de développement logiciel (SDK) Python
+- SDK .NET : le Kit de développement logiciel (SDK) .NET est mis à jour pour la version 2. 
+- PowerShell : les cmdlets PowerShell sont mises à jour pour la version 2. Les noms des cmdlets version 2 contiennent **DataFactoryV2**. Exemple : Get-AzureRmDataFactoryV2. 
+- SDK Python : ce Kit de développement logiciel (SDK) est une nouveauté de la version 2.
+- API REST : l’API REST est mise à jour pour la version 2.  
 
-Vous pouvez également utiliser des API REST pour créer des fabriques de données. 
+Les Kits de développement logiciel (SDK) mis à jour pour la version 2 ne sont pas compatibles avec les clients de la version 1. 
+
+### <a name="monitoring"></a>Surveillance
+Actuellement, la version 2 prend en charge la surveillance des fabriques de données uniquement avec les Kits de développement logiciel (SDK). Le portail n’assure pas encore cette prise en charge. 
 
 ## <a name="load-the-data-into-a-lake"></a>Charger les données dans un lac
-Data Factory offre plus de 30 connecteurs permettant de charger des données d’environnements hybrides et hétérogènes dans Azure.  Reportez-vous au [Guide des performances et réglages](copy-activity-performance.md) pour connaître les derniers résultats de performances issus de tests internes et obtenir des suggestions de paramétrage. Par ailleurs, nous avons récemment activé la haute disponibilité et l’extensibilité du runtime d’intégration autohébergé que vous installez dans un environnement de réseau privé pour répondre aux besoins de disponibilité et d’évolutivité des grandes entreprises de niveau 1.
+Data Factory offre plus de 30 connecteurs permettant de charger des données d’environnements hybrides et hétérogènes dans Azure.  Reportez-vous au [Guide des performances et réglages](copy-activity-performance.md) pour connaître les derniers résultats de performances issus de tests internes et obtenir des suggestions de paramétrage. Par ailleurs, nous avons récemment activé la haute disponibilité et l’extensibilité du runtime d’intégration autohébergé que vous installez dans un environnement de réseau privé pour répondre aux besoins de disponibilité et d’évolutivité des grandes entreprises de niveau 1.
 
 ## <a name="top-level-concepts-in-version-2"></a>Concepts de niveau supérieur dans la version 2
 Un abonnement Azure peut contenir une ou plusieurs instances Azure Data Factory (ou fabriques de données). Azure Data Factory s’articule autour de quatre composants clés. Ils fonctionnent ensemble et vous dotent de la plateforme sur laquelle composer des flux de travail orientés données constitués d’étapes de déplacement et de transformation des données.
 
 ### <a name="pipeline"></a>Pipeline
-Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline est un regroupement logique des activités nécessaires pour effectuer une unité de travail. Ensemble, les activités d’un pipeline effectuent une tâche. Par exemple, un pipeline peut contenir un groupe d’activités qui ingère des données à partir d’un objet Blob Azure, puis exécute une requête Hive sur un cluster HDInsight pour partitionner les données. L’avantage de cette opération, c’est que le pipeline vous permet de gérer les activités en tant que groupe et non pas individuellement. Les activités d’un pipeline peuvent être chaînées pour fonctionner de manière séquentielle, ou peuvent fonctionner en parallèle de façon indépendante
+Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline est un regroupement logique des activités nécessaires pour effectuer une unité de travail. Ensemble, les activités d’un pipeline effectuent une tâche. Par exemple, un pipeline peut contenir un groupe d’activités qui ingère des données à partir d’un objet Blob Azure, puis exécute une requête Hive sur un cluster HDInsight pour partitionner les données. L’avantage de cette opération, c’est que le pipeline vous permet de gérer les activités en tant que groupe et non pas individuellement. Les activités d’un pipeline peuvent être chaînées pour fonctionner de manière séquentielle ou peuvent fonctionner en parallèle de façon indépendante.
 
 ### <a name="activity"></a>Activité
 Les activités représentent une étape de traitement dans un pipeline. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’une banque de données vers une autre. De même, vous pouvez utiliser une activité Hive qui exécute une requête Hive sur un cluster Azure HDInsight afin de convertir ou d’analyser vos données. Data Factory prend en charge trois types d’activités : les activités de déplacement des données, les activités de transformation des données et les activités de contrôle
@@ -127,24 +130,24 @@ Les services liés ressemblent à des chaînes de connexion. Ils définissent le
 
 Data Factory fait appel aux services liés pour deux raisons :
 
-- Pour représenter une **banque de données** et notamment une instance SQL Server, une base de données Oracle, un partage de fichiers locaux ou un compte de stockage d’objets blob Azure. Pour obtenir la liste des magasins de données pris en charge, consultez l’article [Activité de copie](copy-activity-overview.md).
-- Pour représenter une **ressource de calcul** qui peut héberger l’exécution d’une activité. Par exemple, l’activité HDInsightHive s’exécute sur un cluster HDInsight Hadoop. Pour obtenir la liste des activités de transformation et des environnements de calcul pris en charge, consultez l’article [Transformation des données](transform-data.md).
+- Pour représenter une **banque de données** et notamment une instance SQL Server, une base de données Oracle, un partage de fichiers locaux ou un compte de stockage d’objets blob Azure. Pour obtenir la liste des banques de données prises en charge, consultez l’article sur l’[activité de copie](copy-activity-overview.md).
+- Pour représenter une **ressource de calcul** qui peut héberger l’exécution d’une activité. Par exemple, l’activité HDInsightHive s’exécute sur un cluster HDInsight Hadoop. Pour obtenir la liste des activités de transformation et des environnements Compute pris en charge, consultez l’article sur la [transformation des données](transform-data.md).
 
 ### <a name="triggers"></a>Déclencheurs
-Les déclencheurs correspondent à l’unité de traitement qui détermine le moment où une exécution de pipeline doit être lancée. Il existe différents types de déclencheurs pour différents types d’événements. Dans la préversion, nous prenons en charge un déclencheur par planification de durée chronométrée. 
+Les déclencheurs correspondent à l’unité de traitement qui détermine le moment auquel une exécution de pipeline doit être lancée. Il existe différents types de déclencheurs pour différents types d’événements. Dans la préversion, nous prenons en charge un déclencheur par planification de durée chronométrée. 
 
 
 ### <a name="pipeline-runs"></a>Exécutions de pipeline
 Une exécution du pipeline est une instance de l’exécution du pipeline. Les exécutions de pipeline sont généralement instanciées par la transmission des arguments aux paramètres définis dans les pipelines. Les arguments peuvent être transmis manuellement ou être inclus dans la définition du déclencheur.
 
 ### <a name="parameters"></a>Paramètres
-Les paramètres sont des paires clé-valeur de configuration en lecture seule.  Les paramètres sont définis dans le pipeline et les arguments des paramètres définis sont transmis au cours de l’exécution à partir du contexte d’exécution créé par un déclencheur ou un pipeline exécuté manuellement. Les activités contenues dans le pipeline utilisent les valeurs des paramètres.
+Les paramètres sont des paires clé-valeur de configuration en lecture seule.  Ils sont définis dans le pipeline, et les arguments des paramètres définis sont transmis au cours de l’exécution à partir du contexte d’exécution créé par un déclencheur ou un pipeline exécuté manuellement. Les activités contenues dans le pipeline utilisent les valeurs des paramètres.
 Un jeu de données est un paramètre fortement typé et une entité réutilisable/pouvant être référencée. Une activité peut faire référence à des jeux de données et peut utiliser les propriétés définies dans la définition du jeu de données
 
-Un service lié est également un paramètre fortement typé qui contient les informations de connexion à un magasin de données ou à un environnement Compute. C’est également une entité réutilisable/pouvant être référencée.
+Un service lié est également un paramètre fortement typé qui contient les informations de connexion à une banque de données ou à un environnement Compute. C’est également une entité réutilisable/pouvant être référencée.
 
 ### <a name="control-flow"></a>Flux de contrôle
-Orchestration des activités du pipeline, qui inclut le chaînage des activités en une séquence, la création de branche et des paramètres. Ces éléments peuvent être définis au niveau du pipeline et les arguments sont transmis lors de l’appel du pipeline à la demande ou à partir d’un déclencheur. L’orchestration inclut également la transmission d’états personnalisés et la mise en boucle des conteneurs, autrement dit, des itérateurs Pour chaque.
+Orchestration des activités du pipeline, qui inclut le chaînage des activités en une séquence, la création de branche et des paramètres. Ces éléments peuvent être définis au niveau du pipeline et les arguments sont transmis lors de l’appel du pipeline à la demande ou à partir d’un déclencheur. L’orchestration inclut également la transmission d’états personnalisés et le bouclage des conteneurs, autrement dit, des itérateurs ForEach.
 
 
 Pour plus d’informations sur les concepts de Data Factory, consultez les articles suivants :
@@ -165,4 +168,3 @@ Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Mac
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment créer une fabrique de données en suivant les instructions détaillées fournies dans les démarrages rapides suivants : [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [API REST](quickstart-create-data-factory-rest-api.md) et le portail Azure. 
-

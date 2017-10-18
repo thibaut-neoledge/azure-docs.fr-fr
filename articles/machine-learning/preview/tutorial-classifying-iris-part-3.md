@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
+ms.openlocfilehash: 2325d0ffd369d85b9a21e2274a98dcb673d240e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 28d74eb9da4210f59758b90ae88ce5a5eb62621a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Classification d’Iris, partie 3 : déployer un modèle
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée de bout en bout qui permet aux scientifiques des données professionnels de préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
 
@@ -36,8 +34,12 @@ Ce didacticiel est le troisième d’une série de trois. Dans cette partie du d
 
 ## <a name="prerequisites"></a>Composants requis
 Effectuer les deux premières parties de cette série de didacticiels :
-- Tout d’abord, suivez le [didacticiel Préparer les données](tutorial-classifying-iris-part-1.md) pour créer des ressources Azure Machine Learning et installer l’application Azure Machine Learning Workbench.
-- Ensuite, suivez le [didacticiel Générer un modèle](tutorial-classifying-iris-part-2.md) pour créer un modèle de régression logistique dans Azure Machine Learning.
+
+1. Suivez le [didacticiel Préparer les données](tutorial-classifying-iris-part-1.md) pour créer des ressources Azure Machine Learning et installer l’application Azure Machine Learning Workbench.
+
+2. Suivez le [didacticiel Générer un modèle](tutorial-classifying-iris-part-2.md) pour créer un modèle de régression logistique dans Azure Machine Learning.
+
+3. Le moteur Docker doit être installé et exécuté en local. Vous pouvez également déployer un cluster Azure Container Service dans Azure.
 
 ## <a name="download-the-model-pickle-file"></a>Télécharger le fichier pickle de modèle
 Dans la partie précédente du didacticiel, le script **iris_sklearn.py** a été exécuté localement dans Azure Machine Learning Workbench. Cette action a sérialisé le modèle de régression logistique à l’aide du package de sérialisation d’objets Python populaire **[pickle](https://docs.python.org/2/library/pickle.html)**. 
@@ -334,5 +336,4 @@ Vous avez correctement exécuté un script de formation dans différents environ
 Vous êtes prêt à effectuer une préparation avancée des données :
 > [!div class="nextstepaction"]
 > [Préparation avancée des données](tutorial-bikeshare-dataprep.md)
-
 

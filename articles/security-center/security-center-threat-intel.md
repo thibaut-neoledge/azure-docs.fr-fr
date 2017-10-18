@@ -1,6 +1,6 @@
 ---
-title: "(Threat Intelligence in Azure Security Center) Informations sur les menaces dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous aide à utiliser la fonctionnalité d’informations sur les menaces dans Azure Security Center pour identifier les menaces potentielles sur vos machines virtuelles et ordinateurs."
+title: Informations sur les menaces dans Azure Security Center | Microsoft Docs
+description: "Découvrez comment utiliser la fonctionnalité d’informations sur les menaces dans Azure Security Center pour identifier les menaces potentielles sur vos machines virtuelles et ordinateurs."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -12,70 +12,76 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
+ms.openlocfilehash: b5bdeb1c70893c2477413df02c7b1a4a07999e93
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: c492662aa3ee444347c55d9771790573ad969150
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Informations sur les menaces dans Azure Security Center
-Ce document vous aide à utiliser les informations sur les menaces d’Azure Security Center pour adresser les problèmes relatifs à la sécurité.
+Cet article vous aide à utiliser les informations sur les menaces d’Azure Security Center pour traiter les problèmes relatifs à la sécurité.
 
 ## <a name="what-is-threat-intelligence"></a>Que sont les informations sur les menaces ?
-Grâce à l’option Informations sur les menaces disponible dans Security Center, les administrateurs informatiques peuvent détecter les menaces de sécurité pour l’environnement, par exemple, identifier si un ordinateur fait partie d’un botnet. Un ordinateur peut devenir un nœud d’un botnet si un pirate installe de manière illicite un programme malveillant qui connecte secrètement cet ordinateur à la commande et au contrôle. Cette option peut également identifier les menaces potentielles provenant de canaux de communication obscurs, tel que le Darknet.
+Grâce à l’option Informations sur les menaces disponible dans Security Center, les administrateurs informatiques peuvent détecter les menaces de sécurité pour l’environnement. Par exemple, ils peuvent déterminer si un ordinateur particulier fait partie d’un botnet. Un ordinateur peut devenir un nœud d’un botnet si un pirate installe de manière illicite un programme malveillant qui connecte secrètement l’ordinateur à la commande et au contrôle. Les informations sur les menaces peuvent également identifier les menaces potentielles provenant de canaux de communication obscurs, tel que le dark web.
 
-Pour générer ces informations sur les menaces, Security Center utilise des données provenant de nombreuses sources au sein de Microsoft. Security Center utilisera ces données afin d’identifier les menaces potentielles pour votre environnement. Le panneau Informations sur les menaces est composé de trois options principales :
+Pour générer ces informations sur les menaces, Security Center utilise des données provenant de nombreuses sources au sein de Microsoft. Security Center utilise ces données afin d’identifier les menaces potentielles pour votre environnement. Le volet **Informations sur les menaces** est composé de trois options principales :
 
 - Detected threat types (Types de menaces détectés)
 - Origine de la menace
 - Threat intelligence map (Carte d’informations sur les menaces)
 
 
-## <a name="when-should-i-use-threat-intelligence"></a>Quand dois-je utiliser les informations sur les menaces ?
+## <a name="when-should-you-use-threat-intelligence"></a>Quand devez-vous utiliser les informations sur les menaces ?
 Le [processus de réponse aux incidents de sécurité](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide#incident-response) contient une étape consistant à identifier la gravité du ou des systèmes compromis. Pendant cette phase, vous devez effectuer les tâches suivantes :
 
-- Déterminer la nature de l’attaque
-- Déterminer le point d’origine de l’attaque
-- Déterminer le but de l’attaque L’attaque était-elle spécifiquement dirigée contre votre entreprise pour obtenir certaines informations à son sujet ou était-elle aléatoire ?
-- Identifier les systèmes qui ont été compromis
-- Identifiez les fichiers consultés et déterminez leur sensibilité. Vous pouvez utiliser les informations sur les menaces de Security Center pour vous aider dans ces tâches. 
+- Déterminer la nature de l’attaque.
+- Déterminer le point d’origine de l’attaque.
+- Déterminer le but de l’attaque L’attaque était-elle dirigée contre votre entreprise pour obtenir certaines informations à son sujet ou était-elle aléatoire ?
+- Identifier les systèmes qui ont été compromis.
+- Identifier les fichiers consultés et déterminer leur sensibilité.
 
-## <a name="how-to-access-the-threat-intelligence"></a>Comment accéder aux informations sur les menaces ?
-Pour visualiser les informations sur les menaces actuelles pour votre environnement, vous devez d’abord sélectionner l’espace de travail où résident vos informations. Si vous ne disposez pas de plusieurs espaces de travail, vous ne verrez pas le sélecteur d’espace de travail, et vous accéderez directement au tableau de bord **Informations sur les menaces**. Pour accéder au tableau de bord d’informations sur les menaces, suivez les étapes ci-dessous :
+Vous pouvez utiliser des informations sur les menaces dans Security Center pour ces tâches. 
 
-1.  Ouvrez le tableau de bord **Security Center**.
-2.  Dans le volet gauche, dans **Détection**, cliquez sur **Informations sur les menaces**. Le tableau de bord **Informations sur les menaces** s’affiche.
+## <a name="access-the-threat-intelligence"></a>Accéder aux informations sur les menaces
+Pour visualiser les informations sur les menaces actuelles pour votre environnement, vous devez d’abord sélectionner l’espace de travail où résident vos informations. Si vous ne disposez pas de plusieurs espaces de travail, vous ne verrez pas le sélecteur d’espace de travail, et vous accéderez directement au tableau de bord **Informations sur les menaces**. Pour accéder au tableau de bord :
 
-    ![Informations sur les menaces](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
+1. Ouvrez le tableau de bord **Security Center**.
+
+2. Dans le volet gauche, dans **Détection**, cliquez sur **Informations sur les menaces**. Le tableau de bord **Informations sur les menaces** s’affiche.
+
+    ![Tableau de bord Informations sur les menaces](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
-    > Si **METTRE À NIVEAU LE PLAN** apparaît dans la dernière colonne, cet espace de travail utilise un abonnement gratuit. Vous devez le passer au niveau standard pour utiliser cette fonctionnalité. Si NÉCESSITE MISE À JOUR apparaît, vous devez mettre à jour [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour utiliser cette fonctionnalité. Pour en savoir plus sur le plan de tarification, consultez la tarification dans Azure Security Center. 
+    > Si la colonne située complètement à droite affiche **PLAN DE MISE À NIVEAU**, cet espace de travail utilise l’abonnement gratuit. Effectuez une mise à niveau vers le niveau Standard pour utiliser cette fonctionnalité. Si la colonne située complètement à droite affiche **MISE À JOUR REQUISE**, mettez à jour [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour utiliser cette fonctionnalité. Pour en savoir plus sur le plan de tarification, consultez la tarification dans Azure Security Center. 
     > 
-3. Si vous disposez de plus d’un espace de travail à analyser, privilégiez l’analyse en fonction de la colonne **IP MALVEILLANT**. Elle indique le nombre actuel d’adresses IP malveillantes dans cet espace de travail. Sélectionnez l’espace de travail que vous souhaitez utiliser. Le tableau de bord **Informations sur les menaces** s’affiche.
+3. Si vous avez plusieurs espaces de travail à examiner, hiérarchisez l’examen en fonction de la colonne **Adresse IP malveillante**. Elle indique le nombre actuel d’adresses IP malveillantes dans cet espace de travail. Sélectionnez l’espace de travail que vous souhaitez utiliser. Le tableau de bord **Informations sur les menaces** s’affiche.
 
     ![Informations sur les menaces](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-4. Ce tableau de bord est divisé en quatre vignettes :
-    * **Types de menace** : récapitule les types de menaces détectés dans l’espace de travail sélectionné.
-    * **Pays d’origine** : agrège la quantité de trafic en fonction de l’emplacement d’origine.
-    * **Emplacement de la menace** : vous aide à identifier les emplacements dans le monde qui communiquent actuellement avec votre environnement. Cette carte comporte des flèches oranges (trafic entrant) et des flèches rouges (trafic sortant), qui indiquent la direction du trafic. Cliquez sur l’une de ces flèches pour afficher le type de menace et la direction du trafic.
-    * **Détails de la menace** : montre plus de détails sur les menaces que vous avez sélectionnées dans le mappage.
+4. Le tableau de bord est divisé en quatre vignettes :
 
-Quelle que soit la vignette d’option choisie, le tableau de bord qui s’affiche se base sur la requête [Recherche dans les journaux](https://docs.microsoft.com/azure/security-center/security-center-search). La seule différence est le type de requête et son résultat.
+    a.  **Types de menaces**. récapitule les types de menaces détectés dans l’espace de travail sélectionné.
+
+    b.  **Pays d’origine**. Agrège la quantité de trafic en fonction de l’emplacement d’origine.
+
+    c.  **Emplacement de la menace**. vous aide à identifier les emplacements dans le monde qui communiquent actuellement avec votre environnement. Dans le mappage indiqué, les flèches orange (entrant) et rouges (sortant) identifient le sens du trafic. Sélectionnez une de ces flèches pour afficher le type de menace et la direction du trafic.
+
+    d.  **Détails de la menace**. Montre plus de détails sur les menaces que vous avez sélectionnées dans le mappage.
+
+Quelle que soit la vignette d’option sélectionnée, le tableau de bord qui s’affiche se base sur la requête de recherche dans les journaux. Les seules différences sont le type de requête et le résultat.
 
 ### <a name="threat-types"></a>Types de menaces
-Après avoir cliqué sur la vignette **Types de menace**, le tableau de bord **Recherche dans les journaux** s’affiche. Les options de filtre se situent sur la gauche, et les résultats de requêtes sur la droite.
+Sélectionnez la vignette **Types de menace** pour ouvrir le tableau de bord **Recherche dans les journaux**. Les options de filtre s’affichent à gauche, et les résultats de la requête à droite.
 
-![Recherche d’informations sur les menaces](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
+![Recherche dans les journaux](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
 
-Le résultat de la requête affiche les menaces et les agrège par nom. Vous pouvez utiliser le volet gauche pour sélectionner l’attribut que vous souhaitez filtrer. Par exemple, pour voir uniquement les menaces qui sont actuellement connectées aux machines, sélectionnez **Connecté** dans **ÉTAT DE LA SESSION**, puis cliquez sur le bouton **Appliquer**.
+Le résultat de la requête affiche les menaces par nom. Vous pouvez utiliser le volet de gauche pour sélectionner l’attribut que vous souhaitez filtrer. Par exemple, pour afficher uniquement les menaces qui sont actuellement connectées aux machines, dans **SESSIONSTATE**, sélectionnez **Connecté** > **Appliquer**.
 
-![état de la session](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
+![État de la session](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
 
-Pour les machines virtuelles Azure, le tableau de bord d’informations sur les menaces n’affiche que les données de réseau filtrées par l’agent. Les types de données suivants sont également utilisés par les informations sur les menaces :
+Pour les machines virtuelles Azure, le tableau de bord **Informations sur les menaces** n’affiche que les données de réseau filtrées par l’agent. Les types de données suivants sont également utilisés par les informations sur les menaces :
 
 - Données CEF (Type = CommonSecurityLog)
 - WireData (Type = WireData)
@@ -85,13 +91,12 @@ Pour les machines virtuelles Azure, le tableau de bord d’informations sur les 
 
 
 ## <a name="see-also"></a>Voir aussi
-Dans ce document, vous avez découvert comment utiliser les informations sur les menaces dans Security Center pour vous aider à identifier une activité suspecte. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
+Dans cet article, vous avez découvert comment utiliser les informations sur les menaces dans Security Center pour vous aider à identifier une activité suspecte. Pour plus d’informations sur Security Center, consultez les articles suivants :
 
-* [Gestion et résolution des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.
+* [Gérer et répondre aux alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
-* [Présentation des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En savoir plus sur les différents types d’alertes de sécurité.
+* [Comprendre les alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En savoir plus sur les différents types d’alertes de sécurité.
 * [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center. 
-* [FAQ du Centre de sécurité Azure](security-center-faq.md). forum aux questions concernant l’utilisation de ce service.
+* [FAQ du Centre de sécurité Azure](security-center-faq.md). Obtenez des réponses aux questions fréquentes concernant l’utilisation du service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
-
 

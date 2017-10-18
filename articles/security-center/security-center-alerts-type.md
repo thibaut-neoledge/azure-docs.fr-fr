@@ -12,21 +12,21 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Présentation des alertes de sécurité dans Azure Security Center
 Cet article vous aide à comprendre les différents types d’alertes de sécurité et les informations associées disponibles dans Azure Security Center. Pour plus d’informations sur la gestion des alertes et des incidents, consultez l’article [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
 
+Pour configurer la détection avancée, effectuez une mise à niveau vers Azure Security Center Standard. Une version d’évaluation gratuite de 60 jours est disponible. Pour mettre à niveau, sélectionnez **Niveau tarifaire** sous [Stratégie de sécurité](security-center-policies.md). Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
+
 > [!NOTE]
-> Pour configurer la détection avancée, effectuez une mise à niveau vers Azure Security Center Standard. Une version d’évaluation gratuite de 60 jours est disponible. Pour mettre à niveau, sélectionnez **Niveau tarifaire** sous [Stratégie de sécurité](security-center-policies.md). Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
->
+> Security Center a sorti avec les versions préliminaires limitées un nouvel ensemble de moyens de détection qui exploitent les enregistrements d’audit, une infrastructure d’audit courante, pour détecter des comportements malveillants sur les machines Linux. [Envoyez-nous](mailto:ASC_linuxdetections@microsoft.com) un e-mail avec vos ID d’abonnement pour joindre la version préliminaire.
 
 ## <a name="what-type-of-alerts-are-available"></a>Quels types d’alertes sont disponibles ?
 Azure Security Center utilise diverses [fonctionnalités de détection](security-center-detection-capabilities.md) pour avertir les clients des attaques potentielles qui ciblent leur environnement. Ces alertes fournissent de précieuses informations sur le déclencheur de l’alerte, les ressources ciblées et la source de l’attaque. Les informations figurant dans une alerte varient en fonction du type d’analyse utilisé pour détecter la menace. Les incidents sont également susceptibles de contenir des informations contextuelles supplémentaires qui peuvent se révéler utiles lors de l’étude d’une menace.  Cet article fournit des informations sur les types d’alertes suivants :
@@ -44,7 +44,7 @@ Azure Security Center peut utiliser l’analyse comportementale pour identifier 
 >
 
 ### <a name="crash-analysis"></a>Analyse des incidents
-L’analyse de la mémoire de vidage sur incident est une méthode utilisée pour détecter les programmes malveillants sophistiqués capables d’échapper aux solutions de sécurité traditionnelles. Différentes formes de programmes malveillants tentent de réduire le risque de détection par des produits antivirus en n’écrivant jamais sur le disque ou en chiffrant les composants logiciels écrits sur le disque. Ainsi, les programmes malveillants sont difficiles à détecter à l’aide des logiciels anti-programmes malveillants traditionnels. Toutefois, ce type de logiciel malveillant peut être détecté à l’aide de l’analyse de mémoire, car le programme malveillant laisse des traces en mémoire pour pouvoir fonctionner.
+L’analyse de la mémoire de vidage sur incident est une méthode utilisée pour détecter les programmes malveillants sophistiqués capables d’échapper aux solutions de sécurité traditionnelles. Différentes formes de programmes malveillants tentent de réduire le risque de détection par des produits antivirus en n’écrivant jamais sur le disque ou en chiffrant les composants logiciels écrits sur le disque. Cette technique rend les programmes malveillants difficiles à détecter à l’aide des logiciels anti-programmes malveillants traditionnels. Toutefois, ce type de logiciel malveillant peut être détecté à l’aide de l’analyse de mémoire, car le programme malveillant laisse des traces en mémoire pour pouvoir fonctionner.
 
 Lorsque le logiciel se bloque, un vidage sur incident capture une partie de la mémoire au moment de l’incident. L’incident peut être provoqué par un programme malveillant, une application générale ou des problèmes système. En analysant la mémoire dans le vidage sur incident, Azure Security Center peut détecter les techniques utilisées pour exploiter la vulnérabilité des logiciels, accéder aux données confidentielles et persister subrepticement au sein d’un ordinateur compromis. Ces opérations ont peu d’impact sur les performances des hôtes, car l’analyse est effectuée au cœur d’Azure Security Center.
 
@@ -61,7 +61,7 @@ Cet exemple d’alerte shellcode fournit le champ supplémentaire suivant :
 
 * ADRESSE : emplacement du shellcode dans la mémoire.
 
-Voici un exemple de ce type d’alerte :
+Voici un exemple de ce type d’alerte :
 
 ![Alerte de shellcode](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
@@ -77,7 +77,7 @@ En plus des champs communs décrits dans la section précédente « Shellcode d
 * HIJACKEDMODULEPATH : chemin d’accès du module système Windows détourné.
 * HIJACKINGMODULEPATH : chemin d’accès du module de détournement.
 
-Voici un exemple de ce type d’alerte :
+Voici un exemple de ce type d’alerte :
 
 ![Alerte de détournement de module](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
@@ -96,7 +96,7 @@ En plus des champs communs décrits dans la section précédente « Shellcode d
 
 Cette alerte extrait et affiche également certains champs de l’en-tête PE du module, tels que « CHECKSUM » et « TIMESTAMP ». Ces champs sont affichés uniquement s’ils sont présents dans le module. Pour plus d’informations sur ces champs, consultez la [spécification Microsoft PE et COFF](https://msdn.microsoft.com/windows/hardware/gg463119.aspx) .
 
-Voici un exemple de ce type d’alerte :
+Voici un exemple de ce type d’alerte :
 
 ![Alerte d’usurpation d’identité Windows](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
@@ -110,21 +110,21 @@ En plus des champs communs décrits dans la section précédente « Shellcode d
 * MODULENAME : nom du fichier binaire système modifié.
 * MODULEVERSION : version du fichier binaire système modifié.
 
-Voici un exemple de ce type d’alerte :
+Voici un exemple de ce type d’alerte :
 
 ![Alerte de fichier binaire système](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>Processus suspect exécuté
 Azure Security Center identifie le processus suspect en cours d’exécution dans la machine virtuelle cible et déclenche une alerte. La détection ne recherche pas de nom spécifique, mais le paramètre du fichier exécutable. Par conséquent, même si l’attaquant renomme le fichier exécutable, Security Center peut toujours détecter le processus suspect.
 
-Voici un exemple de ce type d’alerte :
+Voici un exemple de ce type d’alerte :
 
 ![Alerte de processus suspect](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-### <a name="multiple-domain-accounts-queried"></a>Plusieurs comptes de domaine interrogés
-Azure Security Center peut détecter plusieurs tentatives d’interrogation de comptes de domaine Active Directory, généralement effectuées par des personnes malveillantes au cours de la reconnaissance du réseau. Les personnes malveillantes peuvent exploiter cette technique pour interroger le domaine et identifier les utilisateurs, les comptes d’administration de domaine, les ordinateurs qui sont des contrôleurs de domaine et la relation d’approbation potentielle d’un domaine avec d’autres domaines.
+### <a name="multiple-domains-accounts-queried"></a>Plusieurs comptes de domaine interrogés
+Security Center peut détecter plusieurs tentatives d’interrogation de comptes de domaine Active Directory, généralement effectuées par des personnes malveillantes au cours de la reconnaissance du réseau. Les personnes malveillantes peuvent exploiter cette technique pour interroger le domaine et identifier les utilisateurs, les comptes d’administration de domaine, les ordinateurs qui sont des contrôleurs de domaine et la relation d’approbation potentielle d’un domaine avec d’autres domaines.
 
-Voici un exemple de ce type d’alerte :
+Voici un exemple de ce type d’alerte :
 
 ![Alerte de compte de domaines multiples](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
 
@@ -132,7 +132,7 @@ Voici un exemple de ce type d’alerte :
 
 Security Center va déclencher une alerte lorsque l’événement de sécurité 4798, dans Windows Server 2016 et Windows 10, est déclenché. Cela se produit lorsque le groupe Administrateurs locaux est énuméré, ce qui est généralement effectué par des pirates au cours de la reconnaissance du réseau. Les pirates peuvent exploiter cette technique pour interroger l’identité des utilisateurs avec des privilèges d’administrateur.
 
-Voici un exemple de ce type d’alerte :
+Voici un exemple de ce type d’alerte :
 
 ![Administrateur local](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
 
@@ -140,7 +140,7 @@ Voici un exemple de ce type d’alerte :
 
 Security Center déclenche une alerte lorsqu’il détecte l’utilisation d’une combinaison de majuscules et minuscules à la ligne de commande. Certains pirates peuvent utiliser cette technique pour se dérober aux règles de hachage ou de casse.
 
-Voici un exemple de ce type d’alerte :
+Voici un exemple de ce type d’alerte :
 
 ![Combinaison anormale](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
 
@@ -151,7 +151,7 @@ Une clé [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) compromis
 > [!NOTE] 
 > Pour plus d’informations sur les golden ticket Kerberos, lisez le [guide de prévention contre le vol d’informations d’identification Windows 10](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx).
 
-Voici un exemple de ce type d’alerte :
+Voici un exemple de ce type d’alerte :
 
 ![Golden ticket](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
 
@@ -159,7 +159,7 @@ Voici un exemple de ce type d’alerte :
 
 Security Center déclenche une alerte lorsqu’un compte ressemblant fortement à un compte bénéficiant de privilèges d’administrateur intégré existant est créé. Cette technique peut être utilisée par des pirates pour créer un compte non autorisé sans être détecté par une vérification humaine.
  
-Voici un exemple de ce type d’alerte :
+Voici un exemple de ce type d’alerte :
 
 ![Compte suspect](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
 
@@ -167,7 +167,7 @@ Voici un exemple de ce type d’alerte :
 
 Les pirates peuvent tenter de contourner la sécurité de l’ordinateur hôte en créant des règles de pare-feu personnalisées pour permettre aux applications malveillantes de communiquer avec la commande et le contrôle, ou pour lancer des attaques sur le réseau par le biais de l’hôte compromis. Security Center déclenche une alerte lorsqu’il détecte qu’une règle de pare-feu a été créée à partir d’un fichier exécutable à un emplacement suspect.
  
-Voici un exemple de ce type d’alerte :
+Voici un exemple de ce type d’alerte :
 
 ![Règle de pare-feu](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
 
@@ -175,7 +175,7 @@ Voici un exemple de ce type d’alerte :
 
 Security Center déclenche une alerte lorsqu’il détecte qu’un hôte d’application HTML (HTA) lance des commandes PowerShell. Il s’agit d’une technique utilisée par les pirates pour lancer des scripts PowerShell malveillants.
  
-Voici un exemple de ce type d’alerte :
+Voici un exemple de ce type d’alerte :
 
 ![HTA et PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
 
@@ -188,7 +188,7 @@ Les périphériques réseau peuvent être détectés et profilés de la même fa
 
 ![Alerte de trafic sortant suspect](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
-Cette alerte fournit des informations permettant d’identifier la ressource utilisée pour lancer cette attaque. Cette alerte fournit également des informations permettant d’identifier l’ordinateur compromis, le temps de détection, ainsi que le protocole et le port utilisés. Ce panneau vous donne également une liste des étapes de résolution pouvant être utilisées pour résoudre ce problème.
+Cette alerte fournit des informations permettant d’identifier la ressource utilisée pour lancer cette attaque. Cette alerte fournit également des informations permettant d’identifier l’ordinateur compromis, le temps de détection, ainsi que le protocole et le port utilisés. Cette page vous donne également une liste des étapes de résolution pouvant être utilisées pour résoudre ce problème.
 
 ### <a name="network-communication-with-a-malicious-machine"></a>Communication réseau avec un ordinateur malveillant
 En exploitant les flux des informations sur les menaces de Microsoft, Azure Security Center peut détecter les ordinateurs compromis qui communiquent avec des adresses IP malveillantes. Dans de nombreux cas, l’adresse malveillante est un centre de commande et de contrôle. Dans ce cas, Security Center a détecté que la communication a été effectuée à l’aide du programme malveillant Pony Loader (également appelé [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
@@ -205,7 +205,7 @@ Cette alerte fournit des informations qui vous permettent d’identifier la ress
 ### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Attaque potentielle par déni de service sortant détectée
 Un trafic réseau anormal provenant d’une machine virtuelle peut amener Azure Security Center à déclencher un type d’attaque potentielle par déni de service.
 
-Voici un exemple de ce type d’alerte :
+Voici un exemple de ce type d’alerte :
 
 ![Déni de service sortant](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
@@ -253,4 +253,3 @@ Cet article vous a présenté les différents types d’alertes de sécurité da
 * [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md)
 * [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure.
-

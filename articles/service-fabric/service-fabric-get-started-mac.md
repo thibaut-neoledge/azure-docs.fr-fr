@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: saysa
+ms.openlocfilehash: 0fae5fe35c25f97a9eb2c0d648cfb0f66b7f0725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: c447a92e076bacc9b208b837493400b70cd067e1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurer votre environnement de développement sur Mac OS X
 > [!div class="op_single_selector"]
@@ -107,15 +106,13 @@ Pour générer des services Service Fabric à l’aide de Java, assurez-vous que
   sudo apt-get install gradle
 ```
 
-## <a name="set-up-the-service-fabric-cli"></a>Configurer l’interface de ligne de commande Service Fabric
+## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Configurer la CLI Service Fabric (sfctl) sur votre ordinateur Mac
 
-L’[interface de ligne de commande Service Fabric](service-fabric-cli.md) inclut des commandes permettant d’interagir avec des entités Service Fabric, y compris des clusters et des applications. Étant donné qu’elle est basée sur python, assurez-vous d’avoir installé python et pip avant de continuer avec la commande suivante :
+Suivez les instructions de [la CLI Service Fabric](service-fabric-cli.md#cli-mac) pour installer la CLI Service Fabric (`sfctl`) sur votre ordinateur Mac.
+Il s’agit des commandes CLI permettant d’interagir avec des entités Service Fabric, y compris des clusters, des services et des applications.
 
-```bash
-pip install sfctl
-```
+## <a name="create-application-on-you-mac-using-yeoman"></a>Créer une application sur votre ordinateur Mac à l’aide de Yeoman
 
-## <a name="create-application-on-mac-using-yeoman"></a>Créer l’application sur Mac à l’aide de Yeoman
 Service Fabric fournit des outils de génération de modèles automatique qui vous aideront à créer une application Service Fabric depuis un terminal à l’aide du générateur de modèles Yeoman. Suivez les étapes ci-dessous pour vous assurer que le générateur de modèles Yeoman Service Fabric est en état de fonctionnement sur votre machine.
 
 1. Vous devez installer Node.js et NPM sur votre mac. Si ce n’est pas le cas, vous pouvez installer Node.js et NPM à l’aide de Homebrew via la commande suivante. Pour vérifier quelles sont les versions de Node.js et de NPM installées sur votre Mac, vous pouvez utiliser l’option ``-v``.
@@ -165,4 +162,3 @@ Service Fabric fournit un plug-in pour **Eclipse Neon pour IDE Java** qui peut s
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
-

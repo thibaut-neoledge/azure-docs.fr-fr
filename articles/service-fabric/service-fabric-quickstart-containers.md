@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 10/02/2017
 ms.author: ryanwi
+ms.openlocfilehash: bc7bee3caed2eba0a3f49d79241cd8685333ba13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: c4f8c94e23a165b22533ffd74e04c9a7310f2d22
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Déployer une application de conteneur Windows Service Fabric sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
 
@@ -51,7 +49,7 @@ Sélectionnez **Service Fabric application** (Application Service Fabric), nomme
 
 Sélectionnez **Container** (Conteneur) dans la liste des **modèles de service**.
 
-Dans **Nom de l’image**, entrez « nanoserver/iis », l’[image de base Windows Server 2016 Nano Server et IIS](https://hub.docker.com/r/nanoserver/iis/). 
+Dans **Nom de l’image**, entrez « microsoft/iis:nanoserver », l’[image de base Windows Server Nano Server et IIS](https://hub.docker.com/r/microsoft/iis/). 
 
 Nommez votre service « MyContainerService », puis cliquez sur **OK**.
 
@@ -68,6 +66,7 @@ Configurez le mappage port/hôte du conteneur en spécifiant une stratégie `Por
 ```xml
 <ServiceManifestImport>
 ...
+  <ConfigOverrides />
   <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
       <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
@@ -94,7 +93,7 @@ Faites un clic droit sur **MyFirstContainer** dans l’Explorateur de solutions 
 
 ![Boîte de dialogue Publier](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-Saisissez le point de terminaison de connexion du cluster dans le champ **Point de terminaison de connexion**, puis cliquez sur **Publier**. Lors de l’inscription pour le cluster tiers, le point de terminaison de connexion est fourni dans le navigateur (par exemple, `winh1x87d1d.westus.cloudapp.azure.com:19000`).
+Saisissez le point de terminaison de connexion du cluster dans le champ **Point de terminaison de connexion**. Lors de l’inscription pour le cluster tiers, le point de terminaison de connexion est fourni dans le navigateur (par exemple, `winh1x87d1d.westus.cloudapp.azure.com:19000`).  Cliquez sur **Publier** pour déployer l’application.
 
 Ouvrez un navigateur et accédez à http://winh1x87d1d.westus.cloudapp.azure.com:80. La page web IIS par défaut s’affiche : ![Page web IIS par défaut][iis-default]
 
@@ -120,7 +119,7 @@ Voici les manifestes d’application et de service complets utilisés dans ce gu
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>nanoserver/iis</ImageName>
+        <ImageName>microsoft/iis:nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
@@ -198,4 +197,3 @@ Dans ce démarrage rapide, vous avez appris comment :
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
-

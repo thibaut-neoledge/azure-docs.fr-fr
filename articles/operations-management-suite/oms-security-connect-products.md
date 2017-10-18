@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/06/2016
-
+ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Connexion de vos produits de sécurité à la solution de sécurité et d’audit Operations Management Suite (OMS) 
 Ce document vous permet de connecter vos produits de sécurité à la solution de sécurité et d’audit OMS. Les sources suivantes sont prises en charge :
@@ -64,7 +63,7 @@ Sur la machine de l’agent, les événements doivent être envoyés du démon s
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. Téléchargez le fichier *security_events.conf* et placez-le dans */etc/opt/microsoft/omsagent/conf/omsagent.d/* sur la machine de l’Agent OMS.
-4. Tapez la commande suivante pour redémarrer le démon syslog :  *Pour syslog-ng, exécutez :*
+4. Tapez la commande suivante pour redémarrer le démon syslog : *Pour syslog-ng, exécutez :*
     
     ```
     sudo service rsyslog restart
@@ -113,5 +112,4 @@ Dans ce document, vous avez appris à connecter votre solution CEF à OMS. Pour 
 * [Présentation - Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Surveiller et répondre aux alertes de sécurité dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-responding-alerts.md)
 * [Surveillance des ressources dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-monitoring-resources.md)
-
 

@@ -12,20 +12,17 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 3646d14be662af0fdf80790cb53ddc581b33a146
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>Prise en main des rubriques Service Bus
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-## <a name="what-will-be-accomplished"></a>Les opérations que nous allons effectuer
 
 Ce didacticiel couvre les étapes suivantes :
 
@@ -37,7 +34,7 @@ Ce didacticiel couvre les étapes suivantes :
 
 ## <a name="prerequisites"></a>Composants requis
 
-1. [Visual Studio 2015 ou une version ultérieure](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017.
+1. [Visual Studio 2015 ou une version ultérieure](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017.
 2. Un abonnement Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -83,7 +80,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Framewo
 ### <a name="add-the-service-bus-nuget-package"></a>Ajout du package NuGet Service Bus
 
 1. Cliquez avec le bouton droit sur le projet créé et sélectionnez **Gérer les packages NuGet**.
-2. Cliquez sur l’onglet **Parcourir**, recherchez **Microsoft Azure Service Bus**, puis sélectionnez l’élément **WindowsAzure.ServiceBus**. Cliquez sur **Installer** pour terminer l’installation, puis fermez cette boîte de dialogue.
+2. Cliquez sur l’onglet **Parcourir**, recherchez **WindowsAzure.ServiceBus**, puis sélectionnez l’élément **WindowsAzure.ServiceBus**. Cliquez sur **Installer** pour terminer l’installation, puis fermez cette boîte de dialogue.
    
     ![Sélectionner un package NuGet][nuget-pkg]
 
@@ -157,7 +154,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Framewo
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Ajoutez le code suivant à la méthode `Main` . Configurez la variable `connectionString` en tant que chaîne de connexion obtenue lors de la création de l’espace de noms, puis configurez `topicName` en tant que nom utilisé lors de la création de la rubrique.
+3. Ajoutez le code suivant à la méthode `Main` . Configurez la variable `connectionString` en tant que chaîne de connexion obtenue lors de la création de l’espace de noms, puis configurez `topicName` en tant que nom utilisé lors de la création de la rubrique. Assurez-vous de remplacer `<your subscription name>` par le nom de l’espace de noms de l’abonnement créé à l’étape 3. 
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -225,4 +222,3 @@ Consultez les [référentiels GitHub accompagnés d’exemples](https://github.c
 [createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 [azure-portal]: https://portal.azure.com
-
