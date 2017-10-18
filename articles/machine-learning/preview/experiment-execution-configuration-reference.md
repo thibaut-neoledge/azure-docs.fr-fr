@@ -10,12 +10,14 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/17/2017
-ms.openlocfilehash: e1356439385cc7fe66985bd2b84e4121386ec23d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: e1356439385cc7fe66985bd2b84e4121386ec23d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/27/2017
+
 ---
+
 # <a name="azure-machine-learning-workbench-execution-configuration-files"></a>Fichiers de configuration de l’exécution d’Azure Machine Learning Workbench
 
 Lorsque vous soumettez un script pour Azure Machine Learning Workbench, le comportement de l’exécution est contrôlé par les fichiers figurant dans le dossier **aml_config**. Ce dossier figure à la racine du dossier de votre projet. Il est important de comprendre le contenu de ces fichiers pour pouvoir obtenir le résultat souhaité d’une exécution optimale.
@@ -116,7 +118,7 @@ Pour spécifier une configuration de série de tests particulière, une paire de
 $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password> --type remotedocker
 
 # create a compute context pointing to an HDI cluster head-node via SSH
-$ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> -type cluster
+$ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> --type cluster
 ```
 
 Cette commande crée une paire de fichiers en fonction de la cible de calcul spécifiée. Supposons que vous ayez nommé votre cible de calcul _foo_. Cette commande génère les fichiers _foo.compute_ et _foo.runconfig_ dans votre dossier **aml_config**.
@@ -212,3 +214,4 @@ df = datasource.load_datasource('mylocal.dsource')
 ```
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur [configuration de l’environnement d’exécution](experiment-execution-configuration.md)
+
