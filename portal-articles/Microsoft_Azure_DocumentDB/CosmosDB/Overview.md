@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble de base de données Cosmos Azure | Documents Microsoft"
-description: "Le contenu de la vue d’ensemble de la base de données Azure Cosmos dans le portail Azure"
+title: "Vue d’ensemble d’Azure Cosmos DB | Microsoft Docs"
+description: "Aide relative à la vue d’ensemble d’Azure Cosmos DB au sein du portail Azure"
 services: cosmos-db
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: 30ffaff9c4a7bacbda1f6b973f328a345eb5d5b0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-documentation"></a>Documentation Azure Cosmos DB
 
@@ -48,12 +48,12 @@ En savoir plus sur Azure Cosmos DB permet de créer une base de données mondia
 
 ## <a name="step-by-step-tutorials"></a>Didacticiels pas à pas
 
-Apprenez comment développer des applications à l’aide de la base de données Azure Cosmos :
+Apprenez à développer des applications à l’aide d’Azure Cosmos DB :
 
-- Développer une application avec Cosmos DB : [DocumentDB](/azure/cosmos-db/tutorial-develop-documentdb-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [graphique](/azure/cosmos-db/tutorial-develop-graph-dotnet)
-- Importer des données dans la base de données Cosmos [DocumentDB](/azure/documentdb/documentdb-import-data) | [MongoDB](/azure/documentdb/documentdb-mongodb-migrate) 
-- Interroger des données avec la base de données Cosmos : [DocumentDB](/azure/cosmos-db/tutorial-query-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [graphique](/azure/cosmos-db/tutorial-query-graph)
-- Réplication de base de données global avec Cosmos DB : [DocumentDB](/azure/cosmos-db/tutorial-global-distribution-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Table] (/ / cosmos-db/didacticiel-global-distribution-table azure | [Graphique](/azure/cosmos-db/tutorial-global-distribution-graph)
+- Développer une application avec Cosmos DB : [DocumentDB](/azure/cosmos-db/tutorial-develop-documentdb-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
+- Importer des données dans Cosmos DB : [DocumentDB](/azure/documentdb/documentdb-import-data) | [MongoDB](/azure/documentdb/documentdb-mongodb-migrate) 
+- Interroger des données avec Cosmos DB : [DocumentDB](/azure/cosmos-db/tutorial-query-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
+- Réplication de base de données globale avec Cosmos DB : [DocumentDB](/azure/cosmos-db/tutorial-global-distribution-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Table](/azure/cosmos-db/tutorial-global-distribution-table | [Graph](/azure/cosmos-db/tutorial-global-distribution-graph)
 - [Développer votre application localement à l’aide de l’émulateur](/azure/documentdb/documentdb-nosql-local-emulator)
 
 ## <a name="samples"></a>Exemples
@@ -65,5 +65,5 @@ Trouvez des scripts pour gérer les tâches courantes.
 
 ## <a name="more"></a>En savoir plus
 
-- [Consultez la documentation pour en savoir plus](/azure/cosmos-db/index)
-- [En savoir plus sur tous les Services Azure](https://aka.ms/j3wr7y)
+- [Consulter la documentation pour en savoir plus](/azure/cosmos-db/index)
+- [Découvrir tous les services Azure](https://aka.ms/j3wr7y)

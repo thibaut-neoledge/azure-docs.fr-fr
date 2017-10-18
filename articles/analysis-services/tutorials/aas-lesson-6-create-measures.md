@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 90833fa9744eac298b0da82cd3d12f27cc237510
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: ba0030ca25adf13a3a831facec2ded9cff0bd882
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-6-create-measures"></a>Leçon 6 : Créer des mesures
 
@@ -53,7 +52,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
     DaysCurrentQuarterToDate:=COUNTROWS( DATESQTD( 'DimDate'[Date])) 
     ```
   
-    Notez que la cellule supérieure gauche contient maintenant une mesure nommée **DaysCurrentQuarterToDate**, suivie du résultat **92**.
+    Notez que la cellule supérieure gauche contient maintenant une mesure nommée **DaysCurrentQuarterToDate**, suivie du résultat **92**. Le résultat n’est à ce stade pas pertinent car aucun filtre utilisateur n’a été appliqué.
     
       ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
     
@@ -134,4 +133,3 @@ Les mesures créées pour la table FactInternetSales peuvent être utilisées po
 [Leçon 7 : Afficher les indicateurs de performance clés](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   
-

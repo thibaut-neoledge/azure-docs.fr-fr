@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/19/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e77de4b9a74b528fa8a7ce86424fc14628b2cacc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 07151fdf79d3b06f3144fbebff9015645b1ed000
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="lesson-2-get-data"></a>Leçon 2 : Obtenir des données
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
@@ -30,8 +28,11 @@ ms.lasthandoff: 06/03/2017
 Dans cette leçon, vous allez utiliser l’option Obtenir des données de SSDT pour vous connecter à l’exemple de base de données AdventureWorksDW2014, sélectionner des données, filtrer et afficher un aperçu des données, puis les importer dans votre espace de travail de modèle.  
   
 L’option Obtenir des données vous permet d’importer des données à partir d’une grande variété de sources : Azure SQL Database, Oracle, Sybase, flux OData, bases de données Teradata, fichiers, entre autres. Les données peuvent également être interrogées à l’aide d’une expression de formule M Power Query.
+
+> [!NOTE]
+> Les tâches et images de ce didacticiel montrent la connexion à une base de données AdventureWorksDW2014 sur un serveur local. Une base de données AdventureWorksDW2014 peut être différente sur Azure.
   
-Durée estimée pour suivre cette leçon : **10 minutes**  
+Durée estimée pour suivre cette leçon : **10 minutes**  
   
 ## <a name="prerequisites"></a>Prérequis  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 1 : Créer un projet de modèle tabulaire](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
@@ -71,13 +72,19 @@ Les tables de l’exemple de base de données AdventureWorksDW2014 contiennent d
   
 #### <a name="to-filter-the-table-data-before-importing"></a>Pour filtrer les données de table avant l’importation  
   
-1.  Dans l’éditeur de requêtes, sélectionnez la table **DimCustomer**. Une vue de la table DimCustomer dans la source de données (l’exemple de base de données AdventureWorksDWQ2014) s’affiche. 
+1.  Dans l’éditeur de requêtes, sélectionnez la table **DimCustomer**. Une vue de la table DimCustomer dans la source de données (l’exemple de base de données AdventureWorksDW2014) s’affiche. 
   
 2.  Effectuez une sélection multiple (Ctrl + clic) de **SpanishEducation**, **FrenchEducation**, **SpanishOccupation** et **FrenchOccupation**. Cliquez avec le bouton droit, puis cliquez sur **Supprimer les colonnes**. 
 
     ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-columns.png)
   
     Étant donné que les valeurs de ces colonnes ne sont pas pertinentes pour l’analyse des ventes Internet, il n’est pas nécessaire d’importer ces colonnes. L’élimination des colonnes inutiles permet de réduire la taille de votre modèle et de le rendre plus efficace.  
+
+    > [!TIP]
+    > Si vous faites une erreur, vous pouvez revenir en arrière en supprimant une étape dans **APPLIED STEPS** (ÉTAPES EFFECTUÉES).   
+    
+    ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-step.png)
+
   
 4.  Filtrez les autres tables en supprimant les colonnes suivantes dans chacune des tables :  
     
@@ -85,7 +92,7 @@ Les tables de l’exemple de base de données AdventureWorksDW2014 contiennent d
     
       |Colonne|  
       |--------|  
-      |DateKey|  
+      |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
@@ -130,11 +137,7 @@ Les tables de l’exemple de base de données AdventureWorksDW2014 contiennent d
   
     **FactInternetSales**
   
-      |Colonne|  
-      |------------------|  
-      |**OrderDateKey**|  
-      |**DueDateKey**|  
-      |**ShipDateKey**|   
+      Aucune colonne supprimée.
   
 ## <a name="Import"></a>Importer les tables et les données de colonne sélectionnées  
 Maintenant que vous avez prévisualisé et filtré les données inutiles, vous pouvez importer le reste des données souhaitées. L’Assistant importe les données de table et toutes les relations qui existent entre les tables. Les nouvelles tables et colonnes sont créées dans le modèle et les données filtrées ne sont pas importées.  
@@ -160,4 +163,3 @@ Il est important de sauvegarder fréquemment votre projet de modèle.
 
   
   
-

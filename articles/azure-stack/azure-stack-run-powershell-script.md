@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/17/2017
 ms.author: erikje
+ms.openlocfilehash: c3ffc819fcc442f87fb4985ecb08be8ec02ba957
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 530a9558df2323e1aa49d9f4b974c142ee5ecf37
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Déployer le Kit de développement Azure Stack
 
-*S’applique au kit de développement Azure Stack*
+*S’applique à : Kit de développement Azure Stack*
 
 Pour déployer le [kit de développement Azure Stack](azure-stack-poc.md), vous devez effectuer les étapes suivantes :
 
@@ -75,7 +74,7 @@ Pour déployer le [kit de développement Azure Stack](azure-stack-poc.md), vous 
     # Download file
     Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
     ```
-6. Ouvrez une console PowerShell avec élévation de privilèges > Exécutez le script C:\AzureStack_Installer\asdk-installer.ps1 > Cliquez sur **Préparer vhdx**.
+6. Ouvrez une console PowerShell avec élévation de privilèges > Exécutez le script C:\AzureStack_Installer\asdk-installer.ps1 > Cliquez sur **Préparer environnement**.
 7. Dans la page **Sélectionner le fichier vhdx Cloudbuilder** du programme d’installation, recherchez et sélectionnez le fichier cloudbuilder.vhdx que vous avez téléchargé dans les étapes précédentes.
 8. Facultatif : Cochez la case **Ajouter des pilotes** pour spécifier un dossier contenant les pilotes supplémentaires que vous voulez sur l’hôte.
 9. Dans la page **Paramètres facultatifs**, spécifiez un compte d’administrateur local pour l’hôte du Kit de développement. Si vous ne spécifiez pas ces informations d’identification, KVM doit accéder à l’hôte pendant le processus d’installation ci-dessous.
@@ -142,15 +141,17 @@ Vous pouvez aussi [redéployer](azure-stack-redeploy.md) à partir de zéro.
 Pour faire en sorte que le mot de passe de l’hôte du Kit de développement n’expire pas trop tôt, suivez ces étapes après avoir déployé :
 
 1. Sur l’hôte du Kit de développement, ouvrez **Gestion des stratégies de groupe** et accédez à **Gestion des stratégies de groupe** – **Forêt : azurestack.local** – **Domaines** – **azurestack.local**.
-2. Cliquez avec le bouton droit sur **MemberServer** et cliquez sur **Modifier**.
+2. Cliquez avec le bouton droit sur **Stratégie de domaine par défaut**, puis cliquez sur **Modifier**.
 3. Dans l’Éditeur de gestion de stratégie de groupe, accédez à **Configuration de l’ordinateur** – **Stratégies** – **Paramètres Windows** – **Paramètres de sécurité**– **Stratégies de comptes** – **Stratégie de mot de passe**.
 4. Dans le volet droit, double-cliquez sur **Antériorité maximale du mot de passe**.
 5. Dans la boîte de dialogue **Antériorité maximale du mot de passe - Propriétés**, remplacez la valeur de **Le mot de passe expirera dans** par 180, puis cliquez sur **OK**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+[Installer PowerShell](azure-stack-powershell-configure-quickstart.md)
+
 [Inscrire Azure Stack auprès de votre abonnement Azure](azure-stack-register.md)
 
 [Se connecter à Azure Stack](azure-stack-connect-azure-stack.md)
-
 

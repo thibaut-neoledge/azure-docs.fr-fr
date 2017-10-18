@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble des machines virtuelles Windows | Documents Microsoft"
-description: "Le contenu de la vue d’ensemble des ordinateurs virtuels Windows dans le portail Azure"
+title: "Vue d’ensemble des machines virtuelles Windows | Microsoft Docs"
+description: "Aide relative à la vue d’ensemble des machines virtuelles Windows au sein du portail Azure"
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: 03b204d9970a3831543a03dfa08e2a4d8b274034
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentation sur les machines virtuelles Windows
 
@@ -28,7 +28,7 @@ Découvrez comment déployer un serveur web IIS au sein d’une machine virtuell
 
 ## <a name="step-by-step-tutorials"></a>Didacticiels pas à pas
 
-Découvrez comment déployer, gérer et surveiller des ordinateurs virtuels Windows Azure.
+Découvrez comment déployer, gérer et surveiller des machines virtuelles Windows sur Azure.
 
 - [Créer et gérer des machines virtuelles Windows](/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Créer et gérer des disques de machine virtuelle](/azure/virtual-machines/windows/tutorial-manage-data-disk)
@@ -58,5 +58,5 @@ Déployez votre première application dans Azure.
 
 ## <a name="more"></a>En savoir plus
 
-- [Consultez la documentation pour en savoir plus](/azure/virtual-machines/windows/index)
-- [En savoir plus sur tous les Services Azure](https://aka.ms/j3wr7y)
+- [Consulter la documentation pour en savoir plus](/azure/virtual-machines/windows/index)
+- [Découvrir tous les services Azure](https://aka.ms/j3wr7y)
