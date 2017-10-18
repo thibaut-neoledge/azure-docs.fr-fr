@@ -45,7 +45,7 @@ sections:
         style: ordered
         items:
           - html: <a href="service-fabric-tutorial-create-dotnet-app">Déployer une application .NET</a>
-          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Élever et déplacer une application .NET existante </a>
+          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Mettre en conteneur une application .NET</a>
           - html: <a href="service-fabric-tutorial-create-container-images">Créer une application de conteneur Linux</a>
           - html: Créer et gérer un cluster <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> ou <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a>
   - title: Formation vidéo gratuite Pluralsight
@@ -84,7 +84,7 @@ sections:
         className: cardsD
         items:
           - title: Exemples de scripts
-            html: <p><a href="service-fabric-powershell-samples">Azure PowerShell</a></p><p><a href="samples-cli">Interface de ligne de commande Service Fabric</a></p>
+            html: <p><a href="service-fabric-powershell-samples">Azure PowerShell</a></p><p><a href="samples-cli">Interface de ligne de commande de Service Fabric</a></p>
           - title: .NET
             html: '<p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/">Prise en main</a></p><p><a href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Voting</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/">Référence web</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/">Agent de surveillance</a></p>'
           - title: Java

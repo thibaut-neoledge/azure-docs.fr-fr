@@ -4,7 +4,7 @@ description: "Découvrez comment configurer la récupération d’urgence de mac
 services: site-recovery
 documentationcenter: 
 author: nsoneji
-manager: jwhit
+manager: gauarvd
 editor: 
 ms.assetid: 68616d15-398c-4f40-8323-17b6ae1e65c0
 ms.service: site-recovery
@@ -12,21 +12,20 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 10/11/2017
 ms.author: raynew
+ms.openlocfilehash: b182c00ac9a6956d07dece621d03c84788442085
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: da1df5546b7f99549a693c4e2df4eefb7a423c7f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurer la récupération d’urgence de machines virtuelles ou de serveurs physiques VMware locaux sur un site secondaire
 
 InMage Scout dans [Azure Site Recovery](site-recovery-overview.md) assure la réplication en temps réel entre des sites VMware locaux. InMage Scout est inclus dans les abonnements au service Azure Site Recovery. 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour suivre ce didacticiel :
 
@@ -34,11 +33,11 @@ Pour suivre ce didacticiel :
 - Vérifiez que les machines à répliquer sont conformes à la [prise en charge des machines répliquées](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
 
 
-## <a name="create-a-vault"></a>Créer un coffre
+## <a name="create-a-vault"></a>création d'un coffre
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
-## <a name="choose-a-protection-goal"></a>Choisir un objectif de protection
+## <a name="choose-a-protection-goal"></a>Choisir un objectif en matière de protection
 
 Sélectionnez ce qui doit être répliqué et où.
 
@@ -59,22 +58,27 @@ Sélectionnez ce qui doit être répliqué et où.
 
 Installez les mises à jour comme suit :
 
-1. Téléchargez le fichier .zip de [mise à jour](https://aka.ms/asr-scout-update5). Le fichier contient les fichiers suivants :
+> [!NOTE]
+>Les versions à jour des fichiers de composants Scout peuvent être différentes dans le fichier zip de mise à jour. La version plus ancienne indique qu’il n’y a eu aucune modification dans le composant depuis la dernière mise à jour.
 
-   * RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
-   * CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe
-   * UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-   * UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-   * vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe
-   * UA update 4 bits pour RHEL5, OL5, OL6, SUSE 10, SUSE 11 : UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-2. Extrayez les fichiers .zip.
-    - **Serveur RX** : copiez **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** sur le serveur RX, puis extrayez-le. Dans le dossier extrait, exécutez **/Install**.
-    - **Serveur de configuration et serveur de processus** : copiez **CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe** sur le serveur de configuration et le serveur de processus. Double-cliquez dessus pour l’exécuter.<br>
-    - **Serveur cible maître Windows** : pour mettre à jour l’agent unifié, copiez **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** sur le serveur cible maître. Double-cliquez dessus pour l’exécuter. L’agent unifié s’applique aussi au serveur source. Si la source n’a pas été mise à jour vers Update 4, vous devez mettre à jour l’agent unifié.
-    - **Serveur vContinuum** :  copiez **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe** sur le serveur.  Vérifiez que vous avez fermé l’Assistant vContinuum. Double-cliquez sur le fichier pour l’exécuter.
-    - **Serveur cible maître Linux** : pour mettre à jour l’agent unifié, copiez **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sur le serveur cible maître et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
-    - **Serveur source Windows** : vous n’avez pas besoin d’installer l’agent d’Update 5 sur le serveur source s’il exécute déjà Update 4. Pour mettre à jour l’agent unifié, copiez **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** sur le serveur source. Double-cliquez sur le fichier pour l’exécuter.
-    - **Serveur source Linux** : pour mettre à jour l’agent unifié, copiez la version correspondante du fichier de l’agent unifié sur le serveur Linux et extrayez-le. Dans le dossier extrait, exécutez **/Install**.  Par exemple : pour le serveur RHEL 6.7 64 bits, copiez **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sur le serveur et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
+Téléchargez le fichier .zip de [mise à jour](https://aka.ms/asr-scout-update6). Le fichier contient les éléments suivants : 
+  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
+  - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
+  - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
+  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
+  - UA update 4 bits pour RHEL5, OL5, OL6, SUSE 10, SUSE 11 : UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+1. Extrayez les fichiers .zip.
+2. **Serveur RX** : copiez **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** sur le serveur RX, puis extrayez-le. Dans le dossier extrait, exécutez **/Install**.
+3. **Serveur de configuration et serveur de processus** : copiez **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** sur le serveur de configuration et le serveur de processus. Double-cliquez dessus pour l’exécuter.<br>
+4. **Serveur cible maître Windows** : pour mettre à jour l’agent unifié, copiez **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** sur le serveur cible maître. Double-cliquez dessus pour l’exécuter. La même mise à jour de l’agent unifié s’applique aussi au serveur source. Si la source n’a pas été mise à jour vers Update 4, vous devez mettre à jour l’agent unifié.
+  Vous n’avez pas besoin d’appliquer la mise à jour au serveur cible maître préparé avec **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**, étant donné qu’il s’agit du nouveau programme d’installation avec toutes les dernières modifications.
+5. **Serveur vContinuum** : copiez **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** sur le serveur.  Vérifiez que vous avez fermé l’Assistant vContinuum. Double-cliquez sur le fichier pour l’exécuter.
+    Vous n’avez pas besoin d’appliquer la mise à jour au serveur cible maître préparé avec **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**, étant donné qu’il s’agit du nouveau programme d’installation avec toutes les dernières modifications.
+6. **Serveur cible maître Linux** : pour mettre à jour l’agent unifié, copiez **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sur le serveur cible maître et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
+7. **Serveur source Windows** : pour mettre à jour l’agent unifié, copiez **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** sur le serveur source. Double-cliquez sur le fichier pour l’exécuter. 
+    Vous n’avez pas besoin d’installer l’agent Update 5 sur le serveur source si ce dernier a déjà été mis à jour avec l’Update 4 ou si l’agent source est installé avec le programme d’installation le plus récent **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
+8. **Serveur source Linux** : pour mettre à jour l’agent unifié, copiez la version correspondante du fichier de l’agent unifié sur le serveur Linux et extrayez-le. Dans le dossier extrait, exécutez **/Install**.  Par exemple : pour le serveur RHEL 6.7 64 bits, copiez **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sur le serveur et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
 
 ## <a name="enable-replication"></a>Activer la réplication
 
@@ -89,10 +93,34 @@ Installez les mises à jour comme suit :
 
 ## <a name="updates"></a>Mises à jour
 
+### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
+Mise à jour : octobre 6, 2017
+
+Scout Update 6 est une mise à jour cumulative. Elle contient tous les correctifs d’Update 1 à Update 5, ainsi que les nouveaux correctifs et améliorations décrits ci-dessous. 
+
+#### <a name="new-platform-support"></a>Prise en charge de nouvelles plateformes
+* Ajout de la prise en charge de Source Windows Server 2016
+* Ajout de la prise en charge des systèmes d’exploitation Linux suivants :
+    - Red Hat Enterprise Linux (RHEL) 6.9
+    - CentOS 6.9
+    - Oracle Linux 5.11
+    - Oracle Linux 6.8
+* Ajout de la prise en charge de VMware Center 6.5
+
+> [!NOTE]
+> * Actualisation du programme d’installation d’agent unifié (UA) de base pour prendre en charge Windows Server 2016. Le nouveau programme d’installation **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** est disponible dans le package Scout GA de base (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Le même programme d’installation sera utilisé pour toutes les versions Windows prises en charge. 
+> * Actualisation des programmes d’installation du serveur cible maître et de Windows vContinuum de base pour prendre en charge Windows Server 2016. Le nouveau programme d’installation **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** est disponible dans le package Scout GA de base (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Le même programme d’installation sera utilisé pour déployer les serveurs cibles maîtres Windows 2016 et Windows 2012R2.
+> * Téléchargez le package GA à partir du portail, comme décrit dans [créer un coffre](#create-a-vault).
+>
+
+#### <a name="bug-fixes-and-enhancements"></a>Résolutions de bogues et améliorations
+- Échec de la protection de la restauration automatique pour la machine Linux. La liste des disques à répliquer est vide à la fin de la configuration.
+
+
 ### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 Update 5
 Scout Update 5 est une mise à jour cumulative. Elle contient tous les correctifs d’Update 1 à Update 4, ainsi que les nouveaux correctifs décrits ci-dessous.
 - Les correctifs de Site Recovery Scout Update 4 à Update 5 sont spécifiquement destinés aux composants du serveur cible maître et de vContinuum.
-- Si les serveurs sources, le serveur cible maître, et les serveurs de configuration, de processus et RX exécutent Update 5, appliquez-la seulement sur le serveur cible maître. 
+- Si les serveurs sources, le serveur cible maître, et les serveurs de configuration, de processus et RX exécutent l’Update 4, appliquez-la seulement sur le serveur cible maître. 
 
 #### <a name="new-platform-support"></a>Prise en charge de nouvelles plateformes
 * SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
@@ -223,5 +251,4 @@ Update 1 contient les correctifs de bogues et les nouvelles fonctionnalités sui
   * Dans l’Assistant vContinuum, le disque est désactivé automatiquement quand vous cliquez sur **Détails** dans la vue des disques pendant la protection des machines virtuelles MSCS.
   * Dans le scénario physique-à-virtuel (P2V), les services HP nécessaires (comme CIMnotify et CqMgHost) ne passent pas à l’état manuel dans la récupération de la machine virtuelle. Ce problème allonge la durée du démarrage.
   * La protection des machines virtuelles Linux échoue quand le serveur cible maître contient plus de 26 disques.
-
 
