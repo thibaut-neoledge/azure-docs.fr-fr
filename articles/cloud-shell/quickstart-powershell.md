@@ -310,7 +310,7 @@ Pour savoir comment créer un profil, consultez [À propos des profils][profile]
 
 ## <a name="use-git"></a>Utiliser Git
 
-Pour cloner un référentiel git dans CloudShell, vous devez créer un [jeton d’accès personnel] [ githubtoken] et l’utiliser comme nom d’utilisateur. Une fois que vous disposez de votre jeton, clonez le référentiel comme suit :
+Pour cloner un référentiel git dans CloudShell, vous devez créer un [jeton d’accès personnel][githubtoken] et l’utiliser comme nom d’utilisateur. Une fois que vous disposez de votre jeton, clonez le référentiel comme suit :
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
