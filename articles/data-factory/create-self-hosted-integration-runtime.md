@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/25/2017
+
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Guide pratique pour créer et configurer le runtime d’intégration autohébergé
-Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Vue d’ensemble du runtime d’intégration](concepts-integration-runtime.md). 
+Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Vue d’ensemble du runtime d’intégration](concepts-integration-runtime.md).
 
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, qui est actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Documentation de Data Factory version 1](v1/data-factory-introduction.md).
@@ -30,20 +31,20 @@ Un runtime d’intégration autohébergé est capable d’exécuter des activit�
 Ce document présente la façon dont vous pouvez créer et configurer le runtime d’intégration autohébergé.
 
 ## <a name="high-level-steps-to-install-self-hosted-ir"></a>Procédure générale pour installer un runtime d’intégration autohébergé
-1.  Créez un runtime d’intégration autohébergé. Voici un exemple PowerShell : 
+1.  Créez un runtime d’intégration autohébergé. Voici un exemple PowerShell :
 
     ```powershell
-    New-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
 2.  Téléchargez et installez un runtime d’intégration autohébergé (sur l’ordinateur local).
-3.  Récupérez la clé d’authentification et inscrivez le runtime d’intégration autohébergé à l’aide de la clé. Voici un exemple PowerShell : 
+3.  Récupérez la clé d’authentification et inscrivez le runtime d’intégration autohébergé à l’aide de la clé. Voici un exemple PowerShell :
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
-    
+
 ## <a name="command-flow-and-data-flow"></a>Flux de commandes et flux de données
-Lorsque vous déplacez les données entre des machines locales et cloud, l’activité utilise un runtime d’intégration autohébergé pour transférer les données à partir de la source de données locale vers le cloud et vice versa. 
+Lorsque vous déplacez les données entre des machines locales et cloud, l’activité utilise un runtime d’intégration autohébergé pour transférer les données à partir de la source de données locale vers le cloud et vice versa.
 
 Voici un flux de données global et un résumé des étapes pour la copie à l’aide d’un runtime d’intégration autohébergé :
 
@@ -66,7 +67,7 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 - Considérez votre source de données comme une source de données locale (derrière un pare-feu), même lorsque vous utilisez **ExpressRoute**. Utilisez le runtime d’intégration autohébergé pour établir la connectivité entre le service et la source de données.
 - Vous devez utiliser le runtime d’intégration autohébergé même si le magasin de données se trouve dans le cloud sur une **machine virtuelle Azure IaaS**.
 
-## <a name="prerequisites"></a>Composants requis 
+## <a name="prerequisites"></a>Composants requis
 
 - Les versions de **système d’exploitation** prises en charge sont Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. L’installation du runtime d’intégration autohébergé sur un **contrôleur de domaine n’est pas prise en charge**.
 - **.NET Framework 4.6.1 ou version ultérieure** est requis. Si vous installez un runtime d’intégration autohébergé sur un ordinateur Windows 7, installez .NET Framework 4.6.1 ou une version ultérieure. Consultez [Configuration système requise pour .NET Framework](/dotnet/framework/get-started/system-requirements) pour plus d’informations.
@@ -77,7 +78,7 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 
 ## <a name="installation-best-practices"></a>Bonnes pratiques d’installation
 Le runtime d’intégration autohébergé peut être installé en téléchargeant un package d’installation MSI à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Pour des instructions pas à pas, consultez l’article [Déplacement de données entre des sources locales et le cloud](tutorial-hybrid-copy-powershell.md).
-  
+
 - Définissez un plan d'alimentation sur l'ordinateur hôte du runtime d’intégration autohébergé afin d’empêcher la mise en veille prolongée. Si l’ordinateur hôte est en veille prolongée, le runtime d’intégration autohébergé se déconnecte.
 - Sauvegardez régulièrement les informations d’identification associées au runtime d’intégration autohébergé.
 
@@ -103,14 +104,14 @@ Le runtime d’intégration autohébergé peut être installé en téléchargean
 
 
 ## <a name="high-availability-and-scalability"></a>Haute disponibilité et extensibilité
-Un runtime d’intégration autohébergé peut être associé à plusieurs ordinateurs sur site. Ces ordinateurs sont appelés nœuds. Vous pouvez associer jusqu’à quatre nœuds à un runtime d’intégration autohébergé. Avoir plusieurs nœuds (ordinateurs locaux avec une passerelle installée) procure les avantages suivants à une passerelle logique : 
+Un runtime d’intégration autohébergé peut être associé à plusieurs ordinateurs sur site. Ces ordinateurs sont appelés nœuds. Vous pouvez associer jusqu’à quatre nœuds à un runtime d’intégration autohébergé. Avoir plusieurs nœuds (ordinateurs locaux avec une passerelle installée) procure les avantages suivants à une passerelle logique :
 1. La haute disponibilité du runtime d’intégration autohébergé supprime le point de défaillance dans votre solution Big Data ou dans l’intégration de vos données cloud avec Azure Data Factory, ce qui garantit la continuité des activités sur un maximum de 4 nœuds.
 2. Les performances et le débit lors du déplacement des données entre les magasins de données locaux et dans le cloud ont été améliorés. Plus d’informations sur les [comparaisons des performances](copy-activity-performance.md).
 
-Vous pouvez associer plusieurs nœuds en installant simplement le logiciel du runtime d’intégration autohébergé à partir du [centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717) et en l’enregistrant à l’aide des clés d’authentification obtenues via l’applet de commande AzureRmDataFactoryV2IntegrationRuntimeKey, comme décrit dans le [didacticiel](tutorial-hybrid-copy-powershell.md) 
+Vous pouvez associer plusieurs nœuds en installant simplement le logiciel du runtime d’intégration autohébergé à partir du [centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717) et en l’enregistrant à l’aide des clés d’authentification obtenues via l’applet de commande AzureRmDataFactoryV2IntegrationRuntimeKey, comme décrit dans le [didacticiel](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
-> Vous n’avez pas besoin de créer un runtime d’intégration autohébergé pour associer chaque nœud. 
+> Vous n’avez pas besoin de créer un runtime d’intégration autohébergé pour associer chaque nœud.
 
 ## <a name="system-tray-icons-notifications"></a>Icônes de la barre d’état système/notifications
 Si vous déplacez le curseur sur les icônes/messages de notification de la barre d’état système, vous obtenez des informations supplémentaires sur l’état du runtime d’intégration autohébergé.
@@ -137,7 +138,7 @@ Au niveau du **pare-feu Windows** (niveau de la machine), ces ports de sortie so
 >
 > Pour certaines bases de données cloud (par exemple : Azure SQL Database, Azure Data Lake, etc.), vous devrez peut-être ajouter l’adresse IP de l’ordinateur du runtime d’intégration autohébergé à la liste verte dans la configuration du pare-feu.
 
-### <a name="copy-data-from-a-source-to-a-sink"></a>Copier des données d’une source vers un récepteur 
+### <a name="copy-data-from-a-source-to-a-sink"></a>Copier des données d’une source vers un récepteur
 Assurez-vous que les règles de pare-feu sont correctement activées sur le pare-feu d’entreprise, sur le pare-feu Windows de l’ordinateur du runtime d’intégration autohébergé, ainsi que sur le magasin de données lui-même. Activer ces règles permet au runtime d’intégration autohébergé de se connecter correctement à la source et au récepteur. Activez les règles pour chaque magasin de données impliqué dans l’opération de copie.
 
 Par exemple, pour copier à partir d’une **banque de données locale vers un récepteur Azure SQL Database ou un récepteur Azure SQL Data Warehouse**, effectuez les opérations suivantes :
@@ -200,8 +201,8 @@ Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy
               <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
         </defaultProxy>
     </system.net>
-    ``` 
-    
+    ```
+
     Vous pouvez ajouter des propriétés supplémentaires à l’intérieur de la balise de proxy pour spécifier les paramètres requis comme scriptLocation. Reportez-vous à la page [proxy, élément (paramètres réseau)](https://msdn.microsoft.com/library/sa91de1e.aspx) pour connaître la syntaxe.
 
     ```xml
@@ -221,7 +222,7 @@ Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez pr
 2.  Lorsque vous ouvrez le Gestionnaire de configuration du Runtime d'intégration, l’état indiqué est « **Déconnecté** » ou « **En cours de connexion** ». Lorsque vous affichez les journaux des événements Windows, sous « Observateur d’événements » > « Journaux des applications et services » > « Runtime d’intégration Microsoft », des messages d’erreur tels que le suivant s’affichent :
 
     ```
-    Unable to connect to the remote server 
+    Unable to connect to the remote server
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 

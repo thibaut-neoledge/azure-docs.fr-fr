@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/06/2017
+
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Démarrage rapide : Ajouter la marque de votre société à votre page de connexion dans Azure AD
 Pour éviter toute confusion, de nombreuses entreprises veulent que tous les sites Web et services qu’elles gèrent aient un aspect similaire. Azure Active Directory (AD) offre cette possibilité en vous permettant de personnaliser l’apparence la page de connexion pour qu’elle affiche le logo de votre société et sa palette de couleurs personnalisée. La page de connexion s’affiche lorsque vous vous connectez à Office 365 ou à d’autres applications Web qui utilisent Azure AD comme fournisseur d’identité. Vous interagissez avec cette page pour saisir vos informations d’identification.
@@ -82,11 +83,11 @@ La connexion Azure AD permet à l’utilisateur de rester connecté lorsqu’il 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur global pour l’annuaire.
 2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
 
-   ![Ouvrir la gestion des utilisateurs](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
+   ![Ouvrir la gestion des utilisateurs](./media/customize-branding/user-management.png)
 3. Sur le panneau **Utilisateurs et groupes** panneau, sélectionnez **Personnalisation de société**.
 4. Sur le panneau **Utilisateurs et groupes - Personnalisation de la société**, sélectionnez la commande **Modifier**.
 
-    ![Modifier la personnalisation de société](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
+    ![Modifier la personnalisation de société](./media/customize-branding/edit-branding.png)
 5. Modifiez les éléments que vous voulez personnaliser. Tous ces éléments sont facultatifs.
 6. Cliquez sur **Save**.
 
@@ -97,11 +98,11 @@ Il peut s’écouler jusqu’à une heure avant que les modifications que vous a
 1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
 
-   ![Ouvrir la gestion des utilisateurs](./media/active-directory-branding-localize-azure-portal/user-management.png)
+   ![Ouvrir la gestion des utilisateurs](./media/customize-branding/user-management.png)
 3. Sur le panneau **Utilisateurs et groupes** panneau, sélectionnez **Personnalisation de société**.
 4. Sur le panneau **Utilisateurs et groupes - Personnalisation de la société**, sélectionnez la commande **Ajouter une langue**.
 
-    ![Ajouter des éléments spécifiques à une langue](./media/active-directory-branding-localize-azure-portal/add-language.png)
+    ![Ajouter des éléments spécifiques à une langue](./media/customize-branding/add-language.png)
 5. Modifiez les éléments que vous voulez personnaliser. Tous ces éléments sont facultatifs.
 6. Cliquez sur **Save**.
 
