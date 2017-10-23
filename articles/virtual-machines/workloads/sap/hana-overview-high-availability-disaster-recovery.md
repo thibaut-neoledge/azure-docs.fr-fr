@@ -11,15 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/27/2016
+ms.date: 10/02/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 50917572ef8739ddc674d3592696a1ee4a8edc10
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: c7f3da9a92d5e9c60355c93a7205d16dc9ab8390
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Haute disponibilité et récupération d’urgence des grandes instances SAP HANA sur Azure 
 
@@ -113,7 +112,7 @@ L’infrastructure de stockage qui sous-tend SAP HANA sur Azure (grandes instanc
 
 Vous avez la possibilité d’effectuer des captures instantanées de stockage ciblant trois classes de volumes différentes :
 
-- Une capture instantanée combinée sur les volumes /hana/data, /hana/log et /hana/shared (/usr/sap compris). Cette capture instantanée nécessite l’exécution d’une capture instantanée SAP HANA.
+- Une capture instantanée combinée sur les volumes /hana/data et /hana/shared (/usr/sap compris). Cette capture instantanée nécessite la création d’une capture instantanée de SAP HANA en préparation de la capture instantanée de stockage. La capture instantanée de SAP HANA permet de garantir que la base de données est dans un état cohérent du point de vue du stockage.
 - Une capture instantanée distincte sur /hana/logbackups.
 - Une partition de système d’exploitation (uniquement pour le type I des grandes instances HANA).
 
@@ -870,7 +869,6 @@ Latest Snapshot Replicated: snapmirror.c169b434-75c0-11e6-9903-00a098a13ceb_2154
 Size of Latest Snapshot Replicated: 244KB
 Current Lag Time between snapshots: -   ***Less than 90 minutes is acceptable***
 ```
-
 
 
 

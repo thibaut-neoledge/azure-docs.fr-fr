@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: f05e769a8c5d26c0149dcba05c0973de4bd30313
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 115aa01ee6e3bd539086d80df1dcd94b3b7e2723
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
 
@@ -48,7 +47,7 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont bien remp
 
 La gestion des performances des bases de données se compose des opérations suivantes : compilation et analyse des données de performances, puis réaction à ces données en ajustant les paramètres afin de conserver un temps de réponse acceptable pour votre application. Lorsque vous hébergez plusieurs locataires, les pools de bases de données élastiques sont un moyen économique pour fournir et gérer des ressources d’un groupe de bases de données avec des charges de travail imprévisibles. Avec certains modèles de charge de travail, il peut être avantageux de gérer ne serait-ce que 2 bases de données S3 dans un pool.
 
-![Médias](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
+![Diagramme de l’application](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
 
 Les pools et les bases de données qu’ils incluent doivent être surveillés pour vérifier qu’ils restent dans les limites de performances acceptables. Paramétrez la configuration du pool pour répondre aux besoins de la charge de travail agrégée de toutes les bases de données, en faisant en sorte que les eDTU du pool soient adaptés à la charge de travail globale. Ajustez les valeurs d’eDTU minimales et maximales par base de données en fonction des besoins spécifiques de votre application.
 
@@ -115,11 +114,11 @@ Observez les graphiques **Surveillance du pool élastique** et **Surveillance de
 
 L’utilisation des ressources du pool est l’utilisation agrégée de toutes les bases de données du pool. Le graphique de base de données affiche les cinq bases de données les plus sollicitées :
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
+![Graphique de base de données](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
 
 Comme il existe d’autres bases de données dans le pool en plus des cinq principales, l’utilisation du pool affiche une activité qui n’est pas reflétée dans le graphique des cinq bases de données principales. Pour plus de détails, cliquez sur **Utilisation des ressources de base de données** :
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
+![Utilisation des ressources de base de données](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
 
 
 ## <a name="set-performance-alerts-on-the-pool"></a>Définir les alertes de performance sur le pool
@@ -249,4 +248,3 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 * [Pools élastiques SQL](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md) - Didacticiel Configuration et utilisation de Log Analytics
-

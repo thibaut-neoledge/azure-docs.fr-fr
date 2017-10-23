@@ -12,22 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: 831623b0fa0d8c03713f608116709e6a590d93c6
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 0acf183fbaea99e4316b668a3da28d79b20b7bef
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="registerunregister-a-server-with-azure-file-sync-preview"></a>Inscrire/désinscrire un serveur à Azure File Sync (préversion)
-Avec Azure File Sync (préversion), les partages peuvent être répliqués localement ou dans Azure, et sont accessibles via des partages SMB ou NFS sur Windows Server. Azure File Sync est utile dans les scénarios où les données doivent être consultées et modifiées loin d’un centre de données Azure, par exemple, dans une succursale. Les données peuvent être répliquées entre plusieurs points de terminaison Windows Server, c’est-à-dire entre plusieurs succursales.
+La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 L’article suivant décrit comment inscrire un serveur au service de synchronisation de stockage et le désinscrire. Vous pouvez en avoir besoin quand un serveur doit être mis hors service ou que vous voulez introduire un nouveau point de terminaison de serveur dans un groupe de synchronisation. Consultez [Guide pratique pour déployer Azure File Sync (préversion)](storage-sync-files-deployment-guide.md) pour plus d’informations le déploiement de bout en bout d’Azure File Sync.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Pour inscrire un serveur Windows Server à un service de synchronisation de stockage, vous devez d’abord préparer un serveur Windows Server avec les prérequis nécessaires :
 
 * Vérifiez qu’un service de synchronisation de stockage a été déployé. Pour plus d’informations sur le déploiement d’un service de synchronisation de stockage, consultez [Guide pratique pour déployer Azure File Sync (préversion)](storage-sync-files-deployment-guide.md).

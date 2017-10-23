@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: yurid
+ms.openlocfilehash: 53b6f03d43b5525e5c5dea42e6a9a36042b65d52
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 6af94c795ec5153013f4a9c5c937beed08f44e7a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 Il existe plusieurs outils dans Microsoft Azure pour protéger les données en fonction des besoins de sécurité et de conformité de votre entreprise. Ce document se concentre sur la façon dont les données sont protégées au repos dans Microsoft Azure, présente les divers composants impliqués dans l’implémentation de la protection des données, et passe en revue les avantages et les inconvénients des différentes approches de protection de la gestion des clés. 
@@ -262,9 +261,9 @@ Le chiffrement côté client des données d’Azure SQL Database est pris en cha
 | Cosmos DB (Document DB)          |                | Oui                 | -                            | -                            | -      |
 | StorSimple                       |                | Oui                 | -                            | -                            | Oui    |
 | Sauvegarde                           |                | -                   | -                            | -                            | Oui    |
-| **Décisionnel & Analytique**       |                |                     |                              |                              |        |
+| **Décisionnel &amp; Analytique**       |                |                     |                              |                              |        |
 | Azure Data Factory               |                | Oui                 | -                            | -                            | -      |
-| Azure Machine Learning           |                | -                   | VERSION PRÉLIMINAIRE                      | -                            | -      |
+| Azure Machine Learning           |                | -                   | Préversion                      | -                            | -      |
 | Azure Stream Analytics           |                | Oui                 | -                            | -                            | -      |
 | HDInsights (Stockage Blob Azure)  |                | Oui                 | -                            | -                            | -      |
 | HDInsights (Stockage Data Lake)   |                | Oui                 | -                            | -                            | -      |
@@ -273,12 +272,11 @@ Le chiffrement côté client des données d’Azure SQL Database est pris en cha
 | Power BI                         |                | Oui                 | -                            | -                            | -      |
 | **Services IoT**                     |                |                     |                              |                              |        |
 | IoT Hub                          |                | -                   | -                            | -                            | Oui    |
-| Service Bus                      |                | -              | -                            | -                            | Oui    |
-| Event Hubs                       |                | -             | -                            | -                            | -      |
+| Service Bus                      |                | Oui (niveau Premium)              | -                            | -                            | Oui    |
+| Event Hubs                       |                | Oui             | -                            | -                            | -      |
 
 
 ## <a name="conclusion"></a>Conclusion
 
 La protection des données des clients stockées au sein des services Azure est d’une importance capitale pour Microsoft. Tous les services hébergés par Azure doivent à terme fournir des options de chiffrement au repos. Les services fondamentaux, comme Stockage Azure, Azure SQL Database, et les services clés de décisionnel et d’analytique, offrent déjà des options de chiffrement au repos. Certains de ces services prennent en charge les clés contrôlées par le client ou le chiffrement côté client, ainsi que les clés et le chiffrement gérés par le service. Les services Microsoft Azure étendent considérablement la disponibilité du chiffrement au repos, et la disponibilité en préversion puis générale de nouvelles options est planifiée dans les mois à venir.
-
 

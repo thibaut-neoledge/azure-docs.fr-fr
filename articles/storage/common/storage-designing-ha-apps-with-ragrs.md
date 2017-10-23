@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 9/06/2017
 ms.author: tamram
+ms.openlocfilehash: 4100e8b90e37d6f4ab5123dfd682452c21c77998
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 57f458770ea5d57b4c155adf4fa793867f392c3b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conception d’applications hautement disponibles à l’aide du stockage RA-GRS
 
@@ -38,7 +37,7 @@ Vous y trouverez aussi des extraits de code et, à la fin, un lien vers un exemp
 
 ## <a name="key-features-of-ra-grs"></a>Fonctionnalités clés du stockage RA-GRS
 
-Gardez à l’esprit ces points clés lors de la conception de votre application pour RA-GRS :
+Gardez à l’esprit ces points clés pendant la conception de votre application pour RA-GRS :
 
 * Stockage Azure conserve une copie en lecture seule des données que vous stockez dans votre région primaire d’une région secondaire. Comme indiqué ci-dessus, le service de stockage détermine l’emplacement de la région secondaire.
 
@@ -244,4 +243,3 @@ Si vous avez rendu configurables les seuils de basculement de votre application 
 * Pour plus d’informations sur la géoredondance avec accès en lecture et pour voir un autre exemple de définition du paramètre LastSyncTime, consultez [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Options de redondance de stockage Windows Azure et stockage géoredondant avec accès en lecture).
 
 * Pour obtenir un exemple complet montrant comment effectuer les basculements entre les points de terminaison principaux et secondaires, consultez [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs) (Exemples Azure – Utilisation du modèle Disjoncteur avec le stockage RA-GRS).
-

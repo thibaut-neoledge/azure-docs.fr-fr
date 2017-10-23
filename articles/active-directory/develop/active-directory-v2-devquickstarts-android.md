@@ -16,10 +16,10 @@ ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
 ms.openlocfilehash: c0a5a818c61f7af7ff04bf890b54e8364f3b21b1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Ajouter l’authentification dans une application Android à l’aide d’une bibliothèque tierce avec l’API Graph à l’aide du point de terminaison v2.0
 La plateforme d’identité Microsoft utilise des normes ouvertes telles que OAuth2 et OpenID Connect. Les développeurs peuvent utiliser n’importe quelle bibliothèque qu’ils souhaitent intégrer à nos services. Pour aider les développeurs à utiliser notre plateforme avec d’autres bibliothèques, nous avons rédigé quelques procédures pas à pas comme celle-ci pour présenter la configuration des bibliothèques tierces pour se connecter à la plateforme d’identité de Microsoft. La plupart des bibliothèques qui implémentent [la spécification RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) peuvent se connecter à la plateforme Microsoft Identity.
@@ -93,7 +93,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
     ![Le module d’application par défaut](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
 5. Importez des modules à partir du référentiel cloné dans le projet actuel.
    
-    ![Importer un projet gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG) ![créer une nouvelle page de module](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
+    ![Importez le projet Gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)![Créez une page de module](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
 6. Répétez ces étapes pour le module `oidlib-sample` .
 7. Vérifiez les dépendances oidclib sur le module `oidlib-sample` .
    

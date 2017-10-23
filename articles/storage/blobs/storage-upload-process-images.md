@@ -14,14 +14,12 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
+ms.openlocfilehash: a204498016ff837c5247009eaaffbd4f79285d0b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 2d2e49f92fdc64f3ebb2326d08f7d4304d8ffa43
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Charger des données d’image dans le cloud avec le Stockage Azure
 
 Ce didacticiel est la première partie d’une série d’étapes. Ce didacticiel vous montre comment déployer une application web qui utilise la bibliothèque de client du Stockage Azure pour charger des images sur un compte de stockage. À la fin, vous disposerez d’une application web qui stocke et affiche des images à partir du Stockage Azure.
@@ -57,7 +55,7 @@ az group create --name myResourceGroup --location westcentralus
 L’exemple charge des images sur un conteneur Blob dans un compte de stockage Azure. Le compte de stockage Azure fournit un espace de noms unique pour stocker les objets de données de Stockage Azure et y accéder. Créez un compte de stockage dans le groupe de ressources que vous avez créé à l’aide de la commande [az storage account create](/cli/azure/storage/account#create). 
 
 > [!IMPORTANT] 
-> Dans la deuxième partie de ce didacticiel, vous utilisez des abonnements aux événements pour le Stockage Blob. Actuellement, ceux-ci ne sont pris en charge pour les comptes de Stockage Blob que dans l’Ouest du centre des États-Unis et les États-Unis de l’Ouest. En raison de cette restriction, vous devez créer un compte de stockage Blob, qui sera utilisé par l’exemple d’application pour stocker les images et les miniatures.   
+> Dans la deuxième partie de ce didacticiel, vous utilisez des abonnements aux événements pour le Stockage Blob. Actuellement, ceux-ci ne sont pris en charge pour les comptes de Stockage Blob que dans l’Ouest du centre des États-Unis et les États-Unis de l’Ouest 2. En raison de cette restriction, vous devez créer un compte de stockage Blob, qui sera utilisé par l’exemple d’application pour stocker les images et les miniatures.   
 
 Dans la commande suivante, indiquez le nom global unique de votre compte de stockage Blob dans l’espace réservé `<blob_storage_account>`.  
 
@@ -226,4 +224,3 @@ Passez à la deuxième partie de la série pour savoir comment utiliser Event Gr
 
 > [!div class="nextstepaction"]
 > [Utiliser Event Grid pour déclencher une fonction Azure afin de redimensionner une image chargée](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-

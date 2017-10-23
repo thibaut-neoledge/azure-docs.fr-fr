@@ -3,7 +3,7 @@ title: Runbooks enfants dans Azure Automation | Microsoft Docs
 description: "Décrit les différentes méthodes permettant le démarrage d’un Runbook à partir d’un autre Runbook dans Azure Automation et le partage d’informations entre eux."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cf3d1ae66483fed4aa9cd31f674729e4b875653c
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 617e18f5435c7eacb7751ccca6ac2f3814745f04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks enfants dans Azure Automation
 Dans Azure Automation, il est recommandé d’écrire des Runbooks réutilisables et modulaires avec une fonction discrète qui peut être utilisée par d’autres Runbooks. Un Runbook parent appelle souvent un ou plusieurs Runbooks enfants pour exécuter la fonctionnalité requise. Il existe deux méthodes pour appeler un Runbook enfant. Vous devez comprendre leurs spécificités afin de déterminer celle répondant le mieux aux exigences de chacun de vos scénarios.
@@ -44,7 +43,7 @@ Pertinence de l’ordre de publication :
 
 * L’ordre de publication de runbooks n’est important que pour les runbooks PowerShell Workflow et les runbooks graphiques PowerShell.
 
-Lorsque vous appelez un runbook graphique ou PowerShell Workflow enfant à l’aide d’une exécution incorporée, vous utilisez simplement le nom du runbook.  Quand vous appelez un runbook enfant PowerShell, vous devez placer *.\\*  devant son nom pour spécifier que le script se trouve dans le répertoire local. 
+Lorsque vous appelez un runbook graphique ou PowerShell Workflow enfant à l’aide d’une exécution incorporée, vous utilisez simplement le nom du runbook.  Quand vous appelez un runbook enfant PowerShell, vous devez faire précéder son nom de *.\\* pour spécifier que le script se trouve dans le répertoire local. 
 
 ### <a name="example"></a>Exemple
 Dans l’exemple suivant, on appelle un Runbook enfant de test qui accepte trois paramètres : un objet complexe, un entier et une valeur booléenne. La sortie du Runbook enfant est affectée à une variable.  Dans ce cas, le runbook enfant est un runbook PowerShell Workflow
@@ -87,5 +86,4 @@ Le tableau suivant résume les différences entre les deux méthodes applicables
 ## <a name="next-steps"></a>Étapes suivantes
 * [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
 * [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
-
 

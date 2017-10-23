@@ -15,16 +15,15 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 1fd0353bf805340a9c4d3151a9b85c329f7d2e96
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: fda1111877e5eb35fe246891fa7ff71ce6b5c20d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendre et appeler des méthodes directes à partir d’IoT Hub
 ## <a name="overview"></a>Vue d'ensemble
-IoT Hub vous donne la possibilité d’appeler des méthodes directes sur des appareils à partir du cloud. Les méthodes directes représentent une interaction de demande-réponse avec un appareil, similaire à un appel HTTP, dans la mesure où elles réussissent ou échouent immédiatement (après un délai d’attente spécifié par l’utilisateur). Cela est utile pour les scénarios où la conduite à suivre immédiate diffère selon que l’appareil a ou non pu répondre, comme l’envoi d’un SMS d’activation à un appareil quand celui-ci est hors connexion (un SMS étant plus onéreux qu’un appel de méthode).
+IoT Hub vous donne la possibilité d’appeler des méthodes directes sur des appareils à partir du cloud. Les méthodes directes représentent une interaction de demande-réponse avec un appareil, similaire à un appel HTTP, dans la mesure où elles réussissent ou échouent immédiatement (après un délai d’attente spécifié par l’utilisateur). Cette approche est utile pour les scénarios où la conduite à suivre immédiate diffère selon que l’appareil a ou non pu répondre, comme l’envoi d’un SMS d’activation à un appareil quand celui-ci est hors connexion (un SMS étant plus onéreux qu’un appel de méthode).
 
 Chaque méthode d’appareil cible à un seul appareil. Les [travaux][lnk-devguide-jobs] offrent un moyen d’appeler des méthodes directes sur plusieurs appareils, et de planifier un appel de méthode pour des appareils déconnectés.
 
@@ -45,20 +44,20 @@ Les méthodes directes sont implémentées sur l’appareil et peuvent nécessit
 
 Les méthodes directes sont synchrones et réussissent ou échouent à l’issue du délai d’expiration (par défaut, 30 secondes, extensible à 3 600 secondes). Les méthodes directes sont utiles dans des scénarios interactifs où vous souhaitez qu’un appareil agisse si et seulement s’il est en ligne et reçoit des commandes, telles que l’allumage d’une lumière, en provenance d’un téléphone. Dans ces scénarios, vous souhaitez constater immédiatement la réussite ou l’échec de la commande, de façon à ce que le service cloud puisse agir sur le résultat dès que possible. L’appareil peut renvoyer un corps de message résultant de la méthode, mais il n’est pas obligatoire que la méthode procède de la sorte. Il existe ni garantie de classement, ni sémantique de concurrence sur les appels de méthode.
 
-Les méthodes directes sont exclusivement HTTP côté cloud, et MQTT ou AMQP côté appareil.
+Les méthodes directes sont exclusivement HTTPS côté cloud, et MQTT ou AMQP côté appareil.
 
-La charge utile pour les requêtes et les réponses de méthode correspond à un document JSON d’une taille pouvant aller jusqu’à 8 Ko.
+La charge utile pour les requêtes et les réponses de méthode correspond à un document JSON d’une taille pouvant aller jusqu’à 8 Ko.
 
 ## <a name="reference-topics"></a>Rubriques de référence :
 Les rubriques de référence suivantes vous fournissent des informations supplémentaires sur l’utilisation des méthodes directes.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Appeler une méthode directe à partir d’une application principale
 ### <a name="method-invocation"></a>Appel de méthode
-Les appels de méthode directe sur un appareil sont des appels HTTP qui comprennent les éléments suivants :
+Les appels de méthode directe sur un appareil sont des appels HTTPS qui comprennent les éléments suivants :
 
-* l’*URI* spécifique de l’appareil (`{iot hub}/twins/{device id}/methods/`) ;
-* la *méthode* POST ;
-* des *en-têtes* contenant l’autorisation, l’ID de demande, le type de contenu et l’encodage du contenu ;
+* *L’URI* spécifique de l’appareil (`{iot hub}/twins/{device id}/methods/`)
+* La *méthode* POST
+* Des *en-têtes* contenant l’autorisation, l’ID de demande, le type de contenu et l’encodage du contenu
 * un *corps* JSON transparent au format suivant :
 
 ```
@@ -75,11 +74,11 @@ Les appels de méthode directe sur un appareil sont des appels HTTP qui comprenn
 Le délai d’attente est exprimé en secondes. Si le délai d’attente n’est pas défini, sa valeur par défaut est de 30 secondes.
 
 ### <a name="response"></a>Réponse
-L’application principale reçoit une réponse qui comprend les éléments suivants :
+L’application principale reçoit une réponse qui comprend les éléments suivants :
 
 * un *code d’état HTTP*, qui est utilisé pour des erreurs en provenance d’IoT Hub, dont l’erreur 404 pour les appareils non connectés ;
-* des *en-têtes* contenant l’ETag, l’ID de demande, le type de contenu et l’encodage du contenu ;
-* un *corps* JSON au format suivant :
+* Des *en-têtes* contenant l’ETag, l’ID de demande, le type de contenu et l’encodage du contenu
+* Un *corps* JSON au format suivant :
 
 ```
 {
@@ -94,7 +93,7 @@ L’application principale reçoit une réponse qui comprend les éléments suiv
 ### <a name="method-invocation"></a>Appel de méthode
 Les appareils reçoivent des demandes de méthode directe sur la rubrique MQTT : `$iothub/methods/POST/{method name}/?$rid={request id}`
 
-Le corps que l’appareil reçoit est au format suivant :
+Le corps que l’appareil reçoit est au format suivant :
 
 ```
 {
@@ -123,7 +122,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
-À présent que vous savez comment utiliser les méthodes directes, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur IoT Hub :
+À présent que vous savez comment utiliser les méthodes directes, vous serez peut-être intéressé par l’article suivant du Guide du développeur IoT Hub :
 
 * [Planifier des travaux sur plusieurs appareils][lnk-devguide-jobs]
 
@@ -143,4 +142,3 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-messages]: iot-hub-devguide-messaging.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-

@@ -3,7 +3,7 @@ title: "Développement pour Azure Files avec Python | Microsoft Docs"
 description: "Découvrez comment développer des services et applications Python qui utilisent Azure Files pour stocker les données de fichiers."
 services: storage
 documentationcenter: python
-author: tamram
+author: robinsh
 manager: timlt
 editor: tysonn
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
@@ -13,15 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: tamram
+ms.author: robinsh
+ms.openlocfilehash: 48bfe97c42cad237ad7b395eeeac4e993201848a
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c9c7ee20e511d7aa6261119e7307e2b96682a6bb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-for-azure-files-with-python"></a>Développement pour Azure Files avec Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
@@ -38,35 +36,55 @@ Ce didacticiel décrit les principes fondamentaux de l’utilisation de Python p
 > [!Note]  
 > Parce qu’Azure Files est accessible sur SMB, il est possible d’écrire des applications simples qui accèdent au partage de fichiers Azure à l’aide des fonctions et des classes d’E/S Python standard. Cet article indique comment écrire des applications qui utilisent le SDK Python de stockage Azure, lequel utilise l’[API REST Azure Files](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec Azure Files.
 
-### <a name="set-up-your-application-to-use-azure-files"></a>Configurer votre application pour utiliser Azure Files
-Ajoutez ce qui suit vers le début de chaque fichier source Python dans lequel vous souhaitez accéder au stockage Azure par programmation.
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>Télécharger et installer le SDK Stockage Azure pour Python
+
+Le SDK Stockage Azure pour Python requiert Python 2.7, 3.3, 3.4, 3.5 ou 3.6 et est fourni dans 4 packages différents : `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` et `azure-storage-queue`. Dans ce didacticiel, nous allons utiliser le package `azure-storage-file`.
+ 
+## <a name="install-via-pypi"></a>Effectuer l’installation via PyPi
+
+Pour effectuer l’installation via PyPI (Python Package Index), tapez :
+
+```bash
+pip install azure-storage-file
+```
+
+
+> [!NOTE]
+> Si vous effectuez une mise à niveau à partir du SDK Stockage Azure pour Python version 0.36 ou antérieure, vous devez d’abord effectuer une désinstallation au moyen de `pip uninstall azure-storage` car nous ne publierons plus le SDK Stockage pour Python dans un package unique.
+> 
+> 
+
+Pour connaître les autres méthodes d’installation, visitez la page consacrée au [SDK Stockage Azure pour Python sur Github](https://github.com/Azure/azure-storage-python/).
+
+## <a name="set-up-your-application-to-use-azure-files"></a>Configurer votre application pour utiliser Azure Files
+Ajoutez ce qui suit vers le début de chaque fichier source Python dans lequel vous souhaitez accéder au stockage Azure Storage par programme.
 
 ```python
 from azure.storage.file import FileService
 ```
 
-### <a name="set-up-a-connection-to-azure-files"></a>Configurer une connexion à Azure Files 
+## <a name="set-up-a-connection-to-azure-files"></a>Configurer une connexion à Azure Files 
 L’objet `FileService` vous permet d’utiliser des partages, des répertoires et des fichiers. Le code suivant crée un objet `FileService` à l’aide du nom et de la clé du compte de stockage. Remplacez `<myaccount>` et `<mykey>` par le nom et la clé de votre compte.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
-### <a name="create-an-azure-file-share"></a>Création d’un partage de fichiers Azure
+## <a name="create-an-azure-file-share"></a>Création d’un partage de fichiers Azure
 Dans l’exemple de code suivant, vous pouvez utiliser un objet `FileService` pour créer le partage s’il n’existe pas.
 
 ```python
 file_service.create_share('myshare')
 ```
 
-### <a name="create-a-directory"></a>Créer un répertoire
+## <a name="create-a-directory"></a>Créer un répertoire
 Vous pouvez également organiser le stockage en plaçant des fichiers dans des sous-répertoires, plutôt que de tous les mettre dans le répertoire racine. Azure Files vous permet de créer autant de répertoires que le permet votre compte. Le code ci-dessous crée un sous-répertoire nommé **sampledir** sous le répertoire racine.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
 ```
 
-### <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Énumérer des fichiers et répertoires dans un partage de fichiers Azure
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Énumérer des fichiers et répertoires dans un partage de fichiers Azure
 Pour répertorier les fichiers et répertoires d’un partage, utilisez la méthode **list\_directories\_and\_files**. Cette méthode retourne un générateur. Le code suivant sort le **nom** de chaque fichier et répertoire d'un partage sur la console.
 
 ```python
@@ -75,7 +93,7 @@ for file_or_dir in generator:
     print(file_or_dir.name)
 ```
 
-### <a name="upload-a-file"></a>Charger un fichier 
+## <a name="upload-a-file"></a>Charger un fichier 
 Un partage de fichiers Azure contient au minimum un répertoire racine dans lequel les fichiers peuvent résider. Cette section décrit comment télécharger un fichier du stockage local vers le répertoire racine d’un partage.
 
 Pour créer un fichier et charger des données, utilisez les méthodes `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` ou `create_file_from_text`. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
@@ -94,7 +112,7 @@ file_service.create_file_from_path(
     content_settings=ContentSettings(content_type='image/png'))
 ```
 
-### <a name="download-a-file"></a>Téléchargement d’un fichier
+## <a name="download-a-file"></a>Téléchargement d’un fichier
 Pour télécharger des données à partir d’un fichier, utilisez `get_file_to_path`, `get_file_to_stream`, `get_file_to_bytes`, ou `get_file_to_text`. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
 
 L’exemple suivant illustre l’utilisation de `get_file_to_path` pour télécharger le contenu du fichier **myfile** et le stocker dans le fichier **out-sunset.png**.
@@ -103,16 +121,67 @@ L’exemple suivant illustre l’utilisation de `get_file_to_path` pour téléch
 file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 ```
 
-### <a name="delete-a-file"></a>Supprimer un fichier
+## <a name="delete-a-file"></a>Supprimer un fichier
 Enfin, pour supprimer un fichier, appelez `delete_file`.
 
 ```python
 file_service.delete_file('myshare', None, 'myfile')
 ```
 
+## <a name="create-share-snapshot-preview"></a>Créer un instantané de partage (préversion)
+Vous pouvez créer une copie à un point dans le temps de la totalité de votre partage de fichier.
+
+```python
+snapshot = file_service.snapshot_share(share_name)
+snapshot_id = snapshot.snapshot
+```
+
+**Créer un instantané de partage avec des métadonnées**
+
+```python
+metadata = {"foo": "bar"}
+snapshot = file_service.snapshot_share(share_name, metadata=metadata)
+```
+
+## <a name="list-shares-and-snapshots"></a>Répertorier les partages et les instantanés 
+Vous pouvez répertorier tous les instantanés pour un partage particulier.
+
+```python
+shares = list(file_service.list_shares(include_snapshots=True))
+```
+
+## <a name="browse-share-snapshot"></a>Parcourir un instantané de partage
+Vous pouvez parcourir le contenu d’un instantané de partage spécifique pour récupérer les fichiers et les répertoires à partir du point dans le temps correspondant.
+
+```python
+directories_and_files = list(file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
+```
+
+## <a name="get-file-from-share-snapshot"></a>Récupérer un fichier d’un instantané de partage
+Vous pouvez télécharger un fichier à partir d’un instantané de partage pour votre scénario de restauration.
+
+```python
+with open(FILE_PATH, 'wb') as stream:
+    file = file_service.get_file_to_stream(share_name, directory_name, file_name, stream, snapshot=snapshot_id)
+```
+
+## <a name="delete-a-single-share-snapshot"></a>Supprimer un instantané de partage spécifique  
+Vous pouvez supprimer un instantané de partage spécifique.
+
+```python
+file_service.delete_share(share_name, snapshot=snapshot_id)
+```
+
+## <a name="delete-share-when-share-snapshots-exist"></a>Supprimer un partage quand existent des instantanés de partage
+Pour supprimer un partage qui a des instantanés, vous devez d’abord supprimer la totalité de ces derniers.
+
+```python
+file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris comment manipuler Azure Files avec Python, suivez ces liens pour en savoir plus.
 
 * [Centre de développement Python](/develop/python/)
-* [API REST des services Stockage Azure](http://msdn.microsoft.com/library/azure/dd179355)
-* [Kit SDK Stockage Microsoft Azure pour Python](https://github.com/Azure/azure-storage-python)
+* [API REST des services d’Azure Storage](http://msdn.microsoft.com/library/azure/dd179355)
+* [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python](https://github.com/Azure/azure-storage-python)

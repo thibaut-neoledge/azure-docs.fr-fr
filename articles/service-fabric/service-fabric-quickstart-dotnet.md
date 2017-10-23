@@ -12,17 +12,15 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 10/02/2017
 ms.author: mikhegn
-ms.custom: mvc
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 3be8836ae6b877bc4caa98f0467147b008c42aa2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d11b9af982112db8ba94b62110c18be843f1abb1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Créer une application Service Fabric dans Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
 
@@ -135,7 +133,7 @@ Pour plus d’informations sur la création de votre propre cluster, voir [Crée
 
 2. Saisissez le point de terminaison de connexion du cluster dans le champ **Point de terminaison de connexion**, puis cliquez sur **Publier**. Lors de l’inscription pour le cluster tiers, le point de terminaison de connexion est fourni dans le navigateur. - par exemple, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
 
-3. Ouvrez un navigateur et entrez l’adresse du cluster, par exemple, `http://winh1x87d1d.westus.cloudapp.azure.com`. Vous devez à présent voir l’application en cours d’exécution dans le cluster dans Azure.
+3. Ouvrez un navigateur et tapez l’adresse du cluster suivie de « :8080 » pour accéder à l’application dans le cluster, par exemple, `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Vous devez à présent voir l’application en cours d’exécution dans le cluster dans Azure.
 
 ![Frontal de l’application](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 

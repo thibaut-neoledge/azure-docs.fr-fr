@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 06/29/2017
+ms.date: 10/06/2017
 ms.author: anoopkv
+ms.openlocfilehash: e4740c96383468713976e5a98881bec13b0c1921
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: ba236ad1327a7f3419d7c8cf7effc889a90dde61
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-a-configuration-server"></a>Gérer un serveur de configuration
 
 Le serveur de configuration fait office de coordinateur entre les services Site Recovery et votre infrastructure locale. Cet article explique comment configurer et gérer le serveur de configuration.
@@ -113,7 +111,7 @@ ProxyPassword="Password"
 
 ## <a name="modify-user-accounts-and-passwords"></a>Modifier les comptes d’utilisateurs et mots de passe
 
-L’outil CSPSConfigTool.exe est utilisé pour gérer les comptes d’utilisateurs utilisés pour la **détection automatique des ordinateurs virtuels VMware** et effectuer **l’installation Push du service Mobilité sur les ordinateurs protégés**. 
+L’outil CSPSConfigTool.exe est utilisé pour gérer les comptes d’utilisateurs utilisés pour la **détection automatique des machines virtuelles VMware** et effectuer **l’installation Push du service Mobilité sur les ordinateurs protégés. 
 
 1. Connectez-vous à votre serveur de configuration.
 2. Lancez CSPSConfigtool.exe en cliquant sur le raccourci sur le bureau.
@@ -145,7 +143,7 @@ L’outil CSPSConfigTool.exe est utilisé pour gérer les comptes d’utilisateu
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>Inscription d’un serveur de configuration auprès d’un autre coffre Recovery Services.
 
 > [!WARNING]
-> L’ensemble d’étapes ci-dessous dissocie la configuration du coffre actuel, et la réplication de tous les ordinateurs virtuels protégés sous le serveur de configuration sera arrêtée.
+> L’étape suivante dissocie la configuration du coffre actuel, entraînant l’arrêt de la réplication de toutes les machines virtuelles protégées sous le serveur de configuration.
 
 1. Connectez-vous à votre serveur de configuration.
 2. À partir d’une invite de commandes d’administration, exécutez la commande indiquée ci-dessous.
@@ -169,7 +167,7 @@ L’outil CSPSConfigTool.exe est utilisé pour gérer les comptes d’utilisateu
     net start obengine
     ```
 
-## <a name="updating-a-configuration-server"></a>Mise à jour d’un serveur de configuration
+## <a name="upgrading-a-configuration-server"></a>Mise à niveau d’un serveur de configuration
 
 > [!WARNING]
 > Les mises à jour sont prises en charge jusqu’à la version N+4 uniquement. Par exemple, si la dernière version sur le marché est 9.11, vous pouvez alors mettre à jour de la version 9.10, 9.9, 9.8 ou 9.7 directement vers la version 9.11. Cependant, si vous utilisez une version inférieure ou égale à 9.6, vous devez mettre à jour vers la version 9.7 minimum pour pouvoir appliquer les dernières mises à jour à votre serveur de configuration. Les liens de téléchargement de la version précédente sont disponibles sous [Mises à jour du service Azure Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
@@ -180,11 +178,14 @@ L’outil CSPSConfigTool.exe est utilisé pour gérer les comptes d’utilisateu
 4. Cliquez sur le bouton OK pour confirmer et continuer la mise à niveau.
 
 
-## <a name="decommissioning-a-configuration-server"></a>Désaffectation d’un serveur de configuration
-Effectuez les opérations suivantes avant de désaffecter votre serveur de configuration.
-1. Désactivez la protection de toutes les machines virtuelles relevant de ce serveur de configuration.
-2. Dissociez toutes les stratégies de réplication du serveur de configuration.
-3. Supprimez tous les serveurs vCenter/hôtes vSphere associés au serveur de configuration.
+## <a name="delete-or-unregister-a-configuration-server"></a>Supprimer un serveur de configuration ou annuler son inscription
+
+> [!WARNING]
+> Effectuez les opérations suivantes avant de désaffecter votre serveur de configuration.
+> 1. [Désactivez la protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) de toutes les machines virtuelles relevant de ce serveur de configuration.
+> 2. [Dissociez ](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) et [supprimez](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) toutes les stratégies de réplication du serveur de configuration.
+> 3. [Supprimez](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) tous les serveurs vCenter/hôtes vSphere associés au serveur de configuration.
+
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Supprimer le serveur de configuration du portail Azure
 1. Dans le portail Azure, sélectionnez **Infrastructure Site Recovery** > **Serveurs de configuration** dans le menu Coffre.
@@ -193,9 +194,6 @@ Effectuez les opérations suivantes avant de désaffecter votre serveur de confi
 
   ![delete-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
 4. Cliquez sur **Oui** pour confirmer la suppression du serveur.
-
-  >[!WARNING]
-  Si vous disposez de machines virtuelles, de stratégies de réplication ou de serveurs vCenter/hôtes vSphere associés à ce serveur de configuration, vous ne pouvez pas supprimer le serveur. Supprimez ces entités avant d’essayer de supprimer le coffre.
 
 ### <a name="uninstall-the-configuration-server-software-and-its-dependencies"></a>Désinstaller le logiciel serveur de configuration et ses dépendances
   > [!TIP]
@@ -214,6 +212,31 @@ Effectuez les opérations suivantes avant de désaffecter votre serveur de confi
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
+
+## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Supprimer un serveur de configuration ou annuler son inscription (PowerShell)
+
+1. [Installez](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) le module Azure PowerShell.
+2. Connectez-vous à votre compte Azure à l’aide de la commande suivante :
+    
+    `Login-AzureRmAccount`
+3. Sélectionnez l’abonnement sous lequel le coffre est présent.
+
+     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+3.  Configurez votre contexte de coffre.
+    
+    ```
+    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```
+4. Sélectionnez votre serveur de configuration.
+
+    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+6. Supprimez le serveur de configuration.
+
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+
+> [!NOTE]
+> L’option **-Force** dans Remove-AzureRmSiteRecoveryFabric peut être utilisée pour forcer la suppression du serveur de configuration.
 
 ## <a name="renew-configuration-server-secure-socket-layerssl-certificates"></a>Renouveler les certificats SSL du serveur de configuration
 Le serveur de configuration possède un serveur web intégré, qui orchestre les activités du service Mobilité, des serveurs de processus et des serveurs maîtres cibles connectés au serveur de configuration. Le serveur web du serveur de configuration utilise un certificat SSL pour authentifier ses clients. Ce certificat a un délai d’expiration de trois ans et peut être renouvelé à tout moment à l’aide de la méthode suivante :
@@ -241,7 +264,7 @@ La validité du certificat SSL de toutes les installations qui ont été effectu
   ![certificate-details](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-expiry-details.png)
 
   >[!TIP]
-  Si un bouton **Mettre à niveau maintenant** s’affiche à la place d’un bouton **Renouveler maintenant**, cela signifie que certains composants de votre environnement n’ont pas encore été mis à niveau vers 9.4.xxxx.x ou supérieur.
+  Si un bouton **Mettre à niveau maintenant** s’affiche à la place d’un bouton **Renouveler maintenant**, Le bouton Mettre à niveau maintenant indique que certains composants de votre environnement n’ont pas encore été mis à niveau vers 9.4.xxxx.x ou supérieur.
 
 ## <a name="revive-a-configuration-server-if-the-secure-socket-layer-ssl-certificate-expired"></a>Réactiver un serveur de configuration si le certificat SSL a expiré
 
@@ -268,4 +291,3 @@ La validité du certificat SSL de toutes les installations qui ont été effectu
 
 ## <a name="common-issues"></a>Problèmes courants
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-

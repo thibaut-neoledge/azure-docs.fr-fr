@@ -16,7 +16,9 @@
 # Procédures
 ## Joindre un domaine géré
 ### [Machine virtuelle Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Machine virtuelle Windows avec PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Machine virtuelle Windows Server issue du modèle](active-directory-ds-join-windows-vm-template.md)
+### [CentOS](active-directory-ds-join-centos-linux-vm.md)
+### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
 ### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Serveur Ubuntu](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administrer un domaine géré

@@ -28,9 +28,13 @@ sections:
             text: Machines virtuelles Azure
             href: /azure/log-analytics/log-analytics-quick-collect-azurevm
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg'
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
             text: Ordinateur Linux
             href: /azure/log-analytics/log-analytics-quick-collect-linux-computer
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
+            text: Ordinateur Windows
+            href: /azure/log-analytics/log-analytics-quick-collect-windows-computer
   - title: Didacticiels pas à pas
     items:
       - type: paragraph

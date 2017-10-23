@@ -6,7 +6,7 @@
 
 1. Installez [CMake](https://cmake.org/download/) et vérifiez que vous pouvez exécuter le fichier cmake.exe à partir de la ligne de commande. CMake version 3.7.2 ou supérieure est recommandé. Le programme d’installation **.msi** est l’option la plus simple sous Windows. Ajoutez CMake au chemin d’accès au moins pour l’utilisateur actif lorsque le programme d’installation vous y invite.
 
-1. Installez [Python 2.7](https://www.python.org/downloads/release/python-27). Veillez à ajouter Python à votre variable d’environnement `PATH` dans **Panneau de configuration -> Système -> Paramètres système avancés -> Variables d’environnement**.
+1. Installez [Python 2.7](https://www.python.org/downloads/release/python-27). Assurez-vous d’ajouter Python à votre variable d’environnement `PATH`. Accédez à **Panneau de configuration** > **Système et sécurité** > **Système** > **Paramètres système avancés** > **Variables d’environnement**. Ajoutez `C:\Python27` à votre chemin. 
 
 1. À l’invite de commande, exécutez la commande suivante pour cloner le référentiel GitHub d’Azure IoT Edge sur l’ordinateur local :
 
@@ -18,7 +18,7 @@
 
 Vous pouvez désormais créer le runtime et les exemples IoT Edge sur l’ordinateur local :
 
-1. Ouvrez une **invite de commandes développeur pour VS 2015** ou une **invite de commandes développeur pour VS 2017**.
+1. Ouvrez **Invite de commandes développeur pour VS 2015** ou **Invite de commandes développeur pour VS 2017**, selon votre version.
 
 1. Accédez au dossier racine de votre copie locale du référentiel **iot-edge**.
 

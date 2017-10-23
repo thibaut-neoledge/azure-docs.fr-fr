@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/19/2017
+ms.date: 09/28/2017
 ms.author: alkohli
+ms.openlocfilehash: 13ff24c24a881297775fa5f65821e53ceb83c351
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 01e1e7447d6951d1b2c89f3b0ef726af9c03fd66
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Utiliser le service StorSimple Device Manager pour modifier la configuration de votre appareil StorSimple
 
@@ -138,14 +137,14 @@ Pour chaque interface réseau, les paramètres suivants sont affichés :
 
 ### <a name="configure-data-0"></a>Configurer DATA 0
 
-Par défaut, DATA 0 est compatible cloud. Quand vous configurez DATA 0, vous devez aussi configurer deux adresses IP fixes, une pour chaque contrôleur. Ces adresses IP fixes permettent d’accéder directement aux contrôleurs de l’appareil et s’avèrent utiles pour installer des mises à jour sur l’appareil ou pour accéder aux contrôleurs à des fins de dépannage.
+Par défaut, DATA 0 est compatible cloud. Quand vous configurez DATA 0, vous devez aussi configurer deux adresses IP fixes, une pour chaque contrôleur. Ces adresses IP fixes permettent d’accéder directement aux contrôleurs de l’appareil et s’avèrent utiles pour installer des mises à jour sur l’appareil, pour assurer un fonctionnement correct du nettoyage de la mémoire ou pour accéder aux contrôleurs à des fins de dépannage.
 
 Vous pouvez reconfigurer les contrôleurs IP fixes via le panneau Paramètres DATA 0.
 
 ![Configurer l’interface réseau - DATA 0](./media/storsimple-8000-modify-device-config/modify-network-settings2.png)
 
 > [!NOTE]
-> Les adresses IP fixes du contrôleur servent à traiter les mises à jour de l’appareil. Par conséquent, les adresses IP fixes doivent être routables et être en mesure de se connecter à Internet.
+> Les adresses IP fixes du contrôleur servent à traiter les mises à jour de l’appareil et à assurer un fonctionnement correct des algorithmes de récupération d’espace (nettoyage de la mémoire). Par conséquent, les adresses IP fixes doivent être routables et être en mesure de se connecter à Internet.
 
 ### <a name="configure-data-1---data-5"></a>Configurer DATA 1 - DATA 5
 
@@ -169,5 +168,4 @@ Pour échanger ou réaffecter les adresses IP virtuelles d’interfaces réseau,
 
 * Découvrez comment [configurer MPIO pour votre appareil StorSimple](storsimple-8000-configure-mpio-windows-server.md).
 * Découvrez comment [utiliser le service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).
-
 

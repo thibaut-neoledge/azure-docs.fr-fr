@@ -3,7 +3,7 @@ title: "Détection d’anomalies dans le guide d’utilisation d’Azure (versio
 description: "Utilisez Stream Analytics et l’apprentissage automatique détecter les anomalies."
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: dubansal
 manager: jhubbard
 ms.service: stream-analytics
 ms.devlang: na
@@ -11,15 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
+ms.author: dubansal
+ms.openlocfilehash: 43a2a9784668fad2aa5b1441cfd37751c0c240b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 7ab489f6ae7da2640ba199b20e7727da60497918
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-the-anomalydetection-operator"></a>Utilisation de l’opérateur ANOMALYDETECTION
 
 > [!IMPORTANT]
@@ -100,8 +98,8 @@ Une anomalie d’un type particulier est détectée lorsqu’un de ces scores d�
 - Une requête non partitionnée utilisant la fonction **ANOMALYDETECTION** peut produire des résultats avec une latence de calcul d’environ 25 ms en moyenne.
 - La latence subie par une requête partitionnée varie légèrement suivant le nombre de partitions, car le nombre de calculs peut alors être plus élevé. Toutefois, la latence est approximativement la même que dans le cas non partitionné pour un total comparable d’événements dans toutes les partitions.
 - Lors de la lecture de données en différé, une grande quantité de données est intégrée rapidement. Le traitement de ces données est actuellement beaucoup plus lent. La latence dans de tels scénarios augmente de façon linéaire avec le nombre de points de données dans la fenêtre plutôt qu’avec la taille de fenêtre ou l’intervalle d’événements eux-mêmes. Pour réduire la latence dans les cas en différé, envisagez d’utiliser une taille de fenêtre plus petite. Vous pouvez également envisager de commencer votre projet à partir de l’heure actuelle. Voici quelques exemples de latence dans une requête non partitionnée : 
-    - 60 points de données dans la fenêtre de détection peuvent entraîner une latence de 10 secondes avec un débit de 3 Mbit/s. 
-    - À 600 points de données, la latence peut atteindre environ 80 secondes avec un débit de 0,4 Mbit/s.
+    - 60 points de données dans la fenêtre de détection peuvent entraîner une latence de 10 secondes avec un débit de 3 Mbits/s. 
+    - À 600 points de données, la latence peut atteindre environ 80 secondes avec un débit de 0,4 Mbits/s.
 
 ## <a name="example"></a>Exemple
 
@@ -186,5 +184,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 * [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

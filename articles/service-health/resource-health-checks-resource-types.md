@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/19/2017
+ms.date: 10/09/2017
 ms.author: BernardoAMunoz
+ms.openlocfilehash: e8ce1f9b7129e272a7714b82ec1a91a928917d6c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: ed9c955096a5427e8184bb6c542ad85ff4c302be
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
 
@@ -60,6 +58,12 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |Vérifications exécutées|
 |---|
 |<ul><li>Les utilisateurs peuvent-ils télécharger des données vers Data Lake Store dans la région ?</li><li>Les utilisateurs peuvent-ils télécharger des données à partir de Data Lake Store dans la région ?</li></ul>|
+
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+
+|Vérifications exécutées|
+|---|
+|<ul><li>Le hub IoT est-il opérationnel ?</li></ul>|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Vérifications exécutées|
@@ -114,4 +118,4 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 # <a name="next-steps"></a>Étapes suivantes
 -  Consultez les articles [Présentation d’Azure Service Health](service-health-overview.md) et [Présentation d’Azure Resource Health](resource-health-overview.md) pour en savoir plus à leur sujet. 
 -  [Forum aux questions sur Azure Resource Health](resource-health-faq.md)
-- Configurez des alertes afin d’être averti des problèmes d’intégrité. Consultez cet article pour en savoir plus sur la [configuration des alertes sur l’état des services](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Configurez des alertes afin d’être averti des problèmes d’intégrité. Pour plus d’informations sur la configuration d’alertes pour Service Health, consultez [cet article](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 

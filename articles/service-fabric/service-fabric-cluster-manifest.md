@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: dekapur
+ms.openlocfilehash: 660e7b59ae0e92692121620341562e412a6e8eae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 30fadddabf89d379beffdf214cfe8a8145d7a29b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Paramètres de configuration pour un cluster Windows autonome
 Cet article explique comment configurer un cluster Service Fabric autonome à l’aide du fichier ***ClusterConfig.JSON***. Vous pouvez utiliser ce fichier pour spécifier des informations telles que les nœuds Service Fabric et leurs adresses IP, différents types de nœuds sur le cluster, les configurations de sécurité, ainsi que la topologie du réseau en termes de domaines d’erreur et de mise à niveau, pour votre cluster autonome.
 
-Lorsque vous [téléchargez le package Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), quelques exemples de fichier ClusterConfig.JSON sont téléchargés sur votre ordinateur de travail. Les exemples comprenant *DevCluster* dans leurs noms vous permettent de créer un cluster avec les trois nœuds sur le même ordinateur, comme des nœuds logiques. Parmi ces nœuds, au moins un doit être marqué comme nœud principal. Ce cluster est utile pour un environnement de test ou de développement et n’est pas pris en charge comme cluster de production. Les exemples comprenant *MultiMachine* dans leurs noms vous permettent de créer un cluster de niveau de production, avec chaque nœud sur un ordinateur distinct.
+Lorsque vous [téléchargez le package Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), quelques exemples de fichier ClusterConfig.JSON sont téléchargés sur votre ordinateur de travail. Les exemples comprenant *DevCluster* dans leurs noms vous permettent de créer un cluster avec les trois nœuds sur le même ordinateur, comme des nœuds logiques. Parmi ces nœuds, au moins un doit être marqué comme nœud principal. Ce cluster est utile pour un environnement de test ou de développement et n’est pas pris en charge comme cluster de production. Les exemples comprenant *MultiMachine* dans leurs noms vous permettent de créer un cluster de niveau de production, avec chaque nœud sur un ordinateur distinct. Le nombre de nœuds principaux pour ces clusters dépend du [niveau de fiabilité](#reliability). Dans la version de l’API 5.7 de mai 2017, nous avons supprimé la propriété du niveau de fiabilité. À la place, notre code calcule le niveau de fiabilité le plus optimisé pour votre cluster. N’utilisez pas cette propriété dans la version de code 5.7 et les versions ultérieures.
+
 
 1. *ClusterConfig.Unsecure.DevCluster.JSON* et *ClusterConfig.Unsecure.MultiMachine.JSON* montrent comment créer un cluster de test ou de production non sécurisé respectivement. 
 2. *ClusterConfig.Windows.DevCluster.JSON* et *ClusterConfig.Windows.MultiMachine.JSON* montrent comment créer un cluster de test ou de production sécurisé à l’aide de la [sécurité Windows](service-fabric-windows-cluster-windows-security.md).
@@ -197,5 +197,4 @@ Pour activer le support pour les conteneurs Windows Server et Hyper-V pour les c
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous disposez d’un fichier ClusterConfig.JSON complètement configuré selon votre cluster autonome, vous pouvez déployer votre cluster en suivant les instructions de l’article [Créer un cluster Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md), puis passez à l’étape [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-
 

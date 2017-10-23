@@ -34,6 +34,8 @@
   items:
     - name: Utiliser un environnement ASE
       href: using-an-ase.md
+    - name: Intégrer à Application Gateway
+      href: integrate-with-application-gateway.md
     - name: Créer un environnement ASE à partir d’un modèle
       href: create-from-template.md
 - name: Référence

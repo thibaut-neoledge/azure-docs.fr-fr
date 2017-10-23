@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
+ms.openlocfilehash: a56d48eaf335d9e78eeba99162cea7c61d96b7cb
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ef73f9036a91d5bac50597d1d96fe134225eef51
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database 
 Azure SQL Database peut émettre des journaux de métriques et de diagnostics pour faciliter la surveillance. Vous pouvez configurer Azure SQL Database pour stocker l’utilisation des ressources, les workers et sessions, ainsi que la connectivité dans l’une des ressources Azure suivantes :
@@ -46,7 +45,7 @@ Lorsque vous activez la journalisation des métriques et diagnostics, vous devez
 
 Vous pouvez approvisionner une nouvelle ressource Azure ou sélectionner une ressource existante. Après avoir sélectionné la ressource de stockage, vous devez spécifier les données à collecter. Les options disponibles sont les suivantes :
 
-- **[Métriques de 1 minute](sql-database-metrics-diag-logging.md#1-minute-metrics)**  : contient Pourcentage DTU, Limite DTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP
+- **[Métriques de 1 minute](sql-database-metrics-diag-logging.md#1-minute-metrics)** : contient Pourcentage DTU, Limite DTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP
 - **[QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics)** : contient des informations sur les statistiques d’exécution de requête telles que l’utilisation du processeur, la durée des requêtes, etc.
 - **[QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics)** : contient des informations sur les statistiques d’attente des requêtes vous indiquant ce que vos requêtes ont attendu comme CPU, LOG, LOCKING...
 - **[Errors](sql-database-metrics-diag-logging.md#errors-dataset)** : contient des informations sur les erreurs SQL qui se sont produites dans cette base de données.
@@ -81,7 +80,7 @@ Pour activer la journalisation des métriques et diagnostics à l’aide de Powe
 
    L’ID de compte de stockage est l’ID de ressource pour le compte de stockage auquel vous souhaitez envoyer les journaux.
 
-- Pour activer la diffusion en continu des journaux de diagnostic vers un Event Hub, utilisez cette commande :
+- Pour activer le streaming des journaux de diagnostic vers un hub d’événements, utilisez cette commande :
 
    ```powershell
    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
@@ -107,6 +106,17 @@ Pour activer la journalisation des métriques et diagnostics à l’aide de Powe
 
 Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
 
+### <a name="to-configure-multiple-azure-subscriptions"></a>Pour configurer plusieurs abonnements Azure
+
+Pour prendre en charge plusieurs abonnements, utilisez le script PowerShell de [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/) (Activer la journalisation des mesures de ressources Azure à l’aide de PowerShell). Fournissez l’ID de ressource d’espace de travail en tant que paramètre lors de l’exécution du script pour transmettre les données des ressources d’un abonnement Azure vers un espace de travail d’un autre abonnement Azure.
+
+- Pour configurer plusieurs abonnements Azure, utilisez les commandes suivantes :
+
+    ```powershell
+    PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
+    PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
+    ```
+
 ### <a name="azure-cli"></a>Interface de ligne de commande Azure
 
 Pour activer la journalisation des métriques et diagnostics à l’aide d’Azure CLI, utilisez les commandes suivantes :
@@ -119,7 +129,7 @@ Pour activer la journalisation des métriques et diagnostics à l’aide d’Azu
 
    L’ID de compte de stockage est l’ID de ressource pour le compte de stockage auquel vous souhaitez envoyer les journaux.
 
-- Pour activer la diffusion en continu des journaux de diagnostic vers un Event Hub, utilisez cette commande :
+- Pour activer le streaming des journaux de diagnostic vers un hub d’événements, utilisez cette commande :
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
@@ -188,16 +198,16 @@ Azure SQL Analytics est un tableau de bord hiérarchique qui vous permet de navi
 Les journaux de métriques et diagnostics d’Azure SQL Database peuvent être envoyés à Azure Event Hub à l’aide de l’option « Diffuser vers Event Hub » intégrée dans le portail, ou en activant l’ID de règle Service Bus dans un paramètre de diagnostic via des applets de commande Azure PowerShell, Azure CLI ou l’API REST Azure Monitor. 
 
 ### <a name="what-to-do-with-metrics-and-diagnostic-logs-in-event-hub"></a>Que faire des journaux de métriques et diagnostics dans Event Hub ?
-En sélectionnant les données envoyées à Event Hub, vous vous rapprochez de l’activation de scénarios d’analyse avancée. Event Hubs fonctionne comme la « porte d'entrée » d’un pipeline d’événements, et une fois que les données sont collectées dans un concentrateur d'événements, peut être transformées et stockées à l'aide de n'importe quel fournisseur d'analyse en temps réel ou d’adaptateurs de traitement par lot ou de stockage. Les concentrateurs d'événements dissocient la production d'un flux d'événements de la consommation de ces événements, de manière à ce que les consommateurs d'événements puissent accéder aux événements selon leur propre planification. Pour plus d’informations sur Event Hub, voir :
+En sélectionnant les données envoyées à Event Hub, vous vous rapprochez de l’activation de scénarios d’analyse avancée. Event Hubs fonctionne comme la « porte d'entrée » d’un pipeline d’événements, et une fois que les données sont collectées dans un hub d'événements, peut être transformées et stockées à l'aide de n'importe quel fournisseur d'analyse en temps réel ou d’adaptateurs de traitement par lot ou de stockage. Les hubs d'événements dissocient la production d'un flux d'événements de la consommation de ces événements, de manière à ce que les consommateurs d'événements puissent accéder aux événements selon leur propre planification. Pour plus d’informations sur Event Hub, voir :
 
 - [Qu’est-ce qu’Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) ?
 - [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 
-Voici quelques façons d’utiliser la fonctionnalité de diffusion en continu :
+Voici quelques façons d’utiliser la fonctionnalité de streaming :
 
 -             Afficher l’état d’intégrité du service en diffusant des données de chemin réactif vers PowerBI : en utilisant Event Hubs, Stream Analytics et PowerBI, vous pouvez facilement transformer vos données de métriques et de diagnostic en informations en temps réel sur vos services Azure. Pour une vue d’ensemble de la manière de configurer un Event Hub, de traiter les données avec Stream Analytics, et d’utiliser PowerBI comme sortie, voir [Stream Analytics et Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
--             Envoyer les journaux à des flux de journalisation et de télémétrie tiers : une diffusion en continu Event Hubs vous permet d’envoyer vos journaux de métriques et diagnostics à différentes solution tierces de surveillance et d’analytique des journaux. 
+-             Envoyer les journaux à des flux de journalisation et de télémétrie tiers : le streaming d’Event Hubs vous permet d’envoyer vos journaux de métriques et diagnostics à différentes solution tierces de surveillance et d’analytique des journaux. 
 -             Créer une plateforme de journalisation et de télémétrie personnalisée : si vous disposez déjà d’une plateforme de télémétrie personnalisée, ou si vous envisagez d’en créer une, la nature hautement évolutive de publication et d’abonnement d’Event Hubs vous permet d’intégrer avec souplesse les journaux de diagnostic. Lisez le [guide de Dan Rosanova sur l’utilisation d’Event Hubs dans une plateforme de télémétrie à l’échelle mondiale](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="stream-into-azure-storage"></a>Envoyer à Stockage Azure
@@ -444,8 +454,7 @@ Consultez [Télécharger les journaux de métriques et diagnostics de Stockage A
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour comprendre non seulement comment activer la journalisation, mais aussi les métriques et les catégories de journaux prises en charge par les différents services Azure, voir [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) et [Présentation des journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
-- Pour en savoir plus sur les concentrateurs d’événements, lisez les articles suivants :
+- Pour en savoir plus sur les hubs d’événements, lisez les articles suivants :
    - [Qu’est-ce qu’Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) ?
    - [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Consultez [Télécharger les journaux de métriques et diagnostics de Stockage Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
-

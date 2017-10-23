@@ -11,7 +11,7 @@
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>Instances NC - pilotes NVIDIA Tesla
 | Distribution | Pilote |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> Basé sur CentOS 7.3 | NVIDIA CUDA 8.0, branche pilote R375 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> Basé sur CentOS 7.3 | NVIDIA CUDA 9.0, branche pilote R384 |
 
 
 

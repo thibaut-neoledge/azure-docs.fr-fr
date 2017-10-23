@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
 ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Commandes de l’interface de ligne de commande Azure en mode Resource Manager
 Cet article fournit la syntaxe et les options des commandes de l’interface de ligne de commande Azure régulièrement utilisées pour créer et gérer les ressources Azure dans le modèle de déploiement Azure Resource Manager. Pour accéder à ces commandes, exécutez l’interface de ligne de commande en mode Resource Manager (arm). Il ne s’agit pas d’une référence complète, et votre version de l’interface de ligne de commande peut présenter des commandes ou paramètres légèrement différents. Pour obtenir une vue d'ensemble des ressources et groupes de ressources Azure, consultez [Vue d'ensemble d'Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -968,7 +968,7 @@ Options de paramètre :
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    supprimer des livres-pool d’adresses réseau [options] < groupe de ressources >< lb-name ><name>
+    network lb address-pool delete [options] <groupe-ressources> <nom-lb> <name>
 
 Supprime la ressource de la plage du pool d'adresses IP principales dans l'équilibrage de charge.
 
@@ -1353,7 +1353,7 @@ Options de paramètre :
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
 <BR>
-    réseau public-ip afficher [options] < groupe de ressources ><name>
+    network public-ip show [options] <groupe-ressources> <name>
 
 Affiche les propriétés d’adresse IP publique pour une ressource IP publique au sein d’un groupe de ressources.
 

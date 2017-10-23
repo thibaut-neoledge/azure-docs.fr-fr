@@ -21,19 +21,20 @@
 ### [Créer avec Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Créer avec Azure PowerShell ou Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Groupe de machines virtuelles identiques avec des disques gérés](virtual-machine-scale-sets-managed-disks.md)
-### [Groupe de machines virtuelles identiques Linux avec mise à l’échelle automatique](virtual-machine-scale-sets-linux-autoscale.md)
-### [Groupe de machines virtuelles identiques Windows avec mise à l’échelle automatique](virtual-machine-scale-sets-windows-autoscale.md)
+### [Mettre à l’échelle un groupe identique](virtual-machine-scale-sets-autoscale-overview.md)
+#### [Utiliser le portail Azure](virtual-machine-scale-sets-autoscale-portal.md)
+#### [Utiliser Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+#### [Utilisation d'Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+#### [Mise à l’échelle automatique avancée](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Applications dans les groupes de machines virtuelles identiques](virtual-machine-scale-sets-deploy-app.md)
 ### [Utiliser des disques de données avec des groupes identiques](virtual-machine-scale-sets-attached-disks.md)
 ### [Travailler avec des groupes identiques de grande taille](virtual-machine-scale-sets-placement-groups.md)
 ### [Convertir un modèle de groupe identique pour utiliser un disque géré](virtual-machine-scale-sets-convert-template-to-md.md)
 
-
-
 ## Gérer
-### [Groupe de machines virtuelles identiques Windows avec Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
-### [Effectuer une mise à l’échelle automatique et groupes de machines virtuelles identiques](virtual-machine-scale-sets-autoscale-overview.md)
-### [Mise à l’échelle automatique avancée](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### Tâches de gestion courantes
+#### [Utiliser Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md)
+#### [Utilisation d'Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Mise à l’échelle verticale dans un groupe de machines virtuelles identiques](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Mises à jour pour les groupes de machines virtuelles identiques](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Groupes de machines virtuelles identiques et configuration d’état souhaité](virtual-machine-scale-sets-dsc.md)

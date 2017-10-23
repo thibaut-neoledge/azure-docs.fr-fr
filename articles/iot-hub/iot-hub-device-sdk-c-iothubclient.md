@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: obloch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 2f1689a2f59b779c83b6be746edda915fd67a3db
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 6e015d391067271cf71eb865af1b469135c8fcaa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Kit de développement logiciel d’appareil Azure IoT pour C : en savoir plus sur IoTHubClient
 Le [premier article](iot-hub-device-sdk-c-intro.md) de cette série a présenté le **Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C**. Cet article explique qu’il existe deux couches architecturales dans le Kit de développement logiciel (SDK). À la base se trouve la bibliothèque **IoTHubClient** qui gère directement la communication avec IoT Hub. Il existe également la bibliothèque **sérialiseur** , qui s’ajoute à cette dernière pour fournir des services de sérialisation. Dans cet article, vous trouverez des informations supplémentaires sur la bibliothèque **IoTHubClient** .
@@ -260,10 +259,10 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 Quelques options sont couramment utilisées :
 
-* **SetBatching** (bool) : si cette option a la valeur **true**, les données transmises à IoT Hub sont envoyées par lots. Si elle a la valeur **false**, les messages sont envoyés individuellement. La valeur par défaut est **false**. Notez que l’option **SetBatching** s’applique uniquement au protocole HTTP et non aux protocoles MQTT et AMQP.
-* **Timeout** (unsigned int) : cette valeur est exprimée en millisecondes. Si l’envoi d’une demande HTTP ou la réception d’une réponse prend davantage de temps, la connexion expire.
+* **SetBatching** (bool) : si cette option a la valeur **true**, les données transmises à IoT Hub sont envoyées par lots. Si elle a la valeur **false**, les messages sont envoyés individuellement. La valeur par défaut est **false**. Notez que l’option **SetBatching** s’applique uniquement au protocole HTTPS, et non aux protocoles MQTT et AMQP.
+* **Timeout** (unsigned int) : cette valeur est exprimée en millisecondes. Si l’envoi d’une requête HTTPS ou la réception d’une réponse prend davantage de temps, la connexion expire.
 
-L’option de traitement par lot est importante. Par défaut, la bibliothèque intègre des événements individuellement (un événement unique correspond à ce que vous transmettez à **IoTHubClient\_LL\_SendEventAsync**). Mais si l’option de traitement par lot est définie sur **true**, la bibliothèque collecte autant d’événements que possible (jusqu’à atteindre la taille de message maximale acceptée par IoT Hub).  Le lot d’événements est envoyé à IoT hub par le biais d’un seul appel HTTP (les événements individuels sont regroupés dans un tableau JSON). L’activation de l’option de traitement par lot permet d’obtenir des gains de performance, car vous réduisez le nombre d’allers-retours sur le réseau. Elle réduit également considérablement la bande passante, car vous envoyez un seul ensemble d’en-têtes HTTP avec un lot d’événements plutôt qu’un ensemble d’en-têtes pour chaque événement individuel. À moins d’avoir une raison particulière de faire autrement, vous devrez activer le traitement par lot.
+L’option de traitement par lot est importante. Par défaut, la bibliothèque intègre des événements individuellement (un événement unique correspond à ce que vous transmettez à **IoTHubClient\_LL\_SendEventAsync**). Mais si l’option de traitement par lot est définie sur **true**, la bibliothèque collecte autant d’événements que possible (jusqu’à atteindre la taille de message maximale acceptée par IoT Hub).  Le lot d’événements est envoyé à IoT Hub par le biais d’un seul appel HTTPS (les événements individuels sont regroupés dans un tableau JSON). L’activation de l’option de traitement par lot permet d’obtenir des gains de performance, car vous réduisez le nombre d’allers-retours sur le réseau. Elle réduit également considérablement la bande passante, car vous envoyez un seul ensemble d’en-têtes HTTPS avec un lot d’événements, plutôt qu’un ensemble d’en-têtes pour chaque événement. À moins d’avoir une raison particulière de faire autrement, vous devrez activer le traitement par lot.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article décrit en détail le comportement de la bibliothèque **IoTHubClient** se trouvant dans le **Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C**. Ces informations doivent vous permettre de bien comprendre les fonctionnalités de la bibliothèque **IoTHubClient**. Le [prochain article](iot-hub-device-sdk-c-serializer.md) fournit des détails similaires sur la bibliothèque **sérialiseur** .
@@ -277,4 +276,3 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-

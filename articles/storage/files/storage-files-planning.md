@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: wgries
+ms.openlocfilehash: b11cd632fc4735648581e77eb2570dd32604067d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 25d8f2bf5c42c54f1b9da330d7d3d6cbcc5dacb1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le protocole SMB standard. Comme Azure Files est entièrement managé, son déploiement dans des scénarios de production est beaucoup plus simple que le déploiement et la gestion d’un serveur de fichiers ou d’un appareil NAS. Cet article aborde les rubriques à prendre en compte lors du déploiement d’un partage de fichiers Azure pour la production dans votre organisation.
 
@@ -65,6 +63,7 @@ Azure Files propose plusieurs options intégrées pour garantir la sécurité de
     * Les clients qui prennent en charge le chiffrement SMB 3.0 envoient et reçoivent des données sur un canal chiffré.
     * Les clients qui ne prennent pas en charge SMB 3.0 peuvent communiquer au sein du centre de données sur SMB 2.1 ou SMB 3.0 sans chiffrement. Notez que les clients ne sont pas autorisés à communiquer entre centres de données sur SMB 2.1 ou SMB 3.0 sans chiffrement.
     * Les clients peuvent communiquer sur l’API REST de fichier avec HTTP ou HTTPS.
+* Chiffrement au repos : toutes les données sont chiffrées avec des clés entièrement gérées. Le chiffrement au repos n’augmente pas les coûts de stockage, ni ne réduit le niveau de performance. 
 * Spécification facultative des données chiffrées en transit : quand Azure Files est sélectionné, vous ne pouvez pas accéder aux données sur des canaux non chiffrés. Plus précisément, seules les connexions HTTPS et SMB 3.0 avec chiffrement sont autorisées. 
 
     > [!Important]  
@@ -80,7 +79,7 @@ Azure Files prend en charge deux options de redondance des données : le stocka
 ### <a name="locally-redundant-storage"></a>Stockage localement redondant
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
-### <a name="geo-redundant-storage"></a>Stockage géoredondant
+### <a name="geo-redundant-storage"></a>Stockage géo-redondant
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Modèle de croissance des données

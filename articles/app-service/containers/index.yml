@@ -21,19 +21,19 @@ sections:
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg'
+              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_net.svg'
             text: .NET Core
             href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-dotnetcore'
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_nodejs.svg'
+              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_nodejs.svg'
             text: Node.js
             href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-nodejs'
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_php.svg'
+              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_php.svg'
             text: PHP
             href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php'
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_java.svg'
+              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_java.svg'
             text: Java
             href: 'https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json'
       - type: paragraph
@@ -53,9 +53,9 @@ sections:
         style: ordered
         items:
           - html: Créer une application à l’aide de <a href="en-us/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core avec Azure SQL DB</a> ou <a href="en-us/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js avec MongoDB</a>
-          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-domain">Mapper un domaine personnalisé existant à votre application</a>
-          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-SSL">Lier un certificat SSL existant à votre application</a>
-          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Ajouter un CDN à votre application</a>
+          - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-domain">Mapper un domaine personnalisé existant à votre application</a>
+          - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-SSL">Lier un certificat SSL existant à votre application</a>
+          - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-content-delivery-network">Ajouter un CDN à votre application</a>
   - title: Exemples
     items:
       - type: paragraph

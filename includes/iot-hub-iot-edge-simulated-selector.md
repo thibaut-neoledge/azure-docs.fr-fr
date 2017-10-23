@@ -2,16 +2,16 @@
 > * [Linux](../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md)
 > * [Windows](../articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md)
 
-Cette procédure pas à pas de [l’exemple de chargement d’un appareil simulé sur le cloud] vous indique comment utiliser [Azure IoT Edge][lnk-sdk] pour envoyer les données de télémétrie appareil-vers-cloud à IoT Hub à partir d’appareils simulés.
+Cette procédure pas à pas de [L’exemple de chargement d’un appareil simulé sur le cloud] vous indique comment utiliser [Azure IoT Edge][lnk-sdk] pour envoyer les données de télémétrie appareil-vers-cloud à IoT Hub à partir d’appareils simulés.
 
 Cette procédure pas à pas inclut les étapes suivantes :
 
-* **Architecture** : informations architecturales concernant [l’exemple de chargement d’un appareil simulé sur le cloud].
+* **Architecture** : informations architecturales concernant [L’exemple de chargement d’un appareil simulé sur le cloud].
 * **Créer et exécuter**: les étapes requises pour créer et exécuter l’exemple.
 
 ## <a name="architecture"></a>Architecture
 
-[l’exemple de chargement d’un appareil simulé sur le cloud] vous indique comment créer une passerelle qui envoie les données de télémétrie d’appareils simulés vers IoT Hub. Un appareil peut ne pas être en mesure de se connecter directement à IoT Hub dans les cas suivants :
+[L’exemple de chargement d’un appareil simulé sur le cloud] vous indique comment créer une passerelle qui envoie les données de télémétrie d’appareils simulés vers IoT Hub. Un appareil peut ne pas être en mesure de se connecter directement à IoT Hub dans les cas suivants :
 
 * L’appareil n’utilise pas un protocole de communication compris par IoT Hub
 * L’appareil n’est pas suffisamment intelligent pour mémoriser l’identité qui lui a été attribuée par IoT Hub
@@ -31,7 +31,7 @@ Cet exemple contient trois modules qui composent la passerelle :
 1. MAC &lt;-&gt; IoT Hub ID module
 1. Module de communication IoT Hub
 
-Les modules ne s’échangent pas directement les messages. Les modules publient des messages vers un répartiteur interne qui remet les messages aux autres modules à l’aide d’un mécanisme d’abonnement. Pour plus d’informations, consultez [Prise en main d’Azure IoT Edge][lnk-gw-getstarted].
+Les modules ne s’échangent pas directement les messages. Les modules publient des messages vers un répartiteur interne qui remet les messages aux autres modules à l’aide d’un mécanisme d’abonnement. Pour plus d’informations, voir [Get started with Azure IoT Edge (Prise en main d’Azure IoT Edge)][lnk-gw-getstarted].
 
 ![Diagramme : Les modules de la passerelle communiquent avec le répartiteur][2]
 
@@ -65,12 +65,12 @@ Le module MAC &lt;-&gt; ID IoT Hub est **identitymap.c** dans le code source.
 
 ### <a name="iot-hub-communication-module"></a>Module de communication IoT Hub
 
-Le module de communication IoT Hub ouvre une connexion HTTP entre la passerelle et IoT Hub. HTTP est un des trois protocoles compris par IoT Hub. Ce module vous évite d’ouvrir une connexion pour chaque appareil. Pour cela, il multiplexe les connexions de tous les appareils sur une connexion. Cette approche permet à une seule passerelle de connecter une multitude d’appareils. 
+Le module de communication IoT Hub ouvre une connexion HTTPS entre la passerelle et IoT Hub. HTTPS est un des trois protocoles compris par IoT Hub. Ce module vous évite d’ouvrir une connexion pour chaque appareil. Pour cela, il multiplexe les connexions de tous les appareils sur une connexion. Cette approche permet à une seule passerelle de connecter une multitude d’appareils. 
 
 Dans l’exemple, ce module :
 
 1. récupère les messages avec une propriété de clé d’appareil IoT Hub attribuée par le module précédent ; 
-1. envoie le contenu des messages à IoT Hub à l’aide du protocole HTTP. 
+1. envoie le contenu des messages à IoT Hub à l’aide du protocole HTTPS. 
 
 Le module de communication IoT Hub est **iothub.c** dans le code source.
 
@@ -87,7 +87,7 @@ Avant de commencer, vous devez :
 [2]: media/iot-hub-iot-edge-simulated-selector/image2.png
 
 <!-- Links -->
-[l’exemple de chargement d’un appareil simulé sur le cloud]: https://github.com/Azure/iot-edge/blob/master/samples/simulated_device_cloud_upload/README.md
+[L’exemple de chargement d’un appareil simulé sur le cloud]: https://github.com/Azure/iot-edge/blob/master/samples/simulated_device_cloud_upload/README.md
 [lnk-sdk]: https://github.com/Azure/iot-edge
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

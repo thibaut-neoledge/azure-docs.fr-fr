@@ -1,16 +1,4 @@
-La version 3.0 du module AzureRm.Resources inclus des modifications importantes par rapport à l’utilisation des balises. Avant de poursuivre, vérifiez votre version :
-
-```powershell
-Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
-```
-
-Si vous avez la version 3.0 ou une version ultérieure, les exemples de cette rubrique fonctionnent avec votre environnement. Si vous n’avez pas la version 3.0 ou une version ultérieure, vous devez [mettre à jour votre version](/powershell/azureps-cmdlets-docs/) à l’aide de PowerShell Gallery ou de Web Platform Installer avant de consulter cette rubrique.
-
-```powershell
-Version
--------
-3.5.0
-```
+Les exemples de cet article nécessitent la version 3.0 ou ultérieure d’Azure PowerShell. Si vous n’avez pas la version 3.0, vous devez [mettre à jour votre version](/powershell/azureps-cmdlets-docs/) à l’aide de PowerShell Gallery ou de Web Platform Installer.
 
 Pour afficher les balises existantes pour un *groupe de ressources*, utilisez :
 
@@ -42,7 +30,7 @@ Alternativement, pour afficher les balises existantes pour une *ressource dont l
 Pour obtenir *les groupes de ressources contenant une balise spécifique*, utilisez :
 
 ```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
+(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name
 ```
 
 Pour obtenir *les ressources contenant une balise spécifique*, utilisez :
@@ -51,7 +39,7 @@ Pour obtenir *les ressources contenant une balise spécifique*, utilisez :
 (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
 ```
 
-Chaque fois que vous appliquez des balises à une ressource ou un groupe de ressources, vous remplacez les balises existantes de cette ressource ou de ce groupe de ressources. Par conséquent, vous devez utiliser une approche différente selon que la ressource ou le groupe de ressources a des balises existantes. 
+Chaque fois que vous appliquez des balises à une ressource ou un groupe de ressources, vous remplacez les balises existantes de cette ressource ou de ce groupe de ressources. Par conséquent, vous devez utiliser une approche différente selon que la ressource ou le groupe de ressources a des balises existantes.
 
 Pour ajouter des balises à un *groupe de ressources ne contenant pas de balises existantes*, utilisez :
 
@@ -70,24 +58,25 @@ Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 Pour ajouter des balises à une *ressource ne contenant pas de balises existantes*, utilisez :
 
 ```powershell
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName examplegroup
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
 ```
 
 Pour ajouter des balises à une *ressource avec des balises existantes*, utilisez :
 
 ```powershell
-$tags = (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
-$tags += @{Status="Approved"}
-Set-AzureRmResource -Tag $tags -ResourceName examplevnet -ResourceGroupName examplegroup
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+$r.tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
 Pour appliquer toutes les balises d’un groupe de ressources à ses ressources *sans conserver les balises existantes*, utilisez le script suivant :
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
-foreach ($g in $groups) 
+foreach ($g in $groups)
 {
-    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force } 
+    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 }
 ```
 
@@ -95,10 +84,10 @@ Pour appliquer toutes les balises d’un groupe de ressources à ses ressources 
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
-foreach ($g in $groups) 
+foreach ($g in $groups)
 {
     if ($g.Tags -ne $null) {
-        $resources = Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName 
+        $resources = Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName
         foreach ($r in $resources)
         {
             $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
@@ -118,6 +107,3 @@ Pour supprimer toutes les balises, utilisez une table de hachage vide :
 ```powershell
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
-
-
-

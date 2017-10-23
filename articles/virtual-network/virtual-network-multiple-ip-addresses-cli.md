@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>Affecter plusieurs adresses IP à des machines virtuelles à l’aide d’Azure CLI 2.0
 
@@ -216,7 +216,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau e
         --public-ip-address myPublicIP3
         ```
 
-    - **Associer la ressource à une configuration IP existante** une ressource d’adresse IP publique peut uniquement être associée à une configuration IP qui n’en avez pas encore associé. Pour déterminer si une configuration IP a une adresse IP publique associée, entrez la commande suivante :
+    - **Associer la ressource à une configuration IP existante** Une ressource d’adresse IP publique peut uniquement être associée à une configuration IP n’ayant pas encore de ressource associée. Pour déterminer si une configuration IP a une adresse IP publique associée, entrez la commande suivante :
 
         ```bash
         az network nic ip-config list \

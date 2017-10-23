@@ -20,6 +20,7 @@
 ### [Tâches de nœud simultanées](batch-parallel-node-tasks.md)
 ### [Nombre des tâches par état](batch-get-task-counts.md)
 ### [Créer un pool avec une image personnalisée](batch-custom-images.md)
+### [Créer un pool dans un réseau virtuel](batch-virtual-network.md)
 ### [Requêtes de liste efficaces](batch-efficient-list-queries.md)
 ### [Tâches d’achèvement et de préparation des travaux](batch-job-prep-release.md)
 ### [Nœuds de calcul Linux](batch-linux-nodes.md)
@@ -62,6 +63,7 @@
 ## [Variables d’environnement de nœud de calcul Azure Batch](batch-compute-node-environment-variables.md)
 
 # Rubriques connexes
+## [Batch AI](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Lot chantier](https://github.com/Azure/batch-shipyard)
 ## [Traitement des données avec Batch et Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Solutions Batch et HPC dans le cloud Azure](batch-hpc-solutions.md)

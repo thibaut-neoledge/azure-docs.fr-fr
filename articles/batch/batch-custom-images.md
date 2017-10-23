@@ -8,14 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
+ms.openlocfilehash: 0816c464b6b52747148cc42a55445048901e7595
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3d655766b4f2a5efb0c8c29ffa81a89f84b3e17c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Utiliser une image personnalisée pour créer un pool de machines virtuelles
 
 Quand vous créez un pool de machines virtuelles dans Azure Batch, vous spécifiez une image de machine virtuelle qui fournit le système d’exploitation à chaque nœud de calcul du pool. Vous pouvez créer un pool de machines virtuelles à partir d’une image de la Place de marché ou en fournissant une image de disque dur virtuel (VHD) personnalisée que vous avez préparée. Quand vous fournissez une image personnalisée, vous pouvez contrôler la façon dont le système d’exploitation est configuré au moment où chaque nœud de calcul est approvisionné. Votre image personnalisée peut également inclure des applications et des données de référence qui sont disponibles sur le nœud de calcul dès qu’il est approvisionné.
@@ -31,7 +29,7 @@ Ce qui peut justifier l’utilisation d’une image personnalisée configurée p
 
 ## <a name="prerequisites"></a>Composants requis
 
-- **Un compte Batch créé avec le mode d’allocation de pool Abonnement utilisateur.** Pour pouvoir utiliser des images personnalisées pour vos pools de machines virtuelles, créez votre compte Batch avec le [mode d’allocation de pool](batch-api-basics.md#pool-allocation-mode) Abonnement utilisateur. Grâce à ce mode, les pools Batch sont alloués au sein de l’abonnement où se trouve le compte. Consultez la section [Compte](batch-api-basics.md#account) dans [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md) pour en savoir plus sur la définition du mode d’allocation de pool quand vous créez un compte Batch.
+- **Un compte Batch créé avec le mode d’allocation de pool Abonnement utilisateur.** Grâce à ce mode, les pools Batch sont alloués au sein de l’abonnement où se trouve le compte. Pour plus d’informations, consultez la section [Compte](batch-api-basics.md#account) de [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md).
 
 - **Un compte de stockage Azure.** Pour créer un pool de machines virtuelles à partir d’une image personnalisée, vous avez besoin d’un compte Stockage Azure standard à usage général qui relève du même abonnement et de la même région. Si vous créez une image personnalisée à partir d’une machine virtuelle Azure, vous devez copier l’image dans le compte de stockage où réside le disque SE de la machine virtuelle, et vous n’avez pas besoin de créer un compte de stockage distinct. 
     

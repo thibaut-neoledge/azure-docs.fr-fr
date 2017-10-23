@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
+ms.openlocfilehash: 91f4d1658875245f023e7546650e7b2592b48af1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
-ms.openlocfilehash: d90b8c41d130526607adb035c5c6d4c02c5f7c4f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Pourquoi une approche de microservices pour la conception d’applications ?
 Pour les développeurs de logiciels que nous sommes, il n’y a rien de nouveau dans notre conception de l’affacturage d’une application en composants. Il s’agit du paradigme central de l’orientation des objets, des abstractions de logiciel et de la modularité. Aujourd’hui, cette factorisation tend à prendre la forme de classes et d’interfaces entre les couches de technologies et les bibliothèques partagées. En règle générale, une approche hiérarchisée est adoptée avec un magasin principal, une logique métier de couche intermédiaire et une interface utilisateur frontale. Ce qui *a changé* au cours des dernières années, c’est que nous, en tant que développeurs, créons des applications distribuées pour le cloud, qui sont pilotées par l’entreprise.
@@ -111,7 +110,7 @@ Dans l’approche de microservices, chaque service gère et stocke son propre é
 Le contrôle des versions est spécifique à la version déployée d’un microservice pour que plusieurs versions différentes puissent être déployées et exécutées côte à côte. Le contrôle des versions traite les scénarios où une version plus récente d’un microservice échoue au cours de la mise à niveau et doit être restaurée vers une version antérieure. L’autre scénario du contrôle de version se produit lorsque des tests de type A/B sont réalisés avec différents utilisateurs essayant différentes versions du service. Par exemple, il est courant de mettre à niveau un microservice pour un ensemble spécifique de clients afin qu’ils testent les nouvelles fonctionnalités avant de le déployer à plus grande échelle. Après la gestion du cycle de vie des microservices, nous arrivons à présent à la communication entre eux.
 
 ### <a name="interacts-with-other-microservices-over-well-defined-interfaces-and-protocols"></a>Ils interagissent avec les autres microservices sur des interfaces et protocoles bien définis
-Cette rubrique n’est pas la plus importante, car de nombreux ouvrages ont été publiés ces 10 dernières années sur l’architecture orientée service et les modèles de communication. En règle générale, la communication de service utilise une approche REST avec les protocoles HTTP et TCP, et les formats de sérialisation XML ou JSON. Du point de vue de l’interface, il s’agit d’adopter l’approche de conception web. Toutefois, rien ne vous empêche d’utiliser des protocoles binaires ou vos propres formats de données. Préparez-vous à ce que les personnes rencontrent davantage de difficultés à utiliser vos microservices s’ils sont ouvertement disponibles.
+Cette rubrique n’est pas la plus importante, car de nombreux ouvrages ont été publiés ces 10 dernières années sur l’architecture orientée service et les modèles de communication. En règle générale, la communication de service utilise une approche REST avec les protocoles HTTP et TCP, et les formats de sérialisation XML ou JSON. Du point de vue de l’interface, il s’agit d’adopter l’approche de conception web. Toutefois, rien ne vous empêche d’utiliser des protocoles binaires ou vos propres formats de données. Préparez-vous à ce que les personnes rencontrent davantage de difficultés à utiliser vos microservices si ces protocoles et formats ne sont pas ouvertement disponibles.
 
 ### <a name="has-a-unique-name-url-used-to-resolve-its-location"></a>Ils possèdent un nom unique (URL) utilisé pour résoudre leur emplacement
 Vous n’avez pas oublié que nous répétons sans cesse que l’approche de microservices est similaire au web ? À l’instar du web, votre microservice doit être adressable partout où il est exécuté. Si vous pensez à des machines et à celles qui exécutent un microservice spécifique, les choses tournent mal rapidement. 
@@ -158,7 +157,7 @@ Une approche clé de Service Fabric consiste à réutiliser le code existant, ce
 
 Il est important d’insister à nouveau sur le fait que vous pouvez **commencer et arrêter à chacune de ces étapes**. Vous n’êtes pas tenu de passer à l’étape suivante. Passons maintenant aux exemples de chacune de ces étapes.
 
-**Lift and Shift** : un grand nombre d’entreprises déplacent des applications monolithiques existantes vers des conteneurs pour deux raisons.
+**Lift and Shift** : un grand nombre d’entreprises déplacent des applications monolithiques existantes vers des conteneurs pour deux raisons.
 
 - Une réduction des coûts liée à la consolidation et à la suppression de matériel existant ou d’applications en cours d’exécution à une densité plus élevée. 
 - Un contrat de déploiement cohérent entre le développement et les opérations.
@@ -187,4 +186,3 @@ L’objectif de Service Fabric consiste à réduire la complexité de la créat
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 [Image3]: media/service-fabric-overview-microservices/microservices-migration.png
-

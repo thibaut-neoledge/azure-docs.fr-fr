@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 454eb7b1f4f48e8a2a78bd3fcb6eb03b6097d44d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 257f661dbc5ff23db53591a1b2db59a8dbeac2dc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux d’appareil IoT Hub
 ## <a name="overview"></a>Vue d'ensemble
@@ -139,9 +138,9 @@ Dans l’exemple précédent, les propriétés souhaitées et signalées du jume
 Vous pouvez utiliser des jumeaux pour synchroniser des opérations de longue durée, telles que des mises à jour de microprogramme. Pour plus d’informations sur l’utilisation de propriétés pour synchroniser et suivre une opération de longue durée sur des appareils, voir [Utiliser des propriétés souhaitées pour configurer des appareils][lnk-twin-properties].
 
 ## <a name="back-end-operations"></a>Opérations principales
-Le back-end de solution opère sur le jumeau d’appareil en utilisant les opérations atomiques suivantes, exposées via HTTP :
+Le back-end de solution opère sur le jumeau d’appareil en utilisant les opérations atomiques suivantes, exposées par le biais du protocole HTTPS :
 
-1. **Récupérer le jumeau d’appareil par son id**. Cette opération retourne le contenu du document du jumeau d’appareil, à savoir les Tags (balises) et les propriétés souhaitées (Desired), signalées (Reported) et système.
+1. **Récupérer la représentation d’appareil par son id**. Cette opération retourne le contenu du document du jumeau d’appareil, à savoir les Tags (balises) et les propriétés souhaitées (Desired), signalées (Reported) et système.
 2. **Mettre à jour partiellement le jumeau d’appareil**. Cette opération permet au serveur principal de solution de mettre à jour partiellement les Tags (balises) ou les propriétés souhaitées (Desired) dans un jumeau d’appareil. La mise à jour partielle est exprimée sous la forme d’un document JSON qui ajoute ou met à jour toute propriété. Les propriétés définies sur `null` sont supprimées. L’exemple suivant crée une propriété souhaitée avec la valeur `{"newProperty": "newValue"}`, remplace la valeur existante de `existingProperty` par `"otherNewValue"` et supprime `otherOldProperty`. Aucune autre modification n’est apportée aux autres propriétés souhaitées ou Tags existants :
    
         {
@@ -369,4 +368,3 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png
-

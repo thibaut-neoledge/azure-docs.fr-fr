@@ -5,8 +5,8 @@
 
 # Prise en main
 ## [Créez votre première application logique](logic-apps-create-a-logic-app.md)
-## [Modèles d’applications logiques](logic-apps-use-logic-app-templates.md)
-## [Créer des applications logiques à partir de modèles](logic-apps-arm-provision.md)
+## [Créer des applications logiques à partir de modèles](logic-apps-create-logic-apps-from-templates.md)
+## [Créer des applications logiques à l’aide de modèles Resource Manager](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [Déplacer des applications MABS vers des applications logiques](logic-apps-move-from-mabs.md)
 
 # Procédure

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reserved-ip-addresses-classic"></a>Adresses IP réservées (Classic)
 
@@ -47,11 +47,11 @@ Pour en savoir plus sur les adresses IP dans Azure, voir l’article [Adresses I
 1. Puis-je utiliser une adresse IP réservée pour tous les services Azure ? <br>
     Non. Les adresses IP réservées peuvent être utilisées uniquement pour les machines virtuelles et les rôles d'instance de service cloud exposés par une adresse IP virtuelle.
 2. Combien d’adresses IP réservées puis-je avoir ? <br>
-    Pour plus d’informations, consultez la [Azure limite](../azure-subscription-service-limits.md#networking-limits) l’article.
+    Pour plus d’informations, consultez l’article sur les [limites Azure](../azure-subscription-service-limits.md#networking-limits).
 3. L’obtention d’adresses IP réservées est-elle payante ? <br>
     Parfois. Pour plus d’informations sur la tarification, consultez la [Tarification – Adresses IP réservées](http://go.microsoft.com/fwlink/?LinkID=398482).
 4. Comment réserver une adresse IP ? <br>
-    Vous pouvez utiliser PowerShell, le [API REST de gestion Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx), ou [portail Azure](https://portal.azure.com) de réserver une adresse IP dans une région Azure. Une adresse IP réservée est associée à votre abonnement.
+    Vous pouvez utiliser PowerShell, l’[API REST de gestion Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) ou le [portail Azure](https://portal.azure.com) pour réserver une adresse IP dans une région Azure. Une adresse IP réservée est associée à votre abonnement.
 5. Puis-je utiliser une adresse IP réservée avec des réseaux virtuels basés sur un groupe d'affinités ? <br>
     Non. Les adresses IP réservées sont uniquement prises en charge dans les réseaux virtuels régionaux. Les adresses IP réservées ne sont pas prises en charge dans les réseaux virtuels associés à des groupes d’affinités. Pour plus d'informations sur l'association d'un réseau virtuel à une région ou un groupe d'affinités, consultez l’article [À propos des réseaux virtuels et groupes d’affinités régionaux](virtual-networks-migrate-to-regional-vnet.md).
 

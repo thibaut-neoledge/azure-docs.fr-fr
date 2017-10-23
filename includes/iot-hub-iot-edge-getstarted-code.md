@@ -4,28 +4,28 @@ L’exemple ci-après présente la sortie inscrite dans le fichier journal par l
 
 ```json
 [{
-    "time": "Mon Apr 11 13:48:07 2016",
+    "time": "Mon Apr 11 13:42:50 2016",
     "content": "Log started"
 }, {
-    "time": "Mon Apr 11 13:48:48 2016",
+    "time": "Mon Apr 11 13:42:50 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:48:55 2016",
+    "time": "Mon Apr 11 13:42:55 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:49:01 2016",
+    "time": "Mon Apr 11 13:43:00 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:49:04 2016",
+    "time": "Mon Apr 11 13:45:00 2016",
     "content": "Log stopped"
 }]
 ```
@@ -36,11 +36,11 @@ Cette section présente certains éléments clés du code dans l’exemple hello
 
 ### <a name="iot-edge-gateway-creation"></a>Création de la passerelle IoT Edge
 
-Vous devez implémenter un *processus de passerelle*. Ce programme crée l’infrastructure interne (le répartiteur), charge les modules IoT Edge et configure le processus de passerelle. IoT Edge fournit la fonction **Gateway\_Create\_From\_JSON** pour vous permettre d’amorcer une passerelle à partir d’un fichier JSON. Pour utiliser la fonction **Gateway\_Create\_From\_JSON**, transmettez-lui le chemin d’accès à un fichier JSON qui spécifie les modules IoT Edge à charger.
+Pour créer une passerelle, implémentez un *processus de passerelle*. Ce programme crée l’infrastructure interne (le répartiteur), charge les modules IoT Edge et configure le processus de passerelle. IoT Edge fournit la fonction **Gateway\_Create\_From\_JSON** pour vous permettre d’amorcer une passerelle à partir d’un fichier JSON. Pour utiliser la fonction **Gateway\_Create\_From\_JSON**, transmettez-lui le chemin d’accès à un fichier JSON qui spécifie les modules IoT Edge à charger.
 
 Vous trouverez le code du processus de passerelle de l’exemple *Hello World* dans le fichier [main.c][lnk-main-c]. Pour une meilleure lisibilité, l’extrait de code ci-dessous affiche une version abrégée du code du processus de passerelle. Cet exemple crée une passerelle, puis attend que l’utilisateur appuie sur la touche **ENTRÉE** avant de mettre fin à la passerelle.
 
-```c
+```C
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -64,7 +64,7 @@ Le fichier de paramètres JSON contient une liste des modules IoT Edge à char
 * **nom** : un nom unique pour le module.
 * **chargeur** : un chargeur qui sait comment charger le module souhaité. Les chargeurs correspondent à un point d’extension pour le chargement des différents types de modules. IoT Edge fournit des chargeurs compatibles avec des modules écrits nativement en C, en Node.js, en Java et en .NET. L’exemple Hello World utilise uniquement le chargeur C natif, car tous les modules de cet exemple sont des bibliothèques dynamiques écrites en C. Reportez-vous aux exemples [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample) ou [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) pour en savoir plus sur l’utilisation des modules IoT Edge écrits dans d’autres langages.
     * **nom** : le nom du chargeur utilisé pour charger le module.
-    * **point d’entrée** : le chemin d'accès à la bibliothèque contenant le module. Il s’agit d’un fichier .so sous Linux, et d’un fichier .dll sous Windows. Le point d’entrée est spécifique au type de chargeur utilisé. Le point d’entrée du chargeur Node.js est un fichier .js. Le point d’entrée du chargeur Java est un chemin de classe et un nom de classe. Le point d’entrée du chargeur .NET est un nom d’assembly et un nom de classe.
+    * **point d’entrée** : le chemin d'accès à la bibliothèque contenant le module. Sur Linux, cette bibliothèque est un fichier .so, sous Windows, un fichier .dll. Le point d’entrée est spécifique au type de chargeur utilisé. Le point d’entrée du chargeur Node.js est un fichier .js. Le point d’entrée du chargeur Java est un chemin de classe et un nom de classe. Le point d’entrée du chargeur .NET est un nom d’assembly et un nom de classe.
 
 * **args** : toute information de configuration nécessaire au module.
 
@@ -119,7 +119,7 @@ Le code suivant correspond au code JSON utilisé pour configurer les liens entr
 
 Vous trouverez le code utilisé par le module hello\_world pour publier des messages dans le fichier ['hello_world.c'][lnk-helloworld-c]. L’extrait de code ci-dessous représente une version modifiée du code. Les commentaires ajoutés et une partie du code de gestion d’erreur utilisé ont été supprimés pour une meilleure lisibilité :
 
-```c
+```C
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -165,24 +165,22 @@ int helloWorldThread(void *param)
 }
 ```
 
-### <a name="helloworld-module-message-processing"></a>Traitement des messages du module hello\_world
-
 Le module hello\_world ne traite jamais les messages que les autres modules IoT Edge publient sur le répartiteur. Pour cette raison, l’implémentation du rappel de message dans le module hello\_world est inopérante.
 
-```c
+```C
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
 }
 ```
 
-### <a name="logger-module-message-publishing-and-processing"></a>Publication et traitement des messages du module enregistreur
+### <a name="logger-module-message-processing"></a>Traitement des messages du module de l’enregistreur d’événements
 
 Le module d’enregistreur d’événements reçoit des messages du répartiteur et les écrit dans un fichier. Il ne publie jamais les messages. Par conséquent, le code du module enregistreur n’appelle jamais la fonction **Broker_Publish**.
 
 La fonction **Logger_Receive** du fichier [logger.c][lnk-logger-c] est le rappel que le répartiteur appelle pour remettre les messages au module enregistreur. L’extrait de code ci-dessous représente une version modifiée de ce code. Les commentaires ajoutés et une partie du code de gestion d’erreur utilisé ont été supprimés pour une meilleure lisibilité :
 
-```c
+```C
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -223,7 +221,10 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le cadre de cet article, vous avez exécuté une passerelle IoT Edge simple qui consigne des messages dans un fichier journal. Pour exécuter un exemple qui envoie des messages à IoT Hub, consultez l’article [Utilisation d’Azure IoT Edge pour envoyer des messages appareil-à-cloud avec un appareil simulé (Linux)][lnk-gateway-simulated-linux] ou [Utilisation d’Azure IoT Edge pour envoyer des messages appareil-à-cloud avec un appareil simulé (Windows)][lnk-gateway-simulated-windows].
+Dans le cadre de cet article, vous avez exécuté une passerelle IoT Edge simple qui consigne des messages dans un fichier journal. Pour exécuter un exemple qui envoie des messages à IoT Hub, consultez :
+
+- [IoT Edge – send device-to-cloud messages with a simulated device using Linux (IoT Edge : envoyer des messages appareil-à-cloud avec un appareil simulé à l’aide de Linux)][lnk-gateway-simulated-linux]. 
+- [IoT Edge – send device-to-cloud messages with a simulated device using Linux (IoT Edge : envoyer des messages appareil-à-cloud avec un appareil simulé à l’aide de Windows)][lnk-gateway-simulated-windows].
 
 
 <!-- Links -->

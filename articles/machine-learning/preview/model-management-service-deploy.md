@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
+ms.openlocfilehash: 0ebf8964bc565e5d4f95fb1ad3edbc16f841851c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: d95f8d32d9aeca5202623909fcf78014fa2e4458
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Déploiement d’un modèle d’apprentissage automatique comme service web
 
@@ -32,7 +31,7 @@ Les étapes de déploiement sont les suivantes :
 1. Utilisez le modèle d’apprentissage automatique que vous avez enregistré et formé.
 2. Créez un schéma pour les données d’entrée et de sortie de votre service web.
 3. Créez une image de conteneur basée sur Docker.
-4. Créez et déployez le service web.
+4. Créez et déployez le service web
 
 ### <a name="1-save-your-model"></a>1. Enregistrez votre modèle
 Partez de votre fichier de modèle enregistré et formé, par exemple, mymodel.pkl. L’extension de fichier varie en fonction de la plateforme que vous utilisez pour former et enregistrer le modèle. 
@@ -132,7 +131,7 @@ La commande suivante permet d’inscrire un modèle créé à l’étape 1 ci-d
 az ml model register --model [path to model file] --name [model name]
 ```
 
-### <a name="5-create-manifest"></a>5. Créez un manifeste
+### <a name="5-create-manifest"></a>5. Créer un manifeste
 La commande suivante permet de créer un manifeste pour le modèle,
 
 ```
@@ -140,7 +139,7 @@ az ml manifest create --manifest-name [your new manifest name] -f [path to code 
 ```
 Vous pouvez ajouter au manifeste un modèle inscrit précédemment en utilisant l’argument `--model-id` ou `-i` dans la commande présentée ci-dessus. Plusieurs modèles peuvent être spécifiés avec des arguments -i supplémentaires.
 
-### <a name="6-create-an-image"></a>6. Créez une image 
+### <a name="6-create-an-image"></a>6. Créer une image 
 Vous pouvez créer une image avec la possibilité de créer préalablement son manifeste. 
 
 ```
@@ -165,7 +164,7 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->Vous pouvez aussi utiliser une seule commande pour effectuer les deux actions. Pour plus d’informations, utilisez -h avec la commande service create.
+>Vous pouvez aussi utiliser une seule commande pour effectuer les quatre étapes précédentes. Pour plus d’informations, utilisez -h avec la commande service create.
 
 ### <a name="8-test-the-service"></a>8. Testez le service
 Pour savoir comment appeler le service, utilisez la commande suivante :
@@ -188,4 +187,3 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez testé votre service web pour une exécution locale, vous pouvez le déployer sur un cluster pour une utilisation à grande échelle. Pour plus d’informations sur la configuration d’un cluster en vue du déploiement d’un service web, consultez [Configuration de la gestion des modèles](model-management-configuration.md). 
-

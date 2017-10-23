@@ -20,9 +20,25 @@
 ## [Guide de déploiement SAP IDES sur Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP NetWeaver sur les machines virtuelles Azure Linux](suse-quickstart.md)
 ## [Planifier l’implémentation de SAP NetWeaver dans Azure](planning-guide.md)
-## [Haute disponibilité sur Windows](high-availability-guide.md)
-## [Haute disponibilité sur SUSE Linux](high-availability-guide-suse.md)
-## [Configurations à plusieurs SID](high-availability-multi-sid.md)
+## Haute disponibilité (HA) sur Windows et Linux
+### [Vue d'ensemble](sap-high-availability-guide-start.md)
+### Architecture haute disponibilité
+#### [Architecture haute disponibilité et scénarios](sap-high-availability-architecture-scenarios.md)
+#### [Architecture à plus haute disponibilité et scénarios](sap-higher-availability-architecture-scenarios.md)
+#### [Haute disponibilité sur Windows avec disque partagé pour l’instance (A)SCS](sap-high-availability-guide-wsfc-shared-disk.md)
+#### [Haute disponibilité sur Windows avec partage de fichiers SOFS pour l’instance (A)SCS](sap-high-availability-guide-wsfc-file-share.md)
+#### [Haute disponibilité sur SUSE Linux pour l’instance (A)SCS](high-availability-guide-suse.md)
+### Préparation de l’infrastructure Azure
+#### [Windows avec disque partagé pour l’instance (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
+#### [Windows avec partage de fichiers SOFS pour l’instance (A)SCS](sap-high-availability-infrastructure-wsfc-file-share.md)
+#### [SUSE Linux avec NFS pour l’instance (A)SCS](high-availability-guide-suse.md)
+### Installation de SAP
+#### [Windows avec disque partagé pour l’instance (A)SCS](sap-high-availability-installation-wsfc-shared-disk.md)
+#### [Windows avec partage de fichiers SOFS pour l’instance (A)SCS](sap-high-availability-installation-wsfc-file-share.md)
+#### [SUSE Linux avec NFS pour l’instance (A)SCS](high-availability-guide-suse.md)
+### Multi-SID SAP
+#### [Windows avec disque partagé pour l’instance (A)SCS](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
+#### [Windows avec partage de fichiers SOFS pour l’instance (A)SCS](sap-ascs-ha-multi-sid-wsfc-file-share.md)
 ## [Guide de déploiement](deployment-guide.md)
 ## [Guide de déploiement SGBD](dbms-guide.md)
 ## [Récupération d’urgence de SAP avec Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)

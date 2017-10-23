@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: "Documentation Microsoft Azure"
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
-ms.openlocfilehash: e87391e9662991a542ad58eafd9b4c2714f30d66
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 552739da2429fd747101ae5e28e805ca8559b431
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/21/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -658,7 +658,7 @@ ms.lasthandoff: 10/14/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/translator/">
+                                            <a href="/azure/cognitive-services/translator/translator-info-overview">
                                                 <img src="media/index/cognitive-services-translator.svg" alt="" />
                                                 <p>API de traduction de texte Translator Text</p>
                                             </a>
@@ -712,7 +712,7 @@ ms.lasthandoff: 10/14/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/speech/">
+                                            <a href="/azure/cognitive-services/speech/home">
                                                 <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
                                                 <p>Service vocal Bing</p>
                                             </a>
@@ -791,6 +791,12 @@ ms.lasthandoff: 10/14/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>Stockage sur disque</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/storage/queues/storage-queues-introduction/">
                                                 <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                 <p>Stockage de files d’attente</p>
@@ -800,12 +806,6 @@ ms.lasthandoff: 10/14/2017
                                             <a href="/azure/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>Stockage de fichiers</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-machines/disks/">
-                                                <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>Stockage sur disque</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1682,6 +1682,25 @@ ms.lasthandoff: 10/14/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Stockage sur disque</h3>
+                                                    <p>Stockage de disque pour machines virtuelles</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/storage/queues/storage-queues-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1713,25 +1732,6 @@ ms.lasthandoff: 10/14/2017
                                                 <div class="cardText">
                                                     <h3>Stockage de fichiers</h3>
                                                     <p>Système de fichiers multiplateforme, simple et distribué</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Disks-color.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Stockage sur disque</h3>
-                                                    <p>Stockage de disques pour machines virtuelles</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2590,7 +2590,7 @@ ms.lasthandoff: 10/14/2017
                                                         <h3>Microsoft Speech</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/speech/"><img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />Service de reconnaissance vocale Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/speech/home"><img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />Service de reconnaissance vocale Bing</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="media/index/API_Spc_CustomSpeechService.svg" alt="" /><span>Service de reconnaissance vocal personnalisé&nbsp;<sup style="font-size:70%">VERSION PRÉLIMINAIRE</sup></span></a>
@@ -2621,10 +2621,10 @@ ms.lasthandoff: 10/14/2017
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_Lang_LinguisticAnalysis.svg" alt="" /><span>Analyse linguistique&nbsp;<sup style="font-size:70%">VERSION PRÉLIMINAIRE</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/overview"><img src="media/index/API_Lang_TextAnalytics.svg" alt="" /><span>Analyse de texte&nbsp;<sup style="font-size:70%">VERSION PRÉLIMINAIRE</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/overview"><img src="media/index/API_Lang_TextAnalytics.svg" alt="" />Analyse de texte</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/translator/"><img src="media/index/cognitive-services-translator.svg" alt="" />API de traduction de texte Translator Text</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/cognitive-services-translator.svg" alt="" />Translator Text</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="media/index/API_Lang_WebLM.svg" alt="" /><span>Modèle de langage web&nbsp;<sup style="font-size:70%">VERSION PRÉLIMINAIRE</sup></span></a>

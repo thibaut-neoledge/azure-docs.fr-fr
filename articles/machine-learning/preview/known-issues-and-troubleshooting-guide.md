@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
+ms.openlocfilehash: f79910ba4fea81e88fce90dd67ba7cb4db2e8220
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 8a8d4a9e9246bca5513787e776e91e7e3f2eed68
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Problèmes connus et guide de dépannage 
 Cet article vous permet de rechercher et corriger les erreurs ou défaillances rencontrées dans le cadre de l’utilisation de l’application Azure Machine Learning Workbench. 
 
@@ -26,26 +24,48 @@ Cet article vous permet de rechercher et corriger les erreurs ou défaillances r
 
 ![vérifier le numéro de version](media/known-issues-and-troubleshooting-guide/buildno.png)
 
-## <a name="how-to-get-help"></a>Comment obtenir de l'aide
-Il existe différentes manières pour obtenir de l’aide.
+## <a name="machine-learning-msdn-forum"></a>Forum MSDN Machine Learning
+Nous avons un forum MSDN sur lequel vous pouvez poster des questions. L’équipe produit surveille le forum activement. L’URL du forum est la suivante : [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
 
-### <a name="post-to-msdn-forum"></a>Publier sur le forum MSDN
-Nous avons un forum MSDN sur leque vous pouvez poster des questions. L’équipe produit surveille le forum activement. L’adresse est la suivante : [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum).
+## <a name="gather-diagnostics-information"></a>Collecter des informations de diagnostic
+Parfois, fournir des informations de diagnostic quand vous demandez de l’aide peut se révéler utile. Les fichiers journaux se trouvent aux emplacements suivants :
 
-### <a name="gather-diagnostics-information"></a>Collecter des informations de diagnostic
-Parfois, nous vous demanderons peut-être de nous envoyer des informations de diagnostic d’une exécution spécifique. Vous pouvez créer un package avec les fichiers appropriés à l’aide de la commande suivante :
+### <a name="installer"></a>Programme d’installation
+Si vous rencontrez des problème lors de l’installation, les fichiers journaux du programme d’installation sont ici :
+
+```
+# Windows:
+%TEMP%\amlinstaller\logs\*
+
+# macOS:
+/tmp/amlinstaller/logs/*
+```
+Vous pouvez compresser le contenu de ces répertoires et nous l’envoyer à des fins de diagnostics.
+
+### <a name="workbench-desktop-app"></a>Application de bureau Workbench
+Si le bureau Workbench se bloque, vous trouverez les fichiers journaux à l’emplacement suivant :
+```
+# Windows
+%APPDATA%\AmlWorkbench
+
+# macOS
+~/Library/Application Support/AmlWorkbench
+``` 
+Vous pouvez compresser le contenu de ces répertoires et nous l’envoyer à des fins de diagnostics.
+
+### <a name="experiment-execution"></a>Exécution de la commande experiment
+Si un script particulier échoue lors de l’envoi à partir de l’application de bureau, essayez de le renvoyer par le biais de la commande `az ml experiment submit` de l’interface CLI. Vous devriez obtenir un message d’erreur complet au format JSON contenant une valeur **ID d’opération**. Envoyez-nous le fichier JSON, notamment **l’ID d’opération**, et nous vous aiderons à diagnostiquer le problème. 
+
+Si l’envoi d’un script particulier réussit, mais que son exécution échoue, le script doit afficher **l’ID d’exécution** pour identifier cette exécution spécifique. Vous pouvez créer un package avec les fichiers journaux appropriés à l’aide de la commande suivante :
 
 ```azurecli
-# Find out the run id first
-$ az ml history list -o table
-
 # Create a ZIP file that contains all the diagnostics information
 $ az ml experiment diagnostics -r <run_id> -t <target_name>
 ```
 
-La commande `az ml experiment diagnostics` génère un fichier `diagnostics.zip` dans le dossier racine du projet. Ce fichier ZIP contient le dossier de projet complet à l’état de sa dernière exécution, ainsi que des informations de journalisation. Veillez à supprimer toutes les informations sensibles que vous ne souhaitez pas inclure avant de nous envoyer le fichier de diagnostics.
+La commande `az ml experiment diagnostics` génère un fichier `diagnostics.zip` dans le dossier racine du projet. Le fichier ZIP contient le dossier de projet complet à l’état de sa dernière exécution, ainsi que des informations de journalisation. Veillez à supprimer toutes les informations sensibles que vous ne souhaitez pas inclure avant de nous envoyer le fichier de diagnostics.
 
-### <a name="send-us-a-frown-or-a-smile"></a>Envoyez-nous un smiley mécontent (ou un sourire)
+## <a name="send-us-a-frown-or-a-smile"></a>Envoyez-nous un smiley mécontent (ou un sourire)
 
 Lorsque vous utilisez Azure ML Workbench, vous pouvez également nous envoyer un smiley mécontent (ou un sourire) en cliquant sur l’émoticône dans l’angle inférieur gauche de l’interpréteur de commandes de l’application. Vous pouvez éventuellement choisir d’inclure votre adresse e-mail (de sorte que nous puissions vous contacter), et/ou une capture d’écran de l’état actuel. 
 

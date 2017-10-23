@@ -15,12 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Exécution d’un serveur d’applications Java sur une machine virtuelle créée avec le modèle de déploiement classique.
 > [!IMPORTANT]
@@ -121,7 +120,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 10. Dans l’écran **Name**, indiquez un nom pour la règle, par exemple **HttpIn** (il n’est pas nécessaire que ce nom corresponde à celui du point de terminaison), puis cliquez sur **Terminer**.  
     ![Nom de nouvelle règle de trafic entrant][NewRuleName]
 
-À ce stade, votre site web Tomcat doit être visible à partir d’un navigateur externe. Dans la fenêtre d’adresse du navigateur,entrez une URL au format **http://*votre\_nom\_DNS*.cloudapp.net**, où***votre\_nom\_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
+À ce stade, votre site web Tomcat doit être visible à partir d’un navigateur externe. Dans la fenêtre d’adresse du navigateur,entrez une URL au format **http://*votre\_nom\_DNS*.cloudapp.net**, où ***votre\_nom\_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
 
 ## <a name="application-lifecycle-considerations"></a>Considérations relatives au cycle de vie de l'application
 * Vous pouvez créer votre propre archive web d’application (WAR) et l’ajouter au dossier **webapps** . Par exemple, créez un projet web dynamique Java Service Page (JSP) de base et exportez-le sous forme de fichier WAR. Ensuite, copiez le fichier WAR dans le dossier **webapps** Apache Tomcat sur la machine virtuelle, puis exécutez-le dans un navigateur.
@@ -159,4 +158,3 @@ Vous pouvez en apprendre davantage sur les autres services, tels qu’Azure Stor
 6. In the **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
 7. In the **New endpoint details** dialog box:
 -->
-

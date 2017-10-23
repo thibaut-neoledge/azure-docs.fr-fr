@@ -12,16 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 499d10943f606a67ca04bfdf5f7cad44f9e20d07
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-deploy-azure-files"></a>Comment déployer Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article explique comment déployer pratiquement Azure Files au sein de votre organisation.
 
@@ -37,7 +35,9 @@ Cet article suppose que vous avez déjà accompli les étapes suivantes :
 Vous pouvez migrer des partages de fichiers existants tels que ceux stockés localement vers votre nouveau partage de fichiers Azure. Cette section montre comment déplacer des données dans un partage de fichiers Azure à l’aide de plusieurs méthodes populaires détaillées dans le [guide de planification](storage-files-planning.md#data-transfer-method).
 
 ### <a name="azure-file-sync-preview"></a>Synchronisation de fichiers Azure (préversion)
-Vous pouvez utiliser la fonctionnalité Synchronisation de fichiers Azure (préversion) pour migrer des données dans un partage de fichiers Azure, même si le mécanisme de synchronisation n’est pas souhaité pour une utilisation à long terme. Pour plus d’informations sur l’utilisation de la fonctionnalité Synchronisation de fichiers Azure pour entrer des données dans un partage de fichiers Azure, voir [Planification d’un déploiement de la fonctionnalité Synchronisation de fichiers Azure](storage-sync-files-planning.md) et [Comment déployer la fonctionnalité Synchronisation de fichiers Azure](storage-sync-files-deployment-guide.md).
+La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
+
+Vous pouvez utiliser la synchronisation de fichiers Azure pour migrer des données dans un partage de fichiers Azure, même si le mécanisme de synchronisation n’est pas souhaité pour une utilisation à long terme. Pour plus d’informations sur l’utilisation de la synchronisation de fichiers Azure pour transférer des données vers un partage de fichiers Azure, consultez [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md) et [Déploiement de la synchronisation de fichiers Azure](storage-sync-files-deployment-guide.md).
 
 ### <a name="azure-importexport"></a>Azure Import/Export
 Le service Azure Import/Export permet de transférer en toute sécurité des volumes importants de données dans un partage de fichiers Azure en expédiant des disques durs vers un centre de données Azure. Pour obtenir une présentation plus détaillée du service, voir [Transférer des données vers Stockage Azure à l’aide du service Microsoft Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).

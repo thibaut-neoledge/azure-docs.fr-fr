@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/18/2017
 ms.author: genli
+ms.openlocfilehash: 8d66bbdf6f7153cf59af60051e54377f6eccdc3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 45953b4512cb2f602edbd837e62b9344c4211d03
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights 
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) est un script automatisé qui collecte des informations de diagnostic utiles, exécute des charges d’E/S et fournit un rapport d’analyse afin de faciliter la résolution de problèmes de performances liés aux machines virtuelles Windows dans Microsoft Azure. 
+[PerfInsights](http://aka.ms/perfinsightsdownload) est un script automatisé qui collecte des informations de diagnostic utiles, exécute des charges d’E/S et fournit un rapport d’analyse afin de faciliter la résolution de problèmes de performances liés aux machines virtuelles Windows dans Microsoft Azure. Vous pouvez l’exécuter sur les machines virtuelles sous forme de script autonome ou directement à partir du portail en installant l’[extension de diagnostic de performance des machines virtuelles Azure](performance-diagnostics-vm-extension.md).
 
 Nous vous recommandons d’exécuter ce script avant d’ouvrir un ticket de support Microsoft pour les problèmes de performances liés aux machines virtuelles.
 
@@ -189,7 +188,16 @@ Tests de charge de travail d’E/S Diskspd [disque de système d’exploitation 
 
 ### <a name="how-do-i-run-perfinsights"></a>Comment exécuter PerfInsights ? 
 
-Pour exécuter le script, procédez comme suit :
+Vous pouvez exécuter PerfInsights sur une machine virtuelle en installant l’[extension de diagnostic de performance des machines virtuelles Azure](performance-diagnostics-vm-extension.md) ou en l’exécutant comme script autonome. 
+
+**Installer et exécuter PerfInsights à partir du portail Azure**
+
+Vous pouvez maintenant exécuter PerfInsights à l’aide d’une extension de machine virtuelle appelée extension de diagnostic de performance Azure. Pour plus d’informations, consultez [Installer l’extension de diagnostic de performance Azure](performance-diagnostics-vm-extension.md#install-the-extension).  
+
+**Exécuter le script PerfInsights en mode autonome**
+
+Pour exécuter le script PerfInsights, suivez ces étapes :
+
 
 1. Téléchargez [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
 
@@ -350,4 +358,3 @@ Ce message sera envoyé à partir de **CTS Automated Diagnostics Services** (cts
 Pour plus de sécurité, vous devez modifier votre mot de passe à la première utilisation.
 
 Après vous être connecté à DTM, une boîte de dialogue s’affiche pour vous inviter à charger le fichier **CollectedData\_aaaa-MM-jj\_hh\_mm\_ss.zip** collecté par PerfInsights.
-

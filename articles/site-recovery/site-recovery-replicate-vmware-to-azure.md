@@ -12,17 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 09/29/2017
 ms.author: asgang
+ms.openlocfilehash: a0d146081b552ee181fdf93fb60790c27f108888
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e0047a996c9bfd7d950b32f0871ddd7608924b42
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="replicate-applications-running-on-vmware-vms-to-azure"></a>Répliquer des applications s’exécutant sur des machines virtuelles VMware vers Azure
 
 
@@ -43,7 +40,7 @@ Lors de la réplication de machines virtuelles VMware, prenez note des points su
 * Votre compte d’utilisateur Azure doit disposer de certaines [autorisations](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) pour activer la réplication d’une machine virtuelle dans Azure.
 * Les machines virtuelles VMware sont découvertes toutes les 15 minutes, et il peut s’écouler 15 minutes ou plus entre leur découverte et leur affichage dans le portail. De même, la découverte peut prendre 15 minutes ou plus lorsque vous ajoutez un serveur vCenter ou un hôte vSphere.
 * La mise à jour avec les modifications de l’environnement sur la machine virtuelle (par exemple, l’installation d’outils VMware) peut aussi prendre plus de 15 minutes.
-* Vous pouvez vérifier l’heure de la dernière découverte de machines virtuelles VMware dans le champ **Dernier contact à** correspondant au serveur vCenter ou à l’hôte vSphere dans le panneau **Serveurs de configuration**.
+* Vous pouvez vérifier l’heure de la dernière découverte de machines virtuelles VMware dans le champ **Dernier contact à** correspondant au serveur vCenter ou à l’hôte vSphere dans la page **Serveurs de configuration**.
 * Pour ajouter des machines à répliquer sans attendre la découverte planifiée, mettez en surbrillance le serveur de configuration (sans cliquer dessus) et cliquez sur le bouton **Actualiser**.
 * Lorsque vous activez la réplication, si la machine est prête, le serveur de processus installe automatiquement le service Mobilité sur ce dernier.
 
@@ -51,7 +48,7 @@ Lors de la réplication de machines virtuelles VMware, prenez note des points su
 **À présent, activez la réplication comme suit**:
 
 1. Cliquez sur **Étape 2 : Répliquer l’application** > **Source**. Après avoir activé la réplication pour la première fois, cliquez sur l’option **+Répliquer** dans le coffre pour activer la réplication des autres machines.
-2. Dans le panneau **Source** > **Source**, sélectionnez le serveur de configuration.
+2. Dans la page **Source** > **Source**, sélectionnez le serveur de configuration.
 3. Dans la zone **Type de machine**, sélectionnez **Machines virtuelles** ou **Machines physiques**.
 4. Dans la zone **Hyperviseur vCenter/vSphere**, sélectionnez le serveur vCenter qui gère l’hôte vSphere, ou sélectionnez l’hôte. Ce paramètre n’est pas utile si vous répliquez des machines physiques.
 5. Sélectionnez le serveur de processus. Si vous n’avez pas créé de serveur de processus supplémentaire, il s’agit du serveur de configuration. Cliquez ensuite sur **OK**.
@@ -78,7 +75,7 @@ Lors de la réplication de machines virtuelles VMware, prenez note des points su
 12. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée. Vous pouvez modifier les paramètres de la stratégie de réplication dans **Paramètres** > **Stratégies de réplication** > Nom de la stratégie > **Modifier les paramètres**. Les modifications que vous appliquez à une stratégie seront appliquées à la réplication et aux nouvelles machines.
 13. Cochez la case **Cohérence multimachine virtuelle** pour regrouper les machines dans un groupe de réplication, et nommez le groupe. Cliquez ensuite sur **OK**. Notez les points suivants :
 
-    * Toutes les machines d’un groupe de réplication sont répliquées ensemble et elles ont des points de récupération cohérents après incident et avec les applications lorsqu’elles basculent.
+    * Toutes les machines d’un groupe de réplication sont répliquées ensemble et elles ont des points de récupération cohérents après incident et avec les applications quand elles basculent.
     * Nous vous recommandons de rassembler les machines virtuelles et les serveurs physiques afin qu’ils reflètent vos charges de travail. L’activation de la cohérence multimachine virtuelle peut affecter les performances de la charge de travail et elle ne doit être utilisée que si les machines exécutent la même charge de travail et si vous avez besoin de cohérence.
 
     ![Activer la réplication](./media/site-recovery-vmware-to-azure/enable-replication7.png)
@@ -93,21 +90,21 @@ Lors de la réplication de machines virtuelles VMware, prenez note des points su
 
 Nous vous recommandons de vérifier les propriétés de la machine source. N’oubliez pas que le nom de la machine virtuelle Azure doit respecter la [configuration requise pour les machines virtuelles Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-1. Cliquez sur **Paramètres** > **Éléments répliqués** > et sélectionnez la machine. Le panneau **Bases** affiche des informations sur les paramètres et l’état des machines.
+1. Cliquez sur **Paramètres** > **Éléments répliqués** > et sélectionnez la machine. La page **Bases** affiche des informations sur les paramètres et l’état des machines.
 2. Dans **Propriétés**, vous pouvez afficher les informations sur la réplication et le basculement de la machine virtuelle.
 3. Dans **Calcul et réseau** > **Propriétés de calcul**, vous pouvez spécifier la taille de la cible et le nom de la machine virtuelle Azure. Si besoin, modifiez ce nom afin de respecter les exigences d’Azure.
-    ![Activer la réplication](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
- 
-4.  Vous pouvez sélectionner un [groupe de ressources](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) dont l’ordinateur fera partie lors du post-basculement. Vous pouvez modifier ce paramètre avant le basculement. Après le basculement, si vous migrez l’ordinateur vers un autre groupe de ressources, les paramètres de protection de l’ordinateur ne seront plus adaptés.
-5. Vous pouvez sélectionner un basculement de [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) si votre ordinateur doit faire partie d’un post-basculement. Lorsque vous sélectionnez le groupe à haute disponibilité, prenez note de ce qui suit :
+    ![Activer la réplication](./media/site-recovery-vmware-to-azure/vmproperties.png)
+
+4.  Vous pouvez sélectionner un [groupe de ressources](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) dont l’ordinateur fera partie pendant le post-basculement. Vous pouvez changer ce paramètre avant le basculement. Après le basculement, si vous migrez l’ordinateur vers un autre groupe de ressources, les paramètres de protection de l’ordinateur ne sont plus adaptés.
+5. Vous pouvez sélectionner un basculement de [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) si votre machine doit faire partie d’un post-basculement. Quand vous sélectionnez un groupe à haute disponibilité, prenez note de ce qui suit :
 
     * Seuls les groupes à haute disponibilité appartenant au groupe de ressources spécifié sont répertoriés.  
-    * Les ordinateurs avec différents réseaux virtuels ne peuvent pas faire partie du même groupe à haute disponibilité.
-    * Seules les machines virtuelles de même taille peuvent faire partie du même groupe à haute disponibilité.
+    * Les machines avec différents réseaux virtuels ne peuvent pas faire partie du même groupe à haute disponibilité.
+    * Seules les machines virtuelles de même taille peuvent faire partie d’un groupe à haute disponibilité.
 5. Vous pouvez également afficher et ajouter des informations sur le réseau cible, le sous-réseau et l’adresse IP qui seront affectés à la machine virtuelle Azure.
 6. Les disques de données et du système d’exploitation de la machine virtuelle qui seront répliqués s’affichent dans **Disques** .
 
-### <a name="network-adapters-and-ip-addressing"></a>Cartes réseau et adressage IP 
+### <a name="network-adapters-and-ip-addressing"></a>Cartes réseau et adressage IP
 
 - Vous pouvez définir l’adresse IP cible. Si vous ne fournissez pas d’adresse IP, la machine ayant basculé utilisera le service DHCP. Si vous définissez une adresse qui n’est pas disponible au moment du basculement, ce dernier échoue. Vous pouvez utiliser la même adresse IP cible pour le test de basculement si cette adresse est disponible sur le réseau de test de basculement.
 - Le nombre de cartes réseau est déterminé par la taille spécifiée pour la machine virtuelle cible, comme suit :
@@ -116,9 +113,16 @@ Nous vous recommandons de vérifier les propriétés de la machine source. N’o
     - Par exemple, si une machine source présente deux cartes réseau et que la taille de la machine cible en accepte quatre, la machine cible présentera deux cartes. Si la machine source inclut deux cartes, mais que la taille cible prise en charge accepte une seule carte, la machine cible présentera une seule carte.
     - Si la machine virtuelle possède plusieurs cartes réseau, elles se connectent toutes au même réseau.
     - Si la machine virtuelle possède plusieurs cartes réseau, la première qui s’affiche dans la liste devient la carte réseau *par défaut* dans la machine virtuelle Azure.
-   
 
+### <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
 
+Les clients Microsoft Software Assurance peuvent tirer parti d’Azure Hybrid User Benefit afin de réduire les coûts de licences pour les machines Windows Server qui sont migrées vers Azure ou qui utilisent Azure pour la récupération d’urgence. Si vous êtes autorisé à utiliser Azure Hybrid Use Benefit, vous pouvez spécifier que la machine virtuelle créée par Azure Site Recovery dans Azure en cas de basculement puisse en profiter. Pour ce faire, effectuez la procédure suivante :
+- Accédez à la section des propriétés Calcul et Réseau de la machine virtuelle répliquée.
+- Répondez à la question qui vous demande si vous avez une licence Windows Server qui vous permet de profiter d’Azure Hybrid Use Benefit.
+- Cochez la case pour confirmer que vous possédez une licence Windows Server éligible avec Software Assurance vous permettant d’appliquer Hybrid Use Benefit sur la machine qui sera créée pendant le basculement.
+- Enregistrez les paramètres de la machine répliquée.
+
+En savoir plus sur l’offre [Azure Hybrid Use Benefit](https://aka.ms/azure-hybrid-use-benefit-pricing).
 
 ## <a name="common-issues"></a>Problèmes courants
 
@@ -128,7 +132,6 @@ Nous vous recommandons de vérifier les propriétés de la machine source. N’o
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois la protection terminée, vous pouvez essayer le [basculement](site-recovery-failover.md) pour vérifier si votre application s’affiche dans Azure ou non.
+Une fois que la protection est effectuée et que la machine a atteint un état protégé, vous pouvez essayer un [basculement](site-recovery-failover.md) pour vérifier si votre application s’affiche dans Azure ou non.
 
 Si vous souhaitez désactiver la protection, consultez [Nettoyer les paramètres d’inscription et de protection](site-recovery-manage-registration-and-protection.md).
-

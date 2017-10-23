@@ -12,22 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: 92ac80953623a5a94d3104f30787c9636308c707
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 9b330a7fe7b9838efc25b1b14cb95c9976b5c250
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Ajouter/supprimer un point de terminaison de synchronisation de fichiers Azure (préversion)
-Avec la synchronisation de fichiers Azure (préversion), les partages peuvent être répliqués localement ou dans Azure, et accessibles via des partages SMB ou NFS sur Windows Server. La synchronisation de fichiers Azure est utile dans les scénarios où les données doivent être accessibles et modifiées loin d’un centre de données Azure, par exemple, dans une succursale. Les données peuvent être répliquées entre plusieurs points de terminaison Windows Server, par exemple entre plusieurs succursales.
+La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 Un *point de terminaison de serveur* représente un emplacement spécifique sur un *serveur inscrit*, tel qu’un dossier sur un volume de serveur ou à la racine du volume. Plusieurs points de terminaison de serveur peuvent se trouver sur le même volume si leurs espaces de noms ne se chevauchent pas (par exemple, F:\sync1 et F:\sync2). Vous pouvez configurer des stratégies de hiérarchisation cloud individuellement pour chaque point de terminaison de serveur. Si vous ajoutez un emplacement de serveur avec un ensemble de fichiers existant comme un point de terminaison de serveur à un groupe de synchronisation, ces fichiers seront fusionnés avec tout autre fichier déjà présent sur d’autres points de terminaison dans le groupe de synchronisation.
 
-Consultez [Guide pratique pour déployer la synchronisation de fichiers Azure (préversion)](storage-sync-files-deployment-guide.md) pour plus d’informations sur le déploiement de bout en bout de la synchronisation de fichiers Azure.
+Consultez [Guide pratique pour déployer Azure File Sync (préversion)](storage-sync-files-deployment-guide.md) pour plus d’informations le déploiement de bout en bout d’Azure File Sync.
 
 ## <a name="prerequisites"></a>Composants requis
 Pour créer un point de terminaison de serveur, vous devez d’abord vous assurer que les critères suivants sont remplis : 
@@ -51,7 +49,7 @@ Les informations suivantes sont requises sous l’option **Ajouter un point de t
 Sélectionnez **Créer** pour ajouter le point de terminaison de serveur. Les fichiers situés dans un espace de noms d’un groupe de synchronisation seront désormais synchronisés. 
 
 ## <a name="remove-a-server-endpoint"></a>Supprimer un point de terminaison de serveur
-Quand la hiérarchisation cloud est activée pour un point de terminaison de serveur, elle *hiérarchise* les fichiers dans des partages de fichiers Azure. Cela permet aux partages de fichiers locaux de faire office de cache, au lieu d’effectuer une copie complète du jeu de données, et d’utiliser efficacement l’espace sur le serveur de fichiers. Toutefois, si un point de terminaison de serveur est supprimé alors que des fichiers hiérarchisés se trouvent toujours localement sur le serveur, ces fichiers deviennent inaccessibles. Par conséquent, si vous voulez un accès continu aux fichiers, vous devez rappeler tous les fichiers hiérarchisés dans Azure Files avant de poursuivre la désinscription. 
+Quand la hiérarchisation cloud est activée pour un point de terminaison de serveur, elle *hiérarchise* les fichiers dans des partages de fichiers Azure. Cela permet aux partages de fichiers locaux de faire office de cache, au lieu d’effectuer une copie complète du jeu de données, et d’utiliser efficacement l’espace sur le serveur de fichiers. Toutefois, si un point de terminaison de serveur est supprimé alors que des fichiers hiérarchisés sont toujours localement sur le serveur, ces fichiers deviennent inaccessibles. Par conséquent, si vous voulez un accès continu aux fichiers, vous devez rappeler tous les fichiers hiérarchisés dans Azure Files avant de poursuivre la désinscription. 
 
 Cette opération peut être effectuée avec l’applet de commande PowerShell comme indiqué ci-dessous :
 

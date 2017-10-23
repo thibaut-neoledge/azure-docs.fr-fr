@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 1/23/2017
 ms.author: trinadhk;markgal;
 ms.openlocfilehash: 284a1b64fbb15d0aa800182c6671d447e191b76a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Dépannage de la sauvegarde de machine virtuelle Azure
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure
 ## <a name="backup"></a>Sauvegarde
 | Opération de sauvegarde | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
-| Sauvegarde |Impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané. La sous-tâche de machine virtuelle de capture instantanée a expiré. Consultez le guide de dépannage pour connaître la procédure de résolution de ce problème. |Cette erreur est générée si un problème existe avec l’agent de machine virtuelle ou si l’accès réseau à l’infrastructure Azure est bloqué. En savoir plus sur le [débogage des problèmes d’instantanés de machines virtuelles](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> Si l’agent de machine virtuelle n’est pas à l’origine des problèmes, redémarrez la machine virtuelle. Il arrive que l’état incorrect d’une machine virtuelle provoque des problèmes et le redémarrage de la machine virtuelle réinitialise cet « état incorrect » |
+| Sauvegarde |Impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané. La sous-tâche de capture de la machine virtuelle a expiré. - Consultez le guide de dépannage pour connaître la procédure de résolution de ce problème. |Cette erreur est générée si un problème existe avec l’agent de machine virtuelle ou si l’accès réseau à l’infrastructure Azure est bloqué. En savoir plus sur le [débogage des problèmes d’instantanés de machines virtuelles](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> Si l’agent de machine virtuelle n’est pas à l’origine des problèmes, redémarrez la machine virtuelle. Il arrive que l’état incorrect d’une machine virtuelle provoque des problèmes et le redémarrage de la machine virtuelle réinitialise cet « état incorrect » |
 | Sauvegarde |Échec de l’opération de sauvegarde avec une erreur interne - Retentez l’opération dans quelques minutes. Si le problème persiste, contactez le support technique Microsoft. |Veuillez vérifier s’il existe un problème temporaire d’accès au stockage de la machine virtuelle. Vérifiez [l’état Azure](https://azure.microsoft.com/en-us/status/) pour voir si des problèmes relatifs au calcul/stockage/réseau dans la région persistent. Veuillez réessayer pour savoir si le problème post-sauvegarde est résolu. |
 | Sauvegarde |Impossible d’effectuer l’opération car la machine virtuelle n’existe plus. |Impossible d’effectuer la sauvegarde car la machine virtuelle configurée pour la sauvegarde a été supprimée. Arrêtez les autres sauvegardes en accédant à la vue Éléments protégés, sélectionnez l’élément protégé, puis cliquez sur Arrêter la protection. Vous pouvez conserver les données en sélectionnant l’option Conserver les données de sauvegarde. Vous pouvez réactiver ultérieurement la protection de cette machine virtuelle en cliquant sur Configurer la protection dans la vue des éléments protégés. |
 | Sauvegarde |Échec de l’installation de l’extension Azure Recovery Services sur l’élément sélectionné - L’agent VM est un composant requis pour l’extension Azure Recovery Services. Installez d’abord l’agent Azure VM, puis recommencez l’opération d’inscription. |<ol> <li>Vérifiez si l’agent de machine virtuelle a été installé correctement. <li>Vérifiez que l’indicateur de la configuration de la machine virtuelle est défini correctement.</ol> [En savoir plus](#validating-vm-agent-installation) sur l’installation de l’agent de machine virtuelle et la validation de cette opération. |

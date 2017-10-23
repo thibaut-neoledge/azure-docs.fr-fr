@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: curtand;jeffsta
+ms.date: 10/10/2017
+ms.author: curtand
+ms.reviewer: elkuzmen
+ms.openlocfilehash: 1e58af1f8d26b03c07b27d69f13868bccaaa33aa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 2f5a41907e9fa304444b369311e182d3f00ef619
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
 Un nom de domaine est une partie importante de l’identificateur de nombreuses ressources de répertoire : il fait partie du nom ou de l’adresse électronique d’un utilisateur, de l’adresse d’un groupe et parfois de l’URI ID d’application pour une application. Une ressource dans Azure Active Directory (Azure AD) peut inclure un nom de domaine déjà vérifié comme appartenant à l’annuaire qui contient la ressource. Seul un administrateur général peut effectuer des tâches de gestion de domaine dans Azure AD.
@@ -28,12 +28,12 @@ Un nom de domaine est une partie importante de l’identificateur de nombreuses 
 Lors de la création du répertoire, le nom de domaine initial, par exemple « contoso.onmicrosoft.com », est également le nom de domaine principal. Le domaine principal est le nom de domaine par défaut pour un nouvel utilisateur lorsque vous créez un nouvel utilisateur. Le fait de définir un nom de domaine principal simplifie le processus permettant à un administrateur de créer des utilisateurs dans le portail. Pour modifier le nom de domaine principal, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-2. Sélectionnez **Plus de services**, saisissez **Azure Active Directory** dans la zone de texte, puis sélectionnez **Entrée**.
+2. Sélectionnez **Azure Active Directory**.
    
    ![Ouvrir la gestion des utilisateurs](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. Dans le panneau ***nom-répertoire***, sélectionnez **Noms de domaine**.
-4. Dans le panneau ***nom-répertoire* - Noms de domaine**, sélectionnez le nom de domaine que vous souhaitez définir comme nom de domaine principal.
-5. Dans le panneau ***NomDomaine*** (autrement dit, le panneau qui s’ouvre avec votre nouveau nom de domaine en titre), sélectionnez la commande **Convertir en principal**. Confirmez votre choix lorsque vous y êtes invité.
+3. Sélectionnez **Noms de domaine**.
+4. Sélectionnez le nom du domaine dont vous voulez faire le domaine principal.
+5. Sélectionnez la commande **Définir comme principal**. Confirmez votre choix lorsque vous y êtes invité.
    
    ![Créer un nom de domaine principal](./media/active-directory-domains-manage-azure-portal/make-primary.png)
 
@@ -67,5 +67,4 @@ La plupart des tâches de gestion des noms de domaine dans Azure Active Director
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Ajouter des noms de domaines personnalisés](add-custom-domain.md)
-
 

@@ -109,6 +109,7 @@
 ### Utiliser des travaux d’appareils pour mettre à jour le microprogramme des appareils
 #### [Serveur principal Node/appareil Node](iot-hub-node-node-firmware-update.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-firmware-update.md)
+#### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-firmware-update.md)
 #### [Serveur principal Java/appareil Java](iot-hub-java-java-firmware-update.md)
 ### Planifier et diffuser des travaux
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-schedule-jobs.md)

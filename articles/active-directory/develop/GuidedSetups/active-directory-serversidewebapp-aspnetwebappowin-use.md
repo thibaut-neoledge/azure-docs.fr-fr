@@ -1,5 +1,5 @@
 ---
-title: "Prise en main d’Azure AD v2 avec les applications de serveur web ASP.NET - Utilisation | Documents Microsoft"
+title: "Bien démarrer avec le serveur web ASP.NET Azure AD v2 - Utilisation | Microsoft Docs"
 description: "Implémentation de la connexion Microsoft dans une solution ASP.NET avec une application basée sur un navigateur web traditionnel utilisant le standard OpenID Connect"
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,10 +16,10 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 3b7d29e48c91f40e8782a5e32a52998b815fe331
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Ajouter un contrôleur pour gérer les demandes de connexion et de déconnexion
 
@@ -116,7 +116,7 @@ else
 ```
 <!--start-collapse-->
 ### <a name="more-information"></a>Informations complémentaires
-> Cette page ajoute un bouton de connexion au format SVG avec un arrière-plan noir :<br/>![Se connecter avec Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> Pour accéder à d’autres boutons de connexion, rendez-vous sur [cette page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
+> Cette page ajoute un bouton de connexion au format SVG avec un arrière-plan noir :<br/>![Se connecter avec Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> Pour d’autres boutons de connexion, accédez à [cette page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Conseils pour la personnalisation").
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Ajouter un contrôleur pour afficher les revendications de l’utilisateur

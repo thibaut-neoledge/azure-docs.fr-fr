@@ -1,6 +1,6 @@
 ---
-title: "Intelligent Insights surveille l’utilisation de la base de données - Azure SQL Database | Microsoft Docs"
-description: "Intelligents Insights vous permet de suivre les performances de votre base de données"
+title: "Surveiller l’utilisation de la base de données avec Intelligent Insights - Azure SQL Database | Microsoft Docs"
+description: "Azure SQL Database Intelligent Insights utilise l’intelligence intégrée pour surveiller en permanence l’utilisation de la base de données et détecter les événements perturbateurs entraînant des performances médiocres."
 services: sql-database
 documentationcenter: 
 author: danimir
@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: v-daljep
+ms.openlocfilehash: 8e55fa02d5edda21fbf547397d63f9d1cf987a60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c3b11dd50fa8c94d3bf80e02a8a319030c375133
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
-***&#8220;Intelligent Insights vous permet de suivre les performances de votre base de données.&#8221;***
+***&amp;#8220;Intelligent Insights vous permet de suivre les performances de votre base de données.&amp;#8221;***
 
-L’intelligence artificielle intégrée d’Azure SQL Database surveille en permanence l’utilisation de la base de données, et détecte les événements perturbateurs entraînant des performances médiocres. Une fois un tel événement détecté, une analyse détaillée est effectuée, qui génère un journal de diagnostic avec une évaluation intelligente du problème. Cette évaluation se compose d’une analyse de cause racine du problème de performances de la base de données et, dans la mesure du possible, de recommandations pour une amélioration des performances. C’est ce qu’on appelle ***&#8220;Intelligent Insights.&#8221;*** 
+Azure SQL Database Intelligent Insights utilise l’intelligence intégrée pour surveiller en permanence l’utilisation de la base de données et détecter les événements perturbateurs entraînant des performances médiocres. Une fois un tel événement détecté, une analyse détaillée est effectuée, qui génère un journal de diagnostic avec une évaluation intelligente du problème. Cette évaluation se compose d’une analyse de cause racine du problème de performances de la base de données et, dans la mesure du possible, de recommandations pour une amélioration des performances. C’est ce qu’on appelle ***&#8220;Intelligent Insights.&#8221;*** 
 
 ## <a name="what-can-intelligent-insights-do-for-you"></a>Qu’est-ce qu’Intelligent Insights peut faire pour vous ?
 
@@ -56,7 +55,7 @@ Les dégradations des performances d’Azure SQL Database identifiées sont enre
 
 | Propriété             | Détails              |
 | :------------------- | ------------------- |
-| Informations relatives à la base de données  | Métadonnées relatives à une base de données sur laquelle une information a été détectée, telles qu’un URI de ressource |
+| les informations de base de données  | Métadonnées relatives à une base de données sur laquelle une information a été détectée, telles qu’un URI de ressource |
 | Période observée | Heures de début et de fin de la période des informations détectées |
 | Métriques impactées | Métriques à l’origine de la génération d’une information : <ul><li>Augmentation de la durée de la requête [secondes]</li><li>Attente excessive [secondes]</li><li>Demandes ayant expiré [pourcentage]</li><li>Demandes erronées [pourcentage]</li></ul>|
 | Valeur d’impact | Valeur d’une métrique mesurée |
@@ -79,7 +78,7 @@ La solution Azure Log Analytics offre des fonctionnalités de création de rappo
 
 ![Serveur](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
-Une fois le journal de diagnostic d’Intelligent Insights configuré pour diffuser en continu des données vers Azure SQL Analytics, vous pouvez [surveiller Azure SQL Database à l’aide d’Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+Une fois le journal de diagnostic d’Intelligent Insights configuré pour diffuser en streaming des données vers Azure SQL Analytics, vous pouvez [surveiller Azure SQL Database à l’aide d’Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
 
 ## <a name="custom-integrations-of-intelligent-insights-log"></a>Intégrations personnalisées du journal d’Intelligent Insights
 
@@ -87,12 +86,12 @@ Pour le développement d’alertes et d’une surveillance personnalisées à l�
 
 ## <a name="how-to-set-up-intelligent-insights-with-azure-event-hub"></a>Comment configurer Intelligent Insights avec Azure Event Hub
 
-- Configurez Intelligent Insights pour diffuser en continu les événements du journal vers Azure Event Hub en suivant la procédure décrite dans [Diffuser en continu les journaux de diagnostic Azure vers un espace de noms Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+- Configurez Intelligent Insights pour diffuser en streaming les événements du journal vers Azure Event Hub en suivant la procédure décrite dans [Diffuser en streaming les journaux de diagnostic Azure vers un espace de noms Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
 - Utilisez Azure Event Hub pour personnaliser la surveillance et les alertes en suivant la procédure décrite dans [Que faire des métriques et journaux de diagnostic dans Azure Event Hub](sql-database-metrics-diag-logging.md#stream-into-azure-storage). 
 
 ## <a name="how-to-set-up-intelligent-insights-with-azure-storage"></a>Comment configurer Intelligent Insights avec le Stockage Azure
 
-- Configurez Intelligent Insights pour que les informations soient stockées avec le Stockage Azure en suivant la procédure décrite dans [Diffuser en continu vers le Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-azure-storage).
+- Configurez Intelligent Insights pour que les informations soient stockées avec le Stockage Azure en suivant la procédure décrite dans [Diffuser en streaming sur le Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-azure-storage).
 
 ## <a name="detection-metrics"></a>Métriques de détection
 
@@ -161,6 +160,5 @@ Si l’une des exceptions critiques surveillées dépasse le seuil absolu géré
 * Utiliser le [Journal de diagnostic des performances d’Intelligent Insights dans Azure SQL Database](sql-database-intelligent-insights-use-diagnostics-log.md)
 * Apprendre à [surveiller Azure SQL Database à l’aide d’Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md)
 * Apprendre à [collecter et utiliser les données de journaux de vos ressources Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-
 
 

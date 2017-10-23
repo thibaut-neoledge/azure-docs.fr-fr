@@ -16,20 +16,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
+ms.openlocfilehash: 314f528a1fcef2c7afb0eedba012023f3bc9502b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: acb6052343acc34eb2365017ac2a49f9a4af51a2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-f-developer-reference"></a>Informations de référence pour les développeurs F# sur Azure Functions
-> [!div class="op_single_selector"]
-> * [Script C#](functions-reference-csharp.md)
-> * [Script F#](functions-reference-fsharp.md)
-> * [Node.JS](functions-reference-node.md)
-> 
-> 
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 F# for Azure Functions est une solution conçue pour exécuter facilement de petits morceaux de code, ou « fonctions », dans le cloud. Les données circulent dans votre fonction F# par le biais d’arguments de fonction. Les noms d’argument sont spécifiés dans `function.json`, et il existe des noms prédéfinis pour accéder à des éléments tels que l’enregistreur de fonctions et les jetons d’annulation.
 
@@ -80,7 +74,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Journalisation
-Pour consigner la sortie dans vos [journaux de diffusion en continu](../app-service/web-sites-enable-diagnostic-log.md) dans F#, votre fonction doit utiliser un argument de type `TraceWriter`. Par souci de cohérence, nous vous recommandons de nommer cet argument `log`. Par exemple :
+Pour consigner la sortie dans vos [journaux de streaming](../app-service/web-sites-enable-diagnostic-log.md) dans F#, votre fonction doit utiliser un argument de type `TraceWriter`. Par souci de cohérence, nous vous recommandons de nommer cet argument `log`. Par exemple :
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -133,7 +127,7 @@ Les espaces de noms ci-après sont ouverts automatiquement :
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## <a name="referencing-external-assemblies"></a>Référencement des assemblys externes
-De même, les références d’assembly d’infrastructure sont ajoutées avec la directive `#r "AssemblyName"` .
+De même, les références d’assembly d’infrastructure peuvent être ajoutées avec la directive `#r "AssemblyName"`.
 
 ```fsharp
 #r "System.Web.Http"
@@ -211,9 +205,9 @@ Lorsque vous chargez un fichier `project.json` , le runtime obtient les packages
 Si vous le souhaitez, vous pouvez placer automatiquement les assemblys de référence dans votre préambule destiné à l’éditeur, afin d’améliorer l’interaction de votre éditeur avec F# Compile Services.
 
 ### <a name="how-to-add-a-projectjson-file-to-your-azure-function"></a>Ajout d’un fichier `project.json` à votre fonction Azure
-1. Commencez par vous assurer que votre conteneur de fonctions est en cours d’exécution. Ce que vous pouvez faire en ouvrant votre fonction dans le portail Azure. Il donne également accès aux journaux de diffusion en continu où le résultat de l’installation du package s’affiche.
+1. Commencez par vous assurer que votre conteneur de fonctions est en cours d’exécution. Ce que vous pouvez faire en ouvrant votre fonction dans le portail Azure. Il donne également accès aux journaux de streaming où le résultat de l’installation du package s’affiche.
 2. Pour charger un fichier `project.json` , utilisez l’une des méthodes décrites dans l’article [Comment mettre à jour les fichiers du conteneur de fonctions](functions-reference.md#fileupdate). Si vous utilisez l’article [Déploiement continu pour Azure Functions](functions-continuous-deployment.md), vous pouvez ajouter un fichier `project.json` à votre branche intermédiaire afin de le tester avant de l’ajouter à votre branche de déploiement.
-3. Une fois le fichier `project.json` ajouté, une sortie semblable à l’exemple ci-après apparaîtra dans le journal de diffusion en continu de votre fonction :
+3. Une fois le fichier `project.json` ajouté, une sortie semblable à l’exemple ci-après apparaîtra dans le journal de streaming de votre fonction :
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -276,10 +270,7 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [F# Guide](/dotnet/articles/fsharp/index) (Guide F#)
 * [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
 * [Référence du développeur Azure Functions](functions-reference.md)
-* [Informations de référence pour les développeurs C# sur Azure Functions](functions-reference-csharp.md)
-* [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](functions-reference-node.md)
 * [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
 * [Test des fonctions Azure](functions-test-a-function.md)
 * [Mise à l’échelle d’Azure Functions](functions-scale.md)
-
 

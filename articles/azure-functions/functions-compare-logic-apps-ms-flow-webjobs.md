@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/11/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: bc801ed3dac213dacac5ee14e1b4e73b87ecc7bd
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: cec9660ee068b33a114748813f0c7ffa3821d973
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Choisir entre Flow, Logic Apps, Functions et WebJobs
 Cet article dresse une analyse comparative des services suivants de Microsoft Cloud ; ils permettent tous de résoudre des problèmes d’intégration et d’automatiser les processus métier :
@@ -79,18 +78,20 @@ Le tableau suivant récapitule les différences entre Functions et WebJobs :
 |  | Functions | WebJobs |
 | --- | --- | --- |
 | Mise à l'échelle |Mise à l’échelle sans configuration |Mise à l’échelle avec un plan App Service |
-| Tarifs |Paiement à l’utilisation ou dans le cadre d’un plan App Service |Dans le cadre d’un plan App Service |
+| Tarification |Paiement à l’utilisation ou dans le cadre d’un plan App Service |Dans le cadre d’un plan App Service |
 | Type d’exécution |Déclenchée, planifiée (par un déclencheur de minuteur) |Déclenchée, continue, planifiée |
 | Événements déclencheurs |[Minuteur](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Stockage Azure](functions-bindings-storage-blob.md) |[Stockage Azure](functions-bindings-storage-blob.md), [Azure Service Bus](functions-bindings-service-bus.md) |
-| Développement dans le navigateur |pris en charge | non pris en charge |
-| Écriture de scripts Windows (.cmd, .bat) |Expérimental |pris en charge |
-| PowerShell |Expérimental |pris en charge |
-| C# |pris en charge |pris en charge |
-| F# |pris en charge |non pris en charge |
-| Bash |Expérimental |pris en charge |
-| PHP |Expérimental |pris en charge |
-| Python |Expérimental |pris en charge |
-| JavaScript |pris en charge |pris en charge |
+| Développement dans le navigateur |Pris en charge |Non pris en charge |
+| C# |Pris en charge |Pris en charge |
+| F# |Pris en charge |Non pris en charge |
+| JavaScript |Pris en charge |Pris en charge |
+| Java |Pris en charge | Non pris en charge |
+| Bash |Expérimental |Pris en charge |
+| Écriture de scripts Windows (.cmd, .bat) |Expérimental |Pris en charge |
+| PowerShell |Expérimental |Pris en charge |
+| PHP |Expérimental |Pris en charge |
+| Python |Expérimental |Pris en charge |
+| TypeScript |Expérimental |Non pris en charge |
 
 Le choix entre Functions et WebJobs dépend en définitive de l’utilisation que vous faites d’App Service. Si vous avez une application App Service pour laquelle vous souhaitez exécuter des extraits de code, et que vous voulez les gérer ensemble dans le même environnement DevOps, utilisez WebJobs. Dans les scénarios suivants, utilisez Functions.
 
@@ -119,9 +120,8 @@ Prenez en main chacun de ces services en créant votre premier flux, application
 
 Vous pouvez également obtenir des informations supplémentaires sur ces services d’intégration en cliquant sur les liens suivants :
 
-* [Leveraging Azure Functions & Azure App Service for integration scenarios (Tirer parti d’Azure Functions et Azure App Service pour les scénarios d’intégration), par Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
+* [Leveraging Azure Functions &amp; Azure App Service for integration scenarios (Tirer parti d’Azure Functions et Azure App Service pour les scénarios d’intégration), par Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Integrations Made Simple (Les intégrations simplifiées), par Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Diffusion web sur Logic Apps](http://aka.ms/logicappslive)
 * [Forum Aux Questions sur Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
-
 

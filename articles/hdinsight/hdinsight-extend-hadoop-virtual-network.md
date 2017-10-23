@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: larryfr
+ms.openlocfilehash: 17059c5861962a56ed2011a8f8874fc23673ed68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: e7c64a7f6b85986d48f0da39962c634b572e773b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
 
@@ -672,7 +671,8 @@ Après avoir suivi ces étapes, vous pouvez vous connecter aux ressources du ré
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour un exemple de bout en bout de configuration de HDInsight pour se connecter à un réseau local, voir [Connecter HDInsight à un réseau local](./connect-on-premises-network.md).
-
+* Pour configurer des clusters Hbase dans des réseaux virtuels Azure, consultez [Créer des clusters HBase sur HDInsight dans Réseau virtuel Azure](./hdinsight-hbase-provision-vnet.md).
+* Pour configurer la géoréplication HBase, consultez [Configurer la réplication de cluster HBase dans les réseaux virtuels Azure](./hdinsight-hbase-replication.md).
 * Pour plus d’informations sur les réseaux virtuels Azure, voir [Vue d'ensemble de Réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
 
 * Pour plus d’informations sur les groupes de sécurité réseau, consultez [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).

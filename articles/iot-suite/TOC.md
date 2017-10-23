@@ -37,7 +37,7 @@
 ## [Informations sur l’appareil dans la solution de surveillance à distance](iot-suite-remote-monitoring-device-info.md)
 ## [Déployer une passerelle pour l’usine connectée](iot-suite-connected-factory-gateway-deployment.md)
 ## [Personnaliser la fabrique connectée](iot-suite-connected-factory-customize.md)
-
+## [Utiliser le serveur de publication OPC de l’usine connecté](iot-suite-connected-factory-publisher.md)
 # Référence
 ## [Architecture de la sécurité](iot-security-architecture.md)
 ## [Meilleures pratiques en matière de sécurité](iot-security-best-practices.md)

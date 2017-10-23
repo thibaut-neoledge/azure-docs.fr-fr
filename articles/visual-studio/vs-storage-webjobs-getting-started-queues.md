@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
+ms.openlocfilehash: efd2f1e471f67396d35f11f2eb1044a8afa469af
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ad43b5bb4f6f51f25acb9b2160661addab481762
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Prise en main du stockage de files d'attente Azure et des services connectés Visual Studio (projets WebJob)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -243,7 +242,8 @@ L’exemple suivant prend un message en file d’attente d’entrée et crée un
 L’interface **IBinder** peut également être utilisée avec les attributs **Table** et **Blob**.
 
 ## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>Lecture et écriture d'objets blob et de tables pendant le traitement d'un message de file d'attente
-Les attributs **Blob** et **Table** vous permettent de lire et d’écrire des objets blob et des tables. Les exemples de cette section s’appliquent aux objets blob. Pour obtenir des exemples de code qui lisent et écrivent des tables, voir [Utilisation du stockage de tables Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md). Pour obtenir des exemples de code qui indiquent comment déclencher des processus lors de la création ou de la mise à jour d’objets blob, voir [Utilisation du Stockage Blob Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
+Les attributs **Blob** et **Table** vous permettent de lire et d’écrire des objets blob et des tables. Les exemples de cette section s’appliquent aux objets blob. Pour obtenir des exemples de code qui montrent comment déclencher des processus quand des objets blob sont créés ou mis à jour, consultez [Utilisation du stockage d’objets blob Azure avec le SDK WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
+<!-- , and for code samples that read and write tables, see [How to use Azure table storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md). -->
 
 ### <a name="string-queue-messages-triggering-blob-operations"></a>Messages en file d’attente de chaîne déclenchant des opérations d’objet blob
 Pour un message de file d’attente qui contient une chaîne, **queueTrigger** est un espace réservé que vous pouvez utiliser dans le paramètre **blobPath** de l’attribut **Blob** qui contient le contenu du message.
@@ -258,7 +258,7 @@ L'exemple suivant utilise des objets **Stream** pour lire et écrire des objets 
             blobInput.CopyTo(blobOutput, 4096);
         }
 
-Le constructeur d’attribut **Blob** prend un paramètre **blobPath** qui indique le nom de l’objet blob et du conteneur. Pour en savoir plus sur cet espace réservé, consultez la section [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md).
+Le constructeur d’attribut **Blob** prend un paramètre **blobPath** qui indique le nom de l’objet blob et du conteneur. Pour en savoir plus sur cet espace réservé, consultez la section [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Lorsque l’attribut décore un objet **Stream**, un autre paramètre de constructeur spécifie le mode **FileAccess** (lecture, écriture ou lecture/écriture).
 
@@ -469,7 +469,7 @@ La sortie des méthodes de console que vous appelez dans une fonction ou dans la
 
 La sortie de la console ne peut pas être liée à un appel de méthode particulier, car la console présente un thread unique, tandis que de nombreuses fonctions de tâche peuvent s’exécuter en même temps. C’est pourquoi le Kit de développement logiciel (SDK) fournit à chaque appel de fonction son propre objet d’enregistreur de journal unique.
 
-Pour écrire des [journaux de suivi d’application](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), utilisez **Console.Out** (crée des journaux marqués INFO) et **Console.Error** (crée des journaux marqués ERROR). Vous pouvez aussi utiliser des éléments [Trace ou TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), qui fournissent des niveaux supplémentaires (En clair, Avertissement et Critique). Les journaux de suivi d’application s’affichent dans les fichiers de journaux d’application web, les tables Microsoft Azure, ou les objets blob Microsoft Azure, selon la configuration de votre application web Microsoft Azure. Comme pour toutes les autres sorties de console, les 100 journaux d’application les plus récents s’affichent également dans la page Tableau de bord de la tâche web, et non dans la page d’appel d’une fonction.
+Pour écrire des [journaux de suivi d’application](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), utilisez **Console.Out** (crée des journaux marqués INFO) et **Console.Error** (crée des journaux marqués ERROR). Vous pouvez aussi utiliser des éléments [Trace ou TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), qui fournissent des niveaux supplémentaires (En clair, Avertissement et Critique). Les journaux de suivi d’application s’affichent dans les fichiers de journaux d’application web, les tables Microsoft Azure, ou les objets blob Microsoft Azure, selon la configuration de votre application web Microsoft Azure. Comme pour toutes les autres sorties de console, les 100 journaux d’application les plus récents s’affichent également dans la page Tableau de bord de la tâche web, et non dans la page d’appel d’une fonction.
 
 La sortie de console s’affiche dans le tableau de bord uniquement si le programme s’exécute dans une tâche web Microsoft Azure, et non lorsque le programme est exécuté localement ou dans un autre environnement.
 
@@ -513,5 +513,4 @@ Dans une table Azure, les journaux **Console.Out** et **Console.Error** ressembl
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article fournit des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des files d’attente Azure. Pour plus d’informations sur l’utilisation d’Azure WebJobs et du Kit de développement logiciel (SDK) WebJobs, consultez la section [Ressources de documentation Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
-
 

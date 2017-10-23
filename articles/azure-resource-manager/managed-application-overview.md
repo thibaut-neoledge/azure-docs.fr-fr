@@ -8,16 +8,14 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/09/2017
-ms.author: gauravbh; tomfitz
+ms.date: 09/19/2017
+ms.author: gauravbh
+ms.openlocfilehash: 96b07bb3b923a5120e3d43c3fa60b3b1308010b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 7ace8e1ea8038e0748bfed00c0cc0a4fa340588b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-managed-applications-overview"></a>Vue d’ensemble des applications gérées Azure
 
 Les fournisseurs qui utilisent Azure peuvent offrir des solutions à des clients du monde entier. La Place de marché Azure est une galerie composée de centaines de modèles à plusieurs ressources complexes issus de fournisseurs tiers et internes. En quelques minutes, les clients peuvent déployer et commencer à utiliser des applications PaaS (plateforme en tant que service) et SaaS (logiciel en tant que service). 
@@ -43,7 +41,7 @@ Pour plus d’informations sur la publication d’une application gérée de cat
  
 Pour plus d’informations sur l’utilisation d’une application gérée de catalogue de services, consultez l’article [Utiliser une application gérée du catalogue de services](managed-application-consumption.md).
  
-### <a name="marketplace"></a>Marketplace
+### <a name="marketplace"></a>Place de marché
 
 Les applications managées sont disponibles via la place de marché du portail Azure. Une fois publiées par le fournisseur, tout le monde peut utiliser ces applications, au sein d’une organisation ou en dehors. Cette approche permet aux fournisseurs de services gérés, éditeurs de logiciels indépendants et intégrateurs système d’offrir leurs solutions à tous les clients Azure. Les clients bénéficient de l’utilisation de ces solutions complexes sans avoir à comprendre et à maintenir ces solutions à jour. 
 
@@ -56,16 +54,14 @@ Pour plus d’informations sur l’utilisation d’applications gérées de la P
 ## <a name="key-concepts"></a>Concepts clés
 
 ### <a name="managed-resource-group"></a>Groupe de ressources géré
-Groupe de ressources géré où sont créées toutes les ressources Azure en cours d’approvisionnement dans le modèle. Par exemple, si l’application est utilisée pour créer un compte de stockage, ce groupe de ressources contient la ressource du compte de stockage. Il ne contient pas la ressource d’appliance.
+Groupe de ressources géré où sont créées toutes les ressources Azure en cours d’approvisionnement dans le modèle. Par exemple, si l’application est utilisée pour créer un compte de stockage, ce groupe de ressources contient la ressource du compte de stockage. Il ne contient pas la ressource d’application.
 
-### <a name="appliance-package"></a>Package d’appliance
-L’éditeur crée un package qui contient les fichiers modèle et le fichier CreateUIDefinition. Il contient précisément les fichiers suivants :
+### <a name="application-package"></a>Package d’application
+L’éditeur crée un package qui contient le fichier modèle et le fichier createUIDefinition. Il contient précisément les fichiers suivants :
 
-- **applianceMainTemplate.json** : le fichier modèle qui définit toutes les ressources configurées par l’appliance. Ce fichier est un fichier modèle normal utilisé pour créer des ressources.
+- **mainTemplate.json** : ce fichier modèle définit toutes les ressources approvisionnées par l’application. Ce fichier est un fichier modèle normal utilisé pour créer des ressources.
 
-- **MainTemplate.json** : fichier modèle qui définit la ressource de l’appliance (Microsoft.Solutions/appliances). Une propriété essentielle définie dans cette ressource est ManagedResourceGroupId. Cette propriété indique le groupe de ressources utilisé pour héberger les ressources réelles définies dans le fichier applianceMainTemplate.json.
-
-- **applianceCreateUIDefinition.json** : ce fichier décrit le mode de rendu de l’interface utilisateur pour les paramètres définis dans le modèle.
+- **createUIDefinition.json** : ce fichier décrit le mode de rendu de l’interface utilisateur nécessaire pour les paramètres définis dans le modèle.
 
 ### <a name="authorization"></a>Autorisation
 L’éditeur doit spécifier les autorisations requises par le fournisseur pour gérer les ressources pour le compte du client. Cette autorisation s’applique au groupe de ressources gérées. Définissez les valeurs suivantes :
@@ -81,4 +77,3 @@ L’éditeur doit spécifier les autorisations requises par le fournisseur pour 
 * Pour plus d’informations sur la publication d’une application gérée de catalogue de services, consultez l’article [Créer et publier une application gérée de catalogue de services](managed-application-publishing.md).
 * Pour plus d’informations sur l’utilisation d’une application gérée de catalogue de services, consultez l’article [Utiliser une application gérée du catalogue de services](managed-application-consumption.md).
 * Pour créer un fichier de définition de l’interface utilisateur, consultez [Prise en main de CreateUiDefinition](managed-application-createuidefinition-overview.md).
-

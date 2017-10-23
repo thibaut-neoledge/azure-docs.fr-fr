@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: e4fe5400ffcf4446392015aada031dd4dfbf238a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 91b2e72b9cc5f7b52dde09fb837cbc994d52a26c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="control-access-to-iot-hub"></a>Contrôler l’accès à IoT Hub
 
@@ -72,7 +72,7 @@ Pour plus d’informations sur la construction et l’utilisation des jetons de 
 
 ### <a name="protocol-specifics"></a>Spécifications de protocole
 
-Chaque protocole pris en charge (par exemple, MQTT, AMQP et HTTP) transporte des jetons de différentes façons.
+Chaque protocole pris en charge (par exemple, MQTT, AMQP et HTTPS) transporte des jetons de différentes façons.
 
 Lorsque vous utilisez MQTT, le paquet CONNECT utilise deviceid en tant que ClientId, {iothubhostname}/{deviceId} dans le champ Nom d’utilisateur et un jeton SAP dans le champ Mot de passe. {iothubhostname} doit être le nom canonique (CNAME) complet d’IoT Hub (par exemple, contoso.azure-devices.net).
 
@@ -87,7 +87,7 @@ Pour SASL PLAIN, le **nom d’utilisateur** peut être :
 
 Dans les deux cas, le champ de mot de passe contient le jeton, comme le décrit [Jetons de sécurité IoT Hub][lnk-sas-tokens].
 
-Le protocole HTTP implémente l’authentification en incluant un jeton valide dans l’en-tête de demande **Authorization** .
+Le protocole HTTPS implémente l’authentification en incluant un jeton valide dans l’en-tête de requête **Authorization**.
 
 #### <a name="example"></a>Exemple
 
@@ -115,7 +115,7 @@ Il s’agit d’un mécanisme semblable à la [Stratégie de publication d’Eve
 
 IoT Hub utilise des jetons de sécurité pour authentifier les appareils et les services afin d’éviter d’envoyer des clés sur le réseau. En outre, la validité et la portée des jetons sont limitées dans le temps. Les kits [Azure IoT SDK ][lnk-sdks] génèrent automatiquement les jetons sans configuration spéciale. Certains scénarios nécessitent toutefois que vous génériez et utilisiez directement des jetons de sécurité. Il s’agit entre autres des scénarios suivants :
 
-* Utilisation directe des surfaces MQTT, AMQP ou HTTP
+* Utilisation directe des surfaces MQTT, AMQP ou HTTPS.
 * Implémentation du modèle de service de jeton, comme expliqué dans [Authentification d’appareil personnalisée][lnk-custom-auth].
 
 IoT Hub permet également aux appareils de s’authentifier avec IoT Hub à l’aide de [certificats X.509][lnk-x509].

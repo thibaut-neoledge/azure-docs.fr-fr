@@ -12,28 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 10/10/2017
 ms.author: curtand;jeffsta
 ms.reviewer: jeffsta
-ms.openlocfilehash: 9f4031da7c6dfbd329d14c52f3a569084edacf20
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 4d6cd568127504e0a01611ee85594da8cff4e7c3
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-or-change-work-information-for-a-user-in-azure-active-directory"></a>Ajouter ou modifier les informations professionnelles pour un utilisateur dans Azure Active Directory
 Cet article explique comment ajouter ou modifier des informations professionnelles, comme les numéros de téléphone ou le nom d’un service pour un utilisateur dans Azure Active Directory (Azure AD). Pour en savoir plus sur l’ajout d’utilisateurs dans votre organisation, consultez [Ajout de nouveaux utilisateurs à Azure Active Directory](active-directory-users-create-external-azure-portal.md).
 
 ## <a name="to-change-work-information"></a>Pour modifier les informations de travail
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
+1. Connectez-vous au [centre d’administration d’Azure AD](https://aad.portal.azure.com) avec un compte d’administrateur général pour l’annuaire.
+2. Sélectionnez **Utilisateurs et groupes**.
 
    ![Ouvrir la gestion des utilisateurs](./media/active-directory-users-work-info-azure-portal/create-users-user-management.png)
-3. Dans le panneau **Utilisateurs et groupes**, sélectionnez **Utilisateurs**.
+3. Sélectionnez **Tous les utilisateurs**.
 
-   ![Ouverture du panneau Utilisateurs](./media/active-directory-users-work-info-azure-portal/create-users-open-users-blade.png)
-4. Sur le panneau **Utilisateurs et groupes - Utilisateurs -** , sélectionnez un utilisateur dans la liste.
-5. Dans le panneau de l’utilisateur sélectionné, sélectionnez **Informations de travail**.
+   ![Ouverture du groupe Tous les utilisateurs](./media/active-directory-users-work-info-azure-portal/create-users-open-users-blade.png)
+4. Sélectionnez un utilisateur dans la liste.
+5. Pour l’utilisateur sélectionné, sélectionnez **Informations professionnelles**.
 
     ![Ouverture des informations de travail](./media/active-directory-users-work-info-azure-portal/active-directory-create-users-work-info.png)
 6. Ajoutez ou modifiez les informations du travail. Ensuite, dans la barre de commandes, sélectionnez **Enregistrer**.

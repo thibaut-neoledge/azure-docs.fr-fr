@@ -59,6 +59,7 @@
 ## Résolution des problèmes
 ### [Résoudre les erreurs dans Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Journalisation et métriques des diagnostics](application-gateway-diagnostics.md)
+### [Problèmes liés à l’affinité de session de la passerelle Application Gateway](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 # Référence
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interface de ligne de commande Azure](/cli/azure/network/application-gateway)

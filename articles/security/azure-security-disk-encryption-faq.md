@@ -1,6 +1,6 @@
 ---
-title: FAQ Azure Disk Encryption | Microsoft Docs
-description: "Cet article offre des réponses au forum aux questions sur Microsoft Azure Disk Encryption pour les machines virtuelles IaaS Windows et Linux."
+title: "Questions fréquentes (FAQ) sur Azure Disk Encryption | Microsoft Docs"
+description: "Cet article fournit des réponses aux questions fréquemment posées sur Microsoft Azure Disk Encryption et les machines virtuelles IaaS Windows et Linux."
 services: security
 documentationcenter: na
 author: deventiwari
@@ -14,16 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
+ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: f66eabcbb386d5e7b31268a7b04063ff2cefbaf2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-disk-encryption-faq"></a>Forum aux questions (FAQ) Azure Disk Encryption
+# <a name="azure-disk-encryption-faq"></a>Questions fréquentes (FAQ) sur Azure Disk Encryption
 
-Cet article offre des réponses au forum aux questions (FAQ) sur Azure Disk Encryption pour les machines virtuelles IaaS Windows et Linux. Pour plus d’informations sur ce service, consultez [Azure Disk Encryption pour machines virtuelles IaaS Windows et Linux](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
+Cet article fournit des réponses au questions fréquemment posées (FAQ) sur Azure Disk Encryption et les machines virtuelles IaaS Windows et Linux. Pour plus d’informations sur ce service, consultez [Azure Disk Encryption pour machines virtuelles IaaS Windows et Linux](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
 
 ## <a name="general-questions"></a>Questions générales
 **Q :** où se trouve Azure Disk Encryption en disponibilité générale (GA) ?
@@ -108,9 +107,9 @@ Cet article offre des réponses au forum aux questions (FAQ) sur Azure Disk Encr
 
 **R :** vous ne pouvez pas appliquer Azure Disk Encryption sur votre image Linux personnalisée. Nous prenons uniquement en charge les images Linux de la galerie pour les distributions prises en charge indiquées précédemment. Actuellement, nous ne prenons pas en charge les images Linux personnalisées.
 
-**Q :** puis-je appliquer des mises à jour sur une machine virtuelle Red Hat Linux à partir d’une mise à jour Yum ?
+**Q :** Puis-je appliquer des mises à jour sur une machine virtuelle Red Hat Linux à partir d’une mise à jour Yum ?
 
-**R :** oui, vous pouvez effectuer un correctif d’une machine virtuelle de Red Hat Linux. Pour plus d’informations, consultez [Application de mises à jour à une machine virtuelle IaaS Red Hat Azure chiffrée à l’aide de la mise à jour Yum](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/).
+**R :** Oui, vous pouvez effectuer un correctif d’une machine virtuelle de Red Hat Linux. Pour plus d’informations, consultez [Application de mises à jour à une machine virtuelle IaaS Red Hat Azure chiffrée à l’aide de la mise à jour Yum](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/).
 
 **Q :** Quel est le workflow de chiffrement de disque Azure recommandé pour Linux ?
 
@@ -122,9 +121,15 @@ Cet article offre des réponses au forum aux questions (FAQ) sur Azure Disk Encr
 
 Si ce workflow n’est pas possible, s’appuyer sur le [chiffrement du service de stockage](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) au niveau de la couche du compte de stockage de la plateforme peut être une alternative au chiffrement de disque complet à l’aide dm-crypt.
 
-**Q :** où puis-je poser des questions ou envoyer des commentaires ?
+**Q :** À quoi correspond le disque « volume Bek » ou « /mnt/azure_bek_disk » ?
 
-**R :** vous pouvez poser vos questions ou envoyer vos commentaires sur le [forum d’Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
+**R :** Le disque « volume Bek » pour Windows ou « /mnt/azure_bek_disk» pour Linux est un volume de données local qui stocke en toute sécurité les clés de chiffrement pour les machines virtuelles Azure IaaS chiffrées.
+> [!NOTE]
+> Vous ne devez pas supprimer ni modifier le contenu de ce disque. Vous ne devez pas non plus démonter ce disque, car les clés de chiffrement qui y sont stockées sont nécessaires pour effectuer les opérations de chiffrement sur les machines virtuelles IaaS.
+
+**Q :** Où puis-je poser des questions ou envoyer des commentaires ?
+
+**R :** Vous pouvez poser vos questions ou envoyer vos commentaires sur le [forum d’Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a fourni les réponses aux questions les plus courantes concernant Azure Disk Encryption. Pour plus d’informations sur ce service et ses fonctionnalités, consultez les articles suivants :
@@ -132,4 +137,3 @@ Ce document vous a fourni les réponses aux questions les plus courantes concern
 - [Appliquer le chiffrement de disque dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Chiffrer une machine virtuelle Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Chiffrement des données au repos Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
-

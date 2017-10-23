@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
 ms.openlocfilehash: 33f23d324a843165d7fe6016ee626e369acfc958
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Toutes les rubriques pour le service Azure SQL Server Stretch Database
 Cette rubrique répertorie toutes les rubriques qui s’appliquent directement au service **Azure SQL Server Stretch Database** . Pour trouver les rubriques qui vous intéressent, vous pouvez rechercher des mots clés sur cette page web à l'aide de la combinaison de touches **Ctrl+F**.
@@ -55,6 +55,6 @@ Cette rubrique répertorie toutes les rubriques qui s’appliquent directement a
 ## <a name="backup-and-recovery"></a>Sauvegarde et récupération
 | &nbsp; | Intitulé | Description |
 | ---:|:--- |:--- |
-| 14 |[Sauvegarder des bases de données Stretch](sql-server-stretch-database-backup.md) |Découvrez comment sauvegarder Stretch\-activé des bases de données. |
-| 15 |[Restaurer des bases de données Stretch](sql-server-stretch-database-restore.md) |Découvrez comment restaurer Stretch\-activé des bases de données. |
+| 14 |[Sauvegarder des bases de données Stretch](sql-server-stretch-database-backup.md) |Découvrez comment sauvegarder des bases de données Stretch. |
+| 15 |[Restaurer des bases de données Stretch](sql-server-stretch-database-restore.md) |Découvrez comment restaurer des bases de données Stretch. |
 

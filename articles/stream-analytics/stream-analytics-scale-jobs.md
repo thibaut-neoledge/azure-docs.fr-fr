@@ -1,10 +1,10 @@
 ---
 title: "Mettre à l’échelle des travaux Stream Analytics pour augmenter le débit | Microsoft Docs"
-description: "Découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de diffusion en continu d’un travail."
-keywords: "diffusion en continu de données, traitement de données de diffusion en continu, régler l’analyse"
+description: "Découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de streaming d’un travail."
+keywords: "streaming de données, traitement de données de streaming, régler l’analytique"
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: JSeb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
@@ -14,83 +14,43 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
-ms.author: samacha
+ms.author: jeanb
+ms.openlocfilehash: a38394d825c9a9b3007b30f598b37caa08f7325f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: f1e5e11e82d344508aa4375c42d509f96aaa1d00
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="scale-azure-stream-analytics-jobs-to-increase-stream-data-processing-throughput"></a>Mettre à l’échelle des tâches Azure Stream Analytics pour augmenter le débit de traitement des données de flux
-Cet article vous indique comment régler une requête Stream Analytics pour augmenter le débit des travaux Stream Analytics. Vous allez découvrir comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de la requête d’analyse et en calculant et en configurant les *unités de diffusion en continu* d’un travail. 
-
-## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Quelles sont les parties d’un travail Stream Analytics ?
-La définition d’une tâche Stream Analytics se compose d’entrées, d’une requête et d’une sortie. Les entrées correspondent à l’emplacement où le travail lit le flux de données. La requête permet de transformer le flux d’entrée de données, et la sortie correspond à l’emplacement où le travail envoie ses résultats.  
-
-Un travail nécessite au moins une source d’entrée pour la diffusion de données en continu. La source d’entrée de flux de données peut être stockée dans un concentrateur Azure Event Hub ou dans un stockage d’objets blob Azure. Pour plus d’informations, consultez [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md) et [Prise en main de l’utilisation d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md).
-
-## <a name="partitions-in-event-hubs-and-azure-storage"></a>Partitions dans les concentrateurs d’événements et le stockage Azure
-La mise à l’échelle d’un travail Stream Analytics tire parti des partitions dans l’entrée ou la sortie. Le partitionnement vous permet de répartir les données en sous-ensembles basés sur une clé de partition. Un processus qui consomme les données (par exemple, un travail Stream Analytics) peut consommer et écrire différentes partitions en parallèle, ce qui augmente le débit. Lorsque vous utilisez Stream Analytics, vous pouvez tirer parti du partitionnement dans les concentrateurs d’événements et dans le stockage d’objets blob. 
-
-Pour plus d’informations sur les partitions, consultez les articles suivants :
-
-* [Vue d’ensemble des fonctionnalités des concentrateurs d’événements](../event-hubs/event-hubs-features.md#partitions)
-* [Partitionnement des données](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning#partitioning-azure-blob-storage)
+# <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit
+Cet article vous indique comment régler une requête Stream Analytics pour augmenter le débit des travaux Stream Analytics. Vous pouvez utiliser le guide suivant pour mettre à l’échelle votre travail afin de gérer une charge plus élevée et de bénéficier de davantage de ressources système (par exemple, plus de bande passante, de ressources processeur, de mémoire).
+Comme prérequis, vous devrez peut-être consulter les articles suivants :
+-   [Comprendre et ajuster les unités de streaming](stream-analytics-streaming-unit-consumption.md)
+-   [Créer des travaux parallélisables](stream-analytics-parallelization.md)
 
 
-## <a name="streaming-units-sus"></a>Unités de diffusion en continu (SU)
-Les unités de diffusion en continu représentent les ressources et la puissance de calcul requises pour exécuter un travail Azure Stream Analytics. Ces unités permettent de décrire la capacité relative de traitement des événements basée sur une mesure mixte du processeur, de la mémoire et des taux de lecture et d’écriture. Chaque unité SU correspond à un débit d’environ 1 Mo/s. 
+## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Cas 1 : Votre requête est par définition entièrement parallélisable sur plusieurs partitions d’entrée
+Si votre requête est par définition entièrement parallélisable sur plusieurs partitions d’entrée, vous pouvez suivre les étapes suivantes :
+1.  Créez une requête massivement parallèle en utilisant le mot clé **PARTITION BY**. Pour plus d’informations, consultez la section Travaux massivement parallèles [dans cette page](stream-analytics-parallelization.md).
+2.  En fonction des types de sorties utilisés dans votre requête, certaines sorties peuvent ne pas être parallélisables ou nécessiter une configuration supplémentaire pour être massivement parallèles. Par exemple, les sorties SQL, SQL DW et PowerBI ne sont pas parallélisables. Les sorties sont toujours fusionnées avant l’envoi vers le récepteur de sortie. Les objets blob, les tables, ADLS, Service Bus et Azure Function sont automatiquement parallélisés. La configuration de PartitionKey pour CosmosDB et Event Hub doit correspondre au champ **PARTITION BY** (généralement PartitionId). Pour Event Hub, assurez-vous également que le nombre de partitions d’entrée est égal au nombre de partitions de sortie pour éviter tout croisement entre les partitions. 
+3.  Exécutez votre requête avec **6 unités de streaming** (ce qui est la capacité totale d’un seul nœud de calcul) pour mesurer le débit maximal réalisable et, si vous utilisez **GROUP BY**, pour mesurer le nombre de groupes (cardinalité) que le travail peut gérer. Les symptômes généraux qui indiquent que le travail a atteint les limites des ressources système sont les suivants.
+    - La métrique % d’utilisation de SU est supérieure à 80 %. Cela indique une utilisation élevée de la mémoire. Les facteurs qui contribuent à l’augmentation de cette métrique sont décrits [ici](stream-analytics-streaming-unit-consumption.md). 
+    -   L’horodatage de sortie est en retard par rapport au temps horloge. Selon la logique de votre requête, l’horodatage de sortie peut présenter un décalage logique par rapport au temps horloge. Toutefois, ils doivent avancer à peu près à la même vitesse. Si l’horodatage de sortie est de plus en plus en retard, cela indique que le système est surchargé. Cela peut être le résultat de la limitation du récepteur de sortie en aval ou d’une utilisation élevée du processeur. Comme nous ne fournissons pas de métrique d’utilisation du processeur à ce stade, il peut être difficile de différencier les deux.
+        - Si le problème est dû à une limitation du récepteur, vous devrez peut-être augmenter le nombre de partitions de sortie (et également de partitions d’entrée pour que le travail reste entièrement parallélisable), ou augmenter la quantité de ressources du récepteur (par exemple le nombre d’unités de requête pour CosmosDB).
+    - Dans le diagramme de travail, il existe une métrique d’événement de backlog par partition pour chaque entrée. Si la métrique d’événement de backlog continue à augmenter, cela indique également que la ressource système est contrainte (en raison de la limitation du récepteur de sortie ou d’une utilisation élevée du processeur).
+4.  Une fois que vous avez déterminé les limites d’un travail avec 6 unités de streaming, vous pouvez extrapoler linéairement la capacité de traitement du travail à mesure que vous ajoutez d’autres unités, en partant du principe que vous n’avez aucune asymétrie des données qui rend une partition « sensible ».
+>[!Note]
+> Choisissez le nombre approprié d’unités de streaming : comme Stream Analytics crée un nœud de traitement pour chaque ensemble de 6 unités de streaming ajouté, il est préférable de faire du nombre de nœuds un diviseur du nombre de partitions d’entrée pour que les partitions puissent être réparties uniformément entre les nœuds.
+> Par exemple, vous avez mesuré que votre travail avec 6 unités de streaming peut atteindre une vitesse de traitement de 4 Mo/s et le nombre de partitions d’entrée est 4. Vous pouvez choisir d’exécuter votre travail avec 12 unités de streaming pour atteindre une vitesse de traitement d’environ 8 Mo/s, ou 24 unités de streaming pour atteindre 16 Mo/s. Vous pouvez alors décider quand augmenter le nombre d’unités de streaming du travail jusqu’à quelle valeur, en fonction de votre vitesse d’entrée.
 
-Le choix du nombre d’unités SU requises pour un travail particulier dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Vous pouvez sélectionner votre quota en unités SU pour un travail. Par défaut, chaque abonnement Azure dispose d’un quota de 50 unités SU pour tous les travaux d’analyse d’une région spécifique. Pour augmenter ce quota d’unités SU pour vos abonnements, contactez le [Support Microsoft](http://support.microsoft.com). Valeurs valides pour les unités SU par travail : 1, 3, 6 et au-dessus par incréments de 6.
 
-## <a name="embarrassingly-parallel-jobs"></a>Travaux massivement parallèles
-Un travail *massivement parallèle* est le scénario le plus évolutif d’Azure Stream Analytics. Elle permet de connecter une partition de l’entrée à une instance de la requête, puis de connecter celle-ci à une partition de la sortie. Ce parallélisme comporte les exigences suivantes :
 
-1. Si votre logique de requête dépend de la clé qui est actuellement traitée par la même instance de requête, vous devez vous assurer que les événements atteignent la même partition de votre entrée. Pour les concentrateurs d’événements, cela signifie que les données d’événement doivent posséder la valeur **PartitionKey** définie. Par ailleurs, vous pouvez utiliser des expéditeurs partitionnés. Pour le stockage d’objets blob, cela signifie que les événements sont envoyés vers le même dossier de partition. Si votre logique de requête ne requiert pas la même clé pour être traitée par la même instance de requête, vous pouvez ignorer cette condition. Un exemple de cette logique serait une requête simple du type select/project/filter.  
-
-2. Une fois les données disposées dans l’entrée, vous devez vérifier que votre requête est partitionnée. Vous devez utiliser **Partition By** à toutes les étapes. Les étapes multiples sont autorisées, mais elles doivent être partitionnées à l’aide de la même clé. Pour le moment, la clé de partitionnement doit être définie sur **PartitionId** afin que le travail soit entièrement parallèle.  
-
-3. Actuellement, seuls les concentrateurs d’événements et le stockage d’objets blob prennent en charge les sorties partitionnées. Pour la sortie de concentrateur Event Hub, vous devez configurer la clé de partition et la définir sur **PartitionId**. Pour la sortie de stockage d’objets blob, aucune action n’est nécessaire.  
-
-4. Le nombre de partitions d’entrée doit être égal à celui des partitions de sortie. Actuellement, la sortie du stockage d’objets blob ne prend pas en charge les partitions, mais cela ne pose pas de problèmes, car elle hérite du schéma de partitionnement de la requête en amont. Voici des exemples de valeurs de partition qui permettent la création d’un travail entièrement parallèle :  
-
-   * 8 partitions d’entrée de concentrateur Event Hub et 8 partitions de sortie de concentrateur Event Hub
-   * 8 partitions d’entrée de concentrateur Event Hub et une sortie de stockage d’objets blob  
-   * 8 partitions d’entrée de stockage d’objets blob et une sortie de stockage d’objets blob  
-   * 8 partitions d’entrée de stockage d’objets blob et 8 partitions de sortie de concentrateur Event Hub  
-
-Les sections ci-après présentent quelques exemples de parallélisme massif.
-
-### <a name="simple-query"></a>Requête simple
-
-* Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : concentrateur Event Hub avec 8 partitions
-
-Requête :
-
-    SELECT TollBoothId
-    FROM Input1 Partition By PartitionId
-    WHERE TollBoothId > 100
-
-Cette requête est un filtre simple. Par conséquent, nous n’avons pas à nous préoccuper du partitionnement de l’entrée qui est envoyée au concentrateur Event Hub. Notez que la requête inclut **Partition By PartitionId**. Elle répond donc à l’exigence n°2 indiquée précédemment. Pour la sortie, nous devons configurer la sortie de concentrateur Event Hub dans le travail afin que la clé de partition soit définie sur **PartitionId**. La dernière vérification consiste à s’assurer que le nombre de partitions d’entrée est égal au nombre de partitions de sortie.
-
-### <a name="query-with-a-grouping-key"></a>Requête avec clé de regroupement
-
-* Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : stockage d’objets blob
-
-Requête :
-
-    SELECT COUNT(*) AS Count, TollBoothId
-    FROM Input1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-
-Cette requête comporte une clé de regroupement. Par conséquent, la même clé doit être traitée par la même instance de la requête, ce qui signifie que les événements doivent être envoyés au concentrateur Event Hub de manière partitionnée. Mais quelle clé convient-il d’utiliser ? **PartitionId** est un concept de logique de travail. Comme la clé qui nous importe réellement est **TollBoothId**, la valeur **PartitionKey** des données d’événement doit être **TollBoothId**. Pour ce faire, nous définissons **Partition By** sur **PartitionId** dans la requête. Étant donné que la sortie est un stockage d’objets blob, nous n’avons pas à nous soucier de la configuration d’une valeur de clé de partition, conformément à l’exigence n°4.
-
-### <a name="multi-step-query-with-a-grouping-key"></a>Requête à plusieurs étapes avec clé de regroupement
-* Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : instance de concentrateur Event Hub avec 8 partitions
+## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Cas 2 : Votre requête n’est pas massivement parallèle.
+Si votre requête n’est pas massivement parallèle, vous pouvez suivre les étapes ci-dessous.
+1.  Démarrez avec une requête sans mot clé **PARTITION BY** tout d’abord afin d’éviter la complexité de partitionnement et exécutez-la avec 6 unités de streaming pour mesurer la charge maximale, comme dans le [cas 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions).
+2.  Si vous pouvez obtenir votre charge prévue en termes de débit, vous avez terminé. Vous pouvez également choisir de mesurer le même travail exécuté avec 3 unités de streaming et 1 unité de streaming, pour déterminer le nombre minimal d’unités de streaming qui fonctionne pour votre scénario.
+3.  Si vous ne pouvez pas obtenir le débit souhaité, essayez de diviser votre requête en plusieurs étapes, si possible et si elle n’est pas déjà constituée de plusieurs étapes, et allouez jusqu’à 6 unités de streaming pour chaque étape de la requête. Par exemple, si vous avez 3 étapes, allouez 18 unités de streaming dans l’option « Échelle ».
+4.  Lors de l’exécution d’un tel travail, Stream Analytics place chaque étape sur son propre nœud avec des ressources de 6 unités de streaming dédiées. 
+5.  Si vous n’avez pas encore atteint votre cible de charge, vous pouvez essayer d’utiliser **PARTITION BY** en commençant par les étapes les plus proches de l’entrée. Pour l’opérateur **GROUP BY** qui n’est peut-être pas naturellement configurable en partition, vous pouvez utiliser le modèle d’agrégation global/local pour effectuer une opération **GROUP BY** partitionnée suivie d’une opération **GROUP BY** non partitionnée. Par exemple, vous souhaitez compter le nombre de voitures qui passent par chaque gare de péage toutes les 3 minutes et le volume des données dépasse ce qui peut être géré par 6 unités de streaming.
 
 Requête :
 
@@ -99,179 +59,34 @@ Requête :
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
     )
-
-    SELECT SUM(Count) AS Count, TollBoothId
-    FROM Step1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-
-Cette requête contient une clé de regroupement. La même clé doit donc être traitée par la même instance de la requête. Nous pouvons utiliser la même stratégie que dans l’exemple précédent. Dans ce cas, la requête comporte plusieurs étapes. Chaque étape inclut-elle **Partition By PartitionId** ? Oui, la requête répond à l’exigence n°3. Pour la sortie, nous devons définir la clé de partition sur **PartitionId**, comme indiqué précédemment. Nous pouvons également observer que la sortie dispose du même nombre de partitions que l’entrée.
-
-## <a name="example-scenarios-that-are-not-embarrassingly-parallel"></a>Exemples de scénarios qui n’impliquent *pas* un parallélisme massif
-
-Dans la section précédente, nous vous avons présenté certains scénarios impliquant un parallélisme massif. Dans cette section, nous étudions des cas dans lesquels toutes les exigences ne sont pas remplies pour un parallélisme massif. 
-
-### <a name="mismatched-partition-count"></a>Nombre de partitions d’entrée et de sortie différent
-* Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : concentrateur Event Hub avec 32 partitions
-
-Dans ce cas, le type de requête importe peu. Si le nombre de partitions d’entrée ne correspond pas au nombre de partitions de sortie, la topologie n’est pas massivement parallèle.
-
-### <a name="not-using-event-hubs-or-blob-storage-as-output"></a>Sortie ne correspondant pas à un concentrateur Event Hub ni à un stockage d’objets blob
-* Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : Power BI
-
-Pour le moment, la sortie Power BI ne prend pas en charge le partitionnement. Par conséquent, ce scénario n’est pas de type massivement parallèle.
-
-### <a name="multi-step-query-with-different-partition-by-values"></a>Requête à plusieurs étapes avec différentes valeurs Partition By
-* Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : concentrateur Event Hub avec 8 partitions
-
-Requête :
-
-    WITH Step1 AS (
-    SELECT COUNT(*) AS Count, TollBoothId, PartitionId
-    FROM Input1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-    )
-
-    SELECT SUM(Count) AS Count, TollBoothId
-    FROM Step1 Partition By TollBoothId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId
-
-Comme vous pouvez le voir, la deuxième étape utilise **TollBoothId** comme clé de partitionnement. Cette étape n’est pas la même que la première. Nous devons donc apporter quelques modifications. 
-
-Les exemples précédents décrivent des travaux Stream Analytics qui respectent (ou pas) une topologie de type massivement parallèle. S’ils la respectent, ils présentent alors le potentiel pour une mise à l’échelle maximale. Pour les travaux qui ne correspondent pas à l’un de ces profils, des conseils de mise à l’échelle seront disponibles dans les futures mises à jour. Pour le moment, suivez les instructions générales indiquées dans les sections suivantes.
-
-## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Calcul du nombre maximum d'unités de diffusion en continu pour un travail
-Le nombre total d'unités de diffusion en continu qui peut être utilisé par un travail Stream Analytics varie selon le nombre d'étapes de la requête définie pour le travail et le nombre de partitions pour chaque étape.
-
-### <a name="steps-in-a-query"></a>Étapes dans une requête
-Une requête peut avoir une ou plusieurs étapes. Chaque étape est une sous-requête définie par le mot-clé **WITH**. La requête qui se trouve en dehors du mot-clé **WITH** (une seule requête) est également comptabilisée comme une étape, par exemple, l’instruction **SELECT** dans la requête suivante :
-
-    WITH Step1 AS (
-        SELECT COUNT(*) AS Count, TollBoothId
-        FROM Input1 Partition By PartitionId
-        GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-    )
-
-    SELECT SUM(Count) AS Count, TollBoothId
-    FROM Step1
-    GROUP BY TumblingWindow(minute,3), TollBoothId
-
-Cette requête compte deux étapes.
-
-> [!NOTE]
-> Cette requête est approfondie plus loin dans cet article.
->  
-
-### <a name="partition-a-step"></a>Partitionnement d'une étape
-Les conditions suivantes doivent être respectées pour procéder au partitionnement d'une étape :
-
-* La source d'entrée doit être partitionnée. 
-* L’instruction **SELECT** de la requête doit lire à partir d’une source d’entrée partitionnée.
-* La requête de l’étape doit contenir le mot-clé **Partition By**.
-
-Lorsqu’une requête est partitionnée, les événements d’entrée sont traités et agrégés dans des groupes de partition distincts, et les événements de sortie sont générés pour chacun des groupes. Si vous souhaitez procéder à un agrégat combiné, vous devez créer une deuxième étape non partitionnée à agréger.
-
-### <a name="calculate-the-max-streaming-units-for-a-job"></a>Calcul des unités de diffusion en continu maximum pour un travail
-Toutes les étapes non partitionnées ensemble peuvent être mises à l’échelle jusqu’à atteindre six unités SU par travail Stream Analytics. Pour ajouter des unités SU, une étape doit être partitionnée. Chaque partition peut comporter six unités SU.
-
-<table border="1">
-<tr><th>Requête</th><th>Nombre d’unités SU maximal pour le travail</th></td>
-
-<tr><td>
-<ul>
-<li>La requête contient une étape.</li>
-<li>L'étape n'est pas partitionnée.</li>
-</ul>
-</td>
-<td>6</td></tr>
-
-<tr><td>
-<ul>
-<li>Le flux de données d'entrée est partitionné par 3.</li>
-<li>La requête contient une étape.</li>
-<li>L'étape est partitionnée.</li>
-</ul>
-</td>
-<td>18</td></tr>
-
-<tr><td>
-<ul>
-<li>La requête contient 2 étapes.</li>
-<li>Aucune des étapes n'est partitionnée.</li>
-</ul>
-</td>
-<td>6</td></tr>
-
-<tr><td>
-<ul>
-<li>Le flux de données d'entrée est partitionné par 3.</li>
-<li>La requête contient 2 étapes. L'étape d'entrée est partitionnée et la deuxième étape ne l'est pas.</li>
-<li>L’instruction <strong>SELECT</strong> lit dans l’entrée partitionnée.</li>
-</ul>
-</td>
-<td>24 (18 pour les étapes partitionnées + 6 pour les étapes non partitionnées)</td></tr>
-</table>
-
-### <a name="examples-of-scaling"></a>Exemples de mise à l’échelle
-
-La requête suivante calcule le nombre de voitures, dans une fenêtre de trois minutes, qui traversent un poste de péage pourvu de trois cabines de péage. Cette requête peut être mise à l’échelle jusqu’à six unités SU.
-
-    SELECT COUNT(*) AS Count, TollBoothId
-    FROM Input1
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-
-Pour utiliser plus d’unités SU pour la requête, le flux de données d’entrée et la requête doivent être partitionnés. Comme la partition de flux de données est définie sur 3, la requête modifiée suivante peut être mise à l’échelle jusqu’à compter 18 unités SU :
-
-    SELECT COUNT(*) AS Count, TollBoothId
-    FROM Input1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-
-Lorsqu'une requête est partitionnée, les événements d'entrée sont traités et agrégées dans des groupes de partition distincts. Les événements de sortie sont également générés pour chacun des groupes. Le partitionnement peut provoquer des résultats inattendus si le champ **GROUP BY** n’est pas la clé de partition dans le flux de données d’entrée. Par exemple, dans la requête précédente, le champ **TollBoothId** n’est pas la clé de partition **d’Input1**. Le résultat est le suivant : les données de la cabine de péage « TollBooth 1 » peuvent être réparties dans plusieurs partitions.
-
-Chaque partition **Input1** est traitée séparément par Stream Analytics. En conséquence, plusieurs enregistrements du nombre de voitures pour la même cabine de péage sont créés dans la même fenêtre bascule. Si la clé de partition d’entrée ne peut pas être modifiée, ce problème peut être résolu en ajoutant une étape non partitionnée, comme dans l’exemple suivant :
-
-    WITH Step1 AS (
-        SELECT COUNT(*) AS Count, TollBoothId
-        FROM Input1 Partition By PartitionId
-        GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-    )
-
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 
-Cette requête peut être mise à l’échelle jusqu’à comporter 24 unités SU.
+Dans la requête ci-dessus, vous comptez les voitures par gare de péage par partition, puis additionnez le nombre de toutes les partitions.
 
-> [!NOTE]
-> Si vous joignez deux flux de données, assurez-vous qu’ils sont partitionnés par la clé de partition de la colonne que vous utilisez pour créer les jointures. Assurez-vous également d’avoir le même nombre de partitions dans les deux flux de données.
-> 
-> 
+Une fois le partitionnement effectué, pour chaque partition de l’étape, allouez jusqu’à 6 unités de streaming, chaque partition avec 6 unités de streaming représentant le maximum, pour pouvoir placer chaque partition sur son propre nœud de traitement.
 
-## <a name="configure-stream-analytics-streaming-units"></a>Configurer des unités de diffusion en continu Stream Analytics
+> [!Note]
+> Si votre requête ne peut pas être partitionnée, l’ajout d’unités de streaming supplémentaires dans une requête en plusieurs étapes peut ne pas toujours améliorer le débit. Une façon d’augmenter les performances consiste à réduire le volume sur les étapes initiales à l’aide du modèle d’agrégation global/local, comme décrit ci-dessus à l’étape 5.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans la liste des ressources, recherchez le travail Stream Analytics que vous souhaitez mettre à l’échelle, puis ouvrez-le.
-3. Dans le panneau du travail, sous **Configurer**, cliquez sur **Échelle**.
+## <a name="case-3---you-are-running-lots-of-independent-queries-in-a-job"></a>Cas 3 : Vous exécutez un grand nombre de requêtes indépendantes dans un travail.
+Pour certains cas d’usage d’éditeurs de logiciels indépendants, où il est plus rentable de traiter les données de plusieurs locataires dans un même travail, vous risquez de finir par exécuter un certain nombre (par exemple 20) de requêtes indépendantes dans un seul travail en utilisant des entrées et sorties distinctes pour chaque locataire. L’hypothèse est que la charge de chaque sous-requête de ce type est relativement faible. Dans ce cas, vous pouvez suivre les étapes ci-dessous.
+1.  Dans ce cas, n’utilisez pas **PARTITION BY** dans la requête
+2.  Réduisez le nombre de partitions d’entrée à la valeur la plus faible possible de 2 si vous utilisez Event Hub.
+3.  Exécutez la requête avec 6 unités de streaming. Avec la charge attendue pour chaque sous-requête, ajoutez autant de ces sous-requêtes que possible, jusqu’à ce que le travail atteigne les limites des ressources système. Reportez-vous au [cas 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) pour connaître les symptômes de cette situation.
+4.  Une fois que vous atteignez la limite des sous-requêtes mesurée ci-dessus, commencez à ajouter la sous-requête à un nouveau travail. Le nombre de travaux à exécuter en fonction du nombre de requêtes indépendantes doit être assez linéaire, en partant du principe que vous n’avez aucune asymétrie de charge. Vous pouvez ensuite prévoir combien de travaux avec 6 unités de streaming vous devez exécuter en fonction du nombre de locataires que vous souhaitez traiter.
+5.  Lors de l’utilisation de la jointure des données de référence avec les requêtes de ce type, vous devez unir les entrées avant la jointure avec les mêmes données de référence, puis fractionner les événements si nécessaire. Dans le cas contraire, chaque jointure des données de référence conserve une copie des données de référence en mémoire, ce qui risque d’augmenter l’utilisation de la mémoire inutilement.
 
-    ![Configuration d’un travail Stream Analytics sur le portail Azure][img.stream.analytics.preview.portal.settings.scale]
-
-4. Définissez les unités SU pour le travail à l’aide du curseur. Notez que vous êtes limité à des paramètres d’unité SU spécifiques.
-
-
-## <a name="monitor-job-performance"></a>Surveillance des performances du travail
-À l’aide du portail Azure, vous pouvez suivre le débit d’un travail :
-
-![Surveillance des travaux Azure Stream Analytics][img.stream.analytics.monitor.job]
-
-Calculez le débit prévu pour la charge de travail. Si le débit est plus faible que prévu, paramétrez la partition d’entrée ainsi que la requête, puis ajoutez des unités SU à votre travail.
+> [!Note] 
+> Combien de locataires à placer dans chaque travail ?
+> Ce modèle de requête comporte souvent un grand nombre de sous-requêtes et aboutit à une topologie très volumineuse et complexe. Le contrôleur du travail peut ne pas être en mesure de gérer une topologie si volumineuse. En règle générale, restez en dessous de 40 locataires pour un travail avec 1 unité de streaming, et 60 locataires pour des travaux avec 3 et 6 unités de streaming. Quand vous dépassez la capacité du contrôleur, le travail ne démarre pas correctement.
 
 
-## <a name="visualize-stream-analytics-throughput-at-scale-the-raspberry-pi-scenario"></a>Visualiser le débit Stream Analytics à l’échelle : scénario Raspberry Pi
+## <a name="an-example-of-stream-analytics-throughput-at-scale"></a>Exemple de débit Stream Analytics à l’échelle
 Pour vous aider à comprendre comment les travaux Stream Analytics sont mis à l’échelle, nous avons effectué une expérience basée sur l’entrée d’un appareil Raspberry Pi. Cette expérience nous permet d’observer l’effet de plusieurs unités SU et partitions sur le débit.
 
-Dans ce scénario, l’appareil envoie des données de capteur (clients) à un concentrateur Event Hub. Stream Analytics traite les données et envoie une alerte ou des statistiques en tant que sortie à un autre concentrateur Event Hub. 
+Dans ce scénario, l’appareil envoie des données de capteur (clients) à un hub d’événements. Stream Analytics traite les données et envoie une alerte ou des statistiques en tant que sortie à un autre hub d’événements. 
 
 Le client envoie des données de capteur au format JSON. La sortie des données est également au format JSON. Voici à quoi ressemblent les données :
 
@@ -279,21 +94,19 @@ Le client envoie des données de capteur au format JSON. La sortie des données
 
 La requête suivante permet d’envoyer une alerte quand lorsqu’une lumière est éteinte :
 
-    SELECT AVG(lght),
-     "LightOff" as AlertText
-    FROM input TIMESTAMP
-    BY devicetime
-     WHERE
-        lght< 0.05 GROUP BY TumblingWindow(second, 1)
+    SELECT AVG(lght), "LightOff" as AlertText
+    FROM input TIMESTAMP BY devicetime 
+    PARTITION BY PartitionID
+    WHERE lght< 0.05 GROUP BY TumblingWindow(second, 1)
 
 ### <a name="measure-throughput"></a>Mesurer le débit
 
-Dans ce contexte, le débit correspond à la quantité de données d’entrée traitées par Stream Analytics au cours d’une durée fixe. (Nous avons mesuré le débit pendant 10 minutes.) Pour obtenir le meilleur débit de traitement pour les données d’entrée, l’entrée de flux de données et la requête ont été partitionnées. Nous avons inclus **COUNT()** dans la requête pour mesurer le nombre d’événements d’entrée traités. Pour vous assurer que le travail n’attende pas simplement les événements d’entrée, chaque partition du concentrateur Event Hub d’entrée a été préchargée avec environ 300 Mo de données d’entrée.
+Dans ce contexte, le débit correspond à la quantité de données d’entrée traitées par Stream Analytics au cours d’une durée fixe. (Nous avons mesuré le débit pendant 10 minutes.) Pour obtenir le meilleur débit de traitement pour les données d’entrée, l’entrée de flux de données et la requête ont été partitionnées. Nous avons inclus **COUNT()** dans la requête pour mesurer le nombre d’événements d’entrée traités. Pour vous assurer que le travail n’attende pas simplement les événements d’entrée, chaque partition du hub d’événements d’entrée a été préchargée avec environ 300 Mo de données d’entrée.
 
-Le tableau suivant montre les résultats que nous avons observés lorsque nous avons augmenté le nombre d’unités SU et le nombre de partitions correspondant dans les concentrateurs d’événements.  
+Le tableau suivant montre les résultats que nous avons observés lorsque nous avons augmenté le nombre d’unités de streaming et le nombre de partitions correspondant dans les hubs d’événements.  
 
 <table border="1">
-<tr><th>Partitions d'entrée</th><th>Partitions de sortie</th><th>Unités de diffusion en continu</th><th>Débit soutenu
+<tr><th>Partitions d'entrée</th><th>Partitions de sortie</th><th>Unités de streaming</th><th>Débit soutenu
 </th></td>
 
 <tr><td>12</td>
@@ -364,5 +177,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-
 

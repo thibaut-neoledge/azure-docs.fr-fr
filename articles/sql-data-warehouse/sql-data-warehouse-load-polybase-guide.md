@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.date: 9/13/2017
 ms.custom: loading
 ms.author: cakarst;barbkess
+ms.openlocfilehash: e8ae0eb96200c167a8758df4ce20b51452cc59a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 7594a0730477fe3f3bd34b0b6207478de70c7595
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Guide d'utilisation de PolyBase dans SQL Data Warehouse
 Ce guide fournit des informations pratiques pour l'utilisation de PolyBase dans SQL Data Warehouse.
@@ -134,7 +133,7 @@ Pour obtenir des performances de chargement optimales avec PolyBase, nous vous s
 
 ## <a name="polybase-limitations"></a>Limites de PolyBase
 Dans l’entrepôt de données SQL, PolyBase présente certaines limites qui doivent être prises en considération lorsque vous concevez une tâche de chargement :
-- La largeur d’une ligne ne peut pas dépasser 1 000 000 d’octets. Ceci est valable, quel que soit le schéma de table défini, y compris les colonnes (n)varchar(max). Pour les tables externes, cela signifie que les colonnes (n)varchar(max) ne peuvent pas dépasser 1 000 000 d’octets de largeur, et non 2 Go comme défini par le type de données.
+- La largeur d’une ligne ne peut pas dépasser 1 000 000 d’octets. Ceci est valable, quel que soit le schéma de table défini.
 - Lorsque vous exportez des données au format de fichier ORC à partir de SQL Server ou d’Azure SQL Data Warehouse, le nombre de colonnes contenant beaucoup de texte peut être limité à 50, en raison d’erreurs Java de mémoire insuffisante. Pour contourner ce problème, exportez uniquement un sous-ensemble de ces colonnes.
 
 
@@ -174,4 +173,3 @@ Pour en savoir plus sur le déplacement de données dans SQL Data Warehouse, con
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
 <!-- External Links -->
-

@@ -53,6 +53,8 @@
           href: concepts-extensions.md
         - name: Journaux des serveurs
           href: concepts-server-logs.md
+        - name: Haute disponibilité
+          href: concepts-high-availability.md
     - name: Ressources
       items:
         - name: Niveaux de tarification
@@ -67,6 +69,8 @@
           href: concepts-firewall-rules.md
         - name: Configuration du chiffrement SSL
           href: concepts-ssl-connection-security.md
+    - name: Surveiller
+      href: concepts-monitoring.md
     - name: Développement
       items:
         - name: Bibliothèques de connexions
@@ -91,14 +95,20 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: Importer et exporter
           href: howto-migrate-using-export-and-import.md
-    - name: Personnaliser les paramètres de configuration de serveur
+    - name: Configurer les paramètres du serveur
       items:
         - name: Interface de ligne de commande Azure
           href: howto-configure-server-parameters-using-cli.md
-    - name: Journaux des serveurs
+    - name: Accéder aux journaux du serveur
       items:
+        - name: Portail Azure
+          href: howto-configure-server-logs-in-portal.md
         - name: Interface de ligne de commande Azure
           href: howto-configure-server-logs-using-cli.md
+    - name: Surveiller
+      items:
+        - name: Créer des alertes sur les mesures
+          href: howto-alert-on-metric.md
 - name: Référence
   items:
     - name: Interface de ligne de commande Azure

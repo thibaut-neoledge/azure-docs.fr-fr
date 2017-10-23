@@ -5,18 +5,18 @@ Dans cette section, nous étudierons les différentes façons de résoudre ce pr
 ### <a name="request-wheels"></a>Demande de roues
 Si l’installation du package nécessite un compilateur, tentez de contacter le propriétaire du package afin qu’il mette à disposition des roues pour le package.
 
-Avec la disponibilité récente [compilateur Microsoft Visual C++ pour Python 2.7][Microsoft Visual C++ Compiler for Python 2.7], il est désormais plus facile de générer des packages qui ont le code natif pour Python 2.7.
+Avec [Microsoft Visual C++ Compiler 2013 pour Python 2.7][Microsoft Visual C++ Compiler for Python 2.7], il est désormais plus facile de créer des packages avec du code natif pour Python 2.7.
 
 ### <a name="build-wheels-requires-windows"></a>Création de roues (Windows requis)
 Remarque : lorsque vous utilisez cette option, veillez à compiler le package à l’aide d’un environnement Python correspondant à la plateforme/version/architecture utilisée sur l’application web dans Azure Web Service (Windows/32 bits/2.7 ou 3.4).
 
 Si l’installation du package échoue car un compilateur est requis, vous pouvez installer le compilateur sur votre machine locale et créer une roue pour le package, que vous inclurez ensuite dans votre référentiel.
 
-Les utilisateurs Mac/Linux : Si vous n’avez pas accès à un ordinateur Windows, consultez [créer une Machine virtuelle exécutant Windows] [ Create a Virtual Machine Running Windows] pour savoir comment créer une machine virtuelle sur Azure.  Vous pouvez alors utiliser cette machine virtuelle pour générer des roues et les ajouter au référentiel, puis la supprimer si vous le souhaitez. 
+Utilisateurs de Mac/Linux : si vous n’avez pas accès à un ordinateur Windows, consultez la rubrique [Créer une machine virtuelle exécutant Windows][Create a Virtual Machine Running Windows] pour savoir comment créer une machine virtuelle sur Azure.  Vous pouvez alors utiliser cette machine virtuelle pour générer des roues et les ajouter au référentiel, puis la supprimer si vous le souhaitez. 
 
-Pour les Python 2.7, vous pouvez installer [compilateur Microsoft Visual C++ pour Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
+Pour Python 2.7, vous pouvez installer [Microsoft Visual C++ Compiler 2013 pour Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
 
-Pour les Python 3.4, vous pouvez installer [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
+Pour Python 3.4, vous pouvez installer [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
 
 Pour générer des roues, vous aurez besoin du package de roue :
 

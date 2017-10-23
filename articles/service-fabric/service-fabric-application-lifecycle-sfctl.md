@@ -8,12 +8,11 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: 6eb58b31f20f239d310415d44f61e7455918dae9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: c3a2eb3e6e54f952ef963bb2a0292d9ad7b53bc5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Gérer une application Azure Service Fabric à l’aide d’Azure Service Fabric CLI
 
@@ -31,14 +30,14 @@ Pour déployer une nouvelle application, suivez les étapes ci-dessous :
 
 1. Téléchargez un package d’application dans le magasin d’images Service Fabric.
 2. Approvisionnez un type d’application.
-3. Spécifiez et créez une application.
-4. Spécifiez et créez des services.
+3. Supprimez le contenu du magasin d’images.
+4. Spécifiez et créez une application.
+5. Spécifiez et créez des services.
 
 Pour supprimer une application existante, procédez comme suit :
 
 1. Supprimez l’application.
 2. Annulez l’approvisionnement du type d’application associé.
-3. Supprimez le contenu du magasin d’images.
 
 ## <a name="deploy-a-new-application"></a>Déployer une nouvelle application
 
@@ -65,6 +64,18 @@ sfctl application provision --application-type-build-path app_package_dir
 ```
 
 La valeur de `application-type-build-path` est le nom du répertoire où vous avez chargé le package d’application.
+
+### <a name="delete-the-application-package"></a>Supprimer le package d’application
+
+Nous vous recommandons de supprimer le package d’application une fois que l’application est inscrite avec succès.  La suppression de packages d’application du magasin d’images libère des ressources système.  La conservation des packages d’application inutilisés consomme du stockage sur disque et affecte le niveau de performance des applications. 
+
+Pour supprimer le package d’application du magasin d’images, utilisez la commande suivante :
+
+```azurecli
+sfctl store delete --content-path app_package_dir
+```
+
+`content-path` doit être le nom du répertoire que vous avez chargé lors de la création de l’application.
 
 ### <a name="create-an-application-from-an-application-type"></a>Créer une application à partir d’un type d’application
 
@@ -127,18 +138,6 @@ sfctl application unprovision --application-type-name TestAppTye --application-t
 
 Le nom et la version du type doivent correspondre au nom et à la version du manifeste de l’application précédemment approvisionné.
 
-### <a name="delete-the-application-package"></a>Supprimer le package d’application
-
-Une fois l’approvisionnement du type d’application annulé, vous pouvez supprimer le package d’application du magasin d’images si vous n’en avez plus besoin. La suppression des packages d’application permet de récupérer de l’espace sur le disque. 
-
-Pour supprimer le package d’application du magasin d’images, utilisez la commande suivante :
-
-```azurecli
-sfctl store delete --content-path app_package_dir
-```
-
-`content-path` doit être le nom du répertoire que vous avez chargé lors de la création de l’application.
-
 ## <a name="upgrade-application"></a>Mettre à niveau l’application
 
 Après avoir créé votre application, vous pouvez répéter la même procédure pour configurer une deuxième version de votre application. Avec une mise à niveau d’application Service Fabric, vous pouvez ensuite exécuter la deuxième version de l’application. Pour plus d’informations, consultez la documentation [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md).
@@ -148,6 +147,7 @@ Pour effectuer une mise à niveau, configurez d’abord la version suivante de l
 ```azurecli
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
+sfctl store delete --content-path app_package_dir_2
 ```
 
 Il est ensuite recommandé d’effectuer une mise à niveau automatique surveillée et de lancer cette dernière en exécutant la commande suivante :
@@ -169,4 +169,3 @@ Enfin, si une mise à niveau est en cours et doit être annulée, vous pouvez ut
 * [Concepts de base Service Fabric CLI](service-fabric-cli.md)
 * [Prise en main de Service Fabric sur Linux](service-fabric-get-started-linux.md)
 * [Lancement d’une mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
-

@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: glenga
+ms.openlocfilehash: b6ab081311822abd9c0a24b4cc241291bf56af68
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 38f6f5ebe0c53bc4314fa11f0f8d4f00af6086dd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Coder et tester Azure Functions localement
 
@@ -49,7 +48,7 @@ La version 2.x des outils utilise le runtime d’Azure Functions 2.x qui repo
 >[!IMPORTANT]   
 > Avant d’installer Azure Functions Core Tools, [installez .NET Core 2.0](https://www.microsoft.com/net/core).  
 >
-> Le runtime d’Azure Functions 2.0 est en préversion ; pour le moment, toutes les fonctionnalités d’Azure Functions ne sont pas prises en charge. Pour plus d’informations, consultez l’article [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) (Problèmes connus du runtime d’Azure Functions 2.0). 
+> Le Runtime Azure Functions 2.0 est en préversion ; pour le moment, toutes les fonctionnalités d’Azure Functions ne sont pas prises en charge. Pour plus d’informations, consultez l’article [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) (Problèmes connus du runtime d’Azure Functions 2.0). 
 
  Pour installer les outils de la version 2.0, utilisez la commande suivante :
 
@@ -161,6 +160,7 @@ Pour définir une valeur pour des chaînes de connexion, vous avez le choix suiv
     ```
     Les deux commandes nécessitent que vous vous connectiez d’abord à Azure.
 
+<a name="create-func"></a>
 ## <a name="create-a-function"></a>Créer une fonction
 
 Exécutez la commande suivante pour créer une fonction :
@@ -187,7 +187,7 @@ Pour créer une fonction déclenchée par une file d’attente, exécutez :
 ```
 func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 ```
-
+<a name="start"></a>
 ## <a name="run-functions-locally"></a>Exécuter des fonctions localement
 
 Pour exécuter un projet Functions, exécutez l’hôte Functions. L’hôte active les déclencheurs pour toutes les fonctions du projet :
@@ -237,7 +237,60 @@ Ensuite, dans Visual Studio Code, dans la vue **Déboguer**, sélectionnez **Att
 
 ### <a name="passing-test-data-to-a-function"></a>Transmission de données de test à une fonction
 
-Vous pouvez également appeler une fonction directement à l’aide de `func run <FunctionName>` et fournir des données d’entrée pour la fonction. Cette commande est similaire à l’exécution d’une fonction à l’aide de l’onglet **Test** dans le portail Azure. Cette commande lance l’intégralité de l’hôte Functions.
+Pour tester vos fonctions localement, vous [démarrez l’hôte Functions](#start) et vous appelez des points de terminaison sur le serveur local avec des requêtes HTTP. Le point de terminaison que vous appelez varie selon le type de fonction. 
+
+>[!NOTE]  
+> Les exemples de cette rubrique utilisent l’outil cURL pour envoyer des requêtes HTTP à partir du terminal ou d’une invite de commandes. Vous pouvez utiliser un outil de votre choix pour envoyer les requêtes HTTP au serveur local. L’outil cURL est disponible par défaut sur les systèmes Linux. Sous Windows, vous devez d’abord télécharger et installer [l’outil cURL](https://curl.haxx.se/).
+
+Pour des informations plus générales sur le test de fonctions, consultez [Stratégies permettant de tester votre code dans Azure Functions](functions-test-a-function.md).
+
+#### <a name="http-and-webhook-triggered-functions"></a>Fonctions déclenchées par HTTP et par Webhook
+
+Vous appelez le point de terminaison suivant pour exécuter localement des fonctions déclenchées par HTTP et par Webhook :
+
+    http://localhost:{port}/api/{function_name}
+
+Vérifiez que vous utilisez le même nom de serveur et le même port que celui où l’hôte Functions écoute. Vous voyez cela dans la sortie générée lors du démarrage de l’hôte Functions. Vous pouvez appeler cette URL en utilisant n’importe quelle méthode HTTP prise en charge par le déclencheur. 
+
+La commande cURL suivante déclenche la fonction de démarrage rapide `MyHttpTrigger` à partir d’une demande GET avec le paramètre _name_passé dans la chaîne de requête. 
+
+```
+curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
+```
+L’exemple suivant est la même fonction appelée à partir d’une demande POST en passant _name_ dans le corps de la demande :
+
+```
+curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
+```
+
+Notez que vous pouvez faire des demandes GET depuis un navigateur en passant des données dans la chaîne de requête. Pour toutes les autres méthodes HTTP, vous devez utiliser cURL, Fiddler, Postman ou un outil de test HTTP similaire.  
+
+#### <a name="non-http-triggered-functions"></a>Fonctions non déclenchées via HTTP
+Pour tous les types de fonctions autres que les déclencheurs et Webhooks HTTP, vous pouvez tester vos fonctions localement en appelant un point de terminaison d’administration. L’appel de ce point de terminaison sur le serveur local déclenche la fonction. Vous pouvez éventuellement passer des données de test à l’exécution. Cette fonctionnalité est similaire à l’onglet **Test** dans le portail Azure.  
+
+Vous appelez le point de terminaison d’administrateur suivant pour déclencher des fonctions non-HTTP avec une requête HTTP POST :
+
+    http://localhost:{port}/admin/functions/{function_name}
+
+Bien que vous puissiez passez des données de test au point de terminaison d’administrateur d’une fonction, vous devez fournir les données dans le corps d’un message de demande POST. Le corps du message doit avoir le format JSON suivant :
+
+```JSON
+{
+    "input": "<trigger_input>"
+}
+```` 
+La valeur de `<trigger_input>` contient des données dans un format attendu par la fonction. L’exemple cURL suivant est une demande POST adressée à une fonction `QueueTriggerJS`. Dans ce cas, l’entrée est une chaîne qui est équivalente au message attendu dans la file d’attente.      
+
+```
+curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
+```
+
+#### <a name="using-the-func-run-command-in-version-1x"></a>Utilisation de la commande `func run` dans la version 1.x
+
+>[!IMPORTANT]  
+> La commande `func run` n’est pas prise en charge dans la version 2.x des outils. Pour plus d’informations, consultez la rubrique [Comment cibler des versions du runtime Azure Functions](functions-versions.md).
+
+Vous pouvez également appeler une fonction directement à l’aide de `func run <FunctionName>` et fournir des données d’entrée pour la fonction. Cette commande est similaire à l’exécution d’une fonction à l’aide de l’onglet **Test** dans le portail Azure. 
 
 `func run` prend en charge les options suivantes :
 
@@ -270,7 +323,7 @@ Vous pouvez utiliser les options suivantes :
 | **`--publish-local-settings -i`** |  Publier dans Azure les paramètres figurant dans local.settings.json, avec demande de confirmation du remplacement si le paramètre existe déjà.|
 | **`--overwrite-settings -y`** | Doit être utilisé avec `-i`. Remplace les paramètres d’application dans Azure par la valeur locale s’ils sont différents. Par défaut, l’accord de l’utilisateur est sollicité.|
 
-Cette commande publie du contenu vers une application de fonction existante dans Azure. Une erreur se produit si le `<FunctionAppName>` n’existe pas dans votre abonnement. Pour découvrir comment créer une application de fonction à partir de l’invite de commandes ou d’une fenêtre de terminal à l’aide d’Azure CLI, consultez l’article [Créer une Function App pour une exécution sans serveur](./scripts/functions-cli-create-serverless.md).
+Cette commande publie du contenu vers une application de fonction existante dans Azure. Une erreur se produit si le `<FunctionAppName>` n’existe pas dans votre abonnement. Pour découvrir comment créer une application de fonction à partir de l’invite de commandes ou d’une fenêtre de terminal à l’aide d’Azure CLI, consultez [Créer une application de fonction pour une exécution sans serveur](./scripts/functions-cli-create-serverless.md).
 
 La commande `publish` charge le contenu du répertoire du projet Functions. Si vous supprimez les fichiers localement, la commande `publish` ne les supprime pas d’Azure. Vous pouvez supprimer des fichiers dans Azure à l’aide de [l’outil Kudu](functions-how-to-use-azure-function-app-settings.md#kudu) dans le [portail Azure].  
 
@@ -292,4 +345,3 @@ Pour enregistrer un bogue ou une demande de fonctionnalité, [créez un problèm
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [portail Azure]: https://portal.azure.com 
-

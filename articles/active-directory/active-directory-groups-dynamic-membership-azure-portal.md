@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
+ms.openlocfilehash: 3ff347ab23c9150246940f563e562c8de92be45d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 44748f3152718f3cec348d7e2bdccdbe0f79091e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Créer des règles basées sur les attributs pour l’appartenance à un groupe dynamique dans Azure Active Directory
 Dans Azure Active Directory (Azure AD), vous pouvez créer des règles avancées pour activer des appartenances dynamiques complexes basées sur les attributs pour les groupes. Cet article détaille les attributs et la syntaxe pour créer des règles d’appartenance dynamiques pour des utilisateurs ou des appareils.
@@ -40,17 +39,19 @@ Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système �
 ## <a name="to-create-an-advanced-rule"></a>Pour créer une règle avancée
 1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte d’administrateur général ou en tant qu’administrateur de compte d’utilisateur.
 2. Sélectionnez **Utilisateurs et groupes**.
-3. Sélectionnez **Tous les groupes**.
+3. Sélectionnez **Tous les groupes**, puis **Nouveau groupe**.
 
-   ![Ouvrir le panneau de groupes](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. Dans **Tous les groupes**, sélectionnez **Nouveau groupe**.
+   ![Ajouter un nouveau groupe](./media/active-directory-groups-dynamic-membership-azure-portal/new-group-creation.png)
 
-   ![Ajouter un nouveau groupe](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
-5. Dans le panneau **Groupe** , saisissez un nom et une description pour le nouveau groupe. Sélectionnez un **Type d’appartenance** entre **Utilisateur dynamique** et **Appareil dynamique**, selon que vous souhaitiez créer une règle pour des utilisateurs ou des périphériques, puis sélectionnez **Ajouter une requête dynamique**. Pour les attributs utilisés pour les règles d’appareil, consultez la page [Utilisation d’attributs pour créer des règles pour les objets d’appareil](#using-attributes-to-create-rules-for-device-objects).
+4. Dans le panneau **Groupe** , saisissez un nom et une description pour le nouveau groupe. Sélectionnez un **Type d’appartenance** entre **Utilisateur dynamique** et **Appareil dynamique**, selon que vous souhaitiez créer une règle pour des utilisateurs ou des périphériques, puis sélectionnez **Ajouter une requête dynamique**. Vous pouvez utiliser le générateur de règle pour créer une règle simple, ou écrire une règle avancée vous-même. Cet article contient plus d’informations sur les attributs d’utilisateur et d’appareil disponibles, ainsi que des exemples de règles avancées.
 
    ![Ajouter une règle d’appartenance dynamique](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
-6. Dans le panneau **Règles d’appartenance dynamique**, saisissez votre règle dans la zone **Ajouter une règle d’appartenance dynamique avancée**, appuyez sur Entrée, puis sélectionnez **Créer** en bas du panneau.
-7. Sélectionnez **Créer** on the **Groupe** panneau pour créer le groupe.
+
+5. Après avoir créé la règle, sélectionnez **Ajouter une requête** dans le bas du panneau.
+6. Sélectionnez **Créer** on the **Groupe** panneau pour créer le groupe.
+
+> [!TIP]
+> La création d’un groupe peut échouer si la règle avancée que vous avez entrée est incorrecte. Une notification s’affiche alors dans le coin supérieur droit du portail. Elle contient une explication de la raison pour laquelle la règle ne peut pas être acceptée par le système. Lisez-la avec attention pour comprendre comment vous devez ajuster la règle pour la rendre valide.
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>Construction du corps d’une règle avancée
 La règle avancée que vous pouvez créer pour l’appartenance dynamique à des groupes est essentiellement une expression binaire qui se compose de trois parties et qui génère un résultat true ou false. Les trois parties sont les suivantes :
@@ -276,7 +277,7 @@ Vous pouvez également créer une règle qui sélectionne des objets d’apparei
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | Toute valeur de chaîne. |(device.displayName -eq "Rob Iphone”)
- deviceOSType | Toute valeur de chaîne. | (device.deviceOSType -eq "IOS")
+ deviceOSType | Toute valeur de chaîne. | (device.deviceOSType -eq "iPad") ou (device.deviceOSType -eq "iPhone")
  deviceOSVersion | Toute valeur de chaîne. | (device.OSVersion -eq "9.1")
  deviceCategory | Un nom de catégorie d’appareil valide. | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Toute valeur de chaîne. | (device.deviceManufacturer -eq "Samsung")
@@ -292,22 +293,20 @@ Vous pouvez également créer une règle qui sélectionne des objets d’apparei
 
 
 
-## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Passage de l’appartenance dynamique à statique et vice versa
+## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Changement de l’appartenance dynamique en appartenance statique et vice versa
 Il est possible de modifier la façon dont l’appartenance est gérée dans un groupe. Cela est utile lorsque vous souhaitez conserver le même nom et le même ID de groupe dans le système, afin que toutes les références au groupe existantes soient toujours valides ; la création d’un nouveau groupe nécessiterait la mise à jour de ces références.
 
 Nous sommes en train de mettre à jour le portail Azure pour prendre en charge cette fonctionnalité. En attendant, vous pouvez utiliser le [portail Azure Classic](https://manage.windowsazure.com) (suivez les instructions [ici](active-directory-accessmanagement-groups-with-advanced-rules.md#changing-dynamic-membership-to-static-and-vice-versa)) ou les applets de commande PowerShell, comme indiqué ci-dessous.
 
 > [!WARNING]
-> Lorsque vous faites passer un groupe statique existant à un groupe dynamique, tous les membres existants sont retirés du groupe, puis la règle d’appartenance est exécutée pour ajouter de nouveaux membres. Si le groupe est utilisé pour contrôler l’accès aux applications ou aux ressources, les membres d’origine peuvent perdre l’accès jusqu’à ce que la règle d’appartenance soit totalement exécutée.
+> Lorsque vous faites passer un groupe statique existant à un groupe dynamique, tous les membres existants sont retirés du groupe, puis la règle d’appartenance est exécutée pour ajouter de nouveaux membres. Si le groupe est utilisé pour contrôler l’accès aux applications ou aux ressources, les membres d’origine peuvent perdre leur accès tant que la règle d’appartenance n’a pas été totalement exécutée.
 >
 > Il est recommandé de tester la nouvelle règle d’appartenance au préalable pour vous assurer que la nouvelle appartenance du groupe est conforme à votre attente.
 
 **Utilisation de PowerShell pour modifier la gestion des appartenances d’un groupe**
 
 > [!NOTE]
-> Pour modifier les propriétés de groupe dynamique, vous devez utiliser les applets de commande de [Azure AD PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
->
-> Pour le moment, seule la dernière version d’évaluation de la bibliothèque contient les applets de commande requises. Vous pouvez l’installer à partir d’ [ici](https://www.powershellgallery.com/packages/AzureADPreview).
+> Pour modifier les propriétés de groupe dynamique, vous devez utiliser les applets de commande de [Azure AD PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Vous pouvez l’installer à partir d’ [ici](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Voici un exemple de fonctions qui permettent de changer la gestion des appartenances d’un groupe existant. Notez qu’une attention particulière est nécessaire pour manipuler correctement la propriété GroupTypes et conserver toutes les valeurs qui peuvent exister ici, qui ne sont pas liées à l’appartenance dynamique.
 
@@ -369,4 +368,3 @@ Ces articles fournissent des informations supplémentaires sur les groupes dans 
 * [Gérer les paramètres d’un groupe](active-directory-groups-settings-azure-portal.md)
 * [Gérer l’appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
 * [Gérer les règles dynamiques pour les utilisateurs dans un groupe](active-directory-groups-dynamic-membership-azure-portal.md)
-

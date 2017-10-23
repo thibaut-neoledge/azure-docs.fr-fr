@@ -1,27 +1,27 @@
 ---
 title: Protection des applications Azure Service Bus contre les pannes et les sinistres | Microsoft Docs
-description: "Décrit les techniques que vous pouvez utiliser pour protéger les applications contre une panne Service Bus potentielle."
+description: "Techniques permettant de protéger les applications contre une panne Service Bus potentielle."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: tysonn
+editor: 
 ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 10/06/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: bc84dbe5c26a834b2cff5f71ba5f541e94ba0b38
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/13/2017
-
+ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres
+# <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Bonnes pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres
+
 Les applications stratégiques doivent fonctionner en permanence, même en cas de pannes non planifiées ou de sinistres. Cette rubrique décrit les techniques que vous pouvez utiliser pour protéger les applications Service Bus contre une panne ou un sinistre potentiel.
 
 Une panne est définie comme l'indisponibilité temporaire d'Azure Service Bus. La panne peut affecter certains composants de Service Bus, comme une banque de messagerie ou même le centre de données entier. Une fois le problème résolu, Service Bus redevient disponible. En règle générale, une panne n'entraîne pas la perte de messages ou autres données. L'indisponibilité d'une banque de messagerie spécifique constitue un exemple de défaillance d'un composant. Une panne d'alimentation ou un commutateur réseau défaillant constituent des exemples de panne au niveau du centre de données. Une panne peut durer de quelques minutes à plusieurs jours.
@@ -50,8 +50,6 @@ Pour plus d’informations, consultez la section « Échec de Service Bus dans
 La géo-réplication des points de terminaison de relais permet à un service qui expose un point de terminaison de relais d'être accessible en cas de pannes de Service Bus. Pour obtenir la géo-réplication, le service doit créer deux points de terminaison de relais dans des espaces de noms différents. Les espaces de noms doivent résider dans des centres de données différents et les deux points de terminaison doivent avoir des noms différents. Par exemple, un point de terminaison principal peut être accessible sous **contosoPrimary.servicebus.windows.net/myPrimaryService**, alors que son homologue secondaire peut être accessible sous **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 Le service écoute alors sur les deux points de terminaison et un client peut appeler le service par le biais de n'importe quel point de terminaison. Une application cliente choisit de façon aléatoire l'un des relais en tant que point de terminaison principal et envoie sa requête au point de terminaison actif. Si l'opération échoue avec un code d'erreur, cette défaillance indique que le point de terminaison de relais n'est pas disponible. L'application ouvre un canal vers le point de terminaison de sauvegarde et soumet la requête à nouveau. À ce stade, les points de terminaison actif et de sauvegarde permutent leurs rôles : l'application cliente considère l'ancien point de terminaison actif comme nouveau point de terminaison de sauvegarde, et l'ancien point de terminaison de sauvegarde comme nouveau point de terminaison actif. Si les deux opérations d'envoi échouent, les rôles des deux entités restent inchangés et une erreur est renvoyée.
-
-L’exemple [Géo-réplication avec la messagerie par relais Service Bus][Geo-replication with Service Bus relayed Messages] montre comment répliquer des relais.
 
 ## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Protection des files d’attente et des rubriques contre les pannes ou les sinistres du centre de données
 Pour obtenir une résilience contre les pannes du centre de données lors de l’utilisation de la messagerie répartie, Service Bus prend en charge deux approches : la réplication *active* et *passive*. Pour chaque approche, si une file d’attente ou une rubrique donnée doit rester accessible en cas de panne du centre de données, vous pouvez la créer dans les deux espaces de noms. Les deux entités peuvent avoir le même nom. Par exemple, une file d’attente principale peut être accessible sous **contosoPrimary.servicebus.windows.net/myQueue**, alors que son homologue secondaire peut être accessible sous **contosoSecondary.servicebus.windows.net/myQueue**.
@@ -93,10 +91,8 @@ Pour plus d'informations sur la récupération d'urgence, consultez les articles
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md
 [Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-[Geo-replication with Service Bus Relayed Messages]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
 [BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
 [BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
-[Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
+[Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
-

@@ -8,15 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 8606067a8e82c6314ab931eb4816d45755a8e04f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: ce6edbdffe9704383676e990865cd4e2958f30fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrer une base de données MySQL vers une base de données Azure pour MySQL à l’aide des images mémoire et de la restauration
 Cet article décrit deux méthodes courantes pour sauvegarder et restaurer des bases de données dans votre base de données Azure pour MySQL.
 - Sauvegarder et restaurer à partir de la ligne de commande (en utilisant mysqldump) 
@@ -46,8 +44,8 @@ Vous pouvez utiliser des utilitaires MySQL comme mysqldump et mysqlpump pour sau
 ## <a name="performance-considerations"></a>Considérations relatives aux performances
 Pour optimiser les performances, tenez compte des considérations suivantes lors de la sauvegarde de bases de données volumineuses :
 -   Utilisez l’option `exclude-triggers` dans mysqldump lors de la sauvegarde de bases de données. Excluez les déclencheurs des fichiers de sauvegarde pour éviter tout déclenchement par les commandes correspondantes pendant la restauration des données. 
--   Évitez l’option `single-transaction` dans mysqldump lors de la sauvegarde de bases de données très volumineuses. La sauvegarde de nombreuses tables avec une seule transaction entraîne l’utilisation de ressources mémoire et de stockage supplémentaires pendant la restauration et peut ralentir les performances ou entraîner des contraintes de ressources.
--   Utilisez des insertions à valeurs multiples lors du chargement avec SQL pour limiter la surcharge d’exécution des instructions lors de la sauvegarde des bases de données. Lorsque vous utilisez des fichiers de sauvegarde générés par l’utilitaire mysqldump, les insertions à valeurs multiples sont activées par défaut. 
+-   Utilisez l’option `single-transaction` pour définir le mode d’isolation de transaction sur REPEATABLE READ et envoyer une instruction START TRANSACTION SQL au serveur avant le vidage des données. Le vidage de nombreuses tables en une seule transaction provoque la consommation de stockage supplémentaire pendant la restauration. Les options `single-transaction` et `lock-tables` s’excluent mutuellement, car LOCK TABLES provoque la validation implicite des transactions en attente. Pour vider des tables volumineuses, combinez l’option `single-transaction` avec l’option `quick`. 
+-   Utilisez la syntaxe pour lignes multiples `extended-insert` qui inclut plusieurs listes VALUE. Cela génère un fichier de vidage plus petit et accélère les insertions lors du rechargement du fichier.
 -  Utilisez l’option `order-by-primary` dans mysqldump lors de la sauvegarde de bases de données, afin que les données soient scriptées selon l’ordre des clés primaires.
 -   Utilisez l’option `disable-keys` dans mysqldump lors de la sauvegarde des données pour désactiver les contraintes de clé étrangère avant le chargement. La désactivation des vérifications de clé étrangère offre des gains de performances. Activez les contraintes et vérifiez les données après le chargement pour garantir l’intégrité référentielle.
 -   Utilisez des tables partitionnées le cas échéant.
@@ -126,4 +124,3 @@ L’importation d’une base de données est similaire à l’exportation. Effec
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Connectez les applications à la base de données Azure pour MySQL](./howto-connection-string.md)
-

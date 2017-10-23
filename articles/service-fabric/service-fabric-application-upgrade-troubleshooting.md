@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 10/03/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 7fc832ff23f5ad652df3cb9c689180c92952ba8e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/26/2017
-
+ms.openlocfilehash: acfd26674aafab4ed1925d6b33967f917058b1be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-application-upgrades"></a>Résoudre les problèmes de mise à niveau d'application
 Cet article aborde certains des problèmes courants relatifs à la mise à niveau d’une application Azure Service Fabric et la manière de les résoudre.
@@ -86,6 +85,8 @@ La commande **Get-ServiceFabricNode** peut être utilisée pour vérifier que ce
 Un paramètre *UpgradePhase* ayant pour valeur *PreUpgradeSafetyCheck* indique des problèmes pendant la préparation du domaine de mise à niveau avant son exécution proprement dite. Dans ce cas, les problèmes les plus courants sont des erreurs de service dans le cadre de la fermeture ou de la rétrogradation à partir des chemins de code principaux.
 
 Le paramètre **UpgradeState** a actuellement la valeur*RollingBackCompleted*, de sorte que la mise à niveau initiale doit avoir été effectuée à l’aide d’une opération **FailureAction** de restauration, laquelle a automatiquement annulé la mise à niveau lors de l’échec. Si la mise à niveau initiale a été effectuée à l’aide d’une opération **FailureAction**manuelle, la mise à niveau serait maintenant dans un état suspendu afin d’autoriser le débogage en direct de l’application.
+
+Dans de rares cas, le champ **UpgradeDomainProgressAtFailure** peut être vide si la mise à niveau globale expire au moment où le système termine tout le travail pour le domaine de mise à niveau actuel. Si cela se produit, essayez d’augmenter les valeurs des paramètres de mise à niveau **UpgradeTimeout** et **UpgradeDomainTimeout** et retentez la mise à niveau.
 
 ### <a name="investigate-health-check-failures"></a>Examiner les échecs des contrôles d'intégrité
 Des échecs de contrôle d’intégrité peuvent être déclenchés par divers problèmes qui peuvent se produire après la mise à niveau de tous les nœuds dans un domaine de mise à niveau et la réussite de tous les contrôles de sécurité. La sortie suivant ce paragraphe est typique d’un échec de mise à niveau dû à l’échec des contrôles d’intégrité. Le champ **UnhealthyEvaluations** capture un instantané des contrôles d’intégrité ayant échoué au moment de la mise à niveau en fonction de la [stratégie de contrôle d’intégrité](service-fabric-health-introduction.md)spécifiée.
@@ -222,4 +223,3 @@ Contrôlez les mises à niveau de votre application à l'aide des [Paramètres d
 Rendez les mises à niveau de votre application compatibles en apprenant à utilisez la [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md).
 
 Apprenez à utiliser les fonctionnalités avancées lors de la mise à niveau de votre application en consultant les [Rubriques avancées](service-fabric-application-upgrade-advanced.md).
-

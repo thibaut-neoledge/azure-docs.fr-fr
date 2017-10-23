@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: kakhan
+ms.openlocfilehash: ebf3062ab0600b0ae722c78d07095970001a0a23
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: ab95c39a3b5c4ac2c07bf5de36abbdc22fde7e7d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Chiffrement de disque Azure pour des machines virtuelles Windows et Linux IaaS
 Microsoft Azure s’engage fermement à préserver la confidentialité, la souveraineté de vos données et vous permet de contrôler vos données Azure hébergées via une suite de technologies servant à chiffrer, contrôler et gérer les clés de chiffrement, le contrôle et l’audit de l’accès aux données. Les clients Azure ont ainsi la possibilité de choisir la solution qui répond le mieux à leurs besoins professionnels. Dans ce document, nous allons vous présenter une nouvelle solution technologique « Azure Disk Encryption for Windows and Linux IaaS VM’s » pour protéger et sauvegarder vos données afin de répondre aux engagements de votre sécurité en matière d’organisation et les exigences de conformité. Cet article fournit des instructions détaillées sur la façon d’utiliser les fonctionnalités de cryptage de disque Azure, notamment sur les scénarios pris en charge et sur les expériences utilisateur.
@@ -233,6 +232,8 @@ Voici les conditions requises pour activer Azure Disk Encryption sur les machine
 * Les disques de données montés de façon récursive ne sont pas pris en charge par Azure Disk Encryption pour Linux. Par exemple, si le système cible a monté un disque sur /foo/bar, puis un autre sur /foo/bar/baz, le chiffrement de /foo/bar/baz réussit, mais le chiffrement de /foo/bar échoue. 
 
 * Azure Disk Encryption est uniquement pris en charge sur les images de la galerie Azure prises en charge qui remplissent les conditions préalables susmentionnées. Les images client personnalisées ne sont pas prises en charge en raison de comportements de processus et de schémas de partition personnalisés pouvant exister sur ces images. De plus, même les machines virtuelles d’image de galerie, qui initialement remplissaient les conditions préalables demandées, mais qui ont été modifiées depuis leur création, peuvent être incompatibles.  Ainsi, la procédure suggérée pour chiffrer une machine virtuelle Linux consiste à démarrer depuis une nouvelle image de galerie, à chiffrer la machine virtuelle, puis à ajouter en fonction des besoins les données ou les logiciels personnalisés à cette machine virtuelle.  
+
+* Azure Disk Encryption permet de configurer un volume de données local (volume Bek pour Windows et /mnt/azure_bek_disk pour Linux) pour y stocker en toute sécurité la clé de chiffrement d’une machine virtuelle IaaS. Vous ne devez pas supprimer ni modifier le contenu de ce disque. Vous ne devez pas non plus démonter ce disque, car les clés de chiffrement qui y sont stockées sont nécessaires pour effectuer les opérations de chiffrement sur les machines virtuelles IaaS. Consultez le fichier LISEZMOI fourni avec le volume pour obtenir plus d’informations.
 
 > [!NOTE]
 > La sauvegarde et la restauration de machines virtuelles chiffrées sont prises en charge uniquement pour les machines virtuelles chiffrées à l’aide de la configuration de clé de chiffrement à clé (KEK). Elles ne sont pas prises en charge pour les machines virtuelles chiffrées sans KEK. KEK est un paramètre facultatif qui active une machine virtuelle.
@@ -1300,4 +1301,3 @@ Vous pouvez télécharger ce guide à partir de la [Galerie TechNet](https://gal
 ## <a name="for-more-information"></a>Pour plus d’informations
 [Explorer Azure Disk Encryption avec Azure PowerShell - partie 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  
 [Explorer Azure Disk Encryption avec Azure PowerShell - partie 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
-

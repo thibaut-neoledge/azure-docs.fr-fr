@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 7ec57789ee76f4ec54e4f7b68ea75c19522f3d7c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante
 
@@ -56,24 +55,24 @@ Vérifiez les points suivants :
 2. Cliquez sur **Toutes les ressources**, repérez votre **passerelle de réseau virtuel** dans la liste des ressources, puis cliquez dessus.
 3. Dans le panneau **Passerelle de réseau virtuel**, cliquez sur **Connexions**.
    
-    ![Panneau Connexions](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Connections blade")<br>
+    ![Panneau Connexions](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Panneau Connexions")<br>
 4. Dans le panneau **Connexions**, cliquez sur **+Ajouter**.
    
-    ![Bouton Ajouter une connexion](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Add connection button")<br>
+    ![Bouton Ajouter une connexion](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Bouton Ajouter une connexion")<br>
 5. Dans le panneau **Ajouter une connexion**, renseignez les champs suivants :
    
    * **Nom** : nom que vous voulez donner au site pour lequel vous créez la connexion.
    * **Type de connexion** : sélectionnez **Site à site (IPSec)**.
      
-     ![Panneau Ajouter une connexion](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection blade")<br>
+     ![Panneau Ajouter une connexion](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Panneau Ajouter une connexion")<br>
 
 ## <a name="part2"></a>Partie 2 - Ajout d’une passerelle de réseau local
 1. Cliquez sur **Passerelle de réseau local** ***Choisir une passerelle de réseau local***. Le panneau **Choisir une passerelle de réseau local** s’ouvre.
    
-    ![Choisir une passerelle de réseau local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Choose local network gateway")<br>
+    ![Choisir une passerelle de réseau local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Choisir une passerelle de réseau local")<br>
 2. Cliquez sur **Créer un nouveau** pour ouvrir le panneau **Créer une passerelle de réseau local**.
    
-    ![Panneau Créer une passerelle de réseau local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
+    ![Panneau Créer une passerelle de réseau local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Créer une passerelle de réseau local")<br>
 3. Dans le panneau **Créer une passerelle de réseau local**, renseignez les champs suivants :
    
    * **Nom** : nom que vous voulez attribuer à la ressource de passerelle de réseau local.
@@ -81,10 +80,10 @@ Vérifiez les points suivants :
    * **Espace d’adressage** : espace d’adressage qui doit être acheminé vers le nouveau site de réseau local.
 4. Cliquez sur **OK** dans le panneau **Créer une passerelle de réseau local** pour enregistrer les modifications.
 
-## <a name="part3"></a>Partie 3 - Ajout de la clé partagée et création de la connexion
+## <a name="part3"></a>Partie 3 : ajout de la clé partagée et création de la connexion
 1. Dans le panneau **Ajouter une connexion**, ajoutez la clé partagée à utiliser pour créer la connexion. Vous pouvez soit obtenir la clé partagée à partir de votre périphérique VPN, soit en créer une ici et configurer votre périphérique VPN de sorte qu’il utilise la même clé partagée. Il importe que les clés soient exactement les mêmes.
    
-    ![Clé partagée](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Shared key")<br>
+    ![Clé partagée](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Clé partagée")<br>
 2. Au bas du panneau, cliquez sur **OK** pour créer la connexion.
 
 ## <a name="part4"></a>Partie 4 - Vérification de la connexion VPN
@@ -95,4 +94,3 @@ Vérifiez les points suivants :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Voir le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) sur les machines virtuelles pour plus d’informations.
-

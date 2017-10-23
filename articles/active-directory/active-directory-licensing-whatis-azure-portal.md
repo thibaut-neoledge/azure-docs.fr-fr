@@ -17,14 +17,12 @@ ms.date: 06/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 52dd48ce4e4acaf48f31edc51bbb657f8cd249cd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: d6c76af713a73b965e87a2f470125f2e65565975
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Principes de base des licences basées sur les groupes dans Azure Active Directory
 
 L’utilisation de services cloud Microsoft payants, comme Office 365, Enterprise Mobility + Security, Dynamics CRM et d’autres produits similaires, nécessite des licences. Ces licences sont affectées à chaque utilisateur qui a besoin d’accéder à ces services. Pour gérer les licences, les administrateurs utilisent l’un des portails de gestion (Office ou Azure) et des applets de commande PowerShell. Azure Active Directory (Azure AD) est l’infrastructure de base qui prend en charge la gestion de tous les services cloud Microsoft. Azure AD stocke des informations sur les états d’affectation de licence pour les utilisateurs.
@@ -53,6 +51,10 @@ Voici les principales fonctionnalités de la gestion des licences par groupe :
 
 - Dans la préversion publique, un abonnement d’évaluation ou payant pour les éditions Azure AD De base ou Premium est obligatoire dans le locataire pour utiliser la gestion des licences par groupe.
 
+## <a name="your-feedback-is-welcome"></a>Vos commentaires sont les bienvenus.
+
+Si vous avez des commentaires ou des demandes de fonctionnalités, partagez-les avec nous via [ce forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/317677-group-based-licensing).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur d’autres scénarios de gestion des licences par le biais des licences basées sur les groupes, consultez :
@@ -62,4 +64,3 @@ Pour plus d’informations sur d’autres scénarios de gestion des licences par
 * [Identification et résolution des problèmes de licence pour un groupe dans Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Migration des utilisateurs individuels sous licence vers les licences basées sur les groupes dans Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
 * [Autres scénarios de licences basées sur les groupes Azure Active Directory](active-directory-licensing-group-advanced.md)
-
