@@ -2,7 +2,7 @@
 title: "Consulter ou analyser les données Log Analytics collectées | Microsoft Docs"
 description: "Cet article contient un didacticiel qui explique comment créer des recherches dans les journaux et comment analyser les données stockées dans votre ressource Log Analytics à partir du portail Recherche dans les journaux.  Le didacticiel comprend des requêtes simples qui retournent différents types de données et une description des résultats des analyses."
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
 editor: 
@@ -10,15 +10,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 09/26/2017
 ms.author: magoedte
-ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/27/2017
+
 ---
+
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics
 
 Dans Log Analytics, vous pouvez exploiter les recherches dans les journaux en créant des requêtes destinées à analyser les données collectées, à utiliser les tableaux de bord préexistants que vous pouvez personnaliser avec des vues graphiques des recherches les plus utiles.  Maintenant que vous avez défini la collecte des données opérationnelles à partir de vos machines virtuelles Azure et des journaux d’activité, ce didacticiel va vous apprendre à effectuer les tâches suivantes :

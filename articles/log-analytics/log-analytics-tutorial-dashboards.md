@@ -2,7 +2,7 @@
 title: "Créer et partager des tableaux de bord de données Log Analytics | Microsoft Docs"
 description: "Ce didacticiel vous aide à comprendre comment les tableaux de bord Log Analytics permettent de visualiser l’ensemble de vos recherches dans les journaux enregistrées en proposant une vue unique de votre environnement."
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
 editor: 
@@ -14,12 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: magoedte
-ms.openlocfilehash: b065269a27ad3764399802b4a2bc3076b7349623
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b065269a27ad3764399802b4a2bc3076b7349623
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/25/2017
+
 ---
+
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Créer et partager des tableaux de bord de données Log Analytics
 
 Les tableaux de bord Log Analytics vous permettent de visualiser l’ensemble de vos recherches dans les journaux enregistrées. Vous pouvez y trouver les données opérationnelles du service informatique, mettre ces données en corrélation et les partager dans l’organisation.  Ce didacticiel porte sur la création d’une recherche dans les journaux de journal pour un tableau de bord partagé qui sera utilisé par votre équipe de support des opérations informatiques.  Vous allez apprendre à effectuer les actions suivantes :
@@ -32,7 +35,7 @@ Les tableaux de bord Log Analytics vous permettent de visualiser l’ensemble de
 
 Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machine virtuelle [connectée à l’espace de travail Log Analytics](log-analytics-quick-collect-azurevm.md).  
  
-## <a name="log-in-to-azure-portal"></a>Connexion au portail Azure
+## <a name="log-in-to-azure-portal"></a>Se connecter au portail Azure
 Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-shared-dashboard"></a>Créer un tableau de bord partagé
@@ -55,7 +58,7 @@ Vous pouvez créer des requêtes de base sur une seule ligne à partir du portai
 
 Le [portail d’analytique avancée](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) est un portail dédié qui propose des fonctionnalités avancées non disponibles dans le portail de recherche dans les journaux. Ces fonctionnalités incluent la possibilité de modifier une requête sur plusieurs lignes et d’exécuter de façon sélective du code, des données Intellisense contextuelles et Smart Analytics. Dans le portail d’analytique avancée, vous allez créer une vue des performances sous forme graphique, l’enregistrer pour une recherche ultérieure et l’épingler au tableau de bord partagé créé précédemment.   
 
-Lancez le portail Analytics avancé à partir d’un lien du portail de recherche dans les journaux.<br> ![Lancer le portail d’analytique avancée](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
+Lancez le portail d’analytique avancée à partir d’un lien du portail de recherche dans les journaux.<br> ![Lancer le portail d’analytique avancée](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
 
 Dans le portail d’analytique, entrez la requête suivante pour obtenir uniquement les enregistrements d’utilisation des processeurs pour les ordinateurs Windows et Linux, regroupés selon les critères Computer et TimeGenerated et affichés dans un graphique visuel :
 
