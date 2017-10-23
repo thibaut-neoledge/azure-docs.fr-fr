@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/17/2017
 ms.author: erikje
-ms.openlocfilehash: c3ffc819fcc442f87fb4985ecb08be8ec02ba957
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8497f0331e9b7d19eed2e1c254849a1619f496a
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Déployer le Kit de développement Azure Stack
 
@@ -108,7 +108,7 @@ Pour déployer le [kit de développement Azure Stack](azure-stack-poc.md), vous 
 7. Si vous le souhaitez, vous pouvez aussi définir les valeurs suivantes :
     - **ID de VLAN** : définit l’ID du réseau local virtuel. Utilisez cette option seulement si l’hôte et AzS-BGPNAT01 doivent configurer l’ID du réseau local virtuel pour accéder au réseau physique (et à Internet). 
     - **Redirecteur DNS** : un serveur DNS est créé dans le cadre du déploiement d’Azure Stack. Pour permettre aux ordinateurs de la solution de résoudre les noms en dehors du marquage, spécifiez le serveur DNS de votre infrastructure existante. Le serveur DNS couvert par le marquage transfère les demandes de résolution de noms inconnus à ce serveur.
-    - **Serveur de temps**: définit un serveur de temps spécifique. 
+    - **Serveur de temps** : ce champ requis définit le serveur de temps et doit être une adresse IP. Pour rechercher l’adresse IP d’un serveur de temps, visitez [pool.ntp.org](http:\\pool.ntp.org) ou effectuez un test ping time.windows.com. 
 8. Cliquez sur **Suivant**. 
 9. Dans la page **Vérification des propriétés de la carte d’interface réseau**, vous voyez une barre de progression. 
     - Si elle indique **Impossible de télécharger une mise à jour**, suivez les instructions de la page.
